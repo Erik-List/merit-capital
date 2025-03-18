@@ -7,7 +7,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/component
 type Investor = Database['public']['Tables']['Investor']['Row'];
 
 async function getInitialInvestors(): Promise<Investor[]> {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const supabase = createClient(cookieStore);
   
   const { data, error } = await supabase

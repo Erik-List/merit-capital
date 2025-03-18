@@ -6,7 +6,7 @@ import { LeaderboardTable } from '@/components/leaderboard/leaderboard-table';
 type Investor = Database['public']['Tables']['Investor']['Row'];
 
 async function getInitialInvestors(): Promise<Investor[]> {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const supabase = createClient(cookieStore);
   
   const { data, error } = await supabase

@@ -9,7 +9,7 @@ import type { Database } from '@/types/supabase';
 type RatingWithRelations = Database['public']['Tables']['Rating']['Row'];
 
 async function getLatestActivities(): Promise<RatingWithRelations[]> {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const supabase = createClient(cookieStore);
   
   const { data, error } = await supabase

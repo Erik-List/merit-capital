@@ -25,7 +25,7 @@ type InvestorPageParams = {
 };
 
 async function getInvestor(slug: string): Promise<Investor | null> {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const supabase = createClient(cookieStore);
   
   const { data, error } = await supabase

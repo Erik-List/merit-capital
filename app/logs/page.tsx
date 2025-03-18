@@ -7,7 +7,7 @@ import { LogTable } from '@/components/log/log-table';
 type Rating = Database['public']['Tables']['Rating']['Row'];
 
 async function getInitialLogs(): Promise<Rating[]> {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const supabase = createClient(cookieStore);
   
   const { data, error } = await supabase
