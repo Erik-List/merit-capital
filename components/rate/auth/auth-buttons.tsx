@@ -68,16 +68,19 @@ export function AuthButtons({
   }
 
   const handleXAuth = async () => {
-    setXLoading(true)
     try {
-      // For testing, simulate successful X auth
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      window.location.reload()
-      toast({
-        title: "Successfully connected",
-        description: "Your X account is now linked",
+      setXLoading(true)
+      const currentPath = window.location.pathname
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'twitter',
+        options: {
+          redirectTo: `${window.location.origin}/auth/callback?next=${currentPath}`,
+        },
       })
+      
+      if (error) throw error
     } catch (error) {
+      console.error('Error initiating auth:', error)
       toast({
         title: "Authentication Failed",
         description: "Please try again or use a different method",

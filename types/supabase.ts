@@ -20,6 +20,7 @@ export type Database = {
           investment_concept: string | null
           investment_focus: Json | null
           investment_geo: Json | null
+          investment_scope: Database["public"]["Enums"]["InvestmentScope"] | null
           investment_stage: string | null
           investment_style: string | null
           investor_type: string | null
@@ -42,6 +43,7 @@ export type Database = {
           investment_concept?: string | null
           investment_focus?: Json | null
           investment_geo?: Json | null
+          investment_scope?: Database["public"]["Enums"]["InvestmentScope"] | null
           investment_stage?: string | null
           investment_style?: string | null
           investor_type?: string | null
@@ -64,6 +66,7 @@ export type Database = {
           investment_concept?: string | null
           investment_focus?: Json | null
           investment_geo?: Json | null
+          investment_scope?: Database["public"]["Enums"]["InvestmentScope"] | null
           investment_stage?: string | null
           investment_style?: string | null
           investor_type?: string | null
@@ -168,6 +171,7 @@ export type Database = {
     }
     Enums: {
       ApprovalStatus: "PENDING_APPROVAL" | "APPROVED" | "REJECTED"
+      InvestmentScope: "GENERALIST" | "SPECIALIST"
       RatingType: "NEW" | "UPDATE" | "DELETION"
     }
     CompositeTypes: {

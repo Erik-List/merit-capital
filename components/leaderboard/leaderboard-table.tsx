@@ -22,16 +22,28 @@ import { Search, TrendingUp, TrendingDown, Star } from 'lucide-react';
 import type { Database } from '@/types/supabase';
 import { createClient } from '@/utils/supabase/client';
 import { Skeleton } from '@/components/ui/skeleton';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 
 type Investor = Database['public']['Tables']['Investor']['Row'];
+type InvestmentScope = Database['public']['Enums']['InvestmentScope'];
 
 interface LeaderboardTableProps {
   initialInvestors: Investor[];
 }
 
+// Helper functions to safely extract array data from JSON fields
+function getStringArrayFromJson(json: any): string[] {
+  if (!json) return [];
+  if (Array.isArray(json)) {
+    return json.filter(item => typeof item === 'string') as string[];
+  }
+  return [];
+}
+
 function useAvailableOptions() {
   const [stages, setStages] = useState<string[]>([]);
-  const [locations, setLocations] = useState<string[]>([]);
+  const [geos, setGeos] = useState<string[]>([]);
+  const [focusAreas, setFocusAreas] = useState<string[]>([]);
   const [isLoadingOptions, setIsLoadingOptions] = useState(true);
 
   useEffect(() => {
@@ -46,23 +58,50 @@ function useAvailableOptions() {
           .not('investment_stage', 'is', null)
           .eq('status', 'APPROVED');
         
-        // Fetch unique locations
-        const { data: locationData } = await supabase
+        // Fetch unique geographies
+        const { data: geoData } = await supabase
           .from('Investor')
-          .select('hq_location')
-          .not('hq_location', 'is', null)
+          .select('investment_geo')
+          .not('investment_geo', 'is', null)
+          .eq('status', 'APPROVED');
+
+        // Fetch unique focus areas
+        const { data: focusData } = await supabase
+          .from('Investor')
+          .select('investment_focus')
+          .not('investment_focus', 'is', null)
           .eq('status', 'APPROVED');
 
         // Get unique values
         const uniqueStages = Array.from(
           new Set(stageData?.map(d => d.investment_stage) || [])
         ).sort();
-        const uniqueLocations = Array.from(
-          new Set(locationData?.map(d => d.hq_location) || [])
-        ).sort();
+        
+        // Extract unique geo areas from the JSON array
+        const allGeos: string[] = [];
+        geoData?.forEach(investor => {
+          const geoArray = getStringArrayFromJson(investor.investment_geo);
+          geoArray.forEach(geo => {
+            if (geo && !allGeos.includes(geo)) {
+              allGeos.push(geo);
+            }
+          });
+        });
+        
+        // Extract unique focus areas from the JSON array
+        const allFocusAreas: string[] = [];
+        focusData?.forEach(investor => {
+          const focusArray = getStringArrayFromJson(investor.investment_focus);
+          focusArray.forEach(focus => {
+            if (focus && !allFocusAreas.includes(focus)) {
+              allFocusAreas.push(focus);
+            }
+          });
+        });
         
         setStages(uniqueStages.filter(Boolean) as string[]);
-        setLocations(uniqueLocations.filter(Boolean) as string[]);
+        setGeos(allGeos.sort());
+        setFocusAreas(allFocusAreas.sort());
       } catch (error) {
         console.error('Error fetching options:', error);
       } finally {
@@ -73,56 +112,109 @@ function useAvailableOptions() {
     fetchOptions();
   }, []);
 
-  return { stages, locations, isLoadingOptions };
+  return { stages, geos, focusAreas, isLoadingOptions };
 }
 
-function TableRowSkeleton() {
+function TableRowsSkeleton() {
   return (
-    <TableRow>
-      <TableCell>
-        <div className="flex items-center gap-2">
-          <Skeleton className="h-5 w-6" />
-          <Skeleton className="h-4 w-4" />
-        </div>
-      </TableCell>
-      <TableCell>
-        <div className="flex items-center gap-3">
-          <Skeleton className="h-8 w-8 rounded-full" />
-          <Skeleton className="h-5 w-32" />
-        </div>
-      </TableCell>
-      <TableCell>
-        <div className="flex items-center gap-2">
-          <Skeleton className="h-4 w-4" />
-          <Skeleton className="h-5 w-8" />
-          <Skeleton className="h-4 w-8" />
-        </div>
-      </TableCell>
-      <TableCell>
-        <Skeleton className="h-5 w-24" />
-      </TableCell>
-      <TableCell>
-        <Skeleton className="h-5 w-20" />
-      </TableCell>
-      <TableCell>
-        <div className="space-y-1">
-          <Skeleton className="h-4 w-32" />
-          <Skeleton className="h-4 w-24" />
-        </div>
-      </TableCell>
-      <TableCell>
-        <Skeleton className="h-5 w-24" />
-      </TableCell>
-      <TableCell className="text-right">
-        <Skeleton className="h-5 w-16 ml-auto" />
-      </TableCell>
-    </TableRow>
+    <>
+      {/* Desktop Skeleton Rows */}
+      <div className="hidden sm:block">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="w-[80px]">Rank</TableHead>
+              <TableHead>Name</TableHead>
+              <TableHead>Founder Rating</TableHead>
+              <TableHead>Geography</TableHead>
+              <TableHead>Stage</TableHead>
+              <TableHead>Scope</TableHead>
+              <TableHead>Focus</TableHead>
+              <TableHead className="text-right">AUM</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {[...Array(5)].map((_, i) => (
+              <TableRow key={`desktop-${i}`}>
+                <TableCell>
+                  <div className="flex items-center gap-2">
+                    <Skeleton className="h-5 w-6" />
+                    <Skeleton className="h-4 w-4" />
+                  </div>
+                </TableCell>
+                <TableCell>
+                  <div className="flex items-center gap-3">
+                    <Skeleton className="h-8 w-8 rounded-full" />
+                    <Skeleton className="h-5 w-32" />
+                  </div>
+                </TableCell>
+                <TableCell>
+                  <div className="flex items-center gap-2">
+                    <Skeleton className="h-4 w-4" />
+                    <Skeleton className="h-5 w-8" />
+                    <Skeleton className="h-4 w-8" />
+                  </div>
+                </TableCell>
+                <TableCell><Skeleton className="h-5 w-24" /></TableCell>
+                <TableCell><Skeleton className="h-5 w-20" /></TableCell>
+                <TableCell><Skeleton className="h-5 w-20" /></TableCell>
+                <TableCell>
+                  <div className="flex flex-wrap gap-1">
+                    <Skeleton className="h-5 w-16" />
+                    <Skeleton className="h-5 w-20" />
+                    <Skeleton className="h-5 w-12" />
+                  </div>
+                </TableCell>
+                <TableCell className="text-right">
+                  <Skeleton className="h-5 w-16 ml-auto" />
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+
+      {/* Mobile Skeleton Rows */}
+      <div className="sm:hidden">
+        {[...Array(8)].map((_, i) => (
+          <div key={`mobile-${i}`} className="border-b bg-background">
+            <div className="py-3 px-4">
+              <div className="flex items-center gap-1">
+                <div className="flex items-center gap-0.5 min-w-[40px]">
+                  <Skeleton className="h-5 w-4" />
+                  <Skeleton className="h-3 w-3" />
+                </div>
+                <div className="flex items-center gap-1 flex-1 min-w-0">
+                  <Skeleton className="h-6 w-6 rounded-full flex-shrink-0" />
+                  <Skeleton className="h-5 w-32" />
+                </div>
+                <div className="flex items-center gap-1 ml-auto">
+                  <Skeleton className="h-3 w-3" />
+                  <Skeleton className="h-5 w-8" />
+                </div>
+              </div>
+              {/* Geography tags skeleton */}
+              <div className="mt-1 pl-[40px] flex flex-wrap gap-1">
+                <Skeleton className="h-4 w-14" />
+                <Skeleton className="h-4 w-12" />
+              </div>
+              {/* Focus tags skeleton */}
+              <div className="mt-1 pl-[40px] flex flex-wrap gap-1">
+                <Skeleton className="h-4 w-12" />
+                <Skeleton className="h-4 w-16" />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 
 function TableSkeleton() {
   return (
     <div>
+      {/* Search and Filters Skeleton */}
       <div className="grid gap-6 mb-8">
         <div className="flex flex-col md:flex-row gap-4">
           <div className="flex-1">
@@ -132,35 +224,32 @@ function TableSkeleton() {
             </div>
           </div>
         </div>
-
         <div className="flex flex-wrap gap-4">
           <Skeleton className="h-10 w-[180px]" />
           <Skeleton className="h-10 w-[180px]" />
+          <Skeleton className="h-10 w-[240px]" />
         </div>
       </div>
 
-      <div className="rounded-lg border bg-card">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-[80px]">Rank</TableHead>
-              <TableHead>Name</TableHead>
-              <TableHead>Location</TableHead>
-              <TableHead>Stage</TableHead>
-              <TableHead>Style</TableHead>
-              <TableHead className="text-right">AUM</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {[...Array(5)].map((_, i) => (
-              <TableRowSkeleton key={i} />
-            ))}
-          </TableBody>
-        </Table>
+      {/* Table Skeleton */}
+      <div className="rounded-lg border bg-card sm:rounded-lg sm:border sm:bg-card -mx-4 sm:mx-0">
+        <TableRowsSkeleton />
       </div>
     </div>
   );
 }
+
+// Color mapping for investment scope tags
+const scopeColors = {
+  GENERALIST: {
+    bg: 'bg-amber-50',
+    text: 'text-amber-800'
+  },
+  SPECIALIST: {
+    bg: 'bg-purple-50',
+    text: 'text-purple-800'
+  }
+};
 
 // Add mock ratings data
 const MOCK_RATING = {
@@ -169,22 +258,27 @@ const MOCK_RATING = {
 };
 
 export function LeaderboardTable({ initialInvestors }: LeaderboardTableProps) {
-  const { stages, locations, isLoadingOptions } = useAvailableOptions();
+  const { stages, geos, isLoadingOptions } = useAvailableOptions();
   const [investors, setInvestors] = useState(initialInvestors);
   const [searchQuery, setSearchQuery] = useState('');
   const [stageFilter, setStageFilter] = useState('all');
-  const [locationFilter, setLocationFilter] = useState('all');
+  const [geoFilter, setGeoFilter] = useState('all');
+  const [scopeFilter, setScopeFilter] = useState('all');
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFilterChange = async (
-    type: 'stage' | 'location',
+    type: 'stage' | 'geo' | 'scope',
     value: string
   ) => {
     setIsLoading(true);
+    const startTime = Date.now();
+    
     if (type === 'stage') {
       setStageFilter(value);
-    } else {
-      setLocationFilter(value);
+    } else if (type === 'geo') {
+      setGeoFilter(value);
+    } else if (type === 'scope') {
+      setScopeFilter(value);
     }
 
     const supabase = createClient();
@@ -195,40 +289,86 @@ export function LeaderboardTable({ initialInvestors }: LeaderboardTableProps) {
       .order('created_at', { ascending: false });
 
     const newStage = type === 'stage' ? value : stageFilter;
-    const newLocation = type === 'location' ? value : locationFilter;
+    const newGeo = type === 'geo' ? value : geoFilter;
+    const newScope = type === 'scope' ? value : scopeFilter;
 
     if (newStage !== 'all') {
       query = query.eq('investment_stage', newStage);
     }
-    if (newLocation !== 'all') {
-      query = query.eq('hq_location', newLocation);
+    
+    // Apply scope filter if needed
+    if (newScope !== 'all') {
+      query = query.eq('investment_scope', newScope.toUpperCase() as InvestmentScope);
     }
-
+    
     try {
+      // Simplified approach - no need for in-memory filtering
       const { data, error } = await query.limit(50);
+        
       if (error) throw error;
-      setInvestors(data || []);
+      
+      // Filter by geo if needed
+      let filteredData = data || [];
+      if (newGeo !== 'all') {
+        filteredData = filteredData.filter(investor => {
+          const geoArray = getStringArrayFromJson(investor.investment_geo);
+          return geoArray.includes(newGeo);
+        });
+      }
+      
+      setInvestors(filteredData);
     } catch (error) {
       console.error('Error filtering investors:', error);
       setInvestors(initialInvestors);
     } finally {
-      setIsLoading(false);
+      // Ensure loading state lasts at least 1 second
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = Math.max(0, 1000 - elapsedTime);
+      
+      if (remainingTime > 0) {
+        setTimeout(() => {
+          setIsLoading(false);
+        }, remainingTime);
+      } else {
+        setIsLoading(false);
+      }
     }
   };
 
   const handleSearch = (value: string) => {
     setSearchQuery(value);
-    // Client-side search for now, could be moved to server if needed
     if (!value) {
       setInvestors(initialInvestors);
       return;
     }
 
-    const filtered = initialInvestors.filter(investor => 
-      investor.name.toLowerCase().includes(value.toLowerCase()) ||
-      investor.hq_location?.toLowerCase().includes(value.toLowerCase()) ||
-      investor.investment_stage?.toLowerCase().includes(value.toLowerCase())
-    );
+    const lowerValue = value.toLowerCase();
+    const filtered = initialInvestors.filter(investor => {
+      // Check name, location, and stage directly
+      if (
+        investor.name.toLowerCase().includes(lowerValue) ||
+        (investor.hq_location && investor.hq_location.toLowerCase().includes(lowerValue)) ||
+        (investor.investment_stage && investor.investment_stage.toLowerCase().includes(lowerValue)) ||
+        (investor.investment_scope && investor.investment_scope.toLowerCase().includes(lowerValue))
+      ) {
+        return true;
+      }
+      
+      // Check focus areas
+      const focusArray = getStringArrayFromJson(investor.investment_focus);
+      if (focusArray.some(focus => focus.toLowerCase().includes(lowerValue))) {
+        return true;
+      }
+      
+      // Check geo areas
+      const geoArray = getStringArrayFromJson(investor.investment_geo);
+      if (geoArray.some(geo => geo.toLowerCase().includes(lowerValue))) {
+        return true;
+      }
+      
+      return false;
+    });
+    
     setInvestors(filtered);
   };
 
@@ -248,6 +388,7 @@ export function LeaderboardTable({ initialInvestors }: LeaderboardTableProps) {
                 value={searchQuery}
                 onChange={(e) => handleSearch(e.target.value)}
                 className="pl-9"
+                disabled={isLoading}
               />
             </div>
           </div>
@@ -273,104 +414,218 @@ export function LeaderboardTable({ initialInvestors }: LeaderboardTableProps) {
           </Select>
 
           <Select 
-            value={locationFilter}
-            onValueChange={(value) => handleFilterChange('location', value)}
+            value={geoFilter}
+            onValueChange={(value) => handleFilterChange('geo', value)}
             disabled={isLoading}
           >
             <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Location" />
+              <SelectValue placeholder="Geography" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Locations</SelectItem>
-              {locations.map(location => (
-                <SelectItem key={location} value={location}>
-                  {location}
+              <SelectItem value="all">All Geographies</SelectItem>
+              {geos.map(geo => (
+                <SelectItem key={geo} value={geo}>
+                  {geo}
                 </SelectItem>
               ))}
             </SelectContent>
           </Select>
+          
+          <div className="w-full sm:w-auto flex justify-center sm:justify-start">
+            <ToggleGroup 
+              type="single" 
+              value={scopeFilter}
+              onValueChange={(value) => value && handleFilterChange('scope', value)}
+              className="relative"
+              disabled={isLoading}
+            >
+              <ToggleGroupItem value="all" className="px-3 rounded-l text-sm">All</ToggleGroupItem>
+              <ToggleGroupItem value="generalist" className="px-3 text-sm">Generalist</ToggleGroupItem>
+              <ToggleGroupItem value="specialist" className="px-3 rounded-r text-sm">Specialist</ToggleGroupItem>
+            </ToggleGroup>
+          </div>
         </div>
       </div>
 
-      <div className="rounded-lg border bg-card">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-[80px]">Rank</TableHead>
-              <TableHead>Name</TableHead>
-              <TableHead>Rating</TableHead>
-              <TableHead>Location</TableHead>
-              <TableHead>Stage</TableHead>
-              <TableHead>Notable Investment</TableHead>
-              <TableHead>Style</TableHead>
-              <TableHead className="text-right">AUM</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {isLoading ? (
-              investors.map((_, i) => (
-                <TableRowSkeleton key={`skeleton-${i}`} />
-              ))
-            ) : (
-              investors.map((investor, index) => (
-                <TableRow key={investor.id}>
-                  <TableCell className="font-medium">
-                    <div className="flex items-center gap-2">
-                      {index + 1}
-                      {Math.random() > 0.5 ? (
-                        <TrendingUp className="h-4 w-4 text-green-500" />
-                      ) : (
-                        <TrendingDown className="h-4 w-4 text-red-500" />
-                      )}
-                    </div>
-                  </TableCell>
-                  <TableCell>
-                    <Link 
-                      href={`/investor/${investor.slug}`}
-                      className="flex items-center gap-3 hover:text-primary"
-                    >
-                      {investor.logo_url && (
-                        <img
-                          src={investor.logo_url}
-                          alt={investor.name}
-                          className="w-8 h-8 rounded-full"
-                        />
-                      )}
-                      <span className="font-medium">{investor.name}</span>
-                    </Link>
-                  </TableCell>
-                  <TableCell>
-                    <div className="flex items-center gap-2">
-                      <Star className="h-4 w-4 fill-primary text-primary" />
-                      <span className="font-medium">{MOCK_RATING.score}</span>
-                      <span className="text-sm text-muted-foreground">
-                        ({MOCK_RATING.count})
-                      </span>
-                    </div>
-                  </TableCell>
-                  <TableCell>{investor.hq_location}</TableCell>
-                  <TableCell>{investor.investment_stage}</TableCell>
-                  <TableCell>
-                    {investor.notable_investments ? (
-                      <div className="text-sm">
-                        <div>
-                          {(investor.notable_investments as Array<{ company: string; note: string }>)[0]?.company || 'N/A'}
-                        </div>
-                        <div className="text-muted-foreground">
-                          {(investor.notable_investments as Array<{ company: string; note: string }>)[0]?.note || 'N/A'}
-                        </div>
+      <div className="rounded-lg border bg-card sm:rounded-lg sm:border sm:bg-card -mx-4 sm:mx-0">
+        {isLoading ? (
+          <TableRowsSkeleton />
+        ) : (
+          <>
+            <div className="sm:hidden">
+              {/* Mobile View */}
+              {investors.map((investor, index) => (
+                <div key={`mobile-${investor.id}`} className="border-b bg-background">
+                  <div className="py-3 px-4">
+                    <div className="flex items-center gap-1">
+                      <div className="flex items-center gap-0.5 min-w-[40px]">
+                        <span className="font-medium">{index + 1}</span>
+                        {Math.random() > 0.5 ? (
+                          <TrendingUp className="h-3 w-3 text-green-500" />
+                        ) : (
+                          <TrendingDown className="h-3 w-3 text-red-500" />
+                        )}
                       </div>
-                    ) : (
-                      <div className="text-sm text-muted-foreground">N/A</div>
-                    )}
-                  </TableCell>
-                  <TableCell>{investor.investment_style}</TableCell>
-                  <TableCell className="text-right">{investor.aum}</TableCell>
+                      <Link 
+                        href={`/investor/${investor.slug}`}
+                        className="flex items-center gap-1 hover:text-primary flex-1 min-w-0"
+                      >
+                        {investor.logo_url && (
+                          <img
+                            src={investor.logo_url}
+                            alt={investor.name}
+                            className="w-6 h-6 rounded-full flex-shrink-0"
+                          />
+                        )}
+                        <span className="font-medium truncate">
+                          {investor.name}
+                        </span>
+                      </Link>
+                      <div className="flex items-center gap-1 ml-auto">
+                        <Star className="h-3 w-3 fill-primary text-primary" />
+                        <span className="font-medium">4.5</span>
+                      </div>
+                    </div>
+                    {/* Geography tags */}
+                    <div className="mt-1 pl-[40px] flex flex-wrap gap-1">
+                      {getStringArrayFromJson(investor.investment_geo).map((geo, i) => (
+                        <span 
+                          key={`${investor.id}-geo-${i}`} 
+                          className="inline-flex items-center rounded-full bg-green-50 px-2 py-0.5 text-xs font-medium text-green-700"
+                        >
+                          {geo}
+                        </span>
+                      ))}
+                      {getStringArrayFromJson(investor.investment_geo).length === 0 && investor.hq_location && (
+                        <span className="text-xs">{investor.hq_location}</span>
+                      )}
+                    </div>
+                    {/* Scope and Focus tags in the same div */}
+                    <div className="mt-1 pl-[40px] flex flex-wrap gap-1">
+                      {investor.investment_scope && (
+                        <span 
+                          className={`inline-flex items-center rounded px-2 py-0.5 text-xs font-medium ${
+                            scopeColors[investor.investment_scope].bg
+                          } ${scopeColors[investor.investment_scope].text}`}
+                        >
+                          {investor.investment_scope === 'GENERALIST' ? 'Generalist' : 'Specialist'}
+                        </span>
+                      )}
+                      {/* Focus tags - only show for specialists and in the same line */}
+                      {investor.investment_scope !== 'GENERALIST' && 
+                        getStringArrayFromJson(investor.investment_focus).map((focus, i) => (
+                          <span 
+                            key={`${investor.id}-focus-${i}`} 
+                            className="inline-flex items-center rounded-full bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700"
+                          >
+                            {focus}
+                          </span>
+                        ))
+                      }
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <Table className="hidden sm:table">
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-[80px]">Rank</TableHead>
+                  <TableHead>Name</TableHead>
+                  <TableHead className="w-[140px]">Founder Rating</TableHead>
+                  <TableHead>Geography</TableHead>
+                  <TableHead>Stage</TableHead>
+                  <TableHead>Scope</TableHead>
+                  <TableHead>Focus</TableHead>
+                  <TableHead className="text-right">AUM</TableHead>
                 </TableRow>
-              ))
-            )}
-          </TableBody>
-        </Table>
+              </TableHeader>
+
+              <TableBody>
+                {/* Desktop View */}
+                {investors.map((investor, index) => (
+                  <TableRow key={`desktop-${investor.id}`}>
+                    <TableCell className="font-medium">
+                      <div className="flex items-center gap-3">
+                        {index + 1}
+                        {Math.random() > 0.5 ? (
+                          <TrendingUp className="h-4 w-4 text-green-500" />
+                        ) : (
+                          <TrendingDown className="h-4 w-4 text-red-500" />
+                        )}
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <Link 
+                        href={`/investor/${investor.slug}`}
+                        className="flex items-center gap-3 hover:text-primary"
+                      >
+                        {investor.logo_url && (
+                          <img
+                            src={investor.logo_url}
+                            alt={investor.name}
+                            className="w-8 h-8 rounded-full"
+                          />
+                        )}
+                        <span className="font-medium">{investor.name}</span>
+                      </Link>
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex items-center gap-2">
+                        <Star className="h-4 w-4 fill-primary text-primary" />
+                        <span className="font-medium">{MOCK_RATING.score}</span>
+                        <span className="text-sm text-muted-foreground">
+                          ({MOCK_RATING.count})
+                        </span>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex flex-wrap gap-1">
+                        {getStringArrayFromJson(investor.investment_geo).map((geo, i) => (
+                          <span 
+                            key={`${investor.id}-geo-${i}`} 
+                            className="inline-flex items-center rounded-full bg-green-50 px-2 py-0.5 text-xs font-medium text-green-700"
+                          >
+                            {geo}
+                          </span>
+                        ))}
+                        {getStringArrayFromJson(investor.investment_geo).length === 0 && investor.hq_location && (
+                          <span className="text-sm">{investor.hq_location}</span>
+                        )}
+                      </div>
+                    </TableCell>
+                    <TableCell>{investor.investment_stage}</TableCell>
+                    <TableCell>
+                      {investor.investment_scope && (
+                        <span 
+                          className={`inline-flex items-center rounded px-2 py-1 text-xs font-medium ${
+                            scopeColors[investor.investment_scope].bg
+                          } ${scopeColors[investor.investment_scope].text}`}
+                        >
+                          {investor.investment_scope === 'GENERALIST' ? 'Generalist' : 'Specialist'}
+                        </span>
+                      )}
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex flex-wrap gap-1">
+                        {getStringArrayFromJson(investor.investment_focus).map((focus, i) => (
+                          <span 
+                            key={`${investor.id}-focus-${i}`} 
+                            className="inline-flex items-center rounded-full bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700"
+                          >
+                            {focus}
+                          </span>
+                        ))}
+                      </div>
+                    </TableCell>
+                    <TableCell className="text-right">{investor.aum}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </>
+        )}
       </div>
     </div>
   );

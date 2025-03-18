@@ -7,12 +7,14 @@ export const createClient = (cookieStore: ReturnType<typeof cookies>) => {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
-        getAll() {
-          return cookieStore.getAll()
+        async getAll() {
+          const cookieValues = await cookieStore
+          return cookieValues.getAll()
         },
-        setAll(cookiesToSet) {
+        async setAll(cookiesToSet) {
           try {
-            cookiesToSet.forEach(({ name, value, options }) => cookieStore.set(name, value, options))
+            const cookieValues = await cookieStore
+            cookiesToSet.forEach(({ name, value, options }) => cookieValues.set(name, value, options))
           } catch {
             // The `setAll` method was called from a Server Component.
             // This can be ignored if you have middleware refreshing

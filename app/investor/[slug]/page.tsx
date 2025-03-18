@@ -12,9 +12,17 @@ import { Badge } from '@/components/ui/badge';
 import { Building2, Globe2, Briefcase, TrendingUp, Users, Star } from 'lucide-react';
 import { createClient } from '@/utils/supabase/server';
 import { cookies } from 'next/headers';
+import { createBrowserClient } from '@supabase/ssr';
 import type { Database } from '@/types/supabase';
 
 type Investor = Database['public']['Tables']['Investor']['Row'];
+
+// Define the params type for better type safety
+type InvestorPageParams = {
+  params: {
+    slug: string;
+  };
+};
 
 async function getInvestor(slug: string): Promise<Investor | null> {
   const cookieStore = cookies();
@@ -35,7 +43,41 @@ async function getInvestor(slug: string): Promise<Investor | null> {
   return data;
 }
 
-export default async function InvestorProfilePage({ params }: { params: { slug: string } }) {
+// Add generateStaticParams function for static generation (if applicable)
+export async function generateStaticParams() {
+  // Use a simple browser client for static generation - no cookies needed
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+  
+  const { data } = await supabase
+    .from('Investor')
+    .select('slug')
+    .eq('status', 'APPROVED');
+    
+  return (data || []).map((investor: { slug: string }) => ({
+    slug: investor.slug,
+  }));
+}
+
+// Add generateMetadata function for better SEO
+export async function generateMetadata({ params }: InvestorPageParams) {
+  const investor = await getInvestor(params.slug);
+  
+  if (!investor) {
+    return {
+      title: 'Investor Not Found',
+    };
+  }
+  
+  return {
+    title: `${investor.name} | Ranked Capital`,
+    description: investor.investment_concept || `Learn about ${investor.name} and their investment approach.`,
+  };
+}
+
+export default async function InvestorProfilePage({ params }: InvestorPageParams) {
   const investor = await getInvestor(params.slug);
 
   if (!investor) {
