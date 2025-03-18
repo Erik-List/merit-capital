@@ -23,6 +23,8 @@ import type { Database } from '@/types/supabase';
 import { createClient } from '@/utils/supabase/client';
 import { Skeleton } from '@/components/ui/skeleton';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
+import { formatInvestmentRange, formatInvestmentValue, formatStandardInvestment } from '@/utils/format';
+import { Badge } from '@/components/ui/badge';
 
 type Investor = Database['public']['Tables']['Investor']['Row'];
 type InvestmentScope = Database['public']['Enums']['InvestmentScope'];
@@ -115,6 +117,28 @@ function useAvailableOptions() {
   return { stages, geos, focusAreas, isLoadingOptions };
 }
 
+// Helper function to extract investment range data
+function getInvestmentRange(investor: Investor): { 
+  range: string; 
+  median: string;
+  standard?: string;
+} {
+  if (!investor.investment_range) return { range: '-', median: '-', standard: '' };
+  
+  const rangeData = investor.investment_range as { 
+    lower_limit?: number; 
+    upper_limit?: number;
+    median?: number;
+    standard?: number;
+  };
+  
+  const range = formatInvestmentRange(rangeData.lower_limit, rangeData.upper_limit);
+  const median = formatInvestmentValue(rangeData.median);
+  const standard = formatStandardInvestment(rangeData.standard) || '';
+  
+  return { range, median, standard };
+}
+
 function TableRowsSkeleton() {
   return (
     <>
@@ -128,9 +152,10 @@ function TableRowsSkeleton() {
               <TableHead>Founder Rating</TableHead>
               <TableHead>Geography</TableHead>
               <TableHead>Stage</TableHead>
+              <TableHead className="min-w-[140px] max-w-fit">Range</TableHead>
+              <TableHead>Median</TableHead>
               <TableHead>Scope</TableHead>
               <TableHead>Focus</TableHead>
-              <TableHead className="text-right">AUM</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -158,15 +183,14 @@ function TableRowsSkeleton() {
                 <TableCell><Skeleton className="h-5 w-24" /></TableCell>
                 <TableCell><Skeleton className="h-5 w-20" /></TableCell>
                 <TableCell><Skeleton className="h-5 w-20" /></TableCell>
+                <TableCell><Skeleton className="h-5 w-20" /></TableCell>
+                <TableCell><Skeleton className="h-5 w-20" /></TableCell>
                 <TableCell>
                   <div className="flex flex-wrap gap-1">
                     <Skeleton className="h-5 w-16" />
                     <Skeleton className="h-5 w-20" />
                     <Skeleton className="h-5 w-12" />
                   </div>
-                </TableCell>
-                <TableCell className="text-right">
-                  <Skeleton className="h-5 w-16 ml-auto" />
                 </TableCell>
               </TableRow>
             ))}
@@ -238,18 +262,6 @@ function TableSkeleton() {
     </div>
   );
 }
-
-// Color mapping for investment scope tags
-const scopeColors = {
-  GENERALIST: {
-    bg: 'bg-amber-50',
-    text: 'text-amber-800'
-  },
-  SPECIALIST: {
-    bg: 'bg-purple-50',
-    text: 'text-purple-800'
-  }
-};
 
 // Add mock ratings data
 const MOCK_RATING = {
@@ -489,12 +501,12 @@ export function LeaderboardTable({ initialInvestors }: LeaderboardTableProps) {
                     {/* Geography tags */}
                     <div className="mt-1 pl-[40px] flex flex-wrap gap-1">
                       {getStringArrayFromJson(investor.investment_geo).map((geo, i) => (
-                        <span 
-                          key={`${investor.id}-geo-${i}`} 
-                          className="inline-flex items-center rounded-full bg-green-50 px-2 py-0.5 text-xs font-medium text-green-700"
+                        <Badge 
+                          key={`${investor.id}-geo-${i}`}
+                          variant="secondary"
                         >
                           {geo}
-                        </span>
+                        </Badge>
                       ))}
                       {getStringArrayFromJson(investor.investment_geo).length === 0 && investor.hq_location && (
                         <span className="text-xs">{investor.hq_location}</span>
@@ -503,23 +515,19 @@ export function LeaderboardTable({ initialInvestors }: LeaderboardTableProps) {
                     {/* Scope and Focus tags in the same div */}
                     <div className="mt-1 pl-[40px] flex flex-wrap gap-1">
                       {investor.investment_scope && (
-                        <span 
-                          className={`inline-flex items-center rounded px-2 py-0.5 text-xs font-medium ${
-                            scopeColors[investor.investment_scope].bg
-                          } ${scopeColors[investor.investment_scope].text}`}
-                        >
+                        <Badge variant="secondary">
                           {investor.investment_scope === 'GENERALIST' ? 'Generalist' : 'Specialist'}
-                        </span>
+                        </Badge>
                       )}
                       {/* Focus tags - only show for specialists and in the same line */}
                       {investor.investment_scope !== 'GENERALIST' && 
                         getStringArrayFromJson(investor.investment_focus).map((focus, i) => (
-                          <span 
-                            key={`${investor.id}-focus-${i}`} 
-                            className="inline-flex items-center rounded-full bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700"
+                          <Badge 
+                            key={`${investor.id}-focus-${i}`}
+                            variant="secondary"
                           >
                             {focus}
-                          </span>
+                          </Badge>
                         ))
                       }
                     </div>
@@ -536,92 +544,101 @@ export function LeaderboardTable({ initialInvestors }: LeaderboardTableProps) {
                   <TableHead className="w-[140px]">Founder Rating</TableHead>
                   <TableHead>Geography</TableHead>
                   <TableHead>Stage</TableHead>
+                  <TableHead className="min-w-[140px] max-w-fit">Range</TableHead>
+                  <TableHead>Median</TableHead>
                   <TableHead>Scope</TableHead>
                   <TableHead>Focus</TableHead>
-                  <TableHead className="text-right">AUM</TableHead>
                 </TableRow>
               </TableHeader>
 
               <TableBody>
                 {/* Desktop View */}
-                {investors.map((investor, index) => (
-                  <TableRow key={`desktop-${investor.id}`}>
-                    <TableCell className="font-medium">
-                      <div className="flex items-center gap-3">
-                        {index + 1}
-                        {Math.random() > 0.5 ? (
-                          <TrendingUp className="h-4 w-4 text-green-500" />
-                        ) : (
-                          <TrendingDown className="h-4 w-4 text-red-500" />
-                        )}
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <Link 
-                        href={`/investor/${investor.slug}`}
-                        className="flex items-center gap-3 hover:text-primary"
-                      >
-                        {investor.logo_url && (
-                          <img
-                            src={investor.logo_url}
-                            alt={investor.name}
-                            className="w-8 h-8 rounded-full"
-                          />
-                        )}
-                        <span className="font-medium">{investor.name}</span>
-                      </Link>
-                    </TableCell>
-                    <TableCell>
-                      <div className="flex items-center gap-2">
-                        <Star className="h-4 w-4 fill-primary text-primary" />
-                        <span className="font-medium">{MOCK_RATING.score}</span>
-                        <span className="text-sm text-muted-foreground">
-                          ({MOCK_RATING.count})
-                        </span>
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <div className="flex flex-wrap gap-1">
-                        {getStringArrayFromJson(investor.investment_geo).map((geo, i) => (
-                          <span 
-                            key={`${investor.id}-geo-${i}`} 
-                            className="inline-flex items-center rounded-full bg-green-50 px-2 py-0.5 text-xs font-medium text-green-700"
-                          >
-                            {geo}
-                          </span>
-                        ))}
-                        {getStringArrayFromJson(investor.investment_geo).length === 0 && investor.hq_location && (
-                          <span className="text-sm">{investor.hq_location}</span>
-                        )}
-                      </div>
-                    </TableCell>
-                    <TableCell>{investor.investment_stage}</TableCell>
-                    <TableCell>
-                      {investor.investment_scope && (
-                        <span 
-                          className={`inline-flex items-center rounded px-2 py-1 text-xs font-medium ${
-                            scopeColors[investor.investment_scope].bg
-                          } ${scopeColors[investor.investment_scope].text}`}
+                {investors.map((investor, index) => {
+                  const { range, median, standard } = getInvestmentRange(investor);
+                  
+                  return (
+                    <TableRow key={`desktop-${investor.id}`}>
+                      <TableCell className="font-medium">
+                        <div className="flex items-center gap-3">
+                          {index + 1}
+                          {Math.random() > 0.5 ? (
+                            <TrendingUp className="h-4 w-4 text-green-500" />
+                          ) : (
+                            <TrendingDown className="h-4 w-4 text-red-500" />
+                          )}
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <Link 
+                          href={`/investor/${investor.slug}`}
+                          className="flex items-center gap-3 hover:text-primary"
                         >
-                          {investor.investment_scope === 'GENERALIST' ? 'Generalist' : 'Specialist'}
-                        </span>
-                      )}
-                    </TableCell>
-                    <TableCell>
-                      <div className="flex flex-wrap gap-1">
-                        {getStringArrayFromJson(investor.investment_focus).map((focus, i) => (
-                          <span 
-                            key={`${investor.id}-focus-${i}`} 
-                            className="inline-flex items-center rounded-full bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700"
-                          >
-                            {focus}
+                          {investor.logo_url && (
+                            <img
+                              src={investor.logo_url}
+                              alt={investor.name}
+                              className="w-8 h-8 rounded-full"
+                            />
+                          )}
+                          <span className="font-medium">{investor.name}</span>
+                        </Link>
+                      </TableCell>
+                      <TableCell>
+                        <div className="flex items-center gap-2">
+                          <Star className="h-4 w-4 fill-primary text-primary" />
+                          <span className="font-medium">{MOCK_RATING.score}</span>
+                          <span className="text-sm text-muted-foreground">
+                            ({MOCK_RATING.count})
                           </span>
-                        ))}
-                      </div>
-                    </TableCell>
-                    <TableCell className="text-right">{investor.aum}</TableCell>
-                  </TableRow>
-                ))}
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="flex flex-wrap gap-1">
+                          {getStringArrayFromJson(investor.investment_geo).map((geo, i) => (
+                            <Badge 
+                              key={`${investor.id}-geo-${i}`}
+                              variant="secondary"
+                            >
+                              {geo}
+                            </Badge>
+                          ))}
+                          {getStringArrayFromJson(investor.investment_geo).length === 0 && investor.hq_location && (
+                            <span className="text-sm">{investor.hq_location}</span>
+                          )}
+                        </div>
+                      </TableCell>
+                      <TableCell>{investor.investment_stage}</TableCell>
+                      <TableCell>
+                        <div className="flex flex-col">
+                          <span>{range}</span>
+                          {standard && (
+                            <span className="text-xs text-muted-foreground">{standard}</span>
+                          )}
+                        </div>
+                      </TableCell>
+                      <TableCell>{median}</TableCell>
+                      <TableCell>
+                        {investor.investment_scope && (
+                          <Badge variant="secondary">
+                            {investor.investment_scope === 'GENERALIST' ? 'Generalist' : 'Specialist'}
+                          </Badge>
+                        )}
+                      </TableCell>
+                      <TableCell>
+                        <div className="flex flex-wrap gap-1">
+                          {getStringArrayFromJson(investor.investment_focus).map((focus, i) => (
+                            <Badge 
+                              key={`${investor.id}-focus-${i}`}
+                              variant="secondary"
+                            >
+                              {focus}
+                            </Badge>
+                          ))}
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
               </TableBody>
             </Table>
           </>

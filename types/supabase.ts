@@ -20,6 +20,7 @@ export type Database = {
           investment_concept: string | null
           investment_focus: Json | null
           investment_geo: Json | null
+          investment_range: Json | null
           investment_scope: Database["public"]["Enums"]["InvestmentScope"] | null
           investment_stage: string | null
           investment_style: string | null
@@ -43,6 +44,7 @@ export type Database = {
           investment_concept?: string | null
           investment_focus?: Json | null
           investment_geo?: Json | null
+          investment_range?: Json | null
           investment_scope?: Database["public"]["Enums"]["InvestmentScope"] | null
           investment_stage?: string | null
           investment_style?: string | null
@@ -66,6 +68,7 @@ export type Database = {
           investment_concept?: string | null
           investment_focus?: Json | null
           investment_geo?: Json | null
+          investment_range?: Json | null
           investment_scope?: Database["public"]["Enums"]["InvestmentScope"] | null
           investment_stage?: string | null
           investment_style?: string | null
