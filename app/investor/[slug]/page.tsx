@@ -19,9 +19,9 @@ type Investor = Database['public']['Tables']['Investor']['Row'];
 
 // Define the params type for better type safety
 type InvestorPageParams = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 async function getInvestor(slug: string): Promise<Investor | null> {
@@ -63,7 +63,8 @@ export async function generateStaticParams() {
 
 // Add generateMetadata function for better SEO
 export async function generateMetadata({ params }: InvestorPageParams) {
-  const investor = await getInvestor(params.slug);
+  const { slug } = await params;
+  const investor = await getInvestor(slug);
   
   if (!investor) {
     return {
@@ -78,7 +79,8 @@ export async function generateMetadata({ params }: InvestorPageParams) {
 }
 
 export default async function InvestorProfilePage({ params }: InvestorPageParams) {
-  const investor = await getInvestor(params.slug);
+  const { slug } = await params;
+  const investor = await getInvestor(slug);
 
   if (!investor) {
     notFound();
