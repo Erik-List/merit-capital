@@ -5,7 +5,7 @@ import { updateSession } from '@/utils/supabase/middleware'
 const IDEA_VALIDATION_ENABLED = true // You can toggle this with an environment variable later
 const PUBLIC_PATHS = [
   '/investor',
-  '/idea-validation',
+  '/validation',
   '/_next',
   '/api',
   '/static',
@@ -25,7 +25,7 @@ export async function middleware(request: NextRequest) {
     
     // Check if the current path should be redirected
     if (!isPublicPath(pathname)) {
-      const redirectUrl = new URL('/idea-validation', request.url)
+      const redirectUrl = new URL('/validation', request.url)
       return NextResponse.redirect(redirectUrl)
     }
   }
