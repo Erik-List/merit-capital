@@ -6,9 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 // Text slides for the cinematic intro
 const INTRO_SLIDES = [
   "The best company builders rely on exceptional investors…",
-  "…yet VC Industry is an Intransparent & Opaque",
-  "Strong VC Branding often overshadows actual founder support",
-  "Time for a change...",
+  "…yet the VC Investor Ecosystem is systemically Intransparent.",
+  "Time for a change!",
 ];
 
 interface CinematicIntroProps {
