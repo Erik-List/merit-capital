@@ -44,7 +44,7 @@ export default function TopNavigation({ onReplayIntro }: TopNavigationProps) {
             href="/"
             className="flex items-center space-x-2"
           >
-            <span className="font-bold text-xl">Ranked Capital</span>
+            <span className="font-bold text-xl">Merit Capital</span>
           </Link>
         </div>
 
