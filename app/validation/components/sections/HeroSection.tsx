@@ -14,11 +14,11 @@ import { Badge } from "@/components/ui/badge";
 
 // Mock investor data for the leaderboard
 const topInvestors = [
-  { id: 1, name: "Sequoia Capital", type: "VC", score: 9.2, count: 128, trend: "up" },
-  { id: 2, name: "Andreessen Horowitz", type: "VC", score: 8.9, count: 156, trend: "down" },
-  { id: 3, name: "Y Combinator", type: "Accelerator", score: 8.7, count: 203, trend: "up" },
-  { id: 4, name: "Accel", type: "VC", score: 8.5, count: 94, trend: "stable" },
-  { id: 5, name: "First Round Capital", type: "VC", score: 8.3, count: 87, trend: "up" },
+  { id: 1, name: "Acme Ventures", type: "VC", score: 9.2, count: 128, trend: "up" },
+  { id: 2, name: "TechFund Global", type: "VC", score: 8.9, count: 156, trend: "down" },
+  { id: 3, name: "New Horizon Partners", type: "PE", score: 8.7, count: 203, trend: "up" },
+  { id: 4, name: "Sarah Johnson", type: "Angel", score: 8.5, count: 94, trend: "stable" },
+  { id: 5, name: "Michael Chen", type: "Angel", score: 8.3, count: 87, trend: "up" },
 ];
 
 export default function HeroSection() {
