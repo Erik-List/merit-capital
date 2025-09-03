@@ -127,7 +127,11 @@ export default function RatingFormDemo() {
   const progress = ((currentQuestionIndex + 1) / RATING_STATEMENTS.length) * 100;
 
   return (
-    <section id="rating-demo" className="py-12">
+    <section 
+      id="rating-demo" 
+      className="py-12"
+      style={{ scrollMarginTop: 'calc(var(--nav-height) + 8px)' }}
+    >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

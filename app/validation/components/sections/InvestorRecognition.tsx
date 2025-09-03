@@ -33,7 +33,11 @@ export default function InvestorRecognition() {
 <script src="https://ranked.capital/widgets/badge.js"></script>`;
 
   return (
-    <section id="recognition" className="py-12">
+    <section 
+      id="awards" 
+      className="py-12"
+      style={{ scrollMarginTop: 'calc(var(--nav-height) + 8px)' }}
+    >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

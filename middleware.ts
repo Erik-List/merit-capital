@@ -10,6 +10,7 @@ const PUBLIC_PATHS = [
   '/api',
   '/static',
   '/favicon.ico',
+  '/icon.svg',
 ]
 
 function isPublicPath(pathname: string): boolean {

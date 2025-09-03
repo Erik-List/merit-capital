@@ -50,9 +50,13 @@ const recentLogs = [
   }
 ];
 
-export default function LogsTransparency() {
+export default function Trust() {
   return (
-    <section id="logs" className="py-12">
+    <section 
+      id="trust" 
+      className="py-12"
+      style={{ scrollMarginTop: 'calc(var(--nav-height) + 8px)' }}
+    >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +65,7 @@ export default function LogsTransparency() {
         className="space-y-8"
       >
         <div className="space-y-4">
-          <h2 className="text-3xl font-semibold">Logs & Transparency</h2>
+          <h2 className="text-3xl font-semibold">Trust</h2>
           <p className="text-muted-foreground max-w-2xl">
             Every rating is timestamped and recorded. We hide personal details to protect anonymity, but ensure accountability for investors.
           </p>

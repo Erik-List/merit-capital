@@ -1,78 +1,84 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import CinematicIntro from "@/app/validation/components/sections/CinematicIntro";
-import TopNavigation from "@/app/validation/components/sections/TopNavigation";
+import { NavBar } from "@/components/nav-bar";
 import HeroSection from "@/app/validation/components/sections/HeroSection";
-import BridgingStatement from "@/app/validation/components/sections/BridgingStatement";
 import InvestorSections from "@/app/validation/components/sections/InvestorSections";
 import RatingFormDemo from "@/app/validation/components/sections/RatingFormDemo";
-import LogsTransparency from "@/app/validation/components/sections/LogsTransparency";
-import InvestorRecognition from "@/app/validation/components/sections/InvestorRecognition";
 import StickyBottomCTA from "@/app/validation/components/sections/StickyBottomCTA";
+import InvestorRecognition from "@/app/validation/components/sections/InvestorRecognition";
+import Trust from "@/app/validation/components/sections/Trust";
+import Economics from "@/app/validation/components/sections/Economics";
+import Supporters from "@/app/validation/components/sections/Supporters";
 
 export default function LandingPage() {
   const [introCompleted, setIntroCompleted] = useState(false);
   const [skipIntro, setSkipIntro] = useState(false);
 
-  // Skip the intro for users who have already seen it (stored in session storage)
+  // Check for intro completion status in session storage
   useEffect(() => {
-    const hasSeenIntro = sessionStorage.getItem("ranked-capital-intro-seen");
-    if (hasSeenIntro === "true") {
-      setSkipIntro(true);
+    const introSeen = sessionStorage.getItem("ranked-capital-intro-seen");
+    const skipIntroStorage = localStorage.getItem('skipIntro');
+    
+    if (introSeen === "true" || skipIntroStorage === "true") {
       setIntroCompleted(true);
+      setSkipIntro(true);
     }
   }, []);
 
+  // Handle intro completion
   const handleIntroComplete = () => {
     setIntroCompleted(true);
-    // Store that the user has seen the intro
     sessionStorage.setItem("ranked-capital-intro-seen", "true");
   };
 
-  const handleSkipIntro = () => {
+  // Handle intro skip
+  const handleIntroSkip = () => {
     setSkipIntro(true);
-    handleIntroComplete();
+    setIntroCompleted(true);
+    localStorage.setItem('skipIntro', 'true');
+    sessionStorage.setItem("ranked-capital-intro-seen", "true");
   };
 
+  // Handle intro replay
+  const handleReplayIntro = () => {
+    setIntroCompleted(false);
+    setSkipIntro(false);
+    // Clear both session and local storage to allow intro to play again
+    sessionStorage.removeItem("ranked-capital-intro-seen");
+    localStorage.removeItem('skipIntro');
+  };
+
+  if (!introCompleted && !skipIntro) {
+    return (
+      <CinematicIntro 
+        onComplete={handleIntroComplete}
+        onSkip={handleIntroSkip}
+      />
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-background relative">
-      {/* Cinematic Intro (shown only if not skipped and not completed) */}
-      {!skipIntro && !introCompleted && (
-        <CinematicIntro 
-          onComplete={handleIntroComplete} 
-          onSkip={handleSkipIntro} 
-        />
-      )}
+    <div className="min-h-screen bg-background">
+      {/* Navigation */}
+      <NavBar onReplayIntro={handleReplayIntro} />
 
-      {/* Main Content (shown only after intro is completed or skipped) */}
-      <AnimatePresence>
-        {(introCompleted || skipIntro) && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="relative"
-          >
-            {/* Top Navigation */}
-            <TopNavigation onReplayIntro={() => setSkipIntro(false)} />
+      {/* Main Content */}
+      <main className="container mx-auto px-4 space-y-24 py-8 md:py-16">
+        <HeroSection />
+        <InvestorSections />
+        <RatingFormDemo />
+        <Trust />
+        <InvestorRecognition />
+        <Economics />
+        <Supporters />
+      </main>
 
-            {/* Main Content Sections */}
-            <main className="container mx-auto px-4 space-y-24 py-8 md:py-16">
-              <HeroSection />
-              <BridgingStatement />
-              <InvestorSections />
-              <RatingFormDemo />
-              <LogsTransparency />
-              <InvestorRecognition />
-            </main>
-
-            {/* Sticky Bottom CTA */}
-            <StickyBottomCTA />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Sticky Bottom CTA */}
+      <StickyBottomCTA />
     </div>
   );
 } 

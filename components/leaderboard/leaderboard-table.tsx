@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Input } from '@/components/ui/input';
+
 import {
   Table,
   TableBody,
@@ -11,26 +11,23 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
 import { Search, TrendingUp, TrendingDown, Star } from 'lucide-react';
 import type { Database } from '@/types/supabase';
 import { createClient } from '@/utils/supabase/client';
 import { Skeleton } from '@/components/ui/skeleton';
-import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { formatInvestmentRange, formatInvestmentValue, formatStandardInvestment } from '@/utils/format';
 import { Badge } from '@/components/ui/badge';
+import { LeaderboardSearch } from '@/components/leaderboard/leaderboard-search';
+import { LeaderboardFilter } from '@/components/leaderboard/leaderboard-filter';
+import { LeaderboardStageFilter, type StageLabel } from '@/components/leaderboard/leaderboard-stage-filter';
 
 type Investor = Database['public']['Tables']['Investor']['Row'];
 type InvestmentScope = Database['public']['Enums']['InvestmentScope'];
 
 interface LeaderboardTableProps {
   initialInvestors: Investor[];
+  showSearch?: boolean;
+  showFilters?: boolean;
 }
 
 // Helper functions to safely extract array data from JSON fields
@@ -42,6 +39,15 @@ function getStringArrayFromJson(json: any): string[] {
   return [];
 }
 
+// Map UI stage labels to DB values (used in query and display)
+function mapStageLabelToValues(label: StageLabel): string[] {
+  if (label === 'Series B+') {
+    return ['Series B', 'Series C', 'Series D', 'Series E', 'Series F', 'Growth', 'Late Stage'];
+  }
+  return [label];
+}
+
+// DB fetching for filtering
 function useAvailableOptions() {
   const [stages, setStages] = useState<string[]>([]);
   const [geos, setGeos] = useState<string[]>([]);
@@ -117,7 +123,7 @@ function useAvailableOptions() {
   return { stages, geos, focusAreas, isLoadingOptions };
 }
 
-// Helper function to extract investment range data
+// Helper function to extract investment range data from investment_range
 function getInvestmentRange(investor: Investor): { 
   range: string; 
   median: string;
@@ -235,24 +241,29 @@ function TableRowsSkeleton() {
   );
 }
 
-function TableSkeleton() {
+// delete -> only one skeleton for Table, one for filter in differentn component
+function TableSkeleton({ showSearch, showFilters }: { showSearch: boolean; showFilters: boolean }) {
   return (
     <div>
       {/* Search and Filters Skeleton */}
       <div className="grid gap-6 mb-8">
-        <div className="flex flex-col md:flex-row gap-4">
-          <div className="flex-1">
-            <div className="relative">
-              <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-              <Skeleton className="h-10 w-full" />
+        {showSearch && (
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex-1">
+              <div className="relative">
+                <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                <Skeleton className="h-10 w-full" />
+              </div>
             </div>
           </div>
-        </div>
-        <div className="flex flex-wrap gap-4">
-          <Skeleton className="h-10 w-[180px]" />
-          <Skeleton className="h-10 w-[180px]" />
-          <Skeleton className="h-10 w-[240px]" />
-        </div>
+        )}
+        {showFilters && (
+          <div className="flex flex-wrap gap-4">
+            <Skeleton className="h-10 w-[180px]" />
+            <Skeleton className="h-10 w-[180px]" />
+            <Skeleton className="h-10 w-[240px]" />
+          </div>
+        )}
       </div>
 
       {/* Table Skeleton */}
@@ -263,87 +274,101 @@ function TableSkeleton() {
   );
 }
 
-// Add mock ratings data
+// delete -> replace with real fetching logic
 const MOCK_RATING = {
   score: 4.5,
   count: 10
 };
 
-export function LeaderboardTable({ initialInvestors }: LeaderboardTableProps) {
+export function LeaderboardTable({ initialInvestors, showSearch = true, showFilters = true }: LeaderboardTableProps) {
   const { stages, geos, isLoadingOptions } = useAvailableOptions();
   const [investors, setInvestors] = useState(initialInvestors);
   const [searchQuery, setSearchQuery] = useState('');
-  const [stageFilter, setStageFilter] = useState('all');
+  const [stageSelections, setStageSelections] = useState<StageLabel[]>([]);
   const [geoFilter, setGeoFilter] = useState('all');
   const [scopeFilter, setScopeFilter] = useState('all');
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleFilterChange = async (
-    type: 'stage' | 'geo' | 'scope',
-    value: string
-  ) => {
+  // Sync internal state when initialInvestors prop changes
+  useEffect(() => {
+    setInvestors(initialInvestors);
+  }, [initialInvestors]);
+
+  async function fetchWithFilters(
+    stageOverride?: StageLabel[],
+    geoOverride?: string,
+    scopeOverride?: string
+  ) {
     setIsLoading(true);
     const startTime = Date.now();
-    
-    if (type === 'stage') {
-      setStageFilter(value);
-    } else if (type === 'geo') {
-      setGeoFilter(value);
-    } else if (type === 'scope') {
-      setScopeFilter(value);
-    }
 
     const supabase = createClient();
     let query = supabase
       .from('Investor')
       .select()
-      .eq('status', 'APPROVED')
-      .order('created_at', { ascending: false });
+      .eq('status', 'APPROVED');
 
-    const newStage = type === 'stage' ? value : stageFilter;
-    const newGeo = type === 'geo' ? value : geoFilter;
-    const newScope = type === 'scope' ? value : scopeFilter;
+    const selected = stageOverride ?? stageSelections;
+    const newGeo = geoOverride ?? geoFilter;
+    const newScope = scopeOverride ?? scopeFilter;
 
-    if (newStage !== 'all') {
-      query = query.eq('investment_stage', newStage);
+    // Build list of allowed stage values for client-side filtering
+    const stageAllowValues = new Set<string>();
+    if (selected.length > 0) {
+      selected.forEach(label => {
+        mapStageLabelToValues(label).forEach(v => stageAllowValues.add(v));
+      });
     }
-    
-    // Apply scope filter if needed
+
     if (newScope !== 'all') {
       query = query.eq('investment_scope', newScope.toUpperCase() as InvestmentScope);
     }
-    
+
     try {
-      // Simplified approach - no need for in-memory filtering
       const { data, error } = await query.limit(50);
-        
       if (error) throw error;
-      
-      // Filter by geo if needed
       let filteredData = data || [];
+      // Stage filtering (OR across selected values) using client-side filter against jsonb array
+      if (stageAllowValues.size > 0) {
+        filteredData = filteredData.filter(investor => {
+          const stagesArr = getStringArrayFromJson(investor.investment_stage);
+          return stagesArr.some(s => stageAllowValues.has(s));
+        });
+      }
       if (newGeo !== 'all') {
         filteredData = filteredData.filter(investor => {
           const geoArray = getStringArrayFromJson(investor.investment_geo);
           return geoArray.includes(newGeo);
         });
       }
-      
       setInvestors(filteredData);
     } catch (error) {
       console.error('Error filtering investors:', error);
       setInvestors(initialInvestors);
     } finally {
-      // Ensure loading state lasts at least 1 second
       const elapsedTime = Date.now() - startTime;
       const remainingTime = Math.max(0, 1000 - elapsedTime);
-      
       if (remainingTime > 0) {
-        setTimeout(() => {
-          setIsLoading(false);
-        }, remainingTime);
+        setTimeout(() => setIsLoading(false), remainingTime);
       } else {
         setIsLoading(false);
       }
+    }
+  }
+
+  const handleFilterChange = async (
+    type: 'stage' | 'geo' | 'scope',
+    value: string
+  ) => {
+    if (type === 'geo') {
+      setGeoFilter(value);
+      await fetchWithFilters(undefined, value, undefined);
+      return;
+    }
+    if (type === 'scope') {
+      setScopeFilter(value);
+      await fetchWithFilters(undefined, undefined, value);
+      return;
     }
   };
 
@@ -385,78 +410,39 @@ export function LeaderboardTable({ initialInvestors }: LeaderboardTableProps) {
   };
 
   if (isLoadingOptions) {
-    return <TableSkeleton />;
+    return <TableSkeleton showSearch={showSearch} showFilters={showFilters} />;
   }
 
   return (
     <div>
       <div className="grid gap-6 mb-8">
-        <div className="flex flex-col md:flex-row gap-4">
-          <div className="flex-1">
-            <div className="relative">
-              <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-              <Input
-                placeholder="Search investors..."
+        {showSearch && (
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex-1">
+              <LeaderboardSearch 
                 value={searchQuery}
-                onChange={(e) => handleSearch(e.target.value)}
-                className="pl-9"
+                onChange={handleSearch}
                 disabled={isLoading}
               />
             </div>
           </div>
-        </div>
+        )}
 
-        <div className="flex flex-wrap gap-4">
-          <Select 
-            value={stageFilter} 
-            onValueChange={(value) => handleFilterChange('stage', value)}
-            disabled={isLoading}
-          >
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Investment Stage" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Stages</SelectItem>
-              {stages.map(stage => (
-                <SelectItem key={stage} value={stage}>
-                  {stage}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+        {showFilters && (
+          <LeaderboardFilter
+            geos={geos}
+            geoValue={geoFilter}
+            scopeValue={scopeFilter}
 
-          <Select 
-            value={geoFilter}
-            onValueChange={(value) => handleFilterChange('geo', value)}
+            stageSelections={stageSelections}
+            onStagesChange={async (vals) => {
+              setStageSelections(vals);
+              await fetchWithFilters(vals, undefined, undefined);
+            }}
+            onChange={handleFilterChange}
             disabled={isLoading}
-          >
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Geography" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Geographies</SelectItem>
-              {geos.map(geo => (
-                <SelectItem key={geo} value={geo}>
-                  {geo}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          
-          <div className="w-full sm:w-auto flex justify-center sm:justify-start">
-            <ToggleGroup 
-              type="single" 
-              value={scopeFilter}
-              onValueChange={(value) => value && handleFilterChange('scope', value)}
-              className="relative"
-              disabled={isLoading}
-            >
-              <ToggleGroupItem value="all" className="px-3 rounded-l text-sm">All</ToggleGroupItem>
-              <ToggleGroupItem value="generalist" className="px-3 text-sm">Generalist</ToggleGroupItem>
-              <ToggleGroupItem value="specialist" className="px-3 rounded-r text-sm">Specialist</ToggleGroupItem>
-            </ToggleGroup>
-          </div>
-        </div>
+          />
+        )}
       </div>
 
       <div className="rounded-lg border bg-card sm:rounded-lg sm:border sm:bg-card -mx-4 sm:mx-0">

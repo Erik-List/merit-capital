@@ -1,16 +1,16 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 import { NavBar } from '@/components/nav-bar';
 import { Analytics } from '@vercel/analytics/react';
 
-const inter = Inter({ subsets: ['latin'] });
+// Simple flag for dark mode
+const FORCE_DARK_MODE = true;
 
 export const metadata: Metadata = {
-  title: 'ranked capital | Transparent Investor Rankings',
-  description: 'Discover and rate investors based on founder experiences.',
+  title: 'Merit Capital | Transparent Investor Rankings',
+  description: 'Discover the real merit of investors.',
 };
 
 export default function RootLayout({
@@ -20,8 +20,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="light">
+      <body>
+        <ThemeProvider 
+          attribute="class" 
+          defaultTheme={FORCE_DARK_MODE ? "dark" : "light"}
+          forcedTheme={FORCE_DARK_MODE ? "dark" : undefined}
+        >
           {/* NavBar temporarily disabled during idea validation phase */}
           {/* <NavBar /> */}
           {children}

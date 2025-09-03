@@ -191,7 +191,24 @@ function InvestorCard({ investor }: InvestorCardProps) {
 
 export default function InvestorSections() {
   return (
-    <section id="investors" className="py-12 space-y-16">
+    <section 
+      id="investors" 
+      className="py-12 space-y-16"
+      style={{ scrollMarginTop: 'calc(var(--nav-height) + 8px)' }}
+    >
+      {/* Section Heading */}
+      <motion.div 
+        className="text-center"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <h2 className="text-2xl md:text-3xl font-semibold">
+          Get a transparent view of Investors.
+        </h2>
+      </motion.div>
+
       {/* Institutional Investors */}
       <motion.div 
         className="space-y-8"
