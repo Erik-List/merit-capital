@@ -292,7 +292,7 @@ export function LeaderboardTable({ initialInvestors }: LeaderboardTableProps) {
         </div>
       </div>
 
-      <div className="rounded-lg border bg-card">
+      <div className="rounded-lg border bg-card antialiased-borders">
         <Table>
           <TableHeader>
             <TableRow>
@@ -333,7 +333,12 @@ export function LeaderboardTable({ initialInvestors }: LeaderboardTableProps) {
                         <img
                           src={investor.logo_url}
                           alt={investor.name}
-                          className="w-8 h-8 rounded-full"
+                          className="w-8 h-8 rounded-full antialiased"
+                          style={{ 
+                            imageRendering: 'auto',
+                            transform: 'translateZ(0)',
+                            backfaceVisibility: 'hidden'
+                          }}
                         />
                       )}
                       <span className="font-medium">{investor.name}</span>

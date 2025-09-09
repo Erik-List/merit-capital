@@ -84,3 +84,32 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Fix for pixelated borders and anti-aliasing issues */
+@layer utilities {
+  .antialiased-borders {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+  
+  .sharp-borders {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+  
+  .smooth-borders {
+    image-rendering: auto;
+    image-rendering: smooth;
+  }
+  
+  /* Prevent subpixel rendering issues on rounded elements */
+  .rounded-full,
+  .rounded-lg,
+  .rounded-md,
+  .rounded-sm {
+    transform: translateZ(0);
+    will-change: auto;
+  }
+}
