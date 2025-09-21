@@ -115,3 +115,4 @@ export {
   TableCell,
   TableCaption,
 };
+export type TableCellProps = React.TdHTMLAttributes<HTMLTableCellElement>;

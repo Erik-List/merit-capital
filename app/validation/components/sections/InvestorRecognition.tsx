@@ -36,7 +36,6 @@ export default function InvestorRecognition() {
     <section 
       id="awards" 
       className="py-12"
-      style={{ scrollMarginTop: 'calc(var(--nav-height) + 8px)' }}
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}

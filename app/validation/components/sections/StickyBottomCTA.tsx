@@ -39,7 +39,6 @@ export default function StickyBottomCTA() {
     <div 
       id="cta-validation"
       className="fixed bottom-0 left-0 right-0 z-40"
-      style={{ scrollMarginTop: 'calc(var(--nav-height) + 8px)' }}
     >
       <Collapsible.Root open={isExpanded} onOpenChange={setIsExpanded}>
       {/* Expanded Content */}

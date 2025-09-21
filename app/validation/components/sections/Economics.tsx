@@ -11,7 +11,6 @@ export default function Economics() {
     <section 
       id="economics" 
       className="py-12"
-      style={{ scrollMarginTop: 'calc(var(--nav-height) + 8px)' }}
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}

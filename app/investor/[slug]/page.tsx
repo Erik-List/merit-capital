@@ -143,23 +143,37 @@ export default async function InvestorProfilePage({ params }: InvestorPageParams
                     <p className="text-muted-foreground mt-2">{investor.investment_concept}</p>
                   </div>
 
-                  {investor.investment_focus && (
-                    <div>
-                      <h3 className="font-semibold mb-2">Investment Focus</h3>
-                      <div className="flex flex-wrap gap-2">
-                        {(investor.investment_focus as string[]).map((focus) => (
-                          <Badge key={focus} variant="secondary">
-                            {focus}
-                          </Badge>
-                        ))}
+                  {(() => {
+                    const scope: any = investor.investment_scope;
+                    let focusArr: string[] = [];
+                    if (scope && typeof scope === 'object' && Array.isArray(scope.focus)) {
+                      focusArr = scope.focus.filter((x: any) => typeof x === 'string');
+                    } else if (Array.isArray(investor.investment_focus)) {
+                      focusArr = (investor.investment_focus as any[]).filter(x => typeof x === 'string') as string[];
+                    }
+                    if (focusArr.length === 0) return null;
+                    return (
+                      <div>
+                        <h3 className="font-semibold mb-2">Investment Focus</h3>
+                        <div className="flex flex-wrap gap-2">
+                          {focusArr.map((focus) => (
+                            <Badge key={focus} variant="secondary">
+                              {focus}
+                            </Badge>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    );
+                  })()}
 
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <h3 className="font-semibold mb-2">Investment Stage</h3>
-                      <p className="text-muted-foreground">{investor.investment_stage}</p>
+                      <p className="text-muted-foreground">
+                        {Array.isArray(investor.investment_stage)
+                          ? (investor.investment_stage as any[]).join(', ')
+                          : String(investor.investment_stage || '')}
+                      </p>
                     </div>
                     <div>
                       <h3 className="font-semibold mb-2">Investment Style</h3>

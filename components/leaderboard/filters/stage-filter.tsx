@@ -25,7 +25,7 @@ function getButtonLabel(selected: StageLabel[]): string {
   if (selected.length === 0 || selected.length === ALL_OPTIONS.length) return 'All Stages';
   if (selected.length === 1) return selected[0];
   if (selected.length === 2) return `${selected[0]}, ${selected[1]}`;
-  return `${selected[0]} + ${selected.length - 1} more`;
+  return `${selected[0]} + ${selected.length - 1}`;
 }
 
 export function LeaderboardStageFilter({ value, onChange, disabled }: LeaderboardStageFilterProps) {
@@ -51,14 +51,14 @@ export function LeaderboardStageFilter({ value, onChange, disabled }: Leaderboar
   return (
     <DropdownMenu open={open} onOpenChange={setOpen} modal={false}>
       <DropdownMenuTrigger asChild disabled={disabled}>
-        <Button variant="outline" className="w-[200px] justify-between">
+        <Button variant="outline" className="w-[160px] justify-between">
           {label}
           <ChevronDown className="h-4 w-4 opacity-60" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="start"
-        className="w-[220px] bg-popover/80 backdrop-blur-md"
+        className="w-[160px] bg-popover/80 backdrop-blur-md"
         onPointerEnter={() => {
           if (closeTimerRef.current) {
             window.clearTimeout(closeTimerRef.current);
@@ -91,5 +91,6 @@ export function LeaderboardStageFilter({ value, onChange, disabled }: Leaderboar
     </DropdownMenu>
   );
 }
+
 
 

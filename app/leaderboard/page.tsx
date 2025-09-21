@@ -1,7 +1,7 @@
 import { createClient } from '@/utils/supabase/server';
 import { cookies } from 'next/headers';
 import type { Database } from '@/types/supabase';
-import { LeaderboardTable } from '@/components/leaderboard/leaderboard-table';
+import { LeaderboardTable } from '@/components/leaderboard/table';
 
 type Investor = Database['public']['Tables']['Investor']['Row'];
 

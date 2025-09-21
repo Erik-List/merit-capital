@@ -2,23 +2,27 @@
 
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { LeaderboardTable } from "@/components/leaderboard/leaderboard-table";
+import { LeaderboardTable } from "@/components/leaderboard/table";
 import { createClient } from "@/utils/supabase/client";
 import type { Database } from "@/types/supabase";
+import { Switch } from "@/components/ui/switch";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Info } from "lucide-react";
 
-type Investor = Database["public"]["Tables"]["Investor"]["Row"];
+type Investor = Database["public"]["Views"]["InvestorView"]["Row"];
 
 export default function HeroSection() {
   const [initialInvestors, setInitialInvestors] = useState<Investor[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isIndividual, setIsIndividual] = useState(false);
 
   useEffect(() => {
     const fetchInvestors = async () => {
       const supabase = createClient();
       try {
         const { data, error } = await supabase
-          .from("Investor")
-          .select()
+          .from("InvestorView")
+          .select("*")
           .eq("status", "APPROVED")
           .order("created_at", { ascending: false })
           .limit(50);
@@ -38,8 +42,7 @@ export default function HeroSection() {
   return (
     <section 
       id="leaderboard" 
-      className="pt-16 md:pt-20"
-      style={{ scrollMarginTop: 'calc(var(--nav-height) + 8px)' }}
+      className="pt-2 md:pt-2 min-h-[calc(100dvh-var(--nav-height))]"
     >
       <div className="space-y-12">
         <motion.div 
@@ -49,15 +52,55 @@ export default function HeroSection() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-            Who is a great Investor?
+            See who is a great Investor.
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground">
-            Founders score their captable investors.
+            Founders score their <u>captable</u> investors.
           </p>
+
+          <div className="flex flex-col items-center gap-1">
+            <div className="inline-flex items-center border rounded-full px-3 py-1 text-sm backdrop-blur-sm bg-background/50">
+              <Switch
+                className="scale-75"
+                checked={isIndividual}
+                onCheckedChange={setIsIndividual}
+                aria-label="Toggle investor type"
+              />
+              <div className="relative h-5">
+                <span className="block min-w-[140px]">
+                  {isIndividual ? "Individual Investors" : "Institutional Investors"}
+                </span>
+              </div>
+            </div>
+            <div className="text-xs text-muted-foreground flex items-center">
+              <span className="">invented data</span>
+              &nbsp;shown
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <button
+                      type="button"
+                      aria-label="What does this mean?"
+                      className="ml-1 inline-flex items-center"
+                    >
+                      <Info className="h-3.5 w-3.5 opacity-70" />
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    Data shown here is fabricated for demonstration and does not reflect real ratings.
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
+          </div>
         </motion.div>
 
         <div>
-            <LeaderboardTable initialInvestors={initialInvestors} showSearch={false} />
+            <LeaderboardTable 
+              initialInvestors={initialInvestors} 
+              showSearch={false} 
+              investorType={isIndividual ? 'Individual' : 'Institutional'}
+            />
         </div>
       </div>
     </section>

@@ -194,7 +194,6 @@ export default function InvestorSections() {
     <section 
       id="investors" 
       className="py-12 space-y-16"
-      style={{ scrollMarginTop: 'calc(var(--nav-height) + 8px)' }}
     >
       {/* Section Heading */}
       <motion.div 

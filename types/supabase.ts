@@ -7,13 +7,82 @@ export type Json =
   | Json[]
 
 export type Database = {
+  // Allows to automatically instantiate createClient with right options
+  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
+  __InternalSupabase: {
+    PostgrestVersion: "12.2.3 (519615d)"
+  }
   public: {
     Tables: {
-      Investor: {
+      IndividualInvestor: {
+        Row: {
+          affiliation: Json | null
+          investor_id: string
+        }
+        Insert: {
+          affiliation?: Json | null
+          investor_id: string
+        }
+        Update: {
+          affiliation?: Json | null
+          investor_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "IndividualInvestor_investor_id_fkey"
+            columns: ["investor_id"]
+            isOneToOne: true
+            referencedRelation: "Investor"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "IndividualInvestor_investor_id_fkey"
+            columns: ["investor_id"]
+            isOneToOne: true
+            referencedRelation: "InvestorView"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      InstitutionalInvestor: {
         Row: {
           aum: string | null
-          created_at: string
           funds_info: Json | null
+          investor_id: string
+          partners: Json | null
+        }
+        Insert: {
+          aum?: string | null
+          funds_info?: Json | null
+          investor_id: string
+          partners?: Json | null
+        }
+        Update: {
+          aum?: string | null
+          funds_info?: Json | null
+          investor_id?: string
+          partners?: Json | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "InstitutionalInvestor_investor_id_fkey"
+            columns: ["investor_id"]
+            isOneToOne: true
+            referencedRelation: "Investor"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "InstitutionalInvestor_investor_id_fkey"
+            columns: ["investor_id"]
+            isOneToOne: true
+            referencedRelation: "InvestorView"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      Investor: {
+        Row: {
+          created_at: string
           history: string | null
           hq_location: string | null
           id: string
@@ -21,23 +90,20 @@ export type Database = {
           investment_focus: Json | null
           investment_geo: Json | null
           investment_range: Json | null
-          investment_scope: Database["public"]["Enums"]["InvestmentScope"] | null
-          investment_stage: string | null
+          investment_scope: Json | null
+          investment_stage: Json | null
           investment_style: string | null
-          investor_type: string | null
+          investor_type: Database["public"]["Enums"]["InvestorType"]
           logo_url: string | null
           name: string
           notable_investments: Json | null
           other_locations: Json | null
-          partners: Json | null
           slug: string
           status: Database["public"]["Enums"]["ApprovalStatus"]
           updated_at: string
         }
         Insert: {
-          aum?: string | null
           created_at?: string
-          funds_info?: Json | null
           history?: string | null
           hq_location?: string | null
           id: string
@@ -45,23 +111,20 @@ export type Database = {
           investment_focus?: Json | null
           investment_geo?: Json | null
           investment_range?: Json | null
-          investment_scope?: Database["public"]["Enums"]["InvestmentScope"] | null
-          investment_stage?: string | null
+          investment_scope?: Json | null
+          investment_stage?: Json | null
           investment_style?: string | null
-          investor_type?: string | null
+          investor_type?: Database["public"]["Enums"]["InvestorType"]
           logo_url?: string | null
           name: string
           notable_investments?: Json | null
           other_locations?: Json | null
-          partners?: Json | null
           slug: string
           status?: Database["public"]["Enums"]["ApprovalStatus"]
           updated_at: string
         }
         Update: {
-          aum?: string | null
           created_at?: string
-          funds_info?: Json | null
           history?: string | null
           hq_location?: string | null
           id?: string
@@ -69,15 +132,14 @@ export type Database = {
           investment_focus?: Json | null
           investment_geo?: Json | null
           investment_range?: Json | null
-          investment_scope?: Database["public"]["Enums"]["InvestmentScope"] | null
-          investment_stage?: string | null
+          investment_scope?: Json | null
+          investment_stage?: Json | null
           investment_style?: string | null
-          investor_type?: string | null
+          investor_type?: Database["public"]["Enums"]["InvestorType"]
           logo_url?: string | null
           name?: string
           notable_investments?: Json | null
           other_locations?: Json | null
-          partners?: Json | null
           slug?: string
           status?: Database["public"]["Enums"]["ApprovalStatus"]
           updated_at?: string
@@ -136,6 +198,13 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
+            foreignKeyName: "Rating_investor_id_fkey"
+            columns: ["investor_id"]
+            isOneToOne: false
+            referencedRelation: "InvestorView"
+            referencedColumns: ["id"]
+          },
+          {
             foreignKeyName: "Rating_user_id_fkey"
             columns: ["user_id"]
             isOneToOne: false
@@ -167,14 +236,41 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      InvestorView: {
+        Row: {
+          affiliation: Json | null
+          aum: string | null
+          created_at: string | null
+          funds_info: Json | null
+          history: string | null
+          hq_location: string | null
+          id: string | null
+          investment_concept: string | null
+          investment_focus: Json | null
+          investment_geo: Json | null
+          investment_range: Json | null
+          investment_scope: Json | null
+          investment_stage: Json | null
+          investment_style: string | null
+          investor_type: Database["public"]["Enums"]["InvestorType"] | null
+          logo_url: string | null
+          name: string | null
+          notable_investments: Json | null
+          other_locations: Json | null
+          partners: Json | null
+          slug: string | null
+          status: Database["public"]["Enums"]["ApprovalStatus"] | null
+          updated_at: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       [_ in never]: never
     }
     Enums: {
       ApprovalStatus: "PENDING_APPROVAL" | "APPROVED" | "REJECTED"
-      InvestmentScope: "GENERALIST" | "SPECIALIST"
+      InvestorType: "Institutional" | "Individual"
       RatingType: "NEW" | "UPDATE" | "DELETION"
     }
     CompositeTypes: {
@@ -183,27 +279,33 @@ export type Database = {
   }
 }
 
-type PublicSchema = Database[Extract<keyof Database, "public">]
+type DatabaseWithoutInternals = Omit<Database, "__InternalSupabase">
+
+type DefaultSchema = DatabaseWithoutInternals[Extract<keyof Database, "public">]
 
 export type Tables<
-  PublicTableNameOrOptions extends
-    | keyof (PublicSchema["Tables"] & PublicSchema["Views"])
-    | { schema: keyof Database },
-  TableName extends PublicTableNameOrOptions extends { schema: keyof Database }
-    ? keyof (Database[PublicTableNameOrOptions["schema"]]["Tables"] &
-        Database[PublicTableNameOrOptions["schema"]]["Views"])
+  DefaultSchemaTableNameOrOptions extends
+    | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
+    | { schema: keyof DatabaseWithoutInternals },
+  TableName extends DefaultSchemaTableNameOrOptions extends {
+    schema: keyof DatabaseWithoutInternals
+  }
+    ? keyof (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
+        DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
     : never = never,
-> = PublicTableNameOrOptions extends { schema: keyof Database }
-  ? (Database[PublicTableNameOrOptions["schema"]]["Tables"] &
-      Database[PublicTableNameOrOptions["schema"]]["Views"])[TableName] extends {
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
+      DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])[TableName] extends {
       Row: infer R
     }
     ? R
     : never
-  : PublicTableNameOrOptions extends keyof (PublicSchema["Tables"] &
-        PublicSchema["Views"])
-    ? (PublicSchema["Tables"] &
-        PublicSchema["Views"])[PublicTableNameOrOptions] extends {
+  : DefaultSchemaTableNameOrOptions extends keyof (DefaultSchema["Tables"] &
+        DefaultSchema["Views"])
+    ? (DefaultSchema["Tables"] &
+        DefaultSchema["Views"])[DefaultSchemaTableNameOrOptions] extends {
         Row: infer R
       }
       ? R
@@ -211,20 +313,24 @@ export type Tables<
     : never
 
 export type TablesInsert<
-  PublicTableNameOrOptions extends
-    | keyof PublicSchema["Tables"]
-    | { schema: keyof Database },
-  TableName extends PublicTableNameOrOptions extends { schema: keyof Database }
-    ? keyof Database[PublicTableNameOrOptions["schema"]]["Tables"]
+  DefaultSchemaTableNameOrOptions extends
+    | keyof DefaultSchema["Tables"]
+    | { schema: keyof DatabaseWithoutInternals },
+  TableName extends DefaultSchemaTableNameOrOptions extends {
+    schema: keyof DatabaseWithoutInternals
+  }
+    ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
     : never = never,
-> = PublicTableNameOrOptions extends { schema: keyof Database }
-  ? Database[PublicTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
       Insert: infer I
     }
     ? I
     : never
-  : PublicTableNameOrOptions extends keyof PublicSchema["Tables"]
-    ? PublicSchema["Tables"][PublicTableNameOrOptions] extends {
+  : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"]
+    ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
         Insert: infer I
       }
       ? I
@@ -232,20 +338,24 @@ export type TablesInsert<
     : never
 
 export type TablesUpdate<
-  PublicTableNameOrOptions extends
-    | keyof PublicSchema["Tables"]
-    | { schema: keyof Database },
-  TableName extends PublicTableNameOrOptions extends { schema: keyof Database }
-    ? keyof Database[PublicTableNameOrOptions["schema"]]["Tables"]
+  DefaultSchemaTableNameOrOptions extends
+    | keyof DefaultSchema["Tables"]
+    | { schema: keyof DatabaseWithoutInternals },
+  TableName extends DefaultSchemaTableNameOrOptions extends {
+    schema: keyof DatabaseWithoutInternals
+  }
+    ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
     : never = never,
-> = PublicTableNameOrOptions extends { schema: keyof Database }
-  ? Database[PublicTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
       Update: infer U
     }
     ? U
     : never
-  : PublicTableNameOrOptions extends keyof PublicSchema["Tables"]
-    ? PublicSchema["Tables"][PublicTableNameOrOptions] extends {
+  : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"]
+    ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
         Update: infer U
       }
       ? U
@@ -253,29 +363,45 @@ export type TablesUpdate<
     : never
 
 export type Enums<
-  PublicEnumNameOrOptions extends
-    | keyof PublicSchema["Enums"]
-    | { schema: keyof Database },
-  EnumName extends PublicEnumNameOrOptions extends { schema: keyof Database }
-    ? keyof Database[PublicEnumNameOrOptions["schema"]]["Enums"]
+  DefaultSchemaEnumNameOrOptions extends
+    | keyof DefaultSchema["Enums"]
+    | { schema: keyof DatabaseWithoutInternals },
+  EnumName extends DefaultSchemaEnumNameOrOptions extends {
+    schema: keyof DatabaseWithoutInternals
+  }
+    ? keyof DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
     : never = never,
-> = PublicEnumNameOrOptions extends { schema: keyof Database }
-  ? Database[PublicEnumNameOrOptions["schema"]]["Enums"][EnumName]
-  : PublicEnumNameOrOptions extends keyof PublicSchema["Enums"]
-    ? PublicSchema["Enums"][PublicEnumNameOrOptions]
+> = DefaultSchemaEnumNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"][EnumName]
+  : DefaultSchemaEnumNameOrOptions extends keyof DefaultSchema["Enums"]
+    ? DefaultSchema["Enums"][DefaultSchemaEnumNameOrOptions]
     : never
 
 export type CompositeTypes<
   PublicCompositeTypeNameOrOptions extends
-    | keyof PublicSchema["CompositeTypes"]
-    | { schema: keyof Database },
+    | keyof DefaultSchema["CompositeTypes"]
+    | { schema: keyof DatabaseWithoutInternals },
   CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
-    schema: keyof Database
+    schema: keyof DatabaseWithoutInternals
   }
-    ? keyof Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
+    ? keyof DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
     : never = never,
-> = PublicCompositeTypeNameOrOptions extends { schema: keyof Database }
-  ? Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
-  : PublicCompositeTypeNameOrOptions extends keyof PublicSchema["CompositeTypes"]
-    ? PublicSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
+> = PublicCompositeTypeNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
+  : PublicCompositeTypeNameOrOptions extends keyof DefaultSchema["CompositeTypes"]
+    ? DefaultSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
     : never
+
+export const Constants = {
+  public: {
+    Enums: {
+      ApprovalStatus: ["PENDING_APPROVAL", "APPROVED", "REJECTED"],
+      InvestorType: ["Institutional", "Individual"],
+      RatingType: ["NEW", "UPDATE", "DELETION"],
+    },
+  },
+} as const

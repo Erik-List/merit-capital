@@ -130,7 +130,6 @@ export default function RatingFormDemo() {
     <section 
       id="rating-demo" 
       className="py-12"
-      style={{ scrollMarginTop: 'calc(var(--nav-height) + 8px)' }}
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
