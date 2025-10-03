@@ -129,7 +129,7 @@ export function LeaderboardInvestmentSizeFilter({ value, onChange, disabled }: L
           <ChevronDown className="h-4 w-4 opacity-60" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent align="start" className="w-fit p-0 bg-popover/80 backdrop-blur-md">
+      <PopoverContent align="start" className="w-fit p-0">
         <div className="p-2 space-y-2">
           <div className="flex items-center">
             <Input
@@ -148,14 +148,14 @@ export function LeaderboardInvestmentSizeFilter({ value, onChange, disabled }: L
                   <ChevronDown className="h-4 w-4 opacity-60" />
                 </Button>
               </PopoverTrigger>
-              <PopoverContent align="start" className="w-fit p-1 bg-popover/80 backdrop-blur-md">
+              <PopoverContent align="start" className="w-fit p-1">
                 <div className="flex flex-col">
                   {(['K','M','B'] as const).map(u => (
                     <Button
                       key={u}
                       variant={unit === u ? 'default' : 'ghost'}
                       size="sm"
-                      className="justify-start"
+                      className="justify-center"
                       onClick={() => handleUnitChange(u)}
                     >
                       {u}

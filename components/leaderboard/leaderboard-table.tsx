@@ -29,6 +29,7 @@ import ScopeCell, { ScopeCellLoading, ScopeHeader } from '@/components/leaderboa
 import { NameHeader } from '@/components/leaderboard/cells/name-cell';
 import { RatingHeader } from '@/components/leaderboard/cells/rating-cell';
 import { RankHeader } from '@/components/leaderboard/cells/rank-cell';
+import TrackRecordCell, { TrackRecordCellLoading, TrackRecordHeader } from '@/components/leaderboard/cells/track-record-cell';
 import { LeaderboardSearch } from '@/components/leaderboard/search';
 import { LeaderboardFilter } from '@/components/leaderboard/filter';
 import { LeaderboardStageFilter, type StageLabel } from '@/components/leaderboard/filters/stage-filter';
@@ -594,6 +595,7 @@ export function LeaderboardTable({ initialInvestors, showSearch = true, showFilt
   // Always render filters on mount; keep them disabled while options load
 
   return (
+    <TooltipProvider>
     <div>
       <div className="grid gap-6 mb-8">
         {showSearch && (
@@ -632,7 +634,7 @@ export function LeaderboardTable({ initialInvestors, showSearch = true, showFilt
         )}
       </div>
 
-      <div className="rounded-lg border bg-card -mx-4 sm:mx-0">
+      <div className="rounded-lg glass border border-input/30 -mx-4 sm:mx-0">
         {(isLoading || isLoadingOptions) ? (
           <>
             {/* Loading table with fixed layout and colgroup */}
@@ -643,6 +645,7 @@ export function LeaderboardTable({ initialInvestors, showSearch = true, showFilt
                   <RankHeader className="whitespace-nowrap" />
                   <NameHeader className="whitespace-nowrap" />
                   <RatingHeader className="whitespace-nowrap" />
+                  <TrackRecordHeader className="whitespace-nowrap" />
                   <GeographyHeader className="whitespace-nowrap" />
                   <StageHeader className="whitespace-nowrap" />
                   <RangeHeader className="whitespace-nowrap" />
@@ -651,10 +654,11 @@ export function LeaderboardTable({ initialInvestors, showSearch = true, showFilt
               </TableHeader>
               <TableBody>
                 {[...Array(5)].map((_, i) => (
-                  <TableRow key={`desktop-${i}`}>
+                  <TableRow key={`desktop-${i}`} className="border-input/30">
                     <RankCellLoading />
                     <NameCellLoading />
                     <RatingCellLoading />
+                    <TrackRecordCellLoading />
                     <GeographyCellLoading />
                     <StageCellLoading />
                     <RangeCellLoading />
@@ -673,6 +677,7 @@ export function LeaderboardTable({ initialInvestors, showSearch = true, showFilt
               <RankHeader className="whitespace-nowrap" />
               <NameHeader className="whitespace-nowrap" />
               <RatingHeader className="whitespace-nowrap" />
+              <TrackRecordHeader className="whitespace-nowrap" />
               <GeographyHeader className="whitespace-nowrap" />
               <StageHeader className="whitespace-nowrap" />
               <RangeHeader className="whitespace-nowrap" />
@@ -683,8 +688,8 @@ export function LeaderboardTable({ initialInvestors, showSearch = true, showFilt
               <TableBody>
                 {/* Desktop View */}
                 {investors.length === 0 ? (
-                  <TableRow>
-                    <TableCell colSpan={7} className="h-48 text-center align-middle">
+                  <TableRow className="border-input/30">
+                    <TableCell colSpan={8} className="h-48 text-center align-middle">
                       <div className="flex h-full flex-col items-center justify-center gap-2">
                         <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-muted/60">
                           <Filter className="h-5 w-5 text-muted-foreground" />
@@ -705,10 +710,14 @@ export function LeaderboardTable({ initialInvestors, showSearch = true, showFilt
                   const trend = computeRowTrend(investor, startIndex + index);
                   
                   return (
-                    <TableRow key={`desktop-${investor.id}-${investorType}`}>
+                    <TableRow key={`desktop-${investor.id}-${investorType}`} className="border-input/30">
                       <RankCell rank={rank} trend={trend} className="font-medium pr-0" />
                       <NameCell name={investor.name!} logoUrl={investor.logo_url || undefined} kind={investorType} affiliation={investor.affiliation} />
                       <RatingCell slug={investor.slug!} />
+                      {(() => {
+                        const tr = (investor as any).track_record as any;
+                        return <TrackRecordCell trackRecord={tr} />;
+                      })()}
                       {(() => {
                         const { core, other } = extractGeographies(investor.investment_geo);
                         return (
@@ -723,7 +732,8 @@ export function LeaderboardTable({ initialInvestors, showSearch = true, showFilt
                       })()}
                       {(() => {
                         const stagesArr = getStageStrings(investor.investment_stage);
-                        return <StageCell stages={stagesArr} />;
+                        const graduation = (investor as any).graduation_rate as any;
+                        return <StageCell stages={stagesArr} graduation={graduation} />;
                       })()}
                       <RangeCell range={investor.investment_range as any} />
                       {(() => {
@@ -742,7 +752,7 @@ export function LeaderboardTable({ initialInvestors, showSearch = true, showFilt
       </div>
       {/* Standalone Pagination Bar (not part of the table) */}
       <div className="mt-2 flex w-full justify-center">
-        <Pagination className="w-auto mx-0 justify-center bg-background/80 backdrop-blur-md rounded-md shadow-sm text-xs">
+        <Pagination className="w-auto mx-0 justify-center text-xs">
           <PaginationContent>
             {page > 1 && (
               <PaginationItem>
@@ -769,5 +779,6 @@ export function LeaderboardTable({ initialInvestors, showSearch = true, showFilt
         </Pagination>
       </div>
     </div>
+    </TooltipProvider>
   );
 } 

@@ -9,7 +9,7 @@ import { Analytics } from '@vercel/analytics/react';
 const FORCE_DARK_MODE = true;
 
 export const metadata: Metadata = {
-  title: 'Merit Capital | Transparent Investor Rankings',
+  title: 'Merit Capital',
   description: 'Discover the real merit of investors.',
 };
 

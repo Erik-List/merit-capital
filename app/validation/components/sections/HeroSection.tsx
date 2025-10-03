@@ -51,15 +51,15 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+          <h1 className="text-5xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             See who is a great Investor.
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground">
+          <p className="text-xl md:text-xl text-accent-foreground">
             Founders score their <u>captable</u> investors.
           </p>
 
           <div className="flex flex-col items-center gap-1">
-            <div className="inline-flex items-center border rounded-full px-3 py-1 text-sm backdrop-blur-sm bg-background/50">
+            <div className="inline-flex items-center rounded-full px-3 py-1 text-sm glass border border-input/30">
               <Switch
                 className="scale-75"
                 checked={isIndividual}

@@ -84,7 +84,7 @@ export function LeaderboardScopeFilter({ options, value, onChange, disabled }: L
           <ChevronDown className="h-4 w-4 opacity-60" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent align="start" className="w-fit p-0 bg-popover/80 backdrop-blur-md min-w-[var(--radix-popover-trigger-width)]">
+      <PopoverContent align="start" className="w-fit p-0 min-w-[var(--radix-popover-trigger-width)]">
         <Command shouldFilter={false}>
           <div className="flex items-center gap-2 p-2 border-b">
             <CommandInput

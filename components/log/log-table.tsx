@@ -54,7 +54,7 @@ function TableSkeleton() {
         <Skeleton className="h-10 w-[180px]" />
         <Skeleton className="h-10 w-[180px]" />
       </div>
-      <div className="rounded-lg border bg-card">
+      <div className="rounded-lg border border-input border-opacity-70 bg-gray-300/20 backdrop-blur-md">
         <Table>
           <TableHeader>
             <TableRow>
@@ -213,7 +213,7 @@ export function LogTable({ initialLogs }: LogTableProps) {
         </Select>
       </div>
 
-      <div className="rounded-lg border bg-card">
+      <div className="rounded-lg border border-input border-opacity-70 bg-gray-300/20 backdrop-blur-md">
         <Table>
           <TableHeader>
             <TableRow>

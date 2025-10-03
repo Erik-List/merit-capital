@@ -52,7 +52,7 @@ export default function StickyBottomCTA() {
                 duration: 0.6, 
                 ease: [0.04, 0.62, 0.23, 0.98] // Custom easing curve for natural feel
               }}
-              className="bg-card border-t shadow-lg overflow-hidden"
+              className="border-t border-input border-opacity-70 bg-gray-300/20 backdrop-blur-md shadow-lg overflow-hidden"
       >
         <div className="container mx-auto p-4 md:p-6 max-w-3xl">
                 <AnimatePresence mode="wait">

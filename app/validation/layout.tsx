@@ -1,28 +1,14 @@
 import type { ReactNode } from "react";
-import Image from "next/image";
+import ValidationBackgroundShell from "@/app/validation/components/ValidationBackgroundShell";
+
+// Toggle this flag to enable/disable validation backgrounds
+const ENABLE_VALIDATION_BACKGROUND = true;
 
 export default function ValidationLayout({ children }: { children: ReactNode }) {
   return (
-    <>
-      {/* Fixed, route-scoped background behind everything */}
-      <div aria-hidden className="fixed inset-0 z-0 pointer-events-none select-none">
-        <Image
-          src="/backgrounds/validation/bg-validation-lake-mountains-3840x2160.jpg"
-          alt=""
-          priority
-          unoptimized
-          fill
-          sizes="100vw"
-          className="object-cover"
-          quality={100}
-        />
-      </div>
-
-      {/* Foreground content */}
-      <div className="relative z-10">
-        {children}
-      </div>
-    </>
+    <ValidationBackgroundShell enabled={ENABLE_VALIDATION_BACKGROUND}>
+      {children}
+    </ValidationBackgroundShell>
   );
 }
 

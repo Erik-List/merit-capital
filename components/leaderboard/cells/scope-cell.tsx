@@ -14,7 +14,7 @@ export function ScopeCellContent({ type, focus }: ScopeCellProps) {
   const remaining = focus.slice(1);
   if (type === 'Generalist') {
     return (
-      <div className="flex flex-col gap-0.5 min-w-0">
+      <div className="flex flex-col min-w-0">
         <span className="text-sm">Generalist</span>
         <div className="text-xs text-muted-foreground min-w-0">
           <span className="align-middle">Focus: </span>

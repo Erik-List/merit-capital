@@ -104,8 +104,12 @@ export function NavBar({ onReplayIntro }: NavBarProps) {
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full border-b backdrop-blur-md bg-background/95">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between h-[65px]">
+      <header className="sticky top-0 z-40 w-full border-b border-input/30 isolate relative">
+        {/* Blur blanket covering overscroll area above the navbar */}
+        <div className="pointer-events-none absolute inset-x-0 top-[-2000px] h-[calc(2000px+var(--nav-height)+1px)] glass-strong" />
+        
+        {/* Navbar content */}
+        <div className="relative z-10 container mx-auto px-4 py-4 flex items-center justify-between h-[65px]">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-1">
             <Image src="/icon.svg" alt="Merit Capital Logo" width={36} height={36} className="h-9 w-9" />
@@ -122,7 +126,7 @@ export function NavBar({ onReplayIntro }: NavBarProps) {
                   className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
                     isActive('/leaderboard') 
                       ? 'text-foreground font-medium bg-accent' 
-                      : 'text-muted-foreground hover:text-foreground hover:bg-accent/50'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-accent/10'
                   }`}
                 >
                   <span>Leaderboard</span>
@@ -132,7 +136,7 @@ export function NavBar({ onReplayIntro }: NavBarProps) {
                   className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
                     isActive('/logs') 
                       ? 'text-foreground font-medium bg-accent' 
-                      : 'text-muted-foreground hover:text-foreground hover:bg-accent/50'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-accent/10'
                   }`}
                 >
                   <span>Logs</span>
@@ -161,7 +165,7 @@ export function NavBar({ onReplayIntro }: NavBarProps) {
                   <DropdownMenuTrigger asChild>
                     <Button 
                       variant="ghost" 
-                      className="text-sm flex items-center gap-1 px-3 py-2 h-9 hover:bg-accent/50 transition-colors"
+                      className="text-sm flex items-center gap-1 px-3 py-2 h-9 hover:bg-accent/10 transition-colors"
                     >
                       Sections
                     </Button>
@@ -169,7 +173,7 @@ export function NavBar({ onReplayIntro }: NavBarProps) {
                   <DropdownMenuContent 
                     align="center" 
                     side="bottom"
-                    className="w-64 p-2 backdrop-blur-lg"
+                    className="w-64 p-2 glass-strong"
                     sideOffset={8}
                   >
                     <div className="grid grid-cols-1 gap-1">
@@ -211,7 +215,7 @@ export function NavBar({ onReplayIntro }: NavBarProps) {
                 variant="outline"
                 size="sm"
                 onClick={handleSupportNow}
-                className="text-xs px-3 py-1.5 h-8 bg-white/20"
+                className="text-xs px-3 py-1.5 h-8 glass"
               >
                 Support Now
               </Button>
@@ -221,7 +225,7 @@ export function NavBar({ onReplayIntro }: NavBarProps) {
             <Button 
               variant="outline" 
               size="icon" 
-              className="h-8 w-8 bg-white/20"
+              className="h-8 w-8 glass"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu-overlay"

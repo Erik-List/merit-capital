@@ -69,8 +69,8 @@ export default function LandingPage() {
       {/* Main Content */}
       <main className="container mx-auto px-4 space-y-24 py-8 md:py-16">
         <HeroSection />
-        <InvestorSections />
         <RatingFormDemo />
+        <InvestorSections />
         <Trust />
         <InvestorRecognition />
         <Economics />

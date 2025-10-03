@@ -58,7 +58,7 @@ export function LeaderboardStageFilter({ value, onChange, disabled }: Leaderboar
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="start"
-        className="w-[160px] bg-popover/80 backdrop-blur-md"
+        className="w-[160px]"
         onPointerEnter={() => {
           if (closeTimerRef.current) {
             window.clearTimeout(closeTimerRef.current);

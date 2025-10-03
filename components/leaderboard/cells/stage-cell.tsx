@@ -3,6 +3,9 @@
 import * as React from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { TableCell, type TableCellProps, TableHead } from '@/components/ui/table';
+import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Info } from 'lucide-react';
 
 const CANONICAL_STAGES = [
   'Pre-Seed',
@@ -43,14 +46,58 @@ export function formatStageRangeLabel(stagesArr: string[]): string {
   return first === last ? first : `${first} – ${last}`;
 }
 
-export function StageCellContent({ stages }: { stages: string[] }) {
-  return <span>{formatStageRangeLabel(stages)}</span>;
+type SeedGraduation = { rate?: number; companies?: string[] };
+type GraduationRate = { seed_to_series_a?: SeedGraduation } | null | undefined;
+
+export function StageCellContent({ stages, graduation }: { stages: string[]; graduation?: GraduationRate }) {
+  const label = formatStageRangeLabel(stages);
+  const hasSeed = stages.some(s => String(s).toLowerCase() === 'seed');
+  const s2a = graduation && typeof graduation === 'object' && (graduation as any).seed_to_series_a
+    ? (graduation as any).seed_to_series_a as SeedGraduation
+    : undefined;
+  const companies = Array.isArray(s2a?.companies)
+    ? (s2a!.companies as any[]).filter(x => typeof x === 'string') as string[]
+    : [];
+  const amount = companies.length;
+  const rate = typeof s2a?.rate === 'number' ? s2a!.rate : null;
+
+  return (
+    <div className="flex flex-col">
+      <span>{label}</span>
+      {hasSeed && rate !== null && (
+        <span className="text-xs text-muted-foreground">
+          Seed Graduation: {Math.round(rate)}%{' '}
+          {(
+            <Popover>
+              <PopoverTrigger asChild>
+                <span className="cursor-pointer">({amount})</span>
+              </PopoverTrigger>
+              <PopoverContent className="w-fit p-2 bg-background/80 backdrop-blur-md" side="top" align="center">
+                <div className="text-xs text-muted-foreground">
+                  {companies.join(', ') || 'No companies listed'}
+                </div>
+              </PopoverContent>
+            </Popover>
+          )}
+          {' '}
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Info className="inline h-3.5 w-3.5 text-muted-foreground cursor-pointer" aria-label="What is seed graduation" />
+            </TooltipTrigger>
+            <TooltipContent>
+              Share of Seed-backed companies that raised Series A
+            </TooltipContent>
+          </Tooltip>
+        </span>
+      )}
+    </div>
+  );
 }
 
-export default function StageCell({ stages, className, ...tdProps }: { stages: string[] } & TableCellProps) {
+export default function StageCell({ stages, graduation, className, ...tdProps }: { stages: string[]; graduation?: GraduationRate } & TableCellProps) {
   return (
     <TableCell className={className} {...tdProps}>
-      <StageCellContent stages={stages} />
+      <StageCellContent stages={stages} graduation={graduation} />
     </TableCell>
   );
 }

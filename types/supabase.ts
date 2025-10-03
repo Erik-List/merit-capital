@@ -83,6 +83,7 @@ export type Database = {
       Investor: {
         Row: {
           created_at: string
+          graduation_rate: Json | null
           history: string | null
           hq_location: string | null
           id: string
@@ -100,10 +101,12 @@ export type Database = {
           other_locations: Json | null
           slug: string
           status: Database["public"]["Enums"]["ApprovalStatus"]
+          track_record: Json | null
           updated_at: string
         }
         Insert: {
           created_at?: string
+          graduation_rate?: Json | null
           history?: string | null
           hq_location?: string | null
           id: string
@@ -121,10 +124,12 @@ export type Database = {
           other_locations?: Json | null
           slug: string
           status?: Database["public"]["Enums"]["ApprovalStatus"]
+          track_record?: Json | null
           updated_at: string
         }
         Update: {
           created_at?: string
+          graduation_rate?: Json | null
           history?: string | null
           hq_location?: string | null
           id?: string
@@ -142,6 +147,7 @@ export type Database = {
           other_locations?: Json | null
           slug?: string
           status?: Database["public"]["Enums"]["ApprovalStatus"]
+          track_record?: Json | null
           updated_at?: string
         }
         Relationships: []
@@ -242,6 +248,7 @@ export type Database = {
           aum: string | null
           created_at: string | null
           funds_info: Json | null
+          graduation_rate: Json | null
           history: string | null
           hq_location: string | null
           id: string | null
@@ -260,6 +267,7 @@ export type Database = {
           partners: Json | null
           slug: string | null
           status: Database["public"]["Enums"]["ApprovalStatus"] | null
+          track_record: Json | null
           updated_at: string | null
         }
         Relationships: []

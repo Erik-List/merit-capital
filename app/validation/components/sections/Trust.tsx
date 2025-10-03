@@ -70,7 +70,7 @@ export default function Trust() {
           </p>
         </div>
         
-        <div className="rounded-lg border bg-card shadow-sm">
+        <div className="rounded-lg border border-input border-opacity-70 bg-gray-300/20 backdrop-blur-md shadow-sm">
           <div className="p-6 space-y-6">
             <div className="flex items-center justify-between">
               <h3 className="text-xl font-semibold">Recent Activity</h3>

@@ -21,11 +21,11 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100% / 0.2;
+    --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
-    --card: 0 0% 100% / 0.2;
+    --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100% / 0.2;
+    --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
     --primary: 0 0% 9%;
     --primary-foreground: 0 0% 98%;
@@ -33,11 +33,11 @@
     --secondary-foreground: 0 0% 9%;
     --muted: 0 0% 96.1%;
     --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
+    --accent: 0 0% 100%;
     --accent-foreground: 0 0% 9%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
+    --border: 0 0% 89.8% / 0.6; /* semi-translucent border for glass surfaces */
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
     --chart-1: 12 76% 61%;
@@ -50,25 +50,25 @@
     --success-foreground: 0 0% 98%;
   }
   .dark {
-    --background: 0 0% 3.9% / 0.2;
+    --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 3.9% / 0.2;
+    --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9% / 0.2;
+    --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
     --primary: 0 0% 98%;
     --primary-foreground: 0 0% 9%;
     --secondary: 0 0% 14.9%;
     --secondary-foreground: 0 0% 98%;
     --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
+    --muted-foreground: 0 0% 92%;
+    --accent: 0 0% 100%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
+    --border: 0 0% 98% / 0.6; /* semi-translucent border in dark mode */
+    --input: 0 0% 98%;
+    --ring: 0 0% 98%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -115,6 +115,21 @@
 }
 
 @layer utilities {
+  /* Force ring offset that references background to be white (accent) */
+  .ring-offset-background {
+    --tw-ring-offset-color: hsl(var(--accent));
+  }
+  /* Subtle glow for accent-foreground text */
+  .text-accent-foreground {
+    text-shadow: 0 0 8px hsl(var(--accent-foreground) / 0.45);
+  }
+  /* Glass surface utilities: token-based, consistent across components */
+  .glass {
+    @apply bg-background/5 backdrop-blur-md;
+  }
+  .glass-strong {
+    @apply bg-background/5 backdrop-blur-lg;
+  }
   /* Utility for reduced-motion fallback transitions */
   .motion-safe {
     @media (prefers-reduced-motion: reduce) {
@@ -122,4 +137,31 @@
       animation: none !important;
     }
   }
+
+  /* Safari-specific: hard-map Tailwind backdrop blur scale to -webkit-backdrop-filter */
+  .backdrop-blur-none { -webkit-backdrop-filter: none; }
+  .backdrop-blur-sm { -webkit-backdrop-filter: blur(4px); }
+  .backdrop-blur { -webkit-backdrop-filter: blur(8px); }
+  .backdrop-blur-md { -webkit-backdrop-filter: blur(12px); }
+  .backdrop-blur-lg { -webkit-backdrop-filter: blur(16px); }
+  .backdrop-blur-xl { -webkit-backdrop-filter: blur(24px); }
+  .backdrop-blur-2xl { -webkit-backdrop-filter: blur(40px); }
+  .backdrop-blur-3xl { -webkit-backdrop-filter: blur(64px); }
+
+  /* Glassy scrollbar styling for command primitives (geography/scope/affiliation lists) */
+  [cmdk-list] { 
+    scrollbar-width: thin; 
+    scrollbar-color: hsl(var(--accent) / 0.25) hsl(var(--background) / 0.05);
+  }
+  [cmdk-list]::-webkit-scrollbar { width: 10px; }
+  [cmdk-list]::-webkit-scrollbar-track { 
+    background: hsl(var(--background) / 0.05);
+    border-radius: 9999px;
+  }
+  [cmdk-list]::-webkit-scrollbar-thumb { 
+    background: hsl(var(--accent) / 0.25);
+    border-radius: 9999px; 
+    border: 2px solid hsl(var(--background) / 0.05);
+  }
+
 }

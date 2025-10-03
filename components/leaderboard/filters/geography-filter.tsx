@@ -106,7 +106,7 @@ export function LeaderboardGeographyFilter({ geos, value, onChange, disabled }: 
           <ChevronDown className="h-4 w-4 opacity-60" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent align="start" className="w-[200px] p-0 bg-popover/80 backdrop-blur-md">
+      <PopoverContent align="start" className="w-[200px] p-0">
         <Command shouldFilter={false}>
           <div className="flex items-center gap-2 p-1 border-b">
             <CommandInput
