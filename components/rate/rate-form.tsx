@@ -123,7 +123,7 @@ export function RateForm() {
               {filteredInvestors.map((investor) => (
                 <div
                   key={investor.id}
-                  className={`flex items-center gap-3 p-3 rounded-lg hover:bg-accent cursor-pointer ${
+                  className={`flex items-center gap-3 p-3 rounded-lg hover:bg-accent/10 cursor-pointer ${
                     selectedInvestor?.id === investor.id ? 'bg-accent' : ''
                   }`}
                   onClick={() => {

@@ -1,16 +1,16 @@
 import { createClient } from '@/utils/supabase/server';
 import { cookies } from 'next/headers';
 import type { Database } from '@/types/supabase';
-import { LeaderboardTable } from '@/components/leaderboard/leaderboard-table';
+import { LeaderboardTable } from '@/components/leaderboard/table';
 
-type Investor = Database['public']['Tables']['Investor']['Row'];
+type Investor = Database['public']['Views']['InvestorView']['Row'];
 
 async function getInitialInvestors(): Promise<Investor[]> {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const supabase = createClient(cookieStore);
   
   const { data, error } = await supabase
-    .from('Investor')
+    .from('InvestorView')
     .select()
     .eq('status', 'APPROVED')
     .order('created_at', { ascending: false })
@@ -20,6 +20,7 @@ async function getInitialInvestors(): Promise<Investor[]> {
     console.error('Error fetching investors:', error);
     return [];
   }
+
 
   return data || [];
 }

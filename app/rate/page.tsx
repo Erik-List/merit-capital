@@ -5,7 +5,7 @@ import { cookies } from 'next/headers'
 
 export default async function RatePage() {
   // Check auth state server-side
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
   const supabase = createClient(cookieStore)
   const { data: { user } } = await supabase.auth.getUser()
   

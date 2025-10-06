@@ -13,7 +13,7 @@ export async function AuthCard({
   isLoading = false,
   ...props 
 }: AuthCardProps) {
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
   const supabase = createClient(cookieStore)
   const { data: { user } } = await supabase.auth.getUser()
   
