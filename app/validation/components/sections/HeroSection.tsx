@@ -44,7 +44,7 @@ export default function HeroSection() {
       id="leaderboard" 
       className="pt-2 md:pt-2 min-h-[calc(100dvh-var(--nav-height))]"
     >
-      <div className="space-y-12">
+      <div className="space-y-12 glass border border-input/30 rounded-3xl shadow-lg p-6">
         <motion.div 
           className="space-y-4 text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -52,10 +52,10 @@ export default function HeroSection() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <h1 className="text-5xl md:text-4xl lg:text-5xl font-bold tracking-tight">
-            See who is a great Investor.
+            Discover the real merit of Venture Investors.
           </h1>
           <p className="text-xl md:text-xl text-accent-foreground">
-            Founders score their <u>captable</u> investors.
+          Investor intelligence as public infrastructure that is accessible, neutral, and useful.
           </p>
 
           <div className="flex flex-col items-center gap-1">
