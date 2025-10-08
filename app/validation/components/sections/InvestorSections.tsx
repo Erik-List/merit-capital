@@ -193,52 +193,54 @@ export default function InvestorSections() {
   return (
     <section 
       id="investors" 
-      className="py-12 space-y-16"
+      className="py-12"
     >
-      {/* Section Heading */}
-      <motion.div 
-        className="text-center"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true, margin: "-100px" }}
-      >
-        <h2 className="text-2xl md:text-3xl font-semibold">
-          Get a transparent view of Investors.
-        </h2>
-      </motion.div>
+      <div className="glass border border-input/30 rounded-3xl shadow-lg p-8 space-y-16">
+        {/* Section Heading */}
+        <motion.div 
+          className="text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <h2 className="text-2xl md:text-3xl font-semibold">
+            Get a transparent view of Investors.
+          </h2>
+        </motion.div>
 
-      {/* Institutional Investors */}
-      <motion.div 
-        className="space-y-8"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true, margin: "-100px" }}
-      >
-        <h2 className="text-3xl font-semibold">Institutional Investors</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {institutionalInvestors.map((investor) => (
-            <InvestorCard key={investor.id} investor={investor} />
-          ))}
-        </div>
-      </motion.div>
+        {/* Institutional Investors */}
+        <motion.div 
+          className="space-y-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <h2 className="text-3xl font-semibold">Institutional Investors</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {institutionalInvestors.map((investor) => (
+              <InvestorCard key={investor.id} investor={investor} />
+            ))}
+          </div>
+        </motion.div>
 
-      {/* Individual Investors */}
-      <motion.div 
-        className="space-y-8"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true, margin: "-100px" }}
-      >
-        <h2 className="text-3xl font-semibold">Individual Investors</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {individualInvestors.map((investor) => (
-            <InvestorCard key={investor.id} investor={investor} />
-          ))}
-        </div>
-      </motion.div>
+        {/* Individual Investors */}
+        <motion.div 
+          className="space-y-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <h2 className="text-3xl font-semibold">Individual Investors</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {individualInvestors.map((investor) => (
+              <InvestorCard key={investor.id} investor={investor} />
+            ))}
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 } 

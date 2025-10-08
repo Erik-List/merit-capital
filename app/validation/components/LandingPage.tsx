@@ -7,12 +7,13 @@ import CinematicIntro from "@/app/validation/components/sections/CinematicIntro"
 import { NavBar } from "@/components/nav-bar";
 import HeroSection from "@/app/validation/components/sections/HeroSection";
 import InvestorSections from "@/app/validation/components/sections/InvestorSections";
-import RatingFormDemo from "@/app/validation/components/sections/RatingFormDemo";
+import RatingSection from "@/app/validation/components/sections/RatingSection";
 import StickyBottomCTA from "@/app/validation/components/sections/StickyBottomCTA";
 import InvestorRecognition from "@/app/validation/components/sections/InvestorRecognition";
 import Trust from "@/app/validation/components/sections/Trust";
 import Economics from "@/app/validation/components/sections/Economics";
 import Supporters from "@/app/validation/components/sections/Supporters";
+import { Separator } from "@/components/ui/separator";
 
 export default function LandingPage() {
   const [introCompleted, setIntroCompleted] = useState(false);
@@ -69,11 +70,15 @@ export default function LandingPage() {
       {/* Main Content */}
       <main className="container mx-auto px-4 space-y-24 py-8 md:py-16">
         <HeroSection />
-        <RatingFormDemo />
+        <Separator />
+        <RatingSection />
+        <Separator />
         <InvestorSections />
-        <Trust />
+        <Separator />
         <InvestorRecognition />
+        <Separator />
         <Economics />
+        <Separator />
         <Supporters />
       </main>
 
