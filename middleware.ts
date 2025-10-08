@@ -6,6 +6,8 @@ const IDEA_VALIDATION_ENABLED = true // You can toggle this with an environment 
 const PUBLIC_PATHS = [
   '/investor',
   '/validation',
+  '/economic-estimates',
+  '/internal',
   '/_next',
   '/api',
   '/static',
