@@ -1,3 +1,15 @@
+## Environment variables for Economics CTAs
+
+Set the following optional variables to wire donation and DM links:
+
+```
+NEXT_PUBLIC_DONATION_URL=https://buy.stripe.com/your-link
+NEXT_PUBLIC_DM_X_URL=https://x.com/your-handle
+NEXT_PUBLIC_DM_LINKEDIN_URL=https://www.linkedin.com/in/your-handle
+```
+
+If unset, buttons will render with placeholder destinations.
+
 # Ranked Capital
 
 A platform for transparent investor rankings based on founder experiences. Built with Next.js, Tailwind CSS, and Supabase.

@@ -70,8 +70,7 @@ export default function Trust() {
           </p>
         </div>
         
-        <div className="rounded-lg border border-input border-opacity-70 bg-gray-300/20 backdrop-blur-md shadow-sm">
-          <div className="p-6 space-y-6">
+        <div className="glass border border-input/30 rounded-3xl shadow-lg p-6 space-y-6">
             <div className="flex items-center justify-between">
               <h3 className="text-xl font-semibold">Recent Activity</h3>
               <Button variant="outline">View All Logs</Button>
@@ -107,7 +106,6 @@ export default function Trust() {
                 <strong>Note:</strong> Founder identities are always kept anonymous. Investors never see who rated them, only aggregated scores and anonymized feedback.
               </p>
             </div>
-          </div>
         </div>
       </motion.div>
     </section>
