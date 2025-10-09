@@ -2,9 +2,9 @@
 
 import { useCallback, useEffect, useState } from "react";
 import type { ReactNode } from "react";
-import BackgroundRotator from "@/app/validation/components/BackgroundRotator";
+import BackgroundRotator from "@/components/background/BackgroundRotator";
 
-export default function ValidationBackgroundShell({ enabled = true, children }: { enabled?: boolean; children: ReactNode }) {
+export default function BackgroundShell({ enabled = true, children }: { enabled?: boolean; children: ReactNode }) {
   const [ready, setReady] = useState(!enabled);
   const handleReady = useCallback(() => setReady(true), []);
 
@@ -17,7 +17,7 @@ export default function ValidationBackgroundShell({ enabled = true, children }: 
 
   return (
     <>
-      {/* Fixed, route-scoped background behind everything */}
+      {/* Fixed background behind everything */}
       <div aria-hidden className="fixed inset-0 z-0 pointer-events-none select-none">
         <BackgroundRotator enabled={enabled} onReady={handleReady} />
       </div>
