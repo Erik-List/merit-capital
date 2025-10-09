@@ -27,16 +27,15 @@ export default function RatingSection() {
   const [isExpanded, setIsExpanded] = useState(false);
   const collapsedContentRef = useRef<HTMLDivElement | null>(null);
   const cardRef = useRef<HTMLDivElement | null>(null);
+  const hasUserTriggeredExpandRef = useRef(false);
 
   const handleCollapse = () => {
     setIsExpanded(false);
   };
 
   useEffect(() => {
-    if (isExpanded) {
+    if (isExpanded && hasUserTriggeredExpandRef.current) {
       cardRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-    } else {
-      collapsedContentRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   }, [isExpanded]);
 
@@ -48,7 +47,7 @@ export default function RatingSection() {
           <p className="text-xl text-accent-foreground">“Anonymously rate your captable investors in ~3 minutes.”</p>
           {!isExpanded && (
             <div>
-              <Button size="lg" onClick={() => setIsExpanded(true)}>Start your demo rating</Button>
+              <Button size="lg" onClick={() => { hasUserTriggeredExpandRef.current = true; setIsExpanded(true); }}>Start your demo rating</Button>
             </div>
           )}
         </div>
