@@ -9,7 +9,7 @@ import HeroSection from "@/app/validation/components/sections/HeroSection";
 import InvestorSections from "@/app/validation/components/sections/InvestorSections";
 import RatingSection from "@/app/validation/components/sections/RatingSection";
 import StickyBottomCTA from "@/app/validation/components/sections/StickyBottomCTA";
-import InvestorRecognition from "@/app/validation/components/sections/InvestorRecognition";
+import Awards from "@/app/validation/components/sections/Awards";
 import Trust from "@/app/validation/components/sections/Trust";
 import Economics from "@/app/validation/components/sections/Economics";
 import Supporters from "@/app/validation/components/sections/Supporters";
@@ -75,7 +75,7 @@ export default function LandingPage() {
         <Separator />
         <InvestorSections />
         <Separator />
-        <InvestorRecognition />
+        <Awards />
         <Separator />
         <Economics />
         <Separator />

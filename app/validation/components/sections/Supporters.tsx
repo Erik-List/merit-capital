@@ -1,7 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
-import AcknowledgementsList from "@/components/support/AcknowledgementsList";
+import { useMemo, useState } from "react";
 import ValidatingSupportersList from "@/components/support/ValidatingSupportersList";
 import supportersData from "@/data/supporters.json";
 import { motion } from "framer-motion";
@@ -37,59 +36,94 @@ export default function Supporters() {
           {/* Heading like Economics */}
           <div className="space-y-4">
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
-              We have support from the venture ecosystem.
+              The Venture Ecosystem is behind Merit Capital.
             </h2>
-            <div className="space-y-2">
-
-              {/* Inline dropdown sub-HL for Acknowledgements */}
-              <Collapsible>
-                <CollapsibleTrigger asChild>
-                  <button className="text-sm md:text-base text-muted-foreground underline">Show early supporters</button>
-                </CollapsibleTrigger>
-                <CollapsibleContent className="mt-3">
-                  <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-                    {acknowledgements.map((p) => (
-                      <Card key={p.id} className="glass border border-input/30 p-3">
-                        <div className="flex flex-col">
-                          <span className="font-medium">{p.full_name}</span>
-                          {p.contribution ? (
-                            <span className="text-sm text-muted-foreground">{p.contribution}</span>
-                          ) : null}
-                        </div>
-                      </Card>
-                    ))}
-                  </div>
-                </CollapsibleContent>
-              </Collapsible>
-            </div>
+          <div className="space-y-2" />
           </div>
 
           {/* Validating supporters */}
           <Card className="glass border border-input/30">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-lg">Validating supporters</CardTitle>
-              <CardDescription>
-                Individuals who have declared support for Merit Capital
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <span className="inline-flex align-middle ml-2 text-muted-foreground">
-                        <Info className="h-4 w-4" />
-                      </span>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>Supporters completed the validation flow.</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              </CardDescription>
-            </CardHeader>
+          <CardHeader className="pb-2">
+            <div className="flex items-center gap-2">
+              <CardTitle className="text-lg">Supporters</CardTitle>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <span className="inline-flex align-middle text-muted-foreground">
+                      <Info className="h-4 w-4" />
+                    </span>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Individuals who opted in with their email to support Merit Capital</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
+          </CardHeader>
             <CardContent>
               <ValidatingSupportersList items={validations} defaultCount={10} />
             </CardContent>
           </Card>
+
+          {/* Inline dropdown sub-HL for Acknowledgements moved below */}
+          {(() => {
+            const [open, setOpen] = [undefined as any, undefined as any];
+            return null;
+          })()}
+
+          {(() => {
+            // Using component state to control Collapsible
+            return null;
+          })()}
+
+          <InlineAcknowledgements acknowledgements={acknowledgements} />
         </div>
       </motion.div>
     </section>
+  );
+}
+
+function InlineAcknowledgements({ acknowledgements }: { acknowledgements: { id: string; full_name: string; contribution?: string | null }[] }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <Collapsible open={open} onOpenChange={setOpen}>
+      <CollapsibleTrigger asChild>
+        <button className="text-sm text-muted-foreground underline">
+          {open ? "Close early supporters" : "See early supporters"}
+        </button>
+      </CollapsibleTrigger>
+      <CollapsibleContent className="mt-3">
+        {(() => {
+          // Split combined names like "Tom Amthauer & Karim Riese" into individual entries
+          const names: string[] = acknowledgements.flatMap((p) =>
+            p.full_name.includes("&") ? p.full_name.split("&").map((s) => s.trim()) : [p.full_name]
+          );
+          // Optional mapping to social links; replace '#' with real profiles
+          const links: Record<string, string> = {
+            "Linus Wetzig": "https://www.linkedin.com/in/linuswetzig/",
+            "Tom Amthauer": "https://www.linkedin.com/in/tom-amthauer-284a84226/",
+            "Karim Riese": "https://www.linkedin.com/in/karim-riese-6a4690230/",
+            "Lukas Esch": "https://www.linkedin.com/in/lukas-esch/",
+          };
+          return (
+            <p className="text-sm">
+              {names.map((name, idx) => (
+                <span key={`${name}-${idx}`}>
+                  <a
+                    href={links[name] || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className=""
+                  >
+                    {name}
+                  </a>
+                  {idx < names.length - 1 ? ", " : ""}
+                </span>
+              ))}
+            </p>
+          );
+        })()}
+      </CollapsibleContent>
+    </Collapsible>
   );
 }

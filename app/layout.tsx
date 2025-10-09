@@ -4,6 +4,8 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 import { NavBar } from '@/components/nav-bar';
 import { Analytics } from '@vercel/analytics/react';
+import BackgroundShell from '@/components/background/BackgroundShell';
+import ScreenWidthGate from '@/components/ScreenWidthGate';
 
 // Simple flag for dark mode
 const FORCE_DARK_MODE = true;
@@ -28,9 +30,13 @@ export default function RootLayout({
         >
           {/* NavBar temporarily disabled during idea validation phase */}
           {/* <NavBar /> */}
-          {children}
-          <Toaster />
-          <Analytics />
+          <BackgroundShell enabled>
+            <ScreenWidthGate>
+              {children}
+              <Toaster />
+              <Analytics />
+            </ScreenWidthGate>
+          </BackgroundShell>
         </ThemeProvider>
       </body>
     </html>
