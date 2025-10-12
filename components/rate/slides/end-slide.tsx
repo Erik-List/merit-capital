@@ -63,8 +63,11 @@ export function EndSlide({ setCanProceed }: SlideProps) {
       </div>
 
       <div className="space-y-3">
-        <Button className="w-full" onClick={handleValidateNow}>
-          Validate now
+        <Button className="w-full" onClick={() => toast({
+          title: "Support now",
+          description: "CTA flow coming soon. Your support proves the importance of performance transparency.",
+        })}>
+          Support now
         </Button>
         <div className="space-y-2">
           <div className="text-sm">

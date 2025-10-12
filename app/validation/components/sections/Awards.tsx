@@ -100,113 +100,27 @@ export default function Awards() {
                   </div>
                 </div>
 
-                <div className="pt-8 px-6 pb-6 border rounded-lg">
-                  <ScoreLine
-                    brandIconSrc="/icon.svg"
-                    name="Venture Investor"
-                    score={score}
-                    half={half}
-                    year={year}
-                    percentile={percentile}
-                  />
-                </div>
-              </div>
-
-              {/* Controls */}
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                <div className="space-y-2">
-                  <Label htmlFor="geography">Geography</Label>
-                  <Select value={geography} onValueChange={setGeography}>
-                    <SelectTrigger id="geography">
-                      <SelectValue placeholder="Select geography" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {GEOGRAPHIES.map((g) => (
-                        <SelectItem key={g} value={g}>
-                          {g}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="stage">Stage</Label>
-                  <Select value={stage} onValueChange={setStage}>
-                    <SelectTrigger id="stage">
-                      <SelectValue placeholder="Select stage" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {STAGES.map((s) => (
-                        <SelectItem key={s} value={s}>
-                          {s}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="percentile">Top X% (percentile)</Label>
-                  <div className="relative">
-                    <Input
-                      id="percentile"
-                      type="text"
-                      inputMode="numeric"
-                      placeholder="10"
-                      value={String(percentile)}
-                      onChange={(e) => handlePercentileChange(e.target.value)}
-                      className="pr-6"
-                    />
-                    <span className="pointer-events-none absolute inset-y-0 right-2 flex items-center text-muted-foreground">%</span>
+                <div className="flex items-center justify-center gap-6 pt-8 px-6 pb-6 border rounded-lg">
+                  {/* Text section */}
+                  <div className="flex flex-col items-start justify-start text-start space-y-1 flex-1">
+                    <h3 className="text-lg font-semibold">Merit Capital Score Line</h3>
+                    <p className="text-sm text-muted-foreground">Website-embeddable score line based on the current investor score.</p>
                   </div>
-                </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="score">Score</Label>
-                  <div className="relative">
-                    <Input
-                      id="score"
-                      type="text"
-                      inputMode="decimal"
-                      placeholder="9.4"
-                      value={String(score)}
-                      onChange={(e) => handleScoreChange(e.target.value)}
-                      className="pr-8"
-                    />
-                    <span className="pointer-events-none absolute inset-y-0 right-2 flex items-center text-muted-foreground">/10</span>
-                  </div>
-                </div>
+                  {/* Separator */}
+                  <div className="self-stretch w-px bg-border" />
 
-                <div className="space-y-2">
-                  <Label htmlFor="half">Half</Label>
-                  <div className="relative">
-                    <span className="pointer-events-none absolute inset-y-0 left-2 flex items-center text-muted-foreground">H</span>
-                    <Input
-                      id="half"
-                      type="text"
-                      inputMode="numeric"
-                      placeholder="2"
-                      value={half === "H1" ? "1" : "2"}
-                      onChange={(e) => handleHalfChange(e.target.value)}
-                      className="pl-6"
+                  {/* ScoreLine section */}
+                  <div className="flex items-center justify-center flex-1">
+                    <ScoreLine
+                      brandIconSrc="/icon.svg"
+                      name="Venture Investor"
+                      score={score}
+                      half={half}
+                      year={year}
+                      percentile={percentile}
                     />
                   </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="year">Year</Label>
-                  <Input
-                    id="year"
-                    type="text"
-                    inputMode="numeric"
-                    placeholder="2025"
-                    value={String(year)}
-                    onChange={(e) => {
-                      const cleaned = e.target.value.replace(/[^0-9]/g, "");
-                      setYear(cleaned ? Number(cleaned) : 2025);
-                    }}
-                  />
                 </div>
               </div>
             </CardContent>

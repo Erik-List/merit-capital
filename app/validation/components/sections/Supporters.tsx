@@ -43,22 +43,9 @@ export default function Supporters() {
 
           {/* Validating supporters */}
           <Card className="glass border border-input/30">
-          <CardHeader className="pb-2">
-            <div className="flex items-center gap-2">
+          <CardHeader className="pb-2 space-y-0">
               <CardTitle className="text-lg">Supporters</CardTitle>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <span className="inline-flex align-middle text-muted-foreground">
-                      <Info className="h-4 w-4" />
-                    </span>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Individuals who opted in with their email to support Merit Capital</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            </div>
+            <CardDescription className="mt-1">Individuals who opted in with their email to support Merit Capital</CardDescription>
           </CardHeader>
             <CardContent>
               <ValidatingSupportersList items={validations} defaultCount={10} />

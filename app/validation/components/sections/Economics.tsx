@@ -25,11 +25,11 @@ export default function Economics() {
           {/* Hero */}
           <div className="space-y-4">
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
-              Merit Capital is a common good witout profit ambitions
+              Merit Capital is a common good without profit ambitions
             </h2>
             <div className="max-w-2xl rounded-lg border border-input/30 glass">
               <p className="text-sm md:text-base text-muted-foreground p-2 md:p-3">
-                We’re building investor intelligence as public infrastructure that is accessible, neutral, and relentlessly useful. No paywalls. No preferential scoring. Just signal.
+                We’re building investor intelligence as public infrastructure that is accessible, neutral, and useful. No paywalls, Just signal.
               </p>
             </div>
           </div>
@@ -45,7 +45,9 @@ export default function Economics() {
               </CardHeader>
               <CardContent className="flex items-center justify-start">
                 <Button asChild size="sm">
-                  <a href={DONATION_URL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">Donate via Stripe Payment Link <CreditCard className="h-4 w-4" /></a>
+                  <a href={DONATION_URL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
+                    Donate via Stripe Payment Link (coming soon)<CreditCard className="h-4 w-4" />
+                  </a>
                 </Button>
               </CardContent>
             </Card>
@@ -53,7 +55,7 @@ export default function Economics() {
             <Card>
               <CardHeader className="pb-3">
                 <CardTitle className="text-lg">Become a Partner</CardTitle>
-                <CardDescription>Companies can place merited products where they fit well, clearly labeled and away from scores.</CardDescription>
+                <CardDescription>Partners can place merited products where they fit well, clearly labeled and away from scores.</CardDescription>
               </CardHeader>
               <CardContent className="flex items-center justify-start">
                 <Button asChild size="sm" variant="outline">
@@ -68,7 +70,7 @@ export default function Economics() {
             <CardHeader>
               <div className="flex items-center gap-2">
                 <Heart className="h-5 w-5 text-muted-foreground" />
-                <CardTitle>Donors</CardTitle>
+                <CardTitle>Donors (coming soon)</CardTitle>
               </div>
               <CardDescription>
                 Institutions and individuals who support the commons. We’ll publish monthly summaries; below are placeholders until live.

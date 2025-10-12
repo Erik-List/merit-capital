@@ -43,7 +43,7 @@ export default function RatingSection() {
     <section id="rating-demo" className="pt-2 md:pt-2">
       <div className="space-y-10 glass border border-input/30 rounded-3xl shadow-lg p-8">
         <div ref={collapsedContentRef} className="text-center space-y-4">
-          <h2 className="text-4xl font-semibold">Help your peers pick the right investor</h2>
+          <h2 className="text-4xl font-semibold">Help your peers pick the right investor (coming soon)</h2>
           <p className="text-xl text-accent-foreground">“Anonymously rate your captable investors in ~3 minutes.”</p>
           {!isExpanded && (
             <div>
