@@ -3,6 +3,7 @@
 import { useState, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BrandYoutubeSolid } from "@mynaui/icons-react";
@@ -40,6 +41,7 @@ export function NavBar({ onReplayIntro }: NavBarProps) {
   const pathname = usePathname();
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { toast } = useToast();
 
   const isActive = (path: string) => {
     return pathname === path;
@@ -81,26 +83,15 @@ export function NavBar({ onReplayIntro }: NavBarProps) {
 
   // Handle Support Now button - special case for CTA
   const handleSupportNow = useCallback(() => {
-    if (pathname === '/validation') {
-      // Try to find and trigger the CTA expand button
-      const ctaButton = document.querySelector('[data-cta-expand]') as HTMLButtonElement;
-      if (ctaButton) {
-        ctaButton.click();
-      } else {
-        // Fallback: scroll to CTA section
-        const element = document.getElementById('cta-validation');
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    } else {
-      // Navigate to validation page and scroll to CTA
-      router.push('/validation#cta-validation');
-    }
+    // Mirror Continuation section toast behavior for now
+    toast({
+      title: "Support now",
+      description: "CTA flow coming soon. Your support proves the importance of performance transparency.",
+    })
     
     // Close mobile menu
     setIsMobileMenuOpen(false);
-  }, [pathname, router]);
+  }, [toast]);
 
   return (
     <>

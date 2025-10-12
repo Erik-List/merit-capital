@@ -13,6 +13,7 @@ import Awards from "@/app/validation/components/sections/Awards";
 import Trust from "@/app/validation/components/sections/Trust";
 import Economics from "@/app/validation/components/sections/Economics";
 import Supporters from "@/app/validation/components/sections/Supporters";
+import Continuation from "@/app/validation/components/sections/Continuation";
 import { Separator } from "@/components/ui/separator";
 
 export default function LandingPage() {
@@ -80,10 +81,9 @@ export default function LandingPage() {
         <Economics />
         <Separator />
         <Supporters />
+        <Separator />
+        <Continuation />
       </main>
-
-      {/* Sticky Bottom CTA */}
-      <StickyBottomCTA />
     </div>
   );
 } 

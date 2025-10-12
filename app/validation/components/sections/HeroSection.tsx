@@ -14,7 +14,14 @@ type Investor = Database["public"]["Views"]["InvestorView"]["Row"];
 export default function HeroSection() {
   const [initialInvestors, setInitialInvestors] = useState<Investor[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isIndividual, setIsIndividual] = useState(false);
+  const [isIndividual, setIsIndividual] = useState<boolean>(() => {
+    try {
+      const saved = typeof window !== 'undefined' ? localStorage.getItem('investorType') : null;
+      return saved ? saved === 'Individual' : true; // default to Individual
+    } catch {
+      return true;
+    }
+  });
 
   useEffect(() => {
     const fetchInvestors = async () => {
@@ -38,6 +45,13 @@ export default function HeroSection() {
 
     fetchInvestors();
   }, []);
+
+  // Persist selection
+  useEffect(() => {
+    try {
+      localStorage.setItem('investorType', isIndividual ? 'Individual' : 'Institutional');
+    } catch {}
+  }, [isIndividual]);
 
   return (
     <section 
