@@ -30,7 +30,7 @@ export default function RootLayout({
         >
           {/* NavBar temporarily disabled during idea validation phase */}
           {/* <NavBar /> */}
-          <BackgroundShell enabled>
+          <BackgroundShell>
             <ScreenWidthGate>
               {children}
               <Toaster />

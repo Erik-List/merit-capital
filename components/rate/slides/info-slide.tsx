@@ -2,16 +2,20 @@
 
 import { useEffect } from "react"
 import type { SlideProps } from "../wizard/rating-wizard"
+import { Button } from "@/components/ui/button"
 
-export function InfoSlide({ setCanProceed }: SlideProps) {
+export function InfoSlide({ setCanProceed, onNext, setControlsVisible, setProgressVisible, setProgressIncluded }: SlideProps) {
   useEffect(() => {
+    setControlsVisible(false)
+    setProgressVisible(false)
+    setProgressIncluded(false)
     setCanProceed(true)
   }, [setCanProceed])
 
   return (
     <div className="space-y-5">
       <div className="space-y-1">
-        <div className="text-lg font-medium">Rate your external investors to contribute to investor merit transparency.</div>
+        {/* Intentionally left without headline text per product copy update */}
       </div>
 
       <div className="space-y-3 text-muted-foreground">
@@ -22,7 +26,12 @@ export function InfoSlide({ setCanProceed }: SlideProps) {
         </ul>
       </div>
 
-      {/* Start button is rendered in the control column of the wizard */}
+      <div>
+        <Button
+          onClick={onNext}>
+          Start rating
+        </Button>
+      </div>
     </div>
   )
 }

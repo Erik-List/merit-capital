@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import BackgroundRotator from "@/components/background/BackgroundRotator";
 
-export default function BackgroundShell({ enabled = true, children }: { enabled?: boolean; children: ReactNode }) {
+export default function BackgroundShell({ enabled = false, children }: { enabled?: boolean; children: ReactNode }) {
   const [ready, setReady] = useState(!enabled);
   const handleReady = useCallback(() => setReady(true), []);
 
@@ -19,7 +19,9 @@ export default function BackgroundShell({ enabled = true, children }: { enabled?
     <>
       {/* Fixed background behind everything */}
       <div aria-hidden className="fixed inset-0 z-0 pointer-events-none select-none">
-        <BackgroundRotator enabled={enabled} onReady={handleReady} />
+        <div className="relative w-full h-full">
+          <BackgroundRotator enabled={enabled} onReady={handleReady} />
+        </div>
       </div>
 
       {/* Foreground content gated until background image is ready */}

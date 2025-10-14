@@ -68,7 +68,6 @@ export default function CinematicIntro({ onComplete, onSkip }: CinematicIntroPro
       className="fixed inset-0 flex items-center justify-center bg-transparent z-50"
       aria-live="polite"
     >
-      <div aria-hidden className="absolute inset-0 bg-black/30 z-0" />
       {/* Skip button */}
       <AnimatePresence>
         {showSkipButton && (
@@ -85,7 +84,7 @@ export default function CinematicIntro({ onComplete, onSkip }: CinematicIntroPro
       </AnimatePresence>
       
       {/* Text slides with animations */}
-      <div className="relative z-10 max-w-2xl px-4 text-center">
+      <div className="max-w-2xl px-4 text-center">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}

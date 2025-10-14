@@ -34,7 +34,7 @@ function shuffle<T>(items: T[], rng: () => number = Math.random): T[] {
  * - Once a round completes, a new random order is generated for the next round.
  * - Enabled/disabled is controlled via the `enabled` prop.
  */
-export default function BackgroundRotator({ enabled = true, onReady }: { enabled?: boolean; onReady?: () => void }) {
+export default function BackgroundRotator({ enabled = false, onReady }: { enabled?: boolean; onReady?: () => void }) {
   const [selectedSrc, setSelectedSrc] = useState<string | null>(null);
 
   // Stable reference to full set for validation
@@ -109,16 +109,19 @@ export default function BackgroundRotator({ enabled = true, onReady }: { enabled
   }
 
   return (
-    <Image
-      src={selectedSrc}
-      alt=""
-      fill
-      sizes="100vw"
-      className="object-cover"
-      priority
-      onLoadingComplete={() => onReady && onReady()}
-      onError={() => onReady && onReady()}
-    />
+    <div className="absolute inset-0">
+      <Image
+        src={selectedSrc}
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover z-0"
+        priority
+        onLoadingComplete={() => onReady && onReady()}
+        onError={() => onReady && onReady()}
+      />
+      <div className="absolute inset-0 z-[1] bg-black/10" />
+    </div>
   );
 }
 

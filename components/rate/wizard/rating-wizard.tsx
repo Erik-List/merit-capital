@@ -11,6 +11,9 @@ export type SlideProps = {
   onBack: () => void
   onSkipToEnd: () => void
   setCanProceed: (ok: boolean) => void
+  setControlsVisible: (visible: boolean) => void
+  setProgressVisible: (visible: boolean) => void
+  setProgressIncluded: (included: boolean) => void
 }
 
 export type SlideComponent = React.ComponentType<SlideProps>
@@ -18,15 +21,28 @@ export type SlideComponent = React.ComponentType<SlideProps>
 type RatingWizardProps = {
   slides: SlideComponent[]
   initialIndex?: number
-  onCollapse?: () => void
   infoSlideIndex?: number
 }
 
-export function RatingWizard({ slides, initialIndex = 0, onCollapse, infoSlideIndex = 0 }: RatingWizardProps) {
+export function RatingWizard({ slides, initialIndex = 0, infoSlideIndex = 0 }: RatingWizardProps) {
   const [index, setIndex] = useState(initialIndex)
   const [canProceed, setCanProceed] = useState(true)
+  const [controlsVisible, setControlsVisible] = useState(false)
+  const [progressVisible, setProgressVisible] = useState(false)
+  const [includedMap, setIncludedMap] = useState<Record<number, boolean>>({})
 
-  const progress = useMemo(() => ((index + 1) / slides.length) * 100, [index, slides.length])
+  const totalIncluded = useMemo(() => Object.values(includedMap).filter(Boolean).length, [includedMap])
+  const currentIncludedIndex = useMemo(() => {
+    let count = 0
+    for (let i = 0; i <= index; i++) {
+      if (includedMap[i]) count++
+    }
+    return count
+  }, [includedMap, index])
+  const progress = useMemo(() => {
+    if (totalIncluded === 0) return 0
+    return (currentIncludedIndex / totalIncluded) * 100
+  }, [currentIncludedIndex, totalIncluded])
   const CurrentSlide = slides[index]
   const isInfoSlide = index === infoSlideIndex
 
@@ -43,42 +59,42 @@ export function RatingWizard({ slides, initialIndex = 0, onCollapse, infoSlideIn
             <span>{index + 1} of {slides.length}</span>
           </CardDescription>
         </div>
-        {onCollapse && (
-          <Button variant="ghost" size="icon" aria-label="Collapse" onClick={onCollapse}>
-            <X className="h-5 w-5" />
-          </Button>
-        )}
       </CardHeader>
-      <div className="flex">
-        <CardContent className="p-4 md:p-8 flex-1 min-w-0">
-          <CurrentSlide
-            onNext={onNext}
-            onBack={onBack}
-            onSkipToEnd={onSkipToEnd}
-            setCanProceed={setCanProceed}
-          />
+      <div className="flex min-h-[300px] md:min-h-[340px]">
+        <CardContent className="p-4 md:p-8 flex-1 min-w-0 flex items-center">
+          <div className="w-full">
+            <CurrentSlide
+              onNext={onNext}
+              onBack={onBack}
+              onSkipToEnd={onSkipToEnd}
+              setCanProceed={setCanProceed}
+              setControlsVisible={setControlsVisible}
+              setProgressVisible={setProgressVisible}
+              setProgressIncluded={(included) => setIncludedMap(prev => ({ ...prev, [index]: included }))}
+            />
+          </div>
         </CardContent>
-        <CardContent className="p-4 md:p-8 border-l border-input/30 flex flex-col items-end justify-center gap-3 self-stretch">
-          {isInfoSlide ? (
-            <Button onClick={onNext}>Start rating</Button>
-          ) : (
-            <>
-              <div className="inline-flex items-center border rounded-md overflow-hidden">
-                <Button onClick={onBack} disabled={index === 0} className="rounded-none">Back</Button>
-                <div className="h-10 w-px bg-input" />
-                <Button onClick={onNext} disabled={!canProceed || index === slides.length - 1} className="rounded-none">
-                  Next
-                </Button>
-              </div>
+        {controlsVisible && (
+          <CardContent className="p-4 md:p-8 w-[240px] md:w-[260px] border-l border-input/30 flex flex-col items-center justify-center gap-3 self-stretch">
+            <div className="inline-flex items-center border rounded-md overflow-hidden">
+              <Button onClick={onBack} disabled={index === 0} className="rounded-none">Back</Button>
+              <div className="h-10 w-px bg-input" />
+              <Button onClick={onNext} disabled={!canProceed || index === slides.length - 1} className="rounded-none">
+                Next
+              </Button>
+            </div>
+            <div className="w-full flex justify-center">
               <Button onClick={onSkipToEnd}>Skip to results</Button>
-            </>
-          )}
-        </CardContent>
+            </div>
+          </CardContent>
+        )}
       </div>
-      {!isInfoSlide && (
-        <CardContent className="p-4 border-t border-input/30 space-y-2">
-          <div className="text-xs text-muted-foreground">{index + 1}/{slides.length}</div>
-          <Progress value={progress} className="h-1 glass" />
+      {progressVisible && (
+        <CardContent className="p-4 border-t border-input/30">
+          <div className="flex items-center justify-between">
+            <Progress value={progress} className="h-1 glass flex-1" />
+            <div className="text-xs text-muted-foreground ml-4 whitespace-nowrap">{currentIncludedIndex}/{totalIncluded}</div>
+          </div>
         </CardContent>
       )}
     </Card>
