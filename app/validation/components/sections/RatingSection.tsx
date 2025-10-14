@@ -1,8 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { ListChecks, Shield, EyeOff } from "lucide-react";
 import { RatingWizard } from "@/components/rate/wizard/rating-wizard";
 import { InfoSlide } from "@/components/rate/slides/info-slide";
@@ -24,42 +22,19 @@ const RESPONSE_OPTIONS = [
 ];
 
 export default function RatingSection() {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const collapsedContentRef = useRef<HTMLDivElement | null>(null);
-  const cardRef = useRef<HTMLDivElement | null>(null);
-  const hasUserTriggeredExpandRef = useRef(false);
-
-  const handleCollapse = () => {
-    setIsExpanded(false);
-  };
-
-  useEffect(() => {
-    if (isExpanded && hasUserTriggeredExpandRef.current) {
-      cardRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  }, [isExpanded]);
-
   return (
     <section id="rating-demo" className="pt-2 md:pt-2">
       <div className="space-y-10 glass border border-input/30 rounded-3xl shadow-lg p-8">
-        <div ref={collapsedContentRef} className="text-center space-y-4">
-          <h2 className="text-4xl font-semibold">Help your peers pick the right investor (coming soon)</h2>
+        <div className="text-center space-y-4">
+          <h2 className="text-4xl font-semibold">Rate your captable investor to contribute to performance transparency.</h2>
           <p className="text-xl text-accent-foreground">“Anonymously rate your captable investors in ~3 minutes.”</p>
-          {!isExpanded && (
-            <div>
-              <Button size="lg" onClick={() => { hasUserTriggeredExpandRef.current = true; setIsExpanded(true); }}>Start your demo rating</Button>
-            </div>
-          )}
         </div>
 
-        {isExpanded && (
-          <div ref={cardRef}>
-            <RatingWizard
-              slides={[InfoSlide, AuthSlide, EndSlide]}
-              onCollapse={handleCollapse}
-            />
-          </div>
-        )}
+        <div>
+          <RatingWizard
+            slides={[InfoSlide, AuthSlide, EndSlide]}
+          />
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Card className="glass border border-input/30">

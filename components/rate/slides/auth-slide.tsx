@@ -6,14 +6,17 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { AuthButtons } from "@/components/rate/auth/auth-buttons"
 import { Button } from "@/components/ui/button"
 
-export function AuthSlide({ setCanProceed }: SlideProps) {
+export function AuthSlide({ setCanProceed, setControlsVisible, setProgressVisible, setProgressIncluded }: SlideProps) {
   const [mockAuthenticated, setMockAuthenticated] = useState(false)
   const [mockEmail] = useState("founder@example.com")
   const [mockProvider] = useState<"linkedin" | "x">("linkedin")
 
   useEffect(() => {
+    setControlsVisible(false)
+    setProgressVisible(true)
+    setProgressIncluded(true)
     setCanProceed(mockAuthenticated)
-  }, [mockAuthenticated, setCanProceed])
+  }, [mockAuthenticated, setCanProceed, setControlsVisible, setProgressVisible, setProgressIncluded])
 
   return (
     <div className="space-y-5">
