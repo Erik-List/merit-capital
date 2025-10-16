@@ -172,7 +172,7 @@ export function RateForm() {
                   </div>
                 </FormControl>
                 <FormDescription>
-                  Rate the investor's integrity and conviction in supporting portfolio companies
+                  Rate the investor&apos;s integrity and conviction in supporting portfolio companies
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -228,7 +228,7 @@ export function RateForm() {
                   </div>
                 </FormControl>
                 <FormDescription>
-                  Rate the investor's support in subsequent fundraising efforts
+                  Rate the investor&apos;s support in subsequent fundraising efforts
                 </FormDescription>
                 <FormMessage />
               </FormItem>

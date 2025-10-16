@@ -169,12 +169,12 @@ export default function Continuation() {
                   size="lg"
                   onClick={() =>
                     toast({
-                      title: "Support now",
-                      description: "CTA flow coming soon. Your support proves the importance of performance transparency.",
+                      title: "Ability to support Coming Soon",
+                      description: "Your support proves the importance of performance transparency.",
                     })
                   }
                 >
-                  Support now
+                  Support now (coming soon)
                 </Button>
                 <div className="text-sm text-muted-foreground">Your support proves the importance of performance transparency in venture investing.</div>
               </div>

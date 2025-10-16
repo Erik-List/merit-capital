@@ -85,8 +85,8 @@ export function NavBar({ onReplayIntro }: NavBarProps) {
   const handleSupportNow = useCallback(() => {
     // Mirror Continuation section toast behavior for now
     toast({
-      title: "Support now",
-      description: "CTA flow coming soon. Your support proves the importance of performance transparency.",
+      title: "Support now Coming Soon",
+      description: "Your support proves the importance of performance transparency.",
     })
     
     // Close mobile menu
@@ -192,7 +192,7 @@ export function NavBar({ onReplayIntro }: NavBarProps) {
                   onClick={handleSupportNow}
                   className="text-sm font-normal ml-2 px-4 py-2 h-9 transition-colors"
                 >
-                  Support Now
+                  Support Now (coming soon)
                 </Button>
               </>
             )}
