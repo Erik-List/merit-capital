@@ -11,32 +11,38 @@ type SpeedState = {
 }
 
 type Props = SlideProps & {
-  investors: { id: string; name: string; investor_type: "Institutional" | "Individual"; institutionName?: string }[]
+  investors: { id: string; name: string; investor_type: "Institutional" | "Individual"; institutionName?: string; affiliationType?: "Angel" | "Associated" }[]
   state: SpeedState
   setState: (s: SpeedState) => void
 }
 
-export function InvestmentSpeedSlide({ setCanProceed, investors, state, setState }: Props) {
+export function InvestmentSpeedSlide({ setCanProceed, setControlsVisible, setProgressVisible, setProgressIncluded, investors, state, setState }: Props) {
+  useEffect(() => {
+    setControlsVisible(true)
+    setProgressVisible(true)
+    setProgressIncluded(true)
+  }, [setControlsVisible, setProgressVisible, setProgressIncluded])
   useEffect(() => {
     const complete = investors.every(inv => {
       const row = state[inv.id]
       if (!row) return false
-      return row.noTS || (typeof row.value === 'number' && row.value > 0)
+      return typeof row.value === 'number' && row.value > 0
     })
     setCanProceed(complete)
   }, [setCanProceed, investors, state])
 
   return (
     <div className="space-y-4">
-      <div className="text-lg font-medium">First meeting to term sheet received</div>
+      <div className="text-2xl font-medium">Speed of first meeting with investment ask to term sheet received (approx. timeframe)</div>
       <div className="grid grid-cols-[1fr_auto] gap-x-6 gap-y-3 items-center">
         {investors.map((inv) => {
           const row = state[inv.id] ?? { unit: "days", noTS: false as const }
-          const institutionName = inv.investor_type === "Institutional" ? inv.name : (inv.institutionName ?? "Unknown institution")
-          const individualName = inv.investor_type === "Individual" ? inv.name : undefined
+          const individualName = inv.name
+          const institutionName = inv.investor_type === "Institutional" ? (inv.institutionName ?? "") : ""
+          const affiliation = inv.investor_type === "Individual" ? (inv.affiliationType ?? "Angel") : undefined
           return (
             <React.Fragment key={inv.id}>
-              <InvestorItem institutionName={institutionName} individualName={individualName} />
+              <InvestorItem institutionName={institutionName} individualName={individualName} affiliation={affiliation} />
               <div className="flex items-center gap-3">
                 <TimelineField
                   value={row.value}
@@ -44,6 +50,7 @@ export function InvestmentSpeedSlide({ setCanProceed, investors, state, setState
                   onValue={(v) => setState({ ...state, [inv.id]: { ...row, value: v } })}
                   onUnit={(u) => setState({ ...state, [inv.id]: { ...row, unit: u } })}
                   disabled={row.noTS}
+                  investorId={inv.id}
                 />
                 <TermSheetToggle
                   noTS={row.noTS}

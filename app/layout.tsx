@@ -1,11 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { ThemeProvider } from '@/components/theme-provider';
-import { Toaster } from '@/components/ui/toaster';
-import { NavBar } from '@/components/nav-bar';
-import { Analytics } from '@vercel/analytics/react';
-import BackgroundShell from '@/components/background/BackgroundShell';
-import ScreenWidthGate from '@/components/ScreenWidthGate';
+import AppFrame from '@/components/app-frame';
 
 // Simple flag for dark mode
 const FORCE_DARK_MODE = true;
@@ -28,15 +24,7 @@ export default function RootLayout({
           defaultTheme={FORCE_DARK_MODE ? "dark" : "light"}
           forcedTheme={FORCE_DARK_MODE ? "dark" : undefined}
         >
-          {/* NavBar temporarily disabled during idea validation phase */}
-          {/* <NavBar /> */}
-          <BackgroundShell>
-            <ScreenWidthGate>
-              {children}
-              <Toaster />
-              <Analytics />
-            </ScreenWidthGate>
-          </BackgroundShell>
+          <AppFrame>{children}</AppFrame>
         </ThemeProvider>
       </body>
     </html>

@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import BackgroundRotator from "@/components/background/BackgroundRotator";
 
-export default function BackgroundShell({ enabled = true, children }: { enabled?: boolean; children: ReactNode }) {
+export default function BackgroundShell({ enabled, children }: { enabled?: boolean; children: ReactNode }) {
   const [ready, setReady] = useState(!enabled); 
   const handleReady = useCallback(() => setReady(true), []);
 

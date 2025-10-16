@@ -5,19 +5,19 @@ import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
-// Text slides for the cinematic intro
+// Text slides for the story intro
 const INTRO_SLIDES = [
   "The best company builders rely on exceptional investors…",
   "…yet the VC Investor Ecosystem is systemically Intransparent.",
   "Time for a change!",
 ];
 
-interface CinematicIntroProps {
+interface StoryProps {
   onComplete: () => void;
   onSkip: () => void;
 }
 
-export default function CinematicIntro({ onComplete, onSkip }: CinematicIntroProps) {
+export default function Story({ onComplete, onSkip }: StoryProps) {
   const [stage, setStage] = useState<'cover' | 'slides'>('cover');
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showSkipButton, setShowSkipButton] = useState(false);
@@ -141,4 +141,6 @@ export default function CinematicIntro({ onComplete, onSkip }: CinematicIntroPro
       </noscript>
     </div>
   );
-} 
+}
+
+

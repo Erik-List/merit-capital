@@ -8,12 +8,17 @@ import { FollowOnCommitmentSelect, type FollowOnType } from "./elements/follow-o
 type State = { [investorId: string]: { type: FollowOnType } | undefined }
 
 type Props = SlideProps & {
-  investors: { id: string; name: string; investor_type: "Institutional" | "Individual"; institutionName?: string }[]
+  investors: { id: string; name: string; investor_type: "Institutional" | "Individual"; institutionName?: string; affiliationType?: "Angel" | "Associated" }[]
   state: State
   setState: (s: State) => void
 }
 
-export function FollowOnCommitmentSlide({ setCanProceed, investors, state, setState }: Props) {
+export function FollowOnCommitmentSlide({ setCanProceed, setControlsVisible, setProgressVisible, setProgressIncluded, investors, state, setState }: Props) {
+  useEffect(() => {
+    setControlsVisible(true)
+    setProgressVisible(true)
+    setProgressIncluded(true)
+  }, [setControlsVisible, setProgressVisible, setProgressIncluded])
   useEffect(() => {
     const complete = investors.every(inv => !!state[inv.id]?.type)
     setCanProceed(complete)
@@ -21,15 +26,16 @@ export function FollowOnCommitmentSlide({ setCanProceed, investors, state, setSt
 
   return (
     <div className="space-y-4">
-      <div className="text-lg font-medium">If we received investment, we expect the following follow‑on commitment.</div>
+      <div className="text-lg font-medium">Initial expectations for follow-on investment vs. actual/likely commitment</div>
       <div className="grid grid-cols-[1fr_auto] gap-x-6 gap-y-4 items-center">
         {investors.map(inv => {
-          const institutionName = inv.investor_type === "Institutional" ? inv.name : (inv.institutionName ?? "Unknown institution")
-          const individualName = inv.investor_type === "Individual" ? inv.name : undefined
-          const value = state[inv.id]?.type ?? "none"
+          const individualName = inv.name
+          const institutionName = inv.investor_type === "Institutional" ? (inv.institutionName ?? "") : ""
+          const affiliation = inv.investor_type === "Individual" ? (inv.affiliationType ?? "Angel") : undefined
+          const value = state[inv.id]?.type
           return (
             <React.Fragment key={inv.id}>
-              <InvestorItem institutionName={institutionName} individualName={individualName} />
+              <InvestorItem institutionName={institutionName} individualName={individualName} affiliation={affiliation} />
               <FollowOnCommitmentSelect type={value} onChange={(t) => setState({ ...state, [inv.id]: { type: t } })} />
             </React.Fragment>
           )

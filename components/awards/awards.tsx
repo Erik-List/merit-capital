@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -56,13 +55,7 @@ export default function Awards() {
 
   return (
     <section id="awards" className="py-12">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true, margin: "-100px" }}
-        className="space-y-8"
-      >
+      <div className="space-y-8">
         <div className="glass border border-input/30 rounded-3xl shadow-lg p-8 space-y-8">
           <div className="space-y-3">
             <h2 className="text-3xl font-semibold">Investors with the best Founder Scores can showcase their merit.</h2>
@@ -126,7 +119,7 @@ export default function Awards() {
             </CardContent>
           </Card>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

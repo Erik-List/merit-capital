@@ -61,10 +61,10 @@
     --secondary: 0 0% 14.9%;
     --secondary-foreground: 0 0% 98%;
     --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 92%;
+    --muted-foreground: 0 0% 85%;
     --accent: 0 0% 100%;
     --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 355 80% 75%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 98% / 0.6; /* semi-translucent border in dark mode */
     --input: 0 0% 98%;
@@ -160,6 +160,22 @@
     border-radius: 9999px;
   }
   [cmdk-list]::-webkit-scrollbar-thumb { 
+    background: hsl(var(--accent) / 0.25);
+    border-radius: 9999px; 
+    border: 2px solid hsl(var(--background) / 0.05);
+  }
+
+  /* Reusable glass scrollbar utility */
+  .glass-scrollbar { 
+    scrollbar-width: thin; 
+    scrollbar-color: hsl(var(--accent) / 0.25) hsl(var(--background) / 0.05);
+  }
+  .glass-scrollbar::-webkit-scrollbar { width: 8px; }
+  .glass-scrollbar::-webkit-scrollbar-track { 
+    background: hsl(var(--background) / 0.05);
+    border-radius: 9999px;
+  }
+  .glass-scrollbar::-webkit-scrollbar-thumb { 
     background: hsl(var(--accent) / 0.25);
     border-radius: 9999px; 
     border: 2px solid hsl(var(--background) / 0.05);

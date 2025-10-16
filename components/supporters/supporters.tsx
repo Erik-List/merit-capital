@@ -3,10 +3,7 @@
 import { useMemo, useState } from "react";
 import ValidatingSupportersList from "@/components/support/ValidatingSupportersList";
 import supportersData from "@/data/supporters.json";
-import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Info } from "lucide-react";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 type Acknowledgement = { id: string; full_name: string; contribution?: string | null; prominent?: boolean };
@@ -25,13 +22,7 @@ export default function Supporters() {
 
   return (
     <section id="supporters" className="py-12">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true, margin: "-100px" }}
-        className="space-y-10"
-      >
+      <div className="space-y-10">
         <div className="glass border border-input/30 rounded-3xl shadow-lg p-8 space-y-8">
           {/* Heading like Economics */}
           <div className="space-y-4">
@@ -52,20 +43,9 @@ export default function Supporters() {
             </CardContent>
           </Card>
 
-          {/* Inline dropdown sub-HL for Acknowledgements moved below */}
-          {(() => {
-            const [open, setOpen] = [undefined as any, undefined as any];
-            return null;
-          })()}
-
-          {(() => {
-            // Using component state to control Collapsible
-            return null;
-          })()}
-
           <InlineAcknowledgements acknowledgements={acknowledgements} />
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
@@ -114,3 +94,5 @@ function InlineAcknowledgements({ acknowledgements }: { acknowledgements: { id: 
     </Collapsible>
   );
 }
+
+

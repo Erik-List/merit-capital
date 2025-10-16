@@ -17,7 +17,7 @@ export function LeaderboardSearch({ value, onChange, disabled }: LeaderboardSear
         placeholder="Search investors..."
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="pl-9"
+        className=""
         disabled={disabled}
       />
     </div>

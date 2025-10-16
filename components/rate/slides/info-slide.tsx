@@ -2,35 +2,39 @@
 
 import { useEffect } from "react"
 import type { SlideProps } from "../wizard/rating-wizard"
-import { Button } from "@/components/ui/button"
+import { Table, TableBody, TableRow, TableCell } from "@/components/ui/table"
 
-export function InfoSlide({ setCanProceed, onNext, setControlsVisible, setProgressVisible, setProgressIncluded }: SlideProps) {
+export function InfoSlide({ setCanProceed, setControlsVisible, setProgressVisible, setProgressIncluded }: SlideProps) {
   useEffect(() => {
     setControlsVisible(false)
     setProgressVisible(false)
     setProgressIncluded(false)
     setCanProceed(true)
-  }, [setCanProceed])
+  }, [setCanProceed, setControlsVisible, setProgressVisible, setProgressIncluded])
 
   return (
     <div className="space-y-5">
-      <div className="space-y-1">
-        {/* Intentionally left without headline text per product copy update */}
-      </div>
-
-      <div className="space-y-3 text-muted-foreground">
-        <ul className="list-disc pl-5 space-y-2">
-          <li>Short, focused questions—one per slide.</li>
-          <li>Clear scoring: higher typically means better unless stated otherwise.</li>
-          <li>Approx time: ~3 minutes total (about ~10–15 seconds per slide).</li>
-        </ul>
-      </div>
-
-      <div>
-        <Button
-          onClick={onNext}>
-          Start rating
-        </Button>
+      <div className="space-y-4">
+        <div className="text-2xl font-medium">Preview how to rate your captable investors.</div>
+        <div className="w-fit glass border border-input/30 rounded-md px-3 py-2 text-sm">3-7 minutes rating duration · 0-10 questions on multiple categories</div>
+        <div className="inline-block rounded-md border border-input/30 overflow-hidden">
+          <Table className="w-auto">
+            <TableBody>
+              <TableRow>
+                <TableCell className="text-muted-foreground p-3 text-left">Investment Speed</TableCell>
+                <TableCell className="text-muted-foreground p-3 text-left border-l border-input/30">Investment Process</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="text-muted-foreground p-3 text-left">Investor Brand</TableCell>
+                <TableCell className="text-muted-foreground p-3 text-left border-l border-input/30">Company Building Support</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="text-muted-foreground p-3 text-left">Follow-on Commitment</TableCell>
+                <TableCell className="text-muted-foreground p-3 text-left border-l border-input/30">Additional Considerations</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </div>
       </div>
     </div>
   )
