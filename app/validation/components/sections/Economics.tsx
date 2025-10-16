@@ -4,11 +4,13 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, ShieldCheck, Heart, CreditCard } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const DONATION_URL = process.env.NEXT_PUBLIC_DONATION_URL || "#";
 const DM_LINKEDIN_URL = process.env.NEXT_PUBLIC_DM_LINKEDIN_URL || "https://www.linkedin.com/in/";
 
 export default function Economics() {
+  const { toast } = useToast();
   return (
     <section 
       id="economics" 
@@ -44,10 +46,18 @@ export default function Economics() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex items-center justify-start">
-                <Button asChild size="sm">
-                  <a href={DONATION_URL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
-                    Donate via Stripe Payment Link (coming soon)<CreditCard className="h-4 w-4" />
-                  </a>
+                <Button 
+                  size="sm" 
+                  onClick={() =>
+                    toast({
+                      title: "Donations Coming Soon",
+                      description:
+                        "Your support proves the importance of performance transparency in venture investing.",
+                    })
+                  }
+                  className="inline-flex items-center gap-2"
+                >
+                  Donate via Stripe Payment Link <CreditCard className="h-4 w-4" />
                 </Button>
               </CardContent>
             </Card>
@@ -58,8 +68,18 @@ export default function Economics() {
                 <CardDescription>Partners can place merited products where they fit well, clearly labeled and away from scores.</CardDescription>
               </CardHeader>
               <CardContent className="flex items-center justify-start">
-                <Button asChild size="sm" variant="outline">
-                  <a href={DM_LINKEDIN_URL} target="_blank" rel="noreferrer">Make an Inquiry</a>
+                <Button 
+                  size="sm" 
+                  variant="outline"
+                  onClick={() =>
+                    toast({
+                      title: "Partner inquiry coming soon",
+                      description:
+                        "Partner placements will be clearly labeled and separate from scores.",
+                    })
+                  }
+                >
+                  Make an Inquiry
                 </Button>
               </CardContent>
             </Card>
