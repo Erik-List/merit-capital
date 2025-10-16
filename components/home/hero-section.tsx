@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import { LeaderboardTable } from "@/components/leaderboard/table";
 import { createClient } from "@/utils/supabase/client";
 import type { Database } from "@/types/supabase";
@@ -59,11 +58,8 @@ export default function HeroSection() {
       className="pt-2 md:pt-2 min-h-[calc(100dvh-var(--nav-height))]"
     >
       <div className="space-y-12 glass border border-input/30 rounded-3xl shadow-lg p-6">
-        <motion.div 
+        <div 
           className="space-y-4 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
         >
           <h1 className="text-5xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Discover the real merit of Venture Investors.
@@ -107,7 +103,7 @@ export default function HeroSection() {
               </TooltipProvider>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         <div>
             <LeaderboardTable 
@@ -119,4 +115,6 @@ export default function HeroSection() {
       </div>
     </section>
   );
-} 
+}
+
+

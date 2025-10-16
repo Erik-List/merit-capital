@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, ShieldCheck, Heart, CreditCard } from "lucide-react";
@@ -16,13 +15,7 @@ export default function Economics() {
       id="economics" 
       className="py-12"
     >
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true, margin: "-100px" }}
-        className="space-y-10"
-      >
+      <div className="space-y-10">
         <div className="glass border border-input/30 rounded-3xl shadow-lg p-8 space-y-10">
           {/* Hero */}
           <div className="space-y-4">
@@ -153,14 +146,16 @@ export default function Economics() {
             </CardHeader>
             <CardContent>
               <Button asChild variant="link" className="px-0 h-auto">
-                <a href="/economic-estimates" className="inline-flex items-center gap-1">
+                <a href="/economics/estimates" className="inline-flex items-center gap-1">
                   Dive into detailed cost estimates<ExternalLink className="h-4 w-4" />
                 </a>
               </Button>
             </CardContent>
           </Card>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
+
+

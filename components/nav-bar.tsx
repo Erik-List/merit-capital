@@ -5,37 +5,16 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
-import { motion, AnimatePresence } from 'framer-motion';
+ 
 import { BrandYoutubeSolid } from "@mynaui/icons-react";
 import Image from 'next/image';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 
 interface NavBarProps {
   onReplayIntro?: () => void;
 }
 
-interface SectionRoute {
-  name: string;
-  route: string;
-  description?: string;
-}
-
-const SECTION_ROUTES: SectionRoute[] = [
-  { name: "Leaderboard", route: "/validation#leaderboard", description: "Rating Overview of Investors" },
-  { name: "Investor Profiles", route: "/validation#investors", description: "Transparent Investor Profiles" },
-  { name: "Investor Rating", route: "/validation#rating-demo", description: "Try rating an Investor" },
-  { name: "Trust", route: "/validation#trust", description: "Transparency & Security Mechanisms" },
-  { name: "Awards", route: "/validation#awards", description: "High-merit Investor Badges" },
-  { name: "Economics", route: "/validation#economics", description: "Sustaining the Project" },
-  { name: "Supporters", route: "/validation#supporters", description: "Community backing" },
-  { name: "Support Now", route: "/validation#cta-validation", description: "Validate Merit Capital" },
-  { name: "What's Next?", route: "/validation#next-steps", description: "The next steps of Merit Capital" },
-];
+ 
 
 export function NavBar({ onReplayIntro }: NavBarProps) {
   const pathname = usePathname();
@@ -47,19 +26,16 @@ export function NavBar({ onReplayIntro }: NavBarProps) {
     return pathname === path;
   };
 
-  const isValidationPage = pathname === '/validation';
+  const isValidationPage = false;
 
   // Handle intro replay
   const handlePlayIntro = useCallback(() => {
-    if (onReplayIntro) {
-      // Reset intro state
-      document.cookie = "introSkipped=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-      localStorage.removeItem('skipIntro');
-      sessionStorage.removeItem("ranked-capital-intro-seen");
-      
-      // Trigger intro replay
-      onReplayIntro();
-    }
+    // Reset intro state and delegate to parent
+    document.cookie = "introSkipped=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    localStorage.removeItem('skipIntro');
+    sessionStorage.removeItem("ranked-capital-intro-seen");
+    if (onReplayIntro) onReplayIntro();
+    setIsMobileMenuOpen(false);
   }, [onReplayIntro]);
 
   // Handle section navigation with smooth scroll
@@ -109,108 +85,109 @@ export function NavBar({ onReplayIntro }: NavBarProps) {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
-            {/* Standard App Routes */}
-            {!isValidationPage && (
-              <>
-                <Link 
-                  href="/leaderboard" 
-                  className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
-                    isActive('/leaderboard') 
-                      ? 'text-foreground font-medium bg-accent' 
-                      : 'text-muted-foreground hover:text-foreground hover:bg-accent/10'
-                  }`}
-                >
-                  <span>Leaderboard</span>
-                </Link>
-                <Link 
-                  href="/logs" 
-                  className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
-                    isActive('/logs') 
-                      ? 'text-foreground font-medium bg-accent' 
-                      : 'text-muted-foreground hover:text-foreground hover:bg-accent/10'
-                  }`}
-                >
-                  <span>Logs</span>
-                </Link>
-                <Button asChild variant="default" className="ml-2">
-                  <Link href="/rate">Rate an Investor</Link>
-                </Button>
-              </>
-            )}
+            {/* Intro (play) - first item */}
+            <Button 
+              variant="ghost" 
+              onClick={handlePlayIntro}
+              className="text-sm flex items-center gap-2 px-3 py-2 h-9"
+            >
+              <BrandYoutubeSolid className="h-5 w-5" />
+              Story
+            </Button>
 
-            {/* Validation Page Navigation */}
-            {isValidationPage && onReplayIntro && (
-              <>
-                {/* Play Intro Button */}
-                <Button 
-                  variant="ghost" 
-                  onClick={handlePlayIntro}
-                  className="text-sm flex items-center gap-2 px-3 py-2 h-9"
-                >
-                  <BrandYoutubeSolid className="h-5 w-5" />
-                  Intro
-                </Button>
-
-                {/* Sections Dropdown */}
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button 
-                      variant="ghost" 
-                      className="text-sm flex items-center gap-1 px-3 py-2 h-9 hover:bg-accent/10 transition-colors"
-                    >
-                      Sections
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent 
-                    align="center" 
-                    side="bottom"
-                    className="w-64 p-2 glass-strong"
-                    sideOffset={8}
-                  >
-                    <div className="grid grid-cols-1 gap-1">
-                      {SECTION_ROUTES.map((section) => (
-                        <DropdownMenuItem
-                          key={section.route}
-                          onClick={() => handleSectionNavigation(section.route)}
-                          className="cursor-pointer p-3 rounded-md transition-colors focus:bg-accent/40"
-                        >
-                          <div className="flex flex-col gap-1">
-                            <span className="font-medium text-sm">{section.name}</span>
-                            {section.description && (
-                              <span className="text-xs text-muted-foreground">{section.description}</span>
-                            )}
-                          </div>
-                        </DropdownMenuItem>
-                      ))}
-                    </div>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-
-                {/* Support Now Button */}
-                <Button 
-                  variant="default"
-                  onClick={handleSupportNow}
-                  className="text-sm font-normal ml-2 px-4 py-2 h-9 transition-colors"
-                >
-                  Support Now (coming soon)
-                </Button>
-              </>
-            )}
+            {/* Simple app nav */}
+            <>
+              <Link 
+                href="/" 
+                className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
+                  isActive('/') 
+                    ? 'text-foreground font-medium underline underline-offset-4' 
+                    : 'hover:text-accent-foreground'
+                }`}
+                aria-current={isActive('/') ? 'page' : undefined}
+              >
+                <span>Leaderboard</span>
+              </Link>
+              <Link 
+                href="/investor/atlas-peak-ventures" 
+                className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
+                  isActive('/investor/atlas-peak-ventures') 
+                    ? 'text-foreground font-medium underline underline-offset-4' 
+                    : 'hover:text-accent-foreground'
+                }`}
+                aria-current={isActive('/investor/atlas-peak-ventures') ? 'page' : undefined}
+              >
+                <span>Investor Profile</span>
+              </Link>
+              <Link 
+                href="/rate" 
+                className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
+                  isActive('/rate') 
+                    ? 'text-foreground font-medium underline underline-offset-4' 
+                    : 'hover:text-accent-foreground'
+                }`}
+                aria-current={isActive('/rate') ? 'page' : undefined}
+              >
+                <span>Rate</span>
+              </Link>
+              <Link 
+                href="/awards" 
+                className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
+                  isActive('/awards') 
+                    ? 'text-foreground font-medium underline underline-offset-4' 
+                    : 'hover:text-accent-foreground'
+                }`}
+                aria-current={isActive('/awards') ? 'page' : undefined}
+              >
+                <span>Awards</span>
+              </Link>
+              <Link 
+                href="/economics" 
+                className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
+                  isActive('/economics') 
+                    ? 'text-foreground font-medium underline underline-offset-4' 
+                    : 'hover:text-accent-foreground'
+                }`}
+                aria-current={isActive('/economics') ? 'page' : undefined}
+              >
+                <span>Economics</span>
+              </Link>
+              <Link 
+                href="/supporters" 
+                className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
+                  isActive('/supporters') 
+                    ? 'text-foreground font-medium underline underline-offset-4' 
+                    : 'hover:text-accent-foreground'
+                }`}
+                aria-current={isActive('/supporters') ? 'page' : undefined}
+              >
+                <span>Supporters</span>
+              </Link>
+              <Link 
+                href="/next-steps" 
+                className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
+                  isActive('/next-steps') 
+                    ? 'text-foreground font-medium underline underline-offset-4' 
+                    : 'hover:text-accent-foreground'
+                }`}
+                aria-current={isActive('/next-steps') ? 'page' : undefined}
+              >
+                <span>Next Steps</span>
+              </Link>
+              {/* Support Now - last item */}
+              <Button 
+                variant="default"
+                onClick={handleSupportNow}
+                className="text-sm font-normal ml-2 px-4 py-2 h-9 transition-colors"
+              >
+                Support Now
+              </Button>
+            </>
           </nav>
 
           {/* Mobile Navigation */}
           <div className="lg:hidden flex items-center gap-3">
-            {/* Support Now Button (mobile) */}
-            {isValidationPage && (
-              <Button 
-                variant="outline"
-                size="sm"
-                onClick={handleSupportNow}
-                className="text-xs px-3 py-1.5 h-8 glass"
-              >
-                Support Now
-              </Button>
-            )}
+            {/* Support Now Button removed for simplified nav */}
 
             {/* Mobile Menu Button */}
             <Button 
@@ -232,80 +209,94 @@ export function NavBar({ onReplayIntro }: NavBarProps) {
         </div>
       </header>
       
-      {/* Full-screen Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            id="mobile-menu-overlay"
-            className="fixed inset-0 top-[65px] z-30 bg-background/95 backdrop-blur-lg lg:hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2, ease: 'easeInOut' }}
-          >
-            <nav className="flex flex-col items-start justify-start h-full px-6 py-8 space-y-6 text-left">
-              {/* Standard App Routes */}
-              {!isValidationPage && (
-                <>
-                  <Link
-                    href="/leaderboard"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-md font-normal text-foreground hover:text-foreground/80 transition-colors"
-                  >
-                    Leaderboard
-                  </Link>
-                  <Link
-                    href="/logs"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-md font-normal text-foreground hover:text-foreground/80 transition-colors"
-                  >
-                    Logs
-                  </Link>
-                  <Link
-                    href="/rate"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-md font-normal text-foreground hover:text-foreground/80 transition-colors"
-                  >
-                    Rate an Investor
-                  </Link>
-                </>
-              )}
-
-              {/* Validation Page Navigation */}
-              {isValidationPage && onReplayIntro && (
-                <div className="flex flex-col gap-4">
-                  {/* Play Intro Button */}
-                  <button
-                    onClick={() => {
-                      handlePlayIntro();
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className="text-md font-normal flex items-center text-foreground hover:text-foreground/80 gap-1 transition-colors"
-                  >
-                    <BrandYoutubeSolid className="h-6 w-6" />
-                    Intro
-                  </button>
-
-                  {/* All Section Links */}
-                  {SECTION_ROUTES.map((section) => (
-                    <button
-                      key={section.route}
-                      onClick={() => handleSectionNavigation(section.route)}
-                      className={`text-md font-normal flex items-center transition-colors ${
-                        section.name === "Support Now" 
-                          ? "text-foreground font-medium animate-pulse" 
-                          : "text-foreground hover:text-foreground/80"
-                      }`}
-                    >
-                      {section.name}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Full-screen Overlay (instant) */}
+      {isMobileMenuOpen && (
+        <div
+          id="mobile-menu-overlay"
+          className="fixed inset-0 top-[65px] z-30 bg-background/95 backdrop-blur-lg lg:hidden"
+        >
+          <nav className="flex flex-col items-start justify-start h-full px-6 py-8 space-y-6 text-left">
+            {/* Mobile simplified nav */}
+            <button
+              onClick={handlePlayIntro}
+              className="text-md font-normal text-foreground hover:text-foreground/80 transition-colors flex items-center gap-2"
+            >
+              <BrandYoutubeSolid className="h-5 w-5" />
+              Story
+            </button>
+            <Link
+              href="/"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-md font-normal text-foreground hover:text-foreground/80 transition-colors"
+            >
+              Home
+            </Link>
+            <Link
+              href="/leaderboard"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-md font-normal text-foreground hover:text-foreground/80 transition-colors"
+            >
+              Leaderboard
+            </Link>
+            <Link
+              href="/investor/atlas-peak-ventures"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-md font-normal text-foreground hover:text-foreground/80 transition-colors"
+            >
+              Investor Profile
+            </Link>
+            <Link
+              href="/rate"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-md font-normal text-foreground hover:text-foreground/80 transition-colors"
+            >
+              Rate
+            </Link>
+            <Link
+              href="/awards"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-md font-normal text-foreground hover:text-foreground/80 transition-colors"
+            >
+              Awards
+            </Link>
+            <Link
+              href="/economics"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-md font-normal text-foreground hover:text-foreground/80 transition-colors"
+            >
+              Economics
+            </Link>
+            <Link
+              href="/economics/estimates"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-md font-normal text-foreground hover:text-foreground/80 transition-colors"
+            >
+              Estimates
+            </Link>
+            <Link
+              href="/supporters"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-md font-normal text-foreground hover:text-foreground/80 transition-colors"
+            >
+              Supporters
+            </Link>
+            <Link
+              href="/next-steps"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-md font-normal text-foreground hover:text-foreground/80 transition-colors"
+            >
+              Next Steps
+            </Link>
+            <Button 
+              variant="default"
+              onClick={handleSupportNow}
+              className="text-sm font-normal px-4 py-2 h-9 transition-colors"
+            >
+              Support Now
+            </Button>
+          </nav>
+        </div>
+      )}
     </>
   );
 }

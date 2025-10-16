@@ -4,17 +4,16 @@ import { useEffect, useState } from "react"
 import type { SlideProps } from "../wizard/rating-wizard"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { AuthButtons } from "@/components/rate/auth/auth-buttons"
-import { Button } from "@/components/ui/button"
 
-export function AuthSlide({ setCanProceed, setControlsVisible, setProgressVisible, setProgressIncluded }: SlideProps) {
-  const [mockAuthenticated, setMockAuthenticated] = useState(false)
+export function AuthSlide({ setCanProceed, setControlsVisible, setProgressVisible, setProgressIncluded, onBack }: SlideProps) {
+  const [mockAuthenticated, setMockAuthenticated] = useState(true)
   const [mockEmail] = useState("founder@example.com")
   const [mockProvider] = useState<"linkedin" | "x">("linkedin")
 
   useEffect(() => {
-    setControlsVisible(false)
-    setProgressVisible(true)
-    setProgressIncluded(true)
+    setControlsVisible(true)
+    setProgressVisible(false)
+    setProgressIncluded(false)
     setCanProceed(mockAuthenticated)
   }, [mockAuthenticated, setCanProceed, setControlsVisible, setProgressVisible, setProgressIncluded])
 
@@ -29,18 +28,11 @@ export function AuthSlide({ setCanProceed, setControlsVisible, setProgressVisibl
         </CardHeader>
         <CardContent className="space-y-6">
           {!mockAuthenticated ? (
-            <>
-              <AuthButtons isAuthenticated={false} />
-              <div className="text-sm text-muted-foreground text-center">
-                <button className="underline" onClick={() => setMockAuthenticated(true)}>
-                  Use placeholder identity ({mockEmail})
-                </button>
-              </div>
-            </>
+            <AuthButtons isAuthenticated={false} />
           ) : (
             <div className="space-y-3">
-              <AuthButtons isAuthenticated={true} provider={mockProvider} userEmail={mockEmail} />
-              <Button variant="outline" onClick={() => setMockAuthenticated(false)}>Disconnect mock</Button>
+              <AuthButtons isAuthenticated={true} provider={mockProvider} userEmail={mockEmail} mockState onDisconnect={() => { setMockAuthenticated(false); setCanProceed(false); onBack(); }} />
+              <div className="text-xs text-muted-foreground text-center">Connected (demo)</div>
             </div>
           )}
         </CardContent>

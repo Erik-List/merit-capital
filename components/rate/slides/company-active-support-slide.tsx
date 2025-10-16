@@ -2,27 +2,32 @@
 
 import React, { useEffect, useMemo } from "react"
 import type { SlideProps } from "../wizard/rating-wizard"
-import { InvestorItem } from "./elements/investor-item"
-import { ScoreSlider, type ScoreBand } from "./elements/score-slider"
+import { type ScoreBand } from "./elements/score-slider"
+import { ScoreRow } from "./elements/score-row"
 import { PreviewScoreboard } from "./elements/preview-scoreboard"
 
 type State = { [investorId: string]: number | undefined }
 
 const BANDS: ScoreBand[] = [
-  { range: [1, 2], label: "Inadequate", hint: "no real help" },
-  { range: [3, 4], label: "Flawed", hint: "reactive, low impact" },
-  { range: [5, 6], label: "Sufficient", hint: "occasional useful help" },
-  { range: [7, 8], label: "Great", hint: "proactive GTM/hiring/product" },
-  { range: [9, 10], label: "Phenomenal", hint: "mission‑critical support" },
+  { range: [1, 2], label: "Inadequate", hint: "existential threat" },
+  { range: [3, 4], label: "Flawed", hint: "major liability" },
+  { range: [5, 6], label: "Sufficient", hint: "replacable partner" },
+  { range: [7, 8], label: "Great", hint: "major partner" },
+  { range: [9, 10], label: "Phenomenal", hint: "irreplaceable partner" },
 ]
 
 type Props = SlideProps & {
-  investors: { id: string; name: string; investor_type: "Institutional" | "Individual"; institutionName?: string; associatedInstitutionId?: string }[]
+  investors: { id: string; name: string; investor_type: "Institutional" | "Individual"; institutionName?: string; associatedInstitutionId?: string; affiliationType?: "Angel" | "Associated" }[]
   state: State
   setState: (s: State) => void
 }
 
-export function CompanyActiveSupportSlide({ setCanProceed, investors, state, setState }: Props) {
+export function CompanyActiveSupportSlide({ setCanProceed, setControlsVisible, setProgressVisible, setProgressIncluded, investors, state, setState }: Props) {
+  useEffect(() => {
+    setControlsVisible(true)
+    setProgressVisible(true)
+    setProgressIncluded(true)
+  }, [setControlsVisible, setProgressVisible, setProgressIncluded])
   useEffect(() => {
     const complete = investors.every(inv => typeof state[inv.id] === 'number')
     setCanProceed(complete)
@@ -30,25 +35,34 @@ export function CompanyActiveSupportSlide({ setCanProceed, investors, state, set
 
   const scoreboardItems = useMemo(() => investors.map(inv => ({
     id: inv.id,
-    label: inv.investor_type === "Institutional" ? inv.name : `${inv.institutionName ?? "Unknown institution"} — ${inv.name}`,
+    label: inv.investor_type === "Institutional"
+      ? (inv.institutionName ? `${inv.name} · ${inv.institutionName}` : `${inv.name}`)
+      : `${inv.name} · Angel`,
     score: state[inv.id] ?? null,
   })), [investors, state])
 
   return (
-    <div className="space-y-4">
-      <div className="text-lg font-medium">The active support by the investor in building the company felt…</div>
+    <div className="space-y-6">
+      <div className="text-lg font-medium">The active support by the investor in building the company (hiring, customer intros, etc.) felt…</div>
       <div className="grid grid-cols-1 md:grid-cols-[1fr_280px] gap-x-8 gap-y-4 items-start">
         <div className="space-y-4">
         {investors.map(inv => {
-          const institutionName = inv.investor_type === "Institutional" ? inv.name : (inv.institutionName ?? "Unknown institution")
-          const individualName = inv.investor_type === "Individual" ? inv.name : undefined
+          const individualName = inv.name
+          const institutionName = inv.investor_type === "Institutional" ? (inv.institutionName ?? "") : ""
+          const affiliation = inv.investor_type === "Individual" ? (inv.affiliationType ?? "Angel") : undefined
           const isInherited = inv.investor_type === "Individual" && !!inv.associatedInstitutionId
           const value = state[inv.id]
           return (
-            <React.Fragment key={inv.id}>
-              <InvestorItem institutionName={institutionName} individualName={individualName} />
-              <ScoreSlider value={value} onChange={(v) => setState({ ...state, [inv.id]: v })} disabled={isInherited} bands={BANDS} />
-            </React.Fragment>
+            <ScoreRow
+              key={inv.id}
+              institutionName={institutionName}
+              individualName={individualName}
+              affiliation={affiliation}
+              value={value}
+              onChange={(v) => setState({ ...state, [inv.id]: v })}
+              disabled={isInherited}
+              bands={BANDS}
+            />
           )
         })}
         </div>

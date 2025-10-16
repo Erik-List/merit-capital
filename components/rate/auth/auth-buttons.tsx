@@ -11,12 +11,16 @@ interface AuthButtonsProps {
   provider?: 'linkedin' | 'x'
   isAuthenticated: boolean
   userEmail?: string
+  mockState?: boolean
+  onDisconnect?: () => void
 }
 
 export function AuthButtons({ 
   provider,
   isAuthenticated,
-  userEmail
+  userEmail,
+  mockState = false,
+  onDisconnect,
 }: AuthButtonsProps) {
   const { toast } = useToast()
   const [linkedInLoading, setLinkedInLoading] = React.useState(false)
@@ -49,14 +53,14 @@ export function AuthButtons({
 
   const handleSignOut = async () => {
     try {
+      if (mockState) {
+        onDisconnect?.()
+        return
+      }
       const { error } = await supabase.auth.signOut()
       if (error) throw error
-      
       window.location.reload()
-      toast({
-        title: "Successfully disconnected",
-        description: "Your account has been unlinked",
-      })
+      toast({ title: "Successfully disconnected", description: "Your account has been unlinked" })
     } catch (error) {
       console.error('Error signing out:', error)
       toast({
@@ -96,7 +100,7 @@ export function AuthButtons({
     const text = provider === 'linkedin' ? "Connected via LinkedIn" : "Connected via X"
 
     return (
-      <div className="rounded-lg border bg-card divide-y">
+      <div className="rounded-lg border glass divide-y">
         <div className="p-3 flex items-center justify-center space-x-2">
           <Icon weight="regular" className="h-5 w-5 text-success" />
           <span className="font-medium">{text}</span>
