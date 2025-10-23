@@ -38,10 +38,9 @@ export default function Logo3D() {
 export function Model(props: any) {
   const { nodes } = useGLTF('/models/merit-capital-3d.glb') as any
   // Use the same photo as a background texture for realistic transmission blur
-  const bgTex = useTexture('/backgrounds/validation/bg-validation-lake-mountains-3840x2160.jpg')
+  const bgTex = useTexture('/backgrounds/validation/bg-validation-blue-sky-peak.jpg')
   const meshRef = useRef<THREE.Mesh>(null)
 
-  // Center the mesh by its bounding box so it sits exactly at world origin
   useLayoutEffect(() => {
     const mesh = meshRef.current as any
     if (!mesh) return
@@ -59,8 +58,8 @@ export function Model(props: any) {
       <mesh ref={meshRef} geometry={nodes.Curve004.geometry}>
         <MeshTransmissionMaterial
           background={bgTex}
-          transmission={0.7}
-          roughness={0.3}
+          transmission={1.0}
+          roughness={0.2}
           thickness={0.3}
           ior={1.4}
           envMapIntensity={1}
