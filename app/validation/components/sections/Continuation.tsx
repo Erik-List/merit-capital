@@ -2,8 +2,19 @@
 
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { scaleLinear } from "@visx/scale";
-import { Group } from "@visx/group";
+
+// Simple linear scale function (replaces @visx/scale)
+function scaleLinear({ domain, range }: { domain: [number, number]; range: [number, number] }) {
+  const [domainMin, domainMax] = domain;
+  const [rangeMin, rangeMax] = range;
+  const domainSpan = domainMax - domainMin;
+  const rangeSpan = rangeMax - rangeMin;
+  
+  return (value: number) => {
+    const normalized = (value - domainMin) / domainSpan;
+    return rangeMin + normalized * rangeSpan;
+  };
+}
 
 // Dates are handled in UTC for consistency across clients
 const START = new Date("2025-10-01T00:00:00Z"); // Q4 '25 start
@@ -18,7 +29,7 @@ function RoadmapTimeline() {
   const axisY = height - margin.bottom;
   const startMs = START.getTime();
   const endMs = END.getTime();
-  const x = scaleLinear<number>({ domain: [startMs, endMs], range: [margin.left, width - margin.right] });
+  const x = scaleLinear({ domain: [startMs, endMs], range: [margin.left, width - margin.right] });
 
   const ticks = [
     { d: new Date("2025-10-01T00:00:00Z"), label: "Q4 ’25" },
@@ -54,7 +65,7 @@ function RoadmapTimeline() {
 
   return (
     <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-auto select-none" role="img" aria-label="Merit Capital roadmap timeline">
-      <Group>
+      <g>
         {/* Axis */}
         <line x1={margin.left} x2={width - margin.right} y1={axisY} y2={axisY} stroke="currentColor" className="text-border" strokeWidth={1} />
 
@@ -62,10 +73,10 @@ function RoadmapTimeline() {
         {ticks.map((t) => {
           const tx = x(t.d.getTime());
           return (
-            <Group key={t.label}>
+            <g key={t.label}>
               <line x1={tx} x2={tx} y1={axisY} y2={axisY + 14} stroke="currentColor" className="text-border" strokeWidth={1} />
               <text x={tx} y={axisY + 32} textAnchor="middle" className="fill-current text-xs md:text-sm text-muted-foreground">{t.label}</text>
-            </Group>
+            </g>
           );
         })}
 
@@ -75,14 +86,14 @@ function RoadmapTimeline() {
           const launchX = x(LAUNCH.getTime());
           return (
             <>
-              <Group>
+              <g>
                 <line x1={previewX} x2={previewX} y1={axisY} y2={axisY + 14} stroke="currentColor" className="text-border" strokeWidth={1} />
                 <text x={previewX} y={axisY + 32} textAnchor="middle" className="fill-current text-xs md:text-sm text-accent-foreground">Nov 21st</text>
-              </Group>
-              <Group>
+              </g>
+              <g>
                 <line x1={launchX} x2={launchX} y1={axisY} y2={axisY + 14} stroke="currentColor" className="text-border" strokeWidth={1} />
                 <text x={launchX} y={axisY + 32} textAnchor="middle" className="fill-current text-xs md:text-sm text-accent-foreground">~end of May</text>
-              </Group>
+              </g>
             </>
           );
         })()}
@@ -113,9 +124,9 @@ function RoadmapTimeline() {
           const yx = x(YEAR_2026.getTime());
           const stemTop = axisY - 40;
           return (
-            <Group>
+            <g>
               <line x1={yx} x2={yx} y1={axisY} y2={stemTop} stroke="currentColor" className="text-border" strokeWidth={1} />
-            </Group>
+            </g>
           );
         })()}
 
@@ -124,15 +135,15 @@ function RoadmapTimeline() {
           const ex = x(e.d.getTime());
           const stemTop = axisY - 64;
           return (
-            <Group key={e.title}>
+            <g key={e.title}>
               <line x1={ex} x2={ex} y1={axisY} y2={stemTop} stroke="currentColor" className="text-border" strokeWidth={1} />
               <text x={ex} y={stemTop - 45} textAnchor="middle" className="fill-current text-base md:text-lg font-semibold text-accent-foreground">{e.title}</text>
               <text x={ex} y={stemTop - 25} textAnchor="middle" className="fill-current text-xs text-muted-foreground">{e.lines[0]}</text>
               <text x={ex} y={stemTop - 10} textAnchor="middle" className="fill-current text-xs text-muted-foreground">{e.lines[1]}</text>
-            </Group>
+            </g>
           );
         })}
-      </Group>
+      </g>
     </svg>
   );
 }
