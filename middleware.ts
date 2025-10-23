@@ -14,6 +14,7 @@ const PUBLIC_PATHS = [
   '/favicon.ico',
   '/icon.svg',
   '/backgrounds',
+  '/models'
 ]
 
 function isPublicPath(pathname: string): boolean {

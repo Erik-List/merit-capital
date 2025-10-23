@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Text slides for the cinematic intro
@@ -16,6 +17,7 @@ interface CinematicIntroProps {
 }
 
 export default function CinematicIntro({ onComplete, onSkip }: CinematicIntroProps) {
+  const [stage, setStage] = useState<'cover' | 'slides'>('cover');
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showSkipButton, setShowSkipButton] = useState(false);
   const [scrollAttempts, setScrollAttempts] = useState(0);
@@ -23,46 +25,70 @@ export default function CinematicIntro({ onComplete, onSkip }: CinematicIntroPro
   // Duration for each slide in milliseconds
   const slideDuration = 3500;
   
-  // Handle wheel/scroll events to detect if user wants to skip
+  // Handle wheel/scroll events to detect if user wants to skip (slides stage only)
   useEffect(() => {
+    if (stage !== 'slides') return;
     const handleScroll = () => {
       setScrollAttempts(prev => {
         const newCount = prev + 1;
-        // Show skip button after multiple scroll attempts
-        if (newCount >= 2) {
-          setShowSkipButton(true);
-        }
+        if (newCount >= 2) setShowSkipButton(true);
         return newCount;
       });
     };
-
     window.addEventListener('wheel', handleScroll);
     window.addEventListener('touchmove', handleScroll);
-    
     return () => {
       window.removeEventListener('wheel', handleScroll);
       window.removeEventListener('touchmove', handleScroll);
     };
-  }, []);
+  }, [stage]);
   
-  // Auto advance slides
+  // Auto advance slides (slides stage only)
   useEffect(() => {
+    if (stage !== 'slides') return;
     if (currentSlide < INTRO_SLIDES.length - 1) {
       const timer = setTimeout(() => {
         setCurrentSlide(prevSlide => prevSlide + 1);
       }, slideDuration);
-      
       return () => clearTimeout(timer);
     } else {
-      // When all slides are done, call onComplete after the last slide duration
       const timer = setTimeout(() => {
         onComplete();
       }, slideDuration);
-      
       return () => clearTimeout(timer);
     }
-  }, [currentSlide, onComplete]);
+  }, [stage, currentSlide, onComplete]);
+
+  // Cover: Enter key advances to slides
+  useEffect(() => {
+    if (stage !== 'cover') return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') setStage('slides');
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [stage]);
+
+  const Logo3D = dynamic(() => import("@/components/graphics/3d-logo/3DLogo"), { ssr: false });
   
+  if (stage === 'cover') {
+    return (
+      <div className="fixed inset-0 z-50">
+        <Logo3D />
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-4 z-20">
+          <motion.button
+            onClick={() => setStage('slides')}
+            className="px-6 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-white font-semibold text-base hover:bg-white/30 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/50"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Press Enter
+          </motion.button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div 
       className="fixed inset-0 flex items-center justify-center bg-transparent z-50"
