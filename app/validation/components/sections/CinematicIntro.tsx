@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 // Text slides for the cinematic intro
 const INTRO_SLIDES = [
@@ -76,14 +77,12 @@ export default function CinematicIntro({ onComplete, onSkip }: CinematicIntroPro
       <div className="fixed inset-0 z-50">
         <Logo3D />
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-4 z-20">
-          <motion.button
+          <Button
             onClick={() => setStage('slides')}
-            className="px-6 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-white font-semibold text-base hover:bg-white/30 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/50"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="px-6 py-3 glass font-semibold hover:text-accent-foreground"
           >
             Press Enter
-          </motion.button>
+          </Button>
         </div>
       </div>
     );

@@ -4,8 +4,8 @@ import { useCallback, useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import BackgroundRotator from "@/components/background/BackgroundRotator";
 
-export default function BackgroundShell({ enabled = false, children }: { enabled?: boolean; children: ReactNode }) {
-  const [ready, setReady] = useState(!enabled);
+export default function BackgroundShell({ enabled = true, children }: { enabled?: boolean; children: ReactNode }) {
+  const [ready, setReady] = useState(!enabled); 
   const handleReady = useCallback(() => setReady(true), []);
 
   // Fallback: if image onLoad never fires, reveal after a short timeout
@@ -21,6 +21,8 @@ export default function BackgroundShell({ enabled = false, children }: { enabled
       <div aria-hidden className="fixed inset-0 z-0 pointer-events-none select-none">
         <div className="relative w-full h-full">
           <BackgroundRotator enabled={enabled} onReady={handleReady} />
+          {/* Dark overlay over the background */}
+          <div className="absolute inset-0 bg-black/20" />
         </div>
       </div>
 
