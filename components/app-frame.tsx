@@ -15,7 +15,7 @@ export default function AppFrame({ children }: { children: React.ReactNode }) {
   const closeStory = useCallback(() => setStoryOpen(false), []);
 
   return (
-    <BackgroundShell enabled={false}>
+    <BackgroundShell enabled={true}>
       {storyOpen ? (
         <Story onComplete={closeStory} onSkip={closeStory} />
       ) : (
