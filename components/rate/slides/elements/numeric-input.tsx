@@ -12,6 +12,7 @@ export function NumericInput({
   max,
   allowDecimal = false,
   onWheelPrevent = true,
+  onFocus,
 }: {
   value?: number
   onChange: (v?: number) => void
@@ -21,6 +22,7 @@ export function NumericInput({
   max?: number
   allowDecimal?: boolean
   onWheelPrevent?: boolean
+  onFocus?: () => void
 }) {
   const [text, setText] = React.useState<string>(
     typeof value === "number" && Number.isFinite(value) ? String(value) : ""
@@ -70,6 +72,7 @@ export function NumericInput({
       placeholder={placeholder}
       value={text}
       onChange={(e) => sanitizeAndEmit(e.target.value)}
+      onFocus={onFocus}
       onWheel={onWheelPrevent ? (e) => e.currentTarget.blur() : undefined}
       className={className}
     />
