@@ -1,14 +1,14 @@
 "use client";
 
-import ViewFilter, { type ViewState, type TypeState } from "@/components/new-leaderboard/filters/view";
-import StageFilter, { type StageState } from "@/components/new-leaderboard/filters/stage-filter";
-import RangeFilter, { type RangeState, type MedianState } from "@/components/new-leaderboard/filters/range-filter";
-import GeographyFilter, { type GeographyState } from "@/components/new-leaderboard/filters/geography-filter";
-import ScopeFilter, { type ScopeState } from "@/components/new-leaderboard/filters/scope-filter";
-import FounderScoreFilter from "@/components/new-leaderboard/filters/founder-score-filter";
-import TrackRecordFilter from "@/components/new-leaderboard/filters/track-record-filter";
-import type { FounderScoreFilterState } from "@/components/new-leaderboard/filters/founder-score-filter-types";
-import type { TrackRecordState } from "@/components/new-leaderboard/track-record-utils";
+import ViewFilter, { type ViewState, type TypeState } from "@/components/leaderboard/filters/view";
+import StageFilter, { type StageState } from "@/components/leaderboard/filters/stage-filter";
+import RangeFilter, { type RangeState, type MedianState } from "@/components/leaderboard/filters/range-filter";
+import GeographyFilter, { type GeographyState } from "@/components/leaderboard/filters/geography-filter";
+import ScopeFilter, { type ScopeState } from "@/components/leaderboard/filters/scope-filter";
+import FounderScoreFilter from "@/components/leaderboard/filters/founder-score-filter";
+import TrackRecordFilter from "@/components/leaderboard/filters/track-record-filter";
+import type { FounderScoreFilterState } from "@/components/leaderboard/filters/founder-score-filter-types";
+import type { TrackRecordState } from "@/components/leaderboard/track-record-utils";
 
 interface FilterCardProps {
   view: ViewState;
