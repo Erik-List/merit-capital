@@ -1,96 +1,65 @@
 "use client";
 
+import { useState } from "react";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { ChevronDown } from "lucide-react";
-import { useRef, useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-export type StageLabel = 'Pre-Seed' | 'Seed' | 'Series A' | 'Series B+';
+export type StageState = {
+  preseed: boolean;
+  seed: boolean;
+  seriesA: boolean;
+  growth: boolean;
+};
 
-interface LeaderboardStageFilterProps {
-  value: StageLabel[];
-  onChange: (value: StageLabel[]) => void;
-  disabled?: boolean;
+interface StageFilterProps {
+  className?: string;
+  value: StageState;
+  onChange: (next: StageState) => void;
 }
 
-const ALL_OPTIONS: StageLabel[] = ['Pre-Seed', 'Seed', 'Series A', 'Series B+'];
+const options: { key: keyof StageState; label: string }[] = [
+  { key: "preseed", label: "Pre-Seed" },
+  { key: "seed", label: "Seed" },
+  { key: "seriesA", label: "Series A" },
+  { key: "growth", label: "Growth" },
+];
 
-function getButtonLabel(selected: StageLabel[]): string {
-  if (selected.length === 0 || selected.length === ALL_OPTIONS.length) return 'All Stages';
-  if (selected.length === 1) return selected[0];
-  if (selected.length === 2) return `${selected[0]}, ${selected[1]}`;
-  return `${selected[0]} + ${selected.length - 1}`;
-}
+export default function StageFilter({ className, value, onChange }: StageFilterProps) {
+  const [open, setOpen] = useState(true);
 
-export function LeaderboardStageFilter({ value, onChange, disabled }: LeaderboardStageFilterProps) {
-  const [open, setOpen] = useState(false);
-  const closeTimerRef = useRef<number | undefined>(undefined);
-  const toggle = (option: StageLabel) => {
-    const exists = value.includes(option);
-    const next = exists ? value.filter(v => v !== option) : [...value, option];
-    // If all selected, collapse to none (means All Stages)
-    if (next.length === ALL_OPTIONS.length) {
-      onChange([]);
-    } else {
-      onChange(next);
-    }
+  const toggle = (key: keyof StageState) => (checked: boolean | "indeterminate") => {
+    onChange({ ...value, [key]: Boolean(checked) });
   };
-
-  const setAll = (checked: boolean) => {
-    onChange(checked ? [] : []); // All Stages is represented by empty selection
-  };
-
-  const label = getButtonLabel(value);
 
   return (
-    <DropdownMenu open={open} onOpenChange={setOpen} modal={false}>
-      <DropdownMenuTrigger asChild disabled={disabled}>
-        <Button variant="outline" className="w-[160px] justify-between">
-          {label}
-          <ChevronDown className="h-4 w-4 opacity-60" />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent
-        align="start"
-        className="w-[160px]"
-        onPointerEnter={() => {
-          if (closeTimerRef.current) {
-            window.clearTimeout(closeTimerRef.current);
-            closeTimerRef.current = undefined;
-          }
-        }}
-        onPointerLeave={() => {
-          closeTimerRef.current = window.setTimeout(() => setOpen(false), 150);
-        }}
-      >
-        <DropdownMenuCheckboxItem
-          checked={value.length === 0}
-          onCheckedChange={() => setAll(true)}
-          onSelect={(e) => e.preventDefault()}
+    <div className={cn("space-y-2", className)}>
+      <div className="flex items-center justify-between">
+        <div className="font-medium text-primary text-lg">Stage</div>
+        <Button
+          type="button"
+          variant="ghost"
+          size="icon"
+          className="h-6 w-6 p-0 text-muted-foreground"
+          aria-label={open ? "Collapse Stage" : "Expand Stage"}
+          onClick={() => setOpen((v) => !v)}
         >
-          All Stages
-        </DropdownMenuCheckboxItem>
-        <DropdownMenuSeparator />
-        {ALL_OPTIONS.map(opt => (
-          <DropdownMenuCheckboxItem
-            key={opt}
-            checked={value.includes(opt)}
-            onCheckedChange={() => toggle(opt)}
-            onSelect={(e) => e.preventDefault()}
-          >
-            {opt}
-          </DropdownMenuCheckboxItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+          {open ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+        </Button>
+      </div>
+      {open ? (
+        <div className="space-y-2">
+          {options.map(({ key, label }) => (
+            <label key={key} className="flex items-center gap-2 cursor-pointer text-sm text-muted-foreground">
+              <Checkbox checked={value[key]} onCheckedChange={toggle(key)} />
+              <span className="text-muted-foreground">{label}</span>
+            </label>
+          ))}
+        </div>
+      ) : null}
+    </div>
   );
 }
-
 
 

@@ -9,7 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { NumericInput } from "@/components/rate/slides/elements/numeric-input";
 import { cn } from "@/lib/utils";
 
-import type { TrackRecordState, TrackRecordSelection, TrackRecordTier } from "@/components/new-leaderboard/track-record-utils";
+import type { TrackRecordState, TrackRecordSelection, TrackRecordTier } from "@/components/leaderboard/track-record-utils";
 
 interface TrackRecordFilterProps {
   className?: string;

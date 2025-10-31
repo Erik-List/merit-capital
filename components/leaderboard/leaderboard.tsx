@@ -4,34 +4,34 @@ import { useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { createClient } from "@/utils/supabase/client";
 import type { Database } from "@/types/supabase";
-import FilterCard from "@/components/new-leaderboard/filter-card";
-import SearchCard from "@/components/new-leaderboard/search-card";
-import InvestorsTable from "@/components/new-leaderboard/table";
-import type { ViewState, TypeState } from "@/components/new-leaderboard/filters/view";
-import type { StageState } from "@/components/new-leaderboard/filters/stage-filter";
-import type { RangeState } from "@/components/new-leaderboard/filters/range-filter";
-import type { MedianState, MedianUnit } from "@/components/new-leaderboard/filters/range-filter";
-import { medianStateToValue } from "@/components/new-leaderboard/filters/range-filter";
-import type { GeographyState } from "@/components/new-leaderboard/filters/geography-filter";
-import type { ScopeState } from "@/components/new-leaderboard/filters/scope-filter";
+import FilterCard from "@/components/leaderboard/filter-card";
+import SearchCard from "@/components/leaderboard/search-card";
+import InvestorsTable from "@/components/leaderboard/table";
+import type { ViewState, TypeState } from "@/components/leaderboard/filters/view";
+import type { StageState } from "@/components/leaderboard/filters/stage-filter";
+import type { RangeState } from "@/components/leaderboard/filters/range-filter";
+import type { MedianState, MedianUnit } from "@/components/leaderboard/filters/range-filter";
+import { medianStateToValue } from "@/components/leaderboard/filters/range-filter";
+import type { GeographyState } from "@/components/leaderboard/filters/geography-filter";
+import type { ScopeState } from "@/components/leaderboard/filters/scope-filter";
 import {
   ALL_FOUNDER_SCORE_CATEGORIES,
   FOUNDER_SCORE_QUERY_KEY,
   isCategoriesFounderState,
   normalizeFounderCategories,
-} from "@/components/new-leaderboard/filters/founder-score-filter-types";
+} from "@/components/leaderboard/filters/founder-score-filter-types";
 import type {
   FounderScoreCategory,
   FounderScoreFilterState,
-} from "@/components/new-leaderboard/filters/founder-score-filter-types";
-import type { TrackRecordState } from "@/components/new-leaderboard/track-record-utils";
+} from "@/components/leaderboard/filters/founder-score-filter-types";
+import type { TrackRecordState } from "@/components/leaderboard/track-record-utils";
 import {
   TRACK_RECORD_QUERY_KEY,
   parseTrackRecordParam,
   buildTrackRecordParam,
   sanitizeTrackRecordState,
   computeTrackRecordHitRate,
-} from "@/components/new-leaderboard/track-record-utils";
+} from "@/components/leaderboard/track-record-utils";
 import founderRatings from "@/data/founder-ratings.json";
 
 type Investor = Database["public"]["Views"]["InvestorView"]["Row"];

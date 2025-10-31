@@ -4,27 +4,27 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import { TableCell, TableRow } from "@/components/ui/table";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import type { StageState } from "@/components/new-leaderboard/filters/stage-filter";
-import type { GeographyState } from "@/components/new-leaderboard/filters/geography-filter";
-import type { ScopeState } from "@/components/new-leaderboard/filters/scope-filter";
-import type { FounderScoreFilterState, FounderScoreCategory } from "@/components/new-leaderboard/filters/founder-score-filter-types";
+import type { StageState } from "@/components/leaderboard/filters/stage-filter";
+import type { GeographyState } from "@/components/leaderboard/filters/geography-filter";
+import type { ScopeState } from "@/components/leaderboard/filters/scope-filter";
+import type { FounderScoreFilterState, FounderScoreCategory } from "@/components/leaderboard/filters/founder-score-filter-types";
 import {
   ALL_FOUNDER_SCORE_CATEGORIES,
   isCategoriesFounderState,
   normalizeFounderCategories,
-} from "@/components/new-leaderboard/filters/founder-score-filter-types";
+} from "@/components/leaderboard/filters/founder-score-filter-types";
 import type { Database } from "@/types/supabase";
 import { formatInvestmentRange } from "@/utils/format";
 import founderRatings from "@/data/founder-ratings.json";
-import type { ViewState } from "@/components/new-leaderboard/filters/view";
-import type { TrackRecordState, TrackRecordTier } from "@/components/new-leaderboard/track-record-utils";
+import type { ViewState } from "@/components/leaderboard/filters/view";
+import type { TrackRecordState, TrackRecordTier } from "@/components/leaderboard/track-record-utils";
 import {
   computeTrackRecordHitRate,
   defaultTrackRecord,
   TRACK_RECORD_TIER_LABELS,
   TRACK_RECORD_TIER_NEGATIVE_LABELS,
   sanitizeTrackRecordState,
-} from "@/components/new-leaderboard/track-record-utils";
+} from "@/components/leaderboard/track-record-utils";
 
 type Investor = Database["public"]["Views"]["InvestorView"]["Row"];
 
