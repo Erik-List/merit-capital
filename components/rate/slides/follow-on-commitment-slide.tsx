@@ -13,16 +13,20 @@ type Props = SlideProps & {
   setState: (s: State) => void
 }
 
-export function FollowOnCommitmentSlide({ setCanProceed, setControlsVisible, setProgressVisible, setProgressIncluded, investors, state, setState }: Props) {
+export function FollowOnCommitmentSlide({ setCanProceed, setControlsVisible, setProgressVisible, setProgressIncluded, investors, state, setState, skipValidation }: Props) {
   useEffect(() => {
     setControlsVisible(true)
     setProgressVisible(true)
     setProgressIncluded(true)
   }, [setControlsVisible, setProgressVisible, setProgressIncluded])
   useEffect(() => {
+    if (skipValidation) {
+      setCanProceed(true)
+      return
+    }
     const complete = investors.every(inv => !!state[inv.id]?.type)
     setCanProceed(complete)
-  }, [setCanProceed, investors, state])
+  }, [setCanProceed, investors, state, skipValidation])
 
   return (
     <div className="space-y-4">

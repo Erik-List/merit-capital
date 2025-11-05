@@ -11,7 +11,6 @@ import { InvestmentSpeedSlide } from "@/components/rate/slides/investment-speed-
 import { InvestmentProcessQualitySlide } from "@/components/rate/slides/investment-process-quality-slide";
 import { CompanyPassiveSupportSlide } from "@/components/rate/slides/company-passive-support-slide";
 import { CompanyActiveSupportSlide } from "@/components/rate/slides/company-active-support-slide";
-import { FollowOnCommitmentSlide } from "@/components/rate/slides/follow-on-commitment-slide";
 import { InvestorConsiderationsSlide } from "@/components/rate/slides/investor-considerations-slide";
 import { InvestorListSlide } from "@/components/rate/slides/investor-list-slide";
 
@@ -30,7 +29,7 @@ export default function RatingSection() {
         <div ref={cardRef}>
           <RatingsProvider>
             <RatingWizard
-              slides={[InfoSlide, AuthSlide, InvestorListSlideWrapper, SpeedSlideWrapper, ProcessQualitySlideWrapper, PassiveSupportSlideWrapper, ActiveSupportSlideWrapper, FollowOnCommitmentSlideWrapper, InvestorConsiderationsSlideWrapper, EndSlideWrapper]}
+              slides={[InfoSlide, AuthSlide, InvestorListSlideWrapper, SpeedSlideWrapper, ProcessQualitySlideWrapper, PassiveSupportSlideWrapper, ActiveSupportSlideWrapper, InvestorConsiderationsSlideWrapper, EndSlideWrapper]}
             />
           </RatingsProvider>
         </div>
@@ -96,7 +95,6 @@ const DEMO_INVESTORS: Investor[] = [
 
 type SpeedState = { [investorId: string]: { value?: number; unit: "days" | "weeks" | "months"; noTS: boolean } }
 type ScoreState = { [investorId: string]: number | undefined }
-type FollowOnState = { [investorId: string]: { type: "none" | "pro_rata" | "super_pro_rata" } | undefined }
 type ConsiderationsState = { [investorId: string]: { mode: "unselected" | "no_consideration" | "consideration"; text?: string } | undefined }
 
 const RatingsContext = createContext<ReturnType<typeof useRatingsDemoInternal> | null>(null)
@@ -107,7 +105,6 @@ function useRatingsDemoInternal() {
   const [processQuality, setProcessQuality] = useState<ScoreState>({})
   const [passiveSupport, setPassiveSupport] = useState<ScoreState>({})
   const [activeSupport, setActiveSupport] = useState<ScoreState>({})
-  const [followOn, setFollowOn] = useState<FollowOnState>({})
   const [considerations, setConsiderations] = useState<ConsiderationsState>({})
 
   // Build associations map institution -> individual IDs (recompute when investors change)
@@ -175,11 +172,6 @@ function useRatingsDemoInternal() {
       for (const id of ids) delete next[id]
       return next
     })
-    setFollowOn((prev) => {
-      const next = { ...prev }
-      for (const id of ids) delete next[id]
-      return next
-    })
     setConsiderations((prev) => {
       const next = { ...prev }
       for (const id of ids) delete next[id]
@@ -198,12 +190,10 @@ function useRatingsDemoInternal() {
     setPassiveSupport: makeInheritedSetter(setPassiveSupport),
     activeSupport,
     setActiveSupport: makeInheritedSetter(setActiveSupport),
-    followOn,
-    setFollowOn,
     considerations,
     setConsiderations,
     clearInvestorFromStates,
-  }), [investors, speed, processQuality, passiveSupport, activeSupport, followOn, considerations])
+  }), [investors, speed, processQuality, passiveSupport, activeSupport, considerations])
 
   return value
 }
@@ -247,13 +237,6 @@ function ActiveSupportSlideWrapper(props: SlideProps) {
   )
 }
 
-function FollowOnCommitmentSlideWrapper(props: SlideProps) {
-  const ctx = useRatings()
-  return (
-    <FollowOnCommitmentSlide {...props} investors={ctx.investors} state={ctx.followOn} setState={ctx.setFollowOn} />
-  )
-}
-
 function InvestorConsiderationsSlideWrapper(props: SlideProps) {
   const ctx = useRatings()
   return (
@@ -281,8 +264,6 @@ function EndSlideWrapper(props: SlideProps) {
       const ip = ctx.processQuality[inv.id]
       const ibs = ctx.passiveSupport[inv.id]
       const cbs = ctx.activeSupport[inv.id]
-      const follow = ctx.followOn[inv.id]?.type
-      const mult = follow === "super_pro_rata" ? 1.2 : follow === "pro_rata" ? 1.0 : follow === "none" ? 0.8 : undefined
       const speed = ctx.speed[inv.id]
       const speedText = (speed && typeof speed.value === 'number' && speed.value > 0 && !speed.noTS)
         ? `${speed.value} ${speed.unit}`
@@ -297,12 +278,11 @@ function EndSlideWrapper(props: SlideProps) {
         investmentProcess: ip,
         indirectBrandSupport: ibs,
         companyBuildingSupport: cbs,
-        followOnCommitmentMultiplier: mult,
         firstMeetingToTsText: speedText ?? "-",
         considerationText,
       }
     })
-  }, [ctx.investors, ctx.processQuality, ctx.passiveSupport, ctx.activeSupport, ctx.followOn, ctx.speed])
+  }, [ctx.investors, ctx.processQuality, ctx.passiveSupport, ctx.activeSupport, ctx.speed])
   return <EndSlide {...props} items={items} />
 }
 

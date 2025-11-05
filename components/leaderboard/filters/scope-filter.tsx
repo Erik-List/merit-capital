@@ -101,13 +101,13 @@ export default function ScopeFilter({ className, value, onChange, options }: Sco
   return (
     <div className={cn("space-y-2", className)}>
       <div className="flex items-center justify-between">
-        <div className="font-medium text-lg">Scope</div>
+        <div className="font-medium text-primary text-lg">Investment Focus</div>
         <Button
           type="button"
           variant="ghost"
           size="icon"
           className="h-6 w-6 p-0 text-muted-foreground"
-          aria-label={open ? "Collapse Scope" : "Expand Scope"}
+          aria-label={open ? "Collapse Investment Focus" : "Expand Investment Focus"}
           onClick={() => setOpen((prev) => !prev)}
         >
           {open ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
@@ -117,7 +117,7 @@ export default function ScopeFilter({ className, value, onChange, options }: Sco
         <div className="space-y-2">
           <label className="flex items-center gap-2 cursor-pointer text-sm text-muted-foreground">
             <Checkbox checked={value.all} onCheckedChange={handleAllChange} />
-            <span className="text-muted-foreground">All Scopes</span>
+            <span className="text-muted-foreground">All Focus</span>
           </label>
           {primaryScopes.map((scope) => (
             <label key={scope} className="flex items-center gap-2 cursor-pointer text-sm text-muted-foreground">
@@ -135,7 +135,7 @@ export default function ScopeFilter({ className, value, onChange, options }: Sco
                 className="text-xs text-muted-foreground underline underline-offset-4"
                 onClick={() => setExpanded((prev) => !prev)}
               >
-                {expanded ? "Hide other scopes" : "See all scopes"}
+                {expanded ? "Hide other focus areas" : "See all focus areas"}
               </button>
               {expanded && (
                 <div className="space-y-1">

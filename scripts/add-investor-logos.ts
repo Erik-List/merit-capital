@@ -33,7 +33,7 @@ type InvestorRow = {
   slug: string
   investment_concept: string | null
   history: string | null
-  logo_url: string | null
+  icon_url: string | null
 }
 
 async function main() {
@@ -61,7 +61,7 @@ async function main() {
   const values: any[] = []
   let paramIndex = 1
   if (!replace) {
-    whereParts.push('(logo_url IS NULL OR logo_url = \'\')')
+    whereParts.push('(icon_url IS NULL OR icon_url = \'\')')
   }
   if (investors && investors.length > 0) {
     whereParts.push(`slug = ANY($${paramIndex}::text[])`)
@@ -70,7 +70,7 @@ async function main() {
   }
   const whereSql = whereParts.length > 0 ? 'WHERE ' + whereParts.join(' AND ') : ''
   const query = `
-    SELECT id, name, slug, investment_concept, history, logo_url
+    SELECT id, name, slug, investment_concept, history, icon_url
     FROM "public"."Investor"
     ${whereSql}
     ORDER BY slug ASC
@@ -133,9 +133,9 @@ async function main() {
       const { data: publicUrlData } = supabase.storage.from('Icon Images').getPublicUrl(filePath)
       const publicUrl = publicUrlData.publicUrl
 
-      // 4) Update Investor.logo_url
+      // 4) Update Investor.icon_url
       await pg.query(
-        `UPDATE "public"."Investor" SET logo_url = $1, updated_at = now() WHERE id = $2`,
+        `UPDATE "public"."Investor" SET icon_url = $1, updated_at = now() WHERE id = $2`,
         [publicUrl, investor.id]
       )
 

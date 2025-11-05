@@ -13,6 +13,7 @@ export type SlideProps = {
   setControlsVisible: (visible: boolean) => void
   setProgressVisible: (visible: boolean) => void
   setProgressIncluded: (included: boolean) => void
+  skipValidation?: boolean
 }
 
 export type SlideComponent = React.ComponentType<SlideProps>
@@ -29,6 +30,7 @@ export function RatingWizard({ slides, initialIndex = 0, infoSlideIndex = 0, lis
   const [canProceed, setCanProceed] = useState(true)
   const [controlsVisible, setControlsVisible] = useState(false)
   const [progressVisible, setProgressVisible] = useState(false)
+  const skipValidation = true
 
   // Exclusions for denominator (info, auth) and visibility (info, auth, end)
   const isExcludedFromDenominator = useCallback((i: number) => {
@@ -92,6 +94,7 @@ export function RatingWizard({ slides, initialIndex = 0, infoSlideIndex = 0, lis
                   setControlsVisible={setControlsVisible}
                   setProgressVisible={setProgressVisible}
                   setProgressIncluded={setProgressIncludedCb}
+                  skipValidation={skipValidation}
                 />
               </div>
             </div>
@@ -100,9 +103,11 @@ export function RatingWizard({ slides, initialIndex = 0, infoSlideIndex = 0, lis
             <CardContent className="p-4 md:p-8 w-[200px] border-l border-input/30 flex flex-col items-center justify-center gap-3 self-stretch">
               <div className="inline-flex items-center rounded-md overflow-hidden gap-1">
                 <Button onClick={onBack} disabled={index === 0}>Back</Button>
-                <Button onClick={onNext} disabled={!canProceed || index === slides.length - 1}>
-                  Next
-                </Button>
+                {!isEndSlide && (
+                  <Button onClick={onNext} disabled={!canProceed || index === slides.length - 1}>
+                    Next
+                  </Button>
+                )}
               </div>
               <div className="w-full flex justify-center">
                 {isEndSlide ? (

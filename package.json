@@ -9,7 +9,9 @@
     "lint": "next lint",
     "types:supabase": "npx supabase gen types typescript --project-id lsohkkmdlrlixukuncjl > types/supabase.ts",
     "add-investor-logos": "tsx scripts/add-investor-logos.ts",
-    "export:investors": "tsx scripts/export-investors.ts"
+    "export:investors": "tsx scripts/export-investors.ts",
+    "aggregate:investor": "tsx scripts/aggregate-investor.ts",
+    "ingest:investor": "tsx scripts/ingest-investor.ts"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
@@ -72,6 +74,7 @@
     "lucide-react": "^0.446.0",
     "next": "15.2.2",
     "next-themes": "^0.4.0",
+    "openai": "^6.7.0",
     "pg": "^8.16.3",
     "postcss": "8.4.30",
     "react": "^19.0.0",

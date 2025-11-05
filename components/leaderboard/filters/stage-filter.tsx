@@ -36,13 +36,13 @@ export default function StageFilter({ className, value, onChange }: StageFilterP
   return (
     <div className={cn("space-y-2", className)}>
       <div className="flex items-center justify-between">
-        <div className="font-medium text-primary text-lg">Stage</div>
+        <div className="font-medium text-primary text-lg">Investment Stages</div>
         <Button
           type="button"
           variant="ghost"
           size="icon"
           className="h-6 w-6 p-0 text-muted-foreground"
-          aria-label={open ? "Collapse Stage" : "Expand Stage"}
+          aria-label={open ? "Collapse Investment Stages" : "Expand Investment Stages"}
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}

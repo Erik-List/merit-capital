@@ -230,13 +230,13 @@ export default function RangeFilter({ className, value, onChange, median, onMedi
   return (
     <div className={cn("space-y-2", className)}>
       <div className="flex items-center justify-between">
-        <div className="font-medium text-primary text-lg">Range</div>
+        <div className="font-medium text-primary text-lg">Investment Range</div>
         <Button
           type="button"
           variant="ghost"
           size="icon"
           className="h-6 w-6 p-0 text-muted-foreground"
-          aria-label={open ? "Collapse Range" : "Expand Range"}
+          aria-label={open ? "Collapse Investment Range" : "Expand Investment Range"}
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
@@ -301,7 +301,7 @@ export default function RangeFilter({ className, value, onChange, median, onMedi
                             <Info className="h-3.5 w-3.5 text-amber-500" aria-hidden="true" />
                           </TooltipTrigger>
                           <TooltipContent side="right" align="center" className="text-xs whitespace-pre-wrap max-w-xs">
-                            The median amount should sit within your selected range.
+                            The median amount should sit within your selected investment range.
                           </TooltipContent>
                         </Tooltip>
                       </TooltipProvider>

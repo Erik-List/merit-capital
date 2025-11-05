@@ -62,8 +62,6 @@ export default function FilterCard({
         <div className="h-px bg-input/30 mx-1" />
         <FounderScoreFilter value={founder} onChange={onFounderChange} />
         <div className="h-px bg-input/30 mx-1" />
-        <TrackRecordFilter value={trackRecord} onChange={onTrackRecordChange} />
-        <div className="h-px bg-input/30 mx-1" />
         <StageFilter value={stage} onChange={onStageChange} />
         <div className="h-px bg-input/30 mx-1" />
         <RangeFilter value={range} onChange={onRangeChange} median={median} onMedianChange={onMedianChange} />
@@ -71,6 +69,8 @@ export default function FilterCard({
         <GeographyFilter value={geo} onChange={onGeoChange} options={geoOptions} />
         <div className="h-px bg-input/30 mx-1" />
         <ScopeFilter value={scope} onChange={onScopeChange} options={scopeOptions} />
+        <div className="h-px bg-input/30 mx-1" />
+        <TrackRecordFilter value={trackRecord} onChange={onTrackRecordChange} />
       </div>
     </div>
   );
