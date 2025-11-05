@@ -16,20 +16,24 @@ type Props = SlideProps & {
   setState: (s: SpeedState) => void
 }
 
-export function InvestmentSpeedSlide({ setCanProceed, setControlsVisible, setProgressVisible, setProgressIncluded, investors, state, setState }: Props) {
+export function InvestmentSpeedSlide({ setCanProceed, setControlsVisible, setProgressVisible, setProgressIncluded, investors, state, setState, skipValidation }: Props) {
   useEffect(() => {
     setControlsVisible(true)
     setProgressVisible(true)
     setProgressIncluded(true)
   }, [setControlsVisible, setProgressVisible, setProgressIncluded])
   useEffect(() => {
+    if (skipValidation) {
+      setCanProceed(true)
+      return
+    }
     const complete = investors.every(inv => {
       const row = state[inv.id]
       if (!row) return false
       return typeof row.value === 'number' && row.value > 0
     })
     setCanProceed(complete)
-  }, [setCanProceed, investors, state])
+  }, [setCanProceed, investors, state, skipValidation])
 
   return (
     <div className="space-y-4">

@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp, Info } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 
@@ -33,7 +34,7 @@ const CATEGORY_LABELS: Record<FounderScoreCategory, string> = {
 };
 
 export default function FounderScoreFilter({ className, value, onChange }: FounderScoreFilterProps) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [showCategories, setShowCategories] = useState(false);
   const { toast } = useToast();
   const isAllSelected = value.mode === "all";
@@ -98,7 +99,27 @@ export default function FounderScoreFilter({ className, value, onChange }: Found
   return (
     <div className={cn("space-y-3", className)}>
       <div className="flex items-center justify-between">
-        <div className="font-medium text-primary text-lg">Founder score</div>
+        <div className="flex items-center gap-2">
+          <div className="font-medium text-primary text-lg">Founder score</div>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button
+                  type="button"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  aria-label="Information about founder scores"
+                >
+                  <Info className="h-4 w-4" />
+                </button>
+              </TooltipTrigger>
+              <TooltipContent className="max-w-[280px]">
+                <p className="text-xs">
+                  Aggregate ratings from founders evaluating their investors across four dimensions: decision-making speed, investment process quality, passive brand support, and active company-building support. The overall score weights these categories by the investor's follow-on commitment multiplier.
+                </p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </div>
         <Button
           type="button"
           variant="ghost"

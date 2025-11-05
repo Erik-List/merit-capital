@@ -16,7 +16,7 @@ type Props = SlideProps & {
   setState: (s: ConsiderationsState) => void
 }
 
-export function InvestorConsiderationsSlide({ setCanProceed, setControlsVisible, setProgressVisible, setProgressIncluded, investors, state, setState }: Props) {
+export function InvestorConsiderationsSlide({ setCanProceed, setControlsVisible, setProgressVisible, setProgressIncluded, investors, state, setState, skipValidation }: Props) {
   useEffect(() => {
     setControlsVisible(true)
     setProgressVisible(true)
@@ -24,6 +24,10 @@ export function InvestorConsiderationsSlide({ setCanProceed, setControlsVisible,
   }, [setControlsVisible, setProgressVisible, setProgressIncluded])
 
   useEffect(() => {
+    if (skipValidation) {
+      setCanProceed(true)
+      return
+    }
     const complete = investors.every(inv => {
       const s = state[inv.id]
       if (!s) return false
@@ -32,12 +36,12 @@ export function InvestorConsiderationsSlide({ setCanProceed, setControlsVisible,
       return false
     })
     setCanProceed(complete)
-  }, [investors, state, setCanProceed])
+  }, [investors, state, setCanProceed, skipValidation])
 
   return (
     <div className="space-y-4">
         <div className="space-y-1">
-          <div className="text-lg font-medium">Are there additional considerations other founders should have in mind?</div>
+          <div className="text-lg font-medium">Is there additional context other founders should know about this investor?</div>
 
           <div className="flex items-start gap-2 text-sm bg-destructive/20 rounded-md p-2 w-fit max-w-full">
             <AlertTriangle className="h-4 w-4 mt-0.5 text-destructive" />

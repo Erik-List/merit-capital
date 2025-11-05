@@ -22,16 +22,20 @@ type Props = SlideProps & {
   setState: (s: QualityState) => void
 }
 
-export function InvestmentProcessQualitySlide({ setCanProceed, setControlsVisible, setProgressVisible, setProgressIncluded, investors, state, setState }: Props) {
+export function InvestmentProcessQualitySlide({ setCanProceed, setControlsVisible, setProgressVisible, setProgressIncluded, investors, state, setState, skipValidation }: Props) {
   useEffect(() => {
     setControlsVisible(true)
     setProgressVisible(true)
     setProgressIncluded(true)
   }, [setControlsVisible, setProgressVisible, setProgressIncluded])
   useEffect(() => {
+    if (skipValidation) {
+      setCanProceed(true)
+      return
+    }
     const complete = investors.every(inv => typeof state[inv.id] === 'number')
     setCanProceed(complete)
-  }, [setCanProceed, investors, state])
+  }, [setCanProceed, investors, state, skipValidation])
 
   const scoreboardItems = useMemo(() => {
     return investors.map(inv => {

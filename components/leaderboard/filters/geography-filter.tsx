@@ -63,13 +63,13 @@ export default function GeographyFilter({ className, value, onChange, options }:
   return (
     <div className={cn("space-y-2", className)}>
       <div className="flex items-center justify-between">
-        <div className="font-medium text-primary text-lg">Geography</div>
+        <div className="font-medium text-primary text-lg">Investment Geography</div>
         <Button
           type="button"
           variant="ghost"
           size="icon"
           className="h-6 w-6 p-0 text-muted-foreground"
-          aria-label={open ? "Collapse Geography" : "Expand Geography"}
+          aria-label={open ? "Collapse Investment Geography" : "Expand Investment Geography"}
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
@@ -79,7 +79,7 @@ export default function GeographyFilter({ className, value, onChange, options }:
         <div className="space-y-2">
           <label className="flex items-center gap-2 cursor-pointer text-sm text-muted-foreground">
             <Checkbox checked={value.all} onCheckedChange={handleAllChange} />
-            <span className="text-muted-foreground">All Geographies</span>
+            <span className="text-muted-foreground">All Investment Geographies</span>
           </label>
           {PRIMARY_LABELS.map((label) => (
             <label key={label} className="flex items-center gap-2 cursor-pointer text-sm text-muted-foreground">
@@ -97,7 +97,7 @@ export default function GeographyFilter({ className, value, onChange, options }:
                 className="text-xs text-muted-foreground underline underline-offset-4"
                 onClick={() => setExpanded((v) => !v)}
               >
-                {expanded ? "Hide other geographies" : "Show more geographies"}
+                {expanded ? "Hide other investment geographies" : "Show more investment geographies"}
               </button>
               {expanded && (
                 <div className="space-y-1">

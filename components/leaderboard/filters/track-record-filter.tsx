@@ -1,11 +1,12 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp, Info } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { NumericInput } from "@/components/rate/slides/elements/numeric-input";
 import { cn } from "@/lib/utils";
 
@@ -99,7 +100,27 @@ export default function TrackRecordFilter({ className, value, onChange }: TrackR
   return (
     <div className={cn("space-y-3", className)}>
       <div className="flex items-center justify-between">
-        <div className="font-medium text-primary text-lg">Track record</div>
+        <div className="flex items-center gap-2">
+          <div className="font-medium text-primary text-lg">Track record</div>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button
+                  type="button"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  aria-label="Information about track records"
+                >
+                  <Info className="h-4 w-4" />
+                </button>
+              </TooltipTrigger>
+              <TooltipContent className="max-w-[280px]">
+                <p className="text-xs">
+                  The percentage of companies an investor has backed (including exited) that reached valuation milestones ($1B+, $10B+, or $100B+), indicating their ability to identify and back successful companies.
+                </p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </div>
         <Button
           type="button"
           variant="ghost"

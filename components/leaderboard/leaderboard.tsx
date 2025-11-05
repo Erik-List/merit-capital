@@ -7,6 +7,7 @@ import type { Database } from "@/types/supabase";
 import FilterCard from "@/components/leaderboard/filter-card";
 import SearchCard from "@/components/leaderboard/search-card";
 import InvestorsTable from "@/components/leaderboard/table";
+import SortDropdown from "@/components/leaderboard/sort-dropdown";
 import type { ViewState, TypeState } from "@/components/leaderboard/filters/view";
 import type { StageState } from "@/components/leaderboard/filters/stage-filter";
 import type { RangeState } from "@/components/leaderboard/filters/range-filter";
@@ -39,10 +40,20 @@ type Investor = Database["public"]["Views"]["InvestorView"]["Row"];
 type FounderRatingRecord = {
   rating: number;
   reviewCount: number;
-} & { [K in FounderScoreCategory]?: number };
+  comments?: string[];
+} & {
+  speed?: number | string;
+  processQuality?: number;
+  passiveSupport?: number;
+  activeSupport?: number;
+};
 
 const FOUNDER_RATINGS: Record<string, FounderRatingRecord> =
   founderRatings as Record<string, FounderRatingRecord>;
+
+export type SortOption = "founder-score-desc" | "track-record-desc" | "graduation-rate-desc";
+
+const DEFAULT_SORT: SortOption = "founder-score-desc";
 
 const defaultView: ViewState = {
   geography: true,
@@ -92,8 +103,8 @@ const defaultMedian: MedianState = {
 const QUERY_DELIMITER = "-";
 const CATEGORY_PARAM_PREFIX = "cat";
 const VIEW_PARAM_MAP: Array<{ state: keyof ViewState; param: string }> = [
-  { state: "geography", param: "geo" },
-  { state: "stage", param: "stage" },
+  { state: "geography", param: "investment-geography" },
+  { state: "stage", param: "stages" },
   { state: "investmentSize", param: "size" },
   { state: "scope", param: "scope" },
   { state: "founderScore", param: "fscore" },
@@ -128,14 +139,15 @@ function useUrlState() {
 
   const search = params.get("search") || "";
   const viewParam = params.get("view") || "";
-  const stageParam = params.get("stage") || "";
-  const geoParam = params.get("geo") || "";
+  const stageParam = params.get("stages") || "";
+  const geoParam = params.get("investment-geography") || "";
   const scopeParam = params.get("scope") || "";
   const typeParam = params.get("type") || "";
-  const rangeParam = params.get("range") || "";
+  const rangeParam = params.get("investment-range") || "";
   const medianParam = params.get("median") || "";
   const founderParam = params.get(FOUNDER_SCORE_QUERY_KEY) || "";
   const trackRecordParam = params.get(TRACK_RECORD_QUERY_KEY);
+  const sortParam = params.get("sort") || "";
 
   const parseDelimitedList = (value: string) => (
     value ? value.split(QUERY_DELIMITER).map((s) => s.trim()).filter(Boolean) : []
@@ -250,13 +262,34 @@ function useUrlState() {
     }
   };
 
+  const buildSortParam = (value: SortOption) => {
+    if (value === DEFAULT_SORT) {
+      return null;
+    }
+    return value;
+  };
+
+  const parseSortParam = (value: string): SortOption => {
+    const normalized = value.trim().toLowerCase();
+    if (normalized === "founder-score-desc" || normalized === "founderscoredesc" || normalized === "founder") {
+      return "founder-score-desc";
+    }
+    if (normalized === "track-record-desc" || normalized === "trackrecorddesc" || normalized === "track") {
+      return "track-record-desc";
+    }
+    if (normalized === "graduation-rate-desc" || normalized === "graduationratedesc" || normalized === "graduation") {
+      return "graduation-rate-desc";
+    }
+    return DEFAULT_SORT;
+  };
+
   // view param encodes which parts are visible
   const view: ViewState = (() => {
     if (!viewParam) return { ...defaultView };
     const allowed = new Set(parseDelimitedList(viewParam));
     return {
-      geography: allowed.has("geo"),
-      stage: allowed.has("stage"),
+      geography: allowed.has("investment-geography"),
+      stage: allowed.has("stages"),
       investmentSize: allowed.has("size"),
       scope: allowed.has("scope"),
       founderScore: allowed.has("fscore"),
@@ -345,6 +378,11 @@ function useUrlState() {
 
   const trackRecord = parseTrackRecordParam(trackRecordParam);
 
+  const sort: SortOption = (() => {
+    if (!sortParam) return DEFAULT_SORT;
+    return parseSortParam(sortParam);
+  })();
+
   const median: MedianState = (() => {
     if (!medianParam) return { ...defaultMedian };
     const [valueToken = "", unitToken = ""] = medianParam.split("-");
@@ -386,6 +424,7 @@ function useUrlState() {
     type?: TypeState;
     founder?: FounderScoreFilterState;
     trackRecord?: TrackRecordState;
+    sort?: SortOption;
   }) => {
     const usp = new URLSearchParams(params.toString());
     if (next.search !== undefined) {
@@ -405,18 +444,18 @@ function useUrlState() {
       const v = next.stage as StageState;
       const value = buildStageParam(v);
       if (value === null) {
-        usp.delete("stage");
+        usp.delete("stages");
       } else {
-        usp.set("stage", value);
+        usp.set("stages", value);
       }
     }
     if (next.geo !== undefined) {
       const v = next.geo as GeographyState;
       const value = buildGeoParam(v);
       if (value === null) {
-        usp.delete("geo");
+        usp.delete("investment-geography");
       } else {
-        usp.set("geo", value);
+        usp.set("investment-geography", value);
       }
     }
     if (next.scope !== undefined) {
@@ -450,9 +489,9 @@ function useUrlState() {
       const v = next.range as RangeState;
       const value = buildRangeParam(v);
       if (value === null) {
-        usp.delete("range");
+        usp.delete("investment-range");
       } else {
-        usp.set("range", value);
+        usp.set("investment-range", value);
       }
     }
     if (next.median !== undefined) {
@@ -471,6 +510,15 @@ function useUrlState() {
         usp.delete(TRACK_RECORD_QUERY_KEY);
       } else {
         usp.set(TRACK_RECORD_QUERY_KEY, trackRecordValue);
+      }
+    }
+    if (next.sort !== undefined) {
+      const v = next.sort as SortOption;
+      const value = buildSortParam(v);
+      if (value === null) {
+        usp.delete("sort");
+      } else {
+        usp.set("sort", value);
       }
     }
     const query = usp.toString();
@@ -507,26 +555,26 @@ function useUrlState() {
     }
 
     const nextStage = buildStageParam(stage);
-    const existingStage = usp.get("stage");
+    const existingStage = usp.get("stages");
     if (nextStage === null) {
       if (existingStage !== null) {
-        usp.delete("stage");
+        usp.delete("stages");
         changed = true;
       }
     } else if (existingStage !== nextStage) {
-      usp.set("stage", nextStage);
+      usp.set("stages", nextStage);
       changed = true;
     }
 
     const nextGeo = buildGeoParam(geo);
-    const existingGeo = usp.get("geo");
+    const existingGeo = usp.get("investment-geography");
     if (nextGeo === null) {
       if (existingGeo !== null) {
-        usp.delete("geo");
+        usp.delete("investment-geography");
         changed = true;
       }
     } else if (existingGeo !== nextGeo) {
-      usp.set("geo", nextGeo);
+      usp.set("investment-geography", nextGeo);
       changed = true;
     }
 
@@ -567,14 +615,14 @@ function useUrlState() {
     }
 
     const nextRange = buildRangeParam(range);
-    const existingRange = usp.get("range");
+    const existingRange = usp.get("investment-range");
     if (nextRange === null) {
       if (existingRange !== null) {
-        usp.delete("range");
+        usp.delete("investment-range");
         changed = true;
       }
     } else if (existingRange !== nextRange) {
-      usp.set("range", nextRange);
+      usp.set("investment-range", nextRange);
       changed = true;
     }
 
@@ -602,6 +650,18 @@ function useUrlState() {
       changed = true;
     }
 
+    const nextSort = buildSortParam(sort);
+    const existingSort = usp.get("sort");
+    if (nextSort === null) {
+      if (existingSort !== null) {
+        usp.delete("sort");
+        changed = true;
+      }
+    } else if (existingSort !== nextSort) {
+      usp.set("sort", nextSort);
+      changed = true;
+    }
+
     if (!changed) return;
     const query = usp.toString();
     router.replace(query ? `${pathname}?${query}` : pathname);
@@ -621,15 +681,16 @@ function useUrlState() {
     view,
     founderSelectionKey,
     trackRecordKey,
+    sort,
   ]);
 
-  return { search, view, stage, range, median, geo, scope, type, founder, trackRecord, set };
+  return { search, view, stage, range, median, geo, scope, type, founder, trackRecord, sort, set };
 }
 
 export default function Leaderboard() {
   const [investors, setInvestors] = useState<Investor[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { search, view, stage, range, median, geo, scope, type, founder, trackRecord, set } = useUrlState();
+  const { search, view, stage, range, median, geo, scope, type, founder, trackRecord, sort, set } = useUrlState();
 
   useEffect(() => {
     const fetchInvestors = async () => {
@@ -878,7 +939,7 @@ export default function Leaderboard() {
       return true;
     };
 
-    return investors.filter((inv) =>
+    const filtered = investors.filter((inv) =>
       matchesType(inv)
       && matchesStage(inv)
       && matchesGeo(inv)
@@ -889,7 +950,40 @@ export default function Leaderboard() {
       && matchesSearch(inv)
       && matchesFounder(inv),
     );
-  }, [founder, geo, investors, search, scope, stage, range, median, trackRecord, type]);
+
+    // Apply sorting
+    const sorted = [...filtered].sort((a, b) => {
+      let aValue: number | null = null;
+      let bValue: number | null = null;
+
+      if (sort === "founder-score-desc") {
+        const aEntry = typeof a.slug === "string" ? ratingsBySlug.get(a.slug) : null;
+        const bEntry = typeof b.slug === "string" ? ratingsBySlug.get(b.slug) : null;
+        aValue = aEntry?.rating ?? null;
+        bValue = bEntry?.rating ?? null;
+      } else if (sort === "track-record-desc") {
+        const aHitRate = computeTrackRecordHitRate(a.track_record, "1b");
+        const bHitRate = computeTrackRecordHitRate(b.track_record, "1b");
+        aValue = Number.isFinite(aHitRate.percent) ? aHitRate.percent : null;
+        bValue = Number.isFinite(bHitRate.percent) ? bHitRate.percent : null;
+      } else if (sort === "graduation-rate-desc") {
+        const aGrad = a.graduation_rate as { seed_to_series_a?: { rate?: number | null } | null } | null;
+        const bGrad = b.graduation_rate as { seed_to_series_a?: { rate?: number | null } | null } | null;
+        aValue = aGrad?.seed_to_series_a?.rate ?? null;
+        bValue = bGrad?.seed_to_series_a?.rate ?? null;
+      }
+
+      // Handle nulls: put them last for descending sort
+      if (aValue === null && bValue === null) return 0;
+      if (aValue === null) return 1;
+      if (bValue === null) return -1;
+
+      // Descending sort: higher values first
+      return bValue - aValue;
+    });
+
+    return sorted;
+  }, [founder, geo, investors, search, scope, stage, range, median, trackRecord, type, sort]);
 
   return (
     <div className="w-full container mx-auto py-6">
@@ -919,6 +1013,7 @@ export default function Leaderboard() {
           />
         </div>
         <div className="space-y-4 lg:min-h-0 lg:h-[calc(100vh-var(--nav-height,0px)-48px)] lg:overflow-y-auto lg:pr-2 lg:glass-scrollbar">
+          <SortDropdown value={sort} onChange={(v) => set({ sort: v })} />
           <SearchCard value={search} onChange={(v: string) => set({ search: v })} />
           <InvestorsTable
             investors={filtered}

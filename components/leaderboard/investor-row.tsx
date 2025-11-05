@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { TableCell, TableRow } from "@/components/ui/table";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import type { StageState } from "@/components/leaderboard/filters/stage-filter";
@@ -273,7 +274,13 @@ function extractCoreAndOther(geo: any): { core: string[]; other: string[] } {
 type FounderRecord = {
   rating?: number;
   reviewCount?: number;
-} & { [K in FounderScoreCategory]?: number };
+  comments?: string[];
+} & {
+  speed?: number | string;
+  processQuality?: number;
+  passiveSupport?: number;
+  activeSupport?: number;
+};
 
 type FounderScoreMap = Partial<Record<FounderScoreCategory, number>>;
 
@@ -433,7 +440,7 @@ export default function InvestorRow({ investor, view, stage, geo, scope, trackRe
     const label = baseStageLabel || hiddenStages[0]?.label || "";
     if (!label) return null;
 
-    const ariaLabel = `Show ${hiddenCount} additional stage${hiddenCount > 1 ? "s" : ""}`;
+    const ariaLabel = `Show ${hiddenCount} additional stage${hiddenCount !== 1 ? "s" : ""}`;
 
     return (
       <span className="inline-flex items-center gap-1 whitespace-nowrap">
@@ -470,8 +477,8 @@ export default function InvestorRow({ investor, view, stage, geo, scope, trackRe
         return <span className="whitespace-nowrap">{label}</span>;
       }
       const ariaLabel = hidden.length > 1
-        ? `Show ${hidden.length} additional geographies`
-        : "Show 1 additional geography";
+        ? `Show ${hidden.length} additional investment geographies`
+        : "Show 1 additional investment geography";
       return (
         <span className="inline-flex items-center gap-1 whitespace-nowrap">
           {label}
@@ -679,26 +686,34 @@ export default function InvestorRow({ investor, view, stage, geo, scope, trackRe
     );
   }
 
+  const investorUrl = `/investor/${investor.slug}`;
+
   return (
     <TableRow className="h-24 align-middle">
       <TableCell className="py-3">
         <div className="flex items-start gap-3">
-          {/* Logo - only for institutional investors with logo_url */}
-          {investor.investor_type === "Institutional" && investor.logo_url ? (
-            <Image
-              src={investor.logo_url}
-              alt={name}
-              width={48}
-              height={48}
-              className="h-12 w-12 rounded-full shrink-0 object-cover"
-              priority
-            />
-          ) : investor.investor_type === "Institutional" ? (
-            <div className="h-12 w-12 rounded-full bg-muted shrink-0" />
+          {/* Logo - only for institutional investors with icon_url */}
+          {investor.investor_type === "Institutional" ? (
+            <Link href={investorUrl} className="cursor-pointer shrink-0">
+              {investor.icon_url ? (
+                <Image
+                  src={investor.icon_url}
+                  alt={name}
+                  width={48}
+                  height={48}
+                  className="h-12 w-12 rounded-full shrink-0 object-cover"
+                  priority
+                />
+              ) : (
+                <div className="h-12 w-12 rounded-full bg-muted shrink-0" />
+              )}
+            </Link>
           ) : null}
           <div className="min-w-0">
             <div className="flex flex-wrap items-baseline gap-2">
-              <div className="truncate font-medium text-lg">{name}</div>
+              <Link href={investorUrl} className="truncate font-medium text-lg cursor-pointer hover:underline">
+                {name}
+              </Link>
               {headlineSegments.length > 0 ? (
                 <span className="inline-flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
                   {headlineSegments.map((segment, idx) => (

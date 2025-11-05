@@ -43,9 +43,8 @@ export function EndSlide({ setCanProceed, setProgressVisible, setProgressInclude
       const ip = (it as any).investmentProcess as number | undefined
       const ibs = (it as any).indirectBrandSupport as number | undefined
       const cbs = (it as any).companyBuildingSupport as number | undefined
-      const mult = (it as any).followOnCommitmentMultiplier as number | undefined
-      if (!isNum(ip) || !isNum(ibs) || !isNum(cbs) || !isNum(mult)) return undefined
-      return ((ip + ibs + cbs) / 3) * mult
+      if (!isNum(ip) || !isNum(ibs) || !isNum(cbs)) return undefined
+      return (ip + ibs + cbs) / 3
     }
     return items.slice().sort((a, b) => {
       const aa = aggregateOf(a)

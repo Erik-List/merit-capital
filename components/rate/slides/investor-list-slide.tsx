@@ -58,19 +58,44 @@ export function InvestorListSlide({ setControlsVisible, setProgressVisible, setP
   }, [institutionalInvestors, individualInvestors])
 
   const headline = useMemo(() => {
-    const names: string[] = []
-    for (const row of pairs) {
-      if (row.kind === "institution") {
-        names.push(row.investor.institutionName || row.investor.name)
-      } else {
-        names.push(row.investor.name)
-      }
-      if (names.length >= 2) break
+    if (pairs.length === 0) {
+      return "Are these the investors on your captable?"
     }
-    const remaining = Math.max(0, pairs.length - names.length)
-    const head = names.length === 0 ? "your investors" : names.length === 1 ? `${names[0]}` : `${names[0]}, ${names[1]}`
-    const suffix = remaining > 0 ? ` and ${remaining} more` : ""
-    return `Are these your investors?`
+
+    // Get display names - preserve original capitalization
+    const getDisplayName = (row: Row): string => {
+      if (row.kind === "institution") {
+        return row.investor.institutionName || row.investor.name
+      }
+      return row.investor.name
+    }
+
+    const firstNames = pairs.slice(0, 2).map(getDisplayName)
+    const remaining = Math.max(0, pairs.length - firstNames.length)
+
+    const name1 = firstNames[0]
+    
+    if (pairs.length === 1) {
+      // Single investor: "Is [name] an investor on your captable?"
+      return `Is ${name1} an investor on your captable?`
+    }
+
+    if (pairs.length === 2) {
+      // Two investors: "Are [name1] and [name2] investors on your captable?"
+      const name2 = firstNames[1]
+      return `Are ${name1} and ${name2} investors on your captable?`
+    }
+
+    // Three or more investors
+    const name2 = firstNames[1]
+    if (remaining === 1) {
+      // Exactly 3: "Are [name1], [name2], and [name3] investors on your captable?"
+      const name3 = getDisplayName(pairs[2])
+      return `Are ${name1}, ${name2}, and ${name3} investors on your captable?`
+    } else {
+      // 4+: "Are [name1], [name2], and [X] more investors on your captable?"
+      return `Are ${name1}, ${name2}, and ${remaining} more investors on your captable?`
+    }
   }, [pairs])
 
   function removeInvestor(id: string) {
@@ -105,7 +130,7 @@ export function InvestorListSlide({ setControlsVisible, setProgressVisible, setP
 
   return (
     <div className="space-y-5">
-      <div className="text-2xl font-medium capitalize">{headline}</div>
+      <div className="text-2xl font-medium">{headline}</div>
 
       <div className="grid grid-cols-1 md:grid-cols-[1fr_1px_1fr] gap-4">
         <div className="space-y-0">

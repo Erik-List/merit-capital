@@ -11,7 +11,11 @@ function shapeInstitutionRows(rows: InvestorViewRow[]) {
 }
 
 function shapeIndividualRows(rows: InvestorViewRow[]) {
-  return (rows ?? []).map(({ aum, funds_info, partners, ...rest }) => rest);
+  return (rows ?? []).map((row) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { aum, funds, individual, ...rest } = row as InvestorViewRow & { individual?: unknown; funds?: unknown };
+    return rest;
+  });
 }
 
 async function exportInstitutions(supabase: SupabaseClient<Database>) {
@@ -26,7 +30,7 @@ async function exportInstitutions(supabase: SupabaseClient<Database>) {
   }
 
   const outDir = path.resolve(process.cwd(), "data");
-  const outFile = path.join(outDir, "institutional-investors.json");
+  const outFile = path.join(outDir, "invented-institutional-investors.json");
   fs.mkdirSync(outDir, { recursive: true });
   const shaped = shapeInstitutionRows((data as InvestorViewRow[]) ?? []);
   fs.writeFileSync(outFile, JSON.stringify(shaped, null, 2) + "\n");
@@ -45,7 +49,7 @@ async function exportIndividuals(supabase: SupabaseClient<Database>) {
   }
 
   const outDir = path.resolve(process.cwd(), "data");
-  const outFile = path.join(outDir, "individual-investors.json");
+  const outFile = path.join(outDir, "invented-individual-investors.json");
   fs.mkdirSync(outDir, { recursive: true });
   const shaped = shapeIndividualRows((data as InvestorViewRow[]) ?? []);
   fs.writeFileSync(outFile, JSON.stringify(shaped, null, 2) + "\n");

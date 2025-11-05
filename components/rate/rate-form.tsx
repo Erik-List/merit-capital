@@ -39,7 +39,7 @@ import { useToast } from '@/hooks/use-toast'
 interface Investor {
   id: string
   name: string
-  logo_url: string
+  icon_url: string
   hq_location: string
 }
 
@@ -132,7 +132,7 @@ export function RateForm() {
                   }}
                 >
                   <img
-                    src={investor.logo_url}
+                    src={investor.icon_url}
                     alt={investor.name}
                     className="w-8 h-8 rounded-full"
                   />

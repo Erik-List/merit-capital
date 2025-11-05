@@ -29,7 +29,7 @@ interface ViewFilterProps {
 }
 
 export default function ViewFilter({ className, value, onChange, type, onTypeChange }: ViewFilterProps) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [showMore, setShowMore] = useState(false);
 
   const toggleViewState = (key: keyof ViewState) => (checked: boolean | "indeterminate") => {
@@ -96,10 +96,19 @@ export default function ViewFilter({ className, value, onChange, type, onTypeCha
             </button>
             {showMore ? (
               <div className="space-y-2 pt-1">
-                {renderViewOption("Geography", "geography")}
-                {renderViewOption("Stage", "stage")}
-                {renderViewOption("Range", "investmentSize")}
-                {renderViewOption("Scope", "scope")}
+                {renderViewOption("Investment Geography", "geography")}
+                {renderViewOption("Investment Stages", "stage")}
+                {renderViewOption("Investment Range", "investmentSize")}
+                <label className="flex items-center gap-2 cursor-pointer text-sm">
+                  <Checkbox
+                    checked={value.scope}
+                    onCheckedChange={(checked) => {
+                      onChange({ ...value, scope: Boolean(checked) });
+                    }}
+                    aria-label="Toggle Investment Focus visibility"
+                  />
+                  <span className="text-primary">Investment Focus</span>
+                </label>
                 {renderViewOption("Track record", "trackRecord")}
               </div>
             ) : null}

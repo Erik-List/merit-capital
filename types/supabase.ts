@@ -46,22 +46,25 @@ export type Database = {
       }
       InstitutionalInvestor: {
         Row: {
-          aum: string | null
-          funds_info: Json | null
+          aum: Json | null
+          founding_year: number | null
+          funds: Json | null
+          individual: Json | null
           investor_id: string
-          partners: Json | null
         }
         Insert: {
-          aum?: string | null
-          funds_info?: Json | null
+          aum?: Json | null
+          founding_year?: number | null
+          funds?: Json | null
+          individual?: Json | null
           investor_id: string
-          partners?: Json | null
         }
         Update: {
-          aum?: string | null
-          funds_info?: Json | null
+          aum?: Json | null
+          founding_year?: number | null
+          funds?: Json | null
+          individual?: Json | null
           investor_id?: string
-          partners?: Json | null
         }
         Relationships: [
           {
@@ -86,6 +89,7 @@ export type Database = {
           graduation_rate: Json | null
           history: string | null
           hq_location: string | null
+          icon_url: string | null
           id: string
           investment_concept: string | null
           investment_focus: Json | null
@@ -93,9 +97,7 @@ export type Database = {
           investment_range: Json | null
           investment_scope: Json | null
           investment_stage: Json | null
-          investment_style: string | null
           investor_type: Database["public"]["Enums"]["InvestorType"]
-          logo_url: string | null
           name: string
           notable_investments: Json | null
           other_locations: Json | null
@@ -103,12 +105,14 @@ export type Database = {
           status: Database["public"]["Enums"]["ApprovalStatus"]
           track_record: Json | null
           updated_at: string
+          website: string | null
         }
         Insert: {
           created_at?: string
           graduation_rate?: Json | null
           history?: string | null
           hq_location?: string | null
+          icon_url?: string | null
           id: string
           investment_concept?: string | null
           investment_focus?: Json | null
@@ -116,9 +120,7 @@ export type Database = {
           investment_range?: Json | null
           investment_scope?: Json | null
           investment_stage?: Json | null
-          investment_style?: string | null
           investor_type?: Database["public"]["Enums"]["InvestorType"]
-          logo_url?: string | null
           name: string
           notable_investments?: Json | null
           other_locations?: Json | null
@@ -126,12 +128,14 @@ export type Database = {
           status?: Database["public"]["Enums"]["ApprovalStatus"]
           track_record?: Json | null
           updated_at: string
+          website?: string | null
         }
         Update: {
           created_at?: string
           graduation_rate?: Json | null
           history?: string | null
           hq_location?: string | null
+          icon_url?: string | null
           id?: string
           investment_concept?: string | null
           investment_focus?: Json | null
@@ -139,9 +143,7 @@ export type Database = {
           investment_range?: Json | null
           investment_scope?: Json | null
           investment_stage?: Json | null
-          investment_style?: string | null
           investor_type?: Database["public"]["Enums"]["InvestorType"]
-          logo_url?: string | null
           name?: string
           notable_investments?: Json | null
           other_locations?: Json | null
@@ -149,6 +151,7 @@ export type Database = {
           status?: Database["public"]["Enums"]["ApprovalStatus"]
           track_record?: Json | null
           updated_at?: string
+          website?: string | null
         }
         Relationships: []
       }
@@ -245,30 +248,31 @@ export type Database = {
       InvestorView: {
         Row: {
           affiliation: Json | null
-          aum: string | null
+          aum: Json | null
           created_at: string | null
-          funds_info: Json | null
+          founding_year: number | null
+          funds: Json | null
           graduation_rate: Json | null
           history: string | null
           hq_location: string | null
+          icon_url: string | null
           id: string | null
+          individual: Json | null
           investment_concept: string | null
           investment_focus: Json | null
           investment_geo: Json | null
           investment_range: Json | null
           investment_scope: Json | null
           investment_stage: Json | null
-          investment_style: string | null
           investor_type: Database["public"]["Enums"]["InvestorType"] | null
-          logo_url: string | null
           name: string | null
           notable_investments: Json | null
           other_locations: Json | null
-          partners: Json | null
           slug: string | null
           status: Database["public"]["Enums"]["ApprovalStatus"] | null
           track_record: Json | null
           updated_at: string | null
+          website: string | null
         }
         Relationships: []
       }
