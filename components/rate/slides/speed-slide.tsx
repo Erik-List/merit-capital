@@ -16,11 +16,11 @@ type Props = SlideProps & {
   setState: (s: SpeedState) => void
 }
 
-export function InvestmentSpeedSlide({ setCanProceed, setControlsVisible, setProgressVisible, setProgressIncluded, investors, state, setState, skipValidation }: Props) {
+export function SpeedSlide({ setCanProceed, setControlsVisible, setProgressVisible, setProgressIncluded, investors, state, setState, skipValidation }: Props) {
   useEffect(() => {
     setControlsVisible(true)
-    setProgressVisible(true)
-    setProgressIncluded(true)
+    setProgressVisible(false)
+    setProgressIncluded(false)
   }, [setControlsVisible, setProgressVisible, setProgressIncluded])
   useEffect(() => {
     if (skipValidation) {
@@ -68,5 +68,4 @@ export function InvestmentSpeedSlide({ setCanProceed, setControlsVisible, setPro
     </div>
   )
 }
-
 

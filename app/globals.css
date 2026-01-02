@@ -46,7 +46,7 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-    --success: 142 76% 36%;
+    --success: 142 60% 65%;
     --success-foreground: 0 0% 98%;
   }
   .dark {
@@ -74,7 +74,7 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --success: 143 72% 29%;
+    --success: 143 55% 70%;
     --success-foreground: 144 70% 96%;
   }
   
@@ -129,7 +129,7 @@
     @apply bg-background/5 backdrop-blur-md;
   }
   .glass-strong {
-    @apply bg-background/5 backdrop-blur-lg;
+    @apply bg-background/5 backdrop-blur-2xl;
   }
   /* Utility for reduced-motion fallback transitions */
   .motion-safe {
@@ -181,4 +181,30 @@
     border: 2px solid hsl(var(--background) / 0.05);
   }
 
+  /* Border glow keyframe - pulsing opacity */
+  @keyframes border-glow-pulse {
+    0%, 100% { 
+      opacity: 1; 
+    }
+    50% { 
+      opacity: 0.5; 
+    }
+  }
+
+  /* Border glow effect - simple box-shadow glow with pulsing opacity */
+  .border-glow {
+    box-shadow: 0 0 8px hsl(var(--accent-foreground) / 0.3),
+                0 0 16px hsl(var(--accent-foreground) / 0.2);
+    animation: border-glow-pulse 5s ease-in-out infinite;
+  }
+  
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .border-glow {
+      animation: none;
+    }
+  }
+
 }
+
+

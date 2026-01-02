@@ -22,7 +22,7 @@ export default function BackgroundShell({ enabled, children }: { enabled?: boole
         <div className="relative w-full h-full">
           <BackgroundRotator enabled={enabled} onReady={handleReady} />
           {/* Dark overlay over the background */}
-          <div className="absolute inset-0 bg-black/20" />
+          <div className="absolute glass-strong inset-0 bg-black/20" />
         </div>
       </div>
 

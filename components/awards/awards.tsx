@@ -5,8 +5,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
 import BadgeAward from "@/components/awards/Badge";
 import ScoreLine from "@/components/awards/ScoreLine";
+import { RatingDialog } from "@/components/rate/rating-dialog";
 
 const STAGES = ["Stage-agnostic", "Pre-Seed", "Seed", "Series A", "Series B", "Growth"];
 const GEOGRAPHIES = ["Europe","SF Bay Area", "NYC", "Asia", "LATAM", "ROTW", "Worldwide"];
@@ -19,6 +21,7 @@ export default function Awards() {
   const [score, setScore] = useState(9.4);
   const [half, setHalf] = useState<"H1" | "H2">("H2");
   const [year, setYear] = useState(2025);
+  const [isRateDialogOpen, setIsRateDialogOpen] = useState(false);
   
   const handlePercentileChange = (raw: string) => {
     const cleaned = raw.replace(/[^0-9]/g, "");
@@ -53,6 +56,13 @@ export default function Awards() {
     setHalf(num >= 2 ? "H2" : "H1");
   };
 
+  const handleRateInvestors = () => {
+    // Set localStorage to true to prevent auto-show across sessions
+    const autoShownKey = 'rate-dialog-auto-shown';
+    localStorage.setItem(autoShownKey, 'true');
+    setIsRateDialogOpen(true);
+  };
+
   return (
     <section id="awards" className="py-12">
       <div className="space-y-8">
@@ -67,7 +77,7 @@ export default function Awards() {
               <CardTitle>Merited Investors receive Awards.</CardTitle>
               <CardDescription>Inspired by G2 & Glassdoor, merited investors can use their Awards for branding and to attract the best founders.</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-8">
+            <CardContent className="space-y-6">
               {/* Previews */}
               <div className="grid gap-8 md:grid-cols-2">
                 <div className="flex items-center justify-center gap-6 pt-8 px-6 pb-6 border rounded-lg">
@@ -116,10 +126,23 @@ export default function Awards() {
                   </div>
                 </div>
               </div>
+
+              {/* Support Section */}
+              <div className="space-y-2">
+                <h3 className="text-lg font-medium">Make Investor Awards reality by supporting Merit Capital</h3>
+                <Button variant="support" className="w-fit" size="sm" onClick={handleRateInvestors}>
+                  Rate Investors
+                </Button>
+              </div>
             </CardContent>
           </Card>
         </div>
       </div>
+
+      <RatingDialog 
+        open={isRateDialogOpen} 
+        onOpenChange={setIsRateDialogOpen} 
+      />
     </section>
   );
 }

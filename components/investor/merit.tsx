@@ -356,7 +356,7 @@ export function InvestorMerit({
             {visibleComments.map((comment, index) => (
               <div
                 key={`${comment}-${index}`}
-                className="rounded-md border border-input/40 bg-background/60 px-3 py-2 text-sm text-muted-foreground"
+                className="rounded-md glass border border-input/40 bg-background/60 px-3 py-2 text-sm text-muted-foreground"
               >
                 &ldquo;{comment}&rdquo;
               </div>
