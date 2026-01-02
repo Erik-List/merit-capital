@@ -36,4 +36,3 @@ export function AcknowledgementsList({ items }: { items: Acknowledgement[] }) {
 
 export default AcknowledgementsList;
 
-

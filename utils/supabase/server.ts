@@ -11,7 +11,7 @@ export const createClient = (cookieStore: Awaited<ReturnType<typeof cookies>>) =
           const cookieValues = await cookieStore
           return cookieValues.getAll()
         },
-        async setAll(cookiesToSet) {
+        async setAll(cookiesToSet: Array<{ name: string; value: string; options?: CookieOptions }>) {
           try {
             const cookieValues = await cookieStore
             cookiesToSet.forEach(({ name, value, options }) => cookieValues.set(name, value, options))

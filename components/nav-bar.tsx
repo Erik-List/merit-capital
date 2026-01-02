@@ -1,13 +1,21 @@
 "use client";
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
+import { RatingDialog } from '@/components/rate/rating-dialog';
  
 import { BrandYoutubeSolid } from "@mynaui/icons-react";
+import { Menu } from 'lucide-react';
 import Image from 'next/image';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 
 interface NavBarProps {
@@ -20,7 +28,9 @@ export function NavBar({ onReplayIntro }: NavBarProps) {
   const pathname = usePathname();
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { toast } = useToast();
+  const [isRateDialogOpen, setIsRateDialogOpen] = useState(false);
+  const hasManuallyOpenedRef = useRef(false);
+  const autoShowTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const isActive = (path: string) => {
     return pathname === path;
@@ -57,17 +67,47 @@ export function NavBar({ onReplayIntro }: NavBarProps) {
     setIsMobileMenuOpen(false);
   }, [pathname, router]);
 
-  // Handle Support Now button - special case for CTA
-  const handleSupportNow = useCallback(() => {
-    // Mirror Continuation section toast behavior for now
-    toast({
-      title: "Support now Coming Soon",
-      description: "Your support proves the importance of performance transparency.",
-    })
-    
+  // Handle Rate Investors button - opens dialog
+  const handleRateInvestors = useCallback(() => {
+    hasManuallyOpenedRef.current = true;
+    // Set localStorage to true to prevent auto-show across sessions
+    const autoShownKey = 'rate-dialog-auto-shown';
+    localStorage.setItem(autoShownKey, 'true');
+    // Cancel auto-show timer if it's still running
+    if (autoShowTimerRef.current) {
+      clearTimeout(autoShowTimerRef.current);
+      autoShowTimerRef.current = null;
+    }
+    setIsRateDialogOpen(true);
     // Close mobile menu
     setIsMobileMenuOpen(false);
-  }, [toast]);
+  }, []);
+
+  // Auto-show rate dialog after 90 seconds if not manually opened
+  useEffect(() => {
+    // Check if already auto-shown (persists across sessions)
+    const autoShownKey = 'rate-dialog-auto-shown';
+    if (localStorage.getItem(autoShownKey)) {
+      return;
+    }
+
+    // Set timer for 90 seconds
+    autoShowTimerRef.current = setTimeout(() => {
+      // Only auto-show if user hasn't manually opened it
+      if (!hasManuallyOpenedRef.current) {
+        setIsRateDialogOpen(true);
+        localStorage.setItem(autoShownKey, 'true');
+      }
+    }, 90000); // 90 seconds
+
+    // Cleanup timer on unmount
+    return () => {
+      if (autoShowTimerRef.current) {
+        clearTimeout(autoShowTimerRef.current);
+        autoShowTimerRef.current = null;
+      }
+    };
+  }, []); // Run only once on mount
 
   return (
     <>
@@ -84,105 +124,98 @@ export function NavBar({ onReplayIntro }: NavBarProps) {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {/* Intro (play) - first item */}
-            <Button 
-              variant="ghost" 
-              onClick={handlePlayIntro}
-              className="text-sm flex items-center gap-2 px-3 py-2 h-9"
+          <nav className="hidden lg:flex items-center gap-4">
+            {/* Visible nav items */}
+            <Link 
+              href="/" 
+              className={`flex items-center gap-2 py-2 text-sm transition-colors ${
+                isActive('/') 
+                  ? 'text-foreground font-medium underline underline-offset-4' 
+                  : 'hover:text-accent-foreground'
+              }`}
+              aria-current={isActive('/') ? 'page' : undefined}
             >
-              <BrandYoutubeSolid className="h-5 w-5" />
-              Story
-            </Button>
+              <span>Leaderboard</span>
+            </Link>
+            <Link 
+              href="/investor/atlas-peak-ventures" 
+              className={`flex items-center gap-2 py-2 text-sm transition-colors ${
+                isActive('/investor/atlas-peak-ventures') 
+                  ? 'text-foreground font-medium underline underline-offset-4' 
+                  : 'hover:text-accent-foreground'
+              }`}
+              aria-current={isActive('/investor/atlas-peak-ventures') ? 'page' : undefined}
+            >
+              <span>Investor Profile</span>
+            </Link>
 
-            {/* Simple app nav */}
-            <>
-              <Link 
-                href="/" 
-                className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
-                  isActive('/') 
-                    ? 'text-foreground font-medium underline underline-offset-4' 
-                    : 'hover:text-accent-foreground'
-                }`}
-                aria-current={isActive('/') ? 'page' : undefined}
-              >
-                <span>Leaderboard</span>
-              </Link>
-              <Link 
-                href="/investor/atlas-peak-ventures" 
-                className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
-                  isActive('/investor/atlas-peak-ventures') 
-                    ? 'text-foreground font-medium underline underline-offset-4' 
-                    : 'hover:text-accent-foreground'
-                }`}
-                aria-current={isActive('/investor/atlas-peak-ventures') ? 'page' : undefined}
-              >
-                <span>Investor Profile</span>
-              </Link>
-              <Link 
-                href="/rate" 
-                className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
-                  isActive('/rate') 
-                    ? 'text-foreground font-medium underline underline-offset-4' 
-                    : 'hover:text-accent-foreground'
-                }`}
-                aria-current={isActive('/rate') ? 'page' : undefined}
-              >
-                <span>Rate</span>
-              </Link>
-              <Link 
-                href="/awards" 
-                className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
-                  isActive('/awards') 
-                    ? 'text-foreground font-medium underline underline-offset-4' 
-                    : 'hover:text-accent-foreground'
-                }`}
-                aria-current={isActive('/awards') ? 'page' : undefined}
-              >
-                <span>Awards</span>
-              </Link>
-              <Link 
-                href="/economics" 
-                className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
-                  isActive('/economics') 
-                    ? 'text-foreground font-medium underline underline-offset-4' 
-                    : 'hover:text-accent-foreground'
-                }`}
-                aria-current={isActive('/economics') ? 'page' : undefined}
-              >
-                <span>Economics</span>
-              </Link>
-              <Link 
-                href="/supporters" 
-                className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
-                  isActive('/supporters') 
-                    ? 'text-foreground font-medium underline underline-offset-4' 
-                    : 'hover:text-accent-foreground'
-                }`}
-                aria-current={isActive('/supporters') ? 'page' : undefined}
-              >
-                <span>Supporters</span>
-              </Link>
-              <Link 
-                href="/next-steps" 
-                className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
-                  isActive('/next-steps') 
-                    ? 'text-foreground font-medium underline underline-offset-4' 
-                    : 'hover:text-accent-foreground'
-                }`}
-                aria-current={isActive('/next-steps') ? 'page' : undefined}
-              >
-                <span>Next Steps</span>
-              </Link>
-              {/* Support Now - last item */}
-              <Button 
-                variant="default"
-                onClick={handleSupportNow}
-                className="text-sm font-normal ml-2 px-4 py-2 h-9 transition-colors"
-              >
-                Support Now
-              </Button>
-            </>
+            {/* Hamburger Menu Dropdown */}
+            {/* <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button 
+                  variant="default" 
+                  className={`text-sm flex items-center gap-2 px-2 py-2 h-9 ${
+                    isActive('/awards') || isActive('/economics') || isActive('/economics/estimates') || isActive('/next-steps')
+                      ? 'text-foreground font-medium underline underline-offset-4' 
+                      : ''
+                  }`}
+                  aria-label="More menu"
+                >
+                  <Menu className="h-5 w-5" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="center" className="w-48">
+                <DropdownMenuItem asChild>
+                  <button
+                    onClick={handlePlayIntro}
+                    className="w-full flex items-center gap-2 cursor-pointer"
+                  >
+                    <BrandYoutubeSolid className="h-4 w-4" />
+                    Story
+                  </button>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem asChild>
+                  <Link 
+                    href="/awards" 
+                    className={`w-full ${
+                      isActive('/awards') ? 'font-medium underline underline-offset-4' : ''
+                    }`}
+                  >
+                    Awards
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link 
+                    href="/economics" 
+                    className={`w-full ${
+                      isActive('/economics') ? 'font-medium underline underline-offset-4' : ''
+                    }`}
+                  >
+                    Economics
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link 
+                    href="/next-steps" 
+                    className={`w-full ${
+                      isActive('/next-steps') ? 'font-medium underline underline-offset-4' : ''
+                    }`}
+                  >
+                    Next Steps
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu> */}
+
+            {/* Rate Investors - last item */}
+            <Button 
+              variant="support"
+              onClick={handleRateInvestors}
+              className="text-sm font-normal px-4 py-2 h-9 transition-colors"
+            >
+              Rate Investors
+            </Button>
           </nav>
 
           {/* Mobile Navigation */}
@@ -246,13 +279,6 @@ export function NavBar({ onReplayIntro }: NavBarProps) {
               Investor Profile
             </Link>
             <Link
-              href="/rate"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-md font-normal text-foreground hover:text-foreground/80 transition-colors"
-            >
-              Rate
-            </Link>
-            <Link
               href="/awards"
               onClick={() => setIsMobileMenuOpen(false)}
               className="text-md font-normal text-foreground hover:text-foreground/80 transition-colors"
@@ -273,13 +299,13 @@ export function NavBar({ onReplayIntro }: NavBarProps) {
             >
               Estimates
             </Link>
-            <Link
+            {/* <Link
               href="/supporters"
               onClick={() => setIsMobileMenuOpen(false)}
               className="text-md font-normal text-foreground hover:text-foreground/80 transition-colors"
             >
               Supporters
-            </Link>
+            </Link> */}
             <Link
               href="/next-steps"
               onClick={() => setIsMobileMenuOpen(false)}
@@ -288,15 +314,20 @@ export function NavBar({ onReplayIntro }: NavBarProps) {
               Next Steps
             </Link>
             <Button 
-              variant="default"
-              onClick={handleSupportNow}
+              variant="support"
+              onClick={handleRateInvestors}
               className="text-sm font-normal px-4 py-2 h-9 transition-colors"
             >
-              Support Now
+              Rate Investors
             </Button>
           </nav>
         </div>
       )}
+      
+      <RatingDialog 
+        open={isRateDialogOpen} 
+        onOpenChange={setIsRateDialogOpen} 
+      />
     </>
   );
 }

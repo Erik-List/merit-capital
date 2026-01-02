@@ -21,7 +21,7 @@ type Props = SlideProps & {
 
 type NewType = "Angel" | "Institution"
 
-export function InvestorListSlide({ setControlsVisible, setProgressVisible, setProgressIncluded, setCanProceed, onNext, investors, setInvestors, clearInvestorFromStates }: Props) {
+export function ListSlide({ setControlsVisible, setProgressVisible, setProgressIncluded, setCanProceed, onNext, investors, setInvestors, clearInvestorFromStates }: Props) {
   const [showForm, setShowForm] = useState(false)
   const [newType, setNewType] = useState<NewType>("Angel")
   const [personName, setPersonName] = useState("")
@@ -29,8 +29,8 @@ export function InvestorListSlide({ setControlsVisible, setProgressVisible, setP
 
   useEffect(() => {
     setControlsVisible(false)
-    setProgressVisible(true)
-    setProgressIncluded(true)
+    setProgressVisible(false)
+    setProgressIncluded(false)
     setCanProceed(true)
     return () => {}
   }, [setControlsVisible, setProgressVisible, setProgressIncluded, setCanProceed])
@@ -233,5 +233,4 @@ function cryptoRandom() {
   // simple fallback for unique-ish ids without crypto import
   return Math.random().toString(36).slice(2, 9)
 }
-
 

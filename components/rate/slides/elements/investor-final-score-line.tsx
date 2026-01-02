@@ -11,6 +11,7 @@ export type InvestorFinalScoreProps = {
   companyBuildingSupport?: number
   firstMeetingToTsText?: string // e.g., "2 days"; pass "-" if unknown
   considerationText?: string
+  rank?: number // Ranking position (1, 2, 3, etc.)
 }
 
 function round1(n: number) {
@@ -25,7 +26,7 @@ const EM_DASH = "—"
 
 function computeAggregate(ip?: number, ibs?: number, cbs?: number): number | undefined {
   if (!isNum(ip) || !isNum(ibs) || !isNum(cbs)) return undefined
-  return round1((ip + ibs + cbs) / 3)
+  return ip + ibs + cbs // Sum of raw scores, not average
 }
 
 export function InvestorFinalScoreLine(props: InvestorFinalScoreProps) {
@@ -37,6 +38,7 @@ export function InvestorFinalScoreLine(props: InvestorFinalScoreProps) {
     companyBuildingSupport: cbs,
     firstMeetingToTsText,
     considerationText,
+    rank,
   } = props
 
   const [open, setOpen] = React.useState(false)
@@ -48,10 +50,11 @@ export function InvestorFinalScoreLine(props: InvestorFinalScoreProps) {
     return individualName
   }, [individualName, institutionName])
 
-  const calcIp = isNum(ip) ? String(round1(ip)) : EM_DASH
-  const calcIbs = isNum(ibs) ? String(round1(ibs)) : EM_DASH
-  const calcCbs = isNum(cbs) ? String(round1(cbs)) : EM_DASH
-  const calcAgg = isNum(aggregate) ? String(round1(aggregate)) : EM_DASH
+  const calcIp = isNum(ip) ? String(ip) : EM_DASH
+  const calcIbs = isNum(ibs) ? String(ibs) : EM_DASH
+  const calcCbs = isNum(cbs) ? String(cbs) : EM_DASH
+  const calcAgg = isNum(aggregate) ? String(aggregate) : EM_DASH
+  const rankDisplay = rank !== undefined ? `#${rank} ` : ""
 
   return (
     <div className="border-b border-input/30 py-2">
@@ -64,13 +67,13 @@ export function InvestorFinalScoreLine(props: InvestorFinalScoreProps) {
         <div className="grid grid-cols-[1fr_auto] gap-x-4 items-start">
           <div className="min-w-0 text-xs flex items-start gap-2">
             <span className="shrink-0 inline-flex mt-[1px]">{open ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}</span>
-            <span className="truncate">{name}</span>
+            <span className="truncate">{rankDisplay}{name}</span>
           </div>
           <div className="text-xs justify-self-end text-right text-muted-foreground">
             {open ? (
-              <span className="mr-2 whitespace-nowrap">({calcIp} + {calcIbs} + {calcCbs})/3 =</span>
+              <span className="mr-2 whitespace-nowrap">({calcIp} + {calcIbs} + {calcCbs}) =</span>
             ) : null}
-            <span className="whitespace-nowrap">{isNum(aggregate) ? `${aggregate.toFixed(1)}/10` : EM_DASH}</span>
+            <span className="whitespace-nowrap">{calcAgg}</span>
           </div>
         </div>
 
@@ -84,7 +87,7 @@ export function InvestorFinalScoreLine(props: InvestorFinalScoreProps) {
               <span>Company building support {calcCbs}</span>
             </div>
             <div className="flex flex-wrap gap-x-2">
-              <span>First meeting → Term Sheet in {firstMeetingToTsText ?? EM_DASH}</span>
+              <span>First meeting → Investment decision in {firstMeetingToTsText ?? EM_DASH}</span>
             </div>
             {considerationText ? (
               <div className="mt-2">

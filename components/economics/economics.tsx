@@ -1,15 +1,55 @@
 "use client";
 
+import { useMemo } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, ShieldCheck, Heart, CreditCard } from "lucide-react";
+import { ExternalLink, ShieldCheck } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
+import { DonationCard } from "@/components/support/donations/donation-card";
+import { DonorsLeaderboard } from "@/components/support/donations/donors-leaderboard";
+import donorsData from "@/data/invented-donors-leaderboard.json";
+import type { DonorEntry } from "@/components/support/donations/donors-leaderboard";
 
 const DONATION_URL = process.env.NEXT_PUBLIC_DONATION_URL || "#";
 const DM_LINKEDIN_URL = process.env.NEXT_PUBLIC_DM_LINKEDIN_URL || "https://www.linkedin.com/in/";
 
+const currency = (n: number) => `$${Math.round(n).toLocaleString()}`;
+
 export default function Economics() {
   const { toast } = useToast();
+  
+  // Convert donors data to DonorEntry format
+  const donorItems: DonorEntry[] = donorsData.donors as DonorEntry[];
+  
+  // Base scenario cost breakdown (from estimates page)
+  const costBreakdown = useMemo(() => {
+    const trafficScale = 1;
+    const modelScale = 1;
+    const dataTierCost = 8000; // Base tier
+    
+    const computeHosting = 2000 * trafficScale;
+    const dbStorageBandwidth = 1200 * trafficScale;
+    const llmApi = 4500 * modelScale;
+    const observability = 500 * Math.pow(trafficScale, 0.8);
+    const securityCompliance = 300;
+    const dataProvidersLicenses = dataTierCost;
+    const subtotal = computeHosting + dbStorageBandwidth + llmApi + observability + securityCompliance + dataProvidersLicenses;
+    const contingency = subtotal * 0.12;
+    
+    return {
+      computeHosting,
+      dbStorageBandwidth,
+      llmApi,
+      observability,
+      securityCompliance,
+      dataProvidersLicenses,
+      contingency,
+      monthly: subtotal + contingency,
+    };
+  }, []);
+  
+  const annualTotal = costBreakdown.monthly * 12;
   return (
     <section 
       id="economics" 
@@ -30,106 +70,72 @@ export default function Economics() {
           </div>
 
           {/* How we fund the commons */}
-          <div className="grid gap-6 md:grid-cols-2">
-            <Card>
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg">Donate to Merit Capital</CardTitle>
-                <CardDescription>
-                  One-time or recurring donations. Donations cover compute, models, and vendor data licenses. We publish cost summaries.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="flex items-center justify-start">
-                <Button 
-                  size="sm" 
-                  onClick={() =>
-                    toast({
-                      title: "Donations Coming Soon",
-                      description:
-                        "Your support proves the importance of performance transparency in venture investing.",
-                    })
-                  }
-                  className="inline-flex items-center gap-2"
-                >
-                  Donate via Stripe Payment Link <CreditCard className="h-4 w-4" />
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg">Become a Partner</CardTitle>
-                <CardDescription>Partners can place merited products where they fit well, clearly labeled and away from scores.</CardDescription>
-              </CardHeader>
-              <CardContent className="flex items-center justify-start">
-                <Button 
-                  size="sm" 
-                  variant="outline"
-                  onClick={() =>
-                    toast({
-                      title: "Partner inquiry coming soon",
-                      description:
-                        "Partner placements will be clearly labeled and separate from scores.",
-                    })
-                  }
-                >
-                  Make an Inquiry
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
+          <DonationCard monthlyTotal={costBreakdown.monthly} annualTotal={annualTotal} />
 
           {/* Donors */}
+          <DonorsLeaderboard
+            items={donorItems}
+            onLoadMore={undefined}
+            hasMore={false}
+          />
+
+          {/* Operating Cost Summary */}
           <Card>
             <CardHeader>
-              <div className="flex items-center gap-2">
-                <Heart className="h-5 w-5 text-muted-foreground" />
-                <CardTitle>Donors (coming soon)</CardTitle>
-              </div>
+              <CardTitle>Operating Cost Model</CardTitle>
               <CardDescription>
-                Institutions and individuals who support the commons. We’ll publish monthly summaries; below are placeholders until live.
+                Scope: Vendors & AI Data Collection Models and infrastructure only. No staff or contractors. Currency: USD. We publish monthly summaries.
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <div className="grid gap-2 text-sm">
-                <div className="grid grid-cols-3 px-2 py-1 text-muted-foreground">
-                  <span>Name</span>
-                  <span className="text-right">Amount</span>
-                  <span className="text-right">Recurring</span>
+            <CardContent className="space-y-6">
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="secondary">Target band: 144–300k/year</Badge>
+                <Badge variant="outline">Current estimate: {currency(annualTotal)}/year</Badge>
+              </div>
+              
+              <div className="space-y-3">
+                <div className="text-sm font-medium">Monthly Cost Breakdown (Base Scenario)</div>
+                <div className="grid grid-cols-2 gap-3 text-sm">
+                  <div className="flex items-center justify-between">
+                    <span className="text-muted-foreground">Compute & Hosting</span>
+                    <span className="font-medium tabular-nums">{currency(costBreakdown.computeHosting)}/mo</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-muted-foreground">DB, Storage, Bandwidth</span>
+                    <span className="font-medium tabular-nums">{currency(costBreakdown.dbStorageBandwidth)}/mo</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-muted-foreground">LLM/API Usage</span>
+                    <span className="font-medium tabular-nums">{currency(costBreakdown.llmApi)}/mo</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-muted-foreground">Observability</span>
+                    <span className="font-medium tabular-nums">{currency(costBreakdown.observability)}/mo</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-muted-foreground">Security/Compliance</span>
+                    <span className="font-medium tabular-nums">{currency(costBreakdown.securityCompliance)}/mo</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-muted-foreground">Data Providers/Licenses</span>
+                    <span className="font-medium tabular-nums">{currency(costBreakdown.dataProvidersLicenses)}/mo</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-muted-foreground">Contingency (12%)</span>
+                    <span className="font-medium tabular-nums">{currency(costBreakdown.contingency)}/mo</span>
+                  </div>
                 </div>
-                <div className="h-px bg-input/60" />
-                {/* Institution placeholders */}
-                <div className="grid grid-cols-3 px-2 py-2">
-                  <span>Institution — Placeholder</span>
-                  <span className="text-right tabular-nums">$—</span>
-                  <span className="text-right">Monthly —</span>
-                </div>
-                <div className="grid grid-cols-3 px-2 py-2">
-                  <span>Institution — Placeholder</span>
-                  <span className="text-right tabular-nums">$—</span>
-                  <span className="text-right">Yearly —</span>
-                </div>
-                <div className="grid grid-cols-3 px-2 py-2">
-                  <span>Institution — Placeholder</span>
-                  <span className="text-right tabular-nums">$—</span>
-                  <span className="text-right">One-time</span>
-                </div>
-                {/* Individual placeholders */}
-                <div className="grid grid-cols-3 px-2 py-2">
-                  <span>Individual — Placeholder</span>
-                  <span className="text-right tabular-nums">$—</span>
-                  <span className="text-right">Monthly —</span>
-                </div>
-                <div className="grid grid-cols-3 px-2 py-2">
-                  <span>Individual — Placeholder</span>
-                  <span className="text-right tabular-nums">$—</span>
-                  <span className="text-right">Yearly —</span>
-                </div>
-                <div className="grid grid-cols-3 px-2 py-2">
-                  <span>Individual — Placeholder</span>
-                  <span className="text-right tabular-nums">$—</span>
-                  <span className="text-right">One-time</span>
+                <div className="pt-2 border-t flex items-center justify-between">
+                  <span className="font-medium">Monthly Total</span>
+                  <span className="text-lg font-semibold tabular-nums">{currency(costBreakdown.monthly)}/mo</span>
                 </div>
               </div>
+              
+              <Button asChild variant="link" className="px-0 h-auto">
+                <a href="/economics/estimates" className="inline-flex items-center gap-1">
+                  Dive into detailed cost estimates with interactive model<ExternalLink className="h-4 w-4" />
+                </a>
+              </Button>
             </CardContent>
           </Card>
 
@@ -147,7 +153,7 @@ export default function Economics() {
             <CardContent>
               <Button asChild variant="link" className="px-0 h-auto">
                 <a href="/economics/estimates" className="inline-flex items-center gap-1">
-                  Dive into detailed cost estimates<ExternalLink className="h-4 w-4" />
+                  View detailed cost estimates<ExternalLink className="h-4 w-4" />
                 </a>
               </Button>
             </CardContent>
