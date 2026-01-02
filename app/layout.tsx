@@ -10,7 +10,7 @@ const FORCE_DARK_MODE = true;
 
 export const metadata: Metadata = {
   title: 'Merit Capital',
-  description: 'Support now - improve the venture investing ecosystem by 10x.',
+  description: 'Discover the real performance of venture investors.',
 };
 
 export default function RootLayout({
