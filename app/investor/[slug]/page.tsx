@@ -92,7 +92,8 @@ export default async function InvestorProfilePage({ params }: InvestorPageParams
 type FounderRatingRecord = {
     rating?: number;
     reviewCount?: number;
-    speed?: string | number;
+    // COMMENTED OUT: Speed property
+    // speed?: string | number;
     processQuality?: number;
     passiveSupport?: number;
     activeSupport?: number;
@@ -100,27 +101,28 @@ type FounderRatingRecord = {
   };
   
   const founderRatingEntry = (founderRatings as Record<string, FounderRatingRecord | undefined>)[investor.slug || ''];
-  const founderDecisionTime = (() => {
-    if (!founderRatingEntry) return null;
-    if (typeof founderRatingEntry.speed === 'string' && founderRatingEntry.speed.trim()) {
-      return founderRatingEntry.speed;
-    }
-    if (typeof founderRatingEntry.speed === 'number' && Number.isFinite(founderRatingEntry.speed)) {
-      const clamped = Math.max(0, Math.min(10, founderRatingEntry.speed));
-      const estimatedDays = Math.round(5 + (10 - clamped) * 3);
-      const days = Math.max(3, estimatedDays);
-      if (days <= 7) {
-        return `${days} ${days === 1 ? 'day' : 'days'}`;
-      }
-      if (days <= 28) {
-        const weeks = Math.max(1, Math.round(days / 7));
-        return `${weeks} ${weeks === 1 ? 'week' : 'weeks'}`;
-      }
-      const months = Math.max(1, Math.round(days / 30));
-      return `${months} ${months === 1 ? 'month' : 'months'}`;
-    }
-    return null;
-  })();
+  // COMMENTED OUT: Decision time calculation
+  // const founderDecisionTime = (() => {
+  //   if (!founderRatingEntry) return null;
+  //   if (typeof founderRatingEntry.speed === 'string' && founderRatingEntry.speed.trim()) {
+  //     return founderRatingEntry.speed;
+  //   }
+  //   if (typeof founderRatingEntry.speed === 'number' && Number.isFinite(founderRatingEntry.speed)) {
+  //     const clamped = Math.max(0, Math.min(10, founderRatingEntry.speed));
+  //     const estimatedDays = Math.round(5 + (10 - clamped) * 3);
+  //     const days = Math.max(3, estimatedDays);
+  //     if (days <= 7) {
+  //       return `${days} ${days === 1 ? 'day' : 'days'}`;
+  //     }
+  //     if (days <= 28) {
+  //       const weeks = Math.max(1, Math.round(days / 7));
+  //       return `${weeks} ${weeks === 1 ? 'week' : 'weeks'}`;
+  //     }
+  //     const months = Math.max(1, Math.round(days / 30));
+  //     return `${months} ${months === 1 ? 'month' : 'months'}`;
+  //   }
+  //   return null;
+  // })();
 
   const founderRating = founderRatingEntry && founderRatingEntry.rating !== undefined
     ? {
@@ -131,7 +133,8 @@ type FounderRatingRecord = {
           passiveSupport: founderRatingEntry.passiveSupport,
           activeSupport: founderRatingEntry.activeSupport,
         },
-        decisionTime: founderDecisionTime,
+        // COMMENTED OUT: Decision time
+        // decisionTime: founderDecisionTime,
       }
     : null;
 

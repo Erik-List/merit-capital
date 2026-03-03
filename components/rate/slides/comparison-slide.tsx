@@ -31,61 +31,52 @@ const CATEGORY_LABELS_SHORT: Record<ComparisonCategory, string> = {
   activeSupport: "Active Support",
 }
 
-/**
- * Generate comparison groups for investors.
- * For 4 or fewer investors: show once.
- * For more: show multiple groups to ensure fair comparison.
- */
-function generateComparisonGroups(investors: Investor[]): InvestorGroup[] {
-  if (investors.length === 0) return []
+function generateComparisonGroups(investors: Investor[]): { groups: InvestorGroup[], count: number } {
+  if (investors.length === 0) return { groups: [], count: 0 }
+  if (investors.length === 1) return { groups: [], count: 0 }
   
-  // For 4 or fewer investors, show once
+  const GROUP_SIZE = 4
+  
+  // Handle 2-4 investors: single comparison group
   if (investors.length <= 4) {
-    // Pad to 4 if needed
-    const padded = [...investors]
-    while (padded.length < 4) {
-      padded.push(padded[0]) // Repeat first investor if needed
-    }
-    return [padded.slice(0, 4) as InvestorGroup]
-  }
-  
-  // For more than 4 investors, generate multiple groups
-  // Formula: approximately (N × 2.5) / 4 groups
-  const numGroups = Math.ceil((investors.length * 2.5) / 4)
-  const groups: InvestorGroup[] = []
-  const used = new Set<string>()
-  
-  // Strategy: ensure each investor appears multiple times
-  // Create groups with some overlap to ensure comparisons
-  for (let i = 0; i < numGroups; i++) {
-    const group: Investor[] = []
-    const candidates = [...investors]
-    
-    // Shuffle candidates for variety
-    for (let j = candidates.length - 1; j > 0; j--) {
-      const k = Math.floor(Math.random() * (j + 1));
-      [candidates[j], candidates[k]] = [candidates[k], candidates[j]]
-    }
-    
-    // Select 4 investors for this group
-    for (const investor of candidates) {
-      if (group.length >= 4) break
-      group.push(investor)
-      used.add(investor.id)
-    }
-    
-    // If we don't have 4, fill with random investors
+    const group: Investor[] = [...investors]
+    // Pad to 4 for type safety, but UI should filter out nulls
     while (group.length < 4) {
-      const randomInvestor = investors[Math.floor(Math.random() * investors.length)]
-      if (!group.find(inv => inv.id === randomInvestor.id)) {
-        group.push(randomInvestor)
-      }
+      group.push(null as any)
     }
-    
-    groups.push(group.slice(0, 4) as InvestorGroup)
+    return { groups: [group.slice(0, 4) as InvestorGroup], count: 1 }
   }
   
-  return groups
+  // For 5+ investors: multiple groups with round-robin overlap
+  const numGroups = Math.ceil(investors.length / 3) // ~3 investors per group
+  const groups: InvestorGroup[] = []
+  let investorIndex = 0
+  
+  // First group: first 4 investors
+  groups.push(investors.slice(0, GROUP_SIZE) as InvestorGroup)
+  investorIndex = GROUP_SIZE
+  
+  // Subsequent groups: overlap last investor, fill with next investors
+  for (let i = 1; i < numGroups; i++) {
+    const prevGroup = groups[i - 1]
+    const group: Investor[] = []
+    
+    // Always overlap the last investor from previous group
+    group.push(prevGroup[GROUP_SIZE - 1])
+    
+    // Fill remaining slots sequentially (wrap around if needed)
+    while (group.length < GROUP_SIZE) {
+      if (investorIndex >= investors.length) investorIndex = 0 // Wrap around
+      if (!group.find(g => g && g.id === investors[investorIndex].id)) {
+        group.push(investors[investorIndex])
+      }
+      investorIndex++
+    }
+    
+    groups.push(group.slice(0, GROUP_SIZE) as InvestorGroup)
+  }
+  
+  return { groups, count: groups.length }
 }
 
 export function ComparisonSlide({
@@ -128,8 +119,11 @@ export function ComparisonSlide({
     ratingsContext = null
   }
 
-  // Generate comparison groups
-  const groups = useMemo(() => generateComparisonGroups(investors), [investors])
+  // Generate comparison groups - get both groups and count from single source of truth
+  const { groups, count: groupsPerCategory } = useMemo(
+    () => generateComparisonGroups(investors), 
+    [investors]
+  )
   const currentGroup = groups[currentGroupIndex]
   const totalGroups = groups.length
 
@@ -139,21 +133,19 @@ export function ComparisonSlide({
       return { totalComparisons: 0, currentGlobalComparison: 0 }
     }
 
-    // Calculate groups per category using the same formula
-    const groupsPerCategory = investors.length <= 4 
-      ? 1 
-      : Math.ceil((investors.length * 2.5) / 4)
-    
-    // Total comparisons across all 3 categories
+    // Use actual groupsPerCategory from generateComparisonGroups
+    // For totalComparisons, we'll use groupsPerCategory * 3 as fallback
+    // The wizard will use actual counts from all slides for accuracy
     const total = groupsPerCategory * 3
 
     // Calculate current global comparison number (1-based)
+    // This will be recalculated by wizard using actual counts from previous categories
     const categories: ComparisonCategory[] = ['processQuality', 'passiveSupport', 'activeSupport']
     const categoryIndex = categories.indexOf(category)
     const currentGlobal = categoryIndex * groupsPerCategory + currentGroupIndex + 1
 
     return { totalComparisons: total, currentGlobalComparison: currentGlobal }
-  }, [investors, category, currentGroupIndex])
+  }, [investors, category, currentGroupIndex, groupsPerCategory])
 
   // Calculate latest step: the furthest step reached
   // Latest step considers partial progress (best selected counts as progress toward selectWorst)
@@ -267,7 +259,7 @@ export function ComparisonSlide({
     if (step !== 'selectBest' || !currentGroup) return
     
     const investor = currentGroup[position]
-    if (!investor) return
+    if (!investor || !investor.id) return // Filter out null placeholders
     
     // Update best selection for this group via context
     // DO NOT clear worst - both selections persist independently
@@ -287,9 +279,11 @@ export function ComparisonSlide({
     if (step !== 'selectWorst' || !currentGroup) return
     
     const investor = currentGroup[position]
+    if (!investor || !investor.id) return // Filter out null placeholders
+    
     const currentBest = selectedBestByGroup.get(currentGroupIndex)
     
-    if (!investor || investor.id === currentBest) return // Can't select BEST as WORST
+    if (investor.id === currentBest) return // Can't select BEST as WORST
     
     // Update worst selection for this group via context
     setSelectedWorst(currentGroupIndex, investor.id)
@@ -384,10 +378,15 @@ export function ComparisonSlide({
 
       <div className={cn(
         "grid gap-4 group",
-        "grid-cols-2 md:grid-cols-2",
-        "grid-rows-2"
+        // Adaptive grid layout based on actual investor count
+        currentGroup.filter(Boolean).length === 2 ? "grid-cols-2 grid-rows-1" :
+        currentGroup.filter(Boolean).length === 3 ? "grid-cols-3 grid-rows-1" :
+        "grid-cols-2 md:grid-cols-2 grid-rows-2"
       )}>
         {currentGroup.map((investor, position) => {
+          // Filter out null placeholders (for 2-3 investor cases)
+          if (!investor) return null
+          
           const isBest = investor.id === selectedBest
           const isWorst = investor.id === selectedWorst
           // Disable best when selecting worst, and disable worst when selecting best

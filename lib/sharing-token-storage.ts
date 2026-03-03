@@ -81,9 +81,7 @@ export function setActivationToken(token: string): void {
       console.error('Failed to store activation token:', error);
     }
   }
-}
-
-/**
+}/**
  * Get activation token from sessionStorage, cookie (for migration), or URL params
  */
 export function getActivationToken(): string | null {
@@ -135,4 +133,3 @@ export function clearActivationToken(): void {
     }
   }
 }
-

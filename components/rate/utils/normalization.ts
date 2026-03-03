@@ -54,18 +54,23 @@ export function countInvestorsPerFounder(
 }
 
 /**
- * Normalize founder scores by investor count
+ * Normalize founder scores by comparison count
+ * This ensures consistent score ranges regardless of investor count.
+ * With a 2x appearance constraint, each investor appears in at least 2 comparisons,
+ * so normalizing by comparisonCount eliminates range compression.
  */
 export function normalizeFounderScores(
   rawScores: Map<string, number>,
-  investorCount: number
+  comparisonCount: number
 ): Map<string, number> {
   const normalized = new Map<string, number>()
   
-  if (investorCount === 0) return normalized
+  if (comparisonCount === 0) return normalized
   
   rawScores.forEach((rawScore, investorId) => {
-    const normalizedScore = rawScore / investorCount
+    // Normalize by comparisonCount to get consistent ranges across founders
+    // With 2x appearance constraint: rawScore = ±10 × comparisons, so normalized = ±10
+    const normalizedScore = rawScore / comparisonCount
     normalized.set(investorId, normalizedScore)
   })
   
@@ -84,29 +89,32 @@ export function aggregateNormalizedScoresAcrossFounders(
   const aggregated = new Map<string, { sum: number; count: number }>()
   
   founderIds.forEach(founderId => {
+    const founderComparisons = allComparisons.filter(
+      c => c.founderId === founderId && c.category === category
+    )
+    
+    // Use comparisonCount instead of investorCount for normalization
+    // This eliminates range compression when founders have different numbers of investors
+    const comparisonCount = founderComparisons.length
+    
+    if (comparisonCount === 0) return
+    
     const rawScores = calculateFounderRawScores(
       allComparisons,
       founderId,
       category
     )
     
-    const investorCount = countInvestorsPerFounder(
-      allComparisons,
-      founderId,
-      category
-    )
+    // Normalize by comparisonCount to ensure consistent score ranges
+    const normalizedScores = normalizeFounderScores(rawScores, comparisonCount)
     
-    if (investorCount > 0) {
-      const normalizedScores = normalizeFounderScores(rawScores, investorCount)
-      
-      normalizedScores.forEach((normalizedScore, investorId) => {
-        const current = aggregated.get(investorId) || { sum: 0, count: 0 }
-        aggregated.set(investorId, {
-          sum: current.sum + normalizedScore,
-          count: current.count + 1
-        })
+    normalizedScores.forEach((normalizedScore, investorId) => {
+      const current = aggregated.get(investorId) || { sum: 0, count: 0 }
+      aggregated.set(investorId, {
+        sum: current.sum + normalizedScore,
+        count: current.count + 1
       })
-    }
+    })
   })
   
   return aggregated

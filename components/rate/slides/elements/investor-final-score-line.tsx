@@ -9,7 +9,8 @@ export type InvestorFinalScoreProps = {
   investmentProcess?: number
   indirectBrandSupport?: number
   companyBuildingSupport?: number
-  firstMeetingToTsText?: string // e.g., "2 days"; pass "-" if unknown
+  // COMMENTED OUT: Speed text prop
+  // firstMeetingToTsText?: string // e.g., "2 days"; pass "-" if unknown
   considerationText?: string
   rank?: number // Ranking position (1, 2, 3, etc.)
 }
@@ -25,8 +26,25 @@ function isNum(n: unknown): n is number {
 const EM_DASH = "—"
 
 function computeAggregate(ip?: number, ibs?: number, cbs?: number): number | undefined {
-  if (!isNum(ip) || !isNum(ibs) || !isNum(cbs)) return undefined
-  return ip + ibs + cbs // Sum of raw scores, not average
+  // Sum only the available numeric scores
+  // Return undefined only if ALL three are missing
+  let sum = 0
+  let hasAny = false
+  
+  if (isNum(ip)) {
+    sum += ip
+    hasAny = true
+  }
+  if (isNum(ibs)) {
+    sum += ibs
+    hasAny = true
+  }
+  if (isNum(cbs)) {
+    sum += cbs
+    hasAny = true
+  }
+  
+  return hasAny ? sum : undefined
 }
 
 export function InvestorFinalScoreLine(props: InvestorFinalScoreProps) {
@@ -36,7 +54,8 @@ export function InvestorFinalScoreLine(props: InvestorFinalScoreProps) {
     investmentProcess: ip,
     indirectBrandSupport: ibs,
     companyBuildingSupport: cbs,
-    firstMeetingToTsText,
+    // COMMENTED OUT: Speed text prop
+    // firstMeetingToTsText,
     considerationText,
     rank,
   } = props
@@ -86,9 +105,11 @@ export function InvestorFinalScoreLine(props: InvestorFinalScoreProps) {
               <span>·</span>
               <span>Company building support {calcCbs}</span>
             </div>
-            <div className="flex flex-wrap gap-x-2">
+            {/* COMMENTED OUT: Speed display */}
+            {/* <div className="flex flex-wrap gap-x-2">
               <span>First meeting → Investment decision in {firstMeetingToTsText ?? EM_DASH}</span>
-            </div>
+            </div> */}
+            {/* Note: firstMeetingToTsText prop has been removed */}
             {considerationText ? (
               <div className="mt-2">
                 <div className="h-fit w-fit rounded-md border glass px-2 py-1 text-xs text-foreground">

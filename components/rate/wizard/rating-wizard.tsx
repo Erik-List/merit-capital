@@ -60,8 +60,9 @@ export function RatingWizard({ slides, initialIndex = 0, infoSlideIndex = 0, lis
     return i === infoSlideIndex
   }, [infoSlideIndex])
   const isProgressHidden = useCallback((i: number) => {
-    // Hide progress on: info slide, list slide (1), speed slide (5), considerations slide (6), and end slide
-    return i === infoSlideIndex || i === 1 || i === 5 || i === 6 || i === slides.length - 1
+    // Hide progress on: info slide, list slide (1), considerations slide (6), and end slide
+    // COMMENTED OUT: speed slide (5) reference removed
+    return i === infoSlideIndex || i === 1 || i === 6 || i === slides.length - 1
   }, [infoSlideIndex, slides.length])
 
   // Total number for denominator excludes only info (end is included)
@@ -77,30 +78,46 @@ export function RatingWizard({ slides, initialIndex = 0, infoSlideIndex = 0, lis
   }, [index, isExcludedFromDenominator])
 
   // Calculate total comparisons = sum of groups across all comparison slides
-  // Calculate upfront based on investors, not waiting for slides to report
+  // Use actual group counts from slides if available (most accurate)
   const totalComparisons = useMemo(() => {
-    if (!ratingsContext) {
-      // Fallback: use groupCountsBySlide if context not available
-      let total = 0
-      groupCountsBySlide.forEach(count => {
-        total += count
-      })
-      return total
+    // Use actual group counts from slides if available
+    const comparisonSlideIndices = [2, 3, 4] // ProcessQuality, PassiveSupport, ActiveSupport
+    let totalFromSlides = 0
+    let allSlidesReported = true
+    
+    comparisonSlideIndices.forEach(slideIndex => {
+      const count = groupCountsBySlide.get(slideIndex)
+      if (count !== undefined) {
+        totalFromSlides += count
+      } else {
+        allSlidesReported = false
+      }
+    })
+    
+    // If all slides have reported their counts, use those (most accurate)
+    if (allSlidesReported && totalFromSlides > 0) {
+      return totalFromSlides
     }
     
-    // Calculate groups for each category using the same formula as ComparisonSlide
-    // Formula: Math.ceil((investors.length * 2.5) / 4)
-    const investors = ratingsContext.investors
-    if (investors.length === 0) return 0
+    // Fallback: if context available, calculate using generateComparisonGroups
+    if (ratingsContext) {
+      const investors = ratingsContext.investors
+      if (investors.length === 0) return 0
+      
+      // Use 2.0 multiplier to calculate groups per category
+      // In practice, slides will report their counts via setGroupInfo
+      const groupsPerCategory = investors.length <= 4 
+        ? 1 
+        : Math.ceil((investors.length * 2.0) / 4)
+      return groupsPerCategory * 3 // 3 categories
+    }
     
-    // For 4 or fewer investors: 1 group per category
-    // For more: Math.ceil((investors.length * 2.5) / 4) groups per category
-    const groupsPerCategory = investors.length <= 4 
-      ? 1 
-      : Math.ceil((investors.length * 2.5) / 4)
+    // Final fallback: use partial counts from slides
+    if (totalFromSlides > 0) {
+      return totalFromSlides
+    }
     
-    // Three categories: processQuality, passiveSupport, activeSupport
-    return groupsPerCategory * 3
+    return 0
   }, [groupCountsBySlide, ratingsContext])
 
   // Calculate completed comparisons = groups with both best AND worst selected across all categories
@@ -111,28 +128,25 @@ export function RatingWizard({ slides, initialIndex = 0, infoSlideIndex = 0, lis
     const categories: ComparisonCategory[] = ['processQuality', 'passiveSupport', 'activeSupport']
     const slideIndices = [2, 3, 4] // ProcessQuality, PassiveSupport, ActiveSupport
     
-    // Calculate groups per category using the same formula as ComparisonSlide
-    const investors = ratingsContext.investors
-    if (investors.length === 0) return 0
-    
-    const groupsPerCategory = investors.length <= 4 
-      ? 1 
-      : Math.ceil((investors.length * 2.5) / 4)
-    
-    // Count fully completed comparisons (both best and worst selected)
     let completed = 0
     
-    categories.forEach((category) => {
+    // Count fully completed comparisons using actual group counts from slides
+    categories.forEach((category, categoryIdx) => {
       const selections = ratingsContext.getComparisonSelections(category)
+      const slideIndex = slideIndices[categoryIdx]
       
-      // Check all groups for this category
-      for (let i = 0; i < groupsPerCategory; i++) {
-        const hasBest = selections.bestByGroup.has(i)
-        const hasWorst = selections.worstByGroup.has(i)
-        
-        // Count if both best and worst are selected
-        if (hasBest && hasWorst) {
-          completed++
+      // Use actual group count from slide, or fall back to formula if not reported yet
+      const actualGroupCount = groupCountsBySlide.get(slideIndex)
+      if (actualGroupCount !== undefined) {
+        // Check all groups for this category using actual count
+        for (let i = 0; i < actualGroupCount; i++) {
+          const hasBest = selections.bestByGroup.has(i)
+          const hasWorst = selections.worstByGroup.has(i)
+          
+          // Count if both best and worst are selected
+          if (hasBest && hasWorst) {
+            completed++
+          }
         }
       }
     })
@@ -144,18 +158,48 @@ export function RatingWizard({ slides, initialIndex = 0, infoSlideIndex = 0, lis
         const slideIndex = slideIndices[categoryIdx]
         if (index === slideIndex) {
           const currentGroup = currentGroupBySlide.get(slideIndex) ?? 0
-          // Calculate global comparison number (1-based): sum of groups in previous categories + current group + 1
-          const currentGlobalComparison = categoryIdx * groupsPerCategory + currentGroup + 1
-          // Use current comparison number if it's higher than completed count
-          if (currentGlobalComparison > completed) {
-            completed = currentGlobalComparison
+          
+          // Calculate sum of groups in previous categories using actual counts
+          let previousGroupsSum = 0
+          for (let i = 0; i < categoryIdx; i++) {
+            const prevSlideIndex = slideIndices[i]
+            const prevGroupCount = groupCountsBySlide.get(prevSlideIndex)
+            if (prevGroupCount !== undefined) {
+              previousGroupsSum += prevGroupCount
+            } else {
+              // Fall back to formula if not reported yet
+              const investors = ratingsContext.investors
+              const fallbackCount = investors.length <= 4 
+                ? 1 
+                : Math.ceil((investors.length * 2.0) / 4)
+              previousGroupsSum += fallbackCount
+            }
+          }
+          
+          // Get actual group count for current category
+          const currentCategoryGroupCount = groupCountsBySlide.get(slideIndex)
+          if (currentCategoryGroupCount !== undefined) {
+            const currentGlobalComparison = previousGroupsSum + currentGroup + 1
+            if (currentGlobalComparison > completed) {
+              completed = currentGlobalComparison
+            }
+          } else {
+            // Fall back to formula if not reported yet
+            const investors = ratingsContext.investors
+            const fallbackGroupsPerCategory = investors.length <= 4 
+              ? 1 
+              : Math.ceil((investors.length * 2.0) / 4)
+            const currentGlobalComparison = previousGroupsSum + fallbackGroupsPerCategory + currentGroup + 1
+            if (currentGlobalComparison > completed) {
+              completed = currentGlobalComparison
+            }
           }
         }
       })
     }
     
     return completed
-  }, [ratingsContext, index, currentGroupBySlide, isComparisonSlide])
+  }, [ratingsContext, index, currentGroupBySlide, groupCountsBySlide, isComparisonSlide])
 
   // Calculate progress based on completed comparisons
   const progress = useMemo(() => {
@@ -170,8 +214,8 @@ export function RatingWizard({ slides, initialIndex = 0, infoSlideIndex = 0, lis
   const isInfoSlide = index === infoSlideIndex
   const isListSlide = index === listSlideIndex
   const isEndSlide = index === slides.length - 1
-  // Speed slide is at index 5, Considerations slide is at index 6 (after Info=0, List=1, 3 comparison slides=2-4, Speed=5, Considerations=6, End=7)
-  const isSpeedOrConsiderationsSlide = index === 5 || index === 6
+  // COMMENTED OUT: Speed slide was at index 5, Considerations slide is at index 6 (after Info=0, List=1, 3 comparison slides=2-4, Considerations=5, End=6)
+  const isSpeedOrConsiderationsSlide = index === 5 // Only considerations slide now (was index 6, now 5 after speed slide removal)
 
 
 

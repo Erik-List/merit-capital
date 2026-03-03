@@ -22,22 +22,76 @@ export function EndSlide({ setCanProceed, setProgressVisible, setProgressInclude
       const ip = (it as any).investmentProcess as number | undefined
       const ibs = (it as any).indirectBrandSupport as number | undefined
       const cbs = (it as any).companyBuildingSupport as number | undefined
-      if (!isNum(ip) || !isNum(ibs) || !isNum(cbs)) return undefined
-      return ip + ibs + cbs // Sum of raw scores
+      // Sum only available numeric scores, return undefined only if ALL three are missing
+      let sum = 0
+      let hasAny = false
+      if (isNum(ip)) {
+        sum += ip
+        hasAny = true
+      }
+      if (isNum(ibs)) {
+        sum += ibs
+        hasAny = true
+      }
+      if (isNum(cbs)) {
+        sum += cbs
+        hasAny = true
+      }
+      return hasAny ? sum : undefined
     }
     const sorted = items.slice().sort((a, b) => {
       const aa = aggregateOf(a)
       const bb = aggregateOf(b)
-      if (aa === undefined && bb === undefined) return 0
-      if (aa === undefined) return 1
-      if (bb === undefined) return -1
-      return bb - aa
+      let comparison: number
+      
+      // Handle undefined scores (no scores) - place them last
+      if (aa === undefined && bb === undefined) {
+        comparison = 0
+      } else if (aa === undefined) {
+        comparison = 1 // undefined goes after defined
+      } else if (bb === undefined) {
+        comparison = -1 // defined goes before undefined
+      }
+      // Handle score of 0 - place in middle between positive and negative
+      else if (aa === 0 && bb === 0) {
+        // Both are 0, use name comparison for stability
+        const aName = (a as any).individualName || ''
+        const bName = (b as any).individualName || ''
+        comparison = aName.localeCompare(bName)
+      } else if (aa === 0) {
+        // a is 0, b is not
+        if (bb > 0) {
+          comparison = 1 // 0 goes after positive scores
+        } else {
+          comparison = -1 // 0 goes before negative scores
+        }
+      } else if (bb === 0) {
+        // b is 0, a is not
+        if (aa > 0) {
+          comparison = -1 // positive goes before 0
+        } else {
+          comparison = 1 // negative goes after 0
+        }
+      }
+      // Handle equal non-zero scores - use name comparison for stability
+      else if (aa === bb) {
+        const aName = (a as any).individualName || ''
+        const bName = (b as any).individualName || ''
+        comparison = aName.localeCompare(bName)
+      }
+      // Handle different scores - sort descending (higher scores first)
+      else {
+        comparison = bb - aa
+      }
+      
+      return comparison
     })
     // Add rank to each item
-    return sorted.map((item, index) => ({
+    const ranked = sorted.map((item, index) => ({
       ...item,
       rank: index + 1,
     }))
+    return ranked
   }, [items])
 
   return (
