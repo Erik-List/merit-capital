@@ -39,7 +39,8 @@ interface InvestorMeritProps {
     rating: number | null;
     reviewCount: number;
     categories?: Record<string, number | undefined>;
-    decisionTime?: string | null;
+    // COMMENTED OUT: Decision time property
+    // decisionTime?: string | null;
   } | null;
   founderComments?: Array<{
     comment: string;
@@ -190,7 +191,8 @@ export function InvestorMerit({
   const investingSpan = getYearSpan(trackRecord?.investing_start_year);
 
   const founderScore = founderRating?.rating ?? null;
-  const decisionTime = founderRating?.decisionTime || null;
+  // COMMENTED OUT: Decision time extraction
+  // const decisionTime = founderRating?.decisionTime || null;
   const processScore = founderRating?.categories?.processQuality ?? undefined;
   const passiveSupportScore = founderRating?.categories?.passiveSupport ?? undefined;
   const activeSupportScore = founderRating?.categories?.activeSupport ?? undefined;
@@ -255,11 +257,12 @@ export function InvestorMerit({
             ))}
           </div>
 
-          {decisionTime ? (
+          {/* COMMENTED OUT: Decision time display */}
+          {/* {decisionTime ? (
             <p className="text-sm text-muted-foreground">
               Average investment decision time is {decisionTime}
             </p>
-          ) : null}
+          ) : null} */}
         </section>
       ) : null}
 
