@@ -43,7 +43,7 @@ export function NavBar({ onReplayIntro }: NavBarProps) {
     // Reset intro state and delegate to parent
     document.cookie = "introSkipped=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     localStorage.removeItem('skipIntro');
-    sessionStorage.removeItem("ranked-capital-intro-seen");
+    sessionStorage.removeItem("merit-capital-intro-seen");
     if (onReplayIntro) onReplayIntro();
     setIsMobileMenuOpen(false);
   }, [onReplayIntro]);
