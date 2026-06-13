@@ -10,7 +10,7 @@ NEXT_PUBLIC_DM_LINKEDIN_URL=https://www.linkedin.com/in/your-handle
 
 If unset, buttons will render with placeholder destinations.
 
-# Ranked Capital
+# Merit Capital
 
 A platform for transparent investor rankings based on founder experiences. Built with Next.js, Tailwind CSS, and Supabase.
 
