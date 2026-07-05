@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 
 import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
@@ -35,29 +35,9 @@ type GraduationRate = {
 
 interface InvestorMeritProps {
   investor: Investor;
-  founderRating?: {
-    rating: number | null;
-    reviewCount: number;
-    categories?: Record<string, number | undefined>;
-    // COMMENTED OUT: Decision time property
-    // decisionTime?: string | null;
-  } | null;
-  founderComments?: Array<{
-    comment: string;
-    createdAt?: string;
-    position?: string;
-  }>;
 }
 
 const HIGHLIGHT_KEYS = ["one_b", "ten_b", "hundred_b", "ipo"] as const;
-
-function formatScore(value: number | null | undefined): string | null {
-  if (typeof value !== 'number' || !Number.isFinite(value)) return null;
-  const rounded = Math.round(value * 10) / 10;
-  const text = rounded.toFixed(1);
-  const cleaned = text.endsWith('.0') ? text.slice(0, -2) : text;
-  return `${cleaned} / 10`;
-}
 
 function normalizeTrackRecord(record: Investor['track_record']): TrackRecord {
   if (!record || typeof record !== 'object' || Array.isArray(record)) {
@@ -99,11 +79,6 @@ function hasGraduationData(bucket: GraduationBucket | null | undefined): boolean
   const hasRate = Number.isFinite(rate) && rate >= 0;
   const count = Array.isArray(bucket.companies) ? bucket.companies.length : 0;
   return hasRate || count > 0;
-}
-
-function toPercentValue(value: number | null | undefined, max = 10): number {
-  if (typeof value !== 'number' || !Number.isFinite(value)) return 0;
-  return Math.max(0, Math.min(100, (value / max) * 100));
 }
 
 type MilestoneKey = 'one_b' | 'ten_b' | 'hundred_b' | 'ipo' | 'rest';
@@ -159,22 +134,11 @@ const SERIES_A_AND_BEYOND = [
 
 export function InvestorMerit({
   investor,
-  founderRating,
-  founderComments,
 }: InvestorMeritProps) {
-  const [showAllComments, setShowAllComments] = useState(false);
-
   const trackRecord = useMemo(() => normalizeTrackRecord(investor.track_record), [investor.track_record]);
   const trackMetrics = useMemo(() => computeTrackRecordMetrics(trackRecord), [trackRecord]);
   const graduationRate = useMemo(() => normalizeGraduationRate(investor.graduation_rate), [investor.graduation_rate]);
   const stages = useMemo(() => ensureArray(investor.investment_stage), [investor.investment_stage]);
-
-  const comments = useMemo(
-    () => (founderComments || []).map((entry) => entry?.comment).filter((comment): comment is string => Boolean(comment?.trim())),
-    [founderComments]
-  );
-
-  const visibleComments = showAllComments ? comments : comments.slice(0, 3);
 
   const hasPreSeed = stages.map((stage) => stage.toLowerCase()).some((stage) => stage === 'pre-seed' || stage === 'preseed' || stage === 'pre seed');
   const hasSeriesAPlus = stages.some((stage) => SERIES_A_AND_BEYOND.includes(stage));
@@ -187,15 +151,7 @@ export function InvestorMerit({
   const showSeed = hasGraduationData(seedGraduation);
   const showSeries = hasGraduationData(seriesGraduation);
 
-  const totalCompanies = trackMetrics?.total ?? 0;
   const investingSpan = getYearSpan(trackRecord?.investing_start_year);
-
-  const founderScore = founderRating?.rating ?? null;
-  // COMMENTED OUT: Decision time extraction
-  // const decisionTime = founderRating?.decisionTime || null;
-  const processScore = founderRating?.categories?.processQuality ?? undefined;
-  const passiveSupportScore = founderRating?.categories?.passiveSupport ?? undefined;
-  const activeSupportScore = founderRating?.categories?.activeSupport ?? undefined;
 
   const trackRows = useMemo(() => {
     if (!trackMetrics) return [] as Array<{ key: Extract<typeof HIGHLIGHT_KEYS[number], string>; label: string; count: number } | 'fallback'>;
@@ -218,54 +174,6 @@ export function InvestorMerit({
 
   return (
     <div className="space-y-8">
-      {/* Founder Score */}
-      {founderScore !== null || processScore !== undefined || passiveSupportScore !== undefined || activeSupportScore !== undefined ? (
-        <section className="space-y-4">
-          <div className="space-y-2">
-            <div className="text-lg font-semibold">Founder Score</div>
-            <p className="text-xs text-muted-foreground">
-              The founder score comes from founders scoring {investor.name} that have received investment from that Investor.
-            </p>
-          </div>
-          <div className="space-y-3">
-            <div className="grid grid-cols-[200px_1fr] items-center gap-4">
-              <div className="text-sm font-medium text-muted-foreground">Founder Score</div>
-              <div className="flex items-center gap-3">
-                <Progress value={toPercentValue(founderScore)} className="h-1.5 w-40 shrink-0" />
-                {formatScore(founderScore) ? (
-                  <span className="text-sm font-medium text-foreground">{formatScore(founderScore)}</span>
-                ) : (
-                  <span className="text-sm text-muted-foreground">– / 10</span>
-                )}
-              </div>
-            </div>
-          </div>
-
-          <div className="space-y-3">
-            {[
-              { label: 'Investment Process', value: processScore },
-              { label: 'Passive Support (brand)', value: passiveSupportScore },
-              { label: 'Company Building Support', value: activeSupportScore },
-            ].map(({ label, value }) => (
-              <div className="grid grid-cols-[200px_1fr] items-center gap-4" key={label}>
-                <span className="text-sm font-medium text-muted-foreground">{label}</span>
-                <div className="flex items-center gap-3">
-                  <Progress value={toPercentValue(value)} className="h-1.5 w-40 shrink-0" />
-                  <span className="text-xs font-medium text-muted-foreground">{formatScore(value) ?? '– / 10'}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* COMMENTED OUT: Decision time display */}
-          {/* {decisionTime ? (
-            <p className="text-sm text-muted-foreground">
-              Average investment decision time is {decisionTime}
-            </p>
-          ) : null} */}
-        </section>
-      ) : null}
-
       {/* Track Record */}
       {trackMetrics && trackMetrics.total > 0 ? (
         <section className="space-y-4">
@@ -348,32 +256,6 @@ export function InvestorMerit({
               <GraduationRow label="Series A → Series B" bucket={seriesGraduation} />
             ) : null}
           </div>
-        </section>
-      ) : null}
-
-      {/* Founder Comments */}
-      {comments.length ? (
-        <section className="space-y-4">
-          <div className="text-lg font-semibold">Founder Comments</div>
-          <div className="space-y-2">
-            {visibleComments.map((comment, index) => (
-              <div
-                key={`${comment}-${index}`}
-                className="rounded-md glass border border-input/40 bg-background/60 px-3 py-2 text-sm text-muted-foreground"
-              >
-                &ldquo;{comment}&rdquo;
-              </div>
-            ))}
-          </div>
-          {comments.length > 3 ? (
-            <button
-              type="button"
-              onClick={() => setShowAllComments((value) => !value)}
-              className="text-sm font-medium underline underline-offset-4 text-muted-foreground hover:text-foreground"
-            >
-              {showAllComments ? 'See less' : 'See more'}
-            </button>
-          ) : null}
         </section>
       ) : null}
     </div>

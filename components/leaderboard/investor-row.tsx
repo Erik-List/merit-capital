@@ -8,15 +8,8 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import type { StageState } from "@/components/leaderboard/filters/stage-filter";
 import type { GeographyState } from "@/components/leaderboard/filters/geography-filter";
 import type { ScopeState } from "@/components/leaderboard/filters/scope-filter";
-import type { FounderScoreFilterState, FounderScoreCategory } from "@/components/leaderboard/filters/founder-score-filter-types";
-import {
-  ALL_FOUNDER_SCORE_CATEGORIES,
-  isCategoriesFounderState,
-  normalizeFounderCategories,
-} from "@/components/leaderboard/filters/founder-score-filter-types";
 import type { Database } from "@/types/supabase";
 import { formatInvestmentRange } from "@/utils/format";
-import founderRatings from "@/data/founder-ratings.json";
 import type { ViewState } from "@/components/leaderboard/filters/view";
 import type { TrackRecordState, TrackRecordTier } from "@/components/leaderboard/track-record-utils";
 import {
@@ -36,7 +29,6 @@ interface InvestorRowProps {
   geo?: GeographyState;
   scope?: ScopeState;
   trackRecord?: TrackRecordState;
-  founder?: FounderScoreFilterState;
 }
 
 const DEFAULT_VIEW_STATE: ViewState = {
@@ -44,7 +36,6 @@ const DEFAULT_VIEW_STATE: ViewState = {
   stage: true,
   investmentSize: true,
   scope: true,
-  founderScore: true,
   trackRecord: true,
 };
 
@@ -271,56 +262,6 @@ function extractCoreAndOther(geo: any): { core: string[]; other: string[] } {
   return { core: [], other: [] };
 }
 
-type FounderRecord = {
-  rating?: number;
-  reviewCount?: number;
-  comments?: string[];
-} & {
-  speed?: number | string;
-  processQuality?: number;
-  passiveSupport?: number;
-  activeSupport?: number;
-};
-
-type FounderScoreMap = Partial<Record<FounderScoreCategory, number>>;
-
-function getFounderRecord(slug?: string | null): FounderRecord | null {
-  if (!slug) return null;
-  const entry = (founderRatings as Record<string, FounderRecord | undefined>)[slug];
-  return entry ?? null;
-}
-
-function getFounderScores(slug?: string | null): { rating: number | null; categories: FounderScoreMap } {
-  const entry = getFounderRecord(slug);
-  if (!entry) {
-    return { rating: null, categories: {} };
-  }
-  const rating = typeof entry.rating === "number" && Number.isFinite(entry.rating) ? Number(entry.rating) : null;
-  const categories: FounderScoreMap = {};
-  ALL_FOUNDER_SCORE_CATEGORIES.forEach((category) => {
-    const value = entry[category];
-    if (typeof value === "number" && Number.isFinite(value)) {
-      categories[category] = Number(value);
-    }
-  });
-  return { rating, categories };
-}
-
-function formatFounderScore(value: number | null): string | null {
-  if (typeof value !== "number" || !Number.isFinite(value)) return null;
-  const rounded = Math.round(value * 10) / 10;
-  const text = rounded.toFixed(1);
-  const display = text.endsWith(".0") ? text.slice(0, -2) : text;
-  return `${display}/10`;
-}
-
-const CATEGORY_LABELS: Record<FounderScoreCategory, string> = {
-  speed: "Speed",
-  processQuality: "Investment Process Quality",
-  passiveSupport: "Passive Support (Brand)",
-  activeSupport: "Company Building Support",
-};
-
 function formatHitRatePercent(value: number): string {
   if (!Number.isFinite(value) || value <= 0) {
     return "0";
@@ -331,63 +272,8 @@ function formatHitRatePercent(value: number): string {
   return text.endsWith(".0") ? text.slice(0, -2) : text;
 }
 
-export default function InvestorRow({ investor, view, stage, geo, scope, trackRecord, founder }: InvestorRowProps) {
+export default function InvestorRow({ investor, view, stage, geo, scope, trackRecord }: InvestorRowProps) {
   const viewState = view || DEFAULT_VIEW_STATE;
-  const { rating, categories: founderCategoryScores } = getFounderScores(investor.slug);
-  const formattedRating = formatFounderScore(rating);
-  const selectedFounderCategories = founder && isCategoriesFounderState(founder)
-    ? normalizeFounderCategories(founder.selected)
-    : [];
-  const categorySegments: ReactNode[] = [];
-  selectedFounderCategories.forEach((category) => {
-    const value = founderCategoryScores[category];
-    if (typeof value !== "number" || !Number.isFinite(value)) return;
-    const formatted = formatFounderScore(value);
-    if (!formatted) return;
-    categorySegments.push(
-      <span key={`category-${category}`} className="whitespace-nowrap">
-        {`${CATEGORY_LABELS[category]}: ${formatted}`}
-      </span>,
-    );
-  });
-  const showCategorySegments =
-    viewState.founderScore && founder?.mode === "categories" && categorySegments.length > 0;
-  const showRating = viewState.founderScore && !showCategorySegments && formattedRating !== null;
-  const categoryPopoverItems: ReactNode[] = [];
-  ALL_FOUNDER_SCORE_CATEGORIES.forEach((category) => {
-    const value = founderCategoryScores[category];
-    if (typeof value !== "number" || !Number.isFinite(value)) return;
-    const formatted = formatFounderScore(value);
-    if (!formatted) return;
-    categoryPopoverItems.push(
-      <div key={`popover-${category}`} className="flex items-center justify-between gap-3">
-        <span className="text-foreground">{CATEGORY_LABELS[category]}</span>
-        <span>{formatted}</span>
-      </div>,
-    );
-  });
-  const ratingTriggerClass =
-    "underline underline-offset-2 text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded";
-  const overallRatingSegment = showRating
-    ? categoryPopoverItems.length > 0
-      ? (
-          <Popover>
-            <PopoverTrigger asChild>
-              <button type="button" className={ratingTriggerClass} aria-label="Show founder score breakdown">
-                {formattedRating}
-              </button>
-            </PopoverTrigger>
-            <PopoverContent className="w-72 p-3 bg-background/80 backdrop-blur-md" side="right" align="center">
-              <div className="space-y-2 text-xs text-muted-foreground">
-                {categoryPopoverItems}
-              </div>
-            </PopoverContent>
-          </Popover>
-        )
-      : (
-          <span className="whitespace-nowrap">{formattedRating}</span>
-        )
-    : null;
   const name = investor.name || "Investor";
   const normalizedTrackRecord = sanitizeTrackRecordState(trackRecord ?? defaultTrackRecord);
   const selectedTrackTier: TrackRecordTier =
@@ -673,11 +559,6 @@ export default function InvestorRow({ investor, view, stage, geo, scope, trackRe
   });
 
   const headlineSegments: ReactNode[] = [];
-  if (showCategorySegments) {
-    headlineSegments.push(...categorySegments);
-  } else if (overallRatingSegment) {
-    headlineSegments.push(overallRatingSegment);
-  }
   if (viewState.trackRecord && trackRecordDisplay) {
     headlineSegments.push(
       <span key="track" className="whitespace-nowrap">

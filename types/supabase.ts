@@ -10,7 +10,7 @@ export type Database = {
   // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
-    PostgrestVersion: "12.2.3 (519615d)"
+    PostgrestVersion: "14.5"
   }
   public: {
     Tables: {
@@ -155,94 +155,6 @@ export type Database = {
         }
         Relationships: []
       }
-      Rating: {
-        Row: {
-          comments: Json
-          created_at: string
-          id: string
-          investor_id: string
-          log_message: string | null
-          position_of_founder: string | null
-          rating_type: Database["public"]["Enums"]["RatingType"] | null
-          score: Json
-          stage_of_company: string | null
-          status: Database["public"]["Enums"]["ApprovalStatus"]
-          updated_at: string
-          user_id: string
-        }
-        Insert: {
-          comments: Json
-          created_at?: string
-          id: string
-          investor_id: string
-          log_message?: string | null
-          position_of_founder?: string | null
-          rating_type?: Database["public"]["Enums"]["RatingType"] | null
-          score: Json
-          stage_of_company?: string | null
-          status?: Database["public"]["Enums"]["ApprovalStatus"]
-          updated_at: string
-          user_id: string
-        }
-        Update: {
-          comments?: Json
-          created_at?: string
-          id?: string
-          investor_id?: string
-          log_message?: string | null
-          position_of_founder?: string | null
-          rating_type?: Database["public"]["Enums"]["RatingType"] | null
-          score?: Json
-          stage_of_company?: string | null
-          status?: Database["public"]["Enums"]["ApprovalStatus"]
-          updated_at?: string
-          user_id?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "Rating_investor_id_fkey"
-            columns: ["investor_id"]
-            isOneToOne: false
-            referencedRelation: "Investor"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "Rating_investor_id_fkey"
-            columns: ["investor_id"]
-            isOneToOne: false
-            referencedRelation: "InvestorView"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "Rating_user_id_fkey"
-            columns: ["user_id"]
-            isOneToOne: false
-            referencedRelation: "User"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      User: {
-        Row: {
-          created_at: string
-          id: string
-          linkedin_url: string
-          updated_at: string
-        }
-        Insert: {
-          created_at?: string
-          id: string
-          linkedin_url: string
-          updated_at: string
-        }
-        Update: {
-          created_at?: string
-          id?: string
-          linkedin_url?: string
-          updated_at?: string
-        }
-        Relationships: []
-      }
     }
     Views: {
       InvestorView: {
@@ -283,7 +195,6 @@ export type Database = {
     Enums: {
       ApprovalStatus: "PENDING_APPROVAL" | "APPROVED" | "REJECTED"
       InvestorType: "Institutional" | "Individual"
-      RatingType: "NEW" | "UPDATE" | "DELETION"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -413,7 +324,6 @@ export const Constants = {
     Enums: {
       ApprovalStatus: ["PENDING_APPROVAL", "APPROVED", "REJECTED"],
       InvestorType: ["Institutional", "Individual"],
-      RatingType: ["NEW", "UPDATE", "DELETION"],
     },
   },
 } as const
