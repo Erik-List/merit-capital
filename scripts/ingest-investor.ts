@@ -12,6 +12,7 @@ import {
   upsertInstitutionalData,
   upsertIndividualData,
 } from "./utils/db-helpers";
+import { normalizeFundSizes } from "../lib/fund-size";
 
 type InvestorInsert = TablesInsert<"Investor">;
 type InstitutionalInsert = TablesInsert<"InstitutionalInvestor">;
@@ -131,7 +132,9 @@ async function main() {
         if (aum || funds || individual || founding_year !== undefined) {
           subtypeDataMap.set(slug, {
             aum: aum || null,
-            funds: funds || null,
+            // Coerce any string fund sizes (e.g. "$450M") to integer USD numbers
+            // so re-aggregation stays consistent with the migrated DB shape.
+            funds: funds ? normalizeFundSizes(funds) : null,
             individual: individual || null,
             founding_year: founding_year || null,
           });

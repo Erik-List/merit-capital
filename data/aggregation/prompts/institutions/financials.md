@@ -3,7 +3,7 @@
 ## Instructions
 1. Collect recent fund size disclosures, SEC filings (Form D), or reputable media coverage.
 2. Output **only** JSON matching the schema below.
-3. Amounts in `aum` must be integers representing USD.
+3. Amounts in `aum` and each fund's `size` must be integers representing USD.
 4. For ranges, `bottom` should capture the conservative floor of AUM; `top` the upper estimate.
 5. `funds.funds` should list distinct funds with size and vintage when known.
 6. When data is unavailable, set the field to `null` or use empty arrays where appropriate.
@@ -19,7 +19,7 @@
     "funds": [
       {
         "name": "Fund III",
-        "size": "$450M",
+        "size": 450000000,
         "vintage": 2023
       }
     ]
@@ -29,7 +29,7 @@
 
 ## Field Notes
 - `aum`: provide an estimated range that reflects assets under management today; if only one number is known, place it in both `bottom` and `top`.
-- `funds.funds`: include up to the 5 most recent or material funds. `size` should keep the unit (e.g., `$450M`), while `vintage` is a four-digit year. Omit fields with unknown values by setting them to `null` inside the object.
+- `funds.funds`: include up to the 5 most recent or material funds. `size` is an integer number of USD (e.g., `450000000` for a $450M fund), matching the `aum` convention, while `vintage` is a four-digit year. Omit fields with unknown values by setting them to `null` inside the object.
 - If no funds are disclosed, return `{ "funds": [] }` for the `funds.funds` array.
 
 

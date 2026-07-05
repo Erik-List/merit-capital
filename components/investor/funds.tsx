@@ -1,4 +1,5 @@
 import type { Database } from '@/types/supabase';
+import { parseFundSize } from '@/lib/fund-size';
 
 type Investor = Database['public']['Views']['InvestorView']['Row'];
 
@@ -13,7 +14,7 @@ type AumRange = {
 
 type FundEntry = {
   name: string;
-  size?: string | null;
+  size?: number | null;
   vintage?: number | null;
 };
 
@@ -97,7 +98,7 @@ function parseFunds(value: unknown): FundEntry[] {
       continue;
     }
 
-    const size = typeof fund.size === 'string' ? fund.size.trim() : null;
+    const size = parseFundSize(fund.size);
     const vintage = typeof fund.vintage === 'number' ? fund.vintage : typeof fund.year === 'number' ? fund.year : null;
 
     parsed.push({ name, size: size ?? null, vintage });
@@ -142,8 +143,8 @@ export function Funds({ investor }: FundsProps) {
             <li key={`${fund.name}-${index}`} className="space-y-1">
               <div className="flex items-start justify-between gap-2">
                 <span className="text-sm text-foreground">{fund.name}</span>
-                {fund.size ? (
-                  <span className="text-sm tabular-nums text-muted-foreground">{fund.size}</span>
+                {isNumber(fund.size) ? (
+                  <span className="text-sm tabular-nums text-muted-foreground">${formatCurrencyShort(fund.size)}</span>
                 ) : null}
               </div>
               {fund.vintage ? (
