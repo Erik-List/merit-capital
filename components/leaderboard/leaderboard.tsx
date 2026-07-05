@@ -15,16 +15,6 @@ import type { MedianState, MedianUnit } from "@/components/leaderboard/filters/r
 import { medianStateToValue } from "@/components/leaderboard/filters/range-filter";
 import type { GeographyState } from "@/components/leaderboard/filters/geography-filter";
 import type { ScopeState } from "@/components/leaderboard/filters/scope-filter";
-import {
-  ALL_FOUNDER_SCORE_CATEGORIES,
-  FOUNDER_SCORE_QUERY_KEY,
-  isCategoriesFounderState,
-  normalizeFounderCategories,
-} from "@/components/leaderboard/filters/founder-score-filter-types";
-import type {
-  FounderScoreCategory,
-  FounderScoreFilterState,
-} from "@/components/leaderboard/filters/founder-score-filter-types";
 import type { TrackRecordState } from "@/components/leaderboard/track-record-utils";
 import {
   TRACK_RECORD_QUERY_KEY,
@@ -33,34 +23,18 @@ import {
   sanitizeTrackRecordState,
   computeTrackRecordHitRate,
 } from "@/components/leaderboard/track-record-utils";
-import founderRatings from "@/data/founder-ratings.json";
 
 type Investor = Database["public"]["Views"]["InvestorView"]["Row"];
 
-type FounderRatingRecord = {
-  rating: number;
-  reviewCount: number;
-  comments?: string[];
-} & {
-  speed?: number | string;
-  processQuality?: number;
-  passiveSupport?: number;
-  activeSupport?: number;
-};
+export type SortOption = "track-record-desc" | "graduation-rate-desc";
 
-const FOUNDER_RATINGS: Record<string, FounderRatingRecord> =
-  founderRatings as Record<string, FounderRatingRecord>;
-
-export type SortOption = "founder-score-desc" | "track-record-desc" | "graduation-rate-desc";
-
-const DEFAULT_SORT: SortOption = "founder-score-desc";
+const DEFAULT_SORT: SortOption = "track-record-desc";
 
 const defaultView: ViewState = {
   geography: true,
   stage: true,
   investmentSize: true,
   scope: true,
-  founderScore: true,
   trackRecord: false,
 };
 
@@ -86,10 +60,6 @@ const defaultScope: ScopeState = {
   selected: [],
 };
 
-const defaultFounder: FounderScoreFilterState = {
-  mode: "all",
-};
-
 const defaultRange: RangeState = {
   min: 0,
   max: null, // 100M+
@@ -101,13 +71,11 @@ const defaultMedian: MedianState = {
 };
 
 const QUERY_DELIMITER = "-";
-const CATEGORY_PARAM_PREFIX = "cat";
 const VIEW_PARAM_MAP: Array<{ state: keyof ViewState; param: string }> = [
   { state: "geography", param: "investment-geography" },
   { state: "stage", param: "stages" },
   { state: "investmentSize", param: "size" },
   { state: "scope", param: "scope" },
-  { state: "founderScore", param: "fscore" },
   { state: "trackRecord", param: "track" },
 ];
 const ALL_VIEW_PARAMS = VIEW_PARAM_MAP.map(({ param }) => param);
@@ -145,7 +113,6 @@ function useUrlState() {
   const typeParam = params.get("type") || "";
   const rangeParam = params.get("investment-range") || "";
   const medianParam = params.get("median") || "";
-  const founderParam = params.get(FOUNDER_SCORE_QUERY_KEY) || "";
   const trackRecordParam = params.get(TRACK_RECORD_QUERY_KEY);
   const sortParam = params.get("sort") || "";
 
@@ -243,25 +210,6 @@ function useUrlState() {
     return `${value.value}-${unit}`;
   };
 
-  const buildFounderParam = (value: FounderScoreFilterState) => {
-    switch (value.mode) {
-      case "all":
-        return null;
-      case "top10":
-        return "top10";
-      case "categories": {
-        const normalized = normalizeFounderCategories(value.selected);
-        const isDefault = normalized.length === 1 && normalized[0] === ALL_FOUNDER_SCORE_CATEGORIES[0];
-        if (isDefault) {
-          return null;
-        }
-        return [CATEGORY_PARAM_PREFIX, ...normalized].join(QUERY_DELIMITER);
-      }
-      default:
-        return null;
-    }
-  };
-
   const buildSortParam = (value: SortOption) => {
     if (value === DEFAULT_SORT) {
       return null;
@@ -271,9 +219,6 @@ function useUrlState() {
 
   const parseSortParam = (value: string): SortOption => {
     const normalized = value.trim().toLowerCase();
-    if (normalized === "founder-score-desc" || normalized === "founderscoredesc" || normalized === "founder") {
-      return "founder-score-desc";
-    }
     if (normalized === "track-record-desc" || normalized === "trackrecorddesc" || normalized === "track") {
       return "track-record-desc";
     }
@@ -292,7 +237,6 @@ function useUrlState() {
       stage: allowed.has("stages"),
       investmentSize: allowed.has("size"),
       scope: allowed.has("scope"),
-      founderScore: allowed.has("fscore"),
       trackRecord: allowed.has("track"),
     };
   })();
@@ -346,36 +290,6 @@ function useUrlState() {
     return { all: false, selected: tokens };
   })();
 
-  const founder: FounderScoreFilterState = (() => {
-    if (!founderParam) return { ...defaultFounder };
-    const trimmed = founderParam.trim();
-    const normalized = trimmed.toLowerCase();
-    if (normalized === "all") return { mode: "all" };
-    if (normalized === "top10") return { mode: "top10" };
-    const tokens = trimmed
-      .split(QUERY_DELIMITER)
-      .map((token) => token.trim())
-      .filter(Boolean);
-    if (tokens.length > 0 && tokens[0].toLowerCase() === CATEGORY_PARAM_PREFIX) {
-      const categories = tokens
-        .slice(1)
-        .map((token) => {
-          const lower = token.toLowerCase();
-          return (
-            ALL_FOUNDER_SCORE_CATEGORIES.find((category) => category.toLowerCase() === lower) ?? null
-          );
-        })
-        .filter((value): value is FounderScoreCategory => value !== null);
-      const normalizedCategories = normalizeFounderCategories(categories);
-      const isDefault = normalizedCategories.length === 1 && normalizedCategories[0] === ALL_FOUNDER_SCORE_CATEGORIES[0];
-      if (isDefault) {
-        return { ...defaultFounder };
-      }
-      return { mode: "categories", selected: normalizedCategories };
-    }
-    return { ...defaultFounder };
-  })();
-
   const trackRecord = parseTrackRecordParam(trackRecordParam);
 
   const sort: SortOption = (() => {
@@ -422,7 +336,6 @@ function useUrlState() {
     geo?: GeographyState;
     scope?: ScopeState;
     type?: TypeState;
-    founder?: FounderScoreFilterState;
     trackRecord?: TrackRecordState;
     sort?: SortOption;
   }) => {
@@ -476,15 +389,6 @@ function useUrlState() {
         usp.set("type", value);
       }
     }
-    if (next.founder !== undefined) {
-      const v = next.founder as FounderScoreFilterState;
-      const value = buildFounderParam(v);
-      if (value === null) {
-        usp.delete(FOUNDER_SCORE_QUERY_KEY);
-      } else {
-        usp.set(FOUNDER_SCORE_QUERY_KEY, value);
-      }
-    }
     if (next.range !== undefined) {
       const v = next.range as RangeState;
       const value = buildRangeParam(v);
@@ -529,13 +433,6 @@ function useUrlState() {
   const scopeSelectionKey = scope.selected.join(QUERY_DELIMITER);
   const rangeKey = `${range.min}-${range.max === null ? "null" : range.max}`;
   const medianKey = `${median.value === null ? "null" : median.value}-${median.unit}`;
-  const founderSelectionKey = (() => {
-    if (founder.mode === "categories") {
-      const normalized = normalizeFounderCategories(founder.selected);
-      return `categories-${normalized.join(QUERY_DELIMITER)}`;
-    }
-    return founder.mode;
-  })();
   const trackRecordKey = `${trackRecord.selection}-${trackRecord.tier}-${trackRecord.percent}`;
 
   useEffect(() => {
@@ -599,18 +496,6 @@ function useUrlState() {
       }
     } else if (existingType !== nextType) {
       usp.set("type", nextType);
-      changed = true;
-    }
-
-    const nextFounder = buildFounderParam(founder);
-    const existingFounder = usp.get(FOUNDER_SCORE_QUERY_KEY);
-    if (nextFounder === null) {
-      if (existingFounder !== null) {
-        usp.delete(FOUNDER_SCORE_QUERY_KEY);
-        changed = true;
-      }
-    } else if (existingFounder !== nextFounder) {
-      usp.set(FOUNDER_SCORE_QUERY_KEY, nextFounder);
       changed = true;
     }
 
@@ -679,18 +564,17 @@ function useUrlState() {
     type.individual,
     type.institutional,
     view,
-    founderSelectionKey,
     trackRecordKey,
     sort,
   ]);
 
-  return { search, view, stage, range, median, geo, scope, type, founder, trackRecord, sort, set };
+  return { search, view, stage, range, median, geo, scope, type, trackRecord, sort, set };
 }
 
 export default function Leaderboard() {
   const [investors, setInvestors] = useState<Investor[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { search, view, stage, range, median, geo, scope, type, founder, trackRecord, sort, set } = useUrlState();
+  const { search, view, stage, range, median, geo, scope, type, trackRecord, sort, set } = useUrlState();
 
   useEffect(() => {
     const fetchInvestors = async () => {
@@ -757,54 +641,6 @@ export default function Leaderboard() {
     );
     const generalistSelected =
       scopeSelectedLower.has("generalist") || scopeSelectedLower.has("generalists");
-    const ratingsBySlug = new Map<string, FounderRatingRecord>();
-    investors.forEach((inv) => {
-      const slug = typeof inv.slug === "string" ? inv.slug : null;
-      if (!slug) return;
-      const entry = FOUNDER_RATINGS[slug];
-      if (entry) {
-        ratingsBySlug.set(slug, entry);
-      }
-    });
-    const founderCategories = isCategoriesFounderState(founder)
-      ? normalizeFounderCategories(founder.selected)
-      : [];
-    const computeTopThreshold = (values: number[]): number | null => {
-      const valid = values.filter((value) => Number.isFinite(value));
-      if (valid.length === 0) return null;
-      const sorted = [...valid].sort((a, b) => b - a);
-      const rank = Math.max(1, Math.ceil(sorted.length * 0.1));
-      return sorted[Math.min(rank - 1, sorted.length - 1)];
-    };
-    const overallRatingThreshold =
-      founder.mode === "top10"
-        ? computeTopThreshold(Array.from(ratingsBySlug.values()).map((entry) => entry.rating))
-        : null;
-    const categoryThresholds = (() => {
-      const map = new Map<FounderScoreCategory, number | null>();
-      if (founder.mode !== "categories") {
-        ALL_FOUNDER_SCORE_CATEGORIES.forEach((category) => map.set(category, null));
-        return map;
-      }
-      const valuesByCategory: Record<FounderScoreCategory, number[]> = {
-        speed: [],
-        processQuality: [],
-        passiveSupport: [],
-        activeSupport: [],
-      };
-      ratingsBySlug.forEach((entry) => {
-        ALL_FOUNDER_SCORE_CATEGORIES.forEach((category) => {
-          const value = entry[category];
-          if (typeof value === "number" && Number.isFinite(value)) {
-            valuesByCategory[category].push(value);
-          }
-        });
-      });
-      ALL_FOUNDER_SCORE_CATEGORIES.forEach((category) => {
-        map.set(category, computeTopThreshold(valuesByCategory[category]));
-      });
-      return map;
-    })();
     const normalizedTrackRecord = sanitizeTrackRecordState(trackRecord);
     const trackSelection = normalizedTrackRecord.selection;
     const trackTier = trackSelection === "custom" ? normalizedTrackRecord.tier : "1b";
@@ -914,31 +750,6 @@ export default function Leaderboard() {
       return investorMedian >= medianThreshold!;
     };
 
-    const matchesFounder = (inv: Investor) => {
-      if (founder.mode === "all") return true;
-      const slug = typeof inv.slug === "string" ? inv.slug : null;
-      if (!slug) return false;
-      const entry = ratingsBySlug.get(slug);
-      if (!entry) return false;
-      if (founder.mode === "top10") {
-        if (overallRatingThreshold === null) return true;
-        return typeof entry.rating === "number" && Number.isFinite(entry.rating) && entry.rating >= overallRatingThreshold;
-      }
-      if (founder.mode === "categories") {
-        if (founderCategories.length === 0) return true;
-        return founderCategories.every((category) => {
-          const threshold = categoryThresholds.get(category) ?? null;
-          const value = entry[category];
-          if (threshold === null) {
-            return typeof value === "number" && Number.isFinite(value);
-          }
-          if (typeof value !== "number" || !Number.isFinite(value)) return false;
-          return value >= threshold;
-        });
-      }
-      return true;
-    };
-
     const filtered = investors.filter((inv) =>
       matchesType(inv)
       && matchesStage(inv)
@@ -947,8 +758,7 @@ export default function Leaderboard() {
       && matchesTrackRecord(inv)
       && matchesRange(inv)
       && matchesMedian(inv)
-      && matchesSearch(inv)
-      && matchesFounder(inv),
+      && matchesSearch(inv),
     );
 
     // Apply sorting
@@ -956,12 +766,7 @@ export default function Leaderboard() {
       let aValue: number | null = null;
       let bValue: number | null = null;
 
-      if (sort === "founder-score-desc") {
-        const aEntry = typeof a.slug === "string" ? ratingsBySlug.get(a.slug) : null;
-        const bEntry = typeof b.slug === "string" ? ratingsBySlug.get(b.slug) : null;
-        aValue = aEntry?.rating ?? null;
-        bValue = bEntry?.rating ?? null;
-      } else if (sort === "track-record-desc") {
+      if (sort === "track-record-desc") {
         const aHitRate = computeTrackRecordHitRate(a.track_record, "1b");
         const bHitRate = computeTrackRecordHitRate(b.track_record, "1b");
         aValue = Number.isFinite(aHitRate.percent) ? aHitRate.percent : null;
@@ -983,7 +788,7 @@ export default function Leaderboard() {
     });
 
     return sorted;
-  }, [founder, geo, investors, search, scope, stage, range, median, trackRecord, type, sort]);
+  }, [geo, investors, search, scope, stage, range, median, trackRecord, type, sort]);
 
   return (
     <div className="w-full container mx-auto py-6">
@@ -1006,8 +811,6 @@ export default function Leaderboard() {
             scope={scope}
             scopeOptions={scopeOptions}
             onScopeChange={(next) => set({ scope: next })}
-            founder={founder}
-            onFounderChange={(next) => set({ founder: next })}
             trackRecord={trackRecord}
             onTrackRecordChange={(next) => set({ trackRecord: next })}
           />
@@ -1023,7 +826,6 @@ export default function Leaderboard() {
             geo={geo}
             scope={scope}
             trackRecord={trackRecord}
-            founder={founder}
           />
         </div>
       </div>

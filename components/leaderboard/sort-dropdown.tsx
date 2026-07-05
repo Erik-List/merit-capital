@@ -22,9 +22,6 @@ export default function SortDropdown({ value, onChange }: SortDropdownProps) {
           <SelectValue placeholder="Sort by..." />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="founder-score-desc">
-            Founder score descending
-          </SelectItem>
           <SelectItem value="track-record-desc">
             Track record descending
           </SelectItem>

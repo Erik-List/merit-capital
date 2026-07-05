@@ -1,6 +1,6 @@
 "use client";
 
-import { Star, Link, ExternalLink, BookmarkPlus, Bookmark } from 'lucide-react';
+import { Link, ExternalLink, Bookmark } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import type { Database } from '@/types/supabase';
 
@@ -8,28 +8,13 @@ type Investor = Database['public']['Views']['InvestorView']['Row'];
 
 interface InvestorHeaderProps {
   investor: Investor;
-  founderRating?: {
-    rating: number | null;
-    reviewCount: number;
-  } | null;
-}
-
-function formatRating(rating: number | null | undefined): string | null {
-  if (typeof rating !== 'number' || !Number.isFinite(rating)) {
-    return null;
-  }
-  const rounded = Math.round(rating * 10) / 10;
-  const text = rounded.toFixed(1);
-  return text.endsWith('.0') ? text.slice(0, -2) : text;
 }
 
 /**
  * Component 1: Header
- * Displays investor name, logo, final score, and key tags
+ * Displays investor name, logo, and key tags
  */
-export function InvestorHeader({ investor, founderRating }: InvestorHeaderProps) {
-  const ratingText = formatRating(founderRating?.rating);
-  const reviewCount = founderRating?.reviewCount ?? 0;
+export function InvestorHeader({ investor }: InvestorHeaderProps) {
   const showInstitutionalLabel = investor.investor_type === 'Institutional';
   const { toast } = useToast();
 
@@ -90,26 +75,6 @@ export function InvestorHeader({ investor, founderRating }: InvestorHeaderProps)
       </div>
 
       <div className="flex items-center gap-4">
-        <div className="text-right">
-          {ratingText ? (
-            <div className="mb-1 flex items-center gap-2 justify-end">
-              <Star className="h-5 w-5 fill-primary text-primary" />
-              <span className="text-2xl font-bold">{ratingText}</span>
-            </div>
-          ) : (
-            <div className="mb-1 text-sm text-muted-foreground">No score yet</div>
-          )}
-
-          {reviewCount > 0 ? (
-            <div className="text-sm text-muted-foreground">{reviewCount} ratings</div>
-          ) : (
-            <div className="text-sm text-muted-foreground">Awaiting reviews</div>
-          )}
-        </div>
-
-        {/* Divider */}
-        <div className="h-16 border-l border-input" />
-
         {/* Action Icons */}
         <div className="flex items-center gap-2">
           <button

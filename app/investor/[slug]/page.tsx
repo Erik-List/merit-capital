@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { createClient } from '@/utils/supabase/server';
 import { cookies } from 'next/headers';
@@ -15,7 +14,6 @@ import {
   Funds,
   Affiliations,
 } from '@/components/investor';
-import founderRatings from '@/data/founder-ratings.json';
 
 type Investor = Database['public']['Views']['InvestorView']['Row'];
 
@@ -88,70 +86,6 @@ export default async function InvestorProfilePage({ params }: InvestorPageParams
     notFound();
   }
 
-  // Fetch founder rating data
-type FounderRatingRecord = {
-    rating?: number;
-    reviewCount?: number;
-    // COMMENTED OUT: Speed property
-    // speed?: string | number;
-    processQuality?: number;
-    passiveSupport?: number;
-    activeSupport?: number;
-    comments?: string[];
-  };
-  
-  const founderRatingEntry = (founderRatings as Record<string, FounderRatingRecord | undefined>)[investor.slug || ''];
-  // COMMENTED OUT: Decision time calculation
-  // const founderDecisionTime = (() => {
-  //   if (!founderRatingEntry) return null;
-  //   if (typeof founderRatingEntry.speed === 'string' && founderRatingEntry.speed.trim()) {
-  //     return founderRatingEntry.speed;
-  //   }
-  //   if (typeof founderRatingEntry.speed === 'number' && Number.isFinite(founderRatingEntry.speed)) {
-  //     const clamped = Math.max(0, Math.min(10, founderRatingEntry.speed));
-  //     const estimatedDays = Math.round(5 + (10 - clamped) * 3);
-  //     const days = Math.max(3, estimatedDays);
-  //     if (days <= 7) {
-  //       return `${days} ${days === 1 ? 'day' : 'days'}`;
-  //     }
-  //     if (days <= 28) {
-  //       const weeks = Math.max(1, Math.round(days / 7));
-  //       return `${weeks} ${weeks === 1 ? 'week' : 'weeks'}`;
-  //     }
-  //     const months = Math.max(1, Math.round(days / 30));
-  //     return `${months} ${months === 1 ? 'month' : 'months'}`;
-  //   }
-  //   return null;
-  // })();
-
-  const founderRating = founderRatingEntry && founderRatingEntry.rating !== undefined
-    ? {
-        rating: founderRatingEntry.rating,
-        reviewCount: founderRatingEntry.reviewCount ?? 0,
-        categories: {
-          processQuality: founderRatingEntry.processQuality,
-          passiveSupport: founderRatingEntry.passiveSupport,
-          activeSupport: founderRatingEntry.activeSupport,
-        },
-        // COMMENTED OUT: Decision time
-        // decisionTime: founderDecisionTime,
-      }
-    : null;
-
-  const founderComments: Array<{
-    comment: string;
-    createdAt: string;
-    position?: string;
-  }> = Array.isArray(founderRatingEntry?.comments)
-    ? founderRatingEntry?.comments
-        .filter((comment): comment is string => typeof comment === 'string' && comment.trim().length > 0)
-        .map((comment) => ({
-          comment,
-          createdAt: '',
-          position: undefined,
-        }))
-    : [];
-
   const isInstitutional = investor.investor_type === 'Institutional';
   const isIndividual = investor.investor_type === 'Individual';
 
@@ -172,7 +106,7 @@ type FounderRatingRecord = {
               <CardContent className="p-0">
                 {/* Component 1: Header */}
                 <div className="px-4 py-6">
-                  <InvestorHeader investor={investor} founderRating={founderRating} />
+                  <InvestorHeader investor={investor} />
                 </div>
 
                 {/* Divider - only show if Overview has content */}
@@ -198,16 +132,12 @@ type FounderRatingRecord = {
                 ) : null}
 
                 {/* Divider - only show if Merit has content */}
-                {founderRating || investor.track_record || investor.graduation_rate ? (
+                {investor.track_record || investor.graduation_rate ? (
                   <>
                     <div className="border-t border-input/30 mx-6" />
                     {/* Component 4: Merit */}
                     <div className="p-6">
-                      <InvestorMerit 
-                        investor={investor} 
-                        founderRating={founderRating}
-                        founderComments={founderComments}
-                      />
+                      <InvestorMerit investor={investor} />
                     </div>
                   </>
                 ) : null}
@@ -232,10 +162,6 @@ type FounderRatingRecord = {
               </>
             )}
 
-            {/* Common action button */}
-            <Button asChild className="w-full" size="lg">
-              <Link href="/rate">Rate this Investor</Link>
-            </Button>
           </div>
         </div>
       </div>

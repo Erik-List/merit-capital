@@ -11,7 +11,6 @@ export type ViewState = {
   stage: boolean;
   investmentSize: boolean;
   scope: boolean;
-  founderScore: boolean;
   trackRecord: boolean;
 };
 
@@ -81,7 +80,6 @@ export default function ViewFilter({ className, value, onChange, type, onTypeCha
           <div className="space-y-2 mb-3">
             {renderTypeOption("Individuals", "individual")}
             {renderTypeOption("Institutions", "institutional")}
-            {renderViewOption("Founder score", "founderScore")}
           </div>
 
           <div className="space-y-2">

@@ -8,7 +8,6 @@ import type { GeographyState } from "@/components/leaderboard/filters/geography-
 import type { ScopeState } from "@/components/leaderboard/filters/scope-filter";
 import type { ViewState } from "@/components/leaderboard/filters/view";
 import type { TrackRecordState } from "@/components/leaderboard/track-record-utils";
-import type { FounderScoreFilterState } from "@/components/leaderboard/filters/founder-score-filter-types";
 
 type Investor = Database["public"]["Views"]["InvestorView"]["Row"];
 
@@ -20,10 +19,9 @@ interface InvestorsTableProps {
   geo: GeographyState;
   scope: ScopeState;
   trackRecord: TrackRecordState;
-  founder: FounderScoreFilterState;
 }
 
-export default function InvestorsTable({ investors, loading, view, stage, geo, scope, trackRecord, founder }: InvestorsTableProps) {
+export default function InvestorsTable({ investors, loading, view, stage, geo, scope, trackRecord }: InvestorsTableProps) {
   return (
     <div className="rounded-md border border-input/30 glass min-w-0">
       <Table className="min-w-full">
@@ -37,7 +35,6 @@ export default function InvestorsTable({ investors, loading, view, stage, geo, s
               geo={geo}
               scope={scope}
               trackRecord={trackRecord}
-              founder={founder}
             />
           ))}
         </TableBody>

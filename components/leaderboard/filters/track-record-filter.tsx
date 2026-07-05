@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { NumericInput } from "@/components/rate/slides/elements/numeric-input";
+import { NumericInput } from "@/components/ui/numeric-input";
 import { cn } from "@/lib/utils";
 
 import type { TrackRecordState, TrackRecordSelection, TrackRecordTier } from "@/components/leaderboard/track-record-utils";
