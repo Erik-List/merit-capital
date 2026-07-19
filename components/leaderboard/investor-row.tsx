@@ -20,7 +20,7 @@ import {
   sanitizeTrackRecordState,
 } from "@/components/leaderboard/track-record-utils";
 
-type Investor = Database["public"]["Views"]["InvestorView"]["Row"];
+type Investor = Database["public"]["Views"]["investors"]["Row"];
 
 interface InvestorRowProps {
   investor: Investor;

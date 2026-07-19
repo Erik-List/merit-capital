@@ -24,7 +24,7 @@ import {
   computeTrackRecordHitRate,
 } from "@/components/leaderboard/track-record-utils";
 
-type Investor = Database["public"]["Views"]["InvestorView"]["Row"];
+type Investor = Database["public"]["Views"]["investors"]["Row"];
 
 export type SortOption = "track-record-desc" | "graduation-rate-desc";
 
@@ -581,9 +581,8 @@ export default function Leaderboard() {
       const supabase = createClient();
       try {
         const { data, error } = await supabase
-          .from("InvestorView")
-          .select("*")
-          .eq("status", "APPROVED");
+          .from("investors")
+          .select("*");
         if (error) throw error;
         setInvestors(data || []);
       } catch (e) {

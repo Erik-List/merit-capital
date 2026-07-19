@@ -12,11 +12,11 @@
 
 | Weekend | Focus |
 |---------|-------|
-| Jul 5 | Kickoff both tracks: start Sequoia gold standard + scaffold API routes |
-| Jul 12 | Finish Sequoia (incl. track_record + graduation_rate) + wire `GET /api/investors/[slug]` |
-| Jul 19 | Peter Thiel gold standard + wire `GET /api/investors` (filters, pagination) |
-| Jul 26 | Finish Peter Thiel + deploy API → **reachable**, returning the 2 gold-standard investors (curl smoke test) |
-| Aug 2 | Buffer / spillover; if on track, draft OpenAPI spec + data-collection playbook |
+| Jul 5 | Kickoff both tracks: start Sequoia gold standard + public data surface (migration, proxy, docs page — built) |
+| Jul 12 | Finish Sequoia (incl. track_record + graduation_rate) + push data-surface migration, verify PostgREST spec + `/data` proxy |
+| Jul 19 | Peter Thiel gold standard + polish `/docs` (column comments read well in Scalar, examples verified) |
+| Jul 26 | Finish Peter Thiel + deploy → **reachable**: `/data/investors` returning the 2 gold-standard investors (curl smoke test) |
+| Aug 2 | Buffer / spillover; if on track, data-collection playbook |
 
 **Milestone by start of August:** normalization sorted, Sequoia + Peter Thiel at gold standard, API live and reachable.
 
@@ -45,11 +45,10 @@ The two tracks start together on Jul 5 and interleave across the July weekends. 
 - Peter Thiel as the individual gold standard exercises the `affiliation` field (Founders Fund, Palantir, early Facebook), the critical field for individual investors.
 - Ingest via `ingest-investor.ts`, verify profiles render correctly.
 
-**API implementation -> reachable (~4h, Jul 12 - Jul 26)**
-- Build `GET /api/investors` (filters: type, stage, geo, scope, q; pagination: limit, offset) and `GET /api/investors/[slug]`.
-- Reuse the existing `InvestorView` query pattern: see `components/leaderboard/leaderboard.tsx:699` (list, `status = 'APPROVED'`) and `app/investor/[slug]/page.tsx:33` (single by slug). Follow the route-handler pattern in `app/api/support/*/route.ts`.
-- Public unauthenticated reads: use the anon Supabase client. Map `InvestorView` rows to the clean agent-friendly response shape (see R2). Coerce `funds[].size` to numeric here if not normalized in the DB.
-- Deploy to Vercel. **Definition of "reachable": both endpoints live and returning the 2 gold-standard investors**, verified by curl. By start of August this is the milestone gate before the sprint.
+**Public data surface -> reachable (~2h remaining, Jul 12 - Jul 26)**
+- Built Jul 7-19: PostgREST *is* the API (see R2). Migrations `20260707120000` + `20260719120000/123000` drop the rating-era `status` column, replace `InvestorView` with the public `investors` view (the *only* anon-readable object; base tables are service-role-only), rename `individual` -> `individuals`, and document every column via `COMMENT ON` (which becomes the OpenAPI field descriptions). Proxy at `app/data/[[...path]]/route.ts` (zero-header access, branded URL, spec filtered to the public surface via `lib/public-spec.ts`), docs at `app/docs/page.tsx` (on-brand reference rendered server-side from the live spec).
+- Remaining: restore the paused Supabase project, push the migration, regenerate `types/supabase.ts`, run the verification pass (spec content, surface safety, proxy, frontend rendering).
+- Deploy to Vercel. **Definition of "reachable": `/data/investors` and `/docs` live, returning the 2 gold-standard investors**, verified by curl. By start of August this is the milestone gate before the sprint.
 
 ### Work stream 2: August sprint (Aug 4 - Aug 13, launch Aug 13, ~18h)
 
@@ -67,8 +66,8 @@ The two tracks start together on Jul 5 and interleave across the July weekends. 
 - Source and upload icon URLs for all ~25 investors.
 - Render every profile page; verify track_record and graduation_rate display on the merit section; verify leaderboard filtering with real data; fix null-handling and long-name UI issues.
 
-**OpenAPI spec + GTM + launch (~3h, Aug 12 - Aug 13)**
-- Write OpenAPI 3.0 spec (`openapi.yaml`) covering both endpoints with full response schemas; host at `/api/docs`.
+**Docs polish + GTM + launch (~3h, Aug 12 - Aug 13)**
+- No spec to write: PostgREST generates the OpenAPI spec live from the schema (served at `/data`, rendered at `/docs`). Polish pass only: read the Scalar page as a stranger, tighten `COMMENT ON` texts where confusing (a one-line migration each), verify the worked examples.
 - Draft and publish LinkedIn + X posts (personal accounts) with 1-2 screenshots (a profile page + an API response). Narrative: "I built an open investor data API so founders and AI agents can look up any VC. Here's the API."
 - Final deploy, smoke test, **launch Aug 13**. Aug 14-19 reserved as buffer for overflow / fixes before going abroad.
 
@@ -127,7 +126,7 @@ Cut: `sources`, `data_quality`, and `last_verified_at` were all considered and d
 The only remaining normalization:
 
 1. **AUM is already numeric** `{bottom, top}` via migration `20251101182000_seed_new_fields_for_all_investors.sql`. No change needed.
-2. **`funds[].size` is still a string** ("$500M"). Coerce to numeric in the API response layer (lighter than a migration for v1), or normalize in the migration if preferred.
+2. **`funds[].size` is numeric** (integer USD) since migration `20251103120000_convert_fund_size_to_number.sql`; `ingest-investor.ts` coerces string sizes on the way in. No change needed.
 
 #### Data collection approach: 1 investor first, then scale
 
@@ -147,63 +146,32 @@ The existing `aggregate-investor.ts` pipeline uses Claude to extract field group
 
 This is the core differentiator. The API should be designed so that an LLM or agent framework can discover, understand, and query investor data with minimal friction.
 
-#### Recommendation: REST API + OpenAPI spec (v1), MCP server (v2)
+#### Recommendation: PostgREST is the API (v1), MCP server (v2)
 
-**V1: REST + OpenAPI (6h)**
+**V1: the self-documenting database (built Jul 7)**
 
-Two endpoints, designed for agent consumption:
+No custom route handlers. Supabase already runs PostgREST in front of the database; the v1 work is making that surface public-safe, branded, and documented:
 
-**`GET /api/investors`**
-- Query params: `type`, `stage`, `geo`, `scope`, `limit`, `offset`, `q` (text search)
-- Response: paginated JSON with flat, well-named fields
-- Agent-friendly: include a `summary` field per investor (1-2 sentence natural language description synthesized from investment_concept + stage + geo)
+- **Surface:** a single endpoint. Anon holds `SELECT` on the flattened `investors` view only; the base tables (`Investor`, `IndividualInvestor`, `InstitutionalInvestor`) are service-role-only, so they stay free to refactor without breaking the public contract, and consumers face no "which endpoint?" decision. The rating-era `status` column and `ApprovalStatus` enum are dropped: the playbook is verify-then-ingest, so every row in prod is public by construction and RLS is unnecessary (the view reads owner-side; writes are impossible for anon by grants, by the join-view being non-updatable, and by the GET-only proxy).
+- **Query language:** full PostgREST syntax over plain URLs. Filtering, ordering, column selection, JSON containment (`investment_stage=cs.["Seed"]`), pattern search, and pagination. More expressive than the 2 bespoke endpoints previously planned.
+- **Spec:** PostgREST generates the OpenAPI document live from the database catalog at `GET /data`. It auto-updates on every DDL change (Supabase notifies PostgREST to reload its schema cache), so docs can never drift from the schema. Agent frameworks (LangChain, OpenAI function calling, Claude tool use) ingest it directly.
+- **Docs-as-schema:** every table and column carries a `COMMENT ON` description (migration `20260707120000_public_data_surface.sql`), which PostgREST maps into the spec as endpoint summaries and field descriptions. JSON columns spell out their inner shape. Updating docs = a one-line comment migration.
+- **Branded, zero-friction access:** `app/data/[[...path]]/route.ts` proxies `meritcapit.al/data/*` to PostgREST, injecting the anon key server-side (agents need zero headers, a plain URL is fetchable) and rewriting the spec's server URL to the branded domain. GET-only, so the surface stays read-only.
+- **Human docs:** `app/docs/page.tsx` renders the live spec via Scalar plus worked example queries. Nothing to regenerate, ever.
 
-**`GET /api/investors/[slug]`**
-- Full investor detail
-- Agent-friendly: include a `structured_summary` field with key facts in a format optimized for LLM context windows (compact, no deeply nested JSON)
+Example (no auth, no headers):
 
-**`openapi.yaml` spec file**
-- Enables agents using OpenAI function calling, LangChain, or similar frameworks to auto-discover the API
-- Many agent frameworks can ingest an OpenAPI spec and generate tool definitions automatically
-- Host at `/api/openapi.yaml` or `/api/docs`
-
-Example response shape optimized for agents:
-
-```json
-{
-  "name": "Sequoia Capital",
-  "slug": "sequoia-capital",
-  "type": "Institutional",
-  "summary": "Global venture fund investing Seed through Growth in technology companies, headquartered in Menlo Park. AUM ~$85B across 30+ funds since 1972.",
-  "hq": "Menlo Park, CA",
-  "website": "https://sequoiacap.com",
-  "stages": ["Seed", "Series A", "Series B", "Growth"],
-  "geographies": { "core": ["US", "China", "India", "SEA"], "other": ["Europe"] },
-  "scope": { "type": "Generalist", "focus": ["Enterprise", "Consumer", "Healthcare", "Fintech"] },
-  "check_size": { "min": 100000, "max": 1000000000, "median": 15000000, "currency": "USD" },
-  "notable_investments": ["Apple", "Google", "Stripe", "Airbnb", "WhatsApp"],
-  "aum": { "min": 80000000000, "max": 90000000000, "currency": "USD" },
-  "founded": 1972,
-  "track_record": {
-    "unicorns_1b": { "count": 45, "examples": ["Stripe", "Airbnb", "DoorDash"] },
-    "decacorns_10b": { "count": 12, "examples": ["Stripe", "Airbnb"] },
-    "hectocorns_100b": { "count": 3, "examples": ["Apple", "Google"] },
-    "ipos": { "count": 25, "examples": ["Airbnb", "Unity", "DoorDash"] },
-    "total_investments": 450,
-    "investing_since": 1972
-  },
-  "graduation_rate": {
-    "seed_to_series_a": { "rate_percent": 72, "sample_size": 85 }
-  },
-  "last_updated": "2026-08-10"
-}
+```
+GET https://meritcapit.al/data/investors?investor_type=eq.Institutional&select=name,slug,track_record&order=name
 ```
 
-**Why REST + OpenAPI over alternatives:**
+**Why PostgREST over the previously planned custom REST layer:**
 
-- MCP (Model Context Protocol): excellent for deep agent integration, but requires building and hosting a server. Better as v2 when you understand usage patterns.
+- The custom `/api/investors` endpoints duplicated what PostgREST already does, with a narrower query language and a hand-written spec that would drift.
+- The old objection ("raw Supabase access = too much schema exposure") died with the schema cleanup: after dropping Rating/User/Supporters and `status`, the schema contains exactly the public dataset and nothing else.
+- The `summary`/`structured_summary` LLM-convenience fields are deferred; if agents turn out to need them, they can be added as generated columns or a view without any API change.
+- MCP: excellent for deep agent integration, but requires building and hosting a server. Better as v2 when usage patterns are understood.
 - GraphQL: flexible but adds complexity for no clear gain with only 2 entity types.
-- Raw Supabase access: too much schema exposure, no summary fields, no rate limiting control.
 
 **V2 (post-launch): MCP server**
 - Build an MCP server that wraps the REST API
@@ -219,7 +187,7 @@ Example response shape optimized for agents:
 - 1 LinkedIn post, 1 X post (personal accounts)
 - Narrative angle for v1 (shifted from "rate your investors" to "open investor data for founders and agents")
 - 1-2 screenshots showing a profile page and an API response
-- CTA: link to meritcapit.al and /api/docs
+- CTA: link to meritcapit.al and meritcapit.al/docs
 
 **Estimated effort: 4h**
 
@@ -236,7 +204,7 @@ Example response shape optimized for agents:
 | Aggregation pipeline accuracy is poor | Medium | Medium | Calibrate against gold standard. Worst case, go fully manual for Tier 1 fields. |
 | Icon/logo sourcing is tedious | Medium | Low | Use favicon fallback, accept lower quality icons for v1. |
 | AUM/fund data not publicly available for some investors | High | Low | Mark as null. Honesty > completeness. |
-| OpenAPI spec takes longer than expected | Low | Low | Use a generator tool or write by hand from the 2 endpoints. Worst case, ship a simple markdown API doc instead. |
+| PostgREST auto-spec is OpenAPI 2.0, not 3.0 | Low | Low | Accepted trade-off: Scalar and the major agent frameworks handle 2.0. Table/column names are now the public contract, so renames are breaking changes. |
 
 ---
 

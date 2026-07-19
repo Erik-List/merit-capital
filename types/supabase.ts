@@ -39,7 +39,7 @@ export type Database = {
             foreignKeyName: "IndividualInvestor_investor_id_fkey"
             columns: ["investor_id"]
             isOneToOne: true
-            referencedRelation: "InvestorView"
+            referencedRelation: "investors"
             referencedColumns: ["id"]
           },
         ]
@@ -49,21 +49,21 @@ export type Database = {
           aum: Json | null
           founding_year: number | null
           funds: Json | null
-          individual: Json | null
+          individuals: Json | null
           investor_id: string
         }
         Insert: {
           aum?: Json | null
           founding_year?: number | null
           funds?: Json | null
-          individual?: Json | null
+          individuals?: Json | null
           investor_id: string
         }
         Update: {
           aum?: Json | null
           founding_year?: number | null
           funds?: Json | null
-          individual?: Json | null
+          individuals?: Json | null
           investor_id?: string
         }
         Relationships: [
@@ -78,7 +78,7 @@ export type Database = {
             foreignKeyName: "InstitutionalInvestor_investor_id_fkey"
             columns: ["investor_id"]
             isOneToOne: true
-            referencedRelation: "InvestorView"
+            referencedRelation: "investors"
             referencedColumns: ["id"]
           },
         ]
@@ -102,7 +102,6 @@ export type Database = {
           notable_investments: Json | null
           other_locations: Json | null
           slug: string
-          status: Database["public"]["Enums"]["ApprovalStatus"]
           track_record: Json | null
           updated_at: string
           website: string | null
@@ -125,7 +124,6 @@ export type Database = {
           notable_investments?: Json | null
           other_locations?: Json | null
           slug: string
-          status?: Database["public"]["Enums"]["ApprovalStatus"]
           track_record?: Json | null
           updated_at: string
           website?: string | null
@@ -148,7 +146,6 @@ export type Database = {
           notable_investments?: Json | null
           other_locations?: Json | null
           slug?: string
-          status?: Database["public"]["Enums"]["ApprovalStatus"]
           track_record?: Json | null
           updated_at?: string
           website?: string | null
@@ -157,7 +154,7 @@ export type Database = {
       }
     }
     Views: {
-      InvestorView: {
+      investors: {
         Row: {
           affiliation: Json | null
           aum: Json | null
@@ -169,7 +166,7 @@ export type Database = {
           hq_location: string | null
           icon_url: string | null
           id: string | null
-          individual: Json | null
+          individuals: Json | null
           investment_concept: string | null
           investment_focus: Json | null
           investment_geo: Json | null
@@ -181,7 +178,6 @@ export type Database = {
           notable_investments: Json | null
           other_locations: Json | null
           slug: string | null
-          status: Database["public"]["Enums"]["ApprovalStatus"] | null
           track_record: Json | null
           updated_at: string | null
           website: string | null
@@ -193,7 +189,6 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      ApprovalStatus: "PENDING_APPROVAL" | "APPROVED" | "REJECTED"
       InvestorType: "Institutional" | "Individual"
     }
     CompositeTypes: {
@@ -322,7 +317,6 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
-      ApprovalStatus: ["PENDING_APPROVAL", "APPROVED", "REJECTED"],
       InvestorType: ["Institutional", "Individual"],
     },
   },
