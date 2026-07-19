@@ -9,7 +9,7 @@ import type { ScopeState } from "@/components/leaderboard/filters/scope-filter";
 import type { ViewState } from "@/components/leaderboard/filters/view";
 import type { TrackRecordState } from "@/components/leaderboard/track-record-utils";
 
-type Investor = Database["public"]["Views"]["investors"]["Row"];
+type Investor = Database["public"]["Tables"]["investors"]["Row"];
 
 interface InvestorsTableProps {
   investors: Investor[];

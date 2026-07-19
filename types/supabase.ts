@@ -14,83 +14,19 @@ export type Database = {
   }
   public: {
     Tables: {
-      IndividualInvestor: {
+      investors: {
         Row: {
           affiliation: Json | null
-          investor_id: string
-        }
-        Insert: {
-          affiliation?: Json | null
-          investor_id: string
-        }
-        Update: {
-          affiliation?: Json | null
-          investor_id?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "IndividualInvestor_investor_id_fkey"
-            columns: ["investor_id"]
-            isOneToOne: true
-            referencedRelation: "Investor"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "IndividualInvestor_investor_id_fkey"
-            columns: ["investor_id"]
-            isOneToOne: true
-            referencedRelation: "investors"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      InstitutionalInvestor: {
-        Row: {
           aum: Json | null
+          created_at: string
           founding_year: number | null
           funds: Json | null
-          individuals: Json | null
-          investor_id: string
-        }
-        Insert: {
-          aum?: Json | null
-          founding_year?: number | null
-          funds?: Json | null
-          individuals?: Json | null
-          investor_id: string
-        }
-        Update: {
-          aum?: Json | null
-          founding_year?: number | null
-          funds?: Json | null
-          individuals?: Json | null
-          investor_id?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "InstitutionalInvestor_investor_id_fkey"
-            columns: ["investor_id"]
-            isOneToOne: true
-            referencedRelation: "Investor"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "InstitutionalInvestor_investor_id_fkey"
-            columns: ["investor_id"]
-            isOneToOne: true
-            referencedRelation: "investors"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      Investor: {
-        Row: {
-          created_at: string
           graduation_rate: Json | null
           history: string | null
           hq_location: string | null
           icon_url: string | null
           id: string
+          individuals: Json | null
           investment_concept: string | null
           investment_focus: Json | null
           investment_geo: Json | null
@@ -107,12 +43,17 @@ export type Database = {
           website: string | null
         }
         Insert: {
+          affiliation?: Json | null
+          aum?: Json | null
           created_at?: string
+          founding_year?: number | null
+          funds?: Json | null
           graduation_rate?: Json | null
           history?: string | null
           hq_location?: string | null
           icon_url?: string | null
           id: string
+          individuals?: Json | null
           investment_concept?: string | null
           investment_focus?: Json | null
           investment_geo?: Json | null
@@ -129,12 +70,17 @@ export type Database = {
           website?: string | null
         }
         Update: {
+          affiliation?: Json | null
+          aum?: Json | null
           created_at?: string
+          founding_year?: number | null
+          funds?: Json | null
           graduation_rate?: Json | null
           history?: string | null
           hq_location?: string | null
           icon_url?: string | null
           id?: string
+          individuals?: Json | null
           investment_concept?: string | null
           investment_focus?: Json | null
           investment_geo?: Json | null
@@ -154,36 +100,7 @@ export type Database = {
       }
     }
     Views: {
-      investors: {
-        Row: {
-          affiliation: Json | null
-          aum: Json | null
-          created_at: string | null
-          founding_year: number | null
-          funds: Json | null
-          graduation_rate: Json | null
-          history: string | null
-          hq_location: string | null
-          icon_url: string | null
-          id: string | null
-          individuals: Json | null
-          investment_concept: string | null
-          investment_focus: Json | null
-          investment_geo: Json | null
-          investment_range: Json | null
-          investment_scope: Json | null
-          investment_stage: Json | null
-          investor_type: Database["public"]["Enums"]["InvestorType"] | null
-          name: string | null
-          notable_investments: Json | null
-          other_locations: Json | null
-          slug: string | null
-          track_record: Json | null
-          updated_at: string | null
-          website: string | null
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Functions: {
       [_ in never]: never

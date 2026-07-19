@@ -1,7 +1,7 @@
 import type { Database } from '@/types/supabase';
 import { parseFundSize } from '@/lib/fund-size';
 
-type Investor = Database['public']['Views']['investors']['Row'];
+type Investor = Database['public']['Tables']['investors']['Row'];
 
 interface FundsProps {
   investor: Investor;

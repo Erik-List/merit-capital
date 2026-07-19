@@ -10,7 +10,7 @@ export async function fetchIconUrl(
 ): Promise<string | null> {
   try {
     const { data, error } = await supabase
-      .from("Investor")
+      .from("investors")
       .select("icon_url")
       .eq("slug", slug)
       .single();

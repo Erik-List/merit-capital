@@ -4,7 +4,7 @@ import { Link, ExternalLink, Bookmark } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import type { Database } from '@/types/supabase';
 
-type Investor = Database['public']['Views']['investors']['Row'];
+type Investor = Database['public']['Tables']['investors']['Row'];
 
 interface InvestorHeaderProps {
   investor: Investor;

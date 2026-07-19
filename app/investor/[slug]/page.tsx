@@ -15,7 +15,7 @@ import {
   Affiliations,
 } from '@/components/investor';
 
-type Investor = Database['public']['Views']['investors']['Row'];
+type Investor = Database['public']['Tables']['investors']['Row'];
 
 // Define the params type for better type safety
 type InvestorPageParams = {

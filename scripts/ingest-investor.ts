@@ -3,20 +3,13 @@ import { createClient } from "@supabase/supabase-js";
 import type { Database, TablesInsert } from "../types/supabase";
 import { parseFlags } from "./utils/flags";
 import {
-  loadAggregatedInvestor,
   loadAllAggregatedInvestors,
   listAggregatedInvestors,
 } from "./utils/aggregation";
-import {
-  batchUpsertInvestors,
-  upsertInstitutionalData,
-  upsertIndividualData,
-} from "./utils/db-helpers";
+import { batchUpsertInvestors } from "./utils/db-helpers";
 import { normalizeFundSizes } from "../lib/fund-size";
 
-type InvestorInsert = TablesInsert<"Investor">;
-type InstitutionalInsert = TablesInsert<"InstitutionalInvestor">;
-type IndividualInsert = TablesInsert<"IndividualInvestor">;
+type InvestorInsert = TablesInsert<"investors">;
 
 function determineTargetSlugs(
   filter: ReturnType<typeof parseFlags>["investors"],
@@ -70,7 +63,7 @@ async function main() {
 
     // Load all aggregated investors at once
     const allAggregated = loadAllAggregatedInvestors(investorType);
-    
+
     // Filter by target slugs
     const aggregatedToProcess = allAggregated.filter((inv: any) =>
       slugs.includes(inv.slug)
@@ -84,18 +77,7 @@ async function main() {
     console.log(`Processing ${aggregatedToProcess.length} investor(s) from aggregation file.`);
 
     const investors: InvestorInsert[] = [];
-    const subtypeDataMap = new Map<
-      string,
-      {
-        aum?: any;
-        funds?: any;
-        individuals?: any;
-        founding_year?: number | null;
-        affiliation?: any;
-      }
-    >();
 
-    // Process filtered investors
     for (const aggregated of aggregatedToProcess) {
       const slug = aggregated.slug;
 
@@ -104,120 +86,56 @@ async function main() {
         continue;
       }
 
-      // Separate main investor data from subtype data.
-      // Also strip the retired approval-workflow field, which older
-      // aggregated JSON files may still carry, and accept the legacy
-      // "individual" key for the renamed "individuals" column.
+      // Strip fields older aggregated JSON files may still carry: the retired
+      // approval-workflow "status" and the legacy "individual" key for the
+      // renamed "individuals" column.
       const {
-        aum,
-        funds,
         individuals: individualsNew,
         individual: individualsLegacy,
-        founding_year,
-        affiliation,
         status: _status,
         ...investorData
       } = aggregated;
-      const individuals = individualsNew ?? individualsLegacy;
+      const individuals = individualsNew ?? individualsLegacy ?? null;
 
-      // Ensure required fields
       if (!investorData.name || !investorData.slug) {
         console.warn(`⚠ Skipping ${slug}: missing required fields (name, slug)`);
         continue;
       }
 
-      // Set updated_at if not present
       if (!investorData.updated_at) {
         investorData.updated_at = new Date().toISOString();
       }
 
-      investors.push(investorData as InvestorInsert);
+      // Single-table shape: type-specific fields live on the same row, and the
+      // non-applicable side must be null (enforced by DB CHECK constraints).
+      const row: InvestorInsert =
+        investorType === "Institutional"
+          ? {
+              ...investorData,
+              aum: investorData.aum ?? null,
+              // Coerce any string fund sizes (e.g. "$450M") to integer USD
+              // numbers so re-aggregation stays consistent with the DB shape.
+              funds: investorData.funds ? normalizeFundSizes(investorData.funds) : null,
+              individuals,
+              founding_year: investorData.founding_year ?? null,
+              affiliation: null,
+            }
+          : {
+              ...investorData,
+              affiliation: investorData.affiliation ?? null,
+              aum: null,
+              funds: null,
+              individuals: null,
+              founding_year: null,
+            };
 
-      // Store subtype data keyed by slug for later association
-      if (investorType === "Institutional") {
-        if (aum || funds || individuals || founding_year !== undefined) {
-          subtypeDataMap.set(slug, {
-            aum: aum || null,
-            // Coerce any string fund sizes (e.g. "$450M") to integer USD numbers
-            // so re-aggregation stays consistent with the migrated DB shape.
-            funds: funds ? normalizeFundSizes(funds) : null,
-            individuals: individuals || null,
-            founding_year: founding_year || null,
-          });
-        }
-      } else {
-        if (affiliation) {
-          subtypeDataMap.set(slug, {
-            affiliation: affiliation || null,
-          });
-        }
-      }
+      investors.push(row);
     }
 
-    // Batch upsert investors first
     try {
       if (investors.length > 0) {
         await batchUpsertInvestors(supabase, investors);
         console.log(`✓ Upserted ${investors.length} investor record(s)`);
-
-        // Fetch investor IDs by slug
-        const slugsList = investors.map((inv) => inv.slug);
-        const { data: fetchedInvestors, error: fetchError } = await supabase
-          .from("Investor")
-          .select("id, slug")
-          .in("slug", slugsList);
-
-        if (fetchError) {
-          throw new Error(`Failed to fetch investor IDs: ${fetchError.message}`);
-        }
-
-        if (!fetchedInvestors) {
-          throw new Error("Failed to retrieve upserted investors");
-        }
-
-        // Create slug -> id mapping
-        const slugToId = new Map<string, string>();
-        for (const inv of fetchedInvestors) {
-          slugToId.set(inv.slug, inv.id);
-        }
-
-        // Prepare subtype data with correct investor_id
-        const institutionalData: InstitutionalInsert[] = [];
-        const individualData: IndividualInsert[] = [];
-
-        subtypeDataMap.forEach((subtypeData, slug) => {
-          const investorId = slugToId.get(slug);
-          if (!investorId) {
-            console.warn(`⚠ Could not find investor ID for ${slug}, skipping subtype data`);
-            return;
-          }
-
-          if (investorType === "Institutional") {
-            institutionalData.push({
-              investor_id: investorId,
-              aum: subtypeData.aum || null,
-              funds: subtypeData.funds || null,
-              individuals: subtypeData.individuals || null,
-              founding_year: subtypeData.founding_year || null,
-            });
-          } else {
-            individualData.push({
-              investor_id: investorId,
-              affiliation: subtypeData.affiliation || null,
-            });
-          }
-        });
-
-        // Upsert subtype data
-        if (investorType === "Institutional" && institutionalData.length > 0) {
-          await upsertInstitutionalData(supabase, institutionalData);
-          console.log(`✓ Upserted ${institutionalData.length} institutional record(s)`);
-        }
-
-        if (investorType === "Individual" && individualData.length > 0) {
-          await upsertIndividualData(supabase, individualData);
-          console.log(`✓ Upserted ${individualData.length} individual record(s)`);
-        }
       }
     } catch (error) {
       console.error(`✗ Failed to ingest ${investorType.toLowerCase()} investors:`, error);
@@ -232,4 +150,3 @@ main().catch((err) => {
   console.error(err);
   process.exit(1);
 });
-

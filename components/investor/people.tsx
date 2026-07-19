@@ -1,7 +1,7 @@
 import type { Database } from '@/types/supabase';
 import Link from 'next/link';
 
-type Investor = Database['public']['Views']['investors']['Row'];
+type Investor = Database['public']['Tables']['investors']['Row'];
 
 interface PeopleProps {
   investor: Investor;

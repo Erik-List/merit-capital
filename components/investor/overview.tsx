@@ -1,6 +1,6 @@
 import type { Database } from '@/types/supabase';
 
-type Investor = Database['public']['Views']['investors']['Row'];
+type Investor = Database['public']['Tables']['investors']['Row'];
 
 interface InvestorOverviewProps {
   investor: Investor;
