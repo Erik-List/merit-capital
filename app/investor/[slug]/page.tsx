@@ -15,7 +15,7 @@ import {
   Affiliations,
 } from '@/components/investor';
 
-type Investor = Database['public']['Views']['InvestorView']['Row'];
+type Investor = Database['public']['Views']['investors']['Row'];
 
 // Define the params type for better type safety
 type InvestorPageParams = {
@@ -29,9 +29,8 @@ async function getInvestor(slug: string): Promise<Investor | null> {
   const supabase = createClient(cookieStore);
   
   const { data, error } = await supabase
-    .from('InvestorView')
+    .from('investors')
     .select()
-    .eq('status', 'APPROVED')
     .eq('slug', slug)
     .single();
 
@@ -52,9 +51,8 @@ export async function generateStaticParams() {
   );
   
   const { data } = await supabase
-    .from('InvestorView')
-    .select('slug')
-    .eq('status', 'APPROVED');
+    .from('investors')
+    .select('slug');
     
   return (data || []).map((investor: { slug: string }) => ({
     slug: investor.slug,

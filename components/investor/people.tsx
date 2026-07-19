@@ -1,7 +1,7 @@
 import type { Database } from '@/types/supabase';
 import Link from 'next/link';
 
-type Investor = Database['public']['Views']['InvestorView']['Row'];
+type Investor = Database['public']['Views']['investors']['Row'];
 
 interface PeopleProps {
   investor: Investor;
@@ -83,7 +83,7 @@ function normalizeIndividual(entry: unknown): IndividualEntry | null {
 }
 
 export function People({ investor }: PeopleProps) {
-  const rawIndividuals = investor.individual ?? null;
+  const rawIndividuals = investor.individuals ?? null;
   const individuals: IndividualEntry[] = Array.isArray(rawIndividuals)
     ? rawIndividuals
         .map(normalizeIndividual)

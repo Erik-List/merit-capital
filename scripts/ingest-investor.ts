@@ -89,7 +89,7 @@ async function main() {
       {
         aum?: any;
         funds?: any;
-        individual?: any;
+        individuals?: any;
         founding_year?: number | null;
         affiliation?: any;
       }
@@ -104,15 +104,21 @@ async function main() {
         continue;
       }
 
-      // Separate main investor data from subtype data
+      // Separate main investor data from subtype data.
+      // Also strip the retired approval-workflow field, which older
+      // aggregated JSON files may still carry, and accept the legacy
+      // "individual" key for the renamed "individuals" column.
       const {
         aum,
         funds,
-        individual,
+        individuals: individualsNew,
+        individual: individualsLegacy,
         founding_year,
         affiliation,
+        status: _status,
         ...investorData
       } = aggregated;
+      const individuals = individualsNew ?? individualsLegacy;
 
       // Ensure required fields
       if (!investorData.name || !investorData.slug) {
@@ -129,13 +135,13 @@ async function main() {
 
       // Store subtype data keyed by slug for later association
       if (investorType === "Institutional") {
-        if (aum || funds || individual || founding_year !== undefined) {
+        if (aum || funds || individuals || founding_year !== undefined) {
           subtypeDataMap.set(slug, {
             aum: aum || null,
             // Coerce any string fund sizes (e.g. "$450M") to integer USD numbers
             // so re-aggregation stays consistent with the migrated DB shape.
             funds: funds ? normalizeFundSizes(funds) : null,
-            individual: individual || null,
+            individuals: individuals || null,
             founding_year: founding_year || null,
           });
         }
@@ -191,7 +197,7 @@ async function main() {
               investor_id: investorId,
               aum: subtypeData.aum || null,
               funds: subtypeData.funds || null,
-              individual: subtypeData.individual || null,
+              individuals: subtypeData.individuals || null,
               founding_year: subtypeData.founding_year || null,
             });
           } else {

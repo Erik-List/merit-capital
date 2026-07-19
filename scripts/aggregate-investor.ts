@@ -192,7 +192,6 @@ async function main() {
         investor_type: investorType,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
-        status: "APPROVED",
       };
 
       // Process each field group

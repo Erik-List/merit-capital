@@ -4,7 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type { Database, Tables } from "../types/supabase";
 
-type InvestorViewRow = Tables<"InvestorView">;
+type InvestorViewRow = Tables<"investors">;
 
 function shapeInstitutionRows(rows: InvestorViewRow[]) {
   return (rows ?? []).map(({ affiliation, ...rest }) => rest);
@@ -13,14 +13,14 @@ function shapeInstitutionRows(rows: InvestorViewRow[]) {
 function shapeIndividualRows(rows: InvestorViewRow[]) {
   return (rows ?? []).map((row) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { aum, funds, individual, ...rest } = row as InvestorViewRow & { individual?: unknown; funds?: unknown };
+    const { aum, funds, individuals, ...rest } = row as InvestorViewRow & { individuals?: unknown; funds?: unknown };
     return rest;
   });
 }
 
 async function exportInstitutions(supabase: SupabaseClient<Database>) {
   const { data, error } = await supabase
-    .from("InvestorView")
+    .from("investors")
     .select("*")
     .eq("investor_type", "Institutional")
     .order("slug", { ascending: true });
@@ -39,7 +39,7 @@ async function exportInstitutions(supabase: SupabaseClient<Database>) {
 
 async function exportIndividuals(supabase: SupabaseClient<Database>) {
   const { data, error } = await supabase
-    .from("InvestorView")
+    .from("investors")
     .select("*")
     .eq("investor_type", "Individual")
     .order("slug", { ascending: true });
