@@ -5,6 +5,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { GEO_PRIMARY_LABELS } from "@/lib/taxonomy";
 
 export type GeographyState = {
   all: boolean;
@@ -18,7 +19,7 @@ interface GeographyFilterProps {
   options: string[];
 }
 
-const PRIMARY_LABELS = ["Europe", "SF Bay Area", "New York", "London"];
+const PRIMARY_LABELS = GEO_PRIMARY_LABELS;
 
 export default function GeographyFilter({ className, value, onChange, options }: GeographyFilterProps) {
   const [open, setOpen] = useState(true);

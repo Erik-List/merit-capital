@@ -23,6 +23,7 @@ import {
   sanitizeTrackRecordState,
   computeTrackRecordHitRate,
 } from "@/components/leaderboard/track-record-utils";
+import { canonicalizeGeo } from "@/lib/taxonomy";
 
 type Investor = Database["public"]["Tables"]["investors"]["Row"];
 
@@ -832,18 +833,27 @@ export default function Leaderboard() {
   );
 }
 
+// Geography labels are canonicalised here so that filter options, row labels
+// and the selection comparison all agree on one spelling per place. The
+// vocabulary itself stays open: unknown labels pass through unchanged.
+function normalizeGeoList(value: any): string[] {
+  if (!Array.isArray(value)) return [];
+  return (value as any[])
+    .filter((v): v is string => typeof v === "string")
+    .map((v) => canonicalizeGeo(v))
+    .filter((v): v is string => Boolean(v));
+}
+
 function extractGeoLists(value: any): { core: string[]; other: string[] } {
   if (Array.isArray(value)) {
-    const array = value.filter((v) => typeof v === "string") as string[];
-    return { core: array, other: [] };
+    return { core: normalizeGeoList(value), other: [] };
   }
   if (value && typeof value === "object") {
-    const core = Array.isArray(value.core) ? value.core.filter((v: any) => typeof v === "string") : [];
-    const other = Array.isArray(value.other) ? value.other.filter((v: any) => typeof v === "string") : [];
-    return { core, other };
+    return { core: normalizeGeoList(value.core), other: normalizeGeoList(value.other) };
   }
   if (typeof value === "string") {
-    return { core: [value], other: [] };
+    const canonical = canonicalizeGeo(value);
+    return { core: canonical ? [canonical] : [], other: [] };
   }
   return { core: [], other: [] };
 }

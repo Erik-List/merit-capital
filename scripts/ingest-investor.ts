@@ -7,6 +7,7 @@ import {
   listAggregatedInvestors,
 } from "./utils/aggregation";
 import { batchUpsertInvestors } from "./utils/db-helpers";
+import { validateTaxonomyFields } from "./utils/taxonomy-validate";
 import { normalizeFundSizes } from "../lib/fund-size";
 
 type InvestorInsert = TablesInsert<"investors">;
@@ -47,6 +48,7 @@ async function main() {
   }
 
   const supabase = createClient<Database>(url, serviceKey);
+  let taxonomyRejects = 0;
 
   // Process both investor types
   for (const investorType of ["Institutional", "Individual"] as const) {
@@ -106,41 +108,87 @@ async function main() {
         investorData.updated_at = new Date().toISOString();
       }
 
-      // Single-table shape: type-specific fields live on the same row, and the
-      // non-applicable side must be null (enforced by DB CHECK constraints).
-      const row: InvestorInsert =
-        investorType === "Institutional"
-          ? {
-              ...investorData,
-              aum: investorData.aum ?? null,
-              // Coerce any string fund sizes (e.g. "$450M") to integer USD
-              // numbers so re-aggregation stays consistent with the DB shape.
-              funds: investorData.funds ? normalizeFundSizes(investorData.funds) : null,
-              individuals,
-              founding_year: investorData.founding_year ?? null,
-              affiliation: null,
-            }
-          : {
-              ...investorData,
-              affiliation: investorData.affiliation ?? null,
-              aum: null,
-              funds: null,
-              individuals: null,
-              founding_year: null,
-            };
+      // Taxonomy gate. Canonicalises stage/focus/geo spellings in place and
+      // drops the row if it carries a label outside the closed vocabularies,
+      // so an out-of-vocabulary value can never reach the public endpoint.
+      const { errors, warnings } = validateTaxonomyFields(investorData);
+      warnings.forEach((warning) => console.warn(`⚠ ${slug}: ${warning}`));
+      if (errors.length > 0) {
+        console.error(`✗ Skipping ${slug}: ${errors.length} taxonomy violation(s)`);
+        errors.forEach((error) => console.error(`    ${error}`));
+        taxonomyRejects += 1;
+        continue;
+      }
+
+      // Build the row from the keys the payload actually carries. Absent means
+      // "not mine": the upsert leaves absent columns untouched on update, so
+      // identity, firm-profile and outcome writes can land independently
+      // without erasing each other. Null, by contrast, means "known empty" and
+      // is written. Only the payload may say null; ingest never invents it.
+      const candidate: Record<string, unknown> = { ...investorData };
+      if (individuals !== null) candidate.individuals = individuals;
+
+      // The database mints id (DEFAULT gen_random_uuid()). Sending one would
+      // rewrite the primary key on every slug-conflict upsert.
+      delete candidate.id;
+
+      // Coerce any string fund sizes (e.g. "$450M") to integer USD numbers so
+      // re-aggregation stays consistent with the DB shape.
+      if (candidate.funds != null) candidate.funds = normalizeFundSizes(candidate.funds);
+
+      // The one column written without being asked: the inapplicable subtype
+      // side must be null (DB CHECK constraints), and forcing it here keeps an
+      // investor_type flip from stranding stale values behind the CHECK.
+      if (investorType === "Institutional") {
+        candidate.affiliation = null;
+      } else {
+        candidate.aum = null;
+        candidate.funds = null;
+        candidate.individuals = null;
+        candidate.founding_year = null;
+      }
+
+      // --columns scoping: intersect with the declared set. slug (conflict
+      // key) and updated_at (NOT NULL, no default) always ride along.
+      const row = (
+        flags.columns
+          ? Object.fromEntries(
+              Object.entries(candidate).filter(([key]) =>
+                flags.columns!.includes(key) || key === "slug" || key === "updated_at"
+              )
+            )
+          : candidate
+      ) as InvestorInsert;
 
       investors.push(row);
     }
 
     try {
       if (investors.length > 0) {
-        await batchUpsertInvestors(supabase, investors);
+        // PostgREST rejects a bulk upsert whose rows carry different key sets,
+        // which partial payloads make possible. Batch only when uniform.
+        const keySets = new Set(investors.map((r) => Object.keys(r).sort().join(",")));
+        if (keySets.size <= 1) {
+          await batchUpsertInvestors(supabase, investors);
+        } else {
+          for (const single of investors) {
+            await batchUpsertInvestors(supabase, [single]);
+          }
+        }
         console.log(`✓ Upserted ${investors.length} investor record(s)`);
       }
     } catch (error) {
       console.error(`✗ Failed to ingest ${investorType.toLowerCase()} investors:`, error);
       throw error;
     }
+  }
+
+  if (taxonomyRejects > 0) {
+    console.error(
+      `\n✗ ${taxonomyRejects} investor(s) rejected on taxonomy violations. ` +
+        `Valid values live in data/taxonomy/.`
+    );
+    process.exitCode = 1;
   }
 
   console.log("\n✓ Ingestion complete!");

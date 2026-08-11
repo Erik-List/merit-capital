@@ -5,6 +5,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { PRIMARY_FOCUS_VALUES } from "@/lib/taxonomy";
 
 export type ScopeState = {
   all: boolean;
@@ -18,14 +19,7 @@ interface ScopeFilterProps {
   options: string[];
 }
 
-const PRIMARY_FOCUS_PREFERENCES = [
-  "AI & Applied AI",
-  "SaaS",
-  "Fintech & Payments",
-  "Climate & Energy",
-  "DevTools & APIs",
-  "Industrial & Robotics",
-];
+const PRIMARY_FOCUS_PREFERENCES = PRIMARY_FOCUS_VALUES;
 
 const SPECIALIST_LABEL = "Specialist";
 const GENERALIST_KEYWORD = "generalist";
