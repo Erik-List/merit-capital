@@ -39,3 +39,13 @@ next-env.d.ts
 
 # Bolt specific
 .bolt/
+
+# python
+__pycache__/
+
+# Bulk SEC source material: re-downloadable verbatim from EDGAR, so it stays
+# out of the repo. Run scripts/fetch-filings.py after cloning to hydrate.
+# Everything else under data/ is evidence or curated review state and IS
+# tracked - see data/README.md for the split.
+/data/filings/
+/data/aggregation/sources/sec/cik-lookup-data.txt
