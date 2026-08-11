@@ -18,7 +18,6 @@ const FIELD_GROUPS: { label: string; fields: string[] }[] = [
       "icon_url",
       "website",
       "hq_location",
-      "other_locations",
     ],
   },
   {
@@ -28,7 +27,6 @@ const FIELD_GROUPS: { label: string; fields: string[] }[] = [
       "history",
       "investment_stage",
       "investment_geo",
-      "investment_focus",
       "investment_scope",
       "investment_range",
       "notable_investments",
