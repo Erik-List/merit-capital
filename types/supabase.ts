@@ -28,7 +28,6 @@ export type Database = {
           id: string
           individuals: Json | null
           investment_concept: string | null
-          investment_focus: Json | null
           investment_geo: Json | null
           investment_range: Json | null
           investment_scope: Json | null
@@ -36,7 +35,6 @@ export type Database = {
           investor_type: Database["public"]["Enums"]["InvestorType"]
           name: string
           notable_investments: Json | null
-          other_locations: Json | null
           slug: string
           track_record: Json | null
           updated_at: string
@@ -52,10 +50,9 @@ export type Database = {
           history?: string | null
           hq_location?: string | null
           icon_url?: string | null
-          id: string
+          id?: string
           individuals?: Json | null
           investment_concept?: string | null
-          investment_focus?: Json | null
           investment_geo?: Json | null
           investment_range?: Json | null
           investment_scope?: Json | null
@@ -63,7 +60,6 @@ export type Database = {
           investor_type?: Database["public"]["Enums"]["InvestorType"]
           name: string
           notable_investments?: Json | null
-          other_locations?: Json | null
           slug: string
           track_record?: Json | null
           updated_at: string
@@ -82,7 +78,6 @@ export type Database = {
           id?: string
           individuals?: Json | null
           investment_concept?: string | null
-          investment_focus?: Json | null
           investment_geo?: Json | null
           investment_range?: Json | null
           investment_scope?: Json | null
@@ -90,7 +85,6 @@ export type Database = {
           investor_type?: Database["public"]["Enums"]["InvestorType"]
           name?: string
           notable_investments?: Json | null
-          other_locations?: Json | null
           slug?: string
           track_record?: Json | null
           updated_at?: string
