@@ -19,6 +19,14 @@ import {
   TRACK_RECORD_TIER_NEGATIVE_LABELS,
   sanitizeTrackRecordState,
 } from "@/components/leaderboard/track-record-utils";
+import {
+  CANONICAL_STAGES,
+  FALLBACK_STAGE_INDEX,
+  STAGE_TO_BUCKET,
+  canonicalizeGeo,
+  canonicalizeStage,
+  stageIndex,
+} from "@/lib/taxonomy";
 
 type Investor = Database["public"]["Tables"]["investors"]["Row"];
 
@@ -56,89 +64,11 @@ const DEFAULT_SCOPE_STATE: ScopeState = {
   selected: [],
 };
 
-const CANONICAL_STAGES = [
-  "Pre-Seed",
-  "Seed",
-  "Series A",
-  "Series B",
-  "Series C",
-  "Series D",
-  "Series E",
-  "Series F",
-  "Series G",
-  "Series H",
-  "Series I",
-  "Series J",
-  "Growth",
-  "Late Stage",
-] as const;
-
-const STAGE_ALIAS_TO_LABEL: Record<string, (typeof CANONICAL_STAGES)[number]> = {
-  "preseed": "Pre-Seed",
-  "pre-seed": "Pre-Seed",
-  "pre seed": "Pre-Seed",
-  "seed": "Seed",
-  "series a": "Series A",
-  "series-a": "Series A",
-  "seriesa": "Series A",
-  "series b": "Series B",
-  "series-b": "Series B",
-  "seriesb": "Series B",
-  "series c": "Series C",
-  "series-c": "Series C",
-  "seriesc": "Series C",
-  "series d": "Series D",
-  "series-d": "Series D",
-  "seriesd": "Series D",
-  "series e": "Series E",
-  "series-e": "Series E",
-  "seriese": "Series E",
-  "series f": "Series F",
-  "series-f": "Series F",
-  "seriesf": "Series F",
-  "series g": "Series G",
-  "series-g": "Series G",
-  "seriesg": "Series G",
-  "series h": "Series H",
-  "series-h": "Series H",
-  "seriesh": "Series H",
-  "series i": "Series I",
-  "series-i": "Series I",
-  "seriesi": "Series I",
-  "series j": "Series J",
-  "series-j": "Series J",
-  "seriesj": "Series J",
-  "growth": "Growth",
-  "growth stage": "Growth",
-  "growth-stage": "Growth",
-  "late stage": "Late Stage",
-  "late-stage": "Late Stage",
-};
-
-const STAGE_TO_STATE: Record<(typeof CANONICAL_STAGES)[number], keyof StageState> = {
-  "Pre-Seed": "preseed",
-  "Seed": "seed",
-  "Series A": "seriesA",
-  "Series B": "growth",
-  "Series C": "growth",
-  "Series D": "growth",
-  "Series E": "growth",
-  "Series F": "growth",
-  "Series G": "growth",
-  "Series H": "growth",
-  "Series I": "growth",
-  "Series J": "growth",
-  "Growth": "growth",
-  "Late Stage": "growth",
-};
-
 type StageEntry = {
   label: string;
   index: number;
   state: keyof StageState | null;
 };
-
-const FALLBACK_STAGE_INDEX = 10_000;
 
 function getStageStrings(value: any): string[] {
   if (Array.isArray(value)) return value.filter((x) => typeof x === "string");
@@ -150,21 +80,13 @@ function stageRangeLabel(value: any): string | null {
   const arr = getStageStrings(value);
   if (arr.length === 0) return null;
   const indices = arr
-    .map((v) => CANONICAL_STAGES.findIndex((s) => s.toLowerCase() === String(v).toLowerCase()))
-    .filter((i) => i >= 0)
+    .map((v) => stageIndex(String(v)))
+    .filter((i) => i < FALLBACK_STAGE_INDEX)
     .sort((a, b) => a - b);
   if (indices.length === 0) return null;
   const first = CANONICAL_STAGES[indices[0]];
   const last = CANONICAL_STAGES[indices[indices.length - 1]];
   return first === last ? first : `${first} – ${last}`;
-}
-
-function canonicalizeStage(value: string): (typeof CANONICAL_STAGES)[number] | null {
-  const normalized = value.trim().toLowerCase();
-  if (!normalized) return null;
-  if (STAGE_ALIAS_TO_LABEL[normalized]) return STAGE_ALIAS_TO_LABEL[normalized];
-  const direct = CANONICAL_STAGES.find((stage) => stage.toLowerCase() === normalized);
-  return direct ?? null;
 }
 
 function splitPotentialStages(value: string): string[] {
@@ -188,11 +110,10 @@ function collectStageEntries(value: any): StageEntry[] {
       if (canonical) {
         if (seen.has(canonical)) return;
         seen.add(canonical);
-        const index = CANONICAL_STAGES.findIndex((stage) => stage === canonical);
         entries.push({
           label: canonical,
-          index: index >= 0 ? index : FALLBACK_STAGE_INDEX,
-          state: STAGE_TO_STATE[canonical] ?? null,
+          index: stageIndex(canonical),
+          state: STAGE_TO_BUCKET[canonical] ?? null,
         });
       } else {
         const label = segment.trim();
@@ -246,18 +167,29 @@ function extractFocus(scope: any): { type?: string; focus: string[] } {
   return { focus: [] };
 }
 
+// Geography labels are normalised on read so a row's labels match the filter
+// options, which are canonicalised the same way in leaderboard.tsx.
+function normalizeGeoList(value: any): string[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .filter((x): x is string => typeof x === "string")
+    .map((x) => canonicalizeGeo(x))
+    .filter((x): x is string => Boolean(x));
+}
+
 function extractCoreAndOther(geo: any): { core: string[]; other: string[] } {
   if (Array.isArray(geo)) {
-    const arr = geo.filter((x) => typeof x === "string");
-    return { core: arr, other: [] };
+    return { core: normalizeGeoList(geo), other: [] };
   }
   if (geo && typeof geo === "object") {
-    const core = Array.isArray((geo as any).core) ? (geo as any).core.filter((x: any) => typeof x === "string") : [];
-    const other = Array.isArray((geo as any).other) ? (geo as any).other.filter((x: any) => typeof x === "string") : [];
-    return { core, other };
+    return {
+      core: normalizeGeoList((geo as any).core),
+      other: normalizeGeoList((geo as any).other),
+    };
   }
   if (typeof geo === "string") {
-    return { core: [geo], other: [] };
+    const canonical = canonicalizeGeo(geo);
+    return { core: canonical ? [canonical] : [], other: [] };
   }
   return { core: [], other: [] };
 }

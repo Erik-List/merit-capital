@@ -5,6 +5,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { STAGE_BUCKET_LABELS, STAGE_BUCKET_ORDER } from "@/lib/taxonomy";
 
 export type StageState = {
   preseed: boolean;
@@ -19,12 +20,10 @@ interface StageFilterProps {
   onChange: (next: StageState) => void;
 }
 
-const options: { key: keyof StageState; label: string }[] = [
-  { key: "preseed", label: "Pre-Seed" },
-  { key: "seed", label: "Seed" },
-  { key: "seriesA", label: "Series A" },
-  { key: "growth", label: "Growth" },
-];
+const options: { key: keyof StageState; label: string }[] = STAGE_BUCKET_ORDER.map((key) => ({
+  key,
+  label: STAGE_BUCKET_LABELS[key],
+}));
 
 export default function StageFilter({ className, value, onChange }: StageFilterProps) {
   const [open, setOpen] = useState(true);

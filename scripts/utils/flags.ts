@@ -7,42 +7,59 @@ export type InvestorFilter =
 
 export interface ParsedFlags {
   investors: InvestorFilter;
-  fields: string[];
+  /** Columns this run is allowed to write. Null = every key the payload carries. */
+  columns: string[] | null;
 }
 
-const VALID_FIELDS = [
-  "ground-data",
-  "investment-preferences",
-  "range",
-  "financials",
-  "people",
-  "all",
-];
+// The writable columns of public.investors. A --columns value outside this
+// list is a typo and must fail loudly, not silently write nothing.
+// (id is deliberately absent: the database mints it and ingest never sends it.)
+export const INVESTOR_COLUMNS = [
+  "slug",
+  "name",
+  "investor_type",
+  "website",
+  "icon_url",
+  "hq_location",
+  "founding_year",
+  "history",
+  "investment_concept",
+  "investment_stage",
+  "investment_geo",
+  "investment_scope",
+  "investment_range",
+  "notable_investments",
+  "aum",
+  "funds",
+  "individuals",
+  "affiliation",
+  "track_record",
+  "graduation_rate",
+  "updated_at",
+] as const;
 
 export function parseFlags(argv: string[]): ParsedFlags {
   const flags: ParsedFlags = {
     investors: { type: "all" },
-    fields: ["all"],
+    columns: null,
   };
 
   for (let i = 2; i < argv.length; i++) {
     const arg = argv[i];
 
-    // Parse --investors flag
-    if (arg === "--investors" || arg.startsWith("--investors=")) {
-      let value: string;
-      if (arg.includes("=")) {
-        value = arg.split("=")[1];
-      } else {
-        const nextArg = argv[i + 1];
-        if (!nextArg || nextArg.startsWith("--")) {
-          throw new Error("Expected value after --investors flag");
-        }
-        value = nextArg;
-        i++; // Skip next argument
+    const takeValue = (flagName: string): string => {
+      if (arg.includes("=")) return arg.split("=").slice(1).join("=");
+      const nextArg = argv[i + 1];
+      if (!nextArg || nextArg.startsWith("--")) {
+        throw new Error(`Expected value after ${flagName} flag`);
       }
+      i++;
+      return nextArg;
+    };
 
-      // Parse investors value
+    if (arg === "--investors" || arg.startsWith("--investors=")) {
+      const value = takeValue("--investors");
+
       if (value === "all") {
         flags.investors = { type: "all" };
       } else if (value === "new") {
@@ -50,17 +67,15 @@ export function parseFlags(argv: string[]): ParsedFlags {
       } else if (value === "update") {
         flags.investors = { type: "update" };
       } else if (value.startsWith("name=")) {
-        const namesStr = value.substring(5);
-        const names = namesStr.split(",").map((n) => n.trim()).filter(Boolean);
+        const names = value.substring(5).split(",").map((n) => n.trim()).filter(Boolean);
         if (names.length === 0) {
           throw new Error("Expected comma-separated list of names after name=");
         }
         flags.investors = { type: "name", names };
       } else if (value.startsWith("count=")) {
-        const countStr = value.substring(6);
-        const count = parseInt(countStr, 10);
+        const count = parseInt(value.substring(6), 10);
         if (isNaN(count) || count <= 0) {
-          throw new Error(`Invalid count value: ${countStr}`);
+          throw new Error(`Invalid count value: ${value.substring(6)}`);
         }
         flags.investors = { type: "count", count };
       } else {
@@ -70,39 +85,22 @@ export function parseFlags(argv: string[]): ParsedFlags {
       }
     }
 
-    // Parse --field flag
-    if (arg === "--field" || arg.startsWith("--field=")) {
-      let value: string;
-      if (arg.includes("=")) {
-        value = arg.split("=")[1];
-      } else {
-        const nextArg = argv[i + 1];
-        if (!nextArg || nextArg.startsWith("--")) {
-          throw new Error("Expected value after --field flag");
-        }
-        value = nextArg;
-        i++; // Skip next argument
+    if (arg === "--columns" || arg.startsWith("--columns=")) {
+      const value = takeValue("--columns");
+      const columns = value.split(",").map((c) => c.trim()).filter(Boolean);
+      if (columns.length === 0) {
+        throw new Error("Expected at least one column name after --columns");
       }
-
-      // Parse comma-separated field list
-      const fieldList = value.split(",").map((f) => f.trim()).filter(Boolean);
-      if (fieldList.length === 0) {
-        throw new Error("Expected at least one field name");
-      }
-
-      // Validate fields
-      for (const field of fieldList) {
-        if (!VALID_FIELDS.includes(field)) {
+      for (const column of columns) {
+        if (!(INVESTOR_COLUMNS as readonly string[]).includes(column)) {
           throw new Error(
-            `Invalid field: ${field}. Valid fields: ${VALID_FIELDS.join(", ")}`
+            `Unknown column: ${column}. Writable columns: ${INVESTOR_COLUMNS.join(", ")}`
           );
         }
       }
-
-      flags.fields = fieldList.includes("all") ? ["all"] : fieldList;
+      flags.columns = columns;
     }
   }
 
   return flags;
 }
-

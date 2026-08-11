@@ -3,80 +3,12 @@
 import { useMemo } from 'react';
 import { Progress } from '@/components/ui/progress';
 import type { Database } from '@/types/supabase';
+import { FALLBACK_STAGE_INDEX, canonicalizeStage, stageIndex } from '@/lib/taxonomy';
 
 type Investor = Database['public']['Tables']['investors']['Row'];
 
 interface InvestorDetailsProps {
   investor: Investor;
-}
-
-const CANONICAL_STAGES = [
-  "Pre-Seed",
-  "Seed",
-  "Series A",
-  "Series B",
-  "Series C",
-  "Series D",
-  "Series E",
-  "Series F",
-  "Series G",
-  "Series H",
-  "Series I",
-  "Series J",
-  "Growth",
-  "Late Stage",
-] as const;
-
-const STAGE_ALIAS_TO_LABEL: Record<string, (typeof CANONICAL_STAGES)[number]> = {
-  "preseed": "Pre-Seed",
-  "pre-seed": "Pre-Seed",
-  "pre seed": "Pre-Seed",
-  "seed": "Seed",
-  "series a": "Series A",
-  "series-a": "Series A",
-  "seriesa": "Series A",
-  "series b": "Series B",
-  "series-b": "Series B",
-  "seriesb": "Series B",
-  "series c": "Series C",
-  "series-c": "Series C",
-  "seriesc": "Series C",
-  "series d": "Series D",
-  "series-d": "Series D",
-  "seriesd": "Series D",
-  "series e": "Series E",
-  "series-e": "Series E",
-  "seriese": "Series E",
-  "series f": "Series F",
-  "series-f": "Series F",
-  "seriesf": "Series F",
-  "series g": "Series G",
-  "series-g": "Series G",
-  "seriesg": "Series G",
-  "series h": "Series H",
-  "series-h": "Series H",
-  "seriesh": "Series H",
-  "series i": "Series I",
-  "series-i": "Series I",
-  "seriesi": "Series I",
-  "series j": "Series J",
-  "series-j": "Series J",
-  "seriesj": "Series J",
-  "growth": "Growth",
-  "growth stage": "Growth",
-  "growth-stage": "Growth",
-  "late stage": "Late Stage",
-  "late-stage": "Late Stage",
-};
-
-const FALLBACK_STAGE_INDEX = 10_000;
-
-function canonicalizeStage(value: string): (typeof CANONICAL_STAGES)[number] | null {
-  const normalized = value.trim().toLowerCase();
-  if (!normalized) return null;
-  if (STAGE_ALIAS_TO_LABEL[normalized]) return STAGE_ALIAS_TO_LABEL[normalized];
-  const direct = CANONICAL_STAGES.find((stage) => stage.toLowerCase() === normalized);
-  return direct ?? null;
 }
 
 function getStageStrings(value: Investor['investment_stage']): string[] {
@@ -89,8 +21,7 @@ function sortStagesByCanonicalOrder(stages: string[]): string[] {
   const entries = stages.map((stage) => {
     const canonical = canonicalizeStage(stage);
     if (canonical) {
-      const index = CANONICAL_STAGES.findIndex((s) => s === canonical);
-      return { original: stage, canonical, index: index >= 0 ? index : FALLBACK_STAGE_INDEX };
+      return { original: stage, canonical, index: stageIndex(canonical) };
     }
     return { original: stage, canonical: null, index: FALLBACK_STAGE_INDEX + stages.indexOf(stage) };
   });

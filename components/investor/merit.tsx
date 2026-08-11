@@ -4,6 +4,7 @@ import { useMemo } from 'react';
 
 import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
+import { CANONICAL_STAGES, canonicalizeStage } from '@/lib/taxonomy';
 import type { Database } from '@/types/supabase';
 
 type Investor = Database['public']['Tables']['investors']['Row'];
@@ -117,20 +118,10 @@ function getYearSpan(startYear?: number | null): number | null {
   return span > 0 ? span : 1;
 }
 
-const SERIES_A_AND_BEYOND = [
-  'Series A',
-  'Series B',
-  'Series C',
-  'Series D',
-  'Series E',
-  'Series F',
-  'Series G',
-  'Series H',
-  'Series I',
-  'Series J',
-  'Growth',
-  'Late Stage',
-];
+// Everything from Series A onward, derived from the canonical ordering rather
+// than restated, so a new stage in the taxonomy lands on the right side of the
+// split automatically.
+const SERIES_A_AND_BEYOND = CANONICAL_STAGES.slice(CANONICAL_STAGES.indexOf('Series A'));
 
 export function InvestorMerit({
   investor,
@@ -140,8 +131,12 @@ export function InvestorMerit({
   const graduationRate = useMemo(() => normalizeGraduationRate(investor.graduation_rate), [investor.graduation_rate]);
   const stages = useMemo(() => ensureArray(investor.investment_stage), [investor.investment_stage]);
 
-  const hasPreSeed = stages.map((stage) => stage.toLowerCase()).some((stage) => stage === 'pre-seed' || stage === 'preseed' || stage === 'pre seed');
-  const hasSeriesAPlus = stages.some((stage) => SERIES_A_AND_BEYOND.includes(stage));
+  const canonicalStages = useMemo(
+    () => stages.map((stage) => canonicalizeStage(stage)).filter((stage): stage is string => Boolean(stage)),
+    [stages],
+  );
+  const hasPreSeed = canonicalStages.includes('Pre-Seed');
+  const hasSeriesAPlus = canonicalStages.some((stage) => SERIES_A_AND_BEYOND.includes(stage));
 
   const preSeedGraduation = hasPreSeed ? graduationRate?.pre_seed_to_seed : null;
   const seedGraduation = graduationRate?.seed_to_series_a;
