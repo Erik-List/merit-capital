@@ -8,7 +8,7 @@
 
 Merit Capital is an investor data and transparency platform that provides structured, high-accuracy profiles of venture capital firms and individual investors. The platform serves two audiences: founders who want to research investors before fundraising, and AI agents/developers who need programmatic access to investor data via API. The long-term vision includes founder-submitted ratings of investors across dimensions like process quality, passive support, and active support. The v1 scope focuses exclusively on building a high-quality investor dataset (90-99% accuracy) with public API access, deferring the rating system entirely.
 
-- **Current status:** Paused since January 2026. Resuming June 2026 on a fragmented cadence: ~2h per weekend (Jun 21 - Aug 9) for data work, then a focused weekday sprint in August. Hard launch deadline ~Aug 18 (off Aug 19-22, abroad Aug 23). ~28h total.
+- **Current status (Jul 19, 2026):** Active. Fragmented cadence: ~2h per weekend (Jul 5 - Aug 2) then a focused August sprint (Aug 4 - Aug 13, launch Aug 13), ~28h total. **Infrastructure is ahead of plan, data research behind.** The July sessions delivered two enabling builds instead of investor research: (1) **Data Access** — the public PostgREST surface (single `investors` table with subtypes merged, `/data` proxy, `/docs`), pending deploy against the restored Supabase; (2) **Collection** — the SEC Form D pipeline (`data/filings/form-d/` + `scripts/formd-query.py`) for verifiable fund/partner data. Gold-standard data (Sequoia, Peter Thiel) is now the critical path, squeezed into Jul 26 + Aug 2 with the July buffer spent.
 
 ---
 
@@ -201,8 +201,8 @@ Three-table inheritance pattern with a materialized view:
 ```
 Investor (base table)
   id, name, slug, investor_type, status, icon_url, website, hq_location,
-  other_locations, history, investment_concept, investment_stage,
-  investment_geo, investment_focus, investment_scope, investment_range,
+  history, investment_concept, investment_stage,
+  investment_geo, investment_scope, investment_range,
   notable_investments, track_record, graduation_rate, created_at, updated_at
 
 IndividualInvestor (subtype)
@@ -279,7 +279,7 @@ Source data (JSON name/slug lists)
 
 2. **AUM normalization:** Current schema expects numeric `{bottom, top}` but some seeds use string "$520M". Need to settle on numeric-only and update ingestion pipeline.
 
-3. **Which fields to cut from v1 data collection?** Proposed tier 3 cuts: track_record, graduation_rate, other_locations. Are these the right ones?
+3. **Which fields to cut from v1 data collection?** Proposed tier 3 cuts: track_record, graduation_rate, other_locations. Are these the right ones? **Partly resolved (PRO-27):** `other_locations` dropped from the schema entirely, along with `investment_focus` (a duplicate of `investment_scope.focus`). Office footprint beyond `hq_location` is not part of v1.
 
 4. **API response shape for agents:** Should the API return the raw database structure or a flattened/summarized format optimized for LLM context windows? (v1 scope recommends a `summary` and `structured_summary` field.)
 
@@ -294,16 +294,16 @@ Source data (JSON name/slug lists)
 Two work streams run at different tempos. See `project-scope.md` for the full session-level breakdown.
 
 **Work stream 1 - Weekend grind (Jul 5 - Aug 2, ~2h per weekend, ~10h):**
-Two tracks kick off together on Jul 5 and are distributed across the July weekends:
-- **Gold standard:** manually research Sequoia (institutional) + Peter Thiel (individual) to gold standard, incl. track_record and graduation_rate
-- **API implementation:** build `GET /api/investors` and `GET /api/investors/[slug]`, reusing the `InvestorView` query pattern from the leaderboard and profile pages; deploy so the API is **reachable** (returning the 2 gold-standard investors) by start of August
+- ✅ **Data Access (built Jul 7-19, pending deploy):** PostgREST is the API — no custom routes. Single `investors` table (subtypes merged, view + `status`/`ApprovalStatus` dropped), `/data` GET proxy (anon key injected server-side), `/docs` on-brand reference from the auto-generated OpenAPI spec (columns documented via `COMMENT ON`). Remaining: restore Supabase, push migration, regenerate types, verify, deploy. "Reachable" = `/data/investors` + `/docs` live.
+- ✅ **Collection (built Jul 19, untracked):** SEC Form D pipeline — 75 quarterly bulk ZIPs (2008→present) in `data/filings/form-d/` + `scripts/formd-query.py` matching investor partners to their filings for verifiable fund sizes, offerings, related persons.
+- ⏳ **Gold standard (slipped to Jul 26 - Aug 2):** manually research Sequoia (institutional) + Peter Thiel (individual) to gold standard, incl. track_record and graduation_rate, using Form D for the financial fields.
 
 **Work stream 2 - August sprint (Aug 4 - Aug 13, launch Aug 13, buffer to Aug 19):**
 - Add track-record and graduation-rate field group prompts to aggregation pipeline; calibrate against gold standard
-- Finalize data-collection playbook
-- Scale to ~25 investors: run calibrated pipeline + manual verification pass on Tier 1 + track_record (~15-20 min per institutional investor); graduation_rate null where thin
+- Finalize data-collection playbook (incl. Form D field mapping)
+- Scale to ~25 investors: run calibrated pipeline + Form D cross-check + manual verification pass on Tier 1 + track_record (~15-20 min per institutional investor); graduation_rate null where thin
 - Icon/logo sourcing + QA all profile pages
-- Write OpenAPI 3.0 spec, host at `/api/docs`
+- Docs polish only (spec is auto-generated by PostgREST; tighten `COMMENT ON` texts, verify worked examples)
 - Draft and publish LinkedIn + X posts with screenshots
 - Final deploy and launch (Aug 13); Aug 14-19 buffer
 
