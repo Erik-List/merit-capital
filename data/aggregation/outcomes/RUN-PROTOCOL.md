@@ -103,3 +103,83 @@ Added vet-pass duties:
 6. Sweep public rows with floats 12-24 months old for known deaths (23andme).
 7. Re-intersect the unicorn list with loose normalization (strip .io/.ai/.com,
    "HQ", "Labs") to catch Apollo.io-style misses.
+
+---
+
+# RUN 2 — 2026-08-12
+
+Scope augmentation ordered by Erik after run 1 review:
+
+1. **Base hygiene is upstream now.** Identity-level duplicates (renames like Square→Block,
+   legal-entity aliases like ZenLeads→Apollo.io) are corrected in the Company Base itself via
+   `data/aggregation/company-base/identity-merges.json`, consumed by `build-company-base.py`
+   on every rebuild. Run-1 finding: flagging BOTH rows of a dup pair `duplicate` excluded the
+   canonical from derivation (Block $39.4B silently dropped). New representation:
+   non-canonical rows get `duplicate_of: <canonical-slug>`; canonical carries no exclusion flag.
+2. **value_tag, 100% fill.** Every row gets `value_tag ∈ {100b_plus, 10b_plus, 1b_plus, below_1b}`
+   (highest threshold met). Figures stay source-gated as in run 1; the tag may be a model
+   rule-out (below_1b) but a tag ≥ 1b_plus REQUIRES a sourced valuation_usd. verify enforces.
+3. **country, 100% fill.** Source hierarchy (entry-time first):
+   formd_address (ISSUERS.tsv STATEORCOUNTRYDESCRIPTION at earliest partner accession)
+   > wikidata (P17, current HQ) > model_knowledge > web_verified. Conflicts flagged
+   `country_conflict`, model may dispute a Form D Delaware-of-convenience address only with
+   note. region derived from country by fixed mapping.
+4. **entry_stage, 100% fill.** Hierarchy: formd_band (partner-anchored first round, STAGE_BANDS)
+   > model_knowledge (deal history: "Sequoia led the Series A") > web_verified. Model may
+   override a band ONLY with named deal knowledge + `stage_disputes_band` flag; era drift
+   (a 2021 $25M "seed") is exactly what the override is for. Pre-window rows (< 2006, no
+   Form D): model with confidence, first institutional round ≈ Series A convention noted.
+5. **Desk feedback.** Run-1 China/India-desk findings feed the base's existing decision-desk
+   rule via the overlay; moved rows land in other-desk-companies.csv, reversible in review.
+
+Hard rules of run 1 stay in force verbatim (source-gated figures, snapshot pinning,
+disk-resident progress, flags union at merge, additive layers, verification duties 1–7).
+
+## Run-2 batch conventions (grind #2, 692 rows / 16 batches)
+
+- Answers merge per key into existing records; flags union; only clear_flags removes.
+- country: model_knowledge with confidence. Unknown-identity rows on the us-eu desk
+  with no foreign marker: United States, confidence low, flag `country_prior`.
+- entry_stage: named-deal knowledge overrides nothing deterministic (bands already
+  resolved those rows); for era companies with no Form D and no deal memory:
+  Series A, confidence low (Sequoia's classic entry), flag `stage_prior`.
+  Growth for rows that first appear as later-stage positions (public-era entries,
+  scaled companies at first listing).
+- value_tag: only `below_1b` may be asserted without a figure. Anything higher
+  routes through needs_web_value -> web pass.
+- Rename duty stays: any suspected identity duplicate -> flag + note, never silently.
+
+---
+
+# RUN 3 — 2026-08-12: entry_stage rebuilt from first principles
+
+Erik's finding: Airbnb/Stripe should be Seed, HubSpot Growth (Series D 2011). Golden-set
+measurement (40 documented entries): run-2 column scored 32/39 = 82%; ALL seven misses were
+`formd_band` rows; model-judged rows went 24/24 on that slice. Root causes, in order of harm:
+
+1. **Coverage blindness.** Sequoia's entry often predates the first partner-attributed
+   Form D (Airbnb seed '09, Stripe seed '10 never filed). The first filing is a CEILING
+   on entry recency, never a label.
+2. **Ordinality blindness.** The band labeled by amount alone; HubSpot's $18.8M third
+   round banded "Series A"; Block's $27.5M Series B banded "Series A" (fixed 30M cutoff).
+3. **Band trusted as label.** It is a proxy, valid only for a structurally-sound first
+   round (0 prior filings, company founded >= 2008 so coverage is complete, young at filing).
+
+## New evidence order
+
+  knowledge(high, named round + year required)            e.g. "led the 2011 Series A"
+  > structural(high): 0/1/2+ prior filings + era band + age guard, coverage complete
+  > knowledge(medium)
+  > structural(medium)
+  > band fallback (low)  — only young first-filers nobody can identify
+  > stage prior (low, flagged) — unidentifiable strays only
+
+Era-adjusted band ceilings (seed / A), by entry year: <=2010: 1.5M/12M · 2011-14: 2.5M/15M ·
+2015-18: 4M/20M · 2019-21: 6M/30M · >=2022: 8M/40M. Pre-Seed = below seed/4.
+Structural rules: >=2 prior filings -> Growth; 1 prior -> Series A or Growth by band;
+0 prior -> band, but ONLY if year_inc >= 2008 and age at entry <= 4y, else confidence drops
+and knowledge decides. Every override of a structural answer carries `stage_disputes_band`.
+
+C2A follows the corrected column: cohort = final entry_stage == Seed; graduation for
+knowledge-based seeds that predate Form D coverage may be decided by documented follow-on
+(source model/web with citation), deterministic path unchanged for the rest.
