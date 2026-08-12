@@ -1,5 +1,8 @@
+'use client';
+
 import type { Database } from '@/types/supabase';
-import Link from 'next/link';
+import { Linkedin } from 'lucide-react';
+import { SearchableList } from './searchable-list';
 
 type Investor = Database['public']['Tables']['investors']['Row'];
 
@@ -51,20 +54,20 @@ function normalizeIndividual(entry: unknown): IndividualEntry | null {
       return null;
     }
 
-    const position = typeof record.position === 'string' && record.position.trim() 
-      ? record.position.trim() 
+    const position = typeof record.position === 'string' && record.position.trim()
+      ? record.position.trim()
       : (typeof record.role === 'string' && record.role.trim() ? record.role.trim() : 'Partner');
-    
+
     const socialsObj = typeof record.socials === 'object' && record.socials !== null
       ? record.socials as Record<string, unknown>
       : {};
-    
+
     const linkedin = typeof socialsObj.linkedin_url === 'string' && socialsObj.linkedin_url.trim()
       ? socialsObj.linkedin_url.trim()
       : (typeof record.linkedin_url === 'string' && record.linkedin_url.trim()
           ? record.linkedin_url.trim()
           : null);
-    
+
     const xUrl = typeof socialsObj.x_url === 'string' && socialsObj.x_url.trim()
       ? socialsObj.x_url.trim()
       : null;
@@ -82,6 +85,37 @@ function normalizeIndividual(entry: unknown): IndividualEntry | null {
   return null;
 }
 
+// lucide-react deprecated brand glyphs, so the X mark is a local path.
+function XMarkIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
+
+function SocialIconLink({
+  href,
+  label,
+  children,
+}: {
+  href: string;
+  label: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer noopener"
+      aria-label={label}
+      className="text-muted-foreground transition-colors hover:text-foreground"
+    >
+      {children}
+    </a>
+  );
+}
+
 export function People({ investor }: PeopleProps) {
   const rawIndividuals = investor.individuals ?? null;
   const individuals: IndividualEntry[] = Array.isArray(rawIndividuals)
@@ -95,41 +129,40 @@ export function People({ investor }: PeopleProps) {
   }
 
   return (
-    <section className="glass border border-input/30 rounded-xl p-5 space-y-4">
-      <header>
-        <h3 className="text-lg font-medium">People</h3>
-      </header>
+    <SearchableList
+      title="People"
+      items={individuals}
+      searchText={(individual) => `${individual.name} ${individual.position ?? ''}`}
+      searchPlaceholder="Search people"
+      renderItem={(individual, index) => {
+        const name = toTitleCase(individual.name);
+        const position = individual.position ? toTitleCase(individual.position) : '—';
+        const linkedinUrl = individual.socials?.linkedin_url;
+        const xUrl = individual.socials?.x_url;
 
-      <ul className="space-y-4">
-        {individuals.map((individual, index) => {
-          const name = toTitleCase(individual.name);
-          const position = individual.position ? toTitleCase(individual.position) : '—';
-          const linkedinUrl = individual.socials?.linkedin_url;
-          const content = linkedinUrl ? (
-            <Link
-              href={linkedinUrl}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-sm underline-offset-4 hover:underline"
-            >
-              {name}
-            </Link>
-          ) : (
-            <span className="text-sm underline-offset-4">
-              {name}
-            </span>
-          );
-
-          return (
-            <li key={`${individual.name}-${index}`} className="space-y-1">
-              {content}
-              <p className="text-xs text-muted-foreground">{position}</p>
-            </li>
-          );
-        })}
-      </ul>
-    </section>
+        return (
+          <li key={`${individual.name}-${index}`} className="space-y-1">
+            <div className="flex items-center justify-between gap-3">
+              <span className="text-sm">{name}</span>
+              {linkedinUrl || xUrl ? (
+                <span className="flex shrink-0 items-center gap-2">
+                  {linkedinUrl ? (
+                    <SocialIconLink href={linkedinUrl} label={`${name} on LinkedIn`}>
+                      <Linkedin className="h-3.5 w-3.5" />
+                    </SocialIconLink>
+                  ) : null}
+                  {xUrl ? (
+                    <SocialIconLink href={xUrl} label={`${name} on X`}>
+                      <XMarkIcon className="h-3 w-3" />
+                    </SocialIconLink>
+                  ) : null}
+                </span>
+              ) : null}
+            </div>
+            <p className="text-xs text-muted-foreground">{position}</p>
+          </li>
+        );
+      }}
+    />
   );
 }
-
-

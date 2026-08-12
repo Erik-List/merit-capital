@@ -88,8 +88,12 @@ export default async function InvestorProfilePage({ params }: InvestorPageParams
   const isIndividual = investor.investor_type === 'Individual';
 
   return (
-    <div className="min-h-screen">
-      <div className="container mx-auto px-4 py-8">
+    // Viewport-bound on md+: the page never scrolls, cards scroll inside.
+    // Below md the gate blocks the app anyway, but document flow is kept.
+    // 66px = the sticky nav's real height (65px content + 1px border), which
+    // exceeds the 4rem --nav-height token by 2px.
+    <div className="min-h-screen md:min-h-0 md:h-[calc(100dvh-66px)] md:overflow-hidden">
+      <div className="container mx-auto px-4 py-8 md:flex md:h-full md:flex-col">
         <div className="mb-8">
           <Link href="/leaderboard" className="text-muted-foreground hover:text-foreground">
             ← Back to Leaderboard
@@ -97,11 +101,11 @@ export default async function InvestorProfilePage({ params }: InvestorPageParams
         </div>
 
         {/* Grid layout: Left column (2/3) for main content, Right column (1/3) for sidebar */}
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3 md:min-h-0 md:flex-1">
           {/* Left column: Main content (same for both types) - Single glass card */}
-          <div className="md:col-span-2">
-            <Card className="glass">
-              <CardContent className="p-0">
+          <div className="md:col-span-2 md:min-h-0">
+            <Card className="glass md:h-full md:overflow-hidden">
+              <CardContent className="p-0 md:h-full md:overflow-y-auto">
                 {/* Component 1: Header */}
                 <div className="px-4 py-6">
                   <InvestorHeader investor={investor} />
@@ -144,7 +148,7 @@ export default async function InvestorProfilePage({ params }: InvestorPageParams
           </div>
 
           {/* Right column: Sidebar - Conditional based on investor type */}
-          <div className="space-y-6">
+          <div className="flex flex-col gap-6 md:min-h-0">
             {isInstitutional && (
               <>
                 {/* Institutional: People and Funds */}

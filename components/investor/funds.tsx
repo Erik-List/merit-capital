@@ -1,5 +1,8 @@
+'use client';
+
 import type { Database } from '@/types/supabase';
 import { parseFundSize } from '@/lib/fund-size';
+import { SearchableList } from './searchable-list';
 
 type Investor = Database['public']['Tables']['investors']['Row'];
 
@@ -126,37 +129,46 @@ export function Funds({ investor }: FundsProps) {
     return null;
   }
 
-  return (
-    <section className="glass border border-input/30 rounded-xl p-5 space-y-5">
-      <header>
-        <h3 className="text-lg font-medium">Funds</h3>
-      </header>
+  const aumBlock = (
+    <div className="space-y-1">
+      <div className="text-sm text-muted-foreground uppercase tracking-wide">AUM</div>
+      <div className="text-xl font-semibold text-foreground">{formatAum(aumRange)}</div>
+    </div>
+  );
 
-      <div className="space-y-1">
-        <div className="text-sm text-muted-foreground uppercase tracking-wide">AUM</div>
-        <div className="text-xl font-semibold text-foreground">{formatAum(aumRange)}</div>
-      </div>
-
-      {funds.length > 0 ? (
-        <ul className="space-y-4">
-          {funds.map((fund, index) => (
-            <li key={`${fund.name}-${index}`} className="space-y-1">
-              <div className="flex items-start justify-between gap-2">
-                <span className="text-sm text-foreground">{fund.name}</span>
-                {isNumber(fund.size) ? (
-                  <span className="text-sm tabular-nums text-muted-foreground">${formatCurrencyShort(fund.size)}</span>
-                ) : null}
-              </div>
-              {fund.vintage ? (
-                <p className="text-xs text-muted-foreground">Vintage {fund.vintage}</p>
-              ) : null}
-            </li>
-          ))}
-        </ul>
-      ) : (
+  if (funds.length === 0) {
+    return (
+      <section className="glass border border-input/30 rounded-xl p-5 space-y-5">
+        <header>
+          <h3 className="text-lg font-medium">Funds</h3>
+        </header>
+        {aumBlock}
         <p className="text-sm text-muted-foreground">Fund details coming soon.</p>
+      </section>
+    );
+  }
+
+  return (
+    <SearchableList
+      title="Funds"
+      items={funds}
+      searchText={(fund) => fund.name}
+      searchPlaceholder="Search funds"
+      topContent={aumBlock}
+      renderItem={(fund, index) => (
+        <li key={`${fund.name}-${index}`} className="space-y-1">
+          <div className="flex items-start justify-between gap-2">
+            <span className="text-sm text-foreground">{fund.name}</span>
+            {isNumber(fund.size) ? (
+              <span className="text-sm tabular-nums text-muted-foreground">${formatCurrencyShort(fund.size)}</span>
+            ) : null}
+          </div>
+          {fund.vintage ? (
+            <p className="text-xs text-muted-foreground">Vintage {fund.vintage}</p>
+          ) : null}
+        </li>
       )}
-    </section>
+    />
   );
 }
 
