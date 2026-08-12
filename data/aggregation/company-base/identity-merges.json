@@ -1,0 +1,953 @@
+{
+ "sequoia-capital": {
+  "_comment": "Durable identity corrections from outcome run 2 (2026-08-12). Applied by build-company-base.py on every rebuild. merges: canonical <- duplicates (renames, legal entities, registrant variants). never_merge: proven-distinct pairs the string logic must not touch. rejects: rows that are not portfolio companies (dropped to rejected-rows.csv). desk: decision-desk reassignments (row leaves the us-eu denominator via lineage).",
+  "merges": [
+   {
+    "canonical": "block",
+    "duplicates": [
+     "square"
+    ],
+    "reason": "EDGAR CIK 1512673: Square, Inc. renamed Block, Inc. 2021"
+   },
+   {
+    "canonical": "mongodb",
+    "duplicates": [
+     "10gen"
+    ],
+    "reason": "CIK 1441816 name history: 10GEN INC -> MongoDB, Inc."
+   },
+   {
+    "canonical": "servicenow",
+    "duplicates": [
+     "service-now-com"
+    ],
+    "reason": "CIK 1373715 name history: Glidesoft -> SERVICE-NOW.COM -> ServiceNow"
+   },
+   {
+    "canonical": "dropbox",
+    "duplicates": [
+     "evenflow-inc"
+    ],
+    "reason": "CIK 1467623 name history: Evenflow, Inc. -> Dropbox, Inc."
+   },
+   {
+    "canonical": "health-catalyst",
+    "duplicates": [
+     "healthcare-quality-catalyst",
+     "hqc-holdings-inc"
+    ],
+    "reason": "CIK 1636422 name history: HQC Holdings -> Health Catalyst; Healthcare Quality Catalyst was the original operating name"
+   },
+   {
+    "canonical": "berkeley-lights",
+    "duplicates": [
+     "bruker-cellular-analysis-inc"
+    ],
+    "reason": "CIK 1689657: Berkeley Lights renamed PhenomeX, acquired by Bruker 2023; investment-era name kept"
+   },
+   {
+    "canonical": "feihe-international-inc",
+    "duplicates": [
+     "american-dairy-inc"
+    ],
+    "reason": "CIK 789868: American Dairy renamed Feihe International"
+   },
+   {
+    "canonical": "rec-room",
+    "duplicates": [
+     "against-gravity"
+    ],
+    "reason": "Against Gravity is Rec Room's original studio name"
+   },
+   {
+    "canonical": "jawbone-aka-aliph",
+    "duplicates": [
+     "aliphcom"
+    ],
+    "reason": "AliphCom is Jawbone's legal entity"
+   },
+   {
+    "canonical": "amcc",
+    "duplicates": [
+     "applied-micro-circuits-corp"
+    ],
+    "reason": "Applied Micro Circuits Corp is AMCC's registrant name"
+   },
+   {
+    "canonical": "hyperion-solutions",
+    "duplicates": [
+     "arbor-software-corp",
+     "arbor-hyperion"
+    ],
+    "reason": "Arbor Software renamed Hyperion Solutions 1998 (Oracle 2007); three renderings of one company"
+   },
+   {
+    "canonical": "mos",
+    "duplicates": [
+     "askmos-inc"
+    ],
+    "reason": "AskMos is Mos's legal entity"
+   },
+   {
+    "canonical": "assurex-health",
+    "duplicates": [
+     "assurerx"
+    ],
+    "reason": "AssureRx Health renamed Assurex Health"
+   },
+   {
+    "canonical": "carbon-black",
+    "duplicates": [
+     "bit9"
+    ],
+    "reason": "Bit9 renamed Carbon Black 2016 (distinct from carbon/carbon3d, the 3D-printing company)"
+   },
+   {
+    "canonical": "cafepress",
+    "duplicates": [
+     "cafepresscom"
+    ],
+    "reason": "era-A slug variant of CafePress"
+   },
+   {
+    "canonical": "carbon",
+    "duplicates": [
+     "carbon3d"
+    ],
+    "reason": "Carbon3D is Carbon's legal entity (3D printing; distinct from carbon-black)"
+   },
+   {
+    "canonical": "biomodal",
+    "duplicates": [
+     "cegx"
+    ],
+    "reason": "Cambridge Epigenetix renamed biomodal"
+   },
+   {
+    "canonical": "cafe-coffee-day",
+    "duplicates": [
+     "coffee-day"
+    ],
+    "reason": "Coffee Day and Cafe Coffee Day are one company (Coffee Day Enterprises)"
+   },
+   {
+    "canonical": "comviva",
+    "duplicates": [
+     "bharti-telesoft"
+    ],
+    "reason": "Bharti Telesoft renamed Comviva 2009"
+   },
+   {
+    "canonical": "harvey",
+    "duplicates": [
+     "counsel-ai-corp"
+    ],
+    "reason": "Counsel AI Corp is Harvey's legal entity"
+   },
+   {
+    "canonical": "despegar",
+    "duplicates": [
+     "decolar"
+    ],
+    "reason": "Decolar is Despegar's Brazilian brand, same company"
+   },
+   {
+    "canonical": "deem-inc",
+    "duplicates": [
+     "rearden-commerce-inc"
+    ],
+    "reason": "Rearden Commerce renamed Deem 2013"
+   },
+   {
+    "canonical": "embark-trucks",
+    "duplicates": [
+     "embark-technology-inc"
+    ],
+    "reason": "Embark Technology is Embark Trucks' registrant"
+   },
+   {
+    "canonical": "expanse-inc",
+    "duplicates": [
+     "qadium-inc"
+    ],
+    "reason": "Qadium renamed Expanse 2018 (Palo Alto Networks 2020)"
+   },
+   {
+    "canonical": "dbt-labs",
+    "duplicates": [
+     "fishtown-analytics"
+    ],
+    "reason": "Fishtown Analytics renamed dbt Labs 2021"
+   },
+   {
+    "canonical": "flite",
+    "duplicates": [
+     "widgetbox"
+    ],
+    "reason": "Widgetbox renamed Flite 2012 (Snap 2016)"
+   },
+   {
+    "canonical": "force10-networks",
+    "duplicates": [
+     "turin-networks"
+    ],
+    "reason": "Turin Networks merged into Force10 2009; one surviving entity (Dell 2011)"
+   },
+   {
+    "canonical": "natera",
+    "duplicates": [
+     "gene-security-network"
+    ],
+    "reason": "Gene Security Network renamed Natera 2012"
+   },
+   {
+    "canonical": "cue-labs",
+    "duplicates": [
+     "greplin"
+    ],
+    "reason": "Greplin renamed Cue 2012 (Apple 2013)"
+   },
+   {
+    "canonical": "firstsource",
+    "duplicates": [
+     "icici-onesource"
+    ],
+    "reason": "ICICI OneSource renamed Firstsource 2006"
+   },
+   {
+    "canonical": "ipg",
+    "duplicates": [
+     "implantable-provider-group-inc"
+    ],
+    "reason": "Implantable Provider Group is IPG's registrant"
+   },
+   {
+    "canonical": "integration-associates",
+    "duplicates": [
+     "integration-assoc"
+    ],
+    "reason": "name rendering variant"
+   },
+   {
+    "canonical": "ins",
+    "duplicates": [
+     "international-network-services"
+    ],
+    "reason": "International Network Services is INS's full name"
+   },
+   {
+    "canonical": "commons",
+    "duplicates": [
+     "joro"
+    ],
+    "reason": "Joro renamed Commons 2022"
+   },
+   {
+    "canonical": "metaswitch-networks",
+    "duplicates": [
+     "data-connection"
+    ],
+    "reason": "Data Connection renamed Metaswitch Networks 2008 (Microsoft 2020)"
+   },
+   {
+    "canonical": "hayneedle",
+    "duplicates": [
+     "netshops"
+    ],
+    "reason": "NetShops renamed Hayneedle 2009"
+   },
+   {
+    "canonical": "netapp",
+    "duplicates": [
+     "network-appliance"
+    ],
+    "reason": "Network Appliance renamed NetApp 2008"
+   },
+   {
+    "canonical": "nubank",
+    "duplicates": [
+     "nu-holdings-ltd"
+    ],
+    "reason": "Nu Holdings is Nubank's listed entity"
+   },
+   {
+    "canonical": "quantenna",
+    "duplicates": [
+     "on-semiconductor-connectivity-solutions-inc"
+    ],
+    "reason": "Quantenna renamed post ON Semi 2019 acquisition"
+   },
+   {
+    "canonical": "pivotal-software-inc",
+    "duplicates": [
+     "gopivotal-inc"
+    ],
+    "reason": "GoPivotal renamed Pivotal Software 2013"
+   },
+   {
+    "canonical": "mevio",
+    "duplicates": [
+     "podshow"
+    ],
+    "reason": "PodShow renamed Mevio 2008"
+   },
+   {
+    "canonical": "quince-therapeutics",
+    "duplicates": [
+     "cortexyme"
+    ],
+    "reason": "Cortexyme renamed Quince Therapeutics 2022"
+   },
+   {
+    "canonical": "grafana",
+    "duplicates": [
+     "raintank-inc"
+    ],
+    "reason": "Raintank is Grafana Labs' original legal entity"
+   },
+   {
+    "canonical": "the-wing",
+    "duplicates": [
+     "refresh-club-inc"
+    ],
+    "reason": "Refresh Club is The Wing's legal entity"
+   },
+   {
+    "canonical": "mellmo",
+    "duplicates": [
+     "roambi"
+    ],
+    "reason": "Roambi is MeLLmo's product/brand name"
+   },
+   {
+    "canonical": "searchmecom",
+    "duplicates": [
+     "searchme-inc"
+    ],
+    "reason": "registrant/slug variants of SearchMe"
+   },
+   {
+    "canonical": "semgrep",
+    "duplicates": [
+     "r2c"
+    ],
+    "reason": "r2c renamed Semgrep, Inc. 2023"
+   },
+   {
+    "canonical": "citizen",
+    "duplicates": [
+     "sp0n-inc"
+    ],
+    "reason": "sp0n is Citizen's legal entity"
+   },
+   {
+    "canonical": "spacex",
+    "duplicates": [
+     "space-exploration-technologies-corp"
+    ],
+    "reason": "Space Exploration Technologies is SpaceX's registrant"
+   },
+   {
+    "canonical": "inkling-systems-inc",
+    "duplicates": [
+     "standard-nine-inc"
+    ],
+    "reason": "Standard Nine is Inkling's legal entity"
+   },
+   {
+    "canonical": "storwize",
+    "duplicates": [
+     "storewiz"
+    ],
+    "reason": "spelling variants of one company (IBM 2010)"
+   },
+   {
+    "canonical": "popsugar",
+    "duplicates": [
+     "sugar-publishing"
+    ],
+    "reason": "Sugar Publishing/Sugar Inc is PopSugar's parent entity"
+   },
+   {
+    "canonical": "healthcentral",
+    "duplicates": [
+     "the-healthcentral-network"
+    ],
+    "reason": "name variants of HealthCentral"
+   },
+   {
+    "canonical": "think-finance",
+    "duplicates": [
+     "thinkcash"
+    ],
+    "reason": "ThinkCash was Think Finance's earlier brand"
+   },
+   {
+    "canonical": "formation-bio",
+    "duplicates": [
+     "trialspark-inc"
+    ],
+    "reason": "TrialSpark renamed Formation Bio 2023"
+   },
+   {
+    "canonical": "sourceforge",
+    "duplicates": [
+     "va-linux-systems-inc",
+     "va-software",
+     "va-linux-sourceforge"
+    ],
+    "reason": "VA Linux -> VA Software -> SourceForge lineage, one company"
+   },
+   {
+    "canonical": "earth-networks",
+    "duplicates": [
+     "weatherbug"
+    ],
+    "reason": "WeatherBug is AWS Convergence/Earth Networks' brand"
+   },
+   {
+    "canonical": "zappos",
+    "duplicates": [
+     "zapposcom"
+    ],
+    "reason": "era-A slug variant of Zappos"
+   },
+   {
+    "canonical": "apollo",
+    "duplicates": [
+     "zenleads-inc"
+    ],
+    "reason": "ZenLeads is Apollo.io's legal entity"
+   },
+   {
+    "canonical": "faire",
+    "duplicates": [
+     "indigo-fair"
+    ],
+    "reason": "Indigo Fair was Faire's original name (late find, run 2 grind)"
+   },
+   {
+    "canonical": "instacart",
+    "duplicates": [
+     "maplebear-inc"
+    ],
+    "reason": "Maplebear Inc. is Instacart's legal entity (late find, run 3)"
+   }
+  ],
+  "never_merge": [
+   {
+    "slugs": [
+     "linear",
+     "linear-technology"
+    ],
+    "reason": "Linear (dev tools, 2021) and Linear Technology (semis, 1981) are different companies"
+   },
+   {
+    "slugs": [
+     "keen-labs-inc",
+     "keen-technologies"
+    ],
+    "reason": "CIK join is a false match; different companies"
+   },
+   {
+    "slugs": [
+     "carbon",
+     "carbon-black"
+    ],
+    "reason": "Carbon (3D printing) and Carbon Black (security) are different companies"
+   }
+  ],
+  "rejects": [
+   {
+    "slug": "all-stages",
+    "reason": "portfolio-filter label scraped as a company"
+   },
+   {
+    "slug": "early-stage",
+    "reason": "portfolio-filter label scraped as a company"
+   },
+   {
+    "slug": "growth-stage",
+    "reason": "portfolio-filter label scraped as a company"
+   },
+   {
+    "slug": "seed-stage",
+    "reason": "portfolio-filter label scraped as a company"
+   },
+   {
+    "slug": "semiconductors",
+    "reason": "category label scraped as a company"
+   },
+   {
+    "slug": "sc-site",
+    "reason": "2013 scrape artifact"
+   },
+   {
+    "slug": "andy-shah",
+    "reason": "person, not a company"
+   },
+   {
+    "slug": "david-spector",
+    "reason": "person, not a company"
+   },
+   {
+    "slug": "david-velez",
+    "reason": "person, not a company"
+   },
+   {
+    "slug": "jake-anderson",
+    "reason": "person, not a company"
+   },
+   {
+    "slug": "kenneth-lee",
+    "reason": "person, not a company"
+   },
+   {
+    "slug": "luis-robles",
+    "reason": "person, not a company"
+   },
+   {
+    "slug": "rajiv-krishnarao",
+    "reason": "person, not a company"
+   },
+   {
+    "slug": "timothy-lee",
+    "reason": "person, not a company"
+   },
+   {
+    "slug": "vikram-arora",
+    "reason": "person, not a company"
+   },
+   {
+    "slug": "metastable",
+    "reason": "crypto hedge fund Sequoia LP'd into; fund vehicle"
+   },
+   {
+    "slug": "polychain-capital",
+    "reason": "crypto fund Sequoia LP'd into; fund vehicle"
+   },
+   {
+    "slug": "y-combinator",
+    "reason": "accelerator/fund Sequoia LP'd into; not a portfolio company"
+   },
+   {
+    "slug": "reynolds-co-venture-partners-llc",
+    "reason": "venture fund LLC; fund vehicle"
+   }
+  ],
+  "desk": [
+   {
+    "slug": "51com",
+    "lineage": "china"
+   },
+   {
+    "slug": "51wancom",
+    "lineage": "china"
+   },
+   {
+    "slug": "56com",
+    "lineage": "china"
+   },
+   {
+    "slug": "autonavi",
+    "lineage": "china"
+   },
+   {
+    "slug": "bihucom",
+    "lineage": "china"
+   },
+   {
+    "slug": "bit-mining-ltd",
+    "lineage": "china"
+   },
+   {
+    "slug": "bitcomet",
+    "lineage": "china"
+   },
+   {
+    "slug": "changelight",
+    "lineage": "china"
+   },
+   {
+    "slug": "china-concord-alliance-co",
+    "lineage": "china"
+   },
+   {
+    "slug": "china-dental-holdings",
+    "lineage": "china"
+   },
+   {
+    "slug": "china-linong",
+    "lineage": "china"
+   },
+   {
+    "slug": "china-nuokang-bio-pharmaceutical",
+    "lineage": "china"
+   },
+   {
+    "slug": "cloopen-group-holding-ltd",
+    "lineage": "china"
+   },
+   {
+    "slug": "comsenz",
+    "lineage": "china"
+   },
+   {
+    "slug": "country-style-cooking-restaurant-chain-co-ltd",
+    "lineage": "china"
+   },
+   {
+    "slug": "dianping",
+    "lineage": "china"
+   },
+   {
+    "slug": "dingdong-cayman-ltd",
+    "lineage": "china"
+   },
+   {
+    "slug": "douyu-international-holdings-ltd",
+    "lineage": "china"
+   },
+   {
+    "slug": "etonkids-educational-group",
+    "lineage": "china"
+   },
+   {
+    "slug": "finvolution-group",
+    "lineage": "china"
+   },
+   {
+    "slug": "full-truck-alliance-co-ltd",
+    "lineage": "china"
+   },
+   {
+    "slug": "galaxycore",
+    "lineage": "china"
+   },
+   {
+    "slug": "great-dreams",
+    "lineage": "china"
+   },
+   {
+    "slug": "hiersun",
+    "lineage": "china"
+   },
+   {
+    "slug": "jiexun",
+    "lineage": "china"
+   },
+   {
+    "slug": "jintv",
+    "lineage": "china"
+   },
+   {
+    "slug": "jinye",
+    "lineage": "china"
+   },
+   {
+    "slug": "little-swan",
+    "lineage": "china"
+   },
+   {
+    "slug": "lubao",
+    "lineage": "china"
+   },
+   {
+    "slug": "maple-leaf-educational-systems",
+    "lineage": "china"
+   },
+   {
+    "slug": "maxscend",
+    "lineage": "china"
+   },
+   {
+    "slug": "mecox-lane",
+    "lineage": "china"
+   },
+   {
+    "slug": "netqin-mobile-inc",
+    "lineage": "china"
+   },
+   {
+    "slug": "new-oriental-energy-chemical-corp",
+    "lineage": "china"
+   },
+   {
+    "slug": "new-summit-biopharma",
+    "lineage": "china"
+   },
+   {
+    "slug": "noah-holdings",
+    "lineage": "china"
+   },
+   {
+    "slug": "pdd-holdings-inc",
+    "lineage": "china"
+   },
+   {
+    "slug": "peak-sport",
+    "lineage": "china"
+   },
+   {
+    "slug": "polybona",
+    "lineage": "china"
+   },
+   {
+    "slug": "qihoo-360-technology-co-ltd",
+    "lineage": "china"
+   },
+   {
+    "slug": "renhe-commercial-holdings",
+    "lineage": "china"
+   },
+   {
+    "slug": "sky-flying-media",
+    "lineage": "china"
+   },
+   {
+    "slug": "sky-mobi",
+    "lineage": "china"
+   },
+   {
+    "slug": "sunprint",
+    "lineage": "china"
+   },
+   {
+    "slug": "tian-you-education",
+    "lineage": "china"
+   },
+   {
+    "slug": "tuniu-corp",
+    "lineage": "china"
+   },
+   {
+    "slug": "uupark",
+    "lineage": "china"
+   },
+   {
+    "slug": "uusee",
+    "lineage": "china"
+   },
+   {
+    "slug": "vanceinfo-technologies",
+    "lineage": "china"
+   },
+   {
+    "slug": "wanxue",
+    "lineage": "china"
+   },
+   {
+    "slug": "xyygame",
+    "lineage": "china"
+   },
+   {
+    "slug": "zai-lab-ltd",
+    "lineage": "china"
+   },
+   {
+    "slug": "zhanzuo",
+    "lineage": "china"
+   },
+   {
+    "slug": "feihe-international-inc",
+    "lineage": "china"
+   },
+   {
+    "slug": "apna-time-inc",
+    "lineage": "india"
+   },
+   {
+    "slug": "apnaloancom",
+    "lineage": "india"
+   },
+   {
+    "slug": "apnapaisa",
+    "lineage": "india"
+   },
+   {
+    "slug": "applabs-technologies",
+    "lineage": "india"
+   },
+   {
+    "slug": "astra-business-services",
+    "lineage": "india"
+   },
+   {
+    "slug": "brainvisa-technologies",
+    "lineage": "india"
+   },
+   {
+    "slug": "cafe-coffee-day",
+    "lineage": "india"
+   },
+   {
+    "slug": "carzonrent",
+    "lineage": "india"
+   },
+   {
+    "slug": "coastal-projects",
+    "lineage": "india"
+   },
+   {
+    "slug": "cotton-county",
+    "lineage": "india"
+   },
+   {
+    "slug": "digital-signage-networks",
+    "lineage": "india"
+   },
+   {
+    "slug": "dr-lal-pathlabs",
+    "lineage": "india"
+   },
+   {
+    "slug": "edelweiss-capital",
+    "lineage": "india"
+   },
+   {
+    "slug": "excel-pharmastudies",
+    "lineage": "india"
+   },
+   {
+    "slug": "firstsource",
+    "lineage": "india"
+   },
+   {
+    "slug": "genesis-colors",
+    "lineage": "india"
+   },
+   {
+    "slug": "groww-inc",
+    "lineage": "india"
+   },
+   {
+    "slug": "guruji",
+    "lineage": "india"
+   },
+   {
+    "slug": "gvk-biosciences",
+    "lineage": "india"
+   },
+   {
+    "slug": "idea-cellular",
+    "lineage": "india"
+   },
+   {
+    "slug": "ideacts-innovations",
+    "lineage": "india"
+   },
+   {
+    "slug": "interactive-avenues",
+    "lineage": "india"
+   },
+   {
+    "slug": "justdial",
+    "lineage": "india"
+   },
+   {
+    "slug": "kmc-construction",
+    "lineage": "india"
+   },
+   {
+    "slug": "loconav-inc",
+    "lineage": "india"
+   },
+   {
+    "slug": "manappuram-finance",
+    "lineage": "india"
+   },
+   {
+    "slug": "mauj",
+    "lineage": "india"
+   },
+   {
+    "slug": "meesho-inc",
+    "lineage": "india"
+   },
+   {
+    "slug": "mingleboxcom",
+    "lineage": "india"
+   },
+   {
+    "slug": "nahar-retail",
+    "lineage": "india"
+   },
+   {
+    "slug": "nazara-technologies",
+    "lineage": "india"
+   },
+   {
+    "slug": "paras-pharmaceuticals",
+    "lineage": "india"
+   },
+   {
+    "slug": "printo",
+    "lineage": "india"
+   },
+   {
+    "slug": "prizm-payment-services",
+    "lineage": "india"
+   },
+   {
+    "slug": "reametrix",
+    "lineage": "india"
+   },
+   {
+    "slug": "royal-orchid-hotels",
+    "lineage": "india"
+   },
+   {
+    "slug": "sai-advantium-pharma",
+    "lineage": "india"
+   },
+   {
+    "slug": "satellier",
+    "lineage": "india"
+   },
+   {
+    "slug": "satnav-technologies",
+    "lineage": "india"
+   },
+   {
+    "slug": "shaadicom",
+    "lineage": "india"
+   },
+   {
+    "slug": "sks-microfinance",
+    "lineage": "india"
+   },
+   {
+    "slug": "strand-life-sciences",
+    "lineage": "india"
+   },
+   {
+    "slug": "times-internet",
+    "lineage": "india"
+   },
+   {
+    "slug": "travelguru",
+    "lineage": "india"
+   },
+   {
+    "slug": "tribi-embedded-technologies",
+    "lineage": "india"
+   },
+   {
+    "slug": "tutorvista",
+    "lineage": "india"
+   },
+   {
+    "slug": "ujjivan",
+    "lineage": "india"
+   },
+   {
+    "slug": "wizrocket-inc",
+    "lineage": "india"
+   },
+   {
+    "slug": "comviva",
+    "lineage": "india"
+   }
+  ]
+ }
+}
