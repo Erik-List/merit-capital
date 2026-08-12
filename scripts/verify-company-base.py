@@ -100,7 +100,33 @@ def main() -> None:
     banned = [t for t in ("FILER_PAT", "is_issuer", "FUNDISH", "hongshan|peak xv") if t in src]
     check(not banned, "name-based filter regexes deleted", f"still present: {banned}")
 
-    # 9 — review surface regenerated and consistent
+    # 9 — identity overlay applied: no absorbed/rejected slug in the published
+    # base, every canonical present, and no two published rows share a CIK
+    # unless the overlay names them as proven distinct.
+    idm_p = CB / "identity-merges.json"
+    if idm_p.exists():
+        ov = json.load(open(idm_p)).get("sequoia-capital", {})
+        slugs = {r["slug"] for r in rows}
+        gone_expected = {d for m in ov.get("merges", []) for d in m["duplicates"]}
+        gone_expected |= {rj["slug"] for rj in ov.get("rejects", [])}
+        still = sorted(gone_expected & slugs)
+        check(not still, "no absorbed/rejected slug in published base",
+              f"present: {still[:5]}" if still else f"{len(gone_expected)} absent")
+        canon_missing = sorted({m["canonical"] for m in ov.get("merges", [])} - slugs
+                               - {dk["slug"] for dk in ov.get("desk", [])})
+        check(not canon_missing, "every merge canonical present (or desk-moved)",
+              f"missing: {canon_missing[:5]}" if canon_missing else "all present")
+        allowed = {frozenset(p["slugs"]) for p in ov.get("never_merge", [])}
+        by_cik: dict[str, list] = {}
+        for r in rows:
+            if r.get("edgar_cik"):
+                by_cik.setdefault(r["edgar_cik"], []).append(r["slug"])
+        shared = [ss for ss in by_cik.values()
+                  if len(ss) > 1 and frozenset(ss) not in allowed]
+        check(not shared, "no unexplained shared CIK among published rows",
+              f"groups: {shared[:3]}" if shared else f"{len(by_cik)} distinct CIKs")
+
+    # 10 — review surface regenerated and consistent
     html = (CB / "review.html").read_text(encoding="utf-8", errors="replace")
     check(f'"{rows[0]["name"]}"' in html or rows[0]["name"] in html,
           "review.html regenerated from current base",

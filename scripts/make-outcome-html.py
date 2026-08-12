@@ -22,11 +22,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "data" / "aggregation" / "outcomes"
 
-FIELDS = ["slug", "name", "status", "valuation_usd", "valuation_asof",
+FIELDS = ["slug", "name", "status", "value_tag", "value_tag_source",
+          "valuation_usd", "valuation_asof",
           "valuation_source", "valuation_confidence", "is_public", "public_since",
-          "entry_stage", "entry_offering_usd", "entry_quarter", "round_count",
+          "entry_stage", "entry_stage_source", "entry_stage_confidence",
+          "entry_offering_usd", "entry_quarter", "round_count",
           "next_offering_usd", "next_quarter", "seed_to_a_graduation",
-          "graduation_source", "graduation_confidence", "country", "region",
+          "graduation_source", "graduation_confidence",
+          "country", "country_source", "country_confidence", "region",
           "flags", "tier", "first_seen", "sector", "formd_links", "edgar_links",
           "wayback_first_link", "cik", "cik_name", "notes"]
 
@@ -315,8 +318,13 @@ def main() -> None:
              "first_seen": b.get("first_seen"), "sector": b.get("sector"),
              "formd_links": b.get("formd_links"), "edgar_links": b.get("edgar_links"),
              "wayback_first_link": b.get("wayback_first_link")}
-        r.update(resolved.get(slug, {}))
-        r.update(cls.get(slug, {}))
+        det = resolved.get(slug, {})
+        ov = cls.get(slug, {})
+        r.update(det)
+        r.update(ov)
+        # flags union across layers, so a batch answer can't hide a
+        # deterministic flag in the review surface
+        r["flags"] = sorted(set(det.get("flags") or []) | set(ov.get("flags") or []))
         rows.append({k: r.get(k) for k in FIELDS})
 
     rows.sort(key=priority)
