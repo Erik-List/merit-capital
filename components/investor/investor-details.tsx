@@ -262,7 +262,7 @@ export function InvestorDetails({ investor }: InvestorDetailsProps) {
           <div className="space-y-2">
             <div className="text-lg font-semibold">Investment Stages</div>
             <p className="text-xs text-muted-foreground">
-              The distribution of investments by {investor.name} across different funding stages.
+              The distribution of entry investments by {investor.name} across different funding stages.
             </p>
           </div>
           <div className="space-y-3">
@@ -290,7 +290,7 @@ export function InvestorDetails({ investor }: InvestorDetailsProps) {
           <div className="space-y-2">
             <div className="text-lg font-semibold">Investment Geography</div>
             <p className="text-xs text-muted-foreground">
-              The geographic distribution of investments made by {investor.name}.
+              The headquarters locations of companies {investor.name} invested in.
             </p>
           </div>
           <div className="text-sm text-muted-foreground flex flex-row flex-wrap items-center gap-x-1 leading-tight">
@@ -310,9 +310,9 @@ export function InvestorDetails({ investor }: InvestorDetailsProps) {
       {hasFocusAreas ? (
         <section className="space-y-4">
           <div className="space-y-2">
-            <div className="text-lg font-semibold">Investment Scope and Focus</div>
+            <div className="text-lg font-semibold">Investment Focus</div>
             <p className="text-xs text-muted-foreground">
-              The investment focus areas and scope of {investor.name}'s portfolio.
+              The focus of companies {investor.name} invested in.
             </p>
           </div>
           <div className="text-sm text-muted-foreground flex flex-row flex-wrap items-center gap-x-1 leading-tight">
