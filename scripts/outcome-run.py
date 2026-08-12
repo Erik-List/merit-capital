@@ -45,6 +45,161 @@ STAGE_BANDS = ((1_000_000, "Pre-Seed"), (7_500_000, "Seed"), (30_000_000, "Serie
 GRADUATION_MULTIPLE = 2.0
 GRADUATION_FLOOR = 5_000_000
 
+# ---- run 2: value tags, countries, regions -------------------------------
+VALUE_TAGS = ("below_1b", "1b_plus", "10b_plus", "100b_plus")
+VALID_STAGES = {"Pre-Seed", "Seed", "Series A", "Growth"}
+
+US_STATES = {
+    "ALABAMA", "ALASKA", "ARIZONA", "ARKANSAS", "CALIFORNIA", "COLORADO",
+    "CONNECTICUT", "DELAWARE", "DISTRICT OF COLUMBIA", "FLORIDA", "GEORGIA",
+    "HAWAII", "IDAHO", "ILLINOIS", "INDIANA", "IOWA", "KANSAS", "KENTUCKY",
+    "LOUISIANA", "MAINE", "MARYLAND", "MASSACHUSETTS", "MICHIGAN", "MINNESOTA",
+    "MISSISSIPPI", "MISSOURI", "MONTANA", "NEBRASKA", "NEVADA", "NEW HAMPSHIRE",
+    "NEW JERSEY", "NEW MEXICO", "NEW YORK", "NORTH CAROLINA", "NORTH DAKOTA",
+    "OHIO", "OKLAHOMA", "OREGON", "PENNSYLVANIA", "PUERTO RICO", "RHODE ISLAND",
+    "SOUTH CAROLINA", "SOUTH DAKOTA", "TENNESSEE", "TEXAS", "UTAH", "VERMONT",
+    "VIRGINIA", "WASHINGTON", "WEST VIRGINIA", "WISCONSIN", "WYOMING",
+}
+# Business addresses in filing havens say nothing about where a company
+# operates; fall through to the next country source instead.
+OFFSHORE = {"CAYMAN ISLANDS", "VIRGIN ISLANDS, BRITISH", "BERMUDA",
+            "MARSHALL ISLANDS", "BAHAMAS", "JERSEY", "GUERNSEY"}
+COUNTRY_CANON = {
+    "UNITED STATES": "United States", "UNITED STATES OF AMERICA": "United States",
+    "United States of America": "United States",
+    "UNITED KINGDOM": "United Kingdom", "Kingdom of the Netherlands": "Netherlands",
+    "People's Republic of China": "China", "CHINA": "China",
+    "KOREA, REPUBLIC OF": "South Korea", "Republic of Korea": "South Korea",
+    "RUSSIAN FEDERATION": "Russia", "TAIWAN, PROVINCE OF CHINA": "Taiwan",
+    "Republic of Ireland": "Ireland", "CZECHIA": "Czech Republic",
+    "Czechia": "Czech Republic", "VIET NAM": "Vietnam",
+    "UNITED ARAB EMIRATES": "United Arab Emirates", "HONG KONG": "Hong Kong",
+}
+REGION_OF = {}
+for _reg, _cs in (
+    ("North America", ["United States", "Canada"]),
+    ("Europe", ["United Kingdom", "Germany", "France", "Netherlands", "Sweden",
+                "Switzerland", "Belgium", "Ireland", "Spain", "Italy", "Denmark",
+                "Norway", "Finland", "Austria", "Poland", "Portugal", "Estonia",
+                "Lithuania", "Latvia", "Czech Republic", "Romania", "Bulgaria",
+                "Hungary", "Greece", "Croatia", "Ukraine", "Russia", "Luxembourg",
+                "Iceland", "Cyprus", "Malta", "Slovakia", "Slovenia", "Serbia"]),
+    ("Middle East", ["Israel", "United Arab Emirates", "Saudi Arabia", "Bahrain",
+                     "Qatar", "Kuwait", "Jordan", "Lebanon", "Turkey"]),
+    ("Asia", ["China", "India", "Japan", "South Korea", "Singapore", "Hong Kong",
+              "Taiwan", "Indonesia", "Vietnam", "Thailand", "Malaysia",
+              "Philippines", "Pakistan", "Bangladesh", "Sri Lanka", "Kazakhstan"]),
+    ("Latin America", ["Brazil", "Mexico", "Argentina", "Colombia", "Chile",
+                       "Peru", "Uruguay", "Ecuador", "Costa Rica", "Panama",
+                       "Guatemala", "Venezuela", "Dominican Republic", "Bahamas"]),
+    ("Africa", ["Nigeria", "South Africa", "Kenya", "Egypt", "Ghana", "Morocco",
+                "Tunisia", "Ethiopia", "Senegal", "Rwanda", "Uganda"]),
+    ("Oceania", ["Australia", "New Zealand"]),
+):
+    for _c in _cs:
+        REGION_OF[_c] = _reg
+
+
+# Era-adjusted band ceilings (seed, series A) by entry year. Round sizes
+# inflated roughly 5x between 2006 and 2022; one fixed cutoff put Block's
+# $27.5M 2011 Series B under a 30M "Series A" ceiling.
+ERA_BANDS = ((2010, 1_500_000, 12_000_000), (2014, 2_500_000, 15_000_000),
+             (2018, 4_000_000, 20_000_000), (2021, 6_000_000, 30_000_000),
+             (9999, 8_000_000, 40_000_000))
+
+
+def era_band(usd: int | None, year: int | None) -> str | None:
+    if not usd:
+        return None
+    year = year or 2016
+    for cutoff, seed_max, a_max in ERA_BANDS:
+        if year <= cutoff:
+            if usd <= seed_max / 4:
+                return "Pre-Seed"
+            if usd <= seed_max:
+                return "Seed"
+            if usd <= a_max:
+                return "Series A"
+            return "Growth"
+    return None
+
+
+def structural_stage(rounds: list[dict], partner_accs: set,
+                     year_inc: int | None) -> dict:
+    """Label Sequoia's entry round from Form D STRUCTURE, not amount alone.
+
+    The first partner-attributed filing is only a ceiling on entry recency
+    (the run-3 golden set showed Airbnb's and Stripe's seeds never filed), so
+    the result carries a confidence the knowledge layer may override:
+      - >=2 filings before the entry filing        -> Growth
+      - exactly 1 prior                             -> Series A or Growth by band
+      - 0 priors AND founded >=2008 AND <=4y old    -> era band (sound first round)
+      - 0 priors otherwise                          -> band at LOW confidence
+        (coverage starts 2008; earlier rounds simply never filed)
+    """
+    seq = sorted((r for r in rounds if r.get("accessions")),
+                 key=lambda r: (r.get("sale_date") or "9999",
+                                min(r["accessions"])))
+    entry_idx = next((i for i, r in enumerate(seq)
+                      if partner_accs & set(r["accessions"])), None)
+    if entry_idx is None:
+        return {}
+    e = seq[entry_idx]
+    usd = e.get("offering_usd")
+    year = int(e["sale_date"][:4]) if e.get("sale_date") else None
+    prior = entry_idx
+    band = era_band(usd, year)
+    if prior >= 2:
+        stage, conf = "Growth", "high"
+    elif prior == 1:
+        stage = "Growth" if band == "Growth" else "Series A"
+        conf = "medium"
+    else:
+        # A zero-prior label is NEVER high confidence: seeds routinely skip
+        # Form D under 4(a)(2) (Airbnb '09, Stripe '10), and year_inc resets on
+        # holdco re-incorporation (Nubank's Cayman entity says 2016). Only
+        # ordinality >= 2 earns "high"; the knowledge layer outranks this.
+        stage = band
+        covered = (year_inc or 0) >= 2008
+        young = year is not None and year_inc and (year - year_inc) <= 4
+        conf = "medium" if (covered and young) else "low"
+    return {"stage": stage, "confidence": conf, "prior_filings": prior,
+            "entry_usd": usd, "entry_year": year, "band": band,
+            "age_at_entry": (year - year_inc) if (year and year_inc) else None}
+
+
+def tag_of(usd: float | int) -> str:
+    if usd >= 1e11:
+        return "100b_plus"
+    if usd >= 1e10:
+        return "10b_plus"
+    if usd >= 1e9:
+        return "1b_plus"
+    return "below_1b"
+
+
+def canon_country(raw: str | None) -> str | None:
+    """Normalize an ISSUERS state description, Wikidata label, or free-form
+    country to one display name; US states collapse to United States; offshore
+    filing havens return None (no signal)."""
+    if not raw:
+        return None
+    raw = raw.strip()
+    if raw.upper() in US_STATES:
+        return "United States"
+    if "CANADA" in raw.upper():
+        return "Canada"
+    if raw.upper() in OFFSHORE:
+        return None
+    if raw in COUNTRY_CANON:
+        return COUNTRY_CANON[raw]
+    if raw.upper() in COUNTRY_CANON:
+        return COUNTRY_CANON[raw.upper()]
+    if raw.isupper():  # EDGAR renders foreign countries in caps
+        return " ".join(w if w in ("of", "and", "the") else w.capitalize()
+                        for w in raw.lower().split())
+    return raw
+
 
 def today() -> str:
     return date.today().isoformat()
@@ -176,6 +331,14 @@ def graduation_from_formd(rounds: list[dict], partner_accs: frozenset | set = fr
     return rec
 
 
+def never_merge_pairs() -> set:
+    idm = BASE_DIR / "identity-merges.json"
+    if not idm.exists():
+        return set()
+    return {frozenset(p["slugs"]) for p in
+            json.loads(idm.read_text()).get("sequoia-capital", {}).get("never_merge", [])}
+
+
 def flag_base_defects(resolved: dict, layer_a: dict, base: dict) -> None:
     """Mark rows whose *membership in the portfolio* is doubtful.
 
@@ -200,16 +363,16 @@ def flag_base_defects(resolved: dict, layer_a: dict, base: dict) -> None:
     """
     by_cik: dict[str, list[str]] = {}
     for slug, rec in layer_a.items():
-        if rec.get("cik"):
+        if rec.get("cik") and slug in resolved:
             by_cik.setdefault(rec["cik"], []).append(slug)
 
+    never = never_merge_pairs()
     for slugs in by_cik.values():
-        if len(slugs) > 1:
+        if len(slugs) > 1 and frozenset(slugs) not in never:
             for slug in slugs:
-                if slug in resolved:
-                    flags = set(resolved[slug].get("flags") or [])
-                    flags.add("duplicate")
-                    resolved[slug]["flags"] = sorted(flags)
+                flags = set(resolved[slug].get("flags") or [])
+                flags.add("duplicate")
+                resolved[slug]["flags"] = sorted(flags)
 
     for slug, rec in resolved.items():
         row = base.get(slug, {})
@@ -317,15 +480,45 @@ def cmd_prepare(args) -> None:
           f"{determined} decided deterministically, "
           f"{anchored} entries moved past pre-investor rounds")
 
+    # ---- Issuer evidence: entry-time addresses + name histories (offline)
+    ev_path = OUT / "issuer-evidence.json"
+    if not ev_path.exists() or args.refresh:
+        import subprocess
+        subprocess.run([sys.executable, str(ROOT / "scripts" / "formd-issuer-evidence.py"),
+                        str(OUT / "base-snapshot.csv")], check=True)
+    issuer_ev = json.loads(ev_path.read_text()).get("accessions", {})
+
+    def entry_country(slug: str) -> tuple[str | None, str | None]:
+        """Country at the earliest partner-attributed Form D filing."""
+        accs = sorted(partner_accs.get(slug, ()),
+                      key=lambda a: (int(a.split("-")[1]), a))
+        for acc in accs:
+            e = issuer_ev.get(acc)
+            if e and e.get("state_desc"):
+                c = canon_country(e["state_desc"])
+                if c:
+                    return c, acc
+        return None, None
+
     # ---- Consolidate and emit the queue
     resolved, queue = {}, []
+    cls_prev = load("classification.json", {})
     for row in rows:
         slug = row["slug"]
         a, b, g = layer_a.get(slug, {}), layer_b.get(slug, {}), grad.get(slug, {})
         rec: dict = {"slug": slug, "name": row["name"]}
         rec.update({k: v for k, v in g.items() if v is not None or k == "seed_to_a_graduation"})
-        if b.get("country"):
-            rec["country"] = b["country"]
+        if rec.get("entry_stage"):
+            rec["entry_stage_source"] = "formd_band"
+        # Country precedence: entry-time Form D business address beats a
+        # current-HQ Wikidata claim; offshore havens carry no signal.
+        fd_country, fd_acc = entry_country(slug)
+        if fd_country:
+            rec["country"] = fd_country
+            rec["country_source"] = "formd_address"
+        elif canon_country(b.get("country")):
+            rec["country"] = canon_country(b["country"])
+            rec["country_source"] = "wikidata"
 
         if a.get("valuation_usd") or a.get("status"):
             rec.update({k: v for k, v in a.items()
@@ -349,46 +542,49 @@ def cmd_prepare(args) -> None:
                         "valuation_asof": u.get("asof"),
                         "valuation_source": "unicorn_list",
                         "valuation_confidence": "medium", "is_public": False})
-            if not rec.get("country") and u.get("country"):
-                rec["country"] = u["country"]
+            if not rec.get("country") and canon_country(u.get("country")):
+                rec["country"] = canon_country(u["country"])
+                rec["country_source"] = "wikidata"
             rec["flags"] = sorted(set(rec.get("flags", []) + ["unicorn_name_match"]))
 
-        needs_valuation = "status" not in rec
-        # Where Form D established an entry round that is not Seed, C2A is
-        # not-applicable by definition and there is nothing to ask. Only rows
-        # with no Form D entry evidence at all need a judgement.
-        #
-        # This does under-count slightly: a stealth seed under Section 4(a)(2)
-        # never files, so a company whose first *filing* is a Series A may still
-        # have taken seed money. That is a Form D blind spot the report records,
-        # not something a model can recover from a company name.
-        needs_graduation = (
-            g.get("seed_to_a_graduation") is None
-            and "censored" not in g.get("flags", [])
-            and not g.get("entry_stage")
-        )
-        if needs_valuation or needs_graduation:
+        if rec.get("valuation_usd"):
+            rec["value_tag"] = tag_of(rec["valuation_usd"])
+            rec["value_tag_source"] = rec.get("valuation_source")
+        if rec.get("country"):
+            rec["region"] = REGION_OF.get(rec["country"])
+
+        # ---- run-2 gap queue: what the deterministic layers plus the existing
+        # classification still leave open for this row.
+        overlaid = dict(rec)
+        overlaid.update({k: v for k, v in cls_prev.get(slug, {}).items()
+                         if v is not None})
+        flags_now = set(overlaid.get("flags") or []) | set(rec.get("flags") or [])
+        need = [f for f in ("status", "country", "entry_stage") if not overlaid.get(f)]
+        # Rows awaiting web evidence keep value_tag open for the web pass; the
+        # batch judge may only ever rule DOWN to below_1b, never mint a figure.
+        if not overlaid.get("value_tag") and "needs_web_value" not in flags_now:
+            need.append("value_tag")
+        if need:
+            e = issuer_ev.get(fd_acc, {}) if fd_acc else {}
             queue.append({
                 "slug": slug, "name": row["name"],
                 "first_seen": row.get("first_seen"),
-                "wayback_years": row.get("wayback_years"),
                 "sector": row.get("sector"),
                 "tier": row.get("tier"),
                 "formd_span": row.get("formd_span"),
                 "formd_max_round_usd": row.get("formd_max_round_usd"),
-                "edgar_forms": row.get("edgar_forms"),
                 "rounds": [
                     {"q": r.get("quarter"), "usd": r.get("offering_usd")}
                     for r in formd.get(slug, {}).get("rounds", [])
                 ],
-                # deterministic corroboration for the model's judgement: the
-                # Wikipedia former-unicorns table carries exit reason and date
+                "issuer_city": e.get("city"), "issuer_state": e.get("state_desc"),
+                "year_inc": e.get("year_inc"),
                 "former_unicorn": uni["former"].get(S.norm(row["name"])),
-                "known": {k: rec.get(k) for k in
+                "known": {k: overlaid.get(k) for k in
                           ("status", "valuation_usd", "entry_stage",
-                           "seed_to_a_graduation", "country") if rec.get(k) is not None},
-                "need": ([] if not needs_valuation else ["valuation"])
-                        + ([] if not needs_graduation else ["graduation"]),
+                           "seed_to_a_graduation", "country", "value_tag", "note")
+                          if overlaid.get(k) is not None},
+                "need": need,
             })
         resolved[slug] = rec
 
@@ -449,11 +645,26 @@ def validate_record(rec: dict, slugs: set[str]) -> list[str]:
                             f"{rec.get('valuation_source')!r} (model may not mint numbers)")
     if rec.get("seed_to_a_graduation") is not None and rec.get("entry_stage") != "Seed":
         errs.append(f"{slug}: graduation set but entry_stage={rec.get('entry_stage')!r}")
-    for key in ("valuation_confidence", "graduation_confidence"):
+    for key in ("valuation_confidence", "graduation_confidence",
+                "entry_stage_confidence", "country_confidence"):
         if rec.get(key) is not None and rec[key] not in VALID_CONF:
             errs.append(f"{slug}: bad {key} {rec[key]!r}")
-    if not isinstance(rec.get("flags", []), list):
-        errs.append(f"{slug}: flags must be a list")
+    if rec.get("value_tag") is not None:
+        if rec["value_tag"] not in VALUE_TAGS:
+            errs.append(f"{slug}: value_tag {rec['value_tag']!r}")
+        elif rec["value_tag"] != "below_1b" and not rec.get("valuation_usd"):
+            errs.append(f"{slug}: value_tag {rec['value_tag']} without a sourced figure")
+    if rec.get("entry_stage") is not None and rec["entry_stage"] not in VALID_STAGES:
+        errs.append(f"{slug}: entry_stage {rec['entry_stage']!r}")
+    if rec.get("entry_stage_source") is not None and rec["entry_stage_source"] not in (
+            "formd_band", "formd_structural", "model", "web_verified"):
+        errs.append(f"{slug}: entry_stage_source {rec['entry_stage_source']!r}")
+    if rec.get("country_source") is not None and rec["country_source"] not in (
+            "formd_address", "wikidata", "model_knowledge", "web_verified"):
+        errs.append(f"{slug}: country_source {rec['country_source']!r}")
+    for key in ("flags", "clear_flags"):
+        if key in rec and not isinstance(rec[key], list):
+            errs.append(f"{slug}: {key} must be a list")
     return errs
 
 
@@ -478,10 +689,32 @@ def cmd_record(args) -> None:
         for e in errors[:25]:
             print("  -", e)
         sys.exit(1)
-    # A record replaces only the keys it carries; the merge with the
-    # deterministic layer happens per key at read time, so a graduation-only
-    # answer can never clobber a filing-grade valuation.
-    cls.update(incoming)
+    # A record replaces only the keys it carries. Since run 2, that holds
+    # within classification.json too: a second-pass answer (country, entry
+    # stage, value tag) merges per key into the existing record instead of
+    # replacing it, flags union, and only an explicit clear_flags list may
+    # remove a flag (the web pass clearing needs_web_value after pinning).
+    for slug, rec in incoming.items():
+        prev = cls.get(slug)
+        if prev is None:
+            rec["flags"] = sorted(set(rec.get("flags") or [])
+                                  - set(rec.pop("clear_flags", [])))
+            cls[slug] = rec
+            continue
+        fl = set(prev.get("flags") or []) | set(rec.get("flags") or [])
+        fl -= set(rec.get("clear_flags") or [])
+        old_note = prev.get("note")
+        prev.update({k: v for k, v in rec.items()
+                     if k not in ("flags", "clear_flags")})
+        prev["flags"] = sorted(fl)
+        if old_note and rec.get("note") and rec["note"] not in old_note:
+            prev["note"] = f"{old_note} | {rec['note']}"
+    # normalize country renderings at the door
+    for rec in incoming.values():
+        tgt = cls[rec["slug"]]
+        if tgt.get("country"):
+            tgt["country"] = canon_country(tgt["country"]) or tgt["country"]
+            tgt["region"] = REGION_OF.get(tgt["country"])
     (OUT / "classification.json").write_text(json.dumps(cls, indent=1, sort_keys=True))
     print(f"recorded {len(incoming)} rows; classification now holds {len(cls)}")
 
@@ -501,7 +734,14 @@ def cmd_verify(_args) -> None:
     for row in rows:
         slug = row["slug"]
         rec = dict(resolved.get(slug, {}))
-        rec.update(cls.get(slug, {}))
+        overlay = cls.get(slug, {})
+        # Flags are additive across layers: a batch answer must not be able to
+        # clear a deterministic flag (duplicate, boundary, ...) by emitting its
+        # own list. Everything else is a per-key override.
+        base_flags = set(rec.get("flags") or [])
+        rec.update(overlay)
+        rec["flags"] = sorted(base_flags | set(overlay.get("flags") or []))
+        rec["region"] = REGION_OF.get(rec.get("country"))
         merged[slug] = rec
 
         if not rec.get("status"):
@@ -519,6 +759,25 @@ def cmd_verify(_args) -> None:
         if rec.get("seed_to_a_graduation") is not None and rec.get("entry_stage") != "Seed":
             problems.append(f"{slug}: graduation set but entry_stage={rec.get('entry_stage')!r}")
 
+        # ---- run-2 invariants: full fills, tag/figure consistency
+        tag, usd = rec.get("value_tag"), rec.get("valuation_usd")
+        if not tag:
+            problems.append(f"{slug}: no value_tag")
+        elif tag not in VALUE_TAGS:
+            problems.append(f"{slug}: value_tag {tag!r} not in vocabulary")
+        elif usd and tag != tag_of(usd):
+            problems.append(f"{slug}: value_tag {tag} disagrees with figure {usd:,.0f}")
+        elif tag != "below_1b" and not usd:
+            problems.append(f"{slug}: value_tag {tag} without a sourced figure")
+        if not rec.get("country"):
+            problems.append(f"{slug}: no country")
+        elif rec["country"] not in REGION_OF:
+            problems.append(f"{slug}: country {rec['country']!r} has no region mapping")
+        if not rec.get("entry_stage"):
+            problems.append(f"{slug}: no entry_stage")
+        elif rec["entry_stage"] not in VALID_STAGES:
+            problems.append(f"{slug}: entry_stage {rec['entry_stage']!r} not in vocabulary")
+
     # cumulative invariant
     def names(floor):
         return {s for s, r in merged.items() if (r.get("valuation_usd") or 0) >= floor}
@@ -530,33 +789,55 @@ def cmd_verify(_args) -> None:
     # two names (Network Appliance -> NetApp). Left alone they double-count in
     # every bucket, so they are reported rather than silently summed.
     layer_a = load("layer-a.json", {})
+    snapshot_slugs = {r["slug"] for r in rows}
+    idm = BASE_DIR / "identity-merges.json"
+    proven_distinct = set()
+    if idm.exists():
+        proven_distinct = {
+            frozenset(p["slugs"]) for p in
+            json.loads(idm.read_text()).get("sequoia-capital", {}).get("never_merge", [])}
     by_cik: dict[str, list[str]] = {}
     for slug, rec in layer_a.items():
-        if rec.get("cik"):
+        if rec.get("cik") and slug in snapshot_slugs:
             by_cik.setdefault(rec["cik"], []).append(slug)
-    dupes = {c: s for c, s in by_cik.items() if len(s) > 1}
+    dupes = {c: s for c, s in by_cik.items()
+             if len(s) > 1 and frozenset(s) not in proven_distinct}
     if dupes:
         print(f"\nduplicate companies (same SEC registrant): {len(dupes)} groups")
-        # Duplicates are a base defect awaiting human adjudication, not a run
-        # failure. The run's obligation is that every such row carries the flag
-        # so review sees it and the derivation can exclude it; only an UNFLAGGED
-        # duplicate fails verify.
-        unflagged = [s for slugs in dupes.values() for s in slugs
-                     if "duplicate" not in (merged.get(s, {}).get("flags") or [])]
-        if unflagged:
-            problems.append(f"unflagged duplicate rows: {', '.join(unflagged[:10])}")
+        # Duplicates are a base defect awaiting human adjudication. The run's
+        # obligation: within each registrant group at most ONE row may be
+        # unflagged (the canonical row that derivation counts); a group with two
+        # unflagged rows would double-count and fails verify. A fully flagged
+        # group is fine -- canonical selection then happens at derivation.
+        for cik, slugs in sorted(dupes.items()):
+            unflagged = [s for s in slugs
+                         if "duplicate" not in (merged.get(s, {}).get("flags") or [])]
+            if len(unflagged) > 1:
+                problems.append(f"CIK {cik}: {len(unflagged)} unflagged duplicates "
+                                f"({', '.join(unflagged)})")
 
     total = len(rows)
     print(f"rows            : {total}")
     print(f"classified      : {sum(1 for r in merged.values() if r.get('status'))}")
     print(f"$1B+ / $10B+ / $100B+ : {len(one_b)} / {len(ten_b)} / {len(hundred_b)}")
+    from collections import Counter
+    tags = Counter(r.get("value_tag") for r in merged.values())
+    print(f"value_tag       : {dict(tags.most_common())}")
+    regions = Counter(r.get("region") for r in merged.values())
+    print(f"region          : {dict(regions.most_common())}")
+    stages = Counter(r.get("entry_stage") for r in merged.values())
+    print(f"entry_stage     : {dict(stages.most_common())}")
     cohort = [r for r in merged.values() if r.get("seed_to_a_graduation") is not None]
     grad = sum(1 for r in cohort if r["seed_to_a_graduation"])
     print(f"C2A cohort      : {len(cohort)}  graduated {grad}"
           f"  rate {grad / len(cohort) * 100:.1f}%" if cohort else "C2A cohort      : 0")
 
-    if one_b and len(one_b) / total > 0.15:
-        problems.append(f"$1B+ is {len(one_b)/total:.1%} of the base; expected <15%")
+    # Sanity guard, not an invariant. Raised from 15% once the initial-only
+    # person-match defect was fixed: dropping ~50 misattributed near-worthless
+    # rows shrinks the denominator without touching the numerator, so a cleaner
+    # base legitimately shows a HIGHER winner share.
+    if one_b and len(one_b) / total > 0.20:
+        problems.append(f"$1B+ is {len(one_b)/total:.1%} of the base; expected <20%")
     if cohort and grad / len(cohort) > 0.80:
         problems.append(f"C2A is {grad/len(cohort):.1%}; expected <80%")
 
@@ -569,13 +850,57 @@ def cmd_verify(_args) -> None:
 
 
 EXPORT_COLUMNS = [
-    "slug", "name", "status", "valuation_usd", "valuation_asof",
+    "slug", "name", "status", "value_tag", "value_tag_source",
+    "valuation_usd", "valuation_asof",
     "valuation_source", "valuation_confidence", "is_public", "public_since",
-    "entry_stage", "entry_offering_usd", "entry_quarter", "prior_rounds",
+    "entry_stage", "entry_stage_source", "entry_stage_confidence",
+    "entry_offering_usd", "entry_quarter", "prior_rounds",
     "round_count", "next_offering_usd", "next_quarter", "seed_to_a_graduation",
-    "graduation_source", "graduation_confidence", "country", "flags",
+    "graduation_source", "graduation_confidence",
+    "country", "country_source", "region", "flags",
     "tier", "first_seen", "sector", "cik", "note",
 ]
+
+
+def cmd_stage_queue(_args) -> None:
+    """Emit the run-3 entry-stage re-judgment queue: EVERY row, briefed with the
+    structural Form D evidence, judged fresh (no run-2 answer in the brief)."""
+    rows = load_snapshot()
+    formd = load("formd-rounds.json", {})
+    issuer_ev = load("issuer-evidence.json", {}).get("accessions", {})
+    structural, queue = {}, []
+    for row in rows:
+        slug = row["slug"]
+        partner_accs = {a.strip() for a in (row.get("formd_accessions") or "").split(";")
+                        if a.strip()}
+        year_inc = None
+        for acc in sorted(partner_accs):
+            yi = (issuer_ev.get(acc) or {}).get("year_inc")
+            if yi and str(yi).isdigit():
+                year_inc = int(yi)
+                break
+        s = structural_stage(formd.get(slug, {}).get("rounds", []),
+                             partner_accs, year_inc)
+        if s:
+            structural[slug] = s
+        queue.append({
+            "slug": slug, "name": row["name"], "sector": row.get("sector"),
+            "first_seen": row.get("first_seen"), "tier": row.get("tier"),
+            "year_inc": year_inc,
+            "rounds": [{"q": r.get("quarter"), "usd": r.get("offering_usd"),
+                        "sale": r.get("sale_date"),
+                        "partner": bool(partner_accs & set(r.get("accessions") or []))}
+                       for r in formd.get(slug, {}).get("rounds", [])],
+            "structural": s or None,
+        })
+    (OUT / "stage-structural.json").write_text(json.dumps(structural, indent=1))
+    for f in QUEUE.glob("stage-*.json"):
+        f.unlink()
+    for i in range(0, len(queue), 50):
+        (QUEUE / f"stage-{i // 50 + 1:03d}.json").write_text(
+            json.dumps(queue[i:i + 50], indent=1))
+    print(f"structural labels: {len(structural)}; "
+          f"queued {len(queue)} rows in {(len(queue) + 49) // 50} stage batches")
 
 
 def cmd_export(_args) -> None:
@@ -590,7 +915,11 @@ def cmd_export(_args) -> None:
     for row in rows:
         slug = row["slug"]
         rec = dict(resolved.get(slug, {}))
-        rec.update(cls.get(slug, {}))
+        overlay = cls.get(slug, {})
+        base_flags = set(rec.get("flags") or [])
+        rec.update(overlay)
+        rec["flags"] = sorted(base_flags | set(overlay.get("flags") or []))
+        rec["region"] = REGION_OF.get(rec.get("country"))
         rec.update({"slug": slug, "name": row["name"], "tier": row.get("tier"),
                     "first_seen": row.get("first_seen"), "sector": row.get("sector"),
                     "cik": layer_a.get(slug, {}).get("cik")})
@@ -618,6 +947,7 @@ def main() -> None:
     p = sub.add_parser("record"); p.set_defaults(fn=cmd_record)
     p.add_argument("jsonl")
     p = sub.add_parser("verify"); p.set_defaults(fn=cmd_verify)
+    p = sub.add_parser("stage-queue"); p.set_defaults(fn=cmd_stage_queue)
     p = sub.add_parser("export"); p.set_defaults(fn=cmd_export)
 
     args = ap.parse_args()

@@ -42,7 +42,14 @@ def main() -> None:
                     last = norm(row.get("LASTNAME") or "")
                     first = norm(row.get("FIRSTNAME") or "")
                     for tl, tf in targets:
-                        if last == tl and (first.startswith(tf) or tf.startswith(first)):
+                        # Surname equality plus a >=3-char given-name prefix.
+                        # An unbounded prefix test made a single filed initial
+                        # match any partner sharing the letter: Intuit's CFO
+                        # "R. Neil Williams" matched partner "Reggie Williams"
+                        # and pulled Intuit into the base as a portfolio
+                        # company. One initial is not an attribution.
+                        if last == tl and len(first) >= 3 and len(tf) >= 3 and (
+                                first.startswith(tf) or tf.startswith(first)):
                             acc = row.get("ACCESSIONNUMBER")
                             matches.setdefault(acc, []).append({
                                 "person": f"{first} {last}",

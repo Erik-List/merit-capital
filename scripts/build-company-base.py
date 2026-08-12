@@ -270,6 +270,7 @@ def main() -> None:
     #   ISPOOLEDINVESTMENTFUNDTYPE == true             (separate boolean, set by
     #       funds that categorised themselves as REITs / Investing / etc.)
     pooled_dropped, finance_deferred, ambiguous_industry = Counter(), {}, {}
+    initial_only_dropped: Counter = Counter()
     for acc, rec in json.load(open(ED / "formd-sweep.json")).items():
         issuer = rec.get("issuer")
         if not issuer:
@@ -294,6 +295,14 @@ def main() -> None:
         if cik:
             row["formd_filings"].append((acc, cik))
         for p in rec.get("persons", []):
+            # A filed given name of one initial matches any partner sharing the
+            # letter, so it cannot carry an attribution on its own. Filtered
+            # here as well as in the sweep so an older formd-sweep.json cannot
+            # reintroduce the rows (Intuit, Amgen, DocuSign and ~30 ASC LLCs
+            # all entered on 'R Williams' / 'A Moore' style matches).
+            if len(name_parts(p["person"])[0]) == 1:
+                initial_only_dropped[issuer] += 1
+                continue
             row["formd_partners"].add(p["person"].title())
             if p.get("relationship"):
                 row["formd_roles"].add(p["relationship"])
@@ -307,6 +316,8 @@ def main() -> None:
 
     print(f"pooled fund vehicles dropped: {len(pooled_dropped)} issuers "
           f"({sum(pooled_dropped.values())} filings)")
+    print(f"initial-only person matches ignored: {len(initial_only_dropped)} issuers "
+          f"({sum(initial_only_dropped.values())} attributions)")
 
     # Entity form: a venture-backed operating company is a corporation or an
     # LLC, essentially never a limited partnership. An LP with no listing
@@ -381,6 +392,21 @@ def main() -> None:
                 and not r["site_listed"]:
             ex_partner_only.append(f"{r['name']} — {stale_notes[0]}")
             del base[key]
+    # A Form D filing on its own says nothing about who backed the issuer: the
+    # related persons are the ISSUER's officers and directors. The filing enters
+    # the base only because a partner was named on it. Once initial-only matches
+    # are refused, some rows keep the filing but lose the attribution entirely --
+    # and a row with no named partner, no listing and no Sequoia SEC filing has
+    # no claim to being a deal at all.
+    unattributed = [k for k, r in base.items()
+                    if not r["formd_partners"] and not r["partners_site"]
+                    and not r["wayback_years"] and not r["site_listed"]
+                    and not r["edgar_forms"] and r["formd_filings"]]
+    for k in unattributed:
+        del base[k]
+    if unattributed:
+        print(f"removed (Form D filing with no attributable partner): {len(unattributed)}")
+
     if stale_flagged:
         print(f"tenure mismatch flagged: {stale_flagged} rows")
     if ex_partner_only:
@@ -530,6 +556,35 @@ def main() -> None:
             return b if a_caps else a
         return max((a, b), key=len)
 
+    def union_rows(keep: dict, gone: dict) -> None:
+        """Fold gone's evidence into keep; name/slug/status are the caller's call."""
+        for col, sep in (("wayback_years", ","), ("sector", ","),
+                         ("edgar_forms", ","), ("formd_roles", ","),
+                         ("partners_site", "; "), ("partners_formd", "; "),
+                         ("formd_accessions", "; "), ("formd_links", "; "),
+                         ("edgar_links", "; ")):
+            vals = [v for v in (keep[col].split(sep) + gone[col].split(sep)) if v]
+            keep[col] = sep.join(sorted(set(v.strip() for v in vals)))
+        for col in ("site_url", "wayback_first_link", "edgar_cik", "edgar_span",
+                    "formd_span", "formd_max_round_usd"):
+            keep[col] = keep[col] or gone[col]
+        if gone["first_seen"].isdigit() and (not keep["first_seen"].isdigit()
+                                             or gone["first_seen"] < keep["first_seen"]):
+            keep["first_seen"] = gone["first_seen"]
+        if "A" in (keep["tier"], gone["tier"]):
+            keep["tier"] = "A"
+        keep["notes"] = "; ".join(filter(None, [keep["notes"], gone["notes"]]))
+
+    # Durable identity corrections from the outcome runs (renames like
+    # Square -> Block, legal-entity aliases like ZenLeads -> Apollo.io, fund
+    # vehicles, decision-desk reassignments). Curated with evidence in
+    # identity-merges.json; re-applied on every rebuild like review decisions.
+    overlay = {}
+    idm_path = OUT / "identity-merges.json"
+    if idm_path.exists():
+        overlay = json.load(open(idm_path)).get("sequoia-capital", {})
+    never_merge = {frozenset(p["slugs"]) for p in overlay.get("never_merge", [])}
+
     by_key = {norm_words(r["name"]): r for r in rows_out}
     merged, distinct = 0, 0
     drop: set[int] = set()
@@ -549,33 +604,53 @@ def main() -> None:
                           (r2["site_url"] or r2["wayback_years"])
             ciks_differ = (both_listed and r["edgar_cik"] and r2["edgar_cik"]
                            and r["edgar_cik"] != r2["edgar_cik"])
-            if co or ciks_differ:
+            if co or ciks_differ or frozenset((r["slug"], r2["slug"])) in never_merge:
                 distinct += 1
                 continue
             keep, gone = r, r2
             keep["name"] = better_name(r["name"], r2["name"])
             keep["slug"] = slug_of(keep["name"])
-            for col, sep in (("wayback_years", ","), ("sector", ","),
-                             ("edgar_forms", ","), ("formd_roles", ","),
-                             ("partners_site", "; "), ("partners_formd", "; "),
-                             ("formd_accessions", "; "), ("formd_links", "; "),
-                             ("edgar_links", "; ")):
-                vals = [v for v in (keep[col].split(sep) + gone[col].split(sep)) if v]
-                keep[col] = sep.join(sorted(set(v.strip() for v in vals)))
-            for col in ("site_url", "wayback_first_link", "edgar_cik", "edgar_span",
-                        "formd_span", "formd_max_round_usd"):
-                keep[col] = keep[col] or gone[col]
-            if gone["first_seen"].isdigit() and (not keep["first_seen"].isdigit()
-                                                 or gone["first_seen"] < keep["first_seen"]):
-                keep["first_seen"] = gone["first_seen"]
-            if "A" in (keep["tier"], gone["tier"]):
-                keep["tier"] = "A"
-            keep["notes"] = "; ".join(filter(None, [keep["notes"], gone["notes"]]))
+            union_rows(keep, gone)
             drop.add(id(gone))
             merged += 1
     rows_out = [r for r in rows_out if id(r) not in drop]
     print(f"duplicate name-variants merged: {merged}; "
           f"kept separate (co-listed or differing CIK): {distinct}")
+
+    # ---- identity overlay: merges, rejects, desk moves
+    by_slug = {r["slug"]: r for r in rows_out}
+    idm_merged, rejected = 0, []
+    for m in overlay.get("merges", []):
+        keep = by_slug.get(m["canonical"])
+        if keep is None:
+            print(f"  overlay: canonical '{m['canonical']}' not in base, group skipped")
+            continue
+        for ds in m["duplicates"]:
+            gone = by_slug.pop(ds, None)
+            if gone is None or gone is keep:
+                continue
+            union_rows(keep, gone)
+            keep["notes"] = "; ".join(filter(None, [
+                keep["notes"], f"absorbed {ds} ({m['reason']})"]))
+            rows_out.remove(gone)
+            idm_merged += 1
+    for rj in overlay.get("rejects", []):
+        gone = by_slug.pop(rj["slug"], None)
+        if gone is None:
+            continue
+        gone["status"] = "rejected"
+        gone["notes"] = "; ".join(filter(None, [gone["notes"], f"rejected: {rj['reason']}"]))
+        rows_out.remove(gone)
+        rejected.append(gone)
+    desk_moved = 0
+    for dk in overlay.get("desk", []):
+        r = by_slug.get(dk["slug"])
+        if r is not None and r["lineage"] != dk["lineage"]:
+            r["lineage"] = dk["lineage"]
+            desk_moved += 1
+    if overlay:
+        print(f"identity overlay: {idm_merged} duplicate rows merged, "
+              f"{len(rejected)} rejected, {desk_moved} desk reassignments")
 
     # Merging unions evidence, so tier must be recomputed: a row that was
     # single-source before may now be corroborated by two.
@@ -605,6 +680,10 @@ def main() -> None:
         write_csv(OUT / "other-desk-companies.csv", other)
         print(f"other-desk companies moved out: {len(other)} "
               f"({dict(Counter(r['lineage'] for r in other))})")
+
+    if rejected:
+        rejected.sort(key=lambda x: x["slug"])
+        write_csv(OUT / "rejected-rows.csv", rejected)
 
     rows_out.sort(key=lambda x: (x["tier"], x["slug"]))
     rows_out = write_csv(OUT / "sequoia-capital.csv", rows_out)

@@ -4,20 +4,47 @@
     {
       "name": "dev",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
       "port": 3000
     },
     {
       "name": "company-base-review",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8931", "--directory", "data/aggregation/company-base"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8931",
+        "--directory",
+        "data/aggregation/company-base"
+      ],
       "port": 8931
     },
     {
       "name": "investor-review",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8932", "--directory", "data/aggregation/investors"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8932",
+        "--directory",
+        "data/aggregation/investors"
+      ],
       "port": 8932
+    },
+    {
+      "name": "dev-alt",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--",
+        "-p",
+        "3100"
+      ],
+      "port": 3100
     }
   ]
 }
