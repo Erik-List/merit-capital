@@ -26,12 +26,40 @@ FIELDS = ["slug", "name", "status", "value_tag", "value_tag_source",
           "valuation_usd", "valuation_asof",
           "valuation_source", "valuation_confidence", "is_public", "public_since",
           "entry_stage", "entry_stage_source", "entry_stage_confidence",
+          "entry_stage_citation", "valuation_citation", "country_citation",
           "entry_offering_usd", "entry_quarter", "round_count",
           "next_offering_usd", "next_quarter", "seed_to_a_graduation",
           "graduation_source", "graduation_confidence",
           "country", "country_source", "country_confidence", "region",
           "flags", "tier", "first_seen", "sector", "formd_links", "edgar_links",
           "wayback_first_link", "cik", "cik_name", "notes"]
+
+
+SAMPLE_SLUGS = {
+    # recovered by the membership verification loop, worth confirming
+    "avalanche-technology-inc", "cloudshare-ltd", "muze-collective-inc",
+    "romotive-inc",
+    # seeding spot-checks, one per evidence class
+    "youtube", "fal", "webvan-group-inc",
+}
+
+
+def in_sample(r: dict) -> bool:
+    """Rows a human should spot-check, since sampling replaced full review.
+
+    Every row that publishes a headline claim ($10B+ bucket or a graduation
+    boolean), plus low-confidence rows attached to a published claim, plus the
+    verification loop's own recoveries and seeding checks.
+    """
+    if r["slug"] in SAMPLE_SLUGS:
+        return True
+    if (r.get("valuation_usd") or 0) >= 1e10:
+        return True
+    if r.get("seed_to_a_graduation") is not None:
+        return True
+    publishes = bool(r.get("valuation_usd")) or bool(r.get("is_public"))
+    return publishes and (r.get("valuation_confidence") == "low"
+                          or r.get("entry_stage_confidence") == "low")
 
 
 def priority(r: dict) -> tuple:
@@ -138,6 +166,7 @@ kbd { background:var(--chip); border:1px solid var(--line); border-radius:3px;
   <h1>Outcome Review <small>__INVESTOR__ · current valuation + graduation</small></h1>
   <div class="bar">
     <span class="mut">value</span>
+    <button class="chip" data-f="sample" data-v="1" title="stratified rows for manual spot-check">Sample</button>
     <button class="chip" data-f="th" data-v="100b">$100B+</button>
     <button class="chip" data-f="th" data-v="10b">$10B+</button>
     <button class="chip" data-f="th" data-v="1b">$1B+</button>
@@ -189,7 +218,7 @@ const ROWS = JSON.parse(document.getElementById('data').textContent);
 const KEY = 'outcome-review-__INVESTOR__';
 let D = JSON.parse(localStorage.getItem(KEY) || '{}');
 const save = () => localStorage.setItem(KEY, JSON.stringify(D));
-let filters = {th:new Set(), status:new Set(), flag:new Set(), conf:new Set(), grad:new Set()};
+let filters = {th:new Set(), status:new Set(), flag:new Set(), conf:new Set(), grad:new Set(), sample:new Set()};
 let q = '', sortKey = null, sortDir = 1, focus = 0;
 
 const usd = v => { const n = +v; if (!n) return '';
@@ -207,6 +236,7 @@ function visible() {
         && !filters.conf.has(r.graduation_confidence)) return false;
     if (filters.flag.size && !(r.flags||[]).some(f => filters.flag.has(f))) return false;
     if (filters.grad.size && !filters.grad.has(String(r.seed_to_a_graduation))) return false;
+    if (filters.sample.size && !r.sample) return false;
     if (q) { const h = (r.name+' '+r.slug+' '+(r.country||'')+' '+(r.sector||'')).toLowerCase();
       if (!h.includes(q)) return false; }
     return true;
@@ -238,11 +268,11 @@ function render(scroll) {
     return `<tr class="row ${i===focus?'focus':''} d-${d}" data-i="${i}" data-slug="${r.slug}">
       <td><div class="dec"><b data-a="c" title="confirm">✓</b><b data-a="x" title="reject">✕</b></div></td>
       <td class="nm">${r.name}${d!=='pending'?` <span class="mut">${d==='confirmed'?'✓':'✕'}</span>`:''}</td>
-      <td class="val ${th?'':'mut'}">${th?`<span class="tag t-${th}">`:''}${usd(r.valuation_usd)}${th?'</span>':''}</td>
+      <td class="val ${th?'':'mut'}">${th?`<span class="tag t-${th}">`:''}${usd(r.valuation_usd)}${th?'</span>':''}${r.valuation_citation?` <a class="lnk" href="${r.valuation_citation}" target="_blank" rel="noopener">c</a>`:''}</td>
       <td><span class="tag s-${r.status||'unknown'}">${r.status||'—'}</span>${conf}</td>
       <td class="mut">${r.valuation_asof||''}</td>
       <td class="mut">${(r.valuation_source||'').replace('sec_public_float','sec').replace('model_knowledge','model')}</td>
-      <td class="mut">${r.entry_stage||''}${r.entry_offering_usd?` <span class="mut">${usd(r.entry_offering_usd)}</span>`:''}</td>
+      <td class="mut">${r.entry_stage||''}${r.entry_stage_citation?` <a class="lnk" href="${r.entry_stage_citation}" target="_blank" rel="noopener">cite</a>`:''}${r.entry_offering_usd?` <span class="mut">${usd(r.entry_offering_usd)}</span>`:''}</td>
       <td class="mut">${r.round_count||''}</td>
       <td>${gCell}</td>
       <td>${(r.flags||[]).map(f=>`<span class="f f-${f}">${f}</span>`).join('')}</td>
@@ -325,7 +355,9 @@ def main() -> None:
         # flags union across layers, so a batch answer can't hide a
         # deterministic flag in the review surface
         r["flags"] = sorted(set(det.get("flags") or []) | set(ov.get("flags") or []))
-        rows.append({k: r.get(k) for k in FIELDS})
+        row = {k: r.get(k) for k in FIELDS}
+        row["sample"] = in_sample(row)
+        rows.append(row)
 
     rows.sort(key=priority)
     data = json.dumps(rows, separators=(",", ":")).replace("</script>", "<\\/script>")
