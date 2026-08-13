@@ -1,7 +1,7 @@
 # Outcome Classification Report — Run 2 (Sequoia Capital)
 
 Single-session autonomous run, completed 2026-08-12. Supersedes [outcome-report.run1.md](outcome-report.run1.md).
-Base: **1,059 published rows** (pinned snapshot; run 1 worked on 1,293). All figures measured from the merged classification; `verify: clean`.
+Base: **1,055 published rows** (pinned snapshot; run 1 worked on 1,293). All figures measured from the merged classification; `verify: clean`.
 
 ## 1. What run 2 changed (Erik's five orders)
 
@@ -41,27 +41,45 @@ One defect, 48 false rows: `A Moore` → `Alex Moore` produced the entire ~30-ro
 
 Fixed at both sites: the sweep now requires a ≥3-character given-name prefix, and the base build refuses initial-only attributions independently (so a stale `formd-sweep.json` cannot reintroduce them). A second rule follows from it — a Form D filing with **no attributable partner**, no listing and no Sequoia SEC filing is not evidence of a deal, and is dropped. Base 1,107 → 1,059; base verify 13/13.
 
+### g. Post-delivery fix: the personal Section 16 filing (CrowdStrike class)
+
+Erik asked how Sequoia came to look like a CrowdStrike investor. The row rested
+on 50+ Forms 3/4 whose reporting owner is **Sameer Gandhi** -- a Sequoia partner
+until 2007 who joined **Accel** in 2008 and has sat on CrowdStrike's board since
+2013 for Accel. The registry still carried his CIK from his Sequoia years, so a
+decade of Accel-era filings read as Sequoia evidence.
+
+Intel is the same defect without the tenure gap: **Jim Goetz** is a current
+Sequoia partner and an *independent* Intel director since Nov 2019.
+
+The rule now: a Section 16 form is filed by a natural person about their own
+holdings, so it locates a person, never a firm position. A row whose only
+evidence is a personal filing, with no listing, no Wayback capture and no Form D
+attribution, is dropped -- 7 rows (CrowdStrike, Intel, Film Department, the
+SpaceX registrant duplicate, and three Neil Shen founder positions). The genuine
+signal is a fund vehicle on the filing. Base 1,059 -> 1,055; verify 13/13.
+
 ### e. Scope
 
 The published table now carries `status, value_tag, valuation_usd(+asof/source/confidence), entry_stage(+source/confidence), country(+source/confidence), region, seed_to_a_graduation` — the full shape PRO-25 needs for stage and geography display.
 
-## 2. Results (derivation set: 1,055 rows; 4 excluded as suspect_base)
+## 2. Results (derivation set: 1,053 rows; 2 excluded as suspect_base)
 
 ### Value
 
 | tag | count |
 |---|---|
 | below_1b | 899 |
-| 1b_plus (cumulative 156, **14.8%** of base) | 108 |
+| 1b_plus (cumulative 155, **14.7%** of base) | 107 |
 | 10b_plus (cumulative 48) | 36 |
 | 100b_plus (cumulative 12) | 12 |
-| currently public | 108 |
+| currently public | 107 |
 
 $100B+: Nvidia $4.0T, Apple $3.25T, SpaceX $2.1T (the merged SpaceXAI entity), Google $1.9T, Anthropic $965B, OpenAI $852B, Oracle $347B, Cisco $248B, Uber $188B, **ServiceNow $176B**, Stripe $159B, Palo Alto Networks $120B.
 
 ### Geography (region ← country)
 
-North America 925 · Europe 56 · Middle East 55 (Israel-driven) · Asia 8 · Latin America 7 · Africa 2 · Oceania 2. (China/India desk rows left the base under the decision-desk rule; the remaining Asia rows are Japan/Korea/SEA deals booked on the US desk.)
+North America 923 · Europe 56 · Middle East 55 (Israel-driven) · Asia 8 · Latin America 7 · Africa 2 · Oceania 2. (China/India desk rows left the base under the decision-desk rule; the remaining Asia rows are Japan/Korea/SEA deals booked on the US desk.)
 
 ### Entry stage
 
@@ -87,7 +105,7 @@ Every remaining open-value row was pinned or ruled out with a citation; `needs_w
 1. **63 `stage_prior` / 49 `country_prior` rows** — unidentifiable base strays; the real fix is base membership review, not better classification.
 2. **23 `stale` marks** carrying 2019-22 valuations (each dated in `valuation_asof`).
 3. **14 `boundary` rows** within 20% of a threshold, incl. the Cobot/Kriya conservative calls.
-4. **5 suspect_base rows** (Intel, CrowdStrike class — membership doubtful, kept out of derivation).
+4. **2 suspect_base rows** (membership doubtful, kept out of derivation). Intel and CrowdStrike left the base entirely under the personal-filing rule in §1g.
 5. Desk moves are reversible: edit `identity-merges.json`, rebuild.
 
 ## 6. Limitations

@@ -183,3 +183,32 @@ and knowledge decides. Every override of a structural answer carries `stage_disp
 C2A follows the corrected column: cohort = final entry_stage == Seed; graduation for
 knowledge-based seeds that predate Form D coverage may be decided by documented follow-on
 (source model/web with citation), deterministic path unchanged for the rest.
+
+## Evidence rule added after the CrowdStrike question (2026-08-13)
+
+**A partner's personal Section 16 filing is not evidence that the firm invested.**
+
+Forms 3/4/5 are filed by a natural person about their own holdings. A Sequoia
+partner files them from board seats that have nothing to do with a Sequoia
+position, in two distinct ways:
+
+- **Ex-partner era.** Sameer Gandhi was a Sequoia partner 1998-2007, joined
+  Accel in 2008, and has sat on CrowdStrike's board since 2013 *for Accel*.
+  His 2019+ CrowdStrike Forms 3/4 entered our base because the entity registry
+  still carries his CIK from his Sequoia years. Sequoia never invested in
+  CrowdStrike (Accel, Warburg Pincus and CapitalG did).
+- **Personal directorship.** Jim Goetz is a current Sequoia partner and an
+  *independent* director of Intel since November 2019. Sequoia holds no Intel
+  position.
+
+The genuine signal is a **fund vehicle** on the filing (a 13D/G, or a Form 3/4
+filed by the fund itself), which shows the partnership holds shares.
+
+`build-company-base.py` therefore drops any row whose only evidence is a
+Section 16 filing by a `vehicle_role == "person"` entity, with no site listing,
+no Wayback capture, and no Form D partner attribution. Seven rows left:
+CrowdStrike, Intel, Film Department Holdings, SpaceX's registrant duplicate,
+and three Neil Shen founder positions (Ctrip, Home Inns, Molecular Data).
+
+This is the EDGAR mirror of the Form D rule above: person-level attribution
+locates a *person*, never a firm position.
