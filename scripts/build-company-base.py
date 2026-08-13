@@ -195,6 +195,7 @@ def main() -> None:
             "site_listed": False, "site_url": "",
             "edgar_forms": set(), "edgar_first": None, "edgar_last": None,
             "edgar_cik": None, "edgar_accessions": [], "edgar_desk": None,
+            "edgar_person_only": False,
             "formd_partners": set(), "formd_roles": set(), "formd_filings": [],
             "formd_amount_max": 0, "formd_first": None, "formd_last": None,
             "notes": [],
@@ -249,6 +250,9 @@ def main() -> None:
         print(f"site API portfolio: {site_n} companies")
 
     # ---- layer 2: EDGAR public-market filings
+    ent_path = ROOT / "entities" / "sequoia-capital.json"
+    person_ciks = {e["cik"] for e in json.load(open(ent_path))
+                   if e.get("vehicle_role") == "person"} if ent_path.exists() else set()
     # Names, CIKs, roles and desk all come from each filing's SEC header via
     # edgar-companies.py — no name-shape inference here.
     for c in json.load(open(ED / "edgar-companies.json")):
@@ -262,6 +266,15 @@ def main() -> None:
         row["edgar_cik"] = c["cik"]
         row["edgar_accessions"] = c["accessions"]
         row["edgar_desk"] = c["desk"]
+        # Section 16 forms are filed by a natural person about their OWN
+        # holdings. A partner's personal Form 3/4 is evidence that the partner
+        # sits on that board, not that the firm invested: partners take
+        # independent public-company directorships (Jim Goetz on Intel since
+        # 2019) and keep filing from board seats won at their next firm
+        # (Sameer Gandhi on CrowdStrike since 2013, for Accel, a decade after
+        # leaving Sequoia). Only a fund vehicle on the filing shows a position.
+        row["edgar_person_only"] = bool(c.get("filer_ciks")) and all(
+            person_ciks and fc in person_ciks for fc in c["filer_ciks"])
 
     # ---- layer 3: Form D sweep
     # Fund vehicles are not portfolio companies. Two independent issuer
@@ -406,6 +419,19 @@ def main() -> None:
         del base[k]
     if unattributed:
         print(f"removed (Form D filing with no attributable partner): {len(unattributed)}")
+
+    # The mirror of the rule above on the EDGAR side: a row whose only evidence
+    # is a partner's PERSONAL Section 16 filing has no fund position behind it.
+    personal_only = [k for k, r in base.items()
+                     if r["edgar_person_only"] and not r["formd_partners"]
+                     and not r["partners_site"] and not r["wayback_years"]
+                     and not r["site_listed"] and not r["formd_filings"]]
+    for k in personal_only:
+        print(f"    - {base[k]['name']} (personal Section 16 filing only)")
+        del base[k]
+    if personal_only:
+        print(f"removed (partner's personal board seat, no fund position): "
+              f"{len(personal_only)}")
 
     if stale_flagged:
         print(f"tenure mismatch flagged: {stale_flagged} rows")
