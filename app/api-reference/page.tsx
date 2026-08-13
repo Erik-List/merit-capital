@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import ApiReference from "@/components/docs/api-reference";
+import ApiReference from "@/components/api-reference/api-reference";
 
 export const metadata: Metadata = {
-  title: "API Docs | Merit Capital",
+  title: "API Reference | Merit Capital",
   description:
     "Open investor data API for founders and AI agents. Query venture investors directly over REST.",
 };
@@ -37,7 +37,7 @@ const EXAMPLES: { label: string; path: string }[] = [
   },
 ];
 
-export default function DocsPage() {
+export default function ApiReferencePage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-10">
       <h1 className="text-3xl font-semibold tracking-tight">
