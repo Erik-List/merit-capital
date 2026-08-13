@@ -112,7 +112,7 @@ def cmd_prepare(_a) -> None:
             "formd_span": r["formd_span"],
             "formd_max_round_usd": r["formd_max_round_usd"],
             "outcome_note": (m.get("note") or "")[:220],
-            "status": m.get("status"), "value_tag": m.get("value_tag"),
+            "status": m.get("status"), "valuation_range": m.get("valuation_range"),
         })
     for f in QUEUE.glob("bv-*.json"):
         f.unlink()
