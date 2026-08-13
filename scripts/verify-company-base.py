@@ -112,9 +112,16 @@ def main() -> None:
         still = sorted(gone_expected & slugs)
         check(not still, "no absorbed/rejected slug in published base",
               f"present: {still[:5]}" if still else f"{len(gone_expected)} absent")
+        bv_gone = set()
+        bv_p2 = CB / "base-verification.json"
+        if bv_p2.exists():
+            bv_gone = {s for s, r in json.load(open(bv_p2)).get(
+                "sequoia-capital", {}).get("verdicts", {}).items()
+                if r.get("verdict") == "not_member"}
         canon_missing = sorted({m["canonical"] for m in ov.get("merges", [])} - slugs
-                               - {dk["slug"] for dk in ov.get("desk", [])})
-        check(not canon_missing, "every merge canonical present (or desk-moved)",
+                               - {dk["slug"] for dk in ov.get("desk", [])} - bv_gone)
+        check(not canon_missing,
+              "every merge canonical present (or desk-moved/verification-excluded)",
               f"missing: {canon_missing[:5]}" if canon_missing else "all present")
         allowed = {frozenset(p["slugs"]) for p in ov.get("never_merge", [])}
         by_cik: dict[str, list] = {}
@@ -126,7 +133,22 @@ def main() -> None:
         check(not shared, "no unexplained shared CIK among published rows",
               f"groups: {shared[:3]}" if shared else f"{len(by_cik)} distinct CIKs")
 
-    # 10 — review surface regenerated and consistent
+    # 10 — membership verification: every published row carries a member or
+    # uncertain verdict in the ledger; no not_member row is published.
+    bv_p = CB / "base-verification.json"
+    if bv_p.exists():
+        verd = json.load(open(bv_p)).get("sequoia-capital", {}).get("verdicts", {})
+        slugs = {r["slug"] for r in rows}
+        unjudged = sorted(s for s in slugs if s not in verd)
+        published_notmember = sorted(
+            s for s in slugs if verd.get(s, {}).get("verdict") == "not_member")
+        unc = sum(1 for s in slugs if verd.get(s, {}).get("verdict") == "uncertain")
+        check(not unjudged, "every published row has a membership verdict",
+              f"unjudged: {unjudged[:5]}" if unjudged else f"{len(verd)} verdicts, {unc} uncertain")
+        check(not published_notmember, "no not_member row published",
+              f"leaked: {published_notmember[:5]}" if published_notmember else "none")
+
+    # 11 — review surface regenerated and consistent
     html = (CB / "review.html").read_text(encoding="utf-8", errors="replace")
     check(f'"{rows[0]["name"]}"' in html or rows[0]["name"] in html,
           "review.html regenerated from current base",
