@@ -212,3 +212,30 @@ and three Neil Shen founder positions (Ctrip, Home Inns, Molecular Data).
 
 This is the EDGAR mirror of the Form D rule above: person-level attribution
 locates a *person*, never a firm position.
+
+## Base v2: the verification ledger (2026-08-13)
+
+The inversion Erik ordered: publish only rows that carry sufficient evidence
+AND survive an independent membership judge. MEMBERSHIP.md is the constitution;
+base-verification.json is the durable ledger (verdict, who, evidence class,
+basis, citation); build-company-base.py excludes not_member rows to
+verification-excluded.csv; verify-company-base.py enforces full coverage.
+
+Precision pass over 1,055 rows: 869 seeded on sufficient evidence (site
+listing / fund filing), 186 name-match rows judged individually with ~16 web
+arbitrations. Result: 184 not_member, 4 recovered members (Avalanche,
+CloudShare fka IT Structures, Muze, Romotive), 1 uncertain. Recall pass
+(parametric enumeration, fund 13D/G subject diff, European probe) found zero
+missing members: the site layers carry recall, the noise was all precision.
+
+Defect classes the judge caught that no string rule could: ex-partners filing
+from their next firm (Gandhi/Accel: Quidsi, Sonatype, Lot18; Lamond/Khosla:
+SeaMicro, Skybox, Seeo, Soladigm; Huang/Paradigm: Gitcoin, Rain; Garg/Wing:
+Shape; Lixandru/Accel: Framer), partners who became founders (Amy Sun/
+Daylight), founder homonyms (Ankur Jain/Bilt, Patrick Grady/Rearden+Tetra,
+Alex Moore=8VC on Saronic/Epirus/Nylas), and Sequoia Heritage (Outside).
+
+Base: 1,055 -> 873. Tier C: 201 -> 19. The derivation set is now the full
+published base, no flag-based exclusions left. C2A moved 47.1% -> 71.7%
+(33/46) because the fake seed cohort left; Pre-Seed went to zero, all of it
+had been collision micro-filings.

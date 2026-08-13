@@ -276,6 +276,29 @@ def main() -> None:
         row["edgar_person_only"] = bool(c.get("filer_ciks")) and all(
             person_ciks and fc in person_ciks for fc in c["filer_ciks"])
 
+    # ---- layer 2b: recall additions from the verification loop. Companies the
+    # evidence streams missed (no site capture, no US filing), each verified
+    # with a citation before entering the ledger. Injected into the working
+    # set here so tiering, merging and partitioning treat them like any row.
+    bv_early = OUT / "base-verification.json"
+    if bv_early.exists():
+        adds = json.load(open(bv_early)).get(
+            "sequoia-capital", {}).get("recall_additions", [])
+        for add in adds:
+            row = row_for(norm(add["name"]), add["name"])
+            row["slug"] = add.get("slug") or slug_of(add["name"])
+            if add.get("first_seen"):
+                # ride the formd_first slot so the assembly's min() picks it up
+                row["formd_first"] = row["formd_first"] or str(add["first_seen"])
+            if add.get("on_site_now"):
+                row["site_listed"] = True
+            if add.get("sector"):
+                row["sectors"].add(add["sector"])
+            row["notes"].append(
+                f"recall addition: {add['basis']} ({add.get('citation', '')})")
+        if adds:
+            print(f"recall additions injected: {len(adds)}")
+
     # ---- layer 3: Form D sweep
     # Fund vehicles are not portfolio companies. Two independent issuer
     # declarations identify them, and a fund may set either one:
@@ -530,24 +553,33 @@ def main() -> None:
             "notes": "; ".join(r["notes"]),
         })
 
-    # ---- human review layer: durable, re-applied on every rebuild
-    dec_path = OUT / "review-decisions.json"
-    if dec_path.exists():
-        decisions = json.load(open(dec_path)).get("sequoia-capital", {})
-        applied = 0
-        for row in rows_out:
-            rec = decisions.get(row["slug"])
+    # ---- membership verification ledger (base v2): durable verdicts under
+    # MEMBERSHIP.md, written by the adversarial review passes and by human
+    # sampling. Replaces the never-used review-decisions.json flow.
+    # not_member rows leave the published base (preserved in
+    # verification-excluded.csv); uncertain rows stay, marked for sampling.
+    verification_excluded: list[dict] = []
+    bv_path = OUT / "base-verification.json"
+    if bv_path.exists():
+        bv_verdicts = json.load(open(bv_path)).get(
+            "sequoia-capital", {}).get("verdicts", {})
+        unc = 0
+        for row in list(rows_out):
+            rec = bv_verdicts.get(row["slug"])
             if not rec:
                 continue
-            d = rec.get("d")
-            if d == "confirmed":
-                row["status"] = "human_confirmed"
-            elif d == "rejected":
-                row["status"] = "human_rejected"
-            if rec.get("note"):
-                row["notes"] = "; ".join(filter(None, [row["notes"], rec["note"]]))
-            applied += 1
-        print(f"human decisions applied: {applied}")
+            if rec["verdict"] == "not_member":
+                row["status"] = "rejected"
+                row["notes"] = "; ".join(filter(None, [
+                    row["notes"], f"not_member ({rec['who']}): {rec['basis']}"]))
+                rows_out.remove(row)
+                verification_excluded.append(row)
+            elif rec["verdict"] == "uncertain":
+                row["notes"] = "; ".join(filter(None, [
+                    row["notes"], f"membership uncertain: {rec['basis']}"]))
+                unc += 1
+        print(f"verification ledger: {len(verification_excluded)} excluded, "
+              f"{unc} uncertain kept")
 
     # Now that normalization no longer strips descriptor words, the opposite
     # error becomes possible: "Aruba" and "Aruba Networks" as two rows for one
@@ -706,6 +738,10 @@ def main() -> None:
         write_csv(OUT / "other-desk-companies.csv", other)
         print(f"other-desk companies moved out: {len(other)} "
               f"({dict(Counter(r['lineage'] for r in other))})")
+
+    if verification_excluded:
+        write_csv(OUT / "verification-excluded.csv", verification_excluded)
+        print(f"verification-excluded.csv: {len(verification_excluded)} rows")
 
     if rejected:
         rejected.sort(key=lambda x: x["slug"])
