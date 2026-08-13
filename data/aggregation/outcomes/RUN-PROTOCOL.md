@@ -239,3 +239,33 @@ Base: 1,055 -> 873. Tier C: 201 -> 19. The derivation set is now the full
 published base, no flag-based exclusions left. C2A moved 47.1% -> 71.7%
 (33/46) because the fake seed cohort left; Pre-Seed went to zero, all of it
 had been collision micro-filings.
+
+## Classification v2 (2026-08-13): the adversarial column pass
+
+Erik's scope: a second, more rigorous adversarial pass over valuation(+asof),
+entry_stage, country. Rulings: market cap is canonical for public rows
+(web-cited, dated; float demoted to corroboration); below-$1B rule-outs get
+signal-triggered checks plus blind sampling; the full A/B defend-attack
+structure applies to the visible slice ($1B+ or public).
+
+Executed this session: ~60 fresh web arbitrations over the visible slice.
+Every public $1B+ row now carries a cited market cap. Corrections the attack
+pass caught: Confluent acquired by IBM ($11B, closed 2026-03-17, delisted);
+Faire's Nov-2025 tender at $5.2B, 59% below the stale $12.6B the table held;
+Houzz down-bucketed below $1B (2017 mark nine years stale, secondaries sub-$1B);
+Root Insurance out of the bucket ($805M cap); StarkWare's mark corrected to
+the real $8B/May-2022 primary (recorded figure and date were both wrong);
+Fireblocks' asof corrected to Jan 2022; Notion refreshed to the $11B Jan-2026
+tender; Vanta $4.15B, Trade Republic EUR 12.5B, Verkada $5.8B, Commure $7B,
+Whatnot $20B, Ramp $44B, ElevenLabs $11B, OpenEvidence $12B, Skild $14B,
+Sierra $15.8B, NinjaOne $12.3B, Cyera $12B, Odoo ~EUR 7B replaced stale marks.
+Armis carries a pending ServiceNow $7.75B acquisition (announced 2025-12-23),
+flagged for status review. Float-to-cap moves reshaped the top: Google $4.23T,
+Cisco $483B, Palo Alto $314B, Western Digital $151B, Snowflake $116B and
+Airbnb $100B entered the $100B+ bucket, which now holds 15 names.
+
+Debt made explicit rather than hidden: 29 sub-$5B private marks and 119
+$1B+ stage claims carry `cite_pending` (the resumable citation queue);
+all 46 C2A cohort rows carry `cohort_unverified` until their legs get
+citations (Erik's keep-with-flag ruling). verify tolerates only flagged debt.
+Coverage: 119/148 $1B+ rows valuation-cited (80%).

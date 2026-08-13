@@ -659,6 +659,14 @@ def validate_record(rec: dict, slugs: set[str]) -> list[str]:
     if rec.get("entry_stage_source") is not None and rec["entry_stage_source"] not in (
             "formd_band", "formd_structural", "model", "web_verified"):
         errs.append(f"{slug}: entry_stage_source {rec['entry_stage_source']!r}")
+    # web_verified stage claims must carry their citation (ENTRY-STAGE.md 1)
+    if rec.get("entry_stage_source") == "web_verified" \
+            and not (rec.get("entry_stage_citation") or "").strip():
+        errs.append(f"{slug}: web_verified stage without entry_stage_citation")
+    for key in ("valuation_citation", "country_citation", "entry_stage_citation"):
+        v = rec.get(key)
+        if v is not None and (not isinstance(v, str) or not v.startswith("http")):
+            errs.append(f"{slug}: {key} must be a URL")
     if rec.get("country_source") is not None and rec["country_source"] not in (
             "formd_address", "wikidata", "model_knowledge", "web_verified"):
         errs.append(f"{slug}: country_source {rec['country_source']!r}")
@@ -777,6 +785,28 @@ def cmd_verify(_args) -> None:
             problems.append(f"{slug}: no entry_stage")
         elif rec["entry_stage"] not in VALID_STAGES:
             problems.append(f"{slug}: entry_stage {rec['entry_stage']!r} not in vocabulary")
+        # ENTRY-STAGE.md invariant 2: a bucket-visible row needs class 1/2
+        # stage evidence (a citation, or the deterministic filing structure).
+        stage_cited = bool((rec.get("entry_stage_citation") or "").strip()) \
+            or rec.get("entry_stage_source") in ("formd_structural", "formd_band")
+        flags_now = set(rec.get("flags") or [])
+        if (rec.get("value_tag") in ("1b_plus", "10b_plus", "100b_plus")
+                and not stage_cited and "cite_pending" not in flags_now):
+            problems.append(f"{slug}: $1B+ row without cited/structural entry stage "
+                            f"and no cite_pending marker")
+        # CLASSIFICATION-V2.md invariant 1: public $1B+ value is a cited market cap
+        if rec.get("is_public") and rec.get("value_tag") in (
+                "1b_plus", "10b_plus", "100b_plus") \
+                and not (rec.get("valuation_citation") or "").strip() \
+                and "cite_pending" not in flags_now:
+            problems.append(f"{slug}: public $1B+ row without a cited market cap")
+        # invariant 3: cohort rows are verified on both legs or carry the flag
+        if rec.get("seed_to_a_graduation") is not None:
+            legs_verified = stage_cited and rec.get("graduation_source") in (
+                "formd", "web_verified")
+            if not legs_verified and "cohort_unverified" not in (rec.get("flags") or []):
+                problems.append(f"{slug}: cohort row neither verified nor flagged "
+                                f"cohort_unverified")
 
     # cumulative invariant
     def names(floor):
@@ -854,6 +884,7 @@ EXPORT_COLUMNS = [
     "valuation_usd", "valuation_asof",
     "valuation_source", "valuation_confidence", "is_public", "public_since",
     "entry_stage", "entry_stage_source", "entry_stage_confidence",
+    "entry_stage_citation", "valuation_citation", "country_citation",
     "entry_offering_usd", "entry_quarter", "prior_rounds",
     "round_count", "next_offering_usd", "next_quarter", "seed_to_a_graduation",
     "graduation_source", "graduation_confidence",
