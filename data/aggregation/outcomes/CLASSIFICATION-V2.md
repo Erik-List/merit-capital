@@ -31,6 +31,40 @@ adversarial pass cites country for the visible slice (`country_citation`) and
 for every non-US claim (the map's interesting rows); the US mass is validated
 by the same blind sample.
 
+## 3b. Focus (added 2026-08-13, Erik)
+
+`focus` is a **single primary value from the closed seven** in
+`data/taxonomy/focus.json` (the vocabulary the frontend and DB already use),
+so the distribution sums cleanly. One parametric classification run over all
+873 rows, web search only where the company was unidentifiable from name,
+sector tags and the accumulated note; no adversarial second pass, because a
+sector label is not a claim that publishes a number.
+
+Rules used, recorded here so the next run is consistent rather than
+re-derived:
+
+- The taxonomy is **closed**. A company that fits none of the seven carries
+  `focus: null`, reported as "outside taxonomy". Force-fitting into a
+  near-miss bucket would corrupt the distribution it exists to produce.
+- Judgment over the alias table where they disagree. `hardware` aliases to
+  Industrial & Robotics, but **consumer** devices (Apple, Atari, Jawbone) are
+  outside the taxonomy while semis, robotics, defense and manufacturing are
+  Industrial & Robotics.
+- Enterprise **infrastructure and networking** (Cisco, Aruba, Confluent,
+  MongoDB, Cohesity) is Data Infrastructure, following the taxonomy's own
+  `infrastructure` alias. Chips are Industrial & Robotics.
+- **Security** has no value of its own: enterprise security *software* is
+  SaaS (Wiz, Palo Alto, Armis, Cyera), security *tooling for developers* is
+  DevTools & APIs (Chainguard, Oso), security *hardware* is Industrial.
+- **AI & Applied AI** means AI is the product (labs, model providers, AI-native
+  applications), not that the company uses ML internally.
+- Adtech/media networks, marketplaces, consumer social, gaming, healthcare and
+  biotech are **outside the taxonomy**, by design of the seven.
+
+Result: 582 of 873 classified (66.7%), 291 outside. Distribution in
+`track-record-proposal.json` under `by_focus`, alongside a $1B+ breakdown so
+the reader can see which focus areas actually produced winners.
+
 ## 4. The two-pass structure
 
 Applied to the **visible slice** ($1B+ or currently public): pass A defends

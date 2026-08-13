@@ -31,6 +31,7 @@ FIELDS = ["slug", "name", "status", "value_tag", "value_tag_source",
           "next_offering_usd", "next_quarter", "seed_to_a_graduation",
           "graduation_source", "graduation_confidence",
           "country", "country_source", "country_confidence", "region",
+          "focus", "focus_source",
           "flags", "tier", "first_seen", "sector", "formd_links", "edgar_links",
           "wayback_first_link", "cik", "cik_name", "notes"]
 
@@ -201,7 +202,7 @@ kbd { background:var(--chip); border:1px solid var(--line); border-radius:3px;
   <th data-s="status">Status</th><th data-s="valuation_asof">As of</th>
   <th data-s="valuation_source">Src</th><th data-s="entry_stage">Entry</th>
   <th data-s="round_count">Rds</th><th data-s="seed_to_a_graduation">C2A</th>
-  <th>Flags</th><th data-s="country">Country</th><th data-s="tier">T</th>
+  <th>Flags</th><th data-s="country">Country</th><th data-s="focus">Focus</th><th data-s="tier">T</th>
   <th>Evidence</th><th>Note</th>
 </tr></thead>
 <tbody id="tb"></tbody>
@@ -277,6 +278,7 @@ function render(scroll) {
       <td>${gCell}</td>
       <td>${(r.flags||[]).map(f=>`<span class="f f-${f}">${f}</span>`).join('')}</td>
       <td class="mut">${r.country||''}</td>
+      <td class="mut">${r.focus||''}</td>
       <td class="mut">${r.tier||''}</td>
       <td>${ev}</td>
       <td class="mut" style="max-width:160px">${note}</td>
