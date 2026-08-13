@@ -121,3 +121,35 @@ export function validateTaxonomyFields(row: Record<string, any>): TaxonomyIssues
 
   return { errors, warnings };
 }
+
+/**
+ * Validate and canonicalise the taxonomy-bound fields on a company row.
+ * `focus` is a single value from the closed twelve-value taxonomy (null means
+ * outside it, which is legitimate); `hq_country` is an ISO 3166-1 alpha-2
+ * code or null. Mutates `row` with the canonical focus spelling.
+ */
+export function validateCompanyFields(row: Record<string, any>): TaxonomyIssues {
+  const errors: string[] = [];
+  const warnings: string[] = [];
+
+  if (typeof row.focus === "string" && row.focus.trim()) {
+    const match = canonicalizeFocus(row.focus);
+    if (match) {
+      row.focus = match;
+    } else {
+      errors.push(`focus: "${row.focus}" is not in the focus taxonomy`);
+    }
+  } else if (row.focus != null) {
+    errors.push("focus: expected a string or null");
+  }
+
+  if (typeof row.hq_country === "string") {
+    if (!/^[A-Z]{2}$/.test(row.hq_country)) {
+      errors.push(`hq_country: "${row.hq_country}" is not an ISO 3166-1 alpha-2 code`);
+    }
+  } else if (row.hq_country != null) {
+    errors.push("hq_country: expected a string or null");
+  }
+
+  return { errors, warnings };
+}
