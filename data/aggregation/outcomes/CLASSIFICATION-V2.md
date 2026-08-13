@@ -61,9 +61,43 @@ re-derived:
 - Adtech/media networks, marketplaces, consumer social, gaming, healthcare and
   biotech are **outside the taxonomy**, by design of the seven.
 
-Result: 582 of 873 classified (66.7%), 291 outside. Distribution in
-`track-record-proposal.json` under `by_focus`, alongside a $1B+ breakdown so
-the reader can see which focus areas actually produced winners.
+**Taxonomy expanded 2026-08-13 (Erik), seven values to twelve.** The original
+seven were enterprise/infra-centric and left a third of a real portfolio
+unclassifiable. Added: `Consumer & Marketplaces`, `Healthcare & Bio`,
+`Media, Gaming & Advertising`, `Crypto & Web3`, `Security`. The first four
+close coverage gaps; Security does not (those rows were already classified)
+but corrects a distortion, since security software had been spread across
+SaaS, DevTools and Industrial and inflated SaaS.
+
+Every row was re-judged against the twelve, not mechanically remapped.
+Result: **821 of 873 classified (94.0%), 52 outside (6.0%)**, of which 47 are
+the permanently unidentifiable floor (2006-09 scrape strays with no trace).
+Real residual ambiguity is therefore 5 rows.
+
+Rules added with the new values:
+
+- **Consumer & Marketplaces** covers consumer internet, marketplaces, commerce,
+  social, travel and consumer devices (Apple, Jawbone), which previously fell
+  outside because `hardware` aliased to Industrial.
+- **Healthcare & Bio** is the whole vertical: care delivery, diagnostics,
+  devices, therapeutics, health IT. Healthcare vertical SaaS goes here, not SaaS.
+- **Media, Gaming & Advertising** includes ad networks and audience
+  monetization (AdMob, AdBrite, Amobee, Chartboost). Martech sold to businesses
+  as software stays SaaS (Attentive, Hearsay); ad *networks* are media.
+- **Crypto & Web3** takes precedence over Fintech for on-chain businesses
+  (Fireblocks, Phantom, FTX, LayerZero, StarkWare); Robinhood stays Fintech
+  because crypto is a product line, not the business.
+- **Security** takes precedence over SaaS/DevTools/Industrial whenever security
+  is what the company sells (Wiz, Palo Alto, Okta, Symantec, Verkada,
+  Chainguard). Security *for developers* still resolves here, not DevTools.
+
+Distribution in `track-record-proposal.json` under `by_focus`, with a $1B+
+breakdown so the reader can see which areas produced winners.
+
+**Downstream, not yet done:** `investors.investment_scope.focus` in the DB and
+the leaderboard filter still hold the original seven. The five new values need
+a migration plus a frontend filter update before investor-side focus is
+re-derived; tracked separately.
 
 ## 4. The two-pass structure
 

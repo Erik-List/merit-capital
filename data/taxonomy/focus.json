@@ -1,24 +1,35 @@
 {
   "name": "focus",
   "closed": true,
-  "description": "Sector focus areas. Closed vocabulary: the seven categories the frontend and the database already use (migration 20250916150000_update_focus_taxonomy.sql). Investor-specific site vocabularies are never unioned into this list; each company is classified into these values independently.",
+  "description": "Sector focus areas. Closed vocabulary. Expanded 2026-08-13 from seven to twelve: the original seven were enterprise/infra-centric and left a third of a real portfolio unclassifiable (consumer, healthcare, media, crypto), and security had no value of its own. Investor-specific site vocabularies are never unioned into this list; each company is classified into these values independently.",
   "target": "investors.investment_scope.focus (JSON array of these values)",
   "values": [
     "AI & Applied AI",
     "Data Infrastructure",
     "DevTools & APIs",
     "SaaS",
+    "Security",
     "Fintech & Payments",
+    "Crypto & Web3",
     "Industrial & Robotics",
-    "Climate & Energy"
+    "Climate & Energy",
+    "Healthcare & Bio",
+    "Consumer & Marketplaces",
+    "Media, Gaming & Advertising"
   ],
   "primary": [
     "AI & Applied AI",
     "SaaS",
+    "Consumer & Marketplaces",
     "Fintech & Payments",
-    "Climate & Energy",
+    "Healthcare & Bio",
+    "Security",
+    "Data Infrastructure",
+    "Industrial & Robotics",
     "DevTools & APIs",
-    "Industrial & Robotics"
+    "Crypto & Web3",
+    "Media, Gaming & Advertising",
+    "Climate & Energy"
   ],
   "aliases": {
     "ai": "AI & Applied AI",
@@ -66,17 +77,62 @@
     "climatetech": "Climate & Energy",
     "cleantech": "Climate & Energy",
     "energy": "Climate & Energy",
-    "grid software": "Climate & Energy"
+    "grid software": "Climate & Energy",
+    "security": "Security",
+    "cybersecurity": "Security",
+    "cyber": "Security",
+    "infosec": "Security",
+    "appsec": "Security",
+    "identity": "Security",
+    "zero trust": "Security",
+    "consumer": "Consumer & Marketplaces",
+    "consumer internet": "Consumer & Marketplaces",
+    "marketplace": "Consumer & Marketplaces",
+    "marketplaces": "Consumer & Marketplaces",
+    "commerce": "Consumer & Marketplaces",
+    "e-commerce": "Consumer & Marketplaces",
+    "ecommerce": "Consumer & Marketplaces",
+    "social": "Consumer & Marketplaces",
+    "travel": "Consumer & Marketplaces",
+    "mobility": "Consumer & Marketplaces",
+    "healthcare": "Healthcare & Bio",
+    "health": "Healthcare & Bio",
+    "healthtech": "Healthcare & Bio",
+    "digital health": "Healthcare & Bio",
+    "bio": "Healthcare & Bio",
+    "biotech": "Healthcare & Bio",
+    "life sciences": "Healthcare & Bio",
+    "medtech": "Healthcare & Bio",
+    "diagnostics": "Healthcare & Bio",
+    "therapeutics": "Healthcare & Bio",
+    "pharma": "Healthcare & Bio",
+    "media": "Media, Gaming & Advertising",
+    "gaming": "Media, Gaming & Advertising",
+    "games": "Media, Gaming & Advertising",
+    "entertainment": "Media, Gaming & Advertising",
+    "advertising": "Media, Gaming & Advertising",
+    "adtech": "Media, Gaming & Advertising",
+    "ad tech": "Media, Gaming & Advertising",
+    "streaming": "Media, Gaming & Advertising",
+    "crypto": "Crypto & Web3",
+    "web3": "Crypto & Web3",
+    "blockchain": "Crypto & Web3",
+    "defi": "Crypto & Web3",
+    "digital assets": "Crypto & Web3"
   },
   "scope_types": {
     "description": "investors.investment_scope.type. Orthogonal to focus: whether the investor spreads across sectors or concentrates. The leaderboard filter merges Generalist into the focus list as a pseudo-option and hides Specialist.",
     "closed": true,
-    "values": ["Generalist", "Specialist"],
+    "values": [
+      "Generalist",
+      "Specialist"
+    ],
     "aliases": {
       "generalist": "Generalist",
       "generalists": "Generalist",
       "specialist": "Specialist",
       "specialists": "Specialist"
     }
-  }
+  },
+  "downstream": "investors.investment_scope.focus still holds the ORIGINAL seven in the database and leaderboard filter. The five added values (Security, Crypto & Web3, Healthcare & Bio, Consumer & Marketplaces, Media Gaming & Advertising) need a migration plus a frontend filter update before investor-side focus is re-derived. Tracked separately; company-side classification uses the full twelve today."
 }
