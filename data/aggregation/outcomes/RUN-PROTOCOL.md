@@ -1,4 +1,9 @@
-# Outcome run protocol — Sequoia Capital, pinned base 63c4bc30
+# Outcome run protocol — Sequoia Capital
+
+The run reads the live Company Base (`company-base/<investor>.csv`) directly;
+there is no pinned snapshot. Standing assumption: the base is not rebuilt for
+an investor while that investor's run is in flight. `verify` reports a
+violation as drift between `resolved.json` keys and base slugs.
 
 This file is the run's constitution. If context is compacted mid-run, re-read
 this file and `python3 scripts/outcome-run.py status`, then continue at the
@@ -15,7 +20,7 @@ Two judgments, recorded as JSONL (one object per row) in
   and whether a later round followed (C2A).
 
 **Emit only the keys for the needs asked** (plus `flags`, `note`, optional
-`country`). Extra keys clobber filing-grade facts at merge time. The one
+`hq_country`). Extra keys clobber filing-grade facts at merge time. The one
 exception is a deliberate dispute (below).
 
 ## Hard rules (enforced by `record`, do not fight them)
@@ -116,14 +121,15 @@ Scope augmentation ordered by Erik after run 1 review:
    on every rebuild. Run-1 finding: flagging BOTH rows of a dup pair `duplicate` excluded the
    canonical from derivation (Block $39.4B silently dropped). New representation:
    non-canonical rows get `duplicate_of: <canonical-slug>`; canonical carries no exclusion flag.
-2. **value_tag, 100% fill.** Every row gets `value_tag ∈ {100b_plus, 10b_plus, 1b_plus, below_1b}`
+2. **valuation_range, 100% fill.** Every row gets `valuation_range ∈ {100b_plus, 10b_plus, 1b_plus, below_1b}`
    (highest threshold met). Figures stay source-gated as in run 1; the tag may be a model
    rule-out (below_1b) but a tag ≥ 1b_plus REQUIRES a sourced valuation_usd. verify enforces.
-3. **country, 100% fill.** Source hierarchy (entry-time first):
+3. **hq_country, 100% fill.** Source hierarchy (entry-time first):
    formd_address (ISSUERS.tsv STATEORCOUNTRYDESCRIPTION at earliest partner accession)
    > wikidata (P17, current HQ) > model_knowledge > web_verified. Conflicts flagged
    `country_conflict`, model may dispute a Form D Delaware-of-convenience address only with
-   note. region derived from country by fixed mapping.
+   note. Stored as ISO 3166-1 alpha-2 (`US`, `IL`, ...); answers may say the name in prose,
+   record collapses it to the code and bounces names it cannot map.
 4. **entry_stage, 100% fill.** Hierarchy: formd_band (partner-anchored first round, STAGE_BANDS)
    > model_knowledge (deal history: "Sequoia led the Series A") > web_verified. Model may
    override a band ONLY with named deal knowledge + `stage_disputes_band` flag; era drift
@@ -132,20 +138,21 @@ Scope augmentation ordered by Erik after run 1 review:
 5. **Desk feedback.** Run-1 China/India-desk findings feed the base's existing decision-desk
    rule via the overlay; moved rows land in other-desk-companies.csv, reversible in review.
 
-Hard rules of run 1 stay in force verbatim (source-gated figures, snapshot pinning,
-disk-resident progress, flags union at merge, additive layers, verification duties 1–7).
+Hard rules of run 1 stay in force verbatim (source-gated figures, no mid-run base
+rebuilds, disk-resident progress, flags union at merge, additive layers,
+verification duties 1–7).
 
 ## Run-2 batch conventions (grind #2, 692 rows / 16 batches)
 
 - Answers merge per key into existing records; flags union; only clear_flags removes.
-- country: model_knowledge with confidence. Unknown-identity rows on the us-eu desk
+- hq_country: model_knowledge with confidence. Unknown-identity rows on the us-eu desk
   with no foreign marker: United States, confidence low, flag `country_prior`.
 - entry_stage: named-deal knowledge overrides nothing deterministic (bands already
   resolved those rows); for era companies with no Form D and no deal memory:
   Series A, confidence low (Sequoia's classic entry), flag `stage_prior`.
   Growth for rows that first appear as later-stage positions (public-era entries,
   scaled companies at first listing).
-- value_tag: only `below_1b` may be asserted without a figure. Anything higher
+- valuation_range: only `below_1b` may be asserted without a figure. Anything higher
   routes through needs_web_value -> web pass.
 - Rename duty stays: any suspected identity duplicate -> flag + note, never silently.
 
@@ -243,7 +250,7 @@ had been collision micro-filings.
 ## Classification v2 (2026-08-13): the adversarial column pass
 
 Erik's scope: a second, more rigorous adversarial pass over valuation(+asof),
-entry_stage, country. Rulings: market cap is canonical for public rows
+entry_stage, hq_country. Rulings: market cap is canonical for public rows
 (web-cited, dated; float demoted to corroboration); below-$1B rule-outs get
 signal-triggered checks plus blind sampling; the full A/B defend-attack
 structure applies to the visible slice ($1B+ or public).

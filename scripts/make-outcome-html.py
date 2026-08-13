@@ -11,26 +11,29 @@ mistake would be: every published $1B+ claim first, then rows where the two
 graduation layers disagreed, then low confidence, then threshold boundaries. The
 confident mass sorts to the bottom and filters away.
 
-Reads   data/aggregation/outcomes/{base-snapshot.csv,resolved.json,classification.json}
+Reads   data/aggregation/company-base/<investor>.csv
+        data/aggregation/outcomes/{resolved.json,classification.json}
 Writes  data/aggregation/outcomes/review.html
 """
-import csv
 import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from outcome_common import ROOT, load_base, merge_rows  # noqa: E402
+
 OUT = ROOT / "data" / "aggregation" / "outcomes"
 
-FIELDS = ["slug", "name", "status", "value_tag", "value_tag_source",
+FIELDS = ["slug", "name", "status", "valuation_range", "valuation_range_source",
           "valuation_usd", "valuation_asof",
           "valuation_source", "valuation_confidence", "is_public", "public_since",
           "entry_stage", "entry_stage_source", "entry_stage_confidence",
-          "entry_stage_citation", "valuation_citation", "country_citation",
+          "entry_stage_citation", "valuation_citation", "hq_country_citation",
           "entry_offering_usd", "entry_quarter", "round_count",
           "next_offering_usd", "next_quarter", "seed_to_a_graduation",
           "graduation_source", "graduation_confidence",
-          "country", "country_source", "country_confidence", "region",
+          "hq_city", "hq_city_source", "hq_city_confidence",
+          "hq_country", "hq_country_source", "hq_country_confidence",
           "focus", "focus_source",
           "flags", "tier", "first_seen", "sector", "formd_links", "edgar_links",
           "wayback_first_link", "cik", "cik_name", "notes"]
@@ -202,7 +205,8 @@ kbd { background:var(--chip); border:1px solid var(--line); border-radius:3px;
   <th data-s="status">Status</th><th data-s="valuation_asof">As of</th>
   <th data-s="valuation_source">Src</th><th data-s="entry_stage">Entry</th>
   <th data-s="round_count">Rds</th><th data-s="seed_to_a_graduation">C2A</th>
-  <th>Flags</th><th data-s="country">Country</th><th data-s="focus">Focus</th><th data-s="tier">T</th>
+  <th>Flags</th><th data-s="hq_city">City</th><th data-s="hq_country">Country</th>
+  <th data-s="focus">Focus</th><th data-s="tier">T</th>
   <th>Evidence</th><th>Note</th>
 </tr></thead>
 <tbody id="tb"></tbody>
@@ -238,7 +242,7 @@ function visible() {
     if (filters.flag.size && !(r.flags||[]).some(f => filters.flag.has(f))) return false;
     if (filters.grad.size && !filters.grad.has(String(r.seed_to_a_graduation))) return false;
     if (filters.sample.size && !r.sample) return false;
-    if (q) { const h = (r.name+' '+r.slug+' '+(r.country||'')+' '+(r.sector||'')).toLowerCase();
+    if (q) { const h = (r.name+' '+r.slug+' '+(r.hq_city||'')+' '+(r.hq_country||'')+' '+(r.sector||'')).toLowerCase();
       if (!h.includes(q)) return false; }
     return true;
   });
@@ -277,7 +281,8 @@ function render(scroll) {
       <td class="mut">${r.round_count||''}</td>
       <td>${gCell}</td>
       <td>${(r.flags||[]).map(f=>`<span class="f f-${f}">${f}</span>`).join('')}</td>
-      <td class="mut">${r.country||''}</td>
+      <td class="mut">${r.hq_city||''}</td>
+      <td class="mut">${r.hq_country||''}</td>
       <td class="mut">${r.focus||''}</td>
       <td class="mut">${r.tier||''}</td>
       <td>${ev}</td>
@@ -339,24 +344,17 @@ render();
 
 def main() -> None:
     investor = sys.argv[1] if len(sys.argv) > 1 else "sequoia-capital"
-    base = {r["slug"]: r for r in csv.DictReader(open(OUT / "base-snapshot.csv"))}
+    base = {r["slug"]: r for r in load_base(investor)}
     resolved = json.loads((OUT / "resolved.json").read_text())
     cls_path = OUT / "classification.json"
     cls = json.loads(cls_path.read_text()) if cls_path.exists() else {}
 
+    merged = merge_rows(list(base.values()), resolved, cls)
     rows = []
     for slug, b in base.items():
-        r = {"slug": slug, "name": b["name"], "tier": b.get("tier"),
-             "first_seen": b.get("first_seen"), "sector": b.get("sector"),
-             "formd_links": b.get("formd_links"), "edgar_links": b.get("edgar_links"),
-             "wayback_first_link": b.get("wayback_first_link")}
-        det = resolved.get(slug, {})
-        ov = cls.get(slug, {})
-        r.update(det)
-        r.update(ov)
-        # flags union across layers, so a batch answer can't hide a
-        # deterministic flag in the review surface
-        r["flags"] = sorted(set(det.get("flags") or []) | set(ov.get("flags") or []))
+        r = {k: b.get(k) for k in ("slug", "name", "tier", "first_seen", "sector",
+                                   "formd_links", "edgar_links", "wayback_first_link")}
+        r.update(merged[slug])
         row = {k: r.get(k) for k in FIELDS}
         row["sample"] = in_sample(row)
         rows.append(row)
