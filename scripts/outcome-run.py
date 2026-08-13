@@ -49,6 +49,14 @@ GRADUATION_FLOOR = 5_000_000
 VALUE_TAGS = ("below_1b", "1b_plus", "10b_plus", "100b_plus")
 VALID_STAGES = {"Pre-Seed", "Seed", "Series A", "Growth"}
 
+# Closed focus vocabulary, owned by data/taxonomy/focus.json (the same seven
+# values the frontend and DB use). Never extended here: a company that does not
+# fit any of them carries focus=None, which the distribution reports as
+# "outside taxonomy" rather than being force-fitted into a near-miss bucket.
+_FOCUS_FILE = ROOT / "data" / "taxonomy" / "focus.json"
+VALID_FOCUS = set(json.loads(_FOCUS_FILE.read_text())["values"]) \
+    if _FOCUS_FILE.exists() else set()
+
 US_STATES = {
     "ALABAMA", "ALASKA", "ARIZONA", "ARKANSAS", "CALIFORNIA", "COLORADO",
     "CONNECTICUT", "DELAWARE", "DISTRICT OF COLUMBIA", "FLORIDA", "GEORGIA",
@@ -656,6 +664,11 @@ def validate_record(rec: dict, slugs: set[str]) -> list[str]:
             errs.append(f"{slug}: value_tag {rec['value_tag']} without a sourced figure")
     if rec.get("entry_stage") is not None and rec["entry_stage"] not in VALID_STAGES:
         errs.append(f"{slug}: entry_stage {rec['entry_stage']!r}")
+    if rec.get("focus") is not None and rec["focus"] not in VALID_FOCUS:
+        errs.append(f"{slug}: focus {rec['focus']!r} outside the closed taxonomy")
+    if rec.get("focus_source") is not None and rec["focus_source"] not in (
+            "model", "web_verified"):
+        errs.append(f"{slug}: focus_source {rec['focus_source']!r}")
     if rec.get("entry_stage_source") is not None and rec["entry_stage_source"] not in (
             "formd_band", "formd_structural", "model", "web_verified"):
         errs.append(f"{slug}: entry_stage_source {rec['entry_stage_source']!r}")
@@ -851,6 +864,13 @@ def cmd_verify(_args) -> None:
     print(f"classified      : {sum(1 for r in merged.values() if r.get('status'))}")
     print(f"$1B+ / $10B+ / $100B+ : {len(one_b)} / {len(ten_b)} / {len(hundred_b)}")
     from collections import Counter
+    bad_focus = [s for s, r in merged.items()
+                 if r.get("focus") is not None and r["focus"] not in VALID_FOCUS]
+    if bad_focus:
+        problems.append(f"focus outside taxonomy on {len(bad_focus)} rows: "
+                        f"{bad_focus[:3]}")
+    foc = Counter(r.get("focus") or "(outside taxonomy)" for r in merged.values())
+    print(f"focus           : {dict(foc.most_common())}")
     tags = Counter(r.get("value_tag") for r in merged.values())
     print(f"value_tag       : {dict(tags.most_common())}")
     regions = Counter(r.get("region") for r in merged.values())
@@ -888,7 +908,7 @@ EXPORT_COLUMNS = [
     "entry_offering_usd", "entry_quarter", "prior_rounds",
     "round_count", "next_offering_usd", "next_quarter", "seed_to_a_graduation",
     "graduation_source", "graduation_confidence",
-    "country", "country_source", "region", "flags",
+    "country", "country_source", "region", "focus", "focus_source", "flags",
     "tier", "first_seen", "sector", "cik", "note",
 ]
 
