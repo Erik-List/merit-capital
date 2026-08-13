@@ -51,7 +51,7 @@ Reproducible per investor: `scripts/wayback-pull.py`, `scripts/partner-roster.py
 - Company base review & correction: 1,227 of 1,365 rows are `needs_review` (653 Tier B Wayback-only, 574 Tier C Form D-only). Tier A's 138 rows are auto-confirmed by 2+ independent sources and need no pass.
 - Company outcome derivation: the valuation and exit milestones ($1B+/$10B+/$100B+, IPOs) that `track_record` aggregates. The EDGAR layer (212 distinct companies from SC 13D/G and Forms 3/4/5) is filing-grade proof for public-market outcomes.
 - AUM, funds & partner derivation.
-- One-time platform work, done once here with Sequoia as the first payload and **not** repeated per investor: connect the domain (DNS + certificate so meritcapit.al serves `/data/investors` and `/docs`), Supabase ingestion (restore the paused project, push the migration, regenerate `types/supabase.ts`), and frontend + agent testing.
+- One-time platform work, done once here with Sequoia as the first payload and **not** repeated per investor: connect the domain (DNS + certificate so meritcapit.al serves `/data/investors` and `/api-reference`), Supabase ingestion (restore the paused project, push the migration, regenerate `types/supabase.ts`), and frontend + agent testing.
 - Freeze Sequoia as the reference template.
 
 **Next 4 Collected (Aug 7)**
@@ -154,7 +154,7 @@ This is the core differentiator. The API should be designed so that an LLM or ag
 - 1 LinkedIn post, 1 X post (personal accounts)
 - Narrative angle for v1 (shifted from "rate your investors" to "open investor data for founders and agents")
 - 1-2 screenshots showing a profile page and an API response
-- CTA: link to meritcapit.al and meritcapit.al/docs
+- CTA: link to meritcapit.al and meritcapit.al/api-reference
 
 **Estimated effort: 4h**
 

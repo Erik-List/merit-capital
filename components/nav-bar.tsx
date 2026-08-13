@@ -6,6 +6,13 @@ import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 
+// Single source of truth so the desktop nav and the mobile menu cannot drift
+// apart. `/` is the leaderboard and is reached through the logo, so it needs
+// no entry of its own.
+const NAV_LINKS = [
+  { href: '/api-reference', label: 'API reference' },
+] as const;
+
 export function NavBar() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -30,28 +37,20 @@ export function NavBar() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-4">
-            <Link
-              href="/"
-              className={`flex items-center gap-2 py-2 text-sm transition-colors ${
-                isActive('/')
-                  ? 'text-foreground font-medium underline underline-offset-4'
-                  : 'hover:text-accent-foreground'
-              }`}
-              aria-current={isActive('/') ? 'page' : undefined}
-            >
-              <span>Leaderboard</span>
-            </Link>
-            <Link
-              href="/investor/atlas-peak-ventures"
-              className={`flex items-center gap-2 py-2 text-sm transition-colors ${
-                isActive('/investor/atlas-peak-ventures')
-                  ? 'text-foreground font-medium underline underline-offset-4'
-                  : 'hover:text-accent-foreground'
-              }`}
-              aria-current={isActive('/investor/atlas-peak-ventures') ? 'page' : undefined}
-            >
-              <span>Investor Profile</span>
-            </Link>
+            {NAV_LINKS.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                className={`flex items-center gap-2 py-2 text-sm transition-colors ${
+                  isActive(href)
+                    ? 'text-foreground font-medium underline underline-offset-4'
+                    : 'hover:text-accent-foreground'
+                }`}
+                aria-current={isActive(href) ? 'page' : undefined}
+              >
+                <span>{label}</span>
+              </Link>
+            ))}
           </nav>
 
           {/* Mobile Navigation */}
@@ -83,27 +82,21 @@ export function NavBar() {
           className="fixed inset-0 top-[65px] z-30 bg-background/95 backdrop-blur-lg lg:hidden"
         >
           <nav className="flex flex-col items-start justify-start h-full px-6 py-8 space-y-6 text-left">
-            <Link
-              href="/"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-md font-normal text-foreground hover:text-foreground/80 transition-colors"
-            >
-              Home
-            </Link>
-            <Link
-              href="/leaderboard"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-md font-normal text-foreground hover:text-foreground/80 transition-colors"
-            >
-              Leaderboard
-            </Link>
-            <Link
-              href="/investor/atlas-peak-ventures"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-md font-normal text-foreground hover:text-foreground/80 transition-colors"
-            >
-              Investor Profile
-            </Link>
+            {NAV_LINKS.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`text-md text-foreground transition-colors ${
+                  isActive(href)
+                    ? 'font-medium underline underline-offset-4'
+                    : 'font-normal hover:text-foreground/80'
+                }`}
+                aria-current={isActive(href) ? 'page' : undefined}
+              >
+                {label}
+              </Link>
+            ))}
           </nav>
         </div>
       )}
