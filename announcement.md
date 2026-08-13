@@ -35,7 +35,7 @@ Deliverables: 1 LinkedIn post, 1 X thread, 1 screen recording (two scenes).
 **First comment (pinned):**
 
 > Index: https://meritcapit.al
-> API and docs: https://meritcapit.al/docs
+> API reference: https://meritcapit.al/api-reference
 > How the data was built, source by source: [link to build report or repo]
 
 **Notes on the draft:**
@@ -84,11 +84,11 @@ Deliverables: 1 LinkedIn post, 1 X thread, 1 screen recording (two scenes).
 >
 > "Which of these funds has the highest rate of $10B outcomes?" is now one query instead of a week of research.
 >
-> meritcapit.al/docs
+> meritcapit.al/api-reference
 
 **5/**
 > Browse: meritcapit.al
-> Query: meritcapit.al/docs
+> Query: meritcapit.al/api-reference
 >
 > If a number is wrong, reply with a source and I will fix it.
 
@@ -108,7 +108,7 @@ One recording, two scenes, no audio, burned-in captions (most feeds autoplay mut
 **Scene A, agent query (20 to 25s):**
 
 1. A visible agent surface with a natural-language question typed live: "Which of these venture investors has the highest share of investments that reached $10B or more?"
-2. The agent discovering the endpoint from `/docs`, then the actual request to `/data/investors`.
+2. The agent discovering the endpoint from `/api-reference`, then the actual request to `/data/investors`.
 3. Raw JSON response on screen, briefly. This is the proof it is a real API and not a chat mock.
 4. The agent's answer, with the numbers matching what the site shows in Scene B for the same investor.
 
