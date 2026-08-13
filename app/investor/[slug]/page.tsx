@@ -95,7 +95,7 @@ export default async function InvestorProfilePage({ params }: InvestorPageParams
     <div className="min-h-screen md:min-h-0 md:h-[calc(100dvh-66px)] md:overflow-hidden">
       <div className="container mx-auto px-4 py-8 md:flex md:h-full md:flex-col">
         <div className="mb-8">
-          <Link href="/leaderboard" className="text-muted-foreground hover:text-foreground">
+          <Link href="/" className="text-muted-foreground hover:text-foreground">
             ← Back to Leaderboard
           </Link>
         </div>

@@ -2,7 +2,8 @@
 // API surface. Supabase only serves the spec to the service role, and a
 // service-role spec describes everything that role can see, so the spec is
 // fetched server-side and cut down to the allowlisted objects before anything
-// public-facing touches it. Used by the /data proxy root and the /docs page.
+// public-facing touches it. Used by the /data proxy root and the
+// /api-reference page.
 
 // The public surface: objects anon holds SELECT on (see migration
 // 20260719120000_single_public_endpoint.sql). Extend when a new object is
