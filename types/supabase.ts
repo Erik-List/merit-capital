@@ -14,6 +14,65 @@ export type Database = {
   }
   public: {
     Tables: {
+      companies: {
+        Row: {
+          created_at: string
+          entry_stage: string
+          focus: string | null
+          hq_city: string | null
+          hq_country: string | null
+          id: string
+          investor_id: string
+          name: string
+          seed_to_a_graduation: boolean | null
+          status: string
+          updated_at: string
+          valuation_asof: string | null
+          valuation_range: string
+          valuation_usd: number | null
+        }
+        Insert: {
+          created_at?: string
+          entry_stage: string
+          focus?: string | null
+          hq_city?: string | null
+          hq_country?: string | null
+          id?: string
+          investor_id: string
+          name: string
+          seed_to_a_graduation?: boolean | null
+          status: string
+          updated_at?: string
+          valuation_asof?: string | null
+          valuation_range: string
+          valuation_usd?: number | null
+        }
+        Update: {
+          created_at?: string
+          entry_stage?: string
+          focus?: string | null
+          hq_city?: string | null
+          hq_country?: string | null
+          id?: string
+          investor_id?: string
+          name?: string
+          seed_to_a_graduation?: boolean | null
+          status?: string
+          updated_at?: string
+          valuation_asof?: string | null
+          valuation_range?: string
+          valuation_usd?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "companies_investor_id_fkey"
+            columns: ["investor_id"]
+            isOneToOne: false
+            referencedRelation: "investors"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       investors: {
         Row: {
           affiliation: Json | null

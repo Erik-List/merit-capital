@@ -38,7 +38,27 @@ export const INVESTOR_COLUMNS = [
   "updated_at",
 ] as const;
 
-export function parseFlags(argv: string[]): ParsedFlags {
+// The writable columns of public.companies. Same rule: id is minted by the
+// database and investor_id is resolved by the ingest, never taken from a
+// --columns request or the payload.
+export const COMPANY_COLUMNS = [
+  "name",
+  "hq_city",
+  "hq_country",
+  "focus",
+  "entry_stage",
+  "status",
+  "valuation_range",
+  "valuation_usd",
+  "valuation_asof",
+  "seed_to_a_graduation",
+  "updated_at",
+] as const;
+
+export function parseFlags(
+  argv: string[],
+  allowedColumns: readonly string[] = INVESTOR_COLUMNS
+): ParsedFlags {
   const flags: ParsedFlags = {
     investors: { type: "all" },
     columns: null,
@@ -92,9 +112,9 @@ export function parseFlags(argv: string[]): ParsedFlags {
         throw new Error("Expected at least one column name after --columns");
       }
       for (const column of columns) {
-        if (!(INVESTOR_COLUMNS as readonly string[]).includes(column)) {
+        if (!allowedColumns.includes(column)) {
           throw new Error(
-            `Unknown column: ${column}. Writable columns: ${INVESTOR_COLUMNS.join(", ")}`
+            `Unknown column: ${column}. Writable columns: ${allowedColumns.join(", ")}`
           );
         }
       }
