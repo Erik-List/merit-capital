@@ -5,10 +5,11 @@
 // public-facing touches it. Used by the /data proxy root and the
 // /api-reference page.
 
-// The public surface: objects anon holds SELECT on (see migration
-// 20260719120000_single_public_endpoint.sql). Extend when a new object is
+// The public surface: objects anon holds SELECT on (see migrations
+// 20260719120000_single_public_endpoint.sql and
+// 20260814130000_expose_companies_endpoint.sql). Extend when a new object is
 // deliberately made public.
-const PUBLIC_OBJECTS = ['investors'];
+const PUBLIC_OBJECTS = ['investors', 'companies'];
 
 export type SpecProperty = {
   description?: string;
