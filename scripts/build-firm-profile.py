@@ -194,6 +194,35 @@ RESEARCHED_FUNDS = [
                   "vehicle and vintage.")]},
 ]
 
+# --- Investment range: three legs, per the PRO-7 continuation run. ----------
+# (1) Form D round distribution: 368 portfolio companies, 1,125 partner-
+#     attributed rounds in formd-issuer-rounds.json. Entry-round median
+#     $7.79M (p10 $287K, p90 $89.4M). Rounds, not checks; but Sequoia's
+#     high-ownership model makes the entry round a fair check proxy where it
+#     leads.
+# (2) Fund bands: Arc/seed checks $500K-$1M out of the seed fund (Forbes);
+#     the fund ladder ($200M seed -> $750M venture -> $1.5B growth -> $7B
+#     expansion) spans seed checks to late-stage positions.
+# (3) Ceiling: largest verified single round led is Citadel Securities'
+#     $1.15B (shared with Paradigm, split undisclosed); the $7B expansion
+#     fund at a 10-15% concentration limit supports $700M-$1B per company.
+#     The Aug 2026 "$10B AI commitment" is a strategy allocation, not a
+#     check, and is deliberately not the ceiling.
+RANGE_VALUE = {"lower_limit": 500_000, "median": 8_000_000, "upper_limit": 1_000_000_000}
+RANGE_SOURCES = [
+    ("data/aggregation/sources/edgar/formd-issuer-rounds.json",
+     "Entry-round median $7,791,486 across 368 companies; median published as "
+     "$8M. p10 $287K, p90 $89.4M, p99 (all rounds) $723M."),
+    ("https://www.forbes.com/sites/kenrickcai/2023/01/18/sequoia-new-seed-fund-and-arc-expansion/",
+     "Arc program: $500K-$1M checks out of the seed fund. The lower limit."),
+    ("https://www.citadelsecurities.com/news-and-insights/citadel-securities-announces-1-15-billion-investment-from-sequoia-and-paradigm/",
+     "Largest verified Sequoia-led round: $1.15B into Citadel Securities with "
+     "Paradigm, Jan 2022; Sequoia's split undisclosed. Upper limit set at $1B."),
+    ("https://techcrunch.com/2026/04/16/new-leaders-new-fund-sequoia-has-raised-7b-to-expand-its-ai-bets/",
+     "Dry-powder check: the $7B expansion fund at typical concentration "
+     "supports single positions of $700M-$1B, consistent with the ceiling."),
+]
+
 # Stage labels the firm's own companies listing uses, mapped to the canonical
 # 14-value taxonomy. "Early" is the firm's own bucket; reading it as Series A
 # and B is this run's interpretation and is flagged for review.
@@ -358,7 +387,7 @@ def main():
         "investment_stage": STAGE_VALUE,
         "investment_geo": GEO_VALUE,
         "investment_scope": {"type": "Generalist", "focus": focus},
-        "investment_range": None,
+        "investment_range": RANGE_VALUE,
         "notable_investments": sorted(NOTABLE_PICKS),
         "aum": AUM_VALUE,
         "funds": {"funds": [
@@ -399,9 +428,9 @@ def main():
                 "spans every published label." % (sum(mapped.values()), FOCUS_MIN_COMPANIES),
             ),
             "investment_range": field(
-                None, None,
-                "Null, not unknown. Form D total_offering is round size, not check size, "
-                "so it cannot be derived from the filings this run is built on.",
+                RANGE_VALUE,
+                RANGE_SOURCES[0][0],
+                " | ".join(note for _, note in RANGE_SOURCES),
             ),
             "notable_investments": field(
                 sorted(NOTABLE_PICKS),
@@ -467,6 +496,16 @@ def main():
                         "the Jan 2025 press figure of $56B is superseded by the firm's "
                         "own 2026-07-17 ADV at $82.17B. SCGE's $10.4B sits outside both "
                         "the range and the fund list, deliberately.",
+            },
+            {
+                "field": "investment_range",
+                "severity": "medium",
+                "note": "Median is the Form D entry-round median, a round-not-check "
+                        "proxy justified by the firm's high-ownership entry model. The "
+                        "$1B ceiling reads the $1.15B Citadel round (split with Paradigm "
+                        "undisclosed) against the $7B expansion fund's concentration "
+                        "capacity. The Aug 2026 '$10B AI commitment' is a strategy "
+                        "allocation, not a check, and was deliberately not used.",
             },
             {
                 "field": "investment_geo",

@@ -6,11 +6,22 @@ import {
   loadAllAggregatedInvestors,
   listAggregatedInvestors,
 } from "./utils/aggregation";
-import { batchUpsertInvestors } from "./utils/db-helpers";
+import { batchUpsertInvestors, updateInvestorBySlug } from "./utils/db-helpers";
 import { validateTaxonomyFields } from "./utils/taxonomy-validate";
 import { normalizeFundSizes } from "../lib/fund-size";
 
 type InvestorInsert = TablesInsert<"investors">;
+
+// Machine-owned columns: recompute_investor_metrics derives them from
+// public.companies on every companies write. A payload carrying one would
+// be silently overwritten on the next recompute, so it is a hard error.
+const DERIVED_COLUMNS = [
+  "track_record",
+  "graduation_rate",
+  "company_stage_distribution",
+  "company_geo_distribution",
+  "company_focus_distribution",
+] as const;
 
 function determineTargetSlugs(
   filter: ReturnType<typeof parseFlags>["investors"],
@@ -104,6 +115,15 @@ async function main() {
         continue;
       }
 
+      const derivedInPayload = DERIVED_COLUMNS.filter((column) => column in investorData);
+      if (derivedInPayload.length > 0) {
+        throw new Error(
+          `${slug}: payload carries derived column(s) ${derivedInPayload.join(", ")}. ` +
+            `These are machine-owned (recompute_investor_metrics derives them from ` +
+            `public.companies); remove them from the aggregation file.`
+        );
+      }
+
       if (!investorData.updated_at) {
         investorData.updated_at = new Date().toISOString();
       }
@@ -164,7 +184,31 @@ async function main() {
     }
 
     try {
-      if (investors.length > 0) {
+      if (investors.length > 0 && flags.columns) {
+        // Scoped writes are UPDATEs: upsert forms the insert tuple before the
+        // conflict check, so any payload missing a NOT NULL column (name)
+        // fails even though the row exists. PATCH sets only what is present.
+        for (const row of investors) {
+          const { slug: rowSlug, ...patch } = row as Record<string, unknown>;
+          try {
+            await updateInvestorBySlug(supabase, String(rowSlug), patch);
+            console.log(`✓ Updated ${rowSlug} (${Object.keys(patch).join(", ")})`);
+          } catch (error) {
+            // A scoped write that carries name can create the row (identity
+            // bootstrap). Anything else has no row to patch and must fail.
+            if (
+              error instanceof Error &&
+              error.message.includes("No investor row") &&
+              typeof (row as Record<string, unknown>).name === "string"
+            ) {
+              await batchUpsertInvestors(supabase, [row]);
+              console.log(`✓ Created ${rowSlug} (${Object.keys(row).join(", ")})`);
+            } else {
+              throw error;
+            }
+          }
+        }
+      } else if (investors.length > 0) {
         // PostgREST rejects a bulk upsert whose rows carry different key sets,
         // which partial payloads make possible. Batch only when uniform.
         const keySets = new Set(investors.map((r) => Object.keys(r).sort().join(",")));

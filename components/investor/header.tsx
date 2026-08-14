@@ -1,6 +1,7 @@
 "use client";
 
-import { Link, ExternalLink, Bookmark } from 'lucide-react';
+import Image from 'next/image';
+import { Link, ExternalLink } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import type { Database } from '@/types/supabase';
 
@@ -47,19 +48,15 @@ export function InvestorHeader({ investor }: InvestorHeaderProps) {
     }
   };
 
-  const handleSaveInvestor = () => {
-    toast({
-      title: "Save investor - Coming soon",
-      description: "Save functionality will be available soon",
-    });
-  };
-
   return (
     <div className="flex flex-row items-center gap-4">
       {investor.icon_url && (
-        <img
+        <Image
           src={investor.icon_url}
           alt={investor.name || 'Investor'}
+          width={64}
+          height={64}
+          priority
           className="h-16 w-16 rounded-lg object-contain"
         />
       )}
@@ -90,13 +87,6 @@ export function InvestorHeader({ investor }: InvestorHeaderProps) {
             aria-label="Copy page link"
           >
             <Link className="h-4 w-4" />
-          </button>
-          <button
-            onClick={handleSaveInvestor}
-            className="glass h-8 w-8 rounded-lg border border-input bg-background hover:bg-muted flex items-center justify-center transition-colors cursor-pointer"
-            aria-label="Save investor"
-          >
-            <Bookmark className="h-4 w-4" />
           </button>
         </div>
       </div>

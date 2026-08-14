@@ -77,6 +77,9 @@ export type Database = {
         Row: {
           affiliation: Json | null
           aum: Json | null
+          company_focus_distribution: Json | null
+          company_geo_distribution: Json | null
+          company_stage_distribution: Json | null
           created_at: string
           founding_year: number | null
           funds: Json | null
@@ -102,6 +105,9 @@ export type Database = {
         Insert: {
           affiliation?: Json | null
           aum?: Json | null
+          company_focus_distribution?: Json | null
+          company_geo_distribution?: Json | null
+          company_stage_distribution?: Json | null
           created_at?: string
           founding_year?: number | null
           funds?: Json | null
@@ -127,6 +133,9 @@ export type Database = {
         Update: {
           affiliation?: Json | null
           aum?: Json | null
+          company_focus_distribution?: Json | null
+          company_geo_distribution?: Json | null
+          company_stage_distribution?: Json | null
           created_at?: string
           founding_year?: number | null
           funds?: Json | null
@@ -156,7 +165,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      recompute_investor_metrics: {
+        Args: { target_investor_id: string }
+        Returns: undefined
+      }
     }
     Enums: {
       InvestorType: "Institutional" | "Individual"

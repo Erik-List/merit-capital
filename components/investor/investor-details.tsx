@@ -2,8 +2,9 @@
 
 import { useMemo } from 'react';
 import { Progress } from '@/components/ui/progress';
+import { cn } from '@/lib/utils';
+import { BAY_AREA_CITIES, BAY_AREA_LABEL } from '@/lib/geo';
 import type { Database } from '@/types/supabase';
-import { FALLBACK_STAGE_INDEX, canonicalizeStage, stageIndex } from '@/lib/taxonomy';
 
 type Investor = Database['public']['Tables']['investors']['Row'];
 
@@ -11,249 +12,170 @@ interface InvestorDetailsProps {
   investor: Investor;
 }
 
-function getStageStrings(value: Investor['investment_stage']): string[] {
-  if (Array.isArray(value)) return value.filter((x) => typeof x === "string");
-  if (typeof value === "string") return [value];
-  return [];
-}
+// One parsed distribution element. label === null is the real count of rows
+// where the source column is null (focus outside the taxonomy, city
+// unresolved); the derivation sorts it last.
+type DistEntry = {
+  label: string | null;
+  companies: number;
+};
 
-function sortStagesByCanonicalOrder(stages: string[]): string[] {
-  const entries = stages.map((stage) => {
-    const canonical = canonicalizeStage(stage);
-    if (canonical) {
-      return { original: stage, canonical, index: stageIndex(canonical) };
-    }
-    return { original: stage, canonical: null, index: FALLBACK_STAGE_INDEX + stages.indexOf(stage) };
-  });
+// A composition-bar segment: the top named entries render individually on a
+// descending opacity ramp; everything else, including the null element
+// (unresolved city / outside-taxonomy focus), bundles into one muted
+// "Other" segment.
+type Segment = {
+  label: string;
+  companies: number;
+  share: number;
+  muted: boolean;
+  opacity: number;
+};
 
-  return entries
-    .sort((a, b) => {
-      if (a.index !== b.index) return a.index - b.index;
-      return a.original.localeCompare(b.original);
+const SEGMENT_OPACITIES = [0.85, 0.7, 0.55, 0.42, 0.32];
+const OTHER_OPACITY = 0.3;
+const MAX_NAMED_SEGMENTS = 5;
+
+function parseDistArray(value: unknown, key: string): DistEntry[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .map((entry): DistEntry | null => {
+      if (!entry || typeof entry !== 'object' || Array.isArray(entry)) return null;
+      const record = entry as Record<string, unknown>;
+      const label = typeof record[key] === 'string' ? (record[key] as string) : null;
+      const companies = typeof record.companies === 'number' && Number.isFinite(record.companies)
+        ? record.companies
+        : null;
+      if (companies === null) return null;
+      return { label, companies };
     })
-    .map((entry) => entry.canonical || entry.original);
+    .filter((entry): entry is DistEntry => entry !== null);
 }
 
-// Simple hash function for deterministic placeholder generation
-function hashString(str: string): number {
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    const char = str.charCodeAt(i);
-    hash = ((hash << 5) - hash) + char;
-    hash = hash & hash; // Convert to 32bit integer
-  }
-  return Math.abs(hash);
+function sumCompanies(entries: DistEntry[]): number {
+  return entries.reduce((total, entry) => total + entry.companies, 0);
 }
 
-function generatePlaceholderPercentages(count: number, seed: string): number[] {
-  if (count === 0) return [];
-  if (count === 1) return [100];
-  
-  // Generate realistic percentages that sum to ~100% using deterministic seed
-  const percentages: number[] = [];
-  let remaining = 100;
-  const seedHash = hashString(seed);
-  
-  for (let i = 0; i < count; i++) {
-    if (i === count - 1) {
-      // Last item gets remaining percentage
-      percentages.push(remaining);
-    } else {
-      // Distribute: larger percentages for earlier stages, smaller for later
-      const base = remaining / (count - i);
-      const variance = base * 0.3; // 30% variance
-      const min = Math.max(5, base - variance);
-      const max = Math.min(remaining - (count - i - 1) * 5, base + variance);
-      // Use deterministic pseudo-random based on seed
-      const pseudoRandom = ((seedHash + i * 17) % 1000) / 1000;
-      const value = Math.round(pseudoRandom * (max - min) + min);
-      percentages.push(value);
-      remaining -= value;
-    }
-  }
-  
-  return percentages;
+function formatShare(count: number, total: number): string {
+  if (total <= 0) return '0%';
+  const pct = Math.round((count / total) * 1000) / 10;
+  return `${pct % 1 === 0 ? pct.toFixed(0) : pct.toFixed(1)}%`;
 }
 
-function generatePlaceholderCounts(percentages: number[], total: number): number[] {
-  return percentages.map((pct) => Math.round((pct / 100) * total));
-}
-
-function formatPercentage(value: number): string {
-  const rounded = Math.round(value * 10) / 10;
-  const formatted = rounded % 1 === 0 ? rounded.toFixed(0) : rounded.toFixed(1);
-  return `${formatted} percent`;
-}
-
-function getGeographiesSorted(geo: Investor['investment_geo'], seed: string): Array<{ name: string; percentage: number; count: number }> {
-  if (!geo || typeof geo !== 'object' || Array.isArray(geo)) return [];
-  
-  const core = Array.isArray((geo as any).core) ? (geo as any).core.filter((x: any) => typeof x === 'string') : [];
-  const other = Array.isArray((geo as any).other) ? (geo as any).other.filter((x: any) => typeof x === 'string') : [];
-  
-  const allGeos = [
-    ...core.map((name: string) => ({ name, isCore: true })),
-    ...other.map((name: string) => ({ name, isCore: false })),
-  ];
-  
-  if (allGeos.length === 0) return [];
-  
-  // Generate placeholder percentages: core geographies get higher percentages (50-70%), other get lower (5-20%)
-  const percentages: number[] = [];
-  let remaining = 100;
-  const seedHash = hashString(seed);
-  
-  // First assign core geographies (higher percentages)
-  const coreGeos = allGeos.filter((g) => g.isCore);
-  const otherGeos = allGeos.filter((g) => !g.isCore);
-  
-  for (let i = 0; i < coreGeos.length; i++) {
-    if (i === coreGeos.length - 1 && otherGeos.length === 0) {
-      percentages.push(remaining);
-    } else {
-      const pseudoRandom = ((seedHash + i * 23) % 1000) / 1000;
-      const value = Math.round(pseudoRandom * 20 + 50); // 50-70%
-      const actual = Math.min(value, remaining - (coreGeos.length - i - 1) * 5 - otherGeos.length * 5);
-      percentages.push(actual);
-      remaining -= actual;
-    }
-  }
-  
-  // Then assign other geographies (lower percentages)
-  for (let i = 0; i < otherGeos.length; i++) {
-    if (i === otherGeos.length - 1) {
-      percentages.push(remaining);
-    } else {
-      const pseudoRandom = ((seedHash + (coreGeos.length + i) * 31) % 1000) / 1000;
-      const value = Math.round(pseudoRandom * 15 + 5); // 5-20%
-      const actual = Math.min(value, remaining - (otherGeos.length - i - 1) * 5);
-      percentages.push(actual);
-      remaining -= actual;
-    }
-  }
-  
-  // Combine and sort by percentage (highest first)
-  const geosWithPct = [
-    ...coreGeos.map((g, i) => ({ name: g.name, percentage: percentages[i], isCore: true })),
-    ...otherGeos.map((g, i) => ({ name: g.name, percentage: percentages[coreGeos.length + i], isCore: false })),
-  ].sort((a, b) => b.percentage - a.percentage);
-  
-  // Use a base total investment count (50-200) to calculate absolute numbers
-  const baseTotal = 50 + (seedHash % 150);
-  
-  return geosWithPct.map((geo) => ({
-    name: geo.name,
-    percentage: geo.percentage,
-    count: Math.round((geo.percentage / 100) * baseTotal),
-  }));
-}
-
-function getFocusAreasSorted(scope: Investor['investment_scope'], seed: string): Array<{ name: string; percentage: number; count: number }> {
-  if (!scope || typeof scope !== 'object' || Array.isArray(scope)) return [];
-  
-  const type = typeof (scope as any).type === 'string' ? (scope as any).type.trim() : null;
-  const focus = Array.isArray((scope as any).focus)
-    ? (scope as any).focus
-        .map((x: any) => (typeof x === 'string' ? x.trim() : ''))
-        .filter((value: string): value is string => Boolean(value))
-    : [];
-  
-  const items: Array<{ name: string; isGeneralist: boolean }> = [];
-  
-  // Add Generalist first if type is "Generalist"
-  if (type === 'Generalist') {
-    items.push({ name: 'Generalist', isGeneralist: true });
-  }
-  
-  // Add focus areas (only those where investor has investments - using placeholder logic)
-  // For now, we'll include all focus areas since we're using placeholders
-  focus.forEach((name: string) => {
-    items.push({ name, isGeneralist: false });
+function sortEntries(entries: DistEntry[]): DistEntry[] {
+  return [...entries].sort((a, b) => {
+    if ((a.label === null) !== (b.label === null)) return a.label === null ? 1 : -1;
+    if (a.companies !== b.companies) return b.companies - a.companies;
+    return (a.label ?? '').localeCompare(b.label ?? '');
   });
-  
-  if (items.length === 0) return [];
-  
-  // Generate placeholder percentages
-  const percentages = generatePlaceholderPercentages(items.length, seed);
-  
-  // Use a base total investment count (50-200) to calculate absolute numbers
-  const seedHash = hashString(seed);
-  const baseTotal = 50 + (seedHash % 150);
-  
-  const itemsWithPct = items.map((item, index) => ({
-    name: item.name,
-    percentage: percentages[index],
-    count: generatePlaceholderCounts([percentages[index]], baseTotal)[0],
+}
+
+function buildSegments(entries: DistEntry[]): Segment[] {
+  const total = sumCompanies(entries);
+  if (total <= 0) return [];
+
+  const sorted = sortEntries(entries);
+  const named = sorted.filter((entry) => entry.label !== null);
+  const nullEntry = sorted.find((entry) => entry.label === null) ?? null;
+
+  const shown = named.slice(0, MAX_NAMED_SEGMENTS);
+  const otherSum = sumCompanies(named.slice(shown.length)) + (nullEntry?.companies ?? 0);
+
+  const segments: Segment[] = shown.map((entry, index) => ({
+    label: entry.label as string,
+    companies: entry.companies,
+    share: (entry.companies / total) * 100,
+    muted: false,
+    opacity: SEGMENT_OPACITIES[index] ?? SEGMENT_OPACITIES[SEGMENT_OPACITIES.length - 1],
   }));
-  
-  // Sort by percentage (highest first), but keep Generalist first if it exists
-  return itemsWithPct.sort((a, b) => {
-    if (a.name === 'Generalist') return -1;
-    if (b.name === 'Generalist') return 1;
-    return b.percentage - a.percentage;
-  });
+
+  if (otherSum > 0) {
+    segments.push({
+      label: 'Other',
+      companies: otherSum,
+      share: (otherSum / total) * 100,
+      muted: true,
+      opacity: OTHER_OPACITY,
+    });
+  }
+
+  return segments;
+}
+
+function CompositionBar({ segments, total }: { segments: Segment[]; total: number }) {
+  return (
+    <div className="space-y-3">
+      <div className="flex h-1.5 w-full max-w-md gap-[2px] overflow-hidden rounded-full">
+        {segments.map((segment) => (
+          <div
+            key={segment.label}
+            className={cn('h-full', segment.muted ? 'bg-muted-foreground' : 'bg-primary')}
+            style={{ width: `${segment.share}%`, opacity: segment.opacity }}
+          />
+        ))}
+      </div>
+      <div className="flex flex-wrap gap-x-4 gap-y-1.5 text-sm text-muted-foreground">
+        {segments.map((segment) => (
+          <span key={segment.label} className="inline-flex items-center gap-1.5">
+            <span
+              className={cn('h-2.5 w-2.5 rounded-[2px]', segment.muted ? 'bg-muted-foreground' : 'bg-primary')}
+              style={{ opacity: segment.opacity }}
+            />
+            <span>
+              {segment.label} {formatShare(segment.companies, total)} ({segment.companies})
+            </span>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 /**
  * Component 4: Investor Details
- * Displays firm investment information:
- * - Stages (investment_stage)
- * - Geography (investment_geo)
- * - Focus (investment_scope.focus)
- * - Notable investments (notable_investments)
+ * Renders the derived per-company distributions: stages as ranked rows,
+ * geography (city sub-array only, Bay Area municipalities folded into one
+ * element) and focus as composition bars. Share is computed here as
+ * companies / sum(array); the null element renders as its own entry rather
+ * than being rescaled away.
  */
 export function InvestorDetails({ investor }: InvestorDetailsProps) {
-  const stages = useMemo(() => {
-    const rawStages = getStageStrings(investor.investment_stage);
-    return sortStagesByCanonicalOrder(rawStages);
-  }, [investor.investment_stage]);
-  
-  const stagesWithPlaceholders = useMemo(() => {
-    if (stages.length === 0) return [];
-    const seed = investor.slug || investor.name || 'default';
-    const percentages = generatePlaceholderPercentages(stages.length, seed);
-    const seedHash = hashString(seed);
-    const baseTotal = 50 + (seedHash % 150);
-    const counts = generatePlaceholderCounts(percentages, baseTotal);
-    
-    return stages.map((stage, index) => ({
-      name: stage,
-      percentage: percentages[index],
-      count: counts[index],
-    }));
-  }, [stages, investor.slug, investor.name]);
-  
-  const geographies = useMemo(() => {
-    const seed = investor.slug || investor.name || 'default';
-    return getGeographiesSorted(investor.investment_geo, seed);
-  }, [investor.investment_geo, investor.slug, investor.name]);
-  
-  const focusAreas = useMemo(() => {
-    const seed = investor.slug || investor.name || 'default';
-    return getFocusAreasSorted(investor.investment_scope, seed);
-  }, [investor.investment_scope, investor.slug, investor.name]);
-  
-  const notableInvestments = useMemo(() => {
-    if (!investor.notable_investments) return null;
-    if (Array.isArray(investor.notable_investments)) {
-      const investments = investor.notable_investments
-        .filter((x): x is string => typeof x === 'string' && x.trim().length > 0)
-        .map((x) => x.trim())
-        .sort((a, b) => a.localeCompare(b));
-      return investments.length > 0 ? investments : null;
-    }
-    return null;
-  }, [investor.notable_investments]);
-  
-  const hasStages = stagesWithPlaceholders.length > 0;
-  const hasGeographies = geographies.length > 0;
-  const hasFocusAreas = focusAreas.length > 0;
-  const hasNotableInvestments = notableInvestments !== null;
-  
-  if (!hasStages && !hasGeographies && !hasFocusAreas && !hasNotableInvestments) {
+  const stages = useMemo(
+    () => parseDistArray(investor.company_stage_distribution, 'stage'),
+    [investor.company_stage_distribution],
+  );
+
+  const citySegments = useMemo(() => {
+    const geo = investor.company_geo_distribution;
+    if (!geo || typeof geo !== 'object' || Array.isArray(geo)) return [];
+    const cities = parseDistArray((geo as Record<string, unknown>).city, 'city');
+
+    const bayEntries = cities.filter((entry) => entry.label !== null && BAY_AREA_CITIES.has(entry.label));
+    const rest = cities.filter((entry) => !(entry.label !== null && BAY_AREA_CITIES.has(entry.label)));
+    const folded = bayEntries.length > 0
+      ? [{ label: BAY_AREA_LABEL, companies: sumCompanies(bayEntries) }, ...rest]
+      : cities;
+
+    return buildSegments(folded);
+  }, [investor.company_geo_distribution]);
+
+  const focusSegments = useMemo(
+    () => buildSegments(parseDistArray(investor.company_focus_distribution, 'focus')),
+    [investor.company_focus_distribution],
+  );
+
+  const stageTotal = sumCompanies(stages);
+  const cityTotal = citySegments.reduce((total, segment) => total + segment.companies, 0);
+  const focusTotal = focusSegments.reduce((total, segment) => total + segment.companies, 0);
+
+  const hasStages = stages.length > 0 && stageTotal > 0;
+  const hasGeo = citySegments.length > 0;
+  const hasFocusAreas = focusSegments.length > 0;
+
+  if (!hasStages && !hasGeo && !hasFocusAreas) {
     return null;
   }
-  
+
   return (
     <div className="space-y-8">
       {/* Investment Stages */}
@@ -262,19 +184,20 @@ export function InvestorDetails({ investor }: InvestorDetailsProps) {
           <div className="space-y-2">
             <div className="text-lg font-semibold">Investment Stages</div>
             <p className="text-xs text-muted-foreground">
-              The distribution of entry investments by {investor.name} across different funding stages.
+              The distribution of entry investments by {investor.name} across different funding stages,
+              from {stageTotal} portfolio companies.
             </p>
           </div>
           <div className="space-y-3">
-            {stagesWithPlaceholders.map((stage) => {
-              const percentageText = formatPercentage(stage.percentage).replace(' percent', '%');
+            {stages.map((stage) => {
+              const share = (stage.companies / stageTotal) * 100;
               return (
-                <div key={stage.name} className="grid grid-cols-[200px_1fr] items-center gap-4">
-                  <span className="text-sm font-medium text-muted-foreground">{stage.name}</span>
+                <div key={stage.label ?? 'unclassified'} className="grid grid-cols-[200px_1fr] items-center gap-4">
+                  <span className="text-sm font-medium text-muted-foreground">{stage.label ?? 'Unclassified'}</span>
                   <div className="flex items-center gap-3">
-                    <Progress value={stage.percentage} className="h-1.5 w-40 shrink-0" />
+                    <Progress value={share} className="h-1.5 w-40 shrink-0 bg-muted-foreground/30" />
                     <span className="text-sm font-medium text-muted-foreground">
-                      {percentageText} ({stage.count})
+                      {formatShare(stage.companies, stageTotal)} ({stage.companies})
                     </span>
                   </div>
                 </div>
@@ -283,70 +206,32 @@ export function InvestorDetails({ investor }: InvestorDetailsProps) {
           </div>
         </section>
       ) : null}
-      
-      {/* Geographies */}
-      {hasGeographies ? (
+
+      {/* Geography */}
+      {hasGeo ? (
         <section className="space-y-4">
           <div className="space-y-2">
             <div className="text-lg font-semibold">Investment Geography</div>
             <p className="text-xs text-muted-foreground">
-              The headquarters locations of companies {investor.name} invested in.
+              The headquarters cities of the {cityTotal} companies {investor.name} invested in.
             </p>
           </div>
-          <div className="text-sm text-muted-foreground flex flex-row flex-wrap items-center gap-x-1 leading-tight">
-            {geographies.map((geo, index) => (
-              <span key={geo.name} className="flex items-center gap-x-1">
-                {index > 0 && <span className="text-muted-foreground/50">•</span>}
-                <span>
-                  {geo.name} {formatPercentage(geo.percentage).replace(' percent', '%')} ({geo.count})
-                </span>
-              </span>
-            ))}
-          </div>
+          <CompositionBar segments={citySegments} total={cityTotal} />
         </section>
       ) : null}
-      
-      {/* Scope and Focus */}
+
+      {/* Focus */}
       {hasFocusAreas ? (
         <section className="space-y-4">
           <div className="space-y-2">
             <div className="text-lg font-semibold">Investment Focus</div>
             <p className="text-xs text-muted-foreground">
-              The focus of companies {investor.name} invested in.
+              The focus of the {focusTotal} companies {investor.name} invested in.
             </p>
           </div>
-          <div className="text-sm text-muted-foreground flex flex-row flex-wrap items-center gap-x-1 leading-tight">
-            {focusAreas.map((focus, index) => (
-              <span key={focus.name} className="flex items-center gap-x-1">
-                {index > 0 && <span className="text-muted-foreground/50">•</span>}
-                <span>
-                  {focus.name} {formatPercentage(focus.percentage).replace(' percent', '%')} ({focus.count})
-                </span>
-              </span>
-            ))}
-          </div>
+          <CompositionBar segments={focusSegments} total={focusTotal} />
         </section>
       ) : null}
-      
-      {/* Notable Investments */}
-      <section className="space-y-2">
-        <div className="text-sm text-foreground">
-          Notable Investments:
-          {hasNotableInvestments ? (
-            <span className="text-sm text-muted-foreground ml-2">
-              {notableInvestments.map((investment, index) => (
-                <span key={investment}>
-                  {index > 0 && <span className="text-muted-foreground/50 mx-1">•</span>}
-                  {investment}
-                </span>
-              ))}
-            </span>
-          ) : (
-            <span className="text-sm text-muted-foreground ml-2">–</span>
-          )}
-        </div>
-      </section>
     </div>
   );
 }
-
