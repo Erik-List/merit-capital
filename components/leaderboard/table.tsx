@@ -39,6 +39,11 @@ export default function InvestorsTable({ investors, loading, view, stage, geo, s
           ))}
         </TableBody>
       </Table>
+      {!loading && investors.length > 0 && (
+        <div className="border-t border-input/30 px-4 py-3 text-center text-xs uppercase tracking-widest text-muted-foreground">
+          More investors coming soon
+        </div>
+      )}
     </div>
   );
 }
