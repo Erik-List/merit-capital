@@ -39,7 +39,7 @@ function normalizeIndividual(entry: unknown): IndividualEntry | null {
 
     return {
       name,
-      position: 'Partner',
+      position: null,
       socials: {
         linkedin_url: null,
         x_url: null,
@@ -56,7 +56,7 @@ function normalizeIndividual(entry: unknown): IndividualEntry | null {
 
     const position = typeof record.position === 'string' && record.position.trim()
       ? record.position.trim()
-      : (typeof record.role === 'string' && record.role.trim() ? record.role.trim() : 'Partner');
+      : (typeof record.role === 'string' && record.role.trim() ? record.role.trim() : null);
 
     const socialsObj = typeof record.socials === 'object' && record.socials !== null
       ? record.socials as Record<string, unknown>
@@ -136,7 +136,7 @@ export function People({ investor }: PeopleProps) {
       searchPlaceholder="Search people"
       renderItem={(individual, index) => {
         const name = toTitleCase(individual.name);
-        const position = individual.position ? toTitleCase(individual.position) : '—';
+        const position = individual.position ? toTitleCase(individual.position) : null;
         const linkedinUrl = individual.socials?.linkedin_url;
         const xUrl = individual.socials?.x_url;
 
@@ -159,7 +159,7 @@ export function People({ investor }: PeopleProps) {
                 </span>
               ) : null}
             </div>
-            <p className="text-xs text-muted-foreground">{position}</p>
+            {position ? <p className="text-xs text-muted-foreground">{position}</p> : null}
           </li>
         );
       }}

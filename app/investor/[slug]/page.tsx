@@ -112,7 +112,7 @@ export default async function InvestorProfilePage({ params }: InvestorPageParams
                 </div>
 
                 {/* Divider - only show if Overview has content */}
-                {investor.investment_concept || investor.history || (isInstitutional && (investor as Investor & { founding_year?: number | null }).founding_year) ? (
+                {investor.investment_concept || investor.history ? (
                   <>
                     <div className="border-t border-input/30 mx-4" />
                     {/* Component 2: Overview */}
@@ -123,7 +123,7 @@ export default async function InvestorProfilePage({ params }: InvestorPageParams
                 ) : null}
 
                 {/* Divider - only show if Investor Details has content */}
-                {investor.investment_stage || investor.investment_geo || investor.investment_scope || investor.notable_investments ? (
+                {investor.company_stage_distribution || investor.company_geo_distribution || investor.company_focus_distribution ? (
                   <>
                     <div className="border-t border-input/30 mx-6" />
                     {/* Component 3: Investor Details */}
@@ -133,15 +133,11 @@ export default async function InvestorProfilePage({ params }: InvestorPageParams
                   </>
                 ) : null}
 
-                {/* Divider - only show if Merit has content */}
-                {investor.track_record || investor.graduation_rate ? (
-                  <>
-                    <div className="border-t border-input/30 mx-6" />
-                    {/* Component 4: Merit */}
-                    <div className="p-6">
-                      <InvestorMerit investor={investor} />
-                    </div>
-                  </>
+                {/* Component 4: Merit - no divider; Track Record follows Investment Focus directly */}
+                {investor.track_record || investor.graduation_rate || investor.notable_investments ? (
+                  <div className="p-6 pt-0">
+                    <InvestorMerit investor={investor} />
+                  </div>
                 ) : null}
               </CardContent>
             </Card>

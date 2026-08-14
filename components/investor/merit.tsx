@@ -24,8 +24,8 @@ type TrackRecord = {
 } | null;
 
 type GraduationBucket = {
-  rate?: number | null;
-  companies?: string[] | null;
+  rate_percent?: number | null;
+  sample_size?: number | null;
 } | null;
 
 type GraduationRate = {
@@ -74,40 +74,36 @@ function calculatePercentage(count: number, total: number): string {
   return `${formatted}%`;
 }
 
+// The sample size gates rendering: a rate without its cohort must never
+// show, so a bucket missing sample_size is treated as absent.
 function hasGraduationData(bucket: GraduationBucket | null | undefined): boolean {
   if (!bucket) return false;
-  const rate = Number(bucket.rate);
-  const hasRate = Number.isFinite(rate) && rate >= 0;
-  const count = Array.isArray(bucket.companies) ? bucket.companies.length : 0;
-  return hasRate || count > 0;
+  const rate = Number(bucket.rate_percent);
+  const sample = Number(bucket.sample_size);
+  return Number.isFinite(rate) && rate >= 0 && Number.isFinite(sample) && sample > 0;
 }
 
-type MilestoneKey = 'one_b' | 'ten_b' | 'hundred_b' | 'ipo' | 'rest';
+type MilestoneKey = 'one_b' | 'ten_b' | 'hundred_b' | 'ipo';
 
 interface TrackRecordMetrics {
   total: number;
-  buckets: Record<Extract<MilestoneKey, 'one_b' | 'ten_b' | 'hundred_b' | 'ipo'>, number>;
-  rest: number;
+  buckets: Record<MilestoneKey, number>;
 }
 
+// The buckets are cumulative (a $50B public company is in one_b, ten_b and
+// ipo), so they are never summed against each other; each row renders its own
+// count against the total.
 function computeTrackRecordMetrics(trackRecord: TrackRecord): TrackRecordMetrics | null {
   if (!trackRecord) return null;
   const total = Number(trackRecord.total_companies_invested) || 0;
-  const oneB = Number(trackRecord.one_b_companies?.amount) || 0;
-  const tenB = Number(trackRecord.ten_b_companies?.amount) || 0;
-  const hundredB = Number(trackRecord.hundred_b_companies?.amount) || 0;
-  const ipo = Number(trackRecord.ipo_companies?.amount) || 0;
-  const consumed = oneB + tenB + hundredB + ipo;
-  const rest = Math.max(0, total - consumed);
   return {
     total,
     buckets: {
-      one_b: oneB,
-      ten_b: tenB,
-      hundred_b: hundredB,
-      ipo,
+      one_b: Number(trackRecord.one_b_companies?.amount) || 0,
+      ten_b: Number(trackRecord.ten_b_companies?.amount) || 0,
+      hundred_b: Number(trackRecord.hundred_b_companies?.amount) || 0,
+      ipo: Number(trackRecord.ipo_companies?.amount) || 0,
     },
-    rest,
   };
 }
 
@@ -147,6 +143,15 @@ export function InvestorMerit({
   const showSeries = hasGraduationData(seriesGraduation);
 
   const investingSpan = getYearSpan(trackRecord?.investing_start_year);
+
+  const notableInvestments = useMemo(() => {
+    if (!investor.notable_investments || !Array.isArray(investor.notable_investments)) return null;
+    const investments = investor.notable_investments
+      .filter((x): x is string => typeof x === 'string' && x.trim().length > 0)
+      .map((x) => x.trim())
+      .sort((a, b) => a.localeCompare(b));
+    return investments.length > 0 ? investments : null;
+  }, [investor.notable_investments]);
 
   const trackRows = useMemo(() => {
     if (!trackMetrics) return [] as Array<{ key: Extract<typeof HIGHLIGHT_KEYS[number], string>; label: string; count: number } | 'fallback'>;
@@ -194,30 +199,18 @@ export function InvestorMerit({
               const count = row.count;
               const percentage = calculatePercentage(count, trackMetrics.total);
 
-              const segments: Array<{ key: MilestoneKey; label: string; count: number; className: string }> = [
-                { key: 'one_b' as MilestoneKey, label: '$1B+', count: trackMetrics.buckets.one_b, className: row.key === 'one_b' ? 'bg-primary' : 'bg-primary/30' },
-                { key: 'ten_b' as MilestoneKey, label: '$10B+', count: trackMetrics.buckets.ten_b, className: row.key === 'ten_b' ? 'bg-primary' : 'bg-primary/30' },
-                { key: 'hundred_b' as MilestoneKey, label: '$100B+', count: trackMetrics.buckets.hundred_b, className: row.key === 'hundred_b' ? 'bg-primary' : 'bg-primary/30' },
-                { key: 'ipo' as MilestoneKey, label: 'IPO', count: trackMetrics.buckets.ipo, className: row.key === 'ipo' ? 'bg-primary' : 'bg-primary/30' },
-                { key: 'rest' as MilestoneKey, label: 'Other', count: trackMetrics.rest, className: 'bg-muted' },
-              ].filter((segment) => segment.count > 0);
+              // Cumulative buckets nest, so each row shows only its own
+              // subset of the total; summing them as segments of one bar
+              // would double-count.
+              const width = trackMetrics.total > 0 ? (count / trackMetrics.total) * 100 : 0;
 
               return (
                 <div key={row.key} className="space-y-2">
                   <div className="grid grid-cols-[200px_1fr] items-center gap-3">
                     <span className="text-sm font-medium text-muted-foreground">{row.label}</span>
                     <div className="flex items-center gap-3">
-                      <div className="flex h-1.5 w-40 shrink-0 overflow-hidden rounded-full bg-muted">
-                        {segments.map((segment) => {
-                          const width = trackMetrics.total > 0 ? (segment.count / trackMetrics.total) * 100 : 0;
-                          return (
-                            <div
-                              key={`${row.key}-${segment.key}`}
-                              className={cn('h-full', segment.className)}
-                              style={{ width: `${width}%` }}
-                            />
-                          );
-                        })}
+                      <div className="flex h-1.5 w-40 shrink-0 overflow-hidden rounded-full bg-muted-foreground/30">
+                        <div className={cn('h-full', 'bg-primary')} style={{ width: `${width}%` }} />
                       </div>
                       <span className="text-sm font-medium text-muted-foreground">
                         {count} ({percentage})
@@ -227,6 +220,23 @@ export function InvestorMerit({
                 </div>
               );
             })}
+          </div>
+        </section>
+      ) : null}
+
+      {/* Notable Investments, directly below the track record */}
+      {notableInvestments ? (
+        <section className="space-y-2">
+          <div className="text-sm text-foreground">
+            Notable Investments:
+            <span className="text-sm text-muted-foreground ml-2">
+              {notableInvestments.map((investment, index) => (
+                <span key={investment}>
+                  {index > 0 && <span className="text-muted-foreground/50 mx-1">•</span>}
+                  {investment}
+                </span>
+              ))}
+            </span>
           </div>
         </section>
       ) : null}
@@ -264,17 +274,17 @@ interface GraduationRowProps {
 
 function GraduationRow({ label, bucket }: GraduationRowProps) {
   if (!bucket) return null;
-  const rate = Number(bucket?.rate) || 0;
-  const companies = Array.isArray(bucket?.companies) ? bucket?.companies?.length ?? 0 : 0;
-  const percentage = rate > 0 ? `${Math.round(rate)}%` : '0%';
+  const rate = Number(bucket?.rate_percent) || 0;
+  const sampleSize = Number(bucket?.sample_size) || 0;
+  const percentage = rate % 1 === 0 ? `${rate.toFixed(0)}%` : `${rate.toFixed(1)}%`;
 
   return (
     <div className="grid grid-cols-[200px_1fr] items-center gap-4">
       <span className="text-sm font-medium text-muted-foreground">{label}</span>
       <div className="flex items-center gap-3">
-        <Progress value={Math.max(0, Math.min(100, rate))} className="h-1.5 w-40 shrink-0" />
+        <Progress value={Math.max(0, Math.min(100, rate))} className="h-1.5 w-40 shrink-0 bg-muted-foreground/30" />
         <span className="text-sm font-medium text-muted-foreground">
-          {companies ?? 0} ({percentage})
+          {percentage} of {sampleSize} companies
         </span>
       </div>
     </div>

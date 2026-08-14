@@ -1,6 +1,6 @@
 {
   "slug": "sequoia-capital",
-  "generated_at": "2026-08-11T08:05:50+00:00",
+  "generated_at": "2026-08-13T17:34:19+00:00",
   "run": "PRO-7 autonomous in-session run",
   "fields": {
     "name": {
@@ -76,12 +76,16 @@
         ]
       },
       "source": "data/aggregation/company-base/sequoia-capital.json",
-      "basis": "focus from the firm's own site sector tags on 725 base rows, crosswalked to data/taxonomy/focus.json, published above 25 companies. Generalist because the firm's thesis names no single sector and the portfolio spans every published label."
+      "basis": "focus from the firm's own site sector tags on 718 base rows, crosswalked to data/taxonomy/focus.json, published above 25 companies. Generalist because the firm's thesis names no single sector and the portfolio spans every published label."
     },
     "investment_range": {
-      "value": null,
-      "source": null,
-      "basis": "Null, not unknown. Form D total_offering is round size, not check size, so it cannot be derived from the filings this run is built on."
+      "value": {
+        "lower_limit": 500000,
+        "median": 8000000,
+        "upper_limit": 1000000000
+      },
+      "source": "data/aggregation/sources/edgar/formd-issuer-rounds.json",
+      "basis": "Entry-round median $7,791,486 across 368 companies; median published as $8M. p10 $287K, p90 $89.4M, p99 (all rounds) $723M. | Arc program: $500K-$1M checks out of the seed fund. The lower limit. | Largest verified Sequoia-led round: $1.15B into Citadel Securities with Paradigm, Jan 2022; Sequoia's split undisclosed. Upper limit set at $1B. | Dry-powder check: the $7B expansion fund at typical concentration supports single positions of $700M-$1B, consistent with the ceiling."
     },
     "notable_investments": {
       "value": [
@@ -792,7 +796,7 @@
     {
       "field": "investment_scope.focus",
       "severity": "high",
-      "note": "The closed focus taxonomy cannot express three of the firm's largest tag clusters: consumer (87), security (51), healthcare (35), marketplace (33), healthcare-enterprise (20), gaming (14). These companies are simply absent from the focus label. PRO-22 shipped focus at 7 values; its own text proposed 12 including Security, Healthcare and Consumer."
+      "note": "The closed focus taxonomy cannot express three of the firm's largest tag clusters: consumer (87), security (49), healthcare (35), marketplace (32), healthcare-enterprise (20), social (14). These companies are simply absent from the focus label. PRO-22 shipped focus at 7 values; its own text proposed 12 including Security, Healthcare and Consumer."
     },
     {
       "field": "funds",
@@ -803,6 +807,11 @@
       "field": "aum",
       "severity": "low",
       "note": "RAUM is gross regulatory assets, which can overstate net AUM; the Jan 2025 press figure of $56B is superseded by the firm's own 2026-07-17 ADV at $82.17B. SCGE's $10.4B sits outside both the range and the fund list, deliberately."
+    },
+    {
+      "field": "investment_range",
+      "severity": "medium",
+      "note": "Median is the Form D entry-round median, a round-not-check proxy justified by the firm's high-ownership entry model. The $1B ceiling reads the $1.15B Citadel round (split with Paradigm undisclosed) against the $7B expansion fund's concentration capacity. The Aug 2026 '$10B AI commitment' is a strategy allocation, not a check, and was deliberately not used."
     },
     {
       "field": "investment_geo",

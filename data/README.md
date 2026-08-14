@@ -44,3 +44,11 @@ New per-investor material goes in the tracked directories above: base rows in
 `aggregation/investors/`. Keep bulk downloads out; if a new source class
 arrives (another regulator's bulk data), extend `fetch-filings.py` and the
 ignore list rather than committing the archive.
+
+There is no per-investor derivation step. The investor-level metrics
+(`track_record`, `graduation_rate`, and the three `company_*_distribution`
+columns) are machine-owned: `recompute_investor_metrics` in the database
+recomputes them from `public.companies` on every companies write, so
+ingesting company rows (`scripts/ingest-companies.ts`) is what populates
+them. The ingest payload must never carry these columns;
+`scripts/ingest-investor.ts` fails loudly if it does.

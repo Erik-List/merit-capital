@@ -12,30 +12,22 @@ interface InvestorOverviewProps {
  * Should be placed directly under the header
  */
 export function InvestorOverview({ investor }: InvestorOverviewProps) {
-  const isInstitutional = investor.investor_type === 'Institutional';
   const hasInvestmentConcept = investor.investment_concept;
   const hasHistory = investor.history;
-  const foundingYear = isInstitutional 
-    ? (investor as Investor & { founding_year?: number | null }).founding_year 
-    : null;
-  
+
   // Don't render if there's no content
-  if (!hasInvestmentConcept && !hasHistory && !foundingYear) {
+  if (!hasInvestmentConcept && !hasHistory) {
     return null;
   }
 
   const parts: string[] = [];
-  
+
   if (hasInvestmentConcept) {
     parts.push(investor.investment_concept!);
   }
-  
+
   if (hasHistory) {
     parts.push(investor.history!);
-  }
-  
-  if (foundingYear) {
-    parts.push(`Founded ${foundingYear}`);
   }
 
   return (

@@ -53,15 +53,17 @@ function coerceNumber(value: unknown): number | null {
   return null;
 }
 
+// "CTO at Stripe" carries a position; a bare company name does not.
 function extractPosition(text: string): string | null {
+  if (!text.includes(' at ')) {
+    return null;
+  }
   const [position] = text.split(' at ');
-  return position?.trim() ?? null;
+  const trimmed = position?.trim();
+  return trimmed ? trimmed : null;
 }
 
-function normalizeCurrentAffiliations(
-  rawCurrent: unknown,
-  fallbackStartYear: number | null,
-): CurrentAffiliation[] {
+function normalizeCurrentAffiliations(rawCurrent: unknown): CurrentAffiliation[] {
   if (!rawCurrent) {
     return [];
   }
@@ -79,13 +81,11 @@ function normalizeCurrentAffiliations(
         if (!name) {
           return null;
         }
-        const type = resolveAffiliationType(name);
-        const position = type === 'Angel' ? 'Angel' : 'Partner';
         return {
           name,
-          position,
-          start_year: fallbackStartYear,
-          type,
+          position: null,
+          start_year: null,
+          type: resolveAffiliationType(name),
         };
       }
 
@@ -96,15 +96,15 @@ function normalizeCurrentAffiliations(
           return null;
         }
 
-        const type = resolveAffiliationType(name);
-        const positionRaw = typeof record.position === 'string' ? record.position.trim() : null;
-        const startYear = coerceNumber(record.start_year) ?? fallbackStartYear;
-        const resolvedType = (typeof record.type === 'string' ? record.type : type) as AffiliationType;
+        const positionRaw = typeof record.position === 'string' ? record.position.trim() : '';
+        const resolvedType = (typeof record.type === 'string'
+          ? record.type
+          : resolveAffiliationType(name)) as AffiliationType;
 
         return {
           name,
-          position: positionRaw ?? (resolvedType === 'Angel' ? 'Angel' : 'Partner'),
-          start_year: startYear,
+          position: positionRaw || null,
+          start_year: coerceNumber(record.start_year),
           type: resolvedType,
         };
       }
@@ -114,10 +114,7 @@ function normalizeCurrentAffiliations(
     .filter((item): item is CurrentAffiliation => item !== null);
 }
 
-function normalizePastAffiliations(
-  rawPast: unknown,
-  fallbackStartYear: number | null,
-): PastAffiliation[] {
+function normalizePastAffiliations(rawPast: unknown): PastAffiliation[] {
   if (!rawPast) {
     return [];
   }
@@ -125,7 +122,7 @@ function normalizePastAffiliations(
   const entries = Array.isArray(rawPast) ? rawPast : [rawPast];
 
   return entries
-    .map((entry, index): PastAffiliation | null => {
+    .map((entry): PastAffiliation | null => {
       if (!entry) {
         return null;
       }
@@ -136,18 +133,12 @@ function normalizePastAffiliations(
           return null;
         }
 
-        const position = extractPosition(name) ?? 'Operator';
-        const type = resolveAffiliationType(name);
-        const startOffset = index * 2 + 2;
-        const startYear = fallbackStartYear ? Math.max(fallbackStartYear - startOffset, 1995) : null;
-        const endYear = startYear ? startYear + 1 : null;
-
         return {
           name,
-          position,
-          start_year: startYear,
-          end_year: endYear,
-          type,
+          position: extractPosition(name),
+          start_year: null,
+          end_year: null,
+          type: resolveAffiliationType(name),
         };
       }
 
@@ -158,16 +149,14 @@ function normalizePastAffiliations(
           return null;
         }
 
-        const position = typeof record.position === 'string' ? record.position.trim() : extractPosition(name) ?? 'Operator';
-        const startYear = coerceNumber(record.start_year) ?? fallbackStartYear;
-        const endYear = coerceNumber(record.end_year);
+        const positionRaw = typeof record.position === 'string' ? record.position.trim() : '';
         const typeRaw = typeof record.type === 'string' ? record.type : resolveAffiliationType(name);
 
         return {
           name,
-          position,
-          start_year: startYear,
-          end_year: endYear,
+          position: positionRaw || extractPosition(name),
+          start_year: coerceNumber(record.start_year),
+          end_year: coerceNumber(record.end_year),
           type: typeRaw as AffiliationType,
         };
       }
@@ -177,17 +166,14 @@ function normalizePastAffiliations(
     .filter((item): item is PastAffiliation => item !== null);
 }
 
-function normalizeAffiliations(
-  rawAffiliation: unknown,
-  fallbackStartYear: number | null,
-): NormalizedAffiliations {
+function normalizeAffiliations(rawAffiliation: unknown): NormalizedAffiliations {
   if (!rawAffiliation || typeof rawAffiliation !== 'object') {
     return { current: [], past: [] };
   }
 
   const record = rawAffiliation as Record<string, unknown>;
-  const current = normalizeCurrentAffiliations(record.current, fallbackStartYear);
-  const past = normalizePastAffiliations(record.past, fallbackStartYear);
+  const current = normalizeCurrentAffiliations(record.current);
+  const past = normalizePastAffiliations(record.past);
 
   return { current, past };
 }
@@ -204,10 +190,13 @@ function formatSinceYears(startYear: number | null | undefined): string | null {
   return `Since ${delta} year${delta === 1 ? '' : 's'}`;
 }
 
-function formatYearRange(startYear: number | null | undefined, endYear: number | null | undefined): string {
-  const start = startYear && Number.isFinite(startYear) ? startYear : '—';
-  const end = endYear && Number.isFinite(endYear) ? endYear : '—';
-  return `${start} - ${end}`;
+function formatYearRange(startYear: number | null | undefined, endYear: number | null | undefined): string | null {
+  const hasStart = Boolean(startYear && Number.isFinite(startYear));
+  const hasEnd = Boolean(endYear && Number.isFinite(endYear));
+  if (!hasStart && !hasEnd) {
+    return null;
+  }
+  return `${hasStart ? startYear : '—'} - ${hasEnd ? endYear : '—'}`;
 }
 
 function sortPastAffiliations(past: PastAffiliation[]): PastAffiliation[] {
@@ -224,26 +213,18 @@ function sortPastAffiliations(past: PastAffiliation[]): PastAffiliation[] {
 }
 
 export function Affiliations({ investor }: AffiliationsProps) {
-  const investingStartYear = useMemo(() => {
-    const trackRecord = investor.track_record as Record<string, unknown> | null;
-    if (trackRecord && typeof trackRecord === 'object' && 'investing_start_year' in trackRecord) {
-      return coerceNumber((trackRecord as Record<string, unknown>).investing_start_year);
-    }
-    return coerceNumber(investor.created_at);
-  }, [investor.created_at, investor.track_record]);
-
   const { current, past } = useMemo(
-    () => normalizeAffiliations(investor.affiliation, investingStartYear),
-    [investor.affiliation, investingStartYear],
+    () => normalizeAffiliations(investor.affiliation),
+    [investor.affiliation],
   );
+
+  const sortedPast = useMemo(() => sortPastAffiliations(past), [past]);
 
   const [showPast, setShowPast] = useState(false);
 
   if (!current.length && !past.length) {
     return null;
   }
-
-  const sortedPast = useMemo(() => sortPastAffiliations(past), [past]);
 
   return (
     <section className="glass border border-input/30 rounded-xl p-5 space-y-5">
@@ -254,23 +235,23 @@ export function Affiliations({ investor }: AffiliationsProps) {
       <div className="space-y-4">
         {current.map((affiliation, index) => {
           const sinceText = formatSinceYears(affiliation.start_year);
-          const isAngel = affiliation.type === 'Angel';
-          const position = affiliation.position ?? (isAngel ? 'Angel' : 'Partner');
+          const detailParts = [affiliation.position, sinceText].filter(
+            (part): part is string => Boolean(part),
+          );
 
           return (
             <div key={`${affiliation.name}-${index}`} className="space-y-1">
               <p className="text-sm text-foreground">{affiliation.name}</p>
-              <p className="text-xs text-muted-foreground">
-                {isAngel ? (
-                  sinceText ?? 'Since —'
-                ) : (
-                  <>
-                    {position}
-                    <span className="mx-1 text-muted-foreground/60">•</span>
-                    {sinceText ?? 'Since —'}
-                  </>
-                )}
-              </p>
+              {detailParts.length > 0 ? (
+                <p className="text-xs text-muted-foreground">
+                  {detailParts.map((part, partIndex) => (
+                    <span key={part}>
+                      {partIndex > 0 && <span className="mx-1 text-muted-foreground/60">•</span>}
+                      {part}
+                    </span>
+                  ))}
+                </p>
+              ) : null}
             </div>
           );
         })}
@@ -288,16 +269,28 @@ export function Affiliations({ investor }: AffiliationsProps) {
 
           {showPast ? (
             <ul className="space-y-3">
-              {sortedPast.map((affiliation, index) => (
-                <li key={`${affiliation.name}-${index}`} className="space-y-1">
-                  <p className="text-sm text-foreground">{affiliation.name}</p>
-                  <p className="text-xs text-muted-foreground">
-                    {affiliation.position ?? '—'}
-                    <span className="mx-1 text-muted-foreground/60">•</span>
-                    {formatYearRange(affiliation.start_year, affiliation.end_year)}
-                  </p>
-                </li>
-              ))}
+              {sortedPast.map((affiliation, index) => {
+                const yearRange = formatYearRange(affiliation.start_year, affiliation.end_year);
+                const detailParts = [affiliation.position, yearRange].filter(
+                  (part): part is string => Boolean(part),
+                );
+
+                return (
+                  <li key={`${affiliation.name}-${index}`} className="space-y-1">
+                    <p className="text-sm text-foreground">{affiliation.name}</p>
+                    {detailParts.length > 0 ? (
+                      <p className="text-xs text-muted-foreground">
+                        {detailParts.map((part, partIndex) => (
+                          <span key={part}>
+                            {partIndex > 0 && <span className="mx-1 text-muted-foreground/60">•</span>}
+                            {part}
+                          </span>
+                        ))}
+                      </p>
+                    ) : null}
+                  </li>
+                );
+              })}
             </ul>
           ) : null}
         </div>
@@ -305,5 +298,3 @@ export function Affiliations({ investor }: AffiliationsProps) {
     </section>
   );
 }
-
-
