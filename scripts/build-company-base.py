@@ -1,17 +1,22 @@
 #!/usr/bin/env python3
-"""Join the three evidence layers into Company Base v0 for Sequoia Capital.
+"""Join the three evidence layers into an investor's Company Base.
 
-Inputs:
-  data/aggregation/sources/wayback/parsed/<year>.json   (portfolio listings)
-  data/aggregation/sources/wayback/partner-roster.json  (people, to exclude from era-B)
-  data/aggregation/sources/edgar/edgar-companies.json   (public-market layer)
-  data/aggregation/sources/edgar/formd-sweep.json       (private board-seat layer)
+Inputs (under data/collection/investors/<slug>/):
+  sources/wayback/parsed/<year>.json   (portfolio listings)
+  sources/wayback/partner-roster.json  (people, to exclude from listing eras)
+  sources/edgar/edgar-companies.json   (public-market layer)
+  sources/edgar/formd-sweep.json       (private board-seat layer)
 
 Outputs:
-  data/aggregation/company-base/sequoia-capital.json   (the evidence layer)
-  data/aggregation/company-base/sequoia-capital.csv    (via run.py export: the
-      merged published surface — base + membership verdict + classification)
+  base.json      (the evidence layer)
+  base.csv       (via run.py export: the merged published surface — base +
+                  membership verdict + classification)
+  excluded.csv   (every partitioned row, with a reason column:
+                  build_filter | other_desk | not_member)
+
+Usage: python3 scripts/build-company-base.py <investor-slug>
 """
+import argparse
 import csv
 import html
 import json
@@ -21,10 +26,17 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent / "data" / "aggregation"
-WB = ROOT / "sources" / "wayback"
-ED = ROOT / "sources" / "edgar"
-OUT = ROOT / "company-base"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from paths import Paths  # noqa: E402
+
+ap = argparse.ArgumentParser()
+ap.add_argument("investor")
+_args = ap.parse_args()
+SLUG = _args.investor
+P = Paths(SLUG)
+CFG = P.config()
+WB = P.wayback
+ED = P.edgar
 
 # Column order, tuned for review: identity → decision → evidence links →
 # attribution → classification, with secondary/audit fields trailing.
@@ -185,7 +197,7 @@ def load_sector_taxonomy() -> set[str]:
 
 
 def main() -> None:
-    OUT.mkdir(parents=True, exist_ok=True)
+    P.root.mkdir(parents=True, exist_ok=True)
     base: dict[str, dict] = {}  # norm-key -> row
     sector_tags = load_sector_taxonomy()
     roster_slugs = {r["slug"] for r in json.load(open(WB / "partner-roster.json"))}
@@ -238,7 +250,7 @@ def main() -> None:
     # Authoritative and current: catches recent private companies that file no
     # Form D (Section 4(a)(2)) and have not IPO'd, which the archive cannot
     # enumerate because the modern page is JS-rendered with no per-company URLs.
-    site_path = ROOT / "sources" / "site" / "companies.json"
+    site_path = P.site / "companies.json"
     site_n = 0
     if site_path.exists():
         for c in json.load(open(site_path)):
@@ -253,7 +265,7 @@ def main() -> None:
         print(f"site API portfolio: {site_n} companies")
 
     # ---- layer 2: EDGAR public-market filings
-    ent_path = ROOT / "entities" / "sequoia-capital.json"
+    ent_path = P.entities
     person_ciks = {e["cik"] for e in json.load(open(ent_path))
                    if e.get("vehicle_role") == "person"} if ent_path.exists() else set()
     # Names, CIKs, roles and desk all come from each filing's SEC header via
@@ -283,10 +295,10 @@ def main() -> None:
     # evidence streams missed (no site capture, no US filing), each verified
     # with a citation before entering the ledger. Injected into the working
     # set here so tiering, merging and partitioning treat them like any row.
-    bv_early = OUT / "base-verification.json"
+    bv_early = P.ledger
     if bv_early.exists():
         adds = json.load(open(bv_early)).get(
-            "sequoia-capital", {}).get("recall_additions", [])
+            SLUG, {}).get("recall_additions", [])
         for add in adds:
             row = row_for(norm(add["name"]), add["name"])
             row["slug"] = add.get("slug") or slug_of(add["name"])
@@ -492,24 +504,27 @@ def main() -> None:
         else:
             tier = "C"
         # Lineage from the filing entity's desk (registry lookup), not name shape.
-        # Wayback presence means Sequoia US/EU listed it themselves, which
+        # Wayback presence means the home desk listed it themselves, which
         # outranks a single foreign-desk filing.
         listed = r["wayback_years"] or r["site_listed"]
-        lineage = r["edgar_desk"] if (r["edgar_desk"] and not listed) else "us-eu"
+        home_desk = CFG["desks"]["home"]
+        lineage = r["edgar_desk"] if (r["edgar_desk"] and not listed) else home_desk
         status = "auto_confirmed" if tier == "A" else "needs_review"
         first = min([str(min(r["wayback_years"]))] if r["wayback_years"] else []
                     + ([r["edgar_first"][:4]] if r["edgar_first"] else [])
                     + ([r["formd_first"]] if r["formd_first"] else []) or ["?"])
-        # wayback evidence link: per-company page for eras A/B, listing page for C/D
+        # wayback evidence link: the company's own page for eras with
+        # per-company pages, the era's listing page otherwise (config-driven)
         wb_link = ""
         if r["wayback_first"]:
             _, ts, path = r["wayback_first"]
-            if path.startswith(("/company/", "/us/")):
-                target = f"https://www.sequoiacap.com{path}/"
-            elif path.startswith("/our-companies"):
-                target = "https://www.sequoiacap.com/our-companies/"
-            else:
-                target = "https://www.sequoiacap.com/companies/"
+            site_base = CFG["wayback"]["site_url_base"]
+            target = f"{site_base}{path}/"
+            for era in CFG["wayback"]["eras"]:
+                if path.startswith(era["path"]):
+                    target = f"{site_base}{path}/" if era.get("per_company_pages") \
+                        else f"{site_base}{era['path']}"
+                    break
             wb_link = f"https://web.archive.org/web/{ts}/{target}"
 
         def sec_link(cik, acc):
@@ -560,12 +575,12 @@ def main() -> None:
     # COLLECTION.md plus the investor's decisions file, written by the
     # adversarial review passes and by human sampling.
     # not_member rows leave the published base (preserved in
-    # verification-excluded.csv); uncertain rows stay, marked for sampling.
+    # excluded.csv, reason not_member); uncertain rows stay, marked for sampling.
     verification_excluded: list[dict] = []
-    bv_path = OUT / "base-verification.json"
+    bv_path = P.ledger
     if bv_path.exists():
         bv_verdicts = json.load(open(bv_path)).get(
-            "sequoia-capital", {}).get("verdicts", {})
+            SLUG, {}).get("verdicts", {})
         unc = 0
         for row in list(rows_out):
             rec = bv_verdicts.get(row["slug"])
@@ -597,7 +612,7 @@ def main() -> None:
     # under two renderings and are merged. Differing EDGAR subject CIKs also prove
     # distinctness outright.
     snapshots: dict[str, set] = {}
-    site_p = ROOT / "sources" / "site" / "companies.json"
+    site_p = P.site / "companies.json"
     if site_p.exists():
         snapshots["site"] = {norm_words(c["name"]) for c in json.load(open(site_p))}
     for f in (WB / "parsed").glob("*.json"):
@@ -641,9 +656,9 @@ def main() -> None:
     # vehicles, decision-desk reassignments). Curated with evidence in
     # identity-merges.json; re-applied on every rebuild like review decisions.
     overlay = {}
-    idm_path = OUT / "identity-merges.json"
+    idm_path = P.identity_merges
     if idm_path.exists():
-        overlay = json.load(open(idm_path)).get("sequoia-capital", {})
+        overlay = json.load(open(idm_path)).get(SLUG, {})
     never_merge = {frozenset(p["slugs"]) for p in overlay.get("never_merge", [])}
 
     by_key = {norm_words(r["name"]): r for r in rows_out}
@@ -722,45 +737,42 @@ def main() -> None:
         if r["status"] not in ("human_confirmed", "human_rejected"):
             r["status"] = "auto_confirmed" if r["tier"] == "A" else "needs_review"
 
-    # Partition by desk: companies whose only investor evidence is a foreign desk
-    # belong to HongShan / Peak XV under the decision-desk attribution rule, so
-    # they leave the Sequoia US/EU denominator.
-    other = [r for r in rows_out if r["lineage"] in ("china", "india")]
-    rows_out = [r for r in rows_out if r["lineage"] not in ("china", "india")]
-
-    def write_csv(path: Path, rows: list[dict]) -> None:
-        rows = [{k: r[k] for k in COLUMN_ORDER} for r in rows]
-        with open(path, "w", newline="") as f:
-            w = csv.DictWriter(f, fieldnames=COLUMN_ORDER)
-            w.writeheader()
-            w.writerows(rows)
-        return rows
-
+    # Partition by desk: companies whose only investor evidence is a split-off
+    # desk belong to that desk's firm under the decision-desk attribution rule,
+    # so they leave the home-desk denominator.
+    partition = set(CFG["desks"]["partition"])
+    other = [r for r in rows_out if r["lineage"] in partition]
+    rows_out = [r for r in rows_out if r["lineage"] not in partition]
     if other:
-        other.sort(key=lambda x: x["slug"])
-        write_csv(OUT / "other-desk-companies.csv", other)
         print(f"other-desk companies moved out: {len(other)} "
               f"({dict(Counter(r['lineage'] for r in other))})")
 
-    if verification_excluded:
-        write_csv(OUT / "verification-excluded.csv", verification_excluded)
-        print(f"verification-excluded.csv: {len(verification_excluded)} rows")
-
-    if rejected:
-        rejected.sort(key=lambda x: x["slug"])
-        write_csv(OUT / "rejected-rows.csv", rejected)
+    # One partition surface: every row that leaves the published base lands in
+    # excluded.csv with the reason it left, preserved and reversible.
+    excluded_rows = (
+        [("build_filter", r) for r in sorted(rejected, key=lambda x: x["slug"])]
+        + [("other_desk", r) for r in sorted(other, key=lambda x: x["slug"])]
+        + [("not_member", r) for r in verification_excluded]
+    )
+    with open(P.excluded, "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=["reason"] + COLUMN_ORDER)
+        w.writeheader()
+        w.writerows({"reason": reason, **{k: r[k] for k in COLUMN_ORDER}}
+                    for reason, r in excluded_rows)
+    print(f"excluded.csv: {len(excluded_rows)} rows "
+          f"({dict(Counter(reason for reason, _ in excluded_rows))})")
 
     rows_out.sort(key=lambda x: (x["tier"], x["slug"]))
     rows_out = [{k: r[k] for k in COLUMN_ORDER} for r in rows_out]
-    json.dump(rows_out, open(OUT / "sequoia-capital.json", "w"), indent=1)
+    json.dump(rows_out, open(P.base_json, "w"), indent=1)
 
     # Base and classification share one surface: the sibling CSV is the merged
     # export (base + membership verdict + classification overlays), so it is
     # regenerated on every rebuild. A base without a classification run just
     # leaves those fields empty.
     for cmd in ("export", "review"):
-        subprocess.run([sys.executable, str(Path(__file__).parent / "run.py"), cmd],
-                       check=True)
+        subprocess.run([sys.executable, str(Path(__file__).parent / "run.py"),
+                        cmd, "--investor", SLUG], check=True)
 
     tiers = {}
     for r in rows_out:

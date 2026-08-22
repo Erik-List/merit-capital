@@ -4,21 +4,23 @@
 Why this layer exists: the three SEC/archive layers all structurally miss recent
 private companies. The modern portfolio page is JS-rendered with no per-company
 URLs, so the Wayback CDX trick cannot enumerate it; and many current startups
-raise under Section 4(a)(2) rather than Reg D, so they file no Form D at all
-(Etched and Rillet file nothing — only third-party SPVs do). Neither has IPO'd,
-so EDGAR is silent too.
+raise under Section 4(a)(2) rather than Reg D, so they file no Form D at all.
+Neither has IPO'd, so EDGAR is silent too.
 
-The site's own CMS is the authoritative answer. sequoiacap.com runs WordPress
-with an open REST API exposing `company`, `team-member` and `founder` post types.
-
-Reusable pattern for any investor site, in order of preference:
+The site's own CMS is the authoritative answer. The endpoint lives in the
+investor's config.json under "site_api"; currently implemented: WordPress REST
+(`type: "wordpress"`). The escalation ladder for any investor site, in order of
+preference:
   1. WordPress REST   /wp-json/wp/v2/types -> find the post type -> paginate it
   2. Next.js          __NEXT_DATA__ script tag, or /_next/data/<build>/*.json
   3. Any SPA          watch XHR in the browser pane, then call that endpoint
   4. Last resort      render the page headless and parse the DOM
 
-Output: data/aggregation/sources/site/companies.json, team.json
+Output: <investor>/sources/site/companies.json, team.json
+
+Usage: python3 scripts/site-portfolio.py <investor-slug>
 """
+import argparse
 import json
 import subprocess
 import sys
@@ -26,10 +28,10 @@ import time
 from html import unescape
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "data" / "aggregation" / "sources" / "site"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from paths import Paths  # noqa: E402
+
 UA = "MeritCapitalResearch/1.0 (erik@meritcapit.al)"
-BASE = "https://www.sequoiacap.com/wp-json/wp/v2"
 PER_PAGE = 100
 
 
@@ -45,10 +47,10 @@ def get(url: str) -> list:
     return []
 
 
-def fetch_type(rest_base: str) -> list[dict]:
+def fetch_type(base: str, rest_base: str) -> list[dict]:
     rows, page = [], 1
     while True:
-        batch = get(f"{BASE}/{rest_base}?per_page={PER_PAGE}&page={page}")
+        batch = get(f"{base}/{rest_base}?per_page={PER_PAGE}&page={page}")
         if not batch:
             break
         rows.extend(batch)
@@ -65,9 +67,18 @@ def categories_from(class_list) -> list[str]:
 
 
 def main() -> None:
-    OUT.mkdir(parents=True, exist_ok=True)
+    ap = argparse.ArgumentParser()
+    ap.add_argument("investor")
+    args = ap.parse_args()
 
-    raw = fetch_type("company")
+    p = Paths(args.investor)
+    api = p.config()["site_api"]
+    if api.get("type") != "wordpress":
+        sys.exit(f"site_api type {api.get('type')!r} not implemented; see the "
+                 f"escalation ladder in this script's docstring")
+    p.site.mkdir(parents=True, exist_ok=True)
+
+    raw = fetch_type(api["base"], api["company_type"])
     companies = [{
         "name": unescape(c["title"]["rendered"]).strip(),
         "slug": c["slug"],
@@ -77,16 +88,16 @@ def main() -> None:
         "modified": (c.get("modified") or "")[:10],
     } for c in raw if c.get("title", {}).get("rendered")]
     companies.sort(key=lambda c: c["name"].lower())
-    (OUT / "companies.json").write_text(json.dumps(companies, indent=1) + "\n")
+    (p.site / "companies.json").write_text(json.dumps(companies, indent=1) + "\n")
 
-    team = fetch_type("team-member")
+    team = fetch_type(api["base"], api["team_type"])
     people = [{
         "name": unescape(t["title"]["rendered"]).strip(),
         "slug": t["slug"],
         "url": t.get("link"),
     } for t in team if t.get("title", {}).get("rendered")]
-    people.sort(key=lambda p: p["name"].lower())
-    (OUT / "team.json").write_text(json.dumps(people, indent=1) + "\n")
+    people.sort(key=lambda p_: p_["name"].lower())
+    (p.site / "team.json").write_text(json.dumps(people, indent=1) + "\n")
 
     from collections import Counter
     sect = Counter(s for c in companies for s in c["sectors"])

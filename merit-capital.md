@@ -255,17 +255,21 @@ Key JSON field structures:
 
 ```
 Source data (JSON name/slug lists)
-  -> aggregate-investor.ts (Claude extracts field groups from web)
-  -> /data/aggregation/ (intermediate JSON files)
+  -> collection pipeline (evidence layers + judged classification)
+  -> /data/collection/investors/<slug>/ (per-investor evidence + curated state)
   -> ingest-investor.ts (batch upsert to Supabase)
   -> InvestorView (materialized view for reads)
   -> Frontend pages + Future API
 ```
 
+(Historical note: this section described the retired `aggregate-investor.ts`
+GPT-extraction pipeline and its intermediate staging directory. The
+collection pipeline replaced it; see `data/README.md` and
+`data/collection/COLLECTION.md` for the current shape.)
+
 ### Existing seed data
 
-- `data/institutional-investors.json`: 72 institutional investors (name + slug only). Includes: Sequoia Capital, Andreessen Horowitz, Accel, General Catalyst, Lightspeed, Bessemer, Kleiner Perkins, Founders Fund, Insight Partners, NEA, GV, Khosla Ventures, and 60 more.
-- `data/individual-investors.json`: Individual investor name/slug pairs
+- Target investor list: lives in Linear (the former `data/institutional-investors.json` / `data/individual-investors.json` name+slug seed lists were deleted in PRO-59).
 - `data/founder-ratings.json`: Invented rating data for ~20 fictional investors (atlas-peak-ventures, northbridge-capital-partners, etc.) with rating, reviewCount, speed, processQuality, passiveSupport, activeSupport, comments
 - Migration seeds: 20 fully populated invented investors (10 institutional, 10 individual) with complete data across all fields
 

@@ -1,17 +1,25 @@
 #!/usr/bin/env python3
-"""Pull annual Wayback snapshots of Sequoia's portfolio pages (2006-2026)
-and parse them into per-year company lists.
+"""Pull annual Wayback snapshots of an investor's portfolio pages and parse
+them into per-year company lists.
 
-Eras:
-  A 2006-2009  /company/<slug>   (paginated listing)
-  B 2010-2014  /us/<slug>        (via /sitemap + homepage scroller)
-  C 2015-2021  /companies/       (single page, _name divs + data-filters)
-  D 2021-2026  /our-companies/   (JS-era page)
+Everything investor-specific — the domain, the era map (which path pattern the
+site used in which years, and which parser understands that era's markup), and
+the non-company slug list — lives in the investor's config.json under
+"wayback". The parsers themselves are named strategies in code; an investor's
+era entry picks one:
 
-Raw HTML -> data/aggregation/sources/wayback/raw/
-Parsed   -> data/aggregation/sources/wayback/parsed/<year>.json
+  cdx_company_pages   per-company pages enumerated straight from the CDX index
+  sitemap_home_links  hrefs on archived sitemap + homepage snapshots
+  companies_listing   single listing page, `_name` divs + data-filters
+  company_cards       JS-era listing page, company-name card markup
+
+Raw HTML -> <investor>/sources/wayback/raw/
+Parsed   -> <investor>/sources/wayback/parsed/<year>.json
             rows: {slug, name?, path, filters?, snapshot_ts}
+
+Usage: python3 scripts/wayback-pull.py <investor-slug>
 """
+import argparse
 import json
 import re
 import subprocess
@@ -20,22 +28,10 @@ import time
 from html import unescape
 from pathlib import Path
 
-BASE = Path(__file__).resolve().parent.parent / "data" / "aggregation" / "sources" / "wayback"
-RAW = BASE / "raw"
-PARSED = BASE / "parsed"
-UA = {"User-Agent": "MeritCapitalResearch/1.0 (erik@meritcapit.al)"}
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from paths import Paths  # noqa: E402
 
-# Non-company /us/ and /company/ paths to exclude (sector/nav/people handled separately)
-NON_COMPANY = {
-    "news", "contact", "about", "team", "people", "jobs", "legal", "sitemap",
-    "map", "ideas", "early", "seed", "venture", "growth", "energy", "financial",
-    "healthcare", "internet", "mobile", "outsourcing", "advertising", "software",
-    "hardware", "services", "technology", "search",
-    # further era-B (2010-2014) category/navigation pages under /us/
-    "fund", "funds", "companies", "company", "portfolio", "index", "home",
-    "stories", "story", "press", "events", "careers", "privacy", "terms",
-    "systems", "consumer", "enterprise", "infrastructure", "crypto",
-}
+UA = {"User-Agent": "MeritCapitalResearch/1.0 (erik@meritcapit.al)"}
 
 
 def curl(url: str) -> bytes:
@@ -82,21 +78,30 @@ def yearly(rows, y0, y1):
     return out
 
 
-def era_a():  # 2006-2009 /company/<slug> pages, enumerated straight from the CDX index
-    print("== Era A: /company/ 2006-2009")
-    rows = cdx("sequoiacap.com/company/*", collapse="urlkey",
-               fl="timestamp,original", to="2009", limit="2000")
+def seg_of(era: dict) -> str:
+    return era["path"].strip("/")
+
+
+def cdx_company_pages(era, cfg, raw_dir):
+    """Per-company pages enumerated straight from the CDX index."""
+    seg = seg_of(era)
+    non_company = set(cfg["non_company_slugs"])
+    print(f"== era {era['path']} {era['from']}-{era['to']} (CDX index)")
+    rows = cdx(f"{cfg['cdx_domain']}{era['path']}*", collapse="urlkey",
+               fl="timestamp,original", to=str(era["to"]), limit="2000")
     results = {}
     for ts, orig in [(r[0], r[1]) for r in rows]:
-        m = re.search(r"/company/([a-z0-9_-]+)/?(?:\?|$)", orig)
+        m = re.search(rf"/{seg}/([a-z0-9_-]+)/?(?:\?|$)", orig)
         if not m:
             continue
         slug = m.group(1)
-        if slug in NON_COMPANY:
+        if slug in non_company:
             continue
         y = int(ts[:4])
+        if not era["from"] <= y <= era["to"]:
+            continue
         results.setdefault(y, {})[slug] = {
-            "slug": slug, "path": f"/company/{slug}", "snapshot_ts": ts}
+            "slug": slug, "path": f"/{seg}/{slug}", "snapshot_ts": ts}
     out = {}
     for y, comps in sorted(results.items()):
         out[y] = sorted(comps.values(), key=lambda c: c["slug"])
@@ -104,48 +109,56 @@ def era_a():  # 2006-2009 /company/<slug> pages, enumerated straight from the CD
     return out
 
 
-def era_b():  # 2010-2014 /us/ via sitemap + homepage
-    print("== Era B: /us/ 2010-2014")
-    site_snaps = yearly(cdx("sequoiacap.com/sitemap", collapse="timestamp:4",
-                            fl="timestamp,original"), 2010, 2014)
-    home_snaps = yearly(cdx("sequoiacap.com", collapse="timestamp:4",
-                            fl="timestamp,original"), 2010, 2014)
-    results, people = {}, {}
-    for y in range(2010, 2015):
+def sitemap_home_links(era, cfg, raw_dir):
+    """Company hrefs on archived sitemap + homepage snapshots."""
+    seg = seg_of(era)
+    non_company = set(cfg["non_company_slugs"])
+    y0, y1 = era["from"], era["to"]
+    print(f"== era {era['path']} {y0}-{y1} (sitemap + home)")
+    site_snaps = yearly(cdx(f"{cfg['cdx_domain']}/sitemap", collapse="timestamp:4",
+                            fl="timestamp,original"), y0, y1)
+    home_snaps = yearly(cdx(cfg["cdx_domain"], collapse="timestamp:4",
+                            fl="timestamp,original"), y0, y1)
+    results = {}
+    for y in range(y0, y1 + 1):
         found = {}
         for src, snaps in (("sitemap", site_snaps), ("home", home_snaps)):
             if y not in snaps:
                 continue
             ts, orig = snaps[y]
-            html = fetch(wb(ts, orig), RAW / f"{y}-{src}.html")
-            # The old CMS rendered sector/category pages with an un-interpolated
-            # Ruby object in the alt text ('#<Region:0x..> Gaming'), while company
-            # links carry the clean name ('Mixpanel'). That distinguishes the two
-            # exactly, and hands us a display name for era B at the same time.
-            linked = re.findall(r'href="[^"]*?/us/([a-z0-9_-]+)/?"\s+alt="([^"]*)"', html)
+            html = fetch(wb(ts, orig), raw_dir / f"{y}-{src}.html")
+            # Old CMSes render sector/category pages with an un-interpolated
+            # template object in the alt text ('#<Region:0x..> Gaming'), while
+            # company links carry the clean name ('Mixpanel'). That
+            # distinguishes the two exactly, and hands us a display name too.
+            linked = re.findall(
+                rf'href="[^"]*?/{seg}/([a-z0-9_-]+)/?"\s+alt="([^"]*)"', html)
             for slug, alt in linked:
-                if "#<" in alt or slug in NON_COMPANY:
+                if "#<" in alt or slug in non_company:
                     continue
                 found[slug] = {"slug": slug, "name": unescape(alt).strip() or None,
-                               "path": f"/us/{slug}", "snapshot_ts": ts}
+                               "path": f"/{seg}/{slug}", "snapshot_ts": ts}
             if not linked:      # snapshots without alt attributes
-                for slug in re.findall(r'href="[^"]*?/us/([a-z0-9_-]+)/?"', html):
-                    if slug not in NON_COMPANY:
-                        found.setdefault(slug, {"slug": slug, "path": f"/us/{slug}",
+                for slug in re.findall(rf'href="[^"]*?/{seg}/([a-z0-9_-]+)/?"', html):
+                    if slug not in non_company:
+                        found.setdefault(slug, {"slug": slug, "path": f"/{seg}/{slug}",
                                                 "snapshot_ts": ts})
         if found:
             results[y] = sorted(found.values(), key=lambda c: c["slug"])
-            print(f"  {y}: {len(found)} /us/ paths (companies+people mixed)")
+            print(f"  {y}: {len(found)} /{seg}/ paths (companies+people mixed)")
     return results
 
 
-def era_c():  # 2015-2021 /companies/
-    print("== Era C: /companies/ 2015-2021")
-    snaps = yearly(cdx("sequoiacap.com/companies", collapse="timestamp:4",
-                       fl="timestamp,original"), 2015, 2021)
+def companies_listing(era, cfg, raw_dir):
+    """Single listing page: `_name` divs + data-filters attributes."""
+    seg = seg_of(era)
+    y0, y1 = era["from"], era["to"]
+    print(f"== era {era['path']} {y0}-{y1} (listing page)")
+    snaps = yearly(cdx(f"{cfg['cdx_domain']}/{seg}", collapse="timestamp:4",
+                       fl="timestamp,original"), y0, y1)
     results = {}
     for y, (ts, orig) in sorted(snaps.items()):
-        html = fetch(wb(ts, orig), RAW / f"{y}-companies.html")
+        html = fetch(wb(ts, orig), raw_dir / f"{y}-{seg}.html")
         blocks = re.findall(
             r'data-filters="([^"]*)"[^>]*data-id="([^"]+)"[^>]*>\s*<div class="_name">([^<]+)</div>', html)
         if not blocks:  # attribute order variant
@@ -155,7 +168,7 @@ def era_c():  # 2015-2021 /companies/
         for filt, cid, name in blocks:
             name = unescape(name).strip()
             slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
-            rows[slug] = {"slug": slug, "name": name, "path": f"/companies/{cid}",
+            rows[slug] = {"slug": slug, "name": name, "path": f"/{seg}/{cid}",
                           "filters": filt, "snapshot_ts": ts}
         if rows:
             results[y] = sorted(rows.values(), key=lambda c: c["slug"])
@@ -163,20 +176,23 @@ def era_c():  # 2015-2021 /companies/
     return results
 
 
-def era_d():  # 2021-2026 /our-companies/
-    print("== Era D: /our-companies/ 2021-2026")
-    snaps = yearly(cdx("sequoiacap.com/our-companies", collapse="timestamp:4",
-                       fl="timestamp,original"), 2021, 2026)
+def company_cards(era, cfg, raw_dir):
+    """JS-era listing page: company-name card markup."""
+    seg = seg_of(era)
+    y0, y1 = era["from"], era["to"]
+    print(f"== era {era['path']} {y0}-{y1} (card listing)")
+    snaps = yearly(cdx(f"{cfg['cdx_domain']}/{seg}", collapse="timestamp:4",
+                       fl="timestamp,original"), y0, y1)
     results = {}
     for y, (ts, orig) in sorted(snaps.items()):
-        html = fetch(wb(ts, orig), RAW / f"{y}-our-companies.html")
+        html = fetch(wb(ts, orig), raw_dir / f"{y}-{seg}.html")
         rows = {}
         for name in re.findall(
                 r'class="company-listing-card__company-name">\s*([^<\t\n]+)', html):
             name = unescape(name).strip()
             slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
             if slug:
-                rows[slug] = {"slug": slug, "name": name, "path": "/our-companies/",
+                rows[slug] = {"slug": slug, "name": name, "path": era["path"],
                               "snapshot_ts": ts}
         time.sleep(2.0)
         if rows:
@@ -185,15 +201,31 @@ def era_d():  # 2021-2026 /our-companies/
     return results
 
 
+PARSERS = {
+    "cdx_company_pages": cdx_company_pages,
+    "sitemap_home_links": sitemap_home_links,
+    "companies_listing": companies_listing,
+    "company_cards": company_cards,
+}
+
+
 def main():
-    RAW.mkdir(parents=True, exist_ok=True)
-    PARSED.mkdir(parents=True, exist_ok=True)
+    ap = argparse.ArgumentParser()
+    ap.add_argument("investor")
+    args = ap.parse_args()
+
+    p = Paths(args.investor)
+    cfg = p.config()["wayback"]
+    raw, parsed = p.wayback / "raw", p.wayback / "parsed"
+    raw.mkdir(parents=True, exist_ok=True)
+    parsed.mkdir(parents=True, exist_ok=True)
+
     all_years = {}
-    for era in (era_a, era_b, era_c, era_d):
-        for y, rows in era().items():
+    for era in cfg["eras"]:
+        for y, rows in PARSERS[era["parser"]](era, cfg, raw).items():
             all_years.setdefault(y, []).extend(rows)
     for y, rows in sorted(all_years.items()):
-        (PARSED / f"{y}.json").write_text(json.dumps(rows, indent=1) + "\n")
+        (parsed / f"{y}.json").write_text(json.dumps(rows, indent=1) + "\n")
     total = {r["slug"] for rows in all_years.values() for r in rows}
     print(f"\nyears: {sorted(all_years)}\ndistinct slugs across all years: {len(total)}")
 

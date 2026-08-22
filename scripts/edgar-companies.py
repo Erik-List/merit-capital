@@ -10,9 +10,12 @@ positives) and roles come from each filing's SEC header.
 Note the name: this is evidence that a company reached public markets, NOT an
 outcome classification. It misses private winners and includes failed IPOs.
 
-Input : data/aggregation/entities/sequoia-capital.json
-Output: data/aggregation/sources/edgar/edgar-companies.json
+Input : <investor>/entities.json
+Output: <investor>/sources/edgar/edgar-companies.json
+
+Usage: python3 scripts/edgar-companies.py <investor-slug>
 """
+import argparse
 import json
 import subprocess
 import sys
@@ -22,16 +25,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from edgar_common import fetch_header, parse_header_roles, parse_header_meta  # noqa: E402
+from paths import Paths  # noqa: E402
 
-ROOT = Path(__file__).resolve().parent.parent
-ENT = ROOT / "data" / "aggregation" / "entities"
-OUT = ROOT / "data" / "aggregation" / "sources" / "edgar"
 UA = "Merit Capital research erik@meritcapit.al"
 
 OWNERSHIP_FORMS = {"3", "4", "5", "3/A", "4/A", "5/A",
                    "SC 13D", "SC 13G", "SC 13D/A", "SC 13G/A"}
-
-DESK_RANK = ["us-eu", "israel", "india", "china", "unknown"]
 
 
 def submissions(cik: str) -> dict:
@@ -48,8 +47,15 @@ def submissions(cik: str) -> dict:
 
 
 def main() -> None:
-    OUT.mkdir(parents=True, exist_ok=True)
-    all_entities = json.load(open(ENT / "sequoia-capital.json"))
+    ap = argparse.ArgumentParser()
+    ap.add_argument("investor")
+    args = ap.parse_args()
+
+    p = Paths(args.investor)
+    # most senior desk first, from the investor's config
+    desk_rank = p.config()["desks"]["rank"]
+    p.edgar.mkdir(parents=True, exist_ok=True)
+    all_entities = json.load(open(p.entities))
     desk_of = {e["cik"]: e["desk"] for e in all_entities}
     # `external` entities are unrelated institutions picked up by co-filer
     # closure. Crawling them would import their whole portfolio as ours.
@@ -106,7 +112,7 @@ def main() -> None:
     rows = []
     for c in companies.values():
         desks = {desk_of.get(fc, "unknown") for fc in c["filer_ciks"] if fc in desk_of}
-        desk = next((d for d in DESK_RANK if d in desks), "unknown")
+        desk = next((d for d in desk_rank if d in desks), "unknown")
         rows.append({
             "name": c["name"], "cik": c["cik"], "desk": desk,
             "forms": sorted(c["forms"]), "first": c["first"], "last": c["last"],
@@ -114,7 +120,7 @@ def main() -> None:
             "filer_ciks": sorted(c["filer_ciks"]),
         })
     rows.sort(key=lambda r: r["name"].lower())
-    (OUT / "edgar-companies.json").write_text(json.dumps(rows, indent=1) + "\n")
+    (p.edgar / "edgar-companies.json").write_text(json.dumps(rows, indent=1) + "\n")
 
     print(f"\nwrote edgar-companies.json — {len(rows)} companies")
     print("  by desk:", dict(Counter(r["desk"] for r in rows)))

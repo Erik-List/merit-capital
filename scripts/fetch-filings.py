@@ -3,7 +3,7 @@
 
 Downloads into place:
   data/filings/form-d/                       quarterly Form D bulk ZIPs, 2008q1 -> now
-  data/aggregation/sources/sec/cik-lookup-data.txt
+  data/collection/shared/sec/cik-lookup-data.txt
 
 Both are verbatim SEC publications, so the repo tracks neither: a fresh clone
 runs this once and ends up byte-identical with what the pipeline scripts
@@ -20,9 +20,10 @@ import sys
 from datetime import date
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from paths import ROOT, SEC_CACHE as SEC_DIR  # noqa: E402
+
 FORM_D_DIR = ROOT / "data" / "filings" / "form-d"
-SEC_DIR = ROOT / "data" / "aggregation" / "sources" / "sec"
 
 # SEC blocks anonymous bulk clients; they ask for a contact in the UA.
 UA = "MeritCapital research erik@meritcapit.al"

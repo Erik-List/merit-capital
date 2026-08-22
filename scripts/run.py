@@ -14,16 +14,20 @@ Subcommands:
   review    write the read-only review.html
 
 Base and classification share one surface: `export` writes
-data/aggregation/company-base/<investor>.csv with identity, membership
+data/collection/investors/<slug>/base.csv with identity, membership
 verdict, evidence links and every classification column. A base that runs
 without classification just leaves those fields empty. Durable state stays in
 the overlays (base-verification.json, classification.json, identity-merges
 .json); the CSV is derived from them in one merge step and is what
 scripts/ingest-companies.ts reads.
 
+Every path derives from the investor slug via scripts/paths.py, and every
+investor-specific constant lives in the investor's config.json — nothing in
+here is specific to one investor.
+
 Two properties matter more than anything else here.
 
-**The base is read live** from company-base/<investor>.json. No pinned
+**The base is read live** from the investor's base.json. No pinned
 snapshot; the rule is that the base is not rebuilt for an investor while that
 investor's run is in flight. Overlays join on slug, so `verify` catches a
 violation as drift between resolved.json keys and base slugs.
@@ -32,8 +36,8 @@ violation as drift between resolved.json keys and base slugs.
 one batch at a time and writes it back before taking the next, so an
 interrupted run resumes at the first pending batch instead of restarting.
 
-The rules the batches are judged under live in data/aggregation/COLLECTION.md
-(plus the investor's own decisions file next to its base); a session running
+The rules the batches are judged under live in data/collection/COLLECTION.md
+(plus the investor's own decisions.md next to its base); a session running
 this pipeline reads that playbook first and re-reads it after any context
 compaction.
 """
@@ -49,14 +53,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import outcome_sources as S                                    # noqa: E402
+from paths import ROOT, Paths                                  # noqa: E402
 
-ROOT = Path(__file__).resolve().parent.parent
-BASE_DIR = ROOT / "data" / "aggregation" / "company-base"
-OUT = ROOT / "data" / "aggregation" / "outcomes"
-INV = ROOT / "data" / "aggregation" / "investors"
-QUEUE = OUT / "queue"
-LEDGER = BASE_DIR / "base-verification.json"
-REVIEW = ROOT / "data" / "aggregation" / "review.html"
+# Set in main() from the parsed investor slug; every path derives from them.
+P: Paths
+CFG: dict = {}
+SAMPLE_SLUGS: set[str] = set()
 UA = "Merit Capital research erik@meritcapit.al"
 
 BATCH_SIZE = 45
@@ -168,14 +170,13 @@ ISO_CODES = frozenset(ISO_OF.values())
 def load_base(investor: str) -> list[dict]:
     """Rows of the live Company Base (no pinned snapshot; see module docstring).
 
-    The evidence detail lives in <investor>.json, written by
-    build-company-base.py; the sibling CSV is the merged published surface
-    this driver derives, so it is never read back.
+    The evidence detail lives in base.json, written by
+    build-company-base.py; the sibling base.csv is the merged published
+    surface this driver derives, so it is never read back.
     """
-    path = BASE_DIR / f"{investor}.json"
-    if not path.exists():
-        sys.exit(f"no company base at {path}")
-    return json.loads(path.read_text())
+    if not P.base_json.exists():
+        sys.exit(f"no company base at {P.base_json}")
+    return json.loads(P.base_json.read_text())
 
 
 def merge_rows(rows: list[dict], resolved: dict, cls: dict) -> dict[str, dict]:
@@ -197,12 +198,12 @@ def merge_rows(rows: list[dict], resolved: dict, cls: dict) -> dict[str, dict]:
 
 def load_ledger(investor: str) -> tuple[dict, dict]:
     """-> (full ledger, this investor's verdicts dict, live reference)."""
-    led = json.loads(LEDGER.read_text()) if LEDGER.exists() else {}
+    led = json.loads(P.ledger.read_text()) if P.ledger.exists() else {}
     bucket = led.setdefault(investor, {"verdicts": {}, "recall_additions": []})
     return led, bucket["verdicts"]
 
 def save_ledger(led: dict) -> None:
-    LEDGER.write_text(json.dumps(led, indent=1, sort_keys=True) + "\n")
+    P.ledger.write_text(json.dumps(led, indent=1, sort_keys=True) + "\n")
 
 
 def today() -> str:
@@ -210,7 +211,7 @@ def today() -> str:
 
 
 def load(name: str, default):
-    p = OUT / name
+    p = P.root / name
     return json.loads(p.read_text()) if p.exists() else default
 
 
@@ -235,13 +236,13 @@ def evidence_class(r: dict) -> str:
 
 def write_queue(prefix: str, items: list, size: int, jsonl: bool = False) -> int:
     """Replace queue/<prefix>-NNN.json with `items` chunked by `size`."""
-    for f in QUEUE.glob(f"{prefix}-*.json"):
+    for f in P.queue.glob(f"{prefix}-*.json"):
         f.unlink()
     for i in range(0, len(items), size):
         chunk = items[i:i + size]
         text = ("\n".join(json.dumps(q) for q in chunk) + "\n") if jsonl \
             else json.dumps(chunk, indent=1)
-        (QUEUE / f"{prefix}-{i // size + 1:03d}.json").write_text(text)
+        (P.queue / f"{prefix}-{i // size + 1:03d}.json").write_text(text)
     return (len(items) + size - 1) // size
 
 
@@ -396,11 +397,11 @@ def add_flag(rec: dict, flag: str) -> None:
 
 
 def never_merge_pairs(investor: str) -> set:
-    idm = BASE_DIR / "identity-merges.json"
-    if not idm.exists():
+    if not P.identity_merges.exists():
         return set()
     return {frozenset(p["slugs"]) for p in
-            json.loads(idm.read_text()).get(investor, {}).get("never_merge", [])}
+            json.loads(P.identity_merges.read_text())
+            .get(investor, {}).get("never_merge", [])}
 
 
 def flag_base_defects(resolved: dict, layer_a: dict, base: dict, investor: str) -> None:
@@ -480,8 +481,7 @@ def seed_membership(rows: list[dict], investor: str) -> None:
 
 
 def cmd_prepare(args) -> None:
-    OUT.mkdir(parents=True, exist_ok=True)
-    QUEUE.mkdir(parents=True, exist_ok=True)
+    P.queue.mkdir(parents=True, exist_ok=True)
 
     rows = load_base(args.investor)
     print(f"rows: {len(rows)}")
@@ -490,11 +490,10 @@ def cmd_prepare(args) -> None:
     _, verdicts = load_ledger(args.investor)
 
     # ---- Form D round sequences + issuer evidence (offline rescan, one sweep)
-    rounds_path = OUT / "formd-rounds.json"
-    if not rounds_path.exists() or args.refresh:
+    if not P.formd_rounds.exists() or args.refresh:
         subprocess.run([sys.executable, str(ROOT / "scripts" / "formd-issuer-rounds.py"),
-                        args.investor, "--out", str(rounds_path)], check=True)
-    formd = json.loads(rounds_path.read_text())
+                        args.investor], check=True)
+    formd = json.loads(P.formd_rounds.read_text())
 
     # ---- Layer A: SEC public float
     index = S.load_cik_lookup()
@@ -519,9 +518,9 @@ def cmd_prepare(args) -> None:
                     rec.setdefault("flags", []).append("cik_weak")
         layer_a[row["slug"]] = rec
         if i % 100 == 0:
-            (OUT / "layer-a.json").write_text(json.dumps(layer_a, indent=1))
+            (P.layer_a).write_text(json.dumps(layer_a, indent=1))
             print(f"    {i}/{len(todo)}")
-    (OUT / "layer-a.json").write_text(json.dumps(layer_a, indent=1))
+    (P.layer_a).write_text(json.dumps(layer_a, indent=1))
     public = sum(1 for v in layer_a.values() if v.get("is_public"))
     print(f"    resolved a CIK: {sum(1 for v in layer_a.values() if v.get('cik'))}"
           f"   with public float: {public}")
@@ -535,7 +534,7 @@ def cmd_prepare(args) -> None:
         hits = S.wikidata_batch([r["name"] for r in chunk])
         for r in chunk:
             layer_b[r["slug"]] = hits.get(S.norm(r["name"]), {})
-        (OUT / "layer-b.json").write_text(json.dumps(layer_b, indent=1))
+        (P.layer_b).write_text(json.dumps(layer_b, indent=1))
         print(f"    {min(i + 60, len(pending))}/{len(pending)}")
     print(f"    matched: {sum(1 for v in layer_b.values() if v)}")
 
@@ -548,7 +547,7 @@ def cmd_prepare(args) -> None:
     partner_accs = {r["slug"]: accs_of(r) for r in rows}
     grad = {slug: graduation_from_formd(rec["rounds"], partner_accs.get(slug, set()))
             for slug, rec in formd.items()}
-    (OUT / "graduation-formd.json").write_text(json.dumps(grad, indent=1))
+    P.graduation.write_text(json.dumps(grad, indent=1))
     determined = sum(1 for g in grad.values() if g.get("seed_to_a_graduation") is not None)
     seeds = sum(1 for g in grad.values() if g.get("entry_stage") == "Seed")
     anchored = sum(1 for g in grad.values() if g.get("prior_rounds", 0) > 0)
@@ -669,7 +668,7 @@ def cmd_prepare(args) -> None:
         resolved[slug] = rec
 
     flag_base_defects(resolved, layer_a, {r["slug"]: r for r in rows}, args.investor)
-    (OUT / "resolved.json").write_text(json.dumps(resolved, indent=1))
+    P.resolved.write_text(json.dumps(resolved, indent=1))
 
     batches = write_queue("batch", queue, BATCH_SIZE)
     print(f"\ndeterministically resolved: {len(rows) - len(queue)}/{len(rows)}")
@@ -843,7 +842,7 @@ def cmd_record(args) -> None:
         if tgt.get("hq_country"):
             tgt["hq_country"] = canon_country(tgt["hq_country"]) or tgt["hq_country"]
     if cls_in:
-        (OUT / "classification.json").write_text(json.dumps(cls, indent=1, sort_keys=True))
+        P.classification.write_text(json.dumps(cls, indent=1, sort_keys=True))
     print(f"recorded {len(verd_in)} verdicts + {len(cls_in)} classification rows; "
           f"ledger holds {len(verdicts)}, classification holds {len(cls)}")
 
@@ -854,7 +853,7 @@ def cmd_status(args) -> None:
     cls = load("classification.json", {})
     c = Counter(verdicts[r["slug"]]["verdict"] if r["slug"] in verdicts else "UNJUDGED"
                 for r in rows)
-    batches = sorted(QUEUE.glob("batch-*.json"))
+    batches = sorted(P.queue.glob("batch-*.json"))
     done = [b for b in batches if all(
         r["slug"] in cls and r["slug"] in verdicts
         for r in json.loads(b.read_text()))]
@@ -887,39 +886,38 @@ def verify_base(rows: list[dict], investor: str, problems: list[str],
     names = {r["name"].lower() for r in rows}
     slugs = {r["slug"] for r in rows}
 
-    if investor == "sequoia-capital":
-        # text-mention and co-filer leaks that motivated the evidence rules
-        ec_p = ROOT / "data" / "aggregation" / "sources" / "edgar" / "edgar-companies.json"
-        ec_names = {c["name"].lower() for c in json.loads(ec_p.read_text())}
-        if "soros fund management llc" in names or any("soros" in n for n in ec_names):
-            problems.append("text-mention leak: SOROS present")
-        leaks = [n for n in ("scgf iii management llc", "scgf iv management lp",
-                             "scgf v management, l.p.", "francisco partners ii lp",
-                             "tcv vii lp", "pequot capital management inc",
-                             "saif partners iv l.p.")
-                 if n in names]
+    vcfg = CFG.get("verify", {})
+    if vcfg:
+        # text-mention and co-filer leaks that motivated the evidence rules,
+        # plus known positions — investor-specific data, from config.json
+        ec_p = P.edgar / "edgar-companies.json"
+        ec_names = {c["name"].lower() for c in json.loads(ec_p.read_text())} \
+            if ec_p.exists() else set()
+        for leak in vcfg.get("text_mention_leaks", []):
+            if any(leak in n for n in names) or any(leak in n for n in ec_names):
+                problems.append(f"text-mention leak: {leak.upper()} present")
+        leaks = [n for n in vcfg.get("cofiler_leaks", []) if n in names]
         if leaks:
             problems.append(f"co-filer leak (GP/management vehicles in base): {leaks}")
-        want = ["airbnb", "amplitude", "23andme", "aruba", "barracuda"]
-        missing = [w for w in want if not any(w in n for n in names)]
+        missing = [w for w in vcfg.get("known_positions", [])
+                   if not any(w in n for n in names)]
         if missing:
             problems.append(f"known positions missing: {missing}")
 
-    ent_p = ROOT / "data" / "aggregation" / "entities" / f"{investor}.json"
-    if ent_p.exists():
-        ent_ciks = {e["cik"] for e in json.loads(ent_p.read_text())}
+    if P.entities.exists():
+        ent_ciks = {e["cik"] for e in json.loads(P.entities.read_text())}
         own = [r["name"] for r in rows if r.get("edgar_cik") and r["edgar_cik"] in ent_ciks]
         if own:
             problems.append(f"own-vehicle appears as a company: {own[:5]}")
 
-    other_p = BASE_DIR / "other-desk-companies.csv"
-    if other_p.exists():
-        onames = {r["name"].lower() for r in csv.DictReader(open(other_p))}
+    if P.excluded.exists():
+        onames = {r["name"].lower() for r in csv.DictReader(open(P.excluded))
+                  if r.get("reason") == "other_desk"}
         overlap = names & onames
         if overlap:
             problems.append(f"row in both base and other-desk: {sorted(overlap)[:5]}")
     else:
-        problems.append("other-desk-companies.csv missing")
+        problems.append("excluded.csv missing")
 
     gap = [r["name"] for r in rows if r["edgar_forms"] and not r.get("edgar_links")]
     if gap:
@@ -935,7 +933,7 @@ def verify_base(rows: list[dict], investor: str, problems: list[str],
 
     # identity overlay applied: no absorbed/rejected slug published, every
     # canonical present, no unexplained shared CIK
-    idm_p = BASE_DIR / "identity-merges.json"
+    idm_p = P.identity_merges
     if idm_p.exists():
         ov = json.loads(idm_p.read_text()).get(investor, {})
         gone_expected = {d for m in ov.get("merges", []) for d in m["duplicates"]}
@@ -1138,7 +1136,7 @@ def cmd_verify(args) -> None:
 
     # published surfaces current: the merged CSV and review.html must reflect
     # the live base (same slugs, same first row)
-    csv_p = BASE_DIR / f"{args.investor}.csv"
+    csv_p = P.base_csv
     if not csv_p.exists():
         problems.append(f"{csv_p.name} missing; run export")
     else:
@@ -1146,9 +1144,9 @@ def cmd_verify(args) -> None:
         if csv_slugs != base_slugs:
             problems.append(f"{csv_p.name} stale relative to the base "
                             f"({len(csv_slugs ^ base_slugs)} slugs differ); re-run export")
-    if not REVIEW.exists():
+    if not P.review_html.exists():
         problems.append("review.html missing; run review")
-    elif rows and rows[0]["name"] not in REVIEW.read_text(
+    elif rows and rows[0]["name"] not in P.review_html.read_text(
             encoding="utf-8", errors="replace"):
         problems.append("review.html stale relative to the base; re-run review")
 
@@ -1204,7 +1202,7 @@ def cmd_export(args) -> None:
         out_rows.append({k: "" if out.get(k) is None else out[k]
                          for k in EXPORT_COLUMNS})
 
-    dest = BASE_DIR / f"{args.investor}.csv"
+    dest = P.base_csv
     with open(dest, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=EXPORT_COLUMNS)
         w.writeheader()
@@ -1215,15 +1213,6 @@ def cmd_export(args) -> None:
 # ---------------------------------------------------------------------------
 # review: the one read-only surface
 # ---------------------------------------------------------------------------
-
-SAMPLE_SLUGS = {
-    # recovered by the membership verification loop, worth confirming
-    "avalanche-technology-inc", "cloudshare-ltd", "muze-collective-inc",
-    "romotive-inc",
-    # seeding spot-checks, one per evidence class
-    "youtube", "fal", "webvan-group-inc",
-}
-
 
 def in_sample(r: dict) -> bool:
     """Rows a human should spot-check, since sampling replaced full review.
@@ -1530,13 +1519,10 @@ render();
 
 def profile_fields(investor: str) -> list[dict]:
     """The firm profile as [{name, value, source, basis}], review order."""
-    inst_p = INV / "institutions.json"
-    side_p = INV / "institutions" / f"{investor}.sources.json"
-    if not inst_p.exists() or not side_p.exists():
+    if not P.investor.exists() or not P.investor_sources.exists():
         return []
-    row = next((r for r in json.loads(inst_p.read_text())
-                if r.get("slug") == investor), {})
-    fields = json.loads(side_p.read_text()).get("fields", {})
+    row = json.loads(P.investor.read_text())
+    fields = json.loads(P.investor_sources.read_text()).get("fields", {})
     ordered = [k for k in PROFILE_ORDER if k in fields]
     ordered += [k for k in fields if k not in ordered]
     return [{"name": k,
@@ -1571,8 +1557,9 @@ def cmd_review(args) -> None:
                       separators=(",", ":")).replace("</script>", "<\\/script>")
     html = (REVIEW_TEMPLATE.replace("__DATA__", data)
             .replace("__PROFILE__", prof).replace("__INVESTOR__", args.investor))
-    REVIEW.write_text(html, encoding="utf-8")
-    print(f"wrote {REVIEW.relative_to(ROOT)} ({len(html)//1024} KB, {len(out)} rows)")
+    P.review_html.write_text(html, encoding="utf-8")
+    print(f"wrote {P.review_html.relative_to(ROOT)} "
+          f"({len(html)//1024} KB, {len(out)} rows)")
 
 
 def main() -> None:
@@ -1580,7 +1567,7 @@ def main() -> None:
     sub = ap.add_subparsers(dest="cmd", required=True)
 
     p = sub.add_parser("prepare"); p.set_defaults(fn=cmd_prepare)
-    p.add_argument("investor", nargs="?", default="sequoia-capital")
+    p.add_argument("investor")
     p.add_argument("--refresh", action="store_true", help="re-run the Form D rescan")
 
     p = sub.add_parser("record"); p.set_defaults(fn=cmd_record)
@@ -1594,9 +1581,15 @@ def main() -> None:
 
     for name, sp in sub.choices.items():
         if name != "prepare":
-            sp.add_argument("--investor", default="sequoia-capital")
+            sp.add_argument("--investor", required=True)
 
     args = ap.parse_args()
+
+    global P, CFG, SAMPLE_SLUGS
+    P = Paths(args.investor)
+    CFG = P.config()
+    SAMPLE_SLUGS = set(CFG.get("sample_slugs", []))
+
     args.fn(args)
 
 

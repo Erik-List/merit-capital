@@ -5,17 +5,20 @@ One canonical table answering "is this CIK theirs, and which desk?" — used by
 role resolution, fund exclusion and lineage partitioning alike.
 
 Sources (union; measured to be non-overlapping):
-  1. EDGAR company-name search (sequoia / hongshan / peak xv)
+  1. EDGAR company-name search (seed queries from the investor's config.json)
   2. Co-filer closure: CIKs appearing in a filer role alongside a seed entity
   3. The investor's own pooled-investment-fund Form D issuers
 
-Output: data/aggregation/entities/sequoia-capital.json
+Output: <investor>/entities.json
   {cik, name, desk, vehicle_role, sources[], confirmed}
 
-`desk` is a reviewable lookup table: defaulted from the entity name here, then
-human-confirmable via the `confirmed` flag. Judged once and stored, rather than
-re-derived by regex on every build.
+`desk` is a reviewable lookup table: defaulted from the entity name via the
+config's desk patterns, then human-confirmable via the `confirmed` flag.
+Judged once and stored, rather than re-derived by regex on every build.
+
+Usage: python3 scripts/edgar-entities.py <investor-slug>
 """
+import argparse
 import json
 import re
 import subprocess
@@ -26,14 +29,13 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from edgar_common import fetch_header, parse_header_roles  # noqa: E402
+from paths import ROOT, Paths  # noqa: E402
 from people_common import same_person_any_order  # noqa: E402
 
-ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "data" / "aggregation" / "entities"
-ED = ROOT / "data" / "aggregation" / "sources" / "edgar"
 UA = "Merit Capital research erik@meritcapit.al"
 
-SEED_QUERIES = ["sequoia+capital", "hongshan", "peak+xv"]
+# Set in main() from the investor's config.json ("desks" block).
+DESK_RULES: list[tuple[str, list[re.Pattern]]] = []
 
 
 def curl(url: str, extra: list[str] | None = None) -> str:
@@ -50,17 +52,15 @@ def curl(url: str, extra: list[str] | None = None) -> str:
 
 
 def classify_desk(name: str) -> str:
-    """Default desk from entity name — a starting point for human review."""
+    """Default desk from entity name — a starting point for human review.
+
+    The patterns are the investor's, from config.json; rule order decides
+    precedence (a split-off desk pattern must come before the parent firm's).
+    """
     n = name.lower()
-    if ("china" in n or "hongshan" in n or re.search(r"\bscc\b", n)
-            or re.match(r"^hsg\b", n)):          # HSG = HongShan Group, post-split
-        return "china"
-    if "india" in n or "peak xv" in n or re.search(r"\bsciv?\b", n):
-        return "india"
-    if "israel" in n:
-        return "israel"
-    if "sequoia" in n or re.match(r"^sc[\s.]", n) or re.match(r"^scg|^schf|^scff", n):
-        return "us-eu"
+    for desk, pats in DESK_RULES:
+        if any(p.search(n) for p in pats):
+            return desk
     return "unknown"
 
 
@@ -77,10 +77,10 @@ def classify_role(name: str) -> str:
     return "unknown"
 
 
-def seed_from_company_search() -> dict[str, dict]:
+def seed_from_company_search(seed_queries: list[str]) -> dict[str, dict]:
     """EDGAR company-name search (HTML endpoint; the atom feed mangles names)."""
     found: dict[str, dict] = {}
-    for q in SEED_QUERIES:
+    for q in seed_queries:
         for start in (0, 100, 200):
             html = curl(f"https://www.sec.gov/cgi-bin/browse-edgar?company={q}"
                         f"&type=&dateb=&owner=include&count=100&start={start}&action=getcompany")
@@ -98,10 +98,10 @@ def seed_from_company_search() -> dict[str, dict]:
     return found
 
 
-def from_existing_filings() -> dict[str, dict]:
+def from_existing_filings(edgar_dir: Path) -> dict[str, dict]:
     """Harvest entity names/CIKs already present in collected EDGAR filings."""
     found: dict[str, dict] = {}
-    p = ED / "winner-filings.json"
+    p = edgar_dir / "winner-filings.json"
     if not p.exists():
         return found
     for rec in json.load(open(p)).values():
@@ -120,10 +120,10 @@ def from_existing_filings() -> dict[str, dict]:
     return found
 
 
-def from_formd_pooled() -> dict[str, dict]:
+def from_formd_pooled(edgar_dir: Path) -> dict[str, dict]:
     """The investor's own pooled-investment-fund Form D issuers."""
     found: dict[str, dict] = {}
-    p = ED / "formd-sweep.json"
+    p = edgar_dir / "formd-sweep.json"
     if not p.exists():
         return found
     for rec in json.load(open(p)).values():
@@ -174,7 +174,7 @@ def cofiler_closure(seed_ciks: set[str], sample_per_entity: int = 15) -> dict[st
     return found
 
 
-def resolve_unknowns(registry: dict[str, dict]) -> None:
+def resolve_unknowns(registry: dict[str, dict], p: Paths, desks_cfg: dict) -> None:
     """Split the unclassified remainder into the investor's own people vs outsiders.
 
     Co-filer closure necessarily picks up unrelated institutions that merely
@@ -184,9 +184,10 @@ def resolve_unknowns(registry: dict[str, dict]) -> None:
     individual reporting owners and are genuine board-seat evidence — they are
     identified against the partner roster, not by name shape.
     """
-    roster_path = (ROOT / "data" / "aggregation" / "sources" / "wayback" /
-                   "partner-roster.json")
+    roster_path = p.wayback / "partner-roster.json"
     roster = [r["name"] for r in json.load(open(roster_path))] if roster_path.exists() else []
+    own_desks = {desk for desk, _ in DESK_RULES}
+    home_desk = desks_cfg["home"]
 
     # a person's desk follows the desks of the entities they co-file with
     cofiler_desks: dict[str, Counter] = {}
@@ -196,7 +197,7 @@ def resolve_unknowns(registry: dict[str, dict]) -> None:
         ciks = [c for _, c in filers]
         known = [registry[c] for c in ciks if c in registry]
         desks = Counter(e["_desk"] for e in known
-                        if e.get("_desk") in ("us-eu", "china", "india", "israel"))
+                        if e.get("_desk") in own_desks)
         if not desks:
             continue
         for c in ciks:
@@ -209,7 +210,7 @@ def resolve_unknowns(registry: dict[str, dict]) -> None:
             continue
         if any(same_person_any_order(e["name"], r) for r in roster):
             e["_desk"] = (cofiler_desks.get(e["cik"], Counter()).most_common(1) or
-                          [("us-eu", 0)])[0][0]
+                          [(home_desk, 0)])[0][0]
             e["_role"] = "person"
             people += 1
         else:
@@ -221,7 +222,16 @@ def resolve_unknowns(registry: dict[str, dict]) -> None:
 
 
 def main() -> None:
-    OUT.mkdir(parents=True, exist_ok=True)
+    ap = argparse.ArgumentParser()
+    ap.add_argument("investor")
+    args = ap.parse_args()
+
+    p = Paths(args.investor)
+    cfg = p.config()
+    global DESK_RULES
+    DESK_RULES = [(r["desk"], [re.compile(pat) for pat in r["patterns"]])
+                  for r in cfg["desks"]["classify"]]
+
     registry: dict[str, dict] = {}
 
     def merge(batch: dict[str, dict]) -> None:
@@ -236,16 +246,16 @@ def main() -> None:
                 registry[c] = dict(e)
 
     print("== seeding from EDGAR company search")
-    merge(seed_from_company_search())
+    merge(seed_from_company_search(cfg["edgar"]["seed_queries"]))
     print(f"   {len(registry)} entities")
 
     print("== harvesting from previously collected filings")
-    merge(from_existing_filings())
+    merge(from_existing_filings(p.edgar))
     print(f"   {len(registry)} entities")
 
     print("== folding in own pooled Form D vehicles")
     before = len(registry)
-    merge(from_formd_pooled())
+    merge(from_formd_pooled(p.edgar))
     print(f"   +{len(registry)-before} (total {len(registry)})")
 
     print("== co-filer closure (sampling filings of seed entities)")
@@ -254,7 +264,7 @@ def main() -> None:
 
     # preserve human desk confirmations across rebuilds
     prior = {}
-    dest = OUT / "sequoia-capital.json"
+    dest = p.entities
     if dest.exists():
         prior = {e["cik"]: e for e in json.load(open(dest))}
 
@@ -262,18 +272,18 @@ def main() -> None:
         e["cik"] = c
         e["_desk"] = classify_desk(e["name"])
         e["_role"] = classify_role(e["name"])
-    resolve_unknowns(registry)
+    resolve_unknowns(registry, p, cfg["desks"])
 
     rows = []
     for c, e in registry.items():
-        p = prior.get(c, {})
+        pr = prior.get(c, {})
         rows.append({
             "cik": c,
             "name": e["name"],
-            "desk": p["desk"] if p.get("confirmed") else e["_desk"],
+            "desk": pr["desk"] if pr.get("confirmed") else e["_desk"],
             "vehicle_role": e["_role"],
             "sources": sorted(e["sources"]),
-            "confirmed": bool(p.get("confirmed", False)),
+            "confirmed": bool(pr.get("confirmed", False)),
         })
     rows.sort(key=lambda r: (r["desk"], r["name"].lower()))
     dest.write_text(json.dumps(rows, indent=1) + "\n")

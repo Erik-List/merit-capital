@@ -1,6 +1,6 @@
 {
   "slug": "sequoia-capital",
-  "generated_at": "2026-08-13T17:34:19+00:00",
+  "generated_at": "2026-08-22T19:44:13+00:00",
   "run": "PRO-7 autonomous in-session run",
   "fields": {
     "name": {
@@ -35,7 +35,7 @@
     },
     "hq_location": {
       "value": "Menlo Park, CA",
-      "source": "data/aggregation/sources/edgar/formd-sweep.json",
+      "source": "sources/edgar/formd-sweep.json",
       "basis": "issuer address on 27 of 27 of the firm's own Form D filings; unanimous. Filing-grade."
     },
     "investment_stage": {
@@ -75,8 +75,8 @@
           "DevTools & APIs"
         ]
       },
-      "source": "data/aggregation/company-base/sequoia-capital.json",
-      "basis": "focus from the firm's own site sector tags on 718 base rows, crosswalked to data/taxonomy/focus.json, published above 25 companies. Generalist because the firm's thesis names no single sector and the portfolio spans every published label."
+      "source": "base.json",
+      "basis": "focus from the firm's own site sector tags on 718 base rows, crosswalked to data/taxonomy/focus.json (crosswalk in config.json), published above 25 companies. Scope type is the curated judgement carried in investor.json."
     },
     "investment_range": {
       "value": {
@@ -84,7 +84,7 @@
         "median": 8000000,
         "upper_limit": 1000000000
       },
-      "source": "data/aggregation/sources/edgar/formd-issuer-rounds.json",
+      "source": "sources/edgar/formd-issuer-rounds.json",
       "basis": "Entry-round median $7,791,486 across 368 companies; median published as $8M. p10 $287K, p90 $89.4M, p99 (all rounds) $723M. | Arc program: $500K-$1M checks out of the seed fund. The lower limit. | Largest verified Sequoia-led round: $1.15B into Citadel Securities with Paradigm, Jan 2022; Sequoia's split undisclosed. Upper limit set at $1B. | Dry-powder check: the $7B expansion fund at typical concentration supports single positions of $700M-$1B, consistent with the ceiling."
     },
     "notable_investments": {
@@ -98,7 +98,7 @@
         "WhatsApp",
         "YouTube"
       ],
-      "source": "data/aggregation/company-base/sequoia-capital.json",
+      "source": "base.json",
       "basis": "Membership asserted against auto_confirmed base rows. Selection among them is recognition judgement, per PRO-7. This is the one field not fully evidence-bound."
     },
     "aum": {
@@ -117,14 +117,15 @@
           "vintage": 2022,
           "sources": [
             {
-              "source": "data/aggregation/sources/edgar/fund-formds.json",
+              "source": "sources/edgar/fund-formds.json",
               "note": "Form D/A 2026: $22,722,245,832 sold. Evergreen umbrella; includes rolled-up public positions."
             },
             {
               "source": "https://www.bloomberg.com/news/articles/2025-02-06/sequoia-capital-s-evergreen-fund-grows-to-almost-20-billion",
               "note": "Bloomberg 2025-02-06: $19.6B and growing, same trajectory."
             }
-          ]
+          ],
+          "accession": "0002062357-26-000016"
         },
         {
           "name": "Sequoia Capital Global Growth Fund III - Endurance Partners, L.P.",
@@ -132,14 +133,15 @@
           "vintage": 2018,
           "sources": [
             {
-              "source": "data/aggregation/sources/edgar/fund-formds.json",
+              "source": "sources/edgar/fund-formds.json",
               "note": "Form D/A: $8,004,500,000 sold."
             },
             {
               "source": "https://techcrunch.com/2018/06/26/confirmed-sequoia-has-already-secured-three-quarters-of-what-will-be-an-8-billion-global-fund/",
               "note": "TechCrunch 2018: the $8B global growth vehicle."
             }
-          ]
+          ],
+          "accession": "0001740907-21-000002"
         },
         {
           "name": "Sequoia Capital Expansion Fund (2026)",
@@ -166,7 +168,7 @@
               "note": "TechCrunch 2026: names the 2022 predecessor at $3.4B."
             },
             {
-              "source": "data/aggregation/sources/edgar/fund-formds.json",
+              "source": "sources/edgar/fund-formds.json",
               "note": "US/E Expansion I Principals Fund on EDGAR (first filed 2022-10) confirms the vehicle family and vintage."
             }
           ]
@@ -177,10 +179,11 @@
           "vintage": 2015,
           "sources": [
             {
-              "source": "data/aggregation/sources/edgar/fund-formds.json",
+              "source": "sources/edgar/fund-formds.json",
               "note": "Form D/A 2017: $1,999,500,000 sold. First filed Dec 2015, final close 2017; sits at the edge of the 10-year window."
             }
-          ]
+          ],
+          "accession": "0001656515-17-000001"
         },
         {
           "name": "Sequoia Capital U.S. Growth Fund IX, L.P.",
@@ -188,14 +191,15 @@
           "vintage": 2020,
           "sources": [
             {
-              "source": "data/aggregation/sources/edgar/fund-formds.json",
+              "source": "sources/edgar/fund-formds.json",
               "note": "Form D/A 2021: $1,505,500,000 sold."
             },
             {
               "source": "https://aum13f.com/fund/sequoia-capital-us-growth-fund-ix-lp",
               "note": "Independent filing mirror, same figure."
             }
-          ]
+          ],
+          "accession": "0001814893-21-000002"
         },
         {
           "name": "Sequoia Capital Growth Fund X",
@@ -207,7 +211,7 @@
               "note": "The Information 2022: $1.5B target for the US growth fund; closed July 2022 per follow-on coverage."
             },
             {
-              "source": "data/aggregation/sources/edgar/fund-formds.json",
+              "source": "sources/edgar/fund-formds.json",
               "note": "US/E Growth X Principals Fund on EDGAR (2022-10) confirms the vehicle. Size is the press target, not a Form D amount."
             }
           ]
@@ -218,14 +222,15 @@
           "vintage": 2018,
           "sources": [
             {
-              "source": "data/aggregation/sources/edgar/fund-formds.json",
+              "source": "sources/edgar/fund-formds.json",
               "note": "Form D/A 2019: $998,500,000 sold."
             },
             {
               "source": "https://news.crunchbase.com/venture/sequoia-capital-filings-disclose-nearly-3-35b-for-new-funds-focused-on-the-u-s-and-china/",
               "note": "Crunchbase News 2019-12-03: $998.5M, 120 LPs. Exact match."
             }
-          ]
+          ],
+          "accession": "0001743290-19-000001"
         },
         {
           "name": "Sequoia Capital Ecosystem Fund",
@@ -248,7 +253,7 @@
               "note": "The Information 2022: $750M target for the earlier-stage fund of the July 2022 pair."
             },
             {
-              "source": "data/aggregation/sources/edgar/fund-formds.json",
+              "source": "sources/edgar/fund-formds.json",
               "note": "US/E Venture XVIII Principals Fund on EDGAR (2022-10) confirms the vehicle. Size is the press target."
             }
           ]
@@ -263,7 +268,7 @@
               "note": "TechCrunch 2025-10-27: $750M early-stage fund targeting Series A."
             },
             {
-              "source": "data/aggregation/sources/edgar/fund-formds.json",
+              "source": "sources/edgar/fund-formds.json",
               "note": "Venture XIX Principals Fund on EDGAR (2026-04) confirms the vehicle and vintage."
             }
           ]
@@ -274,14 +279,15 @@
           "vintage": 2020,
           "sources": [
             {
-              "source": "data/aggregation/sources/edgar/fund-formds.json",
+              "source": "sources/edgar/fund-formds.json",
               "note": "Form D/A 2021: $649,500,000 sold."
             },
             {
               "source": "https://www.formds.com/issuers/sequoia-capital-u-s-venture-fund-xvii-l-p",
               "note": "Independent Form D mirror, same figure."
             }
-          ]
+          ],
+          "accession": "0001814910-21-000002"
         },
         {
           "name": "Sequoia Capital Crypto Fund",
@@ -304,13 +310,13 @@
               "note": "TechCrunch 2025-10-27: $200M seed fund."
             },
             {
-              "source": "data/aggregation/sources/edgar/fund-formds.json",
+              "source": "sources/edgar/fund-formds.json",
               "note": "Seed VI Principals Fund on EDGAR (2026-04) confirms the vehicle and vintage."
             }
           ]
         }
       ],
-      "source": "data/aggregation/sources/edgar/fund-formds.json",
+      "source": "sources/edgar/fund-formds.json",
       "basis": "14 funds, vintage 2015-2026. Direct raises carry Form D amounts asserted against the filings at build time; post-2021 strategy sub-funds carry press-stated sizes because LP capital enters through the evergreen Sequoia Capital Fund and their own Form Ds show only principals' side money."
     },
     "individuals": {
@@ -788,8 +794,8 @@
           }
         }
       ],
-      "source": "https://sequoiacap.com/wp-json/wp/v2/team-member",
-      "basis": "Live team CMS: 59 members. Positions are CMS titles (33 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. Socials scraped from profile pages: 52 LinkedIn, 28 X."
+      "source": "sources/site/team-members.json",
+      "basis": "Live team CMS: 59 members. Positions are CMS titles (33 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 8 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 52 LinkedIn, 28 X."
     }
   },
   "flags": [

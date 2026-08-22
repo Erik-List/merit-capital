@@ -19,36 +19,36 @@ incorporation year at each base accession, plus the full name history of every
 base CIK (ENTITYNAME + previous names — the deterministic Square -> Block
 rename signal).
 
-Inputs:
-  data/aggregation/company-base/<investor>.json     (formd_accessions per row)
-  data/aggregation/sources/edgar/formd-sweep.json   (accession -> issuer CIK)
-  data/filings/form-d/*.zip                         (74 quarterly bulk datasets)
+Inputs (per investor, under data/collection/investors/<slug>/):
+  base.json                        (formd_accessions per row)
+  sources/edgar/formd-sweep.json   (accession -> issuer CIK)
+  data/filings/form-d/*.zip        (74 quarterly bulk datasets)
 
 Outputs:
-  data/aggregation/sources/edgar/formd-issuer-rounds.json   (or --out)
-  data/aggregation/outcomes/issuer-evidence.json
+  sources/edgar/formd-issuer-rounds.json   (or --out)
+  issuer-evidence.json
     {"accessions": {acc: {cik, name, city, state_desc, jurisdiction, year_inc}},
      "ciks": {cik: {"names": [...], "prev_names": [...], "first": ..., "last": ...}}}
 
 Offline: reads only local ZIPs, no network.
 
 Usage:
-  python3 scripts/formd-issuer-rounds.py [investor-slug] [--base PATH] [--out PATH]
+  python3 scripts/formd-issuer-rounds.py <investor-slug> [--base PATH] [--out PATH]
 """
 import argparse
 import csv
 import io
 import json
 import re
+import sys
 import zipfile
 from collections import defaultdict
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from paths import ROOT, Paths  # noqa: E402
+
 FORMD_DIR = ROOT / "data" / "filings" / "form-d"
-BASE_DIR = ROOT / "data" / "aggregation" / "company-base"
-ED = ROOT / "data" / "aggregation" / "sources" / "edgar"
-EVIDENCE_OUT = ROOT / "data" / "aggregation" / "outcomes" / "issuer-evidence.json"
 
 # csv defaults to 128 KB; a few RELATEDPERSONS rows carry longer free-text fields.
 csv.field_size_limit(10_000_000)
@@ -79,14 +79,15 @@ def base_rows(base_path: Path) -> list[dict]:
     return json.load(open(base_path))
 
 
-def target_ciks(rows: list[dict]) -> tuple[dict[str, set[str]], dict[str, str]]:
+def target_ciks(rows: list[dict], sweep_path: Path
+                ) -> tuple[dict[str, set[str]], dict[str, str]]:
     """-> (slug -> {cik}, cik -> slug).
 
     The base stores accessions per company; the sweep maps accession -> CIK. A
     company can legitimately have more than one CIK (re-registration under a new
     entity), so the mapping is kept as a set.
     """
-    sweep = json.load(open(ED / "formd-sweep.json"))
+    sweep = json.load(open(sweep_path))
     acc_to_cik = {acc: str(int(rec["cik"])) for acc, rec in sweep.items() if rec.get("cik")}
 
     by_slug: dict[str, set[str]] = defaultdict(set)
@@ -265,16 +266,17 @@ def collapse_amendments(filings: list[dict]) -> list[dict]:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("investor", nargs="?", default="sequoia-capital")
+    ap.add_argument("investor")
     ap.add_argument("--base", type=Path, help="base JSON (defaults to the live one)")
     ap.add_argument("--out", type=Path, help="output JSON path")
     args = ap.parse_args()
 
-    base_path = args.base or (BASE_DIR / f"{args.investor}.json")
-    dest = args.out or (ED / "formd-issuer-rounds.json")
+    p = Paths(args.investor)
+    base_path = args.base or p.base_json
+    dest = args.out or p.formd_rounds
 
     rows = base_rows(base_path)
-    by_slug, cik_to_slug = target_ciks(rows)
+    by_slug, cik_to_slug = target_ciks(rows, p.edgar / "formd-sweep.json")
     wanted_accs = {a.strip() for r in rows
                    for a in (r.get("formd_accessions") or "").split(";") if a.strip()}
     base_edgar_ciks = {r["edgar_cik"].lstrip("0") for r in rows if r.get("edgar_cik")}
@@ -306,12 +308,13 @@ def main() -> None:
     wanted_ciks = base_edgar_ciks | {v["cik"] for v in ev_accs.values()}
     ciks = name_histories(wanted_ciks)
     renamed = sum(1 for e in ciks.values() if e["prev_names"] or len(e["names"]) > 1)
-    json.dump({"accessions": ev_accs, "ciks": ciks}, open(EVIDENCE_OUT, "w"), indent=1)
-    print(f"wrote {EVIDENCE_OUT.relative_to(ROOT)} "
+    json.dump({"accessions": ev_accs, "ciks": ciks},
+              open(p.issuer_evidence, "w"), indent=1)
+    print(f"wrote {p.issuer_evidence.relative_to(ROOT)} "
           f"({len(ciks)} CIKs, {renamed} with a name history)")
 
     # ---- what the rescan actually bought, measured rather than asserted
-    sweep = json.load(open(ED / "formd-sweep.json"))
+    sweep = json.load(open(p.edgar / "formd-sweep.json"))
     known = set(sweep)
     new_filings = sum(1 for a in filings if a not in known)
     gained = sum(1 for slug, rec in out.items()

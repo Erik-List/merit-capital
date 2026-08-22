@@ -6,8 +6,14 @@ in that investor's decisions file (§1). The session running a collection
 reads this file start to finish before the first batch.
 
 **If context is compacted mid-run, re-read this file and
-`python3 scripts/run.py status`, then continue at the first pending batch.
-Do not re-derive rules from memory.**
+`python3 scripts/run.py status --investor <slug>`, then continue at the
+first pending batch. Do not re-derive rules from memory.**
+
+Everything lives investor-first under `data/collection/investors/<slug>/`;
+every script takes the slug and derives its paths via `scripts/paths.py`, and
+every investor-specific constant lives in the investor's `config.json`.
+Starting a new investor means creating that directory with `config.json` and
+`decisions.md` — nothing outside it changes.
 
 The shape of a collection, in order:
 
@@ -21,10 +27,10 @@ The shape of a collection, in order:
 
 ## 1. Investor-specific decisions
 
-Each investor gets one decisions file next to its base in
-`data/aggregation/company-base/` (Sequoia's is `MEMBERSHIP.md`). The judge
-cites its rulings per line; once a ruling is written there, no further
-approval is needed before verdicts write. The file records:
+Each investor gets one decisions file next to its base:
+`data/collection/investors/<slug>/decisions.md`. The judge cites its rulings
+per line; once a ruling is written there, no further approval is needed
+before verdicts write. The file records:
 
 - **Firm boundary**: which entity is "the firm" — decision desks, split-offs
   (HongShan / Peak XV), wealth or heritage arms, crossover vehicles, and
@@ -61,15 +67,15 @@ with no main-fund follow-on, LP positions in other funds or accelerators.
 
 ## 2. The verdict ledger
 
-Membership verdicts are durable, in
-`company-base/base-verification.json`: per slug a verdict
+Membership verdicts are durable, in the investor's
+`base-verification.json`: per slug a verdict
 (`member | not_member | uncertain`), `who`, an evidence class
 (`site_listing | fund_filing | formd_adjudicated | knowledge | web`), a
 basis sentence and a citation where one exists. The ledger is re-applied on
 every rebuild. Human verdicts (`who: "erik"`) outrank agent verdicts.
-`not_member` rows leave the published base into `verification-excluded.csv`,
-preserved, never deleted; `uncertain` rows stay in the base, marked for
-sampling.
+`not_member` rows leave the published base into `excluded.csv` (reason
+`not_member`), preserved, never deleted; `uncertain` rows stay in the base,
+marked for sampling.
 
 ## 3. Judge protocol
 
@@ -297,10 +303,10 @@ debt.
 One driver: `prepare` (seed verdicts, run deterministic layers, emit the one
 work queue), `record` (validate + merge a batch), `status` (coverage from
 disk), `verify` (assertion suite, non-zero exit with the failing rows),
-`export` (the one merged CSV, `company-base/<investor>.csv`), `review` (the
-read-only review.html).
+`export` (the one merged CSV, the investor's `base.csv`), `review` (the
+read-only review.html). Every subcommand takes the investor slug.
 
-- **The base is read live** from `company-base/<investor>.json`. No pinned
+- **The base is read live** from the investor's `base.json`. No pinned
   snapshot; the standing rule is that the base is not rebuilt for an
   investor while that investor's run is in flight. Overlays join on slug, so
   `verify` catches a violation as drift between overlay keys and base slugs.
@@ -314,8 +320,8 @@ read-only review.html).
   removes. **Emit only the keys for the needs asked** (plus `flags`, `note`)
   — extra keys clobber filing-grade facts at merge time; the one exception
   is a deliberate dispute.
-- **Identity duplicates are fixed upstream**, in
-  `company-base/identity-merges.json`, consumed by the base build on every
+- **Identity duplicates are fixed upstream**, in the investor's
+  `identity-merges.json`, consumed by the base build on every
   rebuild; non-canonical rows carry `duplicate_of: <canonical-slug>`, the
   canonical carries no exclusion flag. In-run: any suspected duplicate →
   flag + note, never a silent merge.
@@ -336,7 +342,7 @@ read-only review.html).
 
 ## 9. Review by sampling
 
-The review surface (`data/aggregation/review.html`, written by
+The review surface (the investor's `review.html`, written by
 `run.py review`) is **read-only**: priority-ranked rows, evidence links, no
 input widgets. Corrections arrive in chat, and each one is recorded
 class-wide — as a ledger verdict or classification correction with
