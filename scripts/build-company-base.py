@@ -8,13 +8,16 @@ Inputs:
   data/aggregation/sources/edgar/formd-sweep.json       (private board-seat layer)
 
 Outputs:
-  data/aggregation/company-base/sequoia-capital.csv
-  data/aggregation/company-base/sequoia-capital.json
+  data/aggregation/company-base/sequoia-capital.json   (the evidence layer)
+  data/aggregation/company-base/sequoia-capital.csv    (via run.py export: the
+      merged published surface — base + membership verdict + classification)
 """
 import csv
 import html
 import json
 import re
+import subprocess
+import sys
 from collections import Counter
 from pathlib import Path
 
@@ -748,8 +751,16 @@ def main() -> None:
         write_csv(OUT / "rejected-rows.csv", rejected)
 
     rows_out.sort(key=lambda x: (x["tier"], x["slug"]))
-    rows_out = write_csv(OUT / "sequoia-capital.csv", rows_out)
+    rows_out = [{k: r[k] for k in COLUMN_ORDER} for r in rows_out]
     json.dump(rows_out, open(OUT / "sequoia-capital.json", "w"), indent=1)
+
+    # Base and classification share one surface: the sibling CSV is the merged
+    # export (base + membership verdict + classification overlays), so it is
+    # regenerated on every rebuild. A base without a classification run just
+    # leaves those fields empty.
+    for cmd in ("export", "review"):
+        subprocess.run([sys.executable, str(Path(__file__).parent / "run.py"), cmd],
+                       check=True)
 
     tiers = {}
     for r in rows_out:

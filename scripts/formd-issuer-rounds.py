@@ -13,23 +13,27 @@ So this pass inverts the driver. It takes the issuer CIKs already discovered for
 base companies and collects *every* filing those issuers ever made, regardless of
 who was on it.
 
+The same sweep also extracts issuer-level evidence for the classification run
+(formerly scripts/formd-issuer-evidence.py): the entry-time address and
+incorporation year at each base accession, plus the full name history of every
+base CIK (ENTITYNAME + previous names — the deterministic Square -> Block
+rename signal).
+
 Inputs:
-  data/aggregation/company-base/<investor>.csv      (formd_accessions per row)
+  data/aggregation/company-base/<investor>.json     (formd_accessions per row)
   data/aggregation/sources/edgar/formd-sweep.json   (accession -> issuer CIK)
   data/filings/form-d/*.zip                         (74 quarterly bulk datasets)
 
-Output:
-  data/aggregation/sources/edgar/formd-issuer-rounds.json
+Outputs:
+  data/aggregation/sources/edgar/formd-issuer-rounds.json   (or --out)
+  data/aggregation/outcomes/issuer-evidence.json
+    {"accessions": {acc: {cik, name, city, state_desc, jurisdiction, year_inc}},
+     "ciks": {cik: {"names": [...], "prev_names": [...], "first": ..., "last": ...}}}
 
 Offline: reads only local ZIPs, no network.
 
 Usage:
   python3 scripts/formd-issuer-rounds.py [investor-slug] [--base PATH] [--out PATH]
-
-`--base` exists because the company base is rebuilt by other work in this repo.
-A classification run must read one pinned snapshot for its whole life, or rows
-appear and disappear underneath it; `outcome-run.py prepare` passes the snapshot
-it froze.
 """
 import argparse
 import csv
@@ -44,6 +48,7 @@ ROOT = Path(__file__).resolve().parent.parent
 FORMD_DIR = ROOT / "data" / "filings" / "form-d"
 BASE_DIR = ROOT / "data" / "aggregation" / "company-base"
 ED = ROOT / "data" / "aggregation" / "sources" / "edgar"
+EVIDENCE_OUT = ROOT / "data" / "aggregation" / "outcomes" / "issuer-evidence.json"
 
 # csv defaults to 128 KB; a few RELATEDPERSONS rows carry longer free-text fields.
 csv.field_size_limit(10_000_000)
@@ -67,7 +72,14 @@ def tsv(zf: zipfile.ZipFile, suffix: str):
         yield from csv.DictReader(stream, delimiter="\t")
 
 
-def target_ciks(base_path: Path) -> tuple[dict[str, set[str]], dict[str, str]]:
+def base_rows(base_path: Path) -> list[dict]:
+    """The live Company Base rows. The evidence detail lives in the JSON that
+    build-company-base.py writes; the sibling CSV is the merged published
+    surface and no longer carries formd_accessions."""
+    return json.load(open(base_path))
+
+
+def target_ciks(rows: list[dict]) -> tuple[dict[str, set[str]], dict[str, str]]:
     """-> (slug -> {cik}, cik -> slug).
 
     The base stores accessions per company; the sweep maps accession -> CIK. A
@@ -78,7 +90,7 @@ def target_ciks(base_path: Path) -> tuple[dict[str, set[str]], dict[str, str]]:
     acc_to_cik = {acc: str(int(rec["cik"])) for acc, rec in sweep.items() if rec.get("cik")}
 
     by_slug: dict[str, set[str]] = defaultdict(set)
-    for row in csv.DictReader(open(base_path)):
+    for row in rows:
         for acc in (a.strip() for a in (row.get("formd_accessions") or "").split(";")):
             cik = acc_to_cik.get(acc)
             if cik:
@@ -93,9 +105,12 @@ def target_ciks(base_path: Path) -> tuple[dict[str, set[str]], dict[str, str]]:
     return by_slug, cik_to_slug
 
 
-def scan(cik_to_slug: dict[str, str]) -> dict[str, dict]:
-    """One pass over the quarterly ZIPs, collecting every filing by a target CIK."""
+def scan(cik_to_slug: dict[str, str],
+         wanted_accs: set[str]) -> tuple[dict[str, dict], dict[str, dict]]:
+    """One pass over the quarterly ZIPs: every filing by a target CIK (rounds),
+    plus the issuer row at each base accession (entry-time evidence)."""
     filings: dict[str, dict] = {}          # accession -> record
+    evidence: dict[str, dict] = {}         # accession -> issuer evidence
     collisions: set[str] = set()
 
     for zpath in sorted(FORMD_DIR.glob("*.zip")):
@@ -107,11 +122,20 @@ def scan(cik_to_slug: dict[str, str]) -> dict[str, dict]:
                 raw = (row.get("CIK") or "").strip()
                 if not raw.isdigit():
                     continue
+                acc = row["ACCESSIONNUMBER"]
+                if acc in wanted_accs and row.get("IS_PRIMARYISSUER_FLAG") != "NO":
+                    evidence[acc] = {
+                        "cik": raw.lstrip("0"),
+                        "name": row.get("ENTITYNAME"),
+                        "city": row.get("CITY", ""),
+                        "state_desc": row.get("STATEORCOUNTRYDESCRIPTION", ""),
+                        "jurisdiction": row.get("JURISDICTIONOFINC", ""),
+                        "year_inc": row.get("YEAROFINC_VALUE_ENTERED", ""),
+                    }
                 cik = str(int(raw))
                 slug = cik_to_slug.get(cik)
                 if not slug:
                     continue
-                acc = row["ACCESSIONNUMBER"]
                 prev = wanted.get(acc)
                 if prev and prev["slug"] != slug:
                     collisions.add(acc)
@@ -153,7 +177,34 @@ def scan(cik_to_slug: dict[str, str]) -> dict[str, dict]:
     if collisions:
         print(f"  note: {len(collisions)} filings name two different base companies "
               f"as issuer (likely base duplicates)")
-    return filings
+    return filings, evidence
+
+
+def name_histories(wanted_ciks: set[str]) -> dict[str, dict]:
+    """Second sweep: full name history of every base CIK — ENTITYNAME plus
+    ISSUER/EDGAR previous names, the deterministic rename signal
+    (Square -> Block class)."""
+    ciks: dict[str, dict] = {}
+    for zpath in sorted(FORMD_DIR.glob("*.zip")):
+        with zipfile.ZipFile(zpath) as zf:
+            for row in tsv(zf, "ISSUERS.TSV"):
+                cik = (row.get("CIK") or "").lstrip("0")
+                if cik not in wanted_ciks:
+                    continue
+                e = ciks.setdefault(cik, {"names": [], "prev_names": [],
+                                          "first": None, "last": None})
+                if row["ENTITYNAME"] and row["ENTITYNAME"] not in e["names"]:
+                    e["names"].append(row["ENTITYNAME"])
+                for k in ("ISSUER_PREVIOUSNAME_1", "ISSUER_PREVIOUSNAME_2",
+                          "ISSUER_PREVIOUSNAME_3", "EDGAR_PREVIOUSNAME_1",
+                          "EDGAR_PREVIOUSNAME_2", "EDGAR_PREVIOUSNAME_3"):
+                    v = (row.get(k) or "").strip()
+                    if v and v.upper() != "NONE" and v not in e["prev_names"]:
+                        e["prev_names"].append(v)
+                acc = row["ACCESSIONNUMBER"]
+                e["first"] = min(filter(None, [e["first"], acc]))
+                e["last"] = max(filter(None, [e["last"], acc]))
+    return ciks
 
 
 def sort_key(f: dict) -> tuple:
@@ -215,20 +266,25 @@ def collapse_amendments(filings: list[dict]) -> list[dict]:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("investor", nargs="?", default="sequoia-capital")
-    ap.add_argument("--base", type=Path, help="pinned base CSV (defaults to the live one)")
+    ap.add_argument("--base", type=Path, help="base JSON (defaults to the live one)")
     ap.add_argument("--out", type=Path, help="output JSON path")
     args = ap.parse_args()
 
-    base_path = args.base or (BASE_DIR / f"{args.investor}.csv")
+    base_path = args.base or (BASE_DIR / f"{args.investor}.json")
     dest = args.out or (ED / "formd-issuer-rounds.json")
 
-    by_slug, cik_to_slug = target_ciks(base_path)
+    rows = base_rows(base_path)
+    by_slug, cik_to_slug = target_ciks(rows)
+    wanted_accs = {a.strip() for r in rows
+                   for a in (r.get("formd_accessions") or "").split(";") if a.strip()}
+    base_edgar_ciks = {r["edgar_cik"].lstrip("0") for r in rows if r.get("edgar_cik")}
     print(f"base: {base_path.relative_to(ROOT)}")
     print(f"target companies: {len(by_slug)}  distinct issuer CIKs: {len(cik_to_slug)}")
     print(f"scanning {len(list(FORMD_DIR.glob('*.zip')))} quarterly datasets (offline)...")
 
-    filings = scan(cik_to_slug)
+    filings, ev_accs = scan(cik_to_slug, wanted_accs)
     print(f"filings collected: {len(filings)}")
+    print(f"evidence: {len(ev_accs)}/{len(wanted_accs)} base accessions found")
 
     grouped: dict[str, list[dict]] = defaultdict(list)
     for f in filings.values():
@@ -245,6 +301,14 @@ def main() -> None:
 
     dest.parent.mkdir(parents=True, exist_ok=True)
     json.dump(out, open(dest, "w"), indent=1)
+
+    # ---- second output: issuer evidence for the classification run
+    wanted_ciks = base_edgar_ciks | {v["cik"] for v in ev_accs.values()}
+    ciks = name_histories(wanted_ciks)
+    renamed = sum(1 for e in ciks.values() if e["prev_names"] or len(e["names"]) > 1)
+    json.dump({"accessions": ev_accs, "ciks": ciks}, open(EVIDENCE_OUT, "w"), indent=1)
+    print(f"wrote {EVIDENCE_OUT.relative_to(ROOT)} "
+          f"({len(ciks)} CIKs, {renamed} with a name history)")
 
     # ---- what the rescan actually bought, measured rather than asserted
     sweep = json.load(open(ED / "formd-sweep.json"))

@@ -1,14 +1,15 @@
 // Ingest the classified company dataset into public.companies (PRO-48).
 //
-// Reads data/aggregation/outcomes/{investor}-companies.csv — the export
-// written by outcome-run.py, whose headers carry the table's column names —
-// and upserts one row per (investor_id, name). The database mints id; ingest
-// never sends it, so a re-run updates in place without moving primary keys.
+// Reads data/aggregation/company-base/{investor}.csv — the one merged
+// per-investor surface written by run.py export, whose classification headers
+// carry the table's column names — and upserts one row per (investor_id,
+// name). The database mints id; ingest never sends it, so a re-run updates in
+// place without moving primary keys.
 //
-// Refuses to run when the export CSV is stale relative to the live Company
+// Refuses to run when the merged CSV is stale relative to the live Company
 // Base: the pipeline has no pinned snapshot (overlays join the base on slug),
-// so the guard compares the CSV's slug set against the live base. Re-run
-// `outcome-run.py export` after any base rebuild, then ingest.
+// so the guard compares the CSV's slug set against the base JSON. Re-run
+// `run.py export` after any base rebuild, then ingest.
 
 import "dotenv/config";
 import { readFileSync } from "fs";
@@ -23,7 +24,6 @@ type CompanyInsert = TablesInsert<"companies">;
 
 // Run from the repo root (as the npm script does); matches utils/aggregation.ts.
 const ROOT = process.cwd();
-const OUT = join(ROOT, "data", "aggregation", "outcomes");
 const BASE_DIR = join(ROOT, "data", "aggregation", "company-base");
 
 const UPSERT_BATCH_SIZE = 500;
@@ -88,15 +88,17 @@ function parseCsv(text: string): Record<string, string>[] {
 }
 
 function checkFreshness(investor: string, csvRows: Record<string, string>[]): void {
-  const base = parseCsv(readFileSync(join(BASE_DIR, `${investor}.csv`), "utf8"));
+  const base: { slug: string }[] = JSON.parse(
+    readFileSync(join(BASE_DIR, `${investor}.json`), "utf8")
+  );
   const baseSlugs = new Set(base.map((r) => r.slug));
   const stale = csvRows.filter((r) => !baseSlugs.has(r.slug));
   if (stale.length || csvRows.length !== baseSlugs.size) {
     throw new Error(
-      `${investor}-companies.csv is stale relative to the live base ` +
+      `${investor}.csv is stale relative to the live base ` +
         `(${csvRows.length} CSV rows vs ${baseSlugs.size} base rows, ` +
         `${stale.length} slugs no longer in the base). ` +
-        "Re-run `outcome-run.py export`, then ingest."
+        "Re-run `run.py export`, then ingest."
     );
   }
 }
@@ -115,9 +117,9 @@ async function main() {
     );
   }
 
-  const csvPath = join(OUT, `${investor}-companies.csv`);
+  const csvPath = join(BASE_DIR, `${investor}.csv`);
   const csvRows = parseCsv(readFileSync(csvPath, "utf8"));
-  console.log(`Read ${csvRows.length} rows from ${investor}-companies.csv`);
+  console.log(`Read ${csvRows.length} rows from ${investor}.csv`);
   checkFreshness(investor, csvRows);
 
   const supabase = createClient<Database>(url, serviceKey);
