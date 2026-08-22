@@ -21,28 +21,16 @@
       "autoPort": true
     },
     {
-      "name": "company-base-review",
+      "name": "review-surface",
       "runtimeExecutable": "python3",
       "runtimeArgs": [
         "-m",
         "http.server",
         "8931",
         "--directory",
-        "data/aggregation/company-base"
+        "data/aggregation"
       ],
       "port": 8931
-    },
-    {
-      "name": "investor-review",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": [
-        "-m",
-        "http.server",
-        "8932",
-        "--directory",
-        "data/aggregation/investors"
-      ],
-      "port": 8932
     },
     {
       "name": "dev-alt",
@@ -55,18 +43,6 @@
         "3100"
       ],
       "port": 3100
-    },
-    {
-      "name": "outcome-review",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": [
-        "-m",
-        "http.server",
-        "8933",
-        "--directory",
-        "data/aggregation/outcomes"
-      ],
-      "port": 8933
     }
   ]
 }

@@ -6,8 +6,13 @@ an investor while that investor's run is in flight. `verify` reports a
 violation as drift between `resolved.json` keys and base slugs.
 
 This file is the run's constitution. If context is compacted mid-run, re-read
-this file and `python3 scripts/outcome-run.py status`, then continue at the
-first pending batch. Do not re-derive rules from memory.
+this file and `python3 scripts/run.py status`, then continue at the first
+pending batch. Do not re-derive rules from memory.
+
+(PRO-57 consolidation: `outcome-run.py` and `base-verification.py` merged into
+`scripts/run.py` — one queue, one `record`, one `verify` covering membership
+and classification. Older sections below name the pre-merge scripts; the
+commands map 1:1 onto `run.py`.)
 
 ## What is being decided per row
 
