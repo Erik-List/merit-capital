@@ -33,7 +33,7 @@ Layers, in order:
 
 **Snapshot pinning:** the base CSV was rebuilt by other sessions mid-run once before; `prepare` therefore pins `base-snapshot.csv` and every later command reads the pin. `verify` reports live drift without corrupting the run.
 
-**Crash/compaction safety:** all state on disk (`classification.json`, `queue/batch-NNN.out.jsonl`); `status` is derived from disk; `RUN-PROTOCOL.md` is the on-disk constitution re-read after every context compaction.
+**Crash/compaction safety:** all state on disk (`classification.json`, `queue/batch-NNN.out.jsonl`); `status` is derived from disk; the run rules lived in `RUN-PROTOCOL.md`, re-read after every context compaction (since retired into `../COLLECTION.md`; the Sequoia-specific residue is in §11).
 
 ## 3. Measured quality
 
@@ -140,4 +140,33 @@ Derivation policy encoded here: exclude rows flagged duplicate/not_a_company/sus
 | `graduation-formd.json`, `formd-rounds.json` | C2A evidence (round sequences, accessions) |
 | `calibration-*.json`, `consistency-blind.json` | Quality measurements |
 | `track-record-proposal.json` | §9 block, ready for PRO-25 |
-| `RUN-PROTOCOL.md` | Run constitution (rules, duties, batch log) |
+| `../COLLECTION.md` | The collection playbook (rules and duties, generalized from this run's protocol docs) |
+
+## 11. Run chronology and Sequoia rulings (residue from the retired protocol docs)
+
+The binding rules generalized into `../COLLECTION.md`; what follows is what happened on Sequoia specifically, moved here when `RUN-PROTOCOL.md`, `CLASSIFICATION-V2.md` and `ENTRY-STAGE.md` were retired (PRO-58). Sequoia's investor-specific decisions live in `../company-base/MEMBERSHIP.md`.
+
+### Chronology
+
+- **Run 1 (2026-08-11, sections 1–10 above)**: the original grind over the 1,293-row pinned snapshot. Calibration 35/40 status (88%), 34/40 full (85%) — 3 of 6 misses were key defects the model correctly disputed (23andMe dead-but-recent-float, Google stale→acquired misfire on the Alphabet reorg, apollo false CIK join). Self-consistency 30/30.
+- **Run 2 (2026-08-12)**: scope augmentation after Erik's review. Base hygiene moved upstream (`identity-merges.json`, consumed on every rebuild; run-1 had flagged BOTH rows of a dup pair, silently dropping Block $39.4B from derivation — replaced by `duplicate_of` on non-canonical rows only). Added 100%-fill columns: `valuation_range`, `hq_country`, `entry_stage`. 692 rows / 16 batches.
+- **Run 3 (2026-08-12)**: `entry_stage` rebuilt from first principles after Erik's finding (Airbnb/Stripe should be Seed, HubSpot Growth). Golden set of 40 documented entries: run-2 column 32/39 (82%); all seven misses were `formd_band` rows, model-judged rows 24/24. Root causes: coverage blindness (Sequoia's entry often predates the first partner-attributed filing — Airbnb seed '09 and Stripe seed '10 never filed), ordinality blindness (HubSpot's $18.8M third round banded "Series A"), band trusted as label. The corrected evidence order is now COLLECTION.md §6.
+- **2026-08-13, the CrowdStrike question**: a partner's personal Section 16 filing is not evidence the firm invested (Gandhi filed for Accel's board seat; Goetz is an independent Intel director). Now the person-attribution rule in COLLECTION.md §1.
+- **Base v2 (2026-08-13)**: the inversion — publish only rows with sufficient evidence that survive an independent membership judge. Precision pass over 1,055 rows: 869 seeded on sufficient evidence, 186 name-match rows judged individually (~16 web arbitrations) → 184 not_member, 4 recovered members (Avalanche, CloudShare fka IT Structures, Muze, Romotive), 1 uncertain. Recall pass (parametric enumeration, fund 13D/G subject diff, European probe): zero missing members. Base 1,055 → 873; Tier C 201 → 19; C2A 47.1% → 71.7% (33/46) once the fake seed cohort left; Pre-Seed to zero (all collision micro-filings).
+- **Classification v2 (2026-08-13)**: adversarial A/B pass over the visible slice, ~60 fresh web arbitrations; every public $1B+ row got a cited market cap. Then `focus` (twelve-value re-judge) and `hq_city` (one parametric pass, 120/batch).
+
+### Classification v2 corrections (the attack pass)
+
+Confluent acquired by IBM ($11B, closed 2026-03-17, delisted); Faire's Nov-2025 tender at $5.2B (59% below the stale $12.6B); Houzz down-bucketed below $1B; Root Insurance out of the bucket ($805M cap); StarkWare corrected to the real $8B/May-2022 primary; Fireblocks asof → Jan 2022; Notion → $11B Jan-2026 tender; Vanta $4.15B, Trade Republic EUR 12.5B, Verkada $5.8B, Commure $7B, Whatnot $20B, Ramp $44B, ElevenLabs $11B, OpenEvidence $12B, Skild $14B, Sierra $15.8B, NinjaOne $12.3B, Cyera $12B, Odoo ~EUR 7B replaced stale marks. Armis flagged for status review (pending ServiceNow $7.75B acquisition, announced 2025-12-23). Float-to-cap moves put Google $4.23T, Cisco $483B, Palo Alto $314B, Western Digital $151B, Snowflake $116B and Airbnb $100B into the $100B+ bucket (15 names). Debt made explicit: 29 sub-$5B private marks and 119 $1B+ stage claims `cite_pending`; all 46 C2A cohort rows `cohort_unverified` (Erik's keep-with-flag ruling). Valuation citation coverage 119/148 $1B+ rows (80%).
+
+### Duplicate groups (CIK-shared, resolved via identity-merges)
+
+17 genuine renames (10Gen→MongoDB, Evenflow→Dropbox, Square→Block, SourceForge/VA lineage, Bit9→Carbon Black, Widgetbox→Flite, Turin→Force10, Rearden→Deem, Arbor→Hyperion, HQC→Health Catalyst, Qadium→Expanse, Network Appliance→NetApp, Service-now.com→ServiceNow, …) plus one false join: base `linear` (the software company) ↔ LINEAR TECHNOLOGY (semiconductor, acq. Analog 2017) via suffix-stripped norm collision — the canonical example for verification duty 3.
+
+### Taxonomy rulings applied (focus, twelve values)
+
+Result: 821/873 classified (94.0%), 52 outside, of which 47 are the permanently unidentifiable floor; real residual ambiguity 5 rows. Rulings behind the precedence rules now in COLLECTION.md §6: Apple/Atari/Jawbone → Consumer (consumer devices, not Industrial despite the `hardware` alias); Cisco/Aruba/Confluent/MongoDB/Cohesity → Data Infrastructure; Wiz/Palo Alto/Okta/Symantec/Verkada/Chainguard → Security; Fireblocks/Phantom/FTX/LayerZero/StarkWare → Crypto & Web3, Robinhood stays Fintech; AdMob/AdBrite/Amobee/Chartboost → Media, Attentive/Hearsay stay SaaS. Distribution in `track-record-proposal.json` under `by_focus` with a $1B+ breakdown. Downstream migration of `investors.investment_scope.focus` (seven → twelve in DB and leaderboard filter) tracked separately.
+
+### hq_city results
+
+664/873 located (76%), 146 distinct cities; 100% of $1B+ rows, 193/195 of the visible slice (gaps `pace` and `two` have unresolved identity). All 209 nulls in the sub-$1B tail with `city_unknown`. Top: San Francisco 176, New York 54, San Jose 30, Mountain View 26, Palo Alto 25, Santa Clara 24, Sunnyvale 20, Tel Aviv 18, Redwood City 16, Los Angeles 11; Bay Area municipalities 384/664 (58%). Entry-time-trap movers caught: Aurora→Pittsburgh, Snowflake→Bozeman, Block→Oakland, Green Dot/Natera→Austin, Omnicell→Fort Worth, Bird/Picsart→Miami, Appirio→Indianapolis, SpaceX→Starbase. Six `city_country_conflict` rows, all country defects: Barracuda (BE), Aquarium (DE), Avanex (CH) are wikidata identity errors; Rappi and Bubble Motion took US from a subsidiary's filing; LayerZero operates from Vancouver under a US incorporation.

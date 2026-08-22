@@ -557,8 +557,8 @@ def main() -> None:
         })
 
     # ---- membership verification ledger (base v2): durable verdicts under
-    # MEMBERSHIP.md, written by the adversarial review passes and by human
-    # sampling. Replaces the never-used review-decisions.json flow.
+    # COLLECTION.md plus the investor's decisions file, written by the
+    # adversarial review passes and by human sampling.
     # not_member rows leave the published base (preserved in
     # verification-excluded.csv); uncertain rows stay, marked for sampling.
     verification_excluded: list[dict] = []

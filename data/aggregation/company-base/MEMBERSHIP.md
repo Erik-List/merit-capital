@@ -1,31 +1,28 @@
-# Membership constitution
+# Sequoia Capital — investor-specific decisions
 
-**A row belongs in the base iff a Sequoia representative, acting on behalf of
-Sequoia, made an investment in it, and it is a venture-outcome company.**
-(Erik, 2026-08-13.)
+Applies the membership rules of `../COLLECTION.md` to Sequoia. The judge
+cites these rulings per line; all confirmed by Erik, 2026-08-13.
 
-Direct corollaries, applied by the verification judge:
+1. **Firm boundary**: "Sequoia" means the US/EU venture funds. China/India
+   desk deals leave via the desk partition into `other-desk-companies.csv`.
+   Sequoia Heritage is a different entity. Public-market buys by the
+   crossover vehicles are not venture outcomes.
+2. **Program vehicles**: scout checks are out unless a main fund followed.
+   Arc (the seed program) deploys fund money and is in.
+3. **Instruments**: primaries, secondaries and tenders by the funds are in —
+   a tender entry is an entry at scale (Stripe 2024).
+4. **Exclusions applied** (the generic person-attribution rule, with the
+   rows that taught it): partners' personal directorships (Intel/Goetz),
+   ex-partners filing from their next firm (CrowdStrike via Gandhi/Accel;
+   Lamond/Khosla; Huang/Paradigm; Garg/Wing; Lixandru/Accel), partners who
+   became founders (Amy Sun/Daylight), founder positions outside the firm
+   (Neil Shen's Ctrip, Home Inns, Molecular Data), founder homonyms (Ankur
+   Jain/Bilt, Patrick Grady/Rearden+Tetra, Alex Moore=8VC), and LP positions
+   (Y Combinator, Polychain).
+5. **Window**: the base window opens 2006; earlier entries (Apple, Cisco,
+   EA, Atari-era) are pre-window — entry_stage and graduation null, note
+   "pre-window".
 
-1. **On behalf of Sequoia** excludes: a partner's personal board seat or
-   personal filing (Intel/Goetz), an ex-partner acting for their next firm
-   (CrowdStrike/Gandhi), founder positions predating or outside the firm
-   (Neil Shen's Ctrip), scout checks with no main-fund follow-on, and LP
-   positions in other funds or accelerators (Y Combinator, Polychain).
-2. **Sequoia** means the US/EU venture funds. China/India desk deals leave via
-   the desk partition (existing rule). Sequoia Heritage is a different entity.
-   Public-market buys by the crossover vehicles are not venture outcomes.
-3. **An investment** includes primaries, secondaries and tenders by the funds
-   (Stripe 2024). It is a firm decision with fund money.
-4. **A venture-outcome company** is an operating company. Fund vehicles,
-   SPVs, filter labels, scrape artifacts and natural persons are out.
-5. **Evidence sufficiency**: a listing on Sequoia's own site (any era), or an
-   SEC filing by a fund vehicle, each suffice alone. A Form D related-person
-   name-match NEVER suffices alone; it needs affirmative corroboration
-   (documented deal, credible identification tying the round to the firm).
-   Absence of corroboration on a name-match is a `not_member` verdict, not an
-   `uncertain` one: the base asserts membership, and an unsupported assertion
-   is the defect class this file exists to kill.
-
-Verdicts live in `base-verification.json` and are re-applied on every rebuild.
-Human verdicts (`who: "erik"`) outrank agent verdicts. Excluded rows are
-preserved in `verification-excluded.csv`, never deleted.
+Verdicts live in `base-verification.json` and are re-applied on every
+rebuild; human verdicts (`who: "erik"`) outrank agent verdicts; excluded
+rows are preserved in `verification-excluded.csv`, never deleted.

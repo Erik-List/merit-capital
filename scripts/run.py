@@ -31,6 +31,11 @@ violation as drift between resolved.json keys and base slugs.
 **Progress lives on disk, not in context.** The agent answering batches holds
 one batch at a time and writes it back before taking the next, so an
 interrupted run resumes at the first pending batch instead of restarting.
+
+The rules the batches are judged under live in data/aggregation/COLLECTION.md
+(plus the investor's own decisions file next to its base); a session running
+this pipeline reads that playbook first and re-reads it after any context
+compaction.
 """
 import argparse
 import csv
@@ -74,11 +79,11 @@ VALID_CONF = {"high", "medium", "low"}
 # it may appear.
 VALUE_SOURCES = {"sec_public_float", "wikidata", "unicorn_list", "web_verified"}
 
-# Membership ledger vocabularies (base v2, MEMBERSHIP.md)
+# Membership ledger vocabularies (COLLECTION.md §2)
 VERDICTS = {"member", "not_member", "uncertain"}
 EVIDENCE = {"site_listing", "fund_filing", "formd_adjudicated", "knowledge", "web"}
 
-# Closed focus vocabulary, owned by data/taxonomy/focus.json (the same seven
+# Closed focus vocabulary, owned by data/taxonomy/focus.json (the same twelve
 # values the frontend and DB use). Never extended here: a company that does not
 # fit any of them carries focus=None, which the distribution reports as
 # "outside taxonomy" rather than being force-fitted into a near-miss bucket.
@@ -744,7 +749,7 @@ def validate_record(rec: dict, slugs: set[str]) -> list[str]:
     if rec.get("entry_stage_source") is not None and rec["entry_stage_source"] not in (
             "formd_band", "formd_structural", "model", "web_verified"):
         errs.append(f"{slug}: entry_stage_source {rec['entry_stage_source']!r}")
-    # web_verified stage claims must carry their citation (ENTRY-STAGE.md 1)
+    # web_verified stage claims must carry their citation (COLLECTION.md §6)
     if rec.get("entry_stage_source") == "web_verified" \
             and not (rec.get("entry_stage_citation") or "").strip():
         errs.append(f"{slug}: web_verified stage without entry_stage_citation")
@@ -1038,7 +1043,7 @@ def cmd_verify(args) -> None:
             problems.append(f"{slug}: no entry_stage")
         elif rec["entry_stage"] not in VALID_STAGES:
             problems.append(f"{slug}: entry_stage {rec['entry_stage']!r} not in vocabulary")
-        # ENTRY-STAGE.md invariant 2: a bucket-visible row needs class 1/2
+        # COLLECTION.md invariant 4: a bucket-visible row needs class 1/2
         # stage evidence (a citation, or the deterministic filing structure).
         stage_cited = bool((rec.get("entry_stage_citation") or "").strip()) \
             or rec.get("entry_stage_source") in ("formd_structural", "formd_band")
@@ -1047,7 +1052,7 @@ def cmd_verify(args) -> None:
                 and not stage_cited and "cite_pending" not in flags_now):
             problems.append(f"{slug}: $1B+ row without cited/structural entry stage "
                             f"and no cite_pending marker")
-        # CLASSIFICATION-V2.md invariant 1: public $1B+ value is a cited market cap
+        # COLLECTION.md invariant 3: public $1B+ value is a cited market cap
         if rec.get("is_public") and rec.get("valuation_range") in (
                 "1b_plus", "10b_plus", "100b_plus") \
                 and not (rec.get("valuation_citation") or "").strip() \

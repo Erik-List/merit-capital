@@ -1,0 +1,361 @@
+# The collection playbook
+
+One playbook for collecting an investor's Company Base and classifying its
+outcomes. It is investor-agnostic: everything specific to one investor lives
+in that investor's decisions file (§1). The session running a collection
+reads this file start to finish before the first batch.
+
+**If context is compacted mid-run, re-read this file and
+`python3 scripts/run.py status`, then continue at the first pending batch.
+Do not re-derive rules from memory.**
+
+The shape of a collection, in order:
+
+1. Investor-specific decisions confirmed by Erik (§1), before anything runs.
+2. Evidence layers collected (§5), base built.
+3. Calibration gate cleared (§4), before any verdict writes.
+4. Membership judged into the ledger (§2, §3); recall probe.
+5. Classification grind in batches (§6, §8).
+6. Adversarial A/B pass on the visible slice (§7).
+7. `verify` green with only flagged debt; `export`; `review` (§9).
+
+## 1. Investor-specific decisions
+
+Each investor gets one decisions file next to its base in
+`data/aggregation/company-base/` (Sequoia's is `MEMBERSHIP.md`). The judge
+cites its rulings per line; once a ruling is written there, no further
+approval is needed before verdicts write. The file records:
+
+- **Firm boundary**: which entity is "the firm" — decision desks, split-offs
+  (HongShan / Peak XV), wealth or heritage arms, crossover vehicles, and
+  whether the investor's fund families are one desk or several.
+- **Program vehicles**: scouts, accelerator or seed programs, in or out.
+- **Instruments**: primaries, secondaries, tenders, token positions.
+- **Standing rulings** made during the run, dated, each one a class-wide rule
+  rather than a row fix.
+
+**The membership definition**, common to every investor: a row belongs in the
+base iff a firm representative, acting on behalf of the firm, made an
+investment with fund money in it, and it is a venture-outcome operating
+company. Fund vehicles, SPVs, filter labels, scrape artifacts and natural
+persons are out.
+
+**Evidence sufficiency**, common to every investor: a listing on the
+investor's own site (any era), or an SEC filing by a fund vehicle, each
+suffice alone. A Form D related-person name-match NEVER suffices alone; it
+needs affirmative corroboration (documented deal, credible identification
+tying the round to the firm). Absence of corroboration on a name-match is a
+`not_member` verdict, not an `uncertain` one: the base asserts membership,
+and an unsupported assertion is the defect class the judge exists to kill.
+
+**Person-level attribution locates a person, never a firm position.** Forms
+3/4/5 are filed by a natural person about their own holdings; partners file
+them from personal board seats, from ex-partner years, and from their next
+firm. The genuine EDGAR signal is a fund vehicle on the filing (a 13D/G, or
+a Form 3/4 filed by the fund itself). The build drops any row whose only
+evidence is a Section 16 filing by a person entity, with no site listing, no
+Wayback capture and no Form D partner attribution. The recurring exclusion
+classes: ex-partners filing from their next firm, partners' personal
+directorships, partners who became founders, founder homonyms, scout checks
+with no main-fund follow-on, LP positions in other funds or accelerators.
+
+## 2. The verdict ledger
+
+Membership verdicts are durable, in
+`company-base/base-verification.json`: per slug a verdict
+(`member | not_member | uncertain`), `who`, an evidence class
+(`site_listing | fund_filing | formd_adjudicated | knowledge | web`), a
+basis sentence and a citation where one exists. The ledger is re-applied on
+every rebuild. Human verdicts (`who: "erik"`) outrank agent verdicts.
+`not_member` rows leave the published base into `verification-excluded.csv`,
+preserved, never deleted; `uncertain` rows stay in the base, marked for
+sampling.
+
+## 3. Judge protocol
+
+- **Parametric memory first.** The judge decides from what it knows; web
+  search is triggered, not default. Triggers: confidence below high, evidence
+  is a name-match only, or the claim is $1B+ or public.
+- **Recognition check before trust.** Before using knowledge of a name,
+  confirm the row's evidence fits it: era (`first_seen`, filing years),
+  sector tag, round sizes. A mismatch means a different company with the same
+  name → treat as unrecognized, flag `identity_uncertain`.
+- **Rule-outs are legitimate.** An unrecognized company, absent from the
+  unicorn list, with small old rounds and no recent trace, is sub-$1B with
+  high probability. Recognized-dead → defunct; recognized-acquired →
+  acquired + note "acq. by X, YEAR"; unrecognized with recent evidence of
+  life → private; unrecognized and dark → unknown + note. Notes specific,
+  one line.
+- **Null over force-fit.** Closed taxonomies report misfits as outside, not
+  as the nearest bucket; an unlocatable city is null, not the investor's
+  home town; a low-confidence claim must not publish a bucket, prefer status
+  unknown.
+- **Priors only ever flagged.** Where a prior fills a gap (US for an
+  unidentifiable row on a US desk, the firm's classic entry stage for an
+  unidentifiable stray) it is confidence low and carries its flag
+  (`country_prior`, `stage_prior`). A prior never lands silently.
+- **Disputes.** When knowledge contradicts a deterministic layer, record the
+  corrected keys + flag `model_disputes_source` + note. Never silently accept
+  a value known to be wrong, never silently override either.
+- **Confidence:** high = filing-grade, common-knowledge-stable, or strong
+  multi-signal rule-out. medium = recognized but facts may have moved past
+  the knowledge cutoff; name-matched external list. low = genuinely
+  uncertain.
+
+## 4. Calibration gate
+
+Two measured sets, both cleared before the columns they guard may write:
+
+- **Membership trap set** (~20 rows): ex-partner next-firm deals, homonym
+  partners and founders, scout checks, LP stakes, mixed with known-true
+  members across eras. Gate: zero false members at high confidence before
+  any verdict writes.
+- **Stage golden set** (~30–40 documented entries with named rounds and
+  years). Measured blind before `entry_stage` publishes; misses are
+  diagnosed and the evidence order rebuilt until the set passes. This is the
+  column that fails silently when a filing band is trusted as a label
+  (Sequoia: 32/39 banded, 39/39 after the rebuild in §6).
+
+No status/valuation calibration set is required: the A/B citation pass (§7)
+is what guarantees those columns.
+
+## 5. Evidence layers
+
+1. **Wayback portfolio listings**, one snapshot per year per site era. The
+   investor's own listings captured over time also recover companies later
+   removed from the live site (survivorship correction).
+
+   **Layer 1b — the site's own CMS**, for the current portfolio that archives
+   and SEC both structurally miss (JS-rendered pages defeat CDX enumeration;
+   Section 4(a)(2) raises file no Form D). Escalation ladder, in order:
+
+   1. WordPress REST: `/wp-json/wp/v2/types` → find the post type →
+      paginate it (`scripts/site-portfolio.py`).
+   2. Next.js: the `__NEXT_DATA__` script tag, or
+      `/_next/data/<build>/*.json`.
+   3. Any SPA: watch XHR in the browser pane, then call that endpoint
+      directly.
+   4. Last resort: render the page headless and parse the DOM.
+
+2. **Partner roster** via CDX people pages with tenure windows
+   (`scripts/partner-roster.py`).
+3. **EDGAR**: the investor's vehicle registry (`scripts/edgar-entities.py`,
+   one table serving role resolution, fund exclusion and lineage), issuer
+   filings via the submissions API (`scripts/edgar-companies.py`), the
+   Form D sweep on the roster (`scripts/formd-query.py`) and issuer round
+   histories (`scripts/formd-issuer-rounds.py`).
+4. **Deterministic classification layers**: SEC XBRL public float, Wikidata,
+   unicorn lists, Form D round positions. These are ceilings and
+   corroboration, never labels — the first filing is a ceiling on entry
+   recency, not the entry round, and a float is corroboration for a market
+   cap, not the cap itself.
+
+## 6. Classification columns
+
+### status
+
+`private | public | acquired | defunct | unknown`, current-state only.
+IPO'd-then-acquired → acquired; successor-entity ambiguity → acquired +
+note. Acquired / defunct / unknown → `valuation_usd` null.
+
+### valuation
+
+- **Figures are source-gated, machine-enforced.** `valuation_usd` non-null
+  requires `valuation_source` ∈ {sec_public_float, wikidata, unicorn_list,
+  web_verified} AND status private/public. `model_knowledge` never mints a
+  figure: a company believed ≥$1B without a source is claimed private,
+  figure null, flag `needs_web_value`; the web pass pins it or kills it.
+- **Public rows: market capitalization is canonical**, web-cited with an
+  as-of date. Float is corroboration only; a public $1B+ row without a cited
+  cap fails verify.
+- **Private rows**: last credible primary-round mark, `stale` flag beyond
+  24 months. Secondary-market estimates go in the note, never in
+  `valuation_usd`.
+- **`valuation_range`** ∈ {100b_plus, 10b_plus, 1b_plus, below_1b}, highest
+  threshold met, 100% fill. Only `below_1b` may be asserted without a
+  figure; a tag ≥ 1b_plus requires a sourced `valuation_usd`.
+- **below_1b rule-outs** are web-checked only on a signal (past unicorn
+  mark, mega-raise, hot sector, recent momentum); otherwise validated by
+  blind stratified sampling. Absence claims are not citeable at scale.
+
+### entry_stage
+
+**The stage label of the round in which the firm first put fund money into
+the company.** A fact about a named historical deal, not about the company's
+maturity today. 100% fill.
+
+- Taxonomy: `Pre-Seed | Seed | Series A | Growth`. Growth = Series B and
+  everything later: C/D, crossover, pre-IPO, secondaries and tenders (a
+  tender entry is an entry at scale), buyout-scale positions, recaps,
+  consortium structures. SAFEs and seed extensions count as Seed; the label
+  follows what the firm and the record call the round, not the check size.
+  Pre-2003 deals: the modern ladder does not map; the first institutional
+  round is `Series A` by convention, low confidence, unless a documented
+  seed exists. Re-entry after a full exit restarts the clock at the new
+  round.
+- **Evidence order**, strongest first:
+
+  1. `web_verified` + `entry_stage_citation` (URL naming the round and the
+     firm's participation, or the firm's own memo/company page).
+  2. `formd_structural`: partner-anchored entry position with prior-filing
+     count; the accessions are the citation.
+  3. `model` with a named deal in the note ("led the 2011 Series A") at
+     high/medium confidence.
+  4. `model` at low confidence, or `stage_prior` for unidentifiable strays.
+
+  A publication-visible claim wants class 1 or 2. Citation is attempted for
+  every row, priority $1B+ (incl. IPO), then recents, then the tail;
+  `stage_uncited` marks attempted failures.
+- **Structural rules**: ≥2 prior filings → Growth; 1 prior → Series A or
+  Growth by band; 0 prior → band, but only if the company was founded inside
+  the Form D coverage window (≥2008) and was ≤4 years old at filing, else
+  confidence drops and knowledge decides. Era-adjusted band ceilings
+  (seed / A) by entry year: ≤2010: 1.5M/12M · 2011–14: 2.5M/15M ·
+  2015–18: 4M/20M · 2019–21: 6M/30M · ≥2022: 8M/40M. Pre-Seed = below
+  seed/4. Every override of a structural answer carries
+  `stage_disputes_band`.
+
+### seed_to_a_graduation (C2A)
+
+Cohort = final `entry_stage` == Seed, ≥24 months since entry or resolved
+earlier (censored rows null by rule). Graduation on the deterministic path =
+a later round ≥2× entry amount and ≥$5M; for knowledge-based seeds that
+predate Form D coverage, a documented follow-on with citation. Cohort rows
+are verified on both legs (entry stage and the A follow-on) or carry
+`cohort_unverified`; the published rate is accompanied by its verified
+share. Cross-check: no row may end `false` + (valuation ≥$1B or public) —
+that combination is a Form D blind spot (4(a)(2), foreign), disputed to true
+with source model/web.
+
+### hq_country
+
+ISO 3166-1 alpha-2, 100% fill. Source hierarchy, entry-time first:
+`formd_address` > `wikidata` > `model_knowledge` > `web_verified`. Offshore
+filing havens fall through to the next source. Conflicts flagged
+`country_conflict`; a Form D Delaware-of-convenience address may be disputed
+only with a note. Non-US claims on visible rows carry a citation or
+formd/wikidata provenance.
+
+### hq_city
+
+Publishes only as the pair `hq_city` + `hq_country`; the pair must be
+consistent. Current HQ for live companies, last known for dead and acquired.
+Free text, but the shape is enforced: bare municipality in title case, no
+state or country suffix ("Palo Alto", never "Palo Alto, CA"). Municipality,
+not borough or metro (Brooklyn → New York; Mountain View is not San
+Francisco); metro rollups are derived downstream and cannot be recovered
+from pre-collapsed cities. Common English exonym where standard.
+
+Evidence order: `model_knowledge` > `formd_address` > `web_verified`.
+Knowledge leads, unlike `hq_country`, because the filing address is
+entry-time and the column is current-HQ; the Form D address is the answer
+only when the company is unrecognizable, corroboration otherwise. Its three
+known defects, each a reason to override: it is entry-time (companies
+move); it is sometimes counsel's, an investor's or a parent's; foreign
+issuers file US offices. No city priors: an unlocatable company carries
+null + `city_unknown`. Where city and country cannot both be true, flag
+`city_country_conflict` + note and record the city truthfully; the country
+correction stays Erik's call.
+
+### focus
+
+A **single primary value from the closed twelve** in
+`data/taxonomy/focus.json` (the vocabulary the frontend and DB use), so the
+distribution sums cleanly. A company fitting none carries `focus: null`,
+reported as "outside taxonomy"; force-fitting would corrupt the
+distribution. One parametric pass, web search only for unidentifiable rows;
+no adversarial second pass, because a sector label publishes no number.
+
+Judgment over the alias table where they disagree. Standing precedence
+rules: **Security** wins over SaaS/DevTools/Industrial whenever security is
+what the company sells (including security for developers); **Crypto &
+Web3** wins over Fintech for on-chain businesses (not for companies where
+crypto is a product line); consumer devices are **Consumer & Marketplaces**
+even though `hardware` aliases to Industrial; healthcare vertical SaaS is
+**Healthcare & Bio**, not SaaS; ad networks and audience monetization are
+**Media, Gaming & Advertising** while martech sold as software stays SaaS;
+**AI & Applied AI** means AI is the product, not that the company uses ML;
+enterprise infrastructure and networking is **Data Infrastructure**, chips
+are **Industrial & Robotics**.
+
+## 7. Adversarial A/B pass
+
+Applied to the **visible slice** — every row that is $1B+ or currently
+public. Pass A defends each recorded value (find the confirming source);
+pass B attacks it (search for the newer round, the acquisition, the down
+round, the wrong stage, the relocated HQ). Agreement with citation closes
+the row; disagreement is arbitrated by a targeted search; what survives goes
+to the sampling sheet. Elsewhere: one rigorous cited pass, blind sampling as
+the review element.
+
+Debt is explicit, never hidden: `cite_pending` is the resumable citation
+queue, `cohort_unverified` the C2A leg debt. `verify` tolerates only flagged
+debt.
+
+## 8. Run mechanics (`scripts/run.py`)
+
+One driver: `prepare` (seed verdicts, run deterministic layers, emit the one
+work queue), `record` (validate + merge a batch), `status` (coverage from
+disk), `verify` (assertion suite, non-zero exit with the failing rows),
+`export` (the one merged CSV, `company-base/<investor>.csv`), `review` (the
+read-only review.html).
+
+- **The base is read live** from `company-base/<investor>.json`. No pinned
+  snapshot; the standing rule is that the base is not rebuilt for an
+  investor while that investor's run is in flight. Overlays join on slug, so
+  `verify` catches a violation as drift between overlay keys and base slugs.
+- **Progress lives on disk, not in context.** Batch loop: read 2 batches →
+  judge every row → write both `queue/batch-NNN.out.jsonl` → `record` both →
+  one-line progress in chat → next pair. `status` is the resume point; track
+  nothing in context that disk already knows.
+- **`record` is the gate**: it validates every line (enums, source gates,
+  citation URLs, city shape, country codes) and rejects violations; answers
+  merge per key into existing records; flags union; only `clear_flags`
+  removes. **Emit only the keys for the needs asked** (plus `flags`, `note`)
+  — extra keys clobber filing-grade facts at merge time; the one exception
+  is a deliberate dispute.
+- **Identity duplicates are fixed upstream**, in
+  `company-base/identity-merges.json`, consumed by the base build on every
+  rebuild; non-canonical rows carry `duplicate_of: <canonical-slug>`, the
+  canonical carries no exclusion flag. In-run: any suspected duplicate →
+  flag + note, never a silent merge.
+- **Standing verification duties**, after the grind, before verify-clean:
+  1. Web-verify every $1B+ claim regardless of source: identity and current
+     status; update or downgrade.
+  2. Vet every `seed_to_a_graduation: false` against reality (the C2A
+     cross-check above).
+  3. Audit every weak CIK join encountered: does the registrant actually
+     fit the row, or is it a suffix-stripped name collision?
+  4. Sweep stale-float → acquired rows for holding-co reorgs and re-IPOs;
+     fetch the successor float directly.
+  5. Sweep public rows with floats 12–24 months old for known deaths.
+  6. Re-intersect the unicorn list with loose normalization (strip
+     .io/.ai/.com, "HQ", "Labs") to catch alias misses.
+  7. Self-consistency: re-classify a random 5% blind at the end;
+     disagreements flagged `unstable`, adjudicated, counted in the report.
+
+## 9. Review by sampling
+
+The review surface (`data/aggregation/review.html`, written by
+`run.py review`) is **read-only**: priority-ranked rows, evidence links, no
+input widgets. Corrections arrive in chat, and each one is recorded
+class-wide — as a ledger verdict or classification correction with
+`who: "erik"` — so it binds every row of its class, outranks agent verdicts,
+and survives every rebuild. Erik's sample sign-off is the exit criterion of
+a run.
+
+## 10. Verify invariants
+
+1. Coverage: every base slug carries a membership verdict; `status`,
+   `valuation_range`, `entry_stage`, `hq_country` at 100% fill with valid
+   vocabulary.
+2. Source gate: a dollar figure only from an allowed source; only
+   `below_1b` without a figure.
+3. Public $1B+ row → cited market cap, else `cite_pending`.
+4. $1B+ row → class 1/2 stage evidence (citation or filing structure), else
+   `cite_pending`.
+5. Cohort row → both legs verified, else `cohort_unverified`.
+6. Non-US country on a visible row → citation or formd/wikidata provenance.
+7. No row ends graduation `false` + (≥$1B or public).
+8. Drift: overlay keys ⊆ live base slugs (the no-rebuild-mid-run rule).
+9. Debt only where flagged; the flags are counted in the report.
