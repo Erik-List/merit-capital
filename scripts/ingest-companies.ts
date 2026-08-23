@@ -1,6 +1,6 @@
 // Ingest the classified company dataset into public.companies (PRO-48).
 //
-// Reads data/aggregation/company-base/{investor}.csv — the one merged
+// Reads data/collection/investors/{investor}/base.csv — the one merged
 // per-investor surface written by run.py export, whose classification headers
 // carry the table's column names — and upserts one row per (investor_id,
 // name). The database mints id; ingest never sends it, so a re-run updates in
@@ -22,9 +22,9 @@ import { validateCompanyFields } from "./utils/taxonomy-validate";
 
 type CompanyInsert = TablesInsert<"companies">;
 
-// Run from the repo root (as the npm script does); matches utils/aggregation.ts.
+// Run from the repo root (as the npm script does); matches utils/collection.ts.
 const ROOT = process.cwd();
-const BASE_DIR = join(ROOT, "data", "aggregation", "company-base");
+const INVESTORS_DIR = join(ROOT, "data", "collection", "investors");
 
 const UPSERT_BATCH_SIZE = 500;
 
@@ -89,13 +89,13 @@ function parseCsv(text: string): Record<string, string>[] {
 
 function checkFreshness(investor: string, csvRows: Record<string, string>[]): void {
   const base: { slug: string }[] = JSON.parse(
-    readFileSync(join(BASE_DIR, `${investor}.json`), "utf8")
+    readFileSync(join(INVESTORS_DIR, investor, "base.json"), "utf8")
   );
   const baseSlugs = new Set(base.map((r) => r.slug));
   const stale = csvRows.filter((r) => !baseSlugs.has(r.slug));
   if (stale.length || csvRows.length !== baseSlugs.size) {
     throw new Error(
-      `${investor}.csv is stale relative to the live base ` +
+      `${investor}'s base.csv is stale relative to the live base ` +
         `(${csvRows.length} CSV rows vs ${baseSlugs.size} base rows, ` +
         `${stale.length} slugs no longer in the base). ` +
         "Re-run `run.py export`, then ingest."
@@ -105,8 +105,12 @@ function checkFreshness(investor: string, csvRows: Record<string, string>[]): vo
 
 async function main() {
   const flags = parseFlags(process.argv, COMPANY_COLUMNS);
-  const investor =
-    process.argv.slice(2).find((a) => !a.startsWith("--")) ?? "sequoia-capital";
+  const investor = process.argv.slice(2).find((a) => !a.startsWith("--"));
+  if (!investor) {
+    throw new Error(
+      "Usage: npm run ingest:companies -- <investor-slug> [--columns ...]"
+    );
+  }
 
   const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceKey =
@@ -117,9 +121,9 @@ async function main() {
     );
   }
 
-  const csvPath = join(BASE_DIR, `${investor}.csv`);
+  const csvPath = join(INVESTORS_DIR, investor, "base.csv");
   const csvRows = parseCsv(readFileSync(csvPath, "utf8"));
-  console.log(`Read ${csvRows.length} rows from ${investor}.csv`);
+  console.log(`Read ${csvRows.length} rows from ${investor}/base.csv`);
   checkFreshness(investor, csvRows);
 
   const supabase = createClient<Database>(url, serviceKey);

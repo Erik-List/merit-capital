@@ -9,7 +9,7 @@ import sharp from "sharp";
 // PNG master (contain; the source's own background is kept, padding is
 // transparent), upload it to the "Icon Images" bucket under
 // investors/<slug>-<contenthash>.png, and write the public URL into the
-// investor's icon_url in data/aggregation/investors/institutions.json.
+// investor's icon_url in data/collection/investors/<slug>/investor.json.
 // The DB row updates through the normal ingest:
 //   npm run ingest:investor -- --investors name=<slug> --columns icon_url
 //
@@ -17,10 +17,8 @@ import sharp from "sharp";
 
 const BUCKET = "Icon Images";
 const MASTER_SIZE = 256;
-const AGGREGATION_FILE = path.join(
-  process.cwd(),
-  "data/aggregation/investors/institutions.json"
-);
+const investorFile = (slug: string) =>
+  path.join(process.cwd(), "data/collection/investors", slug, "investor.json");
 
 async function main() {
   const [slug, sourceUrl] = process.argv.slice(2);
@@ -37,14 +35,13 @@ async function main() {
     );
   }
 
-  const raw = JSON.parse(readFileSync(AGGREGATION_FILE, "utf8"));
-  if (!Array.isArray(raw)) {
-    throw new Error(`${AGGREGATION_FILE} is not the expected array of investors`);
-  }
-  const investors: Array<Record<string, unknown>> = raw;
-  const investor = investors.find((entry) => entry.slug === slug);
-  if (!investor) {
-    throw new Error(`No investor with slug "${slug}" in ${AGGREGATION_FILE}`);
+  const filePath = investorFile(slug);
+  const investor = JSON.parse(readFileSync(filePath, "utf8")) as Record<
+    string,
+    unknown
+  >;
+  if (investor.slug !== slug) {
+    throw new Error(`${filePath} carries slug "${investor.slug}", not "${slug}"`);
   }
 
   console.log(`Fetching ${sourceUrl} ...`);
@@ -85,10 +82,10 @@ async function main() {
   const iconUrl = publicUrlData.publicUrl;
 
   investor.icon_url = iconUrl;
-  writeFileSync(AGGREGATION_FILE, `${JSON.stringify(raw, null, 2)}\n`);
+  writeFileSync(filePath, `${JSON.stringify(investor, null, 2)}\n`);
 
   console.log(`✓ Uploaded ${objectPath} (${master.length} bytes)`);
-  console.log(`✓ icon_url in institutions.json: ${iconUrl}`);
+  console.log(`✓ icon_url in investor.json: ${iconUrl}`);
   console.log(
     `Next: npm run ingest:investor -- --investors name=${slug} --columns icon_url`
   );

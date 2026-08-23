@@ -1,0 +1,92 @@
+{
+  "slug": "sequoia-capital",
+  "wayback": {
+    "cdx_domain": "sequoiacap.com",
+    "site_url_base": "https://www.sequoiacap.com",
+    "eras": [
+      {"parser": "cdx_company_pages", "path": "/company/", "from": 2006, "to": 2009, "per_company_pages": true},
+      {"parser": "sitemap_home_links", "path": "/us/", "from": 2010, "to": 2014, "per_company_pages": true},
+      {"parser": "companies_listing", "path": "/companies/", "from": 2015, "to": 2021, "per_company_pages": false},
+      {"parser": "company_cards", "path": "/our-companies/", "from": 2021, "to": 2026, "per_company_pages": false}
+    ],
+    "non_company_slugs": [
+      "news", "contact", "about", "team", "people", "jobs", "legal", "sitemap",
+      "map", "ideas", "early", "seed", "venture", "growth", "energy", "financial",
+      "healthcare", "internet", "mobile", "outsourcing", "advertising", "software",
+      "hardware", "services", "technology", "search",
+      "fund", "funds", "companies", "company", "portfolio", "index", "home",
+      "stories", "story", "press", "events", "careers", "privacy", "terms",
+      "systems", "consumer", "enterprise", "infrastructure", "crypto"
+    ]
+  },
+  "roster": {
+    "cdx_patterns": ["sequoiacap.com/people/*", "sequoiacap.com/us/team/*"],
+    "slug_re": "/(?:people|team)/([a-z][a-z0-9-]*[a-z0-9])/?$",
+    "listing_href_re": "/people/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+    "not_a_person": [
+      "index", "people", "team", "ethos", "growth", "specialists", "seed", "early",
+      "venture", "scouts", "commons", "search", "jobs", "contact", "legal", "about",
+      "news", "stories", "companies", "build", "login", "password"
+    ]
+  },
+  "site_api": {
+    "type": "wordpress",
+    "base": "https://www.sequoiacap.com/wp-json/wp/v2",
+    "company_type": "company",
+    "team_type": "team-member"
+  },
+  "edgar": {
+    "seed_queries": ["sequoia+capital", "hongshan", "peak+xv"]
+  },
+  "desks": {
+    "home": "us-eu",
+    "partition": ["china", "india"],
+    "rank": ["us-eu", "israel", "india", "china", "unknown"],
+    "classify": [
+      {"desk": "china", "patterns": ["china", "hongshan", "\\bscc\\b", "^hsg\\b"]},
+      {"desk": "india", "patterns": ["india", "peak xv", "\\bsciv?\\b"]},
+      {"desk": "israel", "patterns": ["israel"]},
+      {"desk": "us-eu", "patterns": ["sequoia", "^sc[\\s.]", "^scg", "^schf", "^scff"]}
+    ]
+  },
+  "profile": {
+    "own_vehicle_pattern": "sequoia|scge",
+    "focus_min_companies": 25,
+    "focus_crosswalk": {
+      "ai": "AI & Applied AI",
+      "infrastructure": "Data Infrastructure",
+      "data-analytics": "Data Infrastructure",
+      "networking": "Data Infrastructure",
+      "storage": "Data Infrastructure",
+      "search": "Data Infrastructure",
+      "apps-services": "SaaS",
+      "operations": "SaaS",
+      "productivity": "SaaS",
+      "gtm": "SaaS",
+      "marketing": "SaaS",
+      "legal": "SaaS",
+      "developer-tools": "DevTools & APIs",
+      "dev-tools": "DevTools & APIs",
+      "fintech": "Fintech & Payments",
+      "financial": "Fintech & Payments",
+      "crypto": "Fintech & Payments",
+      "hardware": "Industrial & Robotics",
+      "devices": "Industrial & Robotics",
+      "climate": "Climate & Energy"
+    }
+  },
+  "verify": {
+    "text_mention_leaks": ["soros"],
+    "cofiler_leaks": [
+      "scgf iii management llc", "scgf iv management lp", "scgf v management, l.p.",
+      "francisco partners ii lp", "tcv vii lp", "pequot capital management inc",
+      "saif partners iv l.p."
+    ],
+    "known_positions": ["airbnb", "amplitude", "23andme", "aruba", "barracuda"]
+  },
+  "sample_slugs": [
+    "avalanche-technology-inc", "cloudshare-ltd", "muze-collective-inc",
+    "romotive-inc",
+    "youtube", "fal", "webvan-group-inc"
+  ]
+}

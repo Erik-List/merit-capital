@@ -33,7 +33,7 @@ Layers, in order:
 
 **Snapshot pinning:** the base CSV was rebuilt by other sessions mid-run once before; `prepare` therefore pins `base-snapshot.csv` and every later command reads the pin. `verify` reports live drift without corrupting the run.
 
-**Crash/compaction safety:** all state on disk (`classification.json`, `queue/batch-NNN.out.jsonl`); `status` is derived from disk; the run rules lived in `RUN-PROTOCOL.md`, re-read after every context compaction (since retired into `../COLLECTION.md`; the Sequoia-specific residue is in §11).
+**Crash/compaction safety:** all state on disk (`classification.json`, `queue/batch-NNN.out.jsonl`); `status` is derived from disk; the run rules lived in `RUN-PROTOCOL.md`, re-read after every context compaction (since retired into `../../COLLECTION.md`; the Sequoia-specific residue is in §11).
 
 ## 3. Measured quality
 
@@ -131,20 +131,20 @@ Derivation policy encoded here: exclude rows flagged duplicate/not_a_company/sus
 
 ## 10. Artifacts
 
-| File | What |
+| File (current name after the PRO-59 move) | What |
 |---|---|
-| `sequoia-capital-companies.csv` | Per-company deliverable, 1,293 rows |
-| `review.html` | Review UI (j/k/c/x/u/n keys, localStorage, priority-ranked, decision export) |
+| `base.csv` | Per-company deliverable (the one merged surface; was `sequoia-capital-companies.csv` at run time) |
+| `review.html` | Review UI (read-only since PRO-56; was interactive at run time) |
 | `classification.json` | Merged judgment records with notes + citations |
 | `resolved.json`, `layer-a.json`, `layer-b.json` | Deterministic layer outputs |
-| `graduation-formd.json`, `formd-rounds.json` | C2A evidence (round sequences, accessions) |
-| `calibration-*.json`, `consistency-blind.json` | Quality measurements |
-| `track-record-proposal.json` | §9 block, ready for PRO-25 |
-| `../COLLECTION.md` | The collection playbook (rules and duties, generalized from this run's protocol docs) |
+| `graduation-formd.json`, `sources/edgar/formd-issuer-rounds.json` | C2A evidence (round sequences, accessions) |
+| `calibration-*.json`, `consistency-blind.json` | Quality measurements (retired; results recorded in §3) |
+| `track-record-proposal.json` | §9 block, consumed by PRO-25, then retired (PRO-24 moved derivation into the DB) |
+| `../../COLLECTION.md` | The collection playbook (rules and duties, generalized from this run's protocol docs) |
 
 ## 11. Run chronology and Sequoia rulings (residue from the retired protocol docs)
 
-The binding rules generalized into `../COLLECTION.md`; what follows is what happened on Sequoia specifically, moved here when `RUN-PROTOCOL.md`, `CLASSIFICATION-V2.md` and `ENTRY-STAGE.md` were retired (PRO-58). Sequoia's investor-specific decisions live in `../company-base/MEMBERSHIP.md`.
+The binding rules generalized into `../../COLLECTION.md`; what follows is what happened on Sequoia specifically, moved here when `RUN-PROTOCOL.md`, `CLASSIFICATION-V2.md` and `ENTRY-STAGE.md` were retired (PRO-58). Sequoia's investor-specific decisions live in `decisions.md`.
 
 ### Chronology
 
@@ -170,3 +170,17 @@ Result: 821/873 classified (94.0%), 52 outside, of which 47 are the permanently 
 ### hq_city results
 
 664/873 located (76%), 146 distinct cities; 100% of $1B+ rows, 193/195 of the visible slice (gaps `pace` and `two` have unresolved identity). All 209 nulls in the sub-$1B tail with `city_unknown`. Top: San Francisco 176, New York 54, San Jose 30, Mountain View 26, Palo Alto 25, Santa Clara 24, Sunnyvale 20, Tel Aviv 18, Redwood City 16, Los Angeles 11; Bay Area municipalities 384/664 (58%). Entry-time-trap movers caught: Aurora→Pittsburgh, Snowflake→Bozeman, Block→Oakland, Green Dot/Natera→Austin, Omnicell→Fort Worth, Bird/Picsart→Miami, Appirio→Indianapolis, SpaceX→Starbase. Six `city_country_conflict` rows, all country defects: Barracuda (BE), Aquarium (DE), Avanex (CH) are wikidata identity errors; Rappi and Bubble Motion took US from a subsidiary's filing; LayerZero operates from Vancouver under a US incorporation.
+
+## 12. Company Base build residue (from the retired Build & Reconciliation Report)
+
+The generic build method — evidence layers, exclusion filters, tiering, duplicate arbitration — lives in `../../COLLECTION.md` §5 and in the collector scripts. What follows is the Sequoia-specific record from the v0 build report (2026-07-19), retired in PRO-59.
+
+**Build stats (v0, pre-membership-judge).** 1,293 candidate rows: 279 Tier A / 719 Tier B / 295 Tier C. 182 pooled-fund issuers (253 filings) dropped; 22 other-desk rows partitioned out (21 china, 1 india); ~105 ex-partner deals removed; 94 name-variant duplicates merged (6 kept separate). Entity registry: 301 vehicles (151 us-eu, 75 china, 39 india, 11 israel, 25 external). The v2 membership inversion (§11, Base v2) then took the base 1,055 → 873.
+
+**Wayback era yields.** Era A `/company/` 2006–2009: 284/66/87/24 slugs per year, enumerated from the CDX index. Era B `/us/` 2010–2014 via sitemap + homepage: 275–377 paths per year, 2013–14 thin from a site redesign; the old CMS left an un-interpolated Ruby object in category-link alt text (`#<Region:0x..>`), which is what separates the 68 category pages per snapshot from companies and supplies era-B display names. Era C `/companies/` 2015–2021: 188 → 290 companies with sector + partner tags. Era D `/our-companies/` 2021–2026: ~32 server-rendered entries per snapshot only (lazy-loaded page); covered instead by the site API (418 companies via WordPress REST) and Form D.
+
+**Audit findings that shaped the code** (all fixed and re-verified): a person filed as a company (`bill-coughran` slug vs `William Coughran`, fixed by `same_person()` matching); the Josephine/Joseph Chen feminine-variant collision that attributed Renren's fintech deals to Sequoia (fixed by `DISTINCT_DESPITE_PREFIX`); 12 property LLCs under a different Ravi Gupta (fixed by the non-portfolio industry rule — the audit showed all 19 rows previously spared as "ambiguous industry" were noise); spacing duplicates (`Mark Logic`/`MarkLogic`, fixed by the space-insensitive join key); and the regression that key introduced (word-prefix duplicate check broke, fixed by the separate `norm_words` key). HTML entities decoded at every read point (`Alpha &amp; Omega` never joined its Form D row).
+
+**Duplicate arbitration results.** The investor's own publications are the arbiter (two names in one snapshot = two companies): 93 merged, 6 kept separate (`Carbon`/`Carbon Black`, `Linear`/`Linear Technology`, `Magic`/`Magic Eden`, `Parallel`/`Parallel Web Systems`, `Elevate`/`Elevate Credit`, `Nimble Storage`/`Nimble Rx`). Snapshot scoping keys on `snapshot_ts`, not year (a year-keyed check wrongly split `Barracuda`/`Barracuda Networks`). A differing EDGAR CIK proves distinctness only when both rows are independently listed (`Aurora Innovation`/`Aurora Operations` are one company's filing entities).
+
+**Known limitations that still apply.** Era D shallow in the archive (mitigated by the site API and Form D); 2013–14 listing gap; Form D electronic coverage starts 2009, Section 4(a)(2) raises and non-US issuers never file; `first_seen = '?'` on site-listed rows with no archive or filing date (the site API's `published` field is a page-creation date and deliberately not used); pre-2006 history out of window by design, so the foundational era (Apple-as-entry, Cisco, Oracle) is absent from entry-level columns; the partner roster's archived-snapshot span under-reports tenure for rarely-crawled people; EDGAR collection is bounded by the entity registry.

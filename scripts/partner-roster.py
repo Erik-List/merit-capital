@@ -1,20 +1,24 @@
 #!/usr/bin/env python3
 """Build the historical partner roster with tenure windows.
 
-The modern /people/ listing pages are JS-rendered: the 2020 snapshot contains
-only 16 of Sequoia's partners in its HTML (Pat Grady, a sitting partner, is
-absent entirely). Rather than render JS, this enumerates every individual
-/people/<slug> page from the Wayback **CDX index** — the archive's own URL
-listing, which records each page that was ever captured regardless of how the
-listing page rendered. Same technique that took era-A companies from 42 to 284.
+Modern /people/ listing pages are JS-rendered and under-report the team, so
+this enumerates every individual profile page from the Wayback **CDX index** —
+the archive's own URL listing, which records each page that was ever captured
+regardless of how the listing page rendered.
 
 Tenure comes from the span of archived snapshots per person. That is a proxy,
 not an employment record: it under-reports people archived rarely and
 over-reports the end date when a stale profile page lingers.
 
-Output: data/aggregation/sources/wayback/partner-roster.json
+The CDX patterns, the profile-slug regex and the non-person slug list live in
+the investor's config.json under "roster".
+
+Output: <investor>/sources/wayback/partner-roster.json
   {slug, name, years_seen[], first_seen, last_seen, snapshots, sources[]}
+
+Usage: python3 scripts/partner-roster.py <investor-slug>
 """
+import argparse
 import json
 import re
 import subprocess
@@ -23,16 +27,11 @@ import time
 from collections import defaultdict
 from pathlib import Path
 
-BASE = Path(__file__).resolve().parent.parent / "data" / "aggregation" / "sources" / "wayback"
-RAW = BASE / "raw"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from paths import Paths  # noqa: E402
+
 UA = "MeritCapitalResearch/1.0 (erik@meritcapit.al)"
 
-# Non-person paths that live under /people/ or /us/
-NOT_A_PERSON = {
-    "index", "people", "team", "ethos", "growth", "specialists", "seed", "early",
-    "venture", "scouts", "commons", "search", "jobs", "contact", "legal", "about",
-    "news", "stories", "companies", "build", "login", "password",
-}
 # asset / artefact suffixes seen in the archive
 ASSET_RE = re.compile(r"\.(gif|jpe?g|png|svg|css|js|ico)$|document\.|_ro$", re.I)
 
@@ -48,10 +47,12 @@ def curl(url: str) -> str:
     return ""
 
 
-def cdx_people() -> dict[str, list[str]]:
-    """Every archived /people/<slug> page -> the years it was captured."""
+def cdx_people(cfg: dict) -> dict[str, list[str]]:
+    """Every archived profile page -> the years it was captured."""
+    slug_re = re.compile(cfg["slug_re"])
+    not_a_person = set(cfg["not_a_person"])
     per: dict[str, list[str]] = defaultdict(list)
-    for pattern in ("sequoiacap.com/people/*", "sequoiacap.com/us/team/*"):
+    for pattern in cfg["cdx_patterns"]:
         txt = curl(f"http://web.archive.org/cdx/search/cdx?url={pattern}"
                    f"&output=text&filter=statuscode:200&fl=original,timestamp&limit=20000")
         for line in txt.splitlines():
@@ -60,36 +61,45 @@ def cdx_people() -> dict[str, list[str]]:
                 continue
             orig, ts = parts
             orig = orig.split("?")[0]                     # drop utm_/ref query strings
-            m = re.search(r"/(?:people|team)/([a-z][a-z0-9-]*[a-z0-9])/?$", orig)
+            m = slug_re.search(orig)
             if not m:
                 continue
             slug = m.group(1)
-            if slug in NOT_A_PERSON or ASSET_RE.search(slug) or "-" not in slug:
+            if slug in not_a_person or ASSET_RE.search(slug) or "-" not in slug:
                 continue                                  # require first-last shape
             per[slug].append(ts[:4])
         time.sleep(0.5)
     return per
 
 
-def from_listing_pages() -> dict[str, list[str]]:
-    """Names parsed from cached listing snapshots (reliable for 2006-2009)."""
+def from_listing_pages(cfg: dict, raw_dir: Path) -> dict[str, list[str]]:
+    """Names parsed from cached listing snapshots (reliable for the early eras)."""
+    href_re = re.compile(cfg["listing_href_re"])
+    not_a_person = set(cfg["not_a_person"])
     per: dict[str, list[str]] = defaultdict(list)
-    for f in sorted(RAW.glob("*-people.html")):
+    for f in sorted(raw_dir.glob("*-people.html")):
         year = f.name[:4]
         html = f.read_text(encoding="utf-8", errors="replace")
-        for slug in set(re.findall(r'/people/([a-z][a-z0-9-]*[a-z0-9])/?["\']', html)):
-            if slug not in NOT_A_PERSON and "-" in slug:
+        for slug in set(href_re.findall(html)):
+            if slug not in not_a_person and "-" in slug:
                 per[slug].append(year)
     return per
 
 
 def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("investor")
+    args = ap.parse_args()
+
+    p = Paths(args.investor)
+    cfg = p.config()["roster"]
+
     print("== enumerating individual profile pages from the CDX index")
-    cdx = cdx_people()
+    cdx = cdx_people(cfg)
     print(f"   {len(cdx)} people slugs")
 
     print("== parsing cached listing snapshots")
-    listing = from_listing_pages()
+    listing = from_listing_pages(cfg, p.wayback / "raw")
     print(f"   {len(listing)} people slugs")
 
     merged: dict[str, dict] = {}
@@ -115,7 +125,8 @@ def main() -> None:
             "sources": sorted(e["sources"]),
         })
     rows.sort(key=lambda r: r["slug"])
-    (BASE / "partner-roster.json").write_text(json.dumps(rows, indent=1) + "\n")
+    p.wayback.mkdir(parents=True, exist_ok=True)
+    (p.wayback / "partner-roster.json").write_text(json.dumps(rows, indent=1) + "\n")
 
     from collections import Counter
     span = Counter()

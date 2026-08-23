@@ -5,7 +5,7 @@ import { parseFlags } from "./utils/flags";
 import {
   loadAllAggregatedInvestors,
   listAggregatedInvestors,
-} from "./utils/aggregation";
+} from "./utils/collection";
 import { batchUpsertInvestors, updateInvestorBySlug } from "./utils/db-helpers";
 import { validateTaxonomyFields } from "./utils/taxonomy-validate";
 import { normalizeFundSizes } from "../lib/fund-size";
@@ -34,7 +34,7 @@ function determineTargetSlugs(
   } else if (filter.type === "name") {
     return filter.names.filter((name) => allSlugs.includes(name));
   } else if (filter.type === "new") {
-    // For ingest, "new" means investors that exist in aggregation but not in DB
+    // For ingest, "new" means investors that exist in data/collection but not in DB
     // We can't easily check DB here, so we'll process all aggregated investors
     // and let the upsert handle it
     return allSlugs;
@@ -87,7 +87,7 @@ async function main() {
       continue;
     }
 
-    console.log(`Processing ${aggregatedToProcess.length} investor(s) from aggregation file.`);
+    console.log(`Processing ${aggregatedToProcess.length} investor(s) from data/collection.`);
 
     const investors: InvestorInsert[] = [];
 
@@ -120,7 +120,7 @@ async function main() {
         throw new Error(
           `${slug}: payload carries derived column(s) ${derivedInPayload.join(", ")}. ` +
             `These are machine-owned (recompute_investor_metrics derives them from ` +
-            `public.companies); remove them from the aggregation file.`
+            `public.companies); remove them from the investor.json file.`
         );
       }
 

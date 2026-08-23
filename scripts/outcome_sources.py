@@ -19,13 +19,15 @@ User-Agent; Wikidata is CC0.
 import json
 import re
 import subprocess
+import sys
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-CACHE = ROOT / "data" / "aggregation" / "sources" / "sec"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from paths import SEC_CACHE as CACHE, UNICORN_DIR  # noqa: E402
+
 UA = "Merit Capital research erik@meritcapit.al"
 
 # SEC publishes a 10 req/s ceiling. Each fetch pays a fresh TLS handshake, so
@@ -207,9 +209,6 @@ def prefetch_public_float(ciks: list[str], workers: int = 8, progress=None) -> N
 # ---------------------------------------------------------------------------
 # Layer C: Wikipedia unicorn list
 # ---------------------------------------------------------------------------
-
-UNICORN_DIR = ROOT / "data" / "aggregation" / "sources" / "unicorns"
-
 
 def _parse_wikitables(html: str) -> list[list[list[str]]]:
     from html.parser import HTMLParser
