@@ -24,6 +24,8 @@ The shape of a collection, in order:
 5. Classification grind in batches (§6, §8).
 6. Adversarial A/B pass on the visible slice (§7).
 7. `verify` green with only flagged debt; `export`; `review` (§9).
+8. Investor classification — the firm profile (§11); independent of the
+   base, runs in parallel as its own session.
 
 ## 1. Investor-specific decisions
 
@@ -108,6 +110,21 @@ marked for sampling.
   the knowledge cutoff; name-matched external list. low = genuinely
   uncertain.
 
+**The recall probe.** Precision asks "is every row real"; recall asks "is
+every real deal a row". After the membership pass, build an expected-member
+list from sources independent of the base — parametric enumeration by era
+and sector (several framings, unioned), the live site, the fund vehicles'
+own 13D/G subjects, press sweeps ("<firm> leads/led" per year window) — and
+diff it against the base. Every missing candidate gets the same judge
+treatment (memory, then web) and lands either as a new base row with its
+evidence attached, or as a recorded rejection with its reason. Probe the
+structural blind spots deliberately: deals with no US filing, recent deals
+not yet on the site snapshot, exits older than the archive window, stealth
+rounds. Measured on Sequoia: the site layers carry recall and the probe
+found zero missing members — the noise is precision-side. Expect that
+shape, but run the probe anyway; it is the only check that catches it when
+the shape breaks.
+
 ## 4. Calibration gate
 
 Two measured sets, both cleared before the columns they guard may write:
@@ -124,6 +141,19 @@ Two measured sets, both cleared before the columns they guard may write:
 
 No status/valuation calibration set is required: the A/B citation pass (§7)
 is what guarantees those columns.
+
+The gate's loop, in order: **assemble the answer key first**, every answer
+anchored to a citation and web-verified where uncertain — the key is
+external documents, not model opinion, which is what keeps the test honest
+when the same model writes and takes it. Then a **blind pass**: the golden
+rows are judged through the exact production protocol, key out of context.
+Then **score and decompose** — the question is not "how many right" but
+"what do the misses have in common": a miss indicts a layer, and the fix is
+the layer, never the instance (Sequoia: all seven stage misses were band
+rows, so the band lost its authority). Scoring runs both directions — a
+golden label can itself be wrong and gets corrected by the evidence. The
+sets persist in the investor's `golden.json` and replay as a regression
+test after any protocol change.
 
 ## 5. Evidence layers
 
@@ -350,6 +380,17 @@ class-wide — as a ledger verdict or classification correction with
 and survives every rebuild. Erik's sample sign-off is the exit criterion of
 a run.
 
+Two checkpoints pace a run: the calibration gate's result, and the
+membership-verified base before classification begins. At each, the session
+posts a one-paragraph status and continues or waits per the issue's scope.
+
+Every run ends in the investor's `report.md`: method deltas, results,
+corrections taken, the flag and debt counts behind `verify`, and the
+session's prompt count (kickoff, checkpoint approvals, corrections) — the
+number this pipeline exists to drive down. Session recipe: the strongest
+available harness, web search enabled, the machine kept awake for the
+grind.
+
 ## 10. Verify invariants
 
 1. Coverage: every base slug carries a membership verdict; `status`,
@@ -365,3 +406,42 @@ a run.
 7. No row ends graduation `false` + (≥$1B or public).
 8. Drift: overlay keys ⊆ live base slugs (the no-rebuild-mid-run rule).
 9. Debt only where flagged; the flags are counted in the report.
+
+## 11. Investor classification (the firm profile)
+
+Independent of the base — every field here answers a question about the
+firm, not its portfolio — so it runs in parallel as its own session. Output
+is the investor's `investor.json` plus `investor.sources.json`, one source
+entry per field; every field populated or explicitly null, through the
+taxonomy gate, onto the review surface. Field recipes, learned on Sequoia:
+
+- **AUM.** Form ADV via IAPD for any registered adviser: Item 5.F RAUM is
+  the firm's own sworn number and anchors the bottom of the range; press
+  supplies the top. An affiliated but separately registered adviser (a
+  crossover or public-equities arm) is excluded from both AUM and the fund
+  list, so the row stays internally consistent.
+- **Funds.** Sweep every Form D filer matching the firm's name on EDGAR —
+  the partner-matched subset structurally misses vehicles. Sizes from
+  Form D where the vehicle raised directly, from press where the size is an
+  allocation; any entry carrying an accession is asserted against the
+  filing at build time, and the build fails on mismatch. Post-restructure
+  caveat: where LP capital enters through an evergreen vehicle, sub-funds'
+  own Form Ds show only principals' money.
+- **People.** The live site CMS (team post type) over the archived roster
+  for current people; roles as the site presents them; socials where
+  extractable from the profiles.
+- **investment_range.** Three legs: the Form D entry-round distribution
+  gives the median (a round-size proxy for check size — fair only for
+  high-ownership lead investors, and the flag says so); program floors
+  (seed-program check sizes) give the lower limit; the largest verified led
+  round, cross-checked against dry powder at a 10–15% single-position
+  concentration of the largest fund, gives the ceiling. Strategy
+  allocations and unconfirmed aggregator claims are rejected and the
+  rejections recorded in the flag.
+- **notable_investments.** Recognition over the confirmed base only: the
+  base decides membership, the model decides fame, the frontend cap decides
+  count. The one licensed use of model memory as a source.
+- **Firm-level stage, geo, scope.** From the firm's own listing filters,
+  crosswalked into the taxonomies. When the portfolio distribution lands,
+  reconcile: flag disagreements, never silently overwrite — a gap between
+  positioning and behaviour is signal, not error.
