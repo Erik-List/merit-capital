@@ -47,12 +47,16 @@ class Paths:
         self.investor_sources = self.root / "investor.sources.json"
         self.config_file = self.root / "config.json"
 
-        # run scratch (regenerated; layer-b holds live Wikidata answers)
-        self.queue = self.root / "queue"
-        self.issuer_evidence = self.root / "issuer-evidence.json"
-        self.layer_a = self.root / "layer-a.json"
-        self.layer_b = self.root / "layer-b.json"
-        self.graduation = self.root / "graduation-formd.json"
+        # run scratch, under scratch/: everything here regenerates, so the
+        # investor's top level holds only curated inputs and published
+        # outputs. (layer-b holds live Wikidata answers — regenerating it
+        # re-queries the web, hence scratch stays tracked.)
+        self.scratch = self.root / "scratch"
+        self.queue = self.scratch / "queue"
+        self.issuer_evidence = self.scratch / "issuer-evidence.json"
+        self.layer_a = self.scratch / "layer-a.json"
+        self.layer_b = self.scratch / "layer-b.json"
+        self.graduation = self.scratch / "graduation-formd.json"
 
         # extracted evidence snapshots
         self.sources = self.root / "sources"

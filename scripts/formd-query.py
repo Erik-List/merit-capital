@@ -1,13 +1,20 @@
 #!/usr/bin/env python3
-"""Query SEC Form D bulk datasets for related persons matching investor partners.
+"""Sweep SEC Form D bulk datasets for related persons matching the partner roster.
 
 Streams RELATEDPERSONS.tsv + ISSUERS.tsv + OFFERING.tsv directly from the
 quarterly ZIPs in data/filings/form-d/ (no extraction, no dependencies).
 
-Usage: python3 scripts/formd-query.py "LAST,FIRST" ["LAST,FIRST" ...]
-Names are matched case-insensitively on (last, first-prefix), so
-"BOTHA,ROELOF" matches "Botha Roelof F." style variants.
+Targets come from the investor's partner roster
+(sources/wayback/partner-roster.json, written by partner-roster.py): each
+roster name yields a (surname, given-name) pair, matched case-insensitively
+on (last, first-prefix), so "Roelof Botha" matches "Botha Roelof F." style
+variants.
+
+Output: sources/edgar/formd-sweep.json  (accession -> issuer + offering + persons)
+
+Usage: python3 scripts/formd-query.py <investor-slug> [--out PATH]
 """
+import argparse
 import csv
 import io
 import json
@@ -15,20 +22,40 @@ import sys
 import zipfile
 from pathlib import Path
 
-DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "filings" / "form-d"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from paths import ROOT, Paths  # noqa: E402
+
+DATA_DIR = ROOT / "data" / "filings" / "form-d"
 
 
 def norm(s: str) -> str:
     return " ".join(s.upper().replace(".", " ").split())
 
 
+def roster_targets(p: Paths) -> list[tuple[str, str]]:
+    """(surname, given) per roster person; single-token names carry no
+    surname+given pair and cannot be swept."""
+    roster_path = p.wayback / "partner-roster.json"
+    if not roster_path.exists():
+        sys.exit(f"no roster at {roster_path.relative_to(ROOT)} — run "
+                 f"scripts/partner-roster.py first")
+    targets = []
+    for r in json.load(open(roster_path)):
+        toks = r["name"].split()
+        if len(toks) >= 2:
+            targets.append((norm(toks[-1]), norm(toks[0])))
+    return targets
+
+
 def main() -> None:
-    targets = []  # (last, first)
-    for arg in sys.argv[1:]:
-        last, _, first = arg.partition(",")
-        targets.append((norm(last), norm(first)))
-    if not targets:
-        sys.exit("usage: formd-query.py 'LAST,FIRST' ...")
+    ap = argparse.ArgumentParser()
+    ap.add_argument("investor")
+    ap.add_argument("--out", help="write the sweep here instead of sources/edgar/")
+    args = ap.parse_args()
+
+    p = Paths(args.investor)
+    targets = roster_targets(p)
+    print(f"targets: {len(targets)} roster names", file=sys.stderr)
 
     matches = {}  # accession -> list of matched person rows
     for zpath in sorted(DATA_DIR.glob("*.zip")):
@@ -87,8 +114,11 @@ def main() -> None:
                             # different industry category (REITs, Investing, ...)
                             r["is_pooled"] = row.get("ISPOOLEDINVESTMENTFUNDTYPE") == "true"
 
-    print(json.dumps(results, indent=2))
-    print(f"\n# accessions matched: {len(matches)}", file=sys.stderr)
+    dest = Path(args.out) if args.out else p.edgar / "formd-sweep.json"
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text(json.dumps(results, indent=2) + "\n")
+    print(f"wrote {dest}", file=sys.stderr)
+    print(f"# accessions matched: {len(matches)}", file=sys.stderr)
     issuers = {r.get("issuer") for r in results.values()}
     print(f"# distinct issuers: {len(issuers)}", file=sys.stderr)
 

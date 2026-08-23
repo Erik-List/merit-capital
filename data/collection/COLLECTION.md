@@ -148,8 +148,12 @@ is what guarantees those columns.
 3. **EDGAR**: the investor's vehicle registry (`scripts/edgar-entities.py`,
    one table serving role resolution, fund exclusion and lineage), issuer
    filings via the submissions API (`scripts/edgar-companies.py`), the
-   Form D sweep on the roster (`scripts/formd-query.py`) and issuer round
-   histories (`scripts/formd-issuer-rounds.py`).
+   Form D sweep on the roster (`scripts/formd-query.py <slug>`, targets
+   derived from the roster) and issuer round histories
+   (`scripts/formd-issuer-rounds.py`). One entry point runs the whole chain
+   in dependency order: `python3 scripts/run.py collect <slug>` (sweep →
+   entities → companies, plus the round rescan once a base exists). Layers
+   1, 1b and 2 stay separate invocations: they carry judgment steps.
 4. **Deterministic classification layers**: SEC XBRL public float, Wikidata,
    unicorn lists, Form D round positions. These are ceilings and
    corroboration, never labels — the first filing is a ceiling on entry
@@ -300,20 +304,24 @@ debt.
 
 ## 8. Run mechanics (`scripts/run.py`)
 
-One driver: `prepare` (seed verdicts, run deterministic layers, emit the one
-work queue), `record` (validate + merge a batch), `status` (coverage from
-disk), `verify` (assertion suite, non-zero exit with the failing rows),
-`export` (the one merged CSV, the investor's `base.csv`), `review` (the
-read-only review.html). Every subcommand takes the investor slug.
+One driver: `collect` (the deterministic EDGAR chain, §5.3), `prepare` (seed
+verdicts, run deterministic layers, emit the one work queue), `record`
+(validate + merge a batch), `status` (coverage from disk), `verify`
+(assertion suite, non-zero exit with the failing rows), `export` (the one
+merged CSV, the investor's `base.csv`), `review` (the read-only review.html).
+Every subcommand takes the investor slug.
 
 - **The base is read live** from the investor's `base.json`. No pinned
   snapshot; the standing rule is that the base is not rebuilt for an
   investor while that investor's run is in flight. Overlays join on slug, so
   `verify` catches a violation as drift between overlay keys and base slugs.
 - **Progress lives on disk, not in context.** Batch loop: read 2 batches →
-  judge every row → write both `queue/batch-NNN.out.jsonl` → `record` both →
-  one-line progress in chat → next pair. `status` is the resume point; track
-  nothing in context that disk already knows.
+  judge every row → write both `scratch/queue/batch-NNN.out.jsonl` →
+  `record` both → one-line progress in chat → next pair. `status` is the
+  resume point; track nothing in context that disk already knows.
+- **Run scratch lives under the investor's `scratch/`** (the queue, the
+  deterministic layer files): everything there regenerates; everything at the
+  investor's top level is curated or published and is never deleted by a run.
 - **`record` is the gate**: it validates every line (enums, source gates,
   citation URLs, city shape, country codes) and rejects violations; answers
   merge per key into existing records; flags union; only `clear_flags`

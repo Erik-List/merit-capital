@@ -98,28 +98,6 @@ def seed_from_company_search(seed_queries: list[str]) -> dict[str, dict]:
     return found
 
 
-def from_existing_filings(edgar_dir: Path) -> dict[str, dict]:
-    """Harvest entity names/CIKs already present in collected EDGAR filings."""
-    found: dict[str, dict] = {}
-    p = edgar_dir / "winner-filings.json"
-    if not p.exists():
-        return found
-    for rec in json.load(open(p)).values():
-        for n in rec.get("issuers", []) + rec.get("filers", []):
-            m = re.search(r"\(CIK (\d+)\)", n)
-            if not m:
-                continue
-            name = re.sub(r"\s*\(CIK \d+\)\s*$", "", n).strip()
-            name = re.sub(r"\s*\([A-Z., ]{1,20}\)\s*$", "", name).strip()
-            if classify_desk(name) == "unknown":
-                continue  # not one of theirs
-            c = str(int(m.group(1)))
-            found.setdefault(c, {"cik": c, "name": name, "sources": []})
-            if "prior-filings" not in found[c]["sources"]:
-                found[c]["sources"].append("prior-filings")
-    return found
-
-
 def from_formd_pooled(edgar_dir: Path) -> dict[str, dict]:
     """The investor's own pooled-investment-fund Form D issuers."""
     found: dict[str, dict] = {}
@@ -247,10 +225,6 @@ def main() -> None:
 
     print("== seeding from EDGAR company search")
     merge(seed_from_company_search(cfg["edgar"]["seed_queries"]))
-    print(f"   {len(registry)} entities")
-
-    print("== harvesting from previously collected filings")
-    merge(from_existing_filings(p.edgar))
     print(f"   {len(registry)} entities")
 
     print("== folding in own pooled Form D vehicles")

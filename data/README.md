@@ -35,7 +35,7 @@ Inside `collection/investors/<slug>/`:
 | `review.html` | The read-only review surface, written by `run.py review`. |
 | `report.md` / `golden.json` | The run report and the stage golden set. |
 | `sources/` | Extracted evidence snapshots (`wayback/`, `site/`, `edgar/`) that the sidecars cite. Small, and re-extraction is not deterministic, so they are kept. |
-| `layer-a.json` / `layer-b.json` / `issuer-evidence.json` / `queue/` | Run scratch. Kept on disk because layer B holds live Wikidata answers and `verify` reads layer A for the duplicate tripwire. |
+| `scratch/` | Run scratch (`queue/`, `layer-a.json`, `layer-b.json`, `issuer-evidence.json`, `graduation-formd.json`): everything here regenerates, so the top level holds only curated inputs and published outputs. Kept on disk because layer B holds live Wikidata answers and `verify` reads layer A for the duplicate tripwire. |
 
 ## Not tracked: bulk SEC source material
 
@@ -60,7 +60,8 @@ with a clear path error if it is missing.
 
 Create `collection/investors/<slug>/` with two files: `config.json` (the
 constants above) and `decisions.md` (the confirmed rulings). Everything else
-is produced by the pipeline: the collectors fill `sources/` and
+is produced by the pipeline: the site/wayback/roster collectors plus
+`run.py collect <slug>` (the deterministic EDGAR chain) fill `sources/` and
 `entities.json`, `build-company-base.py <slug>` writes the base,
 `run.py prepare/record/verify/export/review --investor <slug>` runs the
 classification, and `build-firm-profile.py <slug>` assembles the profile once
