@@ -2,6 +2,10 @@
 """One driver for the per-investor pipeline: membership and classification.
 
 Subcommands:
+  collect   run the deterministic EDGAR collector chain in dependency order
+            (formd-query, edgar-entities, edgar-companies, and the Form D
+            rescan once a base exists); site, wayback and partner-roster
+            collection stay separate scripts because they carry judgment steps
   prepare   seed membership verdicts, run every deterministic layer, emit the
             one work queue (membership judgments + classification gaps)
   record    validate a batch's JSONL and merge it into the durable overlays;
@@ -210,8 +214,7 @@ def today() -> str:
     return date.today().isoformat()
 
 
-def load(name: str, default):
-    p = P.root / name
+def load(p: Path, default):
     return json.loads(p.read_text()) if p.exists() else default
 
 
@@ -235,7 +238,7 @@ def evidence_class(r: dict) -> str:
 
 
 def write_queue(prefix: str, items: list, size: int, jsonl: bool = False) -> int:
-    """Replace queue/<prefix>-NNN.json with `items` chunked by `size`."""
+    """Replace scratch/queue/<prefix>-NNN.json with `items` chunked by `size`."""
     for f in P.queue.glob(f"{prefix}-*.json"):
         f.unlink()
     for i in range(0, len(items), size):
@@ -480,6 +483,35 @@ def seed_membership(rows: list[dict], investor: str) -> None:
           f"left for the judge: {n['skipped']}")
 
 
+def cmd_collect(args) -> None:
+    """The deterministic EDGAR chain, in dependency order.
+
+    formd-query feeds edgar-entities (its pooled-fund vehicles come from the
+    sweep), which feeds edgar-companies; the Form D rescan needs a built base,
+    so on a fresh investor it is deferred to `prepare`, which auto-runs it.
+    Site, wayback and partner-roster collection are deliberately NOT here:
+    they carry judgment steps (CMS escalation ladder, snapshot selection,
+    tenure windows) that must not hide behind one opaque command.
+    """
+    roster = P.wayback / "partner-roster.json"
+    if not roster.exists():
+        sys.exit(f"no roster at {roster.relative_to(ROOT)} — run "
+                 f"scripts/partner-roster.py {args.investor} first (judgment "
+                 f"step: CDX patterns and tenure windows live in config.json)")
+    for script in ("formd-query.py", "edgar-entities.py", "edgar-companies.py"):
+        print(f"\n==== {script}")
+        subprocess.run([sys.executable, str(ROOT / "scripts" / script),
+                        args.investor], check=True)
+    if P.base_json.exists():
+        print("\n==== formd-issuer-rounds.py")
+        subprocess.run([sys.executable,
+                        str(ROOT / "scripts" / "formd-issuer-rounds.py"),
+                        args.investor], check=True)
+    else:
+        print("\nno base.json yet — the Form D rescan (formd-issuer-rounds.py) "
+              "runs via `prepare` after build-company-base.py")
+
+
 def cmd_prepare(args) -> None:
     P.queue.mkdir(parents=True, exist_ok=True)
 
@@ -497,7 +529,7 @@ def cmd_prepare(args) -> None:
 
     # ---- Layer A: SEC public float
     index = S.load_cik_lookup()
-    layer_a: dict[str, dict] = load("layer-a.json", {})
+    layer_a: dict[str, dict] = load(P.layer_a, {})
     todo = [r for r in rows if r["slug"] not in layer_a]
     print(f"layer A (SEC public float): {len(todo)} rows to resolve")
 
@@ -526,7 +558,7 @@ def cmd_prepare(args) -> None:
           f"   with public float: {public}")
 
     # ---- Layer B: Wikidata
-    layer_b: dict[str, dict] = load("layer-b.json", {})
+    layer_b: dict[str, dict] = load(P.layer_b, {})
     pending = [r for r in rows if r["slug"] not in layer_b]
     print(f"layer B (Wikidata): {len(pending)} rows in batches of 60")
     for i in range(0, len(pending), 60):
@@ -555,7 +587,7 @@ def cmd_prepare(args) -> None:
           f"{determined} decided deterministically, "
           f"{anchored} entries moved past pre-investor rounds")
 
-    issuer_ev = load("issuer-evidence.json", {}).get("accessions", {})
+    issuer_ev = load(P.issuer_evidence, {}).get("accessions", {})
 
     def entry_country(slug: str) -> tuple[str | None, str | None]:
         """Country at the earliest partner-attributed Form D filing."""
@@ -571,7 +603,7 @@ def cmd_prepare(args) -> None:
 
     # ---- Consolidate and emit the queue
     resolved, queue = {}, []
-    cls_prev = load("classification.json", {})
+    cls_prev = load(P.classification, {})
     for row in rows:
         slug = row["slug"]
         a, b, g = layer_a.get(slug, {}), layer_b.get(slug, {}), grad.get(slug, {})
@@ -778,7 +810,7 @@ def cmd_record(args) -> None:
     """
     src = Path(args.jsonl)
     slugs = {r["slug"] for r in load_base(args.investor)}
-    cls = load("classification.json", {})
+    cls = load(P.classification, {})
     led, verdicts = load_ledger(args.investor)
     cls_in, verd_in, errors = {}, {}, []
     for n, line in enumerate(src.read_text().splitlines(), 1):
@@ -850,7 +882,7 @@ def cmd_record(args) -> None:
 def cmd_status(args) -> None:
     rows = load_base(args.investor)
     _, verdicts = load_ledger(args.investor)
-    cls = load("classification.json", {})
+    cls = load(P.classification, {})
     c = Counter(verdicts[r["slug"]]["verdict"] if r["slug"] in verdicts else "UNJUDGED"
                 for r in rows)
     batches = sorted(P.queue.glob("batch-*.json"))
@@ -986,8 +1018,8 @@ def verify_membership(rows: list[dict], investor: str, problems: list[str]) -> N
 
 def cmd_verify(args) -> None:
     rows = load_base(args.investor)
-    resolved = load("resolved.json", {})
-    cls = load("classification.json", {})
+    resolved = load(P.resolved, {})
+    cls = load(P.classification, {})
     problems: list[str] = []
 
     verify_base(rows, args.investor, problems, skip_links=args.skip_links)
@@ -1074,7 +1106,7 @@ def cmd_verify(args) -> None:
     # Two base rows resolving to one SEC registrant are the same company under
     # two names (Network Appliance -> NetApp). Left alone they double-count in
     # every bucket, so they are reported rather than silently summed.
-    layer_a = load("layer-a.json", {})
+    layer_a = load(P.layer_a, {})
     proven_distinct = never_merge_pairs(args.investor)
     by_cik: dict[str, list[str]] = {}
     for slug, rec in layer_a.items():
@@ -1185,8 +1217,8 @@ def cmd_export(args) -> None:
     classification run just leaves those fields empty."""
     rows = load_base(args.investor)
     _, verdicts = load_ledger(args.investor)
-    merged = merge_rows(rows, load("resolved.json", {}),
-                        load("classification.json", {}))
+    merged = merge_rows(rows, load(P.resolved, {}),
+                        load(P.classification, {}))
 
     out_rows = []
     for row in rows:
@@ -1534,8 +1566,8 @@ def profile_fields(investor: str) -> list[dict]:
 def cmd_review(args) -> None:
     rows = load_base(args.investor)
     _, verdicts = load_ledger(args.investor)
-    merged = merge_rows(rows, load("resolved.json", {}),
-                        load("classification.json", {}))
+    merged = merge_rows(rows, load(P.resolved, {}),
+                        load(P.classification, {}))
 
     out = []
     for b in rows:
@@ -1566,6 +1598,9 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     sub = ap.add_subparsers(dest="cmd", required=True)
 
+    p = sub.add_parser("collect"); p.set_defaults(fn=cmd_collect)
+    p.add_argument("investor")
+
     p = sub.add_parser("prepare"); p.set_defaults(fn=cmd_prepare)
     p.add_argument("investor")
     p.add_argument("--refresh", action="store_true", help="re-run the Form D rescan")
@@ -1580,7 +1615,7 @@ def main() -> None:
     p = sub.add_parser("review"); p.set_defaults(fn=cmd_review)
 
     for name, sp in sub.choices.items():
-        if name != "prepare":
+        if name not in ("collect", "prepare"):
             sp.add_argument("--investor", required=True)
 
     args = ap.parse_args()

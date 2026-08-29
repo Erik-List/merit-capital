@@ -26,7 +26,7 @@ Inputs (per investor, under data/collection/investors/<slug>/):
 
 Outputs:
   sources/edgar/formd-issuer-rounds.json   (or --out)
-  issuer-evidence.json
+  scratch/issuer-evidence.json
     {"accessions": {acc: {cik, name, city, state_desc, jurisdiction, year_inc}},
      "ciks": {cik: {"names": [...], "prev_names": [...], "first": ..., "last": ...}}}
 
@@ -308,6 +308,7 @@ def main() -> None:
     wanted_ciks = base_edgar_ciks | {v["cik"] for v in ev_accs.values()}
     ciks = name_histories(wanted_ciks)
     renamed = sum(1 for e in ciks.values() if e["prev_names"] or len(e["names"]) > 1)
+    p.issuer_evidence.parent.mkdir(parents=True, exist_ok=True)
     json.dump({"accessions": ev_accs, "ciks": ciks},
               open(p.issuer_evidence, "w"), indent=1)
     print(f"wrote {p.issuer_evidence.relative_to(ROOT)} "

@@ -1,3 +1,9 @@
+// No importers by design: consumed in-session. Investor-classification runs
+// (PRO-7 rule, carried forward for the tail investors) import fetchFaviconUrl
+// ad hoc to discover an icon_url candidate from the firm's website, "manual
+// only where it fails"; fetch-investor-icon.ts then normalizes and uploads
+// the chosen source. Sequoia's pre-PRO-53 icon (sequoiacap.com/favicon.ico)
+// came from this flow.
 import type { Database } from "../../types/supabase";
 import type { SupabaseClient } from "@supabase/supabase-js";
 
