@@ -16,12 +16,22 @@ preference:
   3. Any SPA          watch XHR in the browser pane, then call that endpoint
   4. Last resort      render the page headless and parse the DOM
 
+When every REST door is closed (a16z: /wp-json 404s and ?rest_route= returns
+the homepage), the ladder ends at scraping the site's own rendered surfaces:
+`type: "scrape"` with a "sources" list, each naming a parser strategy — the
+same named-strategy-in-code, constants-in-config pattern wayback-pull.py uses:
+
+  js_array        JSON array assigned to a JS variable in the page HTML
+  li_text_list    plain <li>Name</li> entries (compliance-list page)
+  paginated_json  JSON API with {count, next, results[]} pagination
+
 Output: <investor>/sources/site/companies.json, team.json
 
 Usage: python3 scripts/site-portfolio.py <investor-slug>
 """
 import argparse
 import json
+import re
 import subprocess
 import sys
 import time
@@ -45,6 +55,152 @@ def get(url: str) -> list:
         except (subprocess.CalledProcessError, json.JSONDecodeError):
             time.sleep(1.5 * (attempt + 1))
     return []
+
+
+def get_text(url: str) -> str:
+    for attempt in range(4):
+        try:
+            return subprocess.run(
+                ["curl", "-sfL", "--max-time", "90", "-H", f"User-Agent: {UA}", url],
+                capture_output=True, check=True).stdout.decode("utf-8", errors="replace")
+        except subprocess.CalledProcessError:
+            time.sleep(1.5 * (attempt + 1))
+    return ""
+
+
+def slug_of(name: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+
+
+# ---------------------------------------------------------------------------
+# scrape parsers: one row dict per company, at minimum {"name": ...}
+# ---------------------------------------------------------------------------
+
+def parse_js_array(src: dict) -> list[dict]:
+    """JSON array assigned to a JS variable inside the page HTML."""
+    html = get_text(src["url"])
+    m = re.search(re.escape(src["var"]) + r"\s*=\s*\[", html)
+    if not m:
+        sys.exit(f"js_array: variable {src['var']!r} not found at {src['url']}")
+    start = m.end() - 1
+    depth, i, instr, esc = 0, start, False, False
+    while i < len(html):
+        c = html[i]
+        if instr:
+            if esc:
+                esc = False
+            elif c == "\\":
+                esc = True
+            elif c == '"':
+                instr = False
+        else:
+            if c == '"':
+                instr = True
+            elif c == "[":
+                depth += 1
+            elif c == "]":
+                depth -= 1
+                if depth == 0:
+                    break
+        i += 1
+    return json.loads(html[start:i + 1])
+
+
+def parse_li_text_list(src: dict) -> list[dict]:
+    """Plain <li>Name</li> entries on a listing page."""
+    html = get_text(src["url"])
+    return [{"name": unescape(m).strip()}
+            for m in re.findall(r"<li>([^<]+)</li>", html)
+            if unescape(m).strip()]
+
+
+def parse_paginated_json(src: dict) -> list[dict]:
+    """JSON API paginated as {count, next, results[]}."""
+    rows, url = [], src["url"]
+    while url:
+        d = get(url)
+        if not isinstance(d, dict) or "results" not in d:
+            break
+        rows.extend(d["results"])
+        url = d.get("next")
+        time.sleep(0.4)
+    return rows
+
+
+def parse_regex_list(src: dict) -> list[dict]:
+    """Config-supplied regex with named groups over the raw page HTML;
+    every group dict becomes a row (at minimum (?P<name>...))."""
+    html = get_text(src["url"])
+    return [m.groupdict() for m in re.finditer(src["pattern"], html)]
+
+
+SCRAPE_PARSERS = {
+    "js_array": parse_js_array,
+    "li_text_list": parse_li_text_list,
+    "paginated_json": parse_paginated_json,
+    "regex_list": parse_regex_list,
+}
+
+
+def scrape_companies(api: dict) -> list[dict]:
+    """Run every configured source, merge rows by normalized name.
+
+    Each source entry: {parser, url, list, fields?, extras?, row_url?}.
+    `fields` maps the unified keys (name, url) to the source's own key names;
+    `extras` lists source keys carried through verbatim (evidence for the
+    judge: outcome tags, tickers, acquirers, cohorts); `sectors` maps a source
+    key whose list values union into the row's sectors. `row_url` is a
+    template applied when the mapped url is empty ({slug}/{name} substituted).
+    """
+    def dig(rec: dict, path: str):
+        """'announcement.permalink' walks nested dicts; missing -> ''."""
+        cur = rec
+        for part in path.split("."):
+            if not isinstance(cur, dict):
+                return ""
+            cur = cur.get(part)
+        return cur or ""
+
+    def first_of(rec: dict, paths) -> str:
+        """fields values may be a single path or a preference-ordered list."""
+        for p in ([paths] if isinstance(paths, str) else paths):
+            v = dig(rec, p)
+            if v:
+                return str(v)
+        return ""
+
+    merged: dict[str, dict] = {}
+    for src in api["sources"]:
+        raw = SCRAPE_PARSERS[src["parser"]](src)
+        fields = src.get("fields", {})
+        n = 0
+        for r in raw:
+            name = unescape(first_of(r, fields.get("name", "name"))).strip()
+            if not name:
+                continue
+            key = re.sub(r"[^a-z0-9]+", "", name.lower())
+            if not key:
+                continue
+            row = merged.setdefault(key, {
+                "name": name, "slug": slug_of(name), "sectors": [],
+                "url": "", "published": "", "modified": "", "lists": []})
+            url = first_of(r, fields.get("url", "url"))
+            if not url and src.get("row_url"):
+                url = src["row_url"].format(slug=r.get("slug", slug_of(name)),
+                                            name=name)
+            row["url"] = row["url"] or url
+            if src.get("sectors"):
+                vals = r.get(src["sectors"]) or []
+                row["sectors"] = sorted(set(row["sectors"]) | {
+                    str(v) for v in vals if v})
+            for k in src.get("extras", []):
+                if r.get(k) not in (None, "", [], {}):
+                    row.setdefault(k, r[k])
+            if src["list"] not in row["lists"]:
+                row["lists"].append(src["list"])
+            n += 1
+        print(f"  source {src['list']}: {n} rows")
+    return sorted(merged.values(), key=lambda c: c["name"].lower())
 
 
 def fetch_type(base: str, rest_base: str) -> list[dict]:
@@ -73,10 +229,20 @@ def main() -> None:
 
     p = Paths(args.investor)
     api = p.config()["site_api"]
+    p.site.mkdir(parents=True, exist_ok=True)
+
+    if api.get("type") == "scrape":
+        companies = scrape_companies(api)
+        (p.site / "companies.json").write_text(json.dumps(companies, indent=1) + "\n")
+        from collections import Counter
+        lists = Counter(li for c in companies for li in c["lists"])
+        print(f"companies: {len(companies)} (union)   per list: {dict(lists)}")
+        print("  sample:", [c["name"] for c in companies[:6]])
+        return
+
     if api.get("type") != "wordpress":
         sys.exit(f"site_api type {api.get('type')!r} not implemented; see the "
                  f"escalation ladder in this script's docstring")
-    p.site.mkdir(parents=True, exist_ok=True)
 
     raw = fetch_type(api["base"], api["company_type"])
     companies = [{

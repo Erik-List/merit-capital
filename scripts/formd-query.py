@@ -24,6 +24,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from paths import ROOT, Paths  # noqa: E402
+from people_common import DISTINCT_DESPITE_PREFIX, canon_first  # noqa: E402
 
 DATA_DIR = ROOT / "data" / "filings" / "form-d"
 
@@ -74,9 +75,16 @@ def main() -> None:
                         # match any partner sharing the letter: Intuit's CFO
                         # "R. Neil Williams" matched partner "Reggie Williams"
                         # and pulled Intuit into the base as a portfolio
-                        # company. One initial is not an attribution.
+                        # company. One initial is not an attribution. The
+                        # feminine-variant guard mirrors people_common: the
+                        # prefix rule matched Axcient founder "Justin Moore"
+                        # to partner "Justine Moore" (Sequoia's
+                        # Joseph/Josephine class).
+                        fa, fb = canon_first(first.lower()), canon_first(tf.lower())
+                        pair = tuple(sorted((fa, fb), key=len))
                         if last == tl and len(first) >= 3 and len(tf) >= 3 and (
-                                first.startswith(tf) or tf.startswith(first)):
+                                fa.startswith(fb) or fb.startswith(fa)) and (
+                                pair not in DISTINCT_DESPITE_PREFIX):
                             acc = row.get("ACCESSIONNUMBER")
                             matches.setdefault(acc, []).append({
                                 "person": f"{first} {last}",

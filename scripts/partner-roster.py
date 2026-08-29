@@ -86,6 +86,40 @@ def from_listing_pages(cfg: dict, raw_dir: Path) -> dict[str, list[str]]:
     return per
 
 
+def site_team_rows(p: Paths) -> list[dict]:
+    """team.json rows with a usable slug (taken verbatim, or derived from
+    the profile URL when the collector left it null).
+
+    The roster exists to attribute Form D related persons — people who sit
+    on issuer boards for the firm — so when the site team carries a group
+    taxonomy, config's roster.site_team_groups keeps only board-relevant
+    groups (a16z: 469 of 572 current staff are operations/marketing/HR,
+    whose homonyms only add sweep noise, never attributions)."""
+    site_team = p.site / "team.json"
+    if not site_team.exists():
+        return []
+    keep_groups = set(p.config()["roster"].get("site_team_groups") or [])
+    rows = []
+    for r in json.load(open(site_team)):
+        if keep_groups and r.get("group") and r["group"] not in keep_groups:
+            continue
+        slug = r.get("slug")
+        if not slug and r.get("url"):
+            slug = r["url"].rstrip("/").rsplit("/", 1)[-1]
+        if slug and r.get("name"):
+            rows.append({**r, "slug": slug})
+    return rows
+
+
+def from_site_team(p: Paths) -> dict[str, list[str]]:
+    """The site CMS team roster (site-portfolio.py's team.json), as
+    current-year evidence: the one source that cleanly separates the team
+    from mere content authors when the two share a URL namespace."""
+    from datetime import date
+    y = str(date.today().year)
+    return {r["slug"]: [y] for r in site_team_rows(p)}
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("investor")
@@ -102,8 +136,15 @@ def main() -> None:
     listing = from_listing_pages(cfg, p.wayback / "raw")
     print(f"   {len(listing)} people slugs")
 
+    print("== site CMS team roster (current)")
+    site = from_site_team(p)
+    print(f"   {len(site)} people slugs")
+
+    site_names = {r["slug"]: r["name"] for r in site_team_rows(p)}
+
     merged: dict[str, dict] = {}
-    for src, batch in (("cdx-profile-page", cdx), ("listing-page", listing)):
+    for src, batch in (("cdx-profile-page", cdx), ("listing-page", listing),
+                       ("site-team", site)):
         for slug, years in batch.items():
             e = merged.setdefault(slug, {"slug": slug, "years": set(), "sources": [],
                                          "snapshots": 0})
@@ -117,7 +158,8 @@ def main() -> None:
         years = sorted(int(y) for y in e["years"])
         rows.append({
             "slug": slug,
-            "name": " ".join(w.capitalize() for w in slug.split("-")),
+            "name": site_names.get(slug) or " ".join(
+                w.capitalize() for w in slug.split("-")),
             "years_seen": years,
             "first_seen": years[0],
             "last_seen": years[-1],

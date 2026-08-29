@@ -1,0 +1,115 @@
+{
+  "slug": "a16z",
+  "wayback": {
+    "cdx_domain": "a16z.com",
+    "site_url_base": "https://a16z.com",
+    "eras": [
+      {"parser": "listing_regex", "path": "/portfolio/", "from": 2010, "to": 2013,
+       "pattern": "<h1 class=\"title entry-title\">(?P<name>[^<]+)</h1>",
+       "per_company_pages": false},
+      {"parser": "listing_regex", "path": "/portfolio/", "from": 2014, "to": 2015,
+       "pattern": "<b>Company:</b>\\s*(?P<name>[^<]+)</div>",
+       "per_company_pages": false},
+      {"parser": "listing_regex", "path": "/portfolio/", "from": 2016, "to": 2018,
+       "pattern": "<h2>Company:</h2>\\s*(?P<name>[^<]+)</li>",
+       "per_company_pages": false},
+      {"parser": "listing_regex", "path": "/investment-list/", "from": 2017, "to": 2026,
+       "pattern": "<li>(?P<name>[^<]+)</li>",
+       "per_company_pages": false}
+    ],
+    "non_company_slugs": [
+      "news", "contact", "about", "team", "people", "jobs", "legal", "sitemap",
+      "portfolio", "investment-list", "index", "home", "press", "events",
+      "careers", "privacy", "terms", "blog", "podcast", "podcasts", "books",
+      "crypto", "bio", "bio-health", "games", "american-dynamism", "fintech",
+      "consumer", "enterprise", "infra", "ai", "growth", "seed", "venture",
+      "speedrun", "cultural-leadership-fund", "clf", "disclosures", "offices"
+    ]
+  },
+  "roster": {
+    "cdx_patterns": [],
+    "site_team_groups": ["investment-team", "board-partners"],
+    "slug_re": "/author/([a-z][a-z0-9-]*[a-z0-9])/?$",
+    "listing_href_re": "/author/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+    "not_a_person": [
+      "index", "team", "a16z", "a16z-editorial", "editorial", "admin", "guest",
+      "news", "portfolio", "about", "crypto", "bio", "games", "future",
+      "a16z-crypto", "a16z-games", "a16z-bio-health", "a16z-american-dynamism"
+    ]
+  },
+  "site_api": {
+    "type": "scrape",
+    "sources": [
+      {
+        "parser": "js_array",
+        "url": "https://a16z.com/portfolio/",
+        "var": "portfolio_companies",
+        "list": "portfolio",
+        "fields": {"name": "title", "url": ["announcement.permalink", "web"]},
+        "extras": ["stages", "ticker_symbol", "acquirer", "exit_date",
+                   "invest_date", "is_initial", "year_founded", "web"]
+      },
+      {
+        "parser": "li_text_list",
+        "url": "https://a16z.com/investment-list/",
+        "list": "investment-list",
+        "row_url": "https://a16z.com/investment-list/"
+      },
+      {
+        "parser": "paginated_json",
+        "url": "https://speedrun-api.a16z.com/api/companies/companies/?limit=100&offset=0&ordering=name",
+        "list": "speedrun",
+        "fields": {"name": "name", "url": "website_url"},
+        "sectors": "industries",
+        "extras": ["cohort", "city", "country", "founded_year"],
+        "row_url": "https://speedrun.a16z.com/companies/{slug}"
+      },
+      {
+        "parser": "regex_list",
+        "url": "https://a16zcrypto.com/portfolio/",
+        "pattern": "<a[^>]+href=\"(?P<url>[^\"]+)\"[^>]*>\\s*<div[^>]*>\\s*<span[^>]*>(?P<name>[^<]+)</span>",
+        "list": "crypto-portfolio",
+        "row_url": "https://a16zcrypto.com/portfolio/"
+      }
+    ]
+  },
+  "edgar": {
+    "seed_queries": ["andreessen", "a16z", "ah+equity", "ah+parallel",
+                     "ah+bio", "ah+games", "ah+crypto", "ah+growth",
+                     "cnk+fund", "cnk+equity"]
+  },
+  "desks": {
+    "home": "us",
+    "partition": [],
+    "rank": ["us", "unknown"],
+    "classify": [
+      {"desk": "us", "patterns": [
+        "andreessen",
+        "\\ba16z\\b",
+        "^ah (equity|parallel|bio|games|crypto|growth|capital|seed|annual|feeder)",
+        "^cnk (fund|equity)"
+      ]}
+    ]
+  },
+  "profile": {
+    "own_vehicle_pattern": "andreessen|a16z|^ah |^cnk ",
+    "focus_min_companies": 25,
+    "focus_crosswalk": {}
+  },
+  "verify": {
+    "text_mention_leaks": [],
+    "cofiler_leaks": [
+      "ah equity partners i, l.l.c.", "ah equity partners ii, l.l.c.",
+      "ah equity partners iii, l.l.c.", "ah equity partners iv, l.l.c.",
+      "a16z capital management, l.l.c.", "cnk equity partners i, l.l.c."
+    ],
+    "known_positions": ["github", "coinbase", "okta", "databricks", "slack",
+                        "figma", "airbnb", "roblox", "anduril", "openai"]
+  },
+  "sample_slugs": [
+    "skype", "21", "bitcoin", "four-square", "cyngn", "essence-ventures",
+    "adelante-financial-holdings-inc", "aligned-co", "somo-labs-inc",
+    "surely-health-inc", "seidr", "lmarena", "amp-fund", "hawthorne-labs-inc",
+    "lido", "airtime", "dropbox", "digg"
+  ]
+}
