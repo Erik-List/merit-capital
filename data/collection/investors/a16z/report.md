@@ -5,17 +5,24 @@ Company Base (PRO-30, "autonomous session 1, part 1"). Classification
 columns (`status`, `valuation_range`, `entry_stage`, `hq_*`, `focus`, C2A)
 are PRO-31, which continues on this base after Erik's sample sign-off.
 
-**Prompt count: 1** (the kickoff: "execute the a16z base collection as per
-linear issue PRO-30 / work diligently in full autonomy"). Checkpoint
-approvals requested: 0 (both checkpoints posted as status and continued,
-per the kickoff's autonomy instruction). Corrections: 0 at the time of
-writing; Erik's sample sign-off is the open exit criterion.
+**Prompt count: 2** (the kickoff: "execute the a16z base collection as per
+linear issue PRO-30 / work diligently in full autonomy"; plus one review
+correction, below). Checkpoint approvals requested: 0 (both checkpoints
+posted as status and continued, per the kickoff's autonomy instruction).
+**Corrections: 1** — Erik's review caught `hewlett-packard-co` published
+as member: the audit's not_member had landed on the merged HPE slug, and
+when that row's exclusion split the pair at the final rebuild, the plain
+HP twin survived with its stale v1 fund_filing seed (its only evidence is
+Andreessen's personal Section 16 stream, person CIK 1160077). Recorded
+class-wide as a `who: "erik"` not_member on 2026-08-30; a sweep confirmed
+it was the class's only surviving instance. Erik's sample sign-off is the
+open exit criterion.
 
 ## 1. Result
 
-**1,807 published rows** — 1,165 Tier A / 629 Tier B / 13 Tier C — every
-row carrying a durable membership verdict: **1,803 member, 4 uncertain**
-(sampling-marked), plus **127 not_member rows** preserved in
+**1,806 published rows** — 1,165 Tier A / 629 Tier B / 12 Tier C — every
+row carrying a durable membership verdict: **1,802 member, 4 uncertain**
+(sampling-marked), plus **128 not_member rows** preserved in
 `excluded.csv`. Verdicts by evidence class: 1,792 site_listing,
 10 formd_adjudicated, 2 fund_filing, 3 web (recall additions); by author:
 1,786 evidence-class seeds, 21 judge verdicts surviving on published rows
@@ -112,7 +119,7 @@ Technologies (Olivia Moore). Ruled member at medium confidence as
 unannounced deals (the compliance list's own permission-exclusion
 explains their absence); each flagged for the PRO-31 A/B pass.
 
-**Exclusion classes recorded** (127 rows in excluded.csv): homonym
+**Exclusion classes recorded** (128 rows in excluded.csv, after Erik's HP correction): homonym
 clusters (Brian Roberts/Comcast-NBCU-ViewRay, Rod-Rodney-Rodger
 Johnson/SpringSource-SandRidge-Elastic, James Sullivan biotech cluster,
 Timothy Sullivan/Ancestry); Executive-Officer homonyms (pymetrics' own
@@ -202,7 +209,12 @@ Sequoia; the probe confirmed the shape rather than breaking it.
   streams aren't machine-flagged person-only; the judge caught every
   affected row (eBay, HP, Meta, Orbitz, Loudcloud, Blue Coat).
 - 19 registrant-sharing groups (weak CIK joins) are flagged for the
-  PRO-31 pass; the verify duplicate tripwire tracks them.
+  PRO-31 pass; the verify duplicate tripwire tracks them. Known concrete
+  case (spotted by the PRO-32 session): slug `dynamic` (dynamic.xyz, a
+  genuine crypto member) weak-joins CIK 1999109 and inherits a ~$1.1B
+  entry round from Dynamic Offshore Resources in the issuer-rounds layer
+  — its entry_stage/graduation must not trust the Form D band
+  (verification duty 3).
 - Judged-member rows of the Director-class pattern carry medium
   confidence pending the A/B pass.
 
@@ -210,8 +222,8 @@ Sequoia; the probe confirmed the shape rather than breaking it.
 
 The membership-verified base is ready for Erik's sampling: `review.html`
 (read-only, sample chip = 18 stratified slugs incl. every uncertain row
-and each new evidence class), `base.csv` (1,807 rows, classification
-columns empty pending PRO-31), `excluded.csv` (127), `golden.json` (the
+and each new evidence class), `base.csv` (1,806 rows, classification
+columns empty pending PRO-31), `excluded.csv` (128), `golden.json` (the
 pre-registered key), `base-verification.json` (2,007 durable verdicts).
 Corrections in chat are recorded class-wide as `who: "erik"` ledger
 verdicts. PRO-31 (classification) is unblocked on sign-off.
@@ -220,10 +232,10 @@ verdicts. PRO-31 (classification) is unblocked on sign-off.
 
 | File | What |
 |---|---|
-| `base.json` / `base.csv` | Evidence layer / merged published surface (1,807 rows) |
+| `base.json` / `base.csv` | Evidence layer / merged published surface (1,806 rows) |
 | `base-verification.json` | Durable verdict ledger (2,007 verdicts + 23 recall additions) |
 | `identity-merges.json` | 30 merge groups, 2 never-merge pairs |
-| `excluded.csv` | 127 not_member rows, preserved |
+| `excluded.csv` | 128 not_member rows, preserved |
 | `golden.json` | Membership trap set + pre-registered key (stage set: PRO-31) |
 | `decisions.md` | Phase 0 rulings (confirmed 2026-08-18) |
 | `entities.json` | 133-entity vehicle registry |
@@ -231,3 +243,91 @@ verdicts. PRO-31 (classification) is unblocked on sign-off.
 | `sources/wayback/*` | Era snapshots (raw/) + per-year parses (parsed/) |
 | `sources/edgar/*` | Sweep, companies, issuer rounds |
 | `review.html` | Read-only review surface (checkpoint 2) |
+
+---
+
+# Investor Classification Report — a16z (PRO-32)
+
+Autonomous session 2, run base-less in parallel with PRO-30 per the issue's
+design, then recomputed once the base landed the same day. Output:
+`investor.json` + `investor.sources.json` (every field populated, per-field
+provenance, 8 flags), rendered as the investor panel in the merged
+`review.html` (1,807 rows + profile). Taxonomy gate: **0 errors,
+0 warnings**. Ingest deliberately not run — it follows Erik's sign-off.
+
+**Prompt count: 1** (kickoff). Coordination with the PRO-30 session ran
+session-to-session (ownership split, homonym/alias intel exchange, the
+base-landed recompute ping); 0 checkpoint approvals requested.
+
+## Evidence chain
+
+- **AUM [$100B, $106.48B]**: IAPD resolved the adviser as A16Z Capital
+  Management, L.L.C. (renamed from AH Capital Management; CRD 160489,
+  SEC 801-114985); full ADV PDF pulled, Item 5.F (annual amendment
+  2026-03-30): RAUM $106,476,153,956, all discretionary, 119 accounts.
+  Bottom is the firm's own "over $100B+" about-page claim (2026-04-30).
+  a16z Perennial Management (CRD 324429) is separately registered and
+  excluded from AUM and funds — the SCGE precedent applied.
+- **Funds: 29, vintage 2015-2026** (`sources/edgar/fund-formds.json`, the
+  full AH/Andreessen/a16z/CNK filer sweep: EDGAR company search + local
+  Form D ZIPs; 133 filing vehicles + 36 no-Form-D entities). 15 entries
+  carry Form D amounts asserted against accessions at build time; 14 carry
+  press sizes because post-2022 LP capital enters through the AH Annual
+  Fund / Fund Multiplexer conduits (conduits excluded to avoid
+  double-counting). Funds I-IV (2009-2014) predate the window.
+- **People: 103 published** of 572 in the live CMS payload — the site's
+  own Investment Team + Board Partners groups; 469 operations staff
+  excluded by flagged scope decision. The WR25 site walls off WP REST;
+  the team page embeds the full payload in a `data-payload` attribute
+  (escalation ladder step 4). Positions are the site's own flat
+  presentation ("Partner" for every investing member, cofounders
+  included). Socials 69 LinkedIn / 66 X.
+- **investment_range $500K / $25M / $2B**: floor from speedrun's $500K
+  upfront check; median recomputed on the final base — partner-anchored
+  entry-round median $24,734,937 across 182 membership-verified companies
+  (594 rounds in `formd-issuer-rounds.json`; pre-base list-confirmed
+  corroboration $30.0M, n=93); ceiling from the $2B Thinking Machines
+  seed a16z led in July 2025, consistent with Growth Fund V concentration
+  capacity.
+- **Stage / geo / scope** from the firm's own filters and language:
+  portfolio filters Seed/Venture/Growth, the LSV (Late Stage Venture)
+  family, speedrun's pre-seed/seed scope; nine-sector about-page
+  enumeration crosswalked to the closed focus taxonomy; offices page
+  (5 US + Seoul + Tokyo) and named investment-list companies for geo.
+- **Icon** via the PRO-53 flow from the firm's own 270px CDN favicon.
+
+## Post-base reconciliation (same day)
+
+1. `build-firm-profile.py` re-ran against the base: all 8
+   notable_investments asserted against auto_confirmed rows; 15 fund
+   accessions asserted against filings.
+2. **Focus recompute guarded off as unrepresentative**: only 251 of 1,807
+   base rows carry sector tags (the speedrun surface exclusively), so a
+   base-derived focus would describe the accelerator slice, not the firm.
+   The build now publishes the recompute only above 25% tag coverage;
+   the firm's own nine-sector enumeration stands, and the speedrun-tag
+   crosswalk is staged in config.json for whenever coverage improves.
+3. **Median moved $30M → $25M** with the base-anchored recompute (182
+   companies vs the 93-issuer pre-base subset). A few distribution tails
+   ride on weak CIK joins (slug `dynamic` at $1.1B); PRO-31's standing
+   weak-CIK audit is the cleanup pass and the median is insensitive to
+   them.
+4. The departed cross-check stays structurally empty: the roster is the
+   current site team by design (Wayback CDX offline all session); the
+   alumni limitation is §8 of the PRO-30 report above.
+
+## Script changes
+
+- `build-firm-profile.py`: tolerates a missing base (skips the two
+  base-bound checks loudly, re-runs them once the base exists); focus
+  recompute guarded by tag-coverage representativeness; investing-bucket
+  vocabulary generalized to a16z's "investing".
+- `run.py review`: renders the investor panel over an empty company table
+  when no base exists, so the profile session ends at the review surface.
+
+## Debt, all flagged in the sidecar
+
+Entry-round median excludes unfiled raises (speedrun SAFEs, 4(a)(2));
+four of nine focus values await the investor-side focus migration before
+they filter on the frontend; investment_geo "other" is inference from
+named deals + offices, to verify or trim in review.
