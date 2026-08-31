@@ -28,7 +28,18 @@ cites these rulings per line; all confirmed by Erik, 2026-08-18.
    AMP Fund, Drone Capital I, Revival Fund Management (and consistent
    with the identified cases A.Capital, Meta4 Capital, BlockTower
    Capital). Fund-shaped names identified AS operating companies stay in
-   (Capital.xyz, Foundation, Proof Holdings, Essence Ventures).
+   (Capital.xyz, Foundation, Proof Holdings, Essence Ventures — the last
+   confirmed by Erik 2026-08-30 as an operating media/commerce company).
+7. **Pure protocol-asset positions** (ruled 2026-08-30, refines #3):
+   a listed token position stays in when it maps to an operating or
+   issuing organization (a DAO with a treasury and governance, a labs
+   entity — Lido, Uniswap, Optimism, Yield Guild Games); a pure
+   base-layer asset holding with no such entity is a treasury position,
+   not a portfolio company, and is `not_member` (Bitcoin, Ethereum —
+   both of which a16z itself later removed from the investment list
+   under its unannounced-public-digital-assets exclusion). Where the
+   token and its company are both listed, they are one row under the
+   company (Filecoin -> Protocol Labs).
 
 Verdicts live in `base-verification.json` and are re-applied on every
 rebuild; human verdicts (`who: "erik"`) outrank agent verdicts; excluded

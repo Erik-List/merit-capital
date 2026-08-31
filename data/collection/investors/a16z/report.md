@@ -5,11 +5,11 @@ Company Base (PRO-30, "autonomous session 1, part 1"). Classification
 columns (`status`, `valuation_range`, `entry_stage`, `hq_*`, `focus`, C2A)
 are PRO-31, which continues on this base after Erik's sample sign-off.
 
-**Prompt count: 7** — 1 kickoff ("execute the a16z base collection as per
-linear issue PRO-30 / work diligently in full autonomy") + 6 review
+**Prompt count: 9** — 1 kickoff ("execute the a16z base collection as per
+linear issue PRO-30 / work diligently in full autonomy") + 8 review
 exchanges on 2026-08-30. Checkpoint approvals requested: 0 (both
 checkpoints posted as status and continued, per the kickoff's autonomy
-instruction). **Erik rulings recorded: 3** (each class-wide,
+instruction). **Erik rulings recorded: 6** (each class-wide,
 `who: "erik"`): (1) `hewlett-packard-co` out — the audit's not_member had
 landed on the merged HPE slug and the HP twin survived the split with a
 stale fund_filing seed; sole evidence is Andreessen's personal Section 16
@@ -18,7 +18,12 @@ with citations — the band had mislabeled the Nov-2025 $300M Series B
 filing as a Growth entry because the a16z-led $31M seed (Aug 2024) never
 filed. (3) Decisions ruling #6: fund-shaped investment-list entries
 unidentifiable as operating companies are not_member (AMP Fund, Drone
-Capital I, Revival Fund Management). Two further review outcomes:
+Capital I, Revival Fund Management). (4) Decisions ruling #7, refining
+#3: pure protocol-asset holdings with no issuing organization are out
+(Bitcoin, Ethereum); DAO/labs-backed token positions stay (Lido). (5)
+Essence Ventures confirmed member (operating company despite the name).
+(6) Two identity consolidations ratified in review: 21 -> Earn Holdings
+and Filecoin -> Protocol Labs. Further review outcomes:
 Hawthorne Labs moved uncertain -> not_member by re-applying the
 uncorroborated-name-match rule, and `abacus` (firm-listed since 2023 but
 unidentifiable) flagged identity_uncertain with a documented note.
@@ -26,9 +31,9 @@ Erik's sample sign-off is the open exit criterion.
 
 ## 1. Result
 
-**1,802 published rows** — 1,164 Tier A / 627 Tier B / 11 Tier C — every
+**1,798 published rows** — 1,164 Tier A / 623 Tier B / 11 Tier C — every
 row an affirmed **member** (0 uncertain after Erik's review rulings),
-plus **132 not_member rows** preserved in `excluded.csv`. Verdicts by evidence class: 1,792 site_listing,
+plus **134 not_member rows** preserved in `excluded.csv`. Verdicts by evidence class: 1,792 site_listing,
 10 formd_adjudicated, 2 fund_filing, 3 web (recall additions); by author:
 1,786 evidence-class seeds, 21 judge verdicts surviving on published rows
 (the other ~160 judge verdicts sit on excluded or absorbed rows).
@@ -227,8 +232,8 @@ Sequoia; the probe confirmed the shape rather than breaking it.
 
 The membership-verified base is ready for Erik's sampling: `review.html`
 (read-only, sample chip = 18 stratified slugs incl. every uncertain row
-and each new evidence class), `base.csv` (1,802 rows, classification
-columns empty pending PRO-31), `excluded.csv` (132), `golden.json` (the
+and each new evidence class), `base.csv` (1,798 rows, classification
+columns empty pending PRO-31), `excluded.csv` (134), `golden.json` (the
 pre-registered key), `base-verification.json` (2,007 durable verdicts).
 Corrections in chat are recorded class-wide as `who: "erik"` ledger
 verdicts. PRO-31 (classification) is unblocked on sign-off.
@@ -237,10 +242,10 @@ verdicts. PRO-31 (classification) is unblocked on sign-off.
 
 | File | What |
 |---|---|
-| `base.json` / `base.csv` | Evidence layer / merged published surface (1,802 rows) |
+| `base.json` / `base.csv` | Evidence layer / merged published surface (1,798 rows) |
 | `base-verification.json` | Durable verdict ledger (2,007 verdicts + 23 recall additions) |
 | `identity-merges.json` | 30 merge groups, 2 never-merge pairs |
-| `excluded.csv` | 132 not_member rows, preserved |
+| `excluded.csv` | 134 not_member rows, preserved |
 | `golden.json` | Membership trap set + pre-registered key (stage set: PRO-31) |
 | `decisions.md` | Phase 0 rulings (confirmed 2026-08-18) |
 | `entities.json` | 133-entity vehicle registry |
