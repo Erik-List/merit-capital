@@ -1,0 +1,1389 @@
+{
+  "slug": "a16z",
+  "generated_at": "2026-08-29T22:14:37+00:00",
+  "run": "PRO-32 autonomous in-session run",
+  "fields": {
+    "name": {
+      "value": "Andreessen Horowitz",
+      "source": "https://a16z.com/",
+      "basis": "firm site; a16z is the firm's own short form (a-sixteen-z), used as the slug"
+    },
+    "website": {
+      "value": "https://a16z.com",
+      "source": "https://a16z.com/",
+      "basis": "firm site"
+    },
+    "icon_url": {
+      "value": "https://lsohkkmdlrlixukuncjl.supabase.co/storage/v1/object/public/Icon%20Images/investors/a16z-e8b1370cbd.png",
+      "source": "https://d1lamhf6l6yk6d.cloudfront.net/uploads/2025/06/Favicon-%E2%80%94-270x270px.png",
+      "basis": "the firm's own 270px favicon asset from its CDN (2025 site refresh), normalized to the 256 PNG master and uploaded to the Icon Images bucket by scripts/fetch-investor-icon.ts (PRO-53 flow)"
+    },
+    "founding_year": {
+      "value": 2009,
+      "source": "https://a16z.com/about/",
+      "basis": "firm site, stated ('In 2009, Marc Andreessen and Ben Horowitz built a16z'); first fund announced July 2009 (TechCrunch 2009-07-05); earliest own Form D: Andreessen Horowitz Fund I, L.P., 2009q2 (accession 0001466249-09-000001)"
+    },
+    "history": {
+      "value": "Founded by Marc Andreessen and Ben Horowitz in 2009 on the conviction that software would eat the world. Its $300 million debut fund grew into a multi-strategy platform spanning AI, bio + health, consumer, crypto, enterprise, fintech, games and American Dynamism.",
+      "source": "https://a16z.com/about/",
+      "basis": "firm site, paraphrased from stated facts ('built a16z on a single conviction: software would eat the world'; sector enumeration verbatim from the about page). $300M debut fund: techcrunch.com/2009/07/05/details-on-marc-andreessens-new-fund-plus-five-other-interesting-things-he-said/"
+    },
+    "investment_concept": {
+      "value": "Software is eating the world.",
+      "source": "https://a16z.com/",
+      "basis": "the firm's own site-wide motto (site title: 'Andreessen Horowitz | Software Is Eating the World'), from Marc Andreessen's 2011 WSJ essay"
+    },
+    "investment_stage": {
+      "value": [
+        "Pre-Seed",
+        "Seed",
+        "Series A",
+        "Series B",
+        "Growth",
+        "Late Stage"
+      ],
+      "source": "https://a16z.com/portfolio/",
+      "basis": "firm's own listing filters (Seed / Venture / Growth) and its 'seed to venture to growth-stage' language on a16z.com/about/; Venture read as Series A + Series B; Late Stage from the firm's own Late Stage Venture fund family (LSV Fund I-III on EDGAR; a16z.com/late-stage-venture/); Pre-Seed from speedrun, the firm's pre-seed/seed accelerator (speedrun.a16z.com)"
+    },
+    "investment_geo": {
+      "value": {
+        "core": [
+          "US"
+        ],
+        "other": [
+          "Europe",
+          "Israel",
+          "Asia"
+        ]
+      },
+      "source": "https://a16z.com/offices/",
+      "basis": "core: five of seven offices are US (Menlo Park, San Francisco, New York, Washington DC, Santa Monica) and the portfolio concentrates there. Other: Europe from the firm's own investment list (Mistral AI, ElevenLabs, Improbable, Deel, Rasa, Hopin), Israel from the same list (Wiz, Eon), Asia from the Seoul and Tokyo offices on the firm's own offices page"
+    },
+    "investment_scope": {
+      "value": {
+        "type": "Generalist",
+        "focus": [
+          "AI & Applied AI",
+          "SaaS",
+          "Consumer & Marketplaces",
+          "Crypto & Web3",
+          "Fintech & Payments",
+          "Healthcare & Bio",
+          "Data Infrastructure",
+          "Media, Gaming & Advertising",
+          "Industrial & Robotics"
+        ]
+      },
+      "source": "https://a16z.com/about/",
+      "basis": "the firm's own sector enumeration ('AI, bio + healthcare, consumer, crypto, enterprise, fintech, games, infrastructure, and companies building toward American dynamism'), each a named fund family with dedicated capital, crosswalked to data/taxonomy/focus.json. Scope type Generalist: nine sectors, no single-sector thesis. The base-tag recompute is guarded off as unrepresentative: only 251 of 1,807 base rows carry a sector tag, all from the speedrun accelerator surface, so a recomputed focus would describe 14% of the portfolio (accelerator-skewed) rather than the firm; the crosswalk for those tags is staged in config.json and the recompute publishes automatically if tag coverage ever reaches 25% of the base."
+    },
+    "investment_range": {
+      "value": {
+        "lower_limit": 500000,
+        "median": 25000000,
+        "upper_limit": 2000000000
+      },
+      "source": "sources/edgar/formd-issuer-rounds.json",
+      "basis": "Median: partner-anchored entry-round median $24,734,937 across 182 membership-verified base companies with priced Form D histories (594 rounds; 72 entries anchored past pre-investor rounds), published as $25M. p10 $2.2M, p25 $11.8M, p75 $50.0M, p90 $100.0M. Pre-base corroboration: $30.0M over the 93 investment-list-confirmed issuers of the roster sweep. A round-size proxy for check size, fair for a high-ownership lead investor. | Lower limit: speedrun accelerator checks, $500K upfront (up to $1M per company), the program floor. | Upper limit: the $2B Thinking Machines Lab seed round led by a16z, July 2025 (a16z share undisclosed; Nvidia, AMD, Accel, Jane Street in the consortium; news.crunchbase.com/venture/biggest-seed-round-ai-thinking-machines-mira-murati/). Dry-powder check: the $6.75B Growth Fund V at a 10-15% single-position concentration supports $675M-$1B positions; the $2B ceiling is the led-round figure, not a single-check claim"
+    },
+    "notable_investments": {
+      "value": [
+        "Airbnb",
+        "Coinbase",
+        "Facebook",
+        "GitHub",
+        "Instagram",
+        "OpenAI",
+        "Slack",
+        "Stripe"
+      ],
+      "source": "https://a16z.com/portfolio/",
+      "basis": "Membership asserted against the firm's own live portfolio page and investment list (sources/site/companies.json), because the confirmed base does not exist yet (PRO-30 in flight); every name verified present with its exit state (Facebook IPO, Instagram/GitHub/Slack M&A/IPO, Coinbase COIN, Airbnb ABNB). Selection among them is recognition judgement, per PRO-7. Re-assert against auto_confirmed base rows at the first build after the base lands"
+    },
+    "aum": {
+      "value": {
+        "bottom": 100000000000,
+        "top": 106476153956
+      },
+      "source": "https://adviserinfo.sec.gov/firm/summary/160489",
+      "basis": "Form ADV Item 5.F, A16Z Capital Management, L.L.C. (dba Andreessen Horowitz, CRD 160489, SEC 801-114985), annual amendment filed 2026-03-30: RAUM $106,476,153,956, all discretionary, 119 accounts, all attributable to pooled investment vehicles. Filing-grade; used as the top since RAUM is gross regulatory assets. | Bottom: the firm's own 'over $100B+ under management across multiple funds' (a16z.com/about/, as of 2026-04-30). | Corroboration: Newcomer 2026-01: 'over $90 billion' after the $15B raise; the $1.1B Machine Age Fund (2026-08-28) came after the ADV date. | a16z Perennial Management, L.P. (CRD 324429, SEC 801-127229) is a separately registered adviser for the private-wealth/evergreen platform and is excluded from both AUM and the fund list, as SCGE was for Sequoia"
+    },
+    "funds": {
+      "value": [
+        {
+          "name": "Andreessen Horowitz Growth Fund V",
+          "size": 6750000000,
+          "vintage": 2026,
+          "sources": [
+            {
+              "source": "https://www.cnbc.com/2026/01/09/andreessen-horowitz-raises-15-billion-big-in-infrastructure-defense.html",
+              "note": "CNBC 2026-01-09: $6.75B growth fund, the largest of the $15B January 2026 raise."
+            },
+            {
+              "source": "https://a16z.com/why-did-we-raise-15b/",
+              "note": "The firm's own announcement of the $15B+ raise. LP capital enters through the 2026 Fund Multiplexer vehicles; Andreessen Horowitz LSV Fund V-B exists on EDGAR with no Form D of its own."
+            }
+          ]
+        },
+        {
+          "name": "Andreessen Horowitz LSV Fund III, L.P.",
+          "size": 5000000000,
+          "vintage": 2022,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2022q1: $5,000,000,000 sold."
+            },
+            {
+              "source": "https://techcrunch.com/2022/01/07/andreessen-horowitz-raises-9b-in-new-capital-for-venture-growth-bio-funds",
+              "note": "TechCrunch 2022-01-07: the $5B growth leg of the $9B January 2022 raise."
+            }
+          ],
+          "accession": "0001889367-22-000001"
+        },
+        {
+          "name": "a16z Crypto Fund 4",
+          "size": 4500000000,
+          "vintage": 2022,
+          "sources": [
+            {
+              "source": "https://techcrunch.com/2022/05/25/amid-crypto-downturn-a16z-debuts-4-5-billion-web3-mega-fund/",
+              "note": "TechCrunch 2022-05-25: $4.5B, one third earmarked for seed. CNK Fund IV vehicles on EDGAR show only side amounts; size is the announced raise."
+            }
+          ]
+        },
+        {
+          "name": "Andreessen Horowitz Growth Fund IV",
+          "size": 3750000000,
+          "vintage": 2024,
+          "sources": [
+            {
+              "source": "https://www.axios.com/2024/04/15/andreessen-horowitz-7-billion-new-funds",
+              "note": "Axios 2024-04-15: $3.75B growth allocation of the $7.2B April 2024 raise; LP capital entered through the AH 2024 Fund Multiplexer vehicles."
+            }
+          ]
+        },
+        {
+          "name": "Andreessen Horowitz LSV Fund II, L.P.",
+          "size": 3000000000,
+          "vintage": 2020,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2020q4: $3,000,000,000 sold."
+            },
+            {
+              "source": "https://techcrunch.com/2020/11/20/a16z-is-now-managing-16-5-billion-after-announcing-two-new-funds",
+              "note": "TechCrunch 2020-11-20 reported the growth vehicle at $3.2B; the filed amount is $3.0B."
+            }
+          ],
+          "accession": "0001829357-20-000001"
+        },
+        {
+          "name": "Andreessen Horowitz Fund VIII, L.P.",
+          "size": 2500000000,
+          "vintage": 2022,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2022q1: $2,500,000,000 sold."
+            },
+            {
+              "source": "https://techcrunch.com/2022/01/07/andreessen-horowitz-raises-9b-in-new-capital-for-venture-growth-bio-funds",
+              "note": "TechCrunch 2022-01-07: the $2.5B flagship venture leg of the $9B raise."
+            }
+          ],
+          "accession": "0001889436-22-000001"
+        },
+        {
+          "name": "a16z Crypto Fund V",
+          "size": 2200000000,
+          "vintage": 2026,
+          "sources": [
+            {
+              "source": "https://techcrunch.com/2026/05/05/as-crypto-cools-a16zcrypto-raises-a-2-2b-fund/",
+              "note": "TechCrunch 2026-05-05: $2.2B fifth crypto fund."
+            },
+            {
+              "source": "https://fortune.com/2026/05/05/a16z-crypto-andreessen-horowitz-fifth-fund-2-2-billion/",
+              "note": "Fortune, same day, same figure independently."
+            }
+          ]
+        },
+        {
+          "name": "CNK Fund III, L.P. (a16z Crypto Fund III)",
+          "size": 2000000000,
+          "vintage": 2021,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2021q3: $2,000,000,000 sold; with CNK Fund III-Q ($200M) and III-B ($113.8M) the family matches the announced $2.2B."
+            },
+            {
+              "source": "https://cointelegraph.com/news/a16z-raises-2-billion-fund-crypto-projects",
+              "note": "June 2021 announcement: $2.2B Crypto Fund III."
+            }
+          ],
+          "accession": "0001863549-21-000001"
+        },
+        {
+          "name": "Andreessen Horowitz LSV Fund I, L.P.",
+          "size": 2000000000,
+          "vintage": 2019,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2019q2: $2,000,000,000 sold. LSV = Late Stage Venture."
+            },
+            {
+              "source": "https://news.crunchbase.com/venture/andreessen-follows-trend-raises-new-larger-late-stage-fund/",
+              "note": "Crunchbase News 2019: the $2B late-stage fund alongside the $750M Fund VI."
+            }
+          ],
+          "accession": "0001772284-19-000001"
+        },
+        {
+          "name": "Andreessen Horowitz Apps Fund (2026)",
+          "size": 1700000000,
+          "vintage": 2026,
+          "sources": [
+            {
+              "source": "https://www.cnbc.com/2026/01/09/andreessen-horowitz-raises-15-billion-big-in-infrastructure-defense.html",
+              "note": "CNBC 2026-01-09: $1.7B apps fund in the January 2026 raise."
+            }
+          ]
+        },
+        {
+          "name": "Andreessen Horowitz Infrastructure Fund (2026)",
+          "size": 1700000000,
+          "vintage": 2026,
+          "sources": [
+            {
+              "source": "https://www.cnbc.com/2026/01/09/andreessen-horowitz-raises-15-billion-big-in-infrastructure-defense.html",
+              "note": "CNBC 2026-01-09: $1.7B infrastructure fund in the January 2026 raise."
+            }
+          ]
+        },
+        {
+          "name": "AH Bio Fund IV, L.P.",
+          "size": 1500000000,
+          "vintage": 2022,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2022q1: $1,500,000,000 sold."
+            },
+            {
+              "source": "https://techcrunch.com/2022/01/07/andreessen-horowitz-raises-9b-in-new-capital-for-venture-growth-bio-funds",
+              "note": "TechCrunch 2022-01-07: the $1.5B bio leg of the $9B raise."
+            }
+          ],
+          "accession": "0001889476-22-000001"
+        },
+        {
+          "name": "Andreessen Horowitz Infrastructure Fund I",
+          "size": 1250000000,
+          "vintage": 2024,
+          "sources": [
+            {
+              "source": "https://www.axios.com/2024/04/15/andreessen-horowitz-7-billion-new-funds",
+              "note": "Axios 2024-04-15: $1.25B infrastructure allocation of the $7.2B raise."
+            }
+          ]
+        },
+        {
+          "name": "Andreessen Horowitz Fund VII, L.P.",
+          "size": 1250000000,
+          "vintage": 2020,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2020q4: $1,250,000,000 sold."
+            },
+            {
+              "source": "https://techcrunch.com/2020/11/20/a16z-is-now-managing-16-5-billion-after-announcing-two-new-funds",
+              "note": "TechCrunch 2020-11-20 reported Fund VII at $1.3B; the filed amount is $1.25B."
+            }
+          ],
+          "accession": "0001829358-20-000001"
+        },
+        {
+          "name": "American Dynamism Fund II",
+          "size": 1176000000,
+          "vintage": 2026,
+          "sources": [
+            {
+              "source": "https://www.cnbc.com/2026/01/09/andreessen-horowitz-raises-15-billion-big-in-infrastructure-defense.html",
+              "note": "CNBC 2026-01-09: $1.176B American Dynamism fund in the January 2026 raise. AH American Dynamism Fund II vehicles exist on EDGAR (no LP-scale Form D; multiplexer era)."
+            }
+          ]
+        },
+        {
+          "name": "The Machine Age Fund",
+          "size": 1100000000,
+          "vintage": 2026,
+          "sources": [
+            {
+              "source": "https://a16z.com/the-machine-age-fund/",
+              "note": "The firm's own announcement, 2026-08-28: $1.1B for AI infrastructure hardware (chips, memory, networking, data centers, robotics)."
+            }
+          ]
+        },
+        {
+          "name": "Andreessen Horowitz Apps Fund I",
+          "size": 1000000000,
+          "vintage": 2024,
+          "sources": [
+            {
+              "source": "https://www.axios.com/2024/04/15/andreessen-horowitz-7-billion-new-funds",
+              "note": "Axios 2024-04-15: $1B apps allocation of the $7.2B raise."
+            }
+          ]
+        },
+        {
+          "name": "Andreessen Horowitz Fund V, L.P.",
+          "size": 999617299,
+          "vintage": 2016,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2016q2: $999,617,299 sold; with AH Parallel Fund V ($501,386,048, accession 0001675240-16-000001) the family is the announced $1.5B fifth fund."
+            },
+            {
+              "source": "https://techcrunch.com/?p=490871",
+              "note": "TechCrunch June 2016: 'Andreessen Horowitz Closes $1.5 Billion New Fund'."
+            }
+          ],
+          "accession": "0001675239-16-000001"
+        },
+        {
+          "name": "AH Bio Fund III, L.P.",
+          "size": 750000000,
+          "vintage": 2020,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2020q1: $750,000,000 sold."
+            },
+            {
+              "source": "https://techcrunch.com/2022/01/07/andreessen-horowitz-raises-9b-in-new-capital-for-venture-growth-bio-funds",
+              "note": "TechCrunch's January 2022 recap names the third bio fund at $750M."
+            }
+          ],
+          "accession": "0001799477-20-000001"
+        },
+        {
+          "name": "Andreessen Horowitz Fund VI, L.P.",
+          "size": 750000000,
+          "vintage": 2019,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2019q2: $750,000,000 sold."
+            },
+            {
+              "source": "https://news.crunchbase.com/venture/andreessen-follows-trend-raises-new-larger-late-stage-fund/",
+              "note": "Crunchbase News 2019: the $750M early-stage Fund VI alongside LSV I."
+            }
+          ],
+          "accession": "0001772421-19-000001"
+        },
+        {
+          "name": "Bio + Health Fund (2026)",
+          "size": 700000000,
+          "vintage": 2026,
+          "sources": [
+            {
+              "source": "https://www.cnbc.com/2026/01/09/andreessen-horowitz-raises-15-billion-big-in-infrastructure-defense.html",
+              "note": "CNBC 2026-01-09: $700M bio + health fund in the January 2026 raise."
+            }
+          ]
+        },
+        {
+          "name": "American Dynamism Fund I",
+          "size": 600000000,
+          "vintage": 2024,
+          "sources": [
+            {
+              "source": "https://www.axios.com/2024/04/15/andreessen-horowitz-7-billion-new-funds",
+              "note": "Axios 2024-04-15: $600M American Dynamism allocation of the $7.2B raise."
+            }
+          ]
+        },
+        {
+          "name": "Games Fund Two",
+          "size": 600000000,
+          "vintage": 2024,
+          "sources": [
+            {
+              "source": "https://www.pocketgamer.biz/a16z-doubles-gaming-investment-with-600m-fund-as-part-of-72b-fundraise/",
+              "note": "PocketGamer.biz 2024: the $600M second games fund of the $7.2B raise; home of the speedrun accelerator."
+            }
+          ]
+        },
+        {
+          "name": "Games Fund One",
+          "size": 600000000,
+          "vintage": 2022,
+          "sources": [
+            {
+              "source": "https://a16z.com/games-fund-one-building-the-future-of-games/",
+              "note": "The firm's own May 2022 announcement: $600M for game studios, consumer apps and gaming infrastructure."
+            }
+          ]
+        },
+        {
+          "name": "CNK Fund II, L.P. (a16z Crypto Fund II)",
+          "size": 498000000,
+          "vintage": 2020,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2020q2: $498,000,000 sold; with II-B ($18.9M) and II-Q ($16M) the family matches the announced $515M."
+            },
+            {
+              "source": "https://a16z.com/2020/04/30/crypto-fund-ii/",
+              "note": "The firm's own April 2020 announcement: $515M Crypto Fund II."
+            }
+          ],
+          "accession": "0001808013-20-000002"
+        },
+        {
+          "name": "AH Bio Fund II, L.P.",
+          "size": 450000000,
+          "vintage": 2017,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2017q4: $450,000,000 sold."
+            }
+          ],
+          "accession": "0001725721-17-000001"
+        },
+        {
+          "name": "Andreessen Horowitz Seed Fund I, L.P.",
+          "size": 400000000,
+          "vintage": 2021,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2021q3: $400,000,000 sold."
+            },
+            {
+              "source": "https://blockworks.com/news/a16z-launches-400m-seed-fund-to-expand-into-new-technology",
+              "note": "Blockworks August 2021: the $400M dedicated seed fund."
+            }
+          ],
+          "accession": "0001878884-21-000001"
+        },
+        {
+          "name": "CNK Fund I, L.P. (a16z Crypto Fund I)",
+          "size": 300000000,
+          "vintage": 2018,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2018q2: $300,000,000 sold."
+            },
+            {
+              "source": "https://a16z.com/2020/04/30/crypto-fund-ii/",
+              "note": "The firm's Crypto Fund II post recaps Fund I at $300M (summer 2018)."
+            }
+          ],
+          "accession": "0001743437-18-000001"
+        },
+        {
+          "name": "AH Bio Fund I, L.P.",
+          "size": 200000000,
+          "vintage": 2015,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2015q4: $200,000,000 sold. Vintage 2015, at the edge of the 10-year window."
+            }
+          ],
+          "accession": "0001656629-15-000001"
+        }
+      ],
+      "source": "sources/edgar/fund-formds.json",
+      "basis": "29 funds, vintage 2015-2026, from the full 'Andreessen Horowitz' / 'AH' / 'a16z' / 'CNK' Form D filer sweep (133 filing vehicles + 36 more entities from EDGAR company search). Direct raises carry Form D amounts asserted against the filings at build time (15 entries with accessions); 2024/2026 strategy funds and both crypto mega-funds carry press-stated sizes because LP capital enters through the AH Annual Fund / Fund Multiplexer conduit vehicles (AH 2022 Annual Fund filed $1.4B; 2024/2026 Multiplexers) and the strategy vehicles' own Form Ds show only side amounts. Conduits excluded from the list to avoid double-counting. Funds I-IV (2009-2014, $241.5M-$1B filed) predate the window; a16z Perennial (separate registrant) and third-party access/feeder funds (Allocate, PQ/PPB a16z Access) excluded"
+    },
+    "hq_location": {
+      "value": "Menlo Park, CA",
+      "source": "sources/edgar/formd-sweep.json",
+      "basis": "issuer address on 106 of 106 of the firm's own Form D filings; unanimous. Filing-grade."
+    },
+    "individuals": {
+      "value": [
+        {
+          "name": "Alex Immerman",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/immerman/",
+            "x_url": "https://x.com/aleximm"
+          }
+        },
+        {
+          "name": "Alex Rampell",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://x.com/arampell"
+          }
+        },
+        {
+          "name": "Ali Yahya",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/ali01",
+            "x_url": "https://x.com/alive_eth"
+          }
+        },
+        {
+          "name": "Andrew Chen",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/andrewchen/",
+            "x_url": "https://x.com/andrewchen"
+          }
+        },
+        {
+          "name": "Andy McCall",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Angela Strange",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/angelastrange/",
+            "x_url": "https://x.com/astrange"
+          }
+        },
+        {
+          "name": "Anish Acharya",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/anishacharya",
+            "x_url": "https://x.com/illscience"
+          }
+        },
+        {
+          "name": "Anjney Midha",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/anjney/",
+            "x_url": "https://x.com/AnjneyMidha"
+          }
+        },
+        {
+          "name": "Asaf Ezra",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Ben Horowitz",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/behorowitz/",
+            "x_url": "https://x.com/bhorowitz"
+          }
+        },
+        {
+          "name": "Ben Portney",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/ben-portney/",
+            "x_url": "https://x.com/BenPortney"
+          }
+        },
+        {
+          "name": "Bing Wong",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Bob Swan",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Brian Roberts",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Caroline Goggins",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Chris Dixon",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/chris-dixon-9599b127b/",
+            "x_url": "https://x.com/cdixon"
+          }
+        },
+        {
+          "name": "Chris Schnabl",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Christian Keil",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://x.com/pronounced_kyle"
+          }
+        },
+        {
+          "name": "Christine Cheng",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Connie Chan",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/conniechan/",
+            "x_url": "https://x.com/conniechan"
+          }
+        },
+        {
+          "name": "Connor Love",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/connor-love-a800a260/",
+            "x_url": "https://x.com/ConnorLoveCA"
+          }
+        },
+        {
+          "name": "Daisy Wolf",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/daisydwolf/",
+            "x_url": "https://x.com/daisydwolf"
+          }
+        },
+        {
+          "name": "Daniel Penny",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Daren Matsuoka",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/darenmatsuoka/",
+            "x_url": "https://x.com/DarenMatsuoka"
+          }
+        },
+        {
+          "name": "David George",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://x.com/DavidGeorge83"
+          }
+        },
+        {
+          "name": "David Haber",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/haber",
+            "x_url": "https://x.com/dhaber"
+          }
+        },
+        {
+          "name": "David Ulevitch",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/davidu",
+            "x_url": "https://x.com/davidu"
+          }
+        },
+        {
+          "name": "Eddy Lazzarin",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/eddy-lazzarin-66059749/",
+            "x_url": "https://x.com/eddylazzarin"
+          }
+        },
+        {
+          "name": "Elizabeth Harkavy",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/elizabeth-harkavy-322bba177/",
+            "x_url": "https://x.com/liz_harkavy"
+          }
+        },
+        {
+          "name": "Emily Bennett",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Emma Cooper",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Eric Alby",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/eric-alby-35a24b13b/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Erik Torenberg",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Erin Price-Wright",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/linkedin.com/erin-price-wright-2a573727/",
+            "x_url": "https://x.com/espricewright"
+          }
+        },
+        {
+          "name": "Eva Steinman",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/eva-steinman/",
+            "x_url": "https://x.com/evajsteinman"
+          }
+        },
+        {
+          "name": "Fabrizio Serafini",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Fareed Mosavat",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://x.com/far33d"
+          }
+        },
+        {
+          "name": "Gabriel Vasquez",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/gabriel-vasquez-49392580/",
+            "x_url": "https://x.com/GEVS94"
+          }
+        },
+        {
+          "name": "Gio Ahern",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Guido Appenzeller",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/appenz/",
+            "x_url": "https://x.com/appenz"
+          }
+        },
+        {
+          "name": "Guy Wuollet",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/gdw/",
+            "x_url": "https://x.com/guywuolletjr"
+          }
+        },
+        {
+          "name": "Jacqueline Young",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "James da Costa",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jamesdacosta/",
+            "x_url": "https://x.com/dacostajam"
+          }
+        },
+        {
+          "name": "Jamie Sullivan",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jane Rhee",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/janeywrhee/",
+            "x_url": "https://x.com/janerheetweets"
+          }
+        },
+        {
+          "name": "Jason Cui",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jasonscui/",
+            "x_url": "https://x.com/JasonSCui"
+          }
+        },
+        {
+          "name": "Jay Rughani",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jay-rughani/",
+            "x_url": "https://x.com/JayRughani"
+          }
+        },
+        {
+          "name": "Jeff Bramel",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jeffbramel/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jeff Jordan",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jeffjordan1/",
+            "x_url": "https://x.com/jeff_jordan"
+          }
+        },
+        {
+          "name": "Jennifer Li",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jenniferhli/",
+            "x_url": "https://x.com/jenniferhli"
+          }
+        },
+        {
+          "name": "Jessica Le\u00e3o",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://x.com/jesslionness"
+          }
+        },
+        {
+          "name": "Joe Schmidt",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/joeschmidtiv",
+            "x_url": "https://x.com/joeschmidtiv"
+          }
+        },
+        {
+          "name": "Joel de la Garza",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/3448827723723234/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "John Aguillard",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/john-aguillard-638b2a145/",
+            "x_url": "https://x.com/JohnAguillard"
+          }
+        },
+        {
+          "name": "Jonathan Lai",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jlai84/",
+            "x_url": "https://x.com/Tocelot"
+          }
+        },
+        {
+          "name": "Jorge Conde",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jorge-conde-4099225/",
+            "x_url": "https://x.com/jorgecondebio"
+          }
+        },
+        {
+          "name": "Josh Elman",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Joshua Lu",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/joshualu/",
+            "x_url": "https://x.com/JoshLu"
+          }
+        },
+        {
+          "name": "Julie Yoo",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/juliekyoo/",
+            "x_url": "https://x.com/julesyoo"
+          }
+        },
+        {
+          "name": "Justin Kahl",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/justinkahl/",
+            "x_url": "https://x.com/Justin_Kahl"
+          }
+        },
+        {
+          "name": "Justine Moore",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/justinemoore94/",
+            "x_url": "https://x.com/venturetwins"
+          }
+        },
+        {
+          "name": "Katherine Boyle",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://x.com/KTmBoyle"
+          }
+        },
+        {
+          "name": "Kenan Saleh",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Kimberly Tan",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://linkedin.com/in/kimberlywtan/",
+            "x_url": "https://x.com/kimberlywtan"
+          }
+        },
+        {
+          "name": "Lejla Johnsen",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/lejla-custo/",
+            "x_url": "https://x.com/custo_lejla"
+          }
+        },
+        {
+          "name": "Lisha Li",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/lisha-li-700985a/",
+            "x_url": "https://x.com/lishali88"
+          }
+        },
+        {
+          "name": "Marc Andreessen",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://x.com/pmarca"
+          }
+        },
+        {
+          "name": "Marcus Segal",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Martin Casado",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/martincasado",
+            "x_url": "https://x.com/martin_casado"
+          }
+        },
+        {
+          "name": "Matt Bornstein",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/mattbornstein/",
+            "x_url": "https://x.com/BornsteinMatt"
+          }
+        },
+        {
+          "name": "Michael Amoako",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/mkamoako/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Michael Cialone",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/michael-cialone/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Michel Del Buono",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/mdelbuono/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Mindy Isenstein",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/mindy-isenstein/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Nathan Abramoff",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Noah Levine",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Oliver Hsu",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/ohsu/",
+            "x_url": "https://x.com/oyhsu"
+          }
+        },
+        {
+          "name": "Olivia Moore",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/oliviamoore94/",
+            "x_url": "https://x.com/omooretweets"
+          }
+        },
+        {
+          "name": "Owen Colby",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Peter Levine",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/peter-levine-681386172",
+            "x_url": "https://x.com/PeterL4e"
+          }
+        },
+        {
+          "name": "Raghu Raghuram",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/raghuraghuram/",
+            "x_url": "https://x.com/RaghuRaghuram"
+          }
+        },
+        {
+          "name": "Robbie Petersen",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Ryan McEntush",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/ryanmcentush/",
+            "x_url": "https://x.com/rmcentush"
+          }
+        },
+        {
+          "name": "Santiago Rodriguez",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://x.com/santiago__rdz"
+          }
+        },
+        {
+          "name": "Sarah Wang",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/sarah-wang-59b96a7/",
+            "x_url": "https://x.com/SarahDingWang"
+          }
+        },
+        {
+          "name": "Seeam Noor",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/seeamshahidnoor/",
+            "x_url": "https://x.com/seeamshahidnoor"
+          }
+        },
+        {
+          "name": "Seema Amble",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/seema-amble-b404126/",
+            "x_url": "https://x.com/seema_amble"
+          }
+        },
+        {
+          "name": "Shangda Xu",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/shangdaxu",
+            "x_url": "https://x.com/shangdaxu"
+          }
+        },
+        {
+          "name": "Stephenie Zhang",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/steph-zhang-9b5bb3a9/",
+            "x_url": "https://x.com/steph_zhang"
+          }
+        },
+        {
+          "name": "Troy Kirwin",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/troykirwin/",
+            "x_url": "https://x.com/tkexpress11"
+          }
+        },
+        {
+          "name": "Vineeta Agarwala",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/vineeta-agarwala-md-phd-674a591/",
+            "x_url": "https://x.com/vintweeta"
+          }
+        },
+        {
+          "name": "Will Bitsky",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Yoko Li",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/yokoli/",
+            "x_url": "https://x.com/stuffyokodraws"
+          }
+        },
+        {
+          "name": "Zabie Elmgren",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/elizabethelmgren/",
+            "x_url": "https://x.com/zabie_e"
+          }
+        },
+        {
+          "name": "Zak Doric",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/zakdoric/",
+            "x_url": "https://x.com/zakdoric"
+          }
+        },
+        {
+          "name": "Zane Lackey",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/zane-lackey-66a3404",
+            "x_url": "https://x.com/zanelackey"
+          }
+        },
+        {
+          "name": "Bill Krause",
+          "position": "Board Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/bill-krause-588b6539/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "John M. Jack",
+          "position": "Board Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/johnmjack/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Lars Dalgaard",
+          "position": "Board Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Rod Johnson",
+          "position": "Board Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/pub/rod-johnson/0/a1/68b",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Shana Fisher",
+          "position": "Board Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://x.com/shanaglick"
+          }
+        },
+        {
+          "name": "Spencer Rascoff",
+          "position": "Board Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/spencerrascoff/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Steven Sinofsky",
+          "position": "Board Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/sinofsky/",
+            "x_url": null
+          }
+        }
+      ],
+      "source": "sources/site/team-members.json",
+      "basis": "Live team payload: 103 members, the site's own Investment Team (96) and Board Partners (7) groups; 469 Operations Team members excluded by the flagged scope decision. Positions are the site's own flat presentation: every investing member renders 'Partner' (cofounders included), Board Partners carry the group's own label. The roster is the current site team by design (Wayback CDX was offline this run), so the departed cross-check is structurally empty; the alumni limitation is recorded in report.md. Socials from profile pages: 69 LinkedIn, 66 X."
+    }
+  },
+  "flags": [
+    {
+      "field": "individuals",
+      "severity": "high",
+      "note": "Scope decision: the site's own Investment Team (96) and Board Partners (7) groups only, 103 people; the 469 Operations Team members (marketing, finance, legal, talent, GTM network) are excluded from the published list \u2014 a16z staffs ~5x the investing organization and the full 572 would swamp the surface. The site presents every investing member as 'Partner' (page-title template), including the cofounders; Board Partners carry the group's own label. Wayback CDX was unavailable 2026-08-29, so the historical-roster departed cross-check is empty pending the PRO-30 roster run."
+    },
+    {
+      "field": "funds",
+      "severity": "medium",
+      "note": "Post-2022 restructure: LP capital enters through AH Annual Fund / Fund Multiplexer conduit vehicles, so strategy-fund Form Ds understate raises (Crypto 4 $4.5B and Crypto V $2.2B are press figures; Growth IV/V, Infra, Apps, American Dynamism, Bio+Health 2026 and both Games funds are announced allocations). Where press and filing disagree the filed amount is published (LSV II $3.0B vs press $3.2B; Fund VII $1.25B vs press $1.3B). The $3B 'other venture strategies' leg of the January 2026 raise (Fund X - AI Applications / AI Infrastructure vehicles on EDGAR) is not yet listed as a fund pending a named size."
+    },
+    {
+      "field": "aum",
+      "severity": "low",
+      "note": "RAUM ($106.48B, 2026-03-30) is gross regulatory assets and can overstate net AUM; the bottom is the firm's own 'over $100B+' claim (about page, 2026-04-30). The $1.1B Machine Age Fund (2026-08-28) postdates both. a16z Perennial Management (CRD 324429), the separately registered private-wealth/evergreen adviser, is excluded from both AUM and the fund list."
+    },
+    {
+      "field": "investment_range",
+      "severity": "medium",
+      "note": "Median recomputed on the final base (2026-08-29): $24.7M over 182 verified companies, vs $30.0M on the pre-base list-confirmed subset. Priced Form D rounds only \u2014 speedrun SAFEs and 4(a)(2) raises don't file, so the small end is under-sampled. A few distribution tails ride on weak CIK joins (e.g. slug 'dynamic' at $1.1B); PRO-31's standing weak-CIK audit is the cleanup pass, and the median is insensitive to them. The $2B ceiling is the led-round figure for the Thinking Machines seed (a16z's own share undisclosed), consistent with the $6.75B Growth Fund V's concentration capacity."
+    },
+    {
+      "field": "investment_stage",
+      "severity": "medium",
+      "note": "The firm publishes Seed / Venture / Growth filters; splitting 'Venture' into Series A + Series B is this run's interpretation. Late Stage rests on the firm's own Late Stage Venture (LSV) fund family; Pre-Seed on speedrun's stated 'pre-seed or seed' scope."
+    },
+    {
+      "field": "investment_geo",
+      "severity": "medium",
+      "note": "Core US is unambiguous. 'Other' is inferred: Europe and Israel from named companies on the firm's own investment list, Asia from the Seoul and Tokyo offices \u2014 no firm statement enumerates its geographies. Verify or trim in review."
+    },
+    {
+      "field": "notable_investments",
+      "severity": "medium",
+      "note": "Asserted two ways: against the firm's own portfolio page/investment list during the base-less run, and against auto_confirmed base rows by build-firm-profile.py once the PRO-30 base landed (2026-08-29) \u2014 all eight pass both."
+    },
+    {
+      "field": "investment_scope",
+      "severity": "medium",
+      "note": "Base-tag focus recompute guarded off: only the 251 speedrun rows of 1,807 carry sector tags, so the firm's own nine-sector enumeration stands (crosswalk for the speedrun vocabulary staged in config.json). Separately, four of the nine focus values (Crypto & Web3, Healthcare & Bio, Consumer & Marketplaces, Media Gaming & Advertising) are among the five values added to the taxonomy 2026-08-13; the DB migration and leaderboard filter update for investor-side focus are tracked separately, so those labels pass the taxonomy gate but do not filter on the frontend yet."
+    }
+  ]
+}

@@ -184,6 +184,14 @@
     "name": "LMArena",
     "on_site_now": false,
     "slug": "lmarena"
+   },
+   {
+    "basis": "Web-pass restoration: the site listing existed but was swallowed by the glued ng-cashnitra scrape artifact; a16z participation in the $62M seed (Aug 2022) corroborated by the company's announcement.",
+    "citation": "https://www.prnewswire.com/news-releases/nitra-raises-62-million-to-revolutionize-fintech-for-the-healthcare-industry-301610996.html",
+    "first_seen": 2022,
+    "name": "Nitra",
+    "on_site_now": true,
+    "slug": "nitra"
    }
   ],
   "verdicts": {
@@ -9720,6 +9728,16 @@
     "verdict": "not_member",
     "who": "agent-judge-gate"
    },
+   "nitra": {
+    "basis": "Restored member: a16z-backed healthcare fintech (cards/expense tools for medical practices); $62M seed (equity+debt, Aug 2022) with a16z and NEA per the company announcement; the original site listing was consumed by the ng-cashnitra glue artifact.",
+    "citation": "https://www.prnewswire.com/news-releases/nitra-raises-62-million-to-revolutionize-fintech-for-the-healthcare-industry-301610996.html",
+    "confidence": "high",
+    "decided": "2026-08-31",
+    "evidence_class": "web",
+    "slug": "nitra",
+    "verdict": "member",
+    "who": "agent-web-pass"
+   },
    "nobell-foods": {
     "basis": "Listed on the investor's own portfolio site (2023,2024).",
     "confidence": "high",
@@ -10987,12 +11005,13 @@
     "who": "seed-evidence"
    },
    "polychain": {
-    "basis": "Listed on the investor's own portfolio site (current site).",
+    "basis": "Erik's standing rule (decisions.md #4, carried verbatim): LP stakes are out. a16z's 2017 Polychain position was an LP investment in Polychain Capital's fund (with USV), not a portfolio-company holding; the site listing reflects that LP relationship. Identified case of the LP-stake class, unlike an operating fund-shaped company.",
     "confidence": "high",
-    "decided": "2026-08-29",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "decided": "2026-08-30",
+    "evidence_class": "knowledge",
+    "slug": "polychain",
+    "verdict": "not_member",
+    "who": "agent-classification-pass"
    },
    "polywork": {
     "basis": "Listed on the investor's own portfolio site (current site).",
@@ -16174,12 +16193,13 @@
     "who": "seed-evidence"
    },
    "ycvc-w14": {
-    "basis": "Listed on the investor's own portfolio site (current site).",
+    "basis": "Erik's standing rules (decisions.md #4 LP stakes out, #6 fund-shaped entries): YCVC W14 is the Y Combinator batch investment vehicle (YCVC fund, in which a16z was a backer/LP for the W14 batch), not an operating company. LP/vehicle class, mirroring the polychain ruling.",
     "confidence": "high",
-    "decided": "2026-08-29",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "decided": "2026-08-31",
+    "evidence_class": "knowledge",
+    "slug": "ycvc-w14",
+    "verdict": "not_member",
+    "who": "agent-classification-pass"
    },
    "yellow": {
     "basis": "Listed on the investor's own portfolio site (current site).",

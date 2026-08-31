@@ -341,3 +341,98 @@ Entry-round median excludes unfiled raises (speedrun SAFEs, 4(a)(2));
 four of nine focus values await the investor-side focus migration before
 they filter on the frontend; investment_geo "other" is inference from
 named deals + offices, to verify or trim in review.
+
+# Company Classification Report — a16z (PRO-31)
+
+Run: 2026-08-30/31, continuing the PRO-30 base on this branch. Columns
+delivered on all 1,722 canonical rows: status, valuation_range (+usd/asof/
+source/citation where 1B+), entry_stage (+source/citation), hq_country,
+hq_city, focus, seed_to_a_graduation, flags, note. `verify` is clean.
+
+## 1. Shape of the result
+
+- 1,722 rows (from 1,796 pre-rebuild): 103 duplicate rows absorbed by the
+  identity overlay, 136 excluded total, 1 row restored (nitra).
+- valuation_range: 1,557 below_1b / 123 1b_plus / 34 10b_plus / 8 100b_plus.
+- entry_stage: 1,057 Seed / 436 Series A / 229 Growth - the Seed weight is
+  the seed program + speedrun + TxO + crypto seeds, and matches the firm's
+  own accelerator-heavy shape.
+- focus: twelve-value taxonomy on 1,327 rows; 395 rows are null-focus
+  unidentifiable tail (each carries stage_prior/country_prior conventions).
+- C2A cohort: 60 rows, 11 graduated (18.3%), every row leg-verified or
+  flagged cohort_unverified.
+- hq_city on 1,084 rows (141 cities; SF 444, NYC 151, LA 66).
+
+## 2. Method
+
+1. Judgment grind: 34 queue batches + 3 supplemental (the 22 layer-complete
+   famous rows, merge-pair reconciliation, contradiction flags), ~1,540
+   model-judged rows recorded through `run.py record` under the source gate.
+2. Web pass (5 research agents, 103 unique needs_web_value targets):
+   every suspected-1B+ figure pinned with source web_verified + asof +
+   citation, or left flagged. 100 pinned; ideogram, planetscale and
+   ultima-genomics have no credible public mark and stay flagged.
+3. Adversarial A/B agent over the visible slice: 30 claims checked
+   (site-acquired buyers, identity collisions). 22 confirmed, 5 refuted
+   and corrected, 3 inconclusive (kept flagged).
+4. Citation pass (3 agents, 116 lookups): every 1B+ row now has a cited or
+   filing-structural entry stage, or carries cite_pending; every public 1B+
+   row has a cited market cap. 17 entry stages were corrected by citations
+   (e.g. okta B->A, robinhood B-era->seed, dialpad seed->B, decagon A->seed,
+   base-power A->B, clickup B->C).
+
+## 3. Findings Erik should know about
+
+- Membership flips (agent verdicts under standing rulings, for review):
+  polychain (LP stake in Polychain's funds, ruling #4) and ycvc-w14 (the
+  YC W14 batch vehicle a16z backed as an LP, rulings #4/#6) are now
+  not_member and sit in excluded.csv.
+- nitra was restored: the base scrape had glued "NG.CashNitra" into one
+  artifact row; Nitra's a16z backing is announcement-corroborated. The
+  artifact row stays, flagged, pointing at both real rows.
+- The site's acquired-bucket markers were mostly right (metronome->Stripe,
+  replicate->Cloudflare, stainless->Anthropic, astral+promptfoo->OpenAI,
+  cursor->SpaceX at $60B - real, not a scrape error) but four were wrong
+  company matches and got corrected: apollo (GraphQL co is private),
+  exa ($2.2B, independent), mercury (Mercury Technologies, $5.2B,
+  private), viggle (Viggle AI independent; Perk bought the old TV Viggle).
+- Farcaster wound down (Jan 2026, capital returned, protocol to Neynar) -
+  status acquired with the $1B 2024 mark retired under the current-value
+  convention.
+- Six layer identity collisions carry quarantined figures (mosaic,
+  seismic-systems, coalition-systems, mara, post, cadre): the classification
+  shadows the wrong-entity figure and the dispute flag explains why.
+- 98 identity-merge groups now (39 at PRO-30 close): rename chains
+  (RigUp->Workrise, TransferWise->Wise, MakerDAO->Sky, Tachyon->Alluxio,
+  Firespotter->Dialpad), entity-vs-product twins (Merkle/Farcaster,
+  Tlon/Urbit, VHS/Zed Run, Translation/UnitedMasters), typo scrapes
+  (BluuStacks, Yield Guide Games, kydio->Skydio flagged), and the EDGAR-
+  resolved Thingy Thing -> ALIGNED Co -> Extra chain.
+
+## 4. Debt, all flagged in rows
+
+- needs_web_value x3 (ideogram, planetscale, ultima-genomics): no public
+  mark exists; below_1b held conservatively.
+- cite_pending: 1B+ rows whose a16z entry round no source documents
+  (alation, amplitude, doordash, dropbox, gusto, kailera, openevidence,
+  smartasset, twilio, webflow, zapier, cohere-networks + a few more) -
+  membership rests on the site listing; the entry stage stays model-judged.
+  Notable: webflow's famous $72M Series A was Accel-led - the a16z-round
+  assumption was wrong, now corrected.
+- identity_uncertain tail (~100 rows, mostly below_1b unidentifiable list
+  entries) and the null-focus 395 - conventions applied, nothing asserted.
+- Stale-float vintage: public caps sourced from H2-2025 filings were
+  re-cited from market data at the citation pass for all 1B+ rows; sub-1B
+  public floats keep their filing vintage.
+- kydio and the sky/maker read are merge calls flagged identity_uncertain
+  for the sample review.
+
+## 5. Artifacts
+
+- base.csv (1,722 rows, full classification columns) - the ingest surface.
+- review.html - flat rows, click drawer, flag chips (cite_pending etc.).
+- classification.json (1,795 keyed rows incl. 73 orphaned pre-rebuild keys,
+  reported by verify as info), base-verification.json (2,008 verdicts),
+  identity-merges.json (98 groups), scratch/webpass/* (agent evidence).
+
+Exit criterion: Erik's classification sample sign-off via review.html.
