@@ -134,11 +134,35 @@ def parse_regex_list(src: dict) -> list[dict]:
     return [m.groupdict() for m in re.finditer(src["pattern"], html)]
 
 
+def parse_file_list(src: dict) -> list[dict]:
+    """Rows from a local JSON file (bare list, or {"rows": [...]}): the saved
+    output of a browser-pane extraction (escalation ladder step 3) that no
+    direct fetch reproduces — the file's _readme records how it was made."""
+    from paths import ROOT
+    data = json.loads((ROOT / src["path"]).read_text())
+    return data["rows"] if isinstance(data, dict) else data
+
+
+def parse_json_list(src: dict) -> list[dict]:
+    """Any JSON endpoint returning the rows as an array — a headless CMS's
+    own query API (Sanity GROQ, Contentful...). The query, with whatever
+    projection flattens the rows, lives in the config URL; src["list_path"]
+    is the dot path from the response root to the array ("result")."""
+    data = get(src["url"])
+    for part in [p for p in (src.get("list_path") or "").split(".") if p]:
+        if not isinstance(data, dict):
+            return []
+        data = data.get(part) or []
+    return data if isinstance(data, list) else []
+
+
 SCRAPE_PARSERS = {
     "js_array": parse_js_array,
     "li_text_list": parse_li_text_list,
     "paginated_json": parse_paginated_json,
     "regex_list": parse_regex_list,
+    "json_list": parse_json_list,
+    "file_list": parse_file_list,
 }
 
 
@@ -191,6 +215,8 @@ def scrape_companies(api: dict) -> list[dict]:
             row["url"] = row["url"] or url
             if src.get("sectors"):
                 vals = r.get(src["sectors"]) or []
+                if isinstance(vals, str):
+                    vals = [vals]
                 row["sectors"] = sorted(set(row["sectors"]) | {
                     str(v) for v in vals if v})
             for k in src.get("extras", []):
@@ -238,6 +264,13 @@ def main() -> None:
         lists = Counter(li for c in companies for li in c["lists"])
         print(f"companies: {len(companies)} (union)   per list: {dict(lists)}")
         print("  sample:", [c["name"] for c in companies[:6]])
+        # Team through the same machinery, when the CMS carries people too
+        # (roster.site_team_groups then filters on each row's "group" extra).
+        if api.get("team_sources"):
+            team = scrape_companies({"sources": api["team_sources"]})
+            (p.site / "team.json").write_text(json.dumps(team, indent=1) + "\n")
+            groups = Counter(t.get("group") or "?" for t in team)
+            print(f"team members: {len(team)}   groups: {dict(groups)}")
         return
 
     if api.get("type") != "wordpress":

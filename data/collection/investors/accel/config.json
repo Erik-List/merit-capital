@@ -1,0 +1,261 @@
+{
+ "slug": "accel",
+ "wayback": {
+  "cdx_domain": "accel.com",
+  "site_url_base": "https://www.accel.com",
+  "eras": [],
+  "non_company_slugs": [
+   "index",
+   "home",
+   "companies",
+   "company",
+   "team",
+   "people",
+   "person",
+   "partners",
+   "noteworthy",
+   "noteworthy-profile",
+   "news",
+   "newsroom",
+   "about",
+   "about-us",
+   "contact",
+   "contact-us",
+   "jobs",
+   "careers",
+   "privacy",
+   "privacy-policy",
+   "terms",
+   "legal",
+   "disclosures",
+   "atoms",
+   "podcast",
+   "podcasts",
+   "insights",
+   "perspectives",
+   "blog",
+   "digest",
+   "stories",
+   "relationships",
+   "portfolio",
+   "sectors",
+   "sector",
+   "offices",
+   "london",
+   "india",
+   "bangalore",
+   "sf",
+   "san-francisco",
+   "palo-alto",
+   "community",
+   "spotlight-on",
+   "series",
+   "events",
+   "search",
+   "sitemap",
+   "press",
+   "category",
+   "tag",
+   "page",
+   "wp-content",
+   "feed",
+   "login",
+   "admin",
+   "current",
+   "featured",
+   "exits",
+   "early",
+   "growth",
+   "venture"
+  ]
+ },
+ "roster": {
+  "cdx_patterns": [],
+  "site_team_groups": [
+   "investing"
+  ],
+  "slug_re": "/(?:team|people|partners|noteworthy-profile)/([a-z][a-z0-9-]*[a-z0-9])/?$",
+  "listing_href_re": "/team/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+  "not_a_person": [
+   "index",
+   "team",
+   "people",
+   "partners",
+   "about",
+   "companies",
+   "news",
+   "contact",
+   "contact-us",
+   "jobs",
+   "careers",
+   "atoms",
+   "noteworthy",
+   "digest",
+   "spotlight-on",
+   "community",
+   "perspectives",
+   "privacy-policy",
+   "terms-of-use",
+   "our-team",
+   "the-team",
+   "meet-the-team",
+   "all",
+   "filter"
+  ]
+ },
+ "site_api": {
+  "type": "scrape",
+  "sources": [
+   {
+    "parser": "json_list",
+    "url": "https://458oembh.api.sanity.io/v2021-10-21/data/query/production?query=%2A%5B_type%3D%3D%22company%22%20%26%26%20archived%21%3Dtrue%5D%7Bname%2C%22slug%22%3Aslug.current%2C%22sectors%22%3Asectors%5B%5D-%3Ename%2C%22region%22%3Aregion-%3Ename%2C%22office%22%3AaccelOffice-%3Ename%2C%22partners%22%3Apartners%5B%5D-%3Ename%2C%22invest_year%22%3AfirstInvestDate%2C%22initial_stage%22%3AinitialInvestment-%3Ename%2C%22initial_type%22%3AinitialInvestmentType%2C%22current%22%3AcurrentStatus%2Carchived%2C%22exit_type%22%3AfirstExitType%2C%22exit_desc%22%3AfirstExitDescription%2C%22hq%22%3Acoalesce%28headquarters%2Clocation%29%2C%22founders%22%3Apt%3A%3Atext%28founders%29%7D",
+    "list_path": "result",
+    "list": "sanity-companies",
+    "fields": {
+     "name": "name"
+    },
+    "row_url": "https://www.accel.com/companies/{slug}",
+    "sectors": "sectors",
+    "extras": [
+     "region",
+     "office",
+     "partners",
+     "invest_year",
+     "initial_stage",
+     "initial_type",
+     "current",
+     "archived",
+     "exit_type",
+     "exit_desc",
+     "hq",
+     "founders"
+    ]
+   },
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/accel/sources/site/atoms-portfolio.json",
+    "list": "atoms",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "sectors": "sector",
+    "extras": [
+     "year",
+     "desc"
+    ]
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "json_list",
+    "url": "https://458oembh.api.sanity.io/v2021-10-21/data/query/production?query=%2A%5B_type%3D%3D%22person%22%5D%7Bname%2C%22slug%22%3Aslug.current%2C%22office%22%3AbasedIn-%3Ename%2Carchived%2C%22deals%22%3Acount%28%2A%5B_type%3D%3D%22company%22%20%26%26%20%5E._id%20in%20partners%5B%5D._ref%5D%29%2C%22group%22%3Aselect%28count%28%2A%5B_type%3D%3D%22company%22%20%26%26%20%5E._id%20in%20partners%5B%5D._ref%5D%29%3E0%3D%3E%22investing%22%2CbasedIn-%3Ename%3D%3D%22Emeritus%22%3D%3E%22investing%22%2C%22other%22%29%7D",
+    "list_path": "result",
+    "list": "sanity-persons",
+    "fields": {
+     "name": "name"
+    },
+    "row_url": "https://www.accel.com/team/{slug}",
+    "extras": [
+     "office",
+     "archived",
+     "deals",
+     "group"
+    ]
+   }
+  ]
+ },
+ "edgar": {
+  "seed_queries": [
+   "accel+i",
+   "accel+v",
+   "accel+x",
+   "accel+growth",
+   "accel+london",
+   "accel+leaders",
+   "accel+europe",
+   "accel+partners",
+   "accel+management",
+   "accel+investors",
+   "accel+keiretsu",
+   "accel+internet",
+   "accel+entrepreneurs",
+   "accel+strategic",
+   "accel+17",
+   "accel+circle",
+   "accel+core"
+  ]
+ },
+ "desks": {
+  "home": "us",
+  "partition": [],
+  "rank": [
+   "us",
+   "london",
+   "india",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "accel-kkr",
+     "accel kkr",
+     "entertainment",
+     "robotics",
+     "acceler",
+     "accelr",
+     "wealth",
+     "accel international",
+     "accel group",
+     "accel media",
+     "accel capital corp"
+    ]
+   },
+   {
+    "desk": "london",
+    "patterns": [
+     "accel london",
+     "accel europe"
+    ]
+   },
+   {
+    "desk": "india",
+    "patterns": [
+     "accel india"
+    ]
+   },
+   {
+    "desk": "us",
+    "patterns": [
+     "^accel\\b"
+    ]
+   }
+  ]
+ },
+ "profile": {
+  "own_vehicle_pattern": "^accel[ 0-9]",
+  "focus_min_companies": 25,
+  "focus_crosswalk": {}
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "facebook",
+   "slack",
+   "dropbox",
+   "spotify",
+   "atlassian",
+   "crowdstrike",
+   "flipkart",
+   "supercell",
+   "qualtrics",
+   "uipath",
+   "etsy",
+   "deliveroo",
+   "freshworks"
+  ]
+ },
+ "sample_slugs": []
+}
