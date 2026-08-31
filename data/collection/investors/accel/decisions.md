@@ -44,7 +44,18 @@ IDG-Accel China deals (ruling 3).
 Standing rulings made during the run land here, dated, each one a
 class-wide rule rather than a row fix.
 
-8. **Erasmic-era India deals** (standing ruling, agent, 2026-08-31 —
+8. **Meritech vehicles — external** (standing ruling, agent, 2026-08-31,
+   found during the entities registry; flagged for Erik's review):
+   Meritech Capital Partners, the late-stage affiliate Accel helped
+   launch in 1999, is an independently operated firm. The registry's
+   "Accel Meritech Associates III" / "Accel Meritech Investors III"
+   vehicles are co-invest or LP conduits into Meritech funds — the
+   Accel-KKR logic (ruling #2) applies: desk `external`, never crawled;
+   a company evidenced only through them is not a member. Subjects of
+   filings that also carry a genuine Accel vehicle enter through that
+   vehicle as ever.
+
+9. **Erasmic-era India deals** (standing ruling, agent, 2026-08-31 —
    derived from the membership definition; flagged for Erik's review):
    Accel India was formed in 2008 by absorbing Erasmic Venture Fund.
    Deals made with Erasmic fund money before the merge are members only
