@@ -48,6 +48,23 @@ investment with fund money in it, and it is a venture-outcome operating
 company. Fund vehicles, SPVs, filter labels, scrape artifacts and natural
 persons are out.
 
+Two standing rules under that definition, generalized from a16z rulings
+6–7 (they bind every investor unless its decisions file overrides):
+
+- **Fund-shaped list entries**: an entry on the investor's own list whose
+  name is fund-shaped (Capital / Fund / Ventures / Management, fund
+  numerals) and that cannot be identified as an operating company is
+  `not_member` — the LP-stake class — until evidence identifies it
+  otherwise; the verdict is amended and the row returns on the next
+  rebuild if identification lands. Fund-shaped names identified AS
+  operating companies stay in.
+- **Token positions**: a listed token position is in when it maps to an
+  operating or issuing organization (a labs entity, a DAO with treasury
+  and governance); a pure base-layer asset holding with no such entity is
+  a treasury position, not a portfolio company, and is out. Where the
+  token and its company are both listed, they are one row under the
+  company.
+
 **Evidence sufficiency**, common to every investor: a listing on the
 investor's own site (any era), or an SEC filing by a fund vehicle, each
 suffice alone. A Form D related-person name-match NEVER suffices alone; it
@@ -55,6 +72,14 @@ needs affirmative corroboration (documented deal, credible identification
 tying the round to the firm). Absence of corroboration on a name-match is a
 `not_member` verdict, not an `uncertain` one: the base asserts membership,
 and an unsupported assertion is the defect class the judge exists to kill.
+
+One adjudicated pattern above a bare name-match (a16z, 2026-08-29): a
+**current partner as Director of record** on a Form D — the filing itself
+lists the seat, in tenure, inside the coverage window, exact distinctive
+name — is affirmative corroboration. Verdict `member` at medium confidence
+as an unannounced deal (compliance lists' own permission-exclusions explain
+the absence from the site), flagged for the A/B pass. The corroboration is
+the seat on the filing, not the name similarity.
 
 **Person-level attribution locates a person, never a firm position.** Forms
 3/4/5 are filed by a natural person about their own holdings; partners file
@@ -74,10 +99,21 @@ Membership verdicts are durable, in the investor's
 (`member | not_member | uncertain`), `who`, an evidence class
 (`site_listing | fund_filing | formd_adjudicated | knowledge | web`), a
 basis sentence and a citation where one exists. The ledger is re-applied on
-every rebuild. Human verdicts (`who: "erik"`) outrank agent verdicts.
+every rebuild. Human verdicts (`who: "erik"`) outrank agent verdicts — and
+mechanically so on the ledger: `record` refuses to overwrite them.
+Classification keys carry no such guard yet (the merge is
+last-writer-per-key), so a human classification correction is protected
+procedurally: never re-emit a key Erik has set.
 `not_member` rows leave the published base into `excluded.csv` (reason
 `not_member`), preserved, never deleted; `uncertain` rows stay in the base,
 marked for sampling.
+
+`uncertain` is a narrow verdict: identification genuinely open, or evidence
+in conflict, after corroboration was attempted. Missing corroboration on a
+name-match is `not_member` (§1), not `uncertain` — the a16z run itself got
+this wrong once (Hawthorne Labs) and only recovered under review, so before
+the base is declared complete, re-sweep every `uncertain` row against this
+distinction.
 
 ## 3. Judge protocol
 
@@ -161,9 +197,30 @@ test after any protocol change.
    investor's own listings captured over time also recover companies later
    removed from the live site (survivorship correction).
 
-   **Layer 1b — the site's own CMS**, for the current portfolio that archives
-   and SEC both structurally miss (JS-rendered pages defeat CDX enumeration;
-   Section 4(a)(2) raises file no Form D). Escalation ladder, in order:
+   Era parsers live in `scripts/wayback-pull.py`, including two generic
+   ones (`listing_regex`, `js_array_listing`) that cover most markup eras
+   without new code. A logo-only era (names rendered as images) may stay
+   deliberately unparsed when snapshots of another list surface bracket
+   those years — record the gap in the report. If the Internet Archive
+   goes down mid-run (measured on a16z: ~100 min), continue on the live
+   surfaces and a provisional roster; the pulls are idempotent and
+   multi-pass, so wayback lands after recovery. `wayback-pull.py` carries
+   a degraded-CDX fallback (statuscode-filtered queries time out during
+   outages while unfiltered ones answer).
+
+   **Layer 1b — the site's own surfaces**, for the current portfolio that
+   archives and SEC both structurally miss (JS-rendered pages defeat CDX
+   enumeration; Section 4(a)(2) raises file no Form D).
+
+   **Enumerate every list surface the firm publishes, not just the
+   flagship portfolio page**: marketing-rule compliance / "investment
+   list" pages (highest recall — and they declare their own exclusions;
+   record those as coverage caveats), accelerator or program sites with
+   their own company lists, vertical-fund sites (crypto, bio) whose rows
+   appear on no other list. The base is the union (a16z: four surfaces,
+   1,703-company union; 27 rows lived only on the crypto site).
+
+   Escalation ladder per surface, in order:
 
    1. WordPress REST: `/wp-json/wp/v2/types` → find the post type →
       paginate it (`scripts/site-portfolio.py`).
@@ -171,10 +228,21 @@ test after any protocol change.
       `/_next/data/<build>/*.json`.
    3. Any SPA: watch XHR in the browser pane, then call that endpoint
       directly.
-   4. Last resort: render the page headless and parse the DOM.
+   4. Last resort: parse what the page ships — `site-portfolio.py` has a
+      generic `scrape` site_api type (parsers: `js_array`, `li_text_list`,
+      `paginated_json`, `regex_list`); an embedded JS array or a
+      `data-payload` attribute counts as this step, no headless render
+      needed so far.
 
 2. **Partner roster** via CDX people pages with tenure windows
-   (`scripts/partner-roster.py`).
+   (`scripts/partner-roster.py`). When the site's people namespace mixes
+   non-investors (guest authors, operations staff — a16z: 469 of 572),
+   constrain the sweep roster to the site's own investing groups via
+   `roster.site_team_groups` in config, and union the live CMS team in as
+   current-year evidence. Known limitation, accepted and reported: a
+   current-team roster cannot see deals where only a departed partner sat
+   the board and no list ever carried the company; the compliance list
+   carries that recall in practice.
 3. **EDGAR**: the investor's vehicle registry (`scripts/edgar-entities.py`,
    one table serving role resolution, fund exclusion and lineage), issuer
    filings via the submissions API (`scripts/edgar-companies.py`), the
@@ -254,6 +322,14 @@ maturity today. 100% fill.
   2015–18: 4M/20M · 2019–21: 6M/30M · ≥2022: 8M/40M. Pre-Seed = below
   seed/4. Every override of a structural answer carries
   `stage_disputes_band`.
+- **The first filed round is a ceiling on entry recency, not the entry.**
+  Modern seeds often never file (SAFEs, 4(a)(2)), so the partner-anchored
+  first filing can be a later round and the band mislabels the entry as
+  Growth (a16z: Black Forest Labs — the led $31M seed never filed; the
+  band read the Series B filing as a Growth entry). Before a band verdict
+  publishes on a $1B+ or post-2020 row, check the firm's own announcement
+  archive for a named earlier round; a found announcement is class 1 and
+  overrides with `stage_disputes_band`.
 
 ### seed_to_a_graduation (C2A)
 
@@ -345,6 +421,14 @@ Every subcommand takes the investor slug.
   snapshot; the standing rule is that the base is not rebuilt for an
   investor while that investor's run is in flight. Overlays join on slug, so
   `verify` catches a violation as drift between overlay keys and base slugs.
+- **Pre-fill is not judgment.** `prepare` does three jobs at once: seeds
+  membership verdicts from evidence classes, runs the deterministic layers
+  (which pre-fill `status`, stage bands, `hq_country`), and emits the work
+  queue. The queue asks only about empty fields, so a deterministic
+  pre-fill silently keeps the judge away from its row — the Black Forest
+  Labs class: a band-labeled entry stage that was never queued for
+  judgment. A `formd_band`-sourced stage on a $1B+ or post-2020 row goes
+  back through the judge (with the §6 announcement check), never past it.
 - **Progress lives on disk, not in context.** Batch loop: read 2 batches →
   judge every row → write both `scratch/queue/batch-NNN.out.jsonl` →
   `record` both → one-line progress in chat → next pair. `status` is the
@@ -362,14 +446,21 @@ Every subcommand takes the investor slug.
   `identity-merges.json`, consumed by the base build on every
   rebuild; non-canonical rows carry `duplicate_of: <canonical-slug>`, the
   canonical carries no exclusion flag. In-run: any suspected duplicate →
-  flag + note, never a silent merge.
+  flag + note, never a silent merge. Verdicts key on slugs and merges move
+  slugs: after any change to the merge file, re-check that ledger verdicts
+  still attach to the intended rows — an un-merge resurrects the twin with
+  its stale seed (the a16z HP/HPE case, which shipped a wrong member).
 - **Standing verification duties**, after the grind, before verify-clean:
   1. Web-verify every $1B+ claim regardless of source: identity and current
      status; update or downgrade.
   2. Vet every `seed_to_a_graduation: false` against reality (the C2A
      cross-check above).
   3. Audit every weak CIK join encountered: does the registrant actually
-     fit the row, or is it a suffix-stripped name collision?
+     fit the row, or is it a suffix-stripped name collision? A weak join
+     poisons downstream layers — the issuer-rounds history inherits the
+     collision, so `entry_stage` and graduation must not trust a Form D
+     band riding one (a16z: crypto member `dynamic` weak-joined Dynamic
+     Offshore Resources and inherited a ~$1.1B "entry round").
   4. Sweep stale-float → acquired rows for holding-co reorgs and re-IPOs;
      fetch the successor float directly.
   5. Sweep public rows with floats 12–24 months old for known deaths.
@@ -402,12 +493,26 @@ Two checkpoints pace a run: the calibration gate's result, and the
 membership-verified base before classification begins. At each, the session
 posts a one-paragraph status and continues or waits per the issue's scope.
 
+Before checkpoint 2 posts, the review surface is verified rendered — serve
+it (`file://` is blocked in the app browser; use a static server) and check
+that rows render flat and the surface is actually reviewable. It is an
+exit-criterion artifact, not a byproduct.
+
 Every run ends in the investor's `report.md`: method deltas, results,
 corrections taken, the flag and debt counts behind `verify`, and the
 session's prompt count (kickoff, checkpoint approvals, corrections) — the
-number this pipeline exists to drive down. Session recipe: the strongest
-available harness, web search enabled, the machine kept awake for the
-grind.
+number this pipeline exists to drive down. The prompt count is final only
+after Erik's sample sign-off: review exchanges count, and a16z went from
+"1 prompt, 0 corrections" at checkpoint 2 to 10 prompts and 6 rulings by
+sign-off. Session recipe: the strongest available harness, web search
+enabled, the machine kept awake for the grind.
+
+**Run close includes a playbook write-back.** A rule invented during the
+run that is investor-agnostic belongs in this file, not only in the
+investor's `decisions.md` or the report — propose the COLLECTION.md diff
+as part of closing the run. The a16z run wrote seven durable lessons into
+code and local files and none into the playbook; the next investor would
+have re-derived them.
 
 ## 10. Verify invariants
 
@@ -431,13 +536,31 @@ Independent of the base — every field here answers a question about the
 firm, not its portfolio — so it runs in parallel as its own session. Output
 is the investor's `investor.json` plus `investor.sources.json`, one source
 entry per field; every field populated or explicitly null, through the
-taxonomy gate, onto the review surface. Field recipes, learned on Sequoia:
+taxonomy gate, onto the review surface.
+
+**Running in parallel with the base session, same investor directory**
+(the a16z shape, worked): declare file ownership up front by session
+message — profile session owns `investor.json` + sources sidecar, team
+payloads and the fund filer sweep; base session owns `config.json`, site
+companies, the EDGAR sweeps, base + overlays. Exchange intel both ways
+(the profile session's measured false-attribution clusters seed the base
+session's trap set). The profile may build base-less:
+`build-firm-profile.py` skips its base-bound checks loudly and re-runs
+them on the first post-base build — re-run it once the base lands so
+notable_investments and the entry-round median recompute against the
+verified base, interim assertions flagged until then.
+
+Field recipes, learned on Sequoia and a16z:
 
 - **AUM.** Form ADV via IAPD for any registered adviser: Item 5.F RAUM is
   the firm's own sworn number and anchors the bottom of the range; press
-  supplies the top. An affiliated but separately registered adviser (a
-  crossover or public-equities arm) is excluded from both AUM and the fund
-  list, so the row stays internally consistent.
+  supplies the top. Resolve the adviser by CRD, not name — adviser names
+  drift (AH Capital Management renamed to A16Z Capital Management under
+  the same CRD). An exempt reporting adviser files no Item 5.F; its
+  Section 7.B private-fund gross assets are the sworn substitute. An
+  affiliated but separately registered adviser (a crossover or
+  public-equities arm) is excluded from both AUM and the fund list, so
+  the row stays internally consistent.
 - **Funds.** Sweep every Form D filer matching the firm's name on EDGAR —
   the partner-matched subset structurally misses vehicles. Sizes from
   Form D where the vehicle raised directly, from press where the size is an
@@ -463,3 +586,10 @@ taxonomy gate, onto the review surface. Field recipes, learned on Sequoia:
   crosswalked into the taxonomies. When the portfolio distribution lands,
   reconcile: flag disagreements, never silently overwrite — a gap between
   positioning and behaviour is signal, not error.
+- **Focus recompute needs representative tags.** A base-derived focus
+  distribution publishes only when sector tags cover ≥25% of base rows;
+  below that the tagged slice describes whichever surface carried tags,
+  not the firm (a16z: only the accelerator's 251 rows carried tags, and
+  the recompute had published an empty focus list). The firm's own sector
+  enumeration stands until coverage clears the bar
+  (`build-firm-profile.py` enforces this).
