@@ -178,6 +178,15 @@ def main() -> None:
             row["site_listed"] = True
             row["site_url"] = c.get("url") or ""
             row["sectors"].update(c.get("sectors") or [])
+            # A CMS that names the deal partners (Accel) feeds the same
+            # partners_site column the wayback filters do on other sites.
+            row["partners_site"].update(p for p in (c.get("partners") or []) if p)
+            # The firm's own dated invest claim (year granularity) is
+            # first-seen evidence like a listing year; min() below keeps
+            # the earliest across layers.
+            y = str(c.get("invest_year") or "")[:4]
+            if y.isdigit():
+                row["site_invest_year"] = min(y, row.get("site_invest_year") or y)
             site_n += 1
         print(f"site API portfolio: {site_n} companies")
 
@@ -429,7 +438,9 @@ def main() -> None:
         status = "auto_confirmed" if tier == "A" else "needs_review"
         first = min([str(min(r["wayback_years"]))] if r["wayback_years"] else []
                     + ([r["edgar_first"][:4]] if r["edgar_first"] else [])
-                    + ([r["formd_first"]] if r["formd_first"] else []) or ["?"])
+                    + ([r["formd_first"]] if r["formd_first"] else [])
+                    + ([r["site_invest_year"]] if r.get("site_invest_year") else [])
+                    or ["?"])
         # wayback evidence link: the company's own page for eras with
         # per-company pages, the era's listing page otherwise (config-driven)
         wb_link = ""
