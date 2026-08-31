@@ -120,6 +120,16 @@ def from_site_team(p: Paths) -> dict[str, list[str]]:
     return {r["slug"]: [y] for r in site_team_rows(p)}
 
 
+def from_commoncrawl(p: Paths) -> dict[str, list[str]]:
+    """People profile pages enumerated from the Common Crawl index
+    (commoncrawl-pull.py's cc-people.json) — the IA-independent tenure
+    source, same capture-evidence class as the CDX profile pages."""
+    src = p.wayback / "cc-people.json"
+    if not src.exists():
+        return {}
+    return {slug: list(years) for slug, years in json.load(open(src)).items()}
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("investor")
@@ -140,11 +150,15 @@ def main() -> None:
     site = from_site_team(p)
     print(f"   {len(site)} people slugs")
 
+    print("== Common Crawl profile pages")
+    cc = from_commoncrawl(p)
+    print(f"   {len(cc)} people slugs")
+
     site_names = {r["slug"]: r["name"] for r in site_team_rows(p)}
 
     merged: dict[str, dict] = {}
     for src, batch in (("cdx-profile-page", cdx), ("listing-page", listing),
-                       ("site-team", site)):
+                       ("site-team", site), ("cc-profile-page", cc)):
         for slug, years in batch.items():
             e = merged.setdefault(slug, {"slug": slug, "years": set(), "sources": [],
                                          "snapshots": 0})
