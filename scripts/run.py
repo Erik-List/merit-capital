@@ -1040,13 +1040,42 @@ def cmd_verify(args) -> None:
     # against resolved.json. Stale classification keys are expected (absorbed
     # earlier-run answers) and unused by the merge.
     base_slugs = {r["slug"] for r in rows}
-    gone, new = set(resolved) - base_slugs, base_slugs - set(resolved)
-    if gone or new:
-        problems.append(f"base rebuilt since prepare: {len(gone)} resolved slugs "
-                        f"no longer in the base, {len(new)} base rows unresolved; "
-                        f"re-run prepare")
+    if resolved or not args.base_only:
+        gone, new = set(resolved) - base_slugs, base_slugs - set(resolved)
+        if gone or new:
+            problems.append(f"base rebuilt since prepare: {len(gone)} resolved slugs "
+                            f"no longer in the base, {len(new)} base rows unresolved; "
+                            f"re-run prepare")
     if stale := len(set(cls) - base_slugs):
         print(f"stale classification keys: {stale} (earlier base versions)")
+
+    # A base-only run (the "company base" half of a collection, before the
+    # classification session) has nothing to assert about the columns it
+    # never wrote: full fills, source gates and citation invariants are the
+    # classification run's contract. Everything above — base structure,
+    # membership coverage, drift, published-surface currency (below) —
+    # still holds.
+    if args.base_only:
+        csv_p = P.base_csv
+        if not csv_p.exists():
+            problems.append(f"{csv_p.name} missing; run export")
+        else:
+            csv_slugs = {r["slug"] for r in csv.DictReader(open(csv_p))}
+            if csv_slugs != base_slugs:
+                problems.append(f"{csv_p.name} stale relative to the base "
+                                f"({len(csv_slugs ^ base_slugs)} slugs differ); re-run export")
+        if not P.review_html.exists():
+            problems.append("review.html missing; run review")
+        elif rows and rows[0]["name"] not in P.review_html.read_text(
+                encoding="utf-8", errors="replace"):
+            problems.append("review.html stale relative to the base; re-run review")
+        if problems:
+            print(f"\n{len(problems)} problem(s):")
+            for p in problems[:40]:
+                print("  -", p)
+            sys.exit(1)
+        print("\nverify (base-only): clean")
+        return
 
     merged = merge_rows(rows, resolved, cls)
     for slug, rec in merged.items():
@@ -1693,6 +1722,9 @@ def main() -> None:
     p = sub.add_parser("verify"); p.set_defaults(fn=cmd_verify)
     p.add_argument("--skip-links", action="store_true",
                    help="skip the sampled evidence-link HTTP checks")
+    p.add_argument("--base-only", action="store_true",
+                   help="assert base structure + membership only (a company-base "
+                        "run before its classification session)")
     p = sub.add_parser("export"); p.set_defaults(fn=cmd_export)
     p = sub.add_parser("review"); p.set_defaults(fn=cmd_review)
 

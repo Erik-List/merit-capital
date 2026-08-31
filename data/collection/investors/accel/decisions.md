@@ -44,6 +44,14 @@ IDG-Accel China deals (ruling 3).
 Standing rulings made during the run land here, dated, each one a
 class-wide rule rather than a row fix.
 
+8. **Erasmic-era India deals** (standing ruling, agent, 2026-08-31 —
+   derived from the membership definition; flagged for Erik's review):
+   Accel India was formed in 2008 by absorbing Erasmic Venture Fund.
+   Deals made with Erasmic fund money before the merge are members only
+   where Accel's own listings carry them (the listing suffices as ever);
+   an Erasmic-only attribution with no Accel listing is not_member —
+   different fund, different firm at the time.
+
 Verdicts live in `base-verification.json` and are re-applied on every
 rebuild; human verdicts (`who: "erik"`) outrank agent verdicts; excluded
 rows are preserved in `excluded.csv`, never deleted.
