@@ -388,6 +388,16 @@ class-wide — as a ledger verdict or classification correction with
 and survives every rebuild. Erik's sample sign-off is the exit criterion of
 a run.
 
+**Ingestion is gated on that sign-off** (ruled by Erik 2026-08-31, after
+the a16z run ingested ahead of review): `ingest-companies.ts` and
+`ingest-investor.ts` write the shared database, so they run only after
+Erik explicitly approves — never as an autonomous step, even when the
+issue's Done-when lists ingestion. The run ends at export + review.html +
+report; the session asks for the ingest go-ahead and stops. Corrections
+that land after an approved ingest are re-ingested only with a fresh
+approval, and rows removed from the base after an ingest are called out
+so Erik can decide the database cleanup.
+
 Two checkpoints pace a run: the calibration gate's result, and the
 membership-verified base before classification begins. At each, the session
 posts a one-paragraph status and continues or waits per the issue's scope.

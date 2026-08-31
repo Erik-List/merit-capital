@@ -436,3 +436,19 @@ hq_city, focus, seed_to_a_graduation, flags, note. `verify` is clean.
   identity-merges.json (98 groups), scratch/webpass/* (agent evidence).
 
 Exit criterion: Erik's classification sample sign-off via review.html.
+
+## 6. Post-review corrections (Erik, 2026-08-31)
+
+- abacus removed (who:erik not_member, overriding the site-listing seed;
+  no independent evidence ever surfaced). arpeggi confirmed member
+  (who:erik).
+- adelante-financial-holdings-inc and pm-technologies-corp excluded under
+  Erik's conditional ruling: their only evidence is a partner as Director
+  of record on the Form Ds (Strange 2020-21, Moore 2025) - no a16z fund
+  entity on any filing, no announcement, identities never resolved.
+  Partner-director-only = personal-seat class.
+- Base 1,722 -> 1,719 rows (139 excluded); verify clean; re-exported.
+- Process ruling baked into COLLECTION.md par.9: ingestion is gated on
+  Erik's explicit approval, never autonomous. The three removed rows
+  still sit in public.companies from the pre-ruling ingest - cleanup
+  awaits Erik's decision.
