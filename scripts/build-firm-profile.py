@@ -70,15 +70,17 @@ def current_people(roster: list, team: list):
     latest = max(p["last_seen"] for p in roster)
     roster_names = {p["name"].lower() for p in roster if p["last_seen"] == latest}
 
+    INVESTING_BUCKETS = {"seed-early", "growth", "investing"}
+
     def position(m):
         if m.get("cms_title"):
             return m["cms_title"]
-        if set(m.get("role_bucket", [])) & {"seed-early", "growth"}:
+        if set(m.get("role_bucket", [])) & INVESTING_BUCKETS:
             return "Partner"
         return None
 
     def sort_key(m):
-        investing = bool(set(m.get("role_bucket", [])) & {"seed-early", "growth"})
+        investing = bool(set(m.get("role_bucket", [])) & INVESTING_BUCKETS)
         return (0 if investing else 1, m["name"])
 
     people = [
@@ -154,35 +156,54 @@ def main():
     fund_formds = json.loads((p.edgar / "fund-formds.json").read_text())
     roster = json.loads((p.wayback / "partner-roster.json").read_text())
     team = json.loads((p.site / "team-members.json").read_text())
-    base = json.loads(p.base_json.read_text())
+    # The profile session runs in parallel with the base collection
+    # (COLLECTION.md §11), so the base may not exist yet. The two checks that
+    # need it are then skipped loudly and re-run on the first build after the
+    # base lands; nothing else here reads it.
+    base = json.loads(p.base_json.read_text()) if p.base_json.exists() else None
 
     # ---- validate the curated claims against the evidence layers
     verify_funds_against_filings(fields["funds"]["value"], fund_formds,
                                  "sources/edgar/fund-formds.json")
 
-    # Case-insensitive: the base carries the site's own casing ("Paypal",
-    # "Youtube"), which is not how the names should be published.
-    confirmed = {r["name"].lower() for r in base if r["status"] == "auto_confirmed"}
-    not_confirmed = [n for n in row["notable_investments"]
-                     if n.lower() not in confirmed]
-    if not_confirmed:
-        raise SystemExit(f"Refusing to write: not confirmed in the base: {not_confirmed}")
+    if base is None:
+        print("no base.json yet — notable_investments NOT asserted against the "
+              "base and investment_scope.focus NOT recomputed from site tags; "
+              "re-run after build-company-base.py")
+    else:
+        # Case-insensitive: the base carries the site's own casing ("Paypal",
+        # "Youtube"), which is not how the names should be published.
+        confirmed = {r["name"].lower() for r in base if r["status"] == "auto_confirmed"}
+        not_confirmed = [n for n in row["notable_investments"]
+                         if n.lower() not in confirmed]
+        if not_confirmed:
+            raise SystemExit(f"Refusing to write: not confirmed in the base: {not_confirmed}")
 
     # ---- recompute the evidence-derived fields
     own = own_formd_filings(sweep, own_re)
     (hq, hq_count), hq_places = hq_from_filings(own)
     latest_year, people, departed = current_people(roster, team)
-    focus, mapped, unmapped = focus_from_site_tags(
-        base, cfg["focus_crosswalk"], cfg["focus_min_companies"])
 
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
-    scope = {"type": row["investment_scope"]["type"], "focus": focus}
     row.update({
         "hq_location": hq,
-        "investment_scope": scope,
         "individuals": people,
         "updated_at": now,
     })
+    # The recompute publishes only when the site tags actually describe the
+    # portfolio: a base where few rows carry a sector (a16z: only the
+    # accelerator slice, 251/1,807) would derive the firm's focus from an
+    # unrepresentative sliver, so the curated enumeration stands instead.
+    tagged = sum(1 for r in (base or []) if (r.get("sector") or "").strip())
+    focus_representative = base is not None and tagged >= 0.25 * len(base)
+    if focus_representative:
+        focus, mapped, unmapped = focus_from_site_tags(
+            base, cfg["focus_crosswalk"], cfg["focus_min_companies"])
+        scope = {"type": row["investment_scope"]["type"], "focus": focus}
+        row["investment_scope"] = scope
+    elif base is not None:
+        print(f"focus recompute skipped: only {tagged}/{len(base)} base rows "
+              f"carry a sector tag — curated focus kept")
 
     def field(value, source, basis):
         return {"value": value, "source": source, "basis": basis}
@@ -192,12 +213,13 @@ def main():
         hq, "sources/edgar/formd-sweep.json",
         f"issuer address on {hq_count} of {total} of the firm's own Form D "
         f"filings{'; unanimous' if hq_count == total else ''}. Filing-grade.")
-    fields["investment_scope"] = field(
-        scope, "base.json",
-        "focus from the firm's own site sector tags on %d base rows, crosswalked "
-        "to data/taxonomy/focus.json (crosswalk in config.json), published above "
-        "%d companies. Scope type is the curated judgement carried in "
-        "investor.json." % (sum(mapped.values()), cfg["focus_min_companies"]))
+    if focus_representative:
+        fields["investment_scope"] = field(
+            scope, "base.json",
+            "focus from the firm's own site sector tags on %d base rows, crosswalked "
+            "to data/taxonomy/focus.json (crosswalk in config.json), published above "
+            "%d companies. Scope type is the curated judgement carried in "
+            "investor.json." % (sum(mapped.values()), cfg["focus_min_companies"]))
     fields["individuals"] = field(
         people, "sources/site/team-members.json",
         f"Live team CMS: {len(people)} members. Positions are CMS titles "
@@ -217,8 +239,11 @@ def main():
     print(f"funds         {len(fields['funds']['value'])}  aum {row['aum']}")
     print(f"individuals   {len(people)}  (current cohort {latest_year}, "
           f"{len(departed)} departed)")
-    print(f"focus         {focus}")
-    print(f"unmapped tags {[t for t, _ in unmapped.most_common(6)]}")
+    if focus_representative:
+        print(f"focus         {focus}")
+        print(f"unmapped tags {[t for t, _ in unmapped.most_common(6)]}")
+    else:
+        print("focus         kept as researched")
     print(f"\nwrote {p.rel(p.investor)}")
     print(f"wrote {p.rel(p.investor_sources)}")
 

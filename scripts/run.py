@@ -860,6 +860,17 @@ def cmd_record(args) -> None:
                                   - set(rec.pop("clear_flags", [])))
             cls[slug] = rec
             continue
+        # Human classification keys mirror the ledger rule: an agent record
+        # may ADD keys to a who:"erik" row but never overwrite or unflag the
+        # keys the human set (BFL's corrected stage must survive the grind).
+        if prev.get("who") == "erik" and rec.get("who") != "erik":
+            kept = [k for k in list(rec)
+                    if k in prev and k not in ("slug", "flags", "clear_flags", "note")]
+            for k in kept:
+                rec.pop(k)
+            rec.pop("clear_flags", None)
+            if kept:
+                print(f"  kept human classification keys on {slug}: {sorted(kept)}")
         fl = set(prev.get("flags") or []) | set(rec.get("flags") or [])
         fl -= set(rec.get("clear_flags") or [])
         old_note = prev.get("note")
