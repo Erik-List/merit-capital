@@ -2,47 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "dev",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": [
-        "run",
-        "dev"
-      ],
-      "port": 3000
-    },
-    {
-      "name": "dev-auto",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": [
-        "run",
-        "dev"
-      ],
-      "port": 3000,
-      "autoPort": true
-    },
-    {
-      "name": "review-surface",
+      "name": "review-a16z",
       "runtimeExecutable": "python3",
-      "runtimeArgs": [
-        "-m",
-        "http.server",
-        "8931",
-        "--directory",
-        "data/collection/investors"
-      ],
-      "port": 8931
-    },
-    {
-      "name": "dev-alt",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": [
-        "run",
-        "dev",
-        "--",
-        "-p",
-        "3100"
-      ],
-      "port": 3100
+      "runtimeArgs": ["-m", "http.server", "8791", "--directory", "data/collection/investors/a16z"],
+      "port": 8791
     }
   ]
 }

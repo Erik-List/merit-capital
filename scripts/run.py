@@ -1356,8 +1356,25 @@ table.rows th { position:sticky; top:0; background:var(--panel); text-align:left
   font-weight:600; padding:6px 8px; border-bottom:1px solid var(--line); cursor:pointer;
   white-space:nowrap; color:var(--muted); font-size:11px; text-transform:uppercase;
   letter-spacing:.04em; }
-table.rows td { padding:5px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+table.rows td { padding:5px 8px; border-bottom:1px solid var(--line); vertical-align:top;
+  white-space:nowrap; }
+.note-cell { max-width:240px; overflow:hidden; text-overflow:ellipsis; }
+tr.row { cursor:pointer; }
 tr.row:hover { background:var(--chip); }
+#drawer { position:fixed; left:0; right:0; bottom:0; z-index:20; display:none;
+  background:var(--panel); border-top:2px solid var(--accent);
+  box-shadow:0 -6px 24px rgba(0,0,0,.25); max-height:45vh; overflow-y:auto;
+  padding:12px 16px; font-size:13px; }
+#drawer.open { display:block; }
+#drawer h2 { margin:0 0 2px; font-size:14px; }
+#drawer .dmeta { color:var(--muted); font-size:11px; margin-bottom:8px; }
+#drawer .dfield { margin:6px 0; }
+#drawer .dfield b { display:inline-block; min-width:110px; color:var(--muted);
+  font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:.04em; }
+#drawer .dtext { white-space:normal; line-height:1.5; }
+#dclose { position:absolute; top:8px; right:12px; border:1px solid var(--line);
+  background:var(--chip); color:var(--ink); border-radius:6px; padding:2px 10px;
+  cursor:pointer; font-size:12px; }
 .nm { font-weight:600; }
 .mut { color:var(--muted); }
 .val { font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap; font-weight:600; }
@@ -1434,10 +1451,17 @@ a:hover { text-decoration:underline; }
 <tbody id="tb"></tbody>
 </table></div>
 <div class="help">
-  Read-only. Sorted by cost of error: $1B+ claims, then layer disagreements, then low
-  confidence. Corrections land as overlay edits
+  Read-only. Rows stay one line; <b>click any row</b> for the full note, membership
+  basis and citations. Sorted by cost of error: $1B+ claims, then layer disagreements,
+  then low confidence. Corrections land as overlay edits
   (<code>base-verification.json</code> / <code>classification.json</code>), recorded via
   <code>python3 scripts/run.py record</code>.
+</div>
+<div id="drawer">
+  <button id="dclose">close</button>
+  <h2 id="dname"></h2>
+  <div class="dmeta" id="dmeta"></div>
+  <div id="dbody"></div>
 </div>
 <script id="data" type="application/json">__DATA__</script>
 <script id="profile" type="application/json">__PROFILE__</script>
@@ -1527,11 +1551,47 @@ function render() {
       <td class="mut">${esc(r.focus||'')}</td>
       <td class="mut">${r.tier||''}</td>
       <td>${ev}</td>
-      <td class="mut" style="max-width:200px">${esc(r.note||'')}</td>
+      <td class="mut note-cell" title="click the row for the full note">${esc(r.note||'')}</td>
     </tr>`;
   }).join('');
   document.getElementById('count').textContent = `${rows.length} / ${ROWS.length} shown`;
 }
+
+const drawer = document.getElementById('drawer');
+function openDrawer(slug) {
+  const r = ROWS.find(x => x.slug === slug);
+  if (!r) return;
+  document.getElementById('dname').textContent = r.name;
+  document.getElementById('dmeta').textContent =
+    `${r.slug} · tier ${r.tier||'—'} · ${r.status||'unclassified'}` +
+    (r.valuation_usd ? ` · ${usd(r.valuation_usd)}` : '') +
+    (r.entry_stage ? ` · entry ${r.entry_stage}` : '');
+  const link = u => u ? `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a>` : '';
+  const fields = [
+    ['Membership', r.membership_verdict ? `${r.membership_verdict} (${r.membership_evidence||'—'})` : ''],
+    ['Basis', r.membership_basis],
+    ['Note', r.note],
+    ['Flags', (r.flags||[]).join(', ')],
+    ['Stage citation', link(r.entry_stage_citation)],
+    ['Value citation', link(r.valuation_citation)],
+    ['Evidence', [r.site_url && link(r.site_url), r.wayback_first_link && link(r.wayback_first_link),
+                  (r.formd_links||'').split('; ')[0] && link((r.formd_links||'').split('; ')[0]),
+                  (r.edgar_links||'').split('; ')[0] && link((r.edgar_links||'').split('; ')[0])]
+                 .filter(Boolean).join('<br>')],
+  ];
+  document.getElementById('dbody').innerHTML = fields
+    .filter(([,v]) => v)
+    .map(([k, v]) => `<div class="dfield"><b>${k}</b> <span class="dtext">${
+      k === 'Basis' || k === 'Note' ? esc(v) : v}</span></div>`).join('');
+  drawer.classList.add('open');
+}
+document.getElementById('tb').addEventListener('click', e => {
+  if (e.target.closest('a')) return;           // evidence links keep working
+  const tr = e.target.closest('tr.row');
+  if (tr) openDrawer(tr.dataset.slug);
+});
+document.getElementById('dclose').addEventListener('click', () => drawer.classList.remove('open'));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') drawer.classList.remove('open'); });
 
 document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
   const s = filters[c.dataset.f]; s.has(c.dataset.v) ? s.delete(c.dataset.v) : s.add(c.dataset.v);
@@ -1564,7 +1624,14 @@ def profile_fields(investor: str) -> list[dict]:
 
 
 def cmd_review(args) -> None:
-    rows = load_base(args.investor)
+    # The firm-profile session (COLLECTION.md §11) runs in parallel with the
+    # base collection and ends at this surface, so a missing base renders the
+    # investor panel over an empty company table rather than refusing.
+    if not P.base_json.exists():
+        print("no company base yet — rendering the investor panel only")
+        rows = []
+    else:
+        rows = load_base(args.investor)
     _, verdicts = load_ledger(args.investor)
     merged = merge_rows(rows, load(P.resolved, {}),
                         load(P.classification, {}))
