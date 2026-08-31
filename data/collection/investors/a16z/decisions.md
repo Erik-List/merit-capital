@@ -19,6 +19,16 @@ cites these rulings per line; all confirmed by Erik, 2026-08-18.
    evidence-sufficiency rules unchanged.
 5. **Window**: founded 2009, so the standard 2006 window covers the firm's
    full history; no pre-window class exists.
+6. **Fund-shaped list entries** (ruled 2026-08-30, during base review):
+   an investment-list entry whose name is fund-shaped (Capital / Fund /
+   Ventures / Management, fund numerals) and that cannot be identified as
+   an operating company is `not_member` — the LP-stake class — until
+   evidence identifies it otherwise; the verdict is amended and the row
+   returns on the next rebuild if identification lands. Applied to
+   AMP Fund, Drone Capital I, Revival Fund Management (and consistent
+   with the identified cases A.Capital, Meta4 Capital, BlockTower
+   Capital). Fund-shaped names identified AS operating companies stay in
+   (Capital.xyz, Foundation, Proof Holdings, Essence Ventures).
 
 Verdicts live in `base-verification.json` and are re-applied on every
 rebuild; human verdicts (`who: "erik"`) outrank agent verdicts; excluded
