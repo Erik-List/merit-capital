@@ -79,7 +79,30 @@ lists the seat, in tenure, inside the coverage window, exact distinctive
 name — is affirmative corroboration. Verdict `member` at medium confidence
 as an unannounced deal (compliance lists' own permission-exclusions explain
 the absence from the site), flagged for the A/B pass. The corroboration is
-the seat on the filing, not the name similarity.
+the seat on the filing, not the name similarity. Erik's narrowing (a16z
+review, 2026-08-31; applied class-wide on Accel): the pattern holds only
+when the issuer's identity RESOLVES to a real operating company —
+director-only with identity never resolved and no announcement is the
+personal-seat class, `not_member`.
+
+**A seat is dated against the person's firm at filing time, not against
+the roster.** Partners arrive from other firms and leave for others, and
+their board seats travel with them: a roster name on a filing can be a
+prior-firm deal (Accel: Jonathan Turner's e.ventures-era Cameo and Zumper
+boards), a next-firm deal (Ethan Choi leading Anrok at Khosla months
+after leaving), an operator job on either side of the tenure (Sagar
+Sanghvi as Instacart's CFO before joining, as Abridge's CFO after), or an
+interlude at another firm entirely (Carlo Biggio's Hedosophia year
+between two Accel stints). The judge's question is never "is this person
+ours" but "whose money was behind this seat on this date".
+
+**A fund ownership filing can be sale consideration, not an investment**
+(generalizes a16z's Starco ruling; Accel: the funds' Viggle 13G was
+consideration from Viggle's acquisition of Accel-backed Wetpaint). When a
+fund_filing row's company is known mainly as the ACQUIRER of a portfolio
+company near the first-filing date, check the consideration reading
+before seeding member — the investment row is the acquired company, which
+may itself be a recall addition.
 
 **Person-level attribution locates a person, never a firm position.** Forms
 3/4/5 are filed by a natural person about their own holdings; partners file
@@ -224,15 +247,37 @@ test after any protocol change.
 
    1. WordPress REST: `/wp-json/wp/v2/types` → find the post type →
       paginate it (`scripts/site-portfolio.py`).
-   2. Next.js: the `__NEXT_DATA__` script tag, or
+   2. Headless-CMS query API: identify the CMS and try its public read
+      endpoint before touching the rendered page — a Sanity project id
+      in the page source means `<project>.api.sanity.io/.../data/query/
+      production?query=<GROQ>` may serve the whole dataset (Accel: 791
+      company docs with per-deal partner refs, entry-stage claims and
+      exit fields; the person docs carried the team, the emeriti and the
+      departed). `site-portfolio.py`'s `json_list` parser takes any such
+      endpoint with a dot-path to the rows; the projection lives in the
+      config URL.
+   3. Next.js: the `__NEXT_DATA__` script tag, or
       `/_next/data/<build>/*.json`.
-   3. Any SPA: watch XHR in the browser pane, then call that endpoint
-      directly.
-   4. Last resort: parse what the page ships — `site-portfolio.py` has a
+   4. Any SPA: watch XHR in the browser pane, then call that endpoint
+      directly. When the pagination is client-side and the CDN strips
+      the page param for direct fetches (Accel's Atoms surface:
+      Finsweet cmsload on Webflow), drive the page in the browser pane,
+      read the DOM, and save the rows as a `file_list` source — a local
+      JSON whose `_readme` records how it was made, so the union stays
+      reproducible from config.
+   5. Last resort: parse what the page ships — `site-portfolio.py` has a
       generic `scrape` site_api type (parsers: `js_array`, `li_text_list`,
       `paginated_json`, `regex_list`); an embedded JS array or a
       `data-payload` attribute counts as this step, no headless render
       needed so far.
+
+   **A CMS that names deal partners is a judge instrument, not just a
+   listing.** Accel's per-company partner refs fed `partners_site` at
+   build (the wayback filter path other sites use), validated identity
+   merges (the Form D director matches the listed partner), and — as a
+   reference graph queried per person — resolved whole common-name
+   clusters at once: every "Daniel Levine" Form D row absent from the
+   firm's own attribution map died in one query.
 
 2. **Partner roster** via CDX people pages with tenure windows
    (`scripts/partner-roster.py`). When the site's people namespace mixes
@@ -450,6 +495,11 @@ Every subcommand takes the investor slug.
   slugs: after any change to the merge file, re-check that ledger verdicts
   still attach to the intended rows — an un-merge resurrects the twin with
   its stale seed (the a16z HP/HPE case, which shipped a wrong member).
+  The build applies ledger exclusions BEFORE the identity overlay, so a
+  merge whose canonical is `not_member` never runs — its duplicates
+  resurface as their own unjudged rows on the next rebuild (Accel:
+  2tor-inc, after 2u-inc was excluded). Every slug of a merge group needs
+  its own verdict when the canonical's verdict is `not_member`.
 - **Standing verification duties**, after the grind, before verify-clean:
   1. Web-verify every $1B+ claim regardless of source: identity and current
      status; update or downgrade.
