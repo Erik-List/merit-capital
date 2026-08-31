@@ -1,0 +1,27 @@
+{
+ "_readme": "Calibration gate blind pass, 2026-08-31 (checkpoint 1). Each verdict derived from the row's built evidence + COLLECTION.md/decisions.md rules, citations out of context; scored against golden.json after all 21 verdicts were written. Result: 21/21, zero false members at high confidence. GATE PASS.",
+ "pass": {
+  "facebook": {"verdict": "member", "confidence": "high", "rule": "site listing suffices (§1); CMS row invest 2005 + fund Section 16 stream 2012"},
+  "uunet-technologies": {"verdict": "member", "confidence": "high", "rule": "site listing suffices; the firm's own 1993 invest-year claim; pre-window class exists for Accel (founded 1983)"},
+  "supercell": {"verdict": "member", "confidence": "high", "rule": "site listing suffices; London desk in per decisions #1"},
+  "flipkart": {"verdict": "member", "confidence": "high", "rule": "site listing suffices; India desk in per decisions #1"},
+  "atlassian": {"verdict": "member", "confidence": "high", "rule": "site listing + fund SC 13G stream 2016-17 (either suffices)"},
+  "freshworks": {"verdict": "member", "confidence": "high", "rule": "site listing + FreshDesk-alias Form Ds (Kirani, in tenure) + fund Section 16/13G; identity-merge freshdesk-inc -> freshworks"},
+  "spendflo": {"verdict": "member", "confidence": "high", "rule": "listed on both CMS and atoms.accel.com; decisions #4 (Atoms deploys fund money per program FAQ)"},
+  "yume-inc": {"verdict": "member", "confidence": "high", "rule": "SEC ownership filings by fund vehicles (3,4,SC 2013-16) suffice alone (§1); recognition check fits era (Ping Li Form Ds 2009-12, IPO 2013)"},
+  "diapers-com": {"verdict": "member", "confidence": "high", "rule": "site listing (CMS Diapers.com); Quidsi Form D w/ Gandhi in tenure merges in (identity overlay)"},
+  "maplebear-inc": {"verdict": "not_member", "confidence": "high", "rule": "recognized as Instacart; sole evidence = Sanghvi on 2020 Form D, pre-tenure (Instacart's own CFO 2015-2021, Accel from Sep 2021); name-match w/o corroboration is not_member (§1); no listing, no fund filing, no announcement"},
+  "postera-inc": {"verdict": "not_member", "confidence": "high", "rule": "issuer's own co-founder/CTO is a Matthew Robinson homonym; person-level attribution locates a person (§1); founder-homonym exclusion class"},
+  "gopivotal-inc": {"verdict": "not_member", "confidence": "high", "rule": "Colyer was Pivotal's own CTO at filing (2013), Accel venture partner only from 2014; pre-tenure employment class; Pivotal EMC/VMware/GE-funded"},
+  "2u-inc": {"verdict": "not_member", "confidence": "high", "rule": "John M. Larson (Career Education Corp founder, 2U original investor) explains the 2009-2019 stream; Accel's Jack Larson tenure incompatible with 2009 filings; homonym class (also covers 2tor + Triumph Higher Education)"},
+  "prairie-view-assisted-living-llc": {"verdict": "not_member", "confidence": "high", "rule": "John Larson homonym cluster (assisted living / Belize property / mining); sector and shape outside any Accel desk; zero corroboration"},
+  "aeolus-pharmaceuticals-inc": {"verdict": "not_member", "confidence": "high", "rule": "Dr. Amit Kumar biotech-exec cluster (CombiMatrix/Actym/NGX/BioCeryx); public microcap OTC biotech far outside profile; zero corroboration"},
+  "loftware": {"verdict": "not_member", "confidence": "high", "rule": "decisions #2 Accel-KKR is a different firm; structurally absent from base (no roster match on its filings) — absence verified"},
+  "liulishuo-laix": {"verdict": "not_member", "confidence": "high", "rule": "decisions #3 IDG-Accel attribution alone is never membership; absence verified"},
+  "twitter": {"verdict": "not_member", "confidence": "high", "rule": "Fenton left Accel 2006, Twitter board 2009-2017 for Benchmark (ex-partner next-firm class §1); absence verified (would enter only via an expanded historical roster and then be judged exactly so)"},
+  "walmart": {"verdict": "not_member", "confidence": "high", "rule": "Breyer's personal board seat; his person/trust entities classified external in the registry so the Section 16 stream is never crawled; absence verified"},
+  "accel-growth-fund-strategic-partners-l-p": {"verdict": "not_member", "confidence": "high", "rule": "own pooled vehicle; dropped by the pooled-fund filter at build (110 issuers dropped); absence verified"},
+  "accel-entertainment": {"verdict": "not_member", "confidence": "high", "rule": "namesake public operator; registry desk external; absence verified"}
+ },
+ "score": {"total": 21, "correct": 21, "false_members_at_high": 0, "result": "PASS"}
+}
