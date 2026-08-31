@@ -126,11 +126,11 @@ a:hover { text-decoration:underline; }
   <th></th><th data-s="name">Company</th><th data-s="membership_verdict">Member</th>
   <th data-s="valuation_usd">Value</th>
   <th data-s="status">Status</th><th data-s="valuation_asof">As of</th>
-  <th data-s="valuation_source">Src</th><th data-s="entry_stage">Entry</th>
+  <th data-s="valuation_source">Source</th><th data-s="entry_stage">Entry</th>
   <th data-s="round_count">Rds</th><th data-s="seed_to_a_graduation">C2A</th>
   <th>Flags</th><th data-s="hq_city">City</th><th data-s="hq_country">Country</th>
   <th data-s="focus">Focus</th><th data-s="tier">T</th>
-  <th>Evidence</th><th>Note</th>
+  <th>Note</th>
 </tr></thead>
 <tbody id="tb"></tbody>
 </table></div>
@@ -203,11 +203,16 @@ function render() {
   const rows = visible(), tb = document.getElementById('tb');
   tb.innerHTML = rows.map((r,i) => {
     const th = thOf(r);
-    const ev = [
-      r.site_url ? `<a class="lnk" href="${r.site_url}" target="_blank" rel="noopener">site</a>` : '',
-      r.wayback_first_link ? `<a class="lnk" href="${r.wayback_first_link}" target="_blank" rel="noopener">arch</a>` : '',
-      (r.formd_links||'').split('; ')[0] ? `<a class="lnk" href="${(r.formd_links||'').split('; ')[0]}" target="_blank" rel="noopener">D</a>` : '',
-      (r.edgar_links||'').split('; ')[0] ? `<a class="lnk" href="${(r.edgar_links||'').split('; ')[0]}" target="_blank" rel="noopener">SEC</a>` : '',
+    const lnk = (h,t) => `<a class="lnk" href="${h}" target="_blank" rel="noopener">${t}</a>`;
+    const srcLabel = (r.valuation_source||'').replace('sec_public_float','sec')
+      .replace('model_knowledge','model').replace('web_verified','web');
+    const edgar = (r.edgar_links||'').split('; ')[0], formd = (r.formd_links||'').split('; ')[0];
+    const src = [
+      srcLabel === 'sec' && edgar ? lnk(edgar,'sec') : srcLabel,
+      r.site_url ? lnk(r.site_url,'site') : '',
+      r.wayback_first_link ? lnk(r.wayback_first_link,'arch') : '',
+      formd ? lnk(formd,'D') : '',
+      srcLabel !== 'sec' && edgar ? lnk(edgar,'SEC') : '',
     ].filter(Boolean).join(' ');
     const g = r.seed_to_a_graduation;
     const gCell = g === true ? '<span class="tag g-true">yes</span>'
@@ -225,7 +230,7 @@ function render() {
       <td class="val ${th?'':'mut'}">${th?`<span class="tag t-${th}">`:''}${usd(r.valuation_usd)}${th?'</span>':''}${r.valuation_citation?` <a class="lnk" href="${r.valuation_citation}" target="_blank" rel="noopener">c</a>`:''}</td>
       <td><span class="tag s-${r.status||'unknown'}">${r.status||'—'}</span>${conf}</td>
       <td class="mut">${r.valuation_asof||''}</td>
-      <td class="mut">${(r.valuation_source||'').replace('sec_public_float','sec').replace('model_knowledge','model')}</td>
+      <td class="mut">${src}</td>
       <td class="mut">${r.entry_stage||''}${r.entry_stage_citation?` <a class="lnk" href="${r.entry_stage_citation}" target="_blank" rel="noopener">cite</a>`:''}${r.entry_offering_usd?` <span class="mut">${usd(r.entry_offering_usd)}</span>`:''}</td>
       <td class="mut">${r.round_count||''}</td>
       <td>${gCell}</td>
@@ -234,7 +239,6 @@ function render() {
       <td class="mut">${r.hq_country||''}</td>
       <td class="mut">${esc(r.focus||'')}</td>
       <td class="mut">${r.tier||''}</td>
-      <td>${ev}</td>
       <td class="mut note-cell" title="click the row for the full note">${esc(r.note||'')}</td>
     </tr>`;
   }).join('');
@@ -258,7 +262,7 @@ function openDrawer(slug) {
     ['Flags', (r.flags||[]).join(', ')],
     ['Stage citation', link(r.entry_stage_citation)],
     ['Value citation', link(r.valuation_citation)],
-    ['Evidence', [r.site_url && link(r.site_url), r.wayback_first_link && link(r.wayback_first_link),
+    ['Sources', [r.site_url && link(r.site_url), r.wayback_first_link && link(r.wayback_first_link),
                   (r.formd_links||'').split('; ')[0] && link((r.formd_links||'').split('; ')[0]),
                   (r.edgar_links||'').split('; ')[0] && link((r.edgar_links||'').split('; ')[0])]
                  .filter(Boolean).join('<br>')],
