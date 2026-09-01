@@ -50,7 +50,8 @@ DISTINCT_DESPITE_PREFIX = {
     ("martin", "martina"), ("nicholas", "nicola"), ("stephan", "stephanie"),
     ("victor", "victoria"), ("jean", "jeanne"), ("simon", "simone"),
     ("louis", "louise"), ("george", "georgia"), ("john", "johanna"),
-    ("adrian", "adriana"), ("brian", "briana"), ("justin", "justine"),
+    ("adrian", "adriana"), ("brian", "briana"), ("brian", "brianna"),
+    ("justin", "justine"),
 }
 
 

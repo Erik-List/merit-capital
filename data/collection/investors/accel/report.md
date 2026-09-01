@@ -18,20 +18,22 @@ session-to-session.
 
 ## 1. Result
 
-**871 published rows** — 142 Tier A / 663 Tier B / 66 Tier C — every row
-an affirmed **member** (0 uncertain), plus **76 not_member rows**
-preserved in `excluded.csv`. Ledger: 947 verdicts. Published verdicts by
-evidence class: 804 site_listing, 34 formd_adjudicated, 22 fund_filing,
-11 web (recall additions); by author: 826 evidence-class seeds, 45 judge
-verdicts on published rows (the other 64 judge verdicts sit on excluded
-rows).
+**886 published rows** — 776 Tier A / 49 Tier B / 61 Tier C — every row
+an affirmed **member** (0 uncertain), plus **115 not_member rows**
+preserved in `excluded.csv`. Ledger: 1,015 verdicts (14 orphaned keys
+from slug canonicalization, expected). Published verdicts by evidence
+class: 819 site_listing, 35 formd_adjudicated, 21 fund_filing, 11 web
+(recall additions); by author: 840 evidence-class seeds, 46 judge
+verdicts on published rows.
 
-Evidence coverage: 804 rows on the firm's own live surfaces, 147 with
-partner-attributed Form Ds, 64 with fund 13D/G / Section 16 streams,
-`first_seen` dated on 811, `partners_site` (the CMS's own per-deal
-partner attribution) on 731. Tier B dominates because the wayback layer
-is still pending (Internet Archive outage, §7) — site-only rows sit at
-one source until archive corroboration lands.
+Evidence coverage: 803 rows on the firm's own live surfaces, **791 with
+capture-archive corroboration** (the Common Crawl layer, §5b — this is
+what moved Tier A from 142 to 776), 156 with partner-attributed Form Ds,
+64 with fund 13D/G / Section 16 streams, `first_seen` dated on 856,
+`partners_site` (the CMS's own per-deal partner attribution) on 731.
+
+*(Checkpoint-2 state before the completion pass: 871 rows at
+142 A / 663 B / 66 C, 76 excluded, 947 verdicts — superseded by §5b.)*
 
 ## 2. Evidence layers (Accel parameters)
 
@@ -180,6 +182,60 @@ a16z; the probe's real catches were the scrubbed and pre-window
 classes, which is exactly the survivorship correction wayback will
 deepen when the archive recovers.
 
+## 5b. The completion pass (Common Crawl layer)
+
+The Internet Archive outage outlasted the run (still down at second
+close; a publicly reported Wayback outage from ~16:11 CET), so the
+capture layer was completed from the **Common Crawl index** instead —
+`scripts/commoncrawl-pull.py`, paced+resumable across all 127 CC crawls
+back to 2008, writing the exact per-year shape `wayback-pull.py` owns
+(IA's deeper pull converges over it idempotently on recovery). Two
+hard-won correctness rules live in the script: CC throttles parallel
+clients into silent empties (serial pacing + explicit no-captures
+markers only), and a **catch-all shell filter** — accel.com 2018 served
+one identical body for any `/companies/<slug>` (453 junk captures of
+crawler-invented slugs like adobe/amazon, all one digest, dropped).
+
+Yield: 814 clean company-page slugs (2017–2026) and 216 people slugs
+with capture-year tenure windows that match known departures exactly
+(Breyer 2014–2016, Lixandru 2017–2019, Pierrepont 2018–2021). Effects:
+
+- **Tier promotion 142 → 776 Tier A** (site + capture = two sources).
+- **The archived-CMS dilemma resolved by evidence**: archived docs WITH
+  years of captures were real listings → members (Snorkel AI, Cogsy,
+  Youshd, Names & Faces); archived docs with ZERO captures were never
+  published → correctly out (SentinelOne, Synopsys, Amino).
+- **New members from removed listings**: Instabug, askSpoke, Clover,
+  Mensa Brands, Produze, Nymble, Casual, Tesseract — and **Corsa**, a
+  2026 page marked "(ACCEL INVESTMENT) / Seed-Series A / Andrei
+  Brasoveanu" served in May 2026, read straight from the CC WARC, now a
+  404 and absent from the CMS: an unannounced deal published briefly and
+  pulled.
+- **Ten more rename-alias merges** from pre-rename page captures:
+  CureFit→Cult.fit, MemSQL→SingleStore, MobStac→Beaconstac,
+  Bayestree→Sainapse, IndiGG→KGeN, WorldRemit→Zepz, MessageBird→Bird,
+  dashdash→Rows, UserLeap→Sprig, EdgeDB(Gel)→edgedb; plus three
+  CMS-slug artifacts (brds=Bird Scooters, saltpay=Teya, nova=Nova
+  Intelligence).
+- **The roster tripled (69 → 217)** with real tenure windows, and the
+  re-sweep grew to 1,086 accessions / 465 issuers / 92 matched people.
+  The 41-row delta judged: two new members — **Zoomdata** (Accel led
+  the 2014 B; Jake Flomenberg, an ex-partner only the capture roster
+  could attribute) and **Booyah** (Accel led the $20M 2010 B, Breyer's
+  one genuine fund seat in the delta) — against a clean sweep of
+  exclusions that exercise the new seat-dating rule: Breyer's parallel
+  Breyer-Capital practice (Legendary, Wickr, Datalogix — the press
+  itself says "who also remains a partner at Accel", Woven, EDO,
+  Paige.AI), Destin's Atlas-era (AdSafe/IAS, Kinvey, Seatwave) and
+  Stride-era rows, Conde's personal boards (Digital Reasoning,
+  Centripetal, MassMutual separate accounts), Druva (its own CEO is a
+  Jaspreet Singh homonym), FullStory (Estevez advisory, no Accel in the
+  cap table), and a brian/brianna matcher gap (Triumph Gold) now fixed
+  in `people_common.py`.
+- Junk namespace slugs (all, see-all, amitree-2) purged and configured
+  out; the builder now lets the site's own rendering own name+slug (a
+  capture slug that created a row first was naming it — "Assemblyai").
+
 ## 6. Matcher and code changes (shared, benefit every investor)
 
 - site-portfolio.py: generic `json_list` parser (headless-CMS query
@@ -222,14 +278,18 @@ deepen when the archive recovers.
 
 ## 8. Limitations and open debts
 
-- **Wayback layer pending** (IA outage): Tier B holds 663 site-only
-  rows that archive corroboration would promote; the 2013–2019
-  /relationships/ era and 1996–2012 portfolio pages are unparsed; the
-  alumni-roster sweep (ex-partner Form D attribution for 2008–2015
-  deals) is thinner than it will be. Re-run on recovery:
-  `wayback-pull.py accel`, restore `roster.cdx_patterns` (in config
-  git history), `partner-roster.py accel`, `formd-query.py accel`,
-  rebuild, re-prepare, judge the delta.
+- **IA remains down at close**; the Common Crawl layer (§5b) carries
+  capture evidence 2017–2026, but CC never crawled accel.com deeply
+  before 2017, so the 1996–2016 site history (including the whole
+  /relationships/ era and the Breyer/Gouw/Wagner/Fenton-era people
+  pages) is still unparsed — the remaining recall exposure is deals
+  from that window never on any later list and without US filings.
+  On recovery (monitor armed): `wayback-pull.py accel` (era map to be
+  written from CDX inspection), restore `roster.cdx_patterns`,
+  `partner-roster.py`, `formd-query.py`, rebuild, judge the delta.
+  wayback_first_link URLs on capture-evidenced rows point at
+  web.archive.org replay and resolve once IA serves again (verify
+  samples only SEC links, so this is cosmetic until then).
 - Archived-CMS rows without external documentation (Behtar, Farcast,
   Names & Faces, Cogsy, Youshd, Zopsmart) are out but listed in §5 for
   Erik's sampling — wayback may corroborate some.

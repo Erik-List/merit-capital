@@ -175,6 +175,11 @@ def main() -> None:
             if not key:
                 continue
             row = row_for(key, c["name"])
+            # The firm's own current rendering is canonical for display and
+            # slug — a wayback/CC slug that created the row first must not
+            # name it ("assemblyai" vs the site's "Assembly AI").
+            row["name"] = c["name"]
+            row["slug"] = slug_of(c["name"])
             row["site_listed"] = True
             row["site_url"] = c.get("url") or ""
             row["sectors"].update(c.get("sectors") or [])

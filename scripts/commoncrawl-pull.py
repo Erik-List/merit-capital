@@ -88,7 +88,7 @@ def fetch_all(domain: str, cache: Path) -> dict:
                 if d.get("status") == "200":
                     p = re.sub(r"^https?://(www\.)?" + re.escape(domain), "",
                                d.get("url", "")).split("?")[0]
-                    rows.append((d.get("timestamp", ""), p))
+                    rows.append((d.get("timestamp", ""), p, d.get("digest", "")))
             if rows:
                 got = rows
                 break
@@ -127,12 +127,35 @@ def main() -> None:
     slug_re = re.compile(r"^/([a-z0-9-]+)/([a-z0-9][a-z0-9_-]*[a-z0-9])/?$")
     years: dict[int, dict] = defaultdict(dict)
     people: dict[str, set] = defaultdict(set)
-    for rows in raw.values():
-        for ts, path in rows:
+    shell_dropped = 0
+    for cid, rows in raw.items():
+        # Catch-all shell filter: a route that serves the SAME body for any
+        # slug answers 200 with one digest for every path (accel.com 2018:
+        # 368 "/companies/<anything>" captures, one digest — crawler-followed
+        # junk slugs like adobe/amazon, not listings). Within one crawl and
+        # namespace, captures sharing the dominant digest are dropped when
+        # that digest covers most of the namespace and more than one page.
+        from collections import Counter
+        ns_digests: dict[str, Counter] = defaultdict(Counter)
+        for ts, path, dig in ((r + [""])[:3] if isinstance(r, list) else r
+                              for r in rows):
+            m = slug_re.match(path)
+            if m and dig:
+                ns_digests[m.group(1)][dig] += 1
+        shell: dict[str, str] = {}
+        for ns, c in ns_digests.items():
+            dig, n = c.most_common(1)[0]
+            if n >= 3 and n / sum(c.values()) > 0.5:
+                shell[ns] = dig
+        for ts, path, dig in ((r + [""])[:3] if isinstance(r, list) else r
+                              for r in rows):
             m = slug_re.match(path)
             if not m or not ts[:4].isdigit():
                 continue
             ns, slug = m.group(1), m.group(2)
+            if dig and shell.get(ns) == dig:
+                shell_dropped += 1
+                continue
             y = int(ts[:4])
             if ns in company_paths and slug not in non_company:
                 prev = years[y].get(slug)
@@ -141,6 +164,8 @@ def main() -> None:
                                       "snapshot_ts": ts}
             elif ns in people_paths and slug not in not_person and "-" in slug:
                 people[slug].add(str(y))
+    if shell_dropped:
+        print(f"catch-all shell captures dropped: {shell_dropped}")
 
     parsed = p.wayback / "parsed"
     parsed.mkdir(parents=True, exist_ok=True)
