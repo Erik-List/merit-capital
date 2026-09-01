@@ -337,3 +337,239 @@ verdicts. Ingestion stays gated on Erik's explicit approval
 | `sources/wayback/` | Provisional roster only — layer pending IA recovery |
 | `scratch/` | Trap key draft, gate pass, dossiers, parametric list, sitemap surfaces |
 | `review.html` | Read-only review surface (checkpoint 2) |
+
+# Investor Classification Report — Accel (PRO-68)
+
+Autonomous session 2, run base-less in parallel with PRO-62 per §11, then
+re-asserted three times the same day as the base landed, rebuilt, and
+refreshed. Output: `investor.json` + `investor.sources.json` (every field
+populated with per-field provenance, 8 flags), rendered as the investor
+panel in the merged `review.html` (886 rows + profile). Taxonomy gate:
+**0 errors, 1 warning** (`Oceania`, the site's own region label; geo is
+open vocabulary). Ingest deliberately not run — sign-off was recorded
+2026-09-01 with zero corrections, but ingest approval was not given, so
+the §9 gate stands until Erik explicitly says ingest.
+
+**Prompt count: 1** (kickoff); 0 checkpoint approvals requested.
+Coordination with the PRO-62 session ran session-to-session: the
+ownership declaration, namesake trap-set intel out (it corrected the
+registry desking of Accel Investments LLC and Accel Investor I/II),
+membership-complete / rebuild / rescan pings in, and the focus crosswalk
+proposed by this session, landed in `config.json` by PRO-62.
+
+## Evidence chain
+
+- **AUM [$38.03B, $46.83B], both ends sworn**: Accel Management Co.
+  L.L.C (CRD 331435, SEC 801-131163, RIA since 2024-09, relying adviser
+  Accel Management Co. (India)); full ADV PDF pulled, Item 5.F (annual
+  amendment 2026-03-30, FY2025): RAUM $38,031,743,340, all
+  discretionary, 83 accounts — and the Schedule D 7.B roster parses to
+  the same figure to the dollar (83 funds, US + India families, zero
+  London). Top adds the London ERAs' Section 7.B gross assets
+  ($8,803,015,413; Accel Partners Management LLP CRD 162784 and Accel
+  London Management Ltd CRD 171086 report the identical 25-fund roster,
+  deduplicated by private-fund ID; zero ID overlap with the US umbrella),
+  per the desk-inside boundary ruling. The issue's expected composition
+  (bottom = RAUM, top = press ~$36B) inverted at run time — press sat
+  below the sworn floor — so both ends are sworn and the press figure is
+  recorded in the flag.
+- **Funds: 27, vintage 2015–2026** (`sources/edgar/fund-formds.json`:
+  the full "Accel *" EDGAR company-search filer sweep, 59 own vehicles,
+  62 Form Ds; Accel-KKR and namesakes excluded per decisions #2 and
+  filings-based classification). 19 entries carry filed amounts asserted
+  against accessions at build time; 8 carry press sizes because the
+  L.P. filed sold $0 — and in every such case the filing's
+  total-offering amount equals the press figure exactly. Where press and
+  filing disagree the filed amount is published (India V $430M, India VI
+  $525M, Leaders 3 $2.255B, Growth IV $1.2B). Accel Core is in as the
+  Leaders V LP sidecar at its filed $749.575M close; Accel Circle Fund
+  2026 ($95M offering, no public trace) is the internal co-invest class,
+  out. The sweep surfaced two vehicles beyond the issue inventory:
+  Accel Growth Fund 8 (the $1.35B "global expansion" fund) and Accel
+  India 9 ($550M).
+- **People: the site's own 35 published investors** (Sanity CMS batch
+  query; no role labels on cards — 28 profile metaDescriptions state
+  "Partner", the other 7 render the site's flat presentation via the
+  build fallback; 30 LinkedIn / 23 X; Kevin Comolli sits in the site's
+  Emeritus bucket but is published and kept). Departed cross-check
+  against the 217-name roster: 96.
+- **investment_range $1M / $20M / $2.3B**: floor from Atoms' "up to
+  $1 million" program checks (a stated cap, not a floor — flagged);
+  median stable across three populations — $22.0M pre-base (63
+  site-confirmed sweep issuers), $20.0M on the rebuild (131 verified
+  members), $19,597,993 on the refreshed rescan (155 members, 473 priced
+  rounds, 55 entries anchored past pre-investor rounds) — published
+  $20M; ceiling from the $2.3B Cursor (Anysphere) Series D co-led with
+  Coatue (November 2025), consistent with Leaders V's ~$200M average
+  checks and 10–15% concentration capacity.
+- **Stage / geo / scope from the firm's own dataset**: initial types
+  seed / series-a on 567 tagged portfolio rows, Atoms pre-seed (ruling
+  #4), the Growth and Leaders fund families → [Pre-Seed, Seed, Series A,
+  Growth, Late Stage], Series B deliberately unclaimed (the firm's
+  vocabulary never names it). Geo core [US, Europe, India] per PRO-68 —
+  exceeds PRO-7's two-label cap, flagged high and left standing at
+  sign-off. Focus recomputed from the site's 48-tag sector vocabulary
+  via the config crosswalk (86% tag coverage): 9 values, the identical
+  set the curated enumeration produced — positioning and portfolio agree
+  at this granularity.
+- **Icon** via the PRO-53 flow from the firm's own accel.com/icon.png.
+
+## Post-base reconciliation (three rounds, same day)
+
+1. **Membership-complete signal** (947 verdicts): the notable gate
+   refused Flipkart, Spotify and Supercell — ledger members whose rows
+   sit `needs_review` because the wayback layer was IA-blocked. The gate
+   was re-keyed to ledger member verdicts (PRO-62 confirmed this is the
+   correct end-state shape, not a transient).
+2. **Common Crawl rebuild** (886 members, 1,015 verdicts): all
+   re-asserts green; median $20,000,001 over 131 members.
+3. **Refreshed issuer-rounds rescan** (155 member histories): median
+   $19,597,993, the rename-merge orphan healed. Published $20M stable
+   throughout.
+
+## Script changes
+
+- `build-firm-profile.py`: the landed-base signal for the base-bound
+  checks is now **full ledger coverage** (§10 invariant 1), not
+  base.json existence — the file can land mid-membership, and
+  `needs_review` persists even in completed bases (a16z closed with
+  563). The notable assertion keys on **ledger member verdicts**, not
+  `status == auto_confirmed`. A sparse or empty focus crosswalk can no
+  longer publish an empty focus list.
+
+## Debt, all flagged in the sidecar
+
+- Atoms states a cap ("up to $1M"), not a floor; the true smallest check
+  may sit below the published lower limit.
+- Geo core carries three labels against PRO-7's two-label cap for the
+  leaderboard row; accepted at sign-off, revisit if the row overflows.
+- Median tails may ride weak CIK joins (PRO-65's standing weak-CIK audit
+  is the cleanup; the median is insensitive), and partner-anchored first
+  filings are recency ceilings — UiPath anchors at a $230M round though
+  Accel led its 2017 Series A.
+- The 2026-vintage vehicles (17, Growth 8, London 9, India 9, Circle,
+  Core) postdate the FY2025 ADV and sit in neither AUM figure.
+- Ingest (investor row + icon_url) awaits Erik's explicit approval.
+
+# Company Classification Report — Accel (PRO-65)
+
+Autonomous session 3 (same session as PRO-62, continued on the "run the
+full classification" instruction). All 886 member rows fully classified:
+status, valuation (range/usd/asof/source/citation), entry stage
+(+source/citation), hq_city, hq_country, focus, seed_to_a_graduation,
+flags, note. `verify` (full, with link checks) exits clean; every hold is
+a flagged, inspectable debt, not a silent gap.
+
+**Prompt count: 1** (the kickoff instruction; no checkpoint approvals
+requested). Ingest NOT run and NOT approved — the §9 gate stands.
+
+## 1. Shape of the result
+
+- valuation_range: 790 below_1b / 74 1b_plus / 17 10b_plus / 5 100b_plus.
+- entry_stage: 305 Seed / 39 Pre-Seed / 399 Series A / 143 Growth — the
+  A-weight is the 1996-2014 era when Accel was an A-first firm; Growth is
+  dominated by the 2015+ late entries (see §3).
+- status: 567 private / 218 acquired / 37 public / 29 defunct / 35 unknown.
+- 658 rows carry a cited entry stage (web_verified); 111 rows carry a
+  valuation citation; every $1B+ row has a cited value and a cited or
+  flagged entry stage; every public $1B+ row has a cited market cap.
+- focus: twelve-value taxonomy on 737 rows; 149 null-focus tail (old or
+  thin rows, each still carrying stage/country conventions).
+- C2A cohort: 91 rows, 72 graduated (79.1%) — but see the §4 caveat.
+
+## 2. Method
+
+1. Generator + judgment tables (`scratch/pro65_generate.py`,
+   `scratch/pro65_judgment.py`): layers + CMS + ~450 hand-authored stage
+   and status judgments merged into ~20 `run.py record` batches under the
+   source gate. Stage calibration gate: 31/33 first run, both misses
+   diagnosed as precedence gaps (rules added: label-follows-record on
+   at-scale entries; CMS-label discount class), re-run **33/33**. The
+   Form-D band was demoted to a ceiling after scoring 5/13 on the gate.
+2. Web pass (5 agents, 107 targets): every suspected-$1B+ value pinned
+   with source + asof + citation or left flagged.
+3. Float sweep over the public slice, which caught the name-collision
+   class (§3).
+4. Citation pass (2 agents, 63 $1B+ cite_pending rows): 62 resolved with
+   citations, 12 entry stages corrected in the process; arista alone
+   stays cite_pending (§3).
+5. Self-consistency sample (44 rows, 5%) which surfaced the systematic
+   city/country incoherence sweep: 27 pairs fixed (ozforex→AU public,
+   sky-mavis→Ho Chi Minh City, vinted→Vilnius, synthesia→GB, xero→NZ...)
+   plus Bengaluru→Bangalore normalization (32 rows).
+6. Close-out audit found 105 non-CMS rows (site-absent members from
+   filings/capture/recall layers) with no status at all — the CMS was the
+   only status source and covers only site rows. All 105 authored from
+   model knowledge (19 public with tickers, 20 acquired with acquirers,
+   66 private), 4 missing valuations filled (bumble, comscore, groupon,
+   ethos).
+
+## 3. Findings Erik should know about
+
+- **The "Accel led the A" folklore fails on famous rows.** The citation
+  pass corrected 12 stages, and the pattern is one-directional: entries
+  believed to be Series A were actually B/C growth entries. Personio
+  (Northzone led the A; Accel entered at the $75M C, Jan 2020), Netskope
+  ($35M C, 2014), PagerDuty ($43.8M C, 2017 — explains the pre-IPO 13G),
+  Trade Republic (Creandum led the A; Accel co-led the 2020 B), Sennder
+  (B, 2019), BlaBlaCar ($10M B, Jan 2012), Doctolib (€18M B, 2015), G2
+  ($30M B, 2017). Two went the other way: Xendit dropped to Seed on
+  Accel's own 2015 dating, Mensa Brands to Series A (its launch round).
+  New Relic's entry re-read entirely: equity in the 2023 Francisco/TPG
+  take-private, not the 2013-14 pre-IPO rounds (which had no Accel).
+- **The CMS stage label is class-1 on early rounds but fails on late
+  at-scale entries** (the socure class): 17 rows where the CMS said
+  "seed"/"Series A" but Accel demonstrably entered at B+ were corrected.
+  The gate's label-follows-record rule now encodes this.
+- **Name-collision class in the float sweep**: metropcs (T-Mobile,
+  $112B), rocket (RKT $14.9B), circle (public CRCL $16.07B, not
+  acquired), vinted (wikidata glitch said defunct; private, €8B
+  Apr-2026), beam/born/fuse/sense (all wrong-entity floats, quarantined
+  with model_disputes_source).
+- **arista**: the membership stands on the fund 13G (filing evidence
+  suffices under the standing rules), but no source documents any
+  pre-IPO Accel round — the company was founder-funded, and the 13G-only
+  position reads as a post-IPO fund holding. Stage stays Growth with
+  cite_pending + boundary; Erik may want to rule on whether a post-IPO
+  public position belongs in the portfolio at all.
+- **Anthropic's entry is the Feb 2026 Series G** ($30B at $380B post;
+  Accel named in Anthropic's own announcement) — not a 2025 round.
+- **defunct is undercounted** (29 rows, 3.3%): quiet shutdowns present
+  as private/unknown, acquihires as acquired. The status field answers
+  "last known state", not survivorship; don't read a mortality rate off
+  it.
+
+## 4. The C2A caveat
+
+The 79.1% graduation rate (91-row cohort, 72 graduated) carries selection
+bias and should not be quoted bare: knowledge-true graduations are easier
+to author than confirmed non-graduations (nulls hide the undetermined);
+only ~20 legs are Form-D-verified, the rest web/model; 76 rows carry
+cohort_unverified where a leg is unverified. The honest sentence is:
+"of the seed entries where the record could be established, ~79%
+graduated — the establishable set skews toward visible successes."
+
+## 5. Debt, all flagged in rows
+
+- cite_pending 3 (arista §3; ethos — $2.7B May-2022 is the last mark;
+  groupon — 2010-11 entry uncited).
+- stale 43 (valuation >24mo; peak-2021/22 marks the largest class).
+- stage_prior 55 / country_prior 124 (era/desk conventions, no direct
+  evidence).
+- focus null 149; needs_web_value 14 (sub-$1B, not worth a web pass).
+- stage_disputes_band 99 (band ceiling disagrees; band scored 5/13, the
+  label wins), model_disputes_source 54 (quarantined wrong-entity or
+  glitched source figures), cik_weak 4, cohort_unverified 76 (§4).
+
+## 6. Artifacts
+
+- `classification.json` (886 rows, per-key provenance via record who),
+  `base.csv` + `review.html` (886 rows, merged with the PRO-68 profile
+  panel), `golden.json` (33-row stage set + 21 membership traps,
+  `_key_registered`), `scratch/pro65_judgment.py` +
+  `scratch/pro65_generate.py` (reproducible judgment).
+- Recorded batches: ~20 grind + webpass-A..E + cites-1/2 + fixups +
+  collision/pair/city sweeps + status-fill (all through `run.py record`).
+
+Awaiting Erik's sample review. On sign-off PRO-65 closes; ingest stays
+gated on explicit approval per §9.
