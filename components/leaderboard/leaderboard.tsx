@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { createClient } from "@/utils/supabase/client";
 import type { Database } from "@/types/supabase";
 import FilterCard from "@/components/leaderboard/filter-card";
 import SearchCard from "@/components/leaderboard/search-card";
 import InvestorsTable from "@/components/leaderboard/table";
 import SortDropdown from "@/components/leaderboard/sort-dropdown";
-import type { ViewState, TypeState } from "@/components/leaderboard/filters/view";
+import type { ViewState } from "@/components/leaderboard/filters/view";
 import type { StageState } from "@/components/leaderboard/filters/stage-filter";
 import type { RangeState } from "@/components/leaderboard/filters/range-filter";
 import type { MedianState, MedianUnit } from "@/components/leaderboard/filters/range-filter";
@@ -20,7 +20,6 @@ import {
   TRACK_RECORD_QUERY_KEY,
   parseTrackRecordParam,
   buildTrackRecordParam,
-  sanitizeTrackRecordState,
   computeTrackRecordHitRate,
 } from "@/components/leaderboard/track-record-utils";
 import { canonicalizeGeo } from "@/lib/taxonomy";
@@ -36,12 +35,7 @@ const defaultView: ViewState = {
   stage: true,
   investmentSize: true,
   scope: true,
-  trackRecord: false,
-};
-
-const defaultType: TypeState = {
-  individual: true,
-  institutional: true,
+  trackRecord: true,
 };
 
 const defaultStage: StageState = {
@@ -81,12 +75,6 @@ const VIEW_PARAM_MAP: Array<{ state: keyof ViewState; param: string }> = [
 ];
 const ALL_VIEW_PARAMS = VIEW_PARAM_MAP.map(({ param }) => param);
 
-const TYPE_PARAM_MAP: Array<{ state: keyof TypeState; param: string }> = [
-  { state: "individual", param: "individual" },
-  { state: "institutional", param: "institutional" },
-];
-const ALL_TYPE_PARAMS = TYPE_PARAM_MAP.map(({ param }) => param);
-
 const STAGE_PARAM_KEYS: Record<keyof StageState, string> = {
   preseed: "pre_seed",
   seed: "seed",
@@ -101,8 +89,16 @@ const STAGE_ALIAS_MAP: Record<string, keyof StageState> = {
   "growth": "growth",
 };
 
+// URL writes go through history.replaceState instead of router.replace:
+// Next 14.2+ syncs useSearchParams with native history calls without a
+// router round-trip, so checkbox state no longer flickers back to the old
+// param while the navigation is in flight.
+function replaceUrl(pathname: string, usp: URLSearchParams) {
+  const query = usp.toString();
+  window.history.replaceState(null, "", query ? `${pathname}?${query}` : pathname);
+}
+
 function useUrlState() {
-  const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();
 
@@ -111,7 +107,6 @@ function useUrlState() {
   const stageParam = params.get("stages") || "";
   const geoParam = params.get("investment-geography") || "";
   const scopeParam = params.get("scope") || "";
-  const typeParam = params.get("type") || "";
   const rangeParam = params.get("investment-range") || "";
   const medianParam = params.get("median") || "";
   const trackRecordParam = params.get(TRACK_RECORD_QUERY_KEY);
@@ -149,14 +144,6 @@ function useUrlState() {
     const enabled = VIEW_PARAM_MAP.filter(({ state }) => value[state]).map(({ param }) => param);
     if (enabled.length === 0) {
       return ALL_VIEW_PARAMS.join(QUERY_DELIMITER);
-    }
-    return enabled.join(QUERY_DELIMITER);
-  };
-
-  const buildTypeParam = (value: TypeState) => {
-    const enabled = TYPE_PARAM_MAP.filter(({ state }) => value[state]).map(({ param }) => param);
-    if (enabled.length === 0 || enabled.length === ALL_TYPE_PARAMS.length) {
-      return null;
     }
     return enabled.join(QUERY_DELIMITER);
   };
@@ -242,19 +229,6 @@ function useUrlState() {
     };
   })();
 
-  const type: TypeState = (() => {
-    if (!typeParam) return { ...defaultType };
-    const allowed = new Set(parseDelimitedList(typeParam));
-    const next: TypeState = {
-      individual: allowed.has("individual"),
-      institutional: allowed.has("institutional"),
-    };
-    if (!next.individual && !next.institutional) {
-      return { ...defaultType };
-    }
-    return next;
-  })();
-
   const stage: StageState = (() => {
     if (!stageParam) return { ...defaultStage };
     const allowed = new Set(
@@ -336,7 +310,6 @@ function useUrlState() {
     median?: MedianState;
     geo?: GeographyState;
     scope?: ScopeState;
-    type?: TypeState;
     trackRecord?: TrackRecordState;
     sort?: SortOption;
   }) => {
@@ -381,15 +354,6 @@ function useUrlState() {
         usp.set("scope", value);
       }
     }
-    if (next.type !== undefined) {
-      const v = next.type as TypeState;
-      const value = buildTypeParam(v);
-      if (value === null) {
-        usp.delete("type");
-      } else {
-        usp.set("type", value);
-      }
-    }
     if (next.range !== undefined) {
       const v = next.range as RangeState;
       const value = buildRangeParam(v);
@@ -409,8 +373,7 @@ function useUrlState() {
       }
     }
     if (next.trackRecord !== undefined) {
-      const sanitized = sanitizeTrackRecordState(next.trackRecord as TrackRecordState);
-      const trackRecordValue = buildTrackRecordParam(sanitized);
+      const trackRecordValue = buildTrackRecordParam(next.trackRecord as TrackRecordState);
       if (trackRecordValue === null) {
         usp.delete(TRACK_RECORD_QUERY_KEY);
       } else {
@@ -426,15 +389,14 @@ function useUrlState() {
         usp.set("sort", value);
       }
     }
-    const query = usp.toString();
-    router.replace(query ? `${pathname}?${query}` : pathname);
+    replaceUrl(pathname, usp);
   };
 
   const geoSelectionKey = geo.selected.join(QUERY_DELIMITER);
   const scopeSelectionKey = scope.selected.join(QUERY_DELIMITER);
   const rangeKey = `${range.min}-${range.max === null ? "null" : range.max}`;
   const medianKey = `${median.value === null ? "null" : median.value}-${median.unit}`;
-  const trackRecordKey = `${trackRecord.selection}-${trackRecord.tier}-${trackRecord.percent}`;
+  const trackRecordKey = trackRecord.tier ?? "all";
 
   useEffect(() => {
     const usp = new URLSearchParams(params.toString());
@@ -488,18 +450,6 @@ function useUrlState() {
       changed = true;
     }
 
-    const nextType = buildTypeParam(type);
-    const existingType = usp.get("type");
-    if (nextType === null) {
-      if (existingType !== null) {
-        usp.delete("type");
-        changed = true;
-      }
-    } else if (existingType !== nextType) {
-      usp.set("type", nextType);
-      changed = true;
-    }
-
     const nextRange = buildRangeParam(range);
     const existingRange = usp.get("investment-range");
     if (nextRange === null) {
@@ -549,33 +499,29 @@ function useUrlState() {
     }
 
     if (!changed) return;
-    const query = usp.toString();
-    router.replace(query ? `${pathname}?${query}` : pathname);
+    replaceUrl(pathname, usp);
   }, [
     geo.all,
     geoSelectionKey,
     params,
     pathname,
-    router,
     scope.all,
     scopeSelectionKey,
     stage,
     rangeKey,
     medianKey,
-    type.individual,
-    type.institutional,
     view,
     trackRecordKey,
     sort,
   ]);
 
-  return { search, view, stage, range, median, geo, scope, type, trackRecord, sort, set };
+  return { search, view, stage, range, median, geo, scope, trackRecord, sort, set };
 }
 
 export default function Leaderboard() {
   const [investors, setInvestors] = useState<Investor[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { search, view, stage, range, median, geo, scope, type, trackRecord, sort, set } = useUrlState();
+  const { search, view, stage, range, median, geo, scope, trackRecord, sort, set } = useUrlState();
 
   useEffect(() => {
     const fetchInvestors = async () => {
@@ -641,11 +587,7 @@ export default function Leaderboard() {
     );
     const generalistSelected =
       scopeSelectedLower.has("generalist") || scopeSelectedLower.has("generalists");
-    const normalizedTrackRecord = sanitizeTrackRecordState(trackRecord);
-    const trackSelection = normalizedTrackRecord.selection;
-    const trackTier = trackSelection === "custom" ? normalizedTrackRecord.tier : "1b";
-    const trackThreshold = trackSelection === "preset" ? 10 : normalizedTrackRecord.percent;
-    const shouldFilterTrackRecord = trackSelection !== "all";
+    const trackTier = trackRecord.tier;
 
     const matchesStage = (inv: Investor) => {
       if (stageAllSelected) return true;
@@ -705,21 +647,12 @@ export default function Leaderboard() {
       return false;
     };
 
-    const matchesType = (inv: Investor) => {
-      const value = String(inv.investor_type || "Institutional");
-      if (value === "Individual") {
-        return type.individual;
-      }
-      if (value === "Institutional") {
-        return type.institutional;
-      }
-      return type.institutional;
-    };
-
+    // Binary tier filter: keep investors with at least one company currently
+    // worth the selected tier. Ranking granularity lives in the sort.
     const matchesTrackRecord = (inv: Investor) => {
-      if (!shouldFilterTrackRecord) return true;
+      if (!trackTier) return true;
       const hitRate = computeTrackRecordHitRate(inv.track_record, trackTier);
-      return hitRate.percent >= trackThreshold;
+      return hitRate.amount > 0;
     };
 
     const matchesRange = (inv: Investor) => {
@@ -751,8 +684,7 @@ export default function Leaderboard() {
     };
 
     const filtered = investors.filter((inv) =>
-      matchesType(inv)
-      && matchesStage(inv)
+      matchesStage(inv)
       && matchesGeo(inv)
       && matchesScope(inv)
       && matchesTrackRecord(inv)
@@ -788,17 +720,22 @@ export default function Leaderboard() {
     });
 
     return sorted;
-  }, [geo, investors, search, scope, stage, range, median, trackRecord, type, sort]);
+  }, [geo, investors, search, scope, stage, range, median, trackRecord, sort]);
 
   return (
     <div className="w-full container mx-auto py-6">
+      <header className="mb-6">
+        <h1 className="text-2xl font-medium">The venture capital performance index</h1>
+        <p className="mt-1 max-w-3xl text-sm text-muted-foreground">
+          $1B, $10B and $100B investment outcomes, IPOs, and seed to Series A graduation rates for{" "}
+          {investors.length > 0 ? `${investors.length} of the most well-known investors` : "the most well-known investors"}, built from public filings and human-reviewed.
+        </p>
+      </header>
       <div className="grid gap-6 lg:min-h-[calc(100vh-var(--nav-height,0px)-48px)] lg:grid-cols-[320px_1fr]">
         <div className="lg:sticky lg:top-[calc(var(--nav-height,0px)+24px)] lg:self-start">
           <FilterCard
             view={view}
             onViewChange={(next) => set({ view: next })}
-            type={type}
-            onTypeChange={(next) => set({ type: next })}
             stage={stage}
             onStageChange={(next) => set({ stage: next })}
             range={range}
@@ -825,7 +762,6 @@ export default function Leaderboard() {
             stage={stage}
             geo={geo}
             scope={scope}
-            trackRecord={trackRecord}
           />
         </div>
       </div>
@@ -870,5 +806,3 @@ function extractScopeInfo(value: any): { type: string | null; focus: string[] } 
   }
   return { type: null, focus: [] };
 }
-
- 

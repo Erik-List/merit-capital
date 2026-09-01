@@ -1,6 +1,6 @@
 "use client";
 
-import ViewFilter, { type ViewState, type TypeState } from "@/components/leaderboard/filters/view";
+import ViewFilter, { type ViewState } from "@/components/leaderboard/filters/view";
 import StageFilter, { type StageState } from "@/components/leaderboard/filters/stage-filter";
 import RangeFilter, { type RangeState, type MedianState } from "@/components/leaderboard/filters/range-filter";
 import GeographyFilter, { type GeographyState } from "@/components/leaderboard/filters/geography-filter";
@@ -11,8 +11,6 @@ import type { TrackRecordState } from "@/components/leaderboard/track-record-uti
 interface FilterCardProps {
   view: ViewState;
   onViewChange: (next: ViewState) => void;
-  type: TypeState;
-  onTypeChange: (next: TypeState) => void;
   stage: StageState;
   onStageChange: (next: StageState) => void;
   range: RangeState;
@@ -32,8 +30,6 @@ interface FilterCardProps {
 export default function FilterCard({
   view,
   onViewChange,
-  type,
-  onTypeChange,
   stage,
   onStageChange,
   range,
@@ -52,7 +48,7 @@ export default function FilterCard({
   return (
     <div className="w-full rounded-md border border-input/30 glass lg:w-[320px]">
       <div className="space-y-4 p-4 text-xs text-muted-foreground lg:max-h-[calc(100vh-var(--nav-height,0px)-48px)] lg:overflow-y-auto lg:glass-scrollbar">
-        <ViewFilter value={view} onChange={onViewChange} type={type} onTypeChange={onTypeChange} />
+        <TrackRecordFilter value={trackRecord} onChange={onTrackRecordChange} />
         <div className="h-px bg-input/30 mx-1" />
         <StageFilter value={stage} onChange={onStageChange} />
         <div className="h-px bg-input/30 mx-1" />
@@ -62,10 +58,8 @@ export default function FilterCard({
         <div className="h-px bg-input/30 mx-1" />
         <ScopeFilter value={scope} onChange={onScopeChange} options={scopeOptions} />
         <div className="h-px bg-input/30 mx-1" />
-        <TrackRecordFilter value={trackRecord} onChange={onTrackRecordChange} />
+        <ViewFilter value={view} onChange={onViewChange} />
       </div>
     </div>
   );
 }
-
- 
