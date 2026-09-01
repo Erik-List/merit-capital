@@ -7,12 +7,14 @@ are PRO-65, which continues on this base after Erik's sample sign-off; the
 review surface already shows the deterministic pre-fills (SEC float,
 Wikidata, unicorn list) with their flags, judged by no one yet.
 
-**Prompt count: 1** — the kickoff ("execute the accel base collection as
-per PRO 62; work diligently in full autonomy", with the pre-start ruling
-that resolved the Atoms question). Checkpoint approvals requested: 0
-(both checkpoints posted-and-continued). **Erik rulings recorded so
-far: 1** (decisions #4, Atoms in where Accel money deployed — given at
-kickoff). The count is final only after sample sign-off. A parallel
+**Prompt count: 4, final** — (1) the kickoff ("execute the accel base
+collection as per PRO 62; work diligently in full autonomy", with the
+pre-start Atoms ruling), (2) "check whether wayback now works and
+complete the base collection" (→ the §5b completion pass), (3) a review
+question on capture corroboration, (4) the classification go-ahead that
+carried the sample sign-off. Checkpoint approvals requested: 0. **Erik
+rulings recorded: 1** (decisions #4); **row corrections at sign-off: 0**.
+Sign-off recorded 2026-09-01; PRO-62 marked Done. A parallel
 session ran PRO-68 (firm profile) per §11; coordination stayed
 session-to-session.
 
