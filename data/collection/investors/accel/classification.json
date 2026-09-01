@@ -547,6 +547,7 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "cohort_unverified",
    "stage_prior"
   ],
   "graduation_confidence": "high",
@@ -728,13 +729,14 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "country_prior"
+   "country_prior",
+   "model_disputes_source"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "Stockholm",
-  "hq_city_source": "web_verified",
-  "hq_country": "US",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "SE",
   "hq_country_source": "model_knowledge",
   "slug": "anyfin",
   "status": "private",
@@ -822,6 +824,7 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "cohort_unverified",
    "country_prior",
    "stage_prior"
   ],
@@ -1121,7 +1124,7 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [],
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/atlas",
@@ -1174,13 +1177,14 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "country_prior"
+   "country_prior",
+   "model_disputes_source"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
   "hq_city": "Mexico City",
-  "hq_city_source": "web_verified",
-  "hq_country": "US",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "MX",
   "hq_country_source": "model_knowledge",
   "slug": "atrato",
   "status": "private",
@@ -1215,7 +1219,7 @@
   "flags": [],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/august-ai",
@@ -1239,6 +1243,8 @@
   "hq_city": "Boston",
   "hq_city_source": "web_verified",
   "slug": "aura",
+  "status": "defunct",
+  "valuation_range": "below_1b",
   "who": "agent-judge-pro65"
  },
  "autonymy-inc": {
@@ -1500,13 +1506,21 @@
   "entry_stage_citation": "https://www.accel.com/companies/beam",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "cik_weak",
+   "model_disputes_source"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_source": "web_verified",
+  "note": "the acquired read rode a weak-CIK collision (CIK 789073); the 2022-seed Beam operates privately",
   "slug": "beam",
+  "status": "private",
+  "valuation_asof": null,
+  "valuation_confidence": "medium",
   "valuation_range": "below_1b",
+  "valuation_usd": null,
   "who": "agent-judge-pro65"
  },
  "beek": {
@@ -1515,13 +1529,14 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "country_prior"
+   "country_prior",
+   "model_disputes_source"
   ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Mexico City",
-  "hq_city_source": "web_verified",
-  "hq_country": "US",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "MX",
   "hq_country_source": "model_knowledge",
   "slug": "beek",
   "status": "private",
@@ -1573,11 +1588,11 @@
   "entry_stage_confidence": "medium",
   "entry_stage_source": "model",
   "flags": [],
-  "focus": "Security",
+  "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "New York",
   "hq_city_source": "web_verified",
-  "note": "entry at the 2020 $75M growth round (band agrees)",
+  "note": "entry at the 2020 $75M growth round (band agrees) | SaaS-management platform; the Security vote came from a secondary tag",
   "slug": "bettercloud",
   "status": "private",
   "valuation_confidence": "medium",
@@ -1740,7 +1755,7 @@
   "focus_source": "model",
   "graduation_confidence": "medium",
   "graduation_source": "web_verified",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/blackbuck",
@@ -1887,7 +1902,10 @@
   "entry_stage_citation": "https://www.accel.com/companies/born",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "cik_weak",
+   "model_disputes_source"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "Berlin",
@@ -1895,8 +1913,13 @@
   "hq_country": "DE",
   "hq_country_citation": "https://www.accel.com/companies/born",
   "hq_country_source": "web_verified",
+  "note": "the public read rode a weak-CIK collision (CIK 1397795); the 2022-seed Born operates privately",
   "slug": "born",
+  "status": "private",
+  "valuation_asof": null,
+  "valuation_confidence": "medium",
   "valuation_range": "below_1b",
+  "valuation_usd": null,
   "who": "agent-judge-pro65"
  },
  "borqs": {
@@ -1923,11 +1946,15 @@
   "entry_stage_citation": "https://www.accel.com/companies/bounce",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "model_disputes_source"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "Bangalore",
-  "hq_city_source": "web_verified",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "IN",
+  "hq_country_source": "model_knowledge",
   "slug": "bounce",
   "status": "private",
   "valuation_confidence": "medium",
@@ -1977,6 +2004,7 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "cohort_unverified",
    "stage_prior"
   ],
   "graduation_confidence": "high",
@@ -2035,7 +2063,7 @@
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/brick-bolt",
@@ -2122,7 +2150,7 @@
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/brnd-me",
@@ -2155,13 +2183,16 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
+   "model_disputes_source",
    "stale"
   ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Dublin",
-  "hq_city_source": "web_verified",
-  "note": "$4B Series B (Jun 2021); profitable, buybacks since; Sacra ~$4.1B 2026 note-only",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "IE",
+  "hq_country_source": "model_knowledge",
+  "note": "$4B Series B (Jun 2021); profitable, buybacks since; Sacra ~$4.1B 2026 note-only | official HQ Dublin (with Mumbai); formd IN address is entry-time",
   "slug": "browserstack",
   "valuation_asof": "2021-06",
   "valuation_citation": "https://www.browserstack.com/press/browserstack-closes-200-million-in-series-b-funding-at-a-4-billion-valuation",
@@ -2392,7 +2423,7 @@
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/captain-fresh",
@@ -2725,13 +2756,13 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [],
-  "focus": "Security",
+  "focus": "Industrial & Robotics",
   "focus_source": "model",
   "hq_city": "Los Angeles",
   "hq_city_source": "web_verified",
   "hq_country": "US",
   "hq_country_source": "web_verified",
-  "note": "2024 entry round (LA defense-adjacent AI; record thin) | operating (LA defense-AI startup)",
+  "note": "2024 entry round (LA defense-adjacent AI; record thin) | operating (LA defense-AI startup) | defense-industrial AI",
   "slug": "chaos",
   "status": "private",
   "valuation_confidence": "medium",
@@ -2752,6 +2783,7 @@
   "hq_city": "San Francisco",
   "hq_city_source": "web_verified",
   "note": "$3.5B (Feb 2022) last primary",
+  "seed_to_a_graduation": null,
   "slug": "chargebee",
   "valuation_asof": "2022-02",
   "valuation_citation": "https://www.businesstoday.in/entrepreneurship/news/story/chargebee-raises-250-million-valuation-zooms-to-35-billion-321174-2022-02-01",
@@ -2882,13 +2914,22 @@
   "entry_stage_citation": "https://www.accel.com/companies/circle",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "model_disputes_source"
+  ],
   "focus": "Crypto & Web3",
   "focus_source": "model",
   "hq_city": "New York",
   "hq_city_source": "web_verified",
+  "note": "Circle IPO'd NYSE: CRCL Jun 2025; cap $16.07B (Aug 2026); the layer's acquired read rode a weak-CIK collision",
   "slug": "circle",
-  "valuation_range": "below_1b",
+  "status": "public",
+  "valuation_asof": "2026-08",
+  "valuation_citation": "https://stockanalysis.com/stocks/crcl/market-cap/",
+  "valuation_confidence": "high",
+  "valuation_range": "10b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 16070000000,
   "who": "agent-judge-pro65"
  },
  "ciridae": {
@@ -3068,16 +3109,17 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "cohort_unverified"
+   "cohort_unverified",
+   "model_disputes_source"
   ],
   "focus": "SaaS",
   "focus_source": "model",
   "graduation_confidence": "medium",
   "graduation_source": "web_verified",
   "hq_city": "Amsterdam",
-  "hq_city_source": "web_verified",
-  "hq_country": "US",
-  "hq_country_source": "web_verified",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "NL",
+  "hq_country_source": "model_knowledge",
   "note": "acq. by Sentry | graduated: seed 2020 -> acq. Sentry 2022 (citation pending A/B)",
   "seed_to_a_graduation": true,
   "slug": "codecov",
@@ -3403,6 +3445,8 @@
   "hq_country": "US",
   "hq_country_source": "web_verified",
   "slug": "couchbase",
+  "status": "acquired",
+  "valuation_range": "below_1b",
   "who": "agent-judge-pro65"
  },
  "counterpane": {
@@ -3577,7 +3621,7 @@
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/curefoods",
@@ -3635,6 +3679,7 @@
   "slug": "cursor",
   "status": "acquired",
   "valuation_confidence": "high",
+  "valuation_range": "below_1b",
   "who": "agent-judge-pro65"
  },
  "cycognito": {
@@ -3691,7 +3736,8 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "cohort_unverified"
+   "cohort_unverified",
+   "model_disputes_source"
   ],
   "focus": "DevTools & APIs",
   "focus_source": "model",
@@ -3699,9 +3745,16 @@
   "graduation_source": "web_verified",
   "hq_city": "San Francisco",
   "hq_city_source": "web_verified",
-  "note": "graduated: seed 2006? -> n/a (citation pending A/B)",
+  "note": "graduated: seed 2006? -> n/a (citation pending A/B) | name-match error killed: Accel's Dapper is dapper.net (2006 ad-tech, Accel 2007 A), acq. Yahoo 2010; the $7.6B belonged to Dapper Labs (not Accel)",
   "seed_to_a_graduation": true,
   "slug": "dapper",
+  "status": "acquired",
+  "valuation_asof": null,
+  "valuation_citation": "https://techcrunch.com/2010/10/05/yahoo-dapper/",
+  "valuation_confidence": "high",
+  "valuation_range": "below_1b",
+  "valuation_source": "web_verified",
+  "valuation_usd": null,
   "who": "agent-judge-pro65"
  },
  "dash0": {
@@ -3837,7 +3890,7 @@
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/deep-rooted",
@@ -3925,6 +3978,7 @@
   "status": "acquired",
   "valuation_citation": "https://www.businesswire.com/news/home/20251002060133/en/DoorDash-Completes-Acquisition-of-Deliveroo",
   "valuation_confidence": "high",
+  "valuation_range": "below_1b",
   "who": "agent-judge-pro65"
  },
  "demisto": {
@@ -4098,7 +4152,8 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "cohort_unverified"
+   "cohort_unverified",
+   "stale"
   ],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
@@ -4106,9 +4161,15 @@
   "graduation_source": "web_verified",
   "hq_city": "San Francisco",
   "hq_city_source": "web_verified",
-  "note": "graduated: seed 2012 -> A 2013 (Benchmark) (citation pending A/B)",
+  "note": "graduated: seed 2012 -> A 2013 (Benchmark) (citation pending A/B) | $15B Series H (Sep 2021) last primary; S-1 filed Jan 2026 unpriced; secondaries ~$8.5B note-only",
   "seed_to_a_graduation": true,
   "slug": "discord",
+  "valuation_asof": "2021-09",
+  "valuation_citation": "https://forgeglobal.com/insights/discord-upcoming-ipo-news/",
+  "valuation_confidence": "medium",
+  "valuation_range": "10b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 15000000000,
   "who": "agent-judge-pro65"
  },
  "dji": {
@@ -4116,12 +4177,19 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "model",
   "flags": [
-   "cite_pending"
+   "cite_pending",
+   "stale"
   ],
   "hq_city": "Shenzhen",
   "hq_city_source": "web_verified",
-  "note": "entry at the 2014-15 Series B ($75M with Sequoia era rounds); at-scale entry",
+  "note": "entry at the 2014-15 Series B ($75M with Sequoia era rounds); at-scale entry | $15B (Apr 2018 competitive bidding); nothing credible since",
   "slug": "dji",
+  "valuation_asof": "2018-04",
+  "valuation_citation": "https://www.caixinglobal.com/2018-04-18/dji-to-raise-1-billion-in-innovative-bidding-process-101235781.html",
+  "valuation_confidence": "medium",
+  "valuation_range": "10b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 15000000000,
   "who": "agent-judge-pro65"
  },
  "doctolib": {
@@ -4306,14 +4374,21 @@
   "flags": [
    "cite_pending",
    "stage_disputes_band",
-   "stage_prior"
+   "stage_prior",
+   "stale"
   ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Jersey City",
   "hq_city_source": "web_verified",
-  "note": "entry stage from the firm's era/desk prior; row not further identifiable | Accel led DriveWealth's 2021 $56.7M Series C-era; CMS seed label wrong",
+  "note": "entry stage from the firm's era/desk prior; row not further identifiable | Accel led DriveWealth's 2021 $56.7M Series C-era; CMS seed label wrong | $2.85B Series D (Aug 2021, Insight+Accel co-led)",
   "slug": "drivewealth",
+  "valuation_asof": "2021-08",
+  "valuation_citation": "https://www.insightpartners.com/ideas/drivewealth-raises-450m-series-d-valuing-the-company-at-2-85b/",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 2850000000,
   "who": "agent-judge-pro65"
  },
  "dropbox": {
@@ -4331,6 +4406,7 @@
   "hq_country": "US",
   "hq_country_source": "web_verified",
   "note": "NASDAQ: DBX cap $7.65B (2026-08-31)",
+  "seed_to_a_graduation": null,
   "slug": "dropbox",
   "valuation_asof": "2026-08",
   "valuation_citation": "https://stockanalysis.com/stocks/DBX/",
@@ -4573,6 +4649,7 @@
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
   "note": "Accel led Elo7's 2012 Series A-era round (Monashees seeded 2009-11) | acq. Etsy 2021 ($217M), shut 2022",
+  "seed_to_a_graduation": null,
   "slug": "elo-7-ltd",
   "status": "acquired",
   "valuation_confidence": "medium",
@@ -4624,7 +4701,9 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "cohort_unverified"
+  ],
   "graduation_confidence": "high",
   "graduation_source": "formd",
   "note": "2012 first institutional money (Gandhi); wound into Dropbox 2013 | acq. Dropbox 2013 (talent)",
@@ -4647,6 +4726,7 @@
   "focus_source": "model",
   "hq_city": "Austin",
   "hq_city_source": "web_verified",
+  "seed_to_a_graduation": null,
   "slug": "entytle",
   "status": "private",
   "valuation_confidence": "medium",
@@ -4932,11 +5012,16 @@
   "entry_stage_citation": "https://www.accel.com/companies/fever",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "model_disputes_source"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "New York",
-  "hq_city_source": "web_verified",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_source": "model_knowledge",
+  "note": "Fever Labs is NY-headquartered (Madrid origin)",
   "slug": "fever",
   "valuation_range": "below_1b",
   "who": "agent-judge-pro65"
@@ -5250,12 +5335,16 @@
   "entry_stage_citation": "https://www.accel.com/companies/flink",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "model_disputes_source"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "Mexico City",
-  "hq_city_source": "web_verified",
-  "note": "acq. by WeBull",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "MX",
+  "hq_country_source": "model_knowledge",
+  "note": "acq. by WeBull | the Mexican fintech Flink, not the German grocery co",
   "slug": "flink",
   "status": "acquired",
   "valuation_confidence": "high",
@@ -5288,7 +5377,7 @@
   "focus_source": "model",
   "graduation_confidence": "medium",
   "graduation_source": "web_verified",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "note": "graduated: seed 2009 -> Tiger-led A/B 2010 (citation pending A/B)",
   "seed_to_a_graduation": true,
@@ -5402,6 +5491,8 @@
   "hq_city": "San Francisco",
   "hq_city_source": "web_verified",
   "slug": "forgerock",
+  "status": "acquired",
+  "valuation_range": "below_1b",
   "who": "agent-judge-pro65"
  },
  "fortify": {
@@ -5430,7 +5521,7 @@
   "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/fortigo",
@@ -5595,12 +5686,15 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "model",
   "flags": [
-   "cite_pending"
+   "cite_pending",
+   "model_disputes_source"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "London",
-  "hq_city_source": "web_verified",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "GB",
+  "hq_country_source": "model_knowledge",
   "note": "entry at the 2013 $37M Series C it led (Index A/B preceded); IPO 2018 | LON: FCH | Market cap ~$0.87B as of Sep 2026",
   "slug": "funding-circle",
   "status": "public",
@@ -5636,14 +5730,23 @@
   "entry_stage_citation": "https://www.accel.com/companies/fuse",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "cik_weak",
+   "model_disputes_source"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "New York",
   "hq_city_source": "web_verified",
   "hq_country": "US",
   "hq_country_source": "web_verified",
+  "note": "the public read and $1.8M float rode a weak-CIK collision (CIK 1636051); the 2024 Fuse operates privately",
   "slug": "fuse",
+  "status": "private",
+  "valuation_asof": null,
+  "valuation_confidence": "medium",
+  "valuation_range": "below_1b",
+  "valuation_usd": null,
   "who": "agent-judge-pro65"
  },
  "fusion-io": {
@@ -5669,14 +5772,21 @@
   "flags": [
    "cite_pending",
    "stage_disputes_band",
-   "stage_prior"
+   "stage_prior",
+   "stale"
   ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Chicago",
   "hq_city_source": "web_verified",
-  "note": "entry stage from the firm's era/desk prior; row not further identifiable",
+  "note": "entry stage from the firm's era/desk prior; row not further identifiable | $1.1B Series D (Jun 2021) per G2's own announcement (corrects the list's $1.3B)",
   "slug": "g2",
+  "valuation_asof": "2021-06",
+  "valuation_citation": "https://company.g2.com/news/g2-series-d-announcement",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1100000000,
   "who": "agent-judge-pro65"
  },
  "galileo": {
@@ -5752,9 +5862,15 @@
   "graduation_source": "web_verified",
   "hq_city": "San Francisco",
   "hq_city_source": "web_verified",
-  "note": "graduated: seed 2021 -> $12M+ A 2022 era; $50M+ 2025 round (citation pending A/B)",
+  "note": "graduated: seed 2021 -> $12M+ A 2022 era; $50M+ 2025 round (citation pending A/B) | $68M Series B (Nov 2025) at $2.1B (a16z led, Accel participating; Accel led the 2024 A)",
   "seed_to_a_graduation": true,
   "slug": "gamma",
+  "valuation_asof": "2025-11",
+  "valuation_citation": "https://techcrunch.com/2025/11/10/ai-powerpoint-killer-gamma-hits-2-1b-valuation-100m-arr-founder-says/",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 2100000000,
   "who": "agent-judge-pro65"
  },
  "gem": {
@@ -5981,8 +6097,14 @@
   "focus_source": "model",
   "hq_city": "Philadelphia",
   "hq_city_source": "web_verified",
-  "note": "entry at the 2019+ mega-rounds (SoftBank era); at-scale entry",
+  "note": "entry at the 2019+ mega-rounds (SoftBank era); at-scale entry | $250M (Nov 2025, Eldridge/Valor) at $8.5B, down from $15B 2021",
   "slug": "gopuff",
+  "valuation_asof": "2025-11",
+  "valuation_citation": "https://www.bloomberg.com/news/articles/2025-11-13/delivery-startup-gopuff-value-drops-to-8-5-billion-in-new-deal",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 8500000000,
   "who": "agent-judge-pro65"
  },
  "gosats": {
@@ -6133,7 +6255,7 @@
   "flags": [],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/gut-wellness-club",
@@ -6219,7 +6341,8 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "stage_disputes_band"
+   "stage_disputes_band",
+   "stale"
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
@@ -6227,9 +6350,15 @@
   "graduation_source": "formd",
   "hq_city": "New York",
   "hq_city_source": "web_verified",
-  "note": "seed 2019; later filed round >=$100M in 2024",
+  "note": "seed 2019; later filed round >=$100M in 2024 | $2.3B Series D (Jul 2024, Spark led; Accel from seed)",
   "seed_to_a_graduation": true,
   "slug": "headway",
+  "valuation_asof": "2024-07",
+  "valuation_citation": "https://www.fiercehealthcare.com/health-tech/headway-banks-100m-series-d-round-eyes-expansion-medicare-advantage-and-medicaid",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 2300000000,
   "who": "agent-judge-pro65"
  },
  "hearme": {
@@ -6261,8 +6390,14 @@
   "focus_source": "model",
   "hq_city": "Munich",
   "hq_city_source": "web_verified",
-  "note": "entry stage from the firm's era/desk prior; row not further identifiable | Accel joined Helsing's 2024-25 late rounds (Spotify/Lightspeed earlier); CMS seed label wrong",
+  "note": "entry stage from the firm's era/desk prior; row not further identifiable | Accel joined Helsing's 2024-25 late rounds (Spotify/Lightspeed earlier); CMS seed label wrong | $1.8B Series E (Jul 2026) at $18B; Accel co-led the 2023 B",
   "slug": "helsing",
+  "valuation_asof": "2026-07",
+  "valuation_citation": "https://www.cnbc.com/2026/07/13/helsing-fund-raise-defense-18-billion.html",
+  "valuation_confidence": "high",
+  "valuation_range": "10b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 18000000000,
   "who": "agent-judge-pro65"
  },
  "heptio": {
@@ -6321,6 +6456,7 @@
   "entry_stage_confidence": "medium",
   "entry_stage_source": "model",
   "flags": [
+   "cohort_unverified",
    "country_prior"
   ],
   "graduation_confidence": "high",
@@ -6360,13 +6496,14 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "country_prior"
+   "country_prior",
+   "model_disputes_source"
   ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Mexico City",
-  "hq_city_source": "web_verified",
-  "hq_country": "US",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "MX",
   "hq_country_source": "model_knowledge",
   "slug": "higo",
   "status": "private",
@@ -6625,6 +6762,7 @@
    "stage_disputes_band"
   ],
   "note": "Accel co-led Icera's 2003-04 Series A/B era (London); acq. NVIDIA 2011 | acq. NVIDIA 2011 ($367M)",
+  "seed_to_a_graduation": null,
   "slug": "icera-inc",
   "status": "acquired",
   "valuation_confidence": "high",
@@ -6636,14 +6774,21 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "model",
   "flags": [
-   "cite_pending"
+   "cite_pending",
+   "stale"
   ],
   "focus": "Security",
   "focus_source": "model",
   "hq_city": "Sunnyvale",
   "hq_city_source": "web_verified",
-  "note": "entry at the 2013-15 B/C rounds (General Catalyst/a16z A preceded); band-era agrees",
+  "note": "entry at the 2013-15 B/C rounds (General Catalyst/a16z A preceded); band-era agrees | $2.75B Series F (Jun 2021); Accel co-led the 2015 C",
   "slug": "illumio",
+  "valuation_asof": "2021-06",
+  "valuation_citation": "https://www.illumio.com/news/illumio-series-f",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 2750000000,
   "who": "agent-judge-pro65"
  },
  "imperva": {
@@ -6659,6 +6804,8 @@
   "hq_city": "Redwood City",
   "hq_city_source": "web_verified",
   "slug": "imperva",
+  "status": "acquired",
+  "valuation_range": "below_1b",
   "who": "agent-judge-pro65"
  },
  "indifi": {
@@ -6714,9 +6861,15 @@
   "graduation_source": "web_verified",
   "hq_city": "Thane",
   "hq_city_source": "web_verified",
-  "note": "graduated: seed 2019 -> A/B 2020 (Tiger/Accel) (citation pending A/B)",
+  "note": "graduated: seed 2019 -> A/B 2020 (Tiger/Accel) (citation pending A/B) | ~$2.8B flat Series G (Sep 2025); IPO cleared Jan 2026, not listed yet",
   "seed_to_a_graduation": true,
   "slug": "infra-market",
+  "valuation_asof": "2025-09",
+  "valuation_citation": "https://entrackr.com/news/inframarket-to-raise-rs-731-cr-led-by-promoters-at-flat-valuation-10475661",
+  "valuation_confidence": "medium",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 2800000000,
   "who": "agent-judge-pro65"
  },
  "ingenuity-systems-inc": {
@@ -7017,7 +7170,7 @@
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/jetapult",
@@ -7040,6 +7193,7 @@
   "focus_source": "model",
   "hq_city": "San Jose",
   "hq_city_source": "web_verified",
+  "seed_to_a_graduation": null,
   "slug": "jifflenow",
   "status": "private",
   "valuation_confidence": "medium",
@@ -7074,7 +7228,7 @@
   "flags": [],
   "focus": "Fintech & Payments",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/jiraaf",
@@ -7195,6 +7349,7 @@
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
   "note": "Accel led the Nov-2011 Series A (with Kaszek) - cited at membership | Brazilian reviews site faded ~2016-18",
+  "seed_to_a_graduation": null,
   "slug": "kekanto-ltd",
   "status": "defunct",
   "valuation_confidence": "medium",
@@ -7226,13 +7381,14 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "country_prior"
+   "country_prior",
+   "model_disputes_source"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
   "hq_city": "Vilnius",
-  "hq_city_source": "web_verified",
-  "hq_country": "US",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "LT",
   "hq_country_source": "model_knowledge",
   "slug": "kevin",
   "status": "private",
@@ -7271,6 +7427,7 @@
   "focus_source": "model",
   "hq_city": "New Providence",
   "hq_city_source": "web_verified",
+  "seed_to_a_graduation": null,
   "slug": "kirusa",
   "status": "private",
   "valuation_confidence": "medium",
@@ -7423,12 +7580,21 @@
   "entry_stage_citation": "https://www.accel.com/companies/kry",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "stale"
+  ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
   "hq_city": "Stockholm",
   "hq_city_source": "web_verified",
+  "note": "$2B Series D (Apr 2021); 2022 writedowns 38-50% note-only; likely below but not demonstrably sub-$1B",
   "slug": "kry",
+  "valuation_asof": "2021-04",
+  "valuation_citation": "https://www.fiercebiotech.com/medtech/kry-raises-316m-series-d-upping-valuation-to-2b-to-scale-telehealth-platform-across-europe",
+  "valuation_confidence": "medium",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 2000000000,
   "who": "agent-judge-pro65"
  },
  "kubric": {
@@ -7635,7 +7801,7 @@
   "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/letsventure",
@@ -7841,6 +8007,7 @@
   "hq_city": "Boston",
   "hq_city_source": "web_verified",
   "note": "acq. by Capital One",
+  "seed_to_a_graduation": null,
   "slug": "lola",
   "status": "acquired",
   "valuation_confidence": "high",
@@ -7858,8 +8025,14 @@
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_source": "web_verified",
-  "note": "entry at the 2010-12 B+ rounds (Khosla A preceded); band agrees",
+  "note": "entry at the 2010-12 B+ rounds (Khosla A preceded); band agrees | the 2014 ~$1B mark long invalid: secondaries ~$296M (Dec 2024) after consumer + cloud divestitures; sub-$1B",
   "slug": "lookout",
+  "valuation_asof": null,
+  "valuation_citation": "https://research.contrary.com/company/lookout",
+  "valuation_confidence": "medium",
+  "valuation_range": "below_1b",
+  "valuation_source": "web_verified",
+  "valuation_usd": null,
   "who": "agent-judge-pro65"
  },
  "lottie": {
@@ -7887,13 +8060,23 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
+   "model_disputes_source",
    "stage_disputes_band"
   ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Stockholm",
-  "hq_city_source": "web_verified",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "SE",
+  "hq_country_source": "model_knowledge",
+  "note": "$400M Series C (Aug 2026) at $13.3B (Menlo/EQT led, Tencent; Accel A-lead returned)",
   "slug": "lovable",
+  "valuation_asof": "2026-08",
+  "valuation_citation": "https://www.bloomberg.com/news/articles/2026-08-12/ai-coding-startup-lovable-raises-400-million-at-13-3-billion-valuation",
+  "valuation_confidence": "high",
+  "valuation_range": "10b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 13300000000,
   "who": "agent-judge-pro65"
  },
  "lower": {
@@ -7985,14 +8168,21 @@
   "entry_stage_confidence": "medium",
   "entry_stage_source": "model",
   "flags": [
-   "cite_pending"
+   "cite_pending",
+   "stale"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
   "hq_city": "Paris",
   "hq_city_source": "web_verified",
-  "note": "entry at the 2020-21 B/C rounds (Accel led the $45M B ext; CNP/XAnge earlier)",
+  "note": "entry at the 2020-21 B/C rounds (Accel led the $45M B ext; CNP/XAnge earlier) | $1B (Dec 2021); no raise since (Sumeria rebrand, self-funded banking push)",
   "slug": "lydia",
+  "valuation_asof": "2021-12",
+  "valuation_citation": "https://www.fintechfutures.com/fintech-innovation/financial-services-app-lydia-hits-unicorn-status-with-latest-funding",
+  "valuation_confidence": "medium",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1000000000,
   "who": "agent-judge-pro65"
  },
  "lynda-com": {
@@ -8143,6 +8333,7 @@
   "hq_city": "San Francisco",
   "hq_city_source": "web_verified",
   "note": "acq. by Niantic",
+  "seed_to_a_graduation": null,
   "slug": "mayhem",
   "status": "acquired",
   "valuation_confidence": "high",
@@ -8157,7 +8348,7 @@
   "flags": [],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/mech-mocha",
@@ -8203,7 +8394,10 @@
   "note": "entry at the 2020-21 C/D rounds; band-era agrees; acq. Xero 2025 | acq. Xero 2025 ($2.5B) - layer private superseded (layer said private)",
   "slug": "melio",
   "status": "acquired",
+  "valuation_asof": null,
   "valuation_confidence": "high",
+  "valuation_range": "below_1b",
+  "valuation_usd": null,
   "who": "agent-judge-pro65"
  },
  "mensa-brand-technologies": {
@@ -8291,6 +8485,7 @@
    "stage_disputes_band"
   ],
   "note": "entry at the 2006 $15M Series B-era (with Benchmark) | acq. Collective Digital Studio 2012",
+  "seed_to_a_graduation": null,
   "slug": "metacafe-inc",
   "status": "acquired",
   "valuation_confidence": "medium",
@@ -8421,12 +8616,21 @@
   "entry_stage_citation": "https://www.accel.com/companies/mindtickle",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "stale"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_source": "web_verified",
+  "note": "$1.2B Series E (Aug 2021, SVF2)",
   "slug": "mindtickle",
+  "valuation_asof": "2021-08",
+  "valuation_citation": "https://www.prnewswire.com/news-releases/mindtickle-raises-an-additional-100-million-led-by-softbank-vision-fund-2-301349210.html",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1200000000,
   "who": "agent-judge-pro65"
  },
  "minoan": {
@@ -8471,12 +8675,21 @@
   "entry_stage_citation": "https://www.accel.com/companies/miro",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "stale"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_source": "web_verified",
+  "note": "$17.5B Series C (Jan 2022) last primary; secondaries at substantial discount note-only",
   "slug": "miro",
+  "valuation_asof": "2022-01",
+  "valuation_citation": "https://techcrunch.com/2022/01/05/visual-collaboration-company-miro-valued-at-17-5b-following-400m-in-new-funding/",
+  "valuation_confidence": "medium",
+  "valuation_range": "10b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 17500000000,
   "who": "agent-judge-pro65"
  },
  "misfits-market": {
@@ -8539,6 +8752,8 @@
   "hq_city_source": "web_verified",
   "note": "1999-2000 entry (pre-2003 convention); IPO 2013, acq. Vista 2024",
   "slug": "model-n",
+  "status": "acquired",
+  "valuation_range": "below_1b",
   "who": "agent-judge-pro65"
  },
  "modernloop": {
@@ -8566,7 +8781,8 @@
   "entry_stage_source": "web_verified",
   "flags": [
    "cohort_unverified",
-   "model_disputes_source"
+   "model_disputes_source",
+   "stale"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
@@ -8576,9 +8792,15 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "SG",
   "hq_country_source": "model_knowledge",
-  "note": "graduated: seed 2015 -> A 2016 (Accel led) (citation pending A/B) | Moglix is Singapore-incorporated with Indian operations; wikidata dual-string overridden",
+  "note": "graduated: seed 2015 -> A 2016 (Accel led) (citation pending A/B) | Moglix is Singapore-incorporated with Indian operations; wikidata dual-string overridden | $2.6B Series F (Jan 2022)",
   "seed_to_a_graduation": true,
   "slug": "moglix",
+  "valuation_asof": "2022-01",
+  "valuation_citation": "https://www.business-standard.com/article/companies/industrial-b2b-startup-moglix-s-valuation-tops-2-6-bn-with-250-mn-funding-122012801078_1.html",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 2600000000,
   "who": "agent-judge-pro65"
  },
  "monarch-money": {
@@ -8651,8 +8873,14 @@
   "focus_source": "model",
   "hq_city": "London",
   "hq_city_source": "web_verified",
-  "note": "entry at the 2019-21 later rounds (Passion/Thrive earlier); Accel led the 2021 round",
+  "note": "entry at the 2019-21 later rounds (Passion/Thrive earlier); Accel led the 2021 round | $5.9B (Oct 2024 company-organised sale after ~$5B primaries); IPO prep targets GBP 6-7B",
   "slug": "monzo",
+  "valuation_asof": "2024-10",
+  "valuation_citation": "https://techcrunch.com/2024/10/11/uk-neobank-monzo-hits-5-9b-valuation-with-secondary-market-sale",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 5900000000,
   "who": "agent-judge-pro65"
  },
  "moonfish": {
@@ -8746,14 +8974,22 @@
   "entry_stage_confidence": "medium",
   "entry_stage_source": "model",
   "flags": [
-   "cite_pending"
+   "cite_pending",
+   "model_disputes_source"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "Mumbai",
   "hq_city_source": "web_verified",
-  "note": "entry at the 2021 rounds (Ascent/Amazon earlier); MyGlamm/Good Glamm at-scale entry",
+  "note": "entry at the 2021 rounds (Ascent/Amazon earlier); MyGlamm/Good Glamm at-scale entry | Good Glamm Group collapsed Jul 2025; lenders selling brands; residual ~$120M vs $1.2B peak",
   "slug": "myglamm",
+  "status": "defunct",
+  "valuation_asof": null,
+  "valuation_citation": "https://inc42.com/buzz/end-of-good-glamm-group-lenders-to-sell-off-brands/",
+  "valuation_confidence": "high",
+  "valuation_range": "below_1b",
+  "valuation_source": "web_verified",
+  "valuation_usd": null,
   "who": "agent-judge-pro65"
  },
  "myheritage": {
@@ -8780,7 +9016,7 @@
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "slug": "myntra",
   "valuation_range": "below_1b",
@@ -8880,7 +9116,7 @@
   "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/nabhdrishti-aerospace",
@@ -9080,6 +9316,7 @@
   "slug": "new-relic",
   "status": "acquired",
   "valuation_confidence": "high",
+  "valuation_range": "below_1b",
   "who": "agent-judge-pro65"
  },
  "newme": {
@@ -9343,7 +9580,7 @@
   "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/nurix-ai",
@@ -9546,7 +9783,9 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "cohort_unverified"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
   "graduation_confidence": "high",
@@ -9591,6 +9830,7 @@
   "focus_source": "model",
   "hq_city": "London",
   "hq_city_source": "web_verified",
+  "seed_to_a_graduation": null,
   "slug": "opengamma",
   "status": "private",
   "valuation_confidence": "medium",
@@ -9761,16 +10001,18 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "country_prior"
+   "country_prior",
+   "model_disputes_source"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "Sydney",
-  "hq_city_source": "web_verified",
-  "hq_country": "US",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "AU",
   "hq_country_source": "model_knowledge",
+  "note": "OFX Group, ASX-listed since 2013; sub-$1B cap",
   "slug": "ozforex",
-  "status": "private",
+  "status": "public",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
   "who": "agent-judge-pro65"
@@ -9781,13 +10023,14 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "country_prior"
+   "country_prior",
+   "model_disputes_source"
   ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Madrid",
-  "hq_city_source": "web_verified",
-  "hq_country": "US",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "ES",
   "hq_country_source": "model_knowledge",
   "note": "acq. by Auctane",
   "slug": "packlink",
@@ -9910,14 +10153,21 @@
   "entry_stage_confidence": "medium",
   "entry_stage_source": "model",
   "flags": [
-   "cite_pending"
+   "cite_pending",
+   "stale"
   ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Paris",
   "hq_city_source": "web_verified",
-  "note": "entry at the 2021 $110M+ D/E era (Accel led the 2017 B? record: Accel led PayFit's EUR 14M B 2017: Growth entry at B)",
+  "note": "entry at the 2021 $110M+ D/E era (Accel led the 2017 B? record: Accel led PayFit's EUR 14M B 2017: Growth entry at B) | EUR 1.82B (~$2.1B) Series E (Jan 2022, GA led)",
   "slug": "payfit",
+  "valuation_asof": "2022-01",
+  "valuation_citation": "https://techcrunch.com/2022/01/05/payroll-startup-payfit-is-frances-latest-unicorn-as-it-raises-289-million",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 2100000000,
   "who": "agent-judge-pro65"
  },
  "peopledoc": {
@@ -10035,14 +10285,21 @@
   "entry_stage_source": "model",
   "flags": [
    "cite_pending",
-   "stage_prior"
+   "stage_prior",
+   "stale"
   ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Munich",
   "hq_city_source": "web_verified",
-  "note": "entry stage from the firm's era/desk prior; row not further identifiable",
+  "note": "entry stage from the firm's era/desk prior; row not further identifiable | $8.5B Series E ext (Jun 2022); no priced round since; still private",
   "slug": "personio",
+  "valuation_asof": "2022-06",
+  "valuation_citation": "https://pitchbook.com/news/articles/europe-hr-tech-personio-extension-round",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 8500000000,
   "who": "agent-judge-pro65"
  },
  "pharmaccx": {
@@ -10187,6 +10444,7 @@
   "slug": "pismo",
   "status": "acquired",
   "valuation_confidence": "high",
+  "valuation_range": "below_1b",
   "who": "agent-judge-pro65"
  },
  "playfish": {
@@ -10287,12 +10545,21 @@
   "entry_stage_citation": "https://www.accel.com/companies/podium",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "stale"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Lehi",
   "hq_city_source": "web_verified",
+  "note": "$3B Series D (Nov 2021); no round since",
   "slug": "podium",
+  "valuation_asof": "2021-11",
+  "valuation_citation": "https://www.pymnts.com/news/investment-tracker/2021/podium-closes-201m-series-d-funding-deal/",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 3000000000,
   "who": "agent-judge-pro65"
  },
  "poggio-labs": {
@@ -10355,11 +10622,16 @@
   "entry_stage_citation": "https://www.accel.com/companies/polar",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "model_disputes_source"
+  ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
   "hq_city": "Stockholm",
-  "hq_city_source": "web_verified",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "SE",
+  "hq_country_source": "model_knowledge",
+  "note": "wikidata FI entry is the watch maker - collision",
   "slug": "polar",
   "status": "private",
   "valuation_confidence": "medium",
@@ -10514,7 +10786,7 @@
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/posha",
@@ -10553,7 +10825,7 @@
   "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/powerplay",
@@ -10768,7 +11040,7 @@
   "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/probe-information",
@@ -10970,13 +11242,14 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "country_prior"
+   "country_prior",
+   "model_disputes_source"
   ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Sydney",
-  "hq_city_source": "web_verified",
-  "hq_country": "US",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "AU",
   "hq_country_source": "model_knowledge",
   "slug": "pyn",
   "status": "private",
@@ -11101,7 +11374,7 @@
   ],
   "graduation_confidence": "medium",
   "graduation_source": "web_verified",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/qtalk",
@@ -11130,6 +11403,7 @@
   "slug": "qualtrics",
   "status": "acquired",
   "valuation_confidence": "high",
+  "valuation_range": "below_1b",
   "who": "agent-judge-pro65"
  },
  "quanta": {
@@ -11568,7 +11842,8 @@
   "entry_stage_source": "model",
   "flags": [
    "cite_pending",
-   "model_disputes_source"
+   "model_disputes_source",
+   "stale"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
@@ -11576,8 +11851,14 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "entry at the 2021-22 B/C mega-rounds (Index/Sequoia earlier; band-era agrees) | Remote is US-incorporated (SF), fully distributed; wikidata dual-string overridden",
+  "note": "entry at the 2021-22 B/C mega-rounds (Index/Sequoia earlier; band-era agrees) | Remote is US-incorporated (SF), fully distributed; wikidata dual-string overridden | $3B Series C (Apr 2022); cash-flow positive 2026",
   "slug": "remote",
+  "valuation_asof": "2022-04",
+  "valuation_citation": "https://techcrunch.com/2022/04/05/remote-payroll-hr-workforce-3-billion/",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 3000000000,
   "who": "agent-judge-pro65"
  },
  "rentomojo": {
@@ -11695,7 +11976,7 @@
   "flags": [],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/rigi",
@@ -12011,7 +12292,7 @@
   "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/sarla-aviation",
@@ -12214,11 +12495,15 @@
   "entry_stage_citation": "https://www.accel.com/companies/seezo",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "model_disputes_source"
+  ],
   "focus": "Security",
   "focus_source": "model",
   "hq_city": "Bangalore",
-  "hq_city_source": "web_verified",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "IN",
+  "hq_country_source": "model_knowledge",
   "slug": "seezo",
   "status": "private",
   "valuation_confidence": "medium",
@@ -12282,12 +12567,19 @@
   "entry_stage_confidence": "medium",
   "entry_stage_source": "model",
   "flags": [
-   "cite_pending"
+   "cite_pending",
+   "stale"
   ],
   "hq_city": "Berlin",
   "hq_city_source": "web_verified",
-  "note": "Accel led sennder's 2018-19 Series A/B (Berlin freight; scaled to unicorn)",
+  "note": "Accel led sennder's 2018-19 Series A/B (Berlin freight; scaled to unicorn) | $1B+ (2021); acquired CH Robinson EU Surface 2025; still private",
   "slug": "sennder",
+  "valuation_asof": "2021-06",
+  "valuation_citation": "https://techcrunch.com/2021/06/01/freight-forwarder-sennder-raises-80m-at-a-1b-valuation",
+  "valuation_confidence": "medium",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1000000000,
   "who": "agent-judge-pro65"
  },
  "sense": {
@@ -12295,13 +12587,21 @@
   "entry_stage_citation": "https://www.accel.com/companies/sense",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "cik_weak",
+   "model_disputes_source"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_source": "web_verified",
+  "note": "the acquired read rode a weak-CIK collision (CIK 1093903); Sense (sensehq) operates privately",
   "slug": "sense",
+  "status": "private",
+  "valuation_asof": null,
+  "valuation_confidence": "medium",
   "valuation_range": "below_1b",
+  "valuation_usd": null,
   "who": "agent-judge-pro65"
  },
  "sentry": {
@@ -12351,12 +12651,21 @@
   "entry_stage_citation": "https://www.accel.com/companies/shift-technology",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "stale"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Paris",
   "hq_city_source": "web_verified",
+  "note": "$1B+ Series D (May 2021); only priced mark",
   "slug": "shift-technology",
+  "valuation_asof": "2021-05",
+  "valuation_citation": "https://techcrunch.com/2021/05/05/shift-technology-raises-220m-at-a-1b-valuation-to-fight-insurance-fraud-with-ai/",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1000000000,
   "who": "agent-judge-pro65"
  },
  "shivalik-bank": {
@@ -12520,7 +12829,7 @@
   "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/simplismart",
@@ -12545,6 +12854,7 @@
   "hq_city": "Westborough",
   "hq_city_source": "web_verified",
   "note": "acq. by HPE",
+  "seed_to_a_graduation": null,
   "slug": "simplivity",
   "status": "acquired",
   "valuation_confidence": "high",
@@ -12655,9 +12965,9 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Atoms cohort 2023: the program cheque (decisions #4) restarts the entry clock | no current evidence of life; dark row",
+  "note": "Atoms cohort 2023: the program cheque (decisions #4) restarts the entry clock | no current evidence of life; dark row | operating Atoms alum (skoob.ai)",
   "slug": "skoob",
-  "status": "unknown",
+  "status": "private",
   "valuation_confidence": "low",
   "valuation_range": "below_1b",
   "who": "agent-judge-pro65"
@@ -12667,14 +12977,24 @@
   "entry_stage_confidence": "medium",
   "entry_stage_source": "model",
   "flags": [
-   "cite_pending"
+   "cite_pending",
+   "model_disputes_source",
+   "stale"
   ],
   "focus": "Crypto & Web3",
   "focus_source": "model",
-  "hq_city": "Singapore",
-  "hq_city_source": "web_verified",
-  "note": "entry at the 2021 $152M Series B (a16z led, Accel joined; Axie Infinity)",
+  "hq_city": "Ho Chi Minh City",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "VN",
+  "hq_country_source": "model_knowledge",
+  "note": "entry at the 2021 $152M Series B (a16z led, Accel joined; Axie Infinity) | $3B (Oct 2021 crypto peak); likely far overstated now but no newer credible mark | HQ Ho Chi Minh City (the CMS Singapore entry is the holdco address)",
   "slug": "sky-mavis",
+  "valuation_asof": "2021-10",
+  "valuation_citation": "https://www.clay.com/dossier/sky-mavis-funding",
+  "valuation_confidence": "medium",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 3000000000,
   "who": "agent-judge-pro65"
  },
  "skydio": {
@@ -12841,13 +13161,21 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "stage_disputes_band"
+   "stage_disputes_band",
+   "stale"
   ],
   "focus": "Security",
   "focus_source": "model",
   "hq_city": "Boston",
   "hq_city_source": "web_verified",
+  "note": "$7.4B down-round G (Dec 2022) last primary; secondaries imply ~$2B (2026) note-only",
   "slug": "snyk",
+  "valuation_asof": "2022-12",
+  "valuation_citation": "https://forgeglobal.com/insights/snyk-upcoming-ipo-news/",
+  "valuation_confidence": "medium",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 7400000000,
   "who": "agent-judge-pro65"
  },
  "socure": {
@@ -12863,8 +13191,14 @@
   "focus_source": "model",
   "hq_city": "Incline Village",
   "hq_city_source": "web_verified",
-  "note": "entry stage from the firm's era/desk prior; row not further identifiable | Accel entered at the 2021 $100M+ Series D/E era (Advance/Accel led); the CMS seed label misstates a late entry",
+  "note": "entry stage from the firm's era/desk prior; row not further identifiable | Accel entered at the 2021 $100M+ Series D/E era (Advance/Accel led); the CMS seed label misstates a late entry | $156M (Aug 2026, Summit-led) at $5.2B",
   "slug": "socure",
+  "valuation_asof": "2026-08",
+  "valuation_citation": "https://news.crunchbase.com/venture/socure-raises-acquires-agentic-ai-startup-fravity/",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 5200000000,
   "who": "agent-judge-pro65"
  },
  "solda-ai": {
@@ -12981,7 +13315,14 @@
   "focus_source": "model",
   "hq_city": "Paris",
   "hq_city_source": "web_verified",
+  "note": "the 2021 $4.3B mark is not credible today (NFT collapse, 35% layoffs Nov 2025, reported inability to raise); honest range below $1B",
   "slug": "sorare",
+  "valuation_asof": null,
+  "valuation_citation": "https://www.cryptotimes.io/2025/11/21/sorare-lays-off-35-of-staff-cto-steps-back-as-nft-boom-fades/",
+  "valuation_confidence": "medium",
+  "valuation_range": "below_1b",
+  "valuation_source": "web_verified",
+  "valuation_usd": null,
   "who": "agent-judge-pro65"
  },
  "space-ape": {
@@ -12990,13 +13331,17 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
+   "model_disputes_source",
    "stage_disputes_band"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "London",
-  "hq_city_source": "web_verified",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "GB",
+  "hq_country_source": "model_knowledge",
   "note": "acq. by Supercell",
+  "seed_to_a_graduation": null,
   "slug": "space-ape",
   "status": "acquired",
   "valuation_confidence": "high",
@@ -13113,7 +13458,14 @@
   "focus_source": "model",
   "hq_city": "Gurgaon",
   "hq_city_source": "web_verified",
+  "note": "~$1.8B Series G (Dec 2025, Accel Leaders co-led)",
   "slug": "spinny",
+  "valuation_asof": "2025-12",
+  "valuation_citation": "https://techcrunch.com/2025/12/13/indias-spinny-lines-up-160m-funding-to-acquire-gomechanic-sources-say",
+  "valuation_confidence": "medium",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1800000000,
   "who": "agent-judge-pro65"
  },
  "spintly": {
@@ -13319,6 +13671,8 @@
   "hq_city": "New York",
   "hq_city_source": "web_verified",
   "slug": "squarespace",
+  "status": "acquired",
+  "valuation_range": "below_1b",
   "who": "agent-judge-pro65"
  },
  "stacklok": {
@@ -13466,13 +13820,14 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "country_prior"
+   "country_prior",
+   "model_disputes_source"
   ],
   "focus": "Security",
   "focus_source": "model",
   "hq_city": "Jerusalem",
-  "hq_city_source": "web_verified",
-  "hq_country": "US",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "IL",
   "hq_country_source": "model_knowledge",
   "slug": "strattic",
   "status": "private",
@@ -13492,6 +13847,7 @@
   "hq_city": "Lexington",
   "hq_city_source": "web_verified",
   "note": "Accel co-led StreamBase's 2003-05 A/B (with Bessemer); acq. TIBCO 2013 | acq. TIBCO 2013",
+  "seed_to_a_graduation": null,
   "slug": "streambase",
   "status": "acquired",
   "valuation_confidence": "high",
@@ -13551,6 +13907,7 @@
   "slug": "sumo-logic",
   "status": "acquired",
   "valuation_confidence": "high",
+  "valuation_range": "below_1b",
   "who": "agent-judge-pro65"
  },
  "sunrun": {
@@ -13580,12 +13937,15 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "model",
   "flags": [
-   "cite_pending"
+   "cite_pending",
+   "model_disputes_source"
   ],
   "focus": "DevTools & APIs",
   "focus_source": "model",
   "hq_city": "Singapore",
-  "hq_city_source": "web_verified",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "SG",
+  "hq_country_source": "model_knowledge",
   "note": "entry at the 2025 rounds (Felicis/Coatue earlier); band agrees | $500M at $10.5B (Jun 2026)",
   "slug": "supabase",
   "status": "private",
@@ -13707,11 +14067,15 @@
   "entry_stage_citation": "https://www.accel.com/companies/swan",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "model_disputes_source"
+  ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
   "hq_city": "Paris",
-  "hq_city_source": "web_verified",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "FR",
+  "hq_country_source": "model_knowledge",
   "slug": "swan",
   "status": "private",
   "valuation_confidence": "medium",
@@ -13788,9 +14152,12 @@
   "entry_stage_confidence": "medium",
   "entry_stage_source": "model",
   "flags": [
-   "country_prior"
+   "country_prior",
+   "model_disputes_source"
   ],
-  "hq_country": "US",
+  "hq_city": "Cairo",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "EG",
   "hq_country_source": "model_knowledge",
   "note": "Accel led Swypex's 2024 $4M round (Cairo corporate cards)",
   "slug": "swypex",
@@ -13812,8 +14179,10 @@
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "London",
-  "hq_city_source": "web_verified",
-  "note": "entry stage from the firm's era/desk prior; row not further identifiable | operating London AI-video unicorn; layer's acquired read is a Wikidata collision (layer said acquired) | Accel led Synthesia's 2023 $90M Series C (Kleiner/GV earlier); CMS seed label wrong | $200M Series E at $4B (Jan 2026, GV-led with NVentures)",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "GB",
+  "hq_country_source": "model_knowledge",
+  "note": "entry stage from the firm's era/desk prior; row not further identifiable | operating London AI-video unicorn; layer's acquired read is a Wikidata collision (layer said acquired) | Accel led Synthesia's 2023 $90M Series C (Kleiner/GV earlier); CMS seed label wrong | $200M Series E at $4B (Jan 2026, GV-led with NVentures) | wikidata CZ entry is the music software - collision",
   "slug": "synthesia",
   "status": "private",
   "valuation_asof": "2026-01",
@@ -13866,12 +14235,21 @@
   "entry_stage_citation": "https://www.accel.com/companies/sysdig",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "stale"
+  ],
   "focus": "Security",
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_source": "web_verified",
+  "note": "$2.5B Series G (Dec 2021)",
   "slug": "sysdig",
+  "valuation_asof": "2021-12",
+  "valuation_citation": "https://www.sysdig.com/press-releases/350m-series-g-financing-2-5b-valuation",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 2500000000,
   "who": "agent-judge-pro65"
  },
  "taascom": {
@@ -14076,11 +14454,16 @@
   "entry_stage_citation": "https://www.accel.com/companies/tenderly",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "model_disputes_source"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
-  "hq_city": "Belgrade",
-  "hq_city_source": "web_verified",
+  "hq_city": "San Francisco",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_source": "model_knowledge",
+  "note": "official HQ San Francisco; Belgrade is the engineering hub",
   "slug": "tenderly",
   "status": "private",
   "valuation_confidence": "medium",
@@ -14098,6 +14481,7 @@
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
   "note": "entry at the 2006-08 B/C rounds (with Benchmark/DAG; Efrusy board); acq. Software AG 2011 | acq. Software AG 2011",
+  "seed_to_a_graduation": null,
   "slug": "terracotta-inc",
   "status": "acquired",
   "valuation_confidence": "high",
@@ -14259,7 +14643,14 @@
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_source": "web_verified",
+  "note": "$12B seed (Jul 2025, Accel participated); ~$50B talks collapsed Jan 2026",
   "slug": "thinking-machines",
+  "valuation_asof": "2025-07",
+  "valuation_citation": "https://techcrunch.com/2025/07/15/mira-muratis-thinking-machines-lab-is-worth-12b-in-seed-round/",
+  "valuation_confidence": "high",
+  "valuation_range": "10b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 12000000000,
   "who": "agent-judge-pro65"
  },
  "threeflow": {
@@ -14437,7 +14828,7 @@
   "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/tracxn",
@@ -14461,8 +14852,14 @@
   "focus_source": "model",
   "hq_city": "Berlin",
   "hq_city_source": "web_verified",
-  "note": "entry stage from the firm's era/desk prior; row not further identifiable | Accel led Trade Republic's 2019 Series A (EUR ~9M with Creandum); the CMS 2020 seed label misdates it",
+  "note": "entry stage from the firm's era/desk prior; row not further identifiable | Accel led Trade Republic's 2019 Series A (EUR ~9M with Creandum); the CMS 2020 seed label misdates it | EUR 12.5B (~$14.5B) company-announced round (Dec 2025; Accel among leads)",
   "slug": "trade-republic",
+  "valuation_asof": "2025-12",
+  "valuation_citation": "https://www.eqs-news.com/news/corporate/trade-republic-strengthens-its-shareholder-base-in-a-e1-2-billion-secondary-round-led-by-founders-fund-and-other-existing-investors-at-e12-5-billion-valuation/aa0a1e7c-3f08-4d95-aabd-85a01790d0c7_en",
+  "valuation_confidence": "high",
+  "valuation_range": "10b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 14500000000,
   "who": "agent-judge-pro65"
  },
  "transcend": {
@@ -14627,6 +15024,7 @@
   "slug": "truebill",
   "status": "acquired",
   "valuation_confidence": "high",
+  "valuation_range": "below_1b",
   "who": "agent-judge-pro65"
  },
  "truemeds": {
@@ -14842,7 +15240,7 @@
   "flags": [],
   "focus": "Fintech & Payments",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/uni-cards",
@@ -14913,7 +15311,7 @@
   "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/unmannd",
@@ -14982,6 +15380,7 @@
   "slug": "usertesting",
   "status": "acquired",
   "valuation_confidence": "high",
+  "valuation_range": "below_1b",
   "who": "agent-judge-pro65"
  },
  "uspl-wrogn": {
@@ -14992,7 +15391,7 @@
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/uspl-wrogn",
@@ -15173,11 +15572,15 @@
   "entry_stage_citation": "https://www.accel.com/companies/venue",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "model_disputes_source"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Toronto",
-  "hq_city_source": "web_verified",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "CA",
+  "hq_country_source": "model_knowledge",
   "slug": "venue",
   "status": "private",
   "valuation_confidence": "medium",
@@ -15192,7 +15595,7 @@
   "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/venwiz",
@@ -15215,7 +15618,14 @@
   "focus_source": "model",
   "hq_city": "Covina",
   "hq_city_source": "web_verified",
+  "note": "$300M Series F at $9.3B (Sep 2025, Accel co-led)",
   "slug": "vercel",
+  "valuation_asof": "2025-09",
+  "valuation_citation": "https://vercel.com/blog/series-f",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 9300000000,
   "who": "agent-judge-pro65"
  },
  "veriff": {
@@ -15319,13 +15729,24 @@
   "entry_stage_citation": "https://www.accel.com/companies/vinted",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "model_disputes_source"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "hq_city": "London",
-  "hq_city_source": "web_verified",
+  "hq_city": "Vilnius",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "LT",
+  "hq_country_source": "model_knowledge",
+  "note": "the layer's defunct read was a wikidata artifact - Vinted is profitable and growing; EUR 8B (~$8.7B) equity valuation in the Apr-2026 EQT-led EUR 880M secondary (company announcement) | HQ Vilnius; the CMS London entry is an office",
   "slug": "vinted",
-  "valuation_range": "below_1b",
+  "status": "private",
+  "valuation_asof": "2026-04",
+  "valuation_citation": "https://company.vinted.com/newsroom/secondary-share-transaction-at-%E2%82%AC8B%20equity%20valuation",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 8700000000,
   "who": "agent-judge-pro65"
  },
  "viralo": {
@@ -15355,7 +15776,7 @@
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
   "hq_country": "IN",
   "hq_country_citation": "https://www.accel.com/companies/virgio",
@@ -15484,7 +15905,15 @@
   "focus_source": "model",
   "hq_city": "Washington",
   "hq_city_source": "web_verified",
+  "note": "break-up announced Jun 2026: Penske acquiring the digital brands, NY Mag to Lupa ~$300M; the 2015 $1B mark long invalid",
   "slug": "vox-media",
+  "status": "acquired",
+  "valuation_asof": null,
+  "valuation_citation": "https://www.axios.com/2026/06/22/penske-vox-media",
+  "valuation_confidence": "medium",
+  "valuation_range": "below_1b",
+  "valuation_source": "web_verified",
+  "valuation_usd": null,
   "who": "agent-judge-pro65"
  },
  "vsco": {
@@ -15533,6 +15962,7 @@
   "focus_source": "model",
   "hq_city": "London",
   "hq_city_source": "web_verified",
+  "seed_to_a_graduation": null,
   "slug": "weaveworks",
   "status": "private",
   "valuation_confidence": "medium",
@@ -15544,12 +15974,21 @@
   "entry_stage_citation": "https://www.accel.com/companies/webflow",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "stale"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_source": "web_verified",
+  "note": "$4B Series C (Mar 2022); no priced round since",
   "slug": "webflow",
+  "valuation_asof": "2022-03",
+  "valuation_citation": "https://forgeglobal.com/webflow_ipo/",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 4000000000,
   "who": "agent-judge-pro65"
  },
  "webroot": {
@@ -15651,6 +16090,7 @@
   "hq_country": "US",
   "hq_country_source": "web_verified",
   "note": "acq. by Payu",
+  "seed_to_a_graduation": null,
   "slug": "wibmo",
   "status": "acquired",
   "valuation_confidence": "high",
@@ -15802,13 +16242,14 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [],
-  "focus": "Security",
+  "focus": "Fintech & Payments",
   "focus_source": "model",
   "hq_city": "Singapore",
   "hq_city_source": "web_verified",
   "hq_country": "SG",
   "hq_country_citation": "https://www.accel.com/companies/xalts",
   "hq_country_source": "web_verified",
+  "note": "tokenization infrastructure",
   "slug": "xalts",
   "status": "private",
   "valuation_confidence": "medium",
@@ -15838,14 +16279,24 @@
   "entry_stage_source": "model",
   "flags": [
    "cite_pending",
-   "stage_prior"
+   "model_disputes_source",
+   "stage_prior",
+   "stale"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
   "hq_city": "Jakarta",
-  "hq_city_source": "web_verified",
-  "note": "entry stage from the firm's era/desk prior; row not further identifiable",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "ID",
+  "hq_country_source": "model_knowledge",
+  "note": "entry stage from the firm's era/desk prior; row not further identifiable | $1B (Sep 2021); 2022 D undisclosed",
   "slug": "xendit",
+  "valuation_asof": "2021-09",
+  "valuation_citation": "https://www.forbes.com/sites/yessarrosendar/2022/05/19/indonesian-unicorn-xendit-bags-300-million-in-series-d-funding/",
+  "valuation_confidence": "medium",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1000000000,
   "who": "agent-judge-pro65"
  },
  "xensource": {
@@ -15869,13 +16320,16 @@
   "entry_stage_confidence": "medium",
   "entry_stage_source": "model",
   "flags": [
-   "cite_pending"
+   "cite_pending",
+   "model_disputes_source"
   ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Wellington",
-  "hq_city_source": "web_verified",
-  "note": "entry at the 2012-13 listed-company placements (NZX-listed; at-scale position) | ASX: XRO | ASX: XRO cap $10.49B (Sep 2026)",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "NZ",
+  "hq_country_source": "model_knowledge",
+  "note": "entry at the 2012-13 listed-company placements (NZX-listed; at-scale position) | ASX: XRO | ASX: XRO cap $10.49B (Sep 2026) | wikidata JP entry is a collision",
   "slug": "xero",
   "status": "public",
   "valuation_asof": "2026-09",
@@ -15936,6 +16390,7 @@
   "slug": "yodlee",
   "status": "acquired",
   "valuation_confidence": "high",
+  "valuation_range": "below_1b",
   "who": "agent-judge-pro65"
  },
  "youshd": {
@@ -15967,6 +16422,7 @@
    "stage_disputes_band"
   ],
   "note": "2007 $9M Series B entry (Khosla did the A) - golden row | IPO 2013, merged into RhythmOne 2018",
+  "seed_to_a_graduation": null,
   "slug": "yume-inc",
   "status": "acquired",
   "valuation_confidence": "high",
@@ -16057,13 +16513,21 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "stage_disputes_band"
+   "stage_disputes_band",
+   "stale"
   ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Bellevue",
   "hq_city_source": "web_verified",
+  "note": "~$1.5B (Jun 2021)",
   "slug": "zenoti",
+  "valuation_asof": "2021-06",
+  "valuation_citation": "https://www.spabusiness.com/wellness-news/Zenoti-raises-US80m-funding-and-increases-valuation-to-nearly-US15bn/347930",
+  "valuation_confidence": "medium",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1500000000,
   "who": "agent-judge-pro65"
  },
  "zepz": {
@@ -16072,7 +16536,8 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "cohort_unverified"
+   "cohort_unverified",
+   "stale"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
@@ -16080,9 +16545,15 @@
   "graduation_source": "web_verified",
   "hq_city": "London",
   "hq_city_source": "web_verified",
-  "note": "graduated: WorldRemit seed/angel -> $40M A 2014 (Accel led) (citation pending A/B)",
+  "note": "graduated: WorldRemit seed/angel -> $40M A 2014 (Accel led) (citation pending A/B) | $5B Series E (Aug 2021); Oct-2024 Accel-led F undisclosed - markdown risk noted",
   "seed_to_a_graduation": true,
   "slug": "zepz",
+  "valuation_asof": "2021-08",
+  "valuation_citation": "https://www.businesswire.com/news/home/20210822005041/en/Zepz-Formerly-WorldRemit-Group-the-Leading-Digital-Cross-border-Payments-Platform-Has-Raised-292-Million-in-New-Primary-Series-E-Financing-Achieving-a-Valuation-of-5-Billion",
+  "valuation_confidence": "medium",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 5000000000,
   "who": "agent-judge-pro65"
  },
  "zetwerk": {
@@ -16093,9 +16564,16 @@
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "hq_city": "Bengaluru",
+  "hq_city": "Bangalore",
   "hq_city_source": "web_verified",
+  "note": "$3.1B (Dec 2024); IPO DRHP filed Aug 2026 targeting $4B+",
   "slug": "zetwerk",
+  "valuation_asof": "2024-12",
+  "valuation_citation": "https://www.business-standard.com/companies/news/zetwerk-manufacturing-records-rs-17-564-crore-gmv-in-2023-24-124121901236_1.html",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 3100000000,
   "who": "agent-judge-pro65"
  },
  "zingle-ai": {
