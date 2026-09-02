@@ -14,9 +14,9 @@
       "basis": "firm site"
     },
     "icon_url": {
-      "value": "https://lsohkkmdlrlixukuncjl.supabase.co/storage/v1/object/public/Icon%20Images/investors/accel-1ee5a3bb48.png",
-      "source": "https://www.accel.com/icon.png",
-      "basis": "the firm's own site icon, normalized to the 256 PNG master and uploaded to the Icon Images bucket by scripts/fetch-investor-icon.ts (PRO-53 flow)"
+      "value": "https://lsohkkmdlrlixukuncjl.supabase.co/storage/v1/object/public/Icon%20Images/investors/accel-680da531f6.png",
+      "source": "https://www.accel.com/ (inline #accel-logo-svg wordmark, viewBox 1288x413; the same vector as commons.wikimedia.org File:Accel_logo.svg)",
+      "basis": "composed, not fetched (2026-09-02): the site's only raster icon is the 32px /icon.png, which the PRO-53 flow upscaled into a soft grey A on transparent. The A glyph was isolated from the firm's own inline SVG wordmark (connected-component crop at 4x), set white at 56% height on a #3D3D3D disc (the firm's og.png background), then uploaded as the 256 PNG master through scripts/fetch-investor-icon.ts"
     },
     "founding_year": {
       "value": 1983,
