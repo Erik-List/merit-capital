@@ -455,8 +455,9 @@ def main() -> None:
             target = f"{site_base}{path}/"
             for era in CFG["wayback"]["eras"]:
                 if path.startswith(era["path"]):
-                    target = f"{site_base}{path}/" if era.get("per_company_pages") \
-                        else f"{site_base}{era['path']}"
+                    base = era.get("site_url_base", site_base)
+                    target = f"{base}{path}/" if era.get("per_company_pages") \
+                        else f"{base}{era['path']}"
                     break
             wb_link = f"https://web.archive.org/web/{ts}/{target}"
 

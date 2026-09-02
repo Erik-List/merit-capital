@@ -1,0 +1,398 @@
+{
+ "slug": "lightspeed",
+ "wayback": {
+  "cdx_domain": "lsvp.com",
+  "site_url_base": "https://lsvp.com",
+  "eras": [
+   {
+    "parser": "listing_regex",
+    "cdx_domain": "lightspeedvp.com",
+    "site_url_base": "https://www.lightspeedvp.com",
+    "path": "/portfolio/current.asp",
+    "from": 2002,
+    "to": 2002,
+    "pattern": "class=\"tblLink\"[^>]*>\\s*(?P<name>[^<]+?)\\s*</a>",
+    "per_company_pages": false
+   },
+   {
+    "parser": "listing_regex",
+    "cdx_domain": "lightspeedvp.com",
+    "site_url_base": "https://www.lightspeedvp.com",
+    "path": "/portfolio/current.asp",
+    "from": 2003,
+    "to": 2006,
+    "pattern": "<td width=\"198\" valign=\"top\">(?:<a[^>]*>)?\\s*(?P<name>[^<]+?)\\s*(?:</a>)?</td>",
+    "per_company_pages": false
+   },
+   {
+    "parser": "listing_regex",
+    "cdx_domain": "lightspeedvp.com",
+    "site_url_base": "https://www.lightspeedvp.com",
+    "path": "/portfolio/history.asp",
+    "from": 2001,
+    "to": 2002,
+    "pattern": "class=\"tblLink\"[^>]*>\\s*(?P<name>[^<]+?)\\s*</a>",
+    "per_company_pages": false
+   },
+   {
+    "parser": "listing_regex",
+    "cdx_domain": "lightspeedvp.com",
+    "site_url_base": "https://www.lightspeedvp.com",
+    "path": "/portfolio/history.asp",
+    "from": 2003,
+    "to": 2006,
+    "pattern": "<td><a[^>]*>\\s*(?P<name>[^<]+?)\\s*</a><br>",
+    "per_company_pages": false
+   },
+   {
+    "parser": "listing_regex",
+    "cdx_domain": "lightspeedvp.com",
+    "site_url_base": "https://www.lightspeedvp.com",
+    "path": "/Portfolio/Default.aspx",
+    "from": 2007,
+    "to": 2011,
+    "pattern": "class=\"portfolioTitle\">(?:<a[^>]*>)?\\s*(?P<name>[^<(]+?)\\s*[(<]",
+    "per_company_pages": false
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/Portfolio/",
+    "from": 2011,
+    "to": 2018,
+    "pattern": "class=\"portfolioTitle\">(?:<a[^>]*>)?\\s*(?P<name>[^<(]+?)\\s*[(<]",
+    "per_company_pages": false
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio/",
+    "from": 2019,
+    "to": 2023,
+    "pattern": "<option value=\"https://lsvp\\.com/portfolio/(?P<slug>[^\"/]+)/\">(?P<name>[^<]+)</option>",
+    "per_company_pages": false
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/companies/",
+    "from": 2023,
+    "to": 2026,
+    "pattern": "data-company-id=\"(?P<slug>[^\"]+)\" data-investor=\"(?:lsvp|both)\"",
+    "per_company_pages": false
+   }
+  ],
+  "non_company_slugs": [
+   "index",
+   "home",
+   "companies",
+   "companies-india",
+   "company",
+   "team",
+   "team-member",
+   "lightspeed-team",
+   "people",
+   "person",
+   "partners",
+   "about",
+   "about-us",
+   "contact",
+   "contact-us",
+   "jobs",
+   "careers",
+   "portfolio-jobs",
+   "portfoliojobs",
+   "privacy",
+   "privacy-policy",
+   "terms",
+   "terms-of-use",
+   "legal",
+   "disclosures",
+   "disclaimers",
+   "news",
+   "newsroom",
+   "blog",
+   "stories",
+   "perspectives",
+   "insights",
+   "ideas",
+   "article",
+   "articles",
+   "author",
+   "category",
+   "tag",
+   "page",
+   "event",
+   "events",
+   "gallery",
+   "images",
+   "cdn-cgi",
+   "wp-content",
+   "wp-json",
+   "wp-admin",
+   "feed",
+   "feeds",
+   "login",
+   "admin",
+   "search",
+   "sitemap",
+   "press",
+   "podcast",
+   "podcasts",
+   "media",
+   "videos",
+   "newsletter",
+   "approach",
+   "china",
+   "india",
+   "israel",
+   "europe",
+   "global-presence",
+   "global-opportunity",
+   "founder",
+   "founders",
+   "entrepreneur",
+   "gametheory",
+   "thefutureofvc",
+   "cyber60",
+   "cyber60-2024-2025",
+   "cyber60-2025-2026",
+   "portfolio",
+   "portfolio-details",
+   "portfolio-details-mini",
+   "sectors",
+   "sector",
+   "offices",
+   "lighthouse",
+   "faction",
+   "current",
+   "featured",
+   "exits",
+   "early",
+   "growth",
+   "venture",
+   "all",
+   "see-all",
+   "extreme",
+   "extreme-entrepreneurs",
+   "scout",
+   "scouts",
+   "summer-fellows"
+  ]
+ },
+ "roster": {
+  "cdx_patterns": [
+   "lsvp.com/team-member/*",
+   "lsvp.com/team/*",
+   "lsvp.com/people/*",
+   "lsvp.com/partners/*"
+  ],
+  "site_team_groups": [
+   "investing"
+  ],
+  "slug_re": "/(?:team-member|team|people|partners)/([a-z][a-z0-9-]*[a-z0-9])/?$",
+  "listing_href_re": "/team-member/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+  "not_a_person": [
+   "index",
+   "team",
+   "team-member",
+   "lightspeed-team",
+   "people",
+   "partners",
+   "about",
+   "companies",
+   "companies-india",
+   "news",
+   "contact",
+   "contact-us",
+   "global-presence",
+   "jobs",
+   "careers",
+   "privacy-policy",
+   "terms-of-use",
+   "our-team",
+   "the-team",
+   "meet-the-team",
+   "all",
+   "filter",
+   "category",
+   "author",
+   "page",
+   "investors",
+   "specialists",
+   "venture-and-operating-partners"
+  ]
+ },
+ "site_api": {
+  "type": "scrape",
+  "sources": [
+   {
+    "parser": "card_blocks",
+    "url": "https://lsvp.com/companies/",
+    "block_start": "<li data-appear-list ",
+    "field_patterns": {
+     "site_slug": "data-company-id=\"([^\"]+)\"",
+     "investor": "data-investor=\"([^\"]+)\"",
+     "url": "<a href=\"([^\"]+)\"",
+     "name": "<h5>\\s*([^<]+?)\\s*<",
+     "founded": "<strong>Founded</strong>\\s*<span>([^<]*)</span>",
+     "stage_invested": "Invested</strong>\\s*<span>([^<]*)</span>",
+     "invest_year": "Since</strong>\\s*<span>([^<]*)</span>",
+     "status_site": "<strong>Status</strong>\\s*<span>([^<]*)</span>"
+    },
+    "require": {
+     "investor": ["lsvp", "both"]
+    },
+    "list": "companies-page",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "investor",
+     "founded",
+     "stage_invested",
+     "invest_year",
+     "status_site",
+     "site_slug"
+    ]
+   }
+  ]
+ },
+ "edgar": {
+  "seed_queries": [
+   "lightspeed",
+   "lsvp",
+   "faction",
+   "goskip",
+   "rebus+biosystems",
+   "alpenglow+biosciences"
+  ]
+ },
+ "desks": {
+  "home": "us",
+  "partition": [
+   "india",
+   "china",
+   "faction"
+  ],
+  "rank": [
+   "us",
+   "india",
+   "china",
+   "faction",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "lightspeed commerce",
+     "lightspeed pos",
+     "lightspeed financial",
+     "lightspeed trading",
+     "lightspeed professional",
+     "lightspeed systems",
+     "lightspeed technolog",
+     "lightspeed environmental",
+     "lightspeed genomics",
+     "lightspeed microscopy",
+     "lightspeed aviation",
+     "lightspeed research",
+     "lightspeed audio",
+     "lightspeed semiconductor",
+     "lightspeed networks",
+     "lightspeed coin",
+     "lightspeed lane",
+     "lightspeed human capital",
+     "lightspeed medical",
+     "lightspeed insurance",
+     "lightspeed logistics",
+     "lightspeed transportation",
+     "^lightspeed holdings",
+     "lightspeed investment holdco",
+     "rebus biosystems",
+     "alpenglow",
+     "goskip",
+     "faction holdings",
+     "faction brewing",
+     "faction entertainment"
+    ]
+   },
+   {
+    "desk": "china",
+    "patterns": [
+     "lightspeed china"
+    ]
+   },
+   {
+    "desk": "india",
+    "patterns": [
+     "lightspeed india"
+    ]
+   },
+   {
+    "desk": "faction",
+    "patterns": [
+     "lightspeed faction",
+     "^faction (ventures|fund|management|gp|principals)"
+    ]
+   },
+   {
+    "desk": "us",
+    "patterns": [
+     "^lightspeed\\b",
+     "^lsvp\\b"
+    ]
+   }
+  ]
+ },
+ "profile": {
+  "own_vehicle_pattern": "^lightspeed (venture partners|strategic partners|opportunity fund|select|ultimate|co-invest|affiliates|ai renaissance|ascent|velocity|platinum|luminous|m2)",
+  "focus_min_companies": 25,
+  "focus_crosswalk": {
+   "AI": "AI & Applied AI",
+   "Blockchain": "Crypto & Web3",
+   "Consumer": "Consumer & Marketplaces",
+   "Enterprise": "SaaS",
+   "Fintech": "Fintech & Payments",
+   "Gaming": "Media, Gaming & Advertising",
+   "Healthcare": "Healthcare & Bio"
+  }
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "snap",
+   "anthropic",
+   "epic-games",
+   "affirm",
+   "nutanix",
+   "mulesoft",
+   "rubrik",
+   "wiz",
+   "mistral-ai",
+   "appdynamics",
+   "grubhub",
+   "carta",
+   "navan",
+   "glean",
+   "netskope",
+   "zscaler",
+   "cato-networks",
+   "riverbed"
+  ]
+ },
+ "sample_slugs": [],
+ "commoncrawl": {
+  "company_paths": [
+   "company",
+   "companies",
+   "portfolio"
+  ],
+  "people_paths": [
+   "team-member",
+   "team",
+   "people",
+   "partners"
+  ]
+ }
+}

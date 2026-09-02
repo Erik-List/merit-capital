@@ -225,7 +225,7 @@ def listing_regex(era, cfg, raw_dir):
                        fl="timestamp,original"), y0, y1)
     results = {}
     for y, (ts, orig) in sorted(snaps.items()):
-        html = fetch(wb(ts, orig), raw_dir / f"{y}-{seg}.html")
+        html = fetch(wb(ts, orig), raw_dir / f"{y}-{seg.replace('/', '-')}.html")
         rows = {}
         for m in re.finditer(era["pattern"], html):
             d = m.groupdict()
@@ -324,10 +324,26 @@ def main():
 
     all_years = {}
     for era in cfg["eras"]:
-        for y, rows in PARSERS[era["parser"]](era, cfg, raw).items():
+        # A firm that changed domains keeps one config: an era may carry its
+        # own cdx_domain (Lightspeed: lightspeedvp.com 2000-2012, lsvp.com
+        # after), falling back to the investor-level domain.
+        era_cfg = {**cfg, "cdx_domain": era.get("cdx_domain", cfg["cdx_domain"])}
+        for y, rows in PARSERS[era["parser"]](era, era_cfg, raw).items():
             all_years.setdefault(y, []).extend(rows)
     for y, rows in sorted(all_years.items()):
-        (parsed / f"{y}.json").write_text(json.dumps(rows, indent=1) + "\n")
+        # Merge with what the year file already holds rather than replacing:
+        # the Common Crawl layer (commoncrawl-pull.py) writes the same
+        # per-year shape from a different capture universe (per-company
+        # pages vs listing snapshots), and each source must survive the
+        # other's re-runs. Keyed by (slug, path); existing rows win.
+        dest = parsed / f"{y}.json"
+        merged = {(r["slug"], r.get("path")): r
+                  for r in (json.loads(dest.read_text()) if dest.exists() else [])}
+        for r in rows:
+            merged.setdefault((r["slug"], r.get("path")), r)
+        (parsed / f"{y}.json").write_text(json.dumps(
+            sorted(merged.values(), key=lambda r: (r["slug"], r.get("path") or "")),
+            indent=1) + "\n")
     total = {r["slug"] for rows in all_years.values() for r in rows}
     print(f"\nyears: {sorted(all_years)}\ndistinct slugs across all years: {len(total)}")
 

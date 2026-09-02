@@ -156,6 +156,42 @@ def parse_json_list(src: dict) -> list[dict]:
     return data if isinstance(data, list) else []
 
 
+def parse_card_blocks(src: dict) -> list[dict]:
+    """Server-rendered listing whose cards carry an OPTIONAL field list (a
+    card missing one field must not bleed a match into the next card, which
+    rules out one page-wide regex). The page splits into blocks at
+    src["block_start"] (regex); each named pattern in src["field_patterns"]
+    is searched within its block only, missing fields stay absent. Optional:
+    src["section_split"] (regex, one capture group) splits the page into
+    labeled sections first, the label landing in src["section_field"];
+    src["require"] ({field: [allowed values]}) drops rows failing it —
+    listing pages that render another firm's rows alongside their own
+    (shared-brand sites) filter on the page's own attribution attribute."""
+    html = get_text(src["url"])
+    sections = [(None, html)]
+    if src.get("section_split"):
+        parts = re.split(src["section_split"], html)
+        sections = [(parts[i], parts[i + 1]) for i in range(1, len(parts) - 1, 2)]
+    rows = []
+    for label, body in sections:
+        for block in re.split(src["block_start"], body)[1:]:
+            row = {}
+            for key, pat in src["field_patterns"].items():
+                m = re.search(pat, block, re.S)
+                if m:
+                    row[key] = unescape(re.sub(r"\s+", " ", m.group(1))).strip()
+            if not row:
+                continue
+            if label is not None and src.get("section_field"):
+                row[src["section_field"]] = unescape(
+                    re.sub(r"\s+", " ", label)).strip()
+            if any(row.get(f) not in allowed
+                   for f, allowed in (src.get("require") or {}).items()):
+                continue
+            rows.append(row)
+    return rows
+
+
 SCRAPE_PARSERS = {
     "js_array": parse_js_array,
     "li_text_list": parse_li_text_list,
@@ -163,6 +199,7 @@ SCRAPE_PARSERS = {
     "regex_list": parse_regex_list,
     "json_list": parse_json_list,
     "file_list": parse_file_list,
+    "card_blocks": parse_card_blocks,
 }
 
 
