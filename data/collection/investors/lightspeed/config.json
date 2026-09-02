@@ -75,7 +75,7 @@
     "path": "/companies/",
     "from": 2023,
     "to": 2026,
-    "pattern": "data-company-id=\"(?P<slug>[^\"]+)\" data-investor=\"(?:lsvp|both)\"",
+    "pattern": "data-company-id=\"(?P<slug>[^\"]+)\"[^>]*>\\s*<a href=\"[^\"]*lsvp\\.com/company/",
     "per_company_pages": false
    }
   ],
@@ -339,7 +339,9 @@
     "desk": "us",
     "patterns": [
      "^lightspeed\\b",
-     "^lsvp\\b"
+     "^lsvp\\b",
+     "^ls spv management",
+     "^venture investors general partner"
     ]
    }
   ]
