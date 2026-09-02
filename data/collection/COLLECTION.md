@@ -598,7 +598,14 @@ session's trap set). The profile may build base-less:
 `build-firm-profile.py` skips its base-bound checks loudly and re-runs
 them on the first post-base build — re-run it once the base lands so
 notable_investments and the entry-round median recompute against the
-verified base, interim assertions flagged until then.
+verified base, interim assertions flagged until then. **The landed-base
+signal for those re-checks is full ledger coverage** (§10 invariant 1),
+never base.json existence — the file can land mid-membership (Accel), and
+`needs_review` rows persist even in completed bases (a16z closed with
+563). The notable assertion keys on ledger member verdicts, not build
+status: a single-source famous member legitimately sits `needs_review`
+while being a member (Accel: Flipkart/Spotify/Supercell during the
+archive outage).
 
 Field recipes, learned on Sequoia and a16z:
 
@@ -610,12 +617,22 @@ Field recipes, learned on Sequoia and a16z:
   Section 7.B private-fund gross assets are the sworn substitute. An
   affiliated but separately registered adviser (a crossover or
   public-equities arm) is excluded from both AUM and the fund list, so
-  the row stays internally consistent.
+  the row stays internally consistent — but an affiliated ERA advising a
+  desk ruled INSIDE the firm adds its 7.B gross assets to the umbrella
+  RAUM for the range top (Accel: the London desk). Co-advisers of one
+  desk report identical fund rosters, so dedupe by private-fund ID; and
+  the umbrella's own 7.B roster should sum to its Item 5.F RAUM to the
+  dollar — parse both and let the equality prove the parse. Both range
+  ends can be sworn; press "AUM" figures may sit below the sworn floor
+  and then belong in the flag, not the range.
 - **Funds.** Sweep every Form D filer matching the firm's name on EDGAR —
   the partner-matched subset structurally misses vehicles. Sizes from
   Form D where the vehicle raised directly, from press where the size is an
   allocation; any entry carrying an accession is asserted against the
-  filing at build time, and the build fails on mismatch. Post-restructure
+  filing at build time, and the build fails on mismatch. Where the main
+  L.P. filed sold $0 (first close unfunded at filing), the filing's
+  total-offering amount is exact corroboration for the press size
+  (Accel: every such case matched to the dollar). Post-restructure
   caveat: where LP capital enters through an evergreen vehicle, sub-funds'
   own Form Ds show only principals' money.
 - **People.** The live site CMS (team post type) over the archived roster

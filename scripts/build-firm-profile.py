@@ -14,7 +14,7 @@ carries none of them. What it does, keyed only by the slug:
              closed taxonomy, thresholds and crosswalk in config.json)
   validate   the curated claims against the evidence: every fund entry naming
              a Form D accession must match the filed amount, and every
-             notable pick must be an auto_confirmed base row
+             notable pick must be a ledger-verified member of the base
   refresh    updated_at, and the provenance entries of the recomputed fields
 
 A field with no evidence stays null with its recorded reason. Nothing here may
@@ -157,10 +157,23 @@ def main():
     roster = json.loads((p.wayback / "partner-roster.json").read_text())
     team = json.loads((p.site / "team-members.json").read_text())
     # The profile session runs in parallel with the base collection
-    # (COLLECTION.md §11), so the base may not exist yet. The two checks that
-    # need it are then skipped loudly and re-run on the first build after the
-    # base lands; nothing else here reads it.
+    # (COLLECTION.md §11), so the base may not exist yet — or may exist
+    # mid-membership (the accel run built base.json before its judge pass).
+    # The landed signal is ledger coverage, not file existence: a completed
+    # run has a membership verdict for every base slug (§10 invariant 1),
+    # while needs_review rows persist even then (a16z closed with 563).
+    # Until coverage is full, the two checks that need a settled base are
+    # skipped loudly and re-run on a later build; nothing else here reads it.
     base = json.loads(p.base_json.read_text()) if p.base_json.exists() else None
+    if base is not None:
+        verdicts = (json.loads(p.ledger.read_text()).get(p.slug, {})
+                    .get("verdicts", {}) if p.ledger.exists() else {})
+        unjudged = sum(1 for r in base if r["slug"] not in verdicts)
+        if unjudged:
+            print(f"base.json is mid-membership ({unjudged} of {len(base)} "
+                  f"slugs carry no ledger verdict) — treating the base as "
+                  f"not yet landed")
+            base = None
 
     # ---- validate the curated claims against the evidence layers
     verify_funds_against_filings(fields["funds"]["value"], fund_formds,
@@ -171,13 +184,20 @@ def main():
               "base and investment_scope.focus NOT recomputed from site tags; "
               "re-run after build-company-base.py")
     else:
+        # Membership is the ledger's call (COLLECTION.md §2): build status
+        # (auto_confirmed) tracks evidence multiplicity, not membership, and a
+        # famous single-source row legitimately sits needs_review while its
+        # ledger verdict is member (accel: wayback pending IA recovery left
+        # Flipkart/Spotify/Supercell at needs_review-but-member).
         # Case-insensitive: the base carries the site's own casing ("Paypal",
         # "Youtube"), which is not how the names should be published.
-        confirmed = {r["name"].lower() for r in base if r["status"] == "auto_confirmed"}
-        not_confirmed = [n for n in row["notable_investments"]
-                         if n.lower() not in confirmed]
-        if not_confirmed:
-            raise SystemExit(f"Refusing to write: not confirmed in the base: {not_confirmed}")
+        member_names = {r["name"].lower() for r in base
+                        if verdicts.get(r["slug"], {}).get("verdict") == "member"}
+        not_member = [n for n in row["notable_investments"]
+                      if n.lower() not in member_names]
+        if not_member:
+            raise SystemExit(f"Refusing to write: not ledger-verified members "
+                             f"of the base: {not_member}")
 
     # ---- recompute the evidence-derived fields
     own = own_formd_filings(sweep, own_re)
@@ -199,8 +219,17 @@ def main():
     if focus_representative:
         focus, mapped, unmapped = focus_from_site_tags(
             base, cfg["focus_crosswalk"], cfg["focus_min_companies"])
-        scope = {"type": row["investment_scope"]["type"], "focus": focus}
-        row["investment_scope"] = scope
+        if not focus:
+            # An empty or too-sparse crosswalk must never publish an empty
+            # focus list (the a16z near-miss, second form): keep the curated
+            # enumeration and say so.
+            focus_representative = False
+            print("focus recompute produced no values above threshold — "
+                  "curated focus kept; check profile.focus_crosswalk in "
+                  "config.json")
+        else:
+            scope = {"type": row["investment_scope"]["type"], "focus": focus}
+            row["investment_scope"] = scope
     elif base is not None:
         print(f"focus recompute skipped: only {tagged}/{len(base)} base rows "
               f"carry a sector tag — curated focus kept")

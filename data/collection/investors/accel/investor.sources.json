@@ -1,0 +1,860 @@
+{
+  "slug": "accel",
+  "generated_at": "2026-09-01T00:08:29+00:00",
+  "run": "PRO-68 autonomous in-session run",
+  "fields": {
+    "name": {
+      "value": "Accel",
+      "source": "https://www.accel.com/",
+      "basis": "firm site; 'Accel' is the brand since the mid-2010s (formerly Accel Partners), one name across the US, London and India desks"
+    },
+    "website": {
+      "value": "https://www.accel.com",
+      "source": "https://www.accel.com/",
+      "basis": "firm site"
+    },
+    "icon_url": {
+      "value": "https://lsohkkmdlrlixukuncjl.supabase.co/storage/v1/object/public/Icon%20Images/investors/accel-1ee5a3bb48.png",
+      "source": "https://www.accel.com/icon.png",
+      "basis": "the firm's own site icon, normalized to the 256 PNG master and uploaded to the Icon Images bucket by scripts/fetch-investor-icon.ts (PRO-53 flow)"
+    },
+    "founding_year": {
+      "value": 1983,
+      "source": "https://en.wikipedia.org/wiki/Accel_(company)",
+      "basis": "founded 1983 by Arthur Patterson and Jim Swartz (Wikipedia; Bloomberg 2026-08-11 'was founded in 1983'; the firm's own 43-year framing in 2026 coverage). Earliest EDGAR trace of the modern fund families: Accel VI-era vehicles in the FY2025 ADV Schedule D roster"
+    },
+    "history": {
+      "value": "Founded in 1983 by Arthur Patterson and Jim Swartz around the 'prepared mind' discipline, after Louis Pasteur's 'chance favors the prepared mind'. Four decades on it runs one global early-stage partnership from Palo Alto, London (2000) and Bangalore (2008), an early backer of Facebook, Slack, Flipkart, Atlassian and CrowdStrike.",
+      "source": "https://en.wikipedia.org/wiki/Accel_(company)",
+      "basis": "founding and philosophy per Wikipedia and the founders' own 20VC interview; London office 2000 (Wikipedia); India desk 2008 (Accel India Venture Fund II, 2008, in the ADV Schedule D roster; Erasmic acquisition); Facebook 2005 ($12.7M for ~10%, Wikipedia); Slack/Flipkart/Atlassian/CrowdStrike on the firm's own portfolio dataset (sources/site/companies.json)"
+    },
+    "investment_concept": {
+      "value": "Chance favors the prepared mind.",
+      "source": "https://www.accel.com/noteworthies/investing-outside-silicon-valley-prepared-minds-and-how-to-build-strong-boards",
+      "basis": "the firm's own long-standing investment philosophy (Louis Pasteur), used across its own Prepared Mind essay series and the founders' interviews; the site-wide tagline is 'First partner to exceptional teams everywhere' (accel.com)"
+    },
+    "investment_stage": {
+      "value": [
+        "Pre-Seed",
+        "Seed",
+        "Series A",
+        "Growth",
+        "Late Stage"
+      ],
+      "source": "https://www.accel.com/companies",
+      "basis": "the firm's own portfolio dataset labels every entry seed or series-a (initial types on 567 tagged rows of 804) under Early Stage / Late Stage filters; Pre-Seed from the Atoms pre-seed program (ruled IN, decisions.md #4); Growth from the Growth Fund family (expansion-stage, per the firm's fund language); Late Stage from the Leaders family (TechCrunch 2026-04-15: late-stage, ~$200M average checks). Series B is not separately claimed by the firm's own vocabulary"
+    },
+    "investment_geo": {
+      "value": {
+        "core": [
+          "US",
+          "Europe",
+          "India"
+        ],
+        "other": [
+          "Israel",
+          "Southeast Asia",
+          "Oceania"
+        ]
+      },
+      "source": "https://www.accel.com/companies",
+      "basis": "core: the firm's three desks and offices (Palo Alto/Bay Area, London, Bangalore; decisions.md #1) and its own region filters (Americas 307, Europe & Israel 97, India & SEA 112 of 520 region-tagged rows). Other: Israel from the firm's own 'Europe & Israel' region and fund naming; Southeast Asia from 'India & SEA'; Oceania is the site's own label (4 rows, incl. Atlassian)"
+    },
+    "investment_scope": {
+      "value": {
+        "type": "Generalist",
+        "focus": [
+          "SaaS",
+          "Consumer & Marketplaces",
+          "AI & Applied AI",
+          "Fintech & Payments",
+          "Security",
+          "DevTools & APIs",
+          "Healthcare & Bio",
+          "Media, Gaming & Advertising",
+          "Data Infrastructure"
+        ]
+      },
+      "source": "base.json",
+      "basis": "focus from the firm's own site sector tags on 1545 base rows, crosswalked to data/taxonomy/focus.json (crosswalk in config.json), published above 25 companies. Scope type is the curated judgement carried in investor.json."
+    },
+    "investment_range": {
+      "value": {
+        "lower_limit": 1000000,
+        "median": 20000000,
+        "upper_limit": 2300000000
+      },
+      "source": "sources/edgar/formd-issuer-rounds.json",
+      "basis": "Median: partner-anchored entry-round median $19,597,993 across 155 membership-verified base companies with priced Form D histories (473 rounds; 55 entries anchored past pre-investor rounds, 1 weak anchor), on the Common Crawl-rebuilt base (886 members), the expanded 217-person-roster sweep (1,086 accessions) and the refreshed issuer-rounds rescan (7a7fc8f), published as $20M. p10 $4.7M, p25 $9.4M, p75 $43.5M, p90 $100.0M. Pre-base corroboration: $22.0M over the 63 site-list-confirmed issuers of the roster sweep. A round-size proxy for check size, fair for a high-ownership lead investor. | Lower limit: Accel Atoms pre-seed program, 'up to $1 million' per company (atoms.accel.com, Atoms 4.0; up to $2M co-investment in the 2026 AI cohort); the program states a cap, not a floor. | Upper limit: the $2.3B Cursor (Anysphere) Series D co-led by Accel and Coatue at $29.3B, November 2025 (CNBC 2025-11-13); a led-round figure, not a single-check claim. Dry-powder check: Leaders V ($4B) at 10-15% single-position concentration supports $400-600M positions, and TechCrunch reports ~$200M average checks from that fund"
+    },
+    "notable_investments": {
+      "value": [
+        "Atlassian",
+        "CrowdStrike",
+        "Dropbox",
+        "Facebook",
+        "Flipkart",
+        "Slack",
+        "Spotify",
+        "Supercell"
+      ],
+      "source": "https://www.accel.com/companies",
+      "basis": "Membership asserted two ways: against the firm's own live portfolio dataset (804 rows, sources/site/companies.json) during the base-less phase, and against ledger member verdicts on the membership-complete base (871 members, 2026-08-31) by build-firm-profile.py at every build since. Selection among members is recognition judgement per PRO-7 (UiPath, Qualtrics, Deliveroo, Freshworks, Etsy, Miro also qualify on evidence)"
+    },
+    "aum": {
+      "value": {
+        "bottom": 38031743340,
+        "top": 46834758753
+      },
+      "source": "https://adviserinfo.sec.gov/firm/summary/331435",
+      "basis": "Bottom: Form ADV Item 5.F, Accel Management Co. L.L.C (CRD 331435, SEC 801-131163, RIA since 2024-09, relying adviser Accel Management Co. (India) Inc.), annual amendment filed 2026-03-30 for FY2025: RAUM $38,031,743,340, all discretionary, 83 accounts, all pooled vehicles; the Schedule D 7.B roster sums to the same figure to the dollar and includes the US and India families but no London fund. Top: + $8,803,015,413 private-fund gross assets of the London family, sworn in Section 7.B by the two London ERAs (Accel Partners Management LLP, CRD 162784, and Accel London Management Ltd, CRD 171086, both report the identical 25-fund roster; deduplicated; zero fund-ID overlap with the US umbrella), per the firm-boundary ruling that the London desk is inside the firm (decisions.md #1) = $46,834,758,753 sworn composite. Press reported ~$36B after the April 2026 Leaders V raise, below the sworn floor and before the August 2026 $3.5B; the sworn numbers are published. RAUM is gross regulatory assets (uncalled commitments included)"
+    },
+    "funds": {
+      "value": [
+        {
+          "name": "Accel Leaders 4 L.P.",
+          "size": 4000000000,
+          "vintage": 2022,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2022q2: $4,000,000,000 sold."
+            },
+            {
+              "source": "https://techcrunch.com/2022/06/21/accel-new-4-billion-fund",
+              "note": "TechCrunch 2022-06-21: the $4B fourth Leaders fund for late-stage positions."
+            }
+          ],
+          "accession": "0001923497-22-000001"
+        },
+        {
+          "name": "Accel Leaders 5 L.P.",
+          "size": 4000000000,
+          "vintage": 2026,
+          "sources": [
+            {
+              "source": "https://techcrunch.com/2026/04/15/accel-raises-5b-to-back-late-stage-bets/",
+              "note": "TechCrunch 2026-04-15: $4B Leaders Fund V, at least 20 checks averaging $200M, AI-focused (software, hardware, robotics, defense, data centers)."
+            },
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2025q4 (accession 0002094109-25-000004): $4.0B total offering, sold $0 at first filing; the offering amount corroborates the press size. The FY2025 ADV already carries Leaders 5 at $4.15B gross asset value."
+            }
+          ]
+        },
+        {
+          "name": "Accel Leaders 3 L.P.",
+          "size": 2255000000,
+          "vintage": 2020,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2020q4: $2,255,000,000 sold of a $2.3B offering; closed December 2020."
+            },
+            {
+              "source": "https://www.privateequityinternational.com/accel-raises-2-25bn/",
+              "note": "Private Equity International: the $2.25B third Leaders fund. Press elsewhere rounds to $2.3B-$2.35B; the filed amount is published."
+            }
+          ],
+          "accession": "0001832691-20-000001"
+        },
+        {
+          "name": "Accel Growth Fund VI L.P.",
+          "size": 1750000000,
+          "vintage": 2021,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2021q2: $1,750,000,000 sold."
+            },
+            {
+              "source": "https://techcrunch.com/2021/06/29/accel-closes-on-3b-across-three-funds/",
+              "note": "TechCrunch 2021-06-29: the $1.75B growth leg of the $3.05B June 2021 raise (with Accel XV and London VII, $650M each)."
+            }
+          ],
+          "accession": "0001864106-21-000001"
+        },
+        {
+          "name": "Accel Growth Fund V L.P.",
+          "size": 1500000000,
+          "vintage": 2019,
+          "sources": [
+            {
+              "source": "https://techcrunch.com/2019/03/14/accel-raises-2-5b/",
+              "note": "TechCrunch 2019-03-14: the $1.5B growth leg of the $2.525B March 2019 raise; XIV ($525M) and Leaders II ($500M) filed amounts match press exactly, corroborating the trio."
+            },
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2019q1 (accession 0001768019-19-000001): $1.5B total offering, sold $0 at filing; the offering amount corroborates the press size."
+            }
+          ]
+        },
+        {
+          "name": "Accel Growth Fund VII L.P.",
+          "size": 1350000000,
+          "vintage": 2024,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2024q4: $1,350,000,000 sold. No standalone press announcement found; the filing is the source."
+            }
+          ],
+          "accession": "0002044374-24-000001"
+        },
+        {
+          "name": "Accel Growth Fund 8 L.P.",
+          "size": 1350000000,
+          "vintage": 2026,
+          "sources": [
+            {
+              "source": "https://www.bloomberg.com/news/articles/2026-08-11/accel-raises-3-5-billion-to-invest-in-emerging-global-ai-startups",
+              "note": "Bloomberg 2026-08-11: the $1.35B global expansion fund of the $3.5B August 2026 raise, for larger early-stage rounds and rapid follow-ons."
+            },
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2026q3 (accession 0002138027-26-000001): $1.35B total offering, sold $0 at filing; the offering amount matches the press size exactly."
+            }
+          ]
+        },
+        {
+          "name": "Accel Growth Fund IV L.P.",
+          "size": 1200000000,
+          "vintage": 2016,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2016q1: $1,200,000,000 sold."
+            },
+            {
+              "source": "https://www.privateequityinternational.com/accel-raises-2bn-in-vc-funds/",
+              "note": "Private Equity International, March 2016: the $2B raise (XIII $500M + growth capital). Some coverage stated $1.5B for growth, which bundles the $300M Leaders Fund; the filed $1.2B is published."
+            }
+          ],
+          "accession": "0001665743-16-000001"
+        },
+        {
+          "name": "Accel 17 L.P.",
+          "size": 800000000,
+          "vintage": 2026,
+          "sources": [
+            {
+              "source": "https://www.bloomberg.com/news/articles/2026-08-11/accel-raises-3-5-billion-to-invest-in-emerging-global-ai-startups",
+              "note": "Bloomberg 2026-08-11: the $800M US early-stage fund of the $3.5B raise; the flagship family switches to Arabic numerals at 17."
+            },
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2026q3 (accession 0002137992-26-000001): $800M total offering, sold $0 at filing; the offering amount matches the press size exactly."
+            }
+          ]
+        },
+        {
+          "name": "Accel London 9 L.P.",
+          "size": 800000000,
+          "vintage": 2026,
+          "sources": [
+            {
+              "source": "https://www.bloomberg.com/news/articles/2026-08-11/accel-raises-3-5-billion-to-invest-in-emerging-global-ai-startups",
+              "note": "Bloomberg 2026-08-11: the $800M Europe & Israel fund of the $3.5B raise."
+            },
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2026q3 (accession 0002137999-26-000001): $800M total offering, sold $0 at filing; the offering amount matches the press size exactly."
+            }
+          ]
+        },
+        {
+          "name": "Accel Core L.P.",
+          "size": 749575000,
+          "vintage": 2026,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D/A 2026q3: $749,575,000 sold (initial 2026q2 filing offered $650M)."
+            },
+            {
+              "source": "https://techcrunch.com/2026/04/15/accel-raises-5b-to-back-late-stage-bets/",
+              "note": "TechCrunch 2026-04-15: the $650M LP sidecar raised alongside Leaders Fund V; the amended filing shows the final $749.6M close."
+            }
+          ],
+          "accession": "0002109720-26-000002"
+        },
+        {
+          "name": "Accel XVI L.P.",
+          "size": 650000000,
+          "vintage": 2023,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2023q4: $650,000,000 sold; raised December 2023."
+            },
+            {
+              "source": "https://www.accel.com/noteworthies/announcing-accel-xvi-our-latest-early-stage-fund",
+              "note": "The firm's own announcement of its 16th US early-stage fund."
+            }
+          ],
+          "accession": "0002002671-23-000001"
+        },
+        {
+          "name": "Accel XV L.P.",
+          "size": 650000000,
+          "vintage": 2021,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2021q2: $650,000,000 sold."
+            },
+            {
+              "source": "https://techcrunch.com/2021/06/29/accel-closes-on-3b-across-three-funds/",
+              "note": "TechCrunch 2021-06-29: the 15th US early-stage fund in the June 2021 trio."
+            }
+          ],
+          "accession": "0001864127-21-000001"
+        },
+        {
+          "name": "Accel London VIII L.P.",
+          "size": 650000000,
+          "vintage": 2024,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2024q2: $650,000,000 sold."
+            },
+            {
+              "source": "https://siliconcanals.com/accel-announces-602-6m-fund/",
+              "note": "Silicon Canals, May 2024: the (euro-denominated) 8th Europe & Israel early-stage fund, $650M."
+            }
+          ],
+          "accession": "0002020727-24-000001"
+        },
+        {
+          "name": "Accel London VII L.P.",
+          "size": 650000000,
+          "vintage": 2021,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2021q2: $650,000,000 sold."
+            },
+            {
+              "source": "https://techcrunch.com/2021/06/29/accel-closes-on-3b-across-three-funds/",
+              "note": "TechCrunch 2021-06-29: the 7th Europe & Israel early-stage fund in the June 2021 trio."
+            }
+          ],
+          "accession": "0001864189-21-000001"
+        },
+        {
+          "name": "Accel India VIII L.P.",
+          "size": 650000000,
+          "vintage": 2024,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2024q4: $650,000,000 sold."
+            },
+            {
+              "source": "https://www.accel.com/noteworthies/fueling-the-future-announcing-our-viii-fund-for-indias-boldest-founders",
+              "note": "The firm's own announcement (January 2025) of its 8th India fund."
+            }
+          ],
+          "accession": "0002044369-24-000001"
+        },
+        {
+          "name": "Accel India VII L.P.",
+          "size": 650000000,
+          "vintage": 2022,
+          "sources": [
+            {
+              "source": "https://techcrunch.com/2022/03/01/accel-announces-new-650-million-fund-to-back-indian-startups",
+              "note": "TechCrunch 2022-03-01: the $650M 7th India fund."
+            },
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2022q1 (accession 0001913398-22-000001): $650M total offering, sold $0 at filing; the offering amount matches the press size exactly."
+            }
+          ]
+        },
+        {
+          "name": "Accel London VI L.P.",
+          "size": 575000000,
+          "vintage": 2019,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2019q2: $575,000,000 sold."
+            }
+          ],
+          "accession": "0001776403-19-000001"
+        },
+        {
+          "name": "Accel India 9 L.P.",
+          "size": 550000000,
+          "vintage": 2026,
+          "sources": [
+            {
+              "source": "https://www.bloomberg.com/news/articles/2026-08-11/accel-raises-3-5-billion-to-invest-in-emerging-global-ai-startups",
+              "note": "Bloomberg 2026-08-11: the $550M India fund of the $3.5B raise."
+            },
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2026q3 (accession 0002138003-26-000001): $550M total offering, sold $0 at filing; the offering amount matches the press size exactly."
+            }
+          ]
+        },
+        {
+          "name": "Accel XIV L.P.",
+          "size": 525000000,
+          "vintage": 2019,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2019q1: $525,000,000 sold."
+            },
+            {
+              "source": "https://techcrunch.com/2019/03/14/accel-raises-2-5b/",
+              "note": "TechCrunch 2019-03-14: the 14th US early-stage fund in the March 2019 trio."
+            }
+          ],
+          "accession": "0001768004-19-000001"
+        },
+        {
+          "name": "Accel India VI L.P.",
+          "size": 525000000,
+          "vintage": 2019,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2019q4: $525,000,000 sold. Press reported $550M; the filed amount is published."
+            }
+          ],
+          "accession": "0001784044-19-000001"
+        },
+        {
+          "name": "Accel XIII L.P.",
+          "size": 500000000,
+          "vintage": 2016,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2016q1: $500,000,000 sold."
+            },
+            {
+              "source": "https://www.privateequityinternational.com/accel-raises-2bn-in-vc-funds/",
+              "note": "Private Equity International, March 2016: the 13th US early-stage fund in the $2B raise."
+            }
+          ],
+          "accession": "0001665745-16-000001"
+        },
+        {
+          "name": "Accel London V L.P.",
+          "size": 500000000,
+          "vintage": 2016,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2016q2: $500,000,000 sold."
+            }
+          ],
+          "accession": "0001672272-16-000001"
+        },
+        {
+          "name": "Accel Leaders Fund II L.P.",
+          "size": 500000000,
+          "vintage": 2019,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2019q1: $500,000,000 sold."
+            },
+            {
+              "source": "https://techcrunch.com/2019/03/14/accel-raises-2-5b/",
+              "note": "TechCrunch 2019-03-14: the second Leaders fund in the March 2019 trio."
+            }
+          ],
+          "accession": "0001768020-19-000001"
+        },
+        {
+          "name": "Accel India V L.P.",
+          "size": 430000000,
+          "vintage": 2016,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2016q4: $430,000,000 sold."
+            },
+            {
+              "source": "https://techcrunch.com/2016/11/30/accel-india-closes-its-newest-fund-with-450-million-and-in-record-time",
+              "note": "TechCrunch 2016-11-30 reported $450M; the filed amount is $430M and is published."
+            }
+          ],
+          "accession": "0001687347-16-000001"
+        },
+        {
+          "name": "Accel India IV L.P.",
+          "size": 305000000,
+          "vintage": 2015,
+          "sources": [
+            {
+              "source": "https://techcrunch.com/2015/03/24/accel-india-fund",
+              "note": "TechCrunch 2015-03-24: the $305M 4th India fund."
+            },
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2015q1 (accession 0001635781-15-000001): $305M total offering, sold $0 at filing; the offering amount matches the press size exactly. Vintage 2015, at the edge of the 10-year window."
+            }
+          ]
+        },
+        {
+          "name": "Accel Leaders Fund L.P.",
+          "size": 300000000,
+          "vintage": 2016,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2016q1: $300,000,000 sold; the first Leaders vehicle, for follow-on positions in the firm's own portfolio."
+            },
+            {
+              "source": "https://www.privateequityinternational.com/accel-raises-2bn-in-vc-funds/",
+              "note": "Private Equity International, March 2016: raised alongside XIII and Growth IV."
+            }
+          ],
+          "accession": "0001665741-16-000001"
+        }
+      ],
+      "source": "sources/edgar/fund-formds.json",
+      "basis": "27 funds, vintage 2015-2026, from the full 'Accel *' Form D filer sweep on EDGAR company search (59 own filing vehicles, 62 Form D filings) cross-checked against the base session's partner-anchored sweep. Direct raises carry filed sold amounts asserted against the filings at build time (20 entries with accessions); where the L.P. filed sold $0 (Growth V/8, 17, London 9, India IV/VII/9, Leaders 5) the press size is published and the filing's total offering amount corroborates it exactly in every case. Excluded from the list, to avoid double-counting and sub-scale vehicles: Strategic Partners / Entrepreneurs partner-money parallels ($7.6M-$95M sold), the internal Accel Investors co-invest LLC/LP series (ADV roster), Leaders 4/5 Opportunities (C) sidecars ($59M sold / $25M offered), and Accel Circle Fund 2026 L.P. ($95M offering, no public size; classified as the internal co-invest class, decisions.md #6). Accel Core L.P. is included as the Leaders V LP sidecar at its filed $749.6M close. Pre-2015 families (XI/XII, Growth II/III, London IV, India III and earlier) predate the 10-year window. Accel-KKR vehicles are a separate firm (decisions.md #2) and are excluded from the sweep entirely"
+    },
+    "hq_location": {
+      "value": "Palo Alto, CA",
+      "source": "sources/edgar/formd-sweep.json",
+      "basis": "issuer address on 57 of 57 of the firm's own Form D filings; unanimous. Filing-grade."
+    },
+    "individuals": {
+      "value": [
+        {
+          "name": "Abhinav Chaturvedi",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/abhinavchaturvedi/",
+            "x_url": "https://x.com/abhinavc"
+          }
+        },
+        {
+          "name": "Amit Kumar",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/amitkuma/",
+            "x_url": "https://x.com/amitku"
+          }
+        },
+        {
+          "name": "Anand Daniel",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/ananddaniel/",
+            "x_url": "https://x.com/_AnandDaniel"
+          }
+        },
+        {
+          "name": "Andrei Brasoveanu",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/andreibrasoveanu/",
+            "x_url": "https://x.com/algovc"
+          }
+        },
+        {
+          "name": "Andrew Braccia",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/andrewbraccia/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Arun Mathew",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/arun-mathew-b7186412/",
+            "x_url": "https://x.com/ammathew"
+          }
+        },
+        {
+          "name": "Barath Shankar Subramanian",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/barathshankar/?originalSubdomain=in",
+            "x_url": "https://x.com/barathshankar"
+          }
+        },
+        {
+          "name": "Ben Fletcher",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/bfletch11/",
+            "x_url": "https://x.com/BenFletch11"
+          }
+        },
+        {
+          "name": "Casey Aylward",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/caseyaylward/",
+            "x_url": "https://x.com/caseyaylward"
+          }
+        },
+        {
+          "name": "Christine Esserman",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/christine-esserman-82834577/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Daniel Levine",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/danielmarklevine/",
+            "x_url": "https://x.com/daniel_levine"
+          }
+        },
+        {
+          "name": "Dinesh Katiyar",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/katiyar/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Harry Nelis",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "John Locke",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/john-locke-0244bb3/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jonathan Turner",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://uk.linkedin.com/in/jturnersf",
+            "x_url": "https://x.com/jturnersf"
+          }
+        },
+        {
+          "name": "Kevin Comolli",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/kevin-comolli-8196071/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Mahendran Balachandran",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Matt Robinson",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/mattjackrobinson/",
+            "x_url": "https://x.com/mattjackrob"
+          }
+        },
+        {
+          "name": "Matt Weigand",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Miles Clements",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/miles-clements-a243592/",
+            "x_url": "https://x.com/mkclements"
+          }
+        },
+        {
+          "name": "Nate Niparko",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/nate-niparko-4862a214/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Philippe Botteri",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/philippebotteri/",
+            "x_url": "https://x.com/pbotteri"
+          }
+        },
+        {
+          "name": "Ping Li",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/pingli8/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Prashanth Prakash",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/prakashprashanth/?originalSubdomain=in",
+            "x_url": "https://x.com/prashanthp"
+          }
+        },
+        {
+          "name": "Prayank Swaroop",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/prayank?originalSubdomain=in",
+            "x_url": "https://x.com/prayanks"
+          }
+        },
+        {
+          "name": "Rich Wong",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/richpwong/",
+            "x_url": "https://x.com/RWong"
+          }
+        },
+        {
+          "name": "Ryan Sweeney",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://x.com/ryanjsweeney"
+          }
+        },
+        {
+          "name": "Sameer Gandhi",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/skgandhi/",
+            "x_url": "https://x.com/skg_accel"
+          }
+        },
+        {
+          "name": "Sara Ittelson",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/saraittelson/",
+            "x_url": "https://x.com/SaraIttelson"
+          }
+        },
+        {
+          "name": "Shekhar Kirani",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://in.linkedin.com/in/kirani",
+            "x_url": "https://x.com/skirani"
+          }
+        },
+        {
+          "name": "Sonali De Rycker",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://uk.linkedin.com/in/sonaliderycker",
+            "x_url": "https://x.com/sonalidr"
+          }
+        },
+        {
+          "name": "Steve Loughlin",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/steveloughlin/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Subrata Mitra",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/subratamitra/?originalSubdomain=in",
+            "x_url": "https://x.com/subratamitra"
+          }
+        },
+        {
+          "name": "Vas Natarajan",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/vas-natarajan-0b09588/",
+            "x_url": "https://x.com/vas"
+          }
+        },
+        {
+          "name": "Zhenya Loginov",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        }
+      ],
+      "source": "sources/site/team-members.json",
+      "basis": "Live team CMS: 35 members. Positions are CMS titles (0 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 96 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 30 LinkedIn, 23 X."
+    }
+  },
+  "flags": [
+    {
+      "field": "individuals",
+      "severity": "medium",
+      "note": "Scope: the 35 people the firm's own team page publishes, investors only; no operations staff is published (out of ~300 employees, Wikipedia 2024). The site shows no role labels on cards; 28 of 35 profile metaDescriptions state 'Partner' and the remaining 7 (all partners by press record) render the site's flat 'Partner' presentation via the build fallback. One member (Kevin Comolli) is filed under the site's Emeritus bucket but published on the team page and is kept. Socials from the site CMS: 30 LinkedIn, 23 X."
+    },
+    {
+      "field": "funds",
+      "severity": "medium",
+      "note": "Where press and filing disagree the filed amount is published: India V $430M (press $450M), India VI $525M (press $550M), Leaders 3 $2.255B (press $2.3-2.35B), Growth IV $1.2B (press bundled $1.5B incl. the $300M Leaders Fund). Leaders 5 vintage is 2026 (announced April 2026) though its first Form D is 2025q4; India VIII vintage 2024 (filed 2024q4) though announced January 2025. Growth Fund 8 is the vehicle press calls the $1.35B 'global expansion fund'."
+    },
+    {
+      "field": "aum",
+      "severity": "medium",
+      "note": "The issue expected bottom = US RAUM, top = press ~$36B; at run time the sworn numbers came in above press (RAUM $38.03B alone), so both ends are sworn instead: bottom US-umbrella RAUM, top RAUM + London ERAs' 7.B gross assets ($8.80B, deduplicated identical rosters). The April 2026 press ~$36B predates the August 2026 $3.5B raise and RAUM counts uncalled commitments. 2026-vintage vehicles (17, Growth 8, London 9, India 9, Circle, Core) postdate the FY2025 ADV and are in neither figure."
+    },
+    {
+      "field": "investment_range",
+      "severity": "medium",
+      "note": "Median recomputed on the membership-complete base and again on the Common Crawl rebuild (both 2026-08-31): $19.6M over 155 verified members, vs $22.0M on the pre-base site-confirmed subset. Priced Form D rounds only; SAFE and 4(a)(2) seeds don't file, so the small end is under-sampled, and a few tails may ride weak CIK joins (the base run's standing weak-CIK audit is the cleanup; the median is insensitive to them). The partner-anchored first filing is a ceiling on entry recency, so some anchors sit later than the true entry round (e.g. UiPath anchors at a $230M round though Accel led the 2017 Series A). Floor: Atoms states 'up to $1M', a cap, not a floor. Ceiling is the co-led round figure (Cursor $2.3B), Accel's own share undisclosed. Stable across three populations (63 pre-base, 131 rebuild, 155 refreshed rescan): $22.0M / $20.0M / $19.6M. Rebuilds again only if IA recovers before sign-off."
+    },
+    {
+      "field": "investment_stage",
+      "severity": "medium",
+      "note": "The firm's own vocabulary is seed / series-a entry types plus Early/Late Stage filters, a Growth fund family and a Leaders late-stage family; Pre-Seed rests on the Atoms program ruling (decisions.md #4). Series B is deliberately not claimed: the firm's own language never names it, unlike a16z's 'Venture' split. Trim in review if too wide."
+    },
+    {
+      "field": "investment_geo",
+      "severity": "high",
+      "note": "Core carries three labels (US, Europe, India) per PRO-68's explicit instruction, exceeding PRO-7's cap of two for the leaderboard row (core joins with commas in a narrow column). Erik's call at review: keep three or demote India to other. 'Oceania' in other is the site's own region label (4 rows incl. Atlassian) and is outside geo.json's known values; geo is open vocabulary so it passes with a warning."
+    },
+    {
+      "field": "notable_investments",
+      "severity": "medium",
+      "note": "All eight verified as ledger member verdicts on the membership-complete base; the build gate keys on ledger verdicts, not status auto_confirmed, because wayback-pending single-source rows (Flipkart, Spotify, Supercell) legitimately sit needs_review while being members. Spotify and Supercell selected over UiPath/Qualtrics on household recognition; swap in review if preferred."
+    },
+    {
+      "field": "investment_scope",
+      "severity": "medium",
+      "note": "Focus derives from the site's own 48-tag sector vocabulary (count-weighted crosswalk, 9 values above the 25-company threshold); Climate & Energy and Crypto & Web3 stay out (site tags Crypto 13, Web3 8, Climate ~5, below threshold). The crosswalk is staged for config.json profile.focus_crosswalk (base session owns the file); the base-tag recompute publishes automatically when base tag coverage reaches 25%."
+    }
+  ]
+}
