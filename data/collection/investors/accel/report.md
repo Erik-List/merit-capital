@@ -460,8 +460,10 @@ status, valuation (range/usd/asof/source/citation), entry stage
 flags, note. `verify` (full, with link checks) exits clean; every hold is
 a flagged, inspectable debt, not a silent gap.
 
-**Prompt count: 1** (the kickoff instruction; no checkpoint approvals
-requested). Ingest NOT run and NOT approved — the §9 gate stands.
+**Prompt count: 2** (kickoff; approval message). Erik approved companies
++ investor profile 2026-09-02 with zero sample corrections and explicitly
+approved ingest; ingested the same day (investor row + 886 companies,
+public.companies holds 886 accel rows) and merged to main.
 
 ## 1. Shape of the result
 
@@ -571,5 +573,6 @@ graduated — the establishable set skews toward visible successes."
 - Recorded batches: ~20 grind + webpass-A..E + cites-1/2 + fixups +
   collision/pair/city sweeps + status-fill (all through `run.py record`).
 
-Awaiting Erik's sample review. On sign-off PRO-65 closes; ingest stays
-gated on explicit approval per §9.
+Signed off and ingested 2026-09-02 (zero corrections); PRO-62/65/68 all
+Done. Post-ingest corrections need fresh ingest approval per §9. Open:
+the arista post-IPO-holding ruling, and the IA-recovery wayback pass.
