@@ -65,6 +65,30 @@ Biosystems), GoSkip; Lightspeed China and LSIP fund families (rulings
 Standing rulings made during the run land here, dated, each one a
 class-wide rule rather than a row fix.
 
+9. **China-era rows on the firm's own site** (standing ruling, agent,
+   2026-09-02, derived from rulings 1+3 and the seat-dating principle;
+   flagged for Erik's review): Lightspeed ran China from its global
+   funds 2006–2011 (the Ron Cao Shanghai office) before Lightspeed
+   China Partners spun out as an independent partnership in 2011, and
+   the global site kept listing China rows through the brand-shared
+   eras. The boundary follows the money at entry: a China row first
+   backed ≤2011 from the global funds is a member; a row entered 2012+
+   through LCP vehicles is not_member even where lsvp.com listed it —
+   the listing is a brand-era artifact (the same class as LCP's PPDai
+   memo living on lsvp.com's own blog). Unresolvable entry years in
+   the LCP cluster default to not_member with the ambiguity noted.
+
+10. **The archived /companies/ era cannot assert LSVP attribution**
+   (standing ruling, agent, 2026-09-02, measured at build; flagged for
+   Erik's review): the site's lsvp/lsip card attribution
+   (`data-investor`, lsip.com link-outs) postdates the January-2026
+   archive snapshot, so 2023–2026 /companies/ captures render LSIP
+   rows with lsvp.com links and archived listing years from that era
+   are not, alone, LSVP site-listing evidence. Membership for
+   lsip-attributed slugs follows ruling 2 via today's attribution plus
+   independent LSVP evidence; 61 of the 65 lsip-only slugs built base
+   rows through those captures and are judged under this ruling.
+
 Verdicts live in `base-verification.json` and are re-applied on every
 rebuild; human verdicts (`who: "erik"`) outrank agent verdicts; excluded
 rows are preserved in `excluded.csv`, never deleted.
