@@ -1,37 +1,5 @@
 export type TrackRecordTier = "1b" | "10b" | "100b";
 
-// The filter is a single optional tier: null shows every investor, a tier
-// keeps investors with at least one company currently worth that tier.
-export type TrackRecordState = {
-  tier: TrackRecordTier | null;
-};
-
-export const TRACK_RECORD_QUERY_KEY = "track-record";
-
-export const TRACK_RECORD_TIERS: readonly TrackRecordTier[] = ["1b", "10b", "100b"];
-
-export const TRACK_RECORD_TIER_LABELS: Record<TrackRecordTier, string> = {
-  "1b": "$1B",
-  "10b": "$10B",
-  "100b": "$100B",
-};
-
-export const defaultTrackRecord: TrackRecordState = {
-  tier: null,
-};
-
-export function parseTrackRecordParam(value: string | null): TrackRecordState {
-  const normalized = (value ?? "").trim().toLowerCase();
-  if (normalized === "1b" || normalized === "10b" || normalized === "100b") {
-    return { tier: normalized };
-  }
-  return { ...defaultTrackRecord };
-}
-
-export function buildTrackRecordParam(state: TrackRecordState): string | null {
-  return state.tier ?? null;
-}
-
 type TrackRecordBuckets = {
   one_b_companies?: { amount?: number | string | null } | null;
   ten_b_companies?: { amount?: number | string | null } | null;

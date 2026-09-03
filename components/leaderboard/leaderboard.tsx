@@ -15,13 +15,7 @@ import type { MedianState, MedianUnit } from "@/components/leaderboard/filters/r
 import { medianStateToValue } from "@/components/leaderboard/filters/range-filter";
 import type { GeographyState } from "@/components/leaderboard/filters/geography-filter";
 import type { ScopeState } from "@/components/leaderboard/filters/scope-filter";
-import type { TrackRecordState } from "@/components/leaderboard/track-record-utils";
-import {
-  TRACK_RECORD_QUERY_KEY,
-  parseTrackRecordParam,
-  buildTrackRecordParam,
-  computeTrackRecordHitRate,
-} from "@/components/leaderboard/track-record-utils";
+import { computeTrackRecordHitRate } from "@/components/leaderboard/track-record-utils";
 import { canonicalizeGeo } from "@/lib/taxonomy";
 
 type Investor = Database["public"]["Tables"]["investors"]["Row"];
@@ -109,7 +103,6 @@ function useUrlState() {
   const scopeParam = params.get("scope") || "";
   const rangeParam = params.get("investment-range") || "";
   const medianParam = params.get("median") || "";
-  const trackRecordParam = params.get(TRACK_RECORD_QUERY_KEY);
   const sortParam = params.get("sort") || "";
 
   const parseDelimitedList = (value: string) => (
@@ -265,8 +258,6 @@ function useUrlState() {
     return { all: false, selected: tokens };
   })();
 
-  const trackRecord = parseTrackRecordParam(trackRecordParam);
-
   const sort: SortOption = (() => {
     if (!sortParam) return DEFAULT_SORT;
     return parseSortParam(sortParam);
@@ -310,7 +301,6 @@ function useUrlState() {
     median?: MedianState;
     geo?: GeographyState;
     scope?: ScopeState;
-    trackRecord?: TrackRecordState;
     sort?: SortOption;
   }) => {
     const usp = new URLSearchParams(params.toString());
@@ -372,14 +362,6 @@ function useUrlState() {
         usp.set("median", value);
       }
     }
-    if (next.trackRecord !== undefined) {
-      const trackRecordValue = buildTrackRecordParam(next.trackRecord as TrackRecordState);
-      if (trackRecordValue === null) {
-        usp.delete(TRACK_RECORD_QUERY_KEY);
-      } else {
-        usp.set(TRACK_RECORD_QUERY_KEY, trackRecordValue);
-      }
-    }
     if (next.sort !== undefined) {
       const v = next.sort as SortOption;
       const value = buildSortParam(v);
@@ -396,7 +378,6 @@ function useUrlState() {
   const scopeSelectionKey = scope.selected.join(QUERY_DELIMITER);
   const rangeKey = `${range.min}-${range.max === null ? "null" : range.max}`;
   const medianKey = `${median.value === null ? "null" : median.value}-${median.unit}`;
-  const trackRecordKey = trackRecord.tier ?? "all";
 
   useEffect(() => {
     const usp = new URLSearchParams(params.toString());
@@ -474,18 +455,6 @@ function useUrlState() {
       changed = true;
     }
 
-    const nextTrackRecord = buildTrackRecordParam(trackRecord);
-    const existingTrackRecord = usp.get(TRACK_RECORD_QUERY_KEY);
-    if (nextTrackRecord === null) {
-      if (existingTrackRecord !== null) {
-        usp.delete(TRACK_RECORD_QUERY_KEY);
-        changed = true;
-      }
-    } else if (existingTrackRecord !== nextTrackRecord) {
-      usp.set(TRACK_RECORD_QUERY_KEY, nextTrackRecord);
-      changed = true;
-    }
-
     const nextSort = buildSortParam(sort);
     const existingSort = usp.get("sort");
     if (nextSort === null) {
@@ -511,17 +480,16 @@ function useUrlState() {
     rangeKey,
     medianKey,
     view,
-    trackRecordKey,
     sort,
   ]);
 
-  return { search, view, stage, range, median, geo, scope, trackRecord, sort, set };
+  return { search, view, stage, range, median, geo, scope, sort, set };
 }
 
 export default function Leaderboard() {
   const [investors, setInvestors] = useState<Investor[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { search, view, stage, range, median, geo, scope, trackRecord, sort, set } = useUrlState();
+  const { search, view, stage, range, median, geo, scope, sort, set } = useUrlState();
 
   useEffect(() => {
     const fetchInvestors = async () => {
@@ -587,7 +555,6 @@ export default function Leaderboard() {
     );
     const generalistSelected =
       scopeSelectedLower.has("generalist") || scopeSelectedLower.has("generalists");
-    const trackTier = trackRecord.tier;
 
     const matchesStage = (inv: Investor) => {
       if (stageAllSelected) return true;
@@ -647,14 +614,6 @@ export default function Leaderboard() {
       return false;
     };
 
-    // Binary tier filter: keep investors with at least one company currently
-    // worth the selected tier. Ranking granularity lives in the sort.
-    const matchesTrackRecord = (inv: Investor) => {
-      if (!trackTier) return true;
-      const hitRate = computeTrackRecordHitRate(inv.track_record, trackTier);
-      return hitRate.amount > 0;
-    };
-
     const matchesRange = (inv: Investor) => {
       const isDefault = range.min === 0 && range.max === null;
       if (isDefault) return true;
@@ -687,7 +646,6 @@ export default function Leaderboard() {
       matchesStage(inv)
       && matchesGeo(inv)
       && matchesScope(inv)
-      && matchesTrackRecord(inv)
       && matchesRange(inv)
       && matchesMedian(inv)
       && matchesSearch(inv),
@@ -720,7 +678,7 @@ export default function Leaderboard() {
     });
 
     return sorted;
-  }, [geo, investors, search, scope, stage, range, median, trackRecord, sort]);
+  }, [geo, investors, search, scope, stage, range, median, sort]);
 
   return (
     <div className="w-full container mx-auto py-6">
@@ -748,8 +706,6 @@ export default function Leaderboard() {
             scope={scope}
             scopeOptions={scopeOptions}
             onScopeChange={(next) => set({ scope: next })}
-            trackRecord={trackRecord}
-            onTrackRecordChange={(next) => set({ trackRecord: next })}
           />
         </div>
         <div className="space-y-4 lg:min-h-0 lg:h-[calc(100vh-var(--nav-height,0px)-48px)] lg:overflow-y-auto lg:pr-2 lg:glass-scrollbar">
