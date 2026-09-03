@@ -77,20 +77,22 @@
     "who": "seed-evidence"
    },
    "2125": {
-    "basis": "Listed on the investor's own portfolio site (2013,2014).",
+    "basis": "Scrape artifact: a WordPress page-ID URL (lsvp.com/company/2125) captured by Common Crawl, not a company; the standing scrape-artifact rule.",
     "confidence": "high",
     "decided": "2026-09-02",
     "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "slug": "2125",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "2147": {
-    "basis": "Listed on the investor's own portfolio site (2013,2014).",
+    "basis": "Scrape artifact: a WordPress page-ID URL captured by Common Crawl, not a company; the standing scrape-artifact rule.",
     "confidence": "high",
     "decided": "2026-09-02",
     "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "slug": "2147",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "2roam": {
     "basis": "Listed on the investor's own portfolio site (2001,2002).",
@@ -109,12 +111,14 @@
     "who": "seed-evidence"
    },
    "51vr": {
-    "basis": "Listed on the investor's own portfolio site (2022,2023,2024,2025).",
-    "confidence": "high",
+    "basis": "51VR (Chinese VR, 2015): LCP-window. Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "51vr",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "67-ventures-inc": {
     "basis": "Fund-shaped and unidentified: '67 Ventures, Inc.' (2018, $4.1M) resolves to no operating company; the standing fund-shaped rule holds until identification lands.",
@@ -544,13 +548,23 @@
     "verdict": "not_member",
     "who": "agent-precision-pass"
    },
-   "apna-time-inc": {
-    "basis": "Listed on the investor's own portfolio site (2021,2022,2023,2024,2025,2026).",
+   "apna": {
+    "basis": "LSIP-only (ruling 2): the main card attributes Apna data-investor='lsip' with an lsip.com link; the US-paper apna-time-inc names LSIP partner Vaibhav Agrawal \u2014 Apna is Lightspeed India's, not LSVP's.",
     "confidence": "high",
     "decided": "2026-09-02",
     "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "slug": "apna",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
+   "apna-time-inc": {
+    "basis": "LSIP seat (ruling 2): the Form D names Vaibhav Agrawal, Lightspeed India's partner; Apna is LSIP's (its lsip-attributed card row is already excluded).",
+    "confidence": "high",
+    "decided": "2026-09-02",
+    "evidence_class": "formd_adjudicated",
+    "slug": "apna-time-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "appdynamics": {
     "basis": "Listed on the investor's own portfolio site (2010,2011,2012,2013,2014,2015,2016,2017,2019,2020,2021,2022,2023,2024,2025,2026).",
@@ -1536,12 +1550,14 @@
     "who": "seed-evidence"
    },
    "btc-china": {
-    "basis": "Listed on the investor's own portfolio site (2014,2015,2016,2017).",
-    "confidence": "high",
+    "basis": "BTCChina (2013 Lightspeed China round): LCP-window. Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "btc-china",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "btcc": {
     "basis": "LCP's deal (rulings 3+9): BTCC/BTCChina's 2013 Series A was Lightspeed China Partners'.",
@@ -3573,12 +3589,14 @@
     "who": "seed-evidence"
    },
    "full-truck-alliance": {
-    "basis": "Listed on the investor's own portfolio site (2022,2023).",
-    "confidence": "high",
+    "basis": "Full Truck Alliance/Manbang (2017 merger): LCP-window; NYSE YMM is LCP's position. Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "full-truck-alliance",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "fullview": {
     "basis": "Listed on the investor's own portfolio site (2023,2024,2025,2026).",
@@ -4190,12 +4208,14 @@
     "who": "seed-evidence"
    },
    "hongchizhineng": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021,2022).",
-    "confidence": "high",
+    "basis": "China brand-era artifact (Hongchi\u667a\u80fd), LCP-window. Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "hongchizhineng",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "hook": {
     "basis": "Listed on the investor's own portfolio site (2025,2026).",
@@ -4308,12 +4328,14 @@
     "who": "seed-evidence"
    },
    "ifchange": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021).",
-    "confidence": "high",
+    "basis": "iFchange (Chinese HR/AI): LCP-window, no global-era evidence. Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "ifchange",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "ihaveu": {
     "basis": "Global-era listing (2011) and STILL on the current site's own card list: the firm claims it today.",
@@ -4450,12 +4472,14 @@
     "who": "seed-evidence"
    },
    "innolight": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021,2022,2023).",
-    "confidence": "high",
+    "basis": "InnoLight (Suzhou optical): 2019-only listing, LCP-window, no global-era evidence (ruling 9 default). Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "innolight",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "innovaccer": {
     "basis": "LSIP-only (rulings 2+10): first listed 2017 (LSIP-fund era), today's card attributes lsip; no LSVP vehicle or partner Form D despite the SF headquarters \u2014 the investing book is LSIP's.",
@@ -4561,12 +4585,14 @@
     "who": "seed-evidence"
    },
    "iplas": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021,2022,2023).",
-    "confidence": "high",
+    "basis": "China brand-era artifact, LCP-window (ruling 9 default). Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "iplas",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "iqid-technology-inc": {
     "basis": "Homonym (New Orleans 2024, $1.2M); specialists hold no fund seats; no Lightspeed evidence.",
@@ -4903,12 +4929,14 @@
     "who": "seed-evidence"
    },
    "laiye": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021,2022,2023).",
-    "confidence": "high",
+    "basis": "Laiye (2015): LCP-window China RPA. Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "laiye",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "landmark-fbo-holdings-llc": {
     "basis": "The 'Mark Anderson' homonym complex (34 issuers across life settlements, breweries, mining, PE holdcos, med-devices, 2009-2025): a hyper-common name matched against a 2020-2025 roster trace; no row carries a Lightspeed listing, vehicle, or announced deal \u2014 the Larson/Kumar class from prior runs. This row: LANDMARK FBO HOLDINGS, LLC (?, filings 2009-2009, max round $242.2M) \u2014 absence of corroboration on a name-match is a not_member verdict (COLLECTION.md \u00a71).",
@@ -4970,12 +4998,23 @@
     "who": "agent-precision-pass"
    },
    "lele-global": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021,2022,2023).",
+    "basis": "China brand-era artifact, LCP-window (ruling 9 default). Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
+    "decided": "2026-09-02",
+    "evidence_class": "web",
+    "slug": "lele-global",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
+   "lemon": {
+    "basis": "Lemon (mobile wallet): on the firm's own 2012-2013 portfolio listings; Lightspeed backed it before the LifeLock acquisition (Dec 2013). Un-merged from Lemon Markets (a distinct Berlin company).",
     "confidence": "high",
     "decided": "2026-09-02",
     "evidence_class": "site_listing",
+    "slug": "lemon",
     "verdict": "member",
-    "who": "seed-evidence"
+    "who": "agent-precision-pass"
    },
    "lemon-markets": {
     "basis": "Listed on the investor's own portfolio site (2012,2013,2014,2015,2016,2017,2023,2024,2025,2026).",
@@ -5011,12 +5050,14 @@
     "who": "agent-precision-pass"
    },
    "lian-luo": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021,2022,2023).",
-    "confidence": "high",
+    "basis": "China brand-era artifact, LCP-window (ruling 9 default). Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "lian-luo",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "lifeminders": {
     "basis": "Listed on the investor's own portfolio site (2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017).",
@@ -5109,12 +5150,14 @@
     "who": "seed-evidence"
    },
    "liking-fit": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021).",
-    "confidence": "high",
+    "basis": "Liking Fit (Chinese gyms): LCP-window brand-era. Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "liking-fit",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "limeroad": {
     "basis": "Listed on the investor's own portfolio site (2013,2014,2015,2016,2017,2019,2020,2021,2022,2023).",
@@ -5178,12 +5221,14 @@
     "who": "agent-precision-pass"
    },
    "litmatch": {
-    "basis": "Listed on the investor's own portfolio site (2023,2024,2025).",
-    "confidence": "high",
+    "basis": "LitMatch (2020 China/SEA social): LCP/brand-era artifact. Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "litmatch",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "littlethings": {
     "basis": "Listed on the investor's own portfolio site (2017).",
@@ -5293,12 +5338,14 @@
     "who": "seed-evidence"
    },
    "lulutrip": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021,2022).",
-    "confidence": "high",
+    "basis": "LuluTrip (Chinese travel): LCP-window brand-era. Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "lulutrip",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "lunchclub": {
     "basis": "Listed on the investor's own portfolio site (2021,2022,2023,2024,2025,2026).",
@@ -5416,12 +5463,14 @@
     "who": "seed-evidence"
    },
    "man-bang-group": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021).",
-    "confidence": "high",
+    "basis": "Manbang (Full Truck Alliance) holding: LCP-window duplicate. Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "man-bang-group",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "manex-ai": {
     "basis": "Listed on the investor's own portfolio site (2025,2026).",
@@ -5670,12 +5719,14 @@
     "who": "seed-evidence"
    },
    "million-warehouse": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021).",
-    "confidence": "high",
+    "basis": "China brand-era artifact, LCP-window (ruling 9 default). Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "million-warehouse",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "mindchild-medical-inc": {
     "basis": "The 'Michael Carpenter' homonym complex: the roster person is a 2022+ operating VOP; rows (Autobytel-world, Tanium's customer org, hardware shells) are other Carpenters; Tanium's documented investors (a16z, TPG...) carry no Lightspeed. This row: MindChild Medical, Inc (North Andover, filings 2011-2016, max round $0.5M) \u2014 absence of corroboration on a name-match is a not_member verdict (COLLECTION.md \u00a71).",
@@ -5696,12 +5747,14 @@
     "who": "agent-precision-pass"
    },
    "mingmed-biotechnology": {
-    "basis": "Listed on the investor's own portfolio site (2023,2024,2025).",
-    "confidence": "high",
+    "basis": "China brand-era artifact, LCP-window (ruling 9 default). Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "mingmed-biotechnology",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "mist": {
     "basis": "Listed on the investor's own portfolio site (2017,2019,2020,2021,2022,2023,2024,2025,2026).",
@@ -6064,12 +6117,14 @@
     "who": "seed-evidence"
    },
    "neuu-store": {
-    "basis": "Listed on the investor's own portfolio site (2020,2021,2022,2023).",
-    "confidence": "high",
+    "basis": "China brand-era artifact, LCP-window (ruling 9 default). Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "neuu-store",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "new-choices-entertainment-inc": {
     "basis": "The Feldman homonym trio (2009-2013); a 2014-15 roster trace; no Lightspeed evidence. This row: NEW CHOICES ENTERTAINMENT Inc (TORONTO, filings 2013-2013, max round $0.0M) \u2014 absence of corroboration on a name-match is a not_member verdict (COLLECTION.md \u00a71).",
@@ -6081,12 +6136,14 @@
     "who": "agent-precision-pass"
    },
    "newrizon": {
-    "basis": "Listed on the investor's own portfolio site (2023,2024,2025).",
-    "confidence": "high",
+    "basis": "Newrizon (Chinese EV): LCP-window brand-era. Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "newrizon",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "nexprt": {
     "basis": "LSIP-only (ruling 2): today's lsvp.com card attributes data-investor='lsip' with an lsip.com link; its archived /companies/ appearances (2021+) predate the site's lsvp/lsip link split and cannot assert LSVP participation; no LSVP vehicle, partner Form D, or global-era listing evidence.",
@@ -6125,12 +6182,14 @@
     "who": "seed-evidence"
    },
    "nexttao": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021,2022,2023).",
-    "confidence": "high",
+    "basis": "China brand-era artifact (NextTao), LCP-window. Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "nexttao",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "nextworth-solutions-inc": {
     "basis": "The 'David Chen' homonym complex (a Portland-centric sub-cluster plus scattered bio/fintech): an early-2010s associate-grade roster trace; no row carries Lightspeed evidence. This row: NextWorth Solutions, Inc. (BILLERICA, filings 2017-2017, max round $1.0M) \u2014 absence of corroboration on a name-match is a not_member verdict (COLLECTION.md \u00a71).",
@@ -6689,12 +6748,14 @@
     "who": "agent-precision-pass"
    },
    "panda-remit": {
-    "basis": "Listed on the investor's own portfolio site (2023).",
-    "confidence": "high",
+    "basis": "Panda Remit (2010s China cross-border): LCP/brand-era, no global-era or LSVP evidence. Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "panda-remit",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "panther": {
     "basis": "Listed on the investor's own portfolio site (2021,2022,2023,2024,2025,2026).",
@@ -6721,12 +6782,14 @@
     "who": "seed-evidence"
    },
    "part-parcel": {
-    "basis": "Listed on the investor's own portfolio site (2020).",
-    "confidence": "high",
+    "basis": "China/SEA brand-era artifact, LCP-window (ruling 9 default). Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "part-parcel",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "particle": {
     "basis": "Listed on the investor's own portfolio site (2024,2025,2026).",
@@ -6787,12 +6850,14 @@
     "who": "seed-evidence"
    },
    "pdd": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021,2022,2023).",
-    "confidence": "high",
+    "basis": "Pinduoduo (founded 2015): a Lightspeed China Partners position; PDD Holdings is NASDAQ-listed but LCP's, not LSVP's. Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "pdd",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "pebble": {
     "basis": "Listed on the investor's own portfolio site (2023,2024,2025,2026).",
@@ -6967,12 +7032,14 @@
     "who": "seed-evidence"
    },
    "phone-warrior-2": {
-    "basis": "Listed on the investor's own portfolio site (2017).",
-    "confidence": "high",
+    "basis": "Phone Warrior (Chinese caller-ID): LCP-window brand-era artifact. Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "phone-warrior-2",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "physics-wallah": {
     "basis": "Listed on the investor's own portfolio site (2024,2025,2026).",
@@ -7056,13 +7123,23 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
-   "pixxel-space-technologies-inc": {
-    "basis": "Listed on the investor's own portfolio site (2021,2022,2023,2024,2025,2026).",
+   "pixxel": {
+    "basis": "LSIP-only (ruling 2): the main card attributes Pixxel data-investor='lsip'; the US-paper pixxel-space-technologies-inc names LSIP partner Hemant Mohapatra \u2014 Pixxel is Lightspeed India's book.",
     "confidence": "high",
     "decided": "2026-09-02",
     "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "slug": "pixxel",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
+   "pixxel-space-technologies-inc": {
+    "basis": "LSIP seat (ruling 2): the Form D names Hemant Mohapatra, Lightspeed India's partner; Pixxel is LSIP's book (its lsip-attributed card row is already excluded). This US paper is the same LSIP deal.",
+    "confidence": "high",
+    "decided": "2026-09-02",
+    "evidence_class": "formd_adjudicated",
+    "slug": "pixxel-space-technologies-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "plan-a": {
     "basis": "Listed on the investor's own portfolio site (2023,2024,2025,2026).",
@@ -7479,12 +7556,14 @@
     "who": "seed-evidence"
    },
    "qingcloud": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021,2022,2023).",
-    "confidence": "high",
+    "basis": "QingCloud (2012): LCP-window China cloud. Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "qingcloud",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "quantivo-corp": {
     "basis": "The 'Brian Kelly' homonym complex: the roster person joined as a VOP in 2026; every row (2009-2020 restaurants, shells, power projects) predates him and carries no Lightspeed evidence. This row: QUANTIVO CORP (?, filings 2009-2009, max round $2.3M) \u2014 absence of corroboration on a name-match is a not_member verdict (COLLECTION.md \u00a71).",
@@ -8029,12 +8108,14 @@
     "who": "agent-precision-pass"
    },
    "saga": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020).",
-    "confidence": "high",
+    "basis": "China brand-era artifact under this slug, LCP-window (ruling 9 default). Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "saga",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "sagittarius-restaurants-llc": {
     "basis": "The 'Paul Murphy' homonym complex (Toronto gold miners, restaurant holdcos, surgery centers, 2010-2025): the roster person is Lightspeed's London consumer/gaming partner (2021+); no row carries Lightspeed evidence. This row: SAGITTARIUS RESTAURANTS LLC (LAKE FOREST, filings 2010-2010, max round $110.0M) \u2014 absence of corroboration on a name-match is a not_member verdict (COLLECTION.md \u00a71).",
@@ -8046,12 +8127,14 @@
     "who": "agent-precision-pass"
    },
    "sagreen": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021,2022,2023).",
-    "confidence": "high",
+    "basis": "China brand-era artifact, LCP-window (ruling 9 default). Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "sagreen",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "sailpoint": {
     "basis": "Listed on the investor's own portfolio site (2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2019,2020,2021,2022,2023,2024,2025,2026).",
@@ -8372,12 +8455,14 @@
     "who": "seed-evidence"
    },
    "shookit": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020).",
-    "confidence": "high",
+    "basis": "brand-era artifact, LCP-window (ruling 9 default). Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "shookit",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "shoptext-inc": {
     "basis": "Homonym cluster (the 'Pauline Murphy' complex): Connecticut/NY-area executives sharing the surname; the roster person is Lightspeed's London partner Paul Murphy (2021+), and none of these rows carries any Lightspeed evidence.",
@@ -8530,12 +8615,14 @@
     "who": "agent-precision-pass"
    },
    "smarter-micro": {
-    "basis": "Listed on the investor's own portfolio site (2023).",
-    "confidence": "high",
+    "basis": "SmarterMicro (Chinese RF chips): 2019-only, LCP-window (ruling 9 default). Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "smarter-micro",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "smartex": {
     "basis": "Listed on the investor's own portfolio site (2023,2024,2025,2026).",
@@ -8708,12 +8795,14 @@
     "who": "seed-evidence"
    },
    "southchip": {
-    "basis": "Listed on the investor's own portfolio site (2023).",
-    "confidence": "high",
+    "basis": "SouthChip (Chinese analog): 2019-only, LCP-window (ruling 9 default). Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "southchip",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "space-pencil-inc": {
     "basis": "The 'Brian Kelly' homonym complex: the roster person joined as a VOP in 2026; every row (2009-2020 restaurants, shells, power projects) predates him and carries no Lightspeed evidence. This row: SPACE PENCIL INC (SAN FRANCISCO, filings 2015-2015, max round $10.0M) \u2014 absence of corroboration on a name-match is a not_member verdict (COLLECTION.md \u00a71).",
@@ -9191,12 +9280,14 @@
     "who": "seed-evidence"
    },
    "tangfeng-energy": {
-    "basis": "Listed on the investor's own portfolio site (2023).",
-    "confidence": "high",
+    "basis": "China brand-era artifact (Tangfeng Energy), LCP-window. Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "tangfeng-energy",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "tango-management-consulting-inc": {
     "basis": "The John W. Thompson-variant homonym class; no Lightspeed evidence. This row: Tango Management Consulting, Inc. (IRVING, filings 2015-2015, max round $30.3M) \u2014 absence of corroboration on a name-match is a not_member verdict (COLLECTION.md \u00a71).",
@@ -9225,12 +9316,14 @@
     "who": "seed-evidence"
    },
    "tataufo": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021).",
-    "confidence": "high",
+    "basis": "China brand-era artifact (TataUFO social), LCP-window. Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "tataufo",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "teachmint": {
     "basis": "LSIP-only (ruling 2): today's lsvp.com card attributes data-investor='lsip' with an lsip.com link; its archived /companies/ appearances (2021+) predate the site's lsvp/lsip link split and cannot assert LSVP participation; no LSVP vehicle, partner Form D, or global-era listing evidence.",
@@ -9593,12 +9686,14 @@
     "who": "seed-evidence"
    },
    "trading-tv": {
-    "basis": "Listed on the investor's own portfolio site (2023).",
-    "confidence": "high",
+    "basis": "China brand-era artifact, LCP-window (ruling 9 default). Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "trading-tv",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "trafficland-inc": {
     "basis": "Pre-tenure homonym (2010-11); no Lightspeed evidence.",
@@ -10162,12 +10257,14 @@
     "who": "agent-precision-pass"
    },
    "wan-duoduo": {
-    "basis": "Listed on the investor's own portfolio site (2019).",
-    "confidence": "high",
+    "basis": "China brand-era artifact, LCP-window (ruling 9 default). Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "wan-duoduo",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "waveset": {
     "basis": "Listed on the investor's own portfolio site (2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2019,2020,2021,2022,2023,2024,2025,2026).",
@@ -10438,36 +10535,44 @@
     "who": "agent-precision-pass"
    },
    "xialuo": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021,2022).",
-    "confidence": "high",
+    "basis": "China brand-era artifact, LCP-window (ruling 9 default). Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "xialuo",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "xiaohongchun": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021).",
-    "confidence": "high",
+    "basis": "China brand-era artifact, LCP-window (ruling 9 default). Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "xiaohongchun",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "xiaopeng-auto": {
-    "basis": "Listed on the investor's own portfolio site (2020,2021).",
-    "confidence": "high",
+    "basis": "XPeng (founded 2014): LCP-era China; NYSE XPEV is LCP's. Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "xiaopeng-auto",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "xing-bian-li": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021).",
-    "confidence": "high",
+    "basis": "China brand-era artifact (Xingbianli convenience), LCP-window. Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "xing-bian-li",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "xlerant-inc": {
     "basis": "Homonym cluster (the 'Pauline Murphy' complex): Connecticut/NY-area executives sharing the surname; the roster person is Lightspeed's London partner Paul Murphy (2021+), and none of these rows carries any Lightspeed evidence.",
@@ -10536,12 +10641,14 @@
     "who": "seed-evidence"
    },
    "yikuaixiu": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021,2022,2023).",
-    "confidence": "high",
+    "basis": "China brand-era artifact, LCP-window (ruling 9 default). Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "yikuaixiu",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "youku-com-inc": {
     "basis": "Homonym, pre-window: Youku's documented backers (Sutter Hill, Farallon, Chengwei, Maverick) carry no Lightspeed; the 2009 Director Jia Zhu is Youku's own world, the roster jia-zhu a 2021-23 trace.",
@@ -10618,12 +10725,14 @@
     "who": "seed-evidence"
    },
    "zaihui": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021,2022,2023).",
-    "confidence": "high",
+    "basis": "China brand-era artifact, LCP-window (ruling 9 default). Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "zaihui",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "zapp": {
     "basis": "Listed on the investor's own portfolio site (2022,2023,2024,2025,2026).",
@@ -10725,12 +10834,14 @@
     "who": "agent-precision-pass"
    },
    "zhiketong": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021,2022,2023).",
-    "confidence": "high",
+    "basis": "China brand-era artifact, LCP-window (ruling 9 default). Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "zhiketong",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "zipstack": {
     "basis": "Listed on the investor's own portfolio site (2023,2024,2025,2026).",
@@ -10794,12 +10905,14 @@
     "who": "seed-evidence"
    },
    "zuiyou": {
-    "basis": "Listed on the investor's own portfolio site (2019,2020,2021).",
-    "confidence": "high",
+    "basis": "China brand-era artifact (Zuiyou/\u6700\u53f3), LCP-window. Surfaced only in the 2019+ archived /companies/ + /portfolio/ eras (ruling 10 can't assert LSVP attribution there); ruling 9 excludes LCP-window China entries. Post-sign-off base correction, flagged for Erik.",
+    "citation": "https://www.forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/",
+    "confidence": "medium",
     "decided": "2026-09-02",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "evidence_class": "web",
+    "slug": "zuiyou",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "zuji": {
     "basis": "Listed on the investor's own portfolio site (2019,2020,2021).",
