@@ -1,0 +1,342 @@
+{
+ "_readme": "Calibration gate results, 2026-09-03 (scratch/gate-protocol.md). Membership: structural falses verified absent from base.json after the first build; the four judged falses and one judged true in the base were ruled blind through decisions.md + COLLECTION.md §1-3 (person, seat date, issuer address), the ten seeded trues checked for the evidence the seed claims. Stage: every candidate layer scored against golden.json before the grind; the blind replay walks each key row through the production order (class-1 document first) and records the document it lands on.",
+ "membership_blind": {
+  "structural_falses_absent": [
+   "amazon-com-inc",
+   "shopify",
+   "current",
+   "shield-technology-partners",
+   "san-francisco-giants",
+   "thrive-capital-fund-i-lp",
+   "thrive-capital-partners-inc",
+   "thrive-capital-management-llc-fort-washington",
+   "mob-ii-thrive-partners-llc",
+   "thrive-global-holdings-inc",
+   "trolley-technologies-inc"
+  ],
+  "judged": {
+   "rakuten-medical-inc": {
+    "verdict": "not_member",
+    "confidence": "high",
+    "basis": "Nitin Nohria Director on 9 Rakuten Medical Form Ds 2021q3-2026q2, San Mateo CA biotech; a personal board seat (HBS dean-era directorship) with no Thrive vehicle, listing or press — COLLECTION.md §1 personal seats, ruling 7"
+   },
+   "3play-media-inc": {
+    "verdict": "not_member",
+    "confidence": "high",
+    "basis": "Joshua Miller Director on 3Play Media Form Ds 2010q1-2011q2 from Somerville/Cambridge MA — a Boston captioning company's own officer, years before Thrive's Josh Miller (2017-2019); the 50-issuer Josh Miller cluster is homonyms (Taconic funds, NB Crossroads, SOLCAP) except Browser Co"
+   },
+   "piedmont-stone-center-pllc": {
+    "verdict": "not_member",
+    "confidence": "high",
+    "basis": "Kareem Zaki Director on a Winston-Salem NC medical-practice PLLC (2018q1-2020q1): a physician homonym; Thrive's GP sits in New York and the issuer has no Thrive listing, vehicle or press"
+   },
+   "chrono-inc": {
+    "verdict": "not_member",
+    "confidence": "high",
+    "basis": "Chris Paik Director on Chrono, Inc. (Austin TX) 2019q4 and 2022q4 — after leaving Thrive in 2018 for Pace Capital, whose portfolio Chrono.gg is; the seat is Pace's (ruling 11); no Thrive listing or vehicle"
+   },
+   "justin-tv-inc": {
+    "verdict": "member",
+    "confidence": "high",
+    "basis": "Chris Paik Director on Justin.tv, Inc.'s 2013q3 Form Ds inside his 2010-2018 tenure, the $20M Series C Thrive led (techcrunch.com/2013/09/30/...twitch-lands-20m-series-c...); Twitch, acquired by Amazon 2014"
+   }
+  },
+  "seeded_trues_checked": {
+   "stripe": "board + Gaybrick seats (his 2016-2020 seats are Stripe-CFO seats, post-departure; membership rests on the ADV 'IV Stripe' vehicle and the 2014 Series C press)",
+   "oscar-health": "board + Form 3/4/13G by Thrive Partners GP LLCs and Claremount TW + Kushner/Weinstein/Gaybrick Form D seats 2013-2015",
+   "anysphere": "board + press (Series A/B)",
+   "openai": "board + press",
+   "databricks": "board + press",
+   "figma": "board + press + 13F",
+   "spacex": "board + press + 13F",
+   "the-browser-company": "board + Josh Miller seat (founder) + incubation",
+   "mammoth-brands": "board + Kushner seats on ADKM/HF Global/Harry's (one CIK) + ADV Harry's vehicle",
+   "artsy": "board + Kushner seats 2015-2017 + press"
+  },
+  "score": "0 false members at high confidence; 11 structural falses absent; 4/4 judged falses ruled not_member; 1/1 judged true ruled member; 10/10 seeded trues corroborated. PASS. Press-only trues (instagram, warby-parker, github, slack) are recall-probe rows by design.",
+  "key_correction": "doji-labs-inc was keyed false as a Benchmark-era Grimshaw seat; its only filing is 2025q3 (after his March-2024 return) and Doji is on the board — the seat is Thrive's. Replaced by chrono-inc before the build."
+ },
+ "stage_layers": {
+  "formd_band": {
+   "score": "4/10",
+   "hits": [
+    "stripe",
+    "realcadre-company",
+    "lattice",
+    "justworks"
+   ],
+   "misses": {
+    "justin-tv-inc": "the $20M Series C banded Series A",
+    "glossier": "anchored on Mallick's 2019 seat, a later $100M round",
+    "benchling": "the $7M Series A banded Seed (fixed bands; the era table says Series A)",
+    "skims": "$270M sold on the record's 'Series A' banded Growth",
+    "oscar-health": "anchored on the 2013q3 $20M filing, after the Claremount TW founding vehicle",
+    "artsy": "anchored on Kushner's 2015 seat, five years after the seed"
+   },
+   "verdict": "ceiling only (§6): the partner-anchored first filing is the entry only when the seat is in tenure AND no earlier round is documented; the lettered-SPV and later-seat anchors mislabel"
+  },
+  "board_stage_getro": {
+   "score": "3/7 where mappable",
+   "verdict": "never a label: the Getro field is the company's current stage (series_f, ipo, acquisition), not the entry; kept as a status hint only"
+  },
+  "press_announcement": {
+   "score": "35/35 by construction",
+   "verdict": "class 1 — every key row is a URL naming the round and Thrive's participation, or a fund vehicle / Form D seat; the grind cites this class first and the band never overrides it"
+  }
+ },
+ "stage_blind_replay": {
+  "instagram": {
+   "stage": "Growth",
+   "entry_year": 2012,
+   "class": "1",
+   "document": "techcrunch.com/2012/04/09/right-before-acquisition-instagram-closed-50m-at-a-500m-valuation-from-sequoia-thrive-greylock-and-benchmark) -> Growth by taxonomy",
+   "agrees_with_key": true
+  },
+  "warby-parker": {
+   "stage": "Seed",
+   "entry_year": 2011,
+   "class": "1",
+   "document": "crunchbase.com/funding_round/warby-parker-seed--c2e1a94b",
+   "agrees_with_key": true
+  },
+  "stripe": {
+   "stage": "Growth",
+   "entry_year": 2014,
+   "class": "1",
+   "document": "techcrunch.com/2014/12/04/thrive-capital-bet-big-30-million-to-be-exact-on-stripe); Gaybrick Director on Stripe Form Ds 2014-2015",
+   "agrees_with_key": true
+  },
+  "github": {
+   "stage": "Growth",
+   "entry_year": 2015,
+   "class": "1",
+   "document": "siliconangle.com/2015/07/29/git-repository-hosting-service-github-raises-250m-series-b-on-2b-unicorn-valaution",
+   "agrees_with_key": true
+  },
+  "openai": {
+   "stage": "Growth",
+   "entry_year": 2023,
+   "class": "1",
+   "document": "ruling 6",
+   "agrees_with_key": true
+  },
+  "databricks": {
+   "stage": "Growth",
+   "entry_year": 2024,
+   "class": "1",
+   "document": "databricks.com/company/newsroom/press-releases/databricks-raising-10b-series-j-investment-62b-valuation",
+   "agrees_with_key": true
+  },
+  "anysphere": {
+   "stage": "Series A",
+   "entry_year": 2024,
+   "class": "1",
+   "document": "techcrunch.com/2024/08/09/anysphere-a-github-copilot-rival-has-raised-60m-series-a-at-400m-valuation-from-a16z-thrive-sources-say); the Dec-2024 $100M Series B it led is the follow-on",
+   "agrees_with_key": true
+  },
+  "ramp": {
+   "stage": "Growth",
+   "entry_year": 2021,
+   "class": "1",
+   "document": "D1 + Stripe leads, Thrive participating: ramp.com/blog/ramp-raises-115m-reaches-1-6b-valuation-as-fastest-growing-corporate-card); co-led the Aug-2023 Series D later -> Growth",
+   "agrees_with_key": true
+  },
+  "slack": {
+   "stage": "Growth",
+   "entry_year": 2016,
+   "class": "1",
+   "document": "techcrunch.com/2016/04/01/slack-raises-200m-at-3-8b-valuation-for-business-messaging",
+   "agrees_with_key": true
+  },
+  "justin-tv-inc": {
+   "stage": "Growth",
+   "entry_year": 2013,
+   "class": "1",
+   "document": "techcrunch.com/2013/09/30/game-streaming-platform-twitch-lands-20m-series-c-ahead-of-its-xbox-one-ps4-integration) -> Growth; Paik Director on the Justin.tv Form Ds",
+   "agrees_with_key": true
+  },
+  "glossier": {
+   "stage": "Series A",
+   "entry_year": 2014,
+   "class": "1",
+   "document": "assets.ctfassets.net/p3w8f4svwgcg/3BlUBVLRS8eqmASqgs28GS/edd6f345c54de7ea32746bde6c1f4897/FundingPressRelease_Nov2014_FINAL.pdf; fashionista.com/2014/11/into-the-gloss-funding); Mallick Director on the Glossier Form D",
+   "agrees_with_key": true
+  },
+  "physical-intelligence": {
+   "stage": "Seed",
+   "entry_year": 2024,
+   "class": "1",
+   "document": "news.crunchbase.com/ai/robot-brain-startup-unicorn-physical-intelligence-bezos/; traded.co/vc/deal/physical-intelligence-secures-70-million-funding-from-thrive-capital-and-openai/",
+   "agrees_with_key": true
+  },
+  "airtable": {
+   "stage": "Growth",
+   "entry_year": 2018,
+   "class": "1",
+   "document": "techcrunch.com/2018/11/15/airtable-maker-of-a-coding-platform-for-non-techies-raises-100m-at-a-1-1b-valuation/) -> Growth",
+   "agrees_with_key": true
+  },
+  "wiz": {
+   "stage": "Growth",
+   "entry_year": 2024,
+   "class": "1",
+   "document": "techcrunch.com/2024/05/07/wiz-raises-1b-at-12b-valuation-expanding-through-acquisitions/) -> Growth; acquired by Google 2026",
+   "agrees_with_key": true
+  },
+  "affirm": {
+   "stage": "Growth",
+   "entry_year": 2019,
+   "class": "1",
+   "document": "investors.affirm.com/news-releases/news-release-details/affirm-announces-series-f-round-of-equity-funding-led-by-thrive-capital) -> Growth; public since Jan 2021",
+   "agrees_with_key": true
+  },
+  "compass": {
+   "stage": "Seed",
+   "entry_year": 2012,
+   "class": "1",
+   "document": "pitchbook.com/newsletter/urban-compass-goes-the-right-direction-with-8m-in-seed; techcrunch.com/2013/09/25/urban-compass-series-a/ names Thrive in both rounds",
+   "agrees_with_key": true
+  },
+  "robinhood": {
+   "stage": "Growth",
+   "entry_year": 2017,
+   "class": "1",
+   "document": "techcrunch.com/2017/04/26/robincorn/) -> Growth; public since 2021",
+   "agrees_with_key": true
+  },
+  "instacart": {
+   "stage": "Growth",
+   "entry_year": 2015,
+   "class": "1",
+   "document": "geekwire.com/2015/instacart-confirms-220m-investment-one-hour-grocery-delivery-service/) -> Growth",
+   "agrees_with_key": true
+  },
+  "benchling": {
+   "stage": "Series A",
+   "entry_year": 2016,
+   "class": "1",
+   "document": "prnewswire.com/news-releases/benchling-announces-7m-in-new-funding-led-by-thrive-capital-300349537.html); Benchmark led the 2018 B with Thrive returning",
+   "agrees_with_key": true
+  },
+  "nubank": {
+   "stage": "Growth",
+   "entry_year": 2018,
+   "class": "1",
+   "document": "latamlist.com/2018/03/02/nubank-raises-us150m-becomes-brazils-third-unicorn/) -> Growth; public since Dec 2021",
+   "agrees_with_key": true
+  },
+  "skims": {
+   "stage": "Series A",
+   "entry_year": 2021,
+   "class": "1",
+   "document": "axios.com/2021/04/09/kim-kardashians-skims; finance.yahoo.com/news/kim-kardashians-skims-brand-valued-155738707.html), an at-scale entry the taxonomy still labels by the round's name; Kushner Director on 3 Skims Body Form Ds",
+   "agrees_with_key": true
+  },
+  "a24": {
+   "stage": "Growth",
+   "entry_year": 2024,
+   "class": "1",
+   "document": "variety.com/2024/film/news/a24-funding-josh-kushner-thrive-capital-1236048525/); the March-2022 $225M round was Stripes-led, Thrive absent -> first entry 2024, Growth",
+   "agrees_with_key": true
+  },
+  "hims": {
+   "stage": "Series A",
+   "entry_year": 2017,
+   "class": "1",
+   "document": "news.crunchbase.com/venture/hims-madison-reed-and-billie-each-raise-more-venture-capital-for-personal-care/); public via SPAC 2021",
+   "agrees_with_key": true
+  },
+  "lemonade": {
+   "stage": "Growth",
+   "entry_year": 2016,
+   "class": "1",
+   "document": "carriermanagement.com/news/2016/12/05/161735.htm) -> Growth; public 2020",
+   "agrees_with_key": true
+  },
+  "monzo": {
+   "stage": "Growth",
+   "entry_year": 2017,
+   "class": "1",
+   "document": "Monzo's Series C; uktech.news/news/investment-news/challenger-bank-monzo-announces-19-5m-investment-20170223); Grimshaw Director on 3 Monzo Bank Form Ds -> Growth",
+   "agrees_with_key": true
+  },
+  "isomorphic-labs": {
+   "stage": "Series A",
+   "entry_year": 2025,
+   "class": "1",
+   "document": "isomorphiclabs.com/articles/isomorphic-labs-announces-600m-external-investment-round; techcrunch.com/2025/03/31/alphabets-ai-drug-discovery-platform-isomorphic-labs-raises-600m-from-thrive/), reported as its Series A",
+   "agrees_with_key": true
+  },
+  "rogo": {
+   "stage": "Growth",
+   "entry_year": 2025,
+   "class": "1",
+   "document": "rogo.ai/news/rogo-announces-50m-series-b) -> Growth",
+   "agrees_with_key": true
+  },
+  "nudge": {
+   "stage": "Series A",
+   "entry_year": 2025,
+   "class": "1",
+   "document": "nudge.com/blog/series-a/; goodwinlaw.com 2025-08",
+   "agrees_with_key": true
+  },
+  "unity": {
+   "stage": "Growth",
+   "entry_year": 2016,
+   "class": "1",
+   "document": "unity.com/news/unity-technologies-announces-181-million-series-c-led-dfj-growth) -> Growth; public 2020",
+   "agrees_with_key": true
+  },
+  "figma": {
+   "stage": "Growth",
+   "entry_year": 2024,
+   "class": "1",
+   "document": "axios.com/2024/05/16/figma-tender-12-billion; Tracxn dates Thrive's first investment 2024-05-15) -> Growth; a 2021 Series E participation was searched for and not found — corrected if the grind finds it",
+   "agrees_with_key": true
+  },
+  "realcadre-company": {
+   "stage": "Series A",
+   "entry_year": 2015,
+   "class": "1",
+   "document": "techcrunch.com/2015/03/24/cadre/); no priced founding round is documented, so the key is the Series A and a documented seed would override it — LOW confidence; Kushner Director on the RealCadre Form D",
+   "agrees_with_key": true
+  },
+  "oscar-health": {
+   "stage": "Seed",
+   "entry_year": 2013,
+   "class": "1",
+   "document": "techcrunch.com/2014/02/11/thrive-capital-founder-josh-kushner-on-the-power-of-oscar",
+   "agrees_with_key": true
+  },
+  "lattice": {
+   "stage": "Series A",
+   "entry_year": 2017,
+   "class": "1",
+   "document": "forbes.com/sites/alexkonrad/2017/07/31/lattice-raises-thrive-performance-reviews/",
+   "agrees_with_key": true
+  },
+  "artsy": {
+   "stage": "Seed",
+   "entry_year": 2010,
+   "class": "1",
+   "document": "techcrunch.com/2011/11/03/art-sy-6-million-thiel-thrive-murdoch-zhukova/; techcrunch.com/2010/11/24/art-sy-1-25-million-schmidt-murdoch-dorsey/",
+   "agrees_with_key": true
+  },
+  "justworks": {
+   "stage": "Series A",
+   "entry_year": 2014,
+   "class": "1",
+   "document": "justworks.com/blog/justworks-raises-series-thrive-index; finsmes.com/2014/10/justworks-raises-6m-in-series-a-funding.html); Weinstein/Gaybrick Directors on Justworks Form Ds",
+   "agrees_with_key": true
+  },
+  "_score": "35/35 through the production order (class-1 document found for every row); misses: 0; low-confidence keys (figma, realcadre-company) carry their caveat into the grind"
+ },
+ "evidence_order_for_grind": [
+  "web_verified press / the firm's own vehicle or filing (class 1)",
+  "formd_structural: partner-anchored entry with the seat in tenure and prior_rounds checked (class 2), era-adjusted band ceilings from §6, never the fixed code bands",
+  "model with a named deal in the note (class 3)",
+  "model low / stage_prior (class 4)",
+  "Getro board stage: status hint only, never entry_stage"
+ ]
+}

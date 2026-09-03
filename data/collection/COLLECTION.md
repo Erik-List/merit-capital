@@ -1,9 +1,11 @@
 # The collection playbook
 
-One playbook for collecting an investor's Company Base and classifying its
-outcomes. It is investor-agnostic: everything specific to one investor lives
-in that investor's decisions file (§1). The session running a collection
-reads this file start to finish before the first batch.
+One playbook for collecting an investor: its Company Base, the outcome
+classification of every member, and the firm profile — **one run, one
+session, one Linear issue per investor**. It is investor-agnostic:
+everything specific to one investor lives in that investor's decisions file
+(§1). The session running a collection reads this file start to finish
+before the first batch.
 
 **If context is compacted mid-run, re-read this file and
 `python3 scripts/run.py status --investor <slug>`, then continue at the
@@ -17,15 +19,29 @@ Starting a new investor means creating that directory with `config.json` and
 
 The shape of a collection, in order:
 
-1. Investor-specific decisions confirmed by Erik (§1), before anything runs.
+1. Investor-specific decisions written from the confirmed Phase 0 (§1).
 2. Evidence layers collected (§5), base built.
-3. Calibration gate cleared (§4), before any verdict writes.
-4. Membership judged into the ledger (§2, §3); recall probe.
-5. Classification grind in batches (§6, §8).
-6. Adversarial A/B pass on the visible slice (§7).
-7. `verify` green with only flagged debt; `export`; `review` (§9).
-8. Investor classification — the firm profile (§11); independent of the
-   base, runs in parallel as its own session.
+3. **Both** calibration sets — membership traps and stage golden set —
+   assembled, pre-registered and cleared (§4), before any verdict writes.
+4. One grind (§3, §6, §8): every queued row answered for membership and,
+   where it is a member, for every open classification column, in the
+   same pass.
+5. Recall probe (§3); additions judged; **one** rebuild; one re-prepare
+   for the delta.
+6. Standing verification duties (§8) and the adversarial A/B pass (§7).
+7. Firm profile built once, against the landed base (§11).
+8. `verify` green with only flagged debt; `export`; `review`; `report.md`;
+   playbook write-back (§9).
+9. One message to Erik: results, open rulings, the ingest request (§9).
+
+Until 2026-09-03 a collection was two issues and two sessions — the base,
+then classification — separated by a blocking sample sign-off. The
+tooling never split (one queue, one `record`, one CSV), both Accel and
+Lightspeed reported the resume pointer dead for the whole base run, rows
+were judged twice off the same evidence, and Erik reviewed the same rows
+twice, the first time with placeholder classification columns. The
+merged shape is the fix; the Lightspeed run (PRO-63/66) was the last of
+the old shape.
 
 ## 1. Investor-specific decisions
 
@@ -48,8 +64,9 @@ investment with fund money in it, and it is a venture-outcome operating
 company. Fund vehicles, SPVs, filter labels, scrape artifacts and natural
 persons are out.
 
-Two standing rules under that definition, generalized from a16z rulings
-6–7 (they bind every investor unless its decisions file overrides):
+Three standing rules under that definition, generalized from a16z rulings
+6–7 and Lightspeed ruling 7 (they bind every investor unless its decisions
+file overrides):
 
 - **Fund-shaped list entries**: an entry on the investor's own list whose
   name is fund-shaped (Capital / Fund / Ventures / Management, fund
@@ -64,6 +81,15 @@ Two standing rules under that definition, generalized from a16z rulings
   a treasury position, not a portfolio company, and is out. Where the
   token and its company are both listed, they are one row under the
   company.
+- **Post-RIA public or secondary purchases with no venture entry** (a
+  position that first appears as a 13F holding or a post-IPO 13G, never
+  through a venture round) are `not_member` — crossover treasury, not
+  portfolio membership. A row that entered through a venture round stays
+  in after it goes public. Erik confirmed the Lightspeed and Thrive
+  instances 2026-08-31; generalized 2026-09-03. Accel's arista (13G-only,
+  no documented pre-IPO round, shipped as a member) is the open case
+  under the earlier per-investor treatment and is raised for Erik's
+  ruling, not re-judged.
 
 **Evidence sufficiency**, common to every investor: a listing on the
 investor's own site (any era), or an SEC filing by a fund vehicle, each
@@ -124,9 +150,9 @@ Membership verdicts are durable, in the investor's
 basis sentence and a citation where one exists. The ledger is re-applied on
 every rebuild. Human verdicts (`who: "erik"`) outrank agent verdicts — and
 mechanically so on the ledger: `record` refuses to overwrite them.
-Classification keys carry no such guard yet (the merge is
-last-writer-per-key), so a human classification correction is protected
-procedurally: never re-emit a key Erik has set.
+Classification keys carry the same guard in `record`: an agent record may
+add keys to a `who: "erik"` row but never overwrite or unflag the keys the
+human set. Belt and braces: never re-emit a key Erik has set.
 `not_member` rows leave the published base into `excluded.csv` (reason
 `not_member`), preserved, never deleted; `uncertain` rows stay in the base,
 marked for sampling.
@@ -169,6 +195,15 @@ distinction.
   the knowledge cutoff; name-matched external list. low = genuinely
   uncertain.
 
+**Name-match rows are judged cluster-first, not row-first.** A Form D
+name-match queue is a list of people, not companies: resolve the person
+once — tenure window, prior and next firms, operator jobs, founder-era
+paper — then sweep every row that person explains against the decisions
+file. Lightspeed judged 273 name-match rows as 75 clusters; three homonyms
+alone ("Mark Anderson", "John Thompson", "Paul Murphy") accounted for 94
+rows, and each cluster lived or died in one ruling. Where the site names
+deal partners (§5), the attribution map is the cluster's reference graph.
+
 **The recall probe.** Precision asks "is every row real"; recall asks "is
 every real deal a row". After the membership pass, build an expected-member
 list from sources independent of the base — parametric enumeration by era
@@ -186,7 +221,10 @@ the shape breaks.
 
 ## 4. Calibration gate
 
-Two measured sets, both cleared before the columns they guard may write:
+Two measured sets, both assembled, pre-registered (keys committed before
+the base build) and cleared before the grind starts — the single grind
+writes verdicts and `entry_stage` in the same pass, so both keys exist
+before either column may write:
 
 - **Membership trap set** (~20 rows): ex-partner next-firm deals, homonym
   partners and founders, scout checks, LP stakes, mixed with known-true
@@ -213,6 +251,15 @@ rows, so the band lost its authority). Scoring runs both directions — a
 golden label can itself be wrong and gets corrected by the evidence. The
 sets persist in the investor's `golden.json` and replay as a regression
 test after any protocol change.
+
+**The gate calibrates layers, not only the judge.** Score every candidate
+evidence layer for the guarded column against the key, and promote or
+demote it by its score before the grind trusts it. Measured on Accel: the
+firm's own CMS entry-stage label scored 30/31 and was promoted to class 1;
+the Form D band scored 5/13 and was demoted to a ceiling. A layer that was
+never scored is not a label. This is what the stage set is for when it
+runs before the grind rather than after the base: it decides the evidence
+order the grind will use, instead of auditing one it already used.
 
 ## 5. Evidence layers
 
@@ -245,6 +292,50 @@ test after any protocol change.
    own raw/parsed shapes — true snapshot timestamps recovered from the
    rewritten URLs — keep the layer moving and converge with the
    eventual CDX pull.
+
+   **Layer 1a — Common Crawl**, the second capture archive
+   (`scripts/commoncrawl-pull.py`, configured by `commoncrawl.company_paths`
+   and `people_paths`; omitting the block silently disables the layer). It
+   serves the wayback layer's two jobs — survivorship correction and roster
+   tenure — from an independent capture set, and it carried Accel through
+   a full-run Internet Archive outage (the third measured outage across
+   runs). It writes the same per-year parsed shape as `wayback-pull.py`,
+   so the IA pull converges over it on recovery. Five rules, each paid for
+   on Accel:
+
+   - **Serial pacing only.** CC throttles parallel clients into silent
+     empties; the script paces one request at a time and stores explicit
+     no-captures markers so a resume skips what was genuinely empty.
+   - **Catch-all shells are filtered by body digest.** accel.com in 2018
+     served one identical body for any `/companies/<slug>`; 453 junk
+     captures of crawler-invented slugs (adobe, amazon) shared one digest
+     and were dropped. A capture enumeration without this filter invents
+     members.
+   - **Read the WARC body, not only the index.** A page can be served,
+     captured and pulled within weeks (Accel: Corsa, "(ACCEL INVESTMENT) /
+     Seed-Series A" in a May-2026 body, a 404 by run time, absent from
+     the CMS) — the body is the evidence.
+   - **Capture-year tenure windows are roster evidence.** People-page
+     captures give per-person first and last years that matched known
+     departures exactly (Breyer 2014–2016, Lixandru 2017–2019); Accel's
+     roster tripled from 69 to 217 names and the Form D re-sweep grew from
+     689 to 1,086 accessions on that alone.
+   - **The site's own rendering owns name and slug.** A capture slug never
+     names a row (a capture-created row was publishing "Assemblyai");
+     namespace junk (`all`, `see-all`, `<slug>-2`) is configured out in
+     `wayback.non_company_slugs`.
+
+   Two things captures decide that no other layer can. **A CMS "archived"
+   or "unpublished" flag is not a verdict**: archived docs with years of
+   captures were real listings and are members (Accel: Snorkel AI, Cogsy,
+   Youshd, Names & Faces); archived docs with zero captures were never
+   published and are correctly out (SentinelOne, Synopsys, Amino). And
+   **the capture layer is an identity-merge instrument**: pre-rename page
+   captures read ten Accel merges directly (CureFit→Cult.fit,
+   MemSQL→SingleStore, WorldRemit→Zepz, MessageBird→Bird, UserLeap→Sprig)
+   plus three CMS-slug artifacts (brds = Bird Scooters, saltpay = Teya).
+   The measurable payoff is tier: capture corroboration is what makes a
+   site row two-sourced (Accel: 142 → 776 Tier A).
 
    **Layer 1b — the site's own surfaces**, for the current portfolio that
    archives and SEC both structurally miss (JS-rendered pages defeat CDX
@@ -321,12 +412,41 @@ test after any protocol change.
    (`scripts/formd-issuer-rounds.py`). One entry point runs the whole chain
    in dependency order: `python3 scripts/run.py collect <slug>` (sweep →
    entities → companies, plus the round rescan once a base exists). Layers
-   1, 1b and 2 stay separate invocations: they carry judgment steps.
+   1, 1a, 1b and 2 stay separate invocations: they carry judgment steps.
+
+   Two registry rules. **Explicit `external` desk patterns run as the first
+   classify rule** (`desks.classify[0]` in config: namesakes, independently
+   operated affiliates such as Accel-KKR and Meritech, partners' personal
+   entities), so a namesake that shares the firm's name pattern is caught
+   before the home-desk rule can claim it. And **a cofiler-closure entity's
+   own filing address can re-desk it, and reach back before the roster
+   window**: Lightspeed's LS SPV Management and Venture Investors General
+   Partner LLC both surfaced as `external`, and both file Forms 3/4 from
+   2200 Sand Hill Road; the GP entity has filed since 2006 and carries the
+   pre-2012 board seats the 2012+ roster window structurally misses.
 4. **Deterministic classification layers**: SEC XBRL public float, Wikidata,
    unicorn lists, Form D round positions. These are ceilings and
    corroboration, never labels — the first filing is a ceiling on entry
    recency, not the entry round, and a float is corroboration for a market
    cap, not the cap itself.
+
+**When the investor publishes no list at all** (measured on Thrive,
+2026-09-03, the first merged run): the `site_listing` class is not empty,
+it moves. The firm's job board (Getro/Consider: `jobs.<domain>`) is a
+first-party company list — enumerate it from its sitemap plus the
+per-company pages (`site_api` with one `file_list` source), and never take
+its stage field as a label (0/10 on the gate). The roster is curated from
+the ADV, Form D related persons and press with press-dated tenure windows
+(one ruling per name, §1), and the roster-name Form D sweep becomes the
+primary structural layer. The ADV Section 7.B fund roster is membership
+evidence for named-deal vehicles ("… Partners IV Stripe, LLC"). Press
+sweeps run as a primary layer: every press-evidenced row lands as cited
+`web`, and the recall probe's parametric enumeration is load-bearing (37
+of 155 rows). Expect the base to be small and winner-heavy — the
+fund-vehicle and press layers surface the companies that made news — and
+say so in the report rather than reading it as a defect (§8, `verify.shape`).
+Check the Wayback and Common Crawl eras before concluding no list ever
+existed; on Thrive none did (2010–2026), and that is recorded, not assumed.
 
 ## 6. Classification columns
 
@@ -346,6 +466,18 @@ the other two runs holding xAI had already retired it. A subsidiary that
 was never acquired but sells priced primary rounds to outside investors
 (Waymo, an Alphabet unit since the 2016 spin-out) is `private` with that
 mark: there was no acquisition event to retire the value.
+
+**Whichever surface supplies status covers only its own rows.** A site CMS
+carries status for listed rows and nothing for members that entered
+through filings, captures or recall; the grind authors status for every
+layer-only member or the column ships with holes (Accel's close-out audit
+found 105 such rows with no status at all). The firm's own status field
+also goes stale, and the base overrides it with the cited event
+(Lightspeed carried Wiz as `acquired` while the site still said Private).
+**`defunct` is undercounted by construction** (Accel 3.3%): quiet
+shutdowns present as `private` or `unknown`, acquihires as `acquired`. The
+column answers "last known state", not survivorship; no mortality rate may
+be read off it, and the report says so.
 
 ### valuation
 
@@ -423,6 +555,21 @@ maturity today. 100% fill.
   publishes on a $1B+ or post-2020 row, check the firm's own announcement
   archive for a named earlier round; a found announcement is class 1 and
   overrides with `stage_disputes_band`.
+- **The firm's own stage label is class 1 on early rounds and fails on
+  late at-scale entries.** Score it on the gate (§4) before trusting it;
+  where it passes it is class 1 — but a CMS that says "seed" or "Series A"
+  for a company the firm demonstrably entered at B or later is describing
+  the company when it was listed, not the deal (Accel: 17 rows, the socure
+  class). Precedence: **the label follows the record** — a documented
+  entry round at scale overrides the site's label, flagged
+  `stage_disputes_band` with the citation.
+- **"The firm led the A" folklore fails one-directionally on famous
+  rows.** Accel's citation pass corrected 12 stages and ten went Series A
+  → Growth (Personio: Northzone led the A, Accel entered at the $75M C;
+  Netskope, PagerDuty, Trade Republic, Sennder, BlaBlaCar, Doctolib, G2
+  likewise). Reputation is not evidence: the entry round of every famous
+  row is cited, and the firm's own dated company or relationship pages
+  are the first place to look.
 
 ### seed_to_a_graduation (C2A)
 
@@ -435,6 +582,13 @@ are verified on both legs (entry stage and the A follow-on) or carry
 share. Cross-check: no row may end `false` + (valuation ≥$1B or public) —
 that combination is a Form D blind spot (4(a)(2), foreign), disputed to true
 with source model/web.
+
+The published rate carries its selection bias in the sentence, not in a
+footnote: knowledge-true graduations are easier to author than confirmed
+non-graduations, and nulls hide the undetermined. The honest form (Accel,
+79.1% on 91 rows): "of the seed entries where the record could be
+established, ~79% graduated — the establishable set skews toward visible
+successes."
 
 ### hq_country
 
@@ -522,10 +676,38 @@ Every subcommand takes the investor slug.
   Labs class: a band-labeled entry stage that was never queued for
   judgment. A `formd_band`-sourced stage on a $1B+ or post-2020 row goes
   back through the judge (with the §6 announcement check), never past it.
+- **One queue, one pass per row.** `prepare` emits every open need for a
+  row in one item — `membership` first when the row is unjudged, then
+  whichever of `status`, `hq_country`, `entry_stage`, `valuation_range`
+  the deterministic layers left empty — and carries the row's evidence
+  (`evidence_class`, site, wayback, EDGAR and Form D links, partner
+  attribution) so the judge rules membership from the item alone. The
+  judge answers membership first: a `not_member` row gets its verdict line
+  and nothing else; a member gets the verdict line plus one classification
+  line, in the same `.out.jsonl`. `record` routes the two kinds by the
+  presence of `verdict`. Rows already ruled `not_member` are retired from
+  the queue on the next `prepare` and leave `base.json` at the rebuild.
 - **Progress lives on disk, not in context.** Batch loop: read 2 batches →
   judge every row → write both `scratch/queue/batch-NNN.out.jsonl` →
   `record` both → one-line progress in chat → next pair. `status` is the
-  resume point; track nothing in context that disk already knows.
+  resume point and counts **per slug and per need** against
+  `scratch/queue/queue.json` (a membership-only item completes on its
+  verdict; a `not_member` row completes outright); batch files are a
+  chunking that `prepare` regenerates and renumbers freely, so never hold
+  a batch number in context that disk already knows.
+- **Exactly one rebuild is scheduled**, after the recall probe. The
+  standing rule that the base is not rebuilt mid-run still holds; the
+  rebuild is the one step that moves `not_member` rows into `excluded.csv`
+  and lands recall additions. After it, one `prepare` re-emits the delta
+  (new rows, and any need still open) and the grind finishes it.
+  Rebuilding at any other point costs a re-prepare and a renumbered queue
+  for nothing.
+- **`verify --in-flight` is the mid-run check**; plain `verify` is the
+  contract at the end (§10). In flight every answered row is held to the
+  full consistency, source-gate and citation contract, while unjudged
+  rows, unfilled columns and `not_member` rows awaiting the rebuild are
+  counted and reported rather than failed. A red `--in-flight` mid-grind
+  is a defect in what has been answered, never a reminder of what has not.
 - **Run scratch lives under the investor's `scratch/`** (the queue, the
   deterministic layer files): everything there regenerates; everything at the
   investor's top level is curated or published and is never deleted by a run.
@@ -566,51 +748,122 @@ Every subcommand takes the investor slug.
      .io/.ai/.com, "HQ", "Labs") to catch alias misses.
   7. Self-consistency: re-classify a random 5% blind at the end;
      disagreements flagged `unstable`, adjudicated, counted in the report.
+  8. Quarantine the float sweep's name-collision class: a public-float hit
+     is a registrant match, not an identity, and a wrong-entity float is a
+     distinct error from a weak CIK join (Accel: metropcs read as T-Mobile
+     at $112B, rocket as RKT, circle as public CRCL rather than acquired,
+     vinted as defunct on a Wikidata glitch). Quarantine with
+     `model_disputes_source` and a note; never accept a float the row's
+     own evidence does not fit.
+  9. A self-consistency hit is a class, not a row: when duty 7 disagrees
+     on a pattern, sweep the whole base for it before adjudicating the
+     sample (Accel: a 44-row sample surfaced systematic city/country
+     incoherence — 27 pairs fixed plus 32 rows of Bengaluru→Bangalore
+     normalization).
 
-## 9. Review by sampling
+- **Lessons of the first merged run** (Thrive, 2026-09-03):
+  1. `verify` counts classification over the base, not over the
+     classification file: a rebuild that renames a slug leaves the old key
+     behind with a status, and counting keys hid three unjudged rows
+     behind three stale ones. Full mode now fails on unclassified base rows.
+  2. Read `record`'s whole output, never its last line: a rejected batch
+     records nothing, and a row the deterministic layers pre-filled
+     (public float, unicorn-list value) then reads as classified in every
+     count except the citation invariants.
+  3. Copy `scratch/queue/queue.json` before the post-rebuild `prepare`:
+     it is overwritten with the delta, and duty 7's blind re-judgment
+     needs the evidence view of the original rows (rebuildable from
+     `base.json` + the layer files, but only by hand).
+  4. The web-search budget is a run constraint (200 calls per session):
+     the A/B pass on a large visible slice (Thrive: 60 $1B+ rows) must be
+     budgeted before the grind spends it. Out of budget, the app browser's
+     DuckDuckGo HTML endpoint and direct fetches of known pages still
+     answer targeted checks; whatever stays unattacked keeps its `stale`
+     flag and is listed in the report.
+  5. Base-shape guards are investor properties: `config.json`
+     `verify.shape` (`one_b_share_max`, `c2a_rate_max`) restates the
+     20% / 80% defaults with a note when the evidence model explains the
+     shape (ruling in `decisions.md`); the guards still fire above it.
+
+## 9. Review, escalation, and the end of a run
 
 The review surface (the investor's `review.html`, written by
 `run.py review`) is **read-only**: priority-ranked rows, evidence links, no
 input widgets. Corrections arrive in chat, and each one is recorded
 class-wide — as a ledger verdict or classification correction with
 `who: "erik"` — so it binds every row of its class, outranks agent verdicts,
-and survives every rebuild. Erik's sample sign-off is the exit criterion of
-a run.
+and survives every rebuild.
 
-**Ingestion is gated on that sign-off** (ruled by Erik 2026-08-31, after
-the a16z run ingested ahead of review): `ingest-companies.ts` and
-`ingest-investor.ts` write the shared database, so they run only after
-Erik explicitly approves — never as an autonomous step, even when the
-issue's Done-when lists ingestion. The run ends at export + review.html +
-report; the session asks for the ingest go-ahead and stops. Corrections
+**The run does not stop for approval** (ruled by Erik 2026-09-03, merging
+the base and classification runs). Milestones — gate result, base landed,
+classification complete — are posted to the Linear issue as status
+comments and the session continues past them. Erik reviews the surface
+when he chooses; the run's exit is finished artifacts, not a sign-off.
+Corrections that arrive after the run closes land the same way as during
+it, and a corrected base is re-exported and re-reviewed before any ingest.
+
+**Escalate only on a defined trigger**, and only for what evidence plus the
+decisions file genuinely cannot resolve:
+
+1. A Phase 0 ruling is contradicted by what the run finds.
+2. A firm-boundary question with no ruling that would move a class of rows
+   (Accel: arista, a 13G-only post-IPO holding with no documented venture
+   entry — in or out is a boundary ruling, not a row fix).
+3. A published field would have to breach a taxonomy contract (Accel and
+   Lightspeed: a geo core of three labels against the profile's two-label
+   cap).
+4. Evidence access fails in a way that leaves a layer permanently missing
+   rather than delayed (an archive that never recovers, a site that blocks
+   every ladder step).
+
+Everything else — layer defects, gate misses, namesake clusters, new
+standing rulings — the session resolves, records as a dated ruling in
+`decisions.md` flagged for review, and reports. **When a trigger fires,
+finish everything it does not block**, then raise it once at the end,
+alongside the results; never stop mid-run with work outstanding that the
+open question does not touch.
+
+**Ingestion is gated on Erik's explicit approval** (ruled 2026-08-31, after
+the a16z run ingested ahead of review; unchanged by the merge):
+`ingest-companies.ts` and `ingest-investor.ts` write the shared database,
+so they run only after Erik explicitly approves — never as an autonomous
+step, even when the issue's Done-when lists ingestion. The run ends at
+export + review.html + report; the session's closing message carries the
+results, the open rulings and the ingest request, and stops. Corrections
 that land after an approved ingest are re-ingested only with a fresh
-approval, and rows removed from the base after an ingest are called out
-so Erik can decide the database cleanup.
+approval, and rows removed from the base after an ingest are called out so
+Erik can decide the database cleanup.
 
-Two checkpoints pace a run: the calibration gate's result, and the
-membership-verified base before classification begins. At each, the session
-posts a one-paragraph status and continues or waits per the issue's scope.
-
-Before checkpoint 2 posts, the review surface is verified rendered — serve
-it (`file://` is blocked in the app browser; use a static server) and check
-that rows render flat and the surface is actually reviewable. It is an
-exit-criterion artifact, not a byproduct.
+Before the closing message, the review surface is verified rendered —
+serve it (`file://` is blocked in the app browser; use a static server)
+and check that rows render flat, the profile panel expands, and the
+surface is actually reviewable. It is an exit-criterion artifact, not a
+byproduct.
 
 Every run ends in the investor's `report.md`: method deltas, results,
-corrections taken, the flag and debt counts behind `verify`, and the
-session's prompt count (kickoff, checkpoint approvals, corrections) — the
-number this pipeline exists to drive down. The prompt count is final only
-after Erik's sample sign-off: review exchanges count, and a16z went from
-"1 prompt, 0 corrections" at checkpoint 2 to 10 prompts and 6 rulings by
-sign-off. Session recipe: the strongest available harness, web search
-enabled, the machine kept awake for the grind.
+corrections taken, the flag and debt counts behind `verify`, the open
+rulings raised, and the session's prompt count — the number this pipeline
+exists to drive down. **The target is two prompts: kickoff and the ingest
+approval.** The count is final only after the ingest decision: review
+exchanges count, and a16z went from "1 prompt, 0 corrections" mid-run to
+10 prompts and 6 rulings by close. Session recipe: the strongest available
+harness, web search enabled, the machine kept awake for the grind.
 
-**Run close includes a playbook write-back.** A rule invented during the
-run that is investor-agnostic belongs in this file, not only in the
-investor's `decisions.md` or the report — propose the COLLECTION.md diff
-as part of closing the run. The a16z run wrote seven durable lessons into
-code and local files and none into the playbook; the next investor would
-have re-derived them.
+**Run close includes a playbook write-back, and it happens at close.** A
+rule invented during the run that is investor-agnostic belongs in this
+file, not only in the investor's `decisions.md` or the report — propose
+the COLLECTION.md diff as the last act of the run, after the last
+artifact, never at a milestone. The a16z run wrote seven durable lessons
+into code and local files and none into the playbook; Accel wrote its
+diff at its mid-run checkpoint and then ran nine more hours, so the whole
+Common Crawl layer and every classification-phase rule went unrecorded
+until the next investor needed them.
+
+The icon is part of the gated step: at profile time
+`fetch-investor-icon.ts --dry-run` normalizes the source image to a local
+PNG for inspection and `investor.json` carries the source URL; the upload
+to the Icon Images bucket runs with the ingest, after the approval, and
+`ingest-investor.ts` then carries the bucket URL.
 
 ## 10. Verify invariants
 
@@ -643,32 +896,50 @@ have re-derived them.
     band edge on as-of date alone for public rows (DoorDash at $92B vs
     $103B in the same month); align to one fresh cap rather than accept.
 
+Two modes. Plain `verify` is the contract: every invariant above, full
+fills, distribution guards, published surfaces current. `verify
+--in-flight` runs mid-grind: invariants 2–7, 9 and 10 over every answered
+row and drift (8) always, while unjudged rows, unfilled columns and
+`not_member` rows awaiting the rebuild are counted and reported rather
+than failed, and the distribution guards wait for the full mode. A merged
+run is green in flight at every milestone and green in full once, at the
+end.
+
 ## 11. Investor classification (the firm profile)
 
-Independent of the base — every field here answers a question about the
-firm, not its portfolio — so it runs in parallel as its own session. Output
-is the investor's `investor.json` plus `investor.sources.json`, one source
-entry per field; every field populated or explicitly null, through the
-taxonomy gate, onto the review surface.
+Every field here answers a question about the firm, not its portfolio,
+and the profile is **step 7 of the same run**: built once, after the base
+has landed and the grind is complete, by the same session. Output is the
+investor's `investor.json` plus `investor.sources.json`, one source entry
+per field; every field populated or explicitly null, through the taxonomy
+gate, onto the review surface.
 
-**Running in parallel with the base session, same investor directory**
-(the a16z shape, worked): declare file ownership up front by session
-message — profile session owns `investor.json` + sources sidecar, team
-payloads and the fund filer sweep; base session owns `config.json`, site
-companies, the EDGAR sweeps, base + overlays. Exchange intel both ways
-(the profile session's measured false-attribution clusters seed the base
-session's trap set). The profile may build base-less:
-`build-firm-profile.py` skips its base-bound checks loudly and re-runs
-them on the first post-base build — re-run it once the base lands so
-notable_investments and the entry-round median recompute against the
-verified base, interim assertions flagged until then. **The landed-base
-signal for those re-checks is full ledger coverage** (§10 invariant 1),
-never base.json existence — the file can land mid-membership (Accel), and
-`needs_review` rows persist even in completed bases (a16z closed with
-563). The notable assertion keys on ledger member verdicts, not build
-status: a single-source famous member legitimately sits `needs_review`
-while being a member (Accel: Flipkart/Spotify/Supercell during the
-archive outage).
+Built after the base, `build-firm-profile.py` runs its base-bound checks
+once, for real: notable_investments asserted against ledger member
+verdicts, the entry-round median over the verified members' Form D
+histories, the focus recompute off the grind's sector tags. **The
+landed-base signal is full ledger coverage** (§10 invariant 1), never
+`base.json` existence — `needs_review` rows persist even in completed
+bases (a16z closed with 563), and a single-source famous member
+legitimately sits `needs_review` while being a member (Accel:
+Flipkart/Spotify/Supercell during the archive outage). The profile's own
+evidence work — the ADV pull, the fund filer sweep, the team payloads —
+does not depend on the base and may be collected at any point in the run;
+the fund filer sweep in particular is a trap-set input (§4) and belongs
+early.
+
+Why not in parallel any more: on Accel and Lightspeed the profile ran
+base-less in a second session and re-asserted against the landed base
+afterwards — three recompute rounds on Accel ($22.0M → $20.0M → $19.6M
+median, published $20M throughout), two on Lightspeed ($17.25M → $17.5M,
+published $17M throughout) — for zero published deltas, plus a first-hour
+file collision on Lightspeed. The parallel start bought parallelism only.
+**If a second session genuinely exists**, the a16z split still works:
+declare file ownership by session message in the first minutes, not "up
+front" — profile session owns `investor.json` + sources sidecar, team
+payloads and the fund filer sweep; base session owns `config.json`,
+`decisions.md`, site companies, the EDGAR sweeps, base + overlays — and
+re-run the profile build once the base lands.
 
 Field recipes, learned on Sequoia and a16z:
 
@@ -687,7 +958,11 @@ Field recipes, learned on Sequoia and a16z:
   the umbrella's own 7.B roster should sum to its Item 5.F RAUM to the
   dollar — parse both and let the equality prove the parse. Both range
   ends can be sworn; press "AUM" figures may sit below the sworn floor
-  and then belong in the flag, not the range.
+  and then belong in the flag, not the range. One RIA can cover several
+  geographies (Lightspeed: US, Europe and Israel under CRD 160187 by the
+  firm's own disclosure), in which case there is no in-boundary ERA and
+  both range ends are one sworn number — test which shape applies rather
+  than assuming the Accel London one.
 - **Funds.** Sweep every Form D filer matching the firm's name on EDGAR —
   the partner-matched subset structurally misses vehicles. Sizes from
   Form D where the vehicle raised directly, from press where the size is an
@@ -695,9 +970,19 @@ Field recipes, learned on Sequoia and a16z:
   filing at build time, and the build fails on mismatch. Where the main
   L.P. filed sold $0 (first close unfunded at filing), the filing's
   total-offering amount is exact corroboration for the press size
-  (Accel: every such case matched to the dollar). Post-restructure
-  caveat: where LP capital enters through an evergreen vehicle, sub-funds'
-  own Form Ds show only principals' money.
+  (Accel: every such case matched to the dollar) — **but only for firms
+  that file a total-offering amount**. Lightspeed's L.P.s file
+  "Indefinite" offerings at $0 sold and amend at close or never, so six
+  of fifteen fund sizes rested on press with the filing as existence
+  corroboration only; test which filing style the firm uses before
+  leaning on the cross-check. **Co-issued Form Ds cross-wire names to
+  CIKs**: two vehicles can file one Form D as co-issuers (Lightspeed:
+  X + Select I, XII + Select III, Luminous VI-A/B), and a per-accession
+  issuer scan silently keeps the last co-issuer row — a $2.11B "flagship"
+  that looked wrong against an $890M successor was two funds. Record
+  `co_issuers` per filing and split by the documented close.
+  Post-restructure caveat: where LP capital enters through an evergreen
+  vehicle, sub-funds' own Form Ds show only principals' money.
 - **People.** The live site CMS (team post type) over the archived roster
   for current people; roles as the site presents them; socials where
   extractable from the profiles.
@@ -715,7 +1000,32 @@ Field recipes, learned on Sequoia and a16z:
 - **Firm-level stage, geo, scope.** From the firm's own listing filters,
   crosswalked into the taxonomies. When the portfolio distribution lands,
   reconcile: flag disagreements, never silently overwrite — a gap between
-  positioning and behaviour is signal, not error.
+  positioning and behaviour is signal, not error. A sector absent from the
+  firm's own vocabulary despite portfolio evidence is the same signal in
+  its strongest form (Lightspeed: no Security filter on a site listing
+  Wiz, Netskope, Rubrik and Cato) — flag it for the post-grind recompute
+  rather than adding the label by hand.
+- **Icons are published under measured rules, not eyeballed.**
+  `scripts/fetch-investor-icon.ts <slug> <source-url>` normalizes through
+  `scripts/utils/icon-normalize.ts`, which enforces three properties the
+  first four investors each broke in a different way: an icon must carry
+  its **own opaque background** (a bare glyph on transparency is invisible
+  in the app's dark mode — Lightspeed's favicon is one #303030 path with
+  `fill="none"`, and its master was 84% transparent); artwork must sit
+  inside a **keyline** (box ≤74%, furthest pixel ≤80% of the crop radius,
+  because the leaderboard renders `rounded-full object-cover` — Sequoia's
+  tree reached 94% and was being shaved); and glyph-to-plate **contrast
+  must clear 3:1**, or the publish is refused rather than shipping an
+  unreadable plate. A source that already backs itself is left alone,
+  including a disc plate whose square corners are empty (Accel), since
+  insetting it would shrink a full-bleed logo into a sticker. SVG sources
+  rasterize at 2× the master before downsampling, never upscaled from
+  their intrinsic size. `--plate <colour>` overrides the synthesized
+  background, `--dry-run <file>` previews without uploading, and
+  **`--audit` replays the current rules against every published icon** —
+  run it when a rule changes, so icons that predate it are found rather
+  than assumed fine. The DB still only changes on ingest.
+
 - **Focus recompute needs representative tags.** A base-derived focus
   distribution publishes only when sector tags cover ≥25% of base rows;
   below that the tagged slice describes whichever surface carried tags,
@@ -723,3 +1033,17 @@ Field recipes, learned on Sequoia and a16z:
   the recompute had published an empty focus list). The firm's own sector
   enumeration stands until coverage clears the bar
   (`build-firm-profile.py` enforces this).
+
+**Profile without a site** (Thrive, 2026-09-03): `investment_stage`,
+`investment_geo` and `investment_scope` are derived — stage from the fund
+architecture (early/growth sleeves, opportunity funds) plus the landed
+entry_stage distribution, geo from `hq_country` on the base, scope from the
+grind's focus column with `profile.focus_min_companies` scaled to the base
+(~4.5% of rows; 25 was the 900-row megafund value) — each flagged derived
+in the sidecar. The fund table lists funds and sleeves; lettered co-invest
+and SPV vehicles are counted and described in the basis, not listed.
+Check the filing style before the $0-sold cross-check: a fund that files
+Form D before first close ("Indefinite", $0 sold) carries its press or
+firm-stated size, not an accession assertion. The team is the ADV owners
+and officers plus the Form D related persons and press-documented
+partners — publish what the record supports, null the rest.

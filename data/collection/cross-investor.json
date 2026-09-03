@@ -1,36 +1,215 @@
 {
- "_doc": "Rulings for COLLECTION.md §10 invariant 10 (run.py verify, cross-investor section). `distinct`: pairs of investor:slug rows that share a name key but are different companies, so they are never compared. `accepted`: pairs whose status/band difference Erik accepted, with the reason; nothing else silences a disagreement. `ignore`: investor directories that are dry runs or scratch copies, never published.",
- "ignore": ["accel-dryrun"],
+ "_doc": "Rulings for COLLECTION.md \u00a710 invariant 10 (run.py verify, cross-investor section). `distinct`: pairs of investor:slug rows that share a name key but are different companies, so they are never compared. `accepted`: pairs whose status/band difference Erik accepted, with the reason; nothing else silences a disagreement. `ignore`: investor directories that are dry runs or scratch copies, never published.",
+ "ignore": [
+  "accel-dryrun"
+ ],
  "same": [
-  {"rows": ["sequoia-capital:bird", "accel:bird-scooters"], "note": "both are Bird Global (e-scooters); the name key cannot join 'Bird' to 'Bird Scooters'"}
+  {
+   "rows": [
+    "sequoia-capital:bird",
+    "accel:bird-scooters"
+   ],
+   "note": "both are Bird Global (e-scooters); the name key cannot join 'Bird' to 'Bird Scooters'"
+  }
  ],
  "distinct": [
-  {"rows": ["a16z:basis", "accel:basis"], "note": "a16z = Basis the algorithmic stablecoin (wound down 2018); Accel = Basis the accounting-AI startup (2026 round)"},
-  {"rows": ["a16z:oasis-labs", "accel:oasis"], "note": "a16z = Oasis Labs (privacy blockchain, Dawn Song); Accel = Oasis Security (non-human identity, Accel-led Series A 2024)"},
-  {"rows": ["sequoia-capital:bird", "accel:bird"], "note": "Sequoia = Bird Rides (scooters, Ch.11 2023); Accel = MessageBird, rebranded Bird 2024"},
-  {"rows": ["sequoia-capital:linear-technology", "accel:linear"], "note": "Sequoia = Linear Technology (semis, acq. Analog Devices 2017); Accel = Linear the issue tracker (Sequoia holds that one as `linear`, aligned)"},
-  {"rows": ["a16z:dapper-labs", "accel:dapper"], "note": "a16z = Dapper Labs (NBA Top Shot); Accel = dapper.net ad-tech, acq. Yahoo 2010"},
-  {"rows": ["accel:circle", "lightspeed:circle-labs"], "note": "Accel = Circle Internet Group (NYSE: CRCL); Lightspeed = Circle Labs, an AI companion startup"},
-  {"rows": ["sequoia-capital:harmonic", "lightspeed:harmonic-inc"], "note": "Sequoia = Harmonic AI (math reasoning, $1.45B 2025); Lightspeed = Harmonic Inc (NASDAQ: HLIT, video delivery)"},
-  {"rows": ["lightspeed:handshake", "a16z:handshake"], "note": "Lightspeed = Handshake the early-career recruiting network ($3.5B 2022); a16z = Handshake the HNS naming protocol"},
-  {"rows": ["lightspeed:handshake", "sequoia-capital:handshake"], "note": "Lightspeed = Handshake recruiting; Sequoia = Handshake HNS protocol"},
-  {"rows": ["sequoia-capital:maven", "a16z:maven"], "note": "Sequoia = Maven Clinic ($1.7B 2024); a16z = Maven the cohort-course platform"},
-  {"rows": ["sequoia-capital:avalanche-technology-inc", "a16z:avalanche"], "note": "Sequoia = Avalanche Technology (MRAM); a16z = Ava Labs / the AVAX network"},
-  {"rows": ["sequoia-capital:convex", "a16z:convex"], "note": "Sequoia = Convex Computer (1982, acq. HP 1995); a16z = convex.dev (2022 Series A)"},
-  {"rows": ["sequoia-capital:tandem", "a16z:tandem"], "note": "Sequoia = Tandem Computers (1974, acq. Compaq 1997); a16z = Tandem the virtual-office app (2019 seed)"},
-  {"rows": ["accel:turbine", "lightspeed:io-turbine"], "note": "Accel = Turbine (drug-discovery simulation, Budapest); Lightspeed = IO Turbine (flash caching, acq. Fusion-io 2011)"},
-  {"rows": ["accel:public", "sequoia-capital:public-stage"], "note": "Accel = Public.com (retail investing); Sequoia = Public Stage, an unrelated thin row"},
-  {"rows": ["a16z:flow", "lightspeed:flow"], "note": "a16z = Flow, Adam Neumann's residential operator; Lightspeed = Flow Specialty (formerly Capitola, insurance brokerage; acquired by ReSource Pro 2026-06-24)"},
-  {"rows": ["a16z:eon", "sequoia-capital:eon"], "note": "a16z = Endeavor Optical Networks (2026 seed, General Catalyst/a16z); Sequoia = Eon the cloud-backup company (eon.io), which has no a16z round"},
-  {"rows": ["a16z:eon", "lightspeed:eon"], "note": "a16z = Endeavor Optical Networks (2026 seed); Lightspeed = Eon the cloud-backup company (eon.io)"},
-  {"rows": ["a16z:ethos", "sequoia-capital:ethos"], "note": "Sequoia = Ethos Technologies (life insurance, Nasdaq: LIFE); the a16z row is not that company (no documented a16z round in Ethos Life; identity unresolved among several Ethos-named startups)"},
-  {"rows": ["a16z:ethos", "accel:ethos"], "note": "Accel = Ethos Technologies (Nasdaq: LIFE); the a16z row is not that company (no documented a16z round; identity unresolved)"}
+  {
+   "rows": [
+    "a16z:basis",
+    "accel:basis"
+   ],
+   "note": "a16z = Basis the algorithmic stablecoin (wound down 2018); Accel = Basis the accounting-AI startup (2026 round)"
+  },
+  {
+   "rows": [
+    "a16z:oasis-labs",
+    "accel:oasis"
+   ],
+   "note": "a16z = Oasis Labs (privacy blockchain, Dawn Song); Accel = Oasis Security (non-human identity, Accel-led Series A 2024)"
+  },
+  {
+   "rows": [
+    "sequoia-capital:bird",
+    "accel:bird"
+   ],
+   "note": "Sequoia = Bird Rides (scooters, Ch.11 2023); Accel = MessageBird, rebranded Bird 2024"
+  },
+  {
+   "rows": [
+    "sequoia-capital:linear-technology",
+    "accel:linear"
+   ],
+   "note": "Sequoia = Linear Technology (semis, acq. Analog Devices 2017); Accel = Linear the issue tracker (Sequoia holds that one as `linear`, aligned)"
+  },
+  {
+   "rows": [
+    "a16z:dapper-labs",
+    "accel:dapper"
+   ],
+   "note": "a16z = Dapper Labs (NBA Top Shot); Accel = dapper.net ad-tech, acq. Yahoo 2010"
+  },
+  {
+   "rows": [
+    "accel:circle",
+    "lightspeed:circle-labs"
+   ],
+   "note": "Accel = Circle Internet Group (NYSE: CRCL); Lightspeed = Circle Labs, an AI companion startup"
+  },
+  {
+   "rows": [
+    "sequoia-capital:harmonic",
+    "lightspeed:harmonic-inc"
+   ],
+   "note": "Sequoia = Harmonic AI (math reasoning, $1.45B 2025); Lightspeed = Harmonic Inc (NASDAQ: HLIT, video delivery)"
+  },
+  {
+   "rows": [
+    "lightspeed:handshake",
+    "a16z:handshake"
+   ],
+   "note": "Lightspeed = Handshake the early-career recruiting network ($3.5B 2022); a16z = Handshake the HNS naming protocol"
+  },
+  {
+   "rows": [
+    "lightspeed:handshake",
+    "sequoia-capital:handshake"
+   ],
+   "note": "Lightspeed = Handshake recruiting; Sequoia = Handshake HNS protocol"
+  },
+  {
+   "rows": [
+    "sequoia-capital:maven",
+    "a16z:maven"
+   ],
+   "note": "Sequoia = Maven Clinic ($1.7B 2024); a16z = Maven the cohort-course platform"
+  },
+  {
+   "rows": [
+    "sequoia-capital:avalanche-technology-inc",
+    "a16z:avalanche"
+   ],
+   "note": "Sequoia = Avalanche Technology (MRAM); a16z = Ava Labs / the AVAX network"
+  },
+  {
+   "rows": [
+    "sequoia-capital:convex",
+    "a16z:convex"
+   ],
+   "note": "Sequoia = Convex Computer (1982, acq. HP 1995); a16z = convex.dev (2022 Series A)"
+  },
+  {
+   "rows": [
+    "sequoia-capital:tandem",
+    "a16z:tandem"
+   ],
+   "note": "Sequoia = Tandem Computers (1974, acq. Compaq 1997); a16z = Tandem the virtual-office app (2019 seed)"
+  },
+  {
+   "rows": [
+    "accel:turbine",
+    "lightspeed:io-turbine"
+   ],
+   "note": "Accel = Turbine (drug-discovery simulation, Budapest); Lightspeed = IO Turbine (flash caching, acq. Fusion-io 2011)"
+  },
+  {
+   "rows": [
+    "accel:public",
+    "sequoia-capital:public-stage"
+   ],
+   "note": "Accel = Public.com (retail investing); Sequoia = Public Stage, an unrelated thin row"
+  },
+  {
+   "rows": [
+    "a16z:flow",
+    "lightspeed:flow"
+   ],
+   "note": "a16z = Flow, Adam Neumann's residential operator; Lightspeed = Flow Specialty (formerly Capitola, insurance brokerage; acquired by ReSource Pro 2026-06-24)"
+  },
+  {
+   "rows": [
+    "a16z:eon",
+    "sequoia-capital:eon"
+   ],
+   "note": "a16z = Endeavor Optical Networks (2026 seed, General Catalyst/a16z); Sequoia = Eon the cloud-backup company (eon.io), which has no a16z round"
+  },
+  {
+   "rows": [
+    "a16z:eon",
+    "lightspeed:eon"
+   ],
+   "note": "a16z = Endeavor Optical Networks (2026 seed); Lightspeed = Eon the cloud-backup company (eon.io)"
+  },
+  {
+   "rows": [
+    "a16z:ethos",
+    "sequoia-capital:ethos"
+   ],
+   "note": "Sequoia = Ethos Technologies (life insurance, Nasdaq: LIFE); the a16z row is not that company (no documented a16z round in Ethos Life; identity unresolved among several Ethos-named startups)"
+  },
+  {
+   "rows": [
+    "a16z:ethos",
+    "accel:ethos"
+   ],
+   "note": "Accel = Ethos Technologies (Nasdaq: LIFE); the a16z row is not that company (no documented a16z round; identity unresolved)"
+  },
+  {
+   "rows": [
+    "thrive-capital:pace",
+    "sequoia-capital:pace"
+   ],
+   "note": "Thrive's Pace (withpace.com, AI operations for insurers, founded 2024, Series B May 2026 co-led by Thrive and Sequoia) vs Sequoia's Pace row (a company acquired in 2016) \u2014 same word, different companies; 2026-09-03 Thrive run"
+  },
+  {
+   "rows": [
+    "thrive-capital:cedar",
+    "a16z:cedar"
+   ],
+   "note": "Thrive's Cedar is the NYC patient-billing platform (cedar.com, Zaki co-founder, $3.2B Series D 2021); a16z's cedar row is a speedrun accelerator cohort company (SR006) \u2014 different companies; 2026-09-03 Thrive run"
+  },
+  {
+   "rows": [
+    "thrive-capital:clay-inc",
+    "sequoia-capital:clay"
+   ],
+   "note": "Thrive's Clay, Inc. Form D issuer (San Francisco, incorporated 2021, Hankes seat, identity open) is not clay.com (New York, 2017, Sequoia's row); 2026-09-03 Thrive run"
+  }
  ],
  "accepted": [
-  {"rows": ["a16z:jarvie-ai", "lightspeed:jarvie"], "note": "both rows are thin and neither run could identify the company (a16z: 'unidentifiable beyond the name'; Lightspeed card seed/2018 on a 2026-first row); not shown to be one company, both below_1b, so the private/unknown difference carries nothing into a track record. Ruled 2026-09-03 (agent), Erik to confirm."},
-  {"rows": ["sequoia-capital:handshake", "a16z:handshake"], "note": "the HNS naming protocol: a token and a developer collective without a corporate entity, so neither 'private' (a16z) nor 'unknown' (Sequoia) is evidence-based; both below_1b. Ruled 2026-09-03 (agent), Erik to confirm."},
-  {"rows": ["sequoia-capital:probook", "a16z:probook"], "note": "both rows are era-D list entries neither run could identify beyond the name; both below_1b. Ruled 2026-09-03 (agent), Erik to confirm."},
-  {"rows": ["sequoia-capital:titus", "a16z:titus"], "note": "both rows are era-D list entries neither run could identify beyond the name; both below_1b. Ruled 2026-09-03 (agent), Erik to confirm."},
-  {"rows": ["sequoia-capital:fin", "accel:fin"], "note": "Sequoia's 'Fin' is an unresolved era-D crypto/fintech tag; Accel's is the 2015 Fin (Fin Analytics) seed; not shown to be one company, both below_1b. Ruled 2026-09-03 (agent), Erik to confirm."}
+  {
+   "rows": [
+    "a16z:jarvie-ai",
+    "lightspeed:jarvie"
+   ],
+   "note": "both rows are thin and neither run could identify the company (a16z: 'unidentifiable beyond the name'; Lightspeed card seed/2018 on a 2026-first row); not shown to be one company, both below_1b, so the private/unknown difference carries nothing into a track record. Ruled 2026-09-03 (agent), Erik to confirm."
+  },
+  {
+   "rows": [
+    "sequoia-capital:handshake",
+    "a16z:handshake"
+   ],
+   "note": "the HNS naming protocol: a token and a developer collective without a corporate entity, so neither 'private' (a16z) nor 'unknown' (Sequoia) is evidence-based; both below_1b. Ruled 2026-09-03 (agent), Erik to confirm."
+  },
+  {
+   "rows": [
+    "sequoia-capital:probook",
+    "a16z:probook"
+   ],
+   "note": "both rows are era-D list entries neither run could identify beyond the name; both below_1b. Ruled 2026-09-03 (agent), Erik to confirm."
+  },
+  {
+   "rows": [
+    "sequoia-capital:titus",
+    "a16z:titus"
+   ],
+   "note": "both rows are era-D list entries neither run could identify beyond the name; both below_1b. Ruled 2026-09-03 (agent), Erik to confirm."
+  },
+  {
+   "rows": [
+    "sequoia-capital:fin",
+    "accel:fin"
+   ],
+   "note": "Sequoia's 'Fin' is an unresolved era-D crypto/fintech tag; Accel's is the 2015 Fin (Fin Analytics) seed; not shown to be one company, both below_1b. Ruled 2026-09-03 (agent), Erik to confirm."
+  }
  ]
 }

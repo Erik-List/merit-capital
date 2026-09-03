@@ -1,0 +1,211 @@
+{
+  "slug": "thrive-capital",
+  "wayback": {
+    "cdx_domain": "thrivecap.com",
+    "site_url_base": "https://thrivecap.com",
+    "eras": [],
+    "_eras_note": "No era of thrivecap.com ever listed portfolio companies: 2010 splash, 2011-2016 'ABOUT / CONTACT / Investor Portal' one-pager (media and internet investments), 2017-2020 same with 'internet and software', 2021+ Framer site with /, /info, /inc(ubations), /contact, /disclosure, /thrive-x. Verified 2026-09-03 from Wayback replay 2010-2023 and the Common Crawl index 2013-2026 (CDX wildcard queries refused during the IA partial outage; homepage CDX answered). The only list surface the firm publishes is the Getro job board at jobs.thrivecap.com (site_api below).",
+    "non_company_slugs": [
+      "index",
+      "home",
+      "info",
+      "inc",
+      "incubations",
+      "contact",
+      "disclosure",
+      "thrive-x",
+      "404",
+      "team",
+      "people",
+      "investors",
+      "jobs",
+      "careers",
+      "companies",
+      "company",
+      "robots.txt",
+      "sitemap.xml",
+      "cdn-cgi",
+      "css",
+      "images",
+      "default.htm",
+      "fellows",
+      "all",
+      "see-all",
+      "page",
+      "category",
+      "tag",
+      "search",
+      "login",
+      "admin",
+      "privacy",
+      "terms",
+      "legal",
+      "disclosures",
+      "news",
+      "blog",
+      "press",
+      "media"
+    ]
+  },
+  "roster": {
+    "cdx_patterns": [],
+    "site_team_groups": [],
+    "slug_re": "/(?:team|people)/([a-z][a-z0-9-]*[a-z0-9])/?$",
+    "listing_href_re": "/team/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+    "not_a_person": [
+      "index",
+      "team",
+      "people",
+      "partners",
+      "about",
+      "companies",
+      "news",
+      "contact",
+      "jobs",
+      "careers",
+      "all",
+      "filter",
+      "info",
+      "incubations",
+      "inc",
+      "thrive-x",
+      "disclosure"
+    ],
+    "_note": "thrivecap.com has no team page (/team is a 404, no people namespace was ever archived), so partner-roster.py has nothing to enumerate. sources/wayback/partner-roster.json is CURATED: ADV Schedule A officers (CRD 162771, 2026-07-06 amendment), the related persons on the firm's own fund Form Ds (Kushner, Weinstein), and press-dated partner tenures (decisions.md ruling 13). Rebuilding it means editing that file, not running the script."
+  },
+  "site_api": {
+    "type": "scrape",
+    "sources": [
+      {
+        "parser": "file_list",
+        "path": "data/collection/investors/thrive-capital/sources/site/jobs-board-companies.json",
+        "list": "jobs-board",
+        "fields": {
+          "name": "name",
+          "url": "website"
+        },
+        "extras": [
+          "board_slug",
+          "domain",
+          "description",
+          "industry_tags",
+          "locations",
+          "stage",
+          "founded",
+          "head_count",
+          "org_type"
+        ]
+      }
+    ]
+  },
+  "edgar": {
+    "seed_queries": [
+      "thrive+capital",
+      "thrive+partners",
+      "claremount",
+      "mulberry+street+management",
+      "jsc+capital+partners",
+      "north+river+angel"
+    ]
+  },
+  "desks": {
+    "home": "us",
+    "partition": [],
+    "rank": [
+      "us",
+      "unknown"
+    ],
+    "classify": [
+      {
+        "desk": "external",
+        "patterns": [
+          "thrive capital fund i",
+          "thrive capital partners, inc",
+          "mob ii thrive",
+          "svg thrive",
+          "thrive simfa",
+          "thrive global",
+          "thrive parent",
+          "thrive health",
+          "thrivell",
+          "thrivent",
+          "thrive ix access",
+          "mulberry street investment",
+          "mulberry street commercial",
+          "mulberry street films",
+          "thrive holdings",
+          "thrive eternal",
+          "etoiles",
+          "^thrive (mortgage|insurance|market|bio|pet|acquisition|therapeutics|natural|financial|wealth|advisors|asset|real estate|energy|life|medical|senior|community)"
+        ]
+      },
+      {
+        "desk": "us",
+        "patterns": [
+          "^thrive capital partners",
+          "^thrive capital management",
+          "^thrive partners",
+          "^claremount",
+          "^mulberry street management",
+          "^jsc (capital )?partners",
+          "^north river angel investments",
+          "^thrive management feeder",
+          "^thrive capital holdings",
+          "^jkm capital"
+        ]
+      }
+    ],
+    "_note": "Namesakes verified by address and CIK, never by name (decisions.md): the firm is 295 Lafayette St, New York. The Fort Washington PA wealth manager files under the SAME legal name 'Thrive Capital Management, LLC' (CIK 1845943) as the adviser (CIK 1765681); the registry carries a confirmed external desk for 1845943 because no name pattern can split them."
+  },
+  "profile": {
+    "own_vehicle_pattern": "^(thrive capital partners|thrive partners|claremount|jsc capital partners|north river angel investments|thrive capital management)",
+    "focus_min_companies": 7,
+    "focus_crosswalk": {},
+    "_note": "No site sector vocabulary exists; the base rows carry no sector tags, so build-firm-profile.py keeps the curated focus, which this run derives from the grind's focus column and records as derived (PRO-64 Phase 4)."
+  },
+  "verify": {
+    "text_mention_leaks": [],
+    "cofiler_leaks": [],
+    "known_positions": [
+      "stripe",
+      "openai",
+      "databricks",
+      "oscar health",
+      "anysphere",
+      "airtable",
+      "glossier",
+      "skims",
+      "monzo",
+      "lattice",
+      "figma",
+      "spacex",
+      "a24",
+      "ramp",
+      "physical intelligence"
+    ],
+    "sample_slugs": [
+      "openai",
+      "stripe",
+      "oscar-health",
+      "databricks",
+      "anysphere",
+      "github",
+      "instagram",
+      "mammoth-brands",
+      "doji",
+      "cityblock-health",
+      "tutorspree",
+      "clay-inc",
+      "isomorphic-labs",
+      "spacex",
+      "monzo",
+      "lattice"
+    ],
+    "shape": {
+      "one_b_share_max": 0.45,
+      "c2a_rate_max": 1.0,
+      "_note": "decisions.md ruling 13: a concentrated growth book collected without a site layer \u2014 60 of 155 rows are $1B+ because the press/recall and fund-vehicle layers surface winners, and every seed entry that the sweep can see is one whose later rounds left filings; the megafund defaults (20% / 80%) describe a 900-row site-listed base, not this one"
+    }
+  },
+  "sample_slugs": []
+}

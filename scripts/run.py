@@ -7,13 +7,17 @@ Subcommands:
             rescan once a base exists); site, wayback and partner-roster
             collection stay separate scripts because they carry judgment steps
   prepare   seed membership verdicts, run every deterministic layer, emit the
-            one work queue (membership judgments + classification gaps)
+            one work queue: each item asks for the row's membership verdict
+            (when unjudged) and every open classification column together,
+            so one judge pass answers both
   record    validate a batch's JSONL and merge it into the durable overlays;
             a line carrying "verdict" is a membership verdict, anything else
             is a classification row — one file may mix both
-  status    coverage counts, derived from disk
+  status    coverage counts, derived from disk: per-slug, need by need
   verify    assertion suite over base, membership and classification; exits
-            non-zero with the rows that need fixing
+            non-zero with the rows that need fixing. --in-flight is the
+            mid-run mode: every answered row must be consistent, but queued
+            rows and not_member rows awaiting the rebuild are not failures
   export    write the one merged CSV (the published per-investor surface)
   review    write the read-only review.html
 
@@ -39,6 +43,9 @@ violation as drift between resolved.json keys and base slugs.
 **Progress lives on disk, not in context.** The agent answering batches holds
 one batch at a time and writes it back before taking the next, so an
 interrupted run resumes at the first pending batch instead of restarting.
+Progress is measured per slug and per need (scratch/queue/queue.json holds
+every queued item with what it asked), never per batch file: batch files are
+a chunking convenience that `prepare` regenerates and renumbers freely.
 
 The rules the batches are judged under live in data/collection/COLLECTION.md
 (plus the investor's own decisions.md next to its base); a session running
@@ -235,6 +242,56 @@ def evidence_class(r: dict) -> str:
     if formd:
         return "formd_only"
     return "none"
+
+
+BATCH_RE = re.compile(r"^batch-\d{3}\.json$")
+
+# Base-row fields a queue item carries so the judge can rule membership from
+# the item alone: what evidence_class() and seed_membership() key on, plus the
+# links the verdict's citation points at.
+EVIDENCE_FIELDS = ("site_url", "wayback_years", "wayback_first_link",
+                   "edgar_forms", "edgar_links", "formd_links",
+                   "formd_accessions", "partners_site", "partners_formd")
+
+
+def queue_batches() -> list[Path]:
+    """The canonical batch files in order. Stray copies that share the glob
+    (macOS "batch-001 2.json" duplicates) are not batches."""
+    return sorted(f for f in P.queue.glob("batch-*.json") if BATCH_RE.match(f.name))
+
+
+def load_queue_items() -> list[dict]:
+    """Every queued item with its need list. queue.json is what `prepare`
+    writes; a queue from before it existed falls back to the batch files."""
+    qp = P.queue / "queue.json"
+    if qp.exists():
+        return json.loads(qp.read_text())
+    items: list[dict] = []
+    for b in queue_batches():
+        items.extend(json.loads(b.read_text()))
+    return items
+
+
+def open_needs(item: dict, verdicts: dict, merged: dict) -> list[str]:
+    """The needs of one queue item still unanswered on disk.
+
+    "membership" is answered by a ledger verdict; every other need by a
+    non-null value for that key in the merged record. A not_member verdict
+    retires the row outright: its classification needs are moot, and the row
+    leaves base.json at the next rebuild.
+    """
+    verdict = verdicts.get(item["slug"], {}).get("verdict")
+    if verdict == "not_member":
+        return []
+    rec = merged.get(item["slug"], {})
+    out = []
+    for need in item.get("need", []):
+        if need == "membership":
+            if not verdict:
+                out.append(need)
+        elif rec.get(need) is None:
+            out.append(need)
+    return out
 
 
 def write_queue(prefix: str, items: list, size: int, jsonl: bool = False) -> int:
@@ -602,7 +659,7 @@ def cmd_prepare(args) -> None:
         return None, None
 
     # ---- Consolidate and emit the queue
-    resolved, queue = {}, []
+    resolved, queue, retired = {}, [], 0
     cls_prev = load(P.classification, {})
     for row in rows:
         slug = row["slug"]
@@ -678,14 +735,23 @@ def cmd_prepare(args) -> None:
                 for r in formd.get(slug, {}).get("rounds", [])
             ],
         }
-        if slug not in verdicts:
+        verdict = verdicts.get(slug, {}).get("verdict")
+        if not verdict:
             # Membership first: judging classification for a row that may not
             # even belong in the portfolio is wasted work, so the same queue
             # item asks for the verdict alongside whatever else is open.
             need.insert(0, "membership")
-            item["partners_formd"] = row.get("partners_formd")
+        elif verdict == "not_member":
+            # Ruled out and waiting for the rebuild that drops it from
+            # base.json: nothing left to judge, no classification to spend.
+            need = []
+            retired += 1
         if need:
             e = issuer_ev.get(fd_acc, {}) if fd_acc else {}
+            # The item carries the row's evidence so the judge rules membership
+            # (and cites it) without a round-trip to base.json per row.
+            item.update({k: row.get(k) for k in EVIDENCE_FIELDS})
+            item["evidence_class"] = evidence_class(row)
             item.update({
                 "issuer_city": e.get("city"), "issuer_state": e.get("state_desc"),
                 "year_inc": e.get("year_inc"),
@@ -702,8 +768,12 @@ def cmd_prepare(args) -> None:
     flag_base_defects(resolved, layer_a, {r["slug"]: r for r in rows}, args.investor)
     P.resolved.write_text(json.dumps(resolved, indent=1))
 
+    # queue.json is the durable record of what was asked; the batch files are
+    # its chunking and are regenerated (and renumbered) on every prepare.
+    (P.queue / "queue.json").write_text(json.dumps(queue, indent=1))
     batches = write_queue("batch", queue, BATCH_SIZE)
-    print(f"\ndeterministically resolved: {len(rows) - len(queue)}/{len(rows)}")
+    print(f"\ndeterministically resolved: {len(rows) - len(queue) - retired}/{len(rows)}")
+    print(f"retired (not_member, awaiting rebuild): {retired}")
     print(f"queued for judgment       : {len(queue)} rows in {batches} batches")
 
 
@@ -891,20 +961,39 @@ def cmd_record(args) -> None:
 
 
 def cmd_status(args) -> None:
+    """Coverage from disk, per slug and per need.
+
+    A queued item is answered when every need it asked has an answer on
+    disk (open_needs); a batch is recorded when every item in it is answered.
+    Counting this way, rather than "slug has a verdict AND a classification
+    row", is what lets one queue carry membership and classification
+    together: a membership-only item completes on its verdict, and a row
+    judged not_member completes outright.
+    """
     rows = load_base(args.investor)
     _, verdicts = load_ledger(args.investor)
     cls = load(P.classification, {})
+    merged = merge_rows(rows, load(P.resolved, {}), cls)
+    base_slugs = {r["slug"] for r in rows}
     c = Counter(verdicts[r["slug"]]["verdict"] if r["slug"] in verdicts else "UNJUDGED"
                 for r in rows)
-    batches = sorted(P.queue.glob("batch-*.json"))
-    done = [b for b in batches if all(
-        r["slug"] in cls and r["slug"] in verdicts
-        for r in json.loads(b.read_text()))]
-    pending = [b.name for b in batches if b not in done]
+    items = load_queue_items()
+    open_by = {it["slug"]: open_needs(it, verdicts, merged) for it in items}
+    answered = sum(1 for o in open_by.values() if not o)
+    kinds = Counter(n for o in open_by.values() for n in o)
+    batches = queue_batches()
+    pending = [b.name for b in batches
+               if any(open_by.get(r["slug"]) or open_needs(r, verdicts, merged)
+                      for r in json.loads(b.read_text()))]
+    stale = len(set(cls) - base_slugs)
     print(f"base rows        : {len(rows)}")
     print(f"membership       : {dict(c.most_common())}")
-    print(f"batches          : {len(done)}/{len(batches)} recorded")
-    print(f"classified rows  : {len(cls)}")
+    print(f"queued           : {len(items)} items, {answered} answered, "
+          f"{len(items) - answered} open")
+    print(f"open needs       : {dict(kinds.most_common()) or 'none'}")
+    print(f"batches          : {len(batches) - len(pending)}/{len(batches)} recorded")
+    print(f"classified rows  : {len(cls)}"
+          + (f" ({stale} stale keys from earlier base versions)" if stale else ""))
     print(f"next pending     : {pending[0] if pending else 'none'}")
 
 
@@ -1007,8 +1096,14 @@ def verify_base(rows: list[dict], investor: str, problems: list[str],
             problems.append(f"sampled evidence links failing: {bad or 'none sampled'}")
 
 
-def verify_membership(rows: list[dict], investor: str, problems: list[str]) -> None:
-    """Every published row verdicted; no not_member published."""
+def verify_membership(rows: list[dict], investor: str, problems: list[str],
+                      in_flight: bool = False) -> tuple[int, int]:
+    """Every published row verdicted; no not_member published.
+
+    In flight both are expected states — unjudged rows sit in the queue, and
+    not_member rows stay in base.json until the scheduled rebuild — so they
+    are counted and reported, not failed. Returns (unjudged, awaiting rebuild).
+    """
     _, verdicts = load_ledger(investor)
     unjudged, leaked = [], []
     for r in rows:
@@ -1019,12 +1114,16 @@ def verify_membership(rows: list[dict], investor: str, problems: list[str]) -> N
             leaked.append(r["slug"])
     unc = sum(1 for r in rows
               if verdicts.get(r["slug"], {}).get("verdict") == "uncertain")
-    print(f"membership      : {len(verdicts)} verdicts, {unc} uncertain")
-    if unjudged:
-        problems.append(f"{len(unjudged)} published rows without a membership "
-                        f"verdict: {unjudged[:5]}")
-    if leaked:
-        problems.append(f"published despite not_member: {leaked[:5]}")
+    print(f"membership      : {len(verdicts)} verdicts, {unc} uncertain"
+          + (f", {len(unjudged)} unjudged, {len(leaked)} not_member awaiting rebuild"
+             if in_flight else ""))
+    if not in_flight:
+        if unjudged:
+            problems.append(f"{len(unjudged)} published rows without a membership "
+                            f"verdict: {unjudged[:5]}")
+        if leaked:
+            problems.append(f"published despite not_member: {leaked[:5]}")
+    return len(unjudged), len(leaked)
 
 
 # ---------------------------------------------------------------------------
@@ -1176,13 +1275,14 @@ def cmd_verify(args) -> None:
     problems: list[str] = []
 
     verify_base(rows, args.investor, problems, skip_links=args.skip_links)
-    verify_membership(rows, args.investor, problems)
+    unjudged, awaiting = verify_membership(rows, args.investor, problems,
+                                           in_flight=args.in_flight)
 
     # Drift tripwire: a base rebuild after prepare shows up as a key mismatch
     # against resolved.json. Stale classification keys are expected (absorbed
     # earlier-run answers) and unused by the merge.
     base_slugs = {r["slug"] for r in rows}
-    if resolved or not args.base_only:
+    if resolved or not args.in_flight:
         gone, new = set(resolved) - base_slugs, base_slugs - set(resolved)
         if gone or new:
             problems.append(f"base rebuilt since prepare: {len(gone)} resolved slugs "
@@ -1191,38 +1291,19 @@ def cmd_verify(args) -> None:
     if stale := len(set(cls) - base_slugs):
         print(f"stale classification keys: {stale} (earlier base versions)")
 
-    # A base-only run (the "company base" half of a collection, before the
-    # classification session) has nothing to assert about the columns it
-    # never wrote: full fills, source gates and citation invariants are the
-    # classification run's contract. Everything above — base structure,
-    # membership coverage, drift, published-surface currency (below) —
-    # still holds.
-    if args.base_only:
-        csv_p = P.base_csv
-        if not csv_p.exists():
-            problems.append(f"{csv_p.name} missing; run export")
-        else:
-            csv_slugs = {r["slug"] for r in csv.DictReader(open(csv_p))}
-            if csv_slugs != base_slugs:
-                problems.append(f"{csv_p.name} stale relative to the base "
-                                f"({len(csv_slugs ^ base_slugs)} slugs differ); re-run export")
-        if not P.review_html.exists():
-            problems.append("review.html missing; run review")
-        elif rows and rows[0]["name"] not in P.review_html.read_text(
-                encoding="utf-8", errors="replace"):
-            problems.append("review.html stale relative to the base; re-run review")
-        if problems:
-            print(f"\n{len(problems)} problem(s):")
-            for p in problems[:80]:
-                print("  -", p)
-            sys.exit(1)
-        print("\nverify (base-only): clean")
-        return
-
+    # In flight (the grind is under way), the full-fill assertions below are
+    # what the queue still owes, not defects: a row with no status is a row
+    # not yet answered, and it is skipped. Every answered row is held to the
+    # same consistency, source-gate and citation contract as at the end.
+    in_flight = args.in_flight
+    unanswered = 0
     merged = merge_rows(rows, resolved, cls)
     for slug, rec in merged.items():
         if not rec.get("status"):
-            problems.append(f"{slug}: no status")
+            if in_flight:
+                unanswered += 1
+            else:
+                problems.append(f"{slug}: no status")
             continue
         if rec["status"] not in VALID_STATUS:
             problems.append(f"{slug}: status {rec['status']!r} not in vocabulary")
@@ -1239,7 +1320,8 @@ def cmd_verify(args) -> None:
         # ---- full fills, tag/figure consistency
         tag, usd = rec.get("valuation_range"), rec.get("valuation_usd")
         if not tag:
-            problems.append(f"{slug}: no valuation_range")
+            if not in_flight:
+                problems.append(f"{slug}: no valuation_range")
         elif tag not in VALUATION_RANGES:
             problems.append(f"{slug}: valuation_range {tag!r} not in vocabulary")
         elif usd and tag != range_of(usd):
@@ -1247,28 +1329,36 @@ def cmd_verify(args) -> None:
         elif tag != "below_1b" and not usd:
             problems.append(f"{slug}: valuation_range {tag} without a sourced figure")
         if not rec.get("hq_country"):
-            problems.append(f"{slug}: no hq_country")
+            if not in_flight:
+                problems.append(f"{slug}: no hq_country")
         elif rec["hq_country"] not in ISO_CODES:
             problems.append(f"{slug}: hq_country {rec['hq_country']!r} is not a known "
                             f"ISO 3166-1 alpha-2 code")
         if not rec.get("entry_stage"):
-            problems.append(f"{slug}: no entry_stage")
+            if not in_flight:
+                problems.append(f"{slug}: no entry_stage")
         elif rec["entry_stage"] not in VALID_STAGES:
             problems.append(f"{slug}: entry_stage {rec['entry_stage']!r} not in vocabulary")
         # COLLECTION.md invariant 4: a bucket-visible row needs class 1/2
         # stage evidence (a citation, or the deterministic filing structure).
+        # In flight the citation debts are owed by the judge, so a row the
+        # deterministic layers pre-filled (a unicorn-list value, a public
+        # float) but no batch has answered yet is counted, not failed: the
+        # Thrive run started red on 17 such rows before its first batch.
+        judged = slug in cls
         stage_cited = bool((rec.get("entry_stage_citation") or "").strip()) \
             or rec.get("entry_stage_source") in ("formd_structural", "formd_band")
         flags_now = set(rec.get("flags") or [])
         if (rec.get("valuation_range") in ("1b_plus", "10b_plus", "100b_plus")
-                and not stage_cited and "cite_pending" not in flags_now):
+                and not stage_cited and "cite_pending" not in flags_now
+                and (judged or not in_flight)):
             problems.append(f"{slug}: $1B+ row without cited/structural entry stage "
                             f"and no cite_pending marker")
         # COLLECTION.md invariant 3: public $1B+ value is a cited market cap
         if rec.get("is_public") and rec.get("valuation_range") in (
                 "1b_plus", "10b_plus", "100b_plus") \
                 and not (rec.get("valuation_citation") or "").strip() \
-                and "cite_pending" not in flags_now:
+                and "cite_pending" not in flags_now and (judged or not in_flight):
             problems.append(f"{slug}: public $1B+ row without a cited market cap")
         # invariant 3: cohort rows are verified on both legs or carry the flag
         if rec.get("seed_to_a_graduation") is not None:
@@ -1311,11 +1401,22 @@ def cmd_verify(args) -> None:
                                 f"({', '.join(unflagged)})")
 
     if not args.skip_cross:
-        verify_cross_investor(rows, merged, args.investor, problems)
+        # In flight, an unanswered row reads None/None and cannot yet agree or
+        # disagree with anyone; only answered rows are compared.
+        cross_rows = rows if not in_flight else [
+            r for r in rows if merged.get(r["slug"], {}).get("status")]
+        verify_cross_investor(cross_rows, merged, args.investor, problems)
 
     total = len(rows)
     print(f"rows            : {total}")
-    print(f"classified      : {sum(1 for r in merged.values() if r.get('status'))}")
+    # Count over the base, not over the classification file: a rebuild that
+    # renames a slug leaves the old key behind with a status, and counting keys
+    # hid three unjudged Thrive rows behind three stale ones (2026-09-03).
+    unclassified = [r["slug"] for r in rows if not merged.get(r["slug"], {}).get("status")]
+    print(f"classified      : {total - len(unclassified)}")
+    if unclassified and not in_flight:
+        problems.append(f"base rows without a classification: {unclassified[:10]}"
+                        + (" …" if len(unclassified) > 10 else ""))
     print(f"$1B+ / $10B+ / $100B+ : {len(one_b)} / {len(ten_b)} / {len(hundred_b)}")
     bad_focus = [s for s, r in merged.items()
                  if r.get("focus") is not None and r["focus"] not in VALID_FOCUS]
@@ -1346,33 +1447,56 @@ def cmd_verify(args) -> None:
     # person-match defect was fixed: dropping ~50 misattributed near-worthless
     # rows shrinks the denominator without touching the numerator, so a cleaner
     # base legitimately shows a HIGHER winner share.
-    if one_b and len(one_b) / total > 0.20:
-        problems.append(f"$1B+ is {len(one_b)/total:.1%} of the base; expected <20%")
-    if cohort and grad / len(cohort) > 0.80:
-        problems.append(f"C2A is {grad/len(cohort):.1%}; expected <80%")
+    # Distribution guards read a partial grind as a defect, so they wait for
+    # the full mode.
+    # The expected shape is a property of the investor: a concentrated growth
+    # book collected without a site layer (thrive-capital: 155 rows, most of
+    # them press-cited winners) legitimately sits far above the megafund
+    # defaults, so config.json verify.shape may restate the ceilings with a
+    # note; the defaults stay for everyone else.
+    shape = (CFG.get("verify") or {}).get("shape") or {}
+    one_b_max = float(shape.get("one_b_share_max", 0.20))
+    c2a_max = float(shape.get("c2a_rate_max", 0.80))
+    if not in_flight:
+        if one_b and len(one_b) / total > one_b_max:
+            problems.append(f"$1B+ is {len(one_b)/total:.1%} of the base; expected <{one_b_max:.0%}")
+        if cohort and grad / len(cohort) > c2a_max:
+            problems.append(f"C2A is {grad/len(cohort):.1%}; expected <{c2a_max:.0%}")
 
     # published surfaces current: the merged CSV and review.html must reflect
-    # the live base (same slugs, same first row)
+    # the live base (same slugs, same first row). Mid-run they are re-derived
+    # at milestones, not per batch, so in flight staleness is a note.
+    surface: list[str] = []
     csv_p = P.base_csv
     if not csv_p.exists():
-        problems.append(f"{csv_p.name} missing; run export")
+        surface.append(f"{csv_p.name} missing; run export")
     else:
         csv_slugs = {r["slug"] for r in csv.DictReader(open(csv_p))}
         if csv_slugs != base_slugs:
-            problems.append(f"{csv_p.name} stale relative to the base "
-                            f"({len(csv_slugs ^ base_slugs)} slugs differ); re-run export")
+            surface.append(f"{csv_p.name} stale relative to the base "
+                           f"({len(csv_slugs ^ base_slugs)} slugs differ); re-run export")
     if not P.review_html.exists():
-        problems.append("review.html missing; run review")
+        surface.append("review.html missing; run review")
     elif rows and rows[0]["name"] not in P.review_html.read_text(
             encoding="utf-8", errors="replace"):
-        problems.append("review.html stale relative to the base; re-run review")
+        surface.append("review.html stale relative to the base; re-run review")
+    if in_flight:
+        for s in surface:
+            print(f"  note: {s}")
+    else:
+        problems.extend(surface)
 
     if problems:
         print(f"\n{len(problems)} problem(s):")
         for p in problems[:80]:
             print("  -", p)
         sys.exit(1)
-    print("\nverify: clean")
+    if in_flight:
+        print(f"\nverify (in-flight): clean — {unjudged} rows unjudged, "
+              f"{unanswered} unanswered on status, {awaiting} not_member "
+              f"awaiting rebuild")
+    else:
+        print("\nverify: clean")
 
 
 # ---------------------------------------------------------------------------
@@ -1867,9 +1991,10 @@ def main() -> None:
     p = sub.add_parser("verify"); p.set_defaults(fn=cmd_verify)
     p.add_argument("--skip-links", action="store_true",
                    help="skip the sampled evidence-link HTTP checks")
-    p.add_argument("--base-only", action="store_true",
-                   help="assert base structure + membership only (a company-base "
-                        "run before its classification session)")
+    p.add_argument("--in-flight", action="store_true",
+                   help="mid-run mode: every answered row must be consistent, but "
+                        "queued rows, missing fills and not_member rows awaiting "
+                        "the rebuild are reported rather than failed")
     p.add_argument("--skip-cross", action="store_true",
                    help="skip the cross-investor consistency section (§10 invariant 10)")
     p = sub.add_parser("export"); p.set_defaults(fn=cmd_export)
