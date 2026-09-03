@@ -1,0 +1,769 @@
+{
+  "slug": "lightspeed",
+  "generated_at": "2026-09-02T18:03:27+00:00",
+  "run": "PRO-69 autonomous in-session run (parallel with the PRO-63 base session; \u00a711 split)",
+  "fields": {
+    "name": {
+      "value": "Lightspeed Venture Partners",
+      "source": "https://adviserinfo.sec.gov/firm/summary/160187",
+      "basis": "the adviser's own registered name (IAPD, CRD 160187: 'LIGHTSPEED VENTURE PARTNERS', legal entity Lightspeed Management Company, L.L.C.); the site brands as 'Lightspeed'. The full name is published because the bare brand collides with unrelated namesakes (Lightspeed Commerce, Lightspeed Financial; decisions.md traps)"
+    },
+    "website": {
+      "value": "https://lsvp.com",
+      "source": "https://lsvp.com/",
+      "basis": "firm site"
+    },
+    "icon_url": {
+      "value": "https://lsohkkmdlrlixukuncjl.supabase.co/storage/v1/object/public/Icon%20Images/investors/lightspeed-24f85c463b.png",
+      "source": "https://lsvp.com/wp-content/uploads/2023/04/favico.svg",
+      "basis": "the firm's own site icon (SVG), normalized to the 256 PNG master and uploaded to the Icon Images bucket by scripts/fetch-investor-icon.ts (PRO-53 flow, run 2026-09-02)"
+    },
+    "founding_year": {
+      "value": 2000,
+      "source": "https://en.wikipedia.org/wiki/Lightspeed_Venture_Partners",
+      "basis": "founded 2000 by four ex-Weiss, Peck & Greer partners (Wikipedia; TechCrunch 2017-05-10 '17-year-long overnight success' interview with the co-founders; the firm's own '25-year history' framing in the December 2025 fund announcement, The Tech Portal 2025-12-16). The flagship numbering continues the founders' Weiss, Peck & Greer fund lineage, so the modern EDGAR families start at IX (2012) with legacy LSVP VII/VIII trusts still on the FY2025 ADV Schedule D"
+    },
+    "history": {
+      "value": "Founded in 2000 by four ex-Weiss, Peck & Greer partners - Barry Eggers, Ravi Mhatre, Christopher Schaepe and Peter Nieh - Lightspeed grew from a Menlo Park enterprise-and-consumer early-stage shop into a multi-stage global platform investing from the US, Europe and Israel, with sister firms (not the same adviser) in India and China. Seed-to-IPO backer of Snap, Nutanix, MuleSoft, Affirm and Rubrik; since 2012 it has put over $5.5B into 165+ AI companies including Anthropic and Mistral AI, and closed its largest raise, $9B+, in December 2025.",
+      "source": "https://en.wikipedia.org/wiki/Lightspeed_Venture_Partners",
+      "basis": "founders and 2000 founding per Wikipedia and TechCrunch 2017-05-10; the one-adviser US/Europe/Israel boundary and the separate LSIP/China firms per the firm's own about-page disclosure (lsvp.com/about, decisions.md #2-3); Snap/Nutanix/MuleSoft/Affirm/Rubrik on the firm's own companies dataset (sources/site/companies.json); the AI stats ($5.5B across 165 AI companies since 2012) and the $9B+ December 2025 raise from the firm's statement (The Tech Portal 2025-12-16; BusinessWire 2025-12-15)"
+    },
+    "investment_concept": {
+      "value": "Serving bold builders of the future.",
+      "source": "https://lsvp.com/about/",
+      "basis": "the firm's own About headline, verbatim; the companies page variant is 'Serving founders at every opportunity'. Its self-description there: 'first investor and an early backer of some of the most innovative companies in the world... we stand behind our companies with high conviction from Seed to Series F and beyond'"
+    },
+    "investment_stage": {
+      "value": [
+        "Seed",
+        "Series A",
+        "Growth",
+        "Late Stage"
+      ],
+      "source": "https://lsvp.com/companies/",
+      "basis": "the firm's own portfolio dataset labels every card with a Stage Invested value: Seed 178 + Pre-Seed 1, Series A 194, Series B-I 155 of 553 tagged rows (sources/site/companies.json); its About language claims 'from Seed to Series F and beyond' with 'first investor' positioning; the fund architecture separates the stages (XV-A 'Inception' early sleeve vs XV-B 'Ignite' growth sleeve; Select = follow-ons 'predominately Series C and beyond' per the July 2018 close release; Opportunity = late-stage breakout backing). Series B-F entries fold into Growth/Late Stage per data/taxonomy/stage.json's own buckets"
+    },
+    "investment_geo": {
+      "value": {
+        "core": [
+          "US",
+          "Europe",
+          "Israel"
+        ],
+        "other": [
+          "India",
+          "Southeast Asia",
+          "Latin America"
+        ]
+      },
+      "source": "https://lsvp.com/about/",
+      "basis": "core: the firm's own boundary statement - 'The U.S., Europe and Israel locations are offices of Lightspeed Management Company, L.L.C.' (about page); team page locations split US 94 / Europe 6 / Israel 3. Other: the companies page's own location filters (India, Southeast Asia, Latin America) on rows with LSVP participation, and the LSVP-managed deal vehicles for Indian positions (Lightspeed OYO, LLC / Lightspeed UDAAN, LLC on the FY2025 ADV Schedule D). India/SEA as core territory belongs to LSIP, a separate adviser (decisions.md #2)"
+    },
+    "investment_scope": {
+      "value": {
+        "type": "Generalist",
+        "focus": [
+          "SaaS",
+          "Consumer & Marketplaces",
+          "AI & Applied AI",
+          "Fintech & Payments",
+          "Healthcare & Bio",
+          "Crypto & Web3",
+          "Media, Gaming & Advertising"
+        ]
+      },
+      "source": "https://lsvp.com/companies/",
+      "basis": "the firm's own sector filter vocabulary on the companies page (Enterprise 243, Consumer 144, AI 75, Fintech 50, Healthcare 42, Blockchain 25, Gaming 18 rows in the server-rendered filter views), crosswalked to data/taxonomy/focus.json via config.json profile.focus_crosswalk; ordered by the firm's own row counts. Generalist: multi-sector portfolio, no single-sector thesis (the two-part PRO-7 test fails on both legs). The base-tag recompute replaces this enumeration when base sector coverage reaches 25% (build-firm-profile.py)"
+    },
+    "investment_range": {
+      "value": {
+        "lower_limit": 485000,
+        "median": 17000000,
+        "upper_limit": 13000000000
+      },
+      "source": "sources/edgar/formd-sweep.json",
+      "basis": "Median: partner-anchored entry-round median $17,500,002 across 115 membership-verified base companies with priced Form D histories (360 rounds; 32 entries anchored past pre-investor rounds, 0 unanchored), on the PRO-63 ledger-complete base (931 rows, 955 member verdicts) and the refreshed issuer-rounds rescan (381 histories); published as $17M. p10 $3.0M, p25 $7.0M, p75 $35.0M, p90 $100.0M (scratch/verified-median.json). Pre-base corroboration: $17,251,420 over the 71 site-list-confirmed issuers of the roster sweep (scratch/interim-median.json) - stable across both populations. A round-size proxy for check size, fair for a high-ownership lead investor. | Lower limit: the $485,000 sole-investor Snapchat seed (May 2012, Jeremy Liew; Slate 2013-12, TechCrunch 2017-02-25) - a documented smallest-entry class, not a program floor. | Upper limit: the $13B Anthropic Series F (announced 2025-09-02, $183B post) which Lightspeed CO-LED with ICONIQ (lead) and Fidelity (anthropic.com/news/anthropic-raises-series-f-at-usd183b-post-money-valuation) - a co-led round figure, not a single-check claim; Lightspeed's own commitment reported ~$1B (The Tech Portal 2025-12-16). Dry-powder check: Opportunity III ($3.28B) at 10-15% single-position concentration supports $330-495M positions; the 2025 $1.25B single-asset vehicles plus Co-Investment Fund I ($601M) explain capacity above that"
+    },
+    "notable_investments": {
+      "value": [
+        "Affirm",
+        "Anthropic",
+        "Epic Games",
+        "Mistral AI",
+        "MuleSoft",
+        "Rubrik",
+        "Snap",
+        "Wiz"
+      ],
+      "source": "https://lsvp.com/companies/",
+      "basis": "Membership asserted two ways: against the firm's own live companies dataset during the base-less phase (all eight LSVP-attributed with first-party Stage Invested / Backed Since fields: Snap Seed 2012, Anthropic Series D 2024, Mistral AI Seed 2023, Wiz Series D 2023, Affirm Series B 2013, MuleSoft Series B 2007, Rubrik Series A 2014, Epic Games Common 2020), and against ledger member verdicts on the membership-complete base (931 rows, 2026-09-02) by build-firm-profile.py at every build since. Selection among members is recognition judgement per PRO-7; Nutanix (Series A 2010, IPO) also qualifies on evidence and was dropped on household recognition"
+    },
+    "aum": {
+      "value": {
+        "bottom": 50005412721,
+        "top": 50005412721
+      },
+      "source": "https://reports.adviserinfo.sec.gov/reports/ADV/160187/PDF/160187.pdf",
+      "basis": "Form ADV Item 5.F, Lightspeed Management Company, L.L.C. (CRD 160187, SEC 801-132552, RIA effective 2025-04-28; ERA status withdrawn 2025-03-27), annual amendment filed 2026-05-06 for FY2025, re-pulled and re-parsed at run time 2026-09-02: RAUM $50,005,412,721 (discretionary $47,322,785,837 across 50 accounts + non-discretionary $2,682,626,884 in 1 account, 51 pooled vehicles; $32.1B attributable to non-US-person clients). Parse proof: the Schedule D Section 7.B.(1) roster (51 private funds keyed by 805- fund IDs, scratch/adv-7b-roster.json) sums to the same figure to the dollar, and the single non-discretionary account is exactly LS INVESTMENTS C, L.P. ($2,682,626,884). Both range ends are the one sworn number: the US, Europe and Israel desks sit inside this single adviser (decisions.md #1), and the separately-registered affiliates are excluded from AUM and funds per the boundary (Lightspeed Faction, CRD 318821; LSIP, ERA CRD 310954 - the SCGE precedent). Press: the firm said 'more than $40 billion in assets globally' in the December 2025 raise coverage (The Tech Portal 2025-12-16), below the sworn RAUM (RAUM is gross regulatory assets, uncalled commitments included), so the sworn number is published and the press figure is flagged"
+    },
+    "funds": {
+      "value": [
+        {
+          "name": "Lightspeed Opportunity Fund III, L.P.",
+          "size": 3282519005,
+          "vintage": 2025,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D/A 2025q4 (accession 0000950103-25-016146): $3,282,519,005 sold. December 2025 close."
+            },
+            {
+              "source": "https://www.privateequitymarketeer.com/fund-closes/lightspeed-closes-over-9b-in-new-funds-aimed-at-backing-category-definers-worldwide",
+              "note": "The firm's December 2025 announcement (BusinessWire 2025-12-15): $3.3B Opportunity Fund III, the late-stage leg of the $9B+ raise; the filed amount is published."
+            }
+          ],
+          "accession": "0000950103-25-016146"
+        },
+        {
+          "name": "Lightspeed Opportunity Fund II, L.P.",
+          "size": 2360000000,
+          "vintage": 2022,
+          "sources": [
+            {
+              "source": "https://www.debevoise.com/news/2022/07/debevoise-advises-lightspeed-in-the-closing-of-f",
+              "note": "July 2022 close: $2.36B of the $7.1B four-fund raise (with XIV-A/B, Select V and the excluded LSIP Fund IV). Backs 'breakout companies from across all of the global territories'."
+            },
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2021q4 (accession 0001893756-21-000002): Indefinite offering, sold $0 at filing - the firm's filing style leaves no filed amount to assert; press size published."
+            }
+          ]
+        },
+        {
+          "name": "Lightspeed Venture Partners Select V, L.P.",
+          "size": 2260000000,
+          "vintage": 2022,
+          "sources": [
+            {
+              "source": "https://www.debevoise.com/news/2022/07/debevoise-advises-lightspeed-in-the-closing-of-f",
+              "note": "July 2022 close: $2.26B follow-on fund in the $7.1B raise."
+            },
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2021q4 (accession 0001893773-21-000002): Indefinite offering, sold $0 at filing; press size published."
+            }
+          ]
+        },
+        {
+          "name": "Lightspeed Venture Partners XIV-A/B (Inception / Ignite), L.P.",
+          "size": 1980000000,
+          "vintage": 2022,
+          "sources": [
+            {
+              "source": "https://www.debevoise.com/news/2022/07/debevoise-advises-lightspeed-in-the-closing-of-f",
+              "note": "July 2022 close: $1.98B for the fourteenth flagship, announced as one fund across two sleeves - XIV-A (Inception, earliest stages) and XIV-B (Ignite, growth); the per-sleeve split is not disclosed."
+            },
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Two Form Ds 2021q4, one per sleeve (accessions 0001893662-21-000002 XIV-A, 0001895136-21-000002 XIV-B): Indefinite offerings, sold $0 at filing; press size published for the pair."
+            }
+          ]
+        },
+        {
+          "name": "Lightspeed Venture Partners Select IV, L.P.",
+          "size": 1830000000,
+          "vintage": 2020,
+          "sources": [
+            {
+              "source": "https://www.debevoise.com/news/2020/04/debevoise-advises-lightspeed-in-the-closing",
+              "note": "April 2020 close: $1.83B follow-on fund in the $4.2B three-fund raise."
+            },
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2020q1 (accession 0001805207-20-000003): Indefinite offering, sold $0 at filing; press size published."
+            }
+          ]
+        },
+        {
+          "name": "Lightspeed Venture Partners Select VI, L.P.",
+          "size": 1744514117,
+          "vintage": 2025,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D/A 2025q4 (accession 0000950103-25-016144): $1,744,514,117 sold. Press (December 2025) rounds to $1.8B; the filed amount is published."
+            },
+            {
+              "source": "https://www.privateequitymarketeer.com/fund-closes/lightspeed-closes-over-9b-in-new-funds-aimed-at-backing-category-definers-worldwide",
+              "note": "The firm's December 2025 announcement: $1.8B Select VI in the $9B+ raise."
+            }
+          ],
+          "accession": "0000950103-25-016144"
+        },
+        {
+          "name": "Lightspeed Opportunity Fund, L.P.",
+          "size": 1500000000,
+          "vintage": 2020,
+          "sources": [
+            {
+              "source": "https://www.debevoise.com/news/2020/04/debevoise-advises-lightspeed-in-the-closing",
+              "note": "April 2020 close: $1.5B, the first Opportunity fund, 'a new fund vehicle for the Lightspeed platform to back breakout companies'."
+            },
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2019q3 (accession 0001780948-19-000002): Indefinite offering, sold $0 at filing; press size published. Vintage 2020 per the announced close, though the first filing is 2019q3."
+            }
+          ]
+        },
+        {
+          "name": "Lightspeed Venture Partners Select III, L.P.",
+          "size": 1360000000,
+          "vintage": 2018,
+          "sources": [
+            {
+              "source": "https://www.spglobal.com/marketintelligence/en/news-insights/trending/O58iAl3dKnbAKp2n013ayA2",
+              "note": "S&P Global on the 2019 amendment: $1.36B for Select III after a $311.8M additional closing (announced at $1.05B in July 2018, finsmes 2018-07)."
+            },
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Select III and XII co-file one Form D (joint filing, accessions 0001735240-18-000001 / 0001735253-18-000001 / 0001735240-19-000001): combined sold $1,802,000,000 at the July 2018 close, $2,113,827,411 after the 2019q2 amendment - the per-fund split is S&P's, and the arithmetic closes exactly ($752.0M + $1,361.8M = $2,113.8M). No accession is asserted because the filed amount is the pair's."
+            }
+          ]
+        },
+        {
+          "name": "Lightspeed Venture Partners XV-B (Ignite), L.P.",
+          "size": 1194948730,
+          "vintage": 2025,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D/A 2025q4 (accession 0000950103-25-016147): $1,194,948,730 sold. Press rounds to $1.2B; the filed amount is published."
+            },
+            {
+              "source": "https://www.privateequitymarketeer.com/fund-closes/lightspeed-closes-over-9b-in-new-funds-aimed-at-backing-category-definers-worldwide",
+              "note": "The firm's December 2025 announcement: $1.2B Fund XV-B, the growth sleeve of the fifteenth flagship."
+            }
+          ],
+          "accession": "0000950103-25-016147"
+        },
+        {
+          "name": "Lightspeed Venture Partners XV-A (Inception), L.P.",
+          "size": 977685324,
+          "vintage": 2025,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D/A 2025q4 (accession 0000950103-25-016145): $977,685,324 sold. Press rounds to $980M; the filed amount is published."
+            },
+            {
+              "source": "https://www.privateequitymarketeer.com/fund-closes/lightspeed-closes-over-9b-in-new-funds-aimed-at-backing-category-definers-worldwide",
+              "note": "The firm's December 2025 announcement: $980M Fund XV-A, the early-stage sleeve of the fifteenth flagship."
+            }
+          ],
+          "accession": "0000950103-25-016145"
+        },
+        {
+          "name": "Lightspeed Venture Partners XIII, L.P.",
+          "size": 890000000,
+          "vintage": 2020,
+          "sources": [
+            {
+              "source": "https://www.debevoise.com/news/2020/04/debevoise-advises-lightspeed-in-the-closing",
+              "note": "April 2020 close: $890M thirteenth flagship 'to support bold founders in their earliest stages' in the enterprise and consumer practices."
+            },
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2020q1 (accession 0001805207-20-000004): Indefinite offering, sold $0 at filing; press size published."
+            }
+          ]
+        },
+        {
+          "name": "Lightspeed Venture Partners XII, L.P.",
+          "size": 752000000,
+          "vintage": 2018,
+          "sources": [
+            {
+              "source": "https://www.spglobal.com/marketintelligence/en/news-insights/trending/O58iAl3dKnbAKp2n013ayA2",
+              "note": "S&P Global on the 2019 amendment: $752.0M for the twelfth flagship (announced at $750M in July 2018, finsmes 2018-07)."
+            },
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Joint Form D with Select III (see that entry): the filed amounts are the pair's combined totals, so no accession is asserted per fund."
+            }
+          ]
+        },
+        {
+          "name": "Lightspeed Venture Partners XI, L.P.",
+          "size": 715000000,
+          "vintage": 2016,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2016q1 (accession 0001667980-16-000002): $715,000,000 sold."
+            },
+            {
+              "source": "https://techcrunch.com/2016/03/09/lightspeed-venture-partners-raises-1-2-billion",
+              "note": "TechCrunch 2016-03-09: the $1.2B March 2016 raise (XI $715M + Select II $500M)."
+            }
+          ],
+          "accession": "0001667980-16-000002"
+        },
+        {
+          "name": "Lightspeed Co-Investment Fund I, L.P.",
+          "size": 601269350,
+          "vintage": 2025,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D/A 2025q4 (accession 0000950103-25-016148): $601,269,350 sold. Press rounds to $600M; the filed amount is published."
+            },
+            {
+              "source": "https://www.privateequitymarketeer.com/fund-closes/lightspeed-closes-over-9b-in-new-funds-aimed-at-backing-category-definers-worldwide",
+              "note": "The firm's December 2025 announcement: the $600M co-investment vehicle of the $9B+ raise."
+            }
+          ],
+          "accession": "0000950103-25-016148"
+        },
+        {
+          "name": "Lightspeed Venture Partners Select II, L.P.",
+          "size": 500000000,
+          "vintage": 2016,
+          "sources": [
+            {
+              "source": "sources/edgar/fund-formds.json",
+              "note": "Form D 2016q1 (accession 0001667980-16-000003): $500,000,000 sold."
+            },
+            {
+              "source": "https://techcrunch.com/2016/03/09/lightspeed-venture-partners-raises-1-2-billion",
+              "note": "TechCrunch 2016-03-09: the follow-on leg of the $1.2B March 2016 raise."
+            }
+          ],
+          "accession": "0001667980-16-000003"
+        }
+      ],
+      "source": "sources/edgar/fund-formds.json",
+      "basis": "15 funds, vintage 2016-2025, from the full Lightspeed* Form D issuer sweep over the local 2008q1-2026q2 bulk datasets plus live EDGAR full-text search for 2026q3 (51 own vehicles, 63 filings in sources/edgar/fund-formds.json). Where a fund filed a real sold amount it is asserted against the filing at build time (7 entries with accessions: XI, Select II, and the five December 2025 closes). The firm's modern filing style is an Indefinite offering with $0 sold at first filing and no amendment until close - so unlike Accel, a total-offering cross-check is structurally unavailable, and the 2020-2022 generations (XIII, Select IV, Opportunity I, XIV-A/B, Select V, Opportunity II) publish press sizes with the filings as existence corroboration. XII and Select III co-file one Form D; their split is S&P's read of the 2019 amendment and sums to the filed total exactly. Excluded from the list, with the treatment flagged: the SIV/SPV/access-vehicle trail (AI Renaissance, Ascent $1.14B GAV, Velocity, Platinum, Luminous VI-A/B, M2/M1-B, Affiliates X, Strategic Partners I, the SPV-* and *-Holdings series, LS Opportunities Access funds, LS Investments C - the ADV's one non-discretionary account, OYO/UDAAN deal vehicles, legacy VII/VIII trusts), the $1.25B of 2025 single-investor vehicles (press, no per-vehicle sizes), and the ~$600M August 2026 continuation vehicle (decisions.md #6: fund plumbing). Pre-2016 families (X + Select I, IX and earlier) predate the 10-year window. China I-IV + China Select I, India Partners I-V and the Faction funds are separate firms (decisions.md #2-4) and are excluded from the sweep file itself"
+    },
+    "hq_location": {
+      "value": "Menlo Park, CA",
+      "source": "sources/edgar/formd-sweep.json",
+      "basis": "issuer address on 34 of 35 of the firm's own Form D filings. Filing-grade."
+    },
+    "individuals": {
+      "value": [
+        {
+          "name": "Aaron Frank",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/arfrank/",
+            "x_url": "https://x.com/arfrank"
+          }
+        },
+        {
+          "name": "Alexa Boghosian",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/alexaboghosian/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Alexander Schmitt",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/alexander-schmitt-9331b593/",
+            "x_url": "https://x.com/alex_schmitti"
+          }
+        },
+        {
+          "name": "Amber Yang",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/amber-yang/",
+            "x_url": "https://x.com/theamberyang"
+          }
+        },
+        {
+          "name": "Amish Desai",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/aadesai/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Anoushka Vaswani",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/anoushka-vaswani-aa330017/",
+            "x_url": "https://x.com/anoushkavaswani"
+          }
+        },
+        {
+          "name": "Antoine Moyroud",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/antoinemoyroud/",
+            "x_url": "https://x.com/antoine_moyroud"
+          }
+        },
+        {
+          "name": "Barry Eggers",
+          "position": "Co-Founder",
+          "socials": {
+            "linkedin_url": "http://www.linkedin.com/pub/barry-eggers/2/369/3b6",
+            "x_url": "https://x.com/#!/BarryEggers"
+          }
+        },
+        {
+          "name": "Bejul Somaia",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/bejul-somaia-ba415/",
+            "x_url": "https://x.com/bsomaia"
+          }
+        },
+        {
+          "name": "Bucky Moore",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/buckymoore/",
+            "x_url": "https://x.com/buckymoore"
+          }
+        },
+        {
+          "name": "Charlie Ferguson",
+          "position": "Senior Associate, Capital Markets",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/charlie-f-293010b2/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Claire Zau",
+          "position": "Partner & New Media",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/clairezau/",
+            "x_url": "https://x.com/clairejyz"
+          }
+        },
+        {
+          "name": "David Gussarsky",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/davidgussarsky",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Dev Khare",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/dkhare/",
+            "x_url": "https://x.com/dkhare"
+          }
+        },
+        {
+          "name": "Dr. Brenton Fargnoli",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/brentonfargnoli/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Dr. Galym Imanbayev",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/galymimanbayev/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Dr. Shelley Chu",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Eli Conniff",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/elijahconniff/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Elijah Sutanto",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/elijah-sutanto-851751116/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Faraz Fatemi",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/ffatemi21/",
+            "x_url": "https://x.com/f_fatemi21"
+          }
+        },
+        {
+          "name": "Gaurav Gupta",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/ggupta/",
+            "x_url": "https://x.com/gauravgram"
+          }
+        },
+        {
+          "name": "Guru Chahal",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/guruchahal/",
+            "x_url": "https://x.com/guruchahal"
+          }
+        },
+        {
+          "name": "Henry Ni",
+          "position": "Head of Value Creation",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/henrywni/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Isaac Kim",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/kimisaac/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "James Alcorn",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/james-alcorn-b04880ba/",
+            "x_url": "https://x.com/JamesAlcorn94"
+          }
+        },
+        {
+          "name": "James Ephrati",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jamesephrati/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jonah Cader",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jonah-cader/",
+            "x_url": "https://x.com/jonahcader"
+          }
+        },
+        {
+          "name": "Justin Overdorff",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jmover/",
+            "x_url": "https://x.com/jmover"
+          }
+        },
+        {
+          "name": "Justin Shen",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/justincshen/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Kat Zhang",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/kat-zhang/",
+            "x_url": "https://x.com/katkzhang"
+          }
+        },
+        {
+          "name": "Lina Zhuo",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/linazhuo666/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Lisa Han",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/lisabethhan/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Mark Sui",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/marksui/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Naveed Matinfar",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/naveed-matinfar-4790a3143/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Nnamdi Iregbulem",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/nnamdiiregbulem/",
+            "x_url": "https://x.com/whoisnnamdi"
+          }
+        },
+        {
+          "name": "Peter Nieh",
+          "position": "Co-Founder",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://x.com/peterlsvp"
+          }
+        },
+        {
+          "name": "Prathik Hosalli",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/prathikhosalli/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Ravi Mhatre",
+          "position": "Partner & Co-Founder",
+          "socials": {
+            "linkedin_url": "http://www.linkedin.com/in/ravimhatre",
+            "x_url": "https://x.com/#!/ravi_lsvp"
+          }
+        },
+        {
+          "name": "Raviraj Jain",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/ravirajjain",
+            "x_url": "https://x.com/#!/ravirajjain"
+          }
+        },
+        {
+          "name": "Sachin Patel",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/sachpat/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Sam Eisler",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/sam-eisler/",
+            "x_url": "https://x.com/seisler1"
+          }
+        },
+        {
+          "name": "Sebastian Duesterhoeft",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Shaurya Aggarwal",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/shauryaaggarwal/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Tal Morgenstern",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://il.linkedin.com/in/talmorgenstern",
+            "x_url": "https://x.com/#!/talmorgenstern"
+          }
+        },
+        {
+          "name": "Will Kohler",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/profile/view",
+            "x_url": "https://x.com/#!/wakohler"
+          }
+        },
+        {
+          "name": "Yoni Cheifetz",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        }
+      ],
+      "source": "sources/site/team-members.json",
+      "basis": "Live team CMS: 46 members. Positions are CMS titles (6 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 89 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 42 LinkedIn, 24 X."
+    }
+  },
+  "flags": [
+    {
+      "field": "aum",
+      "severity": "medium",
+      "note": "Single sworn number, both range ends: the one RIA covers all three desks (unlike Accel, no in-boundary ERA adds a second sworn figure). The FY2025 ADV predates the December 2025 closes (XV-A/B, Select VI final, Opportunity III final, Co-Invest I) and the 2026 vehicles (M2, Velocity, Platinum, AI Renaissance, INF/NH/SU Holdings, SPV-A4/A5/OB2), so current RAUM is higher. Press '>$40B globally' (Dec 2025) is below the sworn floor and is not published. The $32.1B non-US-person attribution is the ADV's own figure and does not contradict the US-led firm reading (fund vehicles are largely Cayman/Delaware partnerships with global LPs)."
+    },
+    {
+      "field": "funds",
+      "severity": "medium",
+      "note": "Filing-style caveat: Indefinite offerings with $0 sold at first filing mean six of the fifteen sizes rest on press alone (XIII, Select IV, Opportunity I, XIV-A/B, Select V, Opportunity II - all Debevoise-confirmed closes). XIV-A/B is published as one entry at the announced $1.98B because the sleeve split is undisclosed. XII/Select III sizes are S&P's split of a joint filing (sums to the filed $2,113.8M exactly); Select III's July 2018 close was $1.05B before the 2019 $311.8M additional closing. Where press and filing disagree the filed amount is published (Select VI $1.745B vs press $1.8B; XV-A $977.7M vs $980M; XV-B $1,194.9M vs $1.2B; Co-Invest I $601.3M vs $600M)."
+    },
+    {
+      "field": "investment_range",
+      "severity": "high",
+      "note": "Median recomputed on the membership-verified base after PRO-63's checkpoint 2 (2026-09-02): $17.5M over 115 verified members vs $17.25M on the pre-base site-confirmed subset - published $17M unchanged, stable across both populations. Priced Form D rounds only; SAFE and 4(a)(2) rounds do not file, so the small end is under-sampled, and the partner-anchored first filing is a ceiling on entry recency, so some anchors sit later than the true entry round (32 of 115 entries anchored past pre-investor rounds). Floor is a documented smallest-entry class ($485K sole-investor Snapchat seed, 2012), not a program floor - Lightspeed runs no stated-check program like Accel Atoms. Ceiling is a co-led round figure (Anthropic Series F $13B, 2025-09-02), not a check; Lightspeed's own commitment reported ~$1B across vehicles."
+    },
+    {
+      "field": "investment_stage",
+      "severity": "medium",
+      "note": "Published coarse (Seed, Series A, Growth, Late Stage) per the taxonomy's own buckets: the site's 553 stage-tagged rows run Pre-Seed (1) through Series I, with 155 Series B-I entries folding into Growth/Late Stage. Pre-Seed is deliberately not claimed (one row; scouts/fellowships are out per decisions.md #5). Widen to name Series B/C explicitly in review if preferred (82 and 45 site-labeled entries)."
+    },
+    {
+      "field": "investment_geo",
+      "severity": "high",
+      "note": "Core carries three labels (US, Europe, Israel) per PRO-69's explicit instruction, exceeding PRO-7's cap of two for the leaderboard row. Erik's call at review: keep three or demote Israel to other. India/SEA sit in other, not core, because they are LSIP's territory (decisions.md #2) - LSVP touches them only through main-list co-listed rows and its own OYO/UDAAN vehicles. 'Global' and per-metro labels from the site's location filter are not published."
+    },
+    {
+      "field": "notable_investments",
+      "severity": "medium",
+      "note": "All eight verified as ledger member verdicts on the membership-complete base (PRO-63 checkpoint 2, 2026-09-02); the earlier base-less site assertion stands as lineage. Wiz is Acquired as of 2026-03-11 (Google, $32B closed; the site's own Status field still said Private at capture - first-party staleness recorded for the base session's status layer). Snap/Affirm/Rubrik public, MuleSoft acquired (Salesforce 2018), Anthropic/Epic Games/Mistral AI private. Swap candidates in review if preferred"
+    },
+    {
+      "field": "investment_scope",
+      "severity": "medium",
+      "note": "Focus is the curated crosswalk of the firm's own 7-sector filter vocabulary (the two non-sector filter values, Growth and Growth Private Equity, and the Spotlight label are not sectors and are unmapped). Gaming (18 rows) and Blockchain (25 rows) sit at or below the 25-company recompute threshold - they are published here because the firm itself promotes the filters; the post-base recompute will threshold them out unless base tags disagree. Security is notably absent from the firm's own vocabulary despite Wiz/Netskope/Rubrik/Cato (they tag as Enterprise/AI): expect the base-tag recompute to surface it - a positioning-vs-behaviour gap worth keeping, not an error."
+    },
+    {
+      "field": "individuals",
+      "severity": "medium",
+      "note": "Scope: the 46 people under the site's own Investors filter (LSVP only; the LSIP firm filter is excluded per decisions.md #2). The 24 Venture and Operating Partners and 33 Specialists are not published - the Investors group is the site's own investing-team boundary. Card titles are flat ('Partner' x40, two Co-Founders, one Partner & Co-Founder, plus three operational titles the site files under Investors); three profiles' meta titles differ from their cards (Aaron Frank and Amber Yang 'Venture Partner', Dev Khare 'Partner & Advisor') - the card presentation is published."
+    }
+  ]
+}

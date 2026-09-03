@@ -231,6 +231,21 @@ test after any protocol change.
    a degraded-CDX fallback (statuscode-filtered queries time out during
    outages while unfiltered ones answer).
 
+   Three rules measured on Lightspeed: **the firm's early site may live
+   on another domain entirely** — an era entry carries its own
+   `cdx_domain` / `site_url_base` (lightspeedvp.com 2000–2012 while
+   lsvp.com sat parked on a squatter page; an empty archive under the
+   current domain is not a coverage gap until the old domain is
+   checked). **Parsed year files merge across capture universes**
+   (keyed slug+path): the IA pull and the Common Crawl pull write the
+   same per-year shape from different capture sets, and each must
+   survive the other's re-runs. **When CDX refuses but replay answers**
+   (the 2026-09 partial outage: connection-refused CDX, working
+   replay), year-targeted replay redirects fetched into wayback-pull's
+   own raw/parsed shapes — true snapshot timestamps recovered from the
+   rewritten URLs — keep the layer moving and converge with the
+   eventual CDX pull.
+
    **Layer 1b — the site's own surfaces**, for the current portfolio that
    archives and SEC both structurally miss (JS-rendered pages defeat CDX
    enumeration; Section 4(a)(2) raises file no Form D).
@@ -242,6 +257,16 @@ test after any protocol change.
    their own company lists, vertical-fund sites (crypto, bio) whose rows
    appear on no other list. The base is the union (a16z: four surfaces,
    1,703-company union; 27 rows lived only on the crypto site).
+
+   **A shared-brand site's own attribution can be newer than its
+   archives** (Lightspeed: the per-card lsvp/lsip firm attribute
+   postdates the January-2026 snapshot, so archived cards render the
+   sister firm's rows with home-domain links — 61 of 65 boundary rows
+   built base rows on captures alone). Where the live site attributes
+   rows to a sister firm, archived listing years from that surface are
+   not, alone, home-firm listing evidence; membership resolves by the
+   current attribution plus independent vehicle or partner evidence,
+   recorded as a standing ruling in the investor's decisions file.
 
    Escalation ladder per surface, in order:
 

@@ -11,9 +11,12 @@ columns are PRO-66, which continues on this base after Erik's sample
 sign-off; the review surface shows the deterministic pre-fills (SEC
 float, Wikidata, unicorn list) with their flags, judged by no one yet.
 
-**Prompt count: 1 so far** — the kickoff ("please execute lightspeed
-base collection"). Checkpoint approvals requested: 0; checkpoint
-statuses posted-and-continued: 2. Final only after sample sign-off.
+**Prompt count: 2, final** — (1) the kickoff ("please execute
+lightspeed base collection"), (2) the sample sign-off carrying the
+classification go-ahead. Checkpoint approvals requested: 0; checkpoint
+statuses posted-and-continued: 2. **Erik sampled the review with zero
+corrections; sign-off recorded 2026-09-03; PRO-63 marked Done.** The
+COLLECTION.md write-back landed with the close commit.
 
 ### 1. Result
 
@@ -300,11 +303,12 @@ hq recompute.
   2026 continuation vehicle (decisions.md #6), and the China/India/Faction
   families (rulings 2–4).
 - investment_range: floor $485K (the sole-investor Snapchat seed, 2012);
-  median $17M interim ($17,251,420 over 71 priced site-confirmed entries
-  of the partner sweep; p10 $4.5M / p25 $9.0M / p75 $35.0M / p90 $80.0M;
-  recomputes over the verified base when PRO-63 lands); ceiling $13B (the
-  Anthropic Series F the firm co-led, 2025-09-02; own commitment reported
-  ~$1B).
+  median $17M — recomputed on the membership-verified base after PRO-63's
+  checkpoint 2: $17,500,002 over 115 verified members with priced Form D
+  histories (32 entries anchored past pre-investor rounds), vs $17.25M on
+  the pre-base site-confirmed subset (71 entries) — stable across both
+  populations, published value unchanged; ceiling $13B (the Anthropic
+  Series F the firm co-led, 2025-09-02; own commitment reported ~$1B).
 - notable_investments: 8 of the 9 issue candidates (Nutanix dropped on
   household recognition), all base-less-asserted against the firm's own
   companies dataset with first-party entry fields; Wiz carried as acquired
@@ -339,10 +343,12 @@ sign-off.
 
 ### Debt
 
-- `investment_range.median` interim until the base lands (§11); re-run
-  `build-firm-profile.py` after PRO-63's ledger reaches full coverage so
-  notable_investments re-asserts, focus recomputes against base tags, and
-  the median recomputes over membership-verified rows.
+- ~~`investment_range.median` interim until the base lands~~ — CLEARED
+  same day: PRO-63 hit full ledger coverage at checkpoint 2 and the §11
+  post-base pass ran (median verified over 115 members, notables
+  ledger-asserted at build, focus recompute correctly skipped at 0/931
+  base sector tags — the curated enumeration stands until PRO-66 lands
+  sector tags, when the recompute publishes automatically).
 - FY2025 ADV predates the Dec 2025 closes; RAUM refreshes at the next
   annual amendment (~2027-03).
 - The XIV-A/XIV-B sleeve split is undisclosed; published as one $1.98B
