@@ -20,13 +20,21 @@ COLLECTION.md write-back landed with the close commit.
 
 ### 1. Result
 
-**931 published rows** — 627 Tier A / 294 Tier B / 10 Tier C — every
-row an affirmed **member** (0 uncertain), plus **333 not_member rows**
-and 1 other_desk row preserved in `excluded.csv`. Ledger: 1,288
-verdicts (orphaned keys from merge canonicalization expected). By
-author: 968 evidence-class seeds surviving as-is, ~320 judge verdicts
-(gate fixes, the LSIP book, the China sweep, the 273-row Tier C grind,
-recall). 24 identity-merge groups applied.
+**931 published rows at base sign-off** — 627 Tier A / 294 Tier B / 10
+Tier C — every row an affirmed **member** (0 uncertain), plus **333
+not_member rows** and 1 other_desk row preserved in `excluded.csv`.
+Ledger: 1,288 verdicts (orphaned keys from merge canonicalization
+expected). By author: 968 evidence-class seeds surviving as-is, ~320
+judge verdicts (gate fixes, the LSIP book, the China sweep, the 273-row
+Tier C grind, recall). 24 identity-merge groups applied.
+
+*(The published base later settled at **875 rows** during PRO-66
+classification: a second China sweep excluded 41 more Lightspeed-China
+rows whose only listings were 2019+ archived-`/companies/` captures —
+the ruling-10 class the first sweep couldn't reach — plus 13 further
+identity merges and the apna/pixxel LSIP corrections. See §PRO-66 for
+the reconciliation; this section documents the base as it stood at
+Erik's sign-off.)*
 
 Evidence coverage: 600 rows on the firm's own current card list (569
 `lsvp` + 31 `both`), 1,057 distinct capture-layer slugs 2001–2026
@@ -448,12 +456,12 @@ hq recompute.
   2026 continuation vehicle (decisions.md #6), and the China/India/Faction
   families (rulings 2–4).
 - investment_range: floor $485K (the sole-investor Snapchat seed, 2012);
-  median $17M — recomputed on the membership-verified base after PRO-63's
-  checkpoint 2: $17,500,002 over 115 verified members with priced Form D
-  histories (32 entries anchored past pre-investor rounds), vs $17.25M on
-  the pre-base site-confirmed subset (71 entries) — stable across both
-  populations, published value unchanged; ceiling $13B (the Anthropic
-  Series F the firm co-led, 2025-09-02; own commitment reported ~$1B).
+  median $18M final — tracked the base through both shifts and stayed
+  within $650K: $17.25M pre-base (71 site-confirmed sweep entries) →
+  $17.50M at the 931-row checkpoint (115 members) → $17,875,690 on the
+  final 875-row post-classification base (112 members, 31 anchored past
+  pre-investor rounds); ceiling $13B (the Anthropic Series F the firm
+  co-led, 2025-09-02; own commitment reported ~$1B).
 - notable_investments: 8 of the 9 issue candidates (Nutanix dropped on
   household recognition), all base-less-asserted against the firm's own
   companies dataset with first-party entry fields; Wiz carried as acquired
@@ -488,12 +496,14 @@ sign-off.
 
 ### Debt
 
-- ~~`investment_range.median` interim until the base lands~~ — CLEARED
-  same day: PRO-63 hit full ledger coverage at checkpoint 2 and the §11
-  post-base pass ran (median verified over 115 members, notables
-  ledger-asserted at build, focus recompute correctly skipped at 0/931
-  base sector tags — the curated enumeration stands until PRO-66 lands
-  sector tags, when the recompute publishes automatically).
+- ~~`investment_range.median` interim until the base lands~~ — CLEARED,
+  twice: the §11 post-base pass ran at PRO-63's checkpoint 2 (931 rows)
+  and again on the final post-classification base (875 rows, after the
+  second China sweep caught 41 more LCP rows incl. Pinduoduo and 13
+  further merges landed): median $18M final, all eight notables
+  re-asserted as members through both shifts, focus recompute correctly
+  skipped at 0/875 base sector tags (the curated enumeration stands; the
+  recompute publishes automatically if sector tags ever reach 25%).
 - FY2025 ADV predates the Dec 2025 closes; RAUM refreshes at the next
   annual amendment (~2027-03).
 - The XIV-A/XIV-B sleeve split is undisclosed; published as one $1.98B
