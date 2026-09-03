@@ -66,6 +66,8 @@ Layers, in order:
 
 $100B+ roster: Nvidia $4.0T, Apple $3.25T, SpaceX $2.1T, Google $1.9T, Anthropic $965B, OpenAI $852B, Oracle $347B, Cisco $248B, xAI $230B, Uber $188B, Stripe $159B, Palo Alto Networks $120B.
 
+*(Checkpoint roster. In the final data xAI is `acquired` (absorbed into SpaceX, Feb 2026; its value sits inside the SpaceX row) and Waymo joined the bucket at $126B on 2026-09-03; see §12.)*
+
 Buckets are **cumulative** ($100B+ ⊆ $10B+ ⊆ $1B+). The current `merit.tsx` treats them as disjoint (`rest = total − sum`), which double-counts; the fix is scoped in PRO-25. `graduation_rate` shape mismatch ({rate, companies[]} vs {rate_percent, sample_size}) is also in PRO-25.
 
 ### Valuation sources (168 published figures)
@@ -184,3 +186,38 @@ The generic build method — evidence layers, exclusion filters, tiering, duplic
 **Duplicate arbitration results.** The investor's own publications are the arbiter (two names in one snapshot = two companies): 93 merged, 6 kept separate (`Carbon`/`Carbon Black`, `Linear`/`Linear Technology`, `Magic`/`Magic Eden`, `Parallel`/`Parallel Web Systems`, `Elevate`/`Elevate Credit`, `Nimble Storage`/`Nimble Rx`). Snapshot scoping keys on `snapshot_ts`, not year (a year-keyed check wrongly split `Barracuda`/`Barracuda Networks`). A differing EDGAR CIK proves distinctness only when both rows are independently listed (`Aurora Innovation`/`Aurora Operations` are one company's filing entities).
 
 **Known limitations that still apply.** Era D shallow in the archive (mitigated by the site API and Form D); 2013–14 listing gap; Form D electronic coverage starts 2009, Section 4(a)(2) raises and non-US issuers never file; `first_seen = '?'` on site-listed rows with no archive or filing date (the site API's `published` field is a page-creation date and deliberately not used); pre-2006 history out of window by design, so the foundational era (Apple-as-entry, Cisco, Oracle) is absent from entry-level columns; the partner roster's archived-snapshot span under-reports tenure for rarely-crawled people; EDGAR collection is bounded by the entity registry.
+
+## 12. Cross-investor alignment (2026-09-03)
+
+`run.py verify` now compares every row with the other investors' published
+`base.csv` on `status` and `valuation_range` (COLLECTION.md §10 invariant
+10; rulings in `data/collection/cross-investor.json`; method and gate
+described in the Lightspeed report). First run on Sequoia: 46
+disagreements, most of them homonyms (Bird, Linear Technology, Convex,
+Tandem, Maven, Avalanche, Handshake, Harmonic) now ruled distinct; after
+resolution 0 (4 accepted thin pairs). Recorded with
+`who: cross-investor-align-2026-09-03`; reproducible from
+`data/collection/shared/cross-align/2026-09-03.py`.
+
+**Rows changed (15):**
+
+| slug | before | after | evidence |
+|---|---|---|---|
+| waymo | acquired / below_1b | private / 100b_plus $126B | never acquired: Alphabet-controlled subsidiary raising priced external rounds; $16B at $126B post 2026-02-02, co-led by Sequoia. Ruling 6 in decisions.md, Erik to confirm |
+| grafana | private / below_1b (dedup remnant) | 1b_plus $9B | GIC-led round reported Feb 2026 (last company-confirmed $6B, Aug 2024); either way $1B+ |
+| harvey | private / below_1b (dedup remnant) | 10b_plus $11B | $200M at $11B post 2026-03-25, co-led by GIC and Sequoia |
+| ethos | public / below_1b ($352M float) | public / 1b_plus $2.42B | IPO 2026-01-28 (Nasdaq: LIFE); market cap 2026-09-03; the float was never a value |
+| reflection-ai | 1b_plus $8B | 10b_plus $25B | 2026 round closed at $25B pre-money (CEO, CNBC 2026-04-23) |
+| doordash | 10b_plus $91.9B (Aug) | 10b_plus $96.35B | same-day cap shared with a16z; the two runs had straddled the $100B edge |
+| ironclad | $3.2B as-of 2025-06, no citation | $3.2B as-of 2022-01, cited, `stale` | the as-of was an ARR remark, not a round |
+| physical-intelligence | $5.6B, no citation | citation added | the ~$11B 2026 round is still in talks |
+| census, replicate, stainless, varagesale, iron-fish | private / unknown | acquired | Fivetran (2025), Cloudflare (closed 2025-12-01, $57.4M), Anthropic (announced 2026-05-18), VerticalScope (2017), Coinbase acqui-hire (2025-03) |
+| bird | acquired | defunct | Bird Global liquidated in Chapter 11, equity wiped; assets to Third Lane |
+| orchid-labs | unknown | private | operating; aligned with a16z |
+
+**Counts.** cumulative $1B+ 148 → **152**, $10B+ 53 → **56**, $100B+ 15
+→ **16**; valuation_range 725 / 95 / 38 / 15 → **721 / 96 / 40 / 16**;
+status 336 / 349 / 76 / 59 / 53 → **334 private / 352 acquired / 77 defunct
+/ 59 public / 51 unknown**. `verify` clean. The live database still holds
+the 2026-08-13 values (148 / 53 / 15); re-ingest is pending Erik's
+approval, and the Waymo ruling is his to confirm or reverse before it.

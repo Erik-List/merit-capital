@@ -452,3 +452,34 @@ Exit criterion: Erik's classification sample sign-off via review.html.
   Erik's explicit approval, never autonomous. The three removed rows
   still sit in public.companies from the pre-ruling ingest - cleanup
   awaits Erik's decision.
+
+## Cross-investor alignment (2026-09-03)
+
+`run.py verify` now compares every row with the other investors' published
+`base.csv` on `status` and `valuation_range` (COLLECTION.md §10 invariant
+10; rulings in `data/collection/cross-investor.json`; method in the
+Lightspeed report). First run on a16z: 59 disagreements, most of them
+homonyms and thin unresolved pairs now ruled distinct or accepted; after
+resolution 0 (4 accepted). Recorded with
+`who: cross-investor-align-2026-09-03`; reproducible from
+`data/collection/shared/cross-align/2026-09-03.py`.
+
+**Rows changed (12):**
+
+| slug | before | after | evidence |
+|---|---|---|---|
+| doordash | public / 100b_plus $102.6B (Aug 28) | public / 10b_plus $96.35B | same-day cap shared with Sequoia; the band edge had been an as-of artifact |
+| harvey | 10b_plus $11B (unicorn_list) | 10b_plus $11B (web_verified) | source upgraded to the round: $200M at $11B post 2026-03-25 |
+| lookout | 1b_plus $1B (2014) | below_1b, no figure | collapse evidence supersedes the stale primary (§6): consumer business sold to F-Secure 2023, cloud business to Fortra 2025, secondaries ~$296M |
+| unconventional-ai | below_1b ("undocumented") | 1b_plus $4.5B | the Dec-2025 $475M seed a16z co-led with Lightspeed |
+| groupon | public / below_1b ($618M float) | public / below_1b $769M cap | cap replaces the float (§6); same-day with Accel |
+| eon | unknown (MX wikidata match) | private | identity resolved (medium): Endeavor Optical Networks, the 2026 seed a16z co-led; not Eon the cloud-backup company, which has no a16z round |
+| airtime | unknown | defunct | wound down (this run's own note) |
+| otter, pyn, ciridae | unknown | private | operating: Otter (Sequoia-led A 2021, a16z seed), Pyn (site live), Ciridae ($20M seed May 2026 with Accel) |
+| parsable, iron-fish | private | acquired | CAI Software (Sep 2024); Coinbase acqui-hire (2025-03) |
+
+**Counts.** cumulative $1B+ 165 → **165**, $10B+ 42 → **42**, $100B+ 8 →
+**7**; valuation_range 1554 / 123 / 34 / 8 → **1554 / 123 / 35 / 7**;
+status 1033 / 262 / 108 / 49 / 267 → **1035 private / 264 acquired / 109
+defunct / 49 public / 262 unknown**. `verify` clean. The live database still
+holds the 2026-08-31 values; re-ingest is pending Erik's approval.

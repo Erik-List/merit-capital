@@ -576,3 +576,37 @@ graduated — the establishable set skews toward visible successes."
 Signed off and ingested 2026-09-02 (zero corrections); PRO-62/65/68 all
 Done. Post-ingest corrections need fresh ingest approval per §9. Open:
 the arista post-IPO-holding ruling, and the IA-recovery wayback pass.
+
+## Cross-investor alignment (2026-09-03)
+
+`run.py verify` now compares every row with the other investors' published
+`base.csv` on `status` and `valuation_range` (COLLECTION.md §10 invariant
+10; rulings in `data/collection/cross-investor.json`; method in the
+Lightspeed report). First run on Accel: 33 disagreements; after resolution
+0 (1 accepted). Accel carried the most misses of the four runs: nine
+companies another run held at a cited $1B+ primary mark sat at below_1b
+here, and eight rows still read "public" for companies acquired or
+liquidated years ago. Recorded with `who: cross-investor-align-2026-09-03`;
+reproducible from `data/collection/shared/cross-align/2026-09-03.py`.
+
+**Rows changed (23):**
+
+| slug | before | after | evidence |
+|---|---|---|---|
+| captivateiq, ironclad, falconx, mux | below_1b | 1b_plus, `stale` | last primaries: $1.25B (Jan 2022), $3.2B (Jan 2022), $8B (Jun 2022), $1B+ floor (Apr 2021) |
+| decagon, periodic-labs, skydio, snorkel-ai | below_1b | 1b_plus | $4.5B (Jan 2026), $1.3B (Sep 2025), $4.4B (Apr 2026), $1.3B (May 2025) |
+| physical-intelligence | below_1b | 1b_plus $5.6B | Series B Nov 2025; membership rests on Accel's own listing (no press names Accel in a round); `cite_pending` on the stage |
+| ethos | private / 1b_plus $2.7B (2022) | public / 1b_plus $2.42B | IPO 2026-01-28 (Nasdaq: LIFE); cap 2026-09-03 |
+| netskope, groupon | public $6.18B / $1.5B (Aug) | public $5.91B / $769M | same-day caps shared with Lightspeed and a16z; Groupon drops below the band |
+| lightspeed | public, no value | public / 1b_plus $1.35B | Lightspeed Commerce (LSPD), cap 2026-09-03 |
+| blameless, split, graphite | private | acquired | FireHydrant (2024-08-21), Harness (2024-06-11), Cursor (agreement 2025-12-19; closing evidenced by domain routing) |
+| despegar, brightcove-inc, rovio, remedy-corporation, uunet-technologies | public | acquired | Prosus (2025-05-15), Bending Spoons (2025-02-04), Sega (2023-08-17), Peregrine (2001), MFS (1996) |
+| bird-scooters | public | defunct | Bird Global liquidated in Chapter 11, equity wiped |
+| datagravity-inc | unknown | acquired | assets to HyTrust 2017 |
+
+**Counts.** cumulative $1B+ 96 → **105**, $10B+ 22 → **22**, $100B+ 5 →
+**5**; valuation_range 790 / 74 / 17 / 5 → **781 / 83 / 17 / 5**; status
+567 / 218 / 29 / 37 / 35 → **563 private / 227 acquired / 30 defunct / 32
+public / 34 unknown** (`ipo_companies` 37 → 32). `verify` clean. The live
+database still holds the 2026-09-02 values; re-ingest is pending Erik's
+approval.

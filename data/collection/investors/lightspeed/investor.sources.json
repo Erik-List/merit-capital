@@ -1,6 +1,6 @@
 {
   "slug": "lightspeed",
-  "generated_at": "2026-09-02T18:03:27+00:00",
+  "generated_at": "2026-09-03T04:08:12+00:00",
   "run": "PRO-69 autonomous in-session run (parallel with the PRO-63 base session; \u00a711 split)",
   "fields": {
     "name": {
@@ -78,11 +78,11 @@
     "investment_range": {
       "value": {
         "lower_limit": 485000,
-        "median": 17000000,
+        "median": 18000000,
         "upper_limit": 13000000000
       },
       "source": "sources/edgar/formd-sweep.json",
-      "basis": "Median: partner-anchored entry-round median $17,500,002 across 115 membership-verified base companies with priced Form D histories (360 rounds; 32 entries anchored past pre-investor rounds, 0 unanchored), on the PRO-63 ledger-complete base (931 rows, 955 member verdicts) and the refreshed issuer-rounds rescan (381 histories); published as $17M. p10 $3.0M, p25 $7.0M, p75 $35.0M, p90 $100.0M (scratch/verified-median.json). Pre-base corroboration: $17,251,420 over the 71 site-list-confirmed issuers of the roster sweep (scratch/interim-median.json) - stable across both populations. A round-size proxy for check size, fair for a high-ownership lead investor. | Lower limit: the $485,000 sole-investor Snapchat seed (May 2012, Jeremy Liew; Slate 2013-12, TechCrunch 2017-02-25) - a documented smallest-entry class, not a program floor. | Upper limit: the $13B Anthropic Series F (announced 2025-09-02, $183B post) which Lightspeed CO-LED with ICONIQ (lead) and Fidelity (anthropic.com/news/anthropic-raises-series-f-at-usd183b-post-money-valuation) - a co-led round figure, not a single-check claim; Lightspeed's own commitment reported ~$1B (The Tech Portal 2025-12-16). Dry-powder check: Opportunity III ($3.28B) at 10-15% single-position concentration supports $330-495M positions; the 2025 $1.25B single-asset vehicles plus Co-Investment Fund I ($601M) explain capacity above that"
+      "basis": "Median: partner-anchored entry-round median $17,875,690 across 112 membership-verified base companies with priced Form D histories (31 entries anchored past pre-investor rounds, 0 unanchored), on the FINAL post-classification base (875 rows, full ledger coverage, PRO-66's second China sweep and 13 further identity merges applied 2026-09-03); published as $18M. p10 $3.0M, p25 $7.0M, p75 $35.0M, p90 $100.0M (scratch/verified-median.json). Stable across three populations: $17.25M interim (71 site-confirmed issuers, pre-base) / $17.50M at base checkpoint 2 (115 members, 931-row base) / $17.88M final (112 members, 875-row base). A round-size proxy for check size, fair for a high-ownership lead investor. | Lower limit: the $485,000 sole-investor Snapchat seed (May 2012, Jeremy Liew; Slate 2013-12, TechCrunch 2017-02-25) - a documented smallest-entry class, not a program floor. | Upper limit: the $13B Anthropic Series F (announced 2025-09-02, $183B post) which Lightspeed CO-LED with ICONIQ (lead) and Fidelity (anthropic.com/news/anthropic-raises-series-f-at-usd183b-post-money-valuation) - a co-led round figure, not a single-check claim; Lightspeed's own commitment reported ~$1B (The Tech Portal 2025-12-16). Dry-powder check: Opportunity III ($3.28B) at 10-15% single-position concentration supports $330-495M positions; the 2025 $1.25B single-asset vehicles plus Co-Investment Fund I ($601M) explain capacity above that"
     },
     "notable_investments": {
       "value": [
@@ -738,7 +738,7 @@
     {
       "field": "investment_range",
       "severity": "high",
-      "note": "Median recomputed on the membership-verified base after PRO-63's checkpoint 2 (2026-09-02): $17.5M over 115 verified members vs $17.25M on the pre-base site-confirmed subset - published $17M unchanged, stable across both populations. Priced Form D rounds only; SAFE and 4(a)(2) rounds do not file, so the small end is under-sampled, and the partner-anchored first filing is a ceiling on entry recency, so some anchors sit later than the true entry round (32 of 115 entries anchored past pre-investor rounds). Floor is a documented smallest-entry class ($485K sole-investor Snapchat seed, 2012), not a program floor - Lightspeed runs no stated-check program like Accel Atoms. Ceiling is a co-led round figure (Anthropic Series F $13B, 2025-09-02), not a check; Lightspeed's own commitment reported ~$1B across vehicles."
+      "note": "Median tracked the base through both shifts and stayed within $650K: $17.25M pre-base / $17.50M at the 931-row checkpoint / $17.88M on the final 875-row base (published $18M, nearest million; the earlier renders showed $17M). Priced Form D rounds only; SAFE and 4(a)(2) rounds do not file, so the small end is under-sampled, and the partner-anchored first filing is a ceiling on entry recency (31 of 112 entries anchored past pre-investor rounds)."
     },
     {
       "field": "investment_stage",
@@ -753,7 +753,7 @@
     {
       "field": "notable_investments",
       "severity": "medium",
-      "note": "All eight verified as ledger member verdicts on the membership-complete base (PRO-63 checkpoint 2, 2026-09-02); the earlier base-less site assertion stands as lineage. Wiz is Acquired as of 2026-03-11 (Google, $32B closed; the site's own Status field still said Private at capture - first-party staleness recorded for the base session's status layer). Snap/Affirm/Rubrik public, MuleSoft acquired (Salesforce 2018), Anthropic/Epic Games/Mistral AI private. Swap candidates in review if preferred"
+      "note": "All eight re-verified as ledger member verdicts on the FINAL post-classification base (875 rows, 2026-09-03) - none were touched by the second China sweep or the LSIP corrections. Wiz is Acquired as of 2026-03-11 (Google, $32B closed; the site's own Status field still said Private at capture). Snap/Affirm/Rubrik public, MuleSoft acquired (Salesforce 2018), Anthropic/Epic Games/Mistral AI private. Swap candidates in review if preferred"
     },
     {
       "field": "investment_scope",

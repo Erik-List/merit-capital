@@ -253,7 +253,10 @@ approval are the remaining gates.
 - **valuation_range: 756 below_1b / 86 1b_plus / 28 10b_plus / 5
   100b_plus** — 119 rows $1B+ (13.6% of the base, within the expected
   <20% band). The five $100B+: OpenAI ($852B), Stripe ($159B), xAI
-  ($230B), Databricks ($190B), Anthropic ($380B).
+  ($230B), Databricks ($190B), Anthropic ($380B). *(Superseded the same
+  day by the cross-investor alignment below: xAI is `acquired` (SpaceX,
+  Feb 2026), so the final shape is 754 / 87 / 30 / 4, 121 rows $1B+ and
+  four $100B+.)*
 - **entry_stage: 500 Series A / 195 Seed / 179 Growth / 1 Pre-Seed** —
   the A-weight is the firm's enterprise-first history; Growth is the
   2015+ late/at-scale entries.
@@ -508,3 +511,50 @@ sign-off.
   annual amendment (~2027-03).
 - The XIV-A/XIV-B sleeve split is undisclosed; published as one $1.98B
   entry.
+
+## Cross-investor alignment — 2026-09-03 (after PRO-66, before ingest)
+
+Run on Erik's instruction after he asked whether Sequoia drops acquired
+companies from the track record while Lightspeed keeps them (xAI). The
+convention was the same in every run (COLLECTION.md §6: acquired, defunct
+and unknown rows carry no value), but nothing had ever compared the same
+company across investors, and the runs disagreed on ~20 shared companies.
+
+**The gate.** `run.py verify` now carries invariant 10 (§10): every row is
+compared with the other investors' published `base.csv` on `status` and
+`valuation_range`, the two columns the track record consumes. Identity is a
+shared strong CIK or the loose name key; homonyms, forced pairs and
+accepted differences are ruled in `data/collection/cross-investor.json`
+(13 distinct pairs such as Sequoia's Bird Rides vs Accel's MessageBird,
+one forced pair, five accepted thin pairs, one ignored dry-run directory).
+First run on Lightspeed: 37 disagreements; after resolution: 0 (1
+accepted). The resolutions are reproducible from
+`data/collection/shared/cross-align/2026-09-03.py`, recorded through
+`run.py record` with `who: cross-investor-align-2026-09-03`.
+
+**Lightspeed rows changed (13):**
+
+| slug | before | after | evidence |
+|---|---|---|---|
+| xai | private / 100b_plus $230B | acquired / below_1b | absorbed into SpaceX, all-stock merger announced 2026-02-02; the web pass knew and still kept the standalone mark, which §6 retires (Sequoia and a16z already had it). The value survives only inside SpaceX, which Lightspeed does not hold |
+| netskope | public / below_1b ($0 float) | public / 1b_plus $5.91B | market cap 2026-09-03; the float was measured at the pre-IPO quarter end |
+| reflection | private / below_1b | private / 10b_plus $25B | 2026 round closed at $25B pre-money (CEO on CNBC 2026-04-23); post-money press-derived |
+| fireworks-ai | 1b_plus $4B | 10b_plus $17.5B | Series D 2026-07-16 |
+| nominal | below_1b | 1b_plus $1.0B | Series B-2 at $1B post 2026-03-05 |
+| arena | below_1b (identity unresolved) | 1b_plus $1.7B | identity resolved: LMArena, same company as a16z's row; Series A 2026-01-06 |
+| ultima-genomics | 1b_plus $1B placeholder | below_1b, no figure | no post-money ever disclosed; the $1B was an aggregator inference |
+| delphix, autograph, parsable, flow | private | acquired | Perforce (closed 2024-03-25), Future (merger 2025-01-23), CAI Software (Sep 2024), ReSource Pro (2026-06-24; Flow = Flow Specialty, not Neumann's Flow) |
+| all-day-kitchens, rockyou | unknown / acquired | defunct | wound down 2024; Chapter 7 2019 |
+
+**Counts.** valuation_range 756 / 86 / 28 / 5 → **754 / 87 / 30 / 4**;
+cumulative $1B+ 119 → **121**, $10B+ 33 → **34**, $100B+ 5 → **4** (OpenAI,
+Stripe, Databricks, Anthropic). status 457 / 248 / 59 / 34 / 77 → **453
+private / 252 acquired / 61 defunct / 34 public / 75 unknown**. `verify`
+(links skipped; every new citation HEAD-checked separately) clean.
+
+**Playbook write-back (§6, §10):** a merger absorption is `acquired` from
+the closing even with a fresher mark; a $0 or pre-listing SEC float is
+never a value (`needs_web_value`); a stale primary yields to documented
+collapse evidence; and invariant 10 itself. Nothing ingested: the PRO-66
+sample sign-off and the ingest approval remain Erik's gates, and the
+Sequoia/a16z/Accel corrections below need a re-ingest approval of their own.

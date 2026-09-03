@@ -57,7 +57,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import outcome_sources as S                                    # noqa: E402
-from paths import ROOT, Paths                                  # noqa: E402
+from paths import COLLECTION, INVESTORS, ROOT, Paths           # noqa: E402
 
 # Set in main() from the parsed investor slug; every path derives from them.
 P: Paths
@@ -1027,6 +1027,148 @@ def verify_membership(rows: list[dict], investor: str, problems: list[str]) -> N
         problems.append(f"published despite not_member: {leaked[:5]}")
 
 
+# ---------------------------------------------------------------------------
+# cross-investor consistency: one company reads the same everywhere
+# ---------------------------------------------------------------------------
+
+# Shared rulings (data/collection/cross-investor.json): `distinct` lists pairs
+# of rows proven to be different companies under one name (Sequoia's Bird
+# Rides vs Accel's MessageBird), `accepted` lists pairs whose difference Erik
+# accepted with a reason. Nothing else may silence a disagreement.
+CROSS_RULINGS = COLLECTION / "cross-investor.json"
+CROSS_CIK_RE = re.compile(r"/edgar/data/(\d+)/")
+CROSS_STRIP_RE = re.compile(
+    r"\b(inc|corp|corporation|co|ltd|llc|plc|labs|technologies|technology|"
+    r"ai|io|com|software|holdings|group)\b")
+TRACK_RECORD_KEYS = ("status", "valuation_range")
+
+
+def cross_key(name: str) -> str:
+    """Loose identity key: lower-cased, punctuation and corporate suffixes
+    stripped, so 'Fireworks AI', 'fireworks-ai' and 'Snorkel Ai' meet."""
+    n = re.sub(r"[.,'’]", "", (name or "").lower())
+    n = CROSS_STRIP_RE.sub("", n)
+    return re.sub(r"[^a-z0-9]+", " ", n).strip()
+
+
+def cross_ciks(row: dict) -> set[str]:
+    """Strong registrant identity of a published row: every Form D issuer CIK
+    (partner-matched accessions), plus the 10-K/S-1 registrant unless the
+    row's join was flagged weak (a suffix-stripped name collision would pair
+    two different companies)."""
+    ciks = set(CROSS_CIK_RE.findall(row.get("formd_links") or ""))
+    if "cik_weak" not in (row.get("flags") or ""):
+        ciks |= set(CROSS_CIK_RE.findall(row.get("edgar_links") or ""))
+    return ciks
+
+
+def load_cross_rulings() -> tuple[set[frozenset], dict[frozenset, str], set[str],
+                                  set[frozenset]]:
+    """-> (distinct pairs, accepted pairs with reasons, investor dirs to
+    ignore: dry runs and scratch copies that were never published, `same`
+    pairs: one company under names the key cannot join, Sequoia's `bird`
+    and Accel's `bird-scooters`)."""
+    rul = load(CROSS_RULINGS, {})
+    distinct = {frozenset(e["rows"]) for e in rul.get("distinct", [])}
+    accepted = {frozenset(e["rows"]): e.get("note", "")
+                for e in rul.get("accepted", [])}
+    ignore = set(rul.get("ignore", []))
+    same = {frozenset(e["rows"]) for e in rul.get("same", [])}
+    return distinct, accepted, ignore, same
+
+
+def published_rows(investor: str) -> list[dict]:
+    """Another investor's published surface (its base.csv), as comparison
+    records. The CSV is what that investor ingested, so it is the state a
+    reader of the site actually sees."""
+    out = []
+    p = INVESTORS / investor / "base.csv"
+    if not p.exists():
+        return out
+    for r in csv.DictReader(open(p, newline="")):
+        out.append({"id": f"{investor}:{r['slug']}", "name": r["name"],
+                    "key": cross_key(r["name"]), "ciks": cross_ciks(r),
+                    "status": r["status"] or None,
+                    "valuation_range": r["valuation_range"] or None,
+                    "valuation_usd": float(r["valuation_usd"]) if r["valuation_usd"] else None,
+                    "valuation_asof": r["valuation_asof"] or ""})
+    return out
+
+
+def _money(r: dict) -> str:
+    return f" ${r['valuation_usd'] / 1e9:.2f}B" if r.get("valuation_usd") else ""
+
+
+def verify_cross_investor(rows: list[dict], merged: dict, investor: str,
+                          problems: list[str]) -> None:
+    """Invariant 10: a company held by two investors reads the same status
+    and valuation band in both (the track record consumes exactly these two
+    columns, with no status filter, so a disagreement is a disagreement
+    about the published track record). This investor's live merged rows are
+    compared with every other investor's published base.csv; identity is a
+    shared strong CIK or the loose name key, minus the pairs ruled distinct.
+    A disagreement fails verify unless the pair is ruled accepted with a
+    reason; the fix is to align the stale side (freshest as-of by default) in
+    that investor's classification and re-export it, never to loosen the gate."""
+    distinct, accepted, ignore, same = load_cross_rulings()
+    mine = []
+    for row in rows:
+        rec = merged.get(row["slug"], {})
+        mine.append({"id": f"{investor}:{row['slug']}", "name": row["name"],
+                     "key": cross_key(row["name"]),
+                     "ciks": cross_ciks({**row, "flags": ";".join(rec.get("flags") or [])}),
+                     "status": rec.get("status"),
+                     "valuation_range": rec.get("valuation_range"),
+                     "valuation_usd": rec.get("valuation_usd"),
+                     "valuation_asof": rec.get("valuation_asof") or ""})
+    by_key: dict[str, list[dict]] = {}
+    by_cik: dict[str, list[dict]] = {}
+    by_id: dict[str, dict] = {}
+    for d in sorted(INVESTORS.iterdir()):
+        if d.name == investor or d.name in ignore or not d.is_dir():
+            continue
+        for o in published_rows(d.name):
+            by_id[o["id"]] = o
+            if o["key"]:
+                by_key.setdefault(o["key"], []).append(o)
+            for c in o["ciks"]:
+                by_cik.setdefault(c, []).append(o)
+    forced: dict[str, list[dict]] = {}
+    for pair in same:
+        for a in pair:
+            for b in pair:
+                if a != b and a.startswith(f"{investor}:") and b in by_id:
+                    forced.setdefault(a, []).append(by_id[b])
+    seen: set[frozenset] = set()
+    shared = agree = acc = 0
+    bad: list[str] = []
+    for m in mine:
+        cands = list(by_key.get(m["key"], [])) if m["key"] else []
+        for c in m["ciks"]:
+            cands += by_cik.get(c, [])
+        cands += forced.get(m["id"], [])
+        for o in cands:
+            pair = frozenset((m["id"], o["id"]))
+            if pair in seen or pair in distinct:
+                continue
+            seen.add(pair)
+            shared += 1
+            if all(m.get(k) == o.get(k) for k in TRACK_RECORD_KEYS):
+                agree += 1
+                continue
+            if pair in accepted:
+                acc += 1
+                continue
+            fresh = max((m, o), key=lambda r: r["valuation_asof"])
+            bad.append(f"cross-investor {m['name']}: {m['id']} {m['status']}/"
+                       f"{m['valuation_range']}{_money(m)} (asof {m['valuation_asof'] or '-'})"
+                       f" vs {o['id']} {o['status']}/{o['valuation_range']}{_money(o)}"
+                       f" (asof {o['valuation_asof'] or '-'}); freshest {fresh['id']}")
+    print(f"cross-investor  : {shared} rows shared with other investors, {agree} agree, "
+          f"{acc} accepted, {len(bad)} disagree")
+    problems.extend(sorted(bad))
+
+
 def cmd_verify(args) -> None:
     rows = load_base(args.investor)
     resolved = load(P.resolved, {})
@@ -1071,7 +1213,7 @@ def cmd_verify(args) -> None:
             problems.append("review.html stale relative to the base; re-run review")
         if problems:
             print(f"\n{len(problems)} problem(s):")
-            for p in problems[:40]:
+            for p in problems[:80]:
                 print("  -", p)
             sys.exit(1)
         print("\nverify (base-only): clean")
@@ -1168,6 +1310,9 @@ def cmd_verify(args) -> None:
                 problems.append(f"CIK {cik}: {len(unflagged)} unflagged duplicates "
                                 f"({', '.join(unflagged)})")
 
+    if not args.skip_cross:
+        verify_cross_investor(rows, merged, args.investor, problems)
+
     total = len(rows)
     print(f"rows            : {total}")
     print(f"classified      : {sum(1 for r in merged.values() if r.get('status'))}")
@@ -1224,7 +1369,7 @@ def cmd_verify(args) -> None:
 
     if problems:
         print(f"\n{len(problems)} problem(s):")
-        for p in problems[:40]:
+        for p in problems[:80]:
             print("  -", p)
         sys.exit(1)
     print("\nverify: clean")
@@ -1725,6 +1870,8 @@ def main() -> None:
     p.add_argument("--base-only", action="store_true",
                    help="assert base structure + membership only (a company-base "
                         "run before its classification session)")
+    p.add_argument("--skip-cross", action="store_true",
+                   help="skip the cross-investor consistency section (§10 invariant 10)")
     p = sub.add_parser("export"); p.set_defaults(fn=cmd_export)
     p = sub.add_parser("review"); p.set_defaults(fn=cmd_review)
 

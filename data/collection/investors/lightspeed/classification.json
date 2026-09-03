@@ -462,10 +462,11 @@
   "hq_city": "South San Francisco",
   "hq_city_confidence": "medium",
   "hq_city_source": "formd_address",
-  "note": "restaurant delivery infra; public trace thins after 2024 \u2014 status unresolved | unidentifiable stray: the firm's classic entry stage as prior",
+  "note": "restaurant delivery infra; public trace thins after 2024 \u2014 status unresolved | unidentifiable stray: the firm's classic entry stage as prior | Wound down through 2024 (the a16z run's A/B evidence: SF Chronicle closures, listings marked closed, company unresponsive); aligned [cross-investor alignment 2026-09-03]",
   "slug": "all-day-kitchens",
-  "status": "unknown",
-  "valuation_range": "below_1b"
+  "status": "defunct",
+  "valuation_range": "below_1b",
+  "who": "cross-investor-align-2026-09-03"
  },
  "alloy": {
   "entry_stage": "Growth",
@@ -977,18 +978,22 @@
   "entry_stage_source": "web_verified",
   "flags": [
    "cik_weak",
-   "city_unknown",
    "model_disputes_source"
   ],
   "focus": null,
   "focus_source": "model",
-  "note": "wrong-entity float (The Arena Group, NYSE AREN) on a 2025-backed private Series A row; identity of this 'Arena' not further resolved \u2014 verify at sampling | firm's own card: Series A, backed since 2025",
+  "hq_city": "San Francisco",
+  "hq_city_source": "model_knowledge",
+  "note": "wrong-entity float (The Arena Group, NYSE AREN) on a 2025-backed private Series A row; identity of this 'Arena' not further resolved \u2014 verify at sampling | firm's own card: Series A, backed since 2025 | Identity resolved: this Arena is LMArena (arena.ai, the Jan-2026 rebrand; Angelopoulos/Chiang/Stoica), the same company as the a16z row. Lightspeed participated in the $100M seed (May 2025, a16z/UC Investments-led) and the $150M Series A at $1.7B (2026-01-06, Felicis/UC Investments-led). The Arena Group float was a wrong-entity join, already disputed [cross-investor alignment 2026-09-03]",
   "slug": "arena",
   "status": "private",
-  "valuation_asof": null,
-  "valuation_range": "below_1b",
-  "valuation_source": null,
-  "valuation_usd": null
+  "valuation_asof": "2026-01",
+  "valuation_citation": "https://techcrunch.com/2026/01/06/lmarena-lands-1-7b-valuation-four-months-after-launching-its-product/",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1700000000,
+  "who": "cross-investor-align-2026-09-03"
  },
  "arenaclub-com-inc": {
   "entry_stage": "Series A",
@@ -1384,11 +1389,17 @@
   "focus_source": "model",
   "hq_city": "Los Angeles",
   "hq_city_source": "model_knowledge",
-  "note": "firm's own card: Series B, backed since 2022",
+  "is_public": false,
+  "note": "firm's own card: Series B, backed since 2022 | Merged into Future (digital fitness coaching) on 2025-01-23; Future is the surviving name and management (PR Newswire, TechCrunch 2025-01-23); the a16z run had it acquired [cross-investor alignment 2026-09-03]",
   "slug": "autograph",
-  "status": "private",
+  "status": "acquired",
   "status_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_asof": null,
+  "valuation_citation": null,
+  "valuation_range": "below_1b",
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "cross-investor-align-2026-09-03"
  },
  "aux": {
   "entry_stage": "Series A",
@@ -3728,12 +3739,18 @@
   "focus_source": "model",
   "hq_city": "Redwood City",
   "hq_city_source": "model_knowledge",
-  "note": "firm's own card: Series A, backed since 2008",
+  "is_public": false,
+  "note": "firm's own card: Series A, backed since 2008 | Acquired by Perforce Software, announced 2024-02-14, closed 2024-03-25 (perforce.com press release); the card's 'Private' was stale [cross-investor alignment 2026-09-03]",
   "seed_to_a_graduation": null,
   "slug": "delphix",
-  "status": "private",
+  "status": "acquired",
   "status_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_asof": null,
+  "valuation_citation": null,
+  "valuation_range": "below_1b",
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "cross-investor-align-2026-09-03"
  },
  "descope": {
   "entry_stage": "Seed",
@@ -5197,15 +5214,17 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "$4B Jul-2025 round | firm's own card: Series C, backed since ? | Oct-2025 Series C ($250M, Lightspeed/Index-led) set a $4B post-money; the hint's figure was right, the date is Oct-2025 not Jul.",
+  "note": "$4B Jul-2025 round | firm's own card: Series C, backed since ? | Oct-2025 Series C ($250M, Lightspeed/Index-led) set a $4B post-money; the hint's figure was right, the date is Oct-2025 not Jul. | $1.5B Series D at $17.5B post-money (company blog 2026-07-15, BusinessWire/CNBC 2026-07-16; Atreides/Index/TCV led, Lightspeed participating); supersedes the Oct-2025 Series C $4B mark [cross-investor alignment 2026-09-03]",
   "slug": "fireworks-ai",
   "status": "private",
   "status_confidence": "medium",
-  "valuation_asof": "2025-10",
-  "valuation_citation": "https://fireworks.ai/blog/series-c",
-  "valuation_range": "1b_plus",
+  "valuation_asof": "2026-07-16",
+  "valuation_citation": "https://fireworks.ai/blog/series-d-announcement",
+  "valuation_confidence": "high",
+  "valuation_range": "10b_plus",
   "valuation_source": "web_verified",
-  "valuation_usd": 4000000000
+  "valuation_usd": 17500000000,
+  "who": "cross-investor-align-2026-09-03"
  },
  "fivestars": {
   "entry_stage": "Series A",
@@ -5380,10 +5399,16 @@
   ],
   "focus": null,
   "focus_source": "model",
-  "note": "wikidata glitch on a generic name; which 'Flow' this 2023 A row is remains thin \u2014 verify at sampling | firm's own card: Series A, backed since 2023",
+  "is_public": false,
+  "note": "wikidata glitch on a generic name; which 'Flow' this 2023 A row is remains thin \u2014 verify at sampling | firm's own card: Series A, backed since 2023 | Identity resolved: this Flow is Flow Specialty (formerly Capitola, insurance wholesale brokerage; Lightspeed led the 2021 seed and joined the Apr-2023 Series A), not Adam Neumann's Flow. ReSource Pro acquired its technology, IP and team on 2026-06-24 (terms undisclosed); the card's 'Private' was stale [cross-investor alignment 2026-09-03]",
   "slug": "flow",
-  "status": "private",
-  "valuation_range": "below_1b"
+  "status": "acquired",
+  "valuation_asof": null,
+  "valuation_citation": null,
+  "valuation_range": "below_1b",
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "cross-investor-align-2026-09-03"
  },
  "focus-ip-inc": {
   "entry_stage": "Series A",
@@ -9464,9 +9489,17 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "firm's own card: Series B, backed since 2013",
+  "is_public": true,
+  "note": "firm's own card: Series B, backed since 2013 | Market cap $5.91B (stockanalysis, 2026-09-03; Nasdaq: NTSK, IPO Sep 2025). The deterministic layer's $0 float was measured at the pre-IPO quarter end and was never a value (\u00a76); same-day cap shared with Accel [cross-investor alignment 2026-09-03]",
   "slug": "netskope",
-  "valuation_range": "below_1b"
+  "status": "public",
+  "valuation_asof": "2026-09-03",
+  "valuation_citation": "https://stockanalysis.com/stocks/ntsk/market-cap/",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 5910000000,
+  "who": "cross-investor-align-2026-09-03"
  },
  "neubond": {
   "entry_stage": "Series A",
@@ -9752,11 +9785,17 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "firm's own card: Series B, backed since 2025",
+  "note": "firm's own card: Series B, backed since 2025 | $80M Series B-2 at $1B post-money led by Founders Fund (2026-03-05, press release; Lightspeed participating). Sequoia led the Jun-2025 $75M Series B with Lightspeed a significant participant, so the card's 'Series B, backed since 2025' stands [cross-investor alignment 2026-09-03]",
   "slug": "nominal",
   "status": "private",
   "status_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_asof": "2026-03-05",
+  "valuation_citation": "https://www.globenewswire.com/news-release/2026/03/05/3250350/0/en/nominal-valued-at-1b-as-founders-fund-leads-80m-acceleration-round.html",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1000000000,
+  "who": "cross-investor-align-2026-09-03"
  },
  "noname-security": {
   "entry_stage": "Series A",
@@ -10684,10 +10723,16 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "trace thins after 2022-23 | firm's own card: Series A, backed since 2014",
+  "is_public": false,
+  "note": "trace thins after 2022-23 | firm's own card: Series A, backed since 2014 | Acquired by CAI Software (an STG portfolio company) in September 2024 (parsable.com/news); resolves the 'trace thins after 2022-23' read [cross-investor alignment 2026-09-03]",
   "slug": "parsable",
-  "status": "unknown",
-  "valuation_range": "below_1b"
+  "status": "acquired",
+  "valuation_asof": null,
+  "valuation_citation": null,
+  "valuation_range": "below_1b",
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "cross-investor-align-2026-09-03"
  },
  "part-parcel": {
   "entry_stage": "Series A",
@@ -12273,11 +12318,17 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "firm's own card: Series A, backed since 2025",
+  "note": "firm's own card: Series A, backed since 2025 | Reflection AI: $2B at $8B post-money (Oct 2025, TechCrunch), then the 2026 round closed at a $25B pre-money per the CEO on CNBC (2026-04-23); the ~$2.5B size and ~$27.5B post-money are press-derived (WSJ), so the CEO-confirmed $25B is the recorded floor. Same mark on the Sequoia row [cross-investor alignment 2026-09-03]",
   "slug": "reflection",
   "status": "private",
   "status_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_asof": "2026-04",
+  "valuation_citation": "https://www.cnbc.com/video/2026/04/23/reflection-ceo-on-ai-race-the-best-open-models-are-coming-from-china.html",
+  "valuation_confidence": "high",
+  "valuation_range": "10b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 25000000000,
+  "who": "cross-investor-align-2026-09-03"
  },
  "reflektive": {
   "entry_stage": "Series A",
@@ -12608,10 +12659,11 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "social gaming/ads | unidentifiable stray: the firm's classic entry stage as prior",
+  "note": "social gaming/ads | unidentifiable stray: the firm's classic entry stage as prior | Chapter 7 liquidation 2019 (the Sequoia row); the card's 'acquired' was the bankruptcy asset sale, not a surviving company; aligned [cross-investor alignment 2026-09-03]",
   "slug": "rockyou",
-  "status": "acquired",
-  "valuation_range": "below_1b"
+  "status": "defunct",
+  "valuation_range": "below_1b",
+  "who": "cross-investor-align-2026-09-03"
  },
  "roofstock": {
   "entry_stage": "Growth",
@@ -15746,16 +15798,17 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "$600M raised by 2022; marks reported above $1B | firm's own card: Seed, backed since 2016 | Private; no primary raise since the 2022 stealth exit ($600M total across Seed/A/B); official valuation undisclosed but consistently pegged near $1B by data providers, so the mark may be stale.",
+  "note": "$600M raised by 2022; marks reported above $1B | firm's own card: Seed, backed since 2016 | Private; no primary raise since the 2022 stealth exit ($600M total across Seed/A/B); official valuation undisclosed but consistently pegged near $1B by data providers, so the mark may be stale. | No post-money was ever disclosed for the 2022 ~$600M raise (Axios 2022-06-01) or any later round; Tracxn/Caplight show no priced round 2023-2026, and the $1B was an aggregator inference, not a source figure. below_1b without a figure, as the a16z run had it [cross-investor alignment 2026-09-03]",
   "seed_to_a_graduation": true,
   "slug": "ultima-genomics",
   "status": "private",
   "status_confidence": "medium",
-  "valuation_asof": "2022-05",
-  "valuation_citation": "https://pitchbook.com/profiles/company/265435-66",
-  "valuation_range": "1b_plus",
-  "valuation_source": "web_verified",
-  "valuation_usd": 1000000000
+  "valuation_asof": null,
+  "valuation_citation": null,
+  "valuation_range": "below_1b",
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "cross-investor-align-2026-09-03"
  },
  "unconventional-ai": {
   "entry_stage": "Seed",
@@ -16641,15 +16694,17 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "merged into xAI Holdings with X; marks far above $1B \u2014 web pass pins | firm's own card: Series B, backed since 2024 | Private; the Jan-2026 $20B Series E set a $230B valuation, after which SpaceX absorbed xAI in an all-stock merger (Feb 2026); the standalone $230B mark is used here.",
+  "is_public": false,
+  "note": "merged into xAI Holdings with X; marks far above $1B \u2014 web pass pins | firm's own card: Series B, backed since 2024 | Private; the Jan-2026 $20B Series E set a $230B valuation, after which SpaceX absorbed xAI in an all-stock merger (Feb 2026); the standalone $230B mark is used here. | Absorbed into SpaceX in the Feb-2026 all-stock merger (announced 2026-02-02, xAI at $250B; Axios, Yahoo Finance); the Jan-2026 $230B standalone mark is retired under the current-value rule (\u00a76), as the Sequoia and a16z runs already had it. The value survives only inside SpaceX, which Lightspeed does not hold [cross-investor alignment 2026-09-03]",
   "slug": "xai",
-  "status": "private",
+  "status": "acquired",
   "status_confidence": "medium",
-  "valuation_asof": "2026-01",
-  "valuation_citation": "https://sacra.com/c/xai/",
-  "valuation_range": "100b_plus",
-  "valuation_source": "web_verified",
-  "valuation_usd": 230000000000
+  "valuation_asof": null,
+  "valuation_citation": null,
+  "valuation_range": "below_1b",
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "cross-investor-align-2026-09-03"
  },
  "xaira": {
   "entry_stage": "Seed",

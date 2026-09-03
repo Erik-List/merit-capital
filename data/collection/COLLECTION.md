@@ -336,6 +336,17 @@ test after any protocol change.
 IPO'd-then-acquired → acquired; successor-entity ambiguity → acquired +
 note. Acquired / defunct / unknown → `valuation_usd` null.
 
+A merger that folds the company into an acquirer is `acquired` from the
+closing even when its last primary mark is fresher than the deal (xAI's
+Jan-2026 $230B round, then the Feb-2026 all-stock absorption into SpaceX):
+the standalone value no longer exists and survives only inside the
+acquirer's own row where that acquirer is held (Sequoia's SpaceX row). The
+Lightspeed run kept xAI private at $230B with the merger in its own note;
+the other two runs holding xAI had already retired it. A subsidiary that
+was never acquired but sells priced primary rounds to outside investors
+(Waymo, an Alphabet unit since the 2016 spin-out) is `private` with that
+mark: there was no acquisition event to retire the value.
+
 ### valuation
 
 - **Figures are source-gated, machine-enforced.** `valuation_usd` non-null
@@ -349,6 +360,18 @@ note. Acquired / defunct / unknown → `valuation_usd` null.
 - **Private rows**: last credible primary-round mark, `stale` flag beyond
   24 months. Secondary-market estimates go in the note, never in
   `valuation_usd`.
+- **A stale primary mark yields to documented collapse evidence**: a priced
+  tender or secondary far below it, or the sale of the business's core,
+  rules the row into the lower band with the evidence cited in the note
+  (Faire's Nov-2025 tender 59% under its 2022 mark; Lookout's ~$296M
+  secondaries after the consumer-business sale against a 2014 $1B round).
+  Without such evidence the last primary stands, `stale`-flagged; a
+  figure is still never minted from the evidence itself.
+- **A $0 or pre-listing SEC float is not a value.** A public row whose
+  float is zero, or measured before its listing (a first 10-K dating the
+  float to the pre-IPO quarter end: Netskope, IPO Sep 2025, float "as of"
+  Jul 2025 = $0), takes `needs_web_value` and is pinned by market cap. It
+  never settles into `below_1b` on the float alone.
 - **`valuation_range`** ∈ {100b_plus, 10b_plus, 1b_plus, below_1b}, highest
   threshold met, 100% fill. Only `below_1b` may be asserted without a
   figure; a tag ≥ 1b_plus requires a sourced `valuation_usd`.
@@ -604,6 +627,21 @@ have re-derived them.
 7. No row ends graduation `false` + (≥$1B or public).
 8. Drift: overlay keys ⊆ live base slugs (the no-rebuild-mid-run rule).
 9. Debt only where flagged; the flags are counted in the report.
+10. Cross-investor: a company held by another investor reads the same
+    `status` and `valuation_range` in that investor's published `base.csv`
+    (identity: a shared strong CIK, or the loose name key, minus the pairs
+    ruled distinct in `data/collection/cross-investor.json`). The track
+    record consumes exactly these two columns with no status filter, so a
+    disagreement is a disagreement about a published track record. It
+    fails verify unless the pair is ruled `accepted` with a reason; the fix
+    is to align the stale side (freshest as-of by default) in that
+    investor's classification and re-export it. Added 2026-09-03 after the
+    first four runs were found to disagree on ~20 shared companies
+    (xAI private/$230B in one run and acquired in two; Waymo acquired in
+    one and private/$126B in another; a dozen $1B+ marks one run had cited
+    and another had missed). Runs done months apart will still straddle a
+    band edge on as-of date alone for public rows (DoorDash at $92B vs
+    $103B in the same month); align to one fresh cap rather than accept.
 
 ## 11. Investor classification (the firm profile)
 
