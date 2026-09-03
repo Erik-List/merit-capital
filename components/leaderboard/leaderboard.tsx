@@ -51,7 +51,7 @@ const defaultScope: ScopeState = {
 
 const defaultRange: RangeState = {
   min: 0,
-  max: null, // 100M+
+  max: null, // 1B+
 };
 
 const defaultMedian: MedianState = {
@@ -285,7 +285,7 @@ function useUrlState() {
     const min = Number.parseInt(minStr, 10);
     if (!Number.isFinite(min) || min < 0) return { ...defaultRange };
     if (!maxStr) {
-      // Empty max means 100M+
+      // Empty max means 1B+
       return { min, max: null };
     }
     const max = Number.parseInt(maxStr, 10);

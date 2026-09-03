@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 
 export type RangeState = {
   min: number;
-  max: number | null; // null means 100M+
+  max: number | null; // null means 1B+
 };
 
 export type MedianUnit = "K" | "M" | "B";
@@ -49,9 +49,9 @@ interface RangeFilterProps {
   onMedianChange?: (next: MedianState) => void;
 }
 
-// Slider values in dollars: [0, 10k, 50k, 100k, 500k, 1M, 5M, 10M, 50M, 100M]
-const SLIDER_VALUES = [0, 10_000, 50_000, 100_000, 500_000, 1_000_000, 5_000_000, 10_000_000, 50_000_000, 100_000_000];
-const MAX_INDEX = SLIDER_VALUES.length - 1; // Index 9 = 100M
+// Slider values in dollars: [0, 500k, 1M, 5M, 10M, 50M, 100M, 500M, 1B]
+const SLIDER_VALUES = [0, 500_000, 1_000_000, 5_000_000, 10_000_000, 50_000_000, 100_000_000, 500_000_000, 1_000_000_000];
+const MAX_INDEX = SLIDER_VALUES.length - 1; // Top position renders as 1B+
 const MIN_INDEX = 0; // Index 0 = 0
 const DEBOUNCE_DELAY_MS = 250;
 
@@ -72,6 +72,10 @@ const DEFAULT_MEDIAN_STATE: MedianState = {
 };
 
 function formatValue(value: number): string {
+  if (value >= 1_000_000_000) {
+    const billions = value / 1_000_000_000;
+    return billions % 1 === 0 ? `${billions}B` : `${billions.toFixed(1)}B`;
+  }
   if (value >= 1_000_000) {
     const millions = value / 1_000_000;
     return millions % 1 === 0 ? `${millions}M` : `${millions.toFixed(1)}M`;
@@ -86,7 +90,7 @@ function formatValue(value: number): string {
 function formatRangeLabel(min: number, max: number | null): string {
   const minFormatted = formatValue(min);
   if (max === null) {
-    return `${minFormatted} to 100M+`;
+    return `${minFormatted} to 1B+`;
   }
   const maxFormatted = formatValue(max);
   return `${minFormatted} to ${maxFormatted}`;
