@@ -244,9 +244,13 @@ stage (+source/citation), hq_city, hq_country, focus (twelve-value
 taxonomy), seed_to_a_graduation, flags, note. `verify` (full, with link
 checks) exits clean; every hold is a flagged, inspectable debt.
 
-**Prompt count: 2, final** (the PRO-63/66 shared count — kickoff +
-sign-off go-ahead). Erik's classification sample sign-off and ingest
-approval are the remaining gates.
+**Prompt count: 5, final** (the PRO-63/66 shared count): the kickoff,
+the base sign-off carrying the classification go-ahead, the
+cross-investor question, the instruction to build the gate and resolve
+the disagreements, and the classification sign-off carrying the ingest
+approval for all four investors. Zero corrections at both samples.
+**Ingested 2026-09-03** (investor row, then 875 companies); the database
+derives 121 / 34 / 4 and 34 public, C2A 61.8% on 102.
 
 ### 1. Shape of the result
 
@@ -555,6 +559,12 @@ private / 252 acquired / 61 defunct / 34 public / 75 unknown**. `verify`
 **Playbook write-back (§6, §10):** a merger absorption is `acquired` from
 the closing even with a fresher mark; a $0 or pre-listing SEC float is
 never a value (`needs_web_value`); a stale primary yields to documented
-collapse evidence; and invariant 10 itself. Nothing ingested: the PRO-66
-sample sign-off and the ingest approval remain Erik's gates, and the
-Sequoia/a16z/Accel corrections below need a re-ingest approval of their own.
+collapse evidence; and invariant 10 itself.
+
+**Ingested 2026-09-03** on Erik's sign-off (classification sample, zero
+corrections) and explicit approval for all four investors: Lightspeed's
+investor row and 875 companies, then Sequoia, a16z and Accel companies
+re-ingested. Derived metrics read back from the database afterwards:
+Lightspeed 121 / 34 / 4 (34 public), Sequoia 152 / 56 / 16 (59 public),
+a16z 165 / 42 / 7 (49 public), Accel 105 / 22 / 5 (32 public), every
+row count equal to the base.

@@ -218,6 +218,8 @@ resolution 0 (4 accepted thin pairs). Recorded with
 **Counts.** cumulative $1B+ 148 → **152**, $10B+ 53 → **56**, $100B+ 15
 → **16**; valuation_range 725 / 95 / 38 / 15 → **721 / 96 / 40 / 16**;
 status 336 / 349 / 76 / 59 / 53 → **334 private / 352 acquired / 77 defunct
-/ 59 public / 51 unknown**. `verify` clean. The live database still holds
-the 2026-08-13 values (148 / 53 / 15); re-ingest is pending Erik's
-approval, and the Waymo ruling is his to confirm or reverse before it.
+/ 59 public / 51 unknown**. `verify` clean. **Re-ingested 2026-09-03** with Erik's
+approval (sample sign-off, zero corrections); the database now derives
+152 / 56 / 16 and 59 public on 873 rows. The Waymo ruling (decisions.md
+6) went in as proposed; a `who: "erik"` correction and a re-ingest
+reverse it if he rules otherwise.

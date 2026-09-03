@@ -481,5 +481,6 @@ resolution 0 (4 accepted). Recorded with
 **Counts.** cumulative $1B+ 165 → **165**, $10B+ 42 → **42**, $100B+ 8 →
 **7**; valuation_range 1554 / 123 / 34 / 8 → **1554 / 123 / 35 / 7**;
 status 1033 / 262 / 108 / 49 / 267 → **1035 private / 264 acquired / 109
-defunct / 49 public / 262 unknown**. `verify` clean. The live database still
-holds the 2026-08-31 values; re-ingest is pending Erik's approval.
+defunct / 49 public / 262 unknown**. `verify` clean. **Re-ingested 2026-09-03** with Erik's
+approval; the database now derives 165 / 42 / 7 and 49 public on 1,719
+rows.

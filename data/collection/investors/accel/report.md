@@ -607,6 +607,6 @@ reproducible from `data/collection/shared/cross-align/2026-09-03.py`.
 **Counts.** cumulative $1B+ 96 → **105**, $10B+ 22 → **22**, $100B+ 5 →
 **5**; valuation_range 790 / 74 / 17 / 5 → **781 / 83 / 17 / 5**; status
 567 / 218 / 29 / 37 / 35 → **563 private / 227 acquired / 30 defunct / 32
-public / 34 unknown** (`ipo_companies` 37 → 32). `verify` clean. The live
-database still holds the 2026-09-02 values; re-ingest is pending Erik's
-approval.
+public / 34 unknown** (`ipo_companies` 37 → 32). `verify` clean. **Re-ingested 2026-09-03** with Erik's
+approval; the database now derives 105 / 22 / 5 and 32 public on 886
+rows.
