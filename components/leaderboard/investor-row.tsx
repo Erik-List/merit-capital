@@ -5,19 +5,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { TableCell, TableRow } from "@/components/ui/table";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import type { StageState } from "@/components/leaderboard/filters/stage-filter";
 import type { GeographyState } from "@/components/leaderboard/filters/geography-filter";
 import type { ScopeState } from "@/components/leaderboard/filters/scope-filter";
 import type { Database } from "@/types/supabase";
 import { formatInvestmentRange } from "@/utils/format";
 import type { ViewState } from "@/components/leaderboard/filters/view";
-import type { TrackRecordState, TrackRecordTier } from "@/components/leaderboard/track-record-utils";
 import {
   computeTrackRecordHitRate,
-  defaultTrackRecord,
-  TRACK_RECORD_TIER_LABELS,
-  TRACK_RECORD_TIER_NEGATIVE_LABELS,
-  sanitizeTrackRecordState,
+  oneInX,
 } from "@/components/leaderboard/track-record-utils";
 import {
   CANONICAL_STAGES,
@@ -36,7 +33,6 @@ interface InvestorRowProps {
   stage?: StageState;
   geo?: GeographyState;
   scope?: ScopeState;
-  trackRecord?: TrackRecordState;
 }
 
 const DEFAULT_VIEW_STATE: ViewState = {
@@ -93,7 +89,7 @@ function splitPotentialStages(value: string): string[] {
   const trimmed = value.trim();
   if (!trimmed) return [];
   const parts = trimmed
-    .split(/,|\/|&|;|\bto\b|\u2013|\u2014/gi)
+    .split(/,|\/|&|;|\bto\b|–|—/gi)
     .map((part) => part.trim())
     .filter(Boolean);
   return parts.length > 1 ? parts : [trimmed];
@@ -204,19 +200,14 @@ function formatHitRatePercent(value: number): string {
   return text.endsWith(".0") ? text.slice(0, -2) : text;
 }
 
-export default function InvestorRow({ investor, view, stage, geo, scope, trackRecord }: InvestorRowProps) {
+export default function InvestorRow({ investor, view, stage, geo, scope }: InvestorRowProps) {
   const viewState = view || DEFAULT_VIEW_STATE;
   const name = investor.name || "Investor";
-  const normalizedTrackRecord = sanitizeTrackRecordState(trackRecord ?? defaultTrackRecord);
-  const selectedTrackTier: TrackRecordTier =
-    normalizedTrackRecord.selection === "custom"
-      ? normalizedTrackRecord.tier
-      : "1b";
-  const trackHitRate = computeTrackRecordHitRate(investor.track_record, selectedTrackTier);
-  const hasTrackRecordHit = trackHitRate.amount > 0 && trackHitRate.total > 0;
-  const trackRecordDisplay = hasTrackRecordHit
-    ? `${formatHitRatePercent(trackHitRate.percent)}% $${TRACK_RECORD_TIER_LABELS[selectedTrackTier]} company hit rates`
-    : TRACK_RECORD_TIER_NEGATIVE_LABELS[selectedTrackTier];
+
+  const oneB = computeTrackRecordHitRate(investor.track_record, "1b");
+  const tenB = computeTrackRecordHitRate(investor.track_record, "10b");
+  const hundredB = computeTrackRecordHitRate(investor.track_record, "100b");
+  const claimRatio = oneInX(oneB.amount, oneB.total);
   const range = (() => {
     const r = (investor.investment_range || {}) as { lower_limit?: number; upper_limit?: number };
     return formatInvestmentRange(r.lower_limit ?? null, r.upper_limit ?? null);
@@ -490,14 +481,66 @@ export default function InvestorRow({ investor, view, stage, geo, scope, trackRe
     );
   });
 
-  const headlineSegments: ReactNode[] = [];
-  if (viewState.trackRecord && trackRecordDisplay) {
-    headlineSegments.push(
-      <span key="track" className="whitespace-nowrap">
-        {trackRecordDisplay}
-      </span>,
+  // The headline claim leads with the $1B tier; the hover breakdown carries
+  // the exact per-tier numbers because "1 in X" rounds.
+  const trackRecordContent: ReactNode = (() => {
+    if (!viewState.trackRecord) return null;
+
+    if (!claimRatio) {
+      return (
+        <span className="text-sm text-muted-foreground whitespace-nowrap">building track record</span>
+      );
+    }
+
+    const tierRows: Array<{ label: string; amount: number; percent: number }> = [
+      { label: "$1B+", amount: oneB.amount, percent: oneB.percent },
+      { label: "$10B+", amount: tenB.amount, percent: tenB.percent },
+      { label: "$100B+", amount: hundredB.amount, percent: hundredB.percent },
+    ];
+
+    const hundredShare = Math.min(100, hundredB.percent);
+    const tenShare = Math.max(0, Math.min(100, tenB.percent) - hundredShare);
+    const oneShare = Math.max(0, Math.min(100, oneB.percent) - hundredShare - tenShare);
+
+    return (
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <span className="text-sm text-foreground whitespace-nowrap cursor-default">
+              1 in {claimRatio} companies → $1B
+            </span>
+          </TooltipTrigger>
+          <TooltipContent side="bottom" align="start" className="w-64 p-3">
+            <div className="text-xs font-medium mb-2">{oneB.total} companies backed</div>
+            <div className="flex h-2 w-full overflow-hidden rounded-full bg-muted" aria-hidden="true">
+              {hundredShare > 0 ? (
+                <div className="bg-primary" style={{ width: `${hundredShare}%`, minWidth: "3px" }} />
+              ) : null}
+              {tenShare > 0 ? (
+                <div className="bg-primary/70" style={{ width: `${tenShare}%`, minWidth: "3px" }} />
+              ) : null}
+              {oneShare > 0 ? (
+                <div className="bg-primary/40" style={{ width: `${oneShare}%`, minWidth: "3px" }} />
+              ) : null}
+            </div>
+            <div className="mt-2 space-y-1 text-xs text-muted-foreground">
+              {tierRows.map((row) => (
+                <div key={row.label} className="flex items-center justify-between gap-4">
+                  <span>{row.label}</span>
+                  <span>
+                    {row.amount} {row.amount === 1 ? "company" : "companies"} · {formatHitRatePercent(row.percent)}%
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-2 text-[11px] text-muted-foreground/80">
+              Current valuations only.
+            </div>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
     );
-  }
+  })();
 
   const investorUrl = `/investor/${investor.slug}`;
 
@@ -505,38 +548,26 @@ export default function InvestorRow({ investor, view, stage, geo, scope, trackRe
     <TableRow className="h-24 align-middle">
       <TableCell className="py-3">
         <div className="flex items-start gap-3">
-          {/* Logo - only for institutional investors with icon_url */}
-          {investor.investor_type === "Institutional" ? (
-            <Link href={investorUrl} className="cursor-pointer shrink-0">
-              {investor.icon_url ? (
-                <Image
-                  src={investor.icon_url}
-                  alt={name}
-                  width={48}
-                  height={48}
-                  className="h-12 w-12 rounded-full shrink-0 object-cover"
-                  priority
-                />
-              ) : (
-                <div className="h-12 w-12 rounded-full bg-muted shrink-0" />
-              )}
-            </Link>
-          ) : null}
+          <Link href={investorUrl} className="cursor-pointer shrink-0">
+            {investor.icon_url ? (
+              <Image
+                src={investor.icon_url}
+                alt={name}
+                width={48}
+                height={48}
+                className="h-12 w-12 rounded-full shrink-0 object-cover"
+                priority
+              />
+            ) : (
+              <div className="h-12 w-12 rounded-full bg-muted shrink-0" />
+            )}
+          </Link>
           <div className="min-w-0">
             <div className="flex flex-wrap items-baseline gap-2">
               <Link href={investorUrl} className="truncate font-medium text-lg cursor-pointer hover:underline">
                 {name}
               </Link>
-              {headlineSegments.length > 0 ? (
-                <span className="inline-flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-                  {headlineSegments.map((segment, idx) => (
-                    <span key={`headline-${idx}`} className="inline-flex items-center gap-2">
-                      {idx > 0 ? <span className="text-muted-foreground/60">•</span> : null}
-                      {segment}
-                    </span>
-                  ))}
-                </span>
-              ) : null}
+              {trackRecordContent}
             </div>
             <div className="text-sm text-muted-foreground mt-0.5 truncate">
               <span className="inline-flex items-center gap-1 whitespace-nowrap">
@@ -549,5 +580,3 @@ export default function InvestorRow({ investor, view, stage, geo, scope, trackRe
     </TableRow>
   );
 }
-
- 
