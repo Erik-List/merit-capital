@@ -59,7 +59,8 @@ list and sits mostly outside the SEC. The answer, measured:
 - **Status**: private 109, acquired 48, defunct 10, public 5, unknown 5
   (Bravo Company, Pintavision, Proxilliant, Scapin, Tekki: no trace after
   the last listing; `defunct` is undercounted by construction).
-- **Valuation bands**: below_1b 160, 1b_plus 14, 10b_plus 2, 100b_plus 1.
+- **Valuation bands**: below_1b 159, 1b_plus 15, 10b_plus 2, 100b_plus 1
+  (after Erik's Augustus correction, below).
   The $1B+ slice: Spotify $111.76B (public), Trade Republic $14.5B, Lovable
   $13.3B, Gopuff $8.5B, Bolt $8.4B, Klarna $7.52B (public), Navan $7.05B
   (public, cap 2026-09-03), Pleo $4.7B (stale), Black Forest Labs $3.25B,
@@ -89,6 +90,17 @@ list and sits mostly outside the SEC. The answer, measured:
   1b_plus $1.1B (Sep 2025), Sequoia `tola` → acquired (Square, 2025). Their
   base.csv files were re-exported; **Accel and Sequoia need a re-ingest**
   for those three rows after approval.
+
+**Correction after close (Erik, 2026-09-04): Augustus (ex-Ivy) is a
+unicorn** — $180M Series B led by Tiger Global at $1B on 2026-07-21, HQ
+New York since the US bank charter; the run had it `below_1b`. Why it was
+missed: the raise postdates the judge's knowledge; the Wikipedia unicorn
+snapshot (2026-08-23) omits Augustus and Ivy; the May-2026 rename
+defeated any name match; the firm posted no story about the round, so
+the evidence pack showed no trigger and the row never reached the A/B
+pass. Rule added (COLLECTION.md §6, decisions.md 19): the momentum slice
+(private, first_seen 2020+, hot sector) is web-checked mechanically; on
+this base 39 rows qualify, 5 were checked, **34 remain open debt**.
 
 ## 3. Calibration gate (pre-registered before the build)
 

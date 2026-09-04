@@ -217,6 +217,17 @@ rule rather than a row fix, flagged for Erik's review.
     Creandum VIII (Form D 2026-06-30, indefinite, $0 sold) has no published
     size and is described in the funds basis, not listed.
 
+19. **Augustus corrected to unicorn on Erik's instruction** (Erik,
+    2026-09-04): $180M Series B led by Tiger Global at $1B, company
+    release 2026-07-21, HQ moved to New York with the US bank charter;
+    the run had published `below_1b`. Cause: the raise postdates the
+    judge's knowledge, the Wikipedia unicorn snapshot omits it, the
+    rename from Ivy defeated name matching, and the row carried no A/B
+    trigger. Class-wide rule from it (COLLECTION.md §6): the momentum
+    slice (private, first_seen 2020+, hot sector) is web-checked
+    mechanically; on this base 34 such rows remain unchecked and are open
+    debt until that sweep runs.
+
 Verdicts live in `base-verification.json` and are re-applied on every rebuild;
 human verdicts (`who: "erik"`) outrank agent verdicts; excluded rows are
 preserved in `excluded.csv`, never deleted.

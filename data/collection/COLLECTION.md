@@ -568,7 +568,12 @@ order the grind will use, instead of auditing one it already used.
    pre-2012 board seats the 2012+ roster window structurally misses.
 4. **Deterministic classification layers**: SEC XBRL public float, Wikidata,
    unicorn lists, Form D round positions. These are ceilings and
-   corroboration, never labels — the first filing is a ceiling on entry
+   corroboration, never labels — and the unicorn snapshot is a
+   coverage floor, not a census: the Wikipedia list (shared/unicorns,
+   pulled 2026-08-23) omitted Augustus a month after its $1B round and
+   carries companies under their current names only, so a renamed
+   member (Ivy → Augustus) never matches. Re-pull it at run start,
+   match on every merged name, and treat its absence as no evidence — the first filing is a ceiling on entry
    recency, not the entry round, and a float is corroboration for a market
    cap, not the cap itself.
 
@@ -725,7 +730,20 @@ be read off it, and the report says so.
   figure; a tag ≥ 1b_plus requires a sourced `valuation_usd`.
 - **below_1b rule-outs** are web-checked only on a signal (past unicorn
   mark, mega-raise, hot sector, recent momentum); otherwise validated by
-  blind stratified sampling. Absence claims are not citeable at scale.
+  blind stratified sampling. Absence claims are not citeable at scale. **The signal is computed, not noticed** (Erik's correction on
+  Creandum, 2026-09-04): Augustus (ex-Ivy) closed a $180M Series B at
+  $1B on 2026-07-21 and the run published it `below_1b` — the raise
+  postdated the judge's knowledge, the Wikipedia unicorn snapshot did
+  not carry it, the rename defeated any name match, and the row showed
+  no trigger in its evidence pack because the firm posted nothing about
+  the round. So the **momentum slice** is mechanical: every private row
+  with `first_seen` inside the last five years in a hot sector (AI &
+  Applied AI, Fintech & Payments, Data Infrastructure, DevTools & APIs)
+  gets one web check in the A/B pass, and the check is recorded on the
+  row (`valuation_range_source: web_verified` with the citation, even
+  for a below_1b result), so an absence claim carries its date. On
+  Creandum that slice was 39 rows of which 5 had been checked; size the
+  search budget for it up front.
 
 ### entry_stage
 
