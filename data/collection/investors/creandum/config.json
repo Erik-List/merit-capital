@@ -1,0 +1,375 @@
+{
+ "slug": "creandum",
+ "name": "Creandum",
+ "wayback": {
+  "cdx_domain": "creandum.com",
+  "site_url_base": "https://creandum.com",
+  "eras": [
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio.htm",
+    "from": 2004,
+    "to": 2006,
+    "pattern": "href=\"portfolio(?:_(?P<slug>[a-z0-9]+))?\\.htm\"[^>]*>(?:<strong[^>]*>)?\\s*(?P<name>[A-Z][^<]{1,40}?)\\s*(?:</strong>)?</a>",
+    "per_company_pages": false,
+    "_note": "2004-2006 static site (Dreamweaver): portfolio.htm lists the companies as links to portfolio_<x>.htm; the featured company links to portfolio.htm itself inside <strong>. 2003's portfolio.html carried Nanoxis alone (also on the 2004 list) and is not configured.",
+    "raw": true
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/investments.html",
+    "from": 2007,
+    "to": 2010,
+    "pattern": "class=\"item\">\\s*<img[^>]*alt=\"(?P<name>[^\"]+)\"",
+    "per_company_pages": false,
+    "_note": "2007-2010 static site: investments.html renders one <div class=item> per company with the logo alt as the name; per-company pages investments_<x>.html.",
+    "raw": true
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/investments",
+    "from": 2010,
+    "to": 2013,
+    "pattern": "<div class=\"list-overlay\"><span>(?P<name>[^<]+)</span>",
+    "per_company_pages": false,
+    "_note": "2010-2013 Umbraco site: /investments lists every company (current and past) as <li class=slug><span class=list-caterories ..><div class=list-overlay><span>Name</span>Category</div>; per-company pages /investments/<slug> appear in 2013.",
+    "raw": true
+   },
+   {
+    "parser": "cdx_company_pages",
+    "path": "/investments/",
+    "from": 2013,
+    "to": 2013,
+    "per_company_pages": true
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/investment/",
+    "from": 2013,
+    "to": 2016,
+    "pattern": "href=\"https?://www\\.creandum\\.com/investment/(?P<slug>[a-z0-9-]+)/\"[^>]*title=\"(?P<name>[^\"]+)\"",
+    "per_company_pages": true,
+    "_note": "2013-12 to 2016 WordPress site (post type 'investment'): the /investment/ archive lists each company as a link to /investment/<slug>/ wrapping the logo image whose alt is the name.",
+    "raw": true
+   },
+   {
+    "parser": "cdx_company_pages",
+    "path": "/investment/",
+    "from": 2013,
+    "to": 2017,
+    "per_company_pages": true
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio",
+    "from": 2017,
+    "to": 2023,
+    "pattern": "data-logo='<svg><use xlink:href=\"#(?P<slug>[a-z0-9-]+)\"></use></svg>'",
+    "per_company_pages": false,
+    "_note": "2017-2023 static React-rendered site: /portfolio renders one <div class=cr-portfolio__item> per company whose only identifier is the logo sprite id (data-logo), alongside data-status, data-type, data-founded, data-invested, data-partner, data-ceo and data-url attributes; no name element exists, so the row's name derives from the slug here and is corrected by the site sources (the live CMS rendering, or sources/site/portfolio-2017-2023.json, which carries the attributes as a file_list source).",
+    "raw": true
+   },
+   {
+    "parser": "cdx_company_pages",
+    "path": "/commitments/",
+    "from": 2023,
+    "to": 2026,
+    "per_company_pages": true
+   },
+   {
+    "parser": "nuxt_payload_listing",
+    "path": "/commitments/",
+    "payload_route": "commitments",
+    "list_path": "data.data.0.portfolios",
+    "name_field": "title",
+    "slug_field": "slug",
+    "from": 2023,
+    "to": 2026,
+    "per_company_pages": true,
+    "_note": "2023-09 onward: Nuxt 2 full-static site on Contentful. The server-rendered /commitments HTML carries six highlight names only; the archived _nuxt/static/<build>/commitments/payload.js captures (first build of each year) hold every CMS row (title, slug, date, exited, state, types, creandumLeads) and are decoded through site-portfolio.py's nuxt decoder. Per-company pages /commitments/<slug> are enumerated by the cdx_company_pages era.",
+    "builds": {
+     "2023": "1697639172",
+     "2024": "1716476815",
+     "2025": "1751449767",
+     "2026": "1778150367"
+    },
+    "_builds_note": "Build ids read off the CDX index on 2026-09-04 (first archived commitments/payload.js of each year) before the index went down; the replay resolves them when CDX refuses."
+   }
+  ],
+  "non_company_slugs": [
+   "index",
+   "home",
+   "page",
+   "feed",
+   "search",
+   "tag",
+   "category",
+   "author",
+   "all",
+   "see-all",
+   "commitments",
+   "commitment",
+   "investment",
+   "investments",
+   "portfolio",
+   "team",
+   "people",
+   "stories",
+   "story",
+   "news",
+   "news-archive",
+   "contact",
+   "about",
+   "about-us",
+   "misc",
+   "privacy",
+   "privacy-policy",
+   "legals",
+   "terms",
+   "sustainability-disclosure",
+   "zero-tolerance-policy",
+   "our-balanced-ambition-policy",
+   "talent",
+   "jobs",
+   "careers",
+   "wp-content",
+   "wp-json",
+   "wp-admin",
+   "wp-includes",
+   "xmlrpc",
+   "cdn-cgi",
+   "assets",
+   "images",
+   "media",
+   "gui",
+   "pic",
+   "umbraco",
+   "components",
+   "api",
+   "test",
+   "css",
+   "sitemap",
+   "robots",
+   "favicon",
+   "creandum-com",
+   "creandum",
+   "2",
+   "3",
+   "4",
+   "5"
+  ]
+ },
+ "roster": {
+  "cdx_patterns": [
+   "creandum.com/team/*",
+   "creandum.com/team_*",
+   "creandum.com/team-member/*"
+  ],
+  "site_team_groups": [
+   "Investment"
+  ],
+  "slug_re": "/team/([a-z][a-z0-9-]*[a-z0-9])/?$",
+  "listing_href_re": "/team/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+  "not_a_person": [
+   "index",
+   "team",
+   "people",
+   "partners",
+   "about",
+   "companies",
+   "news",
+   "contact",
+   "jobs",
+   "careers",
+   "creandum-team",
+   "all",
+   "filter",
+   "page",
+   "www-jays-se",
+   "bjarke"
+  ],
+  "_note": "The CDX roster covers the /team/<first-last> namespaces of 2013-2026 (WordPress, the 2017-2023 static site, Nuxt). The 2004-2013 team pages used first-name files (claes.htm, team_fredrik.html) and one listing page, so the early partners are CURATED into partner-roster.json from the archived team pages (2004, 2008, 2010-2013) with the tenure windows those captures support — see sources/wayback/README.md. The 2017 site's first-name-only slugs (/team/staffan) are dropped by the first-last rule and covered by the full-name slugs of the other eras."
+ },
+ "site_api": {
+  "type": "scrape",
+  "sources": [
+   {
+    "parser": "nuxt_payload",
+    "url": "https://creandum.com",
+    "route": "/commitments",
+    "list_path": "data.data.0.portfolios",
+    "list": "commitments",
+    "fields": {
+     "name": "title",
+     "url": "website"
+    },
+    "row_url": "https://creandum.com/commitments/{slug}",
+    "sectors": "types",
+    "rename": {
+     "date": "invest_year",
+     "creandumLeads": "partners"
+    },
+    "pluck": {
+     "creandumLeads": "name"
+    },
+    "extras": [
+     "slug",
+     "invest_year",
+     "partners",
+     "exited",
+     "state",
+     "foundedDate",
+     "founderName",
+     "founderStatus"
+    ]
+   },
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/creandum/sources/site/portfolio-2017-2023.json",
+    "list": "portfolio-2017-2023",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "sectors": "type",
+    "extras": [
+     "invest_year",
+     "partners",
+     "status_site",
+     "founded",
+     "years_listed",
+     "ceo"
+    ]
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "nuxt_payload",
+    "url": "https://creandum.com",
+    "route": "/team",
+    "list_path": "data.data.0.teams",
+    "list": "team",
+    "fields": {
+     "name": "name",
+     "url": "websiteLink"
+    },
+    "row_url": "https://creandum.com/team/{slug}",
+    "rename": {
+     "type": "group"
+    },
+    "first": [
+     "type"
+    ],
+    "extras": [
+     "slug",
+     "jobPosition",
+     "group",
+     "city",
+     "websiteLink",
+     "twitterLink",
+     "email"
+    ]
+   }
+  ]
+ },
+ "edgar": {
+  "seed_queries": [
+   "creandum"
+  ],
+  "fts_phrases": [
+   "Creandum"
+  ],
+  "fts_own_pattern": "creandum"
+ },
+ "wikipedia": {
+  "phrases": [
+   "Creandum"
+  ]
+ },
+ "desks": {
+  "home": "eu",
+  "partition": [],
+  "rank": [
+   "eu",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "creades",
+     "^creand\\b",
+     "creand bank",
+     "credit andorra",
+     "credium",
+     "creandum (?:holding|foundation)"
+    ]
+   },
+   {
+    "desk": "eu",
+    "patterns": [
+     "^creandum\\b"
+    ]
+   }
+  ],
+  "_note": "Namesakes verified by entity and address (Jakobsbergsgatan 18 Stockholm; 36 Carnaby Street London; 58 S Park St San Francisco), never by name: Creades AB (Nasdaq Stockholm investment company), Creand (Credit Andorra's brand). No namesake files with the SEC under the Creandum name as of 2026-09-04: all eleven CIKs are the firm's own fund vehicles (decisions.md ruling 1)."
+ },
+ "profile": {
+  "own_vehicle_pattern": "^creandum",
+  "focus_min_companies": 12,
+  "focus_crosswalk": {
+   "SaaS": "SaaS",
+   "Consumer": "Consumer & Marketplaces",
+   "AI": "AI & Applied AI",
+   "Fintech": "Fintech & Payments",
+   "Climate": "Climate & Energy",
+   "Health": "Healthcare & Bio",
+   "consumer": "Consumer & Marketplaces",
+   "enterprise": "SaaS",
+   "fintech": "Fintech & Payments",
+   "health": "Healthcare & Bio",
+   "climate": "Climate & Energy",
+   "ai": "AI & Applied AI"
+  },
+  "_note": "The live CMS 'types' vocabulary (SaaS, Consumer, AI, Fintech, Climate, Health, Other) and the 2017-2023 site's data-type values crosswalk to the closed taxonomy; 'Other' stays unmapped. focus_min_companies ~4.5% of the expected base (PRO-72 Phase 4)."
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "spotify",
+   "klarna",
+   "izettle",
+   "trade republic",
+   "lovable",
+   "vivino",
+   "depop",
+   "kry",
+   "pleo",
+   "epidemic sound",
+   "kahoot",
+   "bolt",
+   "neo4j",
+   "cint",
+   "edgeware"
+  ],
+  "sample_slugs": [],
+  "shape": {
+   "one_b_share_max": 0.2,
+   "c2a_rate_max": 0.8,
+   "_note": "Defaults kept: an early-stage, site-listed base is the shape the defaults describe (PRO-72 expects Seed/Series A heavy, Nordic-concentrated, a real C2A cohort)."
+  }
+ },
+ "sample_slugs": [],
+ "commoncrawl": {
+  "company_paths": [
+   "commitments",
+   "investment",
+   "investments",
+   "portfolio"
+  ],
+  "people_paths": [
+   "team"
+  ]
+ }
+}

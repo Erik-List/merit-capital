@@ -16,6 +16,10 @@ era entry picks one:
                       markup regex (named groups name and/or slug)
   js_array_listing    listing page embedding a JSON array in a JS
                       assignment (era config: var, name_field)
+  nuxt_payload_listing a Nuxt full-static site's archived per-route
+                      payload.js, one build per year, decoded to the CMS rows
+                      the listing was generated from (era config:
+                      payload_route, list_path, name_field, slug_field)
 
 Raw HTML -> <investor>/sources/wayback/raw/
 Parsed   -> <investor>/sources/wayback/parsed/<year>.json
@@ -24,6 +28,7 @@ Parsed   -> <investor>/sources/wayback/parsed/<year>.json
 Usage: python3 scripts/wayback-pull.py <investor-slug>
 """
 import argparse
+import gzip
 import json
 import re
 import subprocess
@@ -41,9 +46,18 @@ UA = {"User-Agent": "MeritCapitalResearch/1.0 (erik@meritcapit.al)"}
 def curl(url: str) -> bytes:
     for attempt in range(3):
         try:
-            return subprocess.run(
-                ["curl", "-sfL", "--max-time", "90", "-H", f"User-Agent: {UA['User-Agent']}", url],
+            # --compressed: the id_ replay of a capture stored gzip-encoded
+            # comes back Content-Encoding: gzip, and without it curl saves
+            # the compressed bytes as the "page" (Creandum, 2026-09-04).
+            out = subprocess.run(
+                ["curl", "-sfL", "--compressed", "--max-time", "90",
+                 "-H", f"User-Agent: {UA['User-Agent']}", url],
                 capture_output=True, check=True).stdout
+            if out[:2] == b"\x1f\x8b":
+                # the id_ replay hands back captures that were stored gzip-
+                # encoded without the header curl --compressed keys on
+                out = gzip.decompress(out)
+            return out
         except subprocess.CalledProcessError as e:
             print(f"    retry {attempt+1} {url}: rc={e.returncode}", file=sys.stderr, flush=True)
             time.sleep(3)
@@ -75,8 +89,11 @@ def cdx(url_pattern: str, **params) -> list[list[str]]:
     return data[1:] if data else []
 
 
-def wb(ts: str, original: str) -> str:
-    return f"http://web.archive.org/web/{ts}/{original}"
+def wb(ts: str, original: str, raw: bool = False) -> str:
+    """Replay URL; raw=True asks for the id_ form (the captured bytes, no
+    toolbar and no link rewriting) so an era regex can match the page's own
+    hrefs — set per era with "raw": true."""
+    return f"http://web.archive.org/web/{ts}{'id_' if raw else ''}/{original}"
 
 
 def yearly(rows, y0, y1):
@@ -92,6 +109,74 @@ def yearly(rows, y0, y1):
 
 def seg_of(era: dict) -> str:
     return era["path"].strip("/")
+
+
+def replay_yearly(urls: list[str], y0: int, y1: int) -> dict:
+    """CDX-outage fallback (COLLECTION.md §5, measured 2026-09 on Lightspeed
+    and Creandum: connection-refused CDX, working replay): for each year ask
+    the replay for the capture nearest three probe dates and keep the first
+    whose true timestamp, read off the redirected id_ URL, falls in the year.
+    `urls` are the candidate originals (the current site base and the
+    http://www. form the early captures were stored under)."""
+    out = {}
+    for y in range(y0, y1 + 1):
+        found = None
+        for url in urls:
+            for probe in (f"{y}0615", f"{y}0201", f"{y}1015"):
+                r = subprocess.run(
+                    ["curl", "-sL", "--max-time", "90", "-o", "/dev/null",
+                     "-w", "%{url_effective}\n%{http_code}",
+                     "-H", f"User-Agent: {UA['User-Agent']}",
+                     f"http://web.archive.org/web/{probe}id_/{url}"],
+                    capture_output=True)
+                eff, code = (r.stdout.decode().split("\n") + ["", ""])[:2]
+                m = re.search(r"/web/(\d{14})id_/(.*)$", eff)
+                time.sleep(0.8)
+                if code in ("429", "503"):          # replay throttling: back off, retry once
+                    time.sleep(8)
+                    r = subprocess.run(
+                        ["curl", "-sL", "--max-time", "90", "-o", "/dev/null",
+                         "-w", "%{url_effective}\n%{http_code}",
+                         "-H", f"User-Agent: {UA['User-Agent']}",
+                         f"http://web.archive.org/web/{probe}id_/{url}"],
+                        capture_output=True)
+                    eff, code = (r.stdout.decode().split("\n") + ["", ""])[:2]
+                    m = re.search(r"/web/(\d{14})id_/(.*)$", eff)
+                if m and m.group(1)[:4] == str(y) and code.startswith("2"):
+                    found = (m.group(1), m.group(2))
+                    break
+            if found:
+                break
+        if found:
+            out[y] = found
+    return out
+
+
+def snapshots(cfg: dict, era: dict, y0: int, y1: int, raw_dir: Path) -> dict:
+    """One capture per year of the era's listing page: the CDX index when it
+    answers, the replay probe when it refuses, and the era's memo
+    (raw/<seg>.snapshots.json) for years an earlier run already resolved —
+    replay probing is throttled under load, so a rerun keeps what it found."""
+    seg = seg_of(era)
+    memo = raw_dir / f"{seg.replace('/', '-')}.snapshots.json"
+    known = json.loads(memo.read_text()) if memo.exists() else {}
+    snaps = yearly(cdx(f"{cfg['cdx_domain']}/{seg}", collapse="timestamp:4",
+                       fl="timestamp,original"), y0, y1)
+    if not snaps:
+        print(f"  CDX empty for {cfg['cdx_domain']}/{seg}; probing the replay per year")
+        dom = cfg["cdx_domain"]
+        urls = [f"{cfg['site_url_base']}{era['path']}", f"http://www.{dom}{era['path']}",
+                f"http://{dom}{era['path']}"]
+        missing = [y for y in range(y0, y1 + 1) if str(y) not in known]
+        if missing:
+            snaps = replay_yearly(list(dict.fromkeys(urls)), min(missing), max(missing))
+    for y in range(y0, y1 + 1):
+        if y not in snaps and str(y) in known:
+            snaps[y] = tuple(known[str(y)])
+    known.update({str(y): list(v) for y, v in snaps.items()})
+    raw_dir.mkdir(parents=True, exist_ok=True)
+    memo.write_text(json.dumps(known, indent=1))
+    return snaps
 
 
 def cdx_company_pages(era, cfg, raw_dir):
@@ -166,11 +251,10 @@ def companies_listing(era, cfg, raw_dir):
     seg = seg_of(era)
     y0, y1 = era["from"], era["to"]
     print(f"== era {era['path']} {y0}-{y1} (listing page)")
-    snaps = yearly(cdx(f"{cfg['cdx_domain']}/{seg}", collapse="timestamp:4",
-                       fl="timestamp,original"), y0, y1)
+    snaps = snapshots(cfg, era, y0, y1, raw_dir)
     results = {}
     for y, (ts, orig) in sorted(snaps.items()):
-        html = fetch(wb(ts, orig), raw_dir / f"{y}-{seg}.html")
+        html = fetch(wb(ts, orig, era.get("raw", False)), raw_dir / f"{y}-{seg}.html")
         blocks = re.findall(
             r'data-filters="([^"]*)"[^>]*data-id="([^"]+)"[^>]*>\s*<div class="_name">([^<]+)</div>', html)
         if not blocks:  # attribute order variant
@@ -193,11 +277,10 @@ def company_cards(era, cfg, raw_dir):
     seg = seg_of(era)
     y0, y1 = era["from"], era["to"]
     print(f"== era {era['path']} {y0}-{y1} (card listing)")
-    snaps = yearly(cdx(f"{cfg['cdx_domain']}/{seg}", collapse="timestamp:4",
-                       fl="timestamp,original"), y0, y1)
+    snaps = snapshots(cfg, era, y0, y1, raw_dir)
     results = {}
     for y, (ts, orig) in sorted(snaps.items()):
-        html = fetch(wb(ts, orig), raw_dir / f"{y}-{seg}.html")
+        html = fetch(wb(ts, orig, era.get("raw", False)), raw_dir / f"{y}-{seg}.html")
         rows = {}
         for name in re.findall(
                 r'class="company-listing-card__company-name">\s*([^<\t\n]+)', html):
@@ -221,11 +304,11 @@ def listing_regex(era, cfg, raw_dir):
     y0, y1 = era["from"], era["to"]
     non_company = set(cfg["non_company_slugs"])
     print(f"== era {era['path']} {y0}-{y1} (regex listing)")
-    snaps = yearly(cdx(f"{cfg['cdx_domain']}/{seg}", collapse="timestamp:4",
-                       fl="timestamp,original"), y0, y1)
+    snaps = snapshots(cfg, era, y0, y1, raw_dir)
     results = {}
     for y, (ts, orig) in sorted(snaps.items()):
-        html = fetch(wb(ts, orig), raw_dir / f"{y}-{seg.replace('/', '-')}.html")
+        html = fetch(wb(ts, orig, era.get("raw", False)),
+                     raw_dir / f"{y}-{seg.replace('/', '-')}.html")
         rows = {}
         for m in re.finditer(era["pattern"], html):
             d = m.groupdict()
@@ -280,11 +363,10 @@ def js_array_listing(era, cfg, raw_dir):
     seg = seg_of(era)
     y0, y1 = era["from"], era["to"]
     print(f"== era {era['path']} {y0}-{y1} (embedded JS array)")
-    snaps = yearly(cdx(f"{cfg['cdx_domain']}/{seg}", collapse="timestamp:4",
-                       fl="timestamp,original"), y0, y1)
+    snaps = snapshots(cfg, era, y0, y1, raw_dir)
     results = {}
     for y, (ts, orig) in sorted(snaps.items()):
-        html = fetch(wb(ts, orig), raw_dir / f"{y}-{seg}.html")
+        html = fetch(wb(ts, orig, era.get("raw", False)), raw_dir / f"{y}-{seg}.html")
         rows = {}
         for entry in extract_js_array(html, era["var"]):
             name = unescape(str(entry.get(era.get("name_field", "title")) or "")).strip()
@@ -301,6 +383,72 @@ def js_array_listing(era, cfg, raw_dir):
     return results
 
 
+def nuxt_payload_listing(era, cfg, raw_dir):
+    """Nuxt 2 full-static site: the archived /_nuxt/static/<build>/<route>/
+    payload.js, one build per year, decoded to the CMS rows the listing was
+    generated from — the server-rendered HTML of such a page carries only
+    what the template renders (creandum.com/commitments: six highlight names),
+    while the payload carries every row with the fields the CMS holds. The
+    decoder and the Contentful flattening live in site-portfolio.py (the live
+    surface reads the current build the same way)."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "site_portfolio", Path(__file__).with_name("site-portfolio.py"))
+    sp = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(sp)
+    route = era["payload_route"].strip("/")
+    y0, y1 = era["from"], era["to"]
+    print(f"== era {era['path']} {y0}-{y1} (nuxt payload builds)")
+    rows = cdx(f"{cfg['cdx_domain']}/_nuxt/static/", fl="timestamp,original",
+               limit="20000", matchType="prefix")
+    want = re.compile(rf"/_nuxt/static/\d+/{re.escape(route)}/payload\.js$")
+    snaps = yearly([r for r in rows if want.search(r[1])], y0, y1)
+    if not snaps and era.get("builds"):
+        # CDX refused: the era pins one build id per year (read off the index
+        # while it answered) and the replay resolves the capture.
+        print("  CDX empty; using the era's pinned builds through the replay")
+        for y, build in sorted(era["builds"].items()):
+            url = f"{cfg['site_url_base']}/_nuxt/static/{build}/{route}/payload.js"
+            got = replay_yearly([url], int(y), int(y))
+            snaps.update(got)
+    results = {}
+    for y, (ts, orig) in sorted(snaps.items()):
+        dest = raw_dir / f"{y}-{route}-payload.js"
+        raw = dest.read_bytes() if dest.exists() \
+            else curl(f"http://web.archive.org/web/{ts}id_/{orig}")
+        if raw[:2] == b"\x1f\x8b":            # stored gzip-encoded (see curl())
+            raw = gzip.decompress(raw)
+        js = raw.decode("utf-8", "replace")
+        if raw and not dest.exists():
+            dest.write_bytes(raw)
+            time.sleep(1.0)
+        if not js.startswith("__NUXT_JSONP__"):
+            print(f"  {y}: capture is not a payload ({js[:40]!r})")
+            continue
+        data = sp.nuxt_decode(js)
+        for part in [p for p in (era.get("list_path") or "").split(".") if p]:
+            if isinstance(data, list):
+                data = data[int(part)] if part.isdigit() and int(part) < len(data) else []
+            elif isinstance(data, dict):
+                data = data.get(part) or []
+        out = {}
+        for entry in (data if isinstance(data, list) else []):
+            f = sp.contentful_flatten(entry)
+            if not isinstance(f, dict):
+                continue
+            name = unescape(str(f.get(era.get("name_field", "title")) or "")).strip()
+            slug = str(f.get(era.get("slug_field", "slug")) or "").strip() or (
+                re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-") if name else "")
+            if not slug:
+                continue
+            out[slug] = {"slug": slug, "name": name or None,
+                         "path": f"/{route}/{slug}", "snapshot_ts": ts}
+        if out:
+            results[y] = sorted(out.values(), key=lambda c: c["slug"])
+        print(f"  {y}: {len(out)} entries (build {orig.rsplit('/static/', 1)[-1].split('/')[0]}, {ts})")
+    return results
+
+
 PARSERS = {
     "cdx_company_pages": cdx_company_pages,
     "sitemap_home_links": sitemap_home_links,
@@ -308,6 +456,7 @@ PARSERS = {
     "company_cards": company_cards,
     "listing_regex": listing_regex,
     "js_array_listing": js_array_listing,
+    "nuxt_payload_listing": nuxt_payload_listing,
 }
 
 
@@ -327,7 +476,8 @@ def main():
         # A firm that changed domains keeps one config: an era may carry its
         # own cdx_domain (Lightspeed: lightspeedvp.com 2000-2012, lsvp.com
         # after), falling back to the investor-level domain.
-        era_cfg = {**cfg, "cdx_domain": era.get("cdx_domain", cfg["cdx_domain"])}
+        era_cfg = {**cfg, "cdx_domain": era.get("cdx_domain", cfg["cdx_domain"]),
+                   "site_url_base": era.get("site_url_base", cfg["site_url_base"])}
         for y, rows in PARSERS[era["parser"]](era, era_cfg, raw).items():
             all_years.setdefault(y, []).extend(rows)
     for y, rows in sorted(all_years.items()):

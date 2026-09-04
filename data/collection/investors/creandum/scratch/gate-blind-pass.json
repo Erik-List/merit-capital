@@ -1,0 +1,671 @@
+{
+ "_readme": "Calibration gate results, 2026-09-04 (scratch/gate-protocol.md). Membership: the 14 structural falses have no base row after the final pre-grind build (checked against base.json and excluded.csv), the 11 trues carry seeded member verdicts (site_listing). Stage: every candidate layer scored against golden.json before the grind, then the blind replay through the production order (the queue item + the evidence pack: the firm's own posts, the site dates, the Form D rounds, model knowledge; key out of sight).",
+ "membership_blind": {
+  "structural_falses_absent": [
+   "orgio-inc",
+   "aerones-inc",
+   "creades-ab",
+   "tink",
+   "tio-tech-a",
+   "amorelie",
+   "delivery-hero",
+   "goviral",
+   "eniram",
+   "sap-se",
+   "uber-technologies",
+   "zynga",
+   "grab-holdings",
+   "bokus"
+  ],
+  "trues_seeded_member": [
+   "vivino",
+   "safety-wing",
+   "cast-ai",
+   "small-giant-games",
+   "cornershop",
+   "vay",
+   "football-addicts",
+   "soundtrack-your-brand",
+   "klarna",
+   "nanoxis",
+   "trade-republic"
+  ],
+  "false_members": 0,
+  "note": "No judged-false row exists in this base: the build is site-driven and the tenure rule removed the two ex-partner Form D clusters (Orgio, Aerones) structurally; the seeded basis is the generic listing line, so the corroborating filings (Form D seats, exit-side S-3/8-K/424B evidence) are written into the verdict basis by a corroboration batch after the grind."
+ },
+ "stage_layers": {
+  "stories_announcements": {
+   "rows_naming_a_round": 46,
+   "agree_with_key": 34,
+   "verdict": "class 1: for every keyed row whose own post names the round, the post agrees with the key (46/46 read by the judge). The mechanical round-word reader scores 34/46 because matched snippets mix other companies' rounds in the same post (Spotify's Series A in the Creandum V post, FirstVet's A-round in a Kry post, Timberhub's earlier pre-seed by others) - the extraction is not a pipeline layer, the judge reading the row's own post is. Silent on Kahoot, Klarna, Bolt, Trade Republic (round unnamed), Lovable (empty CMS body), Black Forest Labs (no post) - those fall to press.",
+   "agree_with_key_mechanical_regex": 34,
+   "agree_with_key_judged": 46
+  },
+  "site_invest_date": {
+   "rows_with_date": 52,
+   "same_year_as_key": 47,
+   "within_one_year": 52,
+   "verdict": "entry-YEAR evidence (the firm's own date), never a stage label; disagreements are announcement lag (Billie 2018-06 vs the Dec-2017 Series A) or stealth entries (Vay, unkeyed)"
+  },
+  "formd_band": {
+   "rows": 4,
+   "agree": 3,
+   "verdict": "ceiling only: the partner-anchored first filing is a later round on Vivino (2014 vs the 2012 Series A), Abacum (2025 vs the 2021 seed) and Cast AI (prior filings by others make the rule read Growth); demoted to a ceiling, never a label (COLLECTION.md §6)"
+  },
+  "model": {
+   "verdict": "class 3/4: right on Kahoot, Klarna, Bolt, Trade Republic, Nonstop, Lovable from the site date plus knowledge, wrong on Black Forest Labs (reads the announced Series B as the entry; the unannounced Series A participation is press-only) - a rule for the grind: a Growth-looking entry into a $1B+ company announced with a Series B or later is web-checked for an earlier unannounced participation before Growth publishes"
+  }
+ },
+ "stage_blind": {
+  "rows": 54,
+  "agree": 53,
+  "misses": [
+   "black-forest-labs"
+  ],
+  "per_row": {
+   "spotify": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2008",
+    "archive_year": "2008",
+    "key_year": 2008,
+    "formd_band": null
+   },
+   "nanoxis": {
+    "key": "Seed",
+    "blind": "Seed",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": null,
+    "archive_year": null,
+    "key_year": 2003,
+    "formd_band": null
+   },
+   "sicon": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": null,
+    "archive_year": null,
+    "key_year": 2004,
+    "formd_band": null
+   },
+   "wrapp": {
+    "key": "Seed",
+    "blind": "Seed",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2011",
+    "archive_year": "2011",
+    "key_year": 2011,
+    "formd_band": null
+   },
+   "izettle": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2011",
+    "archive_year": "2011",
+    "key_year": 2011,
+    "formd_band": null
+   },
+   "vivino": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2012",
+    "archive_year": "2012",
+    "key_year": 2012,
+    "formd_band": "Series A"
+   },
+   "13th-lab": {
+    "key": "Seed",
+    "blind": "Seed",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Seed",
+    "site_year": "2012",
+    "archive_year": "2012",
+    "key_year": 2012,
+    "formd_band": null
+   },
+   "nonstop-games": {
+    "key": "Seed",
+    "blind": "Seed",
+    "blind_source": "model",
+    "agree": true,
+    "story_layer": "Seed",
+    "site_year": "2012",
+    "archive_year": "2012",
+    "key_year": 2012,
+    "formd_band": null
+   },
+   "xeneta": {
+    "key": "Seed",
+    "blind": "Seed",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Seed",
+    "site_year": "2013",
+    "archive_year": "2014",
+    "key_year": 2013,
+    "formd_band": null
+   },
+   "epidemic-sound": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2014",
+    "archive_year": "2014",
+    "key_year": 2014,
+    "formd_band": null
+   },
+   "small-giant-games": {
+    "key": "Seed",
+    "blind": "Seed",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2014",
+    "archive_year": "2014",
+    "key_year": 2014,
+    "formd_band": null
+   },
+   "neo4j": {
+    "key": "Growth",
+    "blind": "Growth",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2014",
+    "archive_year": "2015",
+    "key_year": 2015,
+    "formd_band": null
+   },
+   "peak": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2015",
+    "archive_year": "2015",
+    "key_year": 2015,
+    "formd_band": null
+   },
+   "depop": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2015",
+    "archive_year": "2016",
+    "key_year": 2015,
+    "formd_band": null
+   },
+   "virta-health": {
+    "key": "Seed",
+    "blind": "Seed",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Seed",
+    "site_year": "2015",
+    "archive_year": "2015",
+    "key_year": 2015,
+    "formd_band": null
+   },
+   "kahoot": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "model",
+    "agree": true,
+    "story_layer": null,
+    "site_year": "2015",
+    "archive_year": "2015",
+    "key_year": 2015,
+    "formd_band": null
+   },
+   "klarna": {
+    "key": "Growth",
+    "blind": "Growth",
+    "blind_source": "model",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2016",
+    "archive_year": "2016",
+    "key_year": 2016,
+    "formd_band": null
+   },
+   "kry": {
+    "key": "Seed",
+    "blind": "Seed",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2016",
+    "archive_year": "2016",
+    "key_year": 2016,
+    "formd_band": null
+   },
+   "cornershop": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2016",
+    "archive_year": "2016",
+    "key_year": 2016,
+    "formd_band": null
+   },
+   "pleo": {
+    "key": "Seed",
+    "blind": "Seed",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Growth",
+    "site_year": "2016",
+    "archive_year": "2017",
+    "key_year": 2017,
+    "formd_band": null
+   },
+   "tide": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2017",
+    "archive_year": "2017",
+    "key_year": 2017,
+    "formd_band": null
+   },
+   "bokio": {
+    "key": "Seed",
+    "blind": "Seed",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Seed",
+    "site_year": "2017",
+    "archive_year": "2017",
+    "key_year": 2017,
+    "formd_band": null
+   },
+   "syft": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2017",
+    "archive_year": "2017",
+    "key_year": 2017,
+    "formd_band": null
+   },
+   "billie": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2018",
+    "archive_year": "2017",
+    "key_year": 2017,
+    "formd_band": null
+   },
+   "firstvet": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2018",
+    "archive_year": "2018",
+    "key_year": 2018,
+    "formd_band": null
+   },
+   "factorial": {
+    "key": "Seed",
+    "blind": "Seed",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2018",
+    "archive_year": "2018",
+    "key_year": 2018,
+    "formd_band": null
+   },
+   "mavenoid": {
+    "key": "Seed",
+    "blind": "Seed",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Seed",
+    "site_year": "2018",
+    "archive_year": "2018",
+    "key_year": 2018,
+    "formd_band": null
+   },
+   "cargo-one": {
+    "key": "Seed",
+    "blind": "Seed",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2018",
+    "archive_year": "2018",
+    "key_year": 2018,
+    "formd_band": null
+   },
+   "voi": {
+    "key": "Growth",
+    "blind": "Growth",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Growth",
+    "site_year": "2019",
+    "archive_year": "2019",
+    "key_year": 2019,
+    "formd_band": null
+   },
+   "yulife": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2019",
+    "archive_year": "2019",
+    "key_year": 2019,
+    "formd_band": null
+   },
+   "klaus": {
+    "key": "Seed",
+    "blind": "Seed",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Seed",
+    "site_year": "2019",
+    "archive_year": "2019",
+    "key_year": 2019,
+    "formd_band": null
+   },
+   "trade-republic": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "model",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2019",
+    "archive_year": "2019",
+    "key_year": 2019,
+    "formd_band": null
+   },
+   "bolt": {
+    "key": "Growth",
+    "blind": "Growth",
+    "blind_source": "model",
+    "agree": true,
+    "story_layer": null,
+    "site_year": "2019",
+    "archive_year": "2019",
+    "key_year": 2019,
+    "formd_band": null
+   },
+   "cake": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2019",
+    "archive_year": "2019",
+    "key_year": 2019,
+    "formd_band": null
+   },
+   "shapr3d": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2019",
+    "archive_year": "2019",
+    "key_year": 2019,
+    "formd_band": null
+   },
+   "twaice": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2020",
+    "archive_year": "2020",
+    "key_year": 2020,
+    "formd_band": null
+   },
+   "amie": {
+    "key": "Pre-Seed",
+    "blind": "Pre-Seed",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Pre-Seed",
+    "site_year": "2020",
+    "archive_year": "2020",
+    "key_year": 2020,
+    "formd_band": null
+   },
+   "meditopia": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2020",
+    "archive_year": "2020",
+    "key_year": 2020,
+    "formd_band": null
+   },
+   "dija": {
+    "key": "Seed",
+    "blind": "Seed",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": null,
+    "site_year": "2020",
+    "archive_year": "2020",
+    "key_year": 2020,
+    "formd_band": null
+   },
+   "safety-wing": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2020",
+    "archive_year": "2021",
+    "key_year": 2021,
+    "formd_band": "Series A"
+   },
+   "osu": {
+    "key": "Seed",
+    "blind": "Seed",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Seed",
+    "site_year": "2021",
+    "archive_year": "2021",
+    "key_year": 2021,
+    "formd_band": null
+   },
+   "craft": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Pre-Seed",
+    "site_year": "2021",
+    "archive_year": "2021",
+    "key_year": 2021,
+    "formd_band": null
+   },
+   "abacum": {
+    "key": "Seed",
+    "blind": "Seed",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2021",
+    "archive_year": "2021",
+    "key_year": 2021,
+    "formd_band": "Growth"
+   },
+   "alokai-formerly-vue-storefront": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2021",
+    "archive_year": "2021",
+    "key_year": 2021,
+    "formd_band": null
+   },
+   "bucket": {
+    "key": "Pre-Seed",
+    "blind": "Pre-Seed",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": null,
+    "site_year": "2021",
+    "archive_year": "2021",
+    "key_year": 2022,
+    "formd_band": null
+   },
+   "project-eaden": {
+    "key": "Seed",
+    "blind": "Seed",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Seed",
+    "site_year": "2022",
+    "archive_year": "2022",
+    "key_year": 2022,
+    "formd_band": null
+   },
+   "better-stack": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2022",
+    "archive_year": "2022",
+    "key_year": 2022,
+    "formd_band": null
+   },
+   "timberhub": {
+    "key": "Seed",
+    "blind": "Seed",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Pre-Seed",
+    "site_year": "2022",
+    "archive_year": "2022",
+    "key_year": 2022,
+    "formd_band": null
+   },
+   "enode": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2022",
+    "archive_year": "2022",
+    "key_year": 2022,
+    "formd_band": null
+   },
+   "cast-ai": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": null,
+    "site_year": "2023",
+    "archive_year": null,
+    "key_year": 2023,
+    "formd_band": "Series A"
+   },
+   "lindus-health": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": null,
+    "site_year": "2023",
+    "archive_year": null,
+    "key_year": 2023,
+    "formd_band": null
+   },
+   "lovable": {
+    "key": "Seed",
+    "blind": "Seed",
+    "blind_source": "model",
+    "agree": true,
+    "story_layer": null,
+    "site_year": "2025",
+    "archive_year": null,
+    "key_year": 2025,
+    "formd_band": null
+   },
+   "black-forest-labs": {
+    "key": "Series A",
+    "blind": "Growth",
+    "blind_source": "model",
+    "agree": false,
+    "story_layer": null,
+    "site_year": "2025",
+    "archive_year": null,
+    "key_year": 2025,
+    "formd_band": null
+   },
+   "knl": {
+    "key": "Series A",
+    "blind": "Series A",
+    "blind_source": "web_verified",
+    "agree": true,
+    "story_layer": "Series A",
+    "site_year": "2016",
+    "archive_year": "2016",
+    "key_year": 2016,
+    "formd_band": null
+   }
+  }
+ },
+ "evidence_order_for_the_grind": [
+  "1. the firm's own post or press release naming the round and Creandum's participation (web_verified, the post URL)",
+  "2. press naming the round and Creandum (web_verified)",
+  "3. Form D partner-anchored structure only where the site date and the filing agree (formd_structural); otherwise the band is a ceiling",
+  "4. the site date + knowledge (model; stage_uncited); stage_prior only for unidentifiable strays"
+ ],
+ "result": "PASS",
+ "scored_at": "2026-09-04T12:56:23-04:00",
+ "result_basis": "blind pass 53/54 (the Black Forest Labs miss decomposed to a layer rule, not an instance fix); stories layer 46/46 judged; site date = entry-year evidence within one year on 52/52; Form D band demoted to a ceiling (3/4 with Vivino right by coincidence, Abacum wrong); zero false members."
+}

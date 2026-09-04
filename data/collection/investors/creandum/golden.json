@@ -1,0 +1,410 @@
+{
+ "_readme": [
+  "Calibration sets (COLLECTION.md §4) for Creandum, pre-registered 2026-09-04 BEFORE the base build (PRO-72 Phase 1).",
+  "`membership` is the trap set: 14 falses (ex-partner post-tenure seats from the Form D sweep, the Creades/Creand string traps, a SPAC director biography, partners' personal angel positions and founder-era companies, blog subjects the firm wrote about but never held, the EDGAR full-text registrants that are acquirers or LPs rather than holdings) and 11 trues across eras (2003 press, archive-only listings, Form D seats in tenure, filing-grade exit evidence, a secondary entry, the Klarna 2016 position). Gate: zero false members at high confidence; structural falses must have NO published base row.",
+  "`stage` is the entry-stage golden set: 56 rows keyed to external documents - overwhelmingly the firm's own announcement posts (creandum.com/stories, class 1) plus press for Spotify, iZettle, Wrapp, Klarna, Kahoot, Trade Republic, Bolt, Cast AI, Lindus, Lovable and Black Forest Labs, and the firm's archived 2003-2004 press releases for Nanoxis and SiCon. Slugs are the expected built rendering and are reconciled to the build (a slug is not a label).",
+  "Deliberately unkeyed: Vay (the live CMS dates the position 2019-05, the firm's 2021 post names the Series A as the round it 'partnered up' for, and press documents only the $30M Series A with Atomico and Creandum - no document names a 2019 round; dropped at the gate, 2026-09-04), Tictail (Creandum was an 'early backer' by Feb 2014 but the site dates the position 2013-12 and no document names Creandum's round), Comtravo (announced 'with the closing of its Series A' after an earlier entry), Taxfix (EUR 2M round unnamed), Laka, itslearning (a 2010 buy-in with no round name), Edgeware/Cint/Jays (2006-2007 rounds not named in any first-party document found at kickoff).",
+  "Layers scored on this key before the grind: (1) the firm's own stories/announcements (class 1 where a post names the round); (2) the live CMS `date` as entry-year evidence and its absent stage field; (3) the 2017-2023 site's data-invested year; (4) the Form D band (partner-anchored first filing) - expected to fail as an entry label on Vivino, Abacum and Cast AI where the first partner filing is a later round; (5) model knowledge."
+ ],
+ "_key_registered": "2026-09-04T12:41:45-04:00",
+ "membership": {
+  "orgio-inc": [
+   "not_member",
+   "Ex-partner seats after departure: Martin Hauge (left 2015) is Director on Orgio, Inc. (New York) Form Ds 2019q3 and 2024q3, Christian Wylonis (left 2015) on 2020q1 and 2021q3 - both outside their tenure windows, no listing, no announcement, no vehicle: personal/next-firm seats (COLLECTION.md §1 seat dating); the build's tenure rule must remove it",
+   "formd_adjudicated"
+  ],
+  "aerones-inc": [
+   "not_member",
+   "Ex-partner next-firm seat: Andris Berzins (Creandum investment advisor 2012-2015, then Change Ventures) is Director on Aerones Inc. 2022q4 and Aerones Holdings Inc. 2025q3 - Change Ventures' Latvian robotics deal, no Creandum listing or announcement; structural false",
+   "formd_adjudicated"
+  ],
+  "creades-ab": [
+   "not_member",
+   "Namesake string trap: Creades AB is the Nasdaq Stockholm-listed investment company (Hagstromer), the early Klarna holder via Oresund and the backer of Tink, Acne Studios, Apotea - never Creandum; no row may build from a 'Creades' mention",
+   "web"
+  ],
+  "tink": [
+   "not_member",
+   "String trap instance: Tink was backed by Creades AB (and Sunstone, SEB), not Creandum; a Nordic press clause or Wikipedia sentence naming 'Creades' must not become a Creandum row",
+   "web"
+  ],
+  "tio-tech-a": [
+   "not_member",
+   "A SPAC (Tio Tech A, S-1 2021) whose text names Jonathan Teklu as 'Venture Partner at Creandum' - a person mention in a director biography, not a holding; EDGAR full-text hit, no row",
+   "fund_filing"
+  ],
+  "amorelie": [
+   "not_member",
+   "Personal positions of firm people: Amorelie is Jonathan Teklu's personal angel investment (Tio Tech A S-1 biography) and Felix Haas's (Designer in Residence) co-founded company - no fund money, no listing; no row",
+   "web"
+  ],
+  "delivery-hero": [
+   "not_member",
+   "Jonathan Teklu's personal angel position per the Tio Tech A S-1 ('invested in ... Delivery Hero, One Football and Trade Republic'); Trade Republic is a fund holding on its own evidence, Delivery Hero is not - a person's angel book is not the firm's",
+   "web"
+  ],
+  "goviral": [
+   "not_member",
+   "Blog subject, not a holding: the firm's 2009 post 'Danish GoViral raises EUR 6.5M' reports Kennet Partners' investment (techcrunch.com/2009/03/24/kennet-puts-e65-million-into-govirals-branded-video-network); the stories layer carries third-party news and must not mint rows without a related-company link or a fund claim",
+   "web"
+  ],
+  "eniram": [
+   "not_member",
+   "Blog subject, not a holding: 'Finnish Eniram raises EUR 5M' (2009) with Ferd Venture - no Creandum participation, no related-company link",
+   "web"
+  ],
+  "sap-se": [
+   "not_member",
+   "EDGAR full-text registrant, not a holding: SAP's 20-F lists 'Creandum SPV TR (D) AB' among SAP's own investments (SAP is an LP in the Trade Republic SPV); the vehicle is the firm's, SAP is not a portfolio company",
+   "fund_filing"
+  ],
+  "uber-technologies": [
+   "not_member",
+   "Acquirer, not a holding: Uber's 424B7 resale prospectuses (2020-2021) list 'Creandum III LP' as a selling stockholder - consideration shares from Uber's acquisition of Cornershop; the investment row is Cornershop (COLLECTION.md §1 consideration rule)",
+   "fund_filing"
+  ],
+  "zynga": [
+   "not_member",
+   "Acquirer, not a holding: Zynga's 8-K (2018-12) files the Small Giant Games share purchase agreement with Creandum III, L.P. among the sellers; the row is Small Giant Games",
+   "fund_filing"
+  ],
+  "grab-holdings": [
+   "not_member",
+   "Registrant whose 6-K (2025-11) reproduces Vay's press release naming Creandum among Vay's investors; Grab is Vay's partner, not a Creandum holding - the row is Vay",
+   "fund_filing"
+  ],
+  "bokus": [
+   "not_member",
+   "Founder-era company of a partner: Johan Brenner co-founded Bokus (1997) and Jobline before joining Creandum in 2010 - pre-firm, personal; no row",
+   "web"
+  ],
+  "vivino": [
+   "member",
+   "Site-listed (live CMS, invest 2012-12, Johan Brenner) and Form D: Martin Hauge Director on Vivino, Inc. 2014q4 inside his 2003-2015 tenure, Johan Brenner on 2016q1/2019q2/2021q1; the firm led the 2012 Series A",
+   "site_listing"
+  ],
+  "safety-wing": [
+   "member",
+   "Site-listed (live CMS 'Safety Wing', 2020-12, Carl Fritjofsson) and Form D: Safety Nest Inc. (San Francisco) 2021q1 USD 12.9M with Fritjofsson as Director - the same company under its legal name; identity merge safety-nest-inc -> safety-wing",
+   "site_listing"
+  ],
+  "cast-ai": [
+   "member",
+   "Site-listed (live CMS 2023-01, Carl Fritjofsson) and Form D: CAST AI Group, Inc. (Miami) 2023q1-2025q2 with Fritjofsson as Director; the firm led the $20M round of March 2023",
+   "site_listing"
+  ],
+  "small-giant-games": [
+   "member",
+   "Site-listed (2014-2016 WordPress listing, 2017-2023 site invested 2014, live CMS 'Past'/exited) and filing-grade exit evidence: Zynga's 2018-12 8-K names Creandum III, L.P. as a seller (acquired by Zynga, Dec 2018)",
+   "site_listing"
+  ],
+  "cornershop": [
+   "member",
+   "Site-listed (live CMS 2016-04, Carl Fritjofsson; 2017-2023 site) and filing-grade exit evidence: Creandum III LP as selling stockholder in Uber's 424B7 (acquired by Uber 2021)",
+   "site_listing"
+  ],
+  "vay": [
+   "member",
+   "Site-listed (live CMS 2019-05, Simon Schmincke) and corroborated by Grab's 6-K reproducing Vay's investor list",
+   "site_listing"
+  ],
+  "football-addicts": [
+   "member",
+   "Secondary purchase is an entry at scale (ruling 4): 'Despite Shunning VC, Football Addicts Picks Up Secondary Investment From Creandum' (the firm's own 2015-06 post) and the 2014-2016 listing / 2017 site (invested 2015, Staffan Helgesson); Growth entry",
+   "site_listing"
+  ],
+  "soundtrack-your-brand": [
+   "member",
+   "Listed only on the 2017-2023 site (invested 2014, Fredrik Cassel, Ola Sars CEO) - absent from the live CMS and from every other era; an archived listing on the firm's own site suffices alone (ruling 7)",
+   "site_listing"
+  ],
+  "klarna": [
+   "member",
+   "Site-listed (live CMS 2016-05, Johan Brenner; archived 2024 site 'Klarna - 2016') and press: a USD 5.2M investment from Creandum in March 2016 (TechCrunch 2017-06-07); a venture-era (pre-IPO) purchase, Growth entry - not the Creades/Oresund stake",
+   "site_listing"
+  ],
+  "nanoxis": [
+   "member",
+   "The firm's first listed company (2003 portfolio.html, 2004-2006 portfolio.htm) with its own 2003-09-16 press release on the seed financing; absent from the live CMS - survivorship correction by the archive layer",
+   "site_listing"
+  ],
+  "trade-republic": [
+   "member",
+   "Site-listed (live CMS 2019-08, Johan Brenner), the firm's own 2019-07 post, the EQS press release (Creandum led the EUR 10M Series A), and the firm's own SEC-filed vehicle Creandum SPV TR (D) AB (2021 Series C co-invest)",
+   "site_listing"
+  ]
+ },
+ "_stage_readme": "stage: Pre-Seed | Seed | Series A | Growth (Series B and later, secondaries, tenders, buy-ins). entry_year: the year Creandum first put fund money in. basis: the document(s) the label rests on.",
+ "stage": {
+  "spotify": {
+   "stage": "Series A",
+   "entry_year": 2008,
+   "basis": "Creandum Fund II led Spotify's first venture round, the Oct-2008 EUR 15.6M Series A with Northzone (https://creandum.com/stories/10-years-later-getting-to-know-spotify-before-series-a; the firm's own 2020 Amie post calls the same round 'his seed round' loosely, the record calls it the Series A); the archived 2024 site lists 'Spotify - 2008'"
+  },
+  "nanoxis": {
+   "stage": "Seed",
+   "entry_year": 2003,
+   "basis": "the firm's own 2003-09-16 press release: 'Nanotechnology Company Nanoxis Secures Financing' / Swedish 'sakrar saddfinansiering' = seed financing (web.archive.org/web/20031211/http://www.creandum.com/press_0309152.html); first company on the 2003 portfolio page"
+  },
+  "sicon": {
+   "stage": "Series A",
+   "entry_year": 2004,
+   "basis": "the firm's own 2004-05-12 press release: 'SiCon secures EUR 5 million in its first round of financing - investment by Creandum, Industrifonden, Innovationskapital and Scope' (web.archive.org/web/20040607/http://www.creandum.com/press_040512.html): the first institutional round, Series A by the modern ladder"
+  },
+  "wrapp": {
+   "stage": "Seed",
+   "entry_year": 2011,
+   "basis": "undisclosed seed from Creandum in early 2011 (site date 2011-05-01) before the USD 5.5M Series A led by Atomico in Nov 2011 in which Creandum also took part (techcrunch.com/2011/11/14/skype-co-founder-leads-5-5m-round-in-social-gifting-service-wrapp); the firm's 2012 news notes Greylock 'adds $5 million to Series A'"
+  },
+  "izettle": {
+   "stage": "Series A",
+   "entry_year": 2011,
+   "basis": "EUR 8.2M Series A, Oct 2011, led by Index Ventures with co-investor Creandum (indexventures.com/news/izettle-rings-up-82-million-112-million-in-series-a-funding; the firm's own news 2011-10-31 'Creandum invests in iZettle'); site date 2011-10-14"
+  },
+  "vivino": {
+   "stage": "Series A",
+   "entry_year": 2012,
+   "basis": "'The Creandum funds led Vivino's Series A round in 2012' (https://creandum.com/stories/vivino-from-a-free-wine-scanning-app-to-the-worlds-largest-wine-marketplace) and the 2012-12-11 announcement (https://creandum.com/stories/why-we-are-investing-in-vivino); site date 2012-12-01. Form D shows Hauge as director on the 2014q4 USD 12.2M filing - a LATER round, the band is a ceiling not the entry"
+  },
+  "13th-lab": {
+   "stage": "Seed",
+   "entry_year": 2012,
+   "basis": "the firm's own news '13th Lab lands $700k in seed funding' (creandum.com/news/13th-lab-lands-$700k-in-seed-funding-, archived 2012-11); site date 2012-06-22"
+  },
+  "nonstop-games": {
+   "stage": "Seed",
+   "entry_year": 2012,
+   "basis": "the firm's own news 'Nonstop Games raises $2.9M USD seed funding' (creandum.com/news/nonstop-games-raises-$29m-usd-seed-funding-..., archived 2013-05); site date 2012-07-12"
+  },
+  "xeneta": {
+   "stage": "Seed",
+   "entry_year": 2013,
+   "basis": "'Creandum Fund's seed investment in Oslo-based Xeneta' (https://creandum.com/stories/xeneta-we-love-shipping, 2013-04-10); site date 2013-01-10"
+  },
+  "epidemic-sound": {
+   "stage": "Series A",
+   "entry_year": 2014,
+   "basis": "'The Creandum Fund III initially lead the A-round in Epidemic some three years ago' (https://creandum.com/stories/accelerating-the-swedish-music-tech-industry-creandum-welcomes-eqt-as-partners-in-epidemic-sound, 2017-11); the 2014-05-27 announcement; site date 2014-04-10"
+  },
+  "small-giant-games": {
+   "stage": "Seed",
+   "entry_year": 2014,
+   "basis": "'the Creandum fund decided to lead the company's seed round' / 'led the first VC round' (https://creandum.com/stories/the-beginning-of-a-new-journey, 2018-12, at the Zynga sale); 2017-2023 site invested 2014"
+  },
+  "neo4j": {
+   "stage": "Growth",
+   "entry_year": 2015,
+   "basis": "'Creandum Fund is leading the Series C round in Neo Technology' (USD 20M, Jan 2015; https://creandum.com/stories/some-thoughts-on-why-creandum-is-leading-neo-technologys-new-20million-investment); Series C = Growth by taxonomy; site date 2014-11-14"
+  },
+  "peak": {
+   "stage": "Series A",
+   "entry_year": 2015,
+   "basis": "'the Creandum fund is leading Peak's $7 million Series A' (https://creandum.com/stories/performing-at-your-peak, 2015-04-15)"
+  },
+  "depop": {
+   "stage": "Series A",
+   "entry_year": 2015,
+   "basis": "'the Creandum funds invested in Depop at Series A stage in 2015' (https://creandum.com/stories/depop-organically-opening-the-hearts-and-wardrobes-of-gen-z, 2021-06); site date 2015-07-24"
+  },
+  "virta-health": {
+   "stage": "Seed",
+   "entry_year": 2015,
+   "basis": "'Creandum has been backing Sami and the team ever since the seed round' (https://creandum.com/stories/virta-health-reversing-diabetes, 2017-03); site date 2015-01-01"
+  },
+  "kahoot": {
+   "stage": "Series A",
+   "entry_year": 2015,
+   "basis": "Kahoot!'s Series A (USD 6.5M June 2015 tranche with Creandum and Northzone, USD 10M more in Sept 2016 from Creandum, Northzone and Microsoft Ventures, 'total Series A funding to $20 million' - arcticstartup.com/kahoot-raises-10-million-series, finsmes 2017-07); site date 2015-10-16. Medium: the 2015 tranche's lead is not named in the firm's own record"
+  },
+  "klarna": {
+   "stage": "Growth",
+   "entry_year": 2016,
+   "basis": "a USD 5.2M investment from Creandum in March 2016 at Klarna's previous (USD 2.25B) valuation (techcrunch.com/2017/06/07/fashion-magnate-takes-225m-stake-in-swedish-payment-unicorn-klarna); site date 2016-05-13; the archived 2024 site lists 'Klarna - 2016'. An entry at scale eleven years after founding = Growth (decisions.md ruling 4)"
+  },
+  "kry": {
+   "stage": "Seed",
+   "entry_year": 2016,
+   "basis": "'Kry's seed round led by the Creandum funds' in the firm's own words (https://creandum.com/stories/creandum-expands-its-investment-team, 2021-05) and the 2016-08-16 announcement of the Index/Project A syndicate (https://creandum.com/stories/kry-fills-all-the-boxes-of-our-healthcare-checklist); press variously calls the EUR 6M round a Series A - the firm's own label leads, the dispute is recorded"
+  },
+  "cornershop": {
+   "stage": "Series A",
+   "entry_year": 2016,
+   "basis": "the firm's 2017 post frames Creandum's 2016 entry as 'the Series A financing' whose milestones led to the Accel-led $21M Series B (https://creandum.com/stories/doing-it-like-uber-but-in-latam-and-in-groceries-cornershop-raising-a-21m-series-b); site date 2016-04-01; Uber's 424B7 later lists Creandum III LP as a selling stockholder (consideration for the 2021 acquisition)"
+  },
+  "pleo": {
+   "stage": "Seed",
+   "entry_year": 2017,
+   "basis": "'Creandum backed Pleo in the seed round' / 'backed in February 2017, has now raised a $16m A round led by Kinnevik' (https://creandum.com/stories/what-is-needed-to-get-from-seed-to-a-round-learnings-from-pleo, 2018-05); the EUR 5.5M seed announced 2017-02-14; site date 2016-12-16"
+  },
+  "tide": {
+   "stage": "Series A",
+   "entry_year": 2017,
+   "basis": "'Creandum Fund IV invests in Tide' with their $14m Series A (https://creandum.com/stories/better-business-banking-creandum-fund-iv-invests-in-tide, 2017-07)"
+  },
+  "bokio": {
+   "stage": "Seed",
+   "entry_year": 2017,
+   "basis": "'Creandum backs Bokio in EUR 3.1m seed round' (https://creandum.com/stories/automating-bookkeeping-for-small-businesses-free-of-charge, 2017-07)"
+  },
+  "syft": {
+   "stage": "Series A",
+   "entry_year": 2017,
+   "basis": "'Creandum Fund IV is leading a GBP 6m series A round in Syft' (https://creandum.com/stories/the-future-of-flexible-staffing-creandum-backs-syft, 2017-09)"
+  },
+  "billie": {
+   "stage": "Series A",
+   "entry_year": 2017,
+   "basis": "'Creandum Fund III leads the 10m EUR Series A financing of Billie' (https://creandum.com/stories/billie-solving-the-sme-financing-gap-through-technology, 2017-12); site date 2018-06-14 is the later announcement"
+  },
+  "firstvet": {
+   "stage": "Series A",
+   "entry_year": 2018,
+   "basis": "'Creandum Fund IV has led a EUR 5.1M' round (https://creandum.com/stories/creandum-backs-firstvet-puppy-gifs, 2018-06), the Series A per Crunchbase (crunchbase.com/funding_round/firstvet-series-a--29cc00d0)"
+  },
+  "factorial": {
+   "stage": "Seed",
+   "entry_year": 2018,
+   "basis": "'Creandum Fund IV has led a seed round in Barcelona-based Factorial' (https://creandum.com/stories/automating-your-hr-payroll-why-creandum-backed-factorial, 2018-09); the EUR 15M Series A followed in 2020 led by CRV ('Creandum led the seed round')"
+  },
+  "mavenoid": {
+   "stage": "Seed",
+   "entry_year": 2018,
+   "basis": "the seed round 'co-led with our friends at Point Nine Capital' (https://creandum.com/stories/amplified-intelligence-for-troubleshooting, 2018-10); site date 2018-07-05"
+  },
+  "cargo-one": {
+   "stage": "Seed",
+   "entry_year": 2018,
+   "basis": "'Creandum's fund has co-led a $3.2 million seed round into cargo.one' (https://creandum.com/stories/digitising-the-air-freight-industry-creandum-backs-cargoone, 2018-12)"
+  },
+  "voi": {
+   "stage": "Growth",
+   "entry_year": 2019,
+   "basis": "'Creandum IV has backed VOI in its $30m Series B round' (https://creandum.com/stories/riding-to-the-top-with-voi, 2019-03); Series B = Growth"
+  },
+  "yulife": {
+   "stage": "Series A",
+   "entry_year": 2019,
+   "basis": "'Creandum IV is leading a GBP 10m Series A into the company' (https://creandum.com/stories/insurance-with-a-heart-announcing-creandums-backing-of-yulife, 2019-05)"
+  },
+  "klaus": {
+   "stage": "Seed",
+   "entry_year": 2019,
+   "basis": "'Creandum V is leading a $1.9m Seed round in Klaus' (https://creandum.com/stories/backing-klaus-because-customers-deserve-quality-support, 2019-07)"
+  },
+  "trade-republic": {
+   "stage": "Series A",
+   "entry_year": 2019,
+   "basis": "'Creandum and Project A lead Trade Republic Bank's EUR 10 million Series A' (eqs-news.com/news/corporate/trade-republic-bank-gmbh-creandum-and-project-a-lead-trade-republic-banks-eur10-million-series-a/1172177, 2019-07); the firm's own post https://creandum.com/stories/backing-trade-republic-commission-free-trading-for-everyone; the 2021 SPV TR is the Series C follow-on, not the entry"
+  },
+  "bolt": {
+   "stage": "Growth",
+   "entry_year": 2019,
+   "basis": "Creandum's first Bolt investment was the July-2019 USD 67M Series C at a $1B+ valuation (techcrunch.com/2019/07/08/uber-rival-bolt-has-closed-another-tranche-of-funding-at-a-1b-valuation); site date 2019-06-06; the 2019 portfolio page names Bjarke Staun-Olsen"
+  },
+  "cake": {
+   "stage": "Series A",
+   "entry_year": 2019,
+   "basis": "'Creandum's fund has led a $13 million series A round in Cake' (https://creandum.com/stories/creating-a-new-category-in-the-urban-commuter-market-creandum-backs-e-motorcycle-company-cake, 2019-09)"
+  },
+  "shapr3d": {
+   "stage": "Series A",
+   "entry_year": 2019,
+   "basis": "'the Creandum funds to co-lead the Series A funding round together with Point Nine Capital' (https://creandum.com/stories/creandum-shapr3d, 2019-09)"
+  },
+  "twaice": {
+   "stage": "Series A",
+   "entry_year": 2020,
+   "basis": "'Creandum is leading the 11m EUR Series A funding round of Munich-based TWAICE' (https://creandum.com/stories/backing-twaice-the-new-standard-for-battery-analytics, 2020-03)"
+  },
+  "amie": {
+   "stage": "Pre-Seed",
+   "entry_year": 2020,
+   "basis": "'Creandum is leading Amie's pre-seed round' (https://creandum.com/stories/disrupting-the-productivity-stack-why-we-backed-amie, 2020-07)"
+  },
+  "meditopia": {
+   "stage": "Series A",
+   "entry_year": 2020,
+   "basis": "'Creandum is leading Meditopia's $15m Series A round' (https://creandum.com/stories/bringing-mindfulness-across-the-world-creandum-backs-meditopia, 2020-07)"
+  },
+  "dija": {
+   "stage": "Seed",
+   "entry_year": 2020,
+   "basis": "Creandum in 'Dija's $20M Seed round' (https://creandum.com/stories/deliver-it-now-creandum-backs-next-generation-grocer-dija, 2021-03); site date 2020-12-17"
+  },
+  "safety-wing": {
+   "stage": "Series A",
+   "entry_year": 2021,
+   "basis": "'for Creandum to lead the company's $8m Series A round' (https://creandum.com/stories/building-a-global-social-safety-net-creandum-backs-safetywing, 2021-01); Form D: Safety Nest Inc. 2021q1 USD 12.9M with Fritjofsson as director; site date 2020-12-01"
+  },
+  "osu": {
+   "stage": "Seed",
+   "entry_year": 2021,
+   "basis": "Creandum 'lead their $3M seed round' (https://creandum.com/stories/backing-osu-the-payment-app-for-the-self-employed, 2021-03)"
+  },
+  "craft": {
+   "stage": "Series A",
+   "entry_year": 2021,
+   "basis": "'The Creandum funds ... lead Craft's $8M Series A round' (https://creandum.com/stories/backing-craft-the-only-writing-tool-you-need, 2021-03)"
+  },
+  "abacum": {
+   "stage": "Seed",
+   "entry_year": 2021,
+   "basis": "Creandum 'lead their $7M seed round' (https://creandum.com/stories/abacum-the-next-generation-of-financial-planning, 2021-04); Form D: Abacum Inc. 2025q2 USD 43.3M with Specht as director is a later round"
+  },
+  "alokai-formerly-vue-storefront": {
+   "stage": "Series A",
+   "entry_year": 2021,
+   "basis": "'Creandum is leading Vue Storefront's Series A round' (https://creandum.com/stories/creandum-x-vue-storefront, 2021-10)"
+  },
+  "bucket": {
+   "stage": "Pre-Seed",
+   "entry_year": 2022,
+   "basis": "'Creandum has led the pre-seed round into Bucket' (https://creandum.com/stories/why-youre-clueless-after-shipping-product-and-how-bucket-help, 2022-04); site date 2021-01-01"
+  },
+  "project-eaden": {
+   "stage": "Seed",
+   "entry_year": 2022,
+   "basis": "'Creandum is leading Project Eaden's first financing round. This EUR 8m seed round' (https://creandum.com/stories/project-eadens-technology-makes-saving-the-world-an-indulgence, 2022-06)"
+  },
+  "better-stack": {
+   "stage": "Series A",
+   "entry_year": 2022,
+   "basis": "'the fund is leading the company's $17M Series A' (https://creandum.com/stories/the-secret-weapon-to-higher-quality-software-creandum-better-stack, 2022-07)"
+  },
+  "timberhub": {
+   "stage": "Seed",
+   "entry_year": 2022,
+   "basis": "'co-leading their EUR 5.5m' seed round, five months after a pre-seed by others (https://creandum.com/stories/knocking-on-wood-why-were-backing-timberhub-to-redefine-timber-trading, 2022-09)"
+  },
+  "enode": {
+   "stage": "Series A",
+   "entry_year": 2022,
+   "basis": "'We're thrilled to be leading this $15m Series A round' (https://creandum.com/stories/reinventing-digital-energy-infrastructure-creandum-backs-enode, 2022-11)"
+  },
+  "cast-ai": {
+   "stage": "Series A",
+   "entry_year": 2023,
+   "basis": "the USD 20M round of March 2023 led by Creandum (Creandum $15M; cast.ai/press-release/cast-ai-receives-20m-in-new-funding-led-by-early-stage-vc-creandum; techcrunch.com/2023/03/16/cast-ai-raises-20m-to-help-companies-reduce-cloud-spend; https://creandum.com/stories/reigning-in-the-cloud-cloud-cost-and-performance-using-cast-ai), the company's Series A by its own later naming (the $35M of Nov 2023 = Series B, $108M 2025 = Series C). STRUCTURAL TEST: Form D shows prior 2020-2021 filings by other investors, so the band rule reads Growth - the record overrides with stage_disputes_band"
+  },
+  "lindus-health": {
+   "stage": "Series A",
+   "entry_year": 2023,
+   "basis": "'Lindus Health raises $18M Series A led by the Creandum funds' (techcrunch.com/2023/08/16/lindus-health-clinical-trials-peter-thiel-creandum-18-million), linked from the firm's own stories"
+  },
+  "lovable": {
+   "stage": "Seed",
+   "entry_year": 2025,
+   "basis": "the USD 15M 'pre-Series A' of Feb 2025 led by Creandum (techcrunch.com/2025/02/25/swedens-lovable-an-app-building-ai-platform-rakes-in-16m-after-spectacular-growth; cooley.com/news/coverage/2025/2025-02-25-lovable-announces-15-million-pre-series-a; https://creandum.com/stories/backing-lovable): a round named before the A is a seed extension = Seed by taxonomy; the $200M Series A (Accel, Jul 2025) followed. TAXONOMY EDGE, reported"
+  },
+  "black-forest-labs": {
+   "stage": "Series A",
+   "entry_year": 2025,
+   "basis": "Creandum 'was also a participant in a previously unannounced Series A led by Andreessen Horowitz' and in the $300M Series B of 2025-12 (globenewswire.com/news-release/2025/12/01/3196629/0/en/black-forest-labs-announces-series-b-investment-to-accelerate-frontier-visual-intelligence); site date 2025-12-01. Medium: the Series A date is unpublished"
+  },
+  "knl": {
+   "stage": "Series A",
+   "entry_year": 2016,
+   "basis": "'the Creandum Funds are leading a $10 million Series A investment in KNL Networks' (https://creandum.com/stories/the-creandum-funds-invest-in-knl-networks-to-provide-internet-anywhere, 2016-10) (built slug: knl, the live CMS's rendering 'KNL')"
+  }
+ }
+}

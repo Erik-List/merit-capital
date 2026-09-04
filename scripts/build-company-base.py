@@ -149,6 +149,16 @@ def main() -> None:
                 w.capitalize() for w in slug.replace("_", "-").split("-"))
             key = norm(display) or slug
             row = row_for(key, display)
+            # A per-company-page capture names the row after its URL slug
+            # ("Brisk Io"); a later listing capture that carries the site's
+            # own rendering ("Brisk.io") replaces it. Slug-derived displays
+            # are provisional until any rendered name arrives.
+            if r.get("name"):
+                if row.get("_name_from_slug"):
+                    row["name"], row["slug"] = display, slug_of(display)
+                    row["_name_from_slug"] = False
+            elif "_name_from_slug" not in row:
+                row["_name_from_slug"] = True
             row["wayback_years"].add(year)
             if row["wayback_first"] is None or year < row["wayback_first"][0]:
                 row["wayback_first"] = (year, r.get("snapshot_ts", ""), r["path"])
@@ -441,7 +451,11 @@ def main() -> None:
         home_desk = CFG["desks"]["home"]
         lineage = r["edgar_desk"] if (r["edgar_desk"] and not listed) else home_desk
         status = "auto_confirmed" if tier == "A" else "needs_review"
-        first = min([str(min(r["wayback_years"]))] if r["wayback_years"] else []
+        # Every dated layer competes for first_seen. (Until 2026-09-04 the
+        # conditional bound tighter than the concatenation, so a row with any
+        # wayback year ignored its Form D first filing and the firm's own
+        # dated invest claim — Creandum's site dates were being dropped.)
+        first = min(([str(min(r["wayback_years"]))] if r["wayback_years"] else [])
                     + ([r["edgar_first"][:4]] if r["edgar_first"] else [])
                     + ([r["formd_first"]] if r["formd_first"] else [])
                     + ([r["site_invest_year"]] if r.get("site_invest_year") else [])

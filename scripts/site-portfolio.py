@@ -24,6 +24,10 @@ same named-strategy-in-code, constants-in-config pattern wayback-pull.py uses:
   js_array        JSON array assigned to a JS variable in the page HTML
   li_text_list    plain <li>Name</li> entries (compliance-list page)
   paginated_json  JSON API with {count, next, results[]} pagination
+  nuxt_payload    a Nuxt 2 full-static site's per-route payload.js (the
+                  __NUXT_JSONP__ call that carries the CMS rows the page was
+                  generated from — Contentful entries on creandum.com);
+                  decoded through node, entries flattened to their fields
 
 Output: <investor>/sources/site/companies.json, team.json
 
@@ -192,6 +196,119 @@ def parse_card_blocks(src: dict) -> list[dict]:
     return rows
 
 
+# A Nuxt 2 site generated with `nuxt generate` (full static mode) ships every
+# route's data as /_nuxt/static/<build>/<route>/payload.js — a JSONP call
+# `__NUXT_JSONP__("/route", (function(a,b,...){...}(args)))` whose argument
+# table dedupes shared objects, so the graph is cyclic and needs a JS engine
+# to evaluate. The homepage's window.__NUXT__ literal names the current build
+# (staticAssetsBase). This is escalation-ladder step 3 for Nuxt what
+# __NEXT_DATA__ is for Next.js, and it hands over the CMS rows (Contentful
+# on creandum.com) with every field the page never renders.
+NUXT_DECODER = r"""
+const fs = require("fs");
+const [,, inPath] = process.argv;
+const src = fs.readFileSync(inPath, "utf8");
+let captured = null;
+new Function("__NUXT_JSONP__", src)((route, data) => { captured = { route, data }; });
+function strip(o, path) {
+  if (o === null || typeof o !== "object") return o;
+  if (path.has(o)) return { $ref: (o.sys && o.sys.id) || "cycle" };
+  path.add(o);
+  let out;
+  if (Array.isArray(o)) out = o.map((v) => strip(v, path));
+  else { out = {}; for (const k of Object.keys(o)) out[k] = strip(o[k], path); }
+  path.delete(o);
+  return out;
+}
+process.stdout.write(JSON.stringify(strip(captured, new Set())));
+"""
+
+
+def nuxt_static_base(site_url: str) -> str:
+    """The current build's static asset base (/_nuxt/static/<build>) from the
+    homepage's window.__NUXT__ literal."""
+    html = get_text(site_url)
+    m = re.search(r'staticAssetsBase:"([^"]+)"', html)
+    if m:
+        return m.group(1).encode().decode("unicode_escape")
+    # the SSR homepage may carry the build only in its preload links
+    m = re.search(r'(/_nuxt/static/\d+)/', html)
+    if not m:
+        sys.exit(f"nuxt_payload: no Nuxt static build id in {site_url} (not a "
+                 f"Nuxt full-static site, or the build id moved)")
+    return m.group(1)
+
+
+def nuxt_decode(js_text: str) -> dict:
+    """{route, data} of one payload.js, via node (the only JS engine needed)."""
+    import tempfile
+    with tempfile.TemporaryDirectory() as td:
+        (Path(td) / "payload.js").write_text(js_text, encoding="utf-8")
+        (Path(td) / "decode.js").write_text(NUXT_DECODER, encoding="utf-8")
+        out = subprocess.run(["node", str(Path(td) / "decode.js"),
+                              str(Path(td) / "payload.js")],
+                             capture_output=True, check=True).stdout
+    return json.loads(out)
+
+
+def contentful_flatten(v, depth: int = 0):
+    """A Contentful entry becomes its fields; nested entries beyond one level
+    collapse to their name/title; assets to their file URL; rich text to
+    plain text; lists map element-wise."""
+    if isinstance(v, list):
+        return [contentful_flatten(x, depth) for x in v]
+    if not isinstance(v, dict):
+        return v
+    if "$ref" in v:
+        return None
+    if v.get("nodeType") == "document":
+        return rich_text(v)
+    f = v.get("fields")
+    if isinstance(f, dict):
+        if "file" in f and isinstance(f["file"], dict):      # asset
+            url = f["file"].get("url") or ""
+            return ("https:" + url) if url.startswith("//") else url
+        if depth >= 1:
+            return f.get("name") or f.get("title") or f.get("slug")
+        return {k: contentful_flatten(x, depth + 1) for k, x in f.items()}
+    return {k: contentful_flatten(x, depth + 1) for k, x in v.items()
+            if k not in ("sys", "metadata")}
+
+
+def rich_text(node) -> str:
+    if isinstance(node, dict):
+        if node.get("nodeType") == "text":
+            return node.get("value", "")
+        return "".join(rich_text(c) for c in node.get("content", []))
+    if isinstance(node, list):
+        return "".join(rich_text(c) for c in node)
+    return ""
+
+
+def parse_nuxt_payload(src: dict) -> list[dict]:
+    """Rows of one route's payload: src["url"] is the site, src["route"] the
+    page ("/commitments"), src["list_path"] the dot path from the decoded
+    {route, data} to the list ("data.0.portfolios"); src["static_base"]
+    pins a build instead of reading the homepage's current one."""
+    site = src["url"].rstrip("/")
+    base = src.get("static_base") or nuxt_static_base(site)
+    route = src["route"].strip("/")
+    url = f"{site}{base}/{route + '/' if route else ''}payload.js"
+    js = get_text(url)
+    if not js.startswith("__NUXT_JSONP__"):
+        sys.exit(f"nuxt_payload: {url} is not a payload ({js[:60]!r})")
+    data = nuxt_decode(js)
+    for part in [p for p in (src.get("list_path") or "").split(".") if p]:
+        if isinstance(data, list):
+            data = data[int(part)] if part.isdigit() and int(part) < len(data) else []
+        elif isinstance(data, dict):
+            data = data.get(part) or []
+        else:
+            return []
+    rows = [contentful_flatten(r) for r in (data if isinstance(data, list) else [])]
+    return [r for r in rows if isinstance(r, dict)]
+
+
 SCRAPE_PARSERS = {
     "js_array": parse_js_array,
     "li_text_list": parse_li_text_list,
@@ -200,6 +317,7 @@ SCRAPE_PARSERS = {
     "json_list": parse_json_list,
     "file_list": parse_file_list,
     "card_blocks": parse_card_blocks,
+    "nuxt_payload": parse_nuxt_payload,
 }
 
 
@@ -236,6 +354,21 @@ def scrape_companies(api: dict) -> list[dict]:
         fields = src.get("fields", {})
         n = 0
         for r in raw:
+            # Shape adapters, all optional and parser-agnostic: `pluck` keeps
+            # one key of each dict in a list-valued field ({"leads": "name"}
+            # -> ["A", "B"]); `first` replaces a list by its first element;
+            # `rename` maps source keys to the unified names the build reads
+            # (invest_year, partners) so no parser hard-codes a CMS schema.
+            for k, sub in (src.get("pluck") or {}).items():
+                if isinstance(r.get(k), list):
+                    r[k] = [x.get(sub) if isinstance(x, dict) else x for x in r[k]]
+                    r[k] = [x for x in r[k] if x]
+            for k in src.get("first") or []:
+                if isinstance(r.get(k), list):
+                    r[k] = r[k][0] if r[k] else None
+            for k, new in (src.get("rename") or {}).items():
+                if k in r:
+                    r[new] = r[k] if new not in r else r[new]
             name = unescape(first_of(r, fields.get("name", "name"))).strip()
             if not name:
                 continue

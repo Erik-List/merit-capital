@@ -19,7 +19,8 @@ Starting a new investor means creating that directory with `config.json` and
 
 The shape of a collection, in order:
 
-1. Investor-specific decisions written from the confirmed Phase 0 (§1).
+1. Investor-specific decisions derived from the standing rule set, plus
+   the confirmed deltas (§1).
 2. Evidence layers collected (§5), base built.
 3. **Both** calibration sets — membership traps and stage golden set —
    assembled, pre-registered and cleared (§4), before any verdict writes.
@@ -48,15 +49,9 @@ the old shape.
 Each investor gets one decisions file next to its base:
 `data/collection/investors/<slug>/decisions.md`. The judge cites its rulings
 per line; once a ruling is written there, no further approval is needed
-before verdicts write. The file records:
-
-- **Firm boundary**: which entity is "the firm" — decision desks, split-offs
-  (HongShan / Peak XV), wealth or heritage arms, crossover vehicles, and
-  whether the investor's fund families are one desk or several.
-- **Program vehicles**: scouts, accelerator or seed programs, in or out.
-- **Instruments**: primaries, secondaries, tenders, token positions.
-- **Standing rulings** made during the run, dated, each one a class-wide rule
-  rather than a row fix.
+before verdicts write. The file is not a restatement of the standing rules
+below — it is their **derivation** for this investor's facts, plus the
+**deltas** those rules do not cover (the derivation protocol, below).
 
 **The membership definition**, common to every investor: a row belongs in the
 base iff a firm representative, acting on behalf of the firm, made an
@@ -64,9 +59,129 @@ investment with fund money in it, and it is a venture-outcome operating
 company. Fund vehicles, SPVs, filter labels, scrape artifacts and natural
 persons are out.
 
-Three standing rules under that definition, generalized from a16z rulings
-6–7 and Lightspeed ruling 7 (they bind every investor unless its decisions
-file overrides):
+### The standing rule set
+
+Read as a corpus, the rulings confirmed across the first five investors
+(Sequoia, a16z, Accel, Lightspeed, Thrive) are five tests applied to each
+investor's facts. The tests are the standing rules. They bind every
+investor, and a new investor's decisions file **derives** its boundary from
+them instead of re-asking them. Each test carries its precedents with the
+facts that decided them, so a case that does not fit is visible as a delta
+rather than stretched to fit. Provenance is marked where a precedent was an
+agent's flagged ruling or a generalization made here rather than a
+confirmed ruling.
+
+- **T1 — Same adviser.** Is the vehicle under the firm's own adviser
+  registration and operation? Default IN for every fund family, sleeve
+  (growth, opportunity, continuity, select, co-invest, the lettered and
+  single-name vehicles) and office of the one adviser or its relying and
+  affiliated advisers; OUT for a brand-sharing entity with its own RIA or
+  ERA, its own fund family, or its own disclosure of independent
+  operation. IN: a16z's crypto / bio / games / American Dynamism families
+  under one adviser; Accel's US, London and India desks (relying adviser
+  plus affiliated ERAs); LSVP's US, Europe and Israel offices under CRD
+  160187; Thrive's umbrella with its relying adviser, Growth and
+  Opportunity sleeves, lettered LLCs and Claremount vehicles; Creandum's
+  flagship, Select and SPV vehicles under four ERAs, one of them the
+  AIFM; YC Continuity as the firm's own growth fund (Erik, 2026-09-04).
+  OUT: HongShan and Peak XV (separate firms since 2023); Accel-KKR (own
+  RIA); IDG-Accel China (historical JV, independent successor); Meritech
+  (independently operated affiliate; agent, flagged); Lightspeed India
+  (own ERA and the firm's own "not a unitary enterprise" disclosure);
+  Lightspeed China (independent partnership since 2011); Lightspeed
+  Faction (own RIA).
+- **T2 — Fund money.** Did a fund of the firm hold the position? Default
+  IN where it did, whatever the program or channel; OUT where the only
+  connection is a person, a program listing or an association. IN:
+  Sequoia Arc, a16z speedrun, Accel Atoms per cohort company where Accel
+  money was deployed, Thrive incubations including pre-spin-out ones
+  where a fund held the position. OUT: scout checks with no main-fund
+  follow-on (ruled on Sequoia, a16z, Accel and Lightspeed); Lightspeed's
+  Extreme Entrepreneurs (no funding); partners' personal angel books
+  (Kushner; Cherry's founder-angel positions, Erik 2026-09-04);
+  Erasmic-era India deals with no Accel listing (agent, flagged);
+  companies founded by the firm's alumni that no fund backed
+  (generalized here from the definition, unruled).
+- **T3 — Venture entry.** Did the position enter through a venture round
+  — a primary, a secondary or a tender in a private company? Default IN
+  for primaries, follow-ons, secondaries and tenders (a tender entry is an
+  entry at scale, Growth by taxonomy: Thrive's Figma, Creandum's Klarna);
+  OUT for positions that first appear as public-market purchases, 13F
+  holdings or post-IPO 13Gs, and for vehicles that make no venture rounds
+  at all. OUT: post-RIA public or secondary purchases (Lightspeed,
+  Thrive; generalized 2026-09-03, in full below); Sequoia Heritage and
+  the crossover vehicles' public buys; Thrive Holdings (buy-and-build
+  holdco) and Thrive Eternal (permanent capital for sports and cultural
+  assets). Open: Accel's arista, a 13G-only holding with no documented
+  pre-IPO round, awaiting Erik's ruling.
+- **T4 — Person or firm.** Whose money sat behind the seat on that date?
+  A filing by a natural person locates the person, never a firm position,
+  and a seat is dated against the person's firm at filing time. The full
+  rules are the evidence rules below: person-level attribution, seat
+  dating, the director-of-record pattern and its narrowing.
+- **T5 — Operating company.** Is the row a venture-outcome operating
+  company at all? Fund vehicles, SPVs, feeders, continuation vehicles,
+  fund-shaped list entries, tokens with no issuing organization, filter
+  labels, scrape artifacts and natural persons are not rows. Positions
+  moved through plumbing stay rows through their original entries, and a
+  new commitment made through such a vehicle enters at that stage
+  (Lightspeed's Project Mercury; Creandum's Select funds and SPV TR as
+  follow-ons, entry stage unchanged); third-party feeders into a fund are
+  external (Thrive IX Access; agent, flagged). The fund-shaped and token
+  rules below are this test in full.
+
+**Policy constants**, ruled once and changed only by Erik, never derived:
+the base window opens 2006 (earlier entries are pre-window, entry_stage
+and graduation null); secondaries and tenders are Growth entries; a
+private mark is `stale` beyond 24 months; the profile's geo core carries
+at most two labels; a non-USD figure converts to USD at the ECB reference
+rate of its own date, and a listing outside SEC registration takes a
+web-cited market cap (both ruled on Creandum, Erik 2026-09-04; mechanics
+in §6 valuation).
+
+### The derivation protocol
+
+Until 2026-09-04 every investor's Phase 0 restated the categories above
+and Erik confirmed the whole set each time; of the five Cherry rulings
+confirmed that day, none was a decision — all were T1–T3 applied to
+facts. The inverted protocol: derive, and confirm only the delta.
+
+A new investor's decisions file has three parts, and only the second
+needs Erik before kickoff:
+
+1. **Derivations** — one line per category: the facts found, the test
+   applied, the outcome, the precedent. No confirmation is needed. They
+   are listed in the Linear issue so Erik sees them and can veto any one
+   before kickoff; silence means they apply.
+2. **Deltas** — rulings no test covers, facts that satisfy two tests with
+   opposite outcomes, or a proposed exception to a standing rule for this
+   investor, argued. Erik confirms these, and only these, before kickoff.
+3. **Run-time standing rulings** made during the run, dated, each one a
+   class-wide rule rather than a row fix, flagged for review — as before.
+
+A derivation needs both a named test and verified facts. Where the facts
+are still model priors, the derivation is provisional and is re-derived
+at kickoff from the verified facts; where either the test or the facts
+are missing, the item is a delta, not a derivation. **A wrong fact
+re-derives under the same test**, recorded in the file and reported —
+facts flip derivations mechanically, they do not reopen rulings. Only a
+re-derivation that is not clean, or facts outside every test, escalates
+(§9 trigger 1).
+
+**Confirmed deltas ratchet the same day.** A delta that is
+investor-agnostic is written into this section once confirmed — as a
+precedent under its test, or as a policy constant — before the run, not
+at close (§9's write-back is for method; decisions ratchet earlier
+because the next investor's issue is usually written before the previous
+run closes). What stays Erik's: new categories, test collisions, argued
+exceptions, changes to the policy constants, and the four §9 triggers.
+
+### Standing rules in full
+
+Three standing rules under the membership definition, generalized from
+a16z rulings 6–7 and Lightspeed ruling 7; T3 and T5 above index them. They
+bind every investor, and an investor's file departs from them only through
+a confirmed delta:
 
 - **Fund-shaped list entries**: an entry on the investor's own list whose
   name is fund-shaped (Capital / Fund / Ventures / Management, fund
@@ -90,6 +205,8 @@ file overrides):
   no documented pre-IPO round, shipped as a member) is the open case
   under the earlier per-investor treatment and is raised for Erik's
   ruling, not re-judged.
+
+### Evidence rules
 
 **Evidence sufficiency**, common to every investor: a listing on the
 investor's own site (any era), or an SEC filing by a fund vehicle, each
@@ -128,7 +245,11 @@ consideration from Viggle's acquisition of Accel-backed Wetpaint). When a
 fund_filing row's company is known mainly as the ACQUIRER of a portfolio
 company near the first-filing date, check the consideration reading
 before seeding member — the investment row is the acquired company, which
-may itself be a recall addition.
+may itself be a recall addition. The same reading applies to the firm's own site
+(Creandum: Elastic listed as a commitment from the month Elastic bought
+Creandum-seeded Opbeat, held through the IPO) — a site listing suffices
+for membership, but a site-listed acquirer of a portfolio company is
+checked for consideration before it seeds member (agent, flagged).
 
 **Person-level attribution locates a person, never a firm position.** Forms
 3/4/5 are filed by a natural person about their own holdings; partners file
@@ -291,7 +412,16 @@ order the grind will use, instead of auditing one it already used.
    replay), year-targeted replay redirects fetched into wayback-pull's
    own raw/parsed shapes — true snapshot timestamps recovered from the
    rewritten URLs — keep the layer moving and converge with the
-   eventual CDX pull.
+   eventual CDX pull. Measured again on Creandum (2026-09-04, CDX refused every query for
+   the whole run): the replay path alone landed 22 years across six eras.
+   Three mechanics it needed, now in `wayback-pull.py`: **a per-era
+   snapshot memo** (`raw/<era>.snapshots.json`), so a throttled probe
+   (429) never re-asks for a year it already resolved and a known capture
+   timestamp can be seeded by hand when the probe's nearest capture is
+   the wrong era; **gzip-stored captures** (replay serves some captures as
+   stored gzip bytes — the puller sniffs the magic and inflates before
+   parsing, and JS payloads are written byte-safe); and **0-byte files
+   from a throttled probe are deleted, never parsed**.
 
    **Layer 1a — Common Crawl**, the second capture archive
    (`scripts/commoncrawl-pull.py`, configured by `commoncrawl.company_paths`
@@ -374,6 +504,18 @@ order the grind will use, instead of auditing one it already used.
       config URL.
    3. Next.js: the `__NEXT_DATA__` script tag, or
       `/_next/data/<build>/*.json`.
+   3b. Nuxt full-static (Creandum): `/_nuxt/static/<build>/<route>/
+      payload.js`, a `__NUXT_JSONP__` call whose argument is a cyclic
+      object graph; the build id comes from `staticAssetsBase` in the
+      page source or, failing that, the preload links. `site-portfolio.py`'s
+      `nuxt_payload` parser decodes the graph with `$ref` markers and
+      walks `list_path` (the rows sit under `data.data.0`), flattening
+      Contentful entries; `wayback-pull.py`'s `nuxt_payload_listing` era
+      reads the archived builds the same way with build ids pinned per
+      year in config. Creandum's payload carried the firm's own investment
+      date, lead partner, sector and exit flag per row, and the whole blog
+      with related-company links — the richest single surface any run has
+      had.
    4. Any SPA: watch XHR in the browser pane, then call that endpoint
       directly. When the pagination is client-side and the CDN strips
       the page param for direct fetches (Accel's Atoms surface:
@@ -466,6 +608,30 @@ the noise read once per investor (place names, leases, namesake typos)
 and a `not_member` verdict for every candidate ruled out, so the layer's
 next run is a delta.
 
+**When the investor sits outside the SEC** (measured on Creandum,
+2026-09-04, the EU thin-data test): the SEC layer is fund-side only, not
+empty. The firm's own vehicles still file Form D (eleven Creandum
+vehicles: a Guernsey L.P., Swedish (D)/(E) AB pairs, Select funds, a
+single-company SPV) and its exempt reporting advisers file Form ADV, whose
+Section 7.B gross asset values are the AUM anchor and the fund list's
+existence corroboration; issuer-side ownership filings do not exist, and
+the roster-name Form D sweep reaches only the US-incorporated members
+(7 of 177) while still removing ex-partner clusters through the tenure
+rule. What replaces Form D is the firm's own record read in depth — the
+CMS with its dates, partners and exit flags, every archived listing era
+(the 2003–2016 book survived only there), and the announcement archive
+scored as a class-1 layer on the gate — plus the exit-side EDGAR
+full-text sweep, which works for any firm whose winners exit into US
+listings. The EU registers (Bolagsverket via allabolag.se, the
+Finansinspektionen AIFM register, Companies House) give the entity set
+and the manager's authorisation, filing-grade for the boundary ruling
+and the profile, and zero membership evidence — record that negative
+result rather than hide it (`sources/registers/entities.json`). The
+deterministic classification layers shrink to near nothing (2 structural
+stages, 6 unicorn pre-fills, one float), so the A/B pass carries the
+whole visible slice and the search budget is sized for it (~78 searches
+on 177 rows).
+
 ## 6. Classification columns
 
 ### status
@@ -507,6 +673,33 @@ be read off it, and the report says so.
 - **Public rows: market capitalization is canonical**, web-cited with an
   as-of date. Float is corroboration only; a public $1B+ row without a cited
   cap fails verify.
+- **Non-USD figures convert at the ECB reference rate of their own date**
+  (ruled on Creandum, Erik 2026-09-04; a §1 policy constant binding every
+  investor): a round size, a private mark or a market cap quoted in EUR,
+  SEK, DKK, NOK, GBP, CHF or any other ECB reference currency converts at
+  the euro reference rate in force on the figure's date — the announcement
+  date for a round or mark, the as-of date for a cap — cross-rated through
+  EUR, via `scripts/fx-convert.py` (ECB Data Portal, keyless, cached under
+  `data/collection/shared/fx/`). The note keeps the original figure,
+  currency, rate and rate date in the helper's form ("EUR 1.00B @ ECB
+  2025-06-30 (EUR/USD 1.172) = $1.17B"); a weekend or holiday takes the
+  last published rate before it and the note names the date used. A press
+  USD figure for a non-USD round is accepted only where the press converted
+  at the time; an undated figure converts at the month-end of its period.
+  Bands are assigned on the converted figure, and a figure within 5% of a
+  band edge is noted as such. Conversion does not change
+  `valuation_source` — the mark's own source class carries.
+- **Listings outside SEC registration take a web-cited market cap** (ruled
+  on Creandum, Erik 2026-09-04; binds every investor): `sec_public_float`
+  does not exist for Nasdaq Stockholm, First North, Oslo Børs, Euronext,
+  LSE or Deutsche Börse listings, so the row carries no float
+  corroboration and is pinned by cap like every other public row —
+  `valuation_source: web_verified`, the citation from the exchange's own
+  quote page or a market-cap aggregator the landed runs already cite
+  (companiesmarketcap.com, stockanalysis.com, Google or Yahoo Finance), the
+  local-currency cap converted under the rule above at the as-of date and
+  recorded in the note. A US-listed foreign private issuer (Spotify's 20-F)
+  keeps the shared SEC float layer where it exists.
 - **Private rows**: last credible primary-round mark, `stale` flag beyond
   24 months. Secondary-market estimates go in the note, never in
   `valuation_usd`.
@@ -516,7 +709,12 @@ be read off it, and the report says so.
   (Faire's Nov-2025 tender 59% under its 2022 mark; Lookout's ~$296M
   secondaries after the consumer-business sale against a 2014 $1B round).
   Without such evidence the last primary stands, `stale`-flagged; a
-  figure is still never minted from the evidence itself.
+  figure is still never minted from the evidence itself. Read the
+  same way on Creandum (agent, flagged for Erik): a lead investor's
+  published fair-value marks a third under the last primary (Voi: VNV
+  Global's $611M–$656M in 2025 against the 2021 $1B), and a restructuring
+  followed by a small round at an undisclosed price (Pipe: the $16M 2026
+  round after founder exits and a CEO change, against the 2021 $2B).
 - **A $0 or pre-listing SEC float is not a value.** A public row whose
   float is zero, or measured before its listing (a first 10-K dating the
   float to the pre-IPO quarter end: Netskope, IPO Sep 2025, float "as of"
@@ -823,7 +1021,11 @@ it, and a corrected base is re-exported and re-reviewed before any ingest.
 **Escalate only on a defined trigger**, and only for what evidence plus the
 decisions file genuinely cannot resolve:
 
-1. A Phase 0 ruling is contradicted by what the run finds.
+1. A derivation's facts (§1) turn out wrong and the re-derivation under
+   the same test is not clean, or the investor's facts fall outside every
+   standing test. A clean flip — wrong fact, same test, different outcome
+   — is re-derived, recorded and reported, never escalated. A confirmed
+   delta contradicted by the run's evidence escalates as before.
 2. A firm-boundary question with no ruling that would move a class of rows
    (Accel: arista, a 13G-only post-IPO holding with no documented venture
    entry — in or out is a boundary ruling, not a row fix).
@@ -983,7 +1185,10 @@ Field recipes, learned on Sequoia and a16z:
   geographies (Lightspeed: US, Europe and Israel under CRD 160187 by the
   firm's own disclosure), in which case there is no in-boundary ERA and
   both range ends are one sworn number — test which shape applies rather
-  than assuming the Accel London one.
+  than assuming the Accel London one. An ERA-only firm (Creandum: four exempt
+  reporting advisers, no RIA) has no Item 5.F at all; both range ends are
+  the 7.B composite, and press "AUM" quotes below it belong in the flag.
+  The 7.B tables live in the IAPD PDFs; `pypdf` reads them.
 - **Funds.** Sweep every Form D filer matching the firm's name on EDGAR —
   the partner-matched subset structurally misses vehicles. Sizes from
   Form D where the vehicle raised directly, from press where the size is an
@@ -1054,6 +1259,22 @@ Field recipes, learned on Sequoia and a16z:
   the recompute had published an empty focus list). The firm's own sector
   enumeration stands until coverage clears the bar
   (`build-firm-profile.py` enforces this).
+
+- **EDGAR files a non-US issuer's country in the state slot** as a
+  two-character code from its "State or Country" list (Sweden = V7);
+  `build-firm-profile.py` maps the codes to country names so an EU firm's
+  hq_location reads "Stockholm, Sweden" rather than "Stockholm, V7".
+- **People without CMS titles.** Where the team CMS publishes a group
+  label but no titles (Creandum: "Investment Team"), titles come from the
+  firm's own promotion and welcome posts where stated, and the group label
+  stands for the rest; no title is inferred from LinkedIn or memory.
+- **investment_range without Form D coverage.** When the Form D issuer
+  histories cover only a handful of members, the median comes from the
+  firm's own entry announcements that state a round size (Creandum: 47
+  rounds since 2003 in the stories and archived press, published $7M),
+  flagged press-based; fund sizes quoted in EUR or SEK convert at the ECB
+  rate of the announcement date (§6, `scripts/fx-convert.py`) and the
+  native figure stays in the fund's note.
 
 **Profile without a site** (Thrive, 2026-09-03): `investment_stage`,
 `investment_geo` and `investment_scope` are derived — stage from the fund
