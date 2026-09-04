@@ -448,6 +448,24 @@ say so in the report rather than reading it as a defect (§8, `verify.shape`).
 Check the Wayback and Common Crawl eras before concluding no list ever
 existed; on Thrive none did (2010–2026), and that is recorded, not assumed.
 
+**Two recall layers run before the recall probe, disclosing site or not**
+(built on Thrive's post-close delta, 2026-09-03, which found 15 misses on
+a 155-row base): the **exit-side EDGAR sweep** (`scripts/edgar-fts-sweep.py`,
+`edgar.fts_phrases`) — full-text search on the fund-entity phrases, hits
+aggregated by third-party registrant, own entities / LP-side registered
+funds / ownership forms separated, the primary document's sentences kept
+as evidence. IPO S-1s file the investors' rights agreement with every fund
+signatory, 424B and S-3 resale prospectuses list selling stockholders of
+any size, acquirers' S-3/S-4/8-K schedules list target holders, Regulation
+A statements list holders; all filing-grade (`fund_filing`). And the
+**Wikipedia insource sweep** (`scripts/wikipedia-insource.py`,
+`wikipedia.phrases`) — every article whose source names the firm, with the
+naming sentences, company articles separated from people and lists; the
+judge cites the article and its underlying reference (`web`). Both need
+the noise read once per investor (place names, leases, namesake typos)
+and a `not_member` verdict for every candidate ruled out, so the layer's
+next run is a delta.
+
 ## 6. Classification columns
 
 ### status

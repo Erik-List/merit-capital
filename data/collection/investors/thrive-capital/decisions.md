@@ -141,6 +141,24 @@ rule rather than a row fix.
     this note; the defaults stay for every other investor. The guards still
     fire above the restated values.
 
+14. **Consortium and token positions follow the token rule and the
+    a16z precedent** (standing ruling, agent, 2026-09-03): Thrive's 2019
+    Libra founding-member position (Libra Investment Tokens) maps to an
+    issuing organization with governance, so Diem is a member row, exited
+    when Silvergate bought the association's assets (the Jul-2022 S-3 lists
+    Thrive Capital Partners VI and Claremount VI Associates as selling
+    stockholders); status `defunct`, aligned with a16z's `diem` row. A
+    stake that arrives as merger consideration for an existing row is not
+    a new entry (Willow Wealth/Yieldstreet for Cadre: `not_member`).
+15. **The exit-side EDGAR sweep and the Wikipedia insource sweep are
+    standing recall layers for this book** (agent, approved by Erik
+    2026-09-03 as a post-close delta with a second rebuild): every
+    third-party registrant naming a Thrive fund entity (S-1 rights-agreement
+    parties and holder tables, 424B selling stockholders, acquirer S-3s,
+    Regulation A holder lists) and every company article whose source
+    names the firm is judged; both layers are re-run before any
+    re-collection.
+
 Verdicts live in `base-verification.json` and are re-applied on every
 rebuild; human verdicts (`who: "erik"`) outrank agent verdicts; excluded
 rows are preserved in `excluded.csv`, never deleted.

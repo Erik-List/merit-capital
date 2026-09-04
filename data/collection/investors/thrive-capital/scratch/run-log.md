@@ -52,3 +52,12 @@ patreon, cadence-solutions) had no classification row — rebuild slug renames l
 verify counted keys, not base rows; run.py now counts over the base and fails on unclassified rows.
 verify.shape ceilings added (ruling 13). Profile built (17 funds, 13 accession assertions, RAUM $50.49B,
 17 people); icon normalized dry-run only (upload is gated with ingest). verify green in full mode.
+
+## Post-close delta (2026-09-03, Erik-approved second rebuild)
+New layers: scripts/edgar-fts-sweep.py (phrases 'Thrive Capital Partners' / 'Thrive Capital Management' /
+'Claremount': 663 hits, 99 registrants, 31 third-party) and scripts/wikipedia-insource.py (78 articles, 26 in
+base, 16 company candidates). Judged: 15 members added (segment, bread, blend-labs, reddit, securitize,
+younow, greenhouse-software, tictail, spree-commerce, mapbox, neverware, essential-ai, io, diem, ellis),
+2 not_member (willow-wealth = Cadre merger consideration; fifa-forward-enterprise = Thrive Eternal),
+noise registrants ignored (Puck Building lease in a 2011 CMBS, 'Claremount' street/place names in PIMCO,
+Montpelier Re, RFMS, Wells Fargo and a LendingClub loan listing; Tribe Capital typo; EarthLink = Trive).

@@ -10,7 +10,7 @@ rebuild, standing duties and the A/B pass, the firm profile built once
 against the landed base, `verify` / `export` / `review` / this report and
 the playbook write-back. Ingest is not part of the run (§9).
 
-**Prompt count: 1 so far** — the kickoff ("Please collect thrive capital").
+**Prompt count: 3 so far** — the kickoff ("Please collect thrive capital"), the question on non-disclosing funds that produced the two new layers, and the go-ahead for the post-close delta.
 The count becomes final with the ingest decision; the target of two holds
 if the closing message's ingest request is the second prompt. Checkpoint
 approvals requested: 0; milestone comments posted-and-continued: 2. The
@@ -253,6 +253,56 @@ checked: rows flat, profile panel expands), `sources/` (job board, EDGAR
 sweeps, ADV-derived fund roster, curated partner roster and team),
 `scratch/` (gate, layers, queue batches, run-log, verified-median,
 self-consistency sample and blind file).
+
+### 14. Post-close delta — the exit-side EDGAR sweep and the Wikipedia insource sweep (2026-09-03, second rebuild approved by Erik)
+
+Two recall layers built as pipeline scripts after the close, from the
+first-principles question "where does a non-disclosing fund's investment
+leave traces it does not control": `scripts/edgar-fts-sweep.py` (EDGAR
+full-text search on the fund-entity phrases, hits aggregated by
+third-party registrant, primary documents fetched and the sentences
+around the phrase kept) and `scripts/wikipedia-insource.py` (every
+article whose source names the firm, with the sentences that name it,
+company articles separated from people and lists, titles matched
+against the base). Config: `edgar.fts_phrases` / `fts_own_pattern`,
+`wikipedia.phrases`; outputs `sources/edgar/fts-hits.json`,
+`sources/web/wikipedia-insource.json`.
+
+| Layer | Swept | Candidates | Members added |
+|---|---|---|---|
+| EDGAR full text (3 phrases) | 663 hits, 99 registrants: 51 own entities, 9 LP-side registered funds, 8 ownership-form-only, 31 third-party | 12 real companies (19 already in the base or noise) | 7: Segment (Twilio S-3, named-deal vehicle), Bread (Alliance Data S-3), Blend Labs (S-1 rights agreement), Reddit (S-1), Securitize (S-1 holder table), YouNow (Reg A holder list), Diem (Silvergate S-3) |
+| Wikipedia insource | 78 articles: 26 in the base, 16 company candidates, 36 people/lists | 9 read | 8: Greenhouse, Tictail, Spree Commerce, Mapbox, Neverware, io, Essential AI (via Ashish Vaswani's article), Ellis (via Ryan Williams' article) |
+
+**15 members added, 155 → 170 rows (+9.7%)**, all judged on the same
+contract: 7 filing-grade (S-1/S-3/Reg A holder tables and rights
+agreements), 8 press-cited. Two `not_member` verdicts recorded so the
+names do not resurface: Willow Wealth (Yieldstreet's stake in Thrive's
+name is merger consideration for Cadre, one-row principle) and FIFA
+Forward Enterprise (Thrive Eternal, ruling 3). Noise named and
+dismissed: the Puck Building lease in a 2011 CMBS prospectus,
+"Claremount" as a place name in PIMCO, Montpelier Re, mortgage-trust and
+LendingClub filings, Wikipedia's Tribe Capital typo and EarthLink's Trive
+Capital. New rulings 14 (consortium/token positions: Diem in, aligned with
+a16z; merger consideration is not a new entry) and 15 (both sweeps are
+standing layers for this book).
+
+After the second rebuild: `verify` clean, cross-investor 92 rows shared /
+92 agree (Reddit re-marked at $30.01B as of 2026-09-03 in the same band as
+a16z/Sequoia; Blend Labs paired with Lightspeed's `blend` by a `same`
+ruling; Diem mirrors a16z's row; Segment's focus aligned with Accel's).
+Shape now: $1B+ 62 (36.5%) / $10B+ 23 / $100B+ 5; Growth 79 / Seed 47 /
+Series A 44; C2A cohort 30, graduated 29; New York 71 / San Francisco 53.
+Debt added: `stage_uncited` on Bread, Diem, io, Securitize, YouNow;
+`cite_pending` on Securitize ($1.22B public row whose entry round no press
+names); `needs_web_value` on Mapbox.
+
+What the delta measures: a base built without a site layer missed about
+one row in ten, and the misses cluster where the roster sweep is blind —
+Fund II–IV era positions (2012–2016) that exited through public
+acquirers or IPOs, and rounds Thrive joined without a board seat. The
+exit-side sweep is cheap (one query per phrase, no search budget) and
+filing-grade; it belongs before the recall probe in every run, disclosing
+site or not.
 
 ## PRO-71 — what the merged shape teaches (closes PRO-71)
 
