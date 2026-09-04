@@ -59,8 +59,8 @@ list and sits mostly outside the SEC. The answer, measured:
 - **Status**: private 109, acquired 48, defunct 10, public 5, unknown 5
   (Bravo Company, Pintavision, Proxilliant, Scapin, Tekki: no trace after
   the last listing; `defunct` is undercounted by construction).
-- **Valuation bands**: below_1b 159, 1b_plus 15, 10b_plus 2, 100b_plus 1
-  (after Erik's Augustus correction, below).
+- **Valuation bands**: below_1b 158, 1b_plus 16, 10b_plus 2, 100b_plus 1
+  (after Erik's Augustus correction and the momentum sweep, below).
   The $1B+ slice: Spotify $111.76B (public), Trade Republic $14.5B, Lovable
   $13.3B, Gopuff $8.5B, Bolt $8.4B, Klarna $7.52B (public), Navan $7.05B
   (public, cap 2026-09-03), Pleo $4.7B (stale), Black Forest Labs $3.25B,
@@ -99,8 +99,24 @@ snapshot (2026-08-23) omits Augustus and Ivy; the May-2026 rename
 defeated any name match; the firm posted no story about the round, so
 the evidence pack showed no trigger and the row never reached the A/B
 pass. Rule added (COLLECTION.md §6, decisions.md 19): the momentum slice
-(private, first_seen 2020+, hot sector) is web-checked mechanically; on
-this base 39 rows qualify, 5 were checked, **34 remain open debt**.
+(private, first_seen 2020+, hot sector) is web-checked mechanically.
+
+**Momentum sweep run before ingest (Erik, 2026-09-04): 33 rows, 35
+searches, every row now carries a web citation.** Found: **Olix is a
+unicorn** ($220M Series A at just over $1B in Feb 2026, then a $312M
+Series B at $3.3B in Aug 2026 with Creandum named; the grind had read
+the site's Feb-2026 entry as a seed), lemon.markets **acquired** by
+dwpbank (completed 2025-09-30), Twirl **acquired** by Modal Labs (May
+2025), Conduct's HQ is London, and seven entry stages were corrected
+from the press (Capi Money, Cerrion, GetVocal, Sibill and Appcharge to
+Series A; Causa Prima and Superscale to Pre-Seed; EquiLibre to Series A
+at a $500M mark). Sub-$1B figures pinned where a round disclosed one:
+EquiLibre $499.5M (Jul 2026), nexos.ai $349.7M (Oct 2025), SafetyWing
+$195M (2022, stale). Bands after the sweep: below_1b 158, 1b_plus 16,
+10b_plus 2, 100b_plus 1; stages Seed 83 / Series A 72 / Growth 17 /
+Pre-Seed 5; C2A cohort 44, graduated 31, 70.5%. Two unicorns out of 33
+unchecked hot-sector rows is the measure of what the noticed-signal
+scope had been missing.
 
 ## 3. Calibration gate (pre-registered before the build)
 
