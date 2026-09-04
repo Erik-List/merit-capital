@@ -11,6 +11,12 @@ before the first batch.
 `python3 scripts/run.py status --investor <slug>`, then continue at the
 first pending batch. Do not re-derive rules from memory.**
 
+**Thin evidence is a design problem, not a stopping condition.** When a
+layer returns nothing for this investor, the session invents one, and
+changes the pipeline if that is what the invention needs — see §5, *When
+the evidence is thin, invent the layer*. Register coverage per country,
+for the European runs, is in §5 as well.
+
 Everything lives investor-first under `data/collection/investors/<slug>/`;
 every script takes the slug and derives its paths via `scripts/paths.py`, and
 every investor-specific constant lives in the investor's `config.json`.
@@ -637,6 +643,174 @@ stages, 6 unicorn pre-fills, one float), so the A/B pass carries the
 whole visible slice and the search budget is sized for it (~78 searches
 on 177 rows).
 
+### European registers, country by country
+
+Researched 2026-09-04 at Erik's request, after the Creandum run reached
+the EU registers and reported them as an entity-set source only. Two
+different questions hide behind "can the register find it", and no
+European register answers both the way Form D does: **backtrace** (who
+holds this company) and **forward enumeration** (which companies does this
+fund entity hold). Forward enumeration is the one that could replace the
+roster Form D sweep; backtrace confirms a single row. Only Denmark and
+Norway answer both today. Access terms here moved twice in three years and
+in both directions, so verify a register's current terms at run time
+rather than trusting this table.
+
+| Country | Backtrace: holders of a company | Forward: a fund's holdings | Company status |
+|---|---|---|---|
+| Germany | **Yes** — GmbH shareholder lists, free, full cap table | Aggregator only (one hop) | Free |
+| UK | Partial — inside filed documents, not the API | Officer graph only | **Free and structured** |
+| France | Partial — inside filed acts | No | Free |
+| Spain | No | No | Free |
+| Denmark | **Yes** — legal owners at 5%+, structured | **Yes** — by owner | **Free and structured** |
+| Norway | **Yes** — every AS, one national dataset | **Yes** — same dataset | Free |
+| Sweden | No | No (the fund's own accounts only) | Free |
+| Finland | No | No | Free |
+
+- **Germany — handelsregister.de.** The strongest document source in
+  Europe. Every GmbH files a shareholder list (`Gesellschafterliste`) on
+  each change, naming every holder including foreign fund vehicles, and
+  since DiRUG took effect on 2022-08-01 the register serves those
+  documents free, without registration or login. A backtrace of any German
+  GmbH gives the cap table with the fund entities on it. The register is
+  searchable by company only, so forward enumeration needs an aggregator
+  that has already extracted the relations (North Data holds them as a
+  network with an API, exportable one hop at a time). An AG files no
+  shareholder list, and the beneficial-ownership register
+  (`Transparenzregister`) is behind a legitimate-interest wall.
+- **UK — Companies House.** The API is free and genuinely structured, but
+  not for shareholders: the confirmation statement carries the holder list
+  only inside the filed document, and only when shares moved during the
+  period, so a backtrace is a document read per company-year. Structured
+  ownership stops at persons of significant control, a 25% threshold a
+  venture investor rarely crosses. What the API does give is the officer
+  register, searchable by person across companies — the direct analogue of
+  the Form D related-person seat, with the same seat-dating discipline
+  (§1). Share-allotment filings are a lead for dating rounds and have not
+  been tested here.
+- **France — INPI, data.inpi.fr.** The national business register serves
+  company data, filed acts and statutes (since 1993) and non-confidential
+  accounts (since 2017) free, through APIs and bulk FTP. Subscribers to a
+  capital increase are frequently named in the filed minutes, so backtrace
+  works document by document. No structured shareholder table exists, and
+  beneficial-owner access is restricted to authorised parties or a
+  demonstrated legitimate interest.
+- **Spain — Registro Mercantil.** The weakest of the five. An SL's
+  shareholder book is an internal company document, not a register filing;
+  beneficial ownership is restricted; only incorporation, officers and
+  capital events reach the official bulletin. A draft public-integrity law
+  would move SL stakes into the register with legitimate-interest access,
+  but it is not in force — check whether it has passed before planning a
+  Spanish base around it.
+- **Denmark — CVR / Det Offentlige Ejerregister on virk.dk.** The best
+  structured source in Europe for this pipeline. Legal owners holding 5%
+  or more are public, foreign fund vehicles included, and the register is
+  searchable *by owner*, so a fund entity's Danish holdings enumerate
+  directly. Beneficial-owner data left the public register on 2025-09-01;
+  legal owners stayed. This is the one country where a Form-D-shaped
+  structural layer can be built as-is.
+- **Norway — Skatteetaten's aksjonærregisteret.** Every Norwegian AS and
+  every foreign company listed in Oslo, at each year end, ordered as one
+  national CSV. It answers both questions for the whole country in a
+  single file. Two costs: annual granularity, and publication in May of
+  the following year, so the newest holdings are always a year behind.
+  Entity data comes separately from Brønnøysund's free registers.
+- **Sweden — Bolagsverket.** No shareholder register exists. The share
+  book (`aktiebok`) is held by the company, and the beneficial-owner
+  search shows only holders at 25% or more, which excludes almost every
+  venture position. Board seats are public and carry the officer trace.
+  One indirect forward route for a Swedish-domiciled fund: the fund AB's
+  own annual accounts may enumerate its holdings — untested, and worth one
+  attempt on the next Swedish manager.
+- **Finland — PRH.** Same shape as Sweden: the shareholder list
+  (`osakasluettelo`) stays with the company under the Companies Act, and
+  the beneficial-owner register is restricted to anti-money-laundering
+  purposes. The public front end (ytj.fi) gives entities and officers.
+
+Two findings that generalise beyond any one country:
+
+**The registers pay off on `status`, not on membership.** Company status is
+free and machine-readable in all eight jurisdictions, while shareholders
+are structured in only two. `status` is the column this playbook admits is
+undercounted by construction (§6) and worst for European rows, where quiet
+shutdowns never reach English-language press. A dissolution, liquidation
+or bankruptcy flag in the company's home register is filing-grade evidence
+for `defunct` and costs one lookup. Build that before building any
+membership layer out of registers.
+
+**Beneficial-ownership registers are not a plan.** The walls in Germany,
+France, Spain and Denmark all trace to the same post-2022 EU case law
+restricting public access, and the thresholds (25%, or 5% in Denmark) sit
+above most venture positions anyway. Treat a BO register as a bonus if the
+run happens to have access, never as a layer the base depends on.
+
+### When the evidence is thin, invent the layer
+
+**The layers above are a floor, not a ceiling, and every one of them was
+invented mid-run by a session that needed evidence it did not have.**
+Common Crawl came out of an archive outage. The exit-side EDGAR full-text
+sweep and the Wikipedia insource sweep came out of an investor that
+published no portfolio page. The Nuxt payload parsers and the CDX-outage
+replay path came out of a site and an archive that both refused the
+configured route. None of them existed when the run that needed them
+started.
+
+So when this investor's evidence is thin — a layer returns nothing, a
+whole class of evidence does not exist in this jurisdiction, a row resists
+every source in `config.json` — **the executing session is expected to
+invent a way in, and to reach for the unconventional channel before
+recording a gap.** A gap written into the report without a documented
+attempt is the one outcome this playbook does not accept. Scarce evidence
+is a design problem, and solving it is the session's job, not Erik's.
+
+**Invention may change the pipeline, not just the config.** New scripts,
+new parsers, new source shapes under `sources/`, new config keys, changes
+to the build, verify and export scripts, and changes to the run shape
+itself are all in scope — the merged one-run shape came from a session
+that proposed it, and the momentum slice came from a miss that a session
+turned into a rule. Do not wait for permission to build a layer; build it,
+score it, and propose it at close.
+
+Think laterally about who else had a reason to write the fact down. A
+financing has several parties and they all publish something. Channels
+that have paid off, and channels not yet tried, as prompts rather than a
+checklist:
+
+- **The counterparty's surfaces, not the investor's**: the portfolio
+  company's own investors page, its press kit, its founders' posts, the
+  accelerator directory it belongs to — and the archived copies of each,
+  which outlive the investor's own listing.
+- **The exit side**: acquirers' filings, registration statements,
+  insolvency and liquidator reports (which name shareholders precisely
+  because an estate must), merger-control notifications published by
+  competition authorities.
+- **The money's other paperwork**: public grant and subsidy databases
+  (CORDIS, Vinnova, Innovate UK, Bpifrance) pairing a company with dated
+  funding; trademark and patent assignments, which move when a company is
+  sold; the home-register status flags described above.
+- **The firm's own non-portfolio surfaces**: annual review posts, LP-facing
+  pages, event and podcast archives, newsletters. A partner naming a deal
+  in an interview is often the only public record of an unannounced round.
+
+Four rules make an invented layer usable, and they are not optional:
+
+1. **Score it before you trust it** (§4). Measure the new layer's field
+   against the golden set, exactly as the site's own stage field is
+   measured: Accel's CMS label scored 30/31 and was promoted to class 1,
+   Thrive's job-board stage scored 0/10 and was refused. An unscored layer
+   may corroborate; it may not label.
+2. **Class it** (§1 evidence rules). Every row it produces carries an
+   evidence class and a citation. A new channel is never a reason to relax
+   the source gates, the membership definition or the verify invariants.
+3. **Record the negative result.** A channel tried and found empty is a
+   finding, not a silence: Creandum's EU register pulls produced the entity
+   set and zero membership evidence, and saying so is what makes the next
+   EU run cheaper.
+4. **Write it back at close** (§9) — into this file if it is
+   investor-agnostic, into the scripts if it is mechanical. A layer
+   invented and left inside one investor's directory has to be invented
+   again by the next run.
+
 ## 6. Classification columns
 
 ### status
@@ -1052,7 +1226,9 @@ decisions file genuinely cannot resolve:
    cap).
 4. Evidence access fails in a way that leaves a layer permanently missing
    rather than delayed (an archive that never recovers, a site that blocks
-   every ladder step).
+   every ladder step) — **and only after the invention pass of §5 has been
+   tried and its attempts recorded**. A layer missing because nothing was
+   built in its place is not a trigger, it is unfinished work.
 
 Everything else — layer defects, gate misses, namesake clusters, new
 standing rulings — the session resolves, records as a dated ruling in
