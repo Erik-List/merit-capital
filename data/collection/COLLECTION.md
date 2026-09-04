@@ -881,7 +881,10 @@ The icon is part of the gated step: at profile time
 `fetch-investor-icon.ts --dry-run` normalizes the source image to a local
 PNG for inspection and `investor.json` carries the source URL; the upload
 to the Icon Images bucket runs with the ingest, after the approval, and
-`ingest-investor.ts` then carries the bucket URL.
+`ingest-investor.ts` then carries the bucket URL. **Order for a first-time
+investor: icon upload, `ingest-investor.ts`, then `ingest-companies.ts`** —
+the companies ingest resolves the investor's database id and refuses to
+run before the investor row exists (Thrive, 2026-09-04).
 
 ## 10. Verify invariants
 

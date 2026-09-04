@@ -61,3 +61,8 @@ younow, greenhouse-software, tictail, spree-commerce, mapbox, neverware, essenti
 2 not_member (willow-wealth = Cadre merger consideration; fifa-forward-enterprise = Thrive Eternal),
 noise registrants ignored (Puck Building lease in a 2011 CMBS, 'Claremount' street/place names in PIMCO,
 Montpelier Re, RFMS, Wells Fargo and a LendingClub loan listing; Tribe Capital typo; EarthLink = Trive).
+
+## Ingest (2026-09-04, Erik-approved)
+Order that works for a new investor: fetch-investor-icon.ts (upload, icon_url written) -> ingest:investor
+(1 row upserted) -> ingest:companies thrive-capital (170 rows); the first companies attempt failed because
+the investor row did not exist yet. a16z re-ingested (1,719 rows upserted; honor/plaid/xdof/loft corrected).

@@ -10,7 +10,7 @@ rebuild, standing duties and the A/B pass, the firm profile built once
 against the landed base, `verify` / `export` / `review` / this report and
 the playbook write-back. Ingest is not part of the run (§9).
 
-**Prompt count: 3 so far** — the kickoff ("Please collect thrive capital"), the question on non-disclosing funds that produced the two new layers, and the go-ahead for the post-close delta.
+**Ingested 2026-09-04 with Erik's approval** (investor row with the uploaded icon first, then the 170 companies, then the a16z re-ingest of the four corrected rows). **Prompt count: 4, final** — the kickoff ("Please collect thrive capital"), the question on non-disclosing funds that produced the two new layers, the go-ahead for the post-close delta, and the ingest approval.
 The count becomes final with the ingest decision; the target of two holds
 if the closing message's ingest request is the second prompt. Checkpoint
 approvals requested: 0; milestone comments posted-and-continued: 2. The
