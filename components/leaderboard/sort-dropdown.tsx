@@ -16,9 +16,9 @@ interface SortDropdownProps {
 
 export default function SortDropdown({ value, onChange }: SortDropdownProps) {
   return (
-    <div className="flex justify-end">
+    <div className="flex flex-1 lg:justify-end">
       <Select value={value} onValueChange={onChange}>
-        <SelectTrigger className="w-[280px]">
+        <SelectTrigger className="w-full sm:w-[280px]">
           <SelectValue placeholder="Sort by..." />
         </SelectTrigger>
         <SelectContent>

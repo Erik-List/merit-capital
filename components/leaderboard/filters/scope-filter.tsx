@@ -24,6 +24,12 @@ const PRIMARY_FOCUS_PREFERENCES = PRIMARY_FOCUS_VALUES;
 const SPECIALIST_LABEL = "Specialist";
 const GENERALIST_KEYWORD = "generalist";
 
+// The taxonomy marks every focus value as primary, so without a display cap
+// this section renders all twelve rows and dwarfs the rest of the panel.
+// Geography shows four before its "Show more"; this matches it (Generalist
+// plus four). Anything currently selected stays visible regardless.
+const VISIBLE_SCOPE_COUNT = 5;
+
 export default function ScopeFilter({ className, value, onChange, options }: ScopeFilterProps) {
   const [open, setOpen] = useState(true);
   const [expanded, setExpanded] = useState(false);
@@ -71,6 +77,15 @@ export default function ScopeFilter({ className, value, onChange, options }: Sco
 
   const selectedSet = useMemo(() => new Set(value.selected), [value.selected]);
 
+  const { visibleScopes, hiddenScopes } = useMemo(() => {
+    const visible = primaryScopes.slice(0, VISIBLE_SCOPE_COUNT);
+    const rest = [...primaryScopes.slice(VISIBLE_SCOPE_COUNT), ...extraScopes];
+    return {
+      visibleScopes: [...visible, ...rest.filter((scope) => selectedSet.has(scope))],
+      hiddenScopes: rest.filter((scope) => !selectedSet.has(scope)),
+    };
+  }, [primaryScopes, extraScopes, selectedSet]);
+
   const handleAllChange = (checked: boolean | "indeterminate") => {
     if (!checked) return;
     onChange({ all: true, selected: [] });
@@ -100,7 +115,7 @@ export default function ScopeFilter({ className, value, onChange, options }: Sco
           type="button"
           variant="ghost"
           size="icon"
-          className="h-6 w-6 p-0 text-muted-foreground"
+          className="h-9 w-9 p-0 text-muted-foreground lg:h-6 lg:w-6"
           aria-label={open ? "Collapse Investment Focus" : "Expand Investment Focus"}
           onClick={() => setOpen((prev) => !prev)}
         >
@@ -113,7 +128,7 @@ export default function ScopeFilter({ className, value, onChange, options }: Sco
             <Checkbox checked={value.all} onCheckedChange={handleAllChange} />
             <span className="text-muted-foreground">All Focus</span>
           </label>
-          {primaryScopes.map((scope) => (
+          {visibleScopes.map((scope) => (
             <label key={scope} className="flex items-center gap-2 cursor-pointer text-sm text-muted-foreground">
               <Checkbox
                 checked={value.all ? false : selectedSet.has(scope)}
@@ -122,7 +137,7 @@ export default function ScopeFilter({ className, value, onChange, options }: Sco
               <span className="text-muted-foreground">{scope}</span>
             </label>
           ))}
-          {extraScopes.length > 0 && (
+          {hiddenScopes.length > 0 && (
             <div className="pt-1 space-y-2">
               <button
                 type="button"
@@ -133,7 +148,7 @@ export default function ScopeFilter({ className, value, onChange, options }: Sco
               </button>
               {expanded && (
                 <div className="space-y-1">
-                  {extraScopes.map((scope) => (
+                  {hiddenScopes.map((scope) => (
                     <label key={scope} className="flex items-center gap-2 cursor-pointer text-sm text-muted-foreground">
                       <Checkbox
                         checked={value.all ? false : selectedSet.has(scope)}

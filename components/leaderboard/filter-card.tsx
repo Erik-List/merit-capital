@@ -6,7 +6,7 @@ import RangeFilter, { type RangeState, type MedianState } from "@/components/lea
 import GeographyFilter, { type GeographyState } from "@/components/leaderboard/filters/geography-filter";
 import ScopeFilter, { type ScopeState } from "@/components/leaderboard/filters/scope-filter";
 
-interface FilterCardProps {
+export interface FilterCardProps {
   view: ViewState;
   onViewChange: (next: ViewState) => void;
   stage: StageState;
@@ -41,7 +41,7 @@ export default function FilterCard({
 }: FilterCardProps) {
   return (
     <div className="w-full rounded-md border border-input/30 glass lg:w-[320px]">
-      <div className="space-y-4 p-4 text-xs text-muted-foreground lg:max-h-[calc(100vh-var(--nav-height,0px)-48px)] lg:overflow-y-auto lg:glass-scrollbar">
+      <div className="space-y-4 p-4 text-xs text-muted-foreground lg:max-h-[calc(100dvh-var(--nav-height,0px)-48px)] lg:overflow-y-auto lg:glass-scrollbar">
         <StageFilter value={stage} onChange={onStageChange} />
         <div className="h-px bg-input/30 mx-1" />
         <RangeFilter value={range} onChange={onRangeChange} median={median} onMedianChange={onMedianChange} />

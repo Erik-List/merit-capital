@@ -5,6 +5,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { createClient } from "@/utils/supabase/client";
 import type { Database } from "@/types/supabase";
 import FilterCard from "@/components/leaderboard/filter-card";
+import FilterDrawer from "@/components/leaderboard/filter-drawer";
 import SearchCard from "@/components/leaderboard/search-card";
 import InvestorsTable from "@/components/leaderboard/table";
 import SortDropdown from "@/components/leaderboard/sort-dropdown";
@@ -680,36 +681,59 @@ export default function Leaderboard() {
     return sorted;
   }, [geo, investors, search, scope, stage, range, median, sort]);
 
+  // One controlled prop set feeds both the `lg` sidebar and the sub-`lg`
+  // drawer, so the two <FilterCard> instances stay in sync by construction.
+  const filterProps = {
+    view,
+    onViewChange: (next: ViewState) => set({ view: next }),
+    stage,
+    onStageChange: (next: StageState) => set({ stage: next }),
+    range,
+    onRangeChange: (next: RangeState) => set({ range: next }),
+    median,
+    onMedianChange: (next: MedianState) => set({ median: next }),
+    geo,
+    geoOptions,
+    onGeoChange: (next: GeographyState) => set({ geo: next }),
+    scope,
+    scopeOptions,
+    onScopeChange: (next: ScopeState) => set({ scope: next }),
+  };
+
+  // Surfaced on the drawer trigger: with the panel hidden, this is the only
+  // signal that results are being narrowed. Counts filters that change the
+  // result set, not the `view` toggles, which only change what each row shows.
+  const activeFilterCount = useMemo(() => {
+    let count = 0;
+    if (!stage.preseed || !stage.seed || !stage.seriesA || !stage.growth) count += 1;
+    if (range.min !== defaultRange.min || range.max !== defaultRange.max) count += 1;
+    if (median.value !== null) count += 1;
+    if (!geo.all) count += 1;
+    if (!scope.all) count += 1;
+    return count;
+  }, [stage, range, median, geo, scope]);
+
   return (
     <div className="w-full container mx-auto py-6">
-      <header className="mb-6">
-        <h1 className="text-2xl font-medium">The venture capital performance index</h1>
-        <p className="mt-1 max-w-3xl text-sm text-muted-foreground">
+      {/* The masthead sits on the raw background photo, whose bright patches
+          wash out muted text. A light text shadow keeps both lines legible
+          wherever the image happens to be light. */}
+      <header className="mb-6 [text-shadow:0_1px_2px_rgb(0_0_0/0.5)]">
+        <h1 className="text-xl font-medium sm:text-2xl">The venture capital performance index</h1>
+        <p className="mt-1 max-w-3xl text-sm text-foreground/85">
           $1B, $10B and $100B investment outcomes, IPOs, and seed to Series A graduation rates for{" "}
           {investors.length > 0 ? `${investors.length} of the most well-known investors` : "the most well-known investors"}, built from public filings and human-reviewed.
         </p>
       </header>
-      <div className="grid gap-6 lg:min-h-[calc(100vh-var(--nav-height,0px)-48px)] lg:grid-cols-[320px_1fr]">
-        <div className="lg:sticky lg:top-[calc(var(--nav-height,0px)+24px)] lg:self-start">
-          <FilterCard
-            view={view}
-            onViewChange={(next) => set({ view: next })}
-            stage={stage}
-            onStageChange={(next) => set({ stage: next })}
-            range={range}
-            onRangeChange={(next) => set({ range: next })}
-            median={median}
-            onMedianChange={(next) => set({ median: next })}
-            geo={geo}
-            geoOptions={geoOptions}
-            onGeoChange={(next) => set({ geo: next })}
-            scope={scope}
-            scopeOptions={scopeOptions}
-            onScopeChange={(next) => set({ scope: next })}
-          />
+      <div className="grid gap-6 lg:min-h-[calc(100dvh-var(--nav-height,0px)-48px)] lg:grid-cols-[320px_1fr]">
+        <div className="hidden lg:block lg:sticky lg:top-[calc(var(--nav-height,0px)+24px)] lg:self-start">
+          <FilterCard {...filterProps} />
         </div>
-        <div className="space-y-4 lg:min-h-0 lg:h-[calc(100vh-var(--nav-height,0px)-48px)] lg:overflow-y-auto lg:pr-2 lg:glass-scrollbar">
-          <SortDropdown value={sort} onChange={(v) => set({ sort: v })} />
+        <div className="space-y-4 lg:min-h-0 lg:h-[calc(100dvh-var(--nav-height,0px)-48px)] lg:overflow-y-auto lg:pr-2 lg:glass-scrollbar">
+          <div className="flex items-center gap-2 lg:justify-end">
+            <SortDropdown value={sort} onChange={(v) => set({ sort: v })} />
+            <FilterDrawer {...filterProps} activeCount={activeFilterCount} />
+          </div>
           <SearchCard value={search} onChange={(v: string) => set({ search: v })} />
           <InvestorsTable
             investors={filtered}

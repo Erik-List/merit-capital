@@ -35,16 +35,18 @@ export default function SearchCard({ value, onChange }: SearchCardProps) {
     return () => clearTimeout(timer);
   }, [localValue]);
 
+  // The input is its own bordered glass surface, so wrapping it in a second
+  // bordered card just drew two nested outlines. One surface, one border.
   return (
-    <div className="rounded-md border border-input/30 glass p-3">
-      <div className="relative">
-        <Input
-          placeholder="Search investors..."
-          value={localValue}
-          onChange={(e) => setLocalValue(e.target.value)}
-          type="text"
-        />
-      </div>
+    <div className="relative">
+      <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+      <Input
+        placeholder="Search investors..."
+        value={localValue}
+        onChange={(e) => setLocalValue(e.target.value)}
+        type="text"
+        className="border-input/50 pl-9"
+      />
     </div>
   );
 }

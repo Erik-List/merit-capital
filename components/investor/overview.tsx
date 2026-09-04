@@ -20,24 +20,18 @@ export function InvestorOverview({ investor }: InvestorOverviewProps) {
     return null;
   }
 
-  const parts: string[] = [];
-
-  if (hasInvestmentConcept) {
-    parts.push(investor.investment_concept!);
-  }
-
-  if (hasHistory) {
-    parts.push(investor.history!);
-  }
-
+  // Two paragraphs, not one bullet-joined line: the thesis is the firm's
+  // one-liner and reads in foreground; the history is a long paragraph and
+  // reads as muted detail beneath it. Joining them inline with a bullet left
+  // the bullet floating vertically centred beside a wrapped paragraph.
   return (
-    <div className="text-sm text-muted-foreground flex flex-row flex-wrap items-center gap-x-1 leading-tight">
-      {parts.map((part, index) => (
-        <span key={index} className="flex items-center gap-x-1">
-          {index > 0 && <span className="text-muted-foreground/50">•</span>}
-          <span>{part}</span>
-        </span>
-      ))}
+    <div className="space-y-3 text-sm leading-relaxed">
+      {hasInvestmentConcept ? (
+        <p className="text-foreground">{investor.investment_concept}</p>
+      ) : null}
+      {hasHistory ? (
+        <p className="text-muted-foreground">{investor.history}</p>
+      ) : null}
     </div>
   );
 }

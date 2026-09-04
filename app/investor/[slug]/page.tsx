@@ -89,10 +89,10 @@ export default async function InvestorProfilePage({ params }: InvestorPageParams
 
   return (
     // Viewport-bound on md+: the page never scrolls, cards scroll inside.
-    // Below md the gate blocks the app anyway, but document flow is kept.
-    // 66px = the sticky nav's real height (65px content + 1px border), which
-    // exceeds the 4rem --nav-height token by 2px.
-    <div className="min-h-screen md:min-h-0 md:h-[calc(100dvh-66px)] md:overflow-hidden">
+    // Below md (phones) the layout falls back to normal document flow, which
+    // is the only thing that fits a single narrow column.
+    // The nav occupies --nav-height plus its 1px bottom border.
+    <div className="min-h-screen md:min-h-0 md:h-[calc(100dvh-var(--nav-height)-1px)] md:overflow-hidden">
       <div className="container mx-auto px-4 py-8 md:flex md:h-full md:flex-col">
         <div className="mb-8">
           <Link href="/" className="text-muted-foreground hover:text-foreground">

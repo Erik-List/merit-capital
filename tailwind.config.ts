@@ -9,6 +9,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      // Tailwind's `container` sets a max-width but no padding by default,
+      // which put every `container` call site flush against the screen edges.
+      // Padding below `lg` only: the desktop layout keeps its existing
+      // edge-to-edge geometry.
+      container: {
+        center: true,
+        padding: { DEFAULT: '1rem', lg: '0' },
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

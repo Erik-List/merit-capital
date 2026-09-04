@@ -49,7 +49,7 @@ export function InvestorHeader({ investor }: InvestorHeaderProps) {
   };
 
   return (
-    <div className="flex flex-row items-center gap-4">
+    <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
       {investor.icon_url && (
         <Image
           src={investor.icon_url}
@@ -61,8 +61,8 @@ export function InvestorHeader({ investor }: InvestorHeaderProps) {
         />
       )}
 
-      <div className="flex-1">
-        <h2 className="text-2xl font-semibold">{investor.name}</h2>
+      <div className="min-w-0 flex-1">
+        <h2 className="text-xl font-semibold break-words sm:text-2xl">{investor.name}</h2>
 
         {showInstitutionalLabel && investor.hq_location && (
           <p className="text-sm text-muted-foreground">

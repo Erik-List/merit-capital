@@ -206,13 +206,13 @@ export function InvestorMerit({
 
               return (
                 <div key={row.key} className="space-y-2">
-                  <div className="grid grid-cols-[200px_1fr] items-center gap-3">
+                  <div className="grid grid-cols-1 items-center gap-1 lg:grid-cols-[minmax(0,200px)_1fr] lg:gap-3">
                     <span className="text-sm font-medium text-muted-foreground">{row.label}</span>
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-1.5 w-40 shrink-0 overflow-hidden rounded-full bg-muted-foreground/30">
+                    <div className="flex min-w-0 items-center gap-3">
+                      <div className="flex h-1.5 w-full min-w-0 overflow-hidden rounded-full bg-muted-foreground/30 lg:w-40 lg:shrink-0">
                         <div className={cn('h-full', 'bg-primary')} style={{ width: `${width}%` }} />
                       </div>
-                      <span className="text-sm font-medium text-muted-foreground">
+                      <span className="shrink-0 whitespace-nowrap text-sm font-medium text-muted-foreground">
                         {count} ({percentage})
                       </span>
                     </div>
@@ -227,16 +227,19 @@ export function InvestorMerit({
       {/* Notable Investments, directly below the track record */}
       {notableInvestments ? (
         <section className="space-y-2">
-          <div className="text-sm text-foreground">
-            Notable Investments:
-            <span className="text-sm text-muted-foreground ml-2">
-              {notableInvestments.map((investment, index) => (
-                <span key={investment}>
-                  {index > 0 && <span className="text-muted-foreground/50 mx-1">•</span>}
-                  {investment}
-                </span>
-              ))}
-            </span>
+          {/* Flex-wrapped rather than inline: the names are joined by bullets
+              with no surrounding whitespace, so as inline text the whole list
+              is one unbreakable token and sets a ~450px floor on the card. */}
+          <div className="flex flex-wrap items-baseline gap-x-1 text-sm text-foreground">
+            <span className="mr-1">Notable Investments:</span>
+            {notableInvestments.map((investment, index) => (
+              <span key={investment} className="whitespace-nowrap text-muted-foreground">
+                {investment}
+                {index < notableInvestments.length - 1 ? (
+                  <span className="text-muted-foreground/50 ml-1">•</span>
+                ) : null}
+              </span>
+            ))}
           </div>
         </section>
       ) : null}
@@ -279,11 +282,11 @@ function GraduationRow({ label, bucket }: GraduationRowProps) {
   const percentage = rate % 1 === 0 ? `${rate.toFixed(0)}%` : `${rate.toFixed(1)}%`;
 
   return (
-    <div className="grid grid-cols-[200px_1fr] items-center gap-4">
+    <div className="grid grid-cols-1 items-center gap-1 lg:grid-cols-[minmax(0,200px)_1fr] lg:gap-4">
       <span className="text-sm font-medium text-muted-foreground">{label}</span>
-      <div className="flex items-center gap-3">
-        <Progress value={Math.max(0, Math.min(100, rate))} className="h-1.5 w-40 shrink-0 bg-muted-foreground/30" />
-        <span className="text-sm font-medium text-muted-foreground">
+      <div className="flex min-w-0 items-center gap-3">
+        <Progress value={Math.max(0, Math.min(100, rate))} className="h-1.5 w-full min-w-0 bg-muted-foreground/30 lg:w-40 lg:shrink-0" />
+        <span className="shrink-0 whitespace-nowrap text-sm font-medium text-muted-foreground">
           {percentage} of {sampleSize} companies
         </span>
       </div>

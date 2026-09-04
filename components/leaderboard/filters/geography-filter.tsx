@@ -69,7 +69,7 @@ export default function GeographyFilter({ className, value, onChange, options }:
           type="button"
           variant="ghost"
           size="icon"
-          className="h-6 w-6 p-0 text-muted-foreground"
+          className="h-9 w-9 p-0 text-muted-foreground lg:h-6 lg:w-6"
           aria-label={open ? "Collapse Investment Geography" : "Expand Investment Geography"}
           onClick={() => setOpen((v) => !v)}
         >

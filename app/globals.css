@@ -8,7 +8,11 @@
   --background-end-rgb: 255, 255, 255;
   
   /* Merit Capital specific variables */
-  --nav-height: 4rem;
+  /* The sticky nav's real content height. Its 1px bottom border sits outside
+     this token, so layouts that must clear the whole bar subtract
+     `var(--nav-height) + 1px`. Single source of truth: nav-bar.tsx and every
+     viewport-bound layout derive their heights from it. */
+  --nav-height: 65px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -111,6 +115,20 @@
   /* Section anchor offset for sticky nav */
   [id] {
     scroll-margin-top: calc(var(--nav-height) + 8px);
+  }
+}
+
+/* iOS Safari zooms the viewport whenever a focused field renders below 16px.
+   Enforcing 16px under `lg` is one rule instead of auditing every input
+   className; the desktop sidebar keeps its compact type. `!important` and the
+   position outside @layer base are both required: these fields carry Tailwind
+   `text-xs`/`text-sm` utilities, and a bare element selector loses to a class. */
+@media (max-width: 1023px) {
+  input,
+  select,
+  textarea,
+  [role="combobox"] {
+    font-size: 16px !important;
   }
 }
 

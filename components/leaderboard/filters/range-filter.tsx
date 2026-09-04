@@ -7,7 +7,7 @@ import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { NumericInput } from "@/components/ui/numeric-input";
 import { Info } from "lucide-react";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 
 export type RangeState = {
@@ -239,7 +239,7 @@ export default function RangeFilter({ className, value, onChange, median, onMedi
           type="button"
           variant="ghost"
           size="icon"
-          className="h-6 w-6 p-0 text-muted-foreground"
+          className="h-9 w-9 p-0 text-muted-foreground lg:h-6 lg:w-6"
           aria-label={open ? "Collapse Investment Range" : "Expand Investment Range"}
           onClick={() => setOpen((v) => !v)}
         >
@@ -275,17 +275,17 @@ export default function RangeFilter({ className, value, onChange, median, onMedi
                     <NumericInput
                       value={localMedian.value === null ? undefined : localMedian.value}
                       onChange={handleMedianValueChange}
-                      className="h-8 w-14 text-sm text-center"
+                      className="h-9 w-full min-w-0 text-center text-sm lg:h-8 lg:w-14"
                       placeholder="10"
                     />
                     <Select
                       value={localMedian.unit}
                       onValueChange={(next) => handleMedianUnitChange(next as MedianUnit)}
                     >
-                      <SelectTrigger className="h-8 w-14 text-xs" aria-label="Select median unit">
+                      <SelectTrigger className="h-9 w-full min-w-0 text-xs lg:h-8 lg:w-14" aria-label="Select median unit">
                         <SelectValue>{UNIT_LABEL[localMedian.unit]}</SelectValue>
                       </SelectTrigger>
-                      <SelectContent side="right" align="start" className="text-xs">
+                      <SelectContent side="bottom" align="start" collisionPadding={12} className="text-xs">
                         {UNIT_OPTIONS.map((unit) => (
                           <SelectItem key={unit} value={unit} className="text-xs">
                             {UNIT_LABEL[unit]}
@@ -293,22 +293,32 @@ export default function RangeFilter({ className, value, onChange, median, onMedi
                         ))}
                       </SelectContent>
                     </Select>
-                    <Button type="button" variant="ghost" size="sm" className="h-8 px-2 text-xs" onClick={handleMedianClear}>
+                    <Button type="button" variant="ghost" size="sm" className="h-9 shrink-0 px-2 text-xs lg:h-8" onClick={handleMedianClear}>
                       Reset
                     </Button>
                   </div>
                   {isOutsideRange ? (
                     <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                      <TooltipProvider>
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <Info className="h-3.5 w-3.5 text-amber-500" aria-hidden="true" />
-                          </TooltipTrigger>
-                          <TooltipContent side="right" align="center" className="text-xs whitespace-pre-wrap max-w-xs">
-                            The median amount should sit within your selected investment range.
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
+                      {/* Popover, not Tooltip: hover has no touch equivalent. */}
+                      <Popover>
+                        <PopoverTrigger asChild>
+                          <button
+                            type="button"
+                            className="text-amber-500"
+                            aria-label="Why the median is flagged"
+                          >
+                            <Info className="h-3.5 w-3.5" />
+                          </button>
+                        </PopoverTrigger>
+                        <PopoverContent
+                          side="bottom"
+                          align="start"
+                          collisionPadding={12}
+                          className="max-w-[calc(100vw-2rem)] text-xs whitespace-pre-wrap sm:max-w-xs"
+                        >
+                          The median amount should sit within your selected investment range.
+                        </PopoverContent>
+                      </Popover>
                     </div>
                   ) : null}
                 </div>

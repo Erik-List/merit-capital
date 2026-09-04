@@ -192,11 +192,11 @@ export function InvestorDetails({ investor }: InvestorDetailsProps) {
             {stages.map((stage) => {
               const share = (stage.companies / stageTotal) * 100;
               return (
-                <div key={stage.label ?? 'unclassified'} className="grid grid-cols-[200px_1fr] items-center gap-4">
+                <div key={stage.label ?? 'unclassified'} className="grid grid-cols-1 items-center gap-1 lg:grid-cols-[minmax(0,200px)_1fr] lg:gap-4">
                   <span className="text-sm font-medium text-muted-foreground">{stage.label ?? 'Unclassified'}</span>
-                  <div className="flex items-center gap-3">
-                    <Progress value={share} className="h-1.5 w-40 shrink-0 bg-muted-foreground/30" />
-                    <span className="text-sm font-medium text-muted-foreground">
+                  <div className="flex min-w-0 items-center gap-3">
+                    <Progress value={share} className="h-1.5 w-full min-w-0 bg-muted-foreground/30 lg:w-40 lg:shrink-0" />
+                    <span className="shrink-0 whitespace-nowrap text-sm font-medium text-muted-foreground">
                       {formatShare(stage.companies, stageTotal)} ({stage.companies})
                     </span>
                   </div>

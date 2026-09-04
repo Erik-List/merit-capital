@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { TableCell, TableRow } from "@/components/ui/table";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import type { StageState } from "@/components/leaderboard/filters/stage-filter";
 import type { GeographyState } from "@/components/leaderboard/filters/geography-filter";
 import type { ScopeState } from "@/components/leaderboard/filters/scope-filter";
@@ -264,7 +263,12 @@ export default function InvestorRow({ investor, view, stage, geo, scope }: Inves
               +{hiddenCount}
             </button>
           </PopoverTrigger>
-          <PopoverContent className="w-fit p-2 bg-background/80 backdrop-blur-md" side="right" align="center">
+          <PopoverContent
+          className="w-fit max-w-[calc(100vw-2rem)] p-2 bg-background/80 backdrop-blur-md"
+          side="bottom"
+          align="start"
+          collisionPadding={12}
+        >
             <div className="text-xs text-muted-foreground space-y-1">
               {hiddenStages.map((entry, idx) => (
                 <div key={`${entry.label}-${idx}`} className="truncate">- {entry.label}</div>
@@ -301,7 +305,12 @@ export default function InvestorRow({ investor, view, stage, geo, scope }: Inves
                 +{hidden.length}
               </button>
             </PopoverTrigger>
-            <PopoverContent className="w-fit p-2 bg-background/80 backdrop-blur-md" side="right" align="center">
+            <PopoverContent
+              className="w-fit max-w-[calc(100vw-2rem)] p-2 bg-background/80 backdrop-blur-md"
+              side="bottom"
+              align="start"
+              collisionPadding={12}
+            >
               <div className="text-xs text-muted-foreground space-y-1">
                 {hidden.map((geoName, idx) => (
                   <div key={`${geoName}-${idx}`} className="truncate">- {geoName}</div>
@@ -345,7 +354,12 @@ export default function InvestorRow({ investor, view, stage, geo, scope }: Inves
             {triggerContent}
           </button>
         </PopoverTrigger>
-        <PopoverContent className="w-fit p-2 bg-background/80 backdrop-blur-md" side="right" align="center">
+        <PopoverContent
+          className="w-fit max-w-[calc(100vw-2rem)] p-2 bg-background/80 backdrop-blur-md"
+          side="bottom"
+          align="start"
+          collisionPadding={12}
+        >
           <div className="text-xs text-muted-foreground space-y-1">
             {entries.map((entry, idx) => (
               <div key={`${entry.label}-${entry.note ?? "scope"}-${idx}`} className="truncate">
@@ -503,65 +517,104 @@ export default function InvestorRow({ investor, view, stage, geo, scope }: Inves
     const oneShare = Math.max(0, Math.min(100, oneB.percent) - hundredShare - tenShare);
 
     return (
-      <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <span className="text-sm text-foreground whitespace-nowrap cursor-default">
-              1 in {claimRatio} companies → $1B
-            </span>
-          </TooltipTrigger>
-          <TooltipContent side="bottom" align="start" className="w-64 p-3">
-            <div className="text-xs font-medium mb-2">{oneB.total} companies backed</div>
-            <div className="flex h-2 w-full overflow-hidden rounded-full bg-muted" aria-hidden="true">
-              {hundredShare > 0 ? (
-                <div className="bg-primary" style={{ width: `${hundredShare}%`, minWidth: "3px" }} />
-              ) : null}
-              {tenShare > 0 ? (
-                <div className="bg-primary/70" style={{ width: `${tenShare}%`, minWidth: "3px" }} />
-              ) : null}
-              {oneShare > 0 ? (
-                <div className="bg-primary/40" style={{ width: `${oneShare}%`, minWidth: "3px" }} />
-              ) : null}
-            </div>
-            <div className="mt-2 space-y-1 text-xs text-muted-foreground">
-              {tierRows.map((row) => (
-                <div key={row.label} className="flex items-center justify-between gap-4">
-                  <span>{row.label}</span>
-                  <span>
-                    {row.amount} {row.amount === 1 ? "company" : "companies"} · {formatHitRatePercent(row.percent)}%
-                  </span>
-                </div>
-              ))}
-            </div>
-            <div className="mt-2 text-[11px] text-muted-foreground/80">
-              Current valuations only.
-            </div>
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
+      <Popover>
+        <PopoverTrigger asChild>
+          <button
+            type="button"
+            className="text-sm text-foreground whitespace-nowrap underline decoration-dotted underline-offset-4 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+            aria-label={`Track record breakdown for ${name}`}
+          >
+            1 in {claimRatio} companies → $1B
+          </button>
+        </PopoverTrigger>
+        <PopoverContent
+          side="bottom"
+          align="start"
+          collisionPadding={12}
+          className="w-64 max-w-[calc(100vw-2rem)] p-3"
+        >
+          <div className="text-xs font-medium mb-2">{oneB.total} companies backed</div>
+          <div className="flex h-2 w-full overflow-hidden rounded-full bg-muted" aria-hidden="true">
+            {hundredShare > 0 ? (
+              <div className="bg-primary" style={{ width: `${hundredShare}%`, minWidth: "3px" }} />
+            ) : null}
+            {tenShare > 0 ? (
+              <div className="bg-primary/70" style={{ width: `${tenShare}%`, minWidth: "3px" }} />
+            ) : null}
+            {oneShare > 0 ? (
+              <div className="bg-primary/40" style={{ width: `${oneShare}%`, minWidth: "3px" }} />
+            ) : null}
+          </div>
+          <div className="mt-2 space-y-1 text-xs text-muted-foreground">
+            {tierRows.map((row) => (
+              <div key={row.label} className="flex items-center justify-between gap-4">
+                <span>{row.label}</span>
+                <span>
+                  {row.amount} {row.amount === 1 ? "company" : "companies"} · {formatHitRatePercent(row.percent)}%
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-2 text-[11px] text-muted-foreground/80">
+            Current valuations only.
+          </div>
+        </PopoverContent>
+      </Popover>
     );
   })();
 
   const investorUrl = `/investor/${investor.slug}`;
 
+  const logo = (size: string) => (
+    <Link href={investorUrl} className="cursor-pointer shrink-0">
+      {investor.icon_url ? (
+        <Image
+          src={investor.icon_url}
+          alt={name}
+          width={48}
+          height={48}
+          className={`${size} rounded-full shrink-0 object-cover`}
+          priority
+        />
+      ) : (
+        <div className={`${size} rounded-full bg-muted shrink-0`} />
+      )}
+    </Link>
+  );
+
+  // The table is single-column, so keeping one <TableRow>/<TableCell> shell and
+  // swapping only its contents leaves the table semantics untouched. Both
+  // branches read the same computed `segments` / `trackRecordContent` — no
+  // logic is duplicated, only the arrangement differs.
   return (
-    <TableRow className="h-24 align-middle">
+    <TableRow className="align-middle lg:h-24">
       <TableCell className="py-3">
-        <div className="flex items-start gap-3">
-          <Link href={investorUrl} className="cursor-pointer shrink-0">
-            {investor.icon_url ? (
-              <Image
-                src={investor.icon_url}
-                alt={name}
-                width={48}
-                height={48}
-                className="h-12 w-12 rounded-full shrink-0 object-cover"
-                priority
-              />
-            ) : (
-              <div className="h-12 w-12 rounded-full bg-muted shrink-0" />
-            )}
-          </Link>
+        {/* Mobile: the claim and the metadata each get their own line and wrap,
+            instead of being truncated off the end of one nowrap row. */}
+        <div className="flex flex-col gap-2 lg:hidden">
+          <div className="flex items-center gap-3">
+            {logo("h-10 w-10")}
+            <Link href={investorUrl} className="min-w-0 text-base font-medium cursor-pointer hover:underline">
+              {name}
+            </Link>
+          </div>
+          {trackRecordContent ? (
+            <div className="text-sm text-muted-foreground">{trackRecordContent}</div>
+          ) : null}
+          {segments.length > 0 ? (
+            <div className="flex flex-wrap gap-x-2 gap-y-1 text-sm text-muted-foreground">
+              {segments.map((segment, idx) => (
+                <span key={`m-seg-${idx}`} className="inline-flex items-center gap-1 whitespace-nowrap">
+                  {segment}
+                </span>
+              ))}
+            </div>
+          ) : null}
+        </div>
+
+        {/* Desktop: unchanged single-line layout. */}
+        <div className="hidden lg:flex items-start gap-3">
+          {logo("h-12 w-12")}
           <div className="min-w-0">
             <div className="flex flex-wrap items-baseline gap-2">
               <Link href={investorUrl} className="truncate font-medium text-lg cursor-pointer hover:underline">
