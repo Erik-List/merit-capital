@@ -42,6 +42,24 @@ export const MIN_BOX = 0.45;
 // WCAG contrast ratio. 3:1 is the large-text/graphics threshold; below it a
 // synthesized plate is rejected rather than published.
 export const MIN_CONTRAST = 3;
+// Resolution. The fourth defect, found on Thrive (2026-09-05): the source
+// handed to the fetch was the site's 32x32 favicon, the contain-fit resize
+// upscaled it 8x to the 256 canvas and the keyline then shrank it again, so
+// the published master was a blurred 8x enlargement — and `describe(before)`
+// reported "256x256" because it measured the canvas, not the source. Accel
+// had hit the same trap in June (a 32px /icon.png "upscaled into a soft grey
+// A") and was fixed by hand. Two rules now make it structural:
+//   MAX_UPSCALE — raster artwork is never enlarged: the artwork's pixels in
+//     the master may not exceed its pixels in the source (5% tolerance for
+//     rounding). Vectors are exempt; they render at 2x density.
+//   MAX_RAMP — the anti-aliasing ramp around the artwork, measured on the
+//     master in pixels (partial-coverage pixels per perimeter pixel). A crisp
+//     256px render sits at 0.5-1.1px on every published icon; the upscaled
+//     Thrive master measured 6.1px and a 32->256 enlargement 8.8px. This
+//     catches sources that arrive pre-blurred, which the scale rule cannot see,
+//     and lets `--audit` find soft masters without their sources.
+export const MAX_UPSCALE = 1.05;
+export const MAX_RAMP = 2.0;
 
 // How the source backs itself. Only `bare-glyph` needs a plate synthesized;
 // a disc plate (Accel: a solid dark disc with a white mark, 100% opaque
@@ -56,7 +74,21 @@ export type IconMetrics = {
   inkBox: { x: number; y: number; w: number; h: number };
   boxFraction: number; radiusFraction: number;
   inkLuminance: number; contrast: number | null;
+  rampWidth: number; // anti-aliasing ramp in px: partial-coverage pixels per perimeter pixel
 };
+
+export type SourceInfo = { format: string; width: number; height: number; vector: boolean };
+
+/** The source as it is, before any canvas: the number that decides whether
+ *  a master can be made from it at all. */
+export async function probeSource(source: Buffer): Promise<SourceInfo> {
+  const m = await sharp(source).metadata();
+  return {
+    format: m.format ?? "unknown",
+    width: m.width ?? 0, height: m.height ?? 0,
+    vector: m.format === "svg",
+  };
+}
 
 const relLuminance = (r: number, g: number, b: number) => {
   const f = (v: number) => {
@@ -130,9 +162,9 @@ export async function measure(img: sharp.Sharp): Promise<IconMetrics> {
       const k = `${p[0] >> 3},${p[1] >> 3},${p[2] >> 3}`;
       hist.set(k, (hist.get(k) ?? 0) + 1);
     }
-    const [k, n] = [...hist.entries()].sort((a, b) => b[1] - a[1])[0];
+    const [k, n] = Array.from(hist.entries()).sort((a, b) => b[1] - a[1])[0];
     if (n / Math.max(discOpaque, 1) > 0.4) {
-      const [r, g, b] = k.split(",").map((v) => (Number(v) << 3) + 4);
+      const [r, g, b] = k.split(",").map((v: string) => (Number(v) << 3) + 4);
       plate = [r, g, b, 255];
     }
   }
@@ -161,6 +193,42 @@ export async function measure(img: sharp.Sharp): Promise<IconMetrics> {
   const box = { x: minX, y: minY, w: maxX - minX + 1, h: maxY - minY + 1 };
   const mean: [number, number, number] = [lr / n, lg / n, lb / n];
 
+  // Edge ramp. Luminance composited on the plate (white where transparent),
+  // deviation from the plate normalized by the artwork's own full ink (99.5th
+  // percentile, so a red or grey logo counts as fully inked at its own colour).
+  // Ink = deviation > 85%, partial = 15-85%; perimeter = ink pixels with a
+  // non-ink 4-neighbour. Ramp width = partial / perimeter.
+  // sRGB-weighted luminance on the same scale as the per-pixel value below
+  // (not the gamma-linearized relLuminance, which put a dark plate 50 levels
+  // away from itself and read Accel's whole disc as a soft edge).
+  const plateLum = plate ? 0.2126 * plate[0] + 0.7152 * plate[1] + 0.0722 * plate[2] : 255;
+  const dev = new Float32Array(w * h);
+  const histo = new Uint32Array(256);
+  for (let i = 0; i < w * h; i++) {
+    const a = data[i * c + 3] / 255;
+    const lum = (0.2126 * data[i * c] + 0.7152 * data[i * c + 1] + 0.0722 * data[i * c + 2]) * a
+      + plateLum * (1 - a);
+    const d = Math.abs(lum - plateLum);
+    dev[i] = d; histo[Math.min(255, Math.round(d))]++;
+  }
+  let acc = 0, p995 = 255;
+  for (let v = 0; v < 256; v++) { acc += histo[v]; if (acc >= 0.995 * w * h) { p995 = v; break; } }
+  const full = Math.max(1, p995);
+  const inkMask = new Uint8Array(w * h);
+  let partial = 0;
+  for (let i = 0; i < w * h; i++) {
+    const d = dev[i] / full;
+    if (d > 0.85) inkMask[i] = 1; else if (d > 0.15) partial++;
+  }
+  let perimeter = 0;
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+    const i = y * w + x;
+    if (!inkMask[i]) continue;
+    if (x === 0 || y === 0 || x === w - 1 || y === h - 1
+        || !inkMask[i - 1] || !inkMask[i + 1] || !inkMask[i - w] || !inkMask[i + w]) perimeter++;
+  }
+  const rampWidth = partial / Math.max(1, perimeter);
+
   return {
     width: w, height: h,
     opaqueFraction: opaque / (w * h), edgeCoverage,
@@ -170,6 +238,7 @@ export async function measure(img: sharp.Sharp): Promise<IconMetrics> {
     radiusFraction: maxR / (w / 2),
     inkLuminance: relLuminance(...mean),
     contrast: plate ? contrastRatio(mean, [plate[0], plate[1], plate[2]]) : null,
+    rampWidth,
   };
 }
 
@@ -183,19 +252,38 @@ export function safeAreaScale(m: IconMetrics) {
 }
 
 /** Produce the published master: opaque, keylined, contrast-checked. */
+export type NormalizeResult = {
+  buffer: Buffer; before: IconMetrics; after: IconMetrics; notes: string[];
+  source: SourceInfo;
+  /** longest side of the artwork's bounding box, in source pixels (raster) */
+  artworkSourcePx: number;
+  /** the same box in the master, after the keyline inset */
+  artworkMasterPx: number;
+  /** artworkMasterPx / artworkSourcePx; >1 means the raster was enlarged */
+  upscale: number;
+};
+
 export async function normalize(
   source: Buffer,
-  opts: { plate?: string; size?: number } = {}
-): Promise<{ buffer: Buffer; before: IconMetrics; after: IconMetrics; notes: string[] }> {
+  opts: { plate?: string; size?: number; allowUpscale?: boolean } = {}
+): Promise<NormalizeResult> {
   const size = opts.size ?? MASTER_SIZE;
   const notes: string[] = [];
 
+  const src = await probeSource(source);
   const base = (await rasterize(source, size)).resize(size, size, {
     fit: "contain",
     background: { r: 0, g: 0, b: 0, alpha: 0 },
   });
   const squared = await base.png().toBuffer();
   const before = await measure(sharp(squared));
+
+  // Resolution accounting, in the source's own pixels. contain-fit maps the
+  // source's longest side onto the canvas, so the artwork's box in the canvas
+  // divided by that fit is its size in the source.
+  const fit = size / Math.max(1, Math.max(src.width, src.height));
+  const boxPx = Math.max(before.inkBox.w, before.inkBox.h);
+  const artworkSourcePx = src.vector ? Infinity : Math.round(boxPx / fit);
 
   // Choose the background. An icon that already backs itself keeps what it
   // has; only a bare glyph gets a synthesized plate, coloured for contrast.
@@ -214,6 +302,19 @@ export async function normalize(
 
   // Inset the artwork to the keyline.
   const scale = safeAreaScale(before);
+  const artworkMasterPx = Math.round(boxPx * scale);
+  const upscale = src.vector ? 1 : artworkMasterPx / Math.max(1, artworkSourcePx);
+  notes.push(src.vector
+    ? `resolution: vector source (${src.width}x${src.height} intrinsic), rendered at 2x density — exempt from the upscale rule`
+    : `resolution: ${src.format} ${src.width}x${src.height}, artwork ${artworkSourcePx}px in the source → ${artworkMasterPx}px in the master (${upscale.toFixed(2)}x)`);
+  if (!src.vector && upscale > MAX_UPSCALE) {
+    const msg = `Refusing to publish: the ${src.width}x${src.height} ${src.format} source holds ${artworkSourcePx}px ` +
+      `of artwork and the master needs ${artworkMasterPx}px (${upscale.toFixed(2)}x enlargement, limit ${MAX_UPSCALE}x). ` +
+      `Find a larger source — an SVG, the apple-touch-icon, a manifest icon, og:image or a press-kit logo ` +
+      `(\`--discover <site-url>\` lists them with sizes) — or pass --allow-upscale to publish a soft icon knowingly.`;
+    if (!opts.allowUpscale) throw new Error(msg);
+    notes.push(`WARNING: ${msg.replace("Refusing to publish: ", "")}`);
+  }
   let work = sharp(squared);
   if (Math.abs(scale - 1) > 0.02) {
     const glyph = await sharp(squared)
@@ -250,7 +351,15 @@ export async function normalize(
       `${after.contrast.toFixed(2)}:1, below the ${MIN_CONTRAST}:1 minimum. ` +
       `Pass --plate <colour> with a background the logo is legible on.`);
   }
-  return { buffer, before, after, notes };
+  // A source that arrives already blurred (a CDN-resized favicon, a JPEG
+  // screenshot of a logo) passes the scale rule and fails here.
+  if (after.rampWidth > MAX_RAMP && !opts.allowUpscale) {
+    throw new Error(
+      `Refusing to publish: the master's edge ramp is ${after.rampWidth.toFixed(2)}px ` +
+      `(limit ${MAX_RAMP}px) — the source is soft (pre-blurred or resized up by its host). ` +
+      `Find a sharper source or pass --allow-upscale to publish it knowingly.`);
+  }
+  return { buffer, before, after, notes, source: src, artworkSourcePx, artworkMasterPx, upscale };
 }
 
 export function describe(m: IconMetrics) {
@@ -259,5 +368,6 @@ export function describe(m: IconMetrics) {
     ` opaque=${(m.opaqueFraction * 100).toFixed(0)}%` +
     ` box=${(m.boxFraction * 100).toFixed(0)}%` +
     ` radius=${(m.radiusFraction * 100).toFixed(0)}%` +
-    `${m.contrast !== null ? ` contrast=${m.contrast.toFixed(1)}:1` : ""}`;
+    `${m.contrast !== null ? ` contrast=${m.contrast.toFixed(1)}:1` : ""}` +
+    ` ramp=${m.rampWidth.toFixed(2)}px`;
 }

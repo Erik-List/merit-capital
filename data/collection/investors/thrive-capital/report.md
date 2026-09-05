@@ -199,9 +199,13 @@ cohort 2026; notable_investments asserted against ledger members;
   fund architecture and the landed distribution; US core, Europe and
   Latin America other; Generalist with seven focus labels at
   `focus_min_companies` 7 (~4.5% of the base).
-- **Icon**: normalized dry-run PNG only (white plate, 256 px, contrast
-  4.6:1); `icon_url` still carries the Framer source URL — the upload is
-  part of the gated ingest.
+- **Icon**: first published at the ingest (2026-09-04) from the issue's
+  favicon pointer, which turned out to be a 32×32 PNG: the master was an
+  8× enlargement and rendered blurred in the app. Republished 2026-09-05
+  from the site's 1200×1200 apple-touch icon (`--discover` found it; the
+  new master measures a 0.85 px edge ramp against 5.9 px before), and the
+  fetch now refuses raster enlargements and soft masters
+  (`icon-normalize.ts` MAX_UPSCALE / MAX_RAMP, provenance in the sidecar).
 
 ### 9. Cross-investor alignment
 

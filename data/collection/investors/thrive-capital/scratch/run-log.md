@@ -66,3 +66,9 @@ Montpelier Re, RFMS, Wells Fargo and a LendingClub loan listing; Tribe Capital t
 Order that works for a new investor: fetch-investor-icon.ts (upload, icon_url written) -> ingest:investor
 (1 row upserted) -> ingest:companies thrive-capital (170 rows); the first companies attempt failed because
 the investor row did not exist yet. a16z re-ingested (1,719 rows upserted; honor/plaid/xdof/loft corrected).
+
+## Icon republished (2026-09-05)
+The favicon pointer was a 32x32 PNG; the first master was an 8x enlargement (edge ramp 5.9px vs 0.5-1.1px on every
+crisp icon). Republished from the 1200x1200 apple-touch icon (thrive-capital-df063194b3.png, ramp 0.85px) and
+ingested with --columns icon_url. fetch-investor-icon.ts gained --discover, provenance, MAX_UPSCALE 1.05 and MAX_RAMP 2px;
+--audit now reads both. Cherry measures 2.10px on its 256px web-clip source (flagged, see the closing message).

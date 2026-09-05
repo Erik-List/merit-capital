@@ -1584,12 +1584,31 @@ Field recipes, learned on Sequoia and a16z:
   unreadable plate. A source that already backs itself is left alone,
   including a disc plate whose square corners are empty (Accel), since
   insetting it would shrink a full-bleed logo into a sticker. SVG sources
-  rasterize at 2× the master before downsampling, never upscaled from
-  their intrinsic size. `--plate <colour>` overrides the synthesized
-  background, `--dry-run <file>` previews without uploading, and
-  **`--audit` replays the current rules against every published icon** —
-  run it when a rule changes, so icons that predate it are found rather
-  than assumed fine. The DB still only changes on ingest.
+  rasterize at 2× the master before downsampling. Two **resolution rules**
+  (Thrive, 2026-09-05: the issue's icon pointer was the site's 32×32
+  favicon, the contain-fit resize enlarged it 8× and the published master
+  was a blur — and the fetch log said "source 256x256" because it measured
+  the canvas, not the file; Accel had hit the same trap in June and was
+  fixed by hand): **raster artwork is never enlarged** (`MAX_UPSCALE`
+  1.05: the artwork's pixels in the master may not exceed its pixels in
+  the source; the fetch refuses and names the enlargement), and **the
+  master's edge ramp must stay under 2 px** (`MAX_RAMP`: partial-coverage
+  pixels per perimeter pixel — every crisp published icon measures
+  0.5–1.1 px, the upscaled Thrive master 5.9 px — which also catches a
+  source that arrives pre-blurred). **Choose the source by measurement**:
+  `--discover <site-url>` lists every icon-sized asset the site declares
+  (`<link rel=icon>`, apple-touch-icon, manifest icons, og:image, logo
+  `<img>`s, inline logo SVGs) with intrinsic sizes and a verdict; take the
+  vector or the largest raster, never the first favicon. Every publish
+  writes **provenance** into `investor.sources.json` (`fields.icon_url.
+  provenance`: source URL, format, intrinsic size, artwork pixels in
+  source and master, scale, ramp), and `--allow-upscale` is the only way
+  past the rules — logged in that provenance. `--plate <colour>` overrides
+  the synthesized background, `--dry-run <file>` previews without
+  uploading, and **`--audit` replays the current rules against every
+  published icon**, reading the ramp off the master and the scale off the
+  provenance — run it when a rule changes, so icons that predate it are
+  found rather than assumed fine. The DB still only changes on ingest.
 
 - **A German issuer's Form D city carries its district** ("BERLIN - MITTE"):
   the builder strips the " - <district>" suffix so `hq_location` reads
