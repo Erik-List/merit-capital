@@ -192,7 +192,11 @@ matched to the siblings. USV (slot 1) was in flight and not compared.
 4. **Team pages behind SSL-pinned hosts**: python `urllib` failed on the
    Webflow host (local certificate chain), `curl` did not — note for the
    `site_api` team sources.
-5. **Wayback era parsers**: eleven eras with disjoint year ranges is the
+5. **`verify` exits 0 with problems.** A shell chain gated on `&&` ran export,
+   review, close and the first commit past a two-problem verify (Bond Street's
+   cohort row); the fix landed in a second commit. Either return non-zero on
+   problems or document that chains must grep `verify: clean`.
+6. **Wayback era parsers**: eleven eras with disjoint year ranges is the
    most any run has needed; the `listing_regex` era with `_id` (`wp2018`)
    pattern is reusable for WordPress "menu" themes.
 
