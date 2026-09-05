@@ -22,31 +22,55 @@ import subprocess
 import sys
 import threading
 import time
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from paths import SEC_CACHE as CACHE, UNICORN_DIR  # noqa: E402
+from paths import SEC_CACHE as CACHE, UNICORN_DIR, write_atomic  # noqa: E402
+import shared_throttle  # noqa: E402
 
 UA = "Merit Capital research erik@meritcapit.al"
 
-# SEC publishes a 10 req/s ceiling. Each fetch pays a fresh TLS handshake, so
-# serial fetching runs at ~0.25 req/s and wastes almost all of the allowance.
-# A shared token bucket lets a small worker pool use the budget without ever
-# exceeding it, whatever the pool size.
-SEC_RATE = 8.0
-_rate_lock = threading.Lock()
-_next_slot = [0.0]
-
-
+# SEC publishes a 10 req/s ceiling per client, and every collection session on
+# this machine is the same client. The bucket therefore lives in
+# shared_throttle (one budget across processes and threads, 8 req/s by
+# default); a single process paces exactly as it did with the in-process
+# bucket this replaced.
 def _throttle() -> None:
-    with _rate_lock:
-        now = time.monotonic()
-        slot = max(now, _next_slot[0])
-        _next_slot[0] = slot + 1.0 / SEC_RATE
-    delay = slot - time.monotonic()
-    if delay > 0:
-        time.sleep(delay)
+    shared_throttle.wait("sec")
+
+
+class SECUnavailable(RuntimeError):
+    """SEC refused or failed the request (403 rate block, 429, 5xx, transport).
+
+    Distinct from a 404, which is the genuine "no such data" answer. Callers
+    leave the row unanswered and retry on the next run; nothing is cached.
+    """
+
+
+class WikidataUnavailable(RuntimeError):
+    """The SPARQL endpoint throttled or failed; the batch stays unanswered."""
+
+
+def curl_status(url: str, timeout: int = 45) -> tuple[int, str]:
+    """GET with the SEC-required User-Agent -> (http status, body).
+
+    Status 0 means the transport failed before any HTTP answer. Unlike `curl`
+    below, a non-2xx answer is reported, not collapsed into None, so callers
+    can tell "no such resource" (404) from "come back later" (403/429/5xx).
+    """
+    try:
+        out = subprocess.run(
+            ["curl", "-s", "--max-time", str(timeout), "-H", f"User-Agent: {UA}",
+             "-w", "\n%{http_code}", url],
+            capture_output=True, check=False).stdout.decode("utf-8", errors="replace")
+    except OSError:
+        return 0, ""
+    body, _, code = out.rpartition("\n")
+    try:
+        return int(code), body
+    except ValueError:
+        return 0, out
 
 THRESHOLDS = (("100b", 100_000_000_000), ("10b", 10_000_000_000), ("1b", 1_000_000_000))
 BOUNDARY_PCT = 0.20
@@ -99,15 +123,24 @@ def load_cik_lookup() -> dict[str, list[tuple[str, str]]]:
     """
     dest = CACHE / "cik-lookup-data.txt"
     if not dest.exists():
-        dest.parent.mkdir(parents=True, exist_ok=True)
-        body = curl("https://www.sec.gov/Archives/edgar/cik-lookup-data.txt", timeout=180)
-        if not body:
-            raise SystemExit("could not fetch cik-lookup-data.txt")
-        dest.write_text(body, encoding="utf-8", errors="replace")
+        # One downloader at a time across sessions: the file is 38 MB and
+        # gitignored, so several fresh sessions would otherwise all fetch it
+        # and race their writes onto one path.
+        with shared_throttle.exclusive("cik-lookup"):
+            if not dest.exists():
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                _throttle()
+                code, body = curl_status(
+                    "https://www.sec.gov/Archives/edgar/cik-lookup-data.txt", timeout=180)
+                if code != 200 or not body:
+                    raise SystemExit(f"could not fetch cik-lookup-data.txt (HTTP {code})")
+                write_atomic(dest, body)
 
     index: dict[str, list[tuple[str, str]]] = {}
+    lines = 0
     with open(dest, encoding="utf-8", errors="replace") as fh:
         for line in fh:
+            lines += 1
             line = line.rstrip("\n")
             if not line.endswith(":"):
                 continue
@@ -120,6 +153,10 @@ def load_cik_lookup() -> dict[str, list[tuple[str, str]]]:
             key = norm(name)
             if key:
                 index.setdefault(key, []).append((str(int(cik)), name))
+    # The file is ~1.05M lines; a torn download parses without error and
+    # silently loses registrants, so the guard is a line count, not a parse.
+    if lines < 500_000:
+        raise SystemExit(f"{dest} looks truncated ({lines} lines); delete it and re-run")
     return index
 
 
@@ -168,42 +205,65 @@ def public_float(cik: str) -> list[dict] | None:
 
     url = (f"https://data.sec.gov/api/xbrl/companyconcept/"
            f"CIK{int(cik):010d}/dei/EntityPublicFloat.json")
-    _throttle()
-    body = curl(url)
+    # Only two answers may enter the shared cache: a parsed 200, or a 404 (the
+    # company never reported a public float). A 403 rate block, 429, 5xx or a
+    # transport failure raises after retries and writes NOTHING, because a
+    # cached empty list here would read as "never public" for every investor.
+    last = 0
+    for attempt in range(3):
+        _throttle()
+        code, body = curl_status(url)
+        if code == 200:
+            series: list[dict] = []
+            try:
+                for unit in json.loads(body).get("units", {}).get("USD", []):
+                    if unit.get("val") is None or not unit.get("end"):
+                        continue
+                    series.append({"end": unit["end"], "val": int(unit["val"]),
+                                   "form": unit.get("form"), "fy": unit.get("fy")})
+            except (json.JSONDecodeError, ValueError, TypeError, AttributeError):
+                last = code
+                time.sleep(1.0 * (attempt + 1))
+                continue                     # a 200 that is not the JSON we asked for
+            series.sort(key=lambda x: x["end"])
+            write_atomic(out, json.dumps(series))
+            return series or None
+        if code == 404:
+            write_atomic(out, "[]")
+            return None
+        last = code
+        time.sleep(1.0 * (attempt + 1))
+    raise SECUnavailable(f"CIK {cik}: HTTP {last or 'transport failure'} after 3 attempts")
 
-    series: list[dict] = []
-    if body:
-        try:
-            for unit in json.loads(body).get("units", {}).get("USD", []):
-                if unit.get("val") is None or not unit.get("end"):
-                    continue
-                series.append({"end": unit["end"], "val": int(unit["val"]),
-                               "form": unit.get("form"), "fy": unit.get("fy")})
-        except (json.JSONDecodeError, ValueError, TypeError):
-            series = []
 
-    series.sort(key=lambda x: x["end"])
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps(series))
-    return series or None
-
-
-def prefetch_public_float(ciks: list[str], workers: int = 8, progress=None) -> None:
+def prefetch_public_float(ciks: list[str], workers: int = 8, progress=None) -> set[str]:
     """Warm the disk cache for many CIKs at once, inside the rate limit.
 
     `public_float` stays the single reader, so callers see identical results
-    whether or not this ran; it only removes the wall-clock cost.
+    whether or not this ran; it only removes the wall-clock cost. Returns the
+    CIKs SEC would not answer (nothing cached for them), so the caller can
+    leave those rows open instead of asking again in this run.
     """
     todo = [c for c in dict.fromkeys(ciks)
             if not (CACHE / "public-float" / f"{c}.json").exists()]
+    failed: set[str] = set()
     if not todo:
-        return
+        return failed
     done = 0
     with ThreadPoolExecutor(max_workers=workers) as pool:
-        for _ in pool.map(public_float, todo):
+        futures = {pool.submit(public_float, c): c for c in todo}
+        for fut in as_completed(futures):
+            try:
+                fut.result()
+            except SECUnavailable:
+                failed.add(futures[fut])
             done += 1
             if progress and done % 100 == 0:
                 progress(done, len(todo))
+    if failed:
+        print(f"    {len(failed)} CIK(s) unavailable from SEC; nothing cached, "
+              f"re-run prepare to retry", file=sys.stderr)
+    return failed
 
 
 # ---------------------------------------------------------------------------
@@ -296,7 +356,7 @@ def load_unicorn_list() -> dict[str, dict[str, dict]]:
                     timeout=120)
         if not body:
             raise SystemExit("could not fetch the Wikipedia unicorn list")
-        html_path.write_text(body, encoding="utf-8")
+        write_atomic(html_path, body)
 
     tables = _parse_wikitables(html_path.read_text(encoding="utf-8"))
     current_t = next(t for t in tables
@@ -324,7 +384,7 @@ def load_unicorn_list() -> dict[str, dict[str, dict]]:
         })
 
     out = {"current": current, "former": former}
-    dest.write_text(json.dumps(out, indent=1))
+    write_atomic(dest, json.dumps(out, indent=1))
     return out
 
 
@@ -405,6 +465,7 @@ def wikidata_batch(names: list[str]) -> dict[str, dict]:
     values = " ".join('"%s"@en' % n.replace('\\', r'\\').replace('"', r'\"')
                       for n in names)
     query = SPARQL % values
+    shared_throttle.wait("wikidata")
     try:
         body = subprocess.run(
             ["curl", "-sf", "--max-time", "120", "-X", "POST",
@@ -413,13 +474,14 @@ def wikidata_batch(names: list[str]) -> dict[str, dict]:
              "--data-urlencode", f"query={query}",
              "https://query.wikidata.org/sparql"],
             capture_output=True, check=True).stdout.decode("utf-8", errors="replace")
-    except subprocess.CalledProcessError:
-        return {}
-    time.sleep(1.0)                     # Wikidata is a shared public endpoint
+    except subprocess.CalledProcessError as e:
+        # A throttled or failed batch must not read as "no hits": the caller
+        # would cache an empty answer for every name in it and never ask again.
+        raise WikidataUnavailable(f"SPARQL POST failed (curl rc={e.returncode})") from e
     try:
         rows = json.loads(body)["results"]["bindings"]
-    except (json.JSONDecodeError, KeyError):
-        return {}
+    except (json.JSONDecodeError, KeyError) as e:
+        raise WikidataUnavailable("SPARQL answer was not a result set") from e
 
     out: dict[str, dict] = {}
     for r in rows:

@@ -32,7 +32,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from paths import ROOT, Paths  # noqa: E402
+from paths import ROOT, Paths, write_atomic  # noqa: E402
 
 # Researched fields that must already be present in investor.json, each with a
 # provenance entry in investor.sources.json. Field semantics, not values.
@@ -277,8 +277,8 @@ def main():
         f"{sum(1 for q in people if q['socials']['x_url'])} X.")
     sources["generated_at"] = now
 
-    p.investor.write_text(json.dumps(row, indent=2) + "\n")
-    p.investor_sources.write_text(json.dumps(sources, indent=2) + "\n")
+    write_atomic(p.investor, json.dumps(row, indent=2) + "\n")
+    write_atomic(p.investor_sources, json.dumps(sources, indent=2) + "\n")
 
     print(f"hq            {hq}  ({hq_count}/{total} filings)")
     print(f"funds         {len(fields['funds']['value'])}  aum {row['aum']}")

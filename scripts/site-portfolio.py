@@ -43,7 +43,7 @@ from html import unescape
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from paths import Paths  # noqa: E402
+from paths import Paths, write_atomic  # noqa: E402
 
 UA = "MeritCapitalResearch/1.0 (erik@meritcapit.al)"
 PER_PAGE = 100
@@ -429,7 +429,7 @@ def main() -> None:
 
     if api.get("type") == "scrape":
         companies = scrape_companies(api)
-        (p.site / "companies.json").write_text(json.dumps(companies, indent=1) + "\n")
+        write_atomic(p.site / "companies.json", json.dumps(companies, indent=1) + "\n")
         from collections import Counter
         lists = Counter(li for c in companies for li in c["lists"])
         print(f"companies: {len(companies)} (union)   per list: {dict(lists)}")
@@ -438,7 +438,7 @@ def main() -> None:
         # (roster.site_team_groups then filters on each row's "group" extra).
         if api.get("team_sources"):
             team = scrape_companies({"sources": api["team_sources"]})
-            (p.site / "team.json").write_text(json.dumps(team, indent=1) + "\n")
+            write_atomic(p.site / "team.json", json.dumps(team, indent=1) + "\n")
             groups = Counter(t.get("group") or "?" for t in team)
             print(f"team members: {len(team)}   groups: {dict(groups)}")
         return
@@ -457,7 +457,7 @@ def main() -> None:
         "modified": (c.get("modified") or "")[:10],
     } for c in raw if c.get("title", {}).get("rendered")]
     companies.sort(key=lambda c: c["name"].lower())
-    (p.site / "companies.json").write_text(json.dumps(companies, indent=1) + "\n")
+    write_atomic(p.site / "companies.json", json.dumps(companies, indent=1) + "\n")
 
     team = fetch_type(api["base"], api["team_type"])
     people = [{
@@ -466,7 +466,7 @@ def main() -> None:
         "url": t.get("link"),
     } for t in team if t.get("title", {}).get("rendered")]
     people.sort(key=lambda p_: p_["name"].lower())
-    (p.site / "team.json").write_text(json.dumps(people, indent=1) + "\n")
+    write_atomic(p.site / "team.json", json.dumps(people, indent=1) + "\n")
 
     from collections import Counter
     sect = Counter(s for c in companies for s in c["sectors"])

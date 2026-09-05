@@ -25,7 +25,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from edgar_common import fetch_header, parse_header_roles, parse_header_meta  # noqa: E402
-from paths import Paths  # noqa: E402
+from paths import Paths, write_atomic  # noqa: E402
+import shared_throttle  # noqa: E402
 
 UA = "Merit Capital research erik@meritcapit.al"
 
@@ -36,6 +37,7 @@ OWNERSHIP_FORMS = {"3", "4", "5", "3/A", "4/A", "5/A",
 def submissions(cik: str) -> dict:
     url = f"https://data.sec.gov/submissions/CIK{int(cik):010d}.json"
     for attempt in range(3):
+        shared_throttle.wait("sec")
         try:
             out = subprocess.run(
                 ["curl", "-sf", "--max-time", "45", "-H", f"User-Agent: {UA}", url],
@@ -73,7 +75,6 @@ def main() -> None:
                 acc_owner.setdefault(acc, e["cik"])
         if i % 25 == 0:
             print(f"  {i}/{len(entities)} entities · {len(acc_owner)} unique accessions")
-        time.sleep(0.11)
     print(f"unique ownership filings: {len(acc_owner)}")
 
     # 2) resolve roles from each filing's header
@@ -106,7 +107,6 @@ def main() -> None:
             c["last"] = max(c["last"] or date, date)
         if n % 250 == 0:
             print(f"  headers {n}/{len(acc_owner)} · {len(companies)} companies")
-        time.sleep(0.02)
 
     # 3) desk per company: best (most senior) desk among its filing entities
     rows = []
@@ -120,7 +120,7 @@ def main() -> None:
             "filer_ciks": sorted(c["filer_ciks"]),
         })
     rows.sort(key=lambda r: r["name"].lower())
-    (p.edgar / "edgar-companies.json").write_text(json.dumps(rows, indent=1) + "\n")
+    write_atomic(p.edgar / "edgar-companies.json", json.dumps(rows, indent=1) + "\n")
 
     print(f"\nwrote edgar-companies.json — {len(rows)} companies")
     print("  by desk:", dict(Counter(r["desk"] for r in rows)))

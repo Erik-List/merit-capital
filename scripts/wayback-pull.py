@@ -38,13 +38,15 @@ from html import unescape
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from paths import Paths  # noqa: E402
+from paths import Paths, write_atomic  # noqa: E402
+import shared_throttle  # noqa: E402
 
 UA = {"User-Agent": "MeritCapitalResearch/1.0 (erik@meritcapit.al)"}
 
 
 def curl(url: str) -> bytes:
     for attempt in range(3):
+        shared_throttle.wait("ia")
         try:
             # --compressed: the id_ replay of a capture stored gzip-encoded
             # comes back Content-Encoding: gzip, and without it curl saves
@@ -69,8 +71,7 @@ def fetch(url: str, dest: Path) -> str:
         return dest.read_text(encoding="utf-8", errors="replace")
     html = curl(url).decode("utf-8", errors="replace")
     if html:
-        dest.write_text(html, encoding="utf-8")
-        time.sleep(1.0)
+        write_atomic(dest, html)
     return html
 
 
@@ -175,7 +176,7 @@ def snapshots(cfg: dict, era: dict, y0: int, y1: int, raw_dir: Path) -> dict:
             snaps[y] = tuple(known[str(y)])
     known.update({str(y): list(v) for y, v in snaps.items()})
     raw_dir.mkdir(parents=True, exist_ok=True)
-    memo.write_text(json.dumps(known, indent=1))
+    write_atomic(memo, json.dumps(known, indent=1))
     return snaps
 
 
@@ -491,7 +492,7 @@ def main():
                   for r in (json.loads(dest.read_text()) if dest.exists() else [])}
         for r in rows:
             merged.setdefault((r["slug"], r.get("path")), r)
-        (parsed / f"{y}.json").write_text(json.dumps(
+        write_atomic(parsed / f"{y}.json", json.dumps(
             sorted(merged.values(), key=lambda r: (r["slug"], r.get("path") or "")),
             indent=1) + "\n")
     total = {r["slug"] for rows in all_years.values() for r in rows}

@@ -29,7 +29,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from edgar_common import fetch_header, parse_header_roles  # noqa: E402
-from paths import ROOT, Paths  # noqa: E402
+from paths import ROOT, Paths, write_atomic  # noqa: E402
+import shared_throttle  # noqa: E402
 from people_common import same_person_any_order  # noqa: E402
 
 UA = "Merit Capital research erik@meritcapit.al"
@@ -37,9 +38,16 @@ UA = "Merit Capital research erik@meritcapit.al"
 # Set in main() from the investor's config.json ("desks" block).
 DESK_RULES: list[tuple[str, list[re.Pattern]]] = []
 
+# Accessions whose headers THIS run fetched (co-filer closure). Desk inference
+# reads these plus the investor's own edgar-companies accessions, never the
+# whole shared header cache, so the result does not depend on what other
+# sessions happened to fetch.
+FETCHED_ACCS: set[str] = set()
+
 
 def curl(url: str, extra: list[str] | None = None) -> str:
     for attempt in range(4):
+        shared_throttle.wait("sec")
         try:
             cmd = ["curl", "-sf", "--max-time", "60", "-H", f"User-Agent: {UA}"]
             cmd += extra or []
@@ -94,7 +102,6 @@ def seed_from_company_search(seed_queries: list[str]) -> dict[str, dict]:
                 found.setdefault(c, {"cik": c, "name": name.strip(), "sources": []})
                 if "company-search" not in found[c]["sources"]:
                     found[c]["sources"].append("company-search")
-            time.sleep(0.3)
     return found
 
 
@@ -139,6 +146,7 @@ def cofiler_closure(seed_ciks: set[str], sample_per_entity: int = 15) -> dict[st
             if acc in seen_acc:
                 continue
             seen_acc.add(acc)
+            FETCHED_ACCS.add(acc)
             hdr = fetch_header(cik, acc)
             if not hdr:
                 continue
@@ -148,7 +156,6 @@ def cofiler_closure(seed_ciks: set[str], sample_per_entity: int = 15) -> dict[st
                 if c in seed_ciks or c in found:
                     continue
                 found[c] = {"cik": c, "name": name, "sources": ["cofiler-closure"]}
-        time.sleep(0.12)
     return found
 
 
@@ -167,9 +174,22 @@ def resolve_unknowns(registry: dict[str, dict], p: Paths, desks_cfg: dict) -> No
     own_desks = {desk for desk, _ in DESK_RULES}
     home_desk = desks_cfg["home"]
 
-    # a person's desk follows the desks of the entities they co-file with
+    # a person's desk follows the desks of the entities they co-file with.
+    # Provenance-based: this run's closure fetches plus the accessions in the
+    # investor's own edgar-companies.json, read from the shared header cache
+    # by name. The cache is shared across investors, so globbing it would make
+    # the desks depend on whichever sessions ran before.
     cofiler_desks: dict[str, Counter] = {}
-    for hdr_file in (ROOT / "data" / "filings" / "edgar-headers").glob("*.txt"):
+    header_dir = ROOT / "data" / "filings" / "edgar-headers"
+    accs: set[str] = set(FETCHED_ACCS)
+    companies_file = p.edgar / "edgar-companies.json"
+    if companies_file.exists():
+        for c in json.loads(companies_file.read_text()):
+            accs.update(c.get("accessions") or [])
+    for acc in sorted(accs):
+        hdr_file = header_dir / f"{acc}.txt"
+        if not hdr_file.exists():
+            continue
         _subject, filers = parse_header_roles(
             hdr_file.read_text(encoding="utf-8", errors="replace"))
         ciks = [c for _, c in filers]
@@ -260,7 +280,7 @@ def main() -> None:
             "confirmed": bool(pr.get("confirmed", False)),
         })
     rows.sort(key=lambda r: (r["desk"], r["name"].lower()))
-    dest.write_text(json.dumps(rows, indent=1) + "\n")
+    write_atomic(dest, json.dumps(rows, indent=1) + "\n")
 
     print(f"\nwrote {dest.relative_to(ROOT)} — {len(rows)} entities")
     print("  by desk:", dict(Counter(r["desk"] for r in rows)))

@@ -46,7 +46,7 @@ from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from paths import ROOT, Paths  # noqa: E402
+from paths import ROOT, Paths, write_atomic  # noqa: E402
 
 FORMD_DIR = ROOT / "data" / "filings" / "form-d"
 
@@ -302,7 +302,7 @@ def main() -> None:
         }
 
     dest.parent.mkdir(parents=True, exist_ok=True)
-    json.dump(out, open(dest, "w"), indent=1)
+    write_atomic(dest, json.dumps(out, indent=1))
 
     # ---- second output: issuer evidence for the classification run
     wanted_ciks = base_edgar_ciks | {v["cik"] for v in ev_accs.values()}

@@ -28,7 +28,8 @@ from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from paths import Paths  # noqa: E402
+from paths import Paths, write_atomic  # noqa: E402
+import shared_throttle  # noqa: E402
 
 UA = "MeritCapitalResearch/1.0 (erik@meritcapit.al)"
 
@@ -38,6 +39,7 @@ ASSET_RE = re.compile(r"\.(gif|jpe?g|png|svg|css|js|ico)$|document\.|_ro$", re.I
 
 def curl(url: str) -> str:
     for attempt in range(3):
+        shared_throttle.wait("ia")
         try:
             return subprocess.run(
                 ["curl", "-sfL", "--max-time", "90", "-H", f"User-Agent: {UA}", url],
@@ -182,7 +184,7 @@ def main() -> None:
         })
     rows.sort(key=lambda r: r["slug"])
     p.wayback.mkdir(parents=True, exist_ok=True)
-    (p.wayback / "partner-roster.json").write_text(json.dumps(rows, indent=1) + "\n")
+    write_atomic(p.wayback / "partner-roster.json", json.dumps(rows, indent=1) + "\n")
 
     from collections import Counter
     span = Counter()

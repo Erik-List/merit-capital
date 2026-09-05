@@ -23,7 +23,7 @@ import zipfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from paths import ROOT, Paths  # noqa: E402
+from paths import ROOT, Paths, write_atomic  # noqa: E402
 from people_common import DISTINCT_DESPITE_PREFIX, canon_first  # noqa: E402
 
 DATA_DIR = ROOT / "data" / "filings" / "form-d"
@@ -124,7 +124,7 @@ def main() -> None:
 
     dest = Path(args.out) if args.out else p.edgar / "formd-sweep.json"
     dest.parent.mkdir(parents=True, exist_ok=True)
-    dest.write_text(json.dumps(results, indent=2) + "\n")
+    write_atomic(dest, json.dumps(results, indent=2) + "\n")
     print(f"wrote {dest}", file=sys.stderr)
     print(f"# accessions matched: {len(matches)}", file=sys.stderr)
     issuers = {r.get("issuer") for r in results.values()}

@@ -35,7 +35,8 @@ from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from paths import Paths  # noqa: E402
+from paths import Paths, write_atomic  # noqa: E402
+import shared_throttle  # noqa: E402
 
 UA = "MeritCapitalResearch/1.0 (erik@meritcapit.al)"
 INDEX = "https://index.commoncrawl.org"
@@ -70,36 +71,39 @@ def fetch_all(domain: str, cache: Path) -> dict:
         sys.exit("Common Crawl collinfo unreachable")
     todo = [c for c in ids if c not in out]
     print(f"CC indexes: {len(ids)} total, {len(todo)} to fetch")
-    for n, cid in enumerate(todo):
-        url = (f"{INDEX}/{cid}-index?url={domain}&matchType=domain"
-               f"&output=json&limit=3000&filter=status:200")
-        got = None
-        for attempt in range(5):
-            txt = curl(url, tries=1)
-            if txt.startswith('{"message": "No Captures'):
-                got = []
-                break
-            rows = []
-            for line in txt.splitlines():
-                try:
-                    d = json.loads(line)
-                except json.JSONDecodeError:
-                    continue
-                if d.get("status") == "200":
-                    p = re.sub(r"^https?://(www\.)?" + re.escape(domain), "",
-                               d.get("url", "")).split("?")[0]
-                    rows.append((d.get("timestamp", ""), p, d.get("digest", "")))
-            if rows:
-                got = rows
-                break
-            time.sleep(4 * (attempt + 1))
-        if got is not None:
-            out[cid] = got
-            cache.write_text(json.dumps(out))
-        time.sleep(1.5)
-        if n % 15 == 0:
-            print(f"  {n}/{len(todo)} {cid}: "
-                  f"{len(got) if got is not None else 'FAIL'}", flush=True)
+    # One Common Crawl puller at a time across every session on this machine:
+    # the index server answers parallel clients with silent empty result sets.
+    with shared_throttle.exclusive("cc"):
+        for n, cid in enumerate(todo):
+            url = (f"{INDEX}/{cid}-index?url={domain}&matchType=domain"
+                   f"&output=json&limit=3000&filter=status:200")
+            got = None
+            for attempt in range(5):
+                txt = curl(url, tries=1)
+                if txt.startswith('{"message": "No Captures'):
+                    got = []
+                    break
+                rows = []
+                for line in txt.splitlines():
+                    try:
+                        d = json.loads(line)
+                    except json.JSONDecodeError:
+                        continue
+                    if d.get("status") == "200":
+                        p = re.sub(r"^https?://(www\.)?" + re.escape(domain), "",
+                                   d.get("url", "")).split("?")[0]
+                        rows.append((d.get("timestamp", ""), p, d.get("digest", "")))
+                if rows:
+                    got = rows
+                    break
+                time.sleep(4 * (attempt + 1))
+            if got is not None:
+                out[cid] = got
+                write_atomic(cache, json.dumps(out))
+            time.sleep(1.5)
+            if n % 15 == 0:
+                print(f"  {n}/{len(todo)} {cid}: "
+                      f"{len(got) if got is not None else 'FAIL'}", flush=True)
     missing = [c for c in ids if c not in out]
     if missing:
         print(f"  WARNING: {len(missing)} indexes unfetched (rerun resumes): "
@@ -175,10 +179,10 @@ def main() -> None:
                   (json.loads(dest.read_text()) if dest.exists() else [])}
         for slug, r in comps.items():
             merged.setdefault(slug, r)
-        dest.write_text(json.dumps(
+        write_atomic(dest, json.dumps(
             sorted(merged.values(), key=lambda r: r["slug"]), indent=1) + "\n")
         print(f"  {y}: {len(comps)} company pages ({len(merged)} merged)")
-    (p.wayback / "cc-people.json").write_text(json.dumps(
+    write_atomic(p.wayback / "cc-people.json", json.dumps(
         {s: sorted(ys) for s, ys in sorted(people.items())}, indent=1) + "\n")
     total = {r["slug"] for c in years.values() for r in c.values()}
     print(f"\ncompany slugs across years: {len(total)}   people slugs: {len(people)}")

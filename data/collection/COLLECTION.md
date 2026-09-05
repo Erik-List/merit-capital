@@ -1385,8 +1385,10 @@ the a16z run ingested ahead of review; unchanged by the merge):
 `ingest-companies.ts` and `ingest-investor.ts` write the shared database,
 so they run only after Erik explicitly approves — never as an autonomous
 step, even when the issue's Done-when lists ingestion. The run ends at
-export + review.html + report; the session's closing message carries the
-results, the open rulings and the ingest request, and stops. Corrections
+export + review.html + report; `run.py close --investor <slug>` removes the
+in-flight marker (§12) as the last act before the closing commit; the
+session's closing message carries the results, the open rulings and the
+ingest request, and stops. Corrections
 that land after an approved ingest are re-ingested only with a fresh
 approval, and rows removed from the base after an ingest are called out so
 Erik can decide the database cleanup.
@@ -1399,7 +1401,7 @@ byproduct.
 
 Every run ends in the investor's `report.md`: method deltas, results,
 corrections taken, the flag and debt counts behind `verify`, the open
-rulings raised, and the session's prompt count — the number this pipeline
+rulings raised, the usage line (§12), and the session's prompt count — the number this pipeline
 exists to drive down. **The target is two prompts: kickoff and the ingest
 approval.** The count is final only after the ingest decision: review
 exchanges count, and a16z went from "1 prompt, 0 corrections" mid-run to
@@ -1638,3 +1640,66 @@ Form D before first close ("Indefinite", $0 sold) carries its press or
 firm-stated size, not an accession assertion. The team is the ADV owners
 and officers plus the Form D related persons and press-documented
 partners — publish what the record supports, null the rest.
+
+## 12. Running investors in parallel
+
+Several investors may collect at once on one machine, each in its own
+session, all on the shared `main` checkout — the shape every parallel run so
+far has used. A worktree per investor is the fallback for a session that
+must edit scripts, or if git contention shows. What makes the shared
+checkout safe, and the etiquette that keeps it safe:
+
+- **One investor, one session.** `record` is a read-modify-write on the
+  ledger and classification files; two sessions on the same investor lose
+  updates. A session never touches another investor's directory.
+- **The in-flight marker.** `prepare` writes `scratch/in-flight.json` (slug,
+  start, pid, branch); `run.py close --investor <slug>` removes it as the
+  last act of the run, after export, review and report and before the
+  closing commit. `verify`'s cross-investor section does not compare an
+  investor whose marker exists, so a half-done sibling never fails another
+  run's verify; alignment happens once per wave (below). A forgotten `close`
+  is loud: every sibling's verify prints the skip note by name.
+- **Shared caches are appended, never rewritten**, and every writer goes
+  through `write_atomic` (`scripts/paths.py`): a reader in another session
+  sees the old file or the new one, never a torn one. A failed SEC or
+  Wikidata fetch is never cached as an empty answer: `prepare` leaves those
+  rows open, exits 3 and says to re-run.
+- **One budget per external service.** `scripts/shared_throttle.py` paces
+  SEC (8 requests per second), the Internet Archive (1) and Wikidata (0.67)
+  across every process on the machine through lock files in
+  `~/Library/Caches/merit-capital/locks`; Common Crawl runs one puller at a
+  time (`exclusive("cc")`). No session raises a rate (`MERIT_<SERVICE>_RATE`
+  exists for lowering one). Long pulls (`wayback-pull.py`,
+  `commoncrawl-pull.py`, `run.py collect`) start in the background in a
+  run's first minutes so the wave's I/O serializes early.
+- **Git etiquette on the shared checkout.** A collection session commits
+  only with an explicit pathspec of its own investor directory
+  (`git commit -- data/collection/investors/<slug>`), never `git add -A` or
+  `commit -a`, never `stash`, `checkout`, `rebase` or `pull` (each rewrites
+  the tree under the sibling), and retries once on a transient
+  `index.lock`. `scripts/`, this playbook, `.claude/launch.json` and
+  `data/collection/cross-investor.json` are edited only by the designated
+  tooling session; a fix needed mid-wave is requested by session message
+  and lands between phases. Main stays linear, so pushes are
+  fast-forwards; nothing pushes to origin from another clone during a wave.
+- **Cross-investor rulings** go in the investor's own `cross-rulings.json`
+  (same schema as the shared file: `distinct`, `accepted`, `same`); `verify`
+  merges them at read time. The shared file is written only at alignment.
+- **Review surface.** One server, the `review-surface` launch entry on 8931,
+  serves every slug at `/<slug>/review.html`.
+- **Alignment once per wave**, on main, after every session in the wave has
+  closed: the cross-investor invariant over all published bases, the stale
+  side aligned and re-exported, the wave's playbook write-backs landed once,
+  then the ingest requests.
+- **Wave etiquette.** Kickoff order by base size, starts about two hours
+  apart. Each report carries a **usage line**: the account's weekly and
+  Fable percentages read before kickoff and at close, and the base rows, so
+  cost per company is measured rather than assumed. A session that hits the
+  five-hour session limit parks in a cheap phase and is nudged when the
+  window resets.
+
+Deferred by decision (2026-09-05), so a cold session does not invent them:
+the bounded-context grind (judging batches in fresh subagents), a model mix
+by phase, extra-usage credits, a second machine, a worktree per investor.
+They are revisited on the measured usage lines of the first two-session
+wave.

@@ -19,6 +19,7 @@ Usage: python3 scripts/build-company-base.py <investor-slug>
 import argparse
 import csv
 import html
+import io
 import json
 import re
 import subprocess
@@ -27,7 +28,7 @@ from collections import Counter
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from paths import Paths  # noqa: E402
+from paths import Paths, write_atomic  # noqa: E402
 from people_common import dedupe_people, name_parts, same_person  # noqa: E402
 
 ap = argparse.ArgumentParser()
@@ -702,17 +703,18 @@ def main() -> None:
         + [("other_desk", r) for r in sorted(other, key=lambda x: x["slug"])]
         + [("not_member", r) for r in verification_excluded]
     )
-    with open(P.excluded, "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=["reason"] + COLUMN_ORDER)
-        w.writeheader()
-        w.writerows({"reason": reason, **{k: r[k] for k in COLUMN_ORDER}}
-                    for reason, r in excluded_rows)
+    buf = io.StringIO()
+    w = csv.DictWriter(buf, fieldnames=["reason"] + COLUMN_ORDER)
+    w.writeheader()
+    w.writerows({"reason": reason, **{k: r[k] for k in COLUMN_ORDER}}
+                for reason, r in excluded_rows)
+    write_atomic(P.excluded, buf.getvalue())
     print(f"excluded.csv: {len(excluded_rows)} rows "
           f"({dict(Counter(reason for reason, _ in excluded_rows))})")
 
     rows_out.sort(key=lambda x: (x["tier"], x["slug"]))
     rows_out = [{k: r[k] for k in COLUMN_ORDER} for r in rows_out]
-    json.dump(rows_out, open(P.base_json, "w"), indent=1)
+    write_atomic(P.base_json, json.dumps(rows_out, indent=1))
 
     # Base and classification share one surface: the sibling CSV is the merged
     # export (base + membership verdict + classification overlays), so it is

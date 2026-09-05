@@ -9,7 +9,10 @@ root. Per-investor constants (site domain, wayback era map, desk rules, seed
 CIK queries, own-vehicle regex, ...) live in the investor's `config.json`,
 loaded via `Paths.config()` — the scripts themselves carry none.
 """
+import contextlib
 import json
+import os
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -19,6 +22,31 @@ SEC_CACHE = SHARED / "sec"                    # public-float/, cik-lookup-data.t
 UNICORN_DIR = SHARED / "unicorns"
 INVESTORS = COLLECTION / "investors"
 PLAYBOOK = COLLECTION / "COLLECTION.md"
+
+
+def write_atomic(path: Path, text: str, encoding: str = "utf-8") -> None:
+    """Write `text` so a concurrent reader sees the old file or the new one, never
+    a torn one: temp file in the same directory, fsync, then an atomic rename.
+
+    Every shared cache and published surface is read by other sessions while a
+    run writes it (several investors collect at once on one machine), and
+    `Path.write_text` truncates before it writes. The temp suffix is `.tmp` so
+    directory globs on the real suffix (`*.txt`, `*.json`) never pick it up;
+    `newline=""` keeps CSV bytes exactly as the csv module produced them.
+    """
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, tmp = tempfile.mkstemp(dir=path.parent, prefix=f".{path.name}.", suffix=".tmp")
+    try:
+        with os.fdopen(fd, "w", encoding=encoding, newline="") as f:
+            f.write(text)
+            f.flush()
+            os.fsync(f.fileno())
+        os.replace(tmp, path)
+    except BaseException:
+        with contextlib.suppress(FileNotFoundError):
+            os.unlink(tmp)
+        raise
 
 
 class Paths:
@@ -46,6 +74,7 @@ class Paths:
         self.investor = self.root / "investor.json"       # the ingest row
         self.investor_sources = self.root / "investor.sources.json"
         self.config_file = self.root / "config.json"
+        self.cross_rulings = self.root / "cross-rulings.json"  # this investor's invariant-10 rulings
 
         # run scratch, under scratch/: everything here regenerates, so the
         # investor's top level holds only curated inputs and published
@@ -57,6 +86,7 @@ class Paths:
         self.layer_a = self.scratch / "layer-a.json"
         self.layer_b = self.scratch / "layer-b.json"
         self.graduation = self.scratch / "graduation-formd.json"
+        self.in_flight = self.scratch / "in-flight.json"      # present while a run is under way
 
         # extracted evidence snapshots
         self.sources = self.root / "sources"

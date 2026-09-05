@@ -12,8 +12,13 @@ Role vocabulary by form family:
 """
 import re
 import subprocess
+import sys
 import time
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import shared_throttle  # noqa: E402
+from paths import write_atomic  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 CACHE = ROOT / "data" / "filings" / "edgar-headers"
@@ -35,13 +40,14 @@ def fetch_header(any_party_cik: str | int, accession: str) -> str:
     url = (f"https://www.sec.gov/Archives/edgar/data/{int(any_party_cik)}/"
            f"{accession}.txt")
     for attempt in range(3):
+        shared_throttle.wait("sec")
         try:
             out = subprocess.run(
                 ["curl", "-sf", "--max-time", "45", "-r", f"0-{HEADER_BYTES}",
                  "-H", f"User-Agent: {UA}", url],
                 capture_output=True, check=True).stdout.decode("utf-8", errors="replace")
             head = out.split("</SEC-HEADER>")[0]
-            dest.write_text(head, encoding="utf-8")
+            write_atomic(dest, head)
             return head
         except subprocess.CalledProcessError:
             time.sleep(1.0 * (attempt + 1))

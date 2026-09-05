@@ -56,6 +56,9 @@ import argparse
 import csv
 import json
 import re
+import io
+import os
+import time
 import subprocess
 import sys
 from collections import Counter
@@ -64,7 +67,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import outcome_sources as S                                    # noqa: E402
-from paths import COLLECTION, INVESTORS, ROOT, Paths           # noqa: E402
+from paths import COLLECTION, INVESTORS, ROOT, Paths, write_atomic           # noqa: E402
 
 # Set in main() from the parsed investor slug; every path derives from them.
 P: Paths
@@ -214,7 +217,7 @@ def load_ledger(investor: str) -> tuple[dict, dict]:
     return led, bucket["verdicts"]
 
 def save_ledger(led: dict) -> None:
-    P.ledger.write_text(json.dumps(led, indent=1, sort_keys=True) + "\n")
+    write_atomic(P.ledger, json.dumps(led, indent=1, sort_keys=True) + "\n")
 
 
 def today() -> str:
@@ -302,7 +305,7 @@ def write_queue(prefix: str, items: list, size: int, jsonl: bool = False) -> int
         chunk = items[i:i + size]
         text = ("\n".join(json.dumps(q) for q in chunk) + "\n") if jsonl \
             else json.dumps(chunk, indent=1)
-        (P.queue / f"{prefix}-{i // size + 1:03d}.json").write_text(text)
+        write_atomic(P.queue / f"{prefix}-{i // size + 1:03d}.json", text)
     return (len(items) + size - 1) // size
 
 
@@ -569,8 +572,38 @@ def cmd_collect(args) -> None:
               "runs via `prepare` after build-company-base.py")
 
 
+def in_flight_mark(investor: str) -> None:
+    """Write the in-flight marker once per run. Siblings' `verify` skip an
+    investor whose marker exists (its surface is not final), and `close`
+    removes it as the last act before the closing commit."""
+    if P.in_flight.exists():
+        return
+    try:
+        branch = subprocess.run(["git", "rev-parse", "--abbrev-ref", "HEAD"], cwd=ROOT,
+                                capture_output=True, text=True).stdout.strip()
+    except OSError:
+        branch = ""
+    write_atomic(P.in_flight, json.dumps({
+        "slug": investor, "started": datetime.now().isoformat(timespec="seconds"),
+        "pid": os.getpid(), "branch": branch}, indent=1) + "\n")
+    print(f"in flight: wrote {P.rel(P.in_flight)}")
+
+
+def cmd_close(args) -> None:
+    """Remove the in-flight marker: the last act of a run, before its closing
+    commit, after export + review + report."""
+    if P.in_flight.exists():
+        P.in_flight.unlink()
+        print(f"closed: removed {P.rel(P.in_flight)}")
+    else:
+        print("no in-flight marker; nothing to close")
+
+
 def cmd_prepare(args) -> None:
     P.queue.mkdir(parents=True, exist_ok=True)
+    in_flight_mark(args.investor)
+    deferred_a: list[str] = []      # slugs left unanswered because SEC was unavailable
+    deferred_b = 0                  # rows left unanswered because Wikidata was unavailable
 
     rows = load_base(args.investor)
     print(f"rows: {len(rows)}")
@@ -591,7 +624,7 @@ def cmd_prepare(args) -> None:
     print(f"layer A (SEC public float): {len(todo)} rows to resolve")
 
     hits = {r["slug"]: S.resolve_cik(r, index) for r in todo}
-    S.prefetch_public_float(
+    unavailable = S.prefetch_public_float(
         [h["cik"] for h in hits.values() if h],
         progress=lambda d, t: print(f"    fetched {d}/{t}", flush=True))
 
@@ -600,16 +633,23 @@ def cmd_prepare(args) -> None:
         rec: dict = {"cik": None}
         if hit:
             rec.update(hit)
-            series = S.public_float(hit["cik"])
+            if hit["cik"] in unavailable:
+                deferred_a.append(row["slug"])   # not stored: retried next prepare
+                continue
+            try:
+                series = S.public_float(hit["cik"])
+            except S.SECUnavailable:
+                deferred_a.append(row["slug"])
+                continue
             if series:
                 rec.update(S.from_public_float(series, today()))
                 if hit.get("cik_weak"):
                     rec.setdefault("flags", []).append("cik_weak")
         layer_a[row["slug"]] = rec
         if i % 100 == 0:
-            (P.layer_a).write_text(json.dumps(layer_a, indent=1))
+            write_atomic(P.layer_a, json.dumps(layer_a, indent=1))
             print(f"    {i}/{len(todo)}")
-    (P.layer_a).write_text(json.dumps(layer_a, indent=1))
+    write_atomic(P.layer_a, json.dumps(layer_a, indent=1))
     public = sum(1 for v in layer_a.values() if v.get("is_public"))
     print(f"    resolved a CIK: {sum(1 for v in layer_a.values() if v.get('cik'))}"
           f"   with public float: {public}")
@@ -620,10 +660,19 @@ def cmd_prepare(args) -> None:
     print(f"layer B (Wikidata): {len(pending)} rows in batches of 60")
     for i in range(0, len(pending), 60):
         chunk = pending[i:i + 60]
-        hits = S.wikidata_batch([r["name"] for r in chunk])
+        try:
+            hits = S.wikidata_batch([r["name"] for r in chunk])
+        except S.WikidataUnavailable as e:
+            # Leave the whole batch unanswered (not written to layer-b), so the
+            # next prepare asks again; a cached {} would never be re-queried.
+            print(f"    Wikidata unavailable for a batch of {len(chunk)} ({e}); deferred",
+                  file=sys.stderr)
+            deferred_b += len(chunk)
+            time.sleep(5)
+            continue
         for r in chunk:
             layer_b[r["slug"]] = hits.get(S.norm(r["name"]), {})
-        (P.layer_b).write_text(json.dumps(layer_b, indent=1))
+        write_atomic(P.layer_b, json.dumps(layer_b, indent=1))
         print(f"    {min(i + 60, len(pending))}/{len(pending)}")
     print(f"    matched: {sum(1 for v in layer_b.values() if v)}")
 
@@ -636,7 +685,7 @@ def cmd_prepare(args) -> None:
     partner_accs = {r["slug"]: accs_of(r) for r in rows}
     grad = {slug: graduation_from_formd(rec["rounds"], partner_accs.get(slug, set()))
             for slug, rec in formd.items()}
-    P.graduation.write_text(json.dumps(grad, indent=1))
+    write_atomic(P.graduation, json.dumps(grad, indent=1))
     determined = sum(1 for g in grad.values() if g.get("seed_to_a_graduation") is not None)
     seeds = sum(1 for g in grad.values() if g.get("entry_stage") == "Seed")
     anchored = sum(1 for g in grad.values() if g.get("prior_rounds", 0) > 0)
@@ -766,15 +815,22 @@ def cmd_prepare(args) -> None:
         resolved[slug] = rec
 
     flag_base_defects(resolved, layer_a, {r["slug"]: r for r in rows}, args.investor)
-    P.resolved.write_text(json.dumps(resolved, indent=1))
+    write_atomic(P.resolved, json.dumps(resolved, indent=1))
 
     # queue.json is the durable record of what was asked; the batch files are
     # its chunking and are regenerated (and renumbered) on every prepare.
-    (P.queue / "queue.json").write_text(json.dumps(queue, indent=1))
+    write_atomic(P.queue / "queue.json", json.dumps(queue, indent=1))
     batches = write_queue("batch", queue, BATCH_SIZE)
     print(f"\ndeterministically resolved: {len(rows) - len(queue) - retired}/{len(rows)}")
     print(f"retired (not_member, awaiting rebuild): {retired}")
     print(f"queued for judgment       : {len(queue)} rows in {batches} batches")
+    if deferred_a or deferred_b:
+        # The queue is on disk; only the deterministic layers are incomplete.
+        # Exit non-zero so a session does not grind on a half-resolved layer.
+        print(f"\nDEFERRED: {len(deferred_a)} row(s) without a public-float answer "
+              f"(SEC unavailable), {deferred_b} row(s) without a Wikidata answer; "
+              f"nothing cached for them. Re-run prepare to retry.", file=sys.stderr)
+        sys.exit(3)
 
 
 # ---------------------------------------------------------------------------
@@ -955,7 +1011,7 @@ def cmd_record(args) -> None:
         if tgt.get("hq_country"):
             tgt["hq_country"] = canon_country(tgt["hq_country"]) or tgt["hq_country"]
     if cls_in:
-        P.classification.write_text(json.dumps(cls, indent=1, sort_keys=True))
+        write_atomic(P.classification, json.dumps(cls, indent=1, sort_keys=True))
     print(f"recorded {len(verd_in)} verdicts + {len(cls_in)} classification rows; "
           f"ledger holds {len(verdicts)}, classification holds {len(cls)}")
 
@@ -1168,11 +1224,18 @@ def load_cross_rulings() -> tuple[set[frozenset], dict[frozenset, str], set[str]
     pairs: one company under names the key cannot join, Sequoia's `bird`
     and Accel's `bird-scooters`)."""
     rul = load(CROSS_RULINGS, {})
-    distinct = {frozenset(e["rows"]) for e in rul.get("distinct", [])}
-    accepted = {frozenset(e["rows"]): e.get("note", "")
-                for e in rul.get("accepted", [])}
+    entries = {k: list(rul.get(k, [])) for k in ("distinct", "accepted", "same")}
+    # A session rules in its own investor's cross-rulings.json (same schema)
+    # and never edits the shared file, so parallel runs cannot clobber each
+    # other's rulings; pairs are unordered, so either side may hold one.
+    for own_file in sorted(INVESTORS.glob("*/cross-rulings.json")):
+        own = load(own_file, {})
+        for k in entries:
+            entries[k] += own.get(k, [])
+    distinct = {frozenset(e["rows"]) for e in entries["distinct"]}
+    accepted = {frozenset(e["rows"]): e.get("note", "") for e in entries["accepted"]}
     ignore = set(rul.get("ignore", []))
-    same = {frozenset(e["rows"]) for e in rul.get("same", [])}
+    same = {frozenset(e["rows"]) for e in entries["same"]}
     return distinct, accepted, ignore, same
 
 
@@ -1184,13 +1247,30 @@ def published_rows(investor: str) -> list[dict]:
     p = INVESTORS / investor / "base.csv"
     if not p.exists():
         return out
-    for r in csv.DictReader(open(p, newline="")):
-        out.append({"id": f"{investor}:{r['slug']}", "name": r["name"],
-                    "key": cross_key(r["name"]), "ciks": cross_ciks(r),
-                    "status": r["status"] or None,
-                    "valuation_range": r["valuation_range"] or None,
-                    "valuation_usd": float(r["valuation_usd"]) if r["valuation_usd"] else None,
-                    "valuation_asof": r["valuation_asof"] or ""})
+    try:
+        rows = list(csv.DictReader(open(p, newline="")))
+        for r in rows:
+            out.append({"id": f"{investor}:{r['slug']}", "name": r["name"],
+                        "key": cross_key(r["name"]), "ciks": cross_ciks(r),
+                        "status": r["status"] or None,
+                        "valuation_range": r["valuation_range"] or None,
+                        "valuation_usd": float(r["valuation_usd"]) if r["valuation_usd"] else None,
+                        "valuation_asof": r["valuation_asof"] or ""})
+    except (ValueError, KeyError, csv.Error, UnicodeDecodeError) as e:
+        # a sibling mid-export (pre-atomic-write files) or a damaged surface
+        print(f"  note: sibling {investor} base.csv unreadable "
+              f"({e.__class__.__name__}); not compared")
+        return []
+    base = INVESTORS / investor / "base.json"
+    if base.exists():
+        try:
+            base_slugs = {b["slug"] for b in json.loads(base.read_text())}
+        except (ValueError, KeyError, TypeError):
+            base_slugs = None
+        if base_slugs is not None and base_slugs != {r["slug"] for r in rows}:
+            print(f"  note: sibling {investor} base.csv is stale relative to its "
+                  f"base.json; not compared")
+            return []
     return out
 
 
@@ -1225,6 +1305,11 @@ def verify_cross_investor(rows: list[dict], merged: dict, investor: str,
     by_id: dict[str, dict] = {}
     for d in sorted(INVESTORS.iterdir()):
         if d.name == investor or d.name in ignore or not d.is_dir():
+            continue
+        if re.search(r" \d+$", d.name):
+            continue                      # an iCloud copy of a whole investor directory
+        if (d / "scratch" / "in-flight.json").exists():
+            print(f"  note: sibling {d.name} in flight; not compared")
             continue
         for o in published_rows(d.name):
             by_id[o["id"]] = o
@@ -1544,10 +1629,11 @@ def cmd_export(args) -> None:
                          for k in EXPORT_COLUMNS})
 
     dest = P.base_csv
-    with open(dest, "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=EXPORT_COLUMNS)
-        w.writeheader()
-        w.writerows(out_rows)
+    buf = io.StringIO()
+    w = csv.DictWriter(buf, fieldnames=EXPORT_COLUMNS)
+    w.writeheader()
+    w.writerows(out_rows)
+    write_atomic(dest, buf.getvalue())      # siblings read this file mid-run
     print(f"wrote {dest.relative_to(ROOT)} ({len(out_rows)} rows)")
 
 
@@ -1969,7 +2055,7 @@ def cmd_review(args) -> None:
                       separators=(",", ":")).replace("</script>", "<\\/script>")
     html = (REVIEW_TEMPLATE.replace("__DATA__", data)
             .replace("__PROFILE__", prof).replace("__INVESTOR__", args.investor))
-    P.review_html.write_text(html, encoding="utf-8")
+    write_atomic(P.review_html, html)
     print(f"wrote {P.review_html.relative_to(ROOT)} "
           f"({len(html)//1024} KB, {len(out)} rows)")
 
@@ -1999,6 +2085,7 @@ def main() -> None:
                    help="skip the cross-investor consistency section (§10 invariant 10)")
     p = sub.add_parser("export"); p.set_defaults(fn=cmd_export)
     p = sub.add_parser("review"); p.set_defaults(fn=cmd_review)
+    p = sub.add_parser("close"); p.set_defaults(fn=cmd_close)
 
     for name, sp in sub.choices.items():
         if name not in ("collect", "prepare"):

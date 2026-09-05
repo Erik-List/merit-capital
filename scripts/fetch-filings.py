@@ -15,12 +15,14 @@ edgar_common.py fills on demand.
 
 Usage: python3 scripts/fetch-filings.py
 """
+import os
 import subprocess
 import sys
 from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import shared_throttle  # noqa: E402
 from paths import ROOT, SEC_CACHE as SEC_DIR  # noqa: E402
 
 FORM_D_DIR = ROOT / "data" / "filings" / "form-d"
@@ -47,14 +49,21 @@ def quarters(start_year: int = 2008):
 
 
 def fetch(url: str, dest: Path) -> bool:
+    """Download to `<dest>.part`, then rename: a killed download can never pass
+    the `exists()` check as a complete file. Paced by the shared SEC bucket."""
     dest.parent.mkdir(parents=True, exist_ok=True)
+    part = dest.with_name(dest.name + ".part")
+    shared_throttle.wait("sec")
     result = subprocess.run(
         ["curl", "-sf", "--max-time", "300", "-H", f"User-Agent: {UA}",
-         "-o", str(dest), url],
+         "-o", str(part), url],
     )
-    if result.returncode != 0 and dest.exists():
-        dest.unlink()  # no partial files
-    return result.returncode == 0
+    if result.returncode != 0:
+        if part.exists():
+            part.unlink()
+        return False
+    os.replace(part, dest)
+    return True
 
 
 def main() -> int:
