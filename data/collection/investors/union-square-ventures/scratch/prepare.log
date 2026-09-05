@@ -1,0 +1,37 @@
+base: data/collection/investors/union-square-ventures/base.json
+target companies: 114  distinct issuer CIKs: 114
+scanning 74 quarterly datasets (offline)...
+filings collected: 391
+evidence: 275/275 base accessions found
+wrote data/collection/investors/union-square-ventures/scratch/issuer-evidence.json (115 CIKs, 41 with a name history)
+
+wrote data/collection/investors/union-square-ventures/sources/edgar/formd-issuer-rounds.json
+  companies with Form D history : 113
+  rounds after amendment merge  : 356 (35 amendments folded in)
+  companies with 2+ rounds      : 81
+  filings the partner sweep never saw: 116
+  companies gaining >=1 such filing  : 47
+  rounds carrying a sale date   : 352/356
+in flight: wrote data/collection/investors/union-square-ventures/scratch/in-flight.json
+rows: 270
+membership seed: 223 site_listing, 0 fund_filing; left for the judge: 47
+layer A (SEC public float): 270 rows to resolve
+    fetched 100/114
+    Wikidata unavailable for a batch of 60 (SPARQL POST failed (curl rc=56)); deferred
+
+DEFERRED: 0 row(s) without a public-float answer (SEC unavailable), 60 row(s) without a Wikidata answer; nothing cached for them. Re-run prepare to retry.
+    100/270
+    200/270
+    resolved a CIK: 159   with public float: 19
+layer B (Wikidata): 270 rows in batches of 60
+    60/270
+    120/270
+    180/270
+    270/270
+    matched: 44
+layer C (unicorn list): 627 current, 209 former
+graduation layer 1: 113 companies, 46 entered at Seed, 46 decided deterministically, 34 entries moved past pre-investor rounds
+
+deterministically resolved: 9/270
+retired (not_member, awaiting rebuild): 0
+queued for judgment       : 261 rows in 6 batches

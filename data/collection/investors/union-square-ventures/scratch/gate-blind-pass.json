@@ -1,0 +1,80 @@
+{
+ "_readme": "Calibration gate result (COLLECTION.md §4), run 2026-09-05 after build + prepare + seed and before the first grind batch; protocol in scratch/gate-protocol.md.",
+ "membership": {
+  "structural_falses_absent": [
+   "anchor (Mignano's company; the firm's own post says it did not invest)",
+   "vanta (Cacioppo's company)",
+   "fundera",
+   "groupme under that name",
+   "union-square-advisors",
+   "union-square-park-partners",
+   "union-square-partners",
+   "union-square-hospitality-group"
+  ],
+  "judged_false_in_base": {
+   "autonomous-partners": "not_member",
+   "multicoin-capital": "not_member",
+   "blocktower-capital": "not_member",
+   "metastable-capital": "not_member",
+   "polychain-capital": "not_member",
+   "placeholder": "not_member",
+   "tucows": "not_member",
+   "marley-spoon": "not_member",
+   "mindless-dribble-inc (GroupMe)": "not_member",
+   "granola-inc": "not_member",
+   "magical-tome-inc": "not_member",
+   "novoscribe-inc": "not_member"
+  },
+  "seeded_trues_checked": [
+   "tacoda",
+   "delicious",
+   "etsy",
+   "twitter",
+   "tumblr",
+   "zynga",
+   "kickstarter",
+   "coinbase",
+   "duolingo",
+   "cloudflare",
+   "stripe",
+   "numerai",
+   "suno",
+   "dune-analytics"
+  ],
+  "result": "PASS — zero false members at high confidence; 12 blind verdicts recorded (gate.out.jsonl), 14 seeded trues carry the listing evidence the seed claims. Correction to the pre-registered set: 'fundera' was expected under Hecht's name but the Form D row with Weissman and Hecht as directors (Distributed Creation Inc.) is Splice's legal name, a member, merged into the splice row at the rebuild."
+ },
+ "stage": {
+  "key_rows": 53,
+  "live_site_label_2026": {
+   "agree": 51,
+   "disagree": 1,
+   "no_label": 1,
+   "disagreements": [
+    "zemanta: label 'Series A, 2008' vs the firm's own 2008-09-15 post ('as seed investors') and TechCrunch 2008-09-15 'Union Square Puts Seed Round Into Zemanta' ($650K seed) -> the label is wrong, the key stands"
+   ],
+   "verdict": "class 1 where present (98%); the 13 bare-year rows are the layer's silence"
+  },
+  "archived_labels_2013_2019": {
+   "agree": 87,
+   "disagree": 2,
+   "disagreements": [
+    "zemanta (both eras, same label)"
+   ],
+   "verdict": "class 1; the label has been stable for 13 years, so its one error is old"
+  },
+  "formd_band": {
+   "agree": 8,
+   "disagree": 17,
+   "no_band": 28,
+   "verdict": "ceiling only, never a label (the $5M Twitter Series A reads Growth; Twilio's, Stack Overflow's, MongoDB's Series A read Seed)"
+  },
+  "blind_replay": "production order (firm's post/press -> site label -> band) reproduces the key on 53/53 once the Zemanta press check is in: 52 from the post or label, Zemanta from press over the label",
+  "evidence_order_for_grind": [
+   "web_verified: the firm's own post or press naming the round (citation)",
+   "web_verified: the site label (live or archived) cited to the list page, medium confidence, unless a document contradicts it -> label follows the record, flag stage_disputes_band",
+   "formd_structural only where >=2 prior filings fix the position",
+   "model, low confidence; stage_prior never silently"
+  ]
+ },
+ "recorded_at": "2026-09-05T16:51"
+}

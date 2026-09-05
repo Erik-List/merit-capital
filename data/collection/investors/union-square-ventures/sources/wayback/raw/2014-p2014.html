@@ -1,0 +1,1599 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title> Portfolio | Union Square Ventures</title>
+<meta name="description" content="Union Square Ventures (USV) is a New York City-based venture capital firm. We invest in networks that transform existing industries" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="alternate" type="application/rss+xml" title="Union Square Ventures - Latest Posts" href="/feed/new" />
+<link rel="alternate" type="application/rss+xml" title="Union Square Ventures - Hot Posts" href="/feed/hot" />
+<link rel="apple-touch-icon" sizes="57x57" href="/static/img/usv-touch-icon.png?v=0b81e207192089a9ce2729ed8f093d85" />
+<link rel="shortcut icon" href="/static/themes/usv/img/favicon.png?v=f51eb9622503335c885c29d52b887836" type="image/png" />
+<link rel="stylesheet" href="/static/css/bootstrap.min.css?v=4eadbf7d1721bb2729e398595bc7f0bc" />
+<link rel="stylesheet" href="/static/css/jquery.qtip.min.css?v=b68075256b110af6326faeba2f642fd7" />
+<link rel="stylesheet" href="/static/css/qtip.css?v=106fa8aef744a4a047aa0edd8c025b96" />
+<!-- dont cache style.css yes, since we're still developing on it heavily -->
+<link rel="stylesheet" href="/static/css/style.css?v=83ffcd7cc5e062583f26e826e2f3df72&v=3" />
+<!-- Theme files -->
+<link rel="stylesheet" href="/static/themes/usv/usv.css?v=423c196c71e8bf9f02bc1cba0c0e2c61" />
+<script src="/static/js/vendor/respond.min.js?v=cf5c9b7980e53d7c5edd8cd220081537"></script>
+<style type="text/css">
+.jPanelMenu-panel {
+z-index: auto !important;
+}
+</style>
+
+</head>
+<body data-menu-position="closed" class="portfolio ">
+
+<div class="modal fade in" id="submit-modal">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header" style="border-bottom: none">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+<h4 class="modal-title login">Please login to post or vote</h4>
+
+</div>
+<div class="modal-body">
+
+<br />
+<a href="/auth/twitter" target="_top"><img src="/static/img/sign-in-with-twitter-gray.png" alt="Sign in with Twitter" /></a>
+
+</div>
+</div>
+</div>
+</div>
+
+
+  <!-- Tools Modal -->
+  <div class="modal fade" id="tools" tabindex="-1" role="dialog" aria-labelledby="toolsLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Tools!</h4>
+        </div>
+        <div class="modal-body">
+          <p>Use these tools to make it easier to share &amp; discuss links at USV.com:</p>
+          <ul>
+            <li><b><a href="https://chrome.google.com/webstore/detail/usvcom/ikpfoekojmeibidkolkbbocepjfdmgol">Chrome Extension</a></b><br /> and <b><a href="/static/tools/usv-20131016-0.1-b.xpi">Firefox Extension</a></b> (courtesy of <a href="http://www.appcoast.com/">appcoast</a> -- thanks!)<br /> Quickly post whatever page you're viewing to USV.com</li>
+            <li><b>Bookmarklet:</b> <a id="bookmarklet" href="javascript:var d%3Ddocument,w%3Dwindow,e%3Dw.getSelection,k%3Dd.getSelection,x%3Dd.selection,s%3D(e%3Fe():(k)%3Fk():(x%3Fx.createRange().text:0)),f%3D%27http://www.usv.com/posts/new%27,l%3Dd.location,e%3DencodeURIComponent,p%3D%27%3Fv%3D3%26url%3D%27%2Be(l.href) %2B%27%26title%3D%27%2Be(d.title) %2B%27%26s%3D%27%2Be(s),u%3Df%2Bp%3Btry%7Bif(!/%5E(.*%5C.)%3Ftumblr%5B%5E.%5D*%24/.test(l.host))throw(0)%3Btstbklt()%3B%7Dcatch(z)%7Ba %3Dfunction()%7Bif(!w.open(u,%27t%27,%27toolbar%3D0,resizable%3D0,status%3D1,width%3D450,height%3D430%27))l.href%3Du%3B%7D%3Bif(/Firefox/.test(navigator.userAgent))setTimeout(a,0)%3Belse a()%3B%7Dvoid(0)">Post to USV.com</a> (&larr; drag to your bookmarks bar)<br />Works on any browser.</li>
+            <li><b><a href="https://play.google.com/store/apps/details?id=com.connectedio.usvmobile">Android App</a></b><br /> Quickly post a link to USV.com, from your Android device.</li>
+            <li><b><a href="https://chrome.google.com/webstore/detail/instapaper/acgdjjilmhiofacmdnmmlndeokamkkcl?hl=en-GB">Instapaper Chrome extension</a></b><br />
+            Enables one-click saving of USV.com posts to instapaper. <br />(courtesy of <a href="http://www.twitter.com/bthdonohue">@bthdonohue</a>)</li>
+            <li><b>Web Widget</b><br />Display latest conversations from USV.com on your website. Simply paste the following code in the spot on your site where you'd like the widget to be:<br />
+            <pre>
+<code>&lt;script src=&quot;http://www.usv.com/widget?type=hot_posts&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;div id=&quot;usv-widget&quot;&gt;&lt;/div&gt;</code>
+            </pre>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="shell">
+    <div id="mobile-header">
+      <a id="menu-trigger" href="#">Open Menu</a>
+      <a id="mobile-logo" href="/">Union Square Ventures</a>
+<a id="submit-trigger" href="#submit-form">Submit Post</a>
+</div>
+<header id="site-header">
+<div class="container">
+<a id="logo" href="/">Union Square Ventures</a>
+<h1 id="usv-name"><a href="/">Union Square Ventures</a></h1>
+<ul id="main-nav">
+<li id="nav-conversation"><a href="/">Conversation</a></li>
+<li id="nav-about"><a href="/about">About</a></li>
+<li id="nav-portfolio"><a href="/portfolio">Portfolio</a></li>
+<li id="nav-network"><a href="/network">Network</a></li>
+<li id="nav-jobs"><a href="/jobs">Jobs</a></li>
+</ul>
+<div id="login">
+
+<a class="login" href="/auth/twitter/">Log in with Twitter</a>
+
+<a href="/feed/hot" onclick="(function(){var z=document.createElement('script');z.src='https://www.subtome.com/load.js';document.body.appendChild(z);})(); return false"><img src="/static/img/feed-icon-14x14.png" title="Subscribe" style="margin-left: 10px"></a>
+</div>
+</div>
+</header>
+
+<div id="content">
+<div class="container">
+
+<div class="row">
+<div class="col-sm-3 hidden-xs">
+<div id="portfolio-filter">
+<ul class="sort-tabs" id="sort">
+<li class="active"><a href="#" usv-sort="random">Random sort</a></li>
+<li class=""><a href="#" usv-sort="alphabetical">Alphabetical sort</a></li>
+</ul>
+<p class="" style="white-space:nowrap; margin-top: 0;">By initial investment:</p>
+<ul class="filter-tabs" id="series">
+<li class="all active"><a href="#" usv-filter="all">All</a></li>
+</ul>
+<p class="" style="white-space:nowrap">By year:</p>
+<ul class="filter-tabs" id="years">
+<li class="all active"><a href="#" usv-filter="all">All</a></li>
+</ul>
+<p class="" style="white-space:nowrap">By category:</p>
+<ul class="filter-tabs" id="categories">
+<li class="all active"><a href="#" usv-filter="all">All</a></li>
+</ul>
+<p class="">By location:</p>
+<ul class="filter-tabs" id="locations">
+<li class="all active"><a href="#" usv-filter="all">All</a></li>
+</ul>
+</div>
+</div>
+<div class="col-sm-9 col-xs-12">
+<!-- NOT IN USE. Div for bio information when clicking on each person -->
+<div id="full-investment" style="display:none">
+<div id="full-investment-content"></div>
+<div id="close-investment"><a href="" class="btn btn-small">Close</a></div>
+</div>
+<h2 class="subsection section-heading" id="current-portfolio">Current Portfolio<span class="filter-label" style="display:none"></span></h2>
+<div class="row investments-list" style="display:none">
+<!-- this row is initially set to display:none because it's being sorted w js
+and then being shown -->
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Amee" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="europe-uk" usv:city="Europe, UK" usv:investment_date_slug="2008" usv:investment_date="2008" usv:investment_categories_slug="enterpriseinformation" usv:investment_categories="Enterprise,Information">
+<div class="company card">
+<a class="open-investment" usv-investment="Amee" href="http://amee.com"><img alt="Amee" src="/static/img/logos/amee.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://amee.com">Amee</a> <a href="http://amee.com">Amee</a> provides access to environmental and business information.
+</p>
+<span class="since-date">
+<a href="/posts/amee">2008, Series A</a>
+</span>
+<a class="about-investment" href="/posts/amee">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Auxmoney" usv:investment_series="Series B" usv:investment_series_slug="series-b" usv:city_slug="europe-germany" usv:city="Europe, Germany" usv:investment_date_slug="2012" usv:investment_date="2012" usv:investment_categories_slug="financemarketplaces" usv:investment_categories="Finance,Marketplaces">
+<div class="company card">
+<a class="open-investment" usv-investment="Auxmoney" href="http://auxmoney.com"><img alt="Auxmoney" src="/static/img/logos/auxmoney.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://auxmoney.com">Auxmoney</a> <a href="http://auxmoney.com">Auxmoney</a> is Germany's largest platform for consumer peer-to-peer lending.
+</p>
+<span class="since-date">
+<a href="/posts/auxmoney">2012, Series B</a>
+</span>
+<a class="about-investment" href="/posts/auxmoney">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Brewster" usv:investment_series="Seed" usv:investment_series_slug="seed" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2011" usv:investment_date="2011" usv:investment_categories_slug="mobilesocial" usv:investment_categories="Mobile,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="Brewster" href="http://brewster.com"><img alt="Brewster" src="/static/img/logos/brewster.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://brewster.com">Brewster</a> <a href="http://brewster.com">Brewster</a> is an address book for the twenty-first century.
+</p>
+<span class="since-date">
+<a href="/posts/brewster">2011, Seed</a>
+</span>
+<a class="about-investment" href="/posts/brewster">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="C2FO" usv:investment_series="Series B" usv:investment_series_slug="series-b" usv:city_slug="midwest" usv:city="Midwest" usv:investment_date_slug="2012" usv:investment_date="2012" usv:investment_categories_slug="enterprisefinance" usv:investment_categories="Enterprise,Finance">
+<div class="company card">
+<a class="open-investment" usv-investment="C2FO" href="http://c2fo.com"><img alt="C2FO" src="/static/img/logos/c2fo.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://c2fo.com">C2FO</a> <a href="http://c2fo.com">C2FO</a> is a global marketplace for working capital transactions.
+</p>
+<span class="since-date">
+<a href="/posts/pollenware">2012, Series B</a>
+</span>
+<a class="about-investment" href="/posts/pollenware">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Canvas" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2011" usv:investment_date="2011" usv:investment_categories_slug="mediasocial" usv:investment_categories="Media,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="Canvas" href="http://canv.as"><img alt="Canvas" src="/static/img/logos/canvas.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://canv.as">Canvas</a> <a href="http://canv.as">Canvas</a> is a community platform for drawing.
+</p>
+<span class="since-date">
+<a href="/posts/canvas">2011, Series A</a>
+</span>
+<a class="about-investment" href="/posts/canvas">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Circleup" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="san-francisco-bay-area" usv:city="San Francisco Bay Area" usv:investment_date_slug="2013" usv:investment_date="2013" usv:investment_categories_slug="financemarketplaces" usv:investment_categories="Finance,Marketplaces">
+<div class="company card">
+<a class="open-investment" usv-investment="Circleup" href="http://circleup.com"><img alt="Circleup" src="/static/img/logos/circleup.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://circleup.com">Circleup</a> <a href="http://circleup.com">Circleup</a> is a marketplace for investing in consumer products.
+</p>
+<span class="since-date">
+<a href="/posts/circleup">2013, Series A</a>
+</span>
+<a class="about-investment" href="/posts/circleup">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="CloudFlare" usv:investment_series="Series C" usv:investment_series_slug="series-c" usv:city_slug="san-francisco-bay-area" usv:city="San Francisco Bay Area" usv:investment_date_slug="2013" usv:investment_date="2013" usv:investment_categories_slug="security" usv:investment_categories="Security">
+<div class="company card">
+<a class="open-investment" usv-investment="CloudFlare" href="http://cloudflare.com"><img alt="CloudFlare" src="/static/img/logos/cloudflare.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://cloudflare.com">CloudFlare</a> <a href="http://cloudflare.com">CloudFlare</a> is helping to build a better Internet
+</p>
+<span class="since-date">
+<a href="/posts/cloudflare">2013, Series C</a>
+</span>
+<a class="about-investment" href="/posts/cloudflare">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Codecademy" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2011" usv:investment_date="2011" usv:investment_categories_slug="education" usv:investment_categories="Education">
+<div class="company card">
+<a class="open-investment" usv-investment="Codecademy" href="http://codecademy.com"><img alt="Codecademy" src="/static/img/logos/codecademy.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://codecademy.com">Codecademy</a> <a href="http://codecademy.com">Codecademy</a> is an interactive, web-based curriculum to learn how to code.
+</p>
+<span class="since-date">
+<a href="/posts/codecademy">2011, Series A</a>
+</span>
+<a class="about-investment" href="/posts/codecademy">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Coinbase" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="san-francisco-bay-area" usv:city="San Francisco Bay Area" usv:investment_date_slug="2013" usv:investment_date="2013" usv:investment_categories_slug="finance" usv:investment_categories="Finance">
+<div class="company card">
+<a class="open-investment" usv-investment="Coinbase" href="http://coinbase.com"><img alt="Coinbase" src="/static/img/logos/coinbase.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://coinbase.com">Coinbase</a> <a href="http://coinbase.com">Coinbase</a> is an easy-to-use Bitcoin wallet.	
+</p>
+<span class="since-date">
+<a href="/posts/coinbase">2013, Series A</a>
+</span>
+<a class="about-investment" href="/posts/coinbase">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Covestor" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="new-york-europe" usv:city="New York, Europe" usv:investment_date_slug="2008" usv:investment_date="2008" usv:investment_categories_slug="financemarketplaces" usv:investment_categories="Finance,Marketplaces">
+<div class="company card">
+<a class="open-investment" usv-investment="Covestor" href="http://covestor.com"><img alt="Covestor" src="/static/img/logos/covestor.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://covestor.com">Covestor</a> <a href="http://covestor.com">Covestor</a> is an online investment management platform.	
+</p>
+<span class="since-date">
+<a href="/posts/covestor">2008, Series A</a>
+</span>
+<a class="about-investment" href="/posts/covestor">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Disqus" usv:investment_series="Seed" usv:investment_series_slug="seed" usv:city_slug="san-francisco-bay-area" usv:city="San Francisco Bay Area" usv:investment_date_slug="2007" usv:investment_date="2007" usv:investment_categories_slug="publishingsocial" usv:investment_categories="Publishing,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="Disqus" href="http://disqus.com"><img alt="Disqus" src="/static/img/logos/disqus.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://disqus.com">Disqus</a> <a href="">Disqus</a> builds interconnected communities around online comment discussion.
+</p>
+<span class="since-date">
+<a href="/posts/disqus">2007, Seed</a>
+</span>
+<a class="about-investment" href="/posts/disqus">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="DuckDuckGo" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="northeast" usv:city="Northeast" usv:investment_date_slug="2011" usv:investment_date="2011" usv:investment_categories_slug="informationsearchtrust" usv:investment_categories="Information,Search,Trust">
+<div class="company card">
+<a class="open-investment" usv-investment="DuckDuckGo" href="http://duckduckgo.com"><img alt="DuckDuckGo" src="/static/img/logos/duckduckgo.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://duckduckgo.com">DuckDuckGo</a> <a href="">DuckDuckGo</a> is a search engine with instant answers, real privacy, and less clutter.
+</p>
+<span class="since-date">
+<a href="/posts/duck-duck-go">2011, Series A</a>
+</span>
+<a class="about-investment" href="/posts/duck-duck-go">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Duolingo" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="northeast" usv:city="Northeast" usv:investment_date_slug="2011" usv:investment_date="2011" usv:investment_categories_slug="education" usv:investment_categories="Education">
+<div class="company card">
+<a class="open-investment" usv-investment="Duolingo" href="http://duolingo.com"><img alt="Duolingo" src="/static/img/logos/duolingo.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://duolingo.com">Duolingo</a> <a href="">Duolingo</a> is a platform to learn languages while simultaneously translating the web.
+</p>
+<span class="since-date">
+<a href="/posts/duolingo">2011, Series A</a>
+</span>
+<a class="about-investment" href="/posts/duolingo">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Dwolla" usv:investment_series="Series B" usv:investment_series_slug="series-b" usv:city_slug="san-francisco-bay-area-midwest" usv:city="San Francisco Bay Area, Midwest" usv:investment_date_slug="2012" usv:investment_date="2012" usv:investment_categories_slug="finance" usv:investment_categories="Finance">
+<div class="company card">
+<a class="open-investment" usv-investment="Dwolla" href="http://dwolla.com"><img alt="Dwolla" src="/static/img/logos/dwolla.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://dwolla.com">Dwolla</a> <a href="">Dwolla</a> is a web and mobile cash-based network.
+</p>
+<span class="since-date">
+<a href="/posts/dwolla">2012, Series B</a>
+</span>
+<a class="about-investment" href="/posts/dwolla">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Edmodo" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="san-francisco-bay-area" usv:city="San Francisco Bay Area" usv:investment_date_slug="2010" usv:investment_date="2010" usv:investment_categories_slug="education" usv:investment_categories="Education">
+<div class="company card">
+<a class="open-investment" usv-investment="Edmodo" href="http://edmodo.com"><img alt="Edmodo" src="/static/img/logos/edmodo.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://edmodo.com">Edmodo</a> <a href="">Edmodo</a> is a social learning network for teachers, students, schools, and districts.
+</p>
+<span class="since-date">
+<a href="/posts/edmodo">2010, Series A</a>
+</span>
+<a class="about-investment" href="/posts/edmodo">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Etsy" usv:investment_series="Seed" usv:investment_series_slug="seed" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2007" usv:investment_date="2007" usv:investment_categories_slug="creator-platformsmarketplaces" usv:investment_categories="Creator Platforms,Marketplaces">
+<div class="company card">
+<a class="open-investment" usv-investment="Etsy" href="http://etsy.com"><img alt="Etsy" src="/static/img/logos/etsy.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://etsy.com">Etsy</a> <a href="">Etsy</a> is an online marketplace for creative products made and sold by artisanal businesses.	
+</p>
+<span class="since-date">
+<a href="/posts/etsy">2007, Seed</a>
+</span>
+<a class="about-investment" href="/posts/etsy">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Firebase" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="san-francisco-bay-area" usv:city="San Francisco Bay Area" usv:investment_date_slug="2013" usv:investment_date="2013" usv:investment_categories_slug="developer-toolsenterprise" usv:investment_categories="Developer Tools,Enterprise">
+<div class="company card">
+<a class="open-investment" usv-investment="Firebase" href="http://firebase.com"><img alt="Firebase" src="/static/img/logos/firebase.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://firebase.com">Firebase</a> <a href="">Firebase</a> is a scalable real-time backend.
+</p>
+<span class="since-date">
+<a href="/posts/firebase">2013, Series A</a>
+</span>
+<a class="about-investment" href="/posts/firebase">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Flurry" usv:investment_series="Seed" usv:investment_series_slug="seed" usv:city_slug="san-francisco-bay-area" usv:city="San Francisco Bay Area" usv:investment_date_slug="2008" usv:investment_date="2008" usv:investment_categories_slug="adtechmobile" usv:investment_categories="AdTech,Mobile">
+<div class="company card">
+<a class="open-investment" usv-investment="Flurry" href="http://flurry.com"><img alt="Flurry" src="/static/img/logos/flurry.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://flurry.com">Flurry</a> <a href="">Flurry</a> is a suite of tools and services for mobile application developers.
+</p>
+<span class="since-date">
+<a href="/posts/flurry">2008, Seed</a>
+</span>
+<a class="about-investment" href="/posts/flurry">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Foursquare" usv:investment_series="Seed" usv:investment_series_slug="seed" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2009" usv:investment_date="2009" usv:investment_categories_slug="localmobilesocial" usv:investment_categories="Local,Mobile,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="Foursquare" href="http://foursquare.com"><img alt="Foursquare" src="/static/img/logos/foursquare.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://foursquare.com">Foursquare</a> <a href="">Foursquare</a> is a mobile application that helps users explore their city.
+</p>
+<span class="since-date">
+<a href="/posts/foursquare">2009, Seed</a>
+</span>
+<a class="about-investment" href="/posts/foursquare">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Funding Circle" usv:investment_series="Series B" usv:investment_series_slug="series-b" usv:city_slug="europe-uk" usv:city="Europe, UK" usv:investment_date_slug="2012" usv:investment_date="2012" usv:investment_categories_slug="financemarketplaces" usv:investment_categories="Finance,Marketplaces">
+<div class="company card">
+<a class="open-investment" usv-investment="Funding Circle" href="http://fundingcircle.com"><img alt="Funding Circle" src="/static/img/logos/funding-circle.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://fundingcircle.com">Funding Circle</a> <a href="">Funding Circle</a> is a marketplace for small business loans.
+</p>
+<span class="since-date">
+<a href="/posts/funding-circle">2012, Series B</a>
+</span>
+<a class="about-investment" href="/posts/funding-circle">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="GetGlue" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2007" usv:investment_date="2007" usv:investment_categories_slug="mediasocial" usv:investment_categories="Media,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="GetGlue" href="http://getglue.com"><img alt="GetGlue" src="/static/img/logos/getglue.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://getglue.com">GetGlue</a> <a href="">GetGlue</a> is a social network for entertainment.
+</p>
+<span class="since-date">
+<a href="/posts/adaptiveblue">2007, Series A</a>
+</span>
+<a class="about-investment" href="/posts/adaptiveblue">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Hailo" usv:investment_series="Series B" usv:investment_series_slug="series-b" usv:city_slug="europe-uk" usv:city="Europe, UK" usv:investment_date_slug="2012" usv:investment_date="2012" usv:investment_categories_slug="marketplacesmobiletransportation" usv:investment_categories="Marketplaces,Mobile,Transportation">
+<div class="company card">
+<a class="open-investment" usv-investment="Hailo" href="http://hailocab.com"><img alt="Hailo" src="/static/img/logos/hailo.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://hailocab.com">Hailo</a> <a href="">Hailo</a> is a mobile application for taxi e-hailing.
+</p>
+<span class="since-date">
+<a href="/posts/hailo">2012, Series B</a>
+</span>
+<a class="about-investment" href="/posts/hailo">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Heyzap" usv:investment_series="Seed" usv:investment_series_slug="seed" usv:city_slug="san-francisco-bay-area" usv:city="San Francisco Bay Area" usv:investment_date_slug="2009" usv:investment_date="2009" usv:investment_categories_slug="gamesmobilesocial" usv:investment_categories="Games,Mobile,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="Heyzap" href="http://heyzap.com"><img alt="Heyzap" src="/static/img/logos/heyzap.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://heyzap.com">Heyzap</a> <a href="">Heyzap</a>is a mobile application and advertising network to discover new mobile games.
+</p>
+<span class="since-date">
+<a href="/posts/heyzap">2009, Seed</a>
+</span>
+<a class="about-investment" href="/posts/heyzap">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Human Dx" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="san-francisco" usv:city="San Francisco" usv:investment_date_slug="2013" usv:investment_date="2013" usv:investment_categories_slug="health" usv:investment_categories="Health">
+<div class="company card">
+<a class="open-investment" usv-investment="Human Dx" href="https://humandx.org"><img alt="Human Dx" src="/static/img/logos/human-dx.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="https://humandx.org">Human Dx</a> <a href="https://humandx.org">Human Dx</a> enables and supports the development of the Human Diagnosis Project.
+</p>
+<span class="since-date">
+<a href="/posts/human-dx">2013, Series A</a>
+</span>
+<a class="about-investment" href="/posts/human-dx">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Kickstarter" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2009" usv:investment_date="2009" usv:investment_categories_slug="creator-platformsfinancemarketplaces" usv:investment_categories="Creator Platforms,Finance,Marketplaces">
+<div class="company card">
+<a class="open-investment" usv-investment="Kickstarter" href="http://kickstarter.com"><img alt="Kickstarter" src="/static/img/logos/kickstarter.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://kickstarter.com">Kickstarter</a> <a href="">Kickstarter</a> is a platform for funding creative projects.
+</p>
+<span class="since-date">
+<a href="/posts/kickstarter">2009, Series A</a>
+</span>
+<a class="about-investment" href="/posts/kickstarter">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Kik" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="canada" usv:city="Canada" usv:investment_date_slug="2011" usv:investment_date="2011" usv:investment_categories_slug="mobilesocial" usv:investment_categories="Mobile,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="Kik" href="http://kik.com"><img alt="Kik" src="/static/img/logos/kik.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://kik.com">Kik</a> <a href="">Kik</a> is a real-time mobile messaging application.	
+</p>
+<span class="since-date">
+<a href="/posts/kik">2011, Series A</a>
+</span>
+<a class="about-investment" href="/posts/kik">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Kitchensurfing" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2013" usv:investment_date="2013" usv:investment_categories_slug="creator-platformsfoodmarketplaces" usv:investment_categories="Creator Platforms,Food,Marketplaces">
+<div class="company card">
+<a class="open-investment" usv-investment="Kitchensurfing" href="http://kitchensurfing.com"><img alt="Kitchensurfing" src="/static/img/logos/kitchensurfing.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://kitchensurfing.com">Kitchensurfing</a> <a href="">Kitchensurfing</a> is a marketplace of private chefs.
+</p>
+<span class="since-date">
+<a href="/posts/kitchensurfing">2013, Series A</a>
+</span>
+<a class="about-investment" href="/posts/kitchensurfing">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Lending Club" usv:investment_series="Series D" usv:investment_series_slug="series-d" usv:city_slug="san-francisco-bay-area" usv:city="San Francisco Bay Area" usv:investment_date_slug="2011" usv:investment_date="2011" usv:investment_categories_slug="financemarketplaces" usv:investment_categories="Finance,Marketplaces">
+<div class="company card">
+<a class="open-investment" usv-investment="Lending Club" href="http://lendingclub.com"><img alt="Lending Club" src="/static/img/logos/lending-club.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://lendingclub.com">Lending Club</a> <a href="">Lending Club</a> an online marketplace for creditworthy borrowers and savvy investors.
+</p>
+<span class="since-date">
+<a href="/posts/lending-club">2011, Series D</a>
+</span>
+<a class="about-investment" href="/posts/lending-club">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Meetup" usv:investment_series="Series D" usv:investment_series_slug="series-d" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2008" usv:investment_date="2008" usv:investment_categories_slug="localsocial" usv:investment_categories="Local,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="Meetup" href="http://meetup.com"><img alt="Meetup" src="/static/img/logos/meetup.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://meetup.com">Meetup</a> <a href="">Meetup</a> is the world's largest network of local community groups.	
+</p>
+<span class="since-date">
+<a href="/posts/meetup-the-original-web-meets-world-company">2008, Series D</a>
+</span>
+<a class="about-investment" href="/posts/meetup-the-original-web-meets-world-company">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="MongoDB" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2008" usv:investment_date="2008" usv:investment_categories_slug="developer-tools" usv:investment_categories="Developer Tools">
+<div class="company card">
+<a class="open-investment" usv-investment="MongoDB" href="http://mongodb.com"><img alt="MongoDB" src="/static/img/logos/mongodb.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://mongodb.com">MongoDB</a> <a href="">MongoDB</a> supports the MongoDB open source database project.
+</p>
+<span class="since-date">
+<a href="/posts/10gen">2008, Series A</a>
+</span>
+<a class="about-investment" href="/posts/10gen">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Return Path" usv:investment_series="Series E" usv:investment_series_slug="series-e" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2008" usv:investment_date="2008" usv:investment_categories_slug="enterprise" usv:investment_categories="Enterprise">
+<div class="company card">
+<a class="open-investment" usv-investment="Return Path" href="http://returnpath.com"><img alt="Return Path" src="/static/img/logos/return-path.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://returnpath.com">Return Path</a> <a href="">Return Path</a> is building email intelligence products and services.
+</p>
+<span class="since-date">
+<a href="/posts/return-path">2008, Series E</a>
+</span>
+<a class="about-investment" href="/posts/return-path">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Science Exchange" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="san-francisco-bay-area" usv:city="San Francisco Bay Area" usv:investment_date_slug="2013" usv:investment_date="2013" usv:investment_categories_slug="marketplacesscience" usv:investment_categories="Marketplaces,Science">
+<div class="company card">
+<a class="open-investment" usv-investment="Science Exchange" href="http://scienceexchange.com"><img alt="Science Exchange" src="/static/img/logos/science-exchange.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://scienceexchange.com">Science Exchange</a> <a href="">Science Exchange</a> is an online marketplace for scientific services.	
+</p>
+<span class="since-date">
+<a href="/posts/science-exchange">2013, Series A</a>
+</span>
+<a class="about-investment" href="/posts/science-exchange">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Shapeways" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="new-york-europe" usv:city="New York, Europe" usv:investment_date_slug="2010" usv:investment_date="2010" usv:investment_categories_slug="creator-platformsmanufacturingmarketplaces" usv:investment_categories="Creator Platforms,Manufacturing,Marketplaces">
+<div class="company card">
+<a class="open-investment" usv-investment="Shapeways" href="http://shapeways.com"><img alt="Shapeways" src="/static/img/logos/shapeways.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://shapeways.com">Shapeways</a> <a href="">Shapeways</a> is an online marketplace for 3D printed goods.	
+</p>
+<span class="since-date">
+<a href="/posts/shapeways">2010, Series A</a>
+</span>
+<a class="about-investment" href="/posts/shapeways">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Sift Science" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="san-francisco-bay-area" usv:city="San Francisco Bay Area" usv:investment_date_slug="2012" usv:investment_date="2012" usv:investment_categories_slug="enterprisetrust" usv:investment_categories="Enterprise,Trust">
+<div class="company card">
+<a class="open-investment" usv-investment="Sift Science" href="http://siftscience.com"><img alt="Sift Science" src="/static/img/logos/sift-science.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://siftscience.com">Sift Science</a> <a href="">Sift Science</a> detects fraud in payments.
+</p>
+<span class="since-date">
+<a href="/posts/sift-science">2012, Series A</a>
+</span>
+<a class="about-investment" href="/posts/sift-science">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="SigFig" usv:investment_series="Series B" usv:investment_series_slug="series-b" usv:city_slug="san-francisco-bay-area" usv:city="San Francisco Bay Area" usv:investment_date_slug="2013" usv:investment_date="2013" usv:investment_categories_slug="finance" usv:investment_categories="Finance">
+<div class="company card">
+<a class="open-investment" usv-investment="SigFig" href="http://sigfig.com"><img alt="SigFig" src="/static/img/logos/sigfig.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://sigfig.com">SigFig</a> <a href="">SigFig</a> is an investment company for the digital era.	
+</p>
+<span class="since-date">
+<a href="/posts/sigfig">2013, Series B</a>
+</span>
+<a class="about-investment" href="/posts/sigfig">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Simulmedia" usv:investment_series="Seed" usv:investment_series_slug="seed" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2009" usv:investment_date="2009" usv:investment_categories_slug="adtechmedia" usv:investment_categories="AdTech,Media">
+<div class="company card">
+<a class="open-investment" usv-investment="Simulmedia" href="http://simulmedia.com"><img alt="Simulmedia" src="/static/img/logos/simulmedia.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://simulmedia.com">Simulmedia</a> <a href="">Simulmedia</a> is a pioneer of internet-like ad targeting on television.	
+</p>
+<span class="since-date">
+<a href="/posts/welcome-back-dave">2009, Seed</a>
+</span>
+<a class="about-investment" href="/posts/welcome-back-dave">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Skillshare" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2011" usv:investment_date="2011" usv:investment_categories_slug="educationlocalmarketplaces" usv:investment_categories="Education,Local,Marketplaces">
+<div class="company card">
+<a class="open-investment" usv-investment="Skillshare" href="http://skillshare.com"><img alt="Skillshare" src="/static/img/logos/skillshare.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://skillshare.com">Skillshare</a> <a href="">Skillshare</a> is a community marketplace to learn anything from anyone.
+</p>
+<span class="since-date">
+<a href="/posts/skillshare">2011, Series A</a>
+</span>
+<a class="about-investment" href="/posts/skillshare">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="SoundCloud" usv:investment_series="Series B" usv:investment_series_slug="series-b" usv:city_slug="europe-germany" usv:city="Europe, Germany" usv:investment_date_slug="2010" usv:investment_date="2010" usv:investment_categories_slug="creator-platformsmediamusicsocial" usv:investment_categories="Creator Platforms,Media,Music,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="SoundCloud" href="http://soundcloud.com"><img alt="SoundCloud" src="/static/img/logos/soundcloud.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://soundcloud.com">SoundCloud</a> <a href="">SoundCloud</a> an online platform for sharing audio.
+</p>
+<span class="since-date">
+<a href="/posts/soundcloud">2010, Series B</a>
+</span>
+<a class="about-investment" href="/posts/soundcloud">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Splice" usv:investment_series="Seed" usv:investment_series_slug="seed" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2013" usv:investment_date="2013" usv:investment_categories_slug="creator-platformsmusicmediapublishing" usv:investment_categories="Creator Platforms,Music,Media,Publishing">
+<div class="company card">
+<a class="open-investment" usv-investment="Splice" href="https://splice.com"><img alt="Splice" src="/static/img/logos/splice.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="https://splice.com">Splice</a> <a href="">Splice</a> is a technology platform for musicians to better create, collaborate and share their work.
+</p>
+<span class="since-date">
+<a href="/posts/splice">2013, Seed</a>
+</span>
+<a class="about-investment" href="/posts/splice">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Stack Exchange" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2010" usv:investment_date="2010" usv:investment_categories_slug="informationsocial" usv:investment_categories="Information,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="Stack Exchange" href="http://stackexchange.com"><img alt="Stack Exchange" src="/static/img/logos/stack-exchange.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://stackexchange.com">Stack Exchange</a> <a href="">Stack Exchange</a> is a network of question-and-answer communities.
+</p>
+<span class="since-date">
+<a href="/posts/stack-overflow">2010, Series A</a>
+</span>
+<a class="about-investment" href="/posts/stack-overflow">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="THE Football App" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="germanyeurope" usv:city="Germany,Europe" usv:investment_date_slug="2013" usv:investment_date="2013" usv:investment_categories_slug="sportsmediamobile" usv:investment_categories="Sports,Media,Mobile">
+<div class="company card">
+<a class="open-investment" usv-investment="THE Football App" href="http://get.thefootballapp.com"><img alt="THE Football App" src="/static/img/logos/the-football-app.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://get.thefootballapp.com">THE Football App</a> <a href="">THE Football App</a> is the most comprehensive football app for your smartphone.	
+</p>
+<span class="since-date">
+<a href="/posts/teaming-up-with-the-football-app">2013, Series A</a>
+</span>
+<a class="about-investment" href="/posts/teaming-up-with-the-football-app">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Targetspot" usv:investment_series="Seed" usv:investment_series_slug="seed" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2007" usv:investment_date="2007" usv:investment_categories_slug="adtechmediamusic" usv:investment_categories="AdTech,Media,Music">
+<div class="company card">
+<a class="open-investment" usv-investment="Targetspot" href="http://targetspot.com"><img alt="Targetspot" src="/static/img/logos/targetspot.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://targetspot.com">Targetspot</a> <a href="">Targetspot</a> is an internet audio advertising network.	
+</p>
+<span class="since-date">
+<a href="/posts/targetspot">2007, Seed</a>
+</span>
+<a class="about-investment" href="/posts/targetspot">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Turntable" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2011" usv:investment_date="2011" usv:investment_categories_slug="mediamusicsocial" usv:investment_categories="Media,Music,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="Turntable" href="http://turntable.com"><img alt="Turntable" src="/static/img/logos/turntable.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://turntable.com">Turntable</a> <a href="">Turntable</a> creates social music experiences on the web.
+</p>
+<span class="since-date">
+<a href="/posts/turntable">2011, Series A</a>
+</span>
+<a class="about-investment" href="/posts/turntable">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Twilio" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="san-francisco-bay-area" usv:city="San Francisco Bay Area" usv:investment_date_slug="2009" usv:investment_date="2009" usv:investment_categories_slug="developer-toolsenterprise" usv:investment_categories="Developer Tools,Enterprise">
+<div class="company card">
+<a class="open-investment" usv-investment="Twilio" href="http://twilio.com"><img alt="Twilio" src="/static/img/logos/twilio.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://twilio.com">Twilio</a> <a href="">Twilio</a> is an API for businesses building scalable communications applications.
+</p>
+<span class="since-date">
+<a href="/posts/twilio">2009, Series A</a>
+</span>
+<a class="about-investment" href="/posts/twilio">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Twitter" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="san-francisco-bay-area" usv:city="San Francisco Bay Area" usv:investment_date_slug="2007" usv:investment_date="2007" usv:investment_categories_slug="mediasocial" usv:investment_categories="Media,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="Twitter" href="http://twitter.com"><img alt="Twitter" src="/static/img/logos/twitter.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://twitter.com">Twitter</a> <a href="">Twitter</a> is a real-time information network.	
+</p>
+<span class="since-date">
+<a href="/posts/twitter">2007, Series A</a>
+</span>
+<a class="about-investment" href="/posts/twitter">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="VHX" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2013" usv:investment_date="2013" usv:investment_categories_slug="creator-platformsmediapublishing" usv:investment_categories="Creator Platforms,Media,Publishing">
+<div class="company card">
+<a class="open-investment" usv-investment="VHX" href="http://vhx.tv"><img alt="VHX" src="/static/img/logos/vhx.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://vhx.tv">VHX</a> <a href="">VHX</a> is a video distribution platform.	
+</p>
+<span class="since-date">
+<a href="/posts/vhx">2013, Series A</a>
+</span>
+<a class="about-investment" href="/posts/vhx">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Wattpad" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="canada" usv:city="Canada" usv:investment_date_slug="2011" usv:investment_date="2011" usv:investment_categories_slug="creator-platformsmediasocial" usv:investment_categories="Creator Platforms,Media,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="Wattpad" href="http://wattpad.com"><img alt="Wattpad" src="/static/img/logos/wattpad.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://wattpad.com">Wattpad</a> <a href="">Wattpad</a> is the best place to read, write, discover, and share stories.
+</p>
+<span class="since-date">
+<a href="/posts/wattpad">2011, Series A</a>
+</span>
+<a class="about-investment" href="/posts/wattpad">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Work Market" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2010" usv:investment_date="2010" usv:investment_categories_slug="enterpriselabormarketplaces" usv:investment_categories="Enterprise,Labor,Marketplaces">
+<div class="company card">
+<a class="open-investment" usv-investment="Work Market" href="http://workmarket.com"><img alt="Work Market" src="/static/img/logos/work-market.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://workmarket.com">Work Market</a> <a href="">Work Market</a> is an online marketplace for on-site temporary labor.
+</p>
+<span class="since-date">
+<a href="/posts/work-market">2010, Series A</a>
+</span>
+<a class="about-investment" href="/posts/work-market">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="YieldMo" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2008" usv:investment_date="2008" usv:investment_categories_slug="adtechmobile" usv:investment_categories="AdTech,Mobile">
+<div class="company card">
+<a class="open-investment" usv-investment="YieldMo" href="http://yieldmo.com"><img alt="YieldMo" src="/static/img/logos/yieldmo.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://yieldmo.com">YieldMo</a> <a href="">YieldMo</a> is a mobile advertising technology platform.	
+</p>
+<span class="since-date">
+<a href="/posts/">2008, Series A</a>
+</span>
+<a class="about-investment" href="/posts/">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="YouNow" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2012" usv:investment_date="2012" usv:investment_categories_slug="mediasocial" usv:investment_categories="Media,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="YouNow" href="http://younow.com"><img alt="YouNow" src="/static/img/logos/younow.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://younow.com">YouNow</a> <a href="http://younow.com">YouNow</a> is a live video social network.
+</p>
+<span class="since-date">
+<a href="/posts/younow">2012, Series A</a>
+</span>
+<a class="about-investment" href="/posts/younow">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container current" usv-investment="Zemanta" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="new-york-europe" usv:city="New York, Europe" usv:investment_date_slug="2008" usv:investment_date="2008" usv:investment_categories_slug="publishingsocial" usv:investment_categories="Publishing,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="Zemanta" href="http://zemanta.com"><img alt="Zemanta" src="/static/img/logos/zemanta.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://zemanta.com">Zemanta</a> <a href="http://zemanta.com">Zemanta</a> is a rich media tool for bloggers.
+</p>
+<span class="since-date">
+<a href="/posts/zemanta">2008, Series A</a>
+</span>
+<a class="about-investment" href="/posts/zemanta">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+</div>
+<h2 class="subsection section-heading" id="past-portfolio" style="clear:both">Exited Investments<span class="filter-label" style="display:none"></span></h2>
+<div class="row investments-list" style="display:none">
+<!-- this row is initially set to display:none because it's being sorted w js
+and then being shown -->
+
+<div class="col-sm-4 col-xs-6 company-container past" usv-investment="Behance" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2012" usv:investment_date="2012" usv:investment_categories_slug="creator-platformsdesignmarketplaces" usv:investment_categories="Creator Platforms,Design,Marketplaces">
+<div class="company card">
+<a class="open-investment" usv-investment="Behance" href="http://behance.com"><img alt="Behance" src="/static/img/logos/behance.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://behance.com">Behance</a> <a href="http://behance.com">Behance</a> is an online platform to showcase and discover creative work. 
+</p>
+<span class="since-date">
+<a href="/posts/behance">2012, Series A</a>
+</span>
+<a class="about-investment" href="/posts/behance">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container past" usv-investment="Boxee" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2008" usv:investment_date="2008" usv:investment_categories_slug="hardwaremediasocial" usv:investment_categories="Hardware,Media,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="Boxee" href="http://boxee.com"><img alt="Boxee" src="/static/img/logos/boxee.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://boxee.com">Boxee</a> <a href="http://boxee.tv">Boxee</a> is a platform for video consumption on connected devices. 	
+</p>
+<span class="since-date">
+<a href="/posts/boxee">2008, Series A</a>
+</span>
+<a class="about-investment" href="/posts/boxee">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container past" usv-investment="Buglabs" usv:investment_series="Seed" usv:investment_series_slug="seed" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2006" usv:investment_date="2006" usv:investment_categories_slug="enterprisehardware" usv:investment_categories="Enterprise,Hardware">
+<div class="company card">
+<a class="open-investment" usv-investment="Buglabs" href="http://buglabs.com"><img alt="Buglabs" src="/static/img/logos/buglabs.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://buglabs.com">Buglabs</a> <a href="">Buglabs</a> is the creator of an open source hardware and software platform.
+</p>
+<span class="since-date">
+<a href="/posts/introducing-bug-labs">2006, Seed</a>
+</span>
+<a class="about-investment" href="/posts/introducing-bug-labs">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container past" usv-investment="Clickable" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2007" usv:investment_date="2007" usv:investment_categories_slug="adtechsocial" usv:investment_categories="AdTech,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="Clickable" href="http://clickable.com"><img alt="Clickable" src="/static/img/logos/clickable.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://clickable.com">Clickable</a> <a href="">Clickable</a> is the all-in-one solution for online advertising.
+</p>
+<span class="since-date">
+<a href="/posts/clickable">2007, Series A</a>
+</span>
+<a class="about-investment" href="/posts/clickable">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container past" usv-investment="Delicious" usv:investment_series="Seed" usv:investment_series_slug="seed" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2005" usv:investment_date="2005" usv:investment_categories_slug="mediasocial" usv:investment_categories="Media,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="Delicious" href="http://delicious.com"><img alt="Delicious" src="/static/img/logos/delicious.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://delicious.com">Delicious</a> <a href="http://delicious.com">Delicious</a> is the world's leading social bookmarking service. 	
+</p>
+<span class="since-date">
+<a href="/posts/delicious">2005, Seed</a>
+</span>
+<a class="about-investment" href="/posts/delicious">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container past" usv-investment="Feedburner" usv:investment_series="Series B" usv:investment_series_slug="series-b" usv:city_slug="midwest" usv:city="Midwest" usv:investment_date_slug="2006" usv:investment_date="2006" usv:investment_categories_slug="informationsocial" usv:investment_categories="Information,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="Feedburner" href="http://feedburner.com"><img alt="Feedburner" src="/static/img/logos/feedburner.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://feedburner.com">Feedburner</a> <a href="http://feedburner.com">Feedburner</a> is a feed management service. 
+</p>
+<span class="since-date">
+<a href="/posts/feedburner">2006, Series B</a>
+</span>
+<a class="about-investment" href="/posts/feedburner">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container past" usv-investment="Indeed" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2005" usv:investment_date="2005" usv:investment_categories_slug="informationsearch" usv:investment_categories="Information,Search">
+<div class="company card">
+<a class="open-investment" usv-investment="Indeed" href="http://indeed.com"><img alt="Indeed" src="/static/img/logos/indeed.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://indeed.com">Indeed</a> <a href="http://indeed.com">Indeed</a> is a vertical search engine for jobs.	
+</p>
+<span class="since-date">
+<a href="/posts/indeed">2005, Series A</a>
+</span>
+<a class="about-investment" href="/posts/indeed">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container past" usv-investment="Info(N)Gen" usv:investment_series="Seed" usv:investment_series_slug="seed" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2005" usv:investment_date="2005" usv:investment_categories_slug="enterpriseinformation" usv:investment_categories="Enterprise,Information">
+<div class="company card">
+<a class="open-investment" usv-investment="Info(N)Gen" href="http://info(n)gen.com"><img alt="Info(N)Gen" src="/static/img/logos/infongen.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://info(n)gen.com">Info(N)Gen</a>  is a content discovery engine for business.	
+</p>
+<span class="since-date">
+<a href="/posts/">2005, Seed</a>
+</span>
+<a class="about-investment" href="/posts/">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container past" usv-investment="Oddcast" usv:investment_series="Series D" usv:investment_series_slug="series-d" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2006" usv:investment_date="2006" usv:investment_categories_slug="adtechenterprise" usv:investment_categories="AdTech,Enterprise">
+<div class="company card">
+<a class="open-investment" usv-investment="Oddcast" href="http://oddcast.com"><img alt="Oddcast" src="/static/img/logos/oddcast.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://oddcast.com">Oddcast</a> <a href="http://oddcast.com">Oddcast</a> was a viral marketing platform for agencies and brands.	
+</p>
+<span class="since-date">
+<a href="/posts/oddcast">2006, Series D</a>
+</span>
+<a class="about-investment" href="/posts/oddcast">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container past" usv-investment="Outside.in" usv:investment_series="Seed" usv:investment_series_slug="seed" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2007" usv:investment_date="2007" usv:investment_categories_slug="localsocial" usv:investment_categories="Local,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="Outside.in" href="http://outside.in.com"><img alt="Outside.in" src="/static/img/logos/outsidein.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://outside.in.com">Outside.in</a> <a href="http://outside.in">Outside.in</a> was a platform for local neighborhoods to share and discover information.
+</p>
+<span class="since-date">
+<a href="/posts/outsidein">2007, Seed</a>
+</span>
+<a class="about-investment" href="/posts/outsidein">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container past" usv-investment="Tacoda" usv:investment_series="Series B" usv:investment_series_slug="series-b" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2004" usv:investment_date="2004" usv:investment_categories_slug="adtech" usv:investment_categories="AdTech">
+<div class="company card">
+<a class="open-investment" usv-investment="Tacoda" href="http://tacoda.com"><img alt="Tacoda" src="/static/img/logos/tacoda.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://tacoda.com">Tacoda</a> <a href="http://tacoda.com">Tacoda</a> provided behaviorally targeted online advertising services.
+</p>
+<span class="since-date">
+<a href="/posts/advertising-out-of-context">2004, Series B</a>
+</span>
+<a class="about-investment" href="/posts/advertising-out-of-context">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container past" usv-investment="Tasty Labs" usv:investment_series="Seed" usv:investment_series_slug="seed" usv:city_slug="san-francisco-bay-area" usv:city="San Francisco Bay Area" usv:investment_date_slug="2010" usv:investment_date="2010" usv:investment_categories_slug="social" usv:investment_categories="Social">
+<div class="company card">
+<a class="open-investment" usv-investment="Tasty Labs" href="http://tastylabs.com"><img alt="Tasty Labs" src="/static/img/logos/tasty-labs.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://tastylabs.com">Tasty Labs</a> <a href="http://tastylabs.com">Tasty Labs</a> built social software. 	
+</p>
+<span class="since-date">
+<a href="/posts/tasty-labs">2010, Seed</a>
+</span>
+<a class="about-investment" href="/posts/tasty-labs">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container past" usv-investment="Tumblr" usv:investment_series="Seed" usv:investment_series_slug="seed" usv:city_slug="new-york" usv:city="New York" usv:investment_date_slug="2007" usv:investment_date="2007" usv:investment_categories_slug="creator-platformspublishingsocial" usv:investment_categories="Creator Platforms,Publishing,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="Tumblr" href="http://tumblr.com"><img alt="Tumblr" src="/static/img/logos/tumblr.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://tumblr.com">Tumblr</a> <a href="http://tumblr.com">Tumblr</a> is a network of blogs for people to share the things they do, love, think and create.	
+</p>
+<span class="since-date">
+<a href="/posts/tumblr">2007, Seed</a>
+</span>
+<a class="about-investment" href="/posts/tumblr">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container past" usv-investment="Wesabe" usv:investment_series="Series B" usv:investment_series_slug="series-b" usv:city_slug="san-francisco-bay-area" usv:city="San Francisco Bay Area" usv:investment_date_slug="2007" usv:investment_date="2007" usv:investment_categories_slug="financesocial" usv:investment_categories="Finance,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="Wesabe" href="http://wesabe.com"><img alt="Wesabe" src="/static/img/logos/wesabe.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://wesabe.com">Wesabe</a> <a href="http://wesabe.com">Wesabe</a> was a web-based tool that gave members a better understanding of how they spend money.	
+</p>
+<span class="since-date">
+<a href="/posts/wesabe-is-more-than-a-personal-financial-service">2007, Series B</a>
+</span>
+<a class="about-investment" href="/posts/wesabe-is-more-than-a-personal-financial-service">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+<div class="col-sm-4 col-xs-6 company-container past" usv-investment="Zynga" usv:investment_series="Series A" usv:investment_series_slug="series-a" usv:city_slug="san-francisco-bay-area" usv:city="San Francisco Bay Area" usv:investment_date_slug="2007" usv:investment_date="2007" usv:investment_categories_slug="gamesmobilesocial" usv:investment_categories="Games,Mobile,Social">
+<div class="company card">
+<a class="open-investment" usv-investment="Zynga" href="http://zynga.com"><img alt="Zynga" src="/static/img/logos/zynga.png" class="logo mt-image-none extra-padding" style="" width="220" height="150"></a>
+<p class="summary">
+<a class="company-link" href="http://zynga.com">Zynga</a> <a href="http://zynga.com">Zynga</a> is a game studio for online and mobile social games.
+</p>
+<span class="since-date">
+<a href="/posts/zynga-game-network">2007, Series A</a>
+</span>
+<a class="about-investment" href="/posts/zynga-game-network">
+<span class="glyphicon glyphicon-info-sign"></span>
+</a>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+<footer id="site-footer">
+<div class="container">
+<div class="row">
+<div class="col-sm-3">
+<h4>Contact Us</h4>
+<p>If you would like to share your ideas, business, or feedback with us, please send us email at <a href="http://www.cloudflare.com/email-protection#a6cfc8c0c9e6d3d5d088c5c9cb"><span class="__cf_email__" data-cfemail="8be2e5ede4cbfef8fda5e8e4e6">[email&nbsp;protected]</span><script type="text/javascript">
+/* <![CDATA[ */
+(function(){try{var s,a,i,j,r,c,l,b=document.getElementsByTagName("script");l=b[b.length-1].previousSibling;a=l.getAttribute('data-cfemail');if(a){s='';r=parseInt(a.substr(0,2),16);for(j=2;a.length-j;j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}s=document.createTextNode(s);l.parentNode.replaceChild(s,l);}}catch(e){}})();
+/* ]]> */
+</script></a>. All business plan submissions must include a clear description of your operations and current progress.</p>
+</div>
+<div class="col-sm-6">
+<div class="footer-search-container">
+<form action="/search" method="get">
+<input type="search" placeholder="Search" name="query" style="width:300px; margin: 0 auto" />
+</form>
+</div>
+</div>
+<div class="col-sm-3" style="text-align:right">
+<h4>Union Square Ventures</h4>
+<p class="address">
+915 Broadway, 19th Floor<br>
+New York, NY 10010
+</p>
+<p class="telephone">
+<strong>Tel</strong> &nbsp;&nbsp;(212) 994-7880<br>
+<strong>Fax</strong> &nbsp;&nbsp;(212) 994-7399<br>
+</p>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<nav id="mobile-menu">
+<ul>
+<li class="heading">USV COMMUNITY</li>
+<li><a href="/?sort_by=hot">Hot</a></li>
+<li><a href="/?sort_by=new">Newest</a></li>
+<li><a href="/featured">Featured</a></li>
+<li class="heading">UNION SQUARE VENTURES</li>
+<li><a href="/about/">About</a></li>
+<li><a href="/portfolio">Portfolio</a></li>
+<li><a href="/network">Network</a></li>
+<li><a href="/jobs">Jobs</a></li>
+</ul>
+</nav>
+<script src="/static/js/vendor/jquery-1.9.1.min.js?v=663628f795cb62444143fde1ebdf2b5b"></script>
+<script src="/static/js/bootstrap.min.js?v=bed31fb959612a0a77d8e87b9d0b3683"></script>
+<script type="text/javascript">
+USV_is_admin = '';
+USV_tinymce_valid_elements = "";
+USV_tinymce_post_char_limit = 1000;
+$(function() {
+$('.submit-button').on('click', function() {
+$(this).parent('form').submit();
+e.stopPropagation();
+e.preventDefault();
+});
+});
+$(document).ready(function() {
+window.mySwipe = Swipe(document.getElementById('slider'));
+});
+</script>
+
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'usvbeta2'; // required: replace example with your forum shortname
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+<script type="text/javascript" src="/static/js/vendor/modernizr-2.6.2.min.js?v=42306a279a9e831515347ae319181cd1"></script>
+<script type="text/javascript" src="/static/js/tinymce/jquery.tinymce.min.js?v=c3b150836f2c5b282f8f24f200931c37"></script>
+<script type="text/javascript" src="/static/js/plugins.js?v=fd6325242b36e92c4d108bd352f18c1e"></script>
+<script type="text/javascript" src="/static/js/scripts.js?v=36297d4af8eb6602b92fae44498acf77&ver=2"></script>
+<script type="text/javascript" src="/static/js/swipe.js?v=f3222596b567234df720599d60c9bc96"></script>
+<script type="text/javascript" src="/static/js/modules_bundle.js?v=6f056600a6563774a4a3ad9af8ced2d4"></script>
+<script type="text/javascript" src="/static/js/vendor/jquery.scrollto.js?v=24e146f2c6b3caf9b0640a58a900b024"></script>
+<script type="text/javascript" src="/static/js/jquery.qtip.min.js?v=c07dcce3f5a3d5d5a689b980dff1d821"></script>
+<script type="text/javascript" src="/static/js/support_functions.js?v=b626f5e71e6f38738ed25c17e450dcb4"></script>
+<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">
+_uacct = "UA-11198485-1"; urchinTracker();
+</script>
+
+<script>
+$(document).ready(function() {
+var series_options = [];
+$('.company').each(function() {
+var series = $(this).parent().attr('usv:investment_series');
+if ($.inArray(series, series_options) == -1) {
+// we haven't seen this one yet
+if (series != "" && typeof(series) != "undefined") {
+series_options.push(series);
+}
+}
+});
+series_options.sort();
+series_options.reverse();
+var city_options = [];
+$('.company').each(function() {
+var cities_str = $(this).parent().attr('usv:city')
+if (cities_str) {
+cities = cities_str.split(',');
+for (var i = 0; i < cities.length; i++) {
+city = cities[i].replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+if ($.inArray(city, city_options) == -1) {
+// we haven't seen this one yet
+if (city != "" && typeof(city) != "undefined") {
+city_options.push(city.replace(/^\s\s*/, '').replace(/\s\s*$/, ''));
+}
+}
+}
+}
+});
+city_options.sort();
+city_options.reverse();
+var year_options = [];
+$('.company').each(function() {
+var year = $(this).parent().attr('usv:investment_date');
+if ($.inArray(year, year_options) == -1) {
+// we haven't seen this one yet
+if (year != "" && typeof(year) != "undefined") {
+year_options.push(year);
+}
+}
+});
+year_options.sort();
+var category_options = [];
+$('.company').each(function() {
+var categories_str = $(this).parent().attr('usv:investment_categories')
+if (categories_str) {
+categories = categories_str.split(',');
+for (var i = 0; i < categories.length; i++) {
+cat = categories[i].replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+if ($.inArray(cat, category_options) == -1) {
+// we haven't seen this one yet
+if (cat != "" && typeof(cat) != "undefined") {
+category_options.push(cat);
+}
+}
+}
+}
+});
+category_options.sort();
+category_options.reverse();
+var all_options = series_options.concat(city_options).concat(year_options).concat(category_options);
+for (var i = 0; i < series_options.length; i++ ) {
+$("#series li:first").after('<li><a href="#" usv-filter="' + series_options[i].slugify() + '">' + series_options[i] + '</a></li>');
+}
+for (var i = 0; i < city_options.length; i++ ) {
+$("#locations li:first").after('<li><a href="#" usv-filter="' + city_options[i].slugify() + '">' + city_options[i] + '</a></li>');
+}
+for (var i = 0; i < year_options.length; i++ ) {
+$("#years li:first").after('<li><a href="#" usv-filter="' + year_options[i].slugify() + '">' + year_options[i] + '</a></li>');
+}
+for (var i = 0; i < category_options.length; i++ ) {
+$("#categories li:first").after('<li><a href="#" usv-filter="' + category_options[i].slugify() + '">' + category_options[i] + '</a></li>');
+}
+$(".filter-tabs a").click(function(e) {
+e.preventDefault()
+var query = $(this).attr("usv-filter");
+filter_portfolio(this, query);
+});
+if (window.location.hash) {
+var query = window.location.hash.split("#")[1];
+filter_button = $( "a[usv-filter='" + query + "']" );
+if(filter_button.length > 0) {
+filter_portfolio(filter_button, query);
+}
+}
+function filter_portfolio(filter_button, query) {
+/* Query should be a slugified string */
+// deactivate all other tabs
+$('.filter-tabs li').removeClass('active');
+// make all the "alls" active, just in case
+$('.all').addClass('active');
+// make this active.
+$(filter_button).parent().addClass('active');
+// deactivate this one's parent all
+$(filter_button).parent().parent().find('.all').removeClass('active');
+// hide or show all the companies
+$('.company').parent().each(function(){
+if ($(this).attr("usv:city_slug").indexOf(query) > -1 || $(this).attr("usv:investment_series_slug") == query || $(this).attr("usv:investment_date") == query || $(this).attr("usv:investment_categories_slug").indexOf(query) > -1 ) {
+$(this).show();
+} else {
+$(this).hide();
+}
+});
+if (query == "all") {
+$('.company').parent().show();
+$('.filter-tabs li').removeClass('active');
+// make all the "alls" active
+$('.all').addClass('active');
+$('body').ScrollTo();
+window.location.hash = '';
+} else {
+window.location.hash = query;
+$('body').ScrollTo();
+}
+// hide & show section headings
+if ($('.company-container.current:visible').length == 0) {
+$('#current-portfolio').hide();
+} else {
+$('#current-portfolio').show();
+if (query != 'all') {
+$('#current-portfolio .filter-label').text(', tagged "' + query + '"').show();
+} else {
+$('#current-portfolio .filter-label').hide()
+}
+}
+if ($('.company-container.past:visible').length == 0) {
+$('#past-portfolio').hide();
+} else {
+$('#past-portfolio').show();
+if (query != "all") {
+$('#past-portfolio .filter-label').text(', tagged "' + query + '"').show();
+} else {
+$('#past-portfolio .filter-label').hide();
+}
+}
+}
+// RANDOM SORT
+function USV_sort(order) {
+if (order == "random") {
+$(".investments-list").each(function(){
+// get current ul
+var $ul = $(this);
+// get array of list items in current ul
+var $liArr = $ul.children(".company-container");
+// sort array of list items in current ul randomly
+$liArr.sort(function(a,b){
+// Get a random number between 0 and 10
+var temp = parseInt( Math.random()*10 );
+// Get 1 or 0, whether temp is odd or even
+var isOddOrEven = temp%2;
+// Get +1 or -1, whether temp greater or smaller than 5
+var isPosOrNeg = temp>5 ? 1 : -1;
+// Return -1, 0, or +1
+return( isOddOrEven*isPosOrNeg );
+})
+// append list items to ul
+.appendTo($ul);
+});
+}
+if (order == "alphabetical") {
+$(".investments-list").each(function(){
+// get current ul
+var $ul = $(this);
+// get array of list items in current ul
+var $liArr = $ul.children(".company-container");
+// sort array of list items in current ul randomly
+$liArr.sort(function(a,b){
+if (a.getAttribute('usv-investment') > b.getAttribute('usv-investment'))
+return 1;
+if (a.getAttribute('usv-investment') < b.getAttribute('usv-investment'))
+return -1;
+// a must be equal to b
+return 0;
+})
+// append list items to ul
+.appendTo($ul);
+});
+}
+$(".investments-list").show()
+}
+USV_sort('random');
+$(".sort-tabs a").click(function(e) {
+e.preventDefault()
+var order = $(this).attr("usv-sort");
+USV_sort(order);
+$('.sort-tabs li').removeClass('active');
+$(this).parent().addClass('active');
+});
+});
+</script>
+
+<script type="text/javascript">
+$(function() {
+$('.field-errors').each(function() {
+if($.trim($(this).html()) == '') {
+$(this).hide();
+}
+});
+$('a.no-match').on('click', function(e) {
+$('#bypass_dup_check').val('true');
+$(this).closest('.field-errors').hide();
+});
+});
+$('ul.feed .votes-count').each(function() {
+var options = {
+'content': $(this).siblings('.voted_users').html(),
+'placement': 'bottom',
+'trigger': 'hover',
+'html': true,
+'delay': {'show': 500, 'hide': 500}
+}
+$(this).popover(options)
+});
+$('.ajax_upvote_link').on('click', function(e) {
+e.stopPropagation();
+e.preventDefault();
+var upvote_link = $(this);
+if (upvote_link.parent().hasClass('bumped')) {
+// user has already voted - this is a downvote.
+$.ajax($(this).attr('href'), {
+error: function(jqxhr, status, error) {
+alert("Could not upvote, an error occurred. Please try again.");
+},
+success: function(data, status, jqxhr) {
+if(data['data']['error']) {
+if(data['data']['redirect']) {
+$("#submit-modal").modal("show");
+} else {
+alert(data['data']['error']);
+}
+return;
+}
+upvote_link.find('.value').text(data['data']['votes'] - 1);
+upvote_link.parent().removeClass('bumped');
+upvote_link.attr('href', upvote_link.attr('href').replace('unbump', 'bump'));
+}
+});
+} else {
+// user has not already voted. this is an upvote.
+$.ajax($(this).attr('href'), {
+error: function(jqxhr, status, error) {
+alert("Could not upvote, an error occurred. Please try again.");
+},
+success: function(data, status, jqxhr) {
+if(data['data']['error']) {
+if(data['data']['redirect']) {
+$("#submit-modal").modal("show");
+} else {
+alert(data['data']['error']);
+}
+return;
+}
+upvote_link.find('.value').text(data['data']['votes'] - 1);
+upvote_link.parent().addClass('bumped');
+upvote_link.attr('href', upvote_link.attr('href').replace('bump', 'unbump'));
+upvote_link.removeClass('no-votes');
+}
+});
+}
+});
+$('.supervote-link').on('click', function(e) {
+e.stopPropagation();
+e.preventDefault();
+link = $(this);
+$.ajax($(this).attr('href'), {
+error: function(jqxhr, status, error) {
+alert("Could not vote, an error occurred. Please try again.");
+},
+success: function(data, status, jqxhr) {
+if(data['data']['error']) {
+if(data['data']['redirect']) {
+console.log('redirect')
+} else {
+alert(data['data']['error']);
+}
+return;
+}
+link.find('.value').text(data['data']['supervotes']);
+}
+});
+});
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+(function(){try{var s,a,i,j,r,c,l=document.getElementsByTagName("a"),t=document.createElement("textarea");for(i=0;l.length-i;i++){try{a=l[i].getAttribute("href");if(a&&"www.cloudflare.com/email-protection"==a.substr(7 ,35)){s='';j=43;r=parseInt(a.substr(j,2),16);for(j+=2;a.length-j&&a.substr(j,1)!='X';j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}j+=1;s+=a.substr(j,a.length-j);t.innerHTML=s.replace(/</g,"&lt;").replace(/>/g,"&gt;");l[i].setAttribute("href","mailto:"+t.value);}}catch(e){}}}catch(e){}})();
+/* ]]> */
+</script>
+</body>
+</html>

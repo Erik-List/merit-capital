@@ -1,0 +1,62 @@
+    retry 1 http://web.archive.org/web/20090207011919id_/http://unionsquareventures.com:80/portfolio.html: rc=7
+    retry 2 http://web.archive.org/web/20090207011919id_/http://unionsquareventures.com:80/portfolio.html: rc=7
+    retry 3 http://web.archive.org/web/20090207011919id_/http://unionsquareventures.com:80/portfolio.html: rc=7
+    retry 1 http://web.archive.org/cdx/search/cdx?url=usv.com/investments&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 http://web.archive.org/cdx/search/cdx?url=usv.com/investments&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 http://web.archive.org/cdx/search/cdx?url=usv.com/investments&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 http://web.archive.org/cdx/search/cdx?url=usv.com/investments&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 http://web.archive.org/cdx/search/cdx?url=usv.com/investments&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 http://web.archive.org/cdx/search/cdx?url=usv.com/investments&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 http://web.archive.org/web/20120616134357id_/http://www.usv.com/investments: rc=7
+    retry 2 http://web.archive.org/web/20120616134357id_/http://www.usv.com/investments: rc=7
+    retry 1 http://web.archive.org/cdx/search/cdx?url=usv.com/portfolio&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 http://web.archive.org/cdx/search/cdx?url=usv.com/portfolio&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 http://web.archive.org/cdx/search/cdx?url=usv.com/portfolio&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 http://web.archive.org/cdx/search/cdx?url=usv.com/portfolio&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 http://web.archive.org/cdx/search/cdx?url=usv.com/portfolio&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 http://web.archive.org/cdx/search/cdx?url=usv.com/portfolio&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 http://web.archive.org/cdx/search/cdx?url=usv.com/portfolio&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 http://web.archive.org/cdx/search/cdx?url=usv.com/portfolio&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 http://web.archive.org/cdx/search/cdx?url=usv.com/portfolio&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 http://web.archive.org/web/20190127193250id_/http://www.usv.com:80/portfolio: rc=7
+    retry 2 http://web.archive.org/web/20190127193250id_/http://www.usv.com:80/portfolio: rc=7
+    retry 3 http://web.archive.org/web/20190127193250id_/http://www.usv.com:80/portfolio: rc=7
+    retry 1 http://web.archive.org/cdx/search/cdx?url=usv.com/companies&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 http://web.archive.org/cdx/search/cdx?url=usv.com/companies&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 http://web.archive.org/web/20210115144729id_/https://www.usv.com/companies/: rc=7
+    retry 2 http://web.archive.org/web/20210115144729id_/https://www.usv.com/companies/: rc=7
+    retry 3 http://web.archive.org/web/20210115144729id_/https://www.usv.com/companies/: rc=7
+    retry 1 http://web.archive.org/web/20220117040249id_/https://www.usv.com/companies/: rc=7
+    retry 2 http://web.archive.org/web/20220117040249id_/https://www.usv.com/companies/: rc=7
+    retry 1 http://web.archive.org/web/20240214180905id_/https://www.usv.com/companies/: rc=7
+    retry 2 http://web.archive.org/web/20240214180905id_/https://www.usv.com/companies/: rc=7
+    retry 3 http://web.archive.org/web/20240214180905id_/https://www.usv.com/companies/: rc=7
+    retry 1 http://web.archive.org/web/20250103095822id_/https://www.usv.com/companies/: rc=7
+    retry 1 http://web.archive.org/web/20260131041850id_/https://www.usv.com/companies/: rc=7
+    retry 2 http://web.archive.org/web/20260131041850id_/https://www.usv.com/companies/: rc=7
+    retry 3 http://web.archive.org/web/20260131041850id_/https://www.usv.com/companies/: rc=7
+== era /portfolio.html 2005-2009 (regex listing)
+  2005: 4 entries
+  2006: 4 entries
+  2007: 7 entries
+  2008: 14 entries
+  2009: 0 entries
+== era /investments 2010-2012 (regex listing)
+  CDX empty for usv.com/investments; probing the replay per year
+  2012: 41 entries
+== era /portfolio 2013-2015 (regex listing)
+  CDX empty for usv.com/portfolio; probing the replay per year
+== era /portfolio 2019-2019 (regex listing)
+  2019: 0 entries
+== era /companies/ 2019-2026 (regex listing)
+  2019: 115 entries
+  2020: 120 entries
+  2021: 0 entries
+  2022: 147 entries
+  2023: 170 entries
+  2024: 0 entries
+  2025: 186 entries
+  2026: 0 entries
+
+years: [2005, 2006, 2007, 2008, 2012, 2019, 2020, 2022, 2023, 2025]
+distinct slugs across all years: 202

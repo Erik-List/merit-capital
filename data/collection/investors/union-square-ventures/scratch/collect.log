@@ -1,0 +1,30 @@
+targets: 33 roster names
+wrote /Users/erik/Developer/merit-capital/data/collection/investors/union-square-ventures/sources/edgar/formd-sweep.json
+# accessions matched: 417
+# distinct issuers: 205
+== seeding from EDGAR company search
+   36 entities
+== folding in own pooled Form D vehicles
+   +0 (total 36)
+== co-filer closure (sampling filings of seed entities)
+   42 entities
+   unclassified resolved: 4 partners (people), 0 external co-filers excluded from crawling
+
+wrote data/collection/investors/union-square-ventures/entities.json — 42 entities
+  by desk: {'us': 42}
+  crawlable (desk != external): 42
+registry: 42 entities · {'us': 42}
+crawling 42 (external excluded)
+  25/42 entities · 37 unique accessions
+unique ownership filings: 37
+
+wrote edgar-companies.json — 8 companies
+  by desk: {'us': 8}
+
+==== formd-query.py
+
+==== edgar-entities.py
+
+==== edgar-companies.py
+
+no base.json yet — the Form D rescan (formd-issuer-rounds.py) runs via `prepare` after build-company-base.py

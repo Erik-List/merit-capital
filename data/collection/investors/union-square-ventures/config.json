@@ -1,0 +1,223 @@
+{
+ "slug": "union-square-ventures",
+ "name": "Union Square Ventures",
+ "wayback": {
+  "cdx_domain": "usv.com",
+  "site_url_base": "https://www.usv.com",
+  "eras": [
+   {
+    "parser": "listing_regex",
+    "cdx_domain": "unionsquareventures.com",
+    "site_url_base": "http://www.unionsquareventures.com",
+    "path": "/portfolio.html",
+    "from": 2005,
+    "to": 2009,
+    "pattern": "<div class=\"excerpt\">\\s*<p>\\s*<a href=\"[^\"]+\"[^>]*>(?P<name>[^<]+)</a>",
+    "per_company_pages": false,
+    "raw": true,
+    "_note": "Movable Type site on the firm's first domain (2003-2009; usv.com became the primary domain in 2010). /portfolio.html renders one <div class='investment'> per company with the name as the first link of the excerpt, under 'Current Investments' and, from 2008, 'Prior Investments'. Measured 2026-09-05: 4 names (Jan 2006), 14 (Jan 2008), 23 (Feb 2009). The 2003-2004 site had no portfolio page."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/investments",
+    "from": 2010,
+    "to": 2012,
+    "pattern": "<li><a href=\"#\\d+\">(?P<name>[^<]+)</a></li>",
+    "per_company_pages": false,
+    "raw": true,
+    "_note": "2010-2012 usv.com site: /investments ('Our Investments') renders a side-nav <ul class='side-nav'> of anchor links, one per company, under 'Current Portfolio' and 'Past Investments'. Measured: 28 (Jul 2010), 32 (Jun 2011), 40 (Jun 2012)."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio",
+    "from": 2013,
+    "to": 2015,
+    "pattern": "company-container[^\"]*\"\\s+usv-investment=\"(?P<name>[^\"]+)\"",
+    "per_company_pages": false,
+    "raw": true,
+    "_note": "2013-2015 Bootstrap site: /portfolio renders one <div class='company-container current|past' usv-investment='Name' usv:investment_series='Seed|Series A..E' usv:investment_date='YYYY' usv:city='..' usv:investment_categories='..'> per company. The attributes (the firm's own entry-round label, entry year, city and categories as of 2013-2015) are read into sources/site/portfolio-2013-2015.json (file_list source); this era carries name and listing year. Measured: 62 (Oct 2013: 47 current + 15 past), 66 (Jan 2014), 72 (Jan 2015)."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio",
+    "from": 2019,
+    "to": 2019,
+    "pattern": "class=\"btn btn-secondary btn-block\"\\s+href=\"(?:https?://(?:www\\.)?usv\\.com)?/blog/(?P<slug>[^\"/]+)/?\"\\s+title=\"Read more about our investment in (?P<name>[^\"]+)\"",
+    "per_company_pages": false,
+    "raw": true,
+    "_note": "2016-2019 card site: /portfolio renders one <div class='card company-card'> per company with the website link, a description, the meta 'Series A, 2015' (entry round + year) and a 'More' button whose href is the firm's BLOG POST about the company (/blog/<post-slug>: Simulmedia -> /blog/welcome-back-dave), so the slug never names a row. Only the 2019 capture carries the company name (title='Read more about our investment in X', alt='X logo'); the Jan-2016, Apr-2017 and 2018 captures have no name text at all, so those years are parsed by hand from the raw captures into sources/wayback/parsed/2016-2018.json (names resolved through the 2019 title map, then the description's leading words) and into sources/site/portfolio-2016-2019.json (the stage+year labels). Measured: 80 cards (Jan 2016), 86 (Apr 2017, 'Current' + 'Exited Investments' sections), 95 named (Jan 2019)."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/companies/",
+    "from": 2019,
+    "to": 2026,
+    "pattern": "<div class=\"m__list-row__col\">\\s*(?:<a href=\"[^\"]*\"[^>]*>)?(?P<name>[^<]+?)\\s*(?:</a>)?\\s*<span class=\"exit-detail\">",
+    "per_company_pages": false,
+    "raw": true,
+    "_note": "2019-2026 WordPress site: /companies/ server-renders one <div class='m__list-row '> per company (name link or bare name, <span class='exit-detail'>, 'Series A, 2026' first-investment column, excerpt, 'Read the Post' link); the mobile duplicate rows carry no exit-detail span and are not matched. Measured: 120 (Jan 2020), 170 (Jan 2023), 216 (live, 2026-09-05)."
+   }
+  ],
+  "non_company_slugs": [
+   "index", "home", "companies", "company", "portfolio", "investments", "people", "team", "pages", "writing", "blog", "posts", "post", "about", "contact", "jobs", "careers", "focus", "thesis", "sessions", "sessions-events", "public-policy", "network", "usv-network", "portfolio-network", "feed", "page", "tag", "category", "author", "search", "wp-content", "wp-json", "wp-admin", "wp-includes", "xmlrpc", "cdn-cgi", "images", "css", "js", "static", "favicon", "robots", "sitemap", "wp-sitemap", "privacy", "privacy-policy", "terms", "disclosures", "legal", "climate", "crypto", "fintech", "health", "learning", "ai", "current", "past", "exited", "all", "see-all", "2", "3", "4", "5", "gtm", "email-protection", "www"
+  ]
+ },
+ "roster": {
+  "cdx_patterns": [
+   "usv.com/people/*",
+   "usv.com/team/*",
+   "content.usv.com/pages/*",
+   "unionsquareventures.com/team/*"
+  ],
+  "site_team_groups": [],
+  "slug_re": "/(?:people|team|pages)/([a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9])(?:\\.html)?/?$",
+  "listing_href_re": "/people/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+  "not_a_person": [
+   "index", "people", "team", "pages", "partner", "staff", "the-librarian", "page", "feed", "all", "filter", "category", "tag", "author", "search", "jobs", "careers", "about", "contact", "companies", "writing", "www", "email-protection", "you-are-here", "gtm"
+  ],
+  "_note": "Four people namespaces across eras: unionsquareventures.com/team/ (2005-2009), usv.com/team/<first-name>.html and /team/partner|staff (2010-2012), content.usv.com/pages/<slug> (the 2011-2012 Tumblr-based profiles) and usv.com/people/<slug>/ (2013-2026, 14 live cards incl. 'the-librarian', an AI assistant page, not a person). The 2010-2012 pages are first-name slugs ('fred', 'brad', 'albert') that no Form D sweep can use, and the Internet Archive was in a partial outage at kickoff (2026-09-05), so sources/wayback/partner-roster.json is CURATED: the live people page, the archived team pages, the firm's own hiring/welcome/farewell posts (sources/site/wp-posts.json) and the related persons on the firm's own fund Form Ds, with press-dated tenure windows (decisions.md)."
+ },
+ "site_api": {
+  "type": "scrape",
+  "sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/union-square-ventures/sources/site/live-companies.json",
+    "list": "companies-page",
+    "fields": {"name": "name", "url": "url"},
+    "sectors": "sectors",
+    "extras": ["first_investment", "round_site", "invest_year", "exit_detail", "excerpt", "post", "status_site", "entry_point_site", "logo"]
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/union-square-ventures/sources/site/team-live.json",
+    "list": "team",
+    "fields": {"name": "name", "url": "url"},
+    "extras": ["slug", "title", "socials"]
+   }
+  ],
+  "_note": "usv.com is WordPress with an open REST API, but the `company` post type has no REST route (wp-json/wp/v2/types lists posts, pages and media only; the 15-term `Company` taxonomy is a writing tag). Escalation ladder step 5: /companies/ is server-rendered as one table, read by scratch/pull-live-list.py into live-companies.json together with the firm's own Sector (32 terms), Status (acquired/current/exited/inactive/public) and Entry Point taxonomy terms per company, read off the filtered list pages. The posts archive (3,807 posts since 2004) is pulled by scratch/pull-wp-posts.py into wp-posts.json: the firm's own announcement layer for entry-round citations."
+ },
+ "edgar": {
+  "seed_queries": [
+   "union+square+ventures",
+   "union+square+gp",
+   "union+square+opportunity",
+   "union+square+principals",
+   "union+square+2012",
+   "usv+20",
+   "usv+opportunity",
+   "usv+climate",
+   "usv+bundled",
+   "usv+investors"
+  ],
+  "fts_phrases": [
+   "Union Square Ventures",
+   "USV Opportunity",
+   "USV Investors"
+  ],
+  "fts_own_pattern": "union square ventures|union square gp|union square 2012 gp|union square opportunity|union square principals|^usv (20|opportunity|climate|bundled|investors)",
+  "_note": "The firm's own vehicles all carry either the full name (Union Square Ventures 2004/2008/2012 Fund/Opportunity Fund, L.P.; Union Square GP 2004/2008, Union Square 2012 GP, Union Square Opportunity (Fund) GP, Union Square Principals 2004) or the USV prefix with a vintage or sleeve (USV 2014/2016/2019/2021/2022/2024, LP; USV Opportunity 2014/2019/2022/2026; USV Climate 2021/2022; USV Bundled 2021/2022; USV Investors 2012 Fund/2014/2016/2019/2021/2024; USV Opportunity Investors 2014/2019/2026; USV Bundled Investors 2022; USV Climate Investors 2021). Full-text phrases are entity-qualified; 'Union Square' alone drowns in the hospitality group, the CDOs and Manhattan real estate."
+ },
+ "wikipedia": {
+  "phrases": ["Union Square Ventures"]
+ },
+ "desks": {
+  "home": "us",
+  "partition": [],
+  "rank": ["us", "unknown"],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "union square advisors",
+     "union square park",
+     "union square partners",
+     "capital z",
+     "union square capital",
+     "union square hospitality",
+     "union square cafe",
+     "union square apartments",
+     "union square cdo",
+     "union square food",
+     "union square investment co",
+     "union square special purpose",
+     "nnn union square",
+     "union square events",
+     "union square market",
+     "union square holdings",
+     "union square (real estate|realty|properties|associates)"
+    ]
+   },
+   {
+    "desk": "us",
+    "patterns": [
+     "^union square ventures",
+     "^union square (gp|2012 gp|opportunity (fund )?gp|principals)",
+     "^usv (20\\d\\d|opportunity|climate|bundled|investors)"
+    ]
+   }
+  ],
+  "_note": "Namesakes verified by CIK and address (the firm files from 915 Broadway / 817 Broadway, New York), never by name: Union Square Advisors LLC (CIK 1368453, an M&A boutique), Union Square Park Capital Management / Park GP / Park Partners LP and Offshore (CIKs 1666231, 1919051, 1636137, 1666228; a hedge fund), Union Square Partners L P (CIK 1394193, the PE firm formerly Capital Z Partners III), Union Square Capital Partners LLC (PA), Union Square Hospitality Group / Union Square Cafe Corp (Danny Meyer's restaurants), Union Square CDO Ltd (structured credit), Union Square Apartments (CO real estate), Union Square Food Concepts (OK), Union Square Investment Co (1056463), Union Square Special Purpose Vehicle 1 LP (CA), NNN Union Square LLC. Square/Block and every unrelated issuer whose name carries USV as letters are portfolio-side questions for the judge, not registry entities."
+ },
+ "profile": {
+  "own_vehicle_pattern": "^(union square ventures|union square gp|union square 2012 gp|union square opportunity|union square principals|usv (20\\d\\d|opportunity|climate|bundled|investors))",
+  "focus_min_companies": 10,
+  "focus_crosswalk": {
+   "adtech": "Media, Gaming & Advertising",
+   "ai": "AI & Applied AI",
+   "machine-learning": "AI & Applied AI",
+   "climate": "Climate & Energy",
+   "environment": "Climate & Energy",
+   "commerce": "Consumer & Marketplaces",
+   "community": "Consumer & Marketplaces",
+   "consumer": "Consumer & Marketplaces",
+   "creator-platform": "Consumer & Marketplaces",
+   "marketplace": "Consumer & Marketplaces",
+   "social": "Consumer & Marketplaces",
+   "food": "Consumer & Marketplaces",
+   "retail": "Consumer & Marketplaces",
+   "real-estate": "Consumer & Marketplaces",
+   "education": "Consumer & Marketplaces",
+   "transportation": "Consumer & Marketplaces",
+   "crypto": "Crypto & Web3",
+   "data": "Data Infrastructure",
+   "infrastructure": "Data Infrastructure",
+   "developer-tools": "DevTools & APIs",
+   "enterprise": "SaaS",
+   "hr": "SaaS",
+   "workforce": "SaaS",
+   "fintech": "Fintech & Payments",
+   "insurance": "Fintech & Payments",
+   "gaming": "Media, Gaming & Advertising",
+   "media": "Media, Gaming & Advertising",
+   "music": "Media, Gaming & Advertising",
+   "publishing": "Media, Gaming & Advertising",
+   "hardware": "Industrial & Robotics",
+   "health": "Healthcare & Bio",
+   "privacy-security": "Security"
+  },
+  "_note": "The 32 slugs of the site's own Sector taxonomy (read per company off /companies/?industry-cat=<slug>) crosswalk to the closed twelve. Education (Duolingo, Quizlet, Codecademy, Skillshare, Edmodo, Outschool) has no value of its own in the taxonomy and lands under Consumer & Marketplaces as consumer learning products; transportation (mobility) follows the taxonomy's own alias. focus_min_companies ~4.5% of the expected ~220-row base."
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "twitter", "etsy", "tumblr", "zynga", "kickstarter", "foursquare", "twilio", "stack overflow", "duolingo", "coinbase", "cloudflare", "mongodb", "indeed", "soundcloud", "lending club", "carta", "codecademy", "kik", "meetup", "stash", "dune", "suno"
+  ],
+  "sample_slugs": [],
+  "shape": {
+   "one_b_share_max": 0.2,
+   "c2a_rate_max": 0.8,
+   "_note": "Defaults kept at kickoff: a ~220-row seed-and-A book with a couple of dozen $1B+ rows sits under the 20% guard; the seed cohort is the largest so far relative to base size and its graduation rate is measured before any ceiling is restated (decisions.md records a restatement if the guard fires on the shape of the evidence)."
+  }
+ },
+ "sample_slugs": [],
+ "commoncrawl": {
+  "company_paths": [],
+  "people_paths": ["people", "team", "pages"],
+  "_note": "No single-segment company namespace exists on usv.com: the 2013-2019 card links (/blog/<post-slug>, /posts/<slug>) point at blog posts, and the 2019+ per-company archives sit at /writing/company/<slug>/ (two segments). The five listing eras carry recall; Common Crawl is used for roster tenure (people pages) only."
+ }
+}
