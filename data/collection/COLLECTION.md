@@ -96,6 +96,31 @@ confirmed ruling.
   (own ERA and the firm's own "not a unitary enterprise" disclosure);
   Lightspeed China (independent partnership since 2011); Lightspeed
   Faction (own RIA).
+
+  **Strategy desks** (Erik, 2026-09-04). T1 keys on adviser identity,
+  which is a good proxy for independence and a poor one for "is this a
+  venture desk". Where one adviser covers several investment
+  strategies, the default above would pull the parent's non-venture
+  funds in. So the desk partition runs on strategy as well as
+  geography: non-venture strategies of the same adviser (buyout,
+  credit, infrastructure, public equities, real assets) are
+  `other_desk`, not `external`, and their rows leave the published base
+  preserved in `excluded.csv`, exactly as Accel's non-home desks
+  already do. Resolve the desk per vehicle by CRD or CIK, never by the
+  brand that announced the deal. Reaches Bain Capital Ventures and EQT
+  Ventures, where the venture arm may or may not carry its own
+  registration; check IAPD first, because where it does, T1 decides the
+  case with no partition needed.
+
+  **The profile is sliced to the same boundary as the base.** Where a
+  §11 field's only source is the parent's filing (ADV Item 5.F RAUM is
+  the usual one), the field is the sum of the venture desk's own
+  disclosed funds, labelled as a floor, or null-and-flagged. A parent's
+  RAUM never fills a child desk's `aum`: it would contradict the base
+  it sits next to by an order of magnitude. Where the parent is
+  publicly listed, its annual report segment disclosures are a stronger
+  source than an ADV and should be used and written back (first
+  candidate: EQT AB).
 - **T2 — Fund money.** Did a fund of the firm hold the position? Default
   IN where it did, whatever the program or channel; OUT where the only
   connection is a person, a program listing or an association. IN:
@@ -120,6 +145,29 @@ confirmed ruling.
   holdco) and Thrive Eternal (permanent capital for sports and cultural
   assets). Open: Accel's arista, a 13G-only holding with no documented
   pre-IPO round, awaiting Erik's ruling.
+
+  **Control positions** (Erik, 2026-09-04). A venture entry is a
+  *minority* position taken through a financing of the company. OUT:
+  any transaction in which the firm, alone or with its co-investor
+  group, acquires control (50% or more of the voting equity
+  post-transaction, or a transaction the company itself reports as a
+  change of control), including LBOs and majority recapitalisations,
+  and including where the company is private and the equity newly
+  issued. A control acquisition is not a round, so every column that
+  describes a round (`entry_stage`, entry valuation, the C2A cohort)
+  is meaningless for it. This is the transaction-level counterpart to
+  the vehicle-level exclusion above: Thrive Holdings was ruled out as a
+  vehicle that makes no venture rounds, which does not decide the case
+  where one vehicle does both (Insight, General Catalyst). Evidence
+  proxy: a Form D exists for a financing and not for a purchase of
+  existing shares, so a round whose Form D names the firm is a
+  financing absent contrary evidence. Control rows leave the published
+  base under `excluded.csv` reason `control_position`, preserved and
+  counted in the report (new reason code; not yet emitted by
+  `build-company-base.py`). A base that excludes them **says so on the
+  firm profile**: the published track record then covers the firm's
+  venture activity rather than the firm, and without that statement it
+  reads as the latter.
 - **T4 — Person or firm.** Whose money sat behind the seat on that date?
   A filing by a natural person locates the person, never a firm position,
   and a seat is dated against the person's firm at filing time. The full
@@ -144,6 +192,35 @@ at most two labels; a non-USD figure converts to USD at the ECB reference
 rate of its own date, and a listing outside SEC registration takes a
 web-cited market cap (both ruled on Creandum, Erik 2026-09-04; mechanics
 in §6 valuation).
+
+**Jurisdiction coverage** is a policy constant of the same kind (Erik,
+2026-09-04), and it governs only what is built *ahead of* a run. It does
+not narrow §5's standing instruction to invent a layer mid-run when the
+evidence is thin: that instruction applies in every jurisdiction,
+including the ones below the threshold.
+
+A jurisdiction is **pre-built** when at least three investors in the
+target list depend on it. Infrastructure only one run will ever use is
+better found mid-run and written back than specified in advance. On the
+current target list that threshold is met by the US (EDGAR, built),
+Germany, the UK and the Nordics. What each register can actually answer
+is §5's country table, and that table governs over any summary here: the
+registers differ by direction (backtrace versus forward enumeration) and
+only Denmark and Norway answer both. Sequence inside a pre-built
+jurisdiction follows §5 as well, `status` first, since it is free and
+machine-readable in every one of them and repairs the column this
+playbook undercounts by construction, and a membership layer only where
+that register supports one.
+
+Below the threshold a jurisdiction is **decided in the run, never
+degraded in advance**. The run probes its register under a bounded effort
+budget, the same way §5 requires the Wayback and Common Crawl eras to be
+checked before concluding that no list ever existed, and records a
+finding: usable (cite it, and propose the layer for write-back), or not
+usable (name the obstacle, fall back to the layers that are proven, count
+the gap). Switzerland, LatAm and Asia sit below the threshold today. That
+fixes what is built before a run starts and nothing about what the run
+may conclude or invent.
 
 ### The derivation protocol
 
@@ -643,6 +720,62 @@ stages, 6 unicorn pre-fills, one float), so the A/B pass carries the
 whole visible slice and the search budget is sized for it (~78 searches
 on 177 rows).
 
+**When the firm is a German seed manager** (measured on Cherry Ventures,
+2026-09-04, the second EU run): the "no SEC" assumption fails in a specific
+way — a German AIF manager that raises US money files Form ADV as an exempt
+reporting adviser (Cherry Ventures Management GmbH (AIFM), CRD 301494) and
+its Delaware feeder L.P.s file Form D, so Section 7.B gross asset values
+exist and anchor AUM even though the ADV may lag the newest fund by two
+vintages (Cherry's 2024 amendment carries Funds III and IV, not V). The
+Handelsregister, read through North Data's free entity pages, gives the
+whole vehicle tree with incorporation dates, general partners and the
+limited partners named in the announcement history (44 entities: fund KGs,
+GP GmbHs, Entrepreneurs / Employee / Carry KGs, numbered Opportunities
+co-investment KGs, a Growth fund, a Select sleeve, UK and Swedish
+branches) — filing-grade for the boundary and the fund ladder, and again
+zero portfolio (the KGs' participations sit behind the aggregator's paywall;
+handelsregister.de's own shareholder lists were not needed because the
+firm's four list surfaces carried recall). BaFin's institution database
+returns nothing for a registered (sub-threshold, KAGB §44) manager; the
+ADV's Item 1.M records the BaFin registration instead.
+
+**Four list surfaces can coexist for one small firm, and the archive is
+still load-bearing.** Cherry's live Webflow site (94 pages, 90 listed, an
+"(EXIT)" marker, no dates or stages), the Sanity CMS behind its 2024–2025
+Next.js site — still publicly queryable after the migration, with a date
+field, founders and sector tags for 86 companies plus 108 dated articles
+(the migrated post archive with body text) — the archived WordPress
+listings 2016–2023 (seven years, 107 companies, the firm's own investment
+dates as `data-invested` epoch seconds, a 2016–2019 "Investment: Seed /
+Series A" label, sector classes and exit flags) and a Getro job board
+(98 companies, 38 on no other surface). Three rules from it: **a decommissioned
+headless CMS is often still readable** — grep the archived RSC payload for
+a Sanity or Contentful project id and query it before parsing the render;
+**a site's date field carries mixed semantics** (the Webflow FOUNDED field
+was the launch year for the old book and the announcement date for
+2024+ rows; the 2020–2023 `data-chronological` attribute was the launch
+year, not the investment year — verify a date field against three known
+deals before it feeds `first_seen`); and **archived WordPress posts can be
+title-only** (the bodies loaded by script from a wp-json endpoint the
+archive never captured), in which case the URL slug still names the round
+and the migrated CMS holds the text.
+
+**The common-word name cost nothing once the phrases were entity-qualified**
+(PRO-73's defining trap): "Cherry Ventures" / "Cherry Decentral" returned
+five documents on EDGAR full-text search, all the firm's own Form Ds, and
+five Wikipedia articles, four already in the base; the namesakes (Cherry
+Tree Ventures, the 2007 Cherry Ventures Ltd of London, Cherry AB) were
+caught by the entity registry's address check, never by the phrase layers.
+
+**Evidence-pack mechanics that bit** (Cherry): a sentence splitter that
+breaks at the decimal point of "$5.1M pre-seed" truncates the round word,
+and the golden key and the blind pass both read the truncated snippet the
+same wrong way (two key rows corrected after the pass); the splitter must
+keep decimals. And a page whose rendered title sits below a hero block makes
+a name extractor fall back to the URL slug (nine rows published as slugs
+until a names-only rebuild) — check the extracted names against the CMS
+rendering before the build.
+
 ### European registers, country by country
 
 Researched 2026-09-04 at Erik's request, after the Creandum run reached
@@ -829,6 +962,16 @@ the other two runs holding xAI had already retired it. A subsidiary that
 was never acquired but sells priced primary rounds to outside investors
 (Waymo, an Alphabet unit since the 2016 spin-out) is `private` with that
 mark: there was no acquisition event to retire the value.
+
+**Insolvency followed by an asset sale is `acquired` with a successor note,
+not `defunct`** (Cherry, 2026-09-04; agent, flagged): where the business
+continues under an acquirer (Julienne Bruno out of administration into
+Harvey & Brockless, Joblift's assets into Adzuna, Homelike's brand into
+Spacest, Infarm's IP into a successor NewCo), the row reads `acquired` and
+the note says the sale came out of insolvency; `defunct` is reserved for
+businesses that ended (Watchmaster wound up, Weengs, Lesara, Move24). A
+German seed book carries many of both, and the register's insolvency
+notices are the layer that separates them.
 
 **Whichever surface supplies status covers only its own rows.** A site CMS
 carries status for listed rows and nothing for members that entered
@@ -1446,6 +1589,18 @@ Field recipes, learned on Sequoia and a16z:
   run it when a rule changes, so icons that predate it are found rather
   than assumed fine. The DB still only changes on ingest.
 
+- **A German issuer's Form D city carries its district** ("BERLIN - MITTE"):
+  the builder strips the " - <district>" suffix so `hq_location` reads
+  "Berlin, Germany" (Cherry, 2026-09-04).
+- **An ERA whose ADV lags the fund ladder anchors only the bottom.** Cherry's
+  2024 Section 7.B ($905.7M across Funds III, IV and the web3 sleeve)
+  predates Cherry V ($500M, 2025); the top took the only credible press
+  figure ("around $1 billion"), and the sidecar says why the sworn number
+  is a floor. Feeders (Fund III (US) / IV (US) L.P.) are described in the
+  funds basis, never listed beside their master KGs.
+- **Comma-joined site tags** ("Industry, SaaS, AI") are split by the
+  profile's focus recompute into single words, so the crosswalk must carry
+  the words as well as the phrases, or the recompute reports them unmapped.
 - **Focus recompute needs representative tags.** A base-derived focus
   distribution publishes only when sector tags cover ≥25% of base rows;
   below that the tagged slice describes whichever surface carried tags,

@@ -1,0 +1,106 @@
+{
+  "_readme": "EDGAR full-text sweep (scripts/edgar-fts-sweep.py): hits for the configured phrases aggregated by registrant; bucket third_party = exit-side disclosure candidates for the judge (S-1 IRA signatories and holder tables, 424B selling stockholders, acquirer S-3/S-4/8-K), own = the investor's entities/people, lp_side = registered funds holding the investor's vehicles, ownership_forms = 13D/G, 3/4 or D filings handled by the entities/ownership layers.",
+  "phrases": [
+    "Cherry Ventures",
+    "Cherry Decentral"
+  ],
+  "own_pattern": "cherry ventures|cherry decentral|titanbay",
+  "swept_at": "2026-09-04",
+  "registrants": [
+    {
+      "registrant": "Cherry Ventures Fund III (US), L.P.",
+      "cik": "0001762608",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2019-01-07",
+      "last_date": "2019-01-07",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2019-01-07",
+          "adsh": "0001762608-19-000002",
+          "url": "https://www.sec.gov/Archives/edgar/data/1762608/000176260819000002/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1762608/000176260819000002/0001762608-19-000002-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Cherry Ventures Fund IV (US), L.P.",
+      "cik": "0001898140",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2022-01-07",
+      "last_date": "2022-01-07",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2022-01-07",
+          "adsh": "0001898140-22-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1898140/000189814022000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1898140/000189814022000001/0001898140-22-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Cherry Decentral I GMBH & Co. KG",
+      "cik": "0001908733",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2022-02-22",
+      "last_date": "2022-02-22",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2022-02-22",
+          "adsh": "0001908733-22-000002",
+          "url": "https://www.sec.gov/Archives/edgar/data/1908733/000190873322000002/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1908733/000190873322000002/0001908733-22-000002-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Titanbay Focused Master Fund SCSp SICAV-RAIF - Titanbay Cherry Ventures Select V Feeder",
+      "cik": "0002040642",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2024-10-25",
+      "last_date": "2024-10-25",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2024-10-25",
+          "adsh": "0002040642-24-000002",
+          "url": "https://www.sec.gov/Archives/edgar/data/2040642/000204064224000002/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/2040642/000204064224000002/0002040642-24-000002-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Titanbay Focused Master Fund SCSp SICAV-RAIF Titanbay Cherry Ventures Fund V Feeder",
+      "cik": "0002043309",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2024-10-31",
+      "last_date": "2024-10-31",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2024-10-31",
+          "adsh": "0002043309-24-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/2043309/000204330924000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/2043309/000204330924000001/0002043309-24-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    }
+  ]
+}

@@ -1,0 +1,352 @@
+{
+ "slug": "cherry",
+ "generated_at": "2026-09-04T20:52:47+00:00",
+ "run": "PRO-73 merged run (base, classification, profile in one session)",
+ "fields": {
+  "name": {
+   "value": "Cherry Ventures",
+   "source": "https://cherry.vc/",
+   "basis": "firm site; the brand since 2012 (management company Cherry Ventures Management GmbH (AIFM), HRB 164518 B; decisions.md D1)"
+  },
+  "website": {
+   "value": "https://cherry.vc",
+   "source": "https://cherry.vc/",
+   "basis": "firm site (Webflow; portfolio at /founders, pages at /founder-companies/<slug>)"
+  },
+  "icon_url": {
+   "value": "https://cdn.prod.website-files.com/697f93ad7d63d775baed46f8/69adfb2aecd7a4b431782bf9_weblicp.png",
+   "source": "https://cherry.vc/",
+   "basis": "the site's 256x256 Apple web-clip PNG (cdn.prod.website-files.com ... weblicp.png; the favicon is 32px); dry-run normalised by scripts/fetch-investor-icon.ts on 2026-09-04 to sources/site/icon-256-dryrun.png; the bucket upload runs with the ingest after approval, then ingest-investor.ts carries the bucket URL Uploaded 2026-09-05 with Erik's approval; investor.json carries the bucket URL https://lsohkkmdlrlixukuncjl.supabase.co/storage/v1/object/public/Icon%20Images/investors/cherry-a7be9177cc.png.",
+   "flags": []
+  },
+  "founding_year": {
+   "value": 2012,
+   "source": "https://cherry.vc/about",
+   "basis": "the firm's own claim ('Founded in 2012, first as an angel fund, by Filip Dames and Christian Meermann'; the 2019 Fund III post dates the first conversation to 3 May 2012); register: Cherry Ventures UG & Co. KG and its GP Cherry Ventures GmbH incorporated 2012-09-26 (Handelsregister via North Data, sources/registers/entities.json); Form ADV Schedule A: FD Invest GmbH and Morango GmbH managing members since 09/2012"
+  },
+  "history": {
+   "value": "Founded in Berlin in 2012 by Zalando operators Filip Dames and Christian Meermann, first as an angel fund that wrote early checks into AUTO1, FlixBus, Amorelie and Quandoo, Cherry Ventures grew through Cherry II (2016), III (2019) and IV (2022) into a pan-European seed firm with teams in Berlin, London and Stockholm, backing Forto, Flink, Moss, Dash0 and Proxima Fusion, and raised $500M for Cherry V and an opportunity fund in 2025.",
+   "source": "https://cherry.vc/about",
+   "basis": "the About page (angel fund 2012, Cherry II EUR 150M 2016, III EUR 175M 2019, IV EUR 320M 2022, V $500M 2025; teams in Berlin, London, Stockholm); founders' Zalando past per their profile pages; AUTO1/FlixBus/Amorelie/Quandoo as 2012-2013 entries per the archived listings' investment dates; the named later companies are ledger-verified members"
+  },
+  "investment_concept": {
+   "value": "Founders first. For companies that last.",
+   "source": "https://cherry.vc/",
+   "basis": "the site's own title tag and hero line, 2026-09-04 ('Cherry Ventures - Founders first. For companies that last.')"
+  },
+  "investment_stage": {
+   "value": [
+    "Pre-Seed",
+    "Seed",
+    "Series A",
+    "Growth"
+   ],
+   "source": "https://cherry.vc/about",
+   "basis": "the About page: 'early-stage investors, from pre-seed to Series A', seed as the core stage; the 2025 opportunity fund backs portfolio companies 'at Series B and beyond' (Cherry V announcement, TechCrunch 2025-02-05) -> Growth; the landed base: Seed 113 / Pre-Seed 22 / Series A 11 / Growth 2 of 148",
+   "flags": [
+    "growth_via_opportunity_fund"
+   ]
+  },
+  "investment_geo": {
+   "value": {
+    "core": [
+     "Europe"
+    ],
+    "other": [
+     "US"
+    ]
+   },
+   "source": "https://cherry.vc/about",
+   "basis": "the About page ('pan-European, not country-focused'; offices Berlin, London, Stockholm; a San Francisco venture partner); the base: 87 DE rows, 18 GB, 8 SE, 6 DK, 12 US of 148 -> core Europe, other US (two-label cap respected; no §9 trigger 3)"
+  },
+  "investment_scope": {
+   "value": {
+    "type": "Generalist",
+    "focus": [
+     "Consumer & Marketplaces",
+     "Fintech & Payments",
+     "Industrial & Robotics",
+     "DevTools & APIs",
+     "SaaS",
+     "Healthcare & Bio",
+     "Climate & Energy",
+     "Media, Gaming & Advertising"
+    ]
+   },
+   "source": "base.json",
+   "basis": "focus from the firm's own site sector tags on 265 base rows, crosswalked to data/taxonomy/focus.json (crosswalk in config.json), published above 7 companies. Scope type is the curated judgement carried in investor.json."
+  },
+  "investment_range": {
+   "value": {
+    "lower_limit": 1000000,
+    "median": 5000000,
+    "upper_limit": 50000000
+   },
+   "source": "https://cherry.vc/about",
+   "basis": "lower: the firm's own FAQ ('typically we invest between EUR 2 million and EUR 7 million'), with documented EUR 1M pre-seeds (Bits) as the floor; median: press-based — the median of 51 documented entry rounds of verified members 2013-2026 (the firm's own posts and cited press; scratch/verified-median.json), $5.0M, the late Growth/Series A entries and the SellerX equity-plus-debt seed excluded as outliers — not a filing-grade Form D distribution; upper: the largest led or co-led rounds (Dash0 $35M Series A co-led, Qlub $30M co-led, Proxima Fusion EUR 130M Series A co-led with Balderton) capped at a 10% single-position concentration of the $500M Cherry V",
+   "flags": [
+    "press_based_median",
+    "no_formd_distribution"
+   ]
+  },
+  "notable_investments": {
+   "value": [
+    "Flix",
+    "Auto1 Group",
+    "Forto",
+    "Moss",
+    "Flink",
+    "Infarm",
+    "Amorelie",
+    "Quandoo"
+   ],
+   "source": "base-verification.json",
+   "basis": "recognition over the confirmed base only (COLLECTION.md §11): eight ledger-verified members the model recognises — Flix, AUTO1 (public), Forto, Moss, Flink, Infarm, Amorelie, Quandoo"
+  },
+  "aum": {
+   "value": {
+    "bottom": 905716223,
+    "top": 1000000000
+   },
+   "source": "https://adviserinfo.sec.gov/firm/summary/301494",
+   "basis": "bottom: the sworn Form ADV Section 7.B(1) gross asset values of Cherry Ventures Management GmbH (AIFM), CRD 301494, annual amendment 2024-03-14 (IAPD PDF parsed 2026-09-04, scratch/adv-7b-funds.json): Cherry Ventures Fund III GmbH & Co. KG $534,198,960, Fund IV GmbH & Co. KG $342,626,794, Cherry Decentral I $28,890,469 = $905,716,223 — an ERA-only firm files no Item 5.F RAUM, so 7.B is the sworn substitute; it predates Cherry V ($500M, 2025) and Select V and omits Fund II and the Opportunities vehicles, so it is a floor; top: press 'around $1 billion assets under management' (Private Equity International institution profile / privateequitylist, 2025), the only credible press figure; the firm publishes no AUM",
+   "flags": [
+    "adv_7b_gav_substitute",
+    "era_no_raum",
+    "adv_2024_predates_fund_v"
+   ]
+  },
+  "funds": {
+   "value": [
+    {
+     "name": "Cherry V (Early Stage and Opportunity)",
+     "size": 500000000,
+     "vintage": 2025
+    },
+    {
+     "name": "Cherry Ventures Fund IV GmbH & Co. KG",
+     "size": 362800000,
+     "vintage": 2022
+    },
+    {
+     "name": "Cherry Ventures Fund III GmbH & Co. KG",
+     "size": 196100000,
+     "vintage": 2019
+    },
+    {
+     "name": "Cherry II",
+     "size": 167500000,
+     "vintage": 2016
+    },
+    {
+     "name": "Cherry Decentral I GmbH & Co. KG",
+     "size": 17120721,
+     "vintage": 2022,
+     "accession": "0001908733-22-000002"
+    }
+   ],
+   "source": "https://cherry.vc/about",
+   "basis": "the firm's own About page fund ladder (2012 angel fund, Cherry II EUR 150M, III EUR 175M, IV EUR 320M, V $500M) with sizes converted at ECB reference rates on the announcement dates (scripts/fx-convert.py, D9): IV EUR 320M @ ECB 2022-01-20 (announced as EUR 300M on 2022-01-20 — own post, TechCrunch's contemporaneous $312M — and stated as EUR 320M by the site after the final close) = $362,800,000; III EUR 175M @ ECB 2019-06-19 (own post 'say hello to our Fund III', TechCrunch 2019-06-19) = $196,100,000; II EUR 150M @ ECB 2016-05-24 (the TourRadar release: 'first investment since announcing the closing of its new EUR 150 million fund') = $167,500,000; V $500M (own 2025 open letter; TechCrunch 2025-02-05) split between the Early Stage fund and an opportunity fund; Cherry Decentral I at its Form D amount sold ($17,120,721, accession-verified). The 2012 angel fund (Cherry Ventures UG & Co. KG) has no published size and is described, not listed; the US feeders (Fund III (US) / IV (US) L.P., $200.7M / $311.0M offerings, $0 sold at filing), the Growth Fund (2021), Select V (2024) and the Opportunities II-XII co-investment KGs are vehicles of the same funds or unsized sleeves (D1, D6) and are not listed",
+   "flags": [
+    "press_sizes",
+    "fx_converted",
+    "feeders_not_listed"
+   ]
+  },
+  "hq_location": {
+   "value": "Berlin, Germany",
+   "source": "sources/edgar/formd-sweep.json",
+   "basis": "issuer address on 3 of 3 of the firm's own Form D filings; unanimous. Filing-grade."
+  },
+  "individuals": {
+   "value": [
+    {
+     "name": "Christian Meermann",
+     "position": "Founding Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/christian-meermann-40955411/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Dinika Mahtani",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/dinika-mahtani-0a2494158/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Filip Dames",
+     "position": "Founding Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": "https://twitter.com/filipdames?lang=en"
+     }
+    },
+    {
+     "name": "Julius de Gruyter",
+     "position": "Investor",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/juliusdg/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Lily Petherick",
+     "position": "Investor",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/lily-petherick-03bbbb14a/?originalSubdomain=uk",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Lutz Finger",
+     "position": "Venture Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Nadja Reischel",
+     "position": "Principal",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/nadja-carina-reischel/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Patrick Doran",
+     "position": "Investor",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/patrick-doran-ba38681ab?originalSubdomain=uk",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Sophia Bendz",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/sophiabendz/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Victor Huerbe",
+     "position": "Principal",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/victor-huerbe-speedy/?originalSubdomain=de",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Alexander Langholz-Baikousis",
+     "position": "CFO & Operating Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Anna Sziwek",
+     "position": "Senior Finance Manager",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/anna-sziwek/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Ben Newsome",
+     "position": "VP, Talent and People",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/bennewsome?originalSubdomain=uk",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Christina Käss",
+     "position": "Executive Assistant",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/christina-k%C3%A4ss-57267727/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Claire McDonald",
+     "position": "Team Assistant",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "James Hunter",
+     "position": "VP, Finance and Investor Relations",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/jamesroberthunter/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Jonas von Kalben",
+     "position": "Head of Legal",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/jonas-von-kalben-9a1206177/?originalSubdomain=de",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Lexi Bicker-Künstle",
+     "position": "Fund Operations Associate",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/lexi-bicker-002b7355/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Nicole Oli",
+     "position": "Events & Operations Manager",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/nicole-g-1217985b/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Rhiannon Hames",
+     "position": "Chief of Staff",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/rhiannon-hames/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Sarah Rall",
+     "position": "VP, Communications and Brand",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/sarahrall/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Silva Kartaliyska",
+     "position": "Finance & Business Operations Manager",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/silva-k-438229129/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Tyrell Anderson",
+     "position": "Office & Events Manager",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    }
+   ],
+   "source": "sources/site/team-members.json",
+   "basis": "Live team CMS: 23 members. Positions are CMS titles (21 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 5 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 18 LinkedIn, 1 X."
+  }
+ }
+}

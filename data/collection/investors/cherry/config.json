@@ -1,0 +1,433 @@
+{
+ "slug": "cherry",
+ "name": "Cherry Ventures",
+ "wayback": {
+  "cdx_domain": "cherry.vc",
+  "site_url_base": "https://www.cherry.vc",
+  "eras": [
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio/",
+    "from": 2016,
+    "to": 2020,
+    "pattern": "<li data-name=\"(?P<name>[^\"]+)\" data-invested=\"\\d+\" id=\"(?P<slug>[^\"]+)\" class=\"portolio-list-item\"",
+    "per_company_pages": false,
+    "raw": true,
+    "_note": "2016-10 to 2019 WordPress site (cherry.vc, launched 2016-11 with backdated posts; the 2015-2016 domain carried a WP 4.3 splash only): /portfolio/ renders one <li data-name data-invested(epoch seconds) id class=portolio-list-item> per company with a detail block (Launch year, 'Investment: Seed / Series A' stage label, founders, website) and an exit ribbon. The detail attributes are read into sources/site/portfolio-2016-2023.json (a file_list source); this era carries only name, slug and listing year. The January-2020 capture still carries this markup (the redesign landed 2020-02), so the era runs to 2020."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio/",
+    "from": 2020,
+    "to": 2024,
+    "pattern": "(?s)data-name=\"(?P<name>[^\"]+)\" data-chronological=\"[^\"]*\"[^>]*>.*?<div class=\"d-none slug\">(?P<slug>[^<]+)</div>",
+    "per_company_pages": false,
+    "raw": true,
+    "_note": "2020-2023 WordPress 5.x site: /portfolio/ renders one <div class='mix col-md-4 popup-trigger-thumnail <sector classes>' data-name data-chronological(investment year, sometimes yyyymmdd)> per company with hidden website / description / slug divs and an 'exited' logo class. Attributes read into sources/site/portfolio-2016-2023.json. The 2024 capture is the Next.js successor and matches nothing."
+   },
+   {
+    "parser": "cdx_company_pages",
+    "path": "/portfolio_item/",
+    "from": 2020,
+    "to": 2024,
+    "per_company_pages": true,
+    "_note": "WordPress per-company pages (post type portfolio_item, 72-74 in the archived wp-sitemap); the Internet Archive captured only a handful, Common Crawl more (commoncrawl.company_paths)."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/founders",
+    "from": 2026,
+    "to": 2026,
+    "pattern": "href=\"/founder-companies/(?P<slug>[^\"]+)\"",
+    "per_company_pages": true,
+    "raw": true,
+    "_note": "2026 Webflow site: /founders lists 90 companies as links to /founder-companies/<slug>; names come from the live rendering (sources/site/webflow-companies.json). The 2024-2025 Next.js site (Sanity CMS, project 763y4e9t) rendered /founders from an RSC payload with no per-company URLs; that list surface is read live from the Sanity query API instead (sources/site/sanity-companies.json)."
+   },
+   {
+    "parser": "cdx_company_pages",
+    "path": "/founder-companies/",
+    "from": 2026,
+    "to": 2026,
+    "per_company_pages": true
+   }
+  ],
+  "non_company_slugs": [
+   "index",
+   "home",
+   "home-v2",
+   "page",
+   "feed",
+   "search",
+   "tag",
+   "category",
+   "author",
+   "all",
+   "see-all",
+   "founders",
+   "founder-companies",
+   "portfolio",
+   "portfolio_item",
+   "team",
+   "team_member",
+   "people",
+   "news",
+   "articles",
+   "about",
+   "about-us",
+   "contact",
+   "imprint",
+   "privacy-policy",
+   "privacy-policy-2",
+   "sfdr",
+   "anti-harassment",
+   "anti-harassment-discrimination-policy",
+   "talent",
+   "jobs",
+   "careers",
+   "network",
+   "faq",
+   "content",
+   "wp-content",
+   "wp-json",
+   "wp-admin",
+   "wp-includes",
+   "xmlrpc",
+   "cdn-cgi",
+   "assets",
+   "images",
+   "media",
+   "css",
+   "sitemap",
+   "robots",
+   "favicon",
+   "en",
+   "de",
+   "sample-page",
+   "wordpress",
+   "building-europes-firsttrillion-dollarcompany",
+   "v2-building-europes-firsttrillion-dollarcompany",
+   "stealth",
+   "stealth-3",
+   "48",
+   "2",
+   "3",
+   "4",
+   "5"
+  ],
+  "_non_company_note": "'stealth' / 'stealth-3' are the 2018 listing's unnamed placeholders (no identifiable company: not rows, decisions.md D12); '48' is Flixbus's WordPress slug (portfolio_item/48) whose name the listing era already carries as 'Flixbus' / 'FlixMobility', dropped here so the per-company era cannot mint a row named '48'."
+ },
+ "roster": {
+  "cdx_patterns": [
+   "cherry.vc/team_member/*",
+   "cherry.vc/team/*"
+  ],
+  "site_team_groups": [
+   "Investors"
+  ],
+  "slug_re": "/(?:team_member|team)/([a-z][a-z0-9-]*[a-z0-9])/?$",
+  "listing_href_re": "/(?:team_member|team)/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+  "not_a_person": [
+   "index",
+   "team",
+   "team_member",
+   "people",
+   "partners",
+   "about",
+   "companies",
+   "news",
+   "contact",
+   "jobs",
+   "careers",
+   "all",
+   "filter",
+   "page",
+   "our-team",
+   "the-team",
+   "cherry-ventures",
+   "cherry",
+   "verena-pausder",
+   "miki-kuusi",
+   "ilkka-paananen",
+   "jochen-engert",
+   "mario-gotze",
+   "hakan-koc",
+   "david-nothacker",
+   "julius-koehler"
+  ],
+  "_note": "Two people namespaces: /team_member/<slug> (WordPress 2020-2023, 22-25 pages in the archived wp-sitemap) and /team/<slug> (Webflow 2026). The Webflow namespace also carries the 'glimpse into our network' profiles (Pausder, Kuusi, Paananen, Engert, Goetze, Koc, Nothacker, Koehler: founders and operators in Cherry's LP and advisor network, never staff); they are dropped here so their names cannot attribute Form D seats. The 2016-2019 team listing pages had no per-person URLs, so those years are CURATED into sources/wayback/partner-roster.json from the archived /team/ captures and the firm's own hiring posts (decisions.md D10)."
+ },
+ "site_api": {
+  "type": "scrape",
+  "sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/cherry/sources/site/webflow-companies.json",
+    "list": "founder-companies",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "sectors": "industry",
+    "extras": [
+     "slug",
+     "website",
+     "founded",
+     "industry_list_tag",
+     "location",
+     "founders",
+     "description",
+     "mission",
+     "exit_tag",
+     "on_founders_list",
+     "tagline"
+    ]
+   },
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/cherry/sources/site/sanity-companies.json",
+    "list": "sanity-2024-2025",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "sectors": "tag_titles",
+    "extras": [
+     "slug",
+     "website",
+     "date",
+     "invest_year",
+     "founded_site",
+     "founders",
+     "description",
+     "exit_tag",
+     "companyType",
+     "created_at"
+    ]
+   },
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/cherry/sources/site/portfolio-2016-2023.json",
+    "list": "portfolio-2016-2023",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "sectors": "sectors",
+    "extras": [
+     "slug",
+     "invest_year",
+     "invest_date",
+     "stage_site",
+     "launch",
+     "founders",
+     "website",
+     "status_site",
+     "exit_years",
+     "years_listed",
+     "description"
+    ]
+   },
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/cherry/sources/site/jobs-board-companies.json",
+    "list": "jobs-board",
+    "fields": {
+     "name": "name",
+     "url": "website"
+    },
+    "extras": [
+     "board_slug",
+     "domain",
+     "description",
+     "industry_tags",
+     "locations",
+     "stage",
+     "founded",
+     "head_count",
+     "org_type",
+     "active_jobs"
+    ]
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/cherry/sources/site/team-webflow.json",
+    "list": "team",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "slug",
+     "title",
+     "office",
+     "group",
+     "linkedin_url",
+     "x_url"
+    ]
+   }
+  ],
+  "_note": "cherry.vc is a Webflow site (no public CMS API; escalation ladder step 5): the sitemap enumerates every /founder-companies/<slug>, /news/<slug> and /team/<slug> page and each page is fetched and read (webflow-companies.json, announcements-webflow.json, team-webflow.json). The 2024-2025 Next.js site's Sanity dataset (project 763y4e9t, production) is still publicly queryable and is read as a second, dated list surface. The archived 2016-2023 WordPress listings carry the firm's own investment dates, stage labels (2016-2019) and sector classes and are read into portfolio-2016-2023.json. talent.cherry.vc is a Getro job board (Thrive precedent)."
+ },
+ "edgar": {
+  "seed_queries": [
+   "cherry+ventures",
+   "cherry+decentral"
+  ],
+  "fts_phrases": [
+   "Cherry Ventures",
+   "Cherry Decentral"
+  ],
+  "fts_own_pattern": "cherry ventures|cherry decentral|titanbay",
+  "_note": "Entity-qualified phrases only (PRO-73): the bare word drowns in Cherry Hill / Cherry Creek / Cherry AB / Cherry Bekaert. Measured 2026-09-04: EDGAR full-text search for \"Cherry Ventures\" over all years returns 5 documents, all Form D (the firm's own US feeders, Cherry Decentral I and the Titanbay feeders); no third-party registrant names the firm."
+ },
+ "wikipedia": {
+  "phrases": [
+   "Cherry Ventures"
+  ]
+ },
+ "desks": {
+  "home": "eu",
+  "partition": [],
+  "rank": [
+   "eu",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "cherry tree",
+     "cherry bekaert",
+     "^cherry ab\\b",
+     "cherry hill",
+     "cherry creek",
+     "cherry lane",
+     "cherry street",
+     "cherry (technologies|health|financial|bank|insurance|blossom|point|grove|capital|hill|creek|petroleum|energy|pharma)",
+     "^cherry ventures ltd",
+     "^cherry ventures limited",
+     "titanbay"
+    ]
+   },
+   {
+    "desk": "eu",
+    "patterns": [
+     "^cherry ventures",
+     "^cherry decentral"
+    ]
+   }
+  ],
+  "_note": "Namesakes verified by entity and address (the firm is Linienstr. 214, 10119 Berlin), never by name: Cherry Tree Ventures IV, LP (Minnetonka MN, CIK 1380609; Section 16 filings 2006-2007) is an unrelated Minnesota fund; Cherry Ventures Ltd. (Companies House 06327834, London, incorporated 2007-07-30, Paul Street) predates the firm and is unrelated; the Titanbay Focused Master Fund feeders for Cherry Ventures Fund V / Select V (CIKs 2043309, 2040642, Luxembourg) are a third-party access platform's vehicles (external, decisions.md D5). The firm's own SEC entities: Cherry Ventures Management GmbH (AIFM) (CIK 1774845, ERA CRD 301494), Cherry Ventures Fund III (US), L.P. (1762608), Cherry Ventures Fund IV (US), L.P. (1898140), Cherry Decentral I GmbH & Co. KG (1908733)."
+ },
+ "profile": {
+  "own_vehicle_pattern": "^(cherry ventures|cherry decentral)",
+  "focus_min_companies": 7,
+  "focus_crosswalk": {
+   "Consumer": "Consumer & Marketplaces",
+   "consumer": "Consumer & Marketplaces",
+   "lifestyle": "Consumer & Marketplaces",
+   "eCommerce": "Consumer & Marketplaces",
+   "eCommerce, Consumer": "Consumer & Marketplaces",
+   "eCommerce, consumer": "Consumer & Marketplaces",
+   "Retail & eCommerce": "Consumer & Marketplaces",
+   "Retail Commerce": "Consumer & Marketplaces",
+   "Consumer, Finance, Retail Commerce": "Consumer & Marketplaces",
+   "Consumer, Food & Agriculture, Sustainability": "Consumer & Marketplaces",
+   "Food & AgriTech": "Consumer & Marketplaces",
+   "Food & Agriculture": "Consumer & Marketplaces",
+   "Food & Agritech": "Consumer & Marketplaces",
+   "Hospitality": "Consumer & Marketplaces",
+   "SaaS": "SaaS",
+   "saas": "SaaS",
+   "Productivity": "SaaS",
+   "SaaS, Industry": "SaaS",
+   "Industry, SaaS, AI": "SaaS",
+   "Finance, B2B, SaaS": "Fintech & Payments",
+   "B2B, Finance": "Fintech & Payments",
+   "Finance": "Fintech & Payments",
+   "Finance & Fintech": "Fintech & Payments",
+   "Fintech": "Fintech & Payments",
+   "fintech": "Fintech & Payments",
+   "Health": "Healthcare & Bio",
+   "Health & MedTech": "Healthcare & Bio",
+   "Healthcare": "Healthcare & Bio",
+   "healthtech": "Healthcare & Bio",
+   "Climate & Sustainability": "Climate & Energy",
+   "Climate": "Climate & Energy",
+   "Climate ": "Climate & Energy",
+   "climate": "Climate & Energy",
+   "Industrials": "Industrial & Robotics",
+   "industry": "Industrial & Robotics",
+   "Industry, Supply Chain": "Industrial & Robotics",
+   "Supply Chain Management": "Industrial & Robotics",
+   "Construction": "Industrial & Robotics",
+   "Logistics": "Industrial & Robotics",
+   "Mobility": "Industrial & Robotics",
+   "mobility": "Industrial & Robotics",
+   "Mobility & Logistics": "Industrial & Robotics",
+   "Automotive": "Industrial & Robotics",
+   "Space": "Industrial & Robotics",
+   "Deep Tech": "Industrial & Robotics",
+   "Developer Tools & Data": "DevTools & APIs",
+   "Dev & Data Tools": "DevTools & APIs",
+   "Cybersecurity": "Security",
+   "Cyber": "Security",
+   "Gaming": "Media, Gaming & Advertising",
+   "Gaming & Entertainment": "Media, Gaming & Advertising",
+   "interactive-entertainment": "Media, Gaming & Advertising",
+   "Legal AI": "AI & Applied AI",
+   "AI / Private Equity Advisory": "AI & Applied AI",
+   "Industry": "Industrial & Robotics",
+   "AI": "AI & Applied AI",
+   "B2B": "SaaS",
+   "Sustainability": "Climate & Energy",
+   "Supply Chain": "Industrial & Robotics"
+  },
+  "_note": "Three site vocabularies crosswalk to the closed taxonomy: the 2026 Webflow INDUSTRY strings, the 2024-2025 Sanity tags (Healthcare, Fintech, Deep Tech, Dev & Data Tools, Cyber, Climate, ...) and the 2020-2023 WordPress sector classes (consumer, fintech, healthtech, industry, lifestyle, mobility, saas, climate, interactive-entertainment). The Sanity 'Exit' tag is an outcome flag, not a sector, and is read into exit_tag. focus_min_companies ~4.5% of the expected ~150-row base. The Webflow INDUSTRY strings are comma-joined lists ('Industry, SaaS, AI'); the base joins sector sets with commas and the profile splits them again, so the single words (Industry, AI, B2B, Sustainability, Supply Chain) are crosswalked as well."
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "flix",
+   "auto1",
+   "forto",
+   "amboss",
+   "moss",
+   "juni",
+   "sellerx",
+   "infarm",
+   "flink",
+   "tacto",
+   "black forest labs",
+   "the exploration company",
+   "quandoo",
+   "amorelie",
+   "flaschenpost",
+   "spryker",
+   "hedvig",
+   "speechly",
+   "kitchen stories",
+   "proxima"
+  ],
+  "sample_slugs": [],
+  "shape": {
+   "one_b_share_max": 0.1,
+   "c2a_rate_max": 0.8,
+   "_note": "Set to Cherry's own properties before the first milestone (PRO-73): a 2012-founded pre-seed/seed firm with a ~150-row book has a handful of $1B+ rows (Flix, Forto, Black Forest Labs, AUTO1 public, at most a few more), so the $1B+ share guard is halved from the 20% megafund default; a genuine seed book keeps the 80% C2A ceiling."
+  }
+ },
+ "sample_slugs": [],
+ "commoncrawl": {
+  "company_paths": [
+   "portfolio_item",
+   "founder-companies"
+  ],
+  "people_paths": [
+   "team_member",
+   "team"
+  ]
+ }
+}

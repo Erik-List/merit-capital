@@ -54,7 +54,8 @@ def own_formd_filings(sweep: dict, own_re: re.Pattern) -> dict:
 
 # EDGAR files a non-US issuer's country in the "state" slot, as a two-character
 # code from its "State or Country" list (a US fund reads "CA", a Swedish AB
-# fund reads "V7"). The profile publishes the country name for those, so an EU
+# fund reads "V7"); a German issuer files its city with the district ("BERLIN - MITTE"),
+# which is stripped to the municipality (Cherry, 2026-09-04). The profile publishes the country name for those, so an EU
 # fund's hq_location reads "Stockholm, Sweden" rather than "Stockholm, V7"
 # (Creandum, PRO-72). Codes outside the table fall through unchanged.
 EDGAR_COUNTRY_CODES = {
@@ -69,7 +70,7 @@ EDGAR_COUNTRY_CODES = {
 def hq_from_filings(own: dict):
     """Issuer address on the firm's own filings. Filing-grade."""
     places = Counter(
-        f'{r["city"].title()}, {EDGAR_COUNTRY_CODES.get(r["state"], r["state"])}'
+        f'{re.sub(r"\s+-\s+.*$", "", r["city"]).title()}, {EDGAR_COUNTRY_CODES.get(r["state"], r["state"])}'
         for items in own.values() for _, r in items
     )
     return places.most_common(1)[0], places
