@@ -14,9 +14,9 @@
       "basis": "firm site"
     },
     "icon_url": {
-      "value": "https://lsohkkmdlrlixukuncjl.supabase.co/storage/v1/object/public/Icon%20Images/investors/lightspeed-24f85c463b.png",
+      "value": "https://lsohkkmdlrlixukuncjl.supabase.co/storage/v1/object/public/Icon%20Images/investors/lightspeed-cacd7f7e7e.png",
       "source": "https://lsvp.com/wp-content/uploads/2023/04/favico.svg",
-      "basis": "the firm's own site icon (SVG), normalized to the 256 PNG master and uploaded to the Icon Images bucket by scripts/fetch-investor-icon.ts (PRO-53 flow, run 2026-09-02)"
+      "basis": "the firm's own site icon, normalized to the 256 PNG master and uploaded to the Icon Images bucket by scripts/fetch-investor-icon.ts (PRO-53 flow, re-run 2026-09-03 under the icon quality rules in scripts/utils/icon-normalize.ts). The source SVG is a single #303030 path with fill=\"none\" on the root - a bare glyph on transparency, 84% transparent once rasterized - so the master carried no background and the near-black mark was invisible against the app's dark mode. The master now synthesizes a #ffffff plate (contrast 11.7:1) and keylines the mark to 80% of the crop radius; the SVG is rasterized at 2x the master before downsampling rather than upscaled from its 193px intrinsic size"
     },
     "founding_year": {
       "value": 2000,
@@ -764,6 +764,11 @@
       "field": "individuals",
       "severity": "medium",
       "note": "Scope: the 46 people under the site's own Investors filter (LSVP only; the LSIP firm filter is excluded per decisions.md #2). The 24 Venture and Operating Partners and 33 Specialists are not published - the Investors group is the site's own investing-team boundary. Card titles are flat ('Partner' x40, two Co-Founders, one Partner & Co-Founder, plus three operational titles the site files under Investors); three profiles' meta titles differ from their cards (Aaron Frank and Amber Yang 'Venture Partner', Dev Khare 'Partner & Advisor') - the card presentation is published."
+    },
+    {
+      "field": "icon_url",
+      "severity": "low",
+      "note": "Background is synthesized, not the firm's own: Lightspeed publishes no plated icon, so white was chosen for contrast against its #303030 mark. If Erik prefers the brand's own dark treatment, re-run with --plate '#303030' (or any brand colour) and the mark inverts."
     }
   ]
 }

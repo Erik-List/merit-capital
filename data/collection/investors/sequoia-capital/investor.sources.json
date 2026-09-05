@@ -14,9 +14,9 @@
       "basis": "firm site"
     },
     "icon_url": {
-      "value": "https://www.sequoiacap.com/favicon.ico",
+      "value": "https://lsohkkmdlrlixukuncjl.supabase.co/storage/v1/object/public/Icon%20Images/investors/sequoia-capital-40919faf82.png",
       "source": "https://www.sequoiacap.com/favicon.ico",
-      "basis": "favicon fetch, verified HTTP 200 image/x-icon"
+      "basis": "favicon fetch, verified HTTP 200 image/x-icon. Re-keylined 2026-09-03 under the icon quality rules (scripts/utils/icon-normalize.ts): the tree reached 94% of the rounded-full crop radius and was being shaved by it, so the artwork was scaled 0.852 to 80% - the white plate the source already carried is kept, nothing was re-sourced. The original favicon.ico now 404s (sequoiacap.com restructured), so the published master was the input; artwork provenance is unchanged"
     },
     "founding_year": {
       "value": 1972,
@@ -833,6 +833,11 @@
       "field": "individuals",
       "severity": "medium",
       "note": "'Partner' for untitled investing-tab members is the site's own presentation, not a stated title. 8 names from the 2026 Wayback roster are no longer on the live team page and were dropped: bill coughran, bryan schreier, charlie curnin, cole pergament, roelof botha, sudheer dhurjati, zefi hennessy holland, zoe hewitt. Roelof Botha's absence is verified, not a scrape error: he stepped down as steward in Nov 2025 (Lin and Grady are co-stewards, per techcrunch.com/2025/11/04/sequoia-names-alfred-lin-and-pat-grady-as-new-co-stewards-as-roelof-botha-steps-down/) and the firm no longer lists him. Socials come from profile-page links; members whose pages redirect to the homepage have none."
+    },
+    {
+      "field": "icon_url",
+      "severity": "low",
+      "note": "Artwork inset only - no re-source. The upstream favicon.ico is gone (404), so if a higher-resolution Sequoia mark is ever wanted it must come from a new source, not a re-fetch."
     }
   ]
 }
