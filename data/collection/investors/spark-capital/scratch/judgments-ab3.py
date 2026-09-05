@@ -1,0 +1,16 @@
+WHO = "agent-judge-pro85"
+def priv(slug, usd, asof, url, note, rng, flags=(), clear=("needs_web_value",), status="private"):
+    return {"slug": slug, "who": WHO, "status": status, "is_public": False, "valuation_usd": usd, "valuation_asof": asof, "valuation_source": "web_verified",
+            "valuation_range": rng, "valuation_range_source": "web_verified", "valuation_citation": url, "valuation_confidence": "medium" if "stale" in flags else "high",
+            "clear_flags": list(clear), "flags": sorted(set(flags)), "note": note}
+J = {}
+J["pendo"] = priv("pendo", 2600000000, "2021-07", "https://www.prnewswire.com/news-releases/pendo-raises-150-million-to-help-companies-deliver-software-that-meets-rising-user-expectations-301342064.html", "$2.6B, $150M round (July 2021) is the last primary mark; a $100M credit line (Sept 2025) but no priced round since — stale", "1b_plus", flags=["stale"])
+J["outreach"] = priv("outreach", 4400000000, "2021-05", "https://sacra.com/c/outreach/", "$4.4B, $201M Series G led by Premji Invest (May 2021); no priced round since — stale", "1b_plus", flags=["stale"])
+J["noom"] = priv("noom", 3700000000, "2021-05", "https://sacra.com/c/noom/", "$3.7B Series F ($540M, May 2021) is the last primary mark; aggregators repeat the same figure for a 2025 later-stage entry and NPM secondary quotes run far below — stale", "1b_plus", flags=["stale"])
+J["bird"] = priv("bird", 3800000000, "2021-04", "https://techcrunch.com/2024/02/01/messagebird-rebrands-as-bird-and-slashes-prices-by-90-on-sms-to-take-on-twilio/", "MessageBird's $3.8B Series C (Apr 2021) is the last primary mark; rebranded Bird (Feb 2024) with two rounds of layoffs (2024, Jan 2025), ~$250M revenue and profitability claimed — stale, no lower priced mark documented", "1b_plus", flags=["stale"])
+J["sift"] = priv("sift", None, None, "https://www.premieralts.com/companies/sift/valuation", "the $1B+ mark is the April 2021 $50M round (TechCrunch); secondary-market marks in 2026 sit near $142M and est. ARR ~$35M — the stale primary yields to the documented lower mark, ruled down to below_1b", "below_1b", flags=[], clear=("needs_web_value", "stale"))
+J["handshake"] = priv("handshake", 3500000000, "2022-01", "https://en.wikipedia.org/wiki/Handshake_(company)", "$3.5B, $200M Series F (Jan 2022) — Wikipedia; no priced round since — stale (Series C lead, 2018; distinct from the a16z/Sequoia 'handshake' rows by cross-ruling)", "1b_plus", flags=["stale"])
+J["grammarly"] = priv("grammarly", 13000000000, "2021-11", "https://en.wikipedia.org/wiki/Grammarly", "$13B (Nov 2021, $200M round) is the last priced mark; $1B non-dilutive growth funding from General Catalyst (May 2025); acquired Superhuman (Jul 2025) and the parent rebranded Superhuman (Oct 2025) — stale", "10b_plus", flags=["stale"])
+J["sifive"] = priv("sifive", 3650000000, "2026-04", "https://en.wikipedia.org/wiki/SiFive", "$3.65B, $400M Series G led by Atreides (Apr 2026) — Wikipedia", "1b_plus", clear=("needs_web_value", "stale"))
+J["travelperk"] = priv("travelperk", 2700000000, "2025-01", "https://en.wikipedia.org/wiki/TravelPerk", "$2.7B, $200M Series E (Jan 2025) — Wikipedia", "1b_plus", clear=("needs_web_value", "stale"))
+if __name__ == "__main__": print(len(J))

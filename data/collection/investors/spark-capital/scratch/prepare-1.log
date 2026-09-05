@@ -1,0 +1,38 @@
+base: data/collection/investors/spark-capital/base.json
+target companies: 153  distinct issuer CIKs: 152
+scanning 74 quarterly datasets (offline)...
+filings collected: 495
+evidence: 315/315 base accessions found
+wrote data/collection/investors/spark-capital/scratch/issuer-evidence.json (154 CIKs, 50 with a name history)
+
+wrote data/collection/investors/spark-capital/sources/edgar/formd-issuer-rounds.json
+  companies with Form D history : 152
+  rounds after amendment merge  : 448 (47 amendments folded in)
+  companies with 2+ rounds      : 113
+  filings the partner sweep never saw: 180
+  companies gaining >=1 such filing  : 72
+  rounds carrying a sale date   : 445/448
+in flight: wrote data/collection/investors/spark-capital/scratch/in-flight.json
+rows: 366
+membership seed: 317 site_listing, 1 fund_filing; left for the judge: 48
+layer A (SEC public float): 366 rows to resolve
+    fetched 100/162
+    100/366
+    200/366
+    300/366
+    resolved a CIK: 236   with public float: 27
+layer B (Wikidata): 366 rows in batches of 60
+    60/366
+    120/366
+    180/366
+    240/366
+    300/366
+    360/366
+    366/366
+    matched: 95
+layer C (unicorn list): 627 current, 209 former
+graduation layer 1: 152 companies, 59 entered at Seed, 59 decided deterministically, 59 entries moved past pre-investor rounds
+
+deterministically resolved: 14/366
+retired (not_member, awaiting rebuild): 0
+queued for judgment       : 352 rows in 8 batches

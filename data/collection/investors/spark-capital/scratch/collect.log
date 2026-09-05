@@ -1,0 +1,30 @@
+targets: 52 roster names
+wrote /Users/erik/Developer/merit-capital/data/collection/investors/spark-capital/sources/edgar/formd-sweep.json
+# accessions matched: 440
+# distinct issuers: 246
+== seeding from EDGAR company search
+   38 entities
+== folding in own pooled Form D vehicles
+   +0 (total 38)
+== co-filer closure (sampling filings of seed entities)
+   38 entities
+   unclassified resolved: 0 partners (people), 0 external co-filers excluded from crawling
+
+wrote data/collection/investors/spark-capital/entities.json — 38 entities
+  by desk: {'us': 38}
+  crawlable (desk != external): 38
+registry: 38 entities · {'us': 38}
+crawling 38 (external excluded)
+  25/38 entities · 22 unique accessions
+unique ownership filings: 29
+
+wrote edgar-companies.json — 9 companies
+  by desk: {'us': 9}
+
+==== formd-query.py
+
+==== edgar-entities.py
+
+==== edgar-companies.py
+
+no base.json yet — the Form D rescan (formd-issuer-rounds.py) runs via `prepare` after build-company-base.py

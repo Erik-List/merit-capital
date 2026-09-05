@@ -1,0 +1,391 @@
+{
+  "slug": "spark-capital",
+  "generated_at": "2026-09-05T21:50:27+00:00",
+  "run": "PRO-85 autonomous single-session run (merged shape, PRO-71), profile built post-base 2026-09-05",
+  "fields": {
+    "name": {
+      "value": "Spark Capital",
+      "source": "https://adviserinfo.sec.gov/firm/summary/161231",
+      "basis": "the name under which the adviser conducts business (Form ADV Item 1.B, CRD 161231; legal entity Spark Capital Partners, LLC, exempt reporting adviser)"
+    },
+    "website": {
+      "value": "https://www.sparkcapital.com",
+      "source": "https://www.sparkcapital.com/",
+      "basis": "firm site (Webflow): /, /companies (45 selected companies), /team, /team-members/<slug>, /news"
+    },
+    "icon_url": {
+      "value": "https://cdn.prod.website-files.com/5f6113b98d41b1cec6bbba44/5f6113b98d41b165e5bbbae8_Spark_Dog_Logo_R3.5.svg",
+      "source": "https://cdn.prod.website-files.com/5f6113b98d41b1cec6bbba44/5f6113b98d41b165e5bbbae8_Spark_Dog_Logo_R3.5.svg",
+      "basis": "discovered 2026-09-05 with scripts/fetch-investor-icon.ts --discover: the site's own vector mark (Spark_Dog_Logo_R3.5.svg, 144x144 intrinsic, <img> with logo/brand attributes) is the only vector candidate and the preferred source under the resolution rules; NOT yet fetched or uploaded \u2014 the Supabase upload runs with the ingest approval and replaces this value with the storage URL and provenance"
+    },
+    "founding_year": {
+      "value": 2005,
+      "source": "https://en.wikipedia.org/wiki/Spark_Capital",
+      "basis": "founded 2005 by Todd Dagres, Santo Politi, Paul Conway and Bijan Sabet (Wikipedia; TechCrunch 2013-02-25 on the fourth fund; first fund $265M in 2005); the ADV registration is later (ERA)"
+    },
+    "history": {
+      "value": "Founded in 2005 in Boston by Todd Dagres, Santo Politi, Paul Conway and Bijan Sabet with a $265M first fund, Spark Capital became one of the defining consumer-internet investors of the 2000s and 2010s: the Series A or B backer of Twitter (2008), Tumblr, Foursquare, Warby Parker, Wayfair, Oculus (sold to Facebook for $2B in 2014), Slack, Plaid (seed, 2013) and Cruise (Series A, 2015), with a Start@Spark seed program (2009) that funded first checks out of the main fund. A growth practice launched in 2014 (Spark Capital Growth Fund, $374M) added late positions in Affirm, Coinbase, Discord, Marqeta, Snap and Kalshi, and the firm led Anthropic's $450M Series C in 2023. One partnership runs both practices from San Francisco, New York and Boston. Nine early-stage funds (Spark Capital IX closed at $1.0B in 2026) and six growth funds (Growth Fund VI closed at $2.33B in 2026) sit under one exempt reporting adviser (CRD 161231) whose private funds held $15.6B of gross assets at the 2025 fiscal year end.",
+      "source": "https://en.wikipedia.org/wiki/Spark_Capital",
+      "basis": "Wikipedia (founders, fund sizes 2005-2024, Oculus sale, Anthropic Series C); the firm's Medium posts on the 2022 and 2024 funds; Form D filings for III, IV, Growth I-III, VI, IX and Growth VI (sources/edgar/fund-formds.json); ADV Section 7.B for the $15.6B gross asset value; entry stages from this run's base (Twitter Series A 2008, Plaid seed 2013, Cruise Series A 2015, Anthropic Growth 2023)"
+    },
+    "investment_concept": {
+      "value": "Spark Capital backs founders from the first check through growth, investing in consumer, enterprise software, fintech, crypto, hardware and AI companies with early-stage and growth funds run by one partnership.",
+      "source": "https://www.sparkcapital.com/",
+      "basis": "paraphrase of the site's belief statements ('Products can make markets', 'the decade-long journey', Early and Growth teams) and the sector list on Wikipedia ('consumer internet, enterprise software, gaming, infrastructure, hardware, semiconductors, crypto, fintech, and AI')"
+    },
+    "investment_stage": {
+      "value": [
+        "Seed",
+        "Series A",
+        "Growth",
+        "Late Stage"
+      ],
+      "source": "base.json",
+      "basis": "entry-stage distribution of the 321 members: Seed 65, Series A 147, Growth 113 (Growth includes late positions such as Anthropic, Coinbase, Discord, Kalshi via the Growth funds)"
+    },
+    "investment_geo": {
+      "value": {
+        "core": [
+          "US"
+        ],
+        "other": [
+          "Europe",
+          "Israel",
+          "Latin America"
+        ]
+      },
+      "source": "base.json",
+      "basis": "hq_country of the members: US ~88%; Europe (GB, DE, ES, NL, NO, RS, TR), Israel (Cyera, Fireblocks, Rapyd, Capitolis origin), Latin America (Nomad, Kavak-era rows) form the rest"
+    },
+    "investment_range": {
+      "value": {
+        "lower_limit": 1000000,
+        "median": 10000000,
+        "upper_limit": 1100000000
+      },
+      "source": "sources/edgar/formd-issuer-rounds.json",
+      "basis": "Form D round sizes on member companies (313 non-pooled rounds): 10th percentile \u2248 $1,130,000, median \u2248 $10,339,997; upper limit = Baseten's $1.1B Series F (June 2026, Form D $1,096,448,855 sold), the largest round on a member's filings that Spark joined; round sizes are the round, not Spark's check"
+    },
+    "notable_investments": {
+      "value": [
+        "Twitter",
+        "Slack",
+        "Oculus",
+        "Discord",
+        "Coinbase",
+        "Anthropic",
+        "Affirm",
+        "Wayfair"
+      ],
+      "source": "base.json",
+      "basis": "all eight are ledger members: Twitter (Series A 2008, IPO 2013, acq. 2022), Slack (acq. Salesforce 2021), Oculus (acq. Facebook 2014), Discord ($15B, 2021), Coinbase (NASDAQ: COIN), Anthropic ($965B Series H, May 2026; Spark led the 2023 Series C), Affirm (NASDAQ: AFRM), Wayfair (NYSE: W)"
+    },
+    "aum": {
+      "value": {
+        "bottom": 15574226934,
+        "top": 15574226934
+      },
+      "source": "https://reports.adviserinfo.sec.gov/reports/ADV/161231/PDF/161231.pdf",
+      "basis": "sum of the gross asset values of the 27 private funds in Form ADV Section 7.B.(1) (filed 2026-03-27, fiscal year end 2025): $15,574,226,934 \u2014 an exempt reporting adviser files no RAUM, so bottom = top; Spark Capital IX ($1.0B) and Growth Fund VI ($2.33B), closed in 2026, post-date the reporting period"
+    },
+    "funds": {
+      "value": [
+        {
+          "name": "Spark Capital Growth Fund VI, L.P.",
+          "size": 2333826000,
+          "vintage": 2026,
+          "accession": "0002123891-26-000002"
+        },
+        {
+          "name": "Spark Capital IX, L.P.",
+          "size": 1000363000,
+          "vintage": 2026,
+          "accession": "0002123887-26-000002"
+        },
+        {
+          "name": "Spark Capital Growth Fund V, L.P.",
+          "size": 1540000000,
+          "vintage": 2024
+        },
+        {
+          "name": "Spark Capital VIII, L.P.",
+          "size": 700000000,
+          "vintage": 2024
+        },
+        {
+          "name": "Spark Capital Growth Fund IV, L.P.",
+          "size": 1400000000,
+          "vintage": 2022
+        },
+        {
+          "name": "Spark Capital VII, L.P.",
+          "size": 721000000,
+          "vintage": 2022
+        },
+        {
+          "name": "Spark Capital Growth Fund III, L.P.",
+          "size": 900000000,
+          "vintage": 2020,
+          "accession": "0001767515-20-000001"
+        },
+        {
+          "name": "Spark Capital VI, L.P.",
+          "size": 450000000,
+          "vintage": 2020,
+          "accession": "0001767514-20-000001"
+        },
+        {
+          "name": "Spark Capital Growth Fund II, L.P.",
+          "size": 606020202,
+          "vintage": 2016,
+          "accession": "0001671626-17-000002"
+        },
+        {
+          "name": "Spark Capital V, L.P.",
+          "size": 400000000,
+          "vintage": 2016
+        },
+        {
+          "name": "Spark Capital Growth Fund, L.P.",
+          "size": 374000000,
+          "vintage": 2014,
+          "accession": "0001608868-14-000002"
+        },
+        {
+          "name": "Spark Capital IV, L.P.",
+          "size": 450000000,
+          "vintage": 2013,
+          "accession": "0001570735-13-000001"
+        },
+        {
+          "name": "Spark Capital III, L.P.",
+          "size": 353000000,
+          "vintage": 2010,
+          "accession": "0001503396-10-000001"
+        },
+        {
+          "name": "Spark Capital II, L.P.",
+          "size": 360000000,
+          "vintage": 2008
+        },
+        {
+          "name": "Spark Capital, L.P.",
+          "size": 265000000,
+          "vintage": 2005
+        }
+      ],
+      "source": "sources/edgar/fund-formds.json",
+      "basis": "sizes with an accession are the filed TOTALAMOUNTSOLD of the closing Form D; VII ($721M) and Growth IV ($1.4B) from the firm's 2022 Medium post / Gunderson release; VIII ($700M) and Growth V ($1.54B final close, Mar 2024) from the 2024 Medium post (https://medium.com/spark-capital/new-spark-capital-funds-4331753bd8d7) and press; V ($400M, 2016), II ($360M, 2008) and the first fund ($265M, 2005) from Wikipedia \u2014 their Form Ds are $0-sold first filings or predate the bulk data; the 13 Founders'/Growth Founders' side vehicles and the Spark Member Fund (ADV 7.B) are omitted as GP co-invest vehicles"
+    },
+    "hq_location": {
+      "value": "Boston, MA",
+      "source": "sources/edgar/formd-sweep.json",
+      "basis": "issuer address on 30 of 30 of the firm's own Form D filings; unanimous. Filing-grade."
+    },
+    "investment_scope": {
+      "value": {
+        "type": "Generalist",
+        "focus": [
+          "SaaS",
+          "Consumer & Marketplaces",
+          "Industrial & Robotics",
+          "Fintech & Payments",
+          "Media, Gaming & Advertising",
+          "AI & Applied AI"
+        ]
+      },
+      "source": "base.json",
+      "basis": "focus from the firm's own site sector tags on 350 base rows, crosswalked to data/taxonomy/focus.json (crosswalk in config.json), published above 12 companies. Scope type is the curated judgement carried in investor.json."
+    },
+    "individuals": {
+      "value": [
+        {
+          "name": "Alex Finkelstein",
+          "position": "Co-founder & General Partner, Early",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/finkelsteinalex/",
+            "x_url": "https://twitter.com/finkelstein1"
+          }
+        },
+        {
+          "name": "Clay Fisher",
+          "position": "General Partner, Growth",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/clay-fisher-4a044563/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Coen Armstrong",
+          "position": "Investor, Growth",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/coen-armstrong/",
+            "x_url": "https://x.com/coen_armstrong"
+          }
+        },
+        {
+          "name": "Fraser Kelton",
+          "position": "General Partner, Early",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/fraser"
+          }
+        },
+        {
+          "name": "James Kuklinski",
+          "position": "General Partner, Growth",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jameskuklinski",
+            "x_url": "https://twitter.com/JamesKuklinski"
+          }
+        },
+        {
+          "name": "Jeremy Philips",
+          "position": "General Partner, Growth",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Kevin Thau",
+          "position": "Venture Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/kevinthau/",
+            "x_url": "https://twitter.com/kevinthau"
+          }
+        },
+        {
+          "name": "Mikowai Ashwill",
+          "position": "General Partner, Early",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/mikowaiashwill/",
+            "x_url": "https://x.com/MikowaiA"
+          }
+        },
+        {
+          "name": "Nabeel Hyatt",
+          "position": "Venture Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/nabeel"
+          }
+        },
+        {
+          "name": "Natalie Vais",
+          "position": "General Partner, Early",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/natalievais/",
+            "x_url": "https://twitter.com/natalievais"
+          }
+        },
+        {
+          "name": "Sahit Dendekuri",
+          "position": "Investor, Growth",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/sahit-dendekuri/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Santo Politi",
+          "position": "Co-founder & General Partner, Early",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/santopoliti/",
+            "x_url": "https://x.com/santopoliti"
+          }
+        },
+        {
+          "name": "Virat Talwar",
+          "position": "Investor, Growth",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/virattalwar/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Will Reed",
+          "position": "General Partner, Growth",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Yasmin Razavi",
+          "position": "General Partner, Growth",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/YasminRazavi"
+          }
+        },
+        {
+          "name": "Alexa Lyons",
+          "position": "CFO",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Bijan Sabet",
+          "position": "Co-founder & Partner Emeritus",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Diana Berisha",
+          "position": "General Counsel",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Hannah Chowdhury",
+          "position": "Finance Manager",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jeff Doran",
+          "position": "Head of Investor Relations",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Paul Conway",
+          "position": "Co-founder & Partner Emeritus",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Sarah Kimball",
+          "position": "Controller",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Todd Dagres",
+          "position": "Co-founder & Partner Emeritus",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        }
+      ],
+      "source": "sources/site/team-members.json",
+      "basis": "Live team CMS: 23 members. Positions are CMS titles (23 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 3 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 10 LinkedIn, 10 X."
+    }
+  }
+}

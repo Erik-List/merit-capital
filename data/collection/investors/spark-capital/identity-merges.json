@@ -1,0 +1,348 @@
+{
+ "spark-capital": {
+  "_readme": "Durable identity corrections consumed by build-company-base.py on every rebuild (COLLECTION.md \u00a78): one company rendered under different names across the listing eras (2006-2008 static, 2008-2012 ExpressionEngine, 2012-2019 WordPress, 2020 B12, 2020+ Webflow) and its rebrands, plus Form D issuers filing under a legal name the listings never used. Canonical = the firm's current rendering where the company is still listed, else the last rendering. never_merge lists pairs the build's word-prefix rule would wrongly fold (a homonym Form D issuer beside a listed company).",
+  "merges": [
+   {
+    "canonical": "academia-edu",
+    "duplicates": [
+     "academia"
+    ],
+    "reason": "one company: 'Academia' on the 2021+ Webflow cards, 'Academia.edu' on the 2011-2019 listings"
+   },
+   {
+    "canonical": "covestor",
+    "duplicates": [
+     "covester"
+    ],
+    "reason": "the 2009 ExpressionEngine page slug 'covester' is a typo of Covestor (same listing)"
+   },
+   {
+    "canonical": "wayfair",
+    "duplicates": [
+     "csn-stores"
+    ],
+    "reason": "CSN Stores renamed Wayfair in 2011; the 2011 listing slug csn_stores, the 2012+ listings Wayfair"
+   },
+   {
+    "canonical": "carta",
+    "duplicates": [
+     "eshares"
+    ],
+    "reason": "eShares renamed Carta in 2017; the 2015-2017 listings render eShares, the Webflow site Carta"
+   },
+   {
+    "canonical": "flywire",
+    "duplicates": [
+     "peertransfer"
+    ],
+    "reason": "peerTransfer renamed Flywire in 2015; the 2010-2015 listings peerTransfer"
+   },
+   {
+    "canonical": "stack-overflow",
+    "duplicates": [
+     "stack-exchange"
+    ],
+    "reason": "Stack Exchange, Inc. renamed Stack Overflow; the 2011-2019 listings Stack Exchange, the Webflow site Stack Overflow"
+   },
+   {
+    "canonical": "runkeeper",
+    "duplicates": [
+     "fitnesskeeper"
+    ],
+    "reason": "FitnessKeeper, Inc. is the maker of Runkeeper: the 2011 listing 'RunKeeper', the Webflow site 'Fitnesskeeper', the Form D issuer FitnessKeeper, Inc."
+   },
+   {
+    "canonical": "invisionapp",
+    "duplicates": [
+     "invision"
+    ],
+    "reason": "InVision (the 2018 listing) and InVisionApp (the Webflow site) are one company"
+   },
+   {
+    "canonical": "smiledirectclub",
+    "duplicates": [
+     "smile-direct"
+    ],
+    "reason": "the 2020 B12 card 'smile direct' is SmileDirectClub"
+   },
+   {
+    "canonical": "hello-alfred",
+    "duplicates": [
+     "alfred-club"
+    ],
+    "reason": "Alfred Club (2015 listing slug) is Hello Alfred"
+   },
+   {
+    "canonical": "ipwireless",
+    "duplicates": [
+     "iwireless",
+     "ipw-holdings-inc"
+    ],
+    "reason": "IPWireless: the 2012 listing slug 'iwireless' and the Form D issuer IPW Holdings, Inc. (Santo Politi director 2011) are the same company"
+   },
+   {
+    "canonical": "etoro",
+    "duplicates": [
+     "tradonomi-ltd"
+    ],
+    "reason": "Tradonomi Ltd. is eToro's US entity (Form D 2011, Santo Politi director) \u2014 the eToro position"
+   },
+   {
+    "canonical": "talkspace",
+    "duplicates": [
+     "groop-internet-platform-inc"
+    ],
+    "reason": "Groop Internet Platform Inc. is Talkspace's legal name (Form D, Finkelstein director 2016-2019)"
+   },
+   {
+    "canonical": "badi",
+    "duplicates": [
+     "badiapp-2015-inc"
+    ],
+    "reason": "Badiapp 2015, Inc. is Badi's US filing entity (Finkelstein director 2018)"
+   },
+   {
+    "canonical": "everything-but-the-house",
+    "duplicates": [
+     "ebth-inc"
+    ],
+    "reason": "EBTH, Inc. is Everything But The House"
+   },
+   {
+    "canonical": "perch",
+    "duplicates": [
+     "perchhq-llc"
+    ],
+    "reason": "PerchHQ LLC is Perch (Finkelstein director 2021)"
+   },
+   {
+    "canonical": "zeal",
+    "duplicates": [
+     "puzzl-group-inc"
+    ],
+    "reason": "Puzzl Group Inc. is Zeal's legal name (Natalie Sandman director 2021-2023)"
+   },
+   {
+    "canonical": "rover",
+    "duplicates": [
+     "place-for-rover-inc"
+    ],
+    "reason": "A Place for Rover, Inc. is Rover (Megan Quinn director 2017-2018)"
+   },
+   {
+    "canonical": "headway",
+    "duplicates": [
+     "therapymatch-inc"
+    ],
+    "reason": "TherapyMatch, Inc. is Headway's legal name (Will Reed director 2024)"
+   },
+   {
+    "canonical": "handshake",
+    "duplicates": [
+     "stryder-corp"
+    ],
+    "reason": "Stryder Corp. is Handshake's legal name (Megan Quinn director 2016-2021, the Spark-led Series B of Nov 2016)"
+   },
+   {
+    "canonical": "exfm",
+    "duplicates": [
+     "extensionfm",
+     "extension-entertainment-inc"
+    ],
+    "reason": "ExtensionFM / Extension Entertainment, Inc. became exfm (Sabet director 2010-2012)"
+   },
+   {
+    "canonical": "formation-bio",
+    "duplicates": [
+     "trialspark"
+    ],
+    "reason": "TrialSpark renamed Formation Bio in 2023"
+   },
+   {
+    "canonical": "coach-me",
+    "duplicates": [
+     "lift"
+    ],
+    "reason": "Lift (2014 listing) renamed Coach.me in 2015"
+   },
+   {
+    "canonical": "omgpop",
+    "duplicates": [
+     "iminlikewithyou"
+    ],
+    "reason": "iminlikewithyou (2008 listing) renamed OMGPOP in 2009"
+   },
+   {
+    "canonical": "allstripes",
+    "duplicates": [
+     "rdmd-inc"
+    ],
+    "reason": "RDMD Inc. renamed AllStripes (Nabeel Hyatt director 2020, then AllStripes Research 2022)"
+   },
+   {
+    "canonical": "the-bot-company",
+    "duplicates": [
+     "botco-inc"
+    ],
+    "reason": "Botco, Inc. (Form D 2024, Hyatt director) is The Bot Company (bot.co)"
+   },
+   {
+    "canonical": "aura-frames",
+    "duplicates": [
+     "pushd-inc",
+     "aura"
+    ],
+    "reason": "Pushd, Inc. is Aura Frames' legal name (Kevin Thau director 2017); the 2017 listing slug 'aura' is the same company"
+   },
+   {
+    "canonical": "5min-media",
+    "duplicates": [
+     "5min"
+    ],
+    "reason": "5min renamed 5min Media in 2010; one company across the 2007-2015 listings"
+   },
+   {
+    "canonical": "linkwell-health",
+    "duplicates": [
+     "linkwell"
+    ],
+    "reason": "Linkwell (2009 listing) and Linkwell Health / Linkwell Communications Inc (Form D) are one company"
+   },
+   {
+    "canonical": "oculus",
+    "duplicates": [
+     "oculus-vr"
+    ],
+    "reason": "Oculus VR (2014-2019 listings) and Oculus (Webflow) are one company"
+   },
+   {
+    "canonical": "clover-health",
+    "duplicates": [
+     "clover"
+    ],
+    "reason": "'Clover' on the 2018-2019 listing is Clover Health"
+   },
+   {
+    "canonical": "panorama-education",
+    "duplicates": [
+     "panorama"
+    ],
+    "reason": "'Panorama' (2015 listing, Form D Panorama Education, Inc.) is Panorama Education"
+   },
+   {
+    "canonical": "scale-ai",
+    "duplicates": [
+     "scale"
+    ],
+    "reason": "'scale' (2020 B12 card) is Scale AI"
+   },
+   {
+    "canonical": "sift",
+    "duplicates": [
+     "sift-science"
+    ],
+    "reason": "Sift Science renamed Sift in 2018"
+   },
+   {
+    "canonical": "goji",
+    "duplicates": [
+     "consumer-united"
+    ],
+    "reason": "Consumer United (listed 2013-2014) renamed Goji in 2015"
+   },
+   {
+    "canonical": "lexity",
+    "duplicates": [
+     "vurve"
+    ],
+    "reason": "Vurve (listed 2011) rebranded Lexity in 2011 (firm news)"
+   },
+   {
+    "canonical": "north",
+    "duplicates": [
+     "thalmic-labs"
+    ],
+    "reason": "Thalmic Labs (listed 2013-2019) renamed North in 2018"
+   },
+   {
+    "canonical": "socratic",
+    "duplicates": [
+     "vespr-inc"
+    ],
+    "reason": "Vespr Inc. is Socratic's legal name (the 2015 listing's site_url is vespr.org; Parker board 2013-2015)"
+   },
+   {
+    "canonical": "wesper",
+    "duplicates": [
+     "tatch"
+    ],
+    "reason": "Tatch (2020 seed, Politi board) rebranded Wesper in 2021"
+   },
+   {
+    "canonical": "diy",
+    "duplicates": [
+     "jam"
+    ],
+    "reason": "DIY.org relaunched as JAM in 2016 (jam.com)"
+   },
+   {
+    "canonical": "lola",
+    "duplicates": [
+     "alyk-inc"
+    ],
+    "reason": "ALYK, Inc. is LOLA's legal name: its Form D rounds are LOLA's Spark-led 2016 A and 2018 B (Thau board)"
+   },
+   {
+    "canonical": "upworthy",
+    "duplicates": [
+     "cloud-tiger-media-inc"
+    ],
+    "reason": "Cloud Tiger Media, Inc. is Upworthy's legal name (2013 Series A filing, Parker board)"
+   },
+   {
+    "canonical": "mirror",
+    "duplicates": [
+     "curiouser-products-inc"
+    ],
+    "reason": "Curiouser Products Inc. is Mirror's legal name (2016-2018 filings, Thau board)"
+   },
+   {
+    "canonical": "jana",
+    "duplicates": [
+     "txteagle"
+    ],
+    "reason": "txteagle renamed Jana in 2011 (firm news)"
+   },
+   {
+    "canonical": "behalf",
+    "duplicates": [
+     "zazma"
+    ],
+    "reason": "Zazma renamed Behalf in 2014 (firm news 2015)"
+   }
+  ],
+  "rejects": [
+   {
+    "slug": "photo-title",
+    "reason": "the 2020 B12 listing's two 'photo title' placeholder cards: no identifiable company (D12-class, no row)"
+   }
+  ],
+  "desk": [],
+  "never_merge": [
+   {
+    "slugs": [
+     "medallion",
+     "medallion-resources-ltd"
+    ],
+    "note": "Medallion (healthcare credentialing, on the 2022-2025 Webflow cards) is the listed company; Medallion Resources Ltd (Canadian mining, David Haber homonym director 2010-2020) is an unrelated Form D issuer"
+   },
+   {
+    "slugs": [
+     "cover",
+     "cover-genius"
+    ],
+    "note": "Cover (the 2014-2015 listed restaurant-payments app) and Cover Genius (the 2026-listed insurtech, Spark-led 2024 Series E) are different companies; the word-prefix rule folded them"
+   }
+  ]
+ }
+}

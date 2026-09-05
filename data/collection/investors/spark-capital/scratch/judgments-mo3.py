@@ -1,0 +1,40 @@
+WHO = "agent-judge-pro85"
+def mo(slug, stage, year, stage_url, band_url, note, rng="below_1b", usd=None, asof=None, flags=(), clear=(), status=None, conf="high", extra=None):
+    r = {"slug": slug, "who": WHO, "entry_stage": stage, "entry_year": year, "entry_stage_source": "web_verified", "entry_stage_citation": stage_url, "entry_stage_confidence": conf,
+         "valuation_range": rng, "valuation_range_source": "web_verified", "valuation_range_citation": band_url, "valuation_confidence": conf, "clear_flags": sorted(set(clear) | {"stage_uncited", "web_check", "needs_web_value"}), "flags": sorted(set(flags)), "note": note}
+    if usd: r.update({"valuation_usd": usd, "valuation_asof": asof, "valuation_source": "web_verified", "valuation_citation": band_url})
+    if status: r["status"] = status
+    if extra: r.update(extra)
+    return r
+J = {}
+J["standard-metrics"] = mo("standard-metrics", "Series A", 2022, "https://www.finsmes.com/2022/02/standard-metrics-secures-23-7m-in-series-a-funding.html", "https://www.finextra.com/pressarticle/110716/ai-driven-portfolio-management-platform-standard-metrics-raises-20-million",
+    "portfolio-monitoring software for VCs; Spark joined the $23.7M Series A led by 8VC (Feb 2022) and the $20M Series B (Aug 2026); valuation undisclosed — below $1B")
+J["synera"] = mo("synera", "Series A", 2022, "https://www.synera.io/news/series-a-funding", "https://thenextweb.com/news/synera-40m-series-b-agentic-ai-engineering",
+    "engineering-automation software (Bremen; formerly ELISE); Spark led the €14.5M Series A (Sep 2022); $40M Series B (2026), valuation undisclosed — below $1B", extra={"hq_city": "Bremen", "hq_city_source": "web_verified", "hq_country": "DE", "hq_country_source": "web_verified"})
+J["tenderly"] = mo("tenderly", "Growth", 2022, "https://techcrunch.com/2022/03/02/blockchain-infra-startup-tenderly-raises-40m-after-seeing-500x-yoy-revenue-growth/", "https://techcrunch.com/2022/03/02/blockchain-infra-startup-tenderly-raises-40m-after-seeing-500x-yoy-revenue-growth/",
+    "web3 developer platform (Belgrade); Spark led the $40M Series B (Mar 2022); valuation undisclosed — below $1B")
+J["tigerbeetle"] = mo("tigerbeetle", "Series A", 2024, "https://medium.com/spark-capital/welcome-tigerbeetle-b7f261e074e3", "https://techcrunch.com/2024/07/23/tigerbeetle-is-building-database-software-optimized-for-financial-transactions/",
+    "financial-transactions database; Spark (Natalie Vais) led the $24M Series A at ~$100M post (Jul 2024) — below $1B", usd=100000000, asof="2024-07")
+J["tigris-data"] = mo("tigris-data", "Series A", 2025, "https://www.tigrisdata.com/blog/series-a/", "https://siliconangle.com/2025/10/09/tigris-data-raises-25m-ai-optimized-cloud-storage-service/",
+    "AI-optimized object storage; Spark led the $25M Series A (Oct 2025); valuation undisclosed — below $1B")
+J["unleash"] = mo("unleash", "Series A", 2022, "https://www.getunleash.io/blog/series-b", "https://www.getunleash.io/blog/series-b",
+    "open-source feature management (Oslo); Spark is an existing investor at the $35M Series B led by One Peak (Mar 2026) — the entry is the 2022 Series A, the only earlier priced round; $51.5M raised, valuation undisclosed — below $1B", conf="medium")
+J["vinyl-equity"] = mo("vinyl-equity", "Seed", 2025, "https://www.prweb.com/releases/vinyl-equity-raises-11-5m-seed-from-index-ventures-and-spark-capital-to-transform-transfer-agents-302427264.html", "https://www.prnewswire.com/news-releases/vinyl-equity-raises-20-million-led-by-jump-capital-as-its-infrastructure-powers-modern-capital-markets-and-corporate-transactions-302795321.html",
+    "modern transfer agent; Index and Spark co-led the $11.5M seed (Apr 2025); $20M Series A led by Jump Capital (Jun 2026) — graduated, below $1B",
+    extra={"seed_to_a_graduation": True, "seed_to_a_graduation_source": "web_verified", "seed_to_a_graduation_confidence": "high", "graduation_citation": "https://www.prnewswire.com/news-releases/vinyl-equity-raises-20-million-led-by-jump-capital-as-its-infrastructure-powers-modern-capital-markets-and-corporate-transactions-302795321.html"})
+J["wordware"] = mo("wordware", "Seed", 2024, "https://siliconangle.com/2024/11/21/wordware-raises-30m-reimagine-ai-development-ordinary-writing/", "https://siliconangle.com/2024/11/21/wordware-raises-30m-reimagine-ai-development-ordinary-writing/",
+    "natural-language AI agent builder (San Francisco); Spark led the $30M seed (Nov 2024) — below $1B, too young for the graduation test", flags=["censored"])
+J["workshop-for-emotional-spiritual-technology-corp"] = mo("workshop-for-emotional-spiritual-technology-corp", "Seed", 2024, "https://www.cbinsights.com/company/workshop-for-emotional-and-spiritual-technology", "https://www.cbinsights.com/company/workshop-for-emotional-and-spiritual-technology",
+    "legal entity of West Co (Evan Sharp CEO, Christopher 'Biz' Stone CFO; public benefit corporation, San Francisco): the $29.16M round of May 2024 with Spark is the same financing the press sweep dated Jan 2026 — duplicate of the 'west-co' row, merge queued for the next rebuild", flags=["duplicate", "censored"], conf="medium",
+    extra={"focus": "Consumer & Marketplaces", "focus_source": "model", "hq_city": "San Francisco", "hq_city_source": "web_verified", "hq_country": "US", "hq_country_source": "web_verified"})
+J["west-co"] = mo("west-co", "Seed", 2024, "https://www.cbinsights.com/company/workshop-for-emotional-and-spiritual-technology", "https://www.cbinsights.com/company/workshop-for-emotional-and-spiritual-technology",
+    "Biz Stone and Evan Sharp's social startup (product Tangle); the $29M seed with Spark closed in May 2024 under the legal name Workshop for Emotional & Spiritual Technology Corp (Form D) — the Jan 2026 press date was the public reveal; below $1B, too young for the graduation test", flags=["censored"], conf="medium")
+J["common"] = mo("common", "Series A", 2022, "https://decrypt.co/100437/common-raises-20m-to-build-dao-management-platform-launch-token", "https://decrypt.co/100437/common-raises-20m-to-build-dao-management-platform-launch-token",
+    "on-chain community platform (Commonwealth); $20M round with Spark and Polychain (May 2022), listed by Spark from 2026; valuation undisclosed — below $1B", conf="medium", flags=["city_unknown"])
+J["antithesis"] = mo("antithesis", "Series A", 2025, "https://www.prnewswire.com/news-releases/jane-street-leads-antithesiss-105m-series-a-to-make-deterministic-simulation-testing-the-new-standard-302631076.html", "https://pulse2.com/antithesis-105-million-series-a/",
+    "deterministic simulation testing (Vienna, Virginia); Spark joined the $105M Series A led by Jane Street (Dec 2025); valuation undisclosed, prior mark $215M — below $1B (label-vs-scale class raised for Erik)")
+J["cardless"] = mo("cardless", "Growth", 2025, "https://www.businesswire.com/news/home/20250922076214/en/Cardless-Raises-$60M-Series-C-On-Heels-of-Coinbase-Bilt-Partnerships-Supercharging-Effort-to-Transform-the-Credit-Card-Industry", "https://pulse2.com/cardless-60-million-series-c-secured-for-co-branded-credit-card-platform/",
+    "co-branded credit card platform; Spark led the $60M Series C (Sept 2025); PitchBook post-money $216M — below $1B", usd=216000000, asof="2025-09")
+J["kinnu"] = mo("kinnu", "Seed", 2023, "https://siliconangle.com/2023/07/05/kinnu-creator-generative-ai-powered-learning-app-raises-6-5m-funding/", "https://siliconangle.com/2023/07/05/kinnu-creator-generative-ai-powered-learning-app-raises-6-5m-funding/", "generative-AI learning app (London); Spark in the $6.5M seed (Jul 2023); no priced A on the record — below $1B")
+J["roi"] = mo("roi", "Seed", 2023, "https://fortune.com/crypto/2023/07/13/roi-raises-3-million-to-help-investors-keep-up-with-value-of-crypto-and-nfts/", "https://fortune.com/crypto/2023/07/13/roi-raises-3-million-to-help-investors-keep-up-with-value-of-crypto-and-nfts/", "multi-asset investing app; Spark led the $3.6M seed (Jul 2023) — below $1B", flags=["city_unknown"])
+if __name__ == "__main__": print(len(J))

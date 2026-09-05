@@ -1,0 +1,496 @@
+{
+ "slug": "spark-capital",
+ "name": "Spark Capital",
+ "wayback": {
+  "cdx_domain": "sparkcapital.com",
+  "site_url_base": "https://www.sparkcapital.com",
+  "eras": [
+   {
+    "parser": "cdx_company_pages",
+    "path": "/company/",
+    "from": 2008,
+    "to": 2012,
+    "per_company_pages": true,
+    "_note": "2008-12 to 2012-03 ExpressionEngine site: one page per company at /company/<slug> (74 slugs in the CDX index incl. spelling variants such as covestor/covester, 5min/5min_Media; uppercase slugs like OMGPOP and Altius_Education are not enumerated here and come from the listing era D instead)."
+   },
+   {
+    "parser": "cdx_company_pages",
+    "path": "/portfolio/",
+    "from": 2012,
+    "to": 2015,
+    "per_company_pages": true,
+    "_note": "2012-04 to 2015-10 WordPress site: post type portfolio, one page per company at /portfolio/<slug>/ (116 slugs in the CDX index); the listing page filters by ?st=<sector>."
+   },
+   {
+    "parser": "cdx_company_pages",
+    "path": "/companies/",
+    "from": 2015,
+    "to": 2019,
+    "per_company_pages": true,
+    "_note": "2015-11 to 2019 WordPress site (redesign, post type companies): one page per company at /companies/<slug>/ (127 slugs in the CDX index); the listing paginates (/companies/page/N/) and carries sector, geography and a seed/venture/growth stage class per card."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio",
+    "from": 2009,
+    "to": 2012,
+    "raw": true,
+    "per_company_pages": false,
+    "pattern": "href=\"[^\"]*?/company/(?P<slug>[^/\"?]+)/?\"[^>]*title=\"view details for (?P<name>.*?)'s bio\"",
+    "_note": "ExpressionEngine listing: a logo slider whose <noscript> block carries one <a href=/company/<slug>/ title=\"view details for <Name>'s bio\"> per company (25 companies in the 2009-06 capture, 41 in 2011-05). Names are the site's own rendering. The first 2012 capture (2012-01) is still the ExpressionEngine page, so the era runs to 2012."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio/",
+    "from": 2012,
+    "to": 2013,
+    "raw": true,
+    "per_company_pages": true,
+    "pattern": "<div class=\"company\">\\s*<a href=\"[^\"]*/portfolio/(?P<slug>[a-z0-9-]+)/\"[^>]*>(?P<name>[^<]+)</a>",
+    "_note": "2012-2013 WordPress listing: <div class=company><a href=/portfolio/<slug>/ class='ir smaj' style=background-image>Name</a>."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio/",
+    "from": 2014,
+    "to": 2015,
+    "raw": true,
+    "per_company_pages": true,
+    "pattern": "<a href=\"[^\"]*/portfolio/(?P<slug>[a-z0-9-]+)/\"[^>]*>\\s*<img alt=\"(?P<name>[^\"]*)\"",
+    "_note": "2014-2015 WordPress listing (restyled): <a href=/portfolio/<slug>/ class=smaj><img alt=Name>."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/companies/",
+    "from": 2015,
+    "to": 2019,
+    "raw": true,
+    "per_company_pages": true,
+    "pattern": "<a class=\"portfolio-logos\" href=\"[^\"]*/companies/(?P<slug>[a-z0-9-]+)/\" title=\"(?P<name>[^\"]*)\"",
+    "_note": "2015-11 to 2019 WordPress listing: <div class='portfolio-list <sector> <geo> <stage>'><a class=portfolio-logos href=/companies/<slug>/ title=Name>. One capture per year reads page 1 only (99-116 cards); the cdx_company_pages era above completes the enumeration and scratch/wp-listing-tags.py reads the per-card sector/geo/stage classes into sources/site/wp-companies-2015-2019.json."
+   },
+   {
+    "_id": "wp2018",
+    "parser": "listing_regex",
+    "path": "/companies/",
+    "from": 2018,
+    "to": 2019,
+    "raw": true,
+    "per_company_pages": false,
+    "pattern": "<li class=\"companies-list [^\"]*\"[^>]*>\\s*<a class=\"portfolio-logos\" href=\"[^\"]*\" title=\"(?P<name>[^\"]+)\"",
+    "_note": "2017-10 to 2019 WordPress redesign (the 'menu-new-menu' theme): /companies/ groups the cards by sector section (<div class='companies-group <sector>'>) with one <li class='companies-list <n> <sector...> <seed|venture|growth>'><a class=portfolio-logos href=<company website> title=Name> per company and no per-company pages; the 2015-2017 theme's /companies/<slug>/ anchors are gone, so this era reads the title attribute. Stage/sector classes read by scratch/wp-listing-tags.py."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/companies",
+    "from": 2020,
+    "to": 2020,
+    "raw": true,
+    "per_company_pages": false,
+    "pattern": "<li class=\"items-grid__item tag-all[^\"]*\" data-title=\"(?P<slug>[a-z0-9][a-z0-9 _.&'-]*)\"",
+    "_note": "2019-09 to 2020-08 interim site built on B12 (jQuery, cdn.b12.io assets): /companies renders one <li class='items-grid__item tag-all tag-stage-<seed|venture|growth> tag-sector-<x>' data-title='<lowercase name>'> per company with a logo link to the company website and no rendered name text; the data-title is read as the slug (display names come from the other eras' renderings). The stage/sector classes are the firm's own labels for the company as listed and are read by scratch/wp-listing-tags.py."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/companies",
+    "from": 2020,
+    "to": 2026,
+    "raw": true,
+    "per_company_pages": false,
+    "pattern": "<h3 class=\"h3 margin-top---0\">(?P<name>[^<]+)</h3>",
+    "_note": "2020+ Webflow site: /companies server-renders every card in every tab (7 tabs in 2021, 6 in 2026), one <h3 class='h3 margin-top---0'>Name</h3> per card plus an acquisition-spec line ('NYSE: TWTR in 2013', 'Acquired by Facebook in 2014'). Distinct companies: 135 (2021-06), 164 (2023-05), 45 (2026-09) - the live list is a selected subset and the archived years are the survivorship layer. scratch/webflow-archive-cards.py reads the per-card exit markers into sources/site/webflow-archive-companies.json."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/",
+    "from": 2007,
+    "to": 2008,
+    "raw": true,
+    "per_company_pages": false,
+    "pattern": "href=\"portfolio/(?P<slug>[a-z0-9_-]+)\\.php\"",
+    "_note": "2007-2008 static PHP site: the homepage (index.php) lists the portfolio as hrefs portfolio/<slug>.php (12 companies in 2007-08). The 2006 site (home.html, image-only portfolio1/2.html pages with per-company /portfolio/<x>.html) is curated by hand into parsed/2006.json from the CDX index (veoh, kickapps, theplatform, twistbox). The domain's 2000-2004 captures belong to a prior owner and predate the firm (founded 2005)."
+   }
+  ],
+  "non_company_slugs": [
+   "index",
+   "home",
+   "index.php",
+   "page",
+   "feed",
+   "all",
+   "see-all",
+   "category",
+   "tag",
+   "wp-json",
+   "wp-content",
+   "wp-admin",
+   "wp-includes",
+   "xmlrpc",
+   "about",
+   "team",
+   "news",
+   "contact",
+   "jobs",
+   "jobs2",
+   "jobs-2-0",
+   "mission",
+   "legal",
+   "misc",
+   "portfolio",
+   "portfolio1",
+   "portfolio2",
+   "portfolio3",
+   "companies",
+   "company",
+   "sessions",
+   "sections",
+   "sessions-tag",
+   "sessions-type",
+   "investment",
+   "operations",
+   "community",
+   "administrative",
+   "knowledge",
+   "sitemap",
+   "robots",
+   "favicon",
+   "css",
+   "images",
+   "assets",
+   "global",
+   "application",
+   "t",
+   "login",
+   "app",
+   "team-profiles",
+   "team-members",
+   "the-creators-story",
+   "the-creators",
+   "terms-policies",
+   "ai-hacker-in-residence",
+   "sexualharassmentpolicy",
+   "download",
+   "flex",
+   "cdn-cgi",
+   "comments",
+   "twitter",
+   "search",
+   "author",
+   "attachment",
+   "0",
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "0.0",
+   "0.1",
+   "1.2.6"
+  ],
+  "_non_company_note": "'twitter' here is the 2012 /twitter redirect path (the firm's own Twitter account link), not the company; the company row comes from /company/twitter, /portfolio/twitter and the listings. 'investment' and 'operations' are the 2014 team sub-pages."
+ },
+ "roster": {
+  "cdx_patterns": [
+   "sparkcapital.com/team/*",
+   "sparkcapital.com/team-profiles/*",
+   "sparkcapital.com/team-members/*"
+  ],
+  "site_team_groups": [
+   "Early",
+   "Growth",
+   "Emeritus"
+  ],
+  "slug_re": "/(?:team-profiles|team-members|team)/([a-z][a-z0-9-]*[a-z0-9])/?$",
+  "listing_href_re": "/(?:team-profiles|team-members|team)/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+  "not_a_person": [
+   "index",
+   "team",
+   "bio",
+   "page",
+   "feed",
+   "all",
+   "filter",
+   "early",
+   "growth",
+   "operations",
+   "emeritus",
+   "attachment",
+   "tag",
+   "team-profiles",
+   "team-members",
+   "investment",
+   "about",
+   "companies",
+   "news",
+   "contact",
+   "jobs",
+   "careers",
+   "sessions",
+   "partners",
+   "people",
+   "our-team",
+   "the-team",
+   "all-investors",
+   "team-page",
+   "our-people"
+  ],
+  "_note": "Four people namespaces over twenty years: /team/<first>_<last>.html (2006-07 static, underscores), /team/bio/<firstlast> and /index.php/team/bio/<firstlast> (2008-2011 ExpressionEngine, no separator), /team/<first>-<last>/ (2012-2019 WordPress), /team-profiles/<first>-<last> (2020-2023 Webflow) and /team-members/<first>-<last> (2024+ Webflow). partner-roster.py enumerates the dash-separated namespaces; the 2006-2011 people (Dagres, Politi, Conway, Sabet, Finkelstein, Miller, Borenstein, Koyfman, Go, Parker, Huang, Haber) are CURATED into sources/wayback/partner-roster.json by scratch/roster-curate.py from the CDX capture years of their bio pages (decisions.md D8). The live team.json carries the Webflow tab as group; Operations (finance, platform, marketing) is excluded from the Form D sweep because those people never sit issuer boards for the firm."
+ },
+ "site_api": {
+  "type": "scrape",
+  "sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/spark-capital/sources/site/webflow-companies.json",
+    "list": "companies-live",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "sectors": "sectors_site",
+    "extras": [
+     "description",
+     "acquisition_spec",
+     "logo",
+     "on_all_tab"
+    ]
+   },
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/spark-capital/sources/site/webflow-archive-companies.json",
+    "list": "companies-archive",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "description",
+     "acquisition_spec",
+     "years_listed",
+     "first_snapshot"
+    ]
+   },
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/spark-capital/sources/site/wp-companies-2015-2020.json",
+    "list": "companies-wp-tags",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "sectors": "sectors_site",
+    "extras": [
+     "stage_site_first",
+     "stage_site_all",
+     "geo_site",
+     "years_listed"
+    ]
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/spark-capital/sources/site/team-webflow.json",
+    "list": "team",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "slug",
+     "group"
+    ]
+   }
+  ],
+  "_note": "sparkcapital.com is a Webflow site (no public CMS API; escalation ladder step 5): /companies server-renders 124 cards across six tabs that repeat the same 45 companies (parsed once into webflow-companies.json with the card's exit marker and website); /team renders 23 people in four tabs. Archived listing eras are read by wayback-pull.py (config.wayback); their per-card fields (Webflow exit markers 2020-2026, WordPress sector/geo/stage classes 2015-2019) are extracted by scratch scripts into further file_list sources added below once landed."
+ },
+ "edgar": {
+  "seed_queries": [
+   "spark+capital",
+   "spark+management+partners",
+   "spark+growth+management",
+   "spark+member+fund"
+  ],
+  "fts_phrases": [
+   "Spark Capital"
+  ],
+  "fts_own_pattern": "spark capital|spark management partners|spark growth management|spark member fund|finkelstein alex|politi santo|sabet bijan|dagres todd|conway paul|hyatt nabeel|koyfman mo|philips jeremy|thau kevin|razavi yasmin|kuklinski james|reed will|parker andrew|quinn megan|clayton alex|haber david|miller dennis|huang charles|kelton fraser|vais natalie",
+  "_note": "Entity set verified 2026-09-05 on EDGAR and IAPD: adviser Spark Capital / Spark Capital Partners, LLC (ERA 802-75412, CRD 161231, CIK 2098748, 200 Clarendon St Boston); flagship Spark Capital L P (1334932), II (1407645), III (1503396), IV (1570735), V (1668614), VI (1767514), VII (1887212), VIII (2004532), IX (2123887); Growth Fund LP (1608868), II (1671626), III (1767515), IV (1887395), V (2004497), VI (2123891), VI-A (2140721); Founders Fund L P (1343189), II (1430606), III (1518280), IV (1601001), V (1699712), VI (1803356), VII (1920095), VIII (2015311), IX (2146615); Growth Founders' Fund (1640667), II (1699504), III (1803357), IV (1920091), V (2015305), VI (2146618); GPs Spark Management Partners LLC (1423574), II (1600213), III (AIV I) (1640445), Spark Growth Management Partners LLC (1608856), II (1846116). SparkChain Capital, L.P. (1770470) is a namesake. EDGAR full-text search for the phrase returns ~900 documents (the funds' own 13G/13D, third-party S-1/424B: eToro, Flywire, Affirm, ...)."
+ },
+ "wikipedia": {
+  "phrases": [
+   "Spark Capital"
+  ]
+ },
+ "desks": {
+  "home": "us",
+  "partition": [],
+  "rank": [
+   "us",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "sparkchain",
+     "spark growth ventures",
+     "sparkline",
+     "^sparks capital",
+     "blue spark",
+     "spark networks",
+     "sparklabs",
+     "^spark ventures",
+     "spark therapeutics",
+     "sparkcognition",
+     "spark energy",
+     "spark power",
+     "spark infrastructure",
+     "spark realty",
+     "spark real estate",
+     "^spark financial",
+     "^spark investment",
+     "^spark advis",
+     "^spark asset",
+     "^spark wealth",
+     "^spark acquisition",
+     "^spark holdings",
+     "^spark fund",
+     "^spark labs",
+     "^spark international",
+     "^spark global",
+     "^spark america",
+     "^spark technolog",
+     "^spark media",
+     "^spark minerals",
+     "^spark mining",
+     "^spark environmental",
+     "^spark motion",
+     "^spark group",
+     "^spark industries",
+     "^spark innovation",
+     "^spark opportunit",
+     "^spark capital (management|advisors|advisory|group|investments|holdings|inc|corp|securities)",
+     "^spark inc",
+     "^spark, inc",
+     "^spark & co",
+     "^spark llc",
+     "^spark plc",
+     "^spark new zealand",
+     "^spark ai",
+     "^spark biomedical",
+     "^spark foundry"
+    ]
+   },
+   {
+    "desk": "us",
+    "patterns": [
+     "^spark capital",
+     "^spark management partners",
+     "^spark growth management partners",
+     "^spark member fund"
+    ]
+   }
+  ],
+  "_note": "Namesakes verified by CRD, CIK and address, never by name (decisions.md D3): the firm is 200 Clarendon Street, Boston (New York and San Francisco offices per ADV Section 1.F). Spark Growth Ventures (CRD 330397), Sparkline Capital LP (CRD 314364), Sparks Capital Management (CRD 311222), Blue Spark Capital Advisors (CRD 159025), Sparks Capital Corporation (CRD 36683), SparkChain Capital, L.P. (CIK 1770470), Spark Networks (NYSE: LOV), SparkLabs, Spark Ventures (Chicago), Spark Therapeutics, SparkCognition are unrelated. The external rule runs first so a namesake sharing the 'spark capital' prefix (management/advisors/group forms) is caught before the home-desk rule; the registry's desk column is reviewed after collect and confirmed per CIK."
+ },
+ "profile": {
+  "own_vehicle_pattern": "^(spark capital|spark management partners|spark growth management partners|spark member fund)",
+  "focus_min_companies": 12,
+  "focus_crosswalk": {
+   "AI": "AI & Applied AI",
+   "Enterprise": "SaaS",
+   "Fintech": "Fintech & Payments",
+   "Frontier": "Industrial & Robotics",
+   "Software": "SaaS",
+   "commerce": "Consumer & Marketplaces",
+   "marketplaces": "Consumer & Marketplaces",
+   "consumer": "Consumer & Marketplaces",
+   "consumer-web": "Consumer & Marketplaces",
+   "media": "Media, Gaming & Advertising",
+   "software-services": "SaaS",
+   "financial-services": "Fintech & Payments",
+   "hardware": "Industrial & Robotics",
+   "advertising-monetization": "Media, Gaming & Advertising",
+   "commerce-services": "Consumer & Marketplaces",
+   "cloud-infrastructure": "Data Infrastructure",
+   "social": "Consumer & Marketplaces",
+   "mobile": "Consumer & Marketplaces",
+   "content": "Media, Gaming & Advertising",
+   "hardware-infrastructure": "Industrial & Robotics",
+   "media-advertising": "Media, Gaming & Advertising",
+   "Commerce & Marketplaces": "Consumer & Marketplaces",
+   "Financial Services": "Fintech & Payments",
+   "Hardware & Infrastructure": "Industrial & Robotics",
+   "Media & Advertising": "Media, Gaming & Advertising",
+   "Social": "Consumer & Marketplaces",
+   "Mobile": "Consumer & Marketplaces",
+   "Software & Services": "SaaS",
+   "Advertising & Monetization": "Media, Gaming & Advertising",
+   "Commerce & Services": "Consumer & Marketplaces",
+   "Cloud & Infrastructure": "Data Infrastructure",
+   "Content": "Media, Gaming & Advertising",
+   "fintech": "Fintech & Payments",
+   "FinTech": "Fintech & Payments",
+   "Consumer Web": "Consumer & Marketplaces",
+   "Commerce": "Consumer & Marketplaces",
+   "Marketplaces": "Consumer & Marketplaces",
+   "Media": "Media, Gaming & Advertising",
+   "Hardware": "Industrial & Robotics",
+   "software": "SaaS",
+   "frontier": "Industrial & Robotics",
+   "ai": "AI & Applied AI",
+   "enterprise": "SaaS"
+  },
+  "_note": "Three site vocabularies: the 2026 Webflow tabs (AI, Enterprise, Fintech, Frontier, Software; 'Frontier' is the firm's deep-tech/hardware/space/bio bucket and crosswalks to Industrial & Robotics with the grind's per-company focus as the corrective), the 2015-2019 WordPress card classes (commerce, marketplaces, media, software-services, financial-services, hardware, ... plus geography and seed/venture/growth stage classes that are NOT sectors) and the 2012-2014 ?st= filters. focus_min_companies ~4.5% of an expected ~270-row base."
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "twitter",
+   "tumblr",
+   "oculus",
+   "cruise",
+   "plaid",
+   "slack",
+   "discord",
+   "anthropic",
+   "coinbase",
+   "affirm",
+   "wayfair",
+   "snap",
+   "warby parker",
+   "postmates",
+   "trello",
+   "kik",
+   "foursquare",
+   "etoro",
+   "flywire",
+   "deel",
+   "ramp",
+   "scale ai",
+   "niantic",
+   "marqeta"
+  ],
+  "sample_slugs": [],
+  "shape": {
+   "one_b_share_max": 0.3,
+   "c2a_rate_max": 0.8,
+   "_note": "decisions.md D12: a 2005-vintage early-stage firm with a growth strategy since 2014 whose live site is a selected winners list (45 rows, 10 exits marked) and whose fund vehicles file 13G/13D on the public winners; the archive and Form D layers add the long tail, but the $1B+ share is expected above the 20% megafund default (Twitter, Slack, Snap, Coinbase, Affirm, Wayfair, Anthropic, Discord, Scale AI, Deel, Ramp, Plaid, Kalshi, Niantic, Marqeta, Carta, ...). The guard still fires above 30%; a genuine seed/A book keeps the 80% C2A ceiling."
+  }
+ },
+ "sample_slugs": [],
+ "commoncrawl": {
+  "company_paths": [
+   "company",
+   "portfolio",
+   "companies"
+  ],
+  "people_paths": [
+   "team",
+   "team-profiles",
+   "team-members"
+  ]
+ }
+}
