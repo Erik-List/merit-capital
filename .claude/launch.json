@@ -4,14 +4,33 @@
     {
       "name": "review-a16z",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8791", "--directory", "data/collection/investors/a16z"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8791",
+        "--directory",
+        "data/collection/investors/a16z"
+      ],
       "port": 8791
     },
     {
       "name": "review-surface",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8931", "--directory", "data/collection/investors"],
-      "port": 8931
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "exec python3 -m http.server \"${PORT:-8931}\" --directory data/collection/investors"
+      ],
+      "port": 8931,
+      "autoPort": true
+    },
+    {
+      "name": "app-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
+      "port": 3000
     }
   ]
 }
