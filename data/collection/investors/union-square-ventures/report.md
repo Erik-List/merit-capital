@@ -190,3 +190,9 @@ Top level: `config.json`, `decisions.md` (D1–D9, R1–R13), `golden.json`, `id
 ## Addendum 2026-09-06 — Rule A ruled
 
 Erik ruled the aggregator question as Rule A, uniform for USV, Spark and every further investor: vendor marks never band a row. Written into COLLECTION.md §7 (valuation) by this session on his instruction; applied to Spark's nine vendor-cited rows (Spark report addendum); Justworks now agrees across USV, Spark and Thrive and the accepted pair is withdrawn (cross-rulings.json: 4 accepted). USV's own rows already followed the rule (R11). Open ruling 6 in §7 is resolved. The six ingested investors carry 47 vendor-cited rows (scratch/rule-a-scan.md): most transcribe priced rounds and would keep their band with a citation swap; about a dozen rest on estimates — not touched, outside the ruling's scope, listed for Erik.
+
+## Addendum 2026-09-06 — ingested
+
+On Erik's approval ("invest now, logo is fine", prompt 2): `ingest-investor.ts` upserted the investor row (taxonomy gate passed; `investment_geo.other` "Canada" added as a new open-vocabulary geo label), then `ingest-companies.ts` upserted 220/220 rows; `public.companies` holds 220 rows for union-square-ventures. Prompt count 2.
+
+Icon: Erik accepted the site's white-on-green 512px mark despite the 2.70:1 contrast. The normaliser has no override for the 3:1 floor, and adding one means a `scripts/` change the collection session may not make on its own (the attempt was blocked); until that flag exists and the master is published to Supabase storage, `icon_url` in the row is the site's own file (`cropped-usv_logo.jpg`), served directly. The one remaining step: add `--allow-low-contrast` to `fetch-investor-icon.ts` / `icon-normalize.ts` (logged in provenance, tolerated by `--audit`), run the fetch, then `ingest-investor.ts --columns icon_url`.

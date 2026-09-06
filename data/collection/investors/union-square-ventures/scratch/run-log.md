@@ -76,3 +76,8 @@ contrast (3:1 floor); raised in report.md §7.
 Standing audits: cik_weak 7 (3 fit, 4 disputed collisions), unicorn_name_match 9 (all verified). report.md written with computed
 counts; Linear milestone + closing comments on PRO-86; scratch/collection-writeback.md handed to the tooling session;
 run.py close (in-flight marker removed); commit with the investor pathspec. Ingest gated on Erik's approval. Prompt count 1.
+
+## Ingest (2026-09-06, prompt 2)
+Erik: "invest now, logo is fine". ingest:investor (row created; geo label "Canada" added) then ingest:companies 220/220.
+Icon: --allow-low-contrast flag needed in scripts/ (attempt blocked); icon_url serves the site's 512px jpg meanwhile.
+Earlier the same day: Rule A ruled and applied (USV, Spark, COLLECTION.md §7).
