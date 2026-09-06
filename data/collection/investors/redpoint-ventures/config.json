@@ -1,0 +1,406 @@
+{
+ "slug": "redpoint-ventures",
+ "name": "Redpoint Ventures",
+ "wayback": {
+  "cdx_domain": "redpoint.com",
+  "site_url_base": "http://www.redpoint.com",
+  "eras": [
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio/current-investments/",
+    "from": 2007,
+    "to": 2012,
+    "pattern": "(?i)<img[^>]+src=\"[^\"]*(?:customer_logos|uploads)[^\"]*\"[^>]*alt=\"(?P<name>[^\"]+)\"",
+    "raw": true,
+    "_note": "Era 3 (2007-2012), the 'Current Investments' table: one row per company with the firm's own name in the logo's alt attribute, plus description, location and status columns (the richer read is sources/site/companies-2007-2012.json, built by scratch/build-era-sources.py). /portfolio/ is the same union under a different path. Measured: 69 rows (2007) rising to 96 (2012). The list is undifferentiated by desk \u2014 the Chinese rows (AMEC, 51.com, Innofidei, iDreamSky) sit in it, which is the positive evidence that the China desk was the firm's own before the 2015 spin-out (decisions.md D1)."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/companies/",
+    "from": 2015,
+    "to": 2020,
+    "pattern": "(?i)<article class=\"[^\"]*rpv_companies[^\"]*\"[^>]*iso-company-name=\"(?P<name>[^\"]+)\"",
+    "raw": true,
+    "_note": "Era 5 (2015-2020), the Bedrock/Sage WordPress site. Each card is an <article> whose class list carries the firm's own sector taxonomy (rpv_company_sectors-*), stage taxonomy (rpv_company_stages-*), an active_state (current/exited) and THE DEAL PARTNER'S AUTHOR SLUG (a-clayton, j-brody, t-tunguz, s-dharmaraj), and whose iso-company-name attribute carries the firm's own rendering of the name. Measured: 139 (2015) to 173 (2020). The per-row taxonomy is read into sources/site/companies-2015-2020.json; this era entry exists so the wayback layer gets its listing years."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/companies/",
+    "from": 2021,
+    "to": 2024,
+    "pattern": "data-filter-name=\"(?P<name>[^\"]+)\"",
+    "raw": true,
+    "_note": "Era 6 (2021-2026), the Gatsby + Sanity site. Cards carry data-filter-name, data-filter-sectors and data-filter-stage. Measured: 129 slugs (2021), 168 (2023). 2025-2026 captures replay empty under id_, so the live CMS (site_api, 288 docs) and the archived /page-data/companies/<slug>/page-data.json captures carry those years."
+   }
+  ],
+  "non_company_slugs": [
+   "home",
+   "index",
+   "default",
+   "sitemap",
+   "search",
+   "contact",
+   "contact-us",
+   "about",
+   "about-redpoint",
+   "redpoint-in-china",
+   "news",
+   "portfolio",
+   "companies",
+   "company",
+   "people",
+   "our-people",
+   "team",
+   "author",
+   "blog",
+   "start",
+   "careers",
+   "eir-program",
+   "for-entrepreneurs",
+   "entrepreneurs",
+   "stories",
+   "content-hub",
+   "infrared",
+   "radar",
+   "edge",
+   "resources",
+   "reports",
+   "privacy",
+   "terms",
+   "jobs",
+   "all",
+   "see-all",
+   "more",
+   "next",
+   "previous",
+   "www",
+   "feed",
+   "page",
+   "redpoint-ventures",
+   "redpoint"
+  ],
+  "_note": "Three generic eras here (2007-2012, 2015-2020, 2021-2024). The two earliest site eras are parsed by scratch/build-early-eras.py straight into sources/wayback/parsed/, because both of their listing pages render TWO labelled sections \u2014 the firm's own current investments and 'Previous Investments by Redpoint Partners', the founding partners' Brentwood and IVP book carried as a track record \u2014 and one regex cannot separate them (decisions.md D5). Era 1 (2000-2002) is /portfolio/default.shtml; era 2 (2002-2006) is index.htm?action=view&oid=152 (current) and oid=157 (previous), a logo-only CMS whose rows still carry the company's own URL, a description, a location and a status."
+ },
+ "roster": {
+  "cdx_patterns": [
+   "redpoint.com/team/*",
+   "redpoint.com/our-people/*",
+   "redpoint.com/author/*"
+  ],
+  "site_team_groups": [
+   "investors",
+   "founders"
+  ],
+  "slug_re": "/(?:team|our-people|author)/([A-Za-z][A-Za-z0-9._-]*[A-Za-z0-9])(?:\\.s?html?)?/?$",
+  "listing_href_re": "/(?:team|our-people|author)/([a-zA-Z][a-zA-Z0-9_-]*)/?[\"']",
+  "not_a_person": [
+   "index",
+   "default",
+   "eir",
+   "eir-program",
+   "team",
+   "people",
+   "our-people",
+   "author",
+   "feed",
+   "page",
+   "contact",
+   "about",
+   "news",
+   "portfolio",
+   "companies",
+   "search",
+   "sitemap",
+   "favicon",
+   "our-team",
+   "the-team",
+   "join-us",
+   "careers",
+   "www"
+  ],
+  "_note": "Four people namespaces across eras: /team/<lastname>.shtml (2000-2001: beasley, brody, dyal, haley, walecka, yang, gotcher, becker, fogelsong, bott, hamm, mahoney, pelowski, pimentel), index.htm?action=view&oid=<n> team pages (2002-2006, whose bios NAME THE PARTNER'S OWN DEALS), /team/<first-last>/ (2007-2013), /author/<slug>/ (2013-2020, the WordPress author namespace whose slugs are exactly the deal-partner slugs on the company cards) and /our-people/<slug> (2020-2026). partner-roster.py requires a hyphen in the slug, so the 2000-2001 last-name-only pages are structurally invisible to it; scratch/build-early-roster.py adds those names with their true capture windows and records the provenance (see report.md)."
+ },
+ "site_api": {
+  "type": "scrape",
+  "sources": [
+   {
+    "parser": "json_list",
+    "url": "https://22xmfoma.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22company%22%5D%7B%22name%22%3Atitle%2C%22slug%22%3Aslug.current%2C%22url%22%3Alink%2C%22invest_year%22%3AinvestmentDate%2C%22display%22%3Adisplay%2C%22sectors%22%3Asectors%5B%5D-%3Etitle%2C%22site_stage%22%3Astage%5B0%5D-%3Etitle%2C%22site_location%22%3Alocation%2C%22founders%22%3Afounders%2C%22excerpt%22%3Apt%3A%3Atext(excerpt)%7D%7Corder(name%20asc)",
+    "list_path": "result",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "slug",
+     "invest_year",
+     "display",
+     "site_stage",
+     "site_location",
+     "founders",
+     "excerpt"
+    ],
+    "sectors": "sectors",
+    "_note": "Escalation-ladder step 2: redpoint.com is a Gatsby front end over a PUBLIC Sanity dataset (project 22xmfoma, dataset production, project id read out of the cdn.sanity.io image URLs in the page source). The GROQ projection flattens the sector and stage references and renders the portable-text excerpt to plain text, because the excerpt's second paragraph is the firm's own entry-round claim in prose ('We first partnered for their Series C in 2012'), which the gate scores as an entry_stage layer. 288 company docs measured 2026-09-06: 241 with a stage label, 239 with an investmentDate, 277 with a location, 117 with the entry sentence.",
+    "list": "sanity-cms"
+   },
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/redpoint-ventures/sources/site/companies-2000-2006.json",
+    "list": "companies-2000-2006",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "slug",
+     "listing_years",
+     "site_status",
+     "site_location",
+     "description",
+     "era",
+     "logo_file",
+     "ticker",
+     "acquirer",
+     "_name_basis",
+     "section"
+    ]
+   },
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/redpoint-ventures/sources/site/companies-2007-2012.json",
+    "list": "companies-2007-2012",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "slug",
+     "listing_years",
+     "site_status",
+     "site_location",
+     "description",
+     "era",
+     "ticker",
+     "acquirer"
+    ]
+   },
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/redpoint-ventures/sources/site/companies-2015-2020.json",
+    "list": "companies-2015-2020",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "slug",
+     "listing_years",
+     "site_stage",
+     "site_active_state",
+     "partners",
+     "era"
+    ],
+    "sectors": "sectors"
+   },
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/redpoint-ventures/sources/site/companies-2021-2026.json",
+    "list": "companies-2021-2026",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "slug",
+     "listing_years",
+     "site_stage",
+     "era"
+    ],
+    "sectors": "sectors"
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "json_list",
+    "url": "https://22xmfoma.apicdn.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22person%22%5D%7B%22name%22%3Aname%2C%22slug%22%3Aslug.current%2C%22role%22%3Aposition%2C%22group%22%3Ateam%5B0%5D%2C%22department%22%3Adepartment%5B0%5D%2C%22linkedin%22%3AsocialLinkedin%2C%22companies%22%3ArelatedCompanies%5B%5D-%3Etitle%7D%7Corder(name%20asc)",
+    "list": "sanity-team",
+    "list_path": "result",
+    "fields": {
+     "name": "name"
+    },
+    "extras": [
+     "slug",
+     "role",
+     "group",
+     "department",
+     "linkedin",
+     "companies"
+    ],
+    "_note": "The live Sanity person docs. `team` is the site's own group taxonomy (investors / founders / founder-experience / operations) and roster.site_team_groups keeps the first two; `relatedCompanies` is the firm's own per-partner deal attribution map, 20 partners deep, which the judge uses to resolve Form D name-match clusters (COLLECTION.md 5)."
+   }
+  ],
+  "_note": "Five company surfaces, one per site era, unioned. The live Sanity CMS is the current book; the four file_list sources are the archived eras, each built by scratch/build-era-sources.py out of the wayback raw captures, carrying the columns that era published (2002-2006: company URL, description, location, status, logo file \u2014 a LOGO-ONLY era whose names are derived from the company's own domain and corrected against the bracketing text lists; 2007-2012: alt-text name, description, location, status; 2015-2020: sector, stage, active_state and deal partner from the card classes; 2021-2026: data-filter name, sectors and stage plus the archived page-data JSON). Each file's _readme records how it was made so the union stays reproducible."
+ },
+ "edgar": {
+  "seed_queries": [
+   "redpoint+ventures",
+   "redpoint+omega",
+   "redpoint+associates",
+   "redpoint+management",
+   "redpoint+technology+partners"
+  ],
+  "fts_phrases": [
+   "Redpoint Ventures",
+   "Redpoint Omega",
+   "Redpoint Associates",
+   "Redpoint Technology Partners",
+   "Redpoint Management, LLC"
+  ],
+  "fts_own_pattern": "redpoint (ventures|omega|associates|management|technology partners)",
+  "_note": "Entity-qualified phrases only. Bare 'Redpoint' on EDGAR reaches Redpoint Bio Corp (NJ), Redpoint Global Inc (MA), REDpoint International (WA), Redpoint Investment Management Pty (Australia), Redpoint Partners LP (c/o Kern Capital Partners, Madison NJ), Redpoint Storage Partners LLC (Camarillo CA, a self-storage syndication) and 'redpoint' as an ordinary word."
+ },
+ "wikipedia": {
+  "phrases": [
+   "Redpoint Ventures",
+   "Redpoint Omega"
+  ]
+ },
+ "desks": {
+  "home": "us",
+  "partition": [],
+  "rank": [
+   "us",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "redpoint bio",
+     "redpoint global",
+     "redpoint international",
+     "redpoint investment management",
+     "redpoint investment advisors",
+     "redpoint asset management",
+     "redpoint partners lp",
+     "^redpoint partners l",
+     "redpoint storage",
+     "redpoint capital",
+     "redpoint energy",
+     "redpoint resources",
+     "redpoint holdings",
+     "redpoint real estate",
+     "redpoint securities",
+     "redpoint financial",
+     "ace redpoint",
+     "redpoint china",
+     "redpoint eventures",
+     "eventures"
+    ]
+   },
+   {
+    "desk": "us",
+    "patterns": [
+     "^redpoint ventures",
+     "^redpoint omega",
+     "^redpoint associates",
+     "^redpoint management",
+     "^redpoint technology partners"
+    ]
+   }
+  ],
+  "_note": "One desk. Redpoint Management, LLC (dba Redpoint Ventures, CRD 161680, SEC 802-75525, an EXEMPT REPORTING ADVISER) is the only adviser; its ADV Section 7.A related-person list is exactly the Redpoint Ventures III-X and Redpoint Omega I-V GP LLCs plus the lettered Omega co-invest vehicles, and it names no China, Brazil or crypto entity. Vehicles file from 3000 Sand Hill Road, Menlo Park (1999-2022) and 2969 Woodside Road, Woodside CA (2022-). 'ace redpoint' is Redpoint China's own adviser (ACE Redpoint Management Company, Ltd., IAPD CRD 288086, rpvchina.com) and is listed external here so a shared-name filer can never be claimed by the home rule (decisions.md D1)."
+ },
+ "profile": {
+  "own_vehicle_pattern": "^redpoint (ventures|omega|associates|management|technology partners)",
+  "focus_min_companies": 15,
+  "focus_crosswalk": {
+   "Application": "SaaS & Enterprise Software",
+   "Infrastructure": "Data Infrastructure",
+   "AI": "AI & Applied AI",
+   "Consumer": "Consumer & Marketplaces",
+   "Fintech": "Fintech & Payments",
+   "Security": "Security",
+   "Healthcare": "Healthcare & Bio",
+   "Blockchain": "Crypto & Web3",
+   "Hardware": "Industrial & Robotics"
+  },
+  "_note": "The firm's own live sector vocabulary is nine values (Application, Infrastructure, AI, Consumer, Fintech, Security, Healthcare, Blockchain, Hardware); the crosswalk maps them onto data/taxonomy/focus.json. focus_min_companies ~4.5% of the expected base."
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "2u",
+   "alchemy",
+   "answers.com",
+   "anthropic",
+   "arista networks",
+   "ask.com",
+   "avnera",
+   "cockroach labs",
+   "clickhouse",
+   "concur",
+   "cyral",
+   "danger",
+   "draftkings",
+   "duo security",
+   "eero",
+   "expensify",
+   "fortinet",
+   "hashicorp",
+   "heroku",
+   "homeaway",
+   "justworks",
+   "kustomer",
+   "lifesize",
+   "looker",
+   "mattermost",
+   "mistral ai",
+   "myspace",
+   "netflix",
+   "nextdoor",
+   "nubank",
+   "openai",
+   "physical intelligence",
+   "pure storage",
+   "qihoo 360",
+   "ramp",
+   "responsys",
+   "scribd",
+   "sentinelone",
+   "snowflake",
+   "sonos",
+   "sourcegraph",
+   "stripe",
+   "thredup",
+   "tivo",
+   "trip.com",
+   "twilio",
+   "wealthsimple",
+   "whatnot",
+   "zendesk",
+   "zimbra",
+   "zuora"
+  ],
+  "sample_slugs": [],
+  "shape": {
+   "one_b_share_max": 0.2,
+   "c2a_rate_max": 0.8,
+   "_note": "Defaults kept at kickoff. Redpoint is a 1999-vintage US firm whose live list carries OpenAI, Anthropic, Stripe, Snowflake, Twilio, Nubank, HashiCorp, Ramp and Mistral, so the $1B+ share is expected near rather than far below the guard. A guard that fires is restated in decisions.md against the evidence, not waived."
+  }
+ },
+ "sample_slugs": [],
+ "commoncrawl": {
+  "company_paths": [
+   "companies",
+   "portfolio"
+  ],
+  "people_paths": [
+   "our-people",
+   "author"
+  ],
+  "_note": "Two company namespaces: /portfolio/* (2007-2015, the WordPress eras) and /companies/* (2015-2026, the WordPress card grid and then Gatsby). Common Crawl's continuous index starts 2013, so it corroborates the 2013-2026 half and is the survivorship channel for the 2013-2015 window, where the site's card grid was JS-rendered and the archive holds no data payload."
+ }
+}
