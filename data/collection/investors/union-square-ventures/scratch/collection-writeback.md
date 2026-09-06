@@ -18,7 +18,7 @@ Proposed only; nothing here is committed to COLLECTION.md or scripts/ from this 
 5. **§11 exempt reporting advisers.** USV is the first ERA in the set: no Item 5.F RAUM exists; Schedule D 7.B.(1) gross
    asset values are the sworn substitute (26 funds, $3,235,446,464). Write the rule into §11 next to the RIA text, with
    the parse method (first-appearance sequences over page-repeated PDF text).
-6. **§7 valuation: name the aggregator rule (R11).** PitchBook/CB Insights/Tracxn/Contrary/Sacra marks go to the note and
+6. **LANDED 2026-09-06 as Rule A (Erik's ruling, written into §7 valuation by the USV session).** §7 valuation: name the aggregator rule (R11). PitchBook/CB Insights/Tracxn/Contrary/Sacra marks go to the note and
    never band a row; a `1b_plus` band needs a priced round, tender or float with a citable figure. Spark's Justworks row
    banded on a PitchBook mark; USV and Thrive did not — the wave needs one rule.
 7. **§7 acquired rows (R8).** Make explicit what every run already does: `acquired` carries no figure and bands

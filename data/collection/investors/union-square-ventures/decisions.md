@@ -280,7 +280,7 @@ are preserved in `excluded.csv`, never deleted.
   2026), Brilliant Planet (Watershed deal, WSP and Mott MacDonald facility work
   in Morocco 2024–2025, no wind-down found) and Oddcast (SitePal and Voki still
   sold). `exited` (Rupa Health) reads `acquired`.
-- **R11 — Aggregator valuations never band a row.** PitchBook, CB Insights,
+- **R11 — Aggregator valuations never band a row** (ruled by Erik 2026-09-06 as Rule A, the standing rule for every investor; COLLECTION.md §7). PitchBook, CB Insights,
   Tracxn, Contrary, Sacra and Forge marks go to the note; a `1b_plus` band needs
   a priced round, tender or public float with a citable figure. Applied to
   Justworks (`below_1b` with Thrive; Spark's $2.53B PitchBook mark is an accepted
