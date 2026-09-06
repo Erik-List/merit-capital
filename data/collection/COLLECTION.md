@@ -1025,6 +1025,19 @@ be read off it, and the report says so.
 - **Private rows**: last credible primary-round mark, `stale` flag beyond
   24 months. Secondary-market estimates go in the note, never in
   `valuation_usd`.
+- **Vendor marks never band a row** (Rule A, ruled by Erik 2026-09-06 on
+  USV and Spark; binds every investor from this wave on). A valuation
+  published by a data vendor — PitchBook, CB Insights, Tracxn, Dealroom,
+  Sacra, GetLatka, Contrary, Forge, Caplight, PremierAlts, UpMarket and
+  the like — is an estimate unless it transcribes a priced event, and then
+  the event is the source to cite. A `1b_plus` or higher band needs a
+  priced round, tender or public float with a citable figure from the
+  company, a filing or the press (a vendor's news arm reporting a priced
+  round is press). Vendor figures go to the note; a company known only
+  through vendor marks reads `below_1b` with the check recorded (Justworks:
+  an undisclosed 2020 Series E and three vendors at $1.4B–$2.53B; MatX: the
+  company's own "several billion" without a figure). The unicorn snapshot
+  is itself an aggregator — a coverage floor to verify (§4), never a mark.
 - **A stale primary mark yields to documented collapse evidence**: a priced
   tender or secondary far below it, or the sale of the business's core,
   rules the row into the lower band with the evidence cited in the note
