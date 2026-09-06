@@ -229,3 +229,14 @@ additions), `golden.json`, `identity-merges.json`, `cross-rulings.json`,
 momentum records, run-log, rebuild-queue, team pages, icon dry run).
 
 Generated 2026-09-05T21:53+00:00.
+
+## Addendum 2026-09-06 — Rule A applied (Erik's ruling, uniform for USV, Spark and every further investor)
+
+Vendor valuations (PitchBook, CB Insights, Sacra, GetLatka, Caplight, PremierAlts and the like) never band a row; a `1b_plus` band needs a priced round, tender or float with a citable figure, and vendor figures go to the note. Applied post-close from the USV session (`scratch/queue/rule-a.out.jsonl`, recorded through `run.py record`; export, review and verify re-run, clean):
+
+- **Re-cited, band and figure unchanged** (the mark is a priced round; the vendor page was only the citation): Ada $1.2B (Series C, May 2021, company announcement), Benchling $6.1B (Series F, 2021-11-18, company release), Noom $3.7B (Series F, 2021-05-25, TechCrunch), Outreach $4.4B (Series G, June 2021, company release), Stoke Space ~$2B (press-reported Series D mark, as-of moved to the October-2025 close; the reported $9B Series E stays in the note until confirmed).
+- **Re-dated**: Capitolis $1.6B is the priced Series D of 2022-03-22 (TechCrunch); the 2025 SAFEs disclosed no valuation, so the row is `stale` again.
+- **Re-banded below_1b, figure to the note**: Justworks (vendor estimates only; now aligned with USV and Thrive, the accepted pair withdrawn), MatX (the company says "several billion" without a figure; Caplight's $1.0B was an estimate).
+- **Figure to the note, band unchanged**: Enfabrica (PitchBook's $445–560M estimate).
+
+Open ruling 3 ("Aggregator figures") and the Justworks item in §7 are resolved by this rule.

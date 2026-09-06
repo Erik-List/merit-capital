@@ -256,3 +256,7 @@ entity-qualified `edgar.fts_own_pattern`.
 Ruling 14 addendum: **KIT digital** (KickApps' acquirer, 2011) and **Mandalay
 Digital** (Mandalay Media's later name) are consideration rows under D7 and were
 ruled `not_member` in the grind on the same basis.
+
+## Post-close ruling, 2026-09-06 (Erik)
+
+- **Rule A — vendor marks never band a row** (uniform for USV, Spark and every further investor; written into COLLECTION.md §7 valuation): a `1b_plus` band needs a priced round, tender or public float with a citable figure from the company, a filing or the press; PitchBook, CB Insights, Tracxn, Dealroom, Sacra, GetLatka, Contrary, Forge, Caplight, PremierAlts and UpMarket figures go to the note. Applied to nine rows (report.md addendum): six re-cited to the priced event, Capitolis re-dated, Justworks and MatX re-banded `below_1b`, Enfabrica's figure to the note. Supersedes the run's ruling 3 (aggregator figures at low confidence).
