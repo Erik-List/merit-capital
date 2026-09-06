@@ -1,0 +1,38 @@
+in flight: wrote data/collection/investors/lux-capital/scratch/in-flight.json
+rows: 382
+membership seed: 301 site_listing, 1 fund_filing; left for the judge: 80
+base: data/collection/investors/lux-capital/base.json
+target companies: 138  distinct issuer CIKs: 133
+scanning 74 quarterly datasets (offline)...
+filings collected: 491
+evidence: 324/324 base accessions found
+wrote data/collection/investors/lux-capital/scratch/issuer-evidence.json (133 CIKs, 37 with a name history)
+
+wrote data/collection/investors/lux-capital/sources/edgar/formd-issuer-rounds.json
+  companies with Form D history : 132
+  rounds after amendment merge  : 438 (53 amendments folded in)
+  companies with 2+ rounds      : 90
+  filings the partner sweep never saw: 164
+  companies gaining >=1 such filing  : 59
+  rounds carrying a sale date   : 437/438
+layer A (SEC public float): 382 rows to resolve
+    fetched 100/190
+    100/382
+    200/382
+    300/382
+    resolved a CIK: 246   with public float: 28
+layer B (Wikidata): 382 rows in batches of 60
+    60/382
+    120/382
+    180/382
+    240/382
+    300/382
+    360/382
+    382/382
+    matched: 64
+layer C (unicorn list): 627 current, 209 former
+graduation layer 1: 132 companies, 42 entered at Seed, 41 decided deterministically, 48 entries moved past pre-investor rounds
+
+deterministically resolved: 5/382
+retired (not_member, awaiting rebuild): 0
+queued for judgment       : 377 rows in 9 batches

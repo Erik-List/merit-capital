@@ -1,0 +1,550 @@
+{
+  "fields": {
+    "name": {
+      "source": "https://www.luxcapital.com",
+      "basis": "the firm's own site and its Form ADV primary business name (LUX CAPITAL MANAGEMENT, LLC, CRD 163026)",
+      "value": "Lux Capital"
+    },
+    "website": {
+      "source": "https://www.luxcapital.com",
+      "basis": "live site",
+      "value": "https://www.luxcapital.com"
+    },
+    "icon_url": {
+      "source": "https://www.luxcapital.com",
+      "basis": "The site's declared icon assets both fail the measured rules: the 32x32 shortcut icon would be upscaled, and the 256x256 apple-touch webclip is pre-blurred (edge ramp 6.09px against a 2px limit). The mark itself ships as an inline SVG in the page (viewBox 0 0 64 64, the angled LU monogram), extracted to sources/site/lux-mark.svg and normalized from the vector: ramp 0.97px, contrast 17.9:1, box 52%, radius 55% -- inside every rule with no override flags. Preview at sources/site/lux-icon-master-preview.png.",
+      "provenance": {
+        "source_url": "https://www.luxcapital.com (inline SVG, saved to sources/site/lux-mark.svg)",
+        "format": "svg",
+        "width": 64,
+        "height": 64,
+        "vector": true,
+        "artwork_master_px": 134,
+        "upscale": 1,
+        "ramp_px": 0.97,
+        "contrast": "17.9:1",
+        "master_size": 256,
+        "plate": "synthesized #ffffff behind a bare glyph (source 91% transparent)",
+        "fetched": "2026-09-06",
+        "allow_upscale": false,
+        "allow_low_contrast": false
+      },
+      "flag": "the URL here is the origin page; the Icon Images bucket URL replaces it at the gated ingest step (COLLECTION.md \u00a79)",
+      "value": "https://www.luxcapital.com"
+    },
+    "founding_year": {
+      "source": "http://web.archive.org/web/20000407054620/http://www.luxcapital.com/",
+      "basis": "luxcapital.com captures begin 2000-04-07 and the 2001 site describes the firm as operating; the founders are named on the 2005 team page as co-founders",
+      "value": 2000
+    },
+    "history": {
+      "source": "https://www.luxcapital.com/companies",
+      "basis": "the firm's own portfolio pages across five eras (2005 portfolio.php, the 2012-2016 grid, the 2016-2022 WordPress cards, the 2023+ Webflow cards) plus its news archive and this run's base",
+      "value": "Founded in New York in 2000 by Josh Wolfe, Peter H\u00e9bert and Robert Paull, Lux Capital began as a nanotechnology research house as much as a venture firm: its 2001 site described funding \"start-up capital, or the first outside funds a company raises\" in information technology and nanotechnology, and its first portfolio page (2005) listed seven companies, among them Nanosys, Molecular Imprints, Cambrios and the firm's own spin-out Lux Research. That habit of building as well as backing runs through the book \u2014 the firm's pages record Genocea as \"founded by Lux in 2006 as a spin-out of Harvard Medical School\", Kala Pharmaceuticals as a Johns Hopkins spin-out it founded, and Everspin as a spin-out it ideated and helped lead out of Freescale. The modern firm is a deep-tech and defence investor writing first checks: Anduril (2017), Applied Intuition (2017), Zoox (2015), Planet (2013), Relativity Space (2016), Saildrone (2016), Varda (2021) and Impulse Space (2022) on the hardware side; Recursion, Eikon, EvolutionaryScale and a large biology book on the science side; and Hugging Face (Series A, 2019), Runway, Together, Sakana AI, Cognition and Physical Intelligence in AI. Exits include Auris Health (Johnson & Johnson, 2019), CTRL-labs (Facebook, 2019), MosaicML (Databricks, 2023), Nervana (Intel, 2016), Luxtera (Cisco, 2019), Kurion (Veolia, 2016) and a cohort that listed by SPAC in 2020-21 (Desktop Metal, Matterport, Aeva, Rigetti, Evolv, Shapeways, Latch, Science 37). Lux Ventures IX closed at $1.5B in January 2026, the firm's largest fund."
+    },
+    "investment_concept": {
+      "source": "https://www.luxcapital.com",
+      "basis": "the firm's own industry vocabulary (Engineering + Electronics, Physics + Aerospace, Securing Life + Environment, Advancing Human Health, Infrastructure + Computer Science) reconciled with the landed focus distribution",
+      "value": "Backs scientists and engineers building companies at the edges of the possible -- defence and aerospace, robotics and advanced manufacturing, semiconductors and photonics, biology and health, and the computing infrastructure underneath them. Lux writes first institutional checks and frequently co-founds or incubates companies out of university and corporate research, then follows into later rounds through dedicated opportunity and co-invest vehicles."
+    },
+    "investment_stage": {
+      "source": "derived",
+      "basis": "the landed entry_stage distribution over 271 members -- Seed 136, Series A 92, Growth 42, Pre-Seed 1 -- plus the fund architecture (flagship funds alongside Total Opportunities and two Co-Invest Opportunities vehicles that carry the later rounds)",
+      "flag": "derived from the base and the fund ladder rather than a site filter; Lux publishes no stage filter",
+      "value": [
+        "Seed",
+        "Series A",
+        "Series B",
+        "Growth"
+      ]
+    },
+    "investment_geo": {
+      "source": "derived",
+      "basis": "hq_country on the landed base: US 249 of 271 (92%), with single rows in Canada, Lithuania, Israel, the UK, Ireland, the Netherlands, Nigeria, Ghana, Japan and the Bahamas",
+      "flag": "the geo core is one label; 'other' names the two regions with more than one row",
+      "value": {
+        "core": [
+          "US"
+        ],
+        "other": [
+          "Europe",
+          "Israel"
+        ]
+      }
+    },
+    "investment_scope": {
+      "value": {
+        "type": "Specialist",
+        "focus": [
+          "Healthcare & Bio",
+          "SaaS",
+          "Industrial & Robotics",
+          "Data Infrastructure"
+        ]
+      },
+      "source": "base.json",
+      "basis": "focus from the firm's own site sector tags on 350 base rows, crosswalked to data/taxonomy/focus.json (crosswalk in config.json), published above 12 companies. Scope type is the curated judgement carried in investor.json."
+    },
+    "investment_range": {
+      "source": "derived",
+      "basis": "median $6.5M is the Form D first-round distribution over the 53 members with issuer coverage (p25 $2.6M, p75 $17.3M, max $108M); the lower limit is the first-check seed floor those filings show (smallest $0.6M); the upper limit is the largest position the fund ladder supports, a 10-15% concentration of the $1.5B Lux Ventures IX",
+      "flag": "a round-size proxy for check size, fair only for a lead investor; Lux leads or co-leads most first rounds but the median is the round, not the check",
+      "value": {
+        "lower_limit": 1000000,
+        "median": 6500000,
+        "upper_limit": 200000000
+      }
+    },
+    "notable_investments": {
+      "source": "base",
+      "basis": "recognition over the confirmed base only; every name is a ledger-verified member of this run",
+      "value": [
+        "Anduril",
+        "Applied Intuition",
+        "Zoox",
+        "Planet",
+        "Recursion Pharma",
+        "Databricks",
+        "Hugging Face",
+        "Ramp",
+        "Anchorage",
+        "Physical Intelligence",
+        "Varda",
+        "Relativity Space",
+        "Auris Health",
+        "CTRL-labs",
+        "Desktop Metal",
+        "Matterport",
+        "Saildrone",
+        "Runway",
+        "Hadrian",
+        "Erebor"
+      ]
+    },
+    "aum": {
+      "source": "https://reports.adviserinfo.sec.gov/reports/ADV/163026/PDF/163026.pdf",
+      "basis": "Form ADV Section 7.B, annual amendment filed 2026-03-31: 17 private funds with $11,237,733,247 of gross assets. Lux Capital Management is an exempt reporting adviser (SEC file 802-75425) and files no Item 5.F regulatory AUM, so both ends of the range are the sworn 7.B composite",
+      "flag": "press figures sit BELOW the sworn number -- TechCrunch reported '$7 billion' of AUM at the January 2026 close of Lux Ventures IX. Under \u00a711 a press figure below the sworn floor belongs in this flag rather than in the range. The 7.B figure is gross asset value, not committed capital",
+      "value": {
+        "bottom": 11237733247,
+        "top": 11237733247
+      }
+    },
+    "funds": {
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?company=lux+ventures&action=getcompany",
+      "basis": "Form D total offering amounts per vehicle, each asserted against the filing at build time. Lux Ventures IX's $1.5B Form D (filed 2025-12-15) matches the reported January 2026 close to the dollar. Lux Ventures I and II predate electronic Form D and filed on paper (REGDEX), so they carry no size here; the sidecar vehicles (Sidecar, Sidecar II, Entrepreneurs Funds, Special Founders Fund, Cayman III, VIII-B) and the SPAC (Lux Health Tech Acquisition Corp, deregistered without a business combination) are counted in the basis rather than listed",
+      "value": [
+        {
+          "name": "Lux Ventures IX, L.P.",
+          "size": 1500000000,
+          "vintage": 2026
+        },
+        {
+          "name": "Lux Ventures VIII, L.P.",
+          "size": 1141725500,
+          "vintage": 2023,
+          "accession": "0001970486-23-000001"
+        },
+        {
+          "name": "Lux Ventures VII, L.P.",
+          "size": 675000000,
+          "vintage": 2021,
+          "accession": "0001864660-21-000001"
+        },
+        {
+          "name": "Lux Ventures VI, L.P.",
+          "size": 498000000,
+          "vintage": 2019,
+          "accession": "0001783918-19-000002"
+        },
+        {
+          "name": "Lux Ventures V, L.P.",
+          "size": 400000000,
+          "vintage": 2017,
+          "accession": "0001698008-17-000001"
+        },
+        {
+          "name": "Lux Ventures IV, L.P.",
+          "size": 350000000,
+          "vintage": 2015
+        },
+        {
+          "name": "Lux Ventures III, L.P.",
+          "size": 230400000,
+          "vintage": 2013,
+          "accession": "0001534238-13-000001"
+        },
+        {
+          "name": "Lux Total Opportunities, L.P.",
+          "size": 800000000,
+          "vintage": 2021,
+          "accession": "0001864658-21-000001"
+        },
+        {
+          "name": "Lux Co-Invest Opportunities II, L.P.",
+          "size": 550000000,
+          "vintage": 2019,
+          "accession": "0001783918-19-000003"
+        },
+        {
+          "name": "Lux Co-Invest Opportunities, L.P.",
+          "size": 300000000,
+          "vintage": 2017
+        },
+        {
+          "name": "Lux Defense Leaders, L.P.",
+          "size": 200000000,
+          "vintage": 2025
+        },
+        {
+          "name": "Pioneer Pier Investments, L.P.",
+          "size": 150000000,
+          "vintage": 2024,
+          "accession": "0002009624-24-000001"
+        }
+      ]
+    },
+    "hq_location": {
+      "value": "New York, NY",
+      "source": "sources/edgar/formd-sweep.json",
+      "basis": "issuer address on 21 of 21 of the firm's own Form D filings; unanimous. Filing-grade."
+    },
+    "individuals": {
+      "value": [
+        {
+          "name": "Adam Kalish",
+          "position": "Partner, Capital Formation",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Ale Salardi",
+          "position": "Executive Assistant",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Andrew Wilson",
+          "position": "Partner, Legal",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/awilson567",
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Brad Gritsch",
+          "position": "Finance",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Brandon Reeves",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/brandonreeves1",
+            "x_url": "https://twitter.com/breeves08"
+          }
+        },
+        {
+          "name": "Cristina Morris",
+          "position": "Executive Assistant",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Danny Crichton",
+          "position": "Partner, Research",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/dannycrichton",
+            "x_url": "https://twitter.com/DannyCrichton"
+          }
+        },
+        {
+          "name": "David Yang",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/davidkmyang",
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Deena Shakir",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/deenashakir",
+            "x_url": "https://twitter.com/deenashakir"
+          }
+        },
+        {
+          "name": "Emily Haight",
+          "position": "Partner, Capital Formation",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Grace Isford",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/graceisford",
+            "x_url": "https://twitter.com/graceisford"
+          }
+        },
+        {
+          "name": "Josh Wolfe",
+          "position": "Partner and Co-Founder",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/josh-wolfe-7883",
+            "x_url": "https://twitter.com/wolfejosh"
+          }
+        },
+        {
+          "name": "Kim Tran",
+          "position": "Finance",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Kyrstin Swan",
+          "position": "Partner, Capital Formation",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/kyrstinswan",
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Lan Jiang",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/lanjiang9",
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Laurence Pevsner",
+          "position": "Partner, Research",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/laurence-pevsner-0b1ba452",
+            "x_url": "https://x.com/Lpevs"
+          }
+        },
+        {
+          "name": "Lindsay Morris",
+          "position": "Executive Assistant",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Michelle Lee",
+          "position": "Partner, Legal",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Morgan Roundtree",
+          "position": "Executive Assistant",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Peter H\u00e9bert",
+          "position": "Partner and Co-Founder",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Prableen Kaur",
+          "position": "Executive Assistant",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Samantha Cho",
+          "position": "Partner, Accounting",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Saunaz Moradi",
+          "position": "Partner, Communications",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/saunazmoradi",
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Sean Traynor",
+          "position": "Partner, Legal",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Segolene Scarborough",
+          "position": "Partner, Finance",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Shahin Farshchi, PhD",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/shahinf",
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Shaq Vayda",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/shaquillevayda",
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Steven Brody",
+          "position": "Partner, Operations",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Stevie Lee",
+          "position": "Finance",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/stevie-stephanie-smelski-8a7b389a",
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Tess van Stekelenburg",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Tracie Rotter",
+          "position": "Partner, Platform",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/tracierotter",
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Brett McGurk",
+          "position": "Venture Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Ian Peikon",
+          "position": "Venture Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Robert Paull",
+          "position": "Co-Founder and Venture Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Samuel Arbesman",
+          "position": "Venture Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Scott Rubin",
+          "position": "Venture Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Thomas Reardon",
+          "position": "Venture Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Tony Thomas",
+          "position": "Venture Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Tuvia Barak",
+          "position": "Venture Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Zach Iscol",
+          "position": "Venture Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        },
+        {
+          "name": "Zack Schildhorn",
+          "position": "Venture Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/Lux_Capital"
+          }
+        }
+      ],
+      "source": "sources/site/team-members.json",
+      "basis": "Live team CMS: 41 members. Positions are CMS titles (33 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 6 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 15 LinkedIn, 41 X."
+    }
+  },
+  "slug": "lux-capital",
+  "generated_at": "2026-09-06T18:59:00+00:00",
+  "run": "PRO-95"
+}

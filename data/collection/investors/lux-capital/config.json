@@ -1,0 +1,418 @@
+{
+ "slug": "lux-capital",
+ "name": "Lux Capital",
+ "wayback": {
+  "cdx_domain": "luxcapital.com",
+  "site_url_base": "https://www.luxcapital.com",
+  "eras": [
+   {
+    "parser": "cdx_company_pages",
+    "path": "/companies/",
+    "from": 2016,
+    "to": 2026,
+    "per_company_pages": true,
+    "_note": "2016-2022 WordPress (post type companies) and 2023+ Webflow both serve one page per company at /companies/<slug>; the CDX index enumerates 246 distinct slugs across both, 50 of which are gone from the live site (the survivorship layer: accelergy, altspacevr, aria-insights, arraiy, blockstack, common-networks, cyphy-works, ftx, gridco-systems, hometeam, mousera, new-knowledge, subspace, ...)."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio",
+    "from": 2012,
+    "to": 2016,
+    "raw": true,
+    "per_company_pages": false,
+    "pattern": "(?s)importfolio/(?P<slug>[A-Za-z0-9_.%-]+?)_logo\\.(?:jpg|png|gif)[^>]*>.*?<h3>(?P<name>[^<]{2,60})</h3>",
+    "_note": "2012-2016 ExpressionEngine-era grid: <div class='grid_item'> carries <img src=/importfolio/<slug>_logo.jpg> then <h3>Name</h3>. The logo filename is the era's only stable slug (the cards link to the company website, not to a Lux page); the per-company detail lived in a JS tooltip and four /portfolio/sector/<sector>/popup/<slug> case studies (cerulean, everspin-technologies, kurion, transphorm)."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio.php",
+    "from": 2005,
+    "to": 2008,
+    "raw": true,
+    "per_company_pages": false,
+    "pattern": "images/logo_(?P<slug>[a-z0-9_]+)\\.gif\"\\s+alt=\"(?P<name>[^\"-]+)",
+    "_note": "2005-2008 PHP site: /portfolio.php is a table of the whole book with sector, location and a paragraph per company; each row's logo is images/logo_<slug>.gif with alt='<Name> - <sector>'. One capture (2005-09-30) covers the era."
+   }
+  ],
+  "non_company_slugs": [
+   "index",
+   "home",
+   "index.php",
+   "page",
+   "feed",
+   "all",
+   "see-all",
+   "category",
+   "tag",
+   "wp-json",
+   "wp-content",
+   "wp-admin",
+   "wp-includes",
+   "xmlrpc",
+   "about",
+   "team",
+   "people",
+   "advisors",
+   "news",
+   "contact",
+   "jobs",
+   "search",
+   "sitemap",
+   "robots",
+   "favicon",
+   "css",
+   "images",
+   "assets",
+   "im",
+   "importfolio",
+   "companies",
+   "company",
+   "portfolio",
+   "sector",
+   "popup",
+   "ideas",
+   "securities",
+   "riskgaming",
+   "podcast",
+   "content",
+   "news-info",
+   "brand",
+   "fellowship",
+   "terms-privacy",
+   "login",
+   "_next",
+   "cdn-cgi",
+   "author",
+   "attachment",
+   "comments",
+   "newsletter",
+   "blog",
+   "source",
+   "elements",
+   "js",
+   "t",
+   "archive",
+   "0",
+   "1",
+   "2",
+   "3",
+   "4",
+   "5"
+  ]
+ },
+ "roster": {
+  "cdx_patterns": [
+   "luxcapital.com/team/*",
+   "luxcapital.com/people/*",
+   "luxcapital.com/advisors/*"
+  ],
+  "site_team_groups": [],
+  "slug_re": "/(?:team|people|advisors)/([a-z][a-z0-9-]*[a-z0-9])/?$",
+  "listing_href_re": "/(?:team|people|advisors)/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+  "not_a_person": [
+   "index",
+   "team",
+   "people",
+   "advisors",
+   "bio",
+   "page",
+   "feed",
+   "all",
+   "filter",
+   "attachment",
+   "tag",
+   "about",
+   "companies",
+   "news",
+   "contact",
+   "jobs",
+   "careers",
+   "partners",
+   "our-team",
+   "the-team",
+   "team-page",
+   "our-people",
+   "3087"
+  ],
+  "_note": "Three people namespaces: team_<lastname>.php (2005-2008 PHP: wolfe, hebert, bock, kalish, paull, farshchi, blaug, barrelet, wachtel, schildhorn, plus team_partners/team_advisors index pages -- curated into sources/wayback/partner-roster.json, not enumerable by the dash pattern), /team/<first>-<last>/ (2016-2022 WordPress, 41 slugs) and /people/<first>-<last> + /advisors/<first>-<last> (2023+ Webflow, 50 + 10 slugs). The 2010-2015 site rendered the team as images only (/imteam/<initials>.jpg), so those years' tenure comes from the image filenames and the PHP-era pages."
+ },
+ "site_api": {
+  "type": "scrape",
+  "sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/lux-capital/sources/site/webflow-companies.json",
+    "list": "companies-live",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "sectors": "sectors_site",
+    "extras": [
+     "description",
+     "lux_investment_year",
+     "milestones",
+     "founders",
+     "team_slugs",
+     "slug"
+    ]
+   },
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/lux-capital/sources/site/php-era-2005-2008.json",
+    "list": "companies-php",
+    "fields": {
+     "name": "name"
+    },
+    "extras": [
+     "sector_site",
+     "location_site",
+     "description",
+     "years"
+    ]
+   },
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/lux-capital/sources/site/jobboard-companies.json",
+    "list": "companies-jobboard",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "description",
+     "stage_board",
+     "topics_board",
+     "active_jobs"
+    ]
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/lux-capital/sources/site/team-webflow.json",
+    "list": "team",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "slug",
+     "group",
+     "title"
+    ]
+   }
+  ],
+  "_note": "www.luxcapital.com is a Webflow site with no public CMS API (escalation ladder step 5). The sitemap enumerates 215 /companies/<slug>, 31 /people/<slug> and 10 /advisors/<slug> pages; each company page server-renders the firm's own description, its industries taxonomy, a Milestones block whose first line is 'Lux investment: <year>' (the firm's own entry year), the founders and a comma-joined list of the Lux people who own the relationship. scratch/site-pull.py fetches and parses them into the file_list sources above."
+ },
+ "edgar": {
+  "seed_queries": [
+   "lux+capital",
+   "lux+ventures",
+   "lux+co-invest",
+   "lux+defense",
+   "lux+total+opportunities",
+   "pioneer+pier"
+  ],
+  "fts_phrases": [
+   "Lux Ventures",
+   "Lux Capital Management",
+   "Lux Co-Invest",
+   "Pioneer Pier"
+  ],
+  "fts_own_pattern": "lux ventures|lux capital management|lux co-invest|lux health tech acquisition|lux defense leaders|lux total opportunities|pioneer pier investments|wolfe josh|hebert peter|schildhorn zack|farshchi shahin|zuberi bilal|dar zavain|goulburn adam|quintini renata|shakir deena|isford grace|reeves brandon|jiang lan|arbesman sam|bock larry|paull robert",
+  "_note": "Entity set from EDGAR company search 2026-09-06, all at 920 Broadway, 11th Floor, New York: adviser Lux Capital Management, LLC (CIK 1592843); flagships Lux Ventures II (1592755), III (1534238), IV (1633331), V (1698008), VI (1783918), VII (1864660), VIII (1970486), VIII-B (2144228), IX (2090925); Lux Ventures II LP (1343941, the REGDEX-era filer) and Lux Ventures Cayman III (1569760); sleeves Lux Ventures II Sidecar (1343943), Sidecar II (1603613), II Partners Fund I (1603613), III Special Founders Fund (1534241), VI Sidecar (1783917), VII/VIII/IX Entrepreneurs Funds (1864659, 1970485, 2101310); co-invest Lux Co-Invest Opportunities (1722022), II (1783916), Lux Co-Invest Partners LLC (1722021); Lux Health Tech Acquisition Corp (1823767, the 2020 SPAC, delisted). 'Lux Capital' as a phrase is common (Luxembourg funds, LUX asset managers) so the FTS phrases are entity-qualified per COLLECTION.md's Cherry lesson. ADV (CRD 163026, annual amendment 2026-03-31) Section 7.B names 17 private funds totalling $11,237,733,247 gross assets, three of which the EDGAR name search does not reach: Lux Defense Leaders, L.P. ($211.8M), Lux Total Opportunities, L.P. ($1.109B) and Pioneer Pier Investments, L.P. ($434.0M) -- the last carries no 'Lux' in its name at all, which is the \u00a711 reason the fund sweep is name-swept rather than partner-matched."
+ },
+ "wikipedia": {
+  "phrases": [
+   "Lux Capital"
+  ]
+ },
+ "desks": {
+  "home": "us",
+  "partition": [],
+  "rank": [
+   "us",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "^lux capital group",
+     "^lux capital partners",
+     "^lux capital advisors",
+     "^lux asset",
+     "^lux wealth",
+     "^lux investment",
+     "^lux financial",
+     "^lux industries",
+     "^lux research",
+     "^luxor",
+     "^luxe ",
+     "^luxembourg",
+     "^lux fund",
+     "^lux global",
+     "^lux international",
+     "^lux holdings",
+     "^lux digital",
+     "^lux ai",
+     "^lux bio",
+     "^luxa ",
+     "^luxeon",
+     "^luxent"
+    ]
+   },
+   {
+    "desk": "us",
+    "patterns": [
+     "^lux ventures",
+     "^lux capital management",
+     "^lux co-invest",
+     "^lux health tech acquisition",
+     "^lux defense leaders",
+     "^lux total opportunities",
+     "^pioneer pier investments"
+    ]
+   }
+  ],
+  "_note": "One desk: Lux is a single New York adviser (920 Broadway) with a San Francisco office, no geographic or strategy partition. Namesakes are verified by CIK and address, never by name -- 'Lux' is a common corporate word (Luxembourg-domiciled funds, Lux Research Inc which is Lux's own 2004 spin-out and an operating company, LUXA tickers). The external rule runs first."
+ },
+ "profile": {
+  "own_vehicle_pattern": "^(lux ventures|lux capital management|lux co-invest|lux health tech acquisition|lux defense leaders|lux total opportunities|pioneer pier investments)",
+  "focus_min_companies": 12,
+  "focus_crosswalk": {
+   "Engineering + Electronics": "Industrial & Robotics",
+   "Engineering Electronics": "Industrial & Robotics",
+   "Physics + Aerospace": "Industrial & Robotics",
+   "Physics Aerospace": "Industrial & Robotics",
+   "Securing Life + Environment": "Security",
+   "Securing Life Environment": "Healthcare & Bio",
+   "Computation + Intelligence": "AI & Applied AI",
+   "Computation Intelligence": "AI & Applied AI",
+   "Biology + Chemistry": "Healthcare & Bio",
+   "Biology Chemistry": "Healthcare & Bio",
+   "Healthcare": "Healthcare & Bio",
+   "Health": "Healthcare & Bio",
+   "Technology": "SaaS",
+   "Energy": "Industrial & Robotics",
+   "Aerospace": "Industrial & Robotics",
+   "Defense": "Industrial & Robotics",
+   "Semiconductors": "Industrial & Robotics",
+   "Biotechnology": "Healthcare & Bio",
+   "Artificial Intelligence": "AI & Applied AI",
+   "Transportation": "Industrial & Robotics",
+   "Media, Publishing": "Media, Gaming & Advertising",
+   "Information Services, Research": "SaaS",
+   "Advancing Human Health": "Healthcare & Bio",
+   "Biology Biochemistry": "Healthcare & Bio",
+   "Biology + Biochemistry": "Healthcare & Bio",
+   "Advancing human health": "Healthcare & Bio",
+   "Increasing Productivity Efficiency": "SaaS",
+   "Increasing Productivity + Efficiency": "SaaS",
+   "increasing productivity efficiency": "SaaS",
+   "Increasing productivity efficiency": "SaaS",
+   "Infrastructure Computer Science": "Data Infrastructure",
+   "Infrastructure + Computer Science": "Data Infrastructure",
+   "Infrastructure computer science": "Data Infrastructure",
+   "Progressing Science Knowledge": "SaaS",
+   "Progressing Science + Knowledge": "SaaS",
+   "Enabling Human Creativity Free Expression": "Media, Gaming & Advertising",
+   "Enabling Human Creativity + Free Expression": "Media, Gaming & Advertising",
+   "Securing life enviornment": "Security",
+   "Chemistry + Material Science": "Industrial & Robotics",
+   "health": "Healthcare & Bio",
+   "biology": "Healthcare & Bio",
+   "biochemistry": "Healthcare & Bio",
+   "infrastructure": "Data Infrastructure",
+   "computer": "Data Infrastructure",
+   "science": "SaaS",
+   "productivity": "SaaS",
+   "efficiency": "SaaS",
+   "engineering": "Industrial & Robotics",
+   "electronics": "Industrial & Robotics",
+   "physics": "Industrial & Robotics",
+   "aerospace": "Industrial & Robotics",
+   "chemistry": "Industrial & Robotics",
+   "materials": "Industrial & Robotics",
+   "securing": "Security",
+   "environment": "Climate & Energy",
+   "creativity": "Media, Gaming & Advertising",
+   "Chemistry Material Science": "Industrial & Robotics",
+   "Chemistry material science": "Industrial & Robotics",
+   "Increasing Productivity +\u00a0Efficiency": "SaaS",
+   "Increasing Productivity\u00a0Efficiency": "SaaS",
+   "infrastructure computer science": "Data Infrastructure",
+   "Enabling Human Creativity\u00a0Free Expression": "Media, Gaming & Advertising",
+   "Enabling human creativity free expression": "Media, Gaming & Advertising",
+   "Progressing science knowledge": "SaaS",
+   "Biology biochemistry": "Healthcare & Bio",
+   "SaaS": "SaaS",
+   "Security": "Security",
+   "AI & Applied AI": "AI & Applied AI",
+   "Healthcare & Bio": "Healthcare & Bio",
+   "Data Infrastructure": "Data Infrastructure",
+   "Industrial & Robotics": "Industrial & Robotics",
+   "Climate & Energy": "Climate & Energy",
+   "Crypto & Web3": "Crypto & Web3",
+   "Fintech & Payments": "Fintech & Payments",
+   "Consumer & Marketplaces": "Consumer & Marketplaces",
+   "Media, Gaming & Advertising": "Media, Gaming & Advertising",
+   "DevTools & APIs": "DevTools & APIs"
+  },
+  "_note": "Lux's live site groups companies under its own three-word industry phrases ('Engineering + Electronics', 'Physics + Aerospace', 'Securing Life + Environment'); the 2005 and 2012 sites used plain sector words (Energy / Technology / Healthcare, Semiconductors, Biotechnology, Aerospace, Defense). Both vocabularies are crosswalked here and the phrases are also split into single words by the profile's focus recompute (COLLECTION.md \u00a711, the comma-joined-tags rule). focus_min_companies ~4.5% of an expected ~270-row base. The site's own tags carry non-breaking spaces and inconsistent capitalisation between cards ('Increasing Productivity +\\u00a0Efficiency', 'Biology biochemistry', 'infrastructure computer science'), so the crosswalk carries the exact variants as well as the canonical phrases and the single words the \u00a711 recompute splits them into."
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "anduril",
+   "applied intuition",
+   "zoox",
+   "planet",
+   "relativity space",
+   "recursion",
+   "desktop metal",
+   "matterport",
+   "aeva",
+   "rigetti",
+   "hugging face",
+   "databricks",
+   "ramp",
+   "anchorage",
+   "saildrone",
+   "varda",
+   "impulse space",
+   "physical intelligence",
+   "chronosphere",
+   "sourcegraph",
+   "runway",
+   "together",
+   "evolutionary scale",
+   "nanosys",
+   "molecular imprints",
+   "shapeways",
+   "kurion",
+   "everspin",
+   "clarifai"
+  ],
+  "sample_slugs": [],
+  "shape": {
+   "one_b_share_max": 0.3,
+   "c2a_rate_max": 0.8,
+   "_note": "decisions.md: a 2000-vintage deep-tech firm whose live site is a 215-row curated list and whose winners are unusually large (Anduril, Applied Intuition, Databricks, Hugging Face, Ramp, Physical Intelligence, Anthropic-adjacent infra), so the $1B+ share is expected above the 20% megafund default; the guard still fires above 30%."
+  }
+ },
+ "sample_slugs": [],
+ "commoncrawl": {
+  "company_paths": [
+   "companies",
+   "portfolio"
+  ],
+  "people_paths": [
+   "people",
+   "team",
+   "advisors"
+  ]
+ }
+}
