@@ -14,14 +14,29 @@
       "basis": "the firm's own site (WordPress; the companies list, writing archive and people page were the run's layer 1b)"
     },
     "icon_url": {
-      "value": "https://www.usv.com/wp-content/uploads/2019/04/cropped-usv_logo.jpg",
+      "value": "https://lsohkkmdlrlixukuncjl.supabase.co/storage/v1/object/public/Icon%20Images/investors/union-square-ventures-d7c6803058.png",
       "source": "https://www.usv.com/wp-content/uploads/2019/04/cropped-usv_logo.jpg",
-      "basis": "PLACEHOLDER \u2014 the measured source, not a served icon yet: the firm's WordPress site-icon original (media library, 512x512 jpeg, the file behind its 32x32 favicon); discovered 2026-09-05 after --discover found only sub-100px favicons and the 190px header logo. The upload step (fetch-investor-icon.ts <slug> <source>, then ingest-investor.ts --columns icon_url) runs only after Erik's ingest approval and replaces this value with the Supabase URL; the dry-run master is scratch/usv-icon.png"
+      "basis": "fetched 2026-09-06 by scripts/fetch-investor-icon.ts from https://www.usv.com/wp-content/uploads/2019/04/cropped-usv_logo.jpg: jpeg 512x512, artwork 512px in the source → 145px in the 256px master (0.28x); plate: source is self-backing (opaque-plate), kept; safe area: artwork scaled 0.568 (box 100%→57%, radius 141%→80%); WARNING: artwork contrast against its background is 2.70:1, below the 3:1 minimum. Published with --allow-low-contrast.; master 256x256 opaque-plate rgb(4,164,76) opaque=100% box=57% radius=80% contrast=2.7:1 ramp=1.10px; published with --allow-low-contrast (brand plate accepted by Erik)",
+      "provenance": {
+        "source_url": "https://www.usv.com/wp-content/uploads/2019/04/cropped-usv_logo.jpg",
+        "format": "jpeg",
+        "width": 512,
+        "height": 512,
+        "vector": false,
+        "artwork_source_px": 512,
+        "artwork_master_px": 145,
+        "upscale": 0.283,
+        "ramp_px": 1.1,
+        "master_size": 256,
+        "fetched": "2026-09-06",
+        "allow_upscale": false,
+        "allow_low_contrast": true
+      }
     },
     "founding_year": {
       "value": 2003,
       "source": "https://en.wikipedia.org/wiki/Union_Square_Ventures",
-      "basis": "founded 2003 by Fred Wilson and Brad Burnham (Wikipedia infobox and lead); the firm's own About page dates its first fund, USV 2004 ($125M), to 2004 \u2014 the fund year, not the firm's"
+      "basis": "founded 2003 by Fred Wilson and Brad Burnham (Wikipedia infobox and lead); the firm's own About page dates its first fund, USV 2004 ($125M), to 2004 — the fund year, not the firm's"
     },
     "history": {
       "value": "Union Square Ventures was founded in New York in 2003 by Fred Wilson and Brad Burnham and closed its first fund, USV 2004, at $125 million. A thesis-driven early-stage firm from the start, it led or joined the first institutional rounds of Etsy (2006), Twitter (2007), Tumblr (2007), Zynga (2008), 10gen/MongoDB (2008), Kickstarter (2009), Twilio (2009), Duolingo (2011) and Coinbase (2013), added an Opportunity Fund for later rounds in 2010 (Cloudflare's $50M Series C, Lending Club, Stash, Justworks), and became one of the earliest institutional crypto investors (Coinbase, Protocol Labs, Algorand, Uniswap, Polygon). Since 2021 a parallel Climate fund family backs energy and carbon companies alongside the core Seed-and-A funds; the 2022 and 2024 core funds are $275 million each. The firm operates as one desk from Broadway in Manhattan under the partners Albert Wenger, Andy Weissman, Rebecca Kaden, Nick Grossman and Michael Mignano with the founders still listed, and reports as an exempt reporting adviser (CRD 162375) with 26 funds carrying $3.24 billion of gross assets at the March-2026 ADV. Its 220-company confirmed base spans 2004 to 2026 and reads seed-and-Series-A heavy, with 24 companies at $1B+ including five public floats above $10 billion.",
@@ -54,7 +69,7 @@
         ]
       },
       "source": "base.csv",
-      "basis": "DERIVED, no site filters exist: hq_country on the 220-row base is US 177 / GB 11 / DE 10 / CA 6 / BR 2 / IN 2 / AU 2 and one each of CO, SE, NO, EE, FR, MX, EG, CH, IE, FI; the firm's one office is New York (ADV Item 1.F; 66 of 220 HQs are New York) \u2014 a US core with European, Canadian and Latin American positions, none marketed as a territory"
+      "basis": "DERIVED, no site filters exist: hq_country on the 220-row base is US 177 / GB 11 / DE 10 / CA 6 / BR 2 / IN 2 / AU 2 and one each of CO, SE, NO, EE, FR, MX, EG, CH, IE, FI; the firm's one office is New York (ADV Item 1.F; 66 of 220 HQs are New York) — a US core with European, Canadian and Latin American positions, none marketed as a territory"
     },
     "investment_scope": {
       "value": {
@@ -82,7 +97,7 @@
         "upper_limit": 50000000
       },
       "source": "sources/edgar/formd-issuer-rounds.json",
-      "basis": "Median: entry-round amount sold on the first priced Form D of 67 membership-verified base companies with filing histories: p25 $2.33M, median $5.0M, p75 $11.3M, published as $5M \u2014 a round-size proxy for check size, fair where the firm led (it leads most Seed and A rounds it announces). Lower limit: the documented smallest institutional entry, Tumblr's $750K seed with Spark Capital (October 2007, the firm's own post); the $50K Clickable filing is a partial sale, not an entry check. Upper limit: the largest rounds the firm led out of the Opportunity Fund, Cloudflare's $50M Series C (2012) and Justworks' $50M Series E (2020, co-led); larger participations (Twitter's 2009 $98M round, Etsy's $40M 2012 round) were not USV-led"
+      "basis": "Median: entry-round amount sold on the first priced Form D of 67 membership-verified base companies with filing histories: p25 $2.33M, median $5.0M, p75 $11.3M, published as $5M — a round-size proxy for check size, fair where the firm led (it leads most Seed and A rounds it announces). Lower limit: the documented smallest institutional entry, Tumblr's $750K seed with Spark Capital (October 2007, the firm's own post); the $50K Clickable filing is a partial sale, not an entry check. Upper limit: the largest rounds the firm led out of the Opportunity Fund, Cloudflare's $50M Series C (2012) and Justworks' $50M Series E (2020, co-led); larger participations (Twitter's 2009 $98M round, Etsy's $40M 2012 round) were not USV-led"
     },
     "notable_investments": {
       "value": [
@@ -98,7 +113,7 @@
         "MongoDB"
       ],
       "source": "base.csv",
-      "basis": "recognition over the confirmed base only: all ten are ledger members entered at Seed or Series A from the firm's own announcement posts (Twitter, Etsy, Tumblr, Zynga, Kickstarter, Twilio, Duolingo, Coinbase, 10gen/MongoDB) or the Opportunity Fund (Cloudflare) \u2014 asserted by build-firm-profile.py against ledger verdicts on the 220-row base. Stripe ($159B, a 2014 common-stock purchase) is left out because the position is a secondary entry"
+      "basis": "recognition over the confirmed base only: all ten are ledger members entered at Seed or Series A from the firm's own announcement posts (Twitter, Etsy, Tumblr, Zynga, Kickstarter, Twilio, Duolingo, Coinbase, 10gen/MongoDB) or the Opportunity Fund (Cloudflare) — asserted by build-firm-profile.py against ledger verdicts on the 220-row base. Stripe ($159B, a 2014 common-stock purchase) is left out because the position is a secondary entry"
     },
     "aum": {
       "value": {
