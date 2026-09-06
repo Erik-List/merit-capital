@@ -265,7 +265,7 @@ export type NormalizeResult = {
 
 export async function normalize(
   source: Buffer,
-  opts: { plate?: string; size?: number; allowUpscale?: boolean } = {}
+  opts: { plate?: string; size?: number; allowUpscale?: boolean; allowLowContrast?: boolean } = {}
 ): Promise<NormalizeResult> {
   const size = opts.size ?? MASTER_SIZE;
   const notes: string[] = [];
@@ -346,10 +346,14 @@ export async function normalize(
   const after = await measure(sharp(buffer));
 
   if (after.contrast !== null && after.contrast < MIN_CONTRAST) {
-    throw new Error(
-      `Refusing to publish: artwork contrast against its background is ` +
-      `${after.contrast.toFixed(2)}:1, below the ${MIN_CONTRAST}:1 minimum. ` +
-      `Pass --plate <colour> with a background the logo is legible on.`);
+    const msg = `artwork contrast against its background is ` +
+      `${after.contrast.toFixed(2)}:1, below the ${MIN_CONTRAST}:1 minimum.`;
+    // A brand plate the owner accepts as-is (USV's white-on-green mark, Erik
+    // 2026-09-06) publishes only with --allow-low-contrast, logged in provenance.
+    if (!opts.allowLowContrast) {
+      throw new Error(`Refusing to publish: ${msg} Pass --plate <colour> with a background the logo is legible on.`);
+    }
+    notes.push(`WARNING: ${msg} Published with --allow-low-contrast.`);
   }
   // A source that arrives already blurred (a CDN-resized favicon, a JPEG
   // screenshot of a logo) passes the scale rule and fails here.

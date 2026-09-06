@@ -34,6 +34,7 @@ import {
 //     --plate auto|keep|<colour>   background policy (default auto)
 //     --dry-run <out.png>          normalize to a local file, no upload
 //     --allow-upscale              publish a soft icon knowingly (logged in provenance)
+//     --allow-low-contrast         publish a brand plate under the 3:1 floor knowingly (logged in provenance)
 //   tsx scripts/fetch-investor-icon.ts --audit [slug ...]
 
 const BUCKET = "Icon Images";
@@ -55,6 +56,7 @@ type Provenance = {
   source_url: string; format: string; width: number; height: number; vector: boolean;
   artwork_source_px: number | null; artwork_master_px: number; upscale: number;
   ramp_px: number; master_size: number; fetched: string; allow_upscale: boolean;
+  allow_low_contrast?: boolean;
 };
 
 /** Enumerate the icon-sized assets a site declares, with their intrinsic
@@ -154,6 +156,11 @@ async function audit(slugs: string[]) {
       } catch { /* no sidecar */ }
       if (!prov) warnings.push("no source provenance recorded (fetched before the resolution rule); the ramp check above is the only resolution evidence");
       else if (prov.upscale > MAX_UPSCALE) problems.push(`published from a ${prov.width}x${prov.height} source at ${prov.upscale.toFixed(2)}x enlargement${prov.allow_upscale ? " (--allow-upscale)" : ""}`);
+      if (prov?.allow_low_contrast) {
+        // the owner accepted the brand plate as-is; report, do not fail
+        const ci = problems.findIndex((p) => p.startsWith("contrast "));
+        if (ci >= 0) { warnings.push(`${problems[ci]} (published with --allow-low-contrast)`); problems.splice(ci, 1); }
+      }
       console.log(`${slug.padEnd(18)} ${describe(m)}${prov ? `  ← ${prov.format} ${prov.width}x${prov.height}, ${prov.upscale.toFixed(2)}x` : ""}`);
       problems.forEach((p) => { console.log(`${" ".repeat(19)}✗ ${p}`); failures++; });
       warnings.forEach((p) => console.log(`${" ".repeat(19)}· ${p}`));
@@ -181,16 +188,17 @@ async function main() {
     const i = argv.indexOf(name);
     return i >= 0 ? argv[i + 1] : undefined;
   };
-  const BOOL_FLAGS = new Set(["--allow-upscale"]);
+  const BOOL_FLAGS = new Set(["--allow-upscale", "--allow-low-contrast"]);
   const positional = argv.filter((a, i) =>
     !a.startsWith("--") && !(i > 0 && argv[i - 1].startsWith("--") && !BOOL_FLAGS.has(argv[i - 1])));
   const [slug, sourceUrl] = positional;
   const plate = flag("--plate") ?? "auto";
   const dryRun = flag("--dry-run");
   const allowUpscale = argv.includes("--allow-upscale");
+  const allowLowContrast = argv.includes("--allow-low-contrast");
 
   if (!slug || !sourceUrl) {
-    throw new Error("Usage: tsx scripts/fetch-investor-icon.ts <slug> <source-url> [--plate auto|keep|<colour>] [--dry-run <out.png>] [--allow-upscale]");
+    throw new Error("Usage: tsx scripts/fetch-investor-icon.ts <slug> <source-url> [--plate auto|keep|<colour>] [--dry-run <out.png>] [--allow-upscale] [--allow-low-contrast]");
   }
 
   const filePath = investorFile(slug);
@@ -202,7 +210,7 @@ async function main() {
   console.log(`Fetching ${sourceUrl} ...`);
   const source = /^https?:/i.test(sourceUrl) ? await download(sourceUrl) : readFileSync(sourceUrl);
 
-  const result = await normalize(source, { plate, allowUpscale });
+  const result = await normalize(source, { plate, allowUpscale, allowLowContrast });
   const { buffer: master, before, after, notes } = result;
   console.log(`  source  ${result.source.format} ${result.source.width}x${result.source.height}` +
     `${result.source.vector ? " (vector)" : ""}; on the ${MASTER_SIZE}px canvas: ${describe(before)}`);
@@ -216,6 +224,7 @@ async function main() {
     artwork_master_px: result.artworkMasterPx, upscale: Number(result.upscale.toFixed(3)),
     ramp_px: Number(after.rampWidth.toFixed(2)), master_size: MASTER_SIZE,
     fetched: new Date().toISOString().slice(0, 10), allow_upscale: allowUpscale,
+    allow_low_contrast: allowLowContrast,
   };
 
   if (dryRun) {
@@ -265,7 +274,8 @@ async function main() {
       (provenance.vector ? "" : `artwork ${provenance.artwork_source_px}px in the source → `) +
       `${provenance.artwork_master_px}px in the ${MASTER_SIZE}px master (${provenance.upscale.toFixed(2)}x); ` +
       `${notes.filter((n) => !n.startsWith("resolution:")).join("; ")}; master ${describe(after)}` +
-      (allowUpscale ? "; published with --allow-upscale" : "");
+      (allowUpscale ? "; published with --allow-upscale" : "") +
+      (allowLowContrast ? "; published with --allow-low-contrast (brand plate accepted by Erik)" : "");
     sources.fields.icon_url = { value: iconUrl, source: sourceUrl, basis, provenance };
     writeFileSync(sPath, `${JSON.stringify(sources, null, 2)}\n`);
     console.log(`✓ provenance in investor.sources.json`);
