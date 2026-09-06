@@ -1,0 +1,2933 @@
+{
+ "benchmark": {
+  "recall_additions": [
+   {
+    "basis": "Benchmark LED Duo Security's $12M Series B in September 2014 (Google Ventures had led the A). Acquired by Cisco in 2018 for $2.35B. Never on any benchmark.com surface \u2014 the firm stopped publishing in 2013 \u2014 and no partner appears on a Duo Form D, so no layer in this pipeline could see it. Found by the recall probe's press sweep.",
+    "citation": "https://techcrunch.com/2014/09/22/duo-security-12m-benchmark/",
+    "first_seen": "2014",
+    "name": "Duo Security",
+    "on_site_now": false,
+    "sector": "security",
+    "slug": "duo-security"
+   },
+   {
+    "basis": "Benchmark led LangChain's $10M seed in April 2023 (Chetan Puttagunta). Recall probe, press layer.",
+    "citation": "https://sacra.com/c/langchain/",
+    "first_seen": "2023",
+    "name": "LangChain",
+    "on_site_now": false,
+    "sector": "ai",
+    "slug": "langchain"
+   },
+   {
+    "basis": "Benchmark led Manus's $75M round in April 2025 at a $500M post-money with Puttagunta joining the board; Meta acquired the company in December 2025. Recall probe, press layer.",
+    "citation": "https://techcrunch.com/2025/12/29/meta-just-bought-manus-an-ai-startup-everyone-has-been-talking-about/",
+    "first_seen": "2025",
+    "name": "Manus",
+    "on_site_now": false,
+    "sector": "ai",
+    "slug": "manus"
+   },
+   {
+    "basis": "Benchmark led HeyGen's $60M Series A in June 2024 at a $500M post-money, Victor Lazarte joining the board. Recall probe, press layer.",
+    "citation": "https://www.heygen.com/blog/announcing-our-series-a",
+    "first_seen": "2024",
+    "name": "HeyGen",
+    "on_site_now": false,
+    "sector": "ai",
+    "slug": "heygen"
+   },
+   {
+    "basis": "Victor Lazarte led Benchmark's $25M investment in Decart in December 2024 (his own announcement); Decart later closed a $100M Series B at a $3.1B valuation. Recall probe, press layer.",
+    "citation": "https://x.com/victoralazarte/status/1869732355545665680",
+    "first_seen": "2024",
+    "name": "Decart",
+    "on_site_now": false,
+    "sector": "ai",
+    "slug": "decart"
+   },
+   {
+    "basis": "Benchmark led Reducto's $24.5M Series A in April 2025. Recall probe, press layer.",
+    "citation": "https://superscout.co/investor/benchmark",
+    "first_seen": "2025",
+    "name": "Reducto",
+    "on_site_now": false,
+    "sector": "ai",
+    "slug": "reducto"
+   }
+  ],
+  "recall_rejections": [
+   {
+    "name": "Anysphere (Cursor)",
+    "reason": "Probed because a VC-profile aggregator lists Cursor among Chetan Puttagunta's Benchmark investments. The round record does not support it: the OpenAI Startup Fund led the 2023 seed and the Series A, and the 2025 rounds were led by Thrive, a16z, Accel, Coatue and Nvidia. No Benchmark fund or partner appears on any Anysphere filing. Rejected \u2014 an aggregator's investor tag is not evidence.",
+    "slug": "anysphere-cursor"
+   },
+   {
+    "name": "Sourcegraph",
+    "reason": "Carried into config.json's verify.known_positions as a model prior at kickoff and probed on the verify warning. Sourcegraph's rounds were led by Goldcrest, Redpoint, Craft, Sequoia and a16z; no Benchmark fund or partner appears anywhere in its record. The prior was simply wrong and is removed from known_positions.",
+    "slug": "sourcegraph"
+   }
+  ],
+  "verdicts": {
+   "1-800-flowers": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "12-entrepreneuring": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "1life-healthcare": {
+    "basis": "Listed on the investor's own portfolio site (2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "1stdibs": {
+    "basis": "Listed on the investor's own portfolio site (2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "abaco-international-group": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "abrizio": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "accept-com": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "activision-inc-ny": {
+    "basis": "Activision's Forms 3/4 of 1999-2001 were filed by LASKY MITCHELL as an Activision EXECUTIVE \u2014 eight years before he joined Benchmark in 2007. An operator job on the far side of a partner's tenure, which is one of the recurring exclusion classes named in COLLECTION.md \u00a71. The row also carries desk 'unknown' because the crawl resolved no filer entity for it. R9.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "activision-inc-ny",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "acuitymd-inc": {
+    "basis": "Eric Vishria, a Benchmark general partner throughout, is director of record on AcuityMD's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "acuitymd-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "agentio-inc": {
+    "basis": "Sarah Tavel, a Benchmark general partner throughout, is director of record on Agentio's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "agentio-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "airbyte-inc": {
+    "basis": "Chetan Puttagunta was at New Enterprise Associates until 2018 and first appears on a Benchmark fund Form D on 2018-10-01 (Fund IX). His Airbyte seat is filed after that date and inside tenure, so it is a Benchmark position: a current general partner as director of record on the issuer's own Form D, identity resolving to a real operating company (the a16z adjudicated pattern).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "airbyte-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "alacritech": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "allegis": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "allposters-com": {
+    "basis": "Listed on the investor's own portfolio site (2005,2006,2007,2008,2009).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "alternis": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "alventive": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002,2003).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "ambarella": {
+    "basis": "Listed on the investor's own portfolio site (2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "amplitude-inc": {
+    "basis": "SEC ownership filing by a fund vehicle (forms 3,4,SC, CIK 1866692).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "fund_filing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "antares-nuclear-inc": {
+    "basis": "Jack Altman ran Alt Capital and his own funds until 2026 and first appears on a Benchmark fund Form D on 2026-06-30 (Partners 2 / T1). His Antares Nuclear seats are 2024q4 and 2025q3 \u2014 an Alt Capital position, pre-tenure. R8.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "antares-nuclear-inc",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "aol": {
+    "basis": "AOL: the firm's OWN legend on every listing era that carries it (1999-2009) reads \"* Investments made by Benchmark Capital general partner(s) prior to the formation of Benchmark Capital\". No Benchmark fund held the position \u2014 the firm was formed in 1995 and these are the founders' pre-1995 deals from Merrill Pickard, TVI and their other prior seats. T2 (fund money): out. Standing ruling R7, applied to all 21 asterisked rows as one class.",
+    "citation": "https://web.archive.org/web/20010807203542/http://www.benchmark.com/about/p-alpha.html",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "slug": "aol",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "approach-software": {
+    "basis": "Approach Software: the firm's OWN legend on every listing era that carries it (1999-2009) reads \"* Investments made by Benchmark Capital general partner(s) prior to the formation of Benchmark Capital\". No Benchmark fund held the position \u2014 the firm was formed in 1995 and these are the founders' pre-1995 deals from Merrill Pickard, TVI and their other prior seats. T2 (fund money): out. Standing ruling R7, applied to all 21 asterisked rows as one class.",
+    "citation": "https://web.archive.org/web/20010807203542/http://www.benchmark.com/about/p-alpha.html",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "slug": "approach-software",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "aquifi-inc": {
+    "basis": "Bruce Dunlevie is director of record on Aquifi's Form Ds, in tenure. Imimtek renamed itself Aquifi in 2014 and the base carries both \u2014 suspected duplicate, flagged for the identity-merge file rather than merged silently.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "aquifi-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "ariba": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "art-com": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "arteis": {
+    "basis": "Listed on the investor's own portfolio site (2007,2008,2009).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "asana": {
+    "basis": "Listed on the investor's own portfolio site (2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "ashford-com": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "aspendos": {
+    "basis": "Listed on the investor's own portfolio site (2005,2006,2007,2008,2009).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "atmosphere-networks": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "atrica": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002,2003,2004,2005,2006,2007,2008,2009).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "avamar": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "avant": {
+    "basis": "Avant!: the firm's OWN legend on every listing era that carries it (1999-1999) reads \"* Investments made by Benchmark Capital general partner(s) prior to the formation of Benchmark Capital\". No Benchmark fund held the position \u2014 the firm was formed in 1995 and these are the founders' pre-1995 deals from Merrill Pickard, TVI and their other prior seats. T2 (fund money): out. Standing ruling R7, applied to all 21 asterisked rows as one class.",
+    "citation": "https://web.archive.org/web/20010807203542/http://www.benchmark.com/about/p-alpha.html",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "slug": "avant",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "avvo": {
+    "basis": "Listed on the investor's own portfolio site (2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "axiom": {
+    "basis": "Listed on the investor's own portfolio site (2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "baixing": {
+    "basis": "Listed on the investor's own portfolio site (2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "benchling-inc": {
+    "basis": "Miles Grimshaw's Benchling seat is filed 2016q4, five years before he joined Benchmark (2021), so it is a Thrive position \u2014 and Benchling is a member of BOTH Thrive's and a16z's landed bases, which corroborates the attribution directly. No Benchmark fund or partner is otherwise on the record. R8.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "benchling-inc",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "bezi-inc": {
+    "basis": "Chetan Puttagunta was at New Enterprise Associates until 2018 and first appears on a Benchmark fund Form D on 2018-10-01 (Fund IX). His Bezi seat is filed after that date and inside tenure, so it is a Benchmark position: a current general partner as director of record on the issuer's own Form D, identity resolving to a real operating company (the a16z adjudicated pattern).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "bezi-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "blazent": {
+    "basis": "Listed on the investor's own portfolio site (2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "blue-coat-systems": {
+    "basis": "Listed on the investor's own portfolio site (2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "blue-hexagon-inc": {
+    "basis": "Eric Vishria, a Benchmark general partner throughout, is director of record on Blue Hexagon's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "blue-hexagon-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "blue-lane-technologies": {
+    "basis": "Listed on the investor's own portfolio site (2005,2006,2007,2008,2009).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "bo-lt": {
+    "basis": "Listed on the investor's own portfolio site (2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "boku": {
+    "basis": "Listed on the investor's own portfolio site (2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "bridgespan": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002,2003,2004,2005,2006).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "brighter": {
+    "basis": "Listed on the investor's own portfolio site (2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "broadbase-information-systems": {
+    "basis": "Listed on the investor's own portfolio site (1999).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "broadbase-software": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "broadcom": {
+    "basis": "Listed on the investor's own portfolio site (2001).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "business-com": {
+    "basis": "Listed on the investor's own portfolio site (2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "bytemobile": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "c-ats-software": {
+    "basis": "C\u00b7ATS Software: the firm's OWN legend on every listing era that carries it (1999-1999) reads \"* Investments made by Benchmark Capital general partner(s) prior to the formation of Benchmark Capital\". No Benchmark fund held the position \u2014 the firm was formed in 1995 and these are the founders' pre-1995 deals from Merrill Pickard, TVI and their other prior seats. T2 (fund money): out. Standing ruling R7, applied to all 21 asterisked rows as one class.",
+    "citation": "https://web.archive.org/web/20010807203542/http://www.benchmark.com/about/p-alpha.html",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "slug": "c-ats-software",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "c-port": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "cacheflow": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "cambia-networks": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "camrose-investors-llc": {
+    "basis": "Camrose Investors, LLC: a fund-shaped name filing a single $600,000 offering in 2013q3 with Kevin Harvey as the only related person, alongside two identical siblings and Grand Mesa Resource Preserve on the same day. These are a partner's personal vehicles, not operating companies \u2014 the fund-shaped standing rule (COLLECTION.md \u00a71) and T5. R8.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "camrose-investors-llc",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "canopy-tax-inc": {
+    "basis": "Chetan Puttagunta was at New Enterprise Associates until 2018 and first appears on a Benchmark fund Form D on 2018-10-01 (Fund IX). His Canopy Tax seat is filed 2015q2-2018q2, before that date, so the seat belongs to NEA at filing time (T4, person-level attribution; the seat-dating rule read at quarter granularity, R6). No Benchmark fund appears on any Canopy Tax filing and the firm never listed it. Ruled as one cluster with the other seven NEA-era rows, R8.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "canopy-tax-inc",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "carbondrop-inc": {
+    "basis": "Bruce Dunlevie and Peter Fenton are both directors of record on CarbonDrop's Form Ds (2023q2 and 2026q2), in tenure.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "carbondrop-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "cardston-investors-llc": {
+    "basis": "Cardston Investors, LLC: a fund-shaped name filing a single $600,000 offering in 2013q3 with Kevin Harvey as the only related person, alongside two identical siblings and Grand Mesa Resource Preserve on the same day. These are a partner's personal vehicles, not operating companies \u2014 the fund-shaped standing rule (COLLECTION.md \u00a71) and T5. R8.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "cardston-investors-llc",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "catapulse": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "cellectivity-ltd": {
+    "basis": "Listed on the investor's own portfolio site (2002,2003,2004).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "cerebras-systems-inc": {
+    "basis": "SEC ownership filing by a fund vehicle (forms 3,4, CIK 2021728).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "fund_filing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "chainalysis-inc": {
+    "basis": "Sarah Tavel, a Benchmark general partner throughout, is director of record on Chainalysis's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "chainalysis-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "charitableway-com": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "chromatic-research": {
+    "basis": "Chromatic Research: the firm's OWN legend on every listing era that carries it (1999-2001) reads \"* Investments made by Benchmark Capital general partner(s) prior to the formation of Benchmark Capital\". No Benchmark fund held the position \u2014 the firm was formed in 1995 and these are the founders' pre-1995 deals from Merrill Pickard, TVI and their other prior seats. T2 (fund money): out. Standing ruling R7, applied to all 21 asterisked rows as one class.",
+    "citation": "https://web.archive.org/web/20010807203542/http://www.benchmark.com/about/p-alpha.html",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "slug": "chromatic-research",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "clicker": {
+    "basis": "Listed on the investor's own portfolio site (2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "clinical-solutions": {
+    "basis": "Listed on the investor's own portfolio site (2008).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "cloudpassage": {
+    "basis": "Listed on the investor's own portfolio site (2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "cohesiant": {
+    "basis": "Listed on the investor's own portfolio site (2002,2003).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "collabnet": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "collabra-software": {
+    "basis": "Collabra Software: the firm's OWN legend on every listing era that carries it (1999-2001) reads \"* Investments made by Benchmark Capital general partner(s) prior to the formation of Benchmark Capital\". No Benchmark fund held the position \u2014 the firm was formed in 1995 and these are the founders' pre-1995 deals from Merrill Pickard, TVI and their other prior seats. T2 (fund money): out. Standing ruling R7, applied to all 21 asterisked rows as one class.",
+    "citation": "https://web.archive.org/web/20010807203542/http://www.benchmark.com/about/p-alpha.html",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "slug": "collabra-software",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "comcore": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "commerce-layer-inc": {
+    "basis": "Eric Vishria, a Benchmark general partner throughout, is director of record on Commerce Layer's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "commerce-layer-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "compression": {
+    "basis": "Listed on the investor's own portfolio site (2009).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "conduit": {
+    "basis": "Listed on the investor's own portfolio site (2009,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "confluent-inc": {
+    "basis": "SEC ownership filing by a fund vehicle (forms 3,4,SC, CIK 1699838).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "fund_filing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "contentful-global-inc": {
+    "basis": "Eric Vishria, a Benchmark general partner throughout, is director of record on Contentful's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "contentful-global-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "copilot-labs-inc-de": {
+    "basis": "Jack Altman ran Alt Capital and his own funds until 2026 and first appears on a Benchmark fund Form D on 2026-06-30 (Partners 2 / T1). His Copilot Labs seat is 2026q1, ONE QUARTER before the Benchmark filings, so it is still an Alt Capital position. This is the row the year-granular queue got wrong in the gate's blind pass and the quarter-level seat dating (R6) settles. R8.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "copilot-labs-inc-de",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "coreexpress": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001,2002,2003,2004,2005,2006,2007,2008).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "coretet-ltd": {
+    "basis": "Listed on the investor's own portfolio site (2002).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "couchsurfing": {
+    "basis": "Listed on the investor's own portfolio site (2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "coverity": {
+    "basis": "Listed on the investor's own portfolio site (2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "critical-path": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "crossgain": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "cyngn-inc": {
+    "basis": "SEC ownership filing by a fund vehicle (forms 3,4,SC, CIK 1874097).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "fund_filing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "d2s": {
+    "basis": "Listed on the investor's own portfolio site (2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "decart": {
+    "basis": "Victor Lazarte announced leading Benchmark's $25M investment in Decart in December 2024, in his own words and on the firm's behalf. Recall-probe addition.",
+    "citation": "https://x.com/victoralazarte/status/1869732355545665680",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "web",
+    "slug": "decart",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "decru": {
+    "basis": "Listed on the investor's own portfolio site (2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "deep-cogito-inc": {
+    "basis": "Eric Vishria, a Benchmark general partner throughout, is director of record on Deep Cogito's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "deep-cogito-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "degree-inc": {
+    "basis": "Degree, Inc. is Lattice, the company Jack Altman CO-FOUNDED \u2014 a founder's own company, not a firm position (T2). Miles Grimshaw is also a director of record, but he joined that board in 2019 while at Thrive and the seat travelled with him to Benchmark: a continuing seat first taken at a prior firm stays the prior firm's (R6). Neither name makes this a Benchmark row. R8.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "degree-inc",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "demandforce": {
+    "basis": "Listed on the investor's own portfolio site (2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "discord-inc": {
+    "basis": "Mitch Lasky, a Benchmark general partner throughout, is director of record on Discord's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern. Lasky's window runs 2007-2023 under R3, not the 2016 his last fund Form D would imply.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "discord-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "docker-inc": {
+    "basis": "Peter Fenton, a Benchmark general partner throughout, is director of record on Docker's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "docker-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "doji-labs-inc": {
+    "basis": "Miles Grimshaw's Doji Labs seat is filed 2025q3, after he left Benchmark (2021-2024), so the seat belongs to his next firm. R8.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "doji-labs-inc",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "domo": {
+    "basis": "Listed on the investor's own portfolio site (2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "dotcloud": {
+    "basis": "Listed on the investor's own portfolio site (2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "dropbox": {
+    "basis": "Listed on the investor's own portfolio site (2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "duo-security": {
+    "basis": "Benchmark LED Duo Security's $12M Series B in September 2014, with Google Ventures, True Ventures and Radar participating (Google Ventures had led the Series A). Acquired by Cisco in 2018 for $2.35B. A recall-probe addition: the firm published no list after 2013 and no partner appears on a Duo Form D, so no structural layer in this pipeline could reach it.",
+    "citation": "https://techcrunch.com/2014/09/22/duo-security-12m-benchmark/",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "web",
+    "slug": "duo-security",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "e-dr-network": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "e-loan": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "ebags": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "ebay": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "editopia": {
+    "basis": "Listed on the investor's own portfolio site (2008).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "edmodo": {
+    "basis": "Listed on the investor's own portfolio site (2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "elastic-n-v": {
+    "basis": "SEC ownership filing by a fund vehicle (forms 3,4,4/A,SC, CIK 1707753).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "fund_filing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "elasticsearch-global-bv": {
+    "basis": "Peter Fenton is director of record on Elasticsearch Global BV's Form Ds, in tenure, and Benchmark led the $10M Series A in November 2012. (Puttagunta also appears in 2017, an NEA seat \u2014 NEA was an Elastic investor too \u2014 but Fenton's seat carries the row independently.) The base also holds elastic-n-v, the listed successor: suspected duplicate, flagged for the identity-merge file.",
+    "citation": "https://www.elastic.co/about/press/elasticsearch-closes-series-a-financing-to-drive-big-data-search",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "elasticsearch-global-bv",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "emerging-com": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "employeesavings-com": {
+    "basis": "Listed on the investor's own portfolio site (2000).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "encompass": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "engim": {
+    "basis": "Listed on the investor's own portfolio site (2004,2005,2006).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "engineyard": {
+    "basis": "Listed on the investor's own portfolio site (2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "ens": {
+    "basis": "Listed on the investor's own portfolio site (2000).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "entrisphere": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "enverv": {
+    "basis": "Listed on the investor's own portfolio site (2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "ephysician": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "epigram": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "epinions": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001,2002,2003,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "epoch-partners": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "equinix": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "eshop": {
+    "basis": "eShop: the firm's OWN legend on every listing era that carries it (1999-2008) reads \"* Investments made by Benchmark Capital general partner(s) prior to the formation of Benchmark Capital\". No Benchmark fund held the position \u2014 the firm was formed in 1995 and these are the founders' pre-1995 deals from Merrill Pickard, TVI and their other prior seats. T2 (fund money): out. Standing ruling R7, applied to all 21 asterisked rows as one class.",
+    "citation": "https://web.archive.org/web/20010807203542/http://www.benchmark.com/about/p-alpha.html",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "slug": "eshop",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "ethnic-grocer": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "eucalyptus-systems": {
+    "basis": "Listed on the investor's own portfolio site (2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "exa-labs-inc": {
+    "basis": "Peter Fenton, a Benchmark general partner throughout, is director of record on Exa Labs's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "exa-labs-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "fanbase": {
+    "basis": "Listed on the investor's own portfolio site (2010,2011).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "fantex-holdings-inc": {
+    "basis": "Fantex was founded in 2012 by DAVID BEIRNE, a FORMER Benchmark general partner whose own tenure ends in 2001 \u2014 his four seats are all post-tenure. Bruce Dunlevie co-files as a director in tenure, which is what makes this a trap rather than a gimme, but Fantex filed registration statements for its tracking stocks and the EDGAR full-text sweep on the firm's own fund phrases returns ZERO Fantex documents: no Benchmark fund is named anywhere in filings that would have to name a significant holder. Absent affirmative corroboration a name-match is not_member, not uncertain (COLLECTION.md \u00a72). R8.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "fantex-holdings-inc",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "fhp-wireless": {
+    "basis": "Listed on the investor's own portfolio site (2002,2003).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "flutter-com": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "folloze-inc": {
+    "basis": "Chetan Puttagunta was at New Enterprise Associates until 2018 and first appears on a Benchmark fund Form D on 2018-10-01 (Fund IX). His Folloze seat is filed 2016q3, before that date, so the seat belongs to NEA at filing time (T4, person-level attribution; the seat-dating rule read at quarter granularity, R6). No Benchmark fund appears on any Folloze filing and the firm never listed it. Ruled as one cluster with the other seven NEA-era rows, R8.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "folloze-inc",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "fomo-labs-inc": {
+    "basis": "Chetan Puttagunta was at New Enterprise Associates until 2018 and first appears on a Benchmark fund Form D on 2018-10-01 (Fund IX). His FOMO Labs seat is filed after that date and inside tenure, so it is a Benchmark position: a current general partner as director of record on the issuer's own Form D, identity resolving to a real operating company (the a16z adjudicated pattern).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "fomo-labs-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "friendfeed": {
+    "basis": "Listed on the investor's own portfolio site (2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "friendster": {
+    "basis": "Listed on the investor's own portfolio site (2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "fronterra-partners-llc": {
+    "basis": "Fronterra Partners, LLC: a fund-shaped name filing a single $500,000 offering in 2013q3 with Kevin Harvey as the only related person, alongside two identical siblings and Grand Mesa Resource Preserve on the same day. These are a partner's personal vehicles, not operating companies \u2014 the fund-shaped standing rule (COLLECTION.md \u00a71) and T5. R8.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "fronterra-partners-llc",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "gaia-interactive": {
+    "basis": "Listed on the investor's own portfolio site (2007,2008,2009).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "gaia-online": {
+    "basis": "Listed on the investor's own portfolio site (2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "gaikai": {
+    "basis": "Listed on the investor's own portfolio site (2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "galyan-s-trading-company": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "gemini-networks": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "genesys-telecommunications": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "geoworks": {
+    "basis": "Geoworks: the firm's OWN legend on every listing era that carries it (1999-1999) reads \"* Investments made by Benchmark Capital general partner(s) prior to the formation of Benchmark Capital\". No Benchmark fund held the position \u2014 the firm was formed in 1995 and these are the founders' pre-1995 deals from Merrill Pickard, TVI and their other prior seats. T2 (fund money): out. Standing ruling R7, applied to all 21 asterisked rows as one class.",
+    "citation": "https://web.archive.org/web/20010807203542/http://www.benchmark.com/about/p-alpha.html",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "slug": "geoworks",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "get2chip": {
+    "basis": "Listed on the investor's own portfolio site (2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "glassdoor-com": {
+    "basis": "Listed on the investor's own portfolio site (2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "good-technology": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "greatentertaining-com": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "grockit": {
+    "basis": "Listed on the investor's own portfolio site (2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "grubhub": {
+    "basis": "Listed on the investor's own portfolio site (2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "guild-com": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "handspring": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "heap-inc": {
+    "basis": "Chetan Puttagunta was at New Enterprise Associates until 2018 and first appears on a Benchmark fund Form D on 2018-10-01 (Fund IX). His Heap seat is filed 2015q4 and 2017q2, before that date, so the seat belongs to NEA at filing time (T4, person-level attribution; the seat-dating rule read at quarter granularity, R6). No Benchmark fund appears on any Heap filing and the firm never listed it. Ruled as one cluster with the other seven NEA-era rows, R8.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "heap-inc",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "here-not-there-inc": {
+    "basis": "Peter Fenton, a Benchmark general partner throughout, is director of record on Here Not There (IRL)'s own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "here-not-there-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "heygen": {
+    "basis": "Benchmark led HeyGen's $60M Series A in June 2024 at a $500M post-money, Victor Lazarte joining the board \u2014 the company's own announcement. Recall-probe addition.",
+    "citation": "https://www.heygen.com/blog/announcing-our-series-a",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "web",
+    "slug": "heygen",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "hipcamp-inc": {
+    "basis": "Sarah Tavel, a Benchmark general partner throughout, is director of record on Hipcamp's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "hipcamp-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "hiplogic": {
+    "basis": "Listed on the investor's own portfolio site (2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "hortonworks": {
+    "basis": "Listed on the investor's own portfolio site (2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "hound-labs-inc": {
+    "basis": "Mitch Lasky, a Benchmark general partner throughout, is director of record on Hound Labs's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern. Lasky's window runs 2007-2023 under R3, not the 2016 his last fund Form D would imply.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "hound-labs-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "huntress-labs-inc": {
+    "basis": "Everett Randle's Huntress Labs seat is filed 2024q2, two years before he joined Benchmark (first on a Benchmark fund Form D 2026-02-06); the seat belongs to his firm at filing time. R8.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "huntress-labs-inc",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "hyperic": {
+    "basis": "Listed on the investor's own portfolio site (2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "icompression": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "igglo": {
+    "basis": "Listed on the investor's own portfolio site (2007,2008).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "imimtek-inc": {
+    "basis": "Bruce Dunlevie is director of record on Imimtek's Form Ds, in tenure. Imimtek renamed itself Aquifi in 2014 and the base carries both \u2014 suspected duplicate, flagged for the identity-merge file rather than merged silently.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "imimtek-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "impresse": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "infinera": {
+    "basis": "Listed on the investor's own portfolio site (2003,2004,2005,2006,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "ingenio": {
+    "basis": "Listed on the investor's own portfolio site (2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "instagram-burbn": {
+    "basis": "Listed on the investor's own portfolio site (2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "inxpo-inc": {
+    "basis": "Val Vaden is a 1995 co-founder of Benchmark who left before the 1999 team page was published (no person page exists for him in any captured era). His InXpo seats are 2009-2016, a decade or more later, so they are post-tenure personal directorships. R8.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "inxpo-inc",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "ipsilon-networks": {
+    "basis": "Ipsilon Networks: the firm's OWN legend on every listing era that carries it (1999-2001) reads \"* Investments made by Benchmark Capital general partner(s) prior to the formation of Benchmark Capital\". No Benchmark fund held the position \u2014 the firm was formed in 1995 and these are the founders' pre-1995 deals from Merrill Pickard, TVI and their other prior seats. T2 (fund money): out. Standing ruling R7, applied to all 21 asterisked rows as one class.",
+    "citation": "https://web.archive.org/web/20010807203542/http://www.benchmark.com/about/p-alpha.html",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "slug": "ipsilon-networks",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "jamba-juice": {
+    "basis": "Listed on the investor's own portfolio site (2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "jamdat": {
+    "basis": "Listed on the investor's own portfolio site (2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "jasper-wireless": {
+    "basis": "Listed on the investor's own portfolio site (2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "juniper-bank": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "juniper-financial": {
+    "basis": "Listed on the investor's own portfolio site (2001).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "juniper-networks": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "kalpana": {
+    "basis": "Kalpana: the firm's OWN legend on every listing era that carries it (1999-2009) reads \"* Investments made by Benchmark Capital general partner(s) prior to the formation of Benchmark Capital\". No Benchmark fund held the position \u2014 the firm was formed in 1995 and these are the founders' pre-1995 deals from Merrill Pickard, TVI and their other prior seats. T2 (fund money): out. Standing ruling R7, applied to all 21 asterisked rows as one class.",
+    "citation": "https://web.archive.org/web/20010807203542/http://www.benchmark.com/about/p-alpha.html",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "slug": "kalpana",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "kana-software": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "keen-com": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001,2002,2003).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "keeneurope-com": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "klip": {
+    "basis": "Listed on the investor's own portfolio site (2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "kontiki": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "langchain": {
+    "basis": "Benchmark led LangChain's $10M seed in April 2023, Chetan Puttagunta leading for the firm. Recall-probe addition.",
+    "citation": "https://sacra.com/c/langchain/",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "web",
+    "slug": "langchain",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "legato-systems": {
+    "basis": "Legato Systems: the firm's OWN legend on every listing era that carries it (1999-2009) reads \"* Investments made by Benchmark Capital general partner(s) prior to the formation of Benchmark Capital\". No Benchmark fund held the position \u2014 the firm was formed in 1995 and these are the founders' pre-1995 deals from Merrill Pickard, TVI and their other prior seats. T2 (fund money): out. Standing ruling R7, applied to all 21 asterisked rows as one class.",
+    "citation": "https://web.archive.org/web/20010807203542/http://www.benchmark.com/about/p-alpha.html",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "slug": "legato-systems",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "legora-inc": {
+    "basis": "Chetan Puttagunta was at New Enterprise Associates until 2018 and first appears on a Benchmark fund Form D on 2018-10-01 (Fund IX). His Legora seat is filed after that date and inside tenure, so it is a Benchmark position: a current general partner as director of record on the issuer's own Form D, identity resolving to a real operating company (the a16z adjudicated pattern).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "legora-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "linden-lab": {
+    "basis": "Listed on the investor's own portfolio site (2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "liquid-systems": {
+    "basis": "Listed on the investor's own portfolio site (2005).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "lithium": {
+    "basis": "Listed on the investor's own portfolio site (2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "liveops": {
+    "basis": "Listed on the investor's own portfolio site (2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "living-com": {
+    "basis": "Listed on the investor's own portfolio site (2000).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "logik-systems-inc": {
+    "basis": "Chetan Puttagunta was at New Enterprise Associates until 2018 and first appears on a Benchmark fund Form D on 2018-10-01 (Fund IX). His Logik Systems seat is filed 2018q1, before that date, so the seat belongs to NEA at filing time (T4, person-level attribution; the seat-dating rule read at quarter granularity, R6). No Benchmark fund appears on any Logik Systems filing and the firm never listed it. Ruled as one cluster with the other seven NEA-era rows, R8.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "logik-systems-inc",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "logoworks": {
+    "basis": "Listed on the investor's own portfolio site (2005,2006,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "loudcloud": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001,2002).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "mahi-networks": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "maniatv-networks": {
+    "basis": "Listed on the investor's own portfolio site (2007,2008,2009).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "manticore-games-inc": {
+    "basis": "Mitch Lasky, a Benchmark general partner throughout, is director of record on Manticore Games's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern. Lasky's window runs 2007-2023 under R3, not the 2016 his last fund Form D would imply.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "manticore-games-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "manus": {
+    "basis": "Benchmark led Manus's $75M round in April 2025 at a $500M post-money, with Chetan Puttagunta joining the board; Meta acquired the company in December 2025. Recall-probe addition.",
+    "citation": "https://techcrunch.com/2025/12/29/meta-just-bought-manus-an-ai-startup-everyone-has-been-talking-about/",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "web",
+    "slug": "manus",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "marin-software": {
+    "basis": "Listed on the investor's own portfolio site (2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "matrix-semiconductor": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "mazu-networks": {
+    "basis": "Listed on the investor's own portfolio site (2001,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "mercor-io-corp": {
+    "basis": "Peter Fenton, a Benchmark general partner throughout, is director of record on Mercor's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "mercor-io-corp",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "metaweb": {
+    "basis": "Listed on the investor's own portfolio site (2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "minerva-project-inc": {
+    "basis": "Minerva Project: Kevin Harvey is director of record from the company's first Form D (2012q2) and the 2014q4 follow-on, both inside his 1999-2016 window \u2014 Benchmark led the $25M seed in 2012. The three later filings (2017-2022) are post-tenure and do not change an entry that was in tenure. The same partner's three personal LLCs are ruled out above: the cluster is decided per row, not per person.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "minerva-project-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "mint": {
+    "basis": "Listed on the investor's own portfolio site (2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "minted": {
+    "basis": "Listed on the investor's own portfolio site (2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "move-networks": {
+    "basis": "Listed on the investor's own portfolio site (2008,2009,2010,2011).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "mu-dynamics": {
+    "basis": "Listed on the investor's own portfolio site (2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "mu-security": {
+    "basis": "Listed on the investor's own portfolio site (2006,2007).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "municipaltrade-com": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "mvp-com": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "mysql": {
+    "basis": "Listed on the investor's own portfolio site (2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "nanosolar": {
+    "basis": "Listed on the investor's own portfolio site (2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "netigy": {
+    "basis": "Listed on the investor's own portfolio site (2001).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "netxen": {
+    "basis": "Listed on the investor's own portfolio site (2007,2008,2009).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "new-relic": {
+    "basis": "Listed on the investor's own portfolio site (2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "newport-media": {
+    "basis": "Listed on the investor's own portfolio site (2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "nextdoor": {
+    "basis": "Listed on the investor's own portfolio site (2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "nordstrom-com": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "northpoint-communications": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "northstar": {
+    "basis": "Listed on the investor's own portfolio site (2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "numeral-two-inc": {
+    "basis": "Chetan Puttagunta was at New Enterprise Associates until 2018 and first appears on a Benchmark fund Form D on 2018-10-01 (Fund IX). His Numeral Two seat is filed after that date and inside tenure, so it is a Benchmark position: a current general partner as director of record on the issuer's own Form D, identity resolving to a real operating company (the a16z adjudicated pattern).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "numeral-two-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "odesk": {
+    "basis": "Listed on the investor's own portfolio site (2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "ofoto": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002,2003,2004,2005,2006,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "opentable": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "opsware": {
+    "basis": "Listed on the investor's own portfolio site (2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "optimizely-inc": {
+    "basis": "Peter Fenton, a Benchmark general partner throughout, is director of record on Optimizely's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "optimizely-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "oxygen-software": {
+    "basis": "Listed on the investor's own portfolio site (2003).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "palm-computing": {
+    "basis": "Palm Computing: the firm's OWN legend on every listing era that carries it (1999-2009) reads \"* Investments made by Benchmark Capital general partner(s) prior to the formation of Benchmark Capital\". No Benchmark fund held the position \u2014 the firm was formed in 1995 and these are the founders' pre-1995 deals from Merrill Pickard, TVI and their other prior seats. T2 (fund money): out. Standing ruling R7, applied to all 21 asterisked rows as one class.",
+    "citation": "https://web.archive.org/web/20010807203542/http://www.benchmark.com/about/p-alpha.html",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "slug": "palm-computing",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "pedestal-networks": {
+    "basis": "Listed on the investor's own portfolio site (2003,2004,2005).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "peixe-urbano": {
+    "basis": "Listed on the investor's own portfolio site (2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "pentaho": {
+    "basis": "Listed on the investor's own portfolio site (2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "peoplesupport": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "picarro": {
+    "basis": "Listed on the investor's own portfolio site (2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "picturevision": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "pipewise": {
+    "basis": "Listed on the investor's own portfolio site (2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "placester-inc": {
+    "basis": "Chetan Puttagunta was at New Enterprise Associates until 2018 and first appears on a Benchmark fund Form D on 2018-10-01 (Fund IX). His Placester seat is filed 2015q4 and 2017q1, before that date, so the seat belongs to NEA at filing time (T4, person-level attribution; the seat-dating rule read at quarter granularity, R6). No Benchmark fund appears on any Placester filing and the firm never listed it. Ruled as one cluster with the other seven NEA-era rows, R8.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "placester-inc",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "planetrx": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "playfab-inc": {
+    "basis": "Mitch Lasky, a Benchmark general partner throughout, is director of record on PlayFab's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern. Lasky's window runs 2007-2023 under R3, not the 2016 his last fund Form D would imply.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "playfab-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "polyvore": {
+    "basis": "Listed on the investor's own portfolio site (2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "potbelly-sandwich-works": {
+    "basis": "Listed on the investor's own portfolio site (2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "proofpoint": {
+    "basis": "Listed on the investor's own portfolio site (2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "prosper": {
+    "basis": "Listed on the investor's own portfolio site (2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "pure-atria-software": {
+    "basis": "Pure Atria Software: the firm's OWN legend on every listing era that carries it (1999-2009) reads \"* Investments made by Benchmark Capital general partner(s) prior to the formation of Benchmark Capital\". No Benchmark fund held the position \u2014 the firm was formed in 1995 and these are the founders' pre-1995 deals from Merrill Pickard, TVI and their other prior seats. T2 (fund money): out. Standing ruling R7, applied to all 21 asterisked rows as one class.",
+    "citation": "https://web.archive.org/web/20010807203542/http://www.benchmark.com/about/p-alpha.html",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "slug": "pure-atria-software",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "pure-digital": {
+    "basis": "Listed on the investor's own portfolio site (2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "qlusters": {
+    "basis": "Listed on the investor's own portfolio site (2003,2004,2005,2006,2007,2008,2009).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "quip-inc": {
+    "basis": "Peter Fenton, a Benchmark general partner throughout, is director of record on Quip's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "quip-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "quora": {
+    "basis": "Listed on the investor's own portfolio site (2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "rambus": {
+    "basis": "Rambus: the firm's OWN legend on every listing era that carries it (1999-2009) reads \"* Investments made by Benchmark Capital general partner(s) prior to the formation of Benchmark Capital\". No Benchmark fund held the position \u2014 the firm was formed in 1995 and these are the founders' pre-1995 deals from Merrill Pickard, TVI and their other prior seats. T2 (fund money): out. Standing ruling R7, applied to all 21 asterisked rows as one class.",
+    "citation": "https://web.archive.org/web/20010807203542/http://www.benchmark.com/about/p-alpha.html",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "slug": "rambus",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "raza-foundries": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002,2003).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "raza-microelectronics": {
+    "basis": "Listed on the investor's own portfolio site (2007,2008).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "red-5-studios": {
+    "basis": "Listed on the investor's own portfolio site (2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "red-hat": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "red-robot": {
+    "basis": "Listed on the investor's own portfolio site (2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "reducto": {
+    "basis": "Benchmark led Reducto's $24.5M Series A in April 2025. Recall-probe addition.",
+    "citation": "https://superscout.co/investor/benchmark",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "web",
+    "slug": "reducto",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "reltio-inc": {
+    "basis": "Chetan Puttagunta was at New Enterprise Associates until 2018 and first appears on a Benchmark fund Form D on 2018-10-01 (Fund IX). His Reltio seat is filed 2016q4-2018q2, before that date, so the seat belongs to NEA at filing time (T4, person-level attribution; the seat-dating rule read at quarter granularity, R6). No Benchmark fund appears on any Reltio filing and the firm never listed it. Ruled as one cluster with the other seven NEA-era rows, R8.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "reltio-inc",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "remarq-communities": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "researchgate": {
+    "basis": "Listed on the investor's own portfolio site (2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "respond-com": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001,2002).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "revinate-inc": {
+    "basis": "Peter Fenton, a Benchmark general partner throughout, is director of record on Revinate's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "revinate-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "rightscale": {
+    "basis": "Listed on the investor's own portfolio site (2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "riot-games": {
+    "basis": "Listed on the investor's own portfolio site (2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "rmi-corporation": {
+    "basis": "Listed on the investor's own portfolio site (2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "robocorp-technologies-inc": {
+    "basis": "Peter Fenton, a Benchmark general partner throughout, is director of record on RoboCorp's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "robocorp-technologies-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "routescience": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002,2003,2004,2005,2006,2007,2008,2009).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "ruba": {
+    "basis": "Listed on the investor's own portfolio site (2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "s3": {
+    "basis": "S3: the firm's OWN legend on every listing era that carries it (1999-2000) reads \"* Investments made by Benchmark Capital general partner(s) prior to the formation of Benchmark Capital\". No Benchmark fund held the position \u2014 the firm was formed in 1995 and these are the founders' pre-1995 deals from Merrill Pickard, TVI and their other prior seats. T2 (fund money): out. Standing ruling R7, applied to all 21 asterisked rows as one class.",
+    "citation": "https://web.archive.org/web/20010807203542/http://www.benchmark.com/about/p-alpha.html",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "slug": "s3",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "sailthru-inc": {
+    "basis": "Bill Gurley, a Benchmark general partner throughout, is director of record on Sailthru's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "sailthru-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "scale-computing": {
+    "basis": "Listed on the investor's own portfolio site (2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "scient": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "scoutrfp-inc": {
+    "basis": "Chetan Puttagunta was at New Enterprise Associates until 2018 and first appears on a Benchmark fund Form D on 2018-10-01 (Fund IX). His ScoutRFP seat is filed 2017q2, before that date, so the seat belongs to NEA at filing time (T4, person-level attribution; the seat-dating rule read at quarter granularity, R6). No Benchmark fund appears on any ScoutRFP filing and the firm never listed it. Ruled as one cluster with the other seven NEA-era rows, R8.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "scoutrfp-inc",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "sdrc": {
+    "basis": "SDRC: the firm's OWN legend on every listing era that carries it (1999-2008) reads \"* Investments made by Benchmark Capital general partner(s) prior to the formation of Benchmark Capital\". No Benchmark fund held the position \u2014 the firm was formed in 1995 and these are the founders' pre-1995 deals from Merrill Pickard, TVI and their other prior seats. T2 (fund money): out. Standing ruling R7, applied to all 21 asterisked rows as one class.",
+    "citation": "https://web.archive.org/web/20010807203542/http://www.benchmark.com/about/p-alpha.html",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "slug": "sdrc",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "secureall-systems": {
+    "basis": "Listed on the investor's own portfolio site (2004).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "securify": {
+    "basis": "Listed on the investor's own portfolio site (2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "send-com": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "sendwine-com": {
+    "basis": "Listed on the investor's own portfolio site (1999).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "servicesource": {
+    "basis": "Listed on the investor's own portfolio site (2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "shasta-networks": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "shopping-com": {
+    "basis": "Listed on the investor's own portfolio site (2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "sigma-networks": {
+    "basis": "Listed on the investor's own portfolio site (2001).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "silicon-gaming": {
+    "basis": "Listed on the investor's own portfolio site (1999,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "silver-peak": {
+    "basis": "Listed on the investor's own portfolio site (2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "sitetraker-inc": {
+    "basis": "Chetan Puttagunta was at New Enterprise Associates until 2018 and first appears on a Benchmark fund Form D on 2018-10-01 (Fund IX). His SiteTraker seat is filed 2017q3, before that date, so the seat belongs to NEA at filing time (T4, person-level attribution; the seat-dating rule read at quarter granularity, R6). No Benchmark fund appears on any SiteTraker filing and the firm never listed it. Ruled as one cluster with the other seven NEA-era rows, R8.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "sitetraker-inc",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "snap-inc": {
+    "basis": "SEC ownership filing by a fund vehicle (forms 3,4,SC, CIK 1564408).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "fund_filing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "snapchat-inc": {
+    "basis": "Mitch Lasky, a Benchmark general partner throughout, is director of record on Snapchat's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern. Lasky's window runs 2007-2023 under R3, not the 2016 his last fund Form D would imply.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "snapchat-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "snaptrack": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "sparks-com": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "spodtronic": {
+    "basis": "Listed on the investor's own portfolio site (2008).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "springsource": {
+    "basis": "Listed on the investor's own portfolio site (2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "stitch-fix-inc": {
+    "basis": "SEC ownership filing by a fund vehicle (forms 3,4,4/A,SC, CIK 1576942).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "fund_filing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "stitcher": {
+    "basis": "Listed on the investor's own portfolio site (2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "sun-hill-software": {
+    "basis": "Listed on the investor's own portfolio site (2004).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "supergreat-inc": {
+    "basis": "Both Miles Grimshaw (2021q3, inside his 2021-2024 Benchmark window) and Sarah Tavel are directors of record on Supergreat's 2021 Form D \u2014 two current partners at filing time, so this is the firm's position and not a seat carried from Thrive.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "supergreat-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "synopsys": {
+    "basis": "Synopsys: the firm's OWN legend on every listing era that carries it (1999-2009) reads \"* Investments made by Benchmark Capital general partner(s) prior to the formation of Benchmark Capital\". No Benchmark fund held the position \u2014 the firm was formed in 1995 and these are the founders' pre-1995 deals from Merrill Pickard, TVI and their other prior seats. T2 (fund money): out. Standing ruling R7, applied to all 21 asterisked rows as one class.",
+    "citation": "https://web.archive.org/web/20010807203542/http://www.benchmark.com/about/p-alpha.html",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "slug": "synopsys",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "tabnam-inc": {
+    "basis": "Eric Vishria, a Benchmark general partner throughout, is director of record on Tabnam's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "tabnam-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "tabula": {
+    "basis": "Listed on the investor's own portfolio site (2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "telecommunications-labs": {
+    "basis": "Listed on the investor's own portfolio site (2008).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "tellme": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "terracotta": {
+    "basis": "Listed on the investor's own portfolio site (2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "timescale-inc": {
+    "basis": "Peter Fenton, a Benchmark general partner throughout, is director of record on Timescale's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "timescale-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "tradeout-com": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "transparent-networks": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002,2003).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "travelpost": {
+    "basis": "Listed on the investor's own portfolio site (2010,2011).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "tristrata-security": {
+    "basis": "Listed on the investor's own portfolio site (1999).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "tropos-networks": {
+    "basis": "Listed on the investor's own portfolio site (2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "trover": {
+    "basis": "Listed on the investor's own portfolio site (2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "turnstone-systems": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "twin-creeks-technologies": {
+    "basis": "Listed on the investor's own portfolio site (2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "twin-health-inc": {
+    "basis": "Bruce Dunlevie is director of record on every Twin Health Form D from the company's first (2020q3) through 2025q2, all inside tenure, and the issuer resolves to a real operating company \u2014 the a16z adjudicated pattern, which gives member at medium confidence as an unannounced deal. Against it: Benchmark never listed the company (the site stopped publishing in 2013), no Benchmark fund appears on any filing, and the exit-side full-text sweep returns nothing (Twin Health has filed no registration statement, so that silence is weak either way). Flagged for the A/B pass.",
+    "confidence": "medium",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "twin-health-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "twitter": {
+    "basis": "Listed on the investor's own portfolio site (2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "uber": {
+    "basis": "Listed on the investor's own portfolio site (2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "ubiquity6-inc": {
+    "basis": "Mitch Lasky, a Benchmark general partner throughout, is director of record on Ubiquity6's own Form D filings, all inside tenure; the issuer resolves to a real operating company. Member on the a16z adjudicated director-of-record pattern. Lasky's window runs 2007-2023 under R3, not the 2016 his last fund Form D would imply.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "ubiquity6-inc",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "undoo": {
+    "basis": "Listed on the investor's own portfolio site (2001).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "unicru": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002,2003,2004,2005,2006,2007,2008,2009).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "upwork-inc": {
+    "basis": "SEC ownership filing by a fund vehicle (forms 3,4,4/A,SC, CIK 1627475).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "fund_filing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "uship": {
+    "basis": "Listed on the investor's own portfolio site (2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "vayusphere": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "vcommerce-com": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002,2003).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "verifiable-inc": {
+    "basis": "Jack Altman ran Alt Capital and his own funds until 2026 and first appears on a Benchmark fund Form D on 2026-06-30 (Partners 2 / T1). His Verifiable seats are 2021q3 and 2023q2 \u2014 Alt Capital, pre-tenure. R8.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "verifiable-inc",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "viasoft": {
+    "basis": "Viasoft: the firm's OWN legend on every listing era that carries it (1999-1999) reads \"* Investments made by Benchmark Capital general partner(s) prior to the formation of Benchmark Capital\". No Benchmark fund held the position \u2014 the firm was formed in 1995 and these are the founders' pre-1995 deals from Merrill Pickard, TVI and their other prior seats. T2 (fund money): out. Standing ruling R7, applied to all 21 asterisked rows as one class.",
+    "citation": "https://web.archive.org/web/20010807203542/http://www.benchmark.com/about/p-alpha.html",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "slug": "viasoft",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "visionary-design-systems": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "vitalink-communications": {
+    "basis": "Vitalink Communications: the firm's OWN legend on every listing era that carries it (1999-1999) reads \"* Investments made by Benchmark Capital general partner(s) prior to the formation of Benchmark Capital\". No Benchmark fund held the position \u2014 the firm was formed in 1995 and these are the founders' pre-1995 deals from Merrill Pickard, TVI and their other prior seats. T2 (fund money): out. Standing ruling R7, applied to all 21 asterisked rows as one class.",
+    "citation": "https://web.archive.org/web/20010807203542/http://www.benchmark.com/about/p-alpha.html",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "slug": "vitalink-communications",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "vivecon": {
+    "basis": "Listed on the investor's own portfolio site (2003,2004,2005,2006,2007,2008,2009).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "vivox": {
+    "basis": "Listed on the investor's own portfolio site (2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "vontu": {
+    "basis": "Listed on the investor's own portfolio site (2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "vstore-com": {
+    "basis": "Listed on the investor's own portfolio site (2000).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "vudu": {
+    "basis": "Listed on the investor's own portfolio site (2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "walker-interactive-systems": {
+    "basis": "Walker Interactive Systems: the firm's OWN legend on every listing era that carries it (1999-1999) reads \"* Investments made by Benchmark Capital general partner(s) prior to the formation of Benchmark Capital\". No Benchmark fund held the position \u2014 the firm was formed in 1995 and these are the founders' pre-1995 deals from Merrill Pickard, TVI and their other prior seats. T2 (fund money): out. Standing ruling R7, applied to all 21 asterisked rows as one class.",
+    "citation": "https://web.archive.org/web/20010807203542/http://www.benchmark.com/about/p-alpha.html",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "slug": "walker-interactive-systems",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "we-co": {
+    "basis": "We Co. is WeWork's 2019 holding-company rename, with Dunlevie as director of record; the base also carries wework-companies-inc. Member on the same position as WeWork \u2014 suspected duplicate, flagged for the identity-merge file.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "we-co",
+    "verdict": "member",
+    "who": "agent-judge-pro88"
+   },
+   "wealthfront-corp": {
+    "basis": "Andy Rachleff FOUNDED Wealthfront (2008) after leaving Benchmark \u2014 his last person page on the firm's site is the 2001 capture and he is absent from every 2005-2010 general_partners page. The row was seeded member on a basis line reading 'SEC ownership filing by a fund vehicle', but the filer of the 2025-2026 Forms 3/4 is CIK 1190190, RACHLEFF ANDREW S \u2014 a PERSON entity, the founder's own Section 16 filings, which locate a person and never a firm position (COLLECTION.md \u00a71). His 2014 Form D seats are the same founder position. R9.",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "formd_adjudicated",
+    "slug": "wealthfront-corp",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "webvan": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "wework-companies-inc": {
+    "basis": "SEC ownership filing by a fund vehicle (forms 3,4,SC, CIK 1813756).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "fund_filing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "when-com": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "wink-communications": {
+    "basis": "Listed on the investor's own portfolio site (1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "wix": {
+    "basis": "Listed on the investor's own portfolio site (2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "worldwinner": {
+    "basis": "Listed on the investor's own portfolio site (2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "xa-systems": {
+    "basis": "XA Systems: the firm's OWN legend on every listing era that carries it (1999-1999) reads \"* Investments made by Benchmark Capital general partner(s) prior to the formation of Benchmark Capital\". No Benchmark fund held the position \u2014 the firm was formed in 1995 and these are the founders' pre-1995 deals from Merrill Pickard, TVI and their other prior seats. T2 (fund money): out. Standing ruling R7, applied to all 21 asterisked rows as one class.",
+    "citation": "https://web.archive.org/web/20010807203542/http://www.benchmark.com/about/p-alpha.html",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "slug": "xa-systems",
+    "verdict": "not_member",
+    "who": "agent-judge-pro88"
+   },
+   "xantel": {
+    "basis": "Listed on the investor's own portfolio site (1999).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "xignal-ag": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002,2003,2004,2005,2006,2007).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "xoomsys": {
+    "basis": "Listed on the investor's own portfolio site (2005,2006,2007,2008,2009).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "xylo": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "yelp": {
+    "basis": "Listed on the investor's own portfolio site (2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "yingli-solar": {
+    "basis": "Listed on the investor's own portfolio site (2008).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "zendesk": {
+    "basis": "Listed on the investor's own portfolio site (2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "zepton-networks": {
+    "basis": "Listed on the investor's own portfolio site (2001,2002).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "zillow-com": {
+    "basis": "Listed on the investor's own portfolio site (2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "zimbra": {
+    "basis": "Listed on the investor's own portfolio site (2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "zipcar": {
+    "basis": "Listed on the investor's own portfolio site (2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "ziprealty": {
+    "basis": "Listed on the investor's own portfolio site (2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "zuora": {
+    "basis": "Listed on the investor's own portfolio site (2009,2010,2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-06",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   }
+  }
+ }
+}

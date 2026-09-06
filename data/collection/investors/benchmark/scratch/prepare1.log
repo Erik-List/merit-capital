@@ -1,0 +1,37 @@
+in flight: wrote data/collection/investors/benchmark/scratch/in-flight.json
+rows: 337
+membership seed: 268 site_listing, 11 fund_filing; left for the judge: 58
+base: data/collection/investors/benchmark/base.json
+target companies: 102  distinct issuer CIKs: 100
+scanning 74 quarterly datasets (offline)...
+filings collected: 330
+evidence: 259/259 base accessions found
+wrote data/collection/investors/benchmark/scratch/issuer-evidence.json (106 CIKs, 50 with a name history)
+
+wrote data/collection/investors/benchmark/sources/edgar/formd-issuer-rounds.json
+  companies with Form D history : 99
+  rounds after amendment merge  : 301 (29 amendments folded in)
+  companies with 2+ rounds      : 70
+  filings the partner sweep never saw: 71
+  companies gaining >=1 such filing  : 34
+  rounds carrying a sale date   : 298/301
+layer A (SEC public float): 337 rows to resolve
+    fetched 100/175
+    100/337
+    200/337
+    300/337
+    resolved a CIK: 235   with public float: 57
+layer B (Wikidata): 337 rows in batches of 60
+    60/337
+    120/337
+    180/337
+    240/337
+    300/337
+    337/337
+    matched: 72
+layer C (unicorn list): 627 current, 209 former
+graduation layer 1: 99 companies, 15 entered at Seed, 15 decided deterministically, 25 entries moved past pre-investor rounds
+
+deterministically resolved: 10/337
+retired (not_member, awaiting rebuild): 0
+queued for judgment       : 327 rows in 8 batches

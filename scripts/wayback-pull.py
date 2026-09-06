@@ -313,7 +313,11 @@ def listing_regex(era, cfg, raw_dir):
         rows = {}
         for m in re.finditer(era["pattern"], html):
             d = m.groupdict()
-            name = unescape((d.get("name") or "")).replace("\xa0", " ").strip() or None
+            # Collapse internal whitespace: a listing that wraps a company
+            # name across source lines ("Approach\n    Software") otherwise
+            # publishes the newlines and the indentation as part of the name.
+            name = re.sub(r"\s+", " ",
+                          unescape((d.get("name") or "")).replace("\xa0", " ")).strip() or None
             slug = d.get("slug") or (
                 re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-") if name else "")
             if not slug or slug in non_company:

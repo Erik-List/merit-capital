@@ -1,0 +1,28 @@
+{
+ "_doc": "Cross-investor rulings for COLLECTION.md invariant 10 (run.py verify), scoped to this investor and merged at read time with data/collection/cross-investor.json. Written during the PRO-88 run 2026-09-06; the shared file is touched only at wave alignment.",
+ "distinct": [
+  {
+   "rows": [
+    "benchmark:bo-lt",
+    "creandum:bolt"
+   ],
+   "note": "Bo.lt (Bolt Peters' web-page sharing tool, on Benchmark's own 2012 list, acquired by WPP in 2013) is not Bolt, the Estonian ride-hailing company Creandum holds. Different companies, countries and decades; only the loose name key joins them."
+  },
+  {
+   "rows": [
+    "benchmark:bo-lt",
+    "sequoia-capital:bolt"
+   ],
+   "note": "Same collision: Sequoia's 'bolt' is the Estonian ride-hailing company, not Benchmark's Bo.lt."
+  },
+  {
+   "rows": [
+    "benchmark:bo-lt",
+    "union-square-ventures:bolt"
+   ],
+   "note": "Same collision: USV's 'bolt' is not Benchmark's Bo.lt. Both read below_1b today so the pair does not fail verify, but it is ruled distinct so it never can."
+  }
+ ],
+ "accepted": [],
+ "same": []
+}

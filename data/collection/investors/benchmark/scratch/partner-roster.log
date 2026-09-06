@@ -1,0 +1,17 @@
+== enumerating individual profile pages from the CDX index
+   0 people slugs
+== parsing cached listing snapshots
+   0 people slugs
+== site CMS team roster (current)
+   0 people slugs
+== Common Crawl profile pages
+   0 people slugs
+
+wrote partner-roster.json — 0 people
+Traceback (most recent call last):
+  File "/Users/erik/Developer/merit-capital/scripts/partner-roster.py", line 199, in <module>
+    main()
+  File "/Users/erik/Developer/merit-capital/scripts/partner-roster.py", line 194, in main
+    print(f"  coverage: {min(r['first_seen'] for r in rows)}–{max(r['last_seen'] for r in rows)}")
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: min() iterable argument is empty
