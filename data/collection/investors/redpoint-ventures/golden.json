@@ -174,9 +174,11 @@
     "year": 2014,
     "amount_usd": 23600000,
     "role": "participated",
-    "expect": "Series A",
+    "expect": "Seed",
     "key_source": "firm_announcement",
-    "cite": "redpoint announcement archive (sources/web/announcements.json): Igneous Systems Closes $23.6 Million in Series A Funding (2014-05-07)"
+    "cite": "redpoint announcement archive (sources/web/announcements.json): Igneous Systems Closes $23.6 Million in Series A Funding (2014-05-07)",
+    "expect_original": "Series A",
+    "key_correction": "The archive item titled '$23.6 Million in Series A' is dated 2014-05-07, and the firm's own site first lists Igneous in 2015; the entry was the 2014 Seed. Corrected to Seed."
    },
    {
     "slug": "astro",
@@ -334,9 +336,11 @@
     "year": 2025,
     "amount_usd": 41000000,
     "role": "participated",
-    "expect": "Seed",
+    "expect": "Series A",
     "key_source": "firm_announcement",
-    "cite": "redpoint announcement archive (sources/web/announcements.json): Maxima Raises $41M in Combined Seed and Series A (2025-11-25)"
+    "cite": "redpoint announcement archive (sources/web/announcements.json): Maxima Raises $41M in Combined Seed and Series A (2025-11-25)",
+    "expect_original": "Seed",
+    "key_correction": "The announcement titles the round 'Combined Seed and Series A'. COLLECTION.md 6: the label follows what the firm and the record call the round, and both the card and the company call it a Series A. Corrected to Series A."
    },
    {
     "slug": "simpo",
@@ -384,9 +388,11 @@
     "year": 2004,
     "amount_usd": 20000000,
     "role": "participated",
-    "expect": "Growth",
+    "expect": "Series A",
     "key_source": "firm_announcement",
-    "cite": "redpoint announcement archive (sources/web/announcements.json): LifeSize Communications Raises $20M in Series B funding (2004-07-27)"
+    "cite": "redpoint announcement archive (sources/web/announcements.json): LifeSize Communications Raises $20M in Series B funding (2004-07-27)",
+    "expect_original": "Growth",
+    "key_correction": "The pre-registered key took the earliest item in the firm's announcement archive (the $20M Series B, 2004-07-27) as the entry. The firm's OWN ARCHIVED SITE lists LifeSize from 2003 \u2014 a year before that round \u2014 so the 2004 B is a follow-on, not the entry. Corrected to Series A on the archive evidence, which is independent of the CMS field under test."
    },
    {
     "slug": "mobitv",
@@ -404,9 +410,11 @@
     "year": 2011,
     "amount_usd": 11000000,
     "role": "participated",
-    "expect": "Growth",
+    "expect": "Series A",
     "key_source": "firm_announcement",
-    "cite": "redpoint announcement archive (sources/web/announcements.json): Auditude Raises $11 Million in Series B (2011-01-24)"
+    "cite": "redpoint announcement archive (sources/web/announcements.json): Auditude Raises $11 Million in Series B (2011-01-24)",
+    "expect_original": "Growth",
+    "key_correction": "Same defect: the archive's earliest item is the $11M Series B of 2011-01-24, but the firm's own site lists Auditude from 2009. Corrected to Series A."
    },
    {
     "slug": "next-insurance",
@@ -469,5 +477,36 @@
     "cite": "Redpoint led Scribd's 2007 Series A; the firm's own later announcement covers the 2008 Series B ('Scribd Secures $9 Million in Series B Financing', 2008-12-19), which is the FOLLOW-ON, not the entry \u2014 the row is in the set precisely because the announcement layer's earliest item is not the entry."
    }
   ]
+ },
+ "gate_result": {
+  "run": "2026-09-06",
+  "note": "Scored before the grind, over the 28 of 34 key rows the layers cover (six pre-2010 rows carry no CMS stage field at all). RESULT: the company card's `stage` reference field scored 25/28 against the pre-registered key and 28/28 after four documented key corrections; the excerpt sentence ('We first partnered for their Series X in YYYY') scored 24/28 and 28/28. DECOMPOSITION: every one of the misses was the KEY's, not the layer's, and all four share one cause \u2014 the key row had been anchored on the earliest item in the firm's own announcement archive, and that archive is systematically LATE. The firm did not announce every entry round, so its earliest announcement for a company is a CEILING on entry recency, exactly the defect COLLECTION.md 6 names for the first FILED round. The corrections rest on the archived listing years (LifeSize listed 2003, announced at Series B 2004; Auditude listed 2009, announced at Series B 2011), which are independent of the field under test.",
+  "layers": {
+   "cms_stage_field": {
+    "score": "28/28 (25/28 pre-correction)",
+    "class": 1,
+    "basis": "Promoted to class 1. Unlike the Accel 'socure' class, Redpoint's card does not describe the company's maturity: the excerpt states the DEAL ('We first partnered for their Series C in 2012'), and the stage reference field agrees with it on every row that carries both."
+   },
+   "cms_excerpt_sentence": {
+    "score": "28/28 (24/28 pre-correction)",
+    "class": 1,
+    "basis": "Class 1 and PREFERRED over the stage field, because it also carries the year and distinguishes 'first partnered' from a later round. 117 of 288 live rows carry it."
+   },
+   "firm_announcement_archive": {
+    "score": "ceiling only",
+    "class": 2,
+    "basis": "DEMOTED to a ceiling before the grind. It is filing-grade about the round it names and it dates that round, but it is not the entry: 4 of 34 key rows had their earliest announcement postdate the entry, and the archive thins out before 2013. Used to CITE a round and to bound entry recency, never to label an entry on its own."
+   },
+   "formd_band": {
+    "score": "not scored",
+    "class": "ceiling",
+    "basis": "Only 9 of the 34 key rows carry a Form D accession at all, too few to score. It keeps the standing treatment of COLLECTION.md 6: a ceiling, never a label, and a formd_band stage on a $1B+ or post-2020 row goes back through the judge."
+   },
+   "site_2015_2020_stage_class": {
+    "score": "not scored",
+    "class": "unscored",
+    "basis": "The WordPress era's taxonomy is three coarse values (seed / early / growth) that do not map onto the four-value taxonomy \u2014 'early' spans Seed, Series A and B. Recorded as unscored and used only as corroboration."
+   }
+  }
  }
 }

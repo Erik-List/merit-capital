@@ -1,0 +1,60 @@
+    retry 1 http://web.archive.org/web/20090121150046id_/http://redpoint.com:80/portfolio/current-investments: rc=7
+    retry 2 http://web.archive.org/web/20090121150046id_/http://redpoint.com:80/portfolio/current-investments: rc=7
+    retry 3 http://web.archive.org/web/20090121150046id_/http://redpoint.com:80/portfolio/current-investments: rc=7
+    retry 1 http://web.archive.org/web/20100208101159id_/http://www.redpoint.com:80/portfolio/current-investments: rc=7
+    retry 2 http://web.archive.org/web/20100208101159id_/http://www.redpoint.com:80/portfolio/current-investments: rc=7
+    retry 3 http://web.archive.org/web/20100208101159id_/http://www.redpoint.com:80/portfolio/current-investments: rc=7
+    retry 1 http://web.archive.org/web/20110129235524id_/http://www.redpoint.com:80/portfolio/current-investments/: rc=7
+    retry 1 http://web.archive.org/web/20120127053502id_/http://www.redpoint.com/portfolio/current-investments/: rc=7
+    retry 2 http://web.archive.org/web/20120127053502id_/http://www.redpoint.com/portfolio/current-investments/: rc=7
+    retry 3 http://web.archive.org/web/20120127053502id_/http://www.redpoint.com/portfolio/current-investments/: rc=7
+    retry 1 http://web.archive.org/web/20150828001528id_/http://www.redpoint.com:80/companies/: rc=7
+    retry 2 http://web.archive.org/web/20150828001528id_/http://www.redpoint.com:80/companies/: rc=7
+    retry 3 http://web.archive.org/web/20150828001528id_/http://www.redpoint.com:80/companies/: rc=7
+    retry 1 http://web.archive.org/web/20160105083521id_/http://www.redpoint.com:80/companies/: rc=7
+    retry 2 http://web.archive.org/web/20160105083521id_/http://www.redpoint.com:80/companies/: rc=7
+    retry 3 http://web.archive.org/web/20160105083521id_/http://www.redpoint.com:80/companies/: rc=7
+    retry 1 http://web.archive.org/web/20170127062312id_/http://www.redpoint.com:80/companies/: rc=7
+    retry 2 http://web.archive.org/web/20170127062312id_/http://www.redpoint.com:80/companies/: rc=7
+    retry 3 http://web.archive.org/web/20170127062312id_/http://www.redpoint.com:80/companies/: rc=7
+    retry 1 http://web.archive.org/web/20180119162007id_/http://www.redpoint.com:80/companies/: rc=7
+    retry 2 http://web.archive.org/web/20180119162007id_/http://www.redpoint.com:80/companies/: rc=7
+    retry 3 http://web.archive.org/web/20180119162007id_/http://www.redpoint.com:80/companies/: rc=7
+    retry 1 http://web.archive.org/web/20190518221809id_/https://www.redpoint.com/companies/: rc=7
+    retry 2 http://web.archive.org/web/20190518221809id_/https://www.redpoint.com/companies/: rc=7
+    retry 3 http://web.archive.org/web/20190518221809id_/https://www.redpoint.com/companies/: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=redpoint.com/companies&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=56
+    retry 1 http://web.archive.org/web/20210117215643id_/https://redpoint.com/companies/: rc=7
+    retry 2 http://web.archive.org/web/20210117215643id_/https://redpoint.com/companies/: rc=7
+    retry 3 http://web.archive.org/web/20210117215643id_/https://redpoint.com/companies/: rc=7
+    retry 1 http://web.archive.org/web/20220517165849id_/https://redpoint.com/companies: rc=7
+    retry 2 http://web.archive.org/web/20220517165849id_/https://redpoint.com/companies: rc=7
+    retry 3 http://web.archive.org/web/20220517165849id_/https://redpoint.com/companies: rc=7
+    retry 1 http://web.archive.org/web/20230127200155id_/https://www.redpoint.com/companies/: rc=7
+    retry 2 http://web.archive.org/web/20230127200155id_/https://www.redpoint.com/companies/: rc=7
+    retry 3 http://web.archive.org/web/20230127200155id_/https://www.redpoint.com/companies/: rc=7
+    retry 1 http://web.archive.org/web/20240116084610id_/https://www.redpoint.com/companies/: rc=7
+    retry 2 http://web.archive.org/web/20240116084610id_/https://www.redpoint.com/companies/: rc=7
+    retry 3 http://web.archive.org/web/20240116084610id_/https://www.redpoint.com/companies/: rc=7
+== era /portfolio/current-investments/ 2007-2012 (regex listing)
+  2007: 72 entries
+  2008: 81 entries
+  2009: 0 entries
+  2010: 0 entries
+  2011: 80 entries
+  2012: 0 entries
+== era /companies/ 2015-2020 (regex listing)
+  2015: 0 entries
+  2016: 0 entries
+  2017: 0 entries
+  2018: 0 entries
+  2019: 0 entries
+  2020: 173 entries
+== era /companies/ 2021-2024 (regex listing)
+  2021: 0 entries
+  2022: 0 entries
+  2023: 0 entries
+  2024: 0 entries
+
+years: [2007, 2008, 2011, 2020]
+distinct slugs across all years: 258

@@ -1,0 +1,38 @@
+{
+ "_doc": "Cross-investor rulings for COLLECTION.md invariant 10 (run.py verify), scoped to this investor and merged at read time with data/collection/cross-investor.json. Written during the PRO-90 run, 2026-09-06; the shared file is touched only at wave alignment. Every `accepted` entry here is a pair where THIS run's reading is the better-evidenced one and the sibling's row is the stale side — the fix belongs in that investor's classification and is listed for the wave alignment rather than made from this session, which owns only its own directory (COLLECTION.md 12).",
+ "distinct": [
+  {"rows": ["redpoint-ventures:cascade", "a16z:cascade"],
+   "note": "Redpoint's Cascade is cascade.io, the collaborative analysis tool it seeded in 2021 and whose team was acquired; a16z's 'cascade' is a different company on the same loose name key. Both read below_1b, so the pair does not fail on the band, but the status difference is a collision, not a disagreement."},
+  {"rows": ["redpoint-ventures:revel", "union-square-ventures:revel"],
+   "note": "Redpoint's Revel is revel.io, the Los Angeles platform for developing and commanding hardware systems (Series B, 2026); USV's Revel is the New York electric-moped and EV-charging company. Different companies."},
+  {"rows": ["redpoint-ventures:simula-labs", "a16z:simula"],
+   "note": "Redpoint's Simula Labs (osvl.com) was a 2007 operational platform for open-source software businesses; a16z's Simula is the VR headset company. Different companies, two decades apart."}
+ ],
+ "accepted": [
+  {"rows": ["redpoint-ventures:amec", "lightspeed:amec"],
+   "note": "Same company (Advanced Micro-Fabrication Equipment, Shanghai). This run reads it public: AMEC listed on the Shanghai STAR Market (688012) in 2019. Lightspeed's row reads unknown, which predates or missed the listing. The stale side is Lightspeed's; raised for the wave alignment."},
+  {"rows": ["redpoint-ventures:astro", "accel:astro"],
+   "note": "Same company (Astro Technology, helloastro.com). This run reads it acquired — Slack bought it in September 2018 and the firm's own card says so. The Accel row reads private. Stale side: Accel."},
+  {"rows": ["redpoint-ventures:astro", "lightspeed:astro"],
+   "note": "Same collision as the Accel pair; Lightspeed's row also reads private for a company acquired in 2018."},
+  {"rows": ["redpoint-ventures:tact-ai", "accel:tact-ai"],
+   "note": "Same company. This run reads it acquired — Aktana bought Tact.ai's life-sciences business in 2022. Accel's row reads private. Stale side: Accel."},
+  {"rows": ["redpoint-ventures:tidemark", "a16z:proferi"],
+   "note": "Same company: Tidemark renamed to Proferi. This run reads it acquired (Marlin Equity, 2017, merged into Longview); a16z's row reads unknown. Stale side: a16z."},
+  {"rows": ["redpoint-ventures:fabric", "thrive-capital:fabric"],
+   "note": "Same company (fabric.inc, headless commerce). This run publishes 1b_plus on the cited May 2022 $140M Series C at $1.5B; the Thrive row reads below_1b with no figure. The cited side wins under COLLECTION.md 6; raised for the wave alignment."},
+  {"rows": ["redpoint-ventures:k2-space", "lightspeed:k2-space"],
+   "note": "Same company. This run publishes 1b_plus on the December 2025 $250M Series C at ~$2B, which postdates the Lightspeed row's below_1b reading."},
+  {"rows": ["redpoint-ventures:monte-carlo", "accel:monte-carlo"],
+   "note": "Same company (Monte Carlo Data). This run publishes 1b_plus on the cited 2022 $135M Series D at $1.6B; the Accel row reads below_1b."},
+  {"rows": ["redpoint-ventures:motherduck", "a16z:motherduck"],
+   "note": "Same company. This run publishes 1b_plus on the 2025 $100M Series B at ~$1B, which postdates the a16z row's below_1b reading."},
+  {"rows": ["redpoint-ventures:parafin", "thrive-capital:parafin"],
+   "note": "Same company. This run publishes 1b_plus on the cited 2024 $125M Series C at $1.5B; the Thrive row reads below_1b."},
+  {"rows": ["redpoint-ventures:coin", "spark-capital:coin"],
+   "note": "Same company (Coin, onlycoin.com). Spark reads acquired for the Fitbit purchase of the hardware assets in 2016; this run reads defunct because the card business ended. Both readings are defensible under COLLECTION.md 6's insolvency-and-asset-sale convention; accepted rather than forced, and flagged for the wave alignment to settle one way."},
+  {"rows": ["redpoint-ventures:branchout", "accel:branchout-inc"],
+   "note": "Same company. Accel reads acquired (1-Page bought the Talk.co assets in 2015); this run reads defunct because the BranchOut product ended. The same convention question as the Coin pair; accepted and flagged for the wave alignment."}
+ ],
+ "same": []
+}

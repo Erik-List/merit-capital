@@ -183,6 +183,41 @@ once, at the end, with the results (§9).
 
 ## Part 3 — Run-time standing rulings
 
-Dated, class-wide, flagged for review.
+Dated, class-wide, flagged for review. Each was made during the run under the
+tests above, recorded here, and raised in `report.md` §7.
 
-*(none yet)*
+**R1 (2026-09-06) — the previous-by-partners rule is evidence-based, not
+mechanical.** D5 says a row appearing only in "Previous Investments by Redpoint
+Partners" is `not_member`. The operational form: a row leaves the base only when
+it appears in NO current-investments section of any era AND carries no Redpoint
+fund filing and no announcement. Santera appears in both sections and stays a
+member on the current listing; 60 rows appear only in the previous section and
+left. Four rows (Ask.com, Concur, Juniper, MMC Networks) appear only in the
+previous section of the old site but are claimed by the LIVE site and were kept
+as members, flagged `identity_uncertain`, pending Erik's ruling.
+
+**R2 (2026-09-06) — a logo-only era names its rows from the company's own
+domain.** The 2002-2006 site rendered every company as an image with no alt
+text. Rather than leave the decade unparsed, `scratch/build-early-eras.py` reads
+the company URL out of the anchor that wraps the logo and names the row from its
+host, then joins on that host across eras to adopt whichever surface renders a
+name. On an ACQUIRED row the logo's anchor points at the ACQUIRER, so the URL is
+recorded as `acquirer_url` and never names the company.
+
+**R3 (2026-09-06) — a deterministic pre-fill on a key the queue did not ask
+about may still be disputed.** Twenty rows carried wrong Wikidata or public-float
+values on `status` and `hq_country` — keys absent from their `need` list, so the
+queue never put them to the judge. They were flagged `model_disputes_source` in
+the grind and corrected in a dispute pass before verify. Proposed as a §8
+write-back.
+
+**R4 (2026-09-06) — the firm's own announcement archive is a ceiling, not a
+label.** Scored on the golden set: four of 34 key rows had their earliest
+announcement postdate the entry (LifeSize listed 2003, announced at its 2004
+Series B). The archive cites and dates a round; it never labels an entry alone.
+
+**R5 (2026-09-06) — a merger of two portfolio companies is one row.** Couchbase
+arrived as a recall-probe addition, but Membase — already a member — is the
+company that merged into it. Under T5 a position that moves through plumbing
+stays a row through its original entry, so Couchbase is `not_member` as a
+duplicate identity and the Couchbase outcome is written onto the membase row.

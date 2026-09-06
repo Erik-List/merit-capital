@@ -316,17 +316,32 @@
   "own_vehicle_pattern": "^redpoint (ventures|omega|associates|management|technology partners)",
   "focus_min_companies": 15,
   "focus_crosswalk": {
-   "Application": "SaaS & Enterprise Software",
+   "Application": "SaaS",
+   "application": "SaaS",
+   "saas": "SaaS",
+   "software": "SaaS",
    "Infrastructure": "Data Infrastructure",
+   "infrastructure": "Data Infrastructure",
+   "cloud-infrastructure": "Data Infrastructure",
    "AI": "AI & Applied AI",
+   "ai": "AI & Applied AI",
    "Consumer": "Consumer & Marketplaces",
+   "consumer": "Consumer & Marketplaces",
+   "marketplace": "Consumer & Marketplaces",
    "Fintech": "Fintech & Payments",
+   "fintech": "Fintech & Payments",
    "Security": "Security",
+   "security": "Security",
    "Healthcare": "Healthcare & Bio",
+   "healthcare": "Healthcare & Bio",
    "Blockchain": "Crypto & Web3",
-   "Hardware": "Industrial & Robotics"
+   "blockchain": "Crypto & Web3",
+   "Hardware": "Industrial & Robotics",
+   "hardware": "Industrial & Robotics",
+   "other": null,
+   "china": null
   },
-  "_note": "The firm's own live sector vocabulary is nine values (Application, Infrastructure, AI, Consumer, Fintech, Security, Healthcare, Blockchain, Hardware); the crosswalk maps them onto data/taxonomy/focus.json. focus_min_companies ~4.5% of the expected base."
+  "_note": "The firm's own live sector vocabulary is nine values (Application, Infrastructure, AI, Consumer, Fintech, Security, Healthcare, Blockchain, Hardware); the crosswalk maps them onto data/taxonomy/focus.json. focus_min_companies ~4.5% of the expected base. The crosswalk carries BOTH casings: the live Sanity CMS uses title-case sector titles (Application, Infrastructure) while the 2015-2020 WordPress card classes are lowercase and finer (saas, software, cloud-infrastructure, marketplace, consumer), and the recompute reads the union of both. 'china' is a DESK tag, not a sector, and maps to null so it never enters the distribution."
  },
  "verify": {
   "text_mention_leaks": [],
@@ -359,7 +374,6 @@
    "mattermost",
    "mistral ai",
    "myspace",
-   "netflix",
    "nextdoor",
    "nubank",
    "openai",
@@ -375,7 +389,6 @@
    "sourcegraph",
    "stripe",
    "thredup",
-   "tivo",
    "trip.com",
    "twilio",
    "wealthsimple",
@@ -389,7 +402,8 @@
    "one_b_share_max": 0.2,
    "c2a_rate_max": 0.8,
    "_note": "Defaults kept at kickoff. Redpoint is a 1999-vintage US firm whose live list carries OpenAI, Anthropic, Stripe, Snowflake, Twilio, Nubank, HashiCorp, Ramp and Mistral, so the $1B+ share is expected near rather than far below the guard. A guard that fires is restated in decisions.md against the evidence, not waived."
-  }
+  },
+  "_note_known_positions": "netflix and tivo were removed after the grind ruled them not_member under decisions.md D5 (the firm's own 'Previous Investments by Redpoint Partners' table). They were pre-registered as trap rows in golden.json expecting exactly that verdict, so their absence from the base is the intended outcome, not a recall failure."
  },
  "sample_slugs": [],
  "commoncrawl": {
