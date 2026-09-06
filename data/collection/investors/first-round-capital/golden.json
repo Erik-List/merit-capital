@@ -1,0 +1,434 @@
+{
+ "_readme": "The two calibration sets of COLLECTION.md \u00a74, PRE-REGISTERED 2026-09-06 before any verdict or entry_stage was written, and before the base was built. The stage key was assembled from external documents first (one cited round announcement per row, web-verified in this run); the blind pass then judges the same rows through the production protocol with this file out of context. Scores and the layer decisions they force are in scratch/gate.md.",
+ "membership_traps": {
+  "_note": "First Round's trap classes come from four sources: (1) the founders' PRE-FUND angel book, which the firm published on its own site under 'investments made prior to First Round Capital' (decisions.md D-T2a); (2) Howard Morgan, a co-founder whose First Round tenure ends on the 2012 fund filings and who then built a second career at Argand Partners (private equity) and B Capital \u2014 his post-2014 Form D seats are next-firm and his co-investment LPs are fund-shaped; (3) partners who arrived from operating or founding jobs (Hayley Barna/Birchbox, Elizabeth Wessel/Campus Job) or left for their own firms (Phin Barnes/General Partnership); (4) plain homonyms on common names. Expected verdicts were written from the filing dates against the roster tenure windows in sources/roster-curated.json, before the grind. TRUE rows are mixed in across eras so the set measures precision, not suspicion.",
+  "rows": [
+   {
+    "slug": "delicious",
+    "expect": "not_member",
+    "class": "pre_fund_angel",
+    "why": "On the firm's own /our_portfolio_prior.html (2006-2008) under 'The following investments were made prior to First Round Capital'. Kopelman angel position, no First Round fund. D-T2a.",
+    "in_base": false
+   },
+   {
+    "slug": "ironport",
+    "expect": "not_member",
+    "class": "pre_fund_angel",
+    "why": "Same page, same class. Acquired by Cisco 2007 for $830M, so a famous name the recall probe will offer.",
+    "in_base": false
+   },
+   {
+    "slug": "flock",
+    "expect": "not_member",
+    "class": "pre_fund_angel",
+    "why": "Same page, same class.",
+    "in_base": false
+   },
+   {
+    "slug": "feedster",
+    "expect": "not_member",
+    "class": "pre_fund_angel",
+    "why": "Same page, same class.",
+    "in_base": false
+   },
+   {
+    "slug": "engage-com",
+    "expect": "not_member",
+    "class": "pre_fund_angel",
+    "why": "Same page, same class.",
+    "in_base": false
+   },
+   {
+    "slug": "gsi-commerce",
+    "expect": "not_member",
+    "class": "personal_board_seat",
+    "why": "Joshua Kopelman Forms 3/4 (2011). He sat on GSI's board because GSI bought Half.com, his own company, in 2000 \u2014 a personal directorship, not a fund position. \u00a71 person-level attribution: a Section 16 filing by a person entity is not firm evidence.",
+    "in_base": false
+   },
+   {
+    "slug": "forward-industries",
+    "expect": "not_member",
+    "class": "personal_board_seat",
+    "why": "Howard Morgan on Forward Industries (NASDAQ: FORD) Form Ds 2013 and 2018 \u2014 a public-company directorship in his own name.",
+    "in_base": false
+   },
+   {
+    "slug": "argand-partners-fund",
+    "expect": "not_member",
+    "class": "fund_shaped_next_firm",
+    "why": "Morgan's post-First-Round firm (private equity), 2016-2018 Form Ds, $206M and $351.75M raises. Fund-shaped name, no operating company: T5 plus the seat-dating rule.",
+    "in_base": false
+   },
+   {
+    "slug": "sigma-co-investment-holdings",
+    "expect": "not_member",
+    "class": "fund_shaped_next_firm",
+    "why": "Argand co-investment SPV, Morgan 2017, $83.9M. Fund-shaped.",
+    "in_base": false
+   },
+   {
+    "slug": "brintons-co-investment-holdings",
+    "expect": "not_member",
+    "class": "fund_shaped_next_firm",
+    "why": "Argand co-investment SPV, Morgan 2017 and 2024. Fund-shaped.",
+    "in_base": false
+   },
+   {
+    "slug": "poseidon-co-investment-holdings",
+    "expect": "not_member",
+    "class": "fund_shaped_next_firm",
+    "why": "Argand co-investment SPV, Morgan 2018-2024. Fund-shaped.",
+    "in_base": false
+   },
+   {
+    "slug": "chp-v-sd-co-invest",
+    "expect": "not_member",
+    "class": "fund_shaped",
+    "why": "Morgan 2013, $29.59M co-invest LP. Fund-shaped list entry, no operating company.",
+    "in_base": false
+   },
+   {
+    "slug": "apptronik-inc",
+    "expect": "not_member",
+    "class": "next_firm_seat",
+    "why": "Morgan on three 2025 Apptronik Form Ds ($231M-$403M). A decade after his First Round fund filings end, and the company is on no First Round surface. A humanoid-robotics unicorn, so the most expensive false member available.",
+    "in_base": true
+   },
+   {
+    "slug": "precision-neuroscience-corp",
+    "expect": "not_member",
+    "class": "next_firm_seat",
+    "why": "Morgan 2023-2024 ($41M, $93M). Post-tenure, on no First Round surface.",
+    "in_base": true
+   },
+   {
+    "slug": "augury",
+    "expect": "not_member",
+    "class": "next_firm_seat",
+    "why": "Morgan 2015 and 2020. First filing (2015) postdates his last First Round fund filing (2012); on no First Round listing surface in any era.",
+    "in_base": true
+   },
+   {
+    "slug": "kentik",
+    "expect": "not_member",
+    "class": "next_firm_seat",
+    "why": "Morgan 2015-2016. Same class as augury.",
+    "in_base": true
+   },
+   {
+    "slug": "minerva-bi",
+    "expect": "not_member",
+    "class": "next_firm_seat",
+    "why": "Phin Barnes 2024-2025, after he left First Round for General Partnership (his own firm, 2022).",
+    "in_base": false
+   },
+   {
+    "slug": "layer-9-networks",
+    "expect": "not_member",
+    "class": "next_firm_seat",
+    "why": "Phin Barnes 2024. Same class.",
+    "in_base": false
+   },
+   {
+    "slug": "general-partnership",
+    "expect": "not_member",
+    "class": "fund_shaped_next_firm",
+    "why": "Barnes' own firm's fund vehicles (General Partnership LP / I-A / II / II-A, GP Builders Fund I and II, 2022-2024). Fund-shaped.",
+    "in_base": false
+   },
+   {
+    "slug": "campus-job-inc",
+    "expect": "not_member",
+    "class": "founder_era",
+    "why": "Elizabeth Wessel 2014-2015. She founded Campus Job (later WayUp); she appears on First Round's own fund Form Ds only from 2025. Founder-era seat, a decade before tenure.",
+    "in_base": true
+   },
+   {
+    "slug": "first-resource-bancorp",
+    "expect": "not_member",
+    "class": "homonym",
+    "why": "'Ann Duke' on a Pennsylvania bank holding company's 2024 Form D. Annie Duke is a First Round board partner, not an investing partner, and a bank holding company is not a venture position either way.",
+    "in_base": false
+   },
+   {
+    "slug": "green-therapeutics",
+    "expect": "not_member",
+    "class": "homonym",
+    "why": "'Amy Fu' on a Nevada LLC, 2015, $150k. Roster name-match only.",
+    "in_base": false
+   },
+   {
+    "slug": "posit-science-corp",
+    "expect": "not_member",
+    "class": "operator_job",
+    "why": "Steve Aldrich on Posit Science Form Ds 2009-2010 \u2014 he was the company's CEO. An operator job, not a First Round seat.",
+    "in_base": true
+   },
+   {
+    "slug": "uber",
+    "expect": "member",
+    "class": "true_member",
+    "why": "Led the October 2010 angel round, Rob Hayes on the board; on every First Round listing surface from 2012.",
+    "in_base": true
+   },
+   {
+    "slug": "modcloth",
+    "expect": "member",
+    "class": "true_member",
+    "why": "Kopelman as Director of record on the 2009 Form D ($2.09M), inside tenure, plus the 2010-2011 logo wall and the 2012-2015 tiles.",
+    "in_base": true
+   },
+   {
+    "slug": "get-satisfaction",
+    "expect": "member",
+    "class": "true_member",
+    "why": "Rob Hayes as Director of record on the 2009 Form D ($1.25M), inside tenure, plus the 2009 text list.",
+    "in_base": true
+   },
+   {
+    "slug": "birchbox",
+    "expect": "member",
+    "class": "true_member_misleading_evidence",
+    "why": "A member on the site listing and the 2010 seed announcement \u2014 but Hayley Barna's 2011 Birchbox Form D is her FOUNDER seat, five years before she joined the firm. The row is true; the person-level evidence for it is not.",
+    "in_base": true
+   },
+   {
+    "slug": "33across",
+    "expect": "member",
+    "class": "true_member",
+    "why": "Morgan Form Ds 2009-2010, inside his tenure, and on the 2009 text list, the logo wall, the tiles and the WordPress accordion.",
+    "in_base": true
+   },
+   {
+    "slug": "memsql",
+    "expect": "member",
+    "class": "true_member",
+    "why": "Morgan 2011-2012, inside tenure; on the 2012-2015 tiles and the 2017-2018 accordion (now SingleStore \u2014 an identity merge to watch).",
+    "in_base": true
+   },
+   {
+    "slug": "mint",
+    "expect": "member",
+    "class": "true_member",
+    "why": "The 2006 seed, Kopelman's own well-documented deal; on the 2007-2010 text list and every later surface.",
+    "in_base": true
+   },
+   {
+    "slug": "roblox",
+    "expect": "member",
+    "class": "true_member",
+    "why": "2009 entry; on the accordion 2017-2024 and the live CMS.",
+    "in_base": true
+   },
+   {
+    "slug": "notion",
+    "expect": "member",
+    "class": "true_member",
+    "why": "2013 seed; on the accordion and the live CMS.",
+    "in_base": true
+   },
+   {
+    "slug": "flatiron-health",
+    "expect": "member",
+    "class": "true_member",
+    "why": "January 2013 Series A with GV and LabCorp; on the accordion and the live CMS.",
+    "in_base": true
+   }
+  ],
+  "gate": "Zero false members at high confidence before any verdict writes.",
+  "_slug_correction": "2026-09-06, before the blind pass: five trap slugs were rewritten to the slugs the build actually produced (apptronik->apptronik-inc, precision-neuroscience->precision-neuroscience-corp, kentik-technologies->kentik, campus-job->campus-job-inc, posit-science->posit-science-corp). Expected verdicts were not touched. `in_base` records, per row, whether the row reached the base at all: 17 of the 23 traps were removed by the build's own structural filters (fund-shaped LPs, personal Section 16 filings, ex-partner tenure, non-portfolio industry) or never entered because the pre-fund page is deliberately not a configured listing surface \u2014 those are passes scored before the judge, and the six that survive are what the blind pass has to rule on."
+ },
+ "stage_golden": {
+  "_note": "18 rows, each anchored to one external round announcement, spanning 2006-2019 and all three of the firm's own label values. The set is deliberately weighted toward rows where the firm's own `initialPartnership` field (live Sanity CMS, 195 rows) and its archived twin (the 2020-2024 WordPress accordion, 302 rows) can be SCORED \u2014 that field is the candidate class-1 layer for this investor, and \u00a74 requires it to be measured before the grind may treat it as a label. It is short of \u00a74's 30-40 because the web-search budget is a run constraint (\u00a78 lesson 4) and this base is large enough that the A/B pass and the momentum slice need the remainder; every row here is anchored, none is padded.",
+  "rows": [
+   {
+    "slug": "uber",
+    "round": "angel/seed",
+    "year": 2010,
+    "amount_usd": 1250000,
+    "role": "led",
+    "expect": "Seed",
+    "firm_label": "Seed",
+    "cite": "https://techcrunch.com/2010/10/15/ubercab-closes-uber-angel-round"
+   },
+   {
+    "slug": "warby-parker",
+    "round": "Seed",
+    "year": 2011,
+    "amount_usd": 1500000,
+    "role": "participated",
+    "expect": "Seed",
+    "firm_label": "Seed",
+    "cite": "https://news.crunchbase.com/retail/warby-parker-investment-history-public-debut/"
+   },
+   {
+    "slug": "square",
+    "round": "Series A",
+    "year": 2009,
+    "amount_usd": 10000000,
+    "role": "participated",
+    "expect": "Series A",
+    "firm_label": "Series A",
+    "cite": "https://techcrunch.com/2009/12/01/square-worth-40-million-before-launch/"
+   },
+   {
+    "slug": "mint",
+    "round": "Seed",
+    "year": 2006,
+    "amount_usd": null,
+    "role": "led",
+    "expect": "Seed",
+    "firm_label": "Pre-Seed",
+    "cite": "https://femgineer.com/2009/09/timeline-mintcom-2006/",
+    "note": "The firm now labels this Pre-Seed; the 2006 record calls it a seed round, and \u00a76 says the label follows what the firm AND the record call the round."
+   },
+   {
+    "slug": "notion",
+    "round": "Seed",
+    "year": 2013,
+    "amount_usd": 2000000,
+    "role": "participated",
+    "expect": "Seed",
+    "firm_label": "Seed",
+    "cite": "https://www.crunchbase.com/funding_round/notion-so-seed--0ec46596"
+   },
+   {
+    "slug": "planet-labs",
+    "round": "Series A",
+    "year": 2013,
+    "amount_usd": 13000000,
+    "role": "participated",
+    "expect": "Series A",
+    "firm_label": "Series A",
+    "cite": "https://spacenews.com/planet-labs-announces-95-million-investment/"
+   },
+   {
+    "slug": "blue-apron",
+    "round": "Series A",
+    "year": 2013,
+    "amount_usd": 3000000,
+    "role": "co-led",
+    "expect": "Series A",
+    "firm_label": "Seed",
+    "cite": "https://www.crunchbase.com/funding_round/blue-apron-seed--8c8d7877",
+    "note": "The $800k seed (Sept 2012) was angels and Graph Ventures; First Round and Bessemer entered at the February 2013 Series A."
+   },
+   {
+    "slug": "looker",
+    "round": "Seed",
+    "year": 2013,
+    "amount_usd": 2000000,
+    "role": "co-led",
+    "expect": "Seed",
+    "firm_label": "Seed",
+    "cite": "https://techcrunch.com/2013/03/06/looker-takes-2m-from-first-round-and-pivotnorth-to-build-a-sequel-to-sql-for-business-intelligence/"
+   },
+   {
+    "slug": "flatiron-health",
+    "round": "Series A",
+    "year": 2013,
+    "amount_usd": 8000000,
+    "role": "participated",
+    "expect": "Series A",
+    "firm_label": "Seed",
+    "cite": "https://resources.flatiron.com/press/press-release/flatiron-health-raises-8-million-from-google-ventures-first-round-capital-and-labcorp"
+   },
+   {
+    "slug": "upstart",
+    "round": "Seed",
+    "year": 2012,
+    "amount_usd": 1750000,
+    "role": "participated",
+    "expect": "Seed",
+    "firm_label": "Seed",
+    "cite": "https://thenextweb.com/news/upstart-marks-first-year-by-raising-5-9m-from-founders-fund-khosla-ventures-eric-schmidt-others"
+   },
+   {
+    "slug": "verkada",
+    "round": "Seed",
+    "year": 2017,
+    "amount_usd": 3900000,
+    "role": "led",
+    "expect": "Seed",
+    "firm_label": "Seed",
+    "cite": "https://www.crunchbase.com/funding_round/verkada-seed--71898232"
+   },
+   {
+    "slug": "bazaarvoice",
+    "round": "Series A",
+    "year": 2006,
+    "amount_usd": 4000000,
+    "role": "participated",
+    "expect": "Series A",
+    "firm_label": "Seed",
+    "cite": "https://www.crunchbase.com/funding_round/bazaarvoice-series-a--22906732",
+    "confidence": "medium"
+   },
+   {
+    "slug": "birchbox",
+    "round": "Seed",
+    "year": 2010,
+    "amount_usd": 1400000,
+    "role": "co-led",
+    "expect": "Seed",
+    "firm_label": "Seed",
+    "cite": "https://techcrunch.com/2010/10/27/makeup-discovery-service-birchbox-raises-1-4-million-seed-round/"
+   },
+   {
+    "slug": "roblox",
+    "round": "Seed",
+    "year": 2009,
+    "amount_usd": null,
+    "role": "participated",
+    "expect": "Seed",
+    "firm_label": "Seed",
+    "cite": "https://pitchbook.com/news/articles/roblox-the-online-gaming-company-for-kids-is-raising-up-to-150-million",
+    "note": "Roblox's own 2005 Series A predates First Round; the firm entered at the 2009 round the record calls a seed, alongside Altos. A deliberate hard case: chronologically post-A, named Seed."
+   },
+   {
+    "slug": "appnexus",
+    "round": "angel/seed",
+    "year": 2007,
+    "amount_usd": 2500000,
+    "role": "participated",
+    "expect": "Seed",
+    "firm_label": "Seed",
+    "cite": "https://en.wikipedia.org/wiki/Brian_O%27Kelley",
+    "confidence": "medium"
+   },
+   {
+    "slug": "clay",
+    "round": "Seed",
+    "year": 2019,
+    "amount_usd": 2500000,
+    "role": "led",
+    "expect": "Seed",
+    "firm_label": "Seed",
+    "cite": "https://review.firstround.com/clays-path-to-product-market-fit/"
+   },
+   {
+    "slug": "carbon-engineering",
+    "round": "unnamed private round",
+    "year": 2019,
+    "amount_usd": 68000000,
+    "role": "participated",
+    "expect": "Growth",
+    "firm_label": "Series A",
+    "cite": "https://www.globenewswire.com/news-release/2019/03/21/1758562/0/en/Carbon-Engineering-concludes-USD-68-million-private-investment-round-and-proceeds-with-commercialization-of-carbon-dioxide-removal-technology",
+    "note": "$68M with no named series; \u00a76 bands anything at Series-B scale and later as Growth. The firm's own label says Series A."
+   },
+   {
+    "slug": "wikia",
+    "round": "Series A",
+    "year": 2006,
+    "amount_usd": 4000000,
+    "role": "participated",
+    "expect": "Series A",
+    "firm_label": "Seed",
+    "cite": "https://techcrunch.com/2006/03/27/wikia-raises-4-million",
+    "confidence": "medium"
+   }
+  ],
+  "gate": "The set is measured blind through the production protocol before entry_stage publishes; misses are decomposed by layer, and the layer is fixed, never the instance. The firm's own initialPartnership field is scored here and promoted or demoted by that score."
+ }
+}

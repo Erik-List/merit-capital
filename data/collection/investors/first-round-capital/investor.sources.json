@@ -1,0 +1,465 @@
+{
+  "slug": "first-round-capital",
+  "run": "PRO-93",
+  "generated_at": "2026-09-06T19:37:35+00:00",
+  "fields": {
+    "name": {
+      "value": "First Round Capital",
+      "source": "https://firstround.com",
+      "basis": "The firm's own site and its Form D filings both use 'First Round Capital'; the adviser files as FR Capital Holdings, LP."
+    },
+    "website": {
+      "value": "https://firstround.com",
+      "source": "https://firstround.com",
+      "basis": "The live site, a Next.js front end over a public Sanity dataset (project m6i10uln)."
+    },
+    "icon_url": {
+      "value": "https://firstround.com/images/favicon.png",
+      "source": "https://firstround.com/images/favicon.png",
+      "basis": "Source chosen by measurement (`fetch-investor-icon.ts --discover https://firstround.com`): the site declares three icon-sized assets and four inline logo SVGs; /images/favicon.png at 320x320 is the largest raster and the only one that clears the no-upscale rule (the .ico tops out at 48x48 and the og:image is a 1107x630 share card, not a mark). The field carries the SOURCE URL until the ingest; the bucket URL replaces it when the upload runs after Erik's approval (\u00a79, \u00a711).",
+      "flags": [
+        "source_url_pending_upload"
+      ]
+    },
+    "founding_year": {
+      "value": 2004,
+      "source": "https://en.wikipedia.org/wiki/First_Round_Capital",
+      "basis": "Founded 2004 by Josh Kopelman with Howard Morgan; the first fund vehicle, First Round Capital 2005 LP, registered with the SEC on 2004-12-02 (CIK 1310616), which corroborates the year."
+    },
+    "history": {
+      "value": "First Round Capital was founded in 2004 by Josh Kopelman, who had just sold Half.com to eBay, with Howard Morgan as co-founder, and it built the seed round into a category: the firm writes the first institutional cheque and stops there, and its funds have stayed between $125M and $500M for two decades while the seed market around them industrialised. Rob Hayes led the $1.25M angel round into UberCab in October 2010 and took the board seat; Kopelman's own $6M-era seeds produced Mint (2006), ModCloth and 33Across (2009), Roblox (2009) and Warby Parker (2011); Chris Fralic's GroupMe sold to Skype months after the pre-seed. The book since is Notion, Flexport, Verkada, Clay, Planet, Upstart, Blue Apron, Ring, Flatiron Health, Looker, DoubleVerify and Together AI. The firm reports as an exempt reporting adviser through FR Capital Holdings, LP (CRD 160848) with 22 private funds, all venture capital, carrying $3.84 billion of gross assets at the March-2026 ADV, and runs from Philadelphia, New York and San Francisco. Its 594-company confirmed base runs from 2005 to 2026 and is 86% seed entries, with 18 companies at $1 billion or more \u2014 the shape of a firm whose product is the first cheque rather than the concentrated position. The published base covers the firm's own funds: the founders' pre-2005 angel book, which the firm itself published separately as \"investments made prior to First Round Capital\" (del.icio.us, IronPort, Flock, Feedster), is excluded, and so is Dorm Room Fund, which runs on its own management company outside the adviser's 22 funds.",
+      "source": "data/collection/investors/first-round-capital/base.csv",
+      "basis": "Assembled from the run's own evidence: the ADV (CRD 160848), the fund ladder's Form D filings, the firm's four site generations 2007-2026, and the landed base's own distribution. The two exclusions named in the last sentence are decisions.md D-T2a and D1."
+    },
+    "investment_concept": {
+      "value": "First Round writes the first institutional cheque into a company and builds the platform \u2014 the Review, the founder network, the community \u2014 around that one moment.",
+      "source": "https://firstround.com/how-we-work",
+      "basis": "The firm's own positioning across every site era: it writes the first institutional cheque and builds its platform around that moment."
+    },
+    "investment_stage": {
+      "value": [
+        "Pre-Seed",
+        "Seed",
+        "Series A"
+      ],
+      "source": "data/collection/investors/first-round-capital/base.csv",
+      "basis": "Derived from the landed entry_stage distribution: Seed 509 (86%), Series A 59, Pre-Seed 22, Growth 4. The firm's own per-company label carries the same three values (Seed / Pre-Seed / Series A). Growth appears only where the record names a later round and is not part of the firm's stated remit, so it is not published as a stage.",
+      "flags": [
+        "derived"
+      ]
+    },
+    "investment_geo": {
+      "value": {
+        "core": [
+          "US"
+        ],
+        "other": []
+      },
+      "source": "data/collection/investors/first-round-capital/base.csv",
+      "basis": "553 of 594 rows are US (93%); the remainder is a long tail of nine countries with at most nine rows each (CA 9, GB 8, JP 5). One core label, no secondary \u2014 the two-label cap is not reached.",
+      "flags": [
+        "derived"
+      ]
+    },
+    "investment_scope": {
+      "value": {
+        "type": "Generalist",
+        "focus": [
+          "SaaS",
+          "AI & Applied AI",
+          "Healthcare & Bio",
+          "Consumer & Marketplaces",
+          "Fintech & Payments"
+        ]
+      },
+      "source": "base.json",
+      "basis": "focus from the firm's own site sector tags on 274 base rows, crosswalked to data/taxonomy/focus.json (crosswalk in config.json), published above 20 companies. Scope type is the curated judgement carried in investor.json."
+    },
+    "investment_range": {
+      "value": {
+        "lower_limit": 500000,
+        "median": 6000000,
+        "upper_limit": 25000000
+      },
+      "source": "data/collection/investors/first-round-capital/resolved.json",
+      "basis": "Median: the entry-round amount on the first Form D of 70 membership-verified base companies with filing histories \u2014 p25 $2.0M, median $5.74M, p75 $11.3M \u2014 published as $6M. This is a ROUND-SIZE proxy for cheque size and is fair only because First Round leads or co-leads most of the seeds it enters; the firm's own cheque is a fraction of it. Lower limit: the Pre-Seed entries, whose Form D rounds start at $0.5M. Upper limit: the largest verified entry rounds sit in the $20-30M band and the concentration cross-check agrees \u2014 10-15% of the $500M flagship would be $50-75M for a whole position across follow-ons, not a first cheque.",
+      "flags": [
+        "round_size_proxy"
+      ]
+    },
+    "notable_investments": {
+      "value": [
+        "Uber",
+        "Square",
+        "Roblox",
+        "Notion",
+        "Warby Parker",
+        "Flexport",
+        "Verkada",
+        "Ring",
+        "Blue Apron",
+        "Looker"
+      ],
+      "source": "data/collection/investors/first-round-capital/base.csv",
+      "basis": "Recognition over the confirmed base only, capped at ten; every one carries a ledger member verdict. Uber, Square, Roblox, Notion, Warby Parker, Flexport, Verkada and Blue Apron are $1B+ or public rows in this base; Ring and Looker are the two best-known exits (Amazon 2018, Google 2019)."
+    },
+    "aum": {
+      "value": {
+        "bottom": 3843440251,
+        "top": 3843440251
+      },
+      "source": "https://reports.adviserinfo.sec.gov/reports/ADV/160848/PDF/160848.pdf",
+      "basis": "FR Capital Holdings, LP is an EXEMPT REPORTING ADVISER (SEC 802-75765, CRD 160848, ERA since 2012-03-30), so no Item 5.F regulatory AUM exists. The sworn substitute is Schedule D Section 7.B: 22 private funds, ALL reported as venture capital funds, with total gross assets of $3,843,440,251 on the annual amendment filed 2026-03-31. Both range ends are that one sworn number; no press figure above it is on the record. Note that the ADV ANONYMISES its funds under rule 204-2(d) \u2014 they appear as FUND 006 \u2026 FUND 030 with GPs as GP 004 \u2014 so the fund list below comes from Form D and press, not from the ADV.",
+      "flags": [
+        "era_no_item_5f",
+        "adv_funds_anonymised"
+      ]
+    },
+    "funds": {
+      "value": [
+        {
+          "name": "First Round Capital 2005, L.P.",
+          "size": null,
+          "vintage": 2005,
+          "sources": [
+            {
+              "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&company=first+round+capital",
+              "note": "Pre-2010 vintages filed Form D on paper (REGDEX only on EDGAR), so no sworn size exists; the vehicle's existence is filing-grade and its size is not."
+            }
+          ]
+        },
+        {
+          "name": "First Round Capital 2006, L.P.",
+          "size": null,
+          "vintage": 2006,
+          "sources": [
+            {
+              "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&company=first+round+capital",
+              "note": "Pre-2010 vintages filed Form D on paper (REGDEX only on EDGAR), so no sworn size exists; the vehicle's existence is filing-grade and its size is not."
+            }
+          ]
+        },
+        {
+          "name": "First Round Capital 2006 Annex Fund, L.P.",
+          "size": 5000000,
+          "vintage": 2007,
+          "sources": [
+            {
+              "source": "https://pitchbook.com/news/articles/investor-spotlight-first-round-capital-an-early-uber-backer-that-lives-up-to-its-name",
+              "note": "Size from press; the vehicle files REGDEX only, so the filing corroborates existence, not amount."
+            }
+          ]
+        },
+        {
+          "name": "First Round Capital 2007, L.P.",
+          "size": null,
+          "vintage": 2007,
+          "sources": [
+            {
+              "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&company=first+round+capital",
+              "note": "Pre-2010 vintages filed Form D on paper (REGDEX only on EDGAR), so no sworn size exists; the vehicle's existence is filing-grade and its size is not."
+            }
+          ]
+        },
+        {
+          "name": "First Round Capital 2007 Annex Fund, L.P.",
+          "size": 15000000,
+          "vintage": 2009,
+          "sources": [
+            {
+              "source": "https://pitchbook.com/news/articles/investor-spotlight-first-round-capital-an-early-uber-backer-that-lives-up-to-its-name",
+              "note": "Size from press; the vehicle files REGDEX only, so the filing corroborates existence, not amount."
+            }
+          ]
+        },
+        {
+          "name": "First Round Capital II, L.P.",
+          "size": 132500000,
+          "vintage": 2008,
+          "sources": [
+            {
+              "source": "https://pitchbook.com/news/articles/investor-spotlight-first-round-capital-an-early-uber-backer-that-lives-up-to-its-name",
+              "note": "Size from press; the vehicle files REGDEX only, so the filing corroborates existence, not amount."
+            }
+          ]
+        },
+        {
+          "name": "First Round Capital III, L.P.",
+          "size": 126415000,
+          "vintage": 2010,
+          "sources": [
+            {
+              "source": "https://www.sec.gov/Archives/edgar/data/1501893/000150189310000001/0001501893-10-000001-index.htm",
+              "accession": "0001501893-10-000001",
+              "note": "Total offering amount on the vehicle's own Form D; asserted against the filing at build time."
+            }
+          ]
+        },
+        {
+          "name": "First Round Capital IV, L.P.",
+          "size": 157450000,
+          "vintage": 2012,
+          "sources": [
+            {
+              "source": "https://www.sec.gov/Archives/edgar/data/1547069/000154706912000002/0001547069-12-000002-index.htm",
+              "accession": "0001547069-12-000002",
+              "note": "Total offering amount on the vehicle's own Form D; asserted against the filing at build time."
+            }
+          ]
+        },
+        {
+          "name": "First Round Capital V, L.P.",
+          "size": 174950000,
+          "vintage": 2014,
+          "sources": [
+            {
+              "source": "https://www.sec.gov/Archives/edgar/data/1611069/000161106914000001/0001611069-14-000001-index.htm",
+              "accession": "0001611069-14-000001",
+              "note": "Total offering amount on the vehicle's own Form D; asserted against the filing at build time."
+            }
+          ]
+        },
+        {
+          "name": "First Round Capital VI, L.P.",
+          "size": 174950000,
+          "vintage": 2016,
+          "sources": [
+            {
+              "source": "https://www.sec.gov/Archives/edgar/data/1682482/000168248216000001/0001682482-16-000001-index.htm",
+              "accession": "0001682482-16-000001",
+              "note": "Total offering amount on the vehicle's own Form D; asserted against the filing at build time."
+            }
+          ]
+        },
+        {
+          "name": "First Round Capital VII, L.P.",
+          "size": 209392283,
+          "vintage": 2018,
+          "sources": [
+            {
+              "source": "https://www.sec.gov/Archives/edgar/data/1755714/000175571418000001/0001755714-18-000001-index.htm",
+              "accession": "0001755714-18-000001",
+              "note": "Total offering amount on the vehicle's own Form D; asserted against the filing at build time."
+            }
+          ]
+        },
+        {
+          "name": "First Round Capital VIII, L.P.",
+          "size": 300000000,
+          "vintage": 2020,
+          "sources": [
+            {
+              "source": "https://www.sec.gov/Archives/edgar/data/1827436/000182743621000001/0001827436-21-000001-index.htm",
+              "accession": "0001827436-21-000001",
+              "note": "Total offering amount on the vehicle's own Form D; asserted against the filing at build time."
+            }
+          ]
+        },
+        {
+          "name": "First Round Capital VIII-F, L.P.",
+          "size": 250000000,
+          "vintage": 2021,
+          "sources": [
+            {
+              "source": "https://www.sec.gov/Archives/edgar/data/1883328/000188332821000001/0001883328-21-000001-index.htm",
+              "accession": "0001883328-21-000001",
+              "note": "Total offering amount on the vehicle's own Form D; asserted against the filing at build time."
+            }
+          ]
+        },
+        {
+          "name": "First Round Capital IX, L.P.",
+          "size": 500000000,
+          "vintage": 2022,
+          "sources": [
+            {
+              "source": "https://www.sec.gov/Archives/edgar/data/1926484/000192648422000001/0001926484-22-000001-index.htm",
+              "accession": "0001926484-22-000001",
+              "note": "Total offering amount on the vehicle's own Form D; asserted against the filing at build time."
+            }
+          ]
+        },
+        {
+          "name": "First Round Capital X, L.P.",
+          "size": 500000000,
+          "vintage": 2025,
+          "sources": [
+            {
+              "source": "https://www.sec.gov/Archives/edgar/data/2086435/000208643525000001/0002086435-25-000001-index.htm",
+              "accession": "0002086435-25-000001",
+              "note": "Total offering amount on the vehicle's own Form D; asserted against the filing at build time."
+            }
+          ]
+        }
+      ],
+      "source": "data/collection/investors/first-round-capital/sources/edgar/formd-sweep.json",
+      "basis": "The flagship ladder. Sizes for Funds III through X are the total offering amount on each vehicle's own Form D and are asserted against the accession at build time. The 2005, 2006, 2007 and II vintages filed Form D on PAPER (REGDEX only on EDGAR), so no sworn size exists for them: Fund II's $132.5M and the two annex funds' $5M and $15M are press figures, and the three earliest flagships carry null. The matching Partners Funds (the employee co-invest vehicles, $2.7M-$16M each), the -A and -F sleeves and the X-F vehicle are counted in the adviser's 22 but are not listed beside their flagships. The accession is recorded in each entry's source note rather than in the assertable field: First Round files the FULL fund size as the total-offering amount and amends at close, so the filing's `sold` is the close state on the filing date and not the fund size \u2014 the same filing style Lightspeed and Benchmark both required a note for (\u00a711).",
+      "flags": [
+        "paper_filed_vintages"
+      ]
+    },
+    "individuals": {
+      "value": [
+        {
+          "name": "Amy Fu",
+          "position": "Investing team",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Annie Duke",
+          "position": "Investing team",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Bill Trenchard",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Brett Berson",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Chris Fralic",
+          "position": "Board partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Hayley Barna",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Josh Kopelman",
+          "position": "Founder, Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Liz Wessel",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Maggie Basta",
+          "position": "Investing team",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Meka Asonye",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Nick Rubin",
+          "position": "Investing team",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Nyle Sykes",
+          "position": "Investing team",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Richard Alfonsi",
+          "position": "Board partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Rob Hayes",
+          "position": "Board partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Roy Rosin",
+          "position": "Board partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Sid Rajgarhia",
+          "position": "Investing team",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Simon Zhou",
+          "position": "Investing team",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Steven Aldrich",
+          "position": "Board partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Todd Jackson",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        }
+      ],
+      "source": "sources/site/team-members.json",
+      "basis": "Live team CMS: 19 members. Positions are CMS titles (13 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 2 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 0 LinkedIn, 0 X."
+    },
+    "hq_location": {
+      "value": "Philadelphia, PA",
+      "source": "sources/edgar/formd-sweep.json",
+      "basis": "issuer address on 18 of 23 of the firm's own Form D filings. Filing-grade."
+    }
+  }
+}

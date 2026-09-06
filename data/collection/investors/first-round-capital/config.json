@@ -1,0 +1,339 @@
+{
+ "slug": "first-round-capital",
+ "name": "First Round Capital",
+ "wayback": {
+  "cdx_domain": "firstround.com",
+  "site_url_base": "http://www.firstround.com",
+  "eras": [
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio/view_list.cfm",
+    "from": 2007,
+    "to": 2012,
+    "pattern": "<a href=\"companies/\\?p=\\d+\" class=\"portsmall\">\\s*(?P<name>[^<]+)</a>",
+    "raw": true,
+    "_note": "Era 2 (2007-2012), the ColdFusion site's TEXT list of the whole current portfolio, three columns of <a class=portsmall> per row, each linking companies/?p=<id>. The one early surface that renders names as text rather than logos; measured 2026-09-06: 76 names (Jan 2009). /portfolio/view_bytag.cfm and view_tagcloud.cfm are the same set cut by sector."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio/exits.cfm",
+    "from": 2007,
+    "to": 2011,
+    "pattern": "<a href=\"companies/\\?p=\\d+\" class=\"portsmall\">\\s*(?P<name>[^<]+)</a>",
+    "raw": true,
+    "_note": "Era 2's EXITS list, same markup, listed separately from the current portfolio and therefore the survivorship correction for the 2007-2011 book (Mint.com, Powerset, StumbleUpon, Snapvine, Stikkit ...). A row here is a First Round member with a documented exit; the page is also status evidence."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio/companies/",
+    "from": 2010,
+    "to": 2011,
+    "pattern": "<img src=\"[^\"]*?/images/uploads/(?P<slug>[^\"/]+?)\\.(?:jpg|gif|png|JPG|GIF|PNG)\"",
+    "raw": true,
+    "_note": "Era 3 (2010-2011), the logo-wall portfolio. Names are rendered as images with no alt text, but the firm's own upload filenames carry them ('bazaarvoice.jpg', 'aster_data.jpg', 'Appnexus.jpg'), so the era parses as slugs with no display name and the grind resolves identity. Measured 2026-09-06: 128 uploads (Jan 2011). Filenames are lossy on purpose ('backupifysmall', 'attribute'), which is why the text list above brackets these years."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/companies/tile_by_page/0",
+    "from": 2012,
+    "to": 2014,
+    "pattern": "(?s)href=\"/company/(?P<slug>[^\"]+)\"(?:(?!<li).){0,700}?name:\\s*'(?P<name>[^']*)'",
+    "raw": true,
+    "_note": "Era 4 (2012-2015), the AJAX tile grid: /companies/ is a JS shell and /companies/tile_by_page/<n> serves the tiles. Page 0 is the unpaginated set (measured 2026-09-06: 167 companies, Apr 2013); the <li> class carries the geo and sector filters and marks exits 'exited hidden', and the JS block beside each anchor carries the firm's own rendering of the name. The name window carries a negative lookahead for the next <li>: without it, a row whose JS block omits name: (the exited-hidden rows do) takes the NEXT row's name, which shifted 14 of 153 names in the 2013 capture before it was caught."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/companies/",
+    "from": 2016,
+    "to": 2024,
+    "pattern": "(?s)<div id=\"(?P<slug>[^\"]+)\" class=\"company company-preview[^\"]*\">.{0,3000}?<p>\\s*<(?:strong class=\"company-name\"|b)>(?P<name>[^<]{1,80})</(?:strong|b)>",
+    "raw": true,
+    "_note": "Era 5 (2016-2025), the WordPress site's single accordion listing. Each row carries the CMS slug as the div id and the firm's own name, first as <strong class=\"company-name\"> (2016-2019) and later as a bare <b> (2020-2025), plus a one-line description, data-filter-category, data-filter-location, the founders and, from ~2020, the firm's own \"Initial Partnership: <stage>\" label. 'Acquired' and 'IPO' appear as status text. Measured 2026-09-06: 177 rows (Feb 2018), 252 (Sep 2022), 234 (Jun 2023), 230 (May 2024) \u2014 the 2020+ captures are TRUNCATED BY THE ARCHIVE at 1 MB (the page carries ~390 rows by then, of which ~250 survive the cut, alphabetically from the top), so this era is a floor and the /company/<slug> CDX enumeration and Common Crawl carry the tail."
+   },
+   {
+    "parser": "cdx_company_pages",
+    "path": "/company",
+    "from": 2012,
+    "to": 2017,
+    "slug_re": "[A-Za-z0-9][A-Za-z0-9_.-]*",
+    "_note": "Era 4-5 per-company pages enumerated from the CDX index: /company/<Slug> ran from the 2012 tile site through the 2016-2017 WordPress migration, with the firm's own CamelCase slugs ('Warby-Parker', '33Across', 'Aggregate-Knowledge'). Measured 2026-09-06 on a truncated domain crawl: 310 distinct slugs, more than any single listing snapshot carries, so this is the survivorship layer for the 2012-2017 book. slug_re overrides the default lowercase namespace (wayback-pull.py)."
+   }
+  ],
+  "non_company_slugs": [
+   "home",
+   "index",
+   "about",
+   "about-us",
+   "contact",
+   "contact-us",
+   "news",
+   "blog",
+   "press",
+   "portfolio",
+   "companies",
+   "company",
+   "people",
+   "team",
+   "our-team",
+   "our_team",
+   "search",
+   "sitemap",
+   "jobs",
+   "openings",
+   "privacy",
+   "terms",
+   "review",
+   "podcast",
+   "angel-track",
+   "dorm-room-fund",
+   "pmf",
+   "levels",
+   "how-we-work",
+   "who-we-back",
+   "at-investment",
+   "google",
+   "google-1",
+   "google_1",
+   "spacerpixel",
+   "toplogo",
+   "logo",
+   "header",
+   "footer",
+   "banner",
+   "bg",
+   "background",
+   "arrow",
+   "icon",
+   "button",
+   "feed-icon16x16",
+   "lploginoff",
+   "slides",
+   "aboutusoff",
+   "contactusoff",
+   "meetourteamoff",
+   "ourfocusoff",
+   "ourportfoliooff",
+   "error",
+   "blank",
+   "spacer",
+   "frc",
+   "firstround",
+   "first-round",
+   "firstroundcapital"
+  ]
+ },
+ "commoncrawl": {
+  "company_paths": [
+   "company",
+   "companies"
+  ],
+  "people_paths": [
+   "team"
+  ],
+  "_note": "Two company namespaces across eras: /company/<Slug> (2012-2017, CamelCase) and /companies/<slug> (2015 and again on the 2025 Next.js site). /team/<slug> and /team/profile/<slug> carry the roster. Common Crawl is the second capture archive beside the Internet Archive (COLLECTION.md \u00a75, layer 1a)."
+ },
+ "site_api": {
+  "type": "scrape",
+  "sources": [
+   {
+    "parser": "json_list",
+    "url": "https://m6i10uln.apicdn.sanity.io/v2023-05-03/data/query/production?query=%2A%5B_type%3D%3D%22company%22%5D%7B%22name%22%3Atitle%2C%22slug%22%3Aslug.current%2CinitialPartnership%2Cfounders%2Cpartners%2C%22categories%22%3AcompanyCategories%5B%5D-%3Etitle%2C%22locations%22%3AcompanyLocations%5B%5D-%3Etitle%2C%22statement%22%3Apt%3A%3Atext%28statement%29%7D",
+    "list_path": "result",
+    "list": "sanity-companies",
+    "fields": {
+     "name": "name"
+    },
+    "row_url": "https://firstround.com/companies?selected={slug}",
+    "sectors": "categories",
+    "extras": [
+     "initialPartnership",
+     "founders",
+     "partners",
+     "locations",
+     "statement"
+    ]
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "json_list",
+    "url": "https://m6i10uln.apicdn.sanity.io/v2023-05-03/data/query/production?query=%2A%5B_type%3D%3D%22profile%22%5D%7B%22name%22%3Atitle%2C%22slug%22%3Aslug.current%2C%22group%22%3Adepartment-%3Etitle%7D",
+    "list_path": "result",
+    "list": "sanity-profiles",
+    "fields": {
+     "name": "name"
+    },
+    "row_url": "https://firstround.com/team/{slug}",
+    "extras": [
+     "group"
+    ]
+   }
+  ],
+  "_note": "The live site (2025-) is Next.js over a PUBLICLY QUERYABLE Sanity dataset (project m6i10uln, dataset production) \u2014 escalation ladder step 2, found from the cdn.sanity.io image URLs in the /companies page source. 195 company docs carrying the firm's own entry-stage claim (initialPartnership: Seed 168 / Pre-Seed 13 / Series A 13), the deal partners, the founders, six sector titles and a location; 53 profile docs with a department (Investing / Board partners / Operating / Finance & Administration). initialPartnership is scored on the stage golden set before it is trusted as a label (\u00a74)."
+ },
+ "roster": {
+  "cdx_patterns": [
+   "firstround.com/team/*",
+   "firstround.com/our_team.html*"
+  ],
+  "site_team_groups": [
+   "Investing",
+   "Board partners"
+  ],
+  "slug_re": "/team/(?:(?:investing|board-partners)/|profile/)?([a-z][a-z0-9_-]*)(?:\\.html?)?/?$",
+  "listing_href_re": "/team/(?:(?:investing|board-partners)/|profile/)?([a-z][a-z0-9_-]*)(?:\\.html?)?[\\\"']",
+  "not_a_person": [
+   "our_team",
+   "our-team",
+   "team",
+   "profile",
+   "index",
+   "people",
+   "about",
+   "contact",
+   "portfolio",
+   "companies",
+   "jobs",
+   "news",
+   "search",
+   "sitemap",
+   "join-us",
+   "careers",
+   "investing",
+   "operating",
+   "board-partners",
+   "finance-and-administration",
+   "tweets",
+   "firstround",
+   "firstround.com",
+   "www",
+   "board",
+   "network"
+  ],
+  "_note": "**The /team/ namespace mixes two different populations, and only one of them is the firm.** The firm's own people live at /team/<initial+lastname>.html (2006-2009: jkopelman, hmorgan, cfralic, rhayes, kgoldman, cherron, maraabi, pbarnes), /team/profile/<first_last> (2010-2015) and /team/investing/<first-last> + /team/board-partners/<first-last> (2025-). The 2012-2016 site ALSO published a network directory at /team/<First_Last> \u2014 220+ capitalised slugs that are the FOUNDERS AND CEOs OF PORTFOLIO COMPANIES (Travis Kalanick, Jack Dorsey, Dave Baszucki, Neil Blumenthal, Leah Busque, Katia Beauchamp, Garrett Camp). Sweeping those names through Form D would confirm hundreds of false members, because a founder IS a related person on their own company's filing. The slug pattern is therefore lowercase-only, which separates the two namespaces exactly, and /team/operating/ and /team/finance-and-administration/ (the non-investing staff of the live site) are excluded by the same pattern. The network directory is captured separately as a RECALL source (scratch/network-directory.json), which is what it is actually good for."
+ },
+ "edgar": {
+  "seed_queries": [
+   "first+round+capital",
+   "first+round+partners",
+   "fr+capital+holdings",
+   "dorm+room+fund"
+  ],
+  "fts_phrases": [
+   "First Round Capital",
+   "First Round Capital Partners Fund",
+   "First Round Capital Management",
+   "FR Capital Holdings",
+   "Dorm Room Fund"
+  ],
+  "fts_own_pattern": "(first round capital|fr capital holdings|first round cswr|dorm room fund)",
+  "_note": "Entity-qualified phrases only: bare 'first round' is a common noun in every financing disclosure ever filed ('the first round of financing'), and 'First Round Capital' itself appears inside registration statements as an investor name, which is exactly what the exit-side sweep wants. **FR Capital Holdings, L.P. (CIK 1776703) is the firm's own ownership-filing entity** \u2014 it files the Schedule 13G/13G-A and Form 3 side of the book from 2023 and shares its name with the adviser (CRD 160848), and it matches no 'first round' name pattern, so it is seeded explicitly. Found by the exit-side full-text sweep, 2026-09-06. Namesake to keep out: First Round CSWR, LLC (CIK 1600720, Missouri)."
+ },
+ "wikipedia": {
+  "phrases": [
+   "First Round Capital",
+   "First Round Capital Management"
+  ]
+ },
+ "desks": {
+  "home": "us",
+  "partition": [],
+  "rank": [
+   "us",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "first round cswr",
+     "first round funding",
+     "first round management llc",
+     "^first round$",
+     "^dorm room"
+    ]
+   },
+   {
+    "desk": "us",
+    "patterns": [
+     "^first round capital",
+     "^fr capital holdings"
+    ]
+   }
+  ],
+  "_note": "One desk. First Round is a single US firm with offices in Philadelphia (principal), New York and San Francisco and no separate geographic partnership; the fund ladder (2005, 2006, 2006 Annex, 2007, 2007 Annex, II, II-A, III..X plus the matching Partners Funds and the -A/-F sleeves, and the First Round Capital Management GP entities) all files from the firm's own addresses and the ADV's Section 7.A names exactly those GPs. **Dorm Room Fund IV/V are classified `external`** on the T1 ruling in decisions.md D1: their own GP (Dorm Room Fund GP, LLC / Dorm Room Fund V GP LLC) and their own management company (Dorm Room Management Company, LLC), neither of which appears anywhere in FR Capital Holdings' ADV, whose 22 private funds reconcile exactly to the First Round ladder. Namesake: First Round CSWR, LLC (CIK 1600720, Missouri)."
+ },
+ "profile": {
+  "own_vehicle_pattern": "^(first round capital|fr capital holdings)",
+  "focus_min_companies": 20,
+  "focus_crosswalk": {
+   "AI": "AI & Applied AI",
+   "ai": "AI & Applied AI",
+   "Enterprise": "SaaS",
+   "enterprise": "SaaS",
+   "Consumer": "Consumer & Marketplaces",
+   "consumer": "Consumer & Marketplaces",
+   "Fintech": "Fintech & Payments",
+   "fintech": "Fintech & Payments",
+   "Healthcare": "Healthcare & Bio",
+   "healthcare": "Healthcare & Bio",
+   "DevTools & Infra": "DevTools & APIs",
+   "Hardware": "Industrial & Robotics",
+   "hardware": "Industrial & Robotics",
+   "web3": "Crypto & Web3",
+   "Web3": "Crypto & Web3",
+   "ad_tech": "Media, Gaming & Advertising",
+   "ecommerce_consumer_web": "Consumer & Marketplaces"
+  },
+  "_note": "focus_min_companies ~4.5% of the expected base. The crosswalk maps the live CMS's six sector titles into the closed twelve; the 2016-2025 WordPress filters (enterprise, consumer, healthcare, hardware, fintech) and the 2012-2015 tile classes (ad_tech, ecommerce_consumer_web, enterprise) are the same vocabulary in earlier form."
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "uber",
+   "square",
+   "roblox",
+   "notion",
+   "warby parker",
+   "birchbox",
+   "modcloth",
+   "mint",
+   "appnexus",
+   "bazaarvoice",
+   "looker",
+   "flatiron health",
+   "blue apron",
+   "upstart",
+   "verkada",
+   "ring",
+   "hoteltonight",
+   "gumgum",
+   "33across",
+   "planet",
+   "clover health",
+   "flexport",
+   "smartthings",
+   "gnip",
+   "stumbleupon",
+   "powerset",
+   "invite media",
+   "ondeck capital",
+   "the climate corporation",
+   "rover",
+   "clay",
+   "fal",
+   "goat",
+   "together ai",
+   "wikia"
+  ],
+  "sample_slugs": [],
+  "shape": {
+   "one_b_share_max": 0.2,
+   "c2a_rate_max": 0.8,
+   "_note": "Kickoff defaults, expected to fire in the OPPOSITE direction from a growth investor (PRO-93): a seed-only book of ~1,000 companies should read a LOW $1b_plus share and a HIGH seed-to-A graduation rate. A guard that fires is restated in decisions.md against the evidence, never waived."
+  },
+  "_note": "known_positions was seeded at kickoff from model priors and carried several names that are NOT First Round positions \u2014 the firm's /ai/<company> pages (Brex, Carta, Linktree, Warp, Figma, Shopify) are editorial AI case studies, not a portfolio list, and reading them as one is exactly the mistake \u00a75's surface enumeration warns about. Replaced 2026-09-06 with names the base actually evidences."
+ },
+ "sample_slugs": []
+}

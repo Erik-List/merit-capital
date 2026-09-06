@@ -1,0 +1,47 @@
+    retry 1 http://web.archive.org/cdx/search/cdx?url=firstround.com/portfolio/companies&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 http://web.archive.org/cdx/search/cdx?url=firstround.com/portfolio/companies&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 http://web.archive.org/web/20100228143722id_/http://www.firstround.com:80/portfolio/companies/?: rc=7
+    retry 2 http://web.archive.org/web/20100228143722id_/http://www.firstround.com:80/portfolio/companies/?: rc=7
+    retry 3 http://web.archive.org/web/20100228143722id_/http://www.firstround.com:80/portfolio/companies/?: rc=7
+    retry 1 http://web.archive.org/web/20110121063718id_/http://www.firstround.com:80/portfolio/companies/?: rc=7
+    retry 2 http://web.archive.org/web/20110121063718id_/http://www.firstround.com:80/portfolio/companies/?: rc=7
+    retry 3 http://web.archive.org/web/20110121063718id_/http://www.firstround.com:80/portfolio/companies/?: rc=7
+    retry 1 http://web.archive.org/cdx/search/cdx?url=firstround.com/companies/tile_by_page/0&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 http://web.archive.org/cdx/search/cdx?url=firstround.com/companies/tile_by_page/0&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 http://web.archive.org/cdx/search/cdx?url=firstround.com/companies/tile_by_page/0&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 http://web.archive.org/cdx/search/cdx?url=firstround.com/companies/tile_by_page/0&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 http://web.archive.org/cdx/search/cdx?url=firstround.com/companies/tile_by_page/0&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 http://web.archive.org/cdx/search/cdx?url=firstround.com/companies/tile_by_page/0&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 http://web.archive.org/cdx/search/cdx?url=firstround.com/companies&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 http://web.archive.org/cdx/search/cdx?url=firstround.com/companies&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 http://web.archive.org/cdx/search/cdx?url=firstround.com/companies&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 http://web.archive.org/cdx/search/cdx?url=firstround.com/companies&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 http://web.archive.org/cdx/search/cdx?url=firstround.com/companies&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 http://web.archive.org/cdx/search/cdx?url=firstround.com/companies&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 http://web.archive.org/web/20240530032617id_/https://firstround.com/companies/: rc=7
+    retry 2 http://web.archive.org/web/20240530032617id_/https://firstround.com/companies/: rc=7
+== era /portfolio/view_list.cfm 2007-2012 (regex listing)
+  2007: 0 entries
+  2008: 53 entries
+  2009: 59 entries
+  2010: 64 entries
+  2012: 0 entries
+== era /portfolio/exits.cfm 2007-2011 (regex listing)
+  2007: 0 entries
+  2008: 6 entries
+  2009: 10 entries
+  2010: 15 entries
+== era /portfolio/companies/ 2010-2011 (regex listing)
+  2010: 0 entries
+  2011: 0 entries
+== era /companies/tile_by_page/0 2012-2014 (regex listing)
+  CDX empty for firstround.com/companies/tile_by_page/0; probing the replay per year
+== era /companies/ 2016-2025 (regex listing)
+  CDX empty for firstround.com/companies; probing the replay per year
+  2022: 0 entries
+  2023: 0 entries
+  2024: 0 entries
+  2025: 0 entries
+
+years: [2008, 2009, 2010]
+distinct slugs across all years: 94
