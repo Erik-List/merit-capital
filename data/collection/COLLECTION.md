@@ -612,6 +612,33 @@ order the grind will use, instead of auditing one it already used.
       `data-payload` attribute counts as this step, no headless render
       needed so far.
 
+   **A site that states its own ENTRY ROUND per company is the strongest
+   entry_stage layer a run can have — and it must reach the queue.** Menlo's
+   portfolio cards carry a Milestones list giving the firm's own entry year and
+   round ("2011 - Partnered, Series B" on Uber, "2018 - Partnered, Series C" on
+   Chime) for 214 of 245 listed rows; scored blind on the golden set it went
+   33/34 and was promoted to class 1 for the round word (§4, §6). Two mechanics
+   the run had to build, both now standing: `build-company-base.py` carries
+   `site_entry_stage` and `site_invest_year` onto the base row and into
+   `COLUMN_ORDER`, and `run.py`'s `EVIDENCE_FIELDS` carries both into every
+   queue item — a class-1 layer the item does not carry is a layer the grind
+   cannot use, which is the Black Forest Labs failure in a new place. Read the
+   year as a CLOSE year, not an announcement date (§6).
+
+   **A logo-only era is recoverable from the image filename.** COLLECTION.md
+   used to accept a logo era as a deliberate gap (a16z). It need not be one:
+   where the era renders a company as `<img src="companies/<slug>.gif">`, an era
+   pattern carrying BOTH a `(?P<slug>...)` branch on the filename and a
+   `(?P<name>...)` branch on the text recovers both kinds of row in one pass —
+   on Menlo's 1998 sector pages that returned UUNET, FaxSav, SpectraLink,
+   MicroTherapeutics, Latitude Communications and Red Brick Systems, every one
+   of them a real position that the text-only pattern missed. The slug is the
+   company's identity, so the row lands unnamed and the judge names it.
+
+   **CDX over plain HTTP is refused** (measured 2026-09-06: connection-refused
+   on every `http://web.archive.org/cdx/...` query while the same query answers
+   over HTTPS). `wayback-pull.py` and `partner-roster.py` use HTTPS.
+
    **A CMS that names deal partners is a judge instrument, not just a
    listing.** Accel's per-company partner refs fed `partners_site` at
    build (the wayback filter path other sites use), validated identity
@@ -1081,6 +1108,14 @@ be read off it, and the report says so.
 the company.** A fact about a named historical deal, not about the company's
 maturity today. 100% fill.
 
+- **A pre-window null carries a flag, or the fill invariant contradicts the
+  policy constant.** The 2006 window constant nulls `entry_stage` and
+  graduation for earlier entries; invariant 1 demands 100% fill. On any old book
+  the two collide — Menlo's 240 legitimately-null rows failed `verify` outright,
+  and Benchmark's base carries 53 rows of the same class. The judge asserts the
+  null by flagging the row `pre_window`, and `verify` accepts a null
+  `entry_stage` — and skips invariant 4's stage-evidence requirement — only for
+  a row that carries it. An unflagged empty stage is missing work, not policy.
 - Taxonomy: `Pre-Seed | Seed | Series A | Growth`. Growth = Series B and
   everything later: C/D, crossover, pre-IPO, secondaries and tenders (a
   tender entry is an entry at scale), buyout-scale positions, recaps,
@@ -1127,6 +1162,24 @@ maturity today. 100% fill.
   class). Precedence: **the label follows the record** — a documented
   entry round at scale overrides the site's label, flagged
   `stage_disputes_band` with the citation.
+- **A firm's own announcement archive announces the round the firm LED,
+  which is regularly a follow-on and not the entry.** The Creandum finding —
+  score the announcement archive as a class-1 entry-stage layer — INVERTS on a
+  firm that leads later rounds into companies it seeded quietly. On Menlo the
+  archive scored WORSE than the site's CMS field, and four rows proved it inside
+  the run's own sources: eero ("we first invested in eero's seed round two years
+  ago", 2014, against a 2016 post announcing the $50M round it led), H1 ("in
+  April 2020, Menlo led the Series A", against a December post announcing the
+  co-led Series B), and Goodfire and Numeric, both entered at the seed and both
+  announced only at the Series A the firm led. Class-wide rule: an announcement
+  is class 1 for the round it NAMES; it asserts an ENTRY only where the post
+  says so in words.
+- **A site's per-company year field is a CLOSE year, not an announcement
+  date.** Five rows whose round word the Menlo CMS got right carry a year one
+  earlier than the press announcement (Dropcam 2011 vs Jun-2012, ConverzAI 2024
+  vs Feb-2025, Orb 2022 vs Mar-2023, Semgrep 2024 vs Feb-2025). Such a field may
+  set `first_seen`; it may not be read as an announcement date, and a year
+  disagreement with press never overrides the round word.
 - **"The firm led the A" folklore fails one-directionally on famous
   rows.** Accel's citation pass corrected 12 stages and ten went Series A
   → Growth (Personio: Northzone led the A, Accel entered at the $75M C;
@@ -1266,6 +1319,24 @@ Every subcommand takes the investor slug.
   (new rows, and any need still open) and the grind finishes it.
   Rebuilding at any other point costs a re-prepare and a renumbered queue
   for nothing.
+- **A membership verdict made in the post-rebuild delta needs a second,
+  final rebuild.** The one-rebuild schedule assumes the delta only fills
+  classification, but the delta grind can rule a row `not_member` — Menlo's did,
+  twice — and those rows then have nowhere to go: `verify` fails them as
+  "published despite not_member" and the schedule offers no landing. Run one
+  more rebuild before `export` whenever the delta produced a membership verdict,
+  and say so in the report. It is safe there because the grind is complete.
+- **`record` routes a line by the presence of `verdict`, so a MEMBER needs TWO
+  lines** — the verdict line and a classification line. A single line carrying
+  both is recorded as a verdict and every classification key on it is dropped
+  silently; a 45-row batch recorded "45 verdicts + 0 classification rows" before
+  the split was noticed.
+- **"Emit only the keys for the needs asked" has one licensed exception and it
+  fires often.** A `formd_band` stage the judge overrules is by definition a key
+  the queue did not ask for, because the band already filled it — 23 Menlo rows
+  needed exactly that override. A tool that filters emissions against the
+  queue's `need` list must let a deliberate dispute through, or the judge's
+  corrections are silently discarded.
 - **`verify --in-flight` is the mid-run check**; plain `verify` is the
   contract at the end (§10). In flight every answered row is held to the
   full consistency, source-gate and citation contract, while unjudged

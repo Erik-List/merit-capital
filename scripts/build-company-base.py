@@ -49,6 +49,11 @@ COLUMN_ORDER = [
     "tier", "lineage", "slug", "wayback_years", "edgar_forms", "edgar_span",
     "edgar_cik", "formd_roles", "formd_max_round_usd", "formd_span",
     "formd_accessions", "notes",
+    # The firm's own per-company entry claim, where its site publishes one
+    # (Menlo's portfolio-card Milestones: "2011 - Partnered, Series B"). It
+    # travels to the queue item as evidence for entry_stage and first_seen —
+    # never as a label until the calibration gate has scored it.
+    "site_entry_stage", "site_invest_year",
 ]
 
 # Form D industry branches populated by investment vehicles, banks and property
@@ -203,6 +208,14 @@ def main() -> None:
             y = str(c.get("invest_year") or "")[:4]
             if y.isdigit():
                 row["site_invest_year"] = min(y, row.get("site_invest_year") or y)
+            # The firm's own statement of the round it entered at, where the
+            # site publishes one (Menlo's portfolio-card "Milestones": "2011 -
+            # Partnered, Series B"). It reaches the queue item as evidence,
+            # never as a label: COLLECTION.md 4 requires it to be scored on the
+            # golden set first, and the round it names is the ENTRY round only
+            # because that is what the field claims.
+            if c.get("site_entry_stage"):
+                row["site_entry_stage"] = c["site_entry_stage"]
             site_n += 1
         print(f"site API portfolio: {site_n} companies")
 
@@ -501,6 +514,8 @@ def main() -> None:
         rows_out.append({
             "slug": r["slug"], "name": r["name"], "tier": tier, "status": status,
             "lineage": lineage, "first_seen": first,
+            "site_entry_stage": r.get("site_entry_stage") or "",
+            "site_invest_year": r.get("site_invest_year") or "",
             "wayback_years": ",".join(map(str, sorted(r["wayback_years"]))),
             "wayback_first_link": wb_link,
             "site_url": r["site_url"],

@@ -1,0 +1,566 @@
+{
+ "slug": "menlo-ventures",
+ "name": "Menlo Ventures",
+ "wayback": {
+  "cdx_domain": "menlovc.com",
+  "site_url_base": "https://menlovc.com",
+  "eras": [
+   {
+    "parser": "listing_regex",
+    "path": "/software.html",
+    "from": 1997,
+    "to": 1999,
+    "cdx_domain": "menloventures.com",
+    "site_url_base": "http://www.menloventures.com",
+    "raw": true,
+    "pattern": "(?i)<TR>\\s*<TD><BR>\\s*(?:<A HREF=\\\"[^\\\"]*\\\"[^>]*>)?(?:<IMG SRC=\\\"companies/(?P<slug>[^.\\\"]+)\\.[a-z]+\\\"[^>]*>|(?P<name>[A-Za-z0-9][^<>]{2,60}?))\\s*(?:</A>)?<BR>",
+    "_note": "Era 1 (the 1997-1999 site, one capture 1998-01-17). Eight sector pages -- communications, healthcare, internet, medical, network, other, semiconductor, software -- each a two-column table: left cell the company (an <A> to its own site, a bare upper-case name, or a LOGO IMAGE only), right cell a one-line description. The IMG branch recovers the logo-only rows from the image filename (companies/faxsav.gif -> faxsav), which is the a16z logo-era trap solved rather than recorded. This is the 1990s book: Hotmail, Infoseek, Digital Insight, UUNET-era rows."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/communications.html",
+    "from": 1997,
+    "to": 1999,
+    "cdx_domain": "menloventures.com",
+    "site_url_base": "http://www.menloventures.com",
+    "raw": true,
+    "pattern": "(?i)<TR>\\s*<TD><BR>\\s*(?:<A HREF=\\\"[^\\\"]*\\\"[^>]*>)?(?:<IMG SRC=\\\"companies/(?P<slug>[^.\\\"]+)\\.[a-z]+\\\"[^>]*>|(?P<name>[A-Za-z0-9][^<>]{2,60}?))\\s*(?:</A>)?<BR>"
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/internet.html",
+    "from": 1997,
+    "to": 1999,
+    "cdx_domain": "menloventures.com",
+    "site_url_base": "http://www.menloventures.com",
+    "raw": true,
+    "pattern": "(?i)<TR>\\s*<TD><BR>\\s*(?:<A HREF=\\\"[^\\\"]*\\\"[^>]*>)?(?:<IMG SRC=\\\"companies/(?P<slug>[^.\\\"]+)\\.[a-z]+\\\"[^>]*>|(?P<name>[A-Za-z0-9][^<>]{2,60}?))\\s*(?:</A>)?<BR>"
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/healthcare.html",
+    "from": 1997,
+    "to": 1999,
+    "cdx_domain": "menloventures.com",
+    "site_url_base": "http://www.menloventures.com",
+    "raw": true,
+    "pattern": "(?i)<TR>\\s*<TD><BR>\\s*(?:<A HREF=\\\"[^\\\"]*\\\"[^>]*>)?(?:<IMG SRC=\\\"companies/(?P<slug>[^.\\\"]+)\\.[a-z]+\\\"[^>]*>|(?P<name>[A-Za-z0-9][^<>]{2,60}?))\\s*(?:</A>)?<BR>"
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/medical.html",
+    "from": 1997,
+    "to": 1999,
+    "cdx_domain": "menloventures.com",
+    "site_url_base": "http://www.menloventures.com",
+    "raw": true,
+    "pattern": "(?i)<TR>\\s*<TD><BR>\\s*(?:<A HREF=\\\"[^\\\"]*\\\"[^>]*>)?(?:<IMG SRC=\\\"companies/(?P<slug>[^.\\\"]+)\\.[a-z]+\\\"[^>]*>|(?P<name>[A-Za-z0-9][^<>]{2,60}?))\\s*(?:</A>)?<BR>"
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/network.html",
+    "from": 1997,
+    "to": 1999,
+    "cdx_domain": "menloventures.com",
+    "site_url_base": "http://www.menloventures.com",
+    "raw": true,
+    "pattern": "(?i)<TR>\\s*<TD><BR>\\s*(?:<A HREF=\\\"[^\\\"]*\\\"[^>]*>)?(?:<IMG SRC=\\\"companies/(?P<slug>[^.\\\"]+)\\.[a-z]+\\\"[^>]*>|(?P<name>[A-Za-z0-9][^<>]{2,60}?))\\s*(?:</A>)?<BR>"
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/semiconductor.html",
+    "from": 1997,
+    "to": 1999,
+    "cdx_domain": "menloventures.com",
+    "site_url_base": "http://www.menloventures.com",
+    "raw": true,
+    "pattern": "(?i)<TR>\\s*<TD><BR>\\s*(?:<A HREF=\\\"[^\\\"]*\\\"[^>]*>)?(?:<IMG SRC=\\\"companies/(?P<slug>[^.\\\"]+)\\.[a-z]+\\\"[^>]*>|(?P<name>[A-Za-z0-9][^<>]{2,60}?))\\s*(?:</A>)?<BR>"
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/other.html",
+    "from": 1997,
+    "to": 1999,
+    "cdx_domain": "menloventures.com",
+    "site_url_base": "http://www.menloventures.com",
+    "raw": true,
+    "pattern": "(?i)<TR>\\s*<TD><BR>\\s*(?:<A HREF=\\\"[^\\\"]*\\\"[^>]*>)?(?:<IMG SRC=\\\"companies/(?P<slug>[^.\\\"]+)\\.[a-z]+\\\"[^>]*>|(?P<name>[A-Za-z0-9][^<>]{2,60}?))\\s*(?:</A>)?<BR>"
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/port_alpha.html",
+    "from": 2000,
+    "to": 2001,
+    "cdx_domain": "menloventures.com",
+    "site_url_base": "http://www.menloventures.com",
+    "raw": true,
+    "pattern": "(?i)(?P<name>[A-Za-z0-9][^<>]{1,69}?)\\s*(?:</a>)?<br>",
+    "_note": "Era 2 (2000-2001), 'Current Portfolio Companies', alphabetical. Rows are either <a href=company-site>Name</a><br> or a bare Name<br>; the pattern takes the text immediately before a <br> that contains no tag characters, which the nav (image links, no text) cannot satisfy. Junk that survives is filtered by non_company_slugs."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/port_prior.html",
+    "from": 2000,
+    "to": 2001,
+    "cdx_domain": "menloventures.com",
+    "site_url_base": "http://www.menloventures.com",
+    "raw": true,
+    "pattern": "(?i)(?P<name>[A-Za-z0-9][^<>]{1,69}?)\\s*(?:</a>)?<br>",
+    "_note": "Era 2's PRIOR INVESTMENTS page -- the firm's own list of exited and dead positions back to the 1976 vintage. This is the survivorship-correction surface for the pre-window book and the single richest page for the 1976-1999 slice."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio/all_alpha/",
+    "from": 2003,
+    "to": 2007,
+    "cdx_domain": "menloventures.com",
+    "site_url_base": "http://www.menloventures.com",
+    "raw": true,
+    "pattern": "(?i)<li>(?P<name>[^<>]{2,70})</li>",
+    "_note": "Era 3 (2002-2007), the XHTML site: 'All Companies: Alphabetical' as a bare <li>Name</li> list. Every nav <li> wraps an <a> or a <strong>, so the tag-free class excludes them."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio/prior_investments/",
+    "from": 2002,
+    "to": 2007,
+    "cdx_domain": "menloventures.com",
+    "site_url_base": "http://www.menloventures.com",
+    "raw": true,
+    "pattern": "(?i)<li>(?P<name>[^<>]{2,70})</li>"
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio/communications/",
+    "from": 2002,
+    "to": 2003,
+    "cdx_domain": "menloventures.com",
+    "site_url_base": "http://www.menloventures.com",
+    "raw": true,
+    "pattern": "(?i)<li>(?P<name>[^<>]{2,70})</li>",
+    "_note": "2002-2003 predate the all_alpha page; the four sector pages are its union for those years."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio/healthcare/",
+    "from": 2002,
+    "to": 2003,
+    "cdx_domain": "menloventures.com",
+    "site_url_base": "http://www.menloventures.com",
+    "raw": true,
+    "pattern": "(?i)<li>(?P<name>[^<>]{2,70})</li>"
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio/internet/",
+    "from": 2002,
+    "to": 2003,
+    "cdx_domain": "menloventures.com",
+    "site_url_base": "http://www.menloventures.com",
+    "raw": true,
+    "pattern": "(?i)<li>(?P<name>[^<>]{2,70})</li>"
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio/services_and_software/",
+    "from": 2002,
+    "to": 2003,
+    "cdx_domain": "menloventures.com",
+    "site_url_base": "http://www.menloventures.com",
+    "raw": true,
+    "pattern": "(?i)<li>(?P<name>[^<>]{2,70})</li>"
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio_all.html?cust=view_all&prod=view_all",
+    "from": 2008,
+    "to": 2011,
+    "cdx_domain": "menloventures.com",
+    "site_url_base": "http://www.menloventures.com",
+    "raw": true,
+    "pattern": "(?i)<span class='large-text'><b>(?P<name>[^<]+)</b></span>",
+    "_note": "Era 4 (2008-2012), the Flash-chromed site whose company list is served only under query strings: portfolio_list.html?sector=<s>, portfolio_list.html?company=<id> (one per company) and this one, portfolio_all.html?cust=view_all&prod=view_all, which renders the whole book in one page (116 rows on the 2009 capture) with the name in <span class=large-text><b>, a description, and the exit line in italics. Found by enumerating the query variants in CDX rather than accepting the bare page's 'No companies in this sector.'"
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio_all.html?cust=view_all&prod=view_all",
+    "from": 2012,
+    "to": 2012,
+    "pattern": "(?i)<span class='large-text'><b>(?P<name>[^<]+)</b></span>",
+    "raw": true,
+    "_note": "Era 4 continued on menlovc.com after the domain move (the 2012-04 capture)."
+   },
+   {
+    "parser": "cdx_company_pages",
+    "path": "/portfolio/",
+    "from": 2013,
+    "to": 2026,
+    "_note": "Eras 5 and 6, both /portfolio/<slug> on menlovc.com: the 2013-2018 WordPress site and the 2023-2026 one. 2019-2022 is a JS single-page app whose company pages the archive never enumerated -- that window is the Common Crawl layer's job, and whatever it does not reach is recorded as a coverage note."
+   }
+  ],
+  "non_company_slugs": [
+   "home",
+   "index",
+   "contact",
+   "contact-us",
+   "about",
+   "news",
+   "portfolio",
+   "portfolios",
+   "companies",
+   "company",
+   "team",
+   "teams",
+   "people",
+   "management",
+   "operations",
+   "philosophy",
+   "strategy",
+   "jobs",
+   "careers",
+   "search",
+   "sitemap",
+   "privacy",
+   "terms",
+   "legal",
+   "blog",
+   "voice",
+   "perspective",
+   "events",
+   "videos",
+   "tag",
+   "menlo-ventures",
+   "menlo",
+   "all",
+   "see-all",
+   "view-all",
+   "more",
+   "next",
+   "previous",
+   "www",
+   "page",
+   "big-ideas",
+   "bigidea",
+   "big-idea",
+   "entrepreneurs",
+   "entrepreneur",
+   "current-portfolio-companies",
+   "prior-investments",
+   "alphabetical",
+   "skip-navigation",
+   "menlo-ventures-portfolio",
+   "back-to-top",
+   "top",
+   "email",
+   "phone",
+   "fax",
+   "directions",
+   "focus-areas",
+   "anthology-fund",
+   "menlo-labs",
+   "new-updates",
+   "menlo-vc",
+   "s",
+   "api",
+   "wp",
+   "wp-json",
+   "wp-content",
+   "feed",
+   "amp",
+   "null",
+   "undefined"
+  ]
+ },
+ "roster": {
+  "cdx_patterns": [
+   "menlovc.com/team/*",
+   "menloventures.com/team/*",
+   "menloventures.com/management/*",
+   "menloventures.com/m_*"
+  ],
+  "site_team_groups": [],
+  "slug_re": "/(?:team|management)/([A-Za-z][A-Za-z0-9_.-]*[A-Za-z0-9])(?:\\.s?html?)?/?$",
+  "listing_href_re": "/(?:team|management)/([a-zA-Z][a-zA-Z0-9_.-]*)(?:\\.s?html?)?[\"'/]",
+  "not_a_person": [
+   "index",
+   "team",
+   "teams",
+   "management",
+   "our-team",
+   "portfolio",
+   "news",
+   "contact",
+   "about",
+   "photo-download",
+   "operations",
+   "advisors",
+   "eir",
+   "search",
+   "page",
+   "all",
+   "www",
+   "companies",
+   "people",
+   "menlo-ventures",
+   "join-us",
+   "careers"
+  ],
+  "_note": "Four people namespaces across the site's life: /m_<lastname>.html (2000-2001: montgomery, jarve, bredt, carlisle, siegel, hoel, calhoun, kacher, vazirani, dusing, ...), /management/<initial><lastname>.html (2002-2007), a single /team_bio.html page (2008-2012, not per-person and not enumerable by CDX) and /team/<slug> (2012-2026). The live roster comes from the WordPress `teams` post type. Note the era-1 site published partners only as /partners.html, so 1997-1999 tenure comes from the 2000-2001 pages read backwards plus press."
+ },
+ "site_api": {
+  "type": "scrape",
+  "sources": [
+   {
+    "parser": "json_list",
+    "list": "cms-p1",
+    "url": "https://menlovc.com/wp-json/wp/v2/portfolios?per_page=100&page=1",
+    "fields": {
+     "name": "title.rendered",
+     "url": "link"
+    },
+    "extras": [
+     "slug"
+    ]
+   },
+   {
+    "parser": "json_list",
+    "list": "cms-p2",
+    "url": "https://menlovc.com/wp-json/wp/v2/portfolios?per_page=100&page=2",
+    "fields": {
+     "name": "title.rendered",
+     "url": "link"
+    },
+    "extras": [
+     "slug"
+    ]
+   },
+   {
+    "parser": "json_list",
+    "list": "cms-p3",
+    "url": "https://menlovc.com/wp-json/wp/v2/portfolios?per_page=100&page=3",
+    "fields": {
+     "name": "title.rendered",
+     "url": "link"
+    },
+    "extras": [
+     "slug"
+    ]
+   },
+   {
+    "parser": "json_list",
+    "list": "cms-p4",
+    "url": "https://menlovc.com/wp-json/wp/v2/portfolios?per_page=100&page=4",
+    "fields": {
+     "name": "title.rendered",
+     "url": "link"
+    },
+    "extras": [
+     "slug"
+    ]
+   },
+   {
+    "parser": "file_list",
+    "list": "cards",
+    "path": "data/collection/investors/menlo-ventures/sources/site/portfolio-cards.json",
+    "fields": {
+     "name": "name",
+     "url": "website"
+    },
+    "pluck": {
+     "partners": "name"
+    },
+    "extras": [
+     "partners",
+     "invest_year",
+     "site_entry_stage",
+     "status_line",
+     "description",
+     "milestones"
+    ]
+   },
+   {
+    "parser": "file_list",
+    "list": "jobboard",
+    "path": "data/collection/investors/menlo-ventures/sources/site/jobboard.json",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "sectors": "sectors",
+    "extras": [
+     "domain",
+     "founded"
+    ]
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "json_list",
+    "list": "team",
+    "url": "https://menlovc.com/wp-json/wp/v2/teams?per_page=100",
+    "fields": {
+     "name": "title.rendered",
+     "url": "link"
+    },
+    "extras": [
+     "slug"
+    ]
+   }
+  ],
+  "_note": "menlovc.com is WordPress and answers /wp-json/wp/v2/types, so the ladder stops at step 1 -- but the union needs three surfaces, not one. (1) The `portfolios` REST collection, paged, is the recall surface: 322 companies against the 245 the rendered /portfolio/ page shows, and the 77 REST-only rows are the firm's best-known exits (UUNET, Infoseek, DocuSign, Redfin, Upstart, Upwork, Palo Alto Networks, Shazam, AppDynamics, Smartsheet, Clearwater Analytics, HNC Software) -- a run that scraped the rendered page would have dropped them. (2) portfolio-cards.json is that rendered page, parsed by scratch/build-portfolio-cards.py for what REST does not expose (ACF is unpublished): the exit line, the Menlo DEAL PARTNERS, and a Milestones list in which the firm states its own entry year and entry round ('2011 - Partnered, Series B' on Uber) -- 214 rows carry both. That field is a candidate class-1 entry_stage layer and is scored on the golden set before it labels anything. (3) jobboard.json is jobs.menlovc.com (Getro), a first-party list of currently-hiring companies built by scratch/build-jobboard-list.py, which carries about ten rows on no other surface plus each company's own founded year and industry tags."
+ },
+ "edgar": {
+  "seed_queries": [
+   "menlo+ventures",
+   "menlo+entrepreneurs",
+   "menlo+inflection",
+   "menlo+labs",
+   "menlo+special+opportunities",
+   "menlo+ai+leaders",
+   "menlo+bio",
+   "menlo+cxo",
+   "menlo+olympic",
+   "menlo+olympus",
+   "mmef",
+   "mm+inflection",
+   "mmsop"
+  ],
+  "fts_phrases": [
+   "Menlo Ventures",
+   "Menlo Entrepreneurs Fund",
+   "Menlo Inflection",
+   "Menlo Special Opportunities",
+   "Menlo Labs"
+  ],
+  "fts_own_pattern": "menlo (ventures|entrepreneurs|inflection|labs|cxo|bio|ai leaders|olympic|olympus|special opportunities|xv innovators|lv partners)|^mmef|^mm inflection|^mmsop",
+  "_note": "Entity-qualified phrases only. Bare 'Menlo' is unusable on EDGAR full-text search: Menlo Park is the filing address of a large share of Sand Hill Road, so the term matches thousands of filings that have nothing to do with the firm. The registered namesakes are Menlo Equities and Menlo Realty (Palo Alto real estate), Menlo Advisors LLC (a Menlo Park 13F wealth manager, CRD 122721), Menlo Asset-Backed Partners, Menlo Group LLC (CRD 308522), Menlo Park Investors LLC (New York), Menlo Acquisition Corp (New Jersey), Menlo Microsystems (an Irvine issuer, not a vehicle) and Menlo Securities."
+ },
+ "wikipedia": {
+  "phrases": [
+   "Menlo Ventures"
+  ]
+ },
+ "desks": {
+  "home": "us",
+  "partition": [],
+  "rank": [
+   "us",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "menlo equities",
+     "menlo realty",
+     "menlo advisors",
+     "menlo asset-backed",
+     "menlo park investors",
+     "menlo group",
+     "menlo microsystems",
+     "menlo acquisition",
+     "menlo townhomes",
+     "menlo atherton",
+     "menlo bcsp",
+     "menlo investment corporation",
+     "menlo securities",
+     "menlo therapeutics",
+     "menlo-cs-",
+     "menlo-gi-",
+     "menlo special opportunities iii access",
+     "menlo opportunities access",
+     "menlo ventures 2025 - allocate access"
+    ]
+   },
+   {
+    "desk": "us",
+    "patterns": [
+     "^menlo ventures",
+     "^menlo entrepreneurs",
+     "^menlo inflection",
+     "^menlo labs",
+     "^menlo cxo",
+     "^menlo bio",
+     "^menlo ai leaders",
+     "^menlo olympic",
+     "^menlo olympus",
+     "^menlo xv innovators",
+     "^menlo special opportunities",
+     "^menlo lv partners",
+     "^mmef",
+     "^mm inflection",
+     "^mmsop",
+     "^mv management",
+     "^msop gp",
+     "^menlo management"
+    ]
+   }
+  ],
+  "_note": "One office, one desk: every home vehicle files from Menlo Park at 3000 Sand Hill Road (1997-2014), 2884 Sand Hill Road Suite 100 (2005-2022) or 1300 El Camino Real Suite 150 (2017-2026). Desks resolve by CIK and filing address, never by the name pattern alone -- the namesakes above share the word and none shares an address. Two third-party feeder families are partitioned out as external on the Thrive IX Access precedent: the 'Access' LLC/Offshore pairs file from 200 West Street, New York (Goldman Sachs) and 'Menlo Ventures 2025 - Allocate Access' from 502 Waverley St, Palo Alto (Allocate). The two AngelList series funds whose names begin 'Menlo-' file from Washington State and belong to AngelList's syndicate namespace. The firm's general-partner LLCs do not carry the Menlo word mark: MV MANAGEMENT VI/IX/X/XI, L.L.C. and MSOP GP, L.L.C. are the GPs of the flagship and Special Opportunities funds -- CRD 161248's own legal name is MV MANAGEMENT XI, LLC -- and they file the Section 16 forms that carry the pre-2012 board seats, so '^mv management' and '^msop gp' are home-desk patterns. Classing them external (the first pass did) would have thrown away the firm's own filer identities."
+ },
+ "profile": {
+  "own_vehicle_pattern": "^(menlo (ventures|entrepreneurs|inflection|labs|cxo|bio|ai leaders|olympic|olympus|special opportunities|xv innovators|lv partners)|mmef|mm inflection|mmsop)",
+  "focus_min_companies": 15,
+  "focus_crosswalk": {},
+  "_note": "focus_min_companies ~4.5% of the expected ~350-row base. Menlo publishes its own sector vocabulary on the live listing (AI, Bio + Healthcare, Consumer, Cybersecurity, Defense, Fintech, Infrastructure, Robotics + Hardware, SaaS) plus three practice areas (consumer, enterprise, healthcare); the crosswalk is filled once the site pull lands."
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "3par",
+   "acme packet",
+   "anthropic",
+   "appdynamics",
+   "benchling",
+   "betterment",
+   "carta",
+   "cavium",
+   "chime",
+   "clearwater analytics",
+   "docusign",
+   "dropcam",
+   "eero",
+   "f5",
+   "gilead",
+   "hotmail",
+   "infoseek",
+   "ironport",
+   "netlify",
+   "palo alto networks",
+   "pillpack",
+   "pinecone",
+   "poshmark",
+   "recursion",
+   "redfin",
+   "roku",
+   "shazam",
+   "siri",
+   "smartsheet",
+   "tumblr",
+   "uber",
+   "uunet",
+   "upstart",
+   "upwork",
+   "warby parker",
+   "xaira therapeutics"
+  ],
+  "sample_slugs": [],
+  "shape": {
+   "one_b_share_max": 0.2,
+   "c2a_rate_max": 0.8,
+   "_note": "Defaults kept at kickoff. Menlo has invested since 1976, so a large share of the base is pre-window (entry_stage and graduation null by the 2006 policy constant) and the C2A cohort is computed over a much smaller slice than the base size suggests. A guard that fires is restated in decisions.md against the evidence, never waived."
+  }
+ },
+ "sample_slugs": [],
+ "commoncrawl": {
+  "company_paths": [
+   "portfolio",
+   "companies"
+  ],
+  "people_paths": [
+   "team"
+  ],
+  "_note": "The layer's real job here is the 2019-2022 window, when menlovc.com was a JS single-page app and the Internet Archive enumerated almost nothing under /portfolio/. CC's index covers those years; the negative result is recorded rather than assumed (COLLECTION.md sec 5)."
+ }
+}

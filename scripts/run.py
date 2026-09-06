@@ -254,7 +254,12 @@ BATCH_RE = re.compile(r"^batch-\d{3}\.json$")
 # links the verdict's citation points at.
 EVIDENCE_FIELDS = ("site_url", "wayback_years", "wayback_first_link",
                    "edgar_forms", "edgar_links", "formd_links",
-                   "formd_accessions", "partners_site", "partners_formd")
+                   "formd_accessions", "partners_site", "partners_formd",
+                   # A site that states its own entry round and year per company
+                   # (Menlo's portfolio-card Milestones) carries the strongest
+                   # entry_stage evidence a run can have — but only once the
+                   # calibration gate has scored it (COLLECTION.md 4).
+                   "site_entry_stage", "site_invest_year")
 
 
 def queue_batches() -> list[Path]:
@@ -1420,7 +1425,11 @@ def cmd_verify(args) -> None:
             problems.append(f"{slug}: hq_country {rec['hq_country']!r} is not a known "
                             f"ISO 3166-1 alpha-2 code")
         if not rec.get("entry_stage"):
-            if not in_flight:
+            # COLLECTION.md 1 policy constant: the base window opens 2006 and
+            # earlier entries are pre-window, entry_stage and graduation null.
+            # The null is only legitimate when the judge says so on the row —
+            # an unflagged empty stage is missing work, not policy.
+            if not in_flight and "pre_window" not in (rec.get("flags") or []):
                 problems.append(f"{slug}: no entry_stage")
         elif rec["entry_stage"] not in VALID_STAGES:
             problems.append(f"{slug}: entry_stage {rec['entry_stage']!r} not in vocabulary")
@@ -1434,8 +1443,14 @@ def cmd_verify(args) -> None:
         stage_cited = bool((rec.get("entry_stage_citation") or "").strip()) \
             or rec.get("entry_stage_source") in ("formd_structural", "formd_band")
         flags_now = set(rec.get("flags") or [])
+        # A pre-window row has NO entry stage to cite: the 2006 policy constant
+        # nulls the column, so the class 1/2 evidence requirement has nothing to
+        # attach to. The flag is the judge's assertion that this is policy and
+        # not missing work, and it satisfies the invariant the same way
+        # cite_pending does.
         if (rec.get("valuation_range") in ("1b_plus", "10b_plus", "100b_plus")
                 and not stage_cited and "cite_pending" not in flags_now
+                and "pre_window" not in flags_now
                 and (judged or not in_flight)):
             problems.append(f"{slug}: $1B+ row without cited/structural entry stage "
                             f"and no cite_pending marker")

@@ -55,7 +55,7 @@ def cdx_people(cfg: dict) -> dict[str, list[str]]:
     not_a_person = set(cfg["not_a_person"])
     per: dict[str, list[str]] = defaultdict(list)
     for pattern in cfg["cdx_patterns"]:
-        txt = curl(f"http://web.archive.org/cdx/search/cdx?url={pattern}"
+        txt = curl(f"https://web.archive.org/cdx/search/cdx?url={pattern}"
                    f"&output=text&filter=statuscode:200&fl=original,timestamp&limit=20000")
         for line in txt.splitlines():
             parts = line.split()
