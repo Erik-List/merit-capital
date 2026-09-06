@@ -11,12 +11,18 @@ fixups), recall probe, the scheduled rebuild and its delta, the A/B pass on
 the visible slice, the momentum slice, the standing duties, the firm profile
 built once against the landed base, `verify` (plain, clean) / `export` /
 `review` / this report and the playbook write-back proposal. Ingest is not
-part of the run (§9) and has **not** run.
+part of the run (§9).
 
-**Prompt count: 1 so far** — the kickoff ("please collect Spark capital; phase
+**Ingested 2026-09-06 with Erik's approval** (icon uploaded from the site's vector
+mark, investor row upserted, 325 companies upserted; `public.companies` holds 325
+rows for spark-capital). Rule A (vendor marks never band a row, Erik's ruling
+2026-09-06) was applied to Spark by the USV session before the ingest (Justworks
+and MatX to below_1b, six rows re-cited, Capitolis re-dated).
+
+**Prompt count: 3, final** — the kickoff ("please collect Spark capital; phase
 0 is confirmed"; the "continue" after an interrupted Linear call is the same
-prompt). The target of two holds if the closing message's ingest request is
-the second. Checkpoint approvals requested: 0; milestone comments
+prompt), the question on the Justworks disagreement (answered, which led to
+Erik's Rule A), and the ingest approval. Checkpoint approvals requested: 0; milestone comments
 posted-and-continued: 2 (kickoff facts, grind complete). The session survived
 one context compaction after the grind on the disk state alone.
 

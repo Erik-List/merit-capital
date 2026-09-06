@@ -14,9 +14,23 @@
       "basis": "firm site (Webflow): /, /companies (45 selected companies), /team, /team-members/<slug>, /news"
     },
     "icon_url": {
-      "value": "https://cdn.prod.website-files.com/5f6113b98d41b1cec6bbba44/5f6113b98d41b165e5bbbae8_Spark_Dog_Logo_R3.5.svg",
+      "value": "https://lsohkkmdlrlixukuncjl.supabase.co/storage/v1/object/public/Icon%20Images/investors/spark-capital-c9d70d846a.png",
       "source": "https://cdn.prod.website-files.com/5f6113b98d41b1cec6bbba44/5f6113b98d41b165e5bbbae8_Spark_Dog_Logo_R3.5.svg",
-      "basis": "discovered 2026-09-05 with scripts/fetch-investor-icon.ts --discover: the site's own vector mark (Spark_Dog_Logo_R3.5.svg, 144x144 intrinsic, <img> with logo/brand attributes) is the only vector candidate and the preferred source under the resolution rules; NOT yet fetched or uploaded \u2014 the Supabase upload runs with the ingest approval and replaces this value with the storage URL and provenance"
+      "basis": "fetched 2026-09-06 by scripts/fetch-investor-icon.ts from https://cdn.prod.website-files.com/5f6113b98d41b1cec6bbba44/5f6113b98d41b165e5bbbae8_Spark_Dog_Logo_R3.5.svg: svg 144x144 (vector, rendered at 2x), 189px in the 256px master (1.00x); plate: synthesized #ffffff behind a bare glyph (source was 82% transparent); safe area: artwork scaled 0.752 (box 98%→74%, radius 98%→74%); master 256x256 opaque-plate rgb(252,252,252) opaque=100% box=74% radius=76% contrast=16.6:1 ramp=0.87px",
+      "provenance": {
+        "source_url": "https://cdn.prod.website-files.com/5f6113b98d41b1cec6bbba44/5f6113b98d41b165e5bbbae8_Spark_Dog_Logo_R3.5.svg",
+        "format": "svg",
+        "width": 144,
+        "height": 144,
+        "vector": true,
+        "artwork_source_px": null,
+        "artwork_master_px": 189,
+        "upscale": 1,
+        "ramp_px": 0.87,
+        "master_size": 256,
+        "fetched": "2026-09-06",
+        "allow_upscale": false
+      }
     },
     "founding_year": {
       "value": 2005,
@@ -64,7 +78,7 @@
         "upper_limit": 1100000000
       },
       "source": "sources/edgar/formd-issuer-rounds.json",
-      "basis": "Form D round sizes on member companies (313 non-pooled rounds): 10th percentile \u2248 $1,130,000, median \u2248 $10,339,997; upper limit = Baseten's $1.1B Series F (June 2026, Form D $1,096,448,855 sold), the largest round on a member's filings that Spark joined; round sizes are the round, not Spark's check"
+      "basis": "Form D round sizes on member companies (313 non-pooled rounds): 10th percentile ≈ $1,130,000, median ≈ $10,339,997; upper limit = Baseten's $1.1B Series F (June 2026, Form D $1,096,448,855 sold), the largest round on a member's filings that Spark joined; round sizes are the round, not Spark's check"
     },
     "notable_investments": {
       "value": [
@@ -86,7 +100,7 @@
         "top": 15574226934
       },
       "source": "https://reports.adviserinfo.sec.gov/reports/ADV/161231/PDF/161231.pdf",
-      "basis": "sum of the gross asset values of the 27 private funds in Form ADV Section 7.B.(1) (filed 2026-03-27, fiscal year end 2025): $15,574,226,934 \u2014 an exempt reporting adviser files no RAUM, so bottom = top; Spark Capital IX ($1.0B) and Growth Fund VI ($2.33B), closed in 2026, post-date the reporting period"
+      "basis": "sum of the gross asset values of the 27 private funds in Form ADV Section 7.B.(1) (filed 2026-03-27, fiscal year end 2025): $15,574,226,934 — an exempt reporting adviser files no RAUM, so bottom = top; Spark Capital IX ($1.0B) and Growth Fund VI ($2.33B), closed in 2026, post-date the reporting period"
     },
     "funds": {
       "value": [
@@ -175,7 +189,7 @@
         }
       ],
       "source": "sources/edgar/fund-formds.json",
-      "basis": "sizes with an accession are the filed TOTALAMOUNTSOLD of the closing Form D; VII ($721M) and Growth IV ($1.4B) from the firm's 2022 Medium post / Gunderson release; VIII ($700M) and Growth V ($1.54B final close, Mar 2024) from the 2024 Medium post (https://medium.com/spark-capital/new-spark-capital-funds-4331753bd8d7) and press; V ($400M, 2016), II ($360M, 2008) and the first fund ($265M, 2005) from Wikipedia \u2014 their Form Ds are $0-sold first filings or predate the bulk data; the 13 Founders'/Growth Founders' side vehicles and the Spark Member Fund (ADV 7.B) are omitted as GP co-invest vehicles"
+      "basis": "sizes with an accession are the filed TOTALAMOUNTSOLD of the closing Form D; VII ($721M) and Growth IV ($1.4B) from the firm's 2022 Medium post / Gunderson release; VIII ($700M) and Growth V ($1.54B final close, Mar 2024) from the 2024 Medium post (https://medium.com/spark-capital/new-spark-capital-funds-4331753bd8d7) and press; V ($400M, 2016), II ($360M, 2008) and the first fund ($265M, 2005) from Wikipedia — their Form Ds are $0-sold first filings or predate the bulk data; the 13 Founders'/Growth Founders' side vehicles and the Spark Member Fund (ADV 7.B) are omitted as GP co-invest vehicles"
     },
     "hq_location": {
       "value": "Boston, MA",
