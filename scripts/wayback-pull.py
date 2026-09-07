@@ -31,6 +31,7 @@ import argparse
 import gzip
 import json
 import re
+from urllib.parse import quote
 import subprocess
 import sys
 import time
@@ -78,7 +79,7 @@ def fetch(url: str, dest: Path) -> str:
 def cdx(url_pattern: str, **params) -> list[list[str]]:
     qs = "&".join([f"url={url_pattern}", "output=json", "filter=statuscode:200",
                    *[f"{k}={v}" for k, v in params.items()]])
-    data = json.loads(curl(f"http://web.archive.org/cdx/search/cdx?{qs}") or b"[]")
+    data = json.loads(curl(f"https://web.archive.org/cdx/search/cdx?{qs}") or b"[]")
     if not data:
         # Degraded-CDX fallback (observed in the 2026-08-29 IA outage): the
         # statuscode-filtered query times out while the unfiltered one
@@ -86,7 +87,7 @@ def cdx(url_pattern: str, **params) -> list[list[str]]:
         # unfiltered pick is a snapshot that parses to zero rows.
         qs = "&".join([f"url={url_pattern}", "output=json",
                        *[f"{k}={v}" for k, v in params.items()]])
-        data = json.loads(curl(f"http://web.archive.org/cdx/search/cdx?{qs}") or b"[]")
+        data = json.loads(curl(f"https://web.archive.org/cdx/search/cdx?{qs}") or b"[]")
     return data[1:] if data else []
 
 
@@ -94,7 +95,7 @@ def wb(ts: str, original: str, raw: bool = False) -> str:
     """Replay URL; raw=True asks for the id_ form (the captured bytes, no
     toolbar and no link rewriting) so an era regex can match the page's own
     hrefs — set per era with "raw": true."""
-    return f"http://web.archive.org/web/{ts}{'id_' if raw else ''}/{original}"
+    return f"https://web.archive.org/web/{ts}{'id_' if raw else ''}/{original}"
 
 
 def yearly(rows, y0, y1):
@@ -120,16 +121,31 @@ def replay_yearly(urls: list[str], y0: int, y1: int) -> dict:
     `urls` are the candidate originals (the current site base and the
     http://www. form the early captures were stored under)."""
     out = {}
+    unreachable: list = []
     for y in range(y0, y1 + 1):
         found = None
         for url in urls:
             for probe in (f"{y}0615", f"{y}0201", f"{y}1015"):
-                r = subprocess.run(
-                    ["curl", "-sL", "--max-time", "90", "-o", "/dev/null",
-                     "-w", "%{url_effective}\n%{http_code}",
-                     "-H", f"User-Agent: {UA['User-Agent']}",
-                     f"http://web.archive.org/web/{probe}id_/{url}"],
-                    capture_output=True)
+                # A refused connection and a year with genuinely no capture
+                # were indistinguishable here: curl's return code was never
+                # read, so a transport failure (rc=7) left eff/code empty, the
+                # timestamp regex missed, and the year was recorded as "0
+                # entries" — evidence of absence produced by a network error.
+                # Reported by the Redpoint run 2026-09-06, which lost 10 of 14
+                # era-years to it while a plain https fetch got every one.
+                # Retry a transport failure before believing it, and say so.
+                for attempt in range(3):
+                    r = subprocess.run(
+                        ["curl", "-sL", "--max-time", "90", "-o", "/dev/null",
+                         "-w", "%{url_effective}\n%{http_code}",
+                         "-H", f"User-Agent: {UA['User-Agent']}",
+                         f"https://web.archive.org/web/{probe}id_/{url}"],
+                        capture_output=True)
+                    if r.returncode == 0 and r.stdout.strip():
+                        break
+                    time.sleep(2 * (attempt + 1))
+                else:
+                    unreachable.append(f"{y}/{probe}")
                 eff, code = (r.stdout.decode().split("\n") + ["", ""])[:2]
                 m = re.search(r"/web/(\d{14})id_/(.*)$", eff)
                 time.sleep(0.8)
@@ -139,7 +155,7 @@ def replay_yearly(urls: list[str], y0: int, y1: int) -> dict:
                         ["curl", "-sL", "--max-time", "90", "-o", "/dev/null",
                          "-w", "%{url_effective}\n%{http_code}",
                          "-H", f"User-Agent: {UA['User-Agent']}",
-                         f"http://web.archive.org/web/{probe}id_/{url}"],
+                         f"https://web.archive.org/web/{probe}id_/{url}"],
                         capture_output=True)
                     eff, code = (r.stdout.decode().split("\n") + ["", ""])[:2]
                     m = re.search(r"/web/(\d{14})id_/(.*)$", eff)
@@ -150,6 +166,12 @@ def replay_yearly(urls: list[str], y0: int, y1: int) -> dict:
                 break
         if found:
             out[y] = found
+    if unreachable:
+        print(f"  !! replay probe could not connect on {len(unreachable)} "
+              f"probe(s): {', '.join(unreachable[:8])}"
+              f"{' ...' if len(unreachable) > 8 else ''}")
+        print("     Those years are UNKNOWN, not empty — re-run this era "
+              "before reading any absence off it.")
     return out
 
 
@@ -185,15 +207,53 @@ def cdx_company_pages(era, cfg, raw_dir):
     seg = seg_of(era)
     non_company = set(cfg["non_company_slugs"])
     print(f"== era {era['path']} {era['from']}-{era['to']} (CDX index)")
-    rows = cdx(f"{cfg['cdx_domain']}{era['path']}*", collapse="urlkey",
-               fl="timestamp,original", to=str(era["to"]), limit="2000")
+    # CDX answers at most `limit` rows per query, and 2000 is the whole
+    # namespace for a curated portfolio page. A directory is not: YC's
+    # /companies/* namespace is larger than the cap, and a single query
+    # returns one alphabetical slice ("0" through "A") while silently
+    # dropping the rest — the layer then reports survivorship over 4% of
+    # the site and looks like it worked. `cdx_pages` opts an era into
+    # paging the index through CDX's own resumption key; its absence keeps
+    # the single capped query every earlier investor ran.
+    pages = int(era.get("cdx_pages") or 0)
+    lim = str(era.get("cdx_limit") or 2000)
+    if pages:
+        rows, resume, seen_pages = [], None, 0
+        while seen_pages < pages:
+            kw = {"showResumeKey": "true", "limit": lim}
+            if resume:
+                kw["resumeKey"] = quote(resume, safe="")
+            batch = cdx(f"{cfg['cdx_domain']}{era['path']}*", collapse="urlkey",
+                        fl="timestamp,original", to=str(era["to"]), **kw)
+            # The resume key is returned as the last row after a blank row.
+            resume = None
+            while batch and (not batch[-1] or not batch[-1][0]):
+                batch.pop()
+            if batch and len(batch[-1]) == 1:
+                resume = batch.pop()[0]
+                while batch and (not batch[-1] or not batch[-1][0]):
+                    batch.pop()
+            rows.extend(batch)
+            seen_pages += 1
+            print(f"  cdx page {seen_pages}: +{len(batch)} rows "
+                  f"({len(rows)} total){'' if resume else ' — end of index'}")
+            if not resume:
+                break
+    else:
+        rows = cdx(f"{cfg['cdx_domain']}{era['path']}*", collapse="urlkey",
+                   fl="timestamp,original", to=str(era["to"]), limit=lim)
     results = {}
+    # A site whose company slugs are not lowercase (First Round's 2012-2017
+    # /company/<Slug> pages: "Warby-Parker", "33Across") carries its own
+    # slug pattern in the era; the default is the lowercase namespace every
+    # earlier investor had.
+    slug_re = era.get("slug_re", "[a-z0-9_-]+")
     for ts, orig in [(r[0], r[1]) for r in rows]:
-        m = re.search(rf"/{seg}/([a-z0-9_-]+)/?(?:\?|$)", orig)
+        m = re.search(rf"/{seg}/({slug_re})/?(?:\?|$)", orig)
         if not m:
             continue
         slug = m.group(1)
-        if slug in non_company:
+        if slug.lower() in non_company:
             continue
         y = int(ts[:4])
         if not era["from"] <= y <= era["to"]:
@@ -420,7 +480,7 @@ def nuxt_payload_listing(era, cfg, raw_dir):
     for y, (ts, orig) in sorted(snaps.items()):
         dest = raw_dir / f"{y}-{route}-payload.js"
         raw = dest.read_bytes() if dest.exists() \
-            else curl(f"http://web.archive.org/web/{ts}id_/{orig}")
+            else curl(f"https://web.archive.org/web/{ts}id_/{orig}")
         if raw[:2] == b"\x1f\x8b":            # stored gzip-encoded (see curl())
             raw = gzip.decompress(raw)
         js = raw.decode("utf-8", "replace")
