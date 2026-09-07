@@ -263,3 +263,30 @@ had been hiding: Todd Dagres's post-2005 filings are **Spark Capital** deals
 have been cross-investor contradictions), and Brian O'Malley's post-2014 ones
 are **Forerunner** deals (Arrived, Fora Travel). Widening a window is safe —
 it keeps rows; narrowing one is what deletes them. Flagged for review.
+
+### R5 — Calibration gate: the site's STAGE field is three layers, not one (2026-09-06)
+
+Scored against a 34-row key anchored to Battery's own case-study posts, before
+any `entry_stage` wrote. The field splits by label, and the three parts earn
+different authority:
+
+| Layer | Score | Verdict |
+|---|---|---|
+| `INVESTED` year | **34/34 exact** | class 1 for the entry YEAR (a close year, per the Menlo rule) |
+| STAGE = `Buyout` | **8/8 control** | class 1 **control trigger**, not a stage label |
+| STAGE = `Growth` | **15/17** (2 misses both control) | class 1 for "Growth **or** control"; never Seed/Series A |
+| STAGE = `Early` | **0/8** as a taxonomy label | **refused**; corroboration only |
+
+`Early` is the finding. Behind those eight rows the key holds Seed
+(HotelTonight), Series A (StreamSets, Guardicore, Gainsight) **and Growth**
+(Coupa's Series B, BlueKai's Series B, Glassdoor's Series C, Habana Labs'
+Series B). It is Battery's strategy bucket describing the company when it was
+listed, not the round the firm entered — the Accel socure class exactly. So
+every `Early` row reaches the judge with the round unresolved, and the label
+is never published as a stage.
+
+The two `Growth` misses matter as much: **WebPT and Brightree are control
+positions carrying a Growth label** ("Battery ... acquired the founder's
+shares for a majority stake"). So the control test is not confined to the 71
+Buyout rows — a Growth label triggers it too whenever the evidence shows a
+majority. That is R2's symmetry, now measured rather than asserted.

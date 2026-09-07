@@ -1,0 +1,61 @@
+in flight: wrote data/collection/investors/battery-ventures/scratch/in-flight.json
+rows: 1057
+membership seed: 897 site_listing, 4 fund_filing; left for the judge: 156
+base: data/collection/investors/battery-ventures/base.json
+target companies: 260  distinct issuer CIKs: 256
+scanning 74 quarterly datasets (offline)...
+filings collected: 894
+evidence: 629/629 base accessions found
+wrote data/collection/investors/battery-ventures/scratch/issuer-evidence.json (258 CIKs, 102 with a name history)
+
+wrote data/collection/investors/battery-ventures/sources/edgar/formd-issuer-rounds.json
+  companies with Form D history : 251
+  rounds after amendment merge  : 806 (88 amendments folded in)
+  companies with 2+ rounds      : 174
+  filings the partner sweep never saw: 264
+  companies gaining >=1 such filing  : 110
+  rounds carrying a sale date   : 767/806
+layer A (SEC public float): 1057 rows to resolve
+    fetched 100/415
+    fetched 200/415
+    fetched 300/415
+    fetched 400/415
+    100/1057
+    200/1057
+    300/1057
+    400/1057
+    500/1057
+    600/1057
+    700/1057
+    800/1057
+    900/1057
+    1000/1057
+    resolved a CIK: 550   with public float: 70
+layer B (Wikidata): 1057 rows in batches of 60
+    60/1057
+    120/1057
+    180/1057
+    240/1057
+    300/1057
+    360/1057
+    420/1057
+    480/1057
+    540/1057
+    600/1057
+    660/1057
+    720/1057
+    780/1057
+    840/1057
+    Wikidata unavailable for a batch of 60 (SPARQL POST failed (curl rc=56)); deferred
+    960/1057
+    1020/1057
+    1057/1057
+    matched: 138
+layer C (unicorn list): 627 current, 209 former
+graduation layer 1: 251 companies, 86 entered at Seed, 83 decided deterministically, 84 entries moved past pre-investor rounds
+
+deterministically resolved: 14/1057
+retired (not_member, awaiting rebuild): 0
+queued for judgment       : 1043 rows in 24 batches
+
+DEFERRED: 0 row(s) without a public-float answer (SEC unavailable), 60 row(s) without a Wikidata answer; nothing cached for them. Re-run prepare to retry.

@@ -186,11 +186,13 @@
      "team",
      "company_site",
      "linkedin",
-     "description"
+     "description",
+     "site_entry_stage"
     ],
     "rename": {
      "site_stage": "site_entry_stage"
-    }
+    },
+    "_note": "`rename` creates site_entry_stage on the raw row, but only keys listed in `extras` are carried onto the merged row -- so site_entry_stage must appear in BOTH. Without it the firm's own stage label never reaches the queue, which is the Black Forest Labs class (COLLECTION.md 8)."
    },
    {
     "parser": "file_list",
