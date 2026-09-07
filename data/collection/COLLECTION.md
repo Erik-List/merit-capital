@@ -690,9 +690,13 @@ order the grind will use, instead of auditing one it already used.
    **The CDX scheme is not the variable — a failed fetch is.** An earlier
    version of this paragraph claimed plain HTTP was refused; that was wrong,
    and it was retracted on 2026-09-06 after two 8-query measurements per scheme
-   (http 14/16, https 13/16) in which *every* failure was a curl rc=28 timeout,
-   never rc=7 connection-refused. HTTPS is not more reliable and a scheme swap
-   fixes nothing. `wayback-pull.py` and `partner-roster.py` use HTTPS as a
+   (http 14/16, https 13/16) in which every failure was a curl rc=28 timeout.
+   *Refinement, same day:* rc=28 is not the only failure mode — the Redpoint
+   re-pull logged **seven rc=7 and one rc=56 against HTTPS** in one window
+   (`redpoint-ventures/scratch/wayback-pull3.log`), so rc=7 is not a port-80
+   signature either; it is what the archive returns to anyone while it is
+   refusing connections. Read no scheme diagnosis out of the code at all.
+   HTTPS is not more reliable and a scheme swap fixes nothing. `wayback-pull.py` and `partner-roster.py` use HTTPS as a
    convention only. What actually matters is that a failed fetch must never be
    recorded as an empty year: absence of a capture and absence of a response
    are different claims, and only the first is evidence.
