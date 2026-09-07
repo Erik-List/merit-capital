@@ -25,8 +25,14 @@ Acquired / Public). **It is corroboration, not a label** — measured at 67.5%
 against companies already judged in other bases. Use it like this:
 
 - `Public` -> `public`. Reliable.
-- `Acquired` -> `acquired` unless you know the acquisition failed or the
-  company later shut down.
+- `Acquired` -> `acquired`. **A company the acquirer later shut down is still
+  `acquired`** — the acquisition is the outcome, and `defunct` is reserved for
+  businesses that ended *without* one (SAP Concur buying Hipmunk in 2016 and
+  retiring the product in 2020 is `acquired`, with the shutdown in the note;
+  Ford buying Chariot and closing the service is `acquired`). Insolvency
+  followed by an asset sale is also `acquired`, with a successor note. Use
+  `defunct` only where there was no acquisition at all. A bankruptcy filing
+  with no sale yet reads `defunct`.
 - `Active` -> `private`, unless you positively know it was acquired or died
   (the field is stale in that direction: it reads Active for 35 acquired and
   21 defunct companies in the measured sample).
