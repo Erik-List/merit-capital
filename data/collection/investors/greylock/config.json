@@ -547,9 +547,17 @@
  },
  "profile": {
   "own_vehicle_pattern": "^greylock (ltd|limited|capital limited|ventures limited partnership|investments limited|equity|ix|x |x$|x-|xi|xii|xiii|xiv|1[5-8]|discovery|management)",
-  "focus_min_companies": 15,
-  "focus_crosswalk": {},
-  "_note": "focus_min_companies ~4.5% of the expected base. The site's own sector vocabulary is the seven portfolioCategory documents (Applications, Consumer, Cybersecurity, Deep Tech, Fintech, Infrastructure, Other); the crosswalk is filled once the site pull lands."
+  "focus_min_companies": 25,
+  "focus_crosswalk": {
+   "applications": "SaaS",
+   "consumer": "Consumer & Marketplaces",
+   "cybersecurity": "Security",
+   "deep tech": "Industrial & Robotics",
+   "fintech": "Fintech & Payments",
+   "infrastructure": "Data Infrastructure",
+   "other": null
+  },
+  "_note": "focus_min_companies 25, about 4.5% of the 561-row base. The crosswalk maps the firm's own seven portfolioCategory values; 'Other' maps to nothing. The recompute reports no values above the threshold because those tags cover only the 158 LIVE rows -- 28% of the base -- and the sector signal for the other 403 comes from the grind's focus column, not from a site tag. The curated list is therefore kept and reconciled against the landed distribution by hand, which is what the sidecar's reconciliation flag records."
  },
  "verify": {
   "text_mention_leaks": [],
