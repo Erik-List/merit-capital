@@ -207,16 +207,27 @@ def main() -> None:
             # "Mark Logic" and "MarkLogic" carry different slugs and the same
             # name key, and norm() merges them on purpose.
             site_id = str(c.get("site_id") or "")
+            collided = False
             if site_id:
                 held = site_keys.setdefault(key, site_id)
                 if held != site_id:
                     key = f"{key}~{norm(site_id)}"
+                    collided = True
             row = row_for(key, c["name"])
             # The firm's own current rendering is canonical for display and
             # slug — a wayback/CC slug that created the row first must not
             # name it ("assemblyai" vs the site's "Assembly AI").
             row["name"] = c["name"]
-            row["slug"] = slug_of(c["name"])
+            # The PUBLISHED slug must be unique too, not just the internal
+            # key: every overlay (classification, the ledger, the queue) joins
+            # on slug, so two rows sharing one slug means one row's answers
+            # land silently on both and verify's drift check cannot see it.
+            # Only the colliding row is re-keyed, onto the site's own id, so
+            # the 6,100-odd uncollided rows keep the name-derived slug they
+            # already carry in the ledger.
+            row["slug"] = slug_of(site_id) if collided else slug_of(c["name"])
+            if site_id:
+                row["_site_id"] = site_id
             row["site_listed"] = True
             row["site_url"] = c.get("url") or ""
             row["sectors"].update(c.get("sectors") or [])
@@ -747,6 +758,39 @@ def main() -> None:
     write_atomic(P.excluded, buf.getvalue())
     print(f"excluded.csv: {len(excluded_rows)} rows "
           f"({dict(Counter(reason for reason, _ in excluded_rows))})")
+
+    # Slug uniqueness is an invariant, not a hope. Every overlay — the
+    # classification file, the verdict ledger, the work queue — joins on slug,
+    # so two rows sharing one means one row's answers land silently on both and
+    # verify's drift check (invariant 8) cannot see it: the keys are all
+    # present, they just describe the wrong company. YC is the first base where
+    # this can happen at all, because it is the first whose source publishes
+    # two different companies under one name (89 such pairs). Enforced here,
+    # after every merge and overlay has run, so nothing downstream can
+    # reintroduce a collision: the first row keeps the bare slug and each later
+    # claimant takes its own site id, falling back to an ordinal.
+    seen_slug: dict[str, int] = {}
+    reslugged = 0
+    for r in rows_out:
+        base_slug = r["slug"]
+        if base_slug not in seen_slug:
+            seen_slug[base_slug] = 1
+            continue
+        cand = slug_of(r.get("_site_id") or "") or ""
+        if not cand or cand in seen_slug:
+            seen_slug[base_slug] += 1
+            cand = f"{base_slug}-{seen_slug[base_slug]}"
+        while cand in seen_slug:
+            seen_slug[base_slug] = seen_slug.get(base_slug, 1) + 1
+            cand = f"{base_slug}-{seen_slug[base_slug]}"
+        r["notes"] = "; ".join(filter(None, [
+            r["notes"], f"slug {base_slug} -> {cand}: another company of the "
+            f"same name already holds it"]))
+        r["slug"] = cand
+        seen_slug[cand] = 1
+        reslugged += 1
+    if reslugged:
+        print(f"slug collisions resolved: {reslugged}")
 
     rows_out.sort(key=lambda x: (x["tier"], x["slug"]))
     rows_out = [{k: r[k] for k in COLUMN_ORDER} for r in rows_out]
