@@ -156,3 +156,13 @@ Scored 3/19 on the same set: it reports the company's current stage, not the
 round Lux entered (Recursion "ipo", SteadyMD "acquisition", Shiru "series_b"
 against a documented $3.5M seed). Same finding as Thrive's 0/10. It stays in
 the evidence pack as an unscored extra and may not label a row. Class-wide.
+
+**R3 (Erik, 2026-09-07) — a Chapter 11 filing reads `defunct`.** The closed
+status vocabulary had no value for a company in reorganisation, and this run
+carried Carbon Health as `unknown` pending a ruling. Erik's reading: Chapter 11
+means the business goes defunct afterwards, so the row is `defunct`. This does
+not disturb the standing insolvency rule for the case where a sale follows —
+insolvency **followed by an asset sale** is still `acquired` with a successor
+note (Shapeways, Tempo Automation), because there the business continues under
+an acquirer. Class-wide and investor-agnostic; written back to COLLECTION.md §6
+the same day under the ratchet rule.

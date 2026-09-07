@@ -185,8 +185,12 @@ confirmed ruling.
   rules below are this test in full.
 
 **Policy constants**, ruled once and changed only by Erik, never derived:
-the base window opens 2006 (earlier entries are pre-window, entry_stage
-and graduation null); secondaries and tenders are Growth entries; a
+the base window opens 2006 (earlier entries are pre-window: **graduation is
+null, and `entry_stage` carries the best-supported label at low confidence
+with a `pre_window_entry` flag rather than a null** — Erik, 2026-09-07,
+resolving the contradiction with §10 invariant 1, which requires the column
+at 100% fill; ruled on Lux's seven pre-2006 rows); secondaries and tenders
+are Growth entries; a
 private mark is `stale` beyond 24 months; the profile's geo core carries
 at most two labels; a non-USD figure converts to USD at the ECB reference
 rate of its own date, and a listing outside SEC registration takes a
@@ -536,7 +540,13 @@ order the grind will use, instead of auditing one it already used.
    - **The site's own rendering owns name and slug.** A capture slug never
      names a row (a capture-created row was publishing "Assemblyai");
      namespace junk (`all`, `see-all`, `<slug>-2`) is configured out in
-     `wayback.non_company_slugs`.
+     `wayback.non_company_slugs`. **Where a listing renders the name twice,
+     the row's own anchor text wins over the image `alt`** (Lux, 2026-09-06):
+     `LOGO_ACCELERGY.gif` carried `alt="Angstrom Publishing"` and
+     `LOGO_CIS.gif` carried `alt="Cambrios Technologies Corp."` — the firm's
+     own copy-paste errors. An alt-first parser does not merely mislabel
+     those rows, it DROPS them, because the wrong name collides with a row
+     already seen; the era went from 6 companies to 11 on this fix alone.
 
    Two things captures decide that no other layer can. **A CMS "archived"
    or "unpublished" flag is not a verdict**: archived docs with years of
@@ -692,7 +702,15 @@ order the grind will use, instead of auditing one it already used.
 it moves. The firm's job board (Getro/Consider: `jobs.<domain>`) is a
 first-party company list — enumerate it from its sitemap plus the
 per-company pages (`site_api` with one `file_list` source), and never take
-its stage field as a label (0/10 on the gate). The roster is curated from
+its stage field as a label. **That refusal is now standing and needs no
+re-scoring**: Thrive's board scored 0/10 and Lux's scored 3/19, and the
+misses have the same cause both times — the field describes the company's
+CURRENT stage (`ipo`, `acquisition`, `series_f`), not the round the firm
+entered, so it reads Recursion as "ipo" and a documented $3.5M seed as
+"series_b". Keep it in the evidence pack as an unscored extra. A board is
+worth enumerating on a disclosing firm too, not only a silent one: Lux's
+carried 190 live companies against 215 on the marketing site, and 312
+across the archive. The roster is curated from
 the ADV, Form D related persons and press with press-dated tenure windows
 (one ruling per name, §1), and the roster-name Form D sweep becomes the
 primary structural layer. The ADV Section 7.B fund roster is membership
@@ -990,6 +1008,16 @@ was never acquired but sells priced primary rounds to outside investors
 (Waymo, an Alphabet unit since the 2016 spin-out) is `private` with that
 mark: there was no acquisition event to retire the value.
 
+**A signed but unclosed acquisition is a mark, not a status change** (Lux,
+2026-09-06). The agreed price in a definitive agreement is a priced event
+with a citable figure, and a better mark than the stale round it supersedes
+— NVIDIA's agreement of 2026-09-02 to buy Hugging Face for $12,930,300,000,
+disclosed in NVIDIA's own filing, against a 2023 round at $4.5B. But status
+turns on the **closing**, so the row stays `private` at the agreed price
+until the deal closes and flips to `acquired` then; the note carries the
+agreement date and the expected close. The same reading rules out pricing a
+row off a deal that is only *reported* or *in talks*.
+
 **Insolvency followed by an asset sale is `acquired` with a successor note,
 not `defunct`** (Cherry, 2026-09-04; agent, flagged): where the business
 continues under an acquirer (Julienne Bruno out of administration into
@@ -999,6 +1027,17 @@ the note says the sale came out of insolvency; `defunct` is reserved for
 businesses that ended (Watchmaster wound up, Weengs, Lesara, Move24). A
 German seed book carries many of both, and the register's insolvency
 notices are the layer that separates them.
+
+**A bankruptcy filing with no sale yet reads `defunct`** (Erik, 2026-09-07,
+ruled on Lux's Carbon Health): a company in Chapter 11 or an equivalent
+reorganisation is recorded `defunct`, on the reading that the business goes
+defunct afterwards. This closes the gap the vocabulary used to leave — the
+row is neither `acquired` (no sale has happened) nor safely `private` at its
+pre-filing mark, and `unknown` is for companies whose state cannot be
+established, not for one whose state is on a court docket. The rule above
+still governs the moment a sale follows: insolvency **followed by an asset
+sale** is `acquired` with a successor note, because there the business
+continues under an acquirer. The note carries the filing date and court.
 
 **Whichever surface supplies status covers only its own rows.** A site CMS
 carries status for listed rows and nothing for members that entered
@@ -1560,6 +1599,22 @@ investor's `investor.json` plus `investor.sources.json`, one source entry
 per field; every field populated or explicitly null, through the taxonomy
 gate, onto the review surface.
 
+**`build-firm-profile.py` has two required inputs that nothing else writes**
+(Lux, 2026-09-06 — every run so far has hand-built them and rediscovered the
+same traps). It refuses to start without `sources/edgar/fund-formds.json` and
+`sources/site/team-members.json`. The first is a mechanical filter of
+`sources/edgar/formd-sweep.json` by `config.profile.own_vehicle_pattern`,
+keyed by issuer name, each value `{cik, filings:[{form, accession, quarter,
+offering, sold, indefinite, first_sale, pooled, fund_type, co_issuers}]}` —
+and its `_readme` must be a **dict**, not a string, because the fund verifier
+iterates every value. The second is the site team pull as a flat list of
+`{name, cms_title, role_bucket, site_group, linkedin_url, x_url, source}`.
+Two further traps: a fund entry carrying an `accession` is asserted against
+`TOTALAMOUNTSOLD` on that filing and the build fails on mismatch, so a fund
+whose latest Form D reports `$0 sold` must carry no accession; and the
+`fields` of `investor.sources.json` each need a `value` mirroring
+`investor.json`, which is what the verifier actually reads.
+
 Built after the base, `build-firm-profile.py` runs its base-bound checks
 once, for real: notable_investments asserted against ledger member
 verdicts, the entry-round median over the verified members' Form D
@@ -1693,6 +1748,32 @@ Field recipes, learned on Sequoia and a16z:
   published icon**, reading the ramp off the master and the scale off the
   provenance — run it when a rule changes, so icons that predate it are
   found rather than assumed fine. The DB still only changes on ingest.
+
+- **A site's declared assets may all be unusable while the real mark is
+  inline in the page, and it may be more than one element** (Lux,
+  2026-09-06). Lux's shortcut icon was 32×32 (would be upscaled) and its
+  apple-touch webclip measured a 6.09 px ramp (pre-blurred), so `--discover`
+  offered nothing publishable — while the mark itself shipped as inline SVG
+  in the markup. It shipped as **two** elements: `.logo_embed` (the angled
+  "Lu") and `.logo_embed-x-char` (the red cross standing in for the X, sized
+  47.875% and pinned top-right by the site's own CSS). Taking the first alone
+  publishes half a logo. So when the declared assets fail, read the page
+  source for the logo elements and compose them at the geometry the site's
+  CSS gives, keeping the composed file under `sources/site/`.
+- **The edge ramp is measured per ink, so a two-colour mark is not read as
+  blur** (Lux, 2026-09-06). `MAX_RAMP` normalized every pixel's deviation
+  from the plate by a single "full ink", so on a two-ink logo the second
+  colour fell inside the partial band and counted as anti-aliasing: the Lux
+  mark measured 5.45 px while being pixel-crisp (the same geometry filled
+  black measured 0.87 px). The metric now discriminates on **flatness, not
+  colour count** — quantize the non-plate pixels, keep bins holding ≥10% of
+  them, and treat those as ink only when together they cover ≥60% of the
+  artwork. A flat multi-ink mark clears that bar (Lux: 87% of its mass in two
+  bins); a blurred or upscaled source does not (the same mark blurred: 20% in
+  its largest bin) and falls through to the single-ink path unchanged. Verify
+  any change to this metric the way that one was: `--audit` must leave every
+  published icon's ramp identical, and a deliberately blurred master plus a
+  32 px master enlarged 8× must both still refuse.
 
 - **A German issuer's Form D city carries its district** ("BERLIN - MITTE"):
   the builder strips the " - <district>" suffix so `hq_location` reads
