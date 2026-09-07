@@ -24,6 +24,10 @@ same named-strategy-in-code, constants-in-config pattern wayback-pull.py uses:
   js_array        JSON array assigned to a JS variable in the page HTML
   li_text_list    plain <li>Name</li> entries (compliance-list page)
   paginated_json  JSON API with {count, next, results[]} pagination
+  search_index    a hosted search index (Algolia) standing in for a
+                  portfolio API: POST {params} -> {hits, nbHits, nbPages},
+                  paged per facet slice so a book larger than the index's
+                  deep-pagination cap is still enumerable (YC's directory)
   nuxt_payload    a Nuxt 2 full-static site's per-route payload.js (the
                   __NUXT_JSONP__ call that carries the CMS rows the page was
                   generated from — Contentful entries on creandum.com);
@@ -40,6 +44,7 @@ import subprocess
 import sys
 import time
 from html import unescape
+from urllib.parse import quote
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -309,6 +314,99 @@ def parse_nuxt_payload(src: dict) -> list[dict]:
     return [r for r in rows if isinstance(r, dict)]
 
 
+def parse_search_index(src: dict) -> list[dict]:
+    """A hosted search index (Algolia) standing in for a portfolio API.
+
+    Why it is its own strategy: `paginated_json` expects {count, next,
+    results[]} and a search index answers {hits[], nbHits, nbPages} to a POST
+    carrying its own params; and every such index caps deep pagination
+    (Algolia's paginationLimitedTo, 1000 hits by default), so a book larger
+    than the cap can never be read by paging the unfiltered query. The fix is
+    to slice: page the index once per value of a facet whose buckets all sit
+    under the cap (YC: `batch`, 50 values, largest 398 of 6,203), and union.
+
+    Config: {url, app_id, api_key, index, slice_facet, params?, snapshot?}.
+    `slice_facet` is optional — without it the plain query is paged, which is
+    correct for any index under the cap. `snapshot` is a repo-relative path;
+    the raw payload is written there so the run is reproducible without the
+    live index, and re-read on a later run when the index is unreachable.
+    The credentials are the ones the public page ships to every visitor; this
+    reads the same rows an anonymous browser is served, no more.
+    """
+    from paths import ROOT
+    url = src["url"]
+    headers = ["-H", f"X-Algolia-Application-Id: {src['app_id']}",
+               "-H", f"X-Algolia-API-Key: {src['api_key']}",
+               "-H", "Content-Type: application/json",
+               "-H", f"User-Agent: {UA}"]
+
+    def query(params: str) -> dict:
+        body = json.dumps({"params": params})
+        for attempt in range(4):
+            try:
+                out = subprocess.run(
+                    ["curl", "-sf", "--max-time", "60", "-X", "POST", url,
+                     *headers, "-d", body],
+                    capture_output=True, check=True).stdout
+                return json.loads(out)
+            except (subprocess.CalledProcessError, json.JSONDecodeError):
+                time.sleep(1.5 * (attempt + 1))
+        raise SystemExit(f"search index unreachable: {url} ({params[:80]})")
+
+    base = src.get("params", "hitsPerPage=1000")
+    facet = src.get("slice_facet")
+    slices = [""]
+    if facet:
+        probe = query(f"query=&hitsPerPage=1&page=0&maxValuesPerFacet=1000"
+                      f"&facets=%5B%22{facet}%22%5D")
+        buckets = probe.get("facets", {}).get(facet, {})
+        total = probe.get("nbHits", 0)
+        if not buckets:
+            raise SystemExit(f"slice_facet {facet!r} is not a facet of the index")
+        over = {k: v for k, v in buckets.items() if v >= 1000}
+        if over:
+            raise SystemExit(f"slice_facet {facet!r} has buckets at/over the "
+                             f"pagination cap: {over} — slice on a finer facet")
+        slices = [f"&facetFilters=%5B%22{facet}%3A{quote(k)}%22%5D"
+                  for k in sorted(buckets)]
+        print(f"  index: {total} hits across {len(slices)} {facet} slices")
+
+    rows, seen = [], set()
+    for i, sl in enumerate(slices, 1):
+        page = 0
+        while True:
+            d = query(f"query=&{base}&page={page}{sl}")
+            hits = d.get("hits", [])
+            for h in hits:
+                oid = h.get("objectID") or h.get("id")
+                if oid in seen:
+                    continue
+                seen.add(oid)
+                rows.append(h)
+            page += 1
+            if page >= d.get("nbPages", 1) or not hits:
+                break
+            time.sleep(0.25)
+        if i % 10 == 0 or i == len(slices):
+            print(f"  slice {i}/{len(slices)}: {len(rows)} rows")
+        time.sleep(0.25)
+
+    if src.get("snapshot"):
+        dest = ROOT / src["snapshot"]
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        write_atomic(dest, json.dumps({
+            "_readme": (f"Raw {src['index']} hits, pulled {time.strftime('%Y-%m-%d')} "
+                        f"from {url} with the public app id and search-only key the "
+                        f"directory page ships to every visitor. Paged per "
+                        f"{facet or 'query'} slice to stay under the index's deep-"
+                        f"pagination cap. Snapshot so the run is reproducible."),
+            "pulled": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            "index": src["index"], "count": len(rows), "rows": rows},
+            indent=1, ensure_ascii=False))
+        print(f"  snapshot -> {src['snapshot']} ({len(rows)} rows)")
+    return rows
+
+
 SCRAPE_PARSERS = {
     "js_array": parse_js_array,
     "li_text_list": parse_li_text_list,
@@ -318,13 +416,15 @@ SCRAPE_PARSERS = {
     "file_list": parse_file_list,
     "card_blocks": parse_card_blocks,
     "nuxt_payload": parse_nuxt_payload,
+    "search_index": parse_search_index,
 }
 
 
 def scrape_companies(api: dict) -> list[dict]:
     """Run every configured source, merge rows by normalized name.
 
-    Each source entry: {parser, url, list, fields?, extras?, row_url?}.
+    Each source entry: {parser, url, list, fields?, extras?, row_url?,
+    key_field?}.
     `fields` maps the unified keys (name, url) to the source's own key names;
     `extras` lists source keys carried through verbatim (evidence for the
     judge: outcome tags, tickers, acquirers, cohorts); `sectors` maps a source
@@ -372,7 +472,19 @@ def scrape_companies(api: dict) -> list[dict]:
             name = unescape(first_of(r, fields.get("name", "name"))).strip()
             if not name:
                 continue
-            key = re.sub(r"[^a-z0-9]+", "", name.lower())
+            # Identity is the source's own id where the source has one. The
+            # normalized name is the default because most portfolio pages
+            # publish nothing else, but a name is not an identity at scale:
+            # YC's directory carries 89 names borne by two different
+            # companies in different batches (Parse S11 the Facebook-acquired
+            # backend vs Parse F25; Struct W23 vs Struct F24), and keying on
+            # the name silently merged 100 real companies into 89 rows.
+            # `key_field` names the source key that is the identity instead.
+            key = ""
+            if src.get("key_field"):
+                key = str(r.get(src["key_field"]) or "").strip().lower()
+            if not key:
+                key = re.sub(r"[^a-z0-9]+", "", name.lower())
             if not key:
                 continue
             row = merged.setdefault(key, {
