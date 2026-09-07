@@ -1,0 +1,1168 @@
+{
+ "_readme": "Read the BODY of the archived per-company pages, not only the CDX index.\n\n`cdx_company_pages` enumerates /portfolio/<slug> from the index and stops there,\nso 175 of Khosla's 429 archived slugs land unnamed -- and they are the modern,\nhigh-value half of the book (openai, gitlab, rubrik, commonwealth-fusion-systems,\nhermeus, varda-space-industries, sword-health, ultima-genomics, waabi, synchron).\nCOLLECTION.md \u00a75's Common Crawl rule already says the body is the evidence; the\nsame is true of the IA replay, and on this site the body carries four fields the\nindex cannot:\n\n  name          <title> \"Anchorage | Khosla Ventures\"; the FIRST <h1> is the\n                company and wraps its own outbound URL. (The SECOND <h1> is the\n                footer's \"About Khosla Ventures\" -- an <h1>-first parser\n                publishes that as the company name on every row. Measured here.)\n  abstract      the firm's own description\n  categories    the firm's own sector tags, /portfolio/<sector> links\n  founded /     <table class=dates> -- the firm's own founding year and its own\n  invested      INVESTMENT year. Read `invested` as a CLOSE year, never an\n                announcement date (COLLECTION.md \u00a76, the Menlo rule), and score\n                it on the golden set before it is allowed to label anything.\n\nA slug never names a row (COLLECTION.md \u00a75.1a), so this exists precisely so the\none-word slugs (block, rocket, go, fresh, even, plum, swift, castle) reach the\njudge as the firm's own rendering rather than as a guess.\n\nWrites: sources/wayback/company-pages.json\nUsage:  python3 scratch/company-pages.py [slugs.json]\n",
+ "pulled": "2026-09-06",
+ "companies": {
+  "60db": {
+   "name": "60db",
+   "company_url": null,
+   "description": "60dB brings you today's best short-form audio stories \u2013 news, sports, entertainment, business and technology, all personalized for you.",
+   "categories_site": [
+    "Consumer"
+   ],
+   "site_founded_year": null,
+   "site_invest_year": null,
+   "alumni": true,
+   "case_study": false,
+   "snapshot_year": 2024,
+   "_exhausted": true
+  },
+  "academia-edu": {
+   "name": "Academia.edu",
+   "company_url": "http://www.academia.edu/",
+   "description": "Academia.edu is a platform for academics to share their research, monitor deep analytics around the impact of their research and track the research of academics they follow. The company\u2019s mission is to accelerate the world\u2019s research.",
+   "categories_site": [
+    "Education"
+   ],
+   "site_founded_year": "2008",
+   "site_invest_year": "2013",
+   "alumni": false,
+   "case_study": true,
+   "snapshot_year": 2022
+  },
+  "adamant": {
+   "name": "Adamant",
+   "company_url": "http://www.adamanttech.com/",
+   "description": "Adamant Technologies has developed a novel mobile chemical sensor device that allows users to track their health and fitness through chemicals in their breath. Adamant empower users to take control of their own health and understand it through real time, non-invasive detection.",
+   "categories_site": [
+    "Health"
+   ],
+   "site_founded_year": "2011",
+   "site_invest_year": "2012",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2015
+  },
+  "advanced-chemotherapy-technologies": {
+   "name": "Advanced Chemotherapy Technologies",
+   "company_url": "http://www.advancedchemotech.com/",
+   "description": "Advanced Chemotherapy Technologies, Inc. is a privately owned, clinical-stage company developing novel approaches to local drug delivery. Its lead product is the first-in-class to combine iontophoresis drug delivery with an implantable delivery system to target drug delivery with laser-like precision. Advanced Chemotherapy Technologies drug delivery technology was first developed at and licensed from the University of North Carolina at Chapel Hill in conjunction with UNC Lineberger Comprehensive Cancer Center.",
+   "categories_site": [
+    "Health"
+   ],
+   "site_founded_year": "2014",
+   "site_invest_year": "2020",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "affirm": {
+   "name": "Khosla Ventures - Affirm",
+   "company_url": null,
+   "description": null,
+   "categories_site": null,
+   "site_founded_year": null,
+   "site_invest_year": null,
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2023,
+   "_exhausted": true
+  },
+  "affirm-2": {
+   "name": "Affirm",
+   "company_url": "https://www.affirm.com/",
+   "description": "Affirm\u2019s mission is to deliver honest financial products to improve lives. Affirm uses modern technology to re-imagine and re-build core components of financial infrastructure from the ground up. The company is focused on improving the lives of everyday consumers with less expensive, more transparent financial products.",
+   "categories_site": [
+    "Financial services"
+   ],
+   "site_founded_year": "2012",
+   "site_invest_year": "2013",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "aguamarina": {
+   "name": "Aguamarina",
+   "company_url": "http://www.aguamarina.cl/",
+   "description": "Aguamarina is a Chilean industrial biotechnology company for the mining sector. We believe the mining industry must offer sustainable green metals and our mission is to become a platform for new technologies that make mining a zero waste activity.",
+   "categories_site": [
+    "Efficiency"
+   ],
+   "site_founded_year": "2008",
+   "site_invest_year": "2016",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "akash-systems": {
+   "name": "Akash Systems",
+   "company_url": "https://akashsystemsinc.com/",
+   "description": "Akash Systems is using synthetic diamond RF microchips to make the world\u2019s fastest Space Satellites that will deliver broadband data cheaply to every person on Earth.",
+   "categories_site": [
+    "Space"
+   ],
+   "site_founded_year": "2016",
+   "site_invest_year": "2018",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2022
+  },
+  "alivecor": {
+   "name": "AliveCor",
+   "company_url": "http://www.alivecor.com/",
+   "description": "AliveCor has a device and application that will turn any smartphone into a clinical-quality electrocardiogram (ECG) recorder. The company is dedicated to enabling users to take control of their heart health.",
+   "categories_site": [
+    "Health"
+   ],
+   "site_founded_year": "2011",
+   "site_invest_year": "2012",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2022
+  },
+  "aloha": {
+   "name": "ALOHA",
+   "company_url": "http://aloha.com/",
+   "description": "ALOHA is a health and wellness company focused on producing nutrient-rich, gluten-free, all natural vegan foods and essential minerals. Together with the world\u2019s most respected doctors, scientists, trainers, yogis, nutritionists and holistic health practitioners, ALOHA develops innovative, high-quality products and inspiring content that informs and motivates individuals to live a healthy, happy life.",
+   "categories_site": [
+    "Health"
+   ],
+   "site_founded_year": "2012",
+   "site_invest_year": "2014",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "alpine-oral-tech-inc": {
+   "name": "Alpine Oral Tech, Inc.",
+   "company_url": "http://alpineot.com/",
+   "description": "Alpine Oral Tech, Inc. is developing consumer healthcare device that has the potential to help billions live healthier, longer lives.",
+   "categories_site": [
+    "Health"
+   ],
+   "site_founded_year": "2017",
+   "site_invest_year": "2017",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "altarock-energy": {
+   "name": "AltaRock Energy",
+   "company_url": "http://altarockenergy.com/",
+   "description": "AltaRock Energy is a full-service geothermal energy technology and services company. AltaRock\u2019s experienced team, innovative technology and creative approach turns under performing assets into highly profitable energy projects, building and operating the geothermal power plants of the future.",
+   "categories_site": [
+    "Power"
+   ],
+   "site_founded_year": "2007",
+   "site_invest_year": "2007",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2022
+  },
+  "alveo-energy": {
+   "name": "Alveo Energy",
+   "company_url": "http://www.alveoenergy.com/",
+   "description": "Alveo Energy is developing a completely new high power, long cycle life, low-cost battery technology for stationary and select transit applications.",
+   "categories_site": [
+    "Efficiency"
+   ],
+   "site_founded_year": "2009",
+   "site_invest_year": "2013",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "ambri": {
+   "name": "Ambri",
+   "company_url": "http://www.ambri.com/",
+   "description": "Ambri is developing an electricity storage solution that will change the way electric grids are operated worldwide. Ambri will enable more widespread use of renewable generation like wind and solar, reduce power prices and increase system reliability.",
+   "categories_site": [
+    "Efficiency"
+   ],
+   "site_founded_year": "2010",
+   "site_invest_year": "2012",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "amyris": {
+   "name": "Amyris",
+   "company_url": "http://www.amyris.com/",
+   "description": "Amyris delivers high-performance alternatives to petroleum-based products across a wide range of consumer and industry segments. They have developed innovative microbial engineering and screening technologies that modify the way microorganisms process sugars. Amyris is using its proprietary synthetic biology platform to design microbes, primarily yeast, and use them as living factories in established fermentation processes to convert plant-sourced sugars into renewable hydrocarbons.",
+   "categories_site": [
+    "Chemicals/fuels"
+   ],
+   "site_founded_year": "2003",
+   "site_invest_year": "2009",
+   "alumni": true,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "anchorage": {
+   "name": "Anchorage",
+   "company_url": "https://www.anchorage.com/",
+   "description": "Anchorage is the premier digital asset platform for institutions. Founded in 2017 to meet the growing need for institutional custody that lets investors safely hold and use crypto, Anchorage has grown into a full-service financial platform and infrastructure provider for the digital asset space.",
+   "categories_site": [
+    "Enterprise"
+   ],
+   "site_founded_year": "2017",
+   "site_invest_year": "2017",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "appnexus": {
+   "name": "AppNexus",
+   "company_url": "http://www.appnexus.com/",
+   "description": "AppNexus is a technology company that provides trading solutions and powers marketplaces for Internet advertising. Its open, unified and powerful programmatic platform empowers customers to more effectively buy and sell media, allowing them to innovate, differentiate and transform their businesses.",
+   "categories_site": [
+    "Advertising"
+   ],
+   "site_founded_year": "2007",
+   "site_invest_year": "2007",
+   "alumni": true,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "apton-biosystems-inc": {
+   "name": "Apton Biosystems, Inc.",
+   "company_url": "http://www.aptonbio.com/",
+   "description": "Apton Biosystems, Inc. operates in the healthcare industry focusing on biotechnology business.",
+   "categories_site": [
+    "Health"
+   ],
+   "site_founded_year": "2012",
+   "site_invest_year": "2015",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "arcanum-alloy-design": {
+   "name": "Arcanum Alloy Design",
+   "company_url": "http://arcanumalloys.com/",
+   "description": "Arcanum Alloys has developed platform technology to drive revolutionary performance and margins in numerous metal alloy markets. Their process allows surface properties to be decoupled from the bulk properties of metals and excels in applications where post forming is required or beneficial.",
+   "categories_site": [
+    "Materials"
+   ],
+   "site_founded_year": "2011",
+   "site_invest_year": "2011",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "arevo": {
+   "name": "Arevo",
+   "company_url": "http://arevolabs.com/",
+   "description": "Arevo manufactures high performance composite thermoplastic filaments for additive manufacturing.",
+   "categories_site": [
+    "3D Printing"
+   ],
+   "site_founded_year": "2013",
+   "site_invest_year": "2016",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "arista-networks": {
+   "name": "Arista Networks",
+   "company_url": "http://www.arista.com/",
+   "description": "Arista Networks delivers software driven cloud networking solutions for large data center and high-performance computing environments. With more than two million cloud networking ports being deployed worldwide, Arista delivers a portfolio of 1, 10, 40 and 100 GbE products that redefine network architectures, bring extensibility to networking and dramatically change the price/performance of data center networks.",
+   "categories_site": [
+    "Enterprise"
+   ],
+   "site_founded_year": "2005",
+   "site_invest_year": "2012",
+   "alumni": true,
+   "case_study": false,
+   "snapshot_year": 2022
+  },
+  "arpeggio-bio": {
+   "name": "Arpeggio Bio",
+   "company_url": "https://arpeggiobiosciences.com/",
+   "description": "Arpeggio is building a platform to explore biology\u2019s regulatory network.",
+   "categories_site": [
+    "Health"
+   ],
+   "site_founded_year": "2018",
+   "site_invest_year": "2019",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "artrendex": {
+   "name": "Artrendex",
+   "company_url": "http://www.artrendex.com/",
+   "description": "Artrendex builds innovative artificial intelligence technology for the art market and creative people",
+   "categories_site": [
+    "Consumer"
+   ],
+   "site_founded_year": "2016",
+   "site_invest_year": "2018",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2022
+  },
+  "at-bay": {
+   "name": "At-Bay",
+   "company_url": "https://www.at-bay.com/",
+   "description": "At-Bay provides cyber insurance and risk management that empowers companies to embrace technology fearlessly. We believe Insurance has a major role to play in controlling for cyber risk, but requires a complete redesign to meet the challenges of a fast-changing technical risk. Powered by a technical underwriting machine and by extending insurance to include year-round active security services, At-Bay is building insurance for the digital age.",
+   "categories_site": [
+    "Enterprise"
+   ],
+   "site_founded_year": "2016",
+   "site_invest_year": "2018",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2022
+  },
+  "atmos": {
+   "name": "Atmos",
+   "company_url": "https://www.buildatmos.com/",
+   "description": "Atmos allows you to design and build the home of your dreams, all online. You configure the lot and home you want, we handle everything else.",
+   "categories_site": [
+    "Consumer"
+   ],
+   "site_founded_year": "2019",
+   "site_invest_year": "2020",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "atomwise": {
+   "name": "Atomwise",
+   "company_url": "http://www.atomwise.com/",
+   "description": "Atomwise develops artificial intelligence systems for drug discovery. Its groundbreaking research technology learns like a human chemist, using powerful deep neural networks and supercomputers to analyze millions of potential medicines each day. Atomwise deploys its discovery platform to predict both new and repurposed drug candidates for pharmaceutical companies, biotechnology startups and research institutions.",
+   "categories_site": [
+    "Health"
+   ],
+   "site_founded_year": "2015",
+   "site_invest_year": null,
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019,
+   "_exhausted": true
+  },
+  "attackiq": {
+   "name": "AttackIQ",
+   "company_url": "http://www.attackiq.com/",
+   "description": "AttackIQ, a leader in the emerging market of continuous security validation, built the industry\u2019s first platform that enables red and blue teams to test and measure the effectiveness of their security controls and staff. With an open platform, AttackIQ supports the MITRE ATT&CK framework, a curated knowledge base and model for cyber adversary behavior used for planning security improvements and verifying defenses work as expected.",
+   "categories_site": [
+    "Enterprise"
+   ],
+   "site_founded_year": "2013",
+   "site_invest_year": "2019",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "ausra": {
+   "name": "Ausra",
+   "company_url": "http://www.areva.com/EN/news-8199/areva-acquires-the-u-s-solar-company-ausra.html",
+   "description": "Ausra manufactures and develops utility-scale solar technologies to serve global electricity needs in a market competitive and environmentally responsible manner. The company was acquired by AREVA, which specializes in nuclear and renewable energy.",
+   "categories_site": [
+    "Power"
+   ],
+   "site_founded_year": "2006",
+   "site_invest_year": "2007",
+   "alumni": true,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "ava": {
+   "name": "Ava",
+   "company_url": "http://www.ava.me/",
+   "description": "Ava is a 24/7 personal mobile captioner, making group conversations the delightful experience it should be. Using unique advanced speech & mobile technologies, Ava as an app enables you to see who says what around you, in seconds.",
+   "categories_site": [
+    "Enterprise"
+   ],
+   "site_founded_year": "2014",
+   "site_invest_year": "2019",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2022
+  },
+  "avogy": {
+   "name": "Avogy",
+   "company_url": "http://avogy.com/",
+   "description": "Avogy is a leader in advancing the energy efficiency and reliability of power conversion systems.",
+   "categories_site": [
+    "Efficiency"
+   ],
+   "site_founded_year": "2010",
+   "site_invest_year": "2010",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "ayasdi": {
+   "name": "Ayasdi",
+   "company_url": "http://www.ayasdi.com/",
+   "description": "Ayasdi is transforming how the world uses data to solve complex problems with an automated insight discovery platform that helps organizations operationalize insights from their data. The company was founded in 2008 after a decade of research at Stanford, funded by DARPA and NSF. Ayasdi\u2019s Insight Discovery platform uses Topological Data Analysis (TDA) which combines a large number of machine learning techniques to enable business people, domain experts and data scientists to achieve value from their data without the need to invest man-years writing code or fruitless queries.",
+   "categories_site": [
+    "Big data"
+   ],
+   "site_founded_year": "2008",
+   "site_invest_year": "2012",
+   "alumni": false,
+   "case_study": true,
+   "snapshot_year": 2017
+  },
+  "bay-labs-inc": {
+   "name": "Bay Labs, Inc.",
+   "company_url": "https://baylabs.io/",
+   "description": "Bay Labs is at the forefront of bringing deep learning advances to critical unsolved problems in healthcare. We have assembled an exceptional team of clinicians, engineers, and scientists who are developing breakthrough technologies in cardiovascular imaging and care to combat heart disease, the leading cause of death worldwide.",
+   "categories_site": [
+    "Consumer"
+   ],
+   "site_founded_year": "2013",
+   "site_invest_year": "2015",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "because": {
+   "name": "Because",
+   "company_url": "https://www.becausemarket.com/",
+   "description": "Because is a next-generation personal care brand focused on re-engineering everyday consumer products for older adults. We treat our members as if they were our own parents or grandparents.",
+   "categories_site": [
+    "Consumer"
+   ],
+   "site_founded_year": "2016",
+   "site_invest_year": "2018",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "berkshire-grey": {
+   "name": "Berkshire Grey",
+   "company_url": "http://www.berkshiregrey.com/",
+   "description": "Berkshire Grey is a stealth mode start up.",
+   "categories_site": [
+    "Robotics/AI"
+   ],
+   "site_founded_year": "2013",
+   "site_invest_year": "2013",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "bidgely": {
+   "name": "Bidgely",
+   "company_url": "https://www.bidgely.com/",
+   "description": "Bidgely (fka MyEnerSave, Inc.)'s mission is to reduce residential and small commercial electric power consumption by providing an itemized electric bill to consumers empowering them with informed decision-making.",
+   "categories_site": [
+    "Efficiency"
+   ],
+   "site_founded_year": "2010",
+   "site_invest_year": "2011",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2022
+  },
+  "bigswitch": {
+   "name": "BigSwitch",
+   "company_url": "http://www.bigswitch.com/",
+   "description": "Big Switch Networks is the Bare Metal SDN company. The company\u2019s SDN Fabric solutions embrace industry standards, open APIs, open source and vendor-neutral support for both physical and virtual networking infrastructure.",
+   "categories_site": [
+    "Enterprise"
+   ],
+   "site_founded_year": "2010",
+   "site_invest_year": "2011",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "billguard": {
+   "name": null,
+   "_exhausted": true
+  },
+  "bioage": {
+   "name": "BIOAGE",
+   "company_url": "http://www.bioagelabs.com/",
+   "description": "BIOAGE discovers and develops proprietary drugs to treat aging and associated diseases.",
+   "categories_site": [
+    "Health"
+   ],
+   "site_founded_year": "2015",
+   "site_invest_year": "2018",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "bioconsortia": {
+   "name": "BioConsortia",
+   "company_url": "http://bioconsortia.com/",
+   "description": "BioConsortia is an agricultural biotechnology company that uses a proprietary method for the selection of beneficial microbial consortia for crop improvement. The company has pipeline products and research projects for: enhanced fertilizer utilization and substitution of N, P, K and S; plant growth improvement of harvestable yield, root mass and accelerated development; other desirable crop traits such as abiotic tolerance, biotic resistance and enhanced metabolite expression. BioConsortia partners with crop protection and plant breeding companies to bring the benefits of microbial science and",
+   "categories_site": [
+    "Agriculture/food"
+   ],
+   "site_founded_year": "2009",
+   "site_invest_year": "2010",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "bionaut-labs": {
+   "name": "Bionaut Labs",
+   "company_url": "http://www.bionautlabs.com/",
+   "description": "Bionaut\u2019s vision is to transform medical treatment into an anatomically precise, safe and deterministic process. We aim enable direct physical access to any anatomic location in the body using remote-controlled miniature robots (Bionauts\u2122), establishing them as a leading medical modality for targeted treatment of clinical conditions.",
+   "categories_site": [
+    "Robotics/AI"
+   ],
+   "site_founded_year": "2016",
+   "site_invest_year": "2019",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "bitly": {
+   "name": null,
+   "_exhausted": true
+  },
+  "block": {
+   "name": "Khosla Ventures - Block",
+   "company_url": null,
+   "description": null,
+   "categories_site": null,
+   "site_founded_year": null,
+   "site_invest_year": null,
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2023,
+   "_exhausted": true
+  },
+  "blockscore": {
+   "name": "BlockScore",
+   "company_url": "https://blockscore.com/",
+   "description": "BlockScore is an identity verification and anti-fraud solution for online transactions.",
+   "categories_site": [
+    "Financial services"
+   ],
+   "site_founded_year": "2013",
+   "site_invest_year": "2014",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "blockstream": {
+   "name": "BlockStream",
+   "company_url": "http://blockstream.com/",
+   "description": "Blockstream\u2019s core area of innovation is sidechains, a technology focused on improving on the blockchain, the most powerful public utility for distributed trust systems.",
+   "categories_site": [
+    "Financial services"
+   ],
+   "site_founded_year": "2014",
+   "site_invest_year": "2014",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "bloop-ai": {
+   "name": "Bloop.ai",
+   "company_url": "https://bloop.ai/",
+   "description": "Bloop.ai is an extension for a code editor that surfaces code examples from each library\u2019s official documentation.",
+   "categories_site": [
+    "Enterprise"
+   ],
+   "site_founded_year": "2021",
+   "site_invest_year": null,
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2023,
+   "_exhausted": true
+  },
+  "blue-river-technology": {
+   "name": "Blue River Technology",
+   "company_url": "http://www.bluerivert.com/",
+   "description": "Blue River Technology employs computer vision and robotics technologies to build intelligent solutions for the agricultural industries.",
+   "categories_site": [
+    "Agriculture/food"
+   ],
+   "site_founded_year": "2011",
+   "site_invest_year": "2012",
+   "alumni": true,
+   "case_study": true,
+   "snapshot_year": 2022
+  },
+  "boku": {
+   "name": "Boku",
+   "company_url": "http://www.boku.com/",
+   "description": "Boku is a global mobile payments network providing mobile-enhanced payments in e-commerce and at physical point-of-sale. They service 68 countries through more than 250 carrier partners and are connected to merchants such as Facebook, Electronic Arts (EA), Sony, Spotify, Lookout and Riot Games.",
+   "categories_site": [
+    "Financial services"
+   ],
+   "site_founded_year": "2009",
+   "site_invest_year": "2009",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "bold": {
+   "name": "Bold",
+   "company_url": "https://www.agebold.com/",
+   "description": "Bold\u2019s digital platform uses personalized exercise programs to address some of the most fundamental health and wellbeing challenges faced by older adults. Bold leverages research and data science to prevent falls, manage chronic conditions, and increase activity levels for older adults with clinically-effective and engaging exercise programs. Bold partners with health plans and providers to improve member outcomes and reduce care costs.",
+   "categories_site": [
+    "Health"
+   ],
+   "site_founded_year": "2018",
+   "site_invest_year": "2019",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "booktrope": {
+   "name": null,
+   "_exhausted": true
+  },
+  "boosted-boards": {
+   "name": "Boosted Boards",
+   "company_url": "http://boostedboards.com/",
+   "description": "Boosted Boards builds and develops lightweight, wireless, remote-controlled motorized electric longboards.",
+   "categories_site": [
+    "Transportation"
+   ],
+   "site_founded_year": "2011",
+   "site_invest_year": "2014",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2017
+  },
+  "bridge-international-academies": {
+   "name": "Bridge International Academies",
+   "company_url": "http://bridgeinternationalacademies.com/",
+   "description": "Bridge International Academies is the world\u2019s largest chain of nursery and primary schools offering high-quality education at an affordable price to families living under the international poverty line. Bridge\u2019s vertically integrated approach has reengineered the entire lifecycle of basic education, leveraging data, technology and scale in order to keep quality high and prices as low as $6 per month (on average). Currently, it has 414 academies in Kenya, Uganda and Nigeria with over 100,000 pupils enrolled. Bridge aims to reach 10 million children by 2025, democratizing the right to succeed.",
+   "categories_site": [
+    "Education"
+   ],
+   "site_founded_year": "2007",
+   "site_invest_year": "2012",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "bungalow": {
+   "name": "Bungalow",
+   "company_url": "https://bungalow.com/",
+   "description": "Bungalow is a residential real estate platform providing beautiful homes with great roommates, paired with a seamless digital first experience. The company takes care of everything from matching great roommates and furnishing a home\u2019s common areas to streamlining rent and utilities payments and handling service requests, removing friction from the rental experience.",
+   "categories_site": [
+    "Consumer"
+   ],
+   "site_founded_year": "2017",
+   "site_invest_year": "2018",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "cadre": {
+   "name": "Cadre",
+   "company_url": "https://cadre.com/",
+   "description": "Cadre is a technology-enabled investment platform that connects qualified individuals and institutions to fully vetted, compelling real estate investment opportunities.",
+   "categories_site": [
+    "Financial services"
+   ],
+   "site_founded_year": "2014",
+   "site_invest_year": "2015",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "caelux-corporation": {
+   "name": "Caelux Corporation",
+   "company_url": "http://www.caelux.com/",
+   "description": "Caelux Corporation's scalable perovskite based technology can dramatically improve the power performance of any crystalline silicon solar module, helping to accelerate the timeline to net zero electricity generation.",
+   "categories_site": [
+    "Power"
+   ],
+   "site_founded_year": "2011",
+   "site_invest_year": "2014",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2022
+  },
+  "calera": {
+   "name": "Calera",
+   "company_url": "http://www.calera.com/site/",
+   "description": "Calera is focused on the conversion of CO2 into beneficial reuse products and more energy efficient production of industrial chemicals. The company aims to achieve environmental sustainability that also is economically sustainable.",
+   "categories_site": [
+    "Materials"
+   ],
+   "site_founded_year": "2007",
+   "site_invest_year": "2009",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "canary": {
+   "name": "Canary Connect Inc.",
+   "company_url": "http://canary.is/",
+   "description": "Canary is a systems integration peripheral hardware manufacturer and software development company. The company has developed a complete security system packed into a single, beautiful device. Canary adapts to a home over time and sends intelligent notifications with high definition video directly to their users\u2019 smartphones.",
+   "categories_site": [
+    "Consumer"
+   ],
+   "site_founded_year": "2012",
+   "site_invest_year": "2014",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "caption-health": {
+   "name": "Caption Health",
+   "company_url": "http://www.captionhealth.com/",
+   "description": "Caption Health was founded in 2013 on a simple but powerful concept: what if we could use technology to emulate the expertise of highly trained medical experts and put that ability into the hands of every care provider? Our vision is to move specialty diagnostics and decision making to the point of care for every patient exam. We are developing AI software that empowers healthcare providers with new capabilities to acquire and interpret ultrasound exams.",
+   "categories_site": [
+    "Health"
+   ],
+   "site_founded_year": "2013",
+   "site_invest_year": "2015",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "carelulu": {
+   "name": "CareLuLu",
+   "company_url": "http://www.carelulu.com/",
+   "description": "CareLuLu is an online marketplace that connects parents with licensed childcare and preschool programs. CareLuLu makes it easy for parents to find the perfect daycare in terms of budget, hours or age of children. The platform features a personalized search along with detailed information on childcare providers such as tuition rates, teaching philosophy, photos and parent reviews.",
+   "categories_site": [
+    "Consumer"
+   ],
+   "site_founded_year": "2013",
+   "site_invest_year": "2014",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "careswitch": {
+   "name": "CareSwitch",
+   "company_url": "https://careswitch.com/",
+   "description": "The CareSwitch platform helps home care agencies manage payroll, benefits, and employee records to comply with changes in employment laws.",
+   "categories_site": [
+    "Health"
+   ],
+   "site_founded_year": "2018",
+   "site_invest_year": "2019",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "carrot": {
+   "name": "Carrot",
+   "company_url": "https://carrot.co/",
+   "description": "Carrot is using technology and evidence-based strategies to engage and empower millions of people to quit smoking.",
+   "categories_site": [
+    "Health"
+   ],
+   "site_founded_year": "2015",
+   "site_invest_year": "2015",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "carrot-sense": {
+   "name": null,
+   "_exhausted": true
+  },
+  "casca": {
+   "name": "Casca",
+   "company_url": "http://www.casca.com/",
+   "description": "Casca is defining the future of footwear. Driven by an urge to reimagine the user experience and reduce consumption, Casca launched in 2019 with all-day performance footwear and FootB3D\u2122. A 3D shoe system integrating recyclable customized insoles with cutting-edge, premium materials and proprietary body scanning software.",
+   "categories_site": [
+    "Consumer"
+   ],
+   "site_founded_year": "2019",
+   "site_invest_year": null,
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2023,
+   "_exhausted": true
+  },
+  "castle": {
+   "name": "Castle",
+   "company_url": "https://entercastle.com/",
+   "description": "Property management in Metro Detroit like you\u2019ve never seen it before, with flat-fee pricing, world-class service and unprecedented transparency.",
+   "categories_site": [
+    "Financial services"
+   ],
+   "site_founded_year": null,
+   "site_invest_year": null,
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019,
+   "_exhausted": true
+  },
+  "catalia-health": {
+   "name": "Catalia Health",
+   "company_url": "http://www.cataliahealth.com/",
+   "description": "Catalia Health is on a mission to address both sides of the healthcare equation: improving patients\u2019 health and extending the capabilities and efficiency of healthcare companies. The company aims to catalyze lasting behavior change for patients, wherever they are, to provide them with encouragement and motivation to achieve the best possible medical outcomes. At the same time, Catalia Health is providing deep insights to healthcare companies to optimize the efficacy of their services. Catalia Health believes that to improve behavior, you have to measure it\u2014and keep measuring it over the long t",
+   "categories_site": [
+    "Health"
+   ],
+   "site_founded_year": "2013",
+   "site_invest_year": "2015",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2022
+  },
+  "catch": {
+   "name": "Catch",
+   "company_url": "https://catch.co",
+   "description": "Catch is redesigning benefits to put people at the center of their own financial stability and security. For freelancers, contractors, and workers without access to employer benefits, Catch automatically handles tax withholding, builds long-term investment savings, and provides critical insurance products. In creating a personalized safety net, Catch envisions a world where individuals can leverage data-driven curation and timely insights to gain full agency over changing needs.",
+   "categories_site": [
+    "Financial services"
+   ],
+   "site_founded_year": "2017",
+   "site_invest_year": "2019",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "ceibo": {
+   "name": "Ceibo",
+   "company_url": "https://www.ceibo.bio/",
+   "description": "Ceibo is a biotech company that creates sustainable solutions for the mining industry at the intersection of microbiology + geochemistry + engineering.",
+   "categories_site": [
+    "Efficiency"
+   ],
+   "site_founded_year": "2008",
+   "site_invest_year": "2016",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "cellino": {
+   "name": "Cellino",
+   "company_url": "http://cellinobio.com/",
+   "description": "Cellino is engineering human-like cells and tissues for replacement therapies.",
+   "categories_site": [
+    "Health"
+   ],
+   "site_founded_year": "2017",
+   "site_invest_year": "2019",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "cellscope": {
+   "name": "Cellscope",
+   "company_url": "http://cellscope.com/",
+   "description": "CellScope builds systems for at-home disease diagnosis using smartphone cameras connected to a web platform. The company\u2019s mission is to create the world\u2019s first smartphone-enabled digital first aid kit, giving access to easy-to-use, at-home tools in order to capture diagnostic-quality data for remote diagnosis. CellScope is currently building a suite of optical attachments for smartphones.",
+   "categories_site": [
+    "Health"
+   ],
+   "site_founded_year": "2010",
+   "site_invest_year": "2012",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "chain": {
+   "name": "Chain",
+   "company_url": "https://chain.com/",
+   "description": "Chain builds cryptographic ledger systems that make financial services smarter, more secure, and more connected.",
+   "categories_site": [
+    "Financial services"
+   ],
+   "site_founded_year": "2014",
+   "site_invest_year": "2014",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2023
+  },
+  "checkr": {
+   "name": "Checkr",
+   "company_url": "https://checkr.com/",
+   "description": "Checkr provides modern and compliant background checks for global enterprises and startups.",
+   "categories_site": [
+    "Enterprise"
+   ],
+   "site_founded_year": "2014",
+   "site_invest_year": "2014",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "cinemagram": {
+   "name": null,
+   "_exhausted": true
+  },
+  "ciris-energy": {
+   "name": "Ciris Energy",
+   "company_url": "http://cirisenergy.com/",
+   "description": "Ciris Energy develops technology for the production of electricity from buried coal and other hydrocarbon deposits. Their technologies, ISBCTM and ESBCTM, share a common component: the microbial bio conversion of carbon. The ISBC technology process is conducted below ground in coal seams where indigenous microbes convert coal to methane. The ESBC technology is conducted above ground after coal has been mined and combines a low cost thermochemical pretreatment of coal with engineered microbes to convert coal to chemicals and methane.",
+   "categories_site": [
+    "Power"
+   ],
+   "site_founded_year": "2007",
+   "site_invest_year": "2010",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2022
+  },
+  "citus-data": {
+   "name": "Citus Data",
+   "company_url": "https://www.citusdata.com/",
+   "description": "Citus is a distributed database that extends PostgreSQL, allowing you to continue using all the powerful Postgres features while still scaling.",
+   "categories_site": [
+    "Enterprise"
+   ],
+   "site_founded_year": "2010",
+   "site_invest_year": "2015",
+   "alumni": true,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "clear-labs": {
+   "name": "Clear Labs",
+   "company_url": "https://www.clearlabs.com/",
+   "description": "Clear Labs is the standard for molecular food quality in the global food industry. The company is pioneering food analytics, enabling the world\u2019s most respected food brands to differentiate on quality and to stand behind their value.",
+   "categories_site": [
+    "Agriculture/food"
+   ],
+   "site_founded_year": "2014",
+   "site_invest_year": "2015",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2022
+  },
+  "climate-corporation": {
+   "name": "Climate Corporation",
+   "company_url": "http://www.climate.com/",
+   "description": "The Climate Corporation aims to help farmers around the world protect and improve their farming operations. The company\u2019s proprietary technology platform delivers the best measurements, insights and execution tools to farmers through a combination of hardware, software and services. These tools help farmers manage the risks they can\u2019t control with unique insurance solutions and make better decisions with the things they can control with unique web and mobile apps, in-field hardware execution tools and agronomic services.",
+   "categories_site": [
+    "Agriculture/food"
+   ],
+   "site_founded_year": "2006",
+   "site_invest_year": "2011",
+   "alumni": true,
+   "case_study": true,
+   "snapshot_year": 2019
+  },
+  "cloudtrucks": {
+   "name": "CloudTrucks",
+   "company_url": "https://cloudtrucks.com/",
+   "description": "CloudTrucks is an industry-pioneering virtual trucking carrier that helps truck drivers make more money, optimize their schedules, find better-paying loads, and manage their businesses for better financial health and a more successful and empowering life. Founded in 2019, CloudTrucks brings the power of data science and software to the trucking industry with innovative solutions like Schedule Optimizer, helping truckers maximize their revenue while staying flexible and being home when they want to be. CloudTrucks also offers free quick payment, lower-cost insurance, automated paperwork, and ot",
+   "categories_site": [
+    "Enterprise"
+   ],
+   "site_founded_year": "2019",
+   "site_invest_year": "2019",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "coda": {
+   "name": "Coda",
+   "company_url": "https://coda.io/welcome",
+   "description": "Coda is a new document that brings words, data, and teams together. Coda launched to the general public in February 2019, and is now used by tens of thousands of users across thousands of teams. Coda is used globally by small businesses and startups, as well as companies such as Spotify, Cheddar and Uber.",
+   "categories_site": [
+    "Financial services"
+   ],
+   "site_founded_year": "2014",
+   "site_invest_year": "2015",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "coda-project-inc": {
+   "name": "Coda Project, Inc.",
+   "company_url": null,
+   "description": "Krypton Project is a stealth mode software company.",
+   "categories_site": [
+    "Consumer"
+   ],
+   "site_founded_year": "2015",
+   "site_invest_year": null,
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2023,
+   "_exhausted": true
+  },
+  "cogenra-solar": {
+   "name": "Cogenra Solar",
+   "company_url": "http://www.cogenra.com/",
+   "description": "Cogenra\u2019s mission is to enable widespread adoption of clean renewable energy by providing efficient, flexible solar electricity at lower costs than conventional fossil fuel alternatives. The company offers large distributed and utility-scale solar solutions that leverage upstream progress in the crystalline silicon PV cell industry, low-cost construction materials and innovative business models with highly-scalable worldwide module manufacturing capacity.",
+   "categories_site": [
+    "Power"
+   ],
+   "site_founded_year": "2009",
+   "site_invest_year": "2009",
+   "alumni": true,
+   "case_study": false,
+   "snapshot_year": 2017
+  },
+  "color-genomics": {
+   "name": "Color Genomics",
+   "company_url": "https://getcolor.com/",
+   "description": "Color provides accessible, population-scale genetics services. Color analyzes 19 genes to help you understand your risk of developing breast and ovarian cancer.",
+   "categories_site": [
+    "Health"
+   ],
+   "site_founded_year": "2013",
+   "site_invest_year": "2014",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "commonwealth-fusion-systems": {
+   "name": "Commonwealth Fusion Systems",
+   "company_url": "http://www.cfs.energy/",
+   "description": "Commonwealth Fusion Systems (CFS) is on track to bring fusion energy technology to market. CFS was spun out of MIT and is collaborating with MIT\u2019s Plasma Science and Fusion Center to leverage decades of research combined with the innovation and speed of the private sector. Supported by the world\u2019s leading investors in breakthrough energy technologies, the CFS team is uniquely positioned to deliver the fastest path to commercial fusion energy.",
+   "categories_site": [
+    "Efficiency"
+   ],
+   "site_founded_year": "2017",
+   "site_invest_year": "2018",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "commonwealth-fusion-systems-cfs": {
+   "name": "Khosla Ventures - Commonwealth Fusion Systems (CFS)",
+   "company_url": null,
+   "description": null,
+   "categories_site": null,
+   "site_founded_year": null,
+   "site_invest_year": null,
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2017,
+   "_exhausted": true
+  },
+  "compound-eye": {
+   "name": "Compound Eye",
+   "company_url": "http://www.compoundeye.com/",
+   "description": "Compound Eye enables machines to understand their surroundings in 3D and in real time using only passive sensors like cameras. Our technology gathers far more information about the environment than active sensors like lidar for a fraction of the cost. Our mission is to bring superhuman senses to existing vehicles and to enable mass production of fully autonomous cars and other robots.",
+   "categories_site": [
+    "Robotics/AI"
+   ],
+   "site_founded_year": "2015",
+   "site_invest_year": "2018",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "consumer-physics": {
+   "name": "Consumer Physics",
+   "company_url": "http://www.consumerphysics.com/myscio/",
+   "description": "Consumer Physics is building a pocket spectrometer for smart phones, enabling a variety of consumer applicatons. Their first product, SCiO, reads the chemical make-up of materials; it is a non-intrusive, no-touch optical sensor that provides a seamless user experience.",
+   "categories_site": [
+    "Health"
+   ],
+   "site_founded_year": "2011",
+   "site_invest_year": "2012",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "contrail-systems": {
+   "name": "Contrail Systems",
+   "company_url": "http://www.contrailsystems.com/",
+   "description": "Contrail Systems is focused on software-defined networking (SDN) by developing an open-source network virtualization platform. The company was acquired by Juniper Networks.",
+   "categories_site": [
+    "Enterprise"
+   ],
+   "site_founded_year": "2012",
+   "site_invest_year": "2012",
+   "alumni": true,
+   "case_study": false,
+   "snapshot_year": 2017
+  },
+  "coskata": {
+   "name": null,
+   "_exhausted": true
+  },
+  "creator": {
+   "name": "Creator",
+   "company_url": "http://creator.rest/",
+   "description": "Creator is the first and only company to fully automate the preparation of a composed dish. Starting with the largest segment of food by sales and one of the most labor intensive \u2013 burgers \u2013 Creator is leading the automation of food preparation.",
+   "categories_site": [
+    "Robotics/AI"
+   ],
+   "site_founded_year": "2010",
+   "site_invest_year": "2013",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "crosschx": {
+   "name": null,
+   "_exhausted": true
+  },
+  "crowdmed": {
+   "name": "CrowdMed",
+   "company_url": "https://www.crowdmed.com/",
+   "description": "CrowdMed uses prediction market technology and the collective intelligence of human \u2018medical detectives\u2019 to produce diagnostic suggestions.",
+   "categories_site": [
+    "Health"
+   ],
+   "site_founded_year": "2012",
+   "site_invest_year": "2013",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "cylance": {
+   "name": "Cylance",
+   "company_url": "http://www.cylance.com/",
+   "description": "Cylance is a cyber-security products and services company that solves very large and complex problems simply and elegantly.",
+   "categories_site": [
+    "Enterprise"
+   ],
+   "site_founded_year": "2012",
+   "site_invest_year": "2012",
+   "alumni": true,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "datera": {
+   "name": "Datera",
+   "company_url": "http://www.daterainc.com/",
+   "description": "Datera is focused on redefining the cloud from the ground up to meet the demands of today\u2019s most cutting-edge applications.",
+   "categories_site": [
+    "Enterprise"
+   ],
+   "site_founded_year": "2013",
+   "site_invest_year": "2013",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "db-networks": {
+   "name": "DB Networks",
+   "company_url": "http://dbnetworks.com/",
+   "description": "DB Networks innovates artificial intelligence based database security products. Their customers include the world\u2019s largest financial institutions, healthcare providers, manufacturers, and governments. DB Networks non-intrusively discovers all databases, tables being accessed, and the applications accessing the databases. Patented machine learning and behavioral analysis technologies are used to immediately identify compromised credentials and database attacks.",
+   "categories_site": [
+    "Enterprise"
+   ],
+   "site_founded_year": "2009",
+   "site_invest_year": "2012",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "deep-genomics-inc": {
+   "name": "Deep Genomics, Inc.",
+   "company_url": "https://www.deepgenomics.com/",
+   "description": "Deep Genomics is using artificial intelligence to build a new universe of life-saving genetic therapies. The future of medicine will rely on artificial intelligence, because biology is too complex for humans to understand. At Deep Genomics, our geneticists, molecular biologists and chemists develop new ways of detecting and treating disease using our biologically accurate artificial intelligence technology.",
+   "categories_site": [
+    "Health"
+   ],
+   "site_founded_year": "2014",
+   "site_invest_year": "2017",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2019
+  },
+  "digital-alloys": {
+   "name": "Digital Alloys",
+   "company_url": "https://www.digitalalloys.com/",
+   "description": "Digital Alloys, Inc. develops high-speed, multi-metal additive manufacturing systems that print production quality parts, in almost any metal, at a fraction of the cost of other systems.",
+   "categories_site": [
+    "3D Printing"
+   ],
+   "site_founded_year": "2017",
+   "site_invest_year": "2017",
+   "alumni": false,
+   "case_study": false,
+   "snapshot_year": 2022
+  }
+ }
+}

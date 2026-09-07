@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)	]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+		<title>Portfolios | Khosla Ventures</title>
+		<meta name="site-developer" content="Delwin Vriend" />
+		<meta name="site-developer-site" content="http://www.delwinvriend.com/" />
+		<meta name="graphic-designer" content="Micah Kasman" />
+		<meta name="graphic-designer-site" content="http://www.kasmandesign.com/" />
+
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" href="/wp-content/themes/khosla/css/resets.css" />
+		<link rel="stylesheet" href="/wp-content/themes/khosla/css/desktop.css?v=1.04" media="all" />
+		<link rel="stylesheet" href="/wp-content/themes/khosla/css/640.css?v=1.04" media="all and (max-width: 960px)" />
+		<!--[if gt IE 8]><!-->
+			<!-- for IE 9+ and all non-IE browsers -->
+			<link rel="stylesheet" href="/wp-content/themes/khosla/css/mobile.css?v=1.04" media="all and (max-width: 480px)" />
+		<!--<![endif]-->
+
+		<!--[if IE]>
+			<link rel="stylesheet" href="/wp-content/themes/khosla/css/ie.css?v=1.04" media="all" />
+		<![endif]-->
+
+		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+
+		<script>
+			var app = {
+				iOS: navigator.userAgent.match(/(iPad|iPhone|iPod)/g),
+				portal_design_width: 960,
+				portal_mobile_snap_width: 640
+			};
+			if (app.iOS) {
+				document.write('<link rel="stylesheet" href="/wp-content/themes/khosla/css/ios.css?v=1.04" media="all" title="iOS specific" />');
+			}
+		</script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+		<script src="/wp-content/themes/khosla/js/modernizr.custom.mq.js"></script>
+		<script src="/wp-content/themes/khosla/js/site.js"></script>
+		<script src="/wp-content/themes/khosla/js/images.js"></script>
+		<script>
+			$(document).ready(function() {
+				$(window).resize();
+				$(window).resize(); // in case we got rid of or added scrollbars
+				app.preload_images();
+				app.showSearchOnClick();
+			});
+		</script>
+		<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46390017-1', 'khoslaventures.com');
+  ga('send', 'pageview');
+
+</script>	</head>
+	<body ontouchstart="" class="pods pod-page-portfolios pod-portfolio full-width custom-background-empty">
+		<div id="mobile_container">
+			<div id="fb-root"></div>
+	    <script>
+	      window.fbAsyncInit = function() {
+	        FB.init({
+	          appId      : '{your-app-id}',
+	          status     : true,
+	          xfbml      : true
+	        });
+	      };
+
+	      (function(d, s, id){
+	         var js, fjs = d.getElementsByTagName(s)[0];
+	         if (d.getElementById(id)) {return;}
+	         js = d.createElement(s); js.id = id;
+	         js.src = "//connect.facebook.net/en_US/all.js";
+	         fjs.parentNode.insertBefore(js, fjs);
+	       }(document, 'script', 'facebook-jssdk'));
+	    </script>
+			<header id="masthead">
+				<div class="left"></div>
+				<div class="right"></div>
+				<div class="site-header">
+					<a href="/"><img src="/wp-content/uploads/khosla_logo_hires.png" height="22" align="left" /></a>
+					<div class="logo_shading"></div>
+					<nav id="site-navigation" class="main-navigation">
+						<ul class="top">
+							<li class="search">
+								<img src="/wp-content/themes/khosla/img/nav_search.png" width="30" height="30" />
+								<div class="search">
+									<ul>
+										<li><form role="search" method="get" id="searchform" action="http://www.khoslaventures.com/">
+	<input type="search" value="" name="s" id="s" placeholder="Search" autocomplete="off" />
+	<input type="image" id="searchsubmit" src="/wp-content/themes/khosla/img/clear.gif" width="24" height="24" value="Search" />
+</form><div style="display: none;"><input type="text" id="s0" value="" /></div></li>
+									</ul>
+								</div>
+							</li>
+							<li class="main-menu">
+								<img src="/wp-content/themes/khosla/img/nav_menu.png" width="30" height="30" />
+								<div class="menu-primary-menu-container"><ul id="menu-primary-menu" class="nav-menu"><li id="menu-item-1017" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1017"><a href="//www.khoslaventures.com/our-focus">Our focus</a></li>
+<li id="menu-item-1108" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1108"><a href="//www.khoslaventures.com/case-studies">Our portfolio</a></li>
+<li id="menu-item-751" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-751"><a href="//www.khoslaventures.com/team">Our team</a></li>
+<li id="menu-item-1055" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1055"><a href="//www.khoslaventures.com/work-with-us">Work with us</a></li>
+<li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17"><a href="//www.khoslaventures.com/topic/featured">Point of view</a></li>
+<li id="menu-item-1031" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1031"><a href="//fc.khoslaventures.com/">For comment</a></li>
+</ul></div>							</li>
+						</ul>
+					</nav>
+				</div>
+				<div style="clear: both; position: relative;"></div>
+			</header>
+			<div id="page">
+				<div id="main" class="wrapper">
+			<header id="page_head">
+				<hgroup>
+					<a href="/case-studies"><h1>Our Portfolio</h1></a>
+				</hgroup>
+				<nav id="type_navigation">
+					<form action="/portfolios" method="get" class="porfolio_search non_mobile" autocomplete="off">
+						<input type="search" placeholder="SEARCH" name="sch" />
+						<input type="submit" class="submit" />
+					</form>
+					<ul class="menu">
+						<li class="top"><span class="heading" onclick="app.showDropDown('type_navigation');">By Type</span>
+							<img class="close_button" src="/wp-content/themes/khosla/img/m_button_close.png" width="20" height="20" onclick="app.hideDropDown('type_navigation');" />
+							<ul class="dropdown">
+								<li><a href="/case-studies">Case studies</a>
+								<li><a href="/portfolios">All companies</a>
+								<li><a href="/portfolios?type=Advertising">Advertising</a>
+								<li><a href="/portfolios?type=Agriculture%2Ffood">Agriculture/food</a>
+								<li><a href="/portfolios?type=Big+data">Big data</a>
+								<li><a href="/portfolios?type=Chemicals%2Ffuels">Chemicals/fuels</a>
+								<li><a href="/portfolios?type=Consumer">Consumer</a>
+								<li><a href="/portfolios?type=Education">Education</a>
+								<li><a href="/portfolios?type=Efficiency">Efficiency</a>
+								<li><a href="/portfolios?type=Enterprise">Enterprise</a>
+								<li><a href="/portfolios?type=Financial+services">Financial services</a>
+								<li><a href="/portfolios?type=Health">Health</a>
+								<li><a href="/portfolios?type=Materials">Materials</a>
+								<li><a href="/portfolios?type=Power">Power</a>
+								<li><a href="/portfolios?type=Space">Space</a>
+								<li><a href="/portfolios?type=Storage">Storage</a>
+							</ul>
+						</li>
+					</ul>
+					<form action="/portfolios" method="get" class="porfolio_search mobile" autocomplete="off">
+						<input type="search" placeholder="SEARCH" name="sch" />
+						<input type="submit" class="submit" />
+					</form>
+				</nav>
+				<div style="clear: both;"></div>
+			</header>
+			<nav id="page_navigation"></nav>
+			<div style="clear: both;"></div>
+			<div id="primary">
+				<div id="content" class="portfolios">
+											<h1 class="all_topics">All Companies</h1>
+													<div>
+																			<h2 class="company summary"><a href="http://www.academia.edu/" target="_blank">Academia.edu</a></h2>
+																																												</div>
+																	<p class="summary">Academia.edu is a platform for academics to share their research, monitor deep analytics around the impact of their research and track the research of academics they follow. The company&#8217;s mission is to accelerate the world&#8217;s research.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.adamanttech.com/" target="_blank">Adamant</a></h2>
+																																												</div>
+																	<p class="summary">Adamant Technologies has developed a novel mobile chemical sensor device that allows users to track their health and fitness through chemicals in their breath. Adamant empower users to take control of their own health and understand it through real time, non-invasive detection.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.alivecor.com/" target="_blank">AliveCor</a></h2>
+																																												</div>
+																	<p class="summary">AliveCor has a device and application that will turn any smartphone into a clinical-quality electrocardiogram (ECG) recorder. They are dedicated to enabling users to take control of their heart health.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://aloha.com/home" target="_blank">ALOHA</a></h2>
+																																												</div>
+																	<p class="summary">ALOHA is a health and wellness company focused on producing nutrient-rich, gluten-free, all natural vegan foods and essential minerals. Together with the world’s most respected doctors, scientists, trainers, yogis, nutritionists and holistic health practitioners, ALOHA develops innovative, high-quality products and inspiring content that informs and motivates individuals to live a healthy, happy life.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://altarockenergy.com/" target="_blank">AltaRock Energy</a></h2>
+																																												</div>
+																	<p class="summary">AltaRock Energy is a full-service geothermal energy technology and services company. AltaRock’s experienced team, innovative technology and creative approach turns under performing assets into highly profitable energy projects, building and operating the geothermal power plants of the future.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.ambri.com/" target="_blank">Ambri</a></h2>
+																																												</div>
+																	<p class="summary">Ambri is developing an electricity storage solution that will change the way electric grids are operated worldwide. Ambri will enable more widespread use of renewable generation like wind and solar, reduce power prices and increase system reliability.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.amyris.com/" target="_blank">Amyris</a></h2>
+																																				<span class="alumni">Alumni</span>								</div>
+																	<p class="summary">Amyris delivers high-performance alternatives to petroleum-based products across a wide range of consumer and industry segments. They have developed innovative microbial engineering and screening technologies that modify the way microorganisms process sugars. Amyris is using its proprietary synthetic biology platform to design microbes, primarily yeast, and use them as living factories in established fermentation processes to convert plant-sourced sugars into renewable hydrocarbons.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.appnexus.com/" target="_blank">AppNexus</a></h2>
+																																												</div>
+																	<p class="summary">AppNexus is a technology company that provides trading solutions and powers marketplaces for Internet advertising. Their open, unified and powerful programmatic platform empowers customers to more effectively buy and sell media, allowing them to innovate, differentiate and transform their businesses.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://arcanumalloys.com/" target="_blank">Arcanum Alloy Design</a></h2>
+																																												</div>
+																	<p class="summary">Arcanum Alloys has developed platform technology to drive revolutionary performance and margins in numerous metal alloy markets. Their process allows surface properties to be decoupled from the bulk properties of metals and excels in applications where post forming is required or beneficial.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.arista.com/" target="_blank">Arista Networks</a></h2>
+																																												</div>
+																	<p class="summary">Arista Networks delivers software driven cloud networking solutions for large data center and high-performance computing environments. With more than two million cloud networking ports being deployed worldwide, Arista delivers a portfolio of 1/10/40 and 100GbE products that redefine network architectures, bring extensibility to networking and dramatically change the price/performance of data center networks.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.areva.com/EN/news-8199/areva-acquires-the-u-s-solar-company-ausra.html" target="_blank">Ausra</a></h2>
+																																				<span class="alumni">Alumni</span>								</div>
+																	<p class="summary">Ausra manufactures and develops utility-scale solar technologies to serve global electricity needs in a market competitive and environmentally responsible manner. The company was acquired by AREVA, which specializes in nuclear and renewable energy.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://avogy.com/" target="_blank">Avogy</a></h2>
+																																												</div>
+																	<p class="summary">Avogy provides total systems solutions for power electronics applications utilizing GaN on GaN discrete devices, modules and systems. Their mission is to increase the efficiency and reliability of power conversion systems while dramatically reducing their cost, size and weight.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.ayasdi.com/" target="_blank">Ayasdi</a></h2>
+																		<a class="readmore" href="/case-study/ayasdi">Read More</a>																										</div>
+																	<p class="summary">Ayasdi is transforming how the world uses data to solve complex problems with an automated insight discovery platform that helps organizations operationalize insights from their data. The company was founded in 2008 after a decade of research at Stanford, funded by DARPA and NSF. Ayasdi’s Insight Discovery platform uses Topological Data Analysis (TDA) which combines a large number of machine learning techniques to enable business people, domain experts and data scientists to achieve value from their data without the need to invest man-years writing code or fruitless queries.</p>
+																<div>
+																			<h2 class="company summary"><a href="https://www.bidgely.com/" target="_blank">Bidgely</a></h2>
+																																												</div>
+																	<p class="summary">Bidgely is working to solve one of the biggest challenges in energy: enabling utilities to meet their demand-side energy goals by fully engaging and satisfying their customers. The company has developed ground-breaking analytics that can itemize home energy usage data to the appliance level without the use of plug-level monitors.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.bigswitch.com/" target="_blank">BigSwitch</a></h2>
+																																												</div>
+																	<p class="summary">Big Switch Networks is at the forefront of the next generation of networking technologies. By combining commodity OEM/ODM Ethernet switch hardware (&#8220;bare metal switches”) with sophisticated SDN control software, the company is delivering modern networking fabrics for the world’s most advanced data centers looking to achieve high degrees of network automation at cloud-competitive price points. The company’s current product lines are focused on data center switching or routing networks and monitoring networks.</p>
+																<div>
+																			<h2 class="company summary"><a href="https://www.billguard.com/" target="_blank">BillGuard</a></h2>
+																																												</div>
+																	<p class="summary">BillGuard is a personal finance security and productivity company, which has developed a groundbreaking new approach to identifying deceptive, erroneous and unauthorized charges on consumer credit card and debit card bills. BillGuard uses crowdsourced big-data analytics to harness the collective knowledge of millions of consumers reporting billing complaints online and to their merchants and banks. The free service scans users&#8217; e-statements daily, alerting them to bad charges and helping them get their money back.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://bioconsortia.com/" target="_blank">BioConsortia</a></h2>
+																																												</div>
+																	<p class="summary">BioConsortia is an agricultural biotechnology company that uses a proprietary method for the selection of beneficial microbial consortia for crop improvement. The company has pipeline products and research projects for: enhanced fertilizer utilization and substitution of N, P, K and S; plant growth improvement of harvestable yield, root mass and accelerated development; other desirable crop traits such as abiotic tolerance, biotic resistance and enhanced metabolite expression. BioConsortia partners with crop protection and plant breeding companies to bring the benefits of microbial science and biotechnology to sustainable crop production.</p>
+																<div>
+																			<h2 class="company summary"><a href="https://bitly.com/" target="_blank">Bitly</a></h2>
+																																												</div>
+																	<p class="summary">Bitly is committed to the power of the link and allows users to save, share and discover links from around the web. Bitly shortens more than 1 billion links per month as an integral part of social, SMS, email efforts (and more) from publishers, brands, government organizations, educational institutions, non-profits and individual users. Processing more than 6 billion clicks on those links per month, Bitly remains the leader in an optimal sharing experience, and continues to unveil new products while generating one of the most valuable proprietary data sets in the world today.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.bluerivert.com/" target="_blank">Blue River Technologies</a></h2>
+																																												</div>
+																	<p class="summary">Blue River Technology employs computer vision and robotics technologies to build intelligent solutions for the agricultural industries. With breakthrough computer vision techniques for identifying weeds and selectively killing unwanted plants, Blue River Technology’s equipment is significantly more efficient than traditional methods of weed elimination. Its automated solution is particularly well-suited to organic agriculture and for fields with chemical-resistant weeds.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.boku.com/" target="_blank">Boku</a></h2>
+																																												</div>
+																	<p class="summary">Boku is a global mobile payments network providing mobile-enhanced payments in e-commerce and at physical point-of-sale. They service 68 countries through more than 250 carrier partners and are connected to merchants such as Facebook, Electronic Arts (EA), Sony, Spotify, Lookout and Riot Games.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.calera.com/site/" target="_blank">Calera</a></h2>
+																																												</div>
+																	<p class="summary">Calera is focused on the conversion of CO2 into beneficial reuse products and more energy efficient production of industrial chemicals. The company aims to achieve environmental sustainability that also is economically sustainable.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://canary.is/" target="_blank">Canary</a></h2>
+																																												</div>
+																	<p class="summary">Canary is a systems integration peripheral hardware manufacturer and software development company. The company has developed a complete security system packed into a single, beautiful device. Canary adapts to a home over time and sends intelligent notifications with high definition video directly to their users&#8217; smartphones.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://cellscope.com/" target="_blank">Cellscope</a></h2>
+																																												</div>
+																	<p class="summary">CellScope builds systems for at-home disease diagnosis using smartphone cameras connected to a web platform. The company&#8217;s mission is to create the world&#8217;s first smartphone-enabled digital first aid kit, giving access to easy-to-use, at-home tools in order to capture diagnostic-quality data for remote diagnosis and get peace of mind. CellScope is currently building a suite of optical attachments for smartphones.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://cirisenergy.com/" target="_blank">Ciris Energy</a></h2>
+																																												</div>
+																	<p class="summary">Ciris Energy develops technology for the production of electricity from buried coal and other hydrocarbon deposits. Their technologies, ISBCTM and ESBCTM, share a common component: the microbial bio conversion of carbon. The ISBC technology process is conducted below ground in coal seams where indigenous microbes convert coal to methane. The ESBC technology is conducted above ground after coal has been mined and combines a low cost thermochemical pretreatment of coal with engineered microbes to convert coal to chemicals and methane.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.climate.com/" target="_blank">Climate Corporation</a></h2>
+																		<a class="readmore" href="/case-study/climate-corporation">Read More</a>									<span class="alumni_separator">/</span>									<span class="alumni">Alumni</span>								</div>
+																	<p class="summary">The Climate Corporation aims to help farmers around the world protect and improve their farming operations. The company’s proprietary technology platform delivers the best measurements, insights and execution tools to farmers through a combination of hardware, software and services. These tools help farmers manage the risks they can’t control with unique insurance solutions and make better decisions with the things they can control with unique web and mobile apps, in-field hardware execution tools and agronomic services. </p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.cogenra.com/" target="_blank">Cogenra Solar</a></h2>
+																																												</div>
+																	<p class="summary">Cogenra’s mission is to enable widespread adoption of clean renewable energy by providing efficient, flexible solar electricity at lower costs than conventional fossil fuel alternatives. The company offers large distributed and utility-scale solar solutions that leverage upstream progress in the crystalline silicon PV cell industry, low-cost construction materials and innovative business models with highly-scalable worldwide module manufacturing capacity.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.consumerphysics.com/myscio/" target="_blank">Consumer Physics</a></h2>
+																																												</div>
+																	<p class="summary">Consumer Physics is building a pocket spectrometer for smart phones, enabling a variety of consumer applicatons. Their first product, SCiO, reads the chemical make-up of materials; it is a non-intrusive, no-touch optical sensor that provides a seamless user experience.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.contrailsystems.com/" target="_blank">Contrail Systems</a></h2>
+																																				<span class="alumni">Alumni</span>								</div>
+																	<p class="summary">Contrail Systems is focused on software-defined networking (SDN) by developing an open-source network virtualization platform. The company was acquired by Juniper Networks.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.coskata.com/" target="_blank">Coskata</a></h2>
+																																												</div>
+																	<p class="summary">Coskata is a biology-based renewable energy company with technology for the production of liquid fuels. Using proprietary microorganisms and transformative bio-reactor designs, the company will produce ethanol from a wide variety of input materials to provide economic, environmental and national security benefits.</p>
+																<div>
+																			<h2 class="company summary"><a href="https://www.crowdmed.com/" target="_blank">Crowdmed</a></h2>
+																																												</div>
+																	<p class="summary">CrowdMed uses prediction market technology and the collective intelligence of human &#8216;medical detectives&#8217; to produce diagnostic suggestions.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.cylance.com/" target="_blank">Cylance</a></h2>
+																																												</div>
+																	<p class="summary">Cylance is a cyber-security products and services company that solves very large and complex problems simply and elegantly.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.daterainc.com/" target="_blank">Datera</a></h2>
+																																												</div>
+																	<p class="summary">Datera is focused on redefining the cloud from the ground up to meet the demands of today&#8217;s most cutting-edge applications.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://dbnetworks.com/" target="_blank">DB Networks</a></h2>
+																																												</div>
+																	<p class="summary">DB Networks is an innovator of adaptive database firewall equipment. Designed for organizations who need to protect their data from network-based database attacks, DB Networks Adaptive Database Firewall is an effective countermeasure against SQL Injection and Denial of Service attacks. Unlike traditional database security solutions, which require extensive customization and time-consuming white list/black list maintenance, DB Networks patent-pending technology is able to automatically adapt to any changes to the database threat profile.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://don.na/" target="_blank">Donna</a></h2>
+																																				<span class="alumni">Alumni</span>								</div>
+																	<p class="summary">Donna is a mobile personal assistant application that aims to make life easier for users by proactively anticipating things they need and providing them. The company was acquired by Yahoo.</p>
+																<div>
+																			<h2 class="company summary"><a href="https://www.doordash.com/" target="_blank">DoorDash</a></h2>
+																																												</div>
+																	<p class="summary">DoorDash enables delivery in areas where it is not otherwise available. Their mission is to empower small business owners to offer delivery in an affordable and convenient way.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.easic.com/" target="_blank">eASIC</a></h2>
+																																												</div>
+																	<p class="summary">eASIC is a fabless semiconductor company offering breakthrough NEW ASIC devices aimed at dramatically reducing the overall cost and time-to-production of customized semiconductor devices. Low-cost, high-performance and fast-turn ASIC and system-on-chip designs are enabled through patented technology utilizing Via-layer customizable routing. This innovative fabric allows eASIC to offer a new generation of ASICs with significantly lower up-front costs than traditional ASICs.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://ecomotors.com/" target="_blank">EcoMotors</a></h2>
+																		<a class="readmore" href="/case-study/ecomotors">Read More</a>																										</div>
+																	<p class="summary">EcoMotors is redefining how the world is powered by challenging conventions about the size, efficiency and versatility of the internal combustion engine.Their unique opposed-piston opposed-cylinder (opoc®) engine technology enables endless potential for innovation in vehicle and machine design.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.etagen.com/" target="_blank">EtaGen</a></h2>
+																																												</div>
+																	<p class="summary">EtaGen is merging the aspirations of clean tech with the practicality of tried-and-true technology to revolutionize the way electricity is generated and delivered. By taking a fundamental approach to efficient power generation, the company has eliminated the key constraints of conventional engine architecture. The result is an on-site power generation system that makes categorical leaps in efficiency, reliability, cost and emissions performance.</p>
+																<div>
+																			<h2 class="company summary"><a href="https://www.everlane.com/" target="_blank">Everlane</a></h2>
+																																												</div>
+																	<p class="summary">Everlane designs, manufactures and sells luxury clothing items at a low retail markup via an online e-commerce website. They aim to provide low-cost, high-quality goods by cutting out middlemen.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.evolv.net/" target="_blank">Evolv On Demand</a></h2>
+																																												</div>
+																	<p class="summary">Evolv is a big data company that helps solve workforce performance issues for the C-suite by utilizing a configurable cloud services platform. Evolv’s patent-pending technology platform unifies and supplements existing data from current systems, then utilizes that data set to identify fact-based workforce insights that drive measurable ROI. By using objective, data-driven methodology, Evolv helps companies uncover the core reasons behind workforce performance, enabling executives to make better operational business decisions that generally result in tens of millions of dollars in measurable value per year.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://eyenetra.com/" target="_blank">EyeNetra</a></h2>
+																																												</div>
+																	<p class="summary">EyeNetra is a disruptive eye care platform enabling on-demand eye testing and remote access to vendors and providers through eye diagnostics on mobile phones.</p>
+																<div>
+																			<h2 class="company summary"><a href="https://fundbox.com/" target="_blank">Fundbox</a></h2>
+																																												</div>
+																	<p class="summary">Fundbox leverages deep data analytics to accelerate cash flow and clear invoices for small businesses.</p>
+																<div>
+																			<h2 class="company summary"><a href="https://www.fundera.com/" target="_blank">Fundera</a></h2>
+																		<a class="readmore" href="/case-study/fundera">Read More</a>																										</div>
+																	<p class="summary">Fundera is an online marketplace that connects small business owners with the best funding provider for their businesses. Every year millions of small business owners apply for loans, and over 80-percent of applications are rejected by the big banks. Fundera&#8217;s mission is to help small businesses grow by looking beyond the world of traditional banks and finding the best lender for their business.</p>
+																<div>
+																			<h2 class="company summary"><a href="https://www.fuze.com/home" target="_blank">Fuze</a></h2>
+																																												</div>
+																	<p class="summary">Fuze is the global leader in real time visual collaboration applications for millions of end users across various businesses. Its flagship application, Fuze HD, allows people to communicate, collaborate and share content from any device, across any network, anywhere in the world. Fuze HD is a mobile and web-based collaboration service that features integrated audio conferencing as well as high-definition, synchronized video and image sharing. The company&#8217;s technology is based on a real-time visual communications platform that converges telephony, high-definition, synchronized video and image sharing across the enterprise, the web and mobile networks.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.gevo.com/" target="_blank">Gevo</a></h2>
+																																												</div>
+																	<p class="summary">Gevo is a leading renewable chemicals and advanced bio-fuels company. They have developed bio-based alternatives to petroleum-based products using a combination of synthetic biology and chemistry. Gevo produces isobutanol, a versatile platform chemical for the liquid fuels and petrochemicals markets. Isobutanol has broad market applications as a solvent and a gasoline blend stock that can help refiners meet their renewable fuel and clean air obligations. It also can be further processed using well-known chemical processes into jet fuel and feed stocks for the production of synthetic rubber, plastics and polyesters.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://ginger.io/" target="_blank">Ginger.io</a></h2>
+																																												</div>
+																	<p class="summary">Ginger.io is a behavior analytics company and spinoff of the MIT Media Lab. The company uses big data from mobile phones to model user behavior and make inferences about health and wellness. -</p>
+																<div>
+																			<h2 class="company summary"><a href="https://www.granular.ag/" target="_blank">Granular</a></h2>
+																																												</div>
+																	<p class="summary">Granular powers the world’s most efficient farms. The company’s cloud software and analytics platform helps farmers become more efficient and make better business decisions.</p>
+																<div>
+																			<h2 class="company"><a href="http://www.greatpointenergy.com/" target="_blank">GreatPoint Energy</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://greenlightbiosciences.com/" target="_blank">Greenlight Biosciences</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company summary"><a href="http://grokker.com/" target="_blank">Grokker</a></h2>
+																																												</div>
+																	<p class="summary">Grokker is an expert video network aiming to offer the best content in cooking, yoga and fitness from chefs and teachers worldwide.</p>
+																<div>
+																			<h2 class="company"><a href="https://groupme.com/" target="_blank">GroupMe</a></h2>
+																																				<span class="alumni">Alumni</span>								</div>
+																<div>
+																			<h2 class="company"><a href="https://www.guardanthealth.com/" target="_blank">Guardant Health</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://www.gym-pact.com/" target="_blank">GymPact</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company summary"><a href="https://www.hackerrank.com/" target="_blank">HackerRank</a></h2>
+																		<a class="readmore" href="/case-study/hackerrank">Read More</a>																										</div>
+																	<p class="summary">HackerRank is a platform for coding contests used by programmers to hone their skills and a tool for companies to streamline their recruiting processes. Hacker: &#8220;Someone who can make a computer do what he wants, whether the computer wants to or not.&#8221;</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.hamptoncreek.com/" target="_blank">Hampton Creek Foods</a></h2>
+																																												</div>
+																	<p class="summary">Hampton Creek Foods is a food company that uses technology based upon understanding plants from every corner of the planet to enable consumers, food manufacturers and the largest retailers around the world to offer better, healthier products at a more affordable cost. The company&#8217;s mission to bring healthier and more affordable food to everyone, everywhere. Their first product is a mayonnaise called Just Mayo which is currently on shelves in Safeway, Whole Foods and select Costco stores across the United States.</p>
+																<div>
+																			<h2 class="company summary"><a href="https://www.healthtap.com/" target="_blank">HealthTap</a></h2>
+																		<a class="readmore" href="/case-study/healthtap">Read More</a>																										</div>
+																	<p class="summary">HealthTap is reinventing the way people access information about their health by connecting patients and doctors online and disseminating trusted, vetted, peer-reviewed medical information.</p>
+																<div>
+																			<h2 class="company"><a href="https://www.heartvista.com/" target="_blank">Heartvista</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://idibon.com/" target="_blank">Idibon</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company summary"><a href="https://www.indiegogo.com/" target="_blank">IndieGoGo</a></h2>
+																																												</div>
+																	<p class="summary">IndieGoGo is a global crowd funding platform empowering people around the world to fund projects that matter to them.</p>
+																<div>
+																			<h2 class="company summary"><a href="https://www.instacart.com/store" target="_blank">Instacart</a></h2>
+																																												</div>
+																	<p class="summary">Instacart is a same-day grocery delivery company offering delivery in as little as one hour. The company is focused on delivering groceries and home essentials from a variety of local stores.</p>
+																<div>
+																			<h2 class="company summary"><a href="https://jawbone.com/" target="_blank">Jawbone</a></h2>
+																																												</div>
+																	<p class="summary">Jawbone develops human-centered wearable technology and audio devices that are unparalleled in their technical innovation, ease-of-use and sophistication of design.</p>
+																<div>
+																			<h2 class="company"><a href="https://www.jetpac.com/" target="_blank">Jetpac</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company summary"><a href="https://www.judicata.com/" target="_blank">Judicata</a></h2>
+																																												</div>
+																	<p class="summary">Judicata is mapping the legal genome using highly specialized case law parsing and algorithmically assisted human review to turn unstructured court opinions into structured data. The company leverages data to build legal research and analytics tools that are an order of magnitude better than existing offerings. While great legal technology will never replace lawyers, it can help them make sense of massive amounts of information and aid them in exercising their skilled, human judgment.</p>
+																<div>
+																			<h2 class="company"><a href="http://www.kaggle.com/" target="_blank">Kaggle</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://www.kior.com/" target="_blank">Kior</a></h2>
+																																				<span class="alumni">Alumni</span>								</div>
+																<div>
+																			<h2 class="company"><a href="http://kumunetworks.com/" target="_blank">Kumu Networks</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://kyron.com/" target="_blank">Kyron</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company summary"><a href="http://www.lanzatech.com/" target="_blank">LanzaTech</a></h2>
+																		<a class="readmore" href="/case-study/lanzatech">Read More</a>																										</div>
+																	<p class="summary">LanzaTech uses a novel biological approach to transform industrial carbon rich waste gases and residues into fuels and chemicals. By capturing the carbon from the gas, LanzaTech is able to reuse it as a fuel or sequester it into chemical intermediates that can be used in the manufacturing of new products such as plastics, nylon and rubber.</p>
+																<div>
+																			<h2 class="company"><a href="https://www.learnstreet.com/" target="_blank">LearnStreet</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://www.lightsail.com/" target="_blank">Lightsail Energy</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://littlebits.cc/" target="_blank">littlebits Electronics</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="https://www.lookout.com/" target="_blank">Lookout</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company summary"><a href="http://lumiata.com/" target="_blank">Lumiata</a></h2>
+																																												</div>
+																	<p class="summary">Lumiata applies big data-driven medical science to patient data in order to optimize every health care interaction. The company delivers real-time predictive analytics that help hospital networks and insurance carriers provide higher quality care to more patients in less time.</p>
+																<div>
+																			<h2 class="company"><a href="http://lyricalfoods.com/" target="_blank">Lyrical Foods</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://www.mascoma.com/" target="_blank">Mascoma</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://www.memsql.com/" target="_blank">MemSQL</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company summary"><a href="http://metamarkets.com/" target="_blank">Metamarkets</a></h2>
+																		<a class="readmore" href="/case-study/metamarkets">Read More</a>																										</div>
+																	<p class="summary">Metamarkets is a real-time analytics platform with applications in programmatic advertising. They enable digital media buyers, sellers and exchanges to make better decisions by providing a visual and intuitive reporting interface into trillions of real-time advertising transactions. Metamarkets is akin to a Bloomberg terminal for online media markets.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://www.misfitwearables.com/" target="_blank">Misfit Wearables</a></h2>
+																																												</div>
+																	<p class="summary">Misfit Wearables is focused on developing great wearable products: things that people would want to wear all the time for a long time. A pioneer in the emerging world of wearable sensor technology, the company is making products and services in the consumer health and fitness space to inspire people be more active and develop healthy habits. Misfit’s first product is the Shine, an elegant personal activity tracker that syncs instantly with a smartphone just by placing the device on the screen.</p>
+																<div>
+																			<h2 class="company"><a href="http://www.moka5.com/" target="_blank">Moka5</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://mylikes.com/" target="_blank">MyLikes</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://www.nanoh2o.com/" target="_blank">NanoH2O</a></h2>
+																																				<span class="alumni">Alumni</span>								</div>
+																<div>
+																			<h2 class="company"><a href="http://www.neverware.com/" target="_blank">Neverware</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://www.nu-tekfoodscience.com/" target="_blank">Nu-tek Salt</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://www.nutanix.com/" target="_blank">Nutanix</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="https://www.okta.com/" target="_blank">Okta</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="https://www.oneid.com/" target="_blank">OneID</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company summary"><a href="https://www.hioscar.com/" target="_blank">OSCAR</a></h2>
+																																												</div>
+																	<p class="summary">Oscar is a health insurance company that employs technology, design and data to humanize health care.</p>
+																<div>
+																			<h2 class="company"><a href="http://panzura.com/" target="_blank">Panzura</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="https://www.parstream.com/" target="_blank">Parstream</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://Apple.com/" target="_blank">Passif Semiconductor</a></h2>
+																																				<span class="alumni">Alumni</span>								</div>
+																<div>
+																			<h2 class="company"><a href="http://www.paynearme.com/en" target="_blank">PayNearMe</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://www.peek.com/" target="_blank">Peek</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://www.pelliontech.com/" target="_blank">Pellion</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company summary"><a href="http://piazza.com/" target="_blank">Piazza</a></h2>
+																		<a class="readmore" href="/case-study/piazza">Read More</a>																										</div>
+																	<p class="summary">Piazza changes the way technical students learn and find jobs. Beginning as a question and answer platform to help students get unstuck in their classes, there are now over 500,000 top CS and STEM undergraduate, graduate and PhD students using Piazza for two to three hours per night to help each other with coursework.  The launch of Piazza Careers connects their hugely engaged student base with companies searching for the best young technical talent.</p>
+																<div>
+																			<h2 class="company"><a href="https://www.pymetrics.com/" target="_blank">Pymetrics</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="https://www.quantopian.com/" target="_blank">Quantopian</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company summary"><a href="http://www.quanttus.com/" target="_blank">Quanttus</a></h2>
+																		<a class="readmore" href="/case-study/quanttus">Read More</a>																										</div>
+																	<p class="summary">Quanttus is working to transform personal health by providing people with convenient and clinically relevant clarity about their bodies and by delivering actionable data-driven insights that lead to a healthier life.</p>
+																<div>
+																			<h2 class="company"><a href="http://www.quantumscape.com/" target="_blank">QuantumScape</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="https://www.quartzy.com/" target="_blank">Quartzy</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://www.prnewswire.com/news-releases/regal-beloit-acquires-ramu-inc-a-technology-company-backed-by-khosla-ventures-119243954.html" target="_blank">Ramu Motors</a></h2>
+																																				<span class="alumni">Alumni</span>								</div>
+																<div>
+																			<h2 class="company summary"><a href="http://www.ringcentral.com/" target="_blank">RingCentral</a></h2>
+																																												</div>
+																	<p class="summary">RingCentral breaks down the communication barriers created by complex on-premise hardware. The company delivers cloud business communications solutions that free people to work the way they want in today’s mobile, distributed and always-on world.</p>
+																<div>
+																			<h2 class="company"><a href="https://www.rumblegames.com/" target="_blank">Rumble Entertainment</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company summary"><a href="http://rumrapp.com/" target="_blank">rumr</a></h2>
+																																												</div>
+																	<p class="summary">rumr is a mobile messaging app that allows users to chat privately and anonymously in real-time with theirr friends. rumr allows people to have conversations that identity prevents. It&#8217;s like having a conversation with the lights off.</p>
+																<div>
+																			<h2 class="company"><a href="http://sakti3.com/" target="_blank">Sakti3</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://www.sand9.com/" target="_blank">Sand 9</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://www.seamicro.com/" target="_blank">SeaMicro</a></h2>
+																																				<span class="alumni">Alumni</span>								</div>
+																<div>
+																			<h2 class="company"><a href="https://www.seatme.yelp.com/" target="_blank">SeatMe</a></h2>
+																																				<span class="alumni">Alumni</span>								</div>
+																<div>
+																			<h2 class="company summary"><a href="http://seeo.com/" target="_blank">Seeo</a></h2>
+																																												</div>
+																	<p class="summary">Seeo has developed a new generation of rechargeable lithium batteries based on a proprietary, nanostructured non-flammable polymer electrolyte called DryLyte™. DryLyte batteries offer breakthrough energy density performance in a solid-state design optimized for safety, reliability and lifetime.</p>
+																<div>
+																			<h2 class="company"><a href="http://www.segetis.com/" target="_blank">Segetis</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="https://signnow.com/" target="_blank">SignNow</a></h2>
+																																				<span class="alumni">Alumni</span>								</div>
+																<div>
+																			<h2 class="company"><a href="http://www.siliciumenergy.com/" target="_blank">Silicium Energy</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company summary"><a href="http://www.skyboximaging.com/" target="_blank">Skybox Imaging</a></h2>
+																																												</div>
+																	<p class="summary">Skybox Imaging empowers global businesses to make better decisions with timely, high fidelity imagery and infinite analytics. By combining the power of web technologies and a constellation of high-resolution imaging satellites, Skybox generates a unique data source describing daily global activity with timely, accessible, sub-meter color imagery and high definition video of the Earth.</p>
+																<div>
+																			<h2 class="company"><a href="http://snip.it/" target="_blank">Snip.it</a></h2>
+																																				<span class="alumni">Alumni</span>								</div>
+																<div>
+																			<h2 class="company summary"><a href="http://www.soraa.com/" target="_blank">Soraa</a></h2>
+																																												</div>
+																	<p class="summary">Soraa makes ordinary lighting extraordinarily brilliant and efficient using LEDs built from pure gallium nitride substrates (GaN on GaN™). Soraa&#8217;s full spectrum GaN on GaN LED lamps have superior color rendering and beam characteristics compared to lamps using LEDs created from non-native substrates.</p>
+																<div>
+																			<h2 class="company summary"><a href="http://sosh.com/" target="_blank">Sosh</a></h2>
+																																												</div>
+																	<p class="summary">Sōsh is a social mobile app that enables members to discover local activities, events and places.</p>
+																<div>
+																			<h2 class="company summary"><a href="https://squareup.com/" target="_blank">Square</a></h2>
+																																												</div>
+																	<p class="summary">Square is making commerce easy for everyone.</p>
+																<div>
+																			<h2 class="company"><a href="http://www.stion.com/" target="_blank">Stion</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="https://storify.com/" target="_blank">Storify</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company summary"><a href="http://stripe.com/" target="_blank">Stripe</a></h2>
+																																												</div>
+																	<p class="summary">Stripe is a developer-friendly way to accept payments online and in mobile apps. The company processes billions of dollars a year for thousands of companies of all sizes.</p>
+																<div>
+																			<h2 class="company"><a href="http://sunborneenergy.com/" target="_blank">Sunborne Energy</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://www.tapingo.com/" target="_blank">Tapingo</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="https://www.tenxer.com/" target="_blank">TenXer</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://terrapower.com/" target="_blank">TerraPower</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="https://www.thehunt.com/" target="_blank">The Hunt</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://thync.com/" target="_blank">Thync</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://www.tightdb.com/" target="_blank">TightDB</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://www.timeful.com/" target="_blank">Timeful</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://touchstonesemi.com/" target="_blank">Touchstone Semiconductor</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://www.tscombustion.com/" target="_blank">Transonic Combustion</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="https://trendabl.com/" target="_blank">Trendabl</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://www.tula-tech.com/" target="_blank">Tula Technology</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://getunreal.com/" target="_blank">Unreal Brands</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="https://www.upstart.com/" target="_blank">Upstart Network</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://varentec.com/" target="_blank">Varentec</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://www.tracevector.com/" target="_blank">Vectra Networks</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://viewglass.com/" target="_blank">View Glass</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://www.virdia.com/" target="_blank">Virdia</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://www.voxmedia.com/" target="_blank">Vox Media</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="https://www.wattpad.com/" target="_blank">Wattpad</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="https://webflow.com/" target="_blank">Webflow</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="https://weilos.com/" target="_blank">Weilos</a></h2>
+																																												</div>
+																<div>
+																			<h2 class="company"><a href="http://www.oracle.com/us/corporate/acquisitions/xsigo/index.html" target="_blank">Xsigo</a></h2>
+																																				<span class="alumni">Alumni</span>								</div>
+																<div>
+																			<h2 class="company"><a href="https://www.yammer.com/" target="_blank">Yammer</a></h2>
+																																				<span class="alumni">Alumni</span>								</div>
+																<div>
+																			<h2 class="company"><a href="http://www.yume.com/" target="_blank">YuMe</a></h2>
+																																				<span class="alumni">Alumni</span>								</div>
+																<div>
+																			<h2 class="company"><a href="http://www.zocdoc.com/" target="_blank">ZocDoc</a></h2>
+																																												</div>
+												</div>
+			</div>
+			<div id="quote_column">
+				<pre>"While being foolish enough to dream the dreams, an entrepreneur should be smart enough to get every critique he can, every skeptics opinion about what can go wrong, and plan for his/her liabilities in addition to his/her assets."
+
+"You don't do extraordinary things by attempting ordinary things."</pre>
+			</div>
+				</div>
+			</div>
+			<div class="float_clear"></div>
+			<footer>
+				<section id="about">
+					<h1>About Khosla Ventures</h1>
+					<p>Khosla Ventures provides venture assistance and strategic advice to entrepreneurs working on breakthrough technologies. The firm was founded in 2004 by Vinod Khosla, co-founder of Sun Microsystems. With over three billion dollars under management, the firm focuses on a broad range of areas including consumer, enterprise, education, advertising, financial services, semiconductors, health, big data, agriculture/food, sustainable energy and robotics. Khosla Ventures is headquartered in Menlo Park, Calif.</p>					<div id="about_close"><a href="/" onclick="return app.closeAbout();">Close</a></div>
+				</section>
+				<nav>
+					<div class="float_clear"></div>
+					<div class="site_footer">
+						<a href="http://twitter.com/khoslaventures" class="twitter" target="_blank"><img src="/wp-content/themes/khosla/img/clear.gif" width="17" height="17" alt="Twitter" /></a>
+						<a href="http://facebook.com/khoslaventures" class="facebook" target="_blank"><img src="/wp-content/themes/khosla/img/clear.gif" width="17" height="17" alt="Facebook" /></a>
+						<a href="http://youtube.com/khoslaventures" class="youtube" target="_blank"><img src="/wp-content/themes/khosla/img/clear.gif" width="17" height="17" alt="YouTube" /></a>
+						<div class="text_links">
+							<a href="/about" class="about" onclick="return app.showAbout();">About KV</a>
+							<a href="http://www.khoslaimpact.com/" class="impact" target="_blank">KV Impact</a>
+							<!-- <a href="/sitemap" class="sitemap">Sitemap</a> -->
+							<a href="/contactus" class="contact">Contact Us</a>
+						</div>
+					</div>
+					<div class="mobile_footer">
+						<a href="http://twitter.com/khoslaventures" class="twitter" target="_blank"><img src="/wp-content/themes/khosla/img/clear.gif" width="26" height="26" alt="Twitter" /></a>
+						<a href="http://facebook.com/khoslaventures" class="facebook" target="_blank"><img src="/wp-content/themes/khosla/img/clear.gif" width="26" height="26" alt="Facebook" /></a>
+						<a href="http://youtube.com/khoslaventures" class="youtube" target="_blank"><img src="/wp-content/themes/khosla/img/clear.gif" width="26" height="26" alt="YouTube" /></a>
+						<a href="mailto:kv@khoslaventures.com" class="email" target="_blank"><img src="/wp-content/themes/khosla/img/clear.gif" width="26" height="26" alt="Email" /></a>
+						<a href="/contact" class="contact"><img src="/wp-content/themes/khosla/img/clear.gif" width="26" height="26" alt="Contact Us" /></a>
+					</div>
+				</nav>
+				<div class="float_clear"></div>
+			</footer>
+		</div>
+	</body>
+</html>

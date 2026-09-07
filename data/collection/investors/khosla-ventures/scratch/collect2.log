@@ -1,0 +1,32 @@
+targets: 123 roster names
+wrote /Users/erik/Developer/merit-capital/data/collection/investors/khosla-ventures/sources/edgar/formd-sweep.json
+# accessions matched: 1862
+# distinct issuers: 871
+== seeding from EDGAR company search
+   66 entities
+== folding in own pooled Form D vehicles
+   +0 (total 66)
+== co-filer closure (sampling filings of seed entities)
+   110 entities
+   unclassified resolved: 3 partners (people), 39 external co-filers excluded from crawling
+
+wrote data/collection/investors/khosla-ventures/entities.json — 110 entities
+  by desk: {'external': 47, 'us': 63}
+  crawlable (desk != external): 63
+registry: 110 entities · {'external': 47, 'us': 63}
+crawling 63 (external excluded)
+  25/63 entities · 215 unique accessions
+  50/63 entities · 231 unique accessions
+unique ownership filings: 256
+  headers 250/256 · 26 companies
+
+wrote edgar-companies.json — 26 companies
+  by desk: {'us': 26}
+
+==== formd-query.py
+
+==== edgar-entities.py
+
+==== edgar-companies.py
+
+no base.json yet — the Form D rescan (formd-issuer-rounds.py) runs via `prepare` after build-company-base.py

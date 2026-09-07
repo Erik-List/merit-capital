@@ -1,0 +1,446 @@
+{
+ "slug": "khosla-ventures",
+ "name": "Khosla Ventures",
+ "wayback": {
+  "cdx_domain": "khoslaventures.com",
+  "site_url_base": "https://www.khoslaventures.com",
+  "eras": [
+   {
+    "parser": "cdx_company_pages",
+    "path": "/portfolio/",
+    "from": 2014,
+    "to": 2026,
+    "per_company_pages": true,
+    "cdx_pages": 6,
+    "_note": "2014-2024 WordPress (khosla2015 theme) served one page per company at /portfolio/<slug>, and the Webflow rebuild kept a handful of them. The same namespace also holds the era's sector filter pages (/portfolio/big-data, /portfolio/space, ...) and the /portfolio/all-companies index, all listed in non_company_slugs. This is the survivorship layer: the live Webflow /portfolio carries 114 curated cards, the archived namespace carries several hundred slugs, most of them gone from the live site."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio",
+    "from": 2014,
+    "to": 2015,
+    "raw": true,
+    "per_company_pages": false,
+    "pattern": "<h2 class=\"company summary\"><a href=\"(?:[^\"]*?/portfolio/(?P<slug>[a-z0-9-]+)|[^\"]*)\"[^>]*>(?P<name>[^<]{1,60})</a>",
+    "_note": "The 2014 WordPress redesign replaced the scatter charts with a flat 'All Companies' list: <h2 class='company summary'> wrapping either the company's outbound URL (2014) or the internal /portfolio/<slug> (2015+). One optional slug branch reads both shapes, and where the href is outbound the slug falls back to the slugified name. This era is what gives the WordPress book its NAMES -- the /portfolio/ CDX era enumerates slugs only. The list is infinite-scroll, so a capture holds the alphabetical prefix it had scrolled to (the 2014 capture reaches 'Stripe'); the eras merge on slug+path and the CDX namespace carries the rest."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio/all-companies",
+    "from": 2015,
+    "to": 2023,
+    "raw": true,
+    "per_company_pages": false,
+    "pattern": "<h2 class=\"company summary\"><a href=\"(?:[^\"]*?/portfolio/(?P<slug>[a-z0-9-]+)|[^\"]*)\"[^>]*>(?P<name>[^<]{1,60})</a>",
+    "_note": "Same markup at the path the 2015-2023 nav actually pointed at."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/information-technology.html",
+    "from": 2012,
+    "to": 2013,
+    "raw": true,
+    "per_company_pages": false,
+    "pattern": "FillCompanyDesc\\(this,\\s*'comp_(?P<slug>[A-Za-z0-9_.-]+)'[^>]*>(?P<name>[^<]{1,60})</span>",
+    "_note": "2012-2014 WordPress era: the portfolio is rendered as a positioned scatter chart, each company an absolutely-positioned <span> whose onmouseover names the company's own description block ('comp_<slug>') and whose text is the display name. Both the slug and the name come off the same element, so the era needs no name inference. 40 captures 2012-03 to 2014-04, but the chart markup only runs to 2013: the 2014 capture of this path already serves the redesigned 'All Companies' list, which the /portfolio eras below parse instead."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/cleantech.html",
+    "from": 2012,
+    "to": 2014,
+    "raw": true,
+    "per_company_pages": false,
+    "pattern": "FillCompanyDesc\\(this,\\s*'comp_(?P<slug>[A-Za-z0-9_.-]+)'[^>]*>(?P<name>[^<]{1,60})</span>"
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/sustainability.html",
+    "from": 2012,
+    "to": 2014,
+    "raw": true,
+    "per_company_pages": false,
+    "pattern": "FillCompanyDesc\\(this,\\s*'comp_(?P<slug>[A-Za-z0-9_.-]+)'[^>]*>(?P<name>[^<]{1,60})</span>",
+    "_note": "The cleantech chart was renamed 'sustainability' during 2012; both paths are pulled because the capture sets do not overlap cleanly and the parsed years merge on slug+path."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/khosla/it.html",
+    "from": 2010,
+    "to": 2012,
+    "raw": true,
+    "per_company_pages": false,
+    "pattern": "FillCompanyDesc\\(this,\\s*'comp_(?P<slug>[A-Za-z0-9_.-]+)'[^>]*>(?P<name>[^<]{1,60})</span>",
+    "_note": "2010-2012 the whole site lived under a /khosla/ subdirectory with the same chart markup. 21 captures."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/khosla/cleantech.html",
+    "from": 2010,
+    "to": 2012,
+    "raw": true,
+    "per_company_pages": false,
+    "pattern": "FillCompanyDesc\\(this,\\s*'comp_(?P<slug>[A-Za-z0-9_.-]+)'[^>]*>(?P<name>[^<]{1,60})</span>",
+    "_note": "16 captures 2010-05 to 2012-03."
+   }
+  ],
+  "non_company_slugs": [
+   "all-companies",
+   "case-studies",
+   "case-study",
+   "advertising",
+   "agriculture-food",
+   "big-data",
+   "chemicals-fuels",
+   "consumer",
+   "education",
+   "efficiency",
+   "enterprise",
+   "financial-services",
+   "health",
+   "materials",
+   "power",
+   "robotics",
+   "space",
+   "storage",
+   "transportation",
+   "3d-printing",
+   "internet",
+   "mobile",
+   "medical",
+   "energy",
+   "sustainability",
+   "information-technology",
+   "cleantech",
+   "it",
+   "index",
+   "home",
+   "index.php",
+   "default",
+   "page",
+   "feed",
+   "all",
+   "see-all",
+   "category",
+   "tag",
+   "topic",
+   "type",
+   "author",
+   "wp-json",
+   "wp-content",
+   "wp-admin",
+   "wp-includes",
+   "xmlrpc",
+   "about",
+   "team",
+   "team-member",
+   "people",
+   "philosophy",
+   "news",
+   "posts",
+   "contact",
+   "contactus",
+   "jobs",
+   "careers",
+   "search",
+   "search-results",
+   "sitemap",
+   "robots",
+   "favicon",
+   "css",
+   "images",
+   "assets",
+   "js",
+   "includes",
+   "dropmenu",
+   "portfolio",
+   "portfolios",
+   "companies",
+   "company",
+   "presentations",
+   "presentations2",
+   "papers",
+   "resources",
+   "entrepreneurs",
+   "entrepreneurial",
+   "work-with-us",
+   "main-fund",
+   "seed-fund",
+   "submit-business-plan",
+   "privacy-policy",
+   "ceo-summit",
+   "gallery1",
+   "khosla",
+   "veritas",
+   "teamgoo",
+   "_next",
+   "cdn-cgi",
+   "attachment",
+   "comments",
+   "newsletter",
+   "blog",
+   "21",
+   "4840",
+   "0",
+   "1",
+   "2",
+   "3",
+   "4",
+   "5"
+  ]
+ },
+ "roster": {
+  "cdx_patterns": [
+   "khoslaventures.com/team/*",
+   "khoslaventures.com/team-member/*"
+  ],
+  "site_team_groups": [],
+  "slug_re": "/(?:team|team-member)/([a-z][a-z0-9-]*[a-z0-9])/?$",
+  "listing_href_re": "/(?:team|team-member)/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+  "not_a_person": [
+   "index",
+   "team",
+   "team-member",
+   "people",
+   "bio",
+   "page",
+   "feed",
+   "all",
+   "filter",
+   "attachment",
+   "tag",
+   "about",
+   "companies",
+   "portfolio",
+   "news",
+   "posts",
+   "contact",
+   "jobs",
+   "careers",
+   "partners",
+   "our-team",
+   "the-team",
+   "our-people",
+   "search",
+   "philosophy",
+   "resources",
+   "entrepreneurs"
+  ],
+  "_note": "Three people namespaces across the eras. 2006-2009 flat HTML: one page per partner at /<lastname>.html (vinod, kaul, weiden, lamond, kim, kinnier, tamer, yu, cameron, white, adeeb) -- not enumerable by the dash pattern, curated by hand from the captures. 2010-2013: /khosla/people_<initials>.html and /people_<initials>.html (people_vk, people_sk, people_dw, people_pl, people_ra ...), initials only, also curated. 2014-2015 WordPress: /team-member/<first-last>, 18 slugs, enumerable. 2025+ Webflow: /team/<slug>, 46 in the live sitemap. Per COLLECTION.md's First Round rule the namespace was checked before sweeping: /team/ holds only the firm's own people (no portfolio-founder directory), and /entrepreneurs/ is a separate 8-page namespace of founder stories, deliberately excluded from the roster."
+ },
+ "site_api": {
+  "type": "scrape",
+  "sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/khosla-ventures/sources/site/webflow-portfolio.json",
+    "list": "companies-live",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "sectors": "sectors_site",
+    "extras": [
+     "site_fund_label",
+     "ticker",
+     "tagline",
+     "thesis",
+     "milestone",
+     "category"
+    ]
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/khosla-ventures/sources/site/team-webflow.json",
+    "list": "team",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "slug",
+     "group",
+     "title"
+    ]
+   }
+  ],
+  "_note": "www.khoslaventures.com is Webflow with no public CMS API (escalation ladder step 5). The sitemap has NO per-company pages: the whole portfolio is one server-rendered /portfolio page of 114 cards grouped into eight category sections. Each card carries the company URL, the firm's own fund label (Seed / Early / Growth) on 88 of them, an exchange ticker on 17, a one-line thesis and a milestone. scratch/site-pull.py parses them into the file_list source above. The fund label is a candidate class-1 entry_stage layer and is SCORED on the golden set before it is allowed to label (COLLECTION.md \u00a74)."
+ },
+ "edgar": {
+  "seed_queries": [
+   "khosla",
+   "kv+ventures",
+   "kv+2025"
+  ],
+  "fts_phrases": [
+   "Khosla Ventures",
+   "Khosla Ventures Seed",
+   "Khosla Ventures Opportunity",
+   "Khosla Ventures Acquisition"
+  ],
+  "fts_own_pattern": "khosla ventures|khosla vinod|kv 2025|khosla chaitan|khosla rachna|khosla rajiv|khosla victor|nextdoor holdings",
+  "_note": "Entity set from EDGAR company search 2026-09-07. One adviser, Khosla Ventures, LLC (CRD 162910, SEC file 802-76280 -- an EXEMPT REPORTING ADVISER, so there is no Item 5.F RAUM and Section 7.B gross assets is the sworn substitute, the Creandum shape). Vehicles at 3000 Sand Hill Road (funds I-III, Seed) and 2128 Sand Hill Road (IV onward), Menlo Park: flagships Khosla Ventures I (1501935), II (1501949), III (1471809), IV (1521016), IV (CF) (1685550), V (1611146), VI (1734961), VI (AIV) (1778468), VI (AIV) Holding (1778470), VII (1828214), VIII (1958968), VIII Strategic (2006738), IX (2074230), IX Strategic (2097668); seed funds Khosla Ventures Seed (1471810), Seed B (1551426), Seed B (CF) (1551427), Seed C (1627897), Seed D (1734977), Seed E (1828213), Seed F (1959515), Seed G (2074203), Seed Side Fund (1501948); growth sleeve Opportunity I (1837715), II (1959115), III (2074231); SPVs CFS SPV (1894352), GI SPV (2109620), GI SPV II (2153384), IFSPV I (1802299), II (1891166), II-A (1891165), II-B (1892357), MM SPV (2148181), OAI (2039800), Moonshot (2152350), Excelsior (1969723); the Associates LLCs are the general partners. The 2021 SPAC programme (Khosla Ventures Acquisition Co. 1841873, III 1846068, IV 1847037, the Sponsor LLCs, and KVSA II which became Nextdoor Holdings 1846069) is the firm's own but is not a venture channel -- see decisions.md D3. The Allocate feeders (Khosla Ventures 2023 Allocate Access Fund 1977905 at 1300 El Camino Real, KV 2025 - Allocate Access 2068411 at 502 Waverley Street) file from Allocate Inc's addresses, not the firm's, and are third-party feeders (decisions.md D2). Natural-person namesakes with their own CIKs -- Vinod Khosla (1032453), Chaitan Khosla (1135139), Rachna (1881332), Rajiv (1537095), Victor Khosla (1473996, Strategic Value Partners, unrelated) -- are classified external by the first desk rule so a person's Section 16 filings never seed a firm position."
+ },
+ "wikipedia": {
+  "phrases": [
+   "Khosla Ventures"
+  ]
+ },
+ "desks": {
+  "home": "us",
+  "partition": [],
+  "rank": [
+   "us",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "^khosla vinod",
+     "^khosla chaitan",
+     "^khosla rachna",
+     "^khosla rajiv",
+     "^khosla victor",
+     "^khosla,",
+     "^khosla [a-z]+$",
+     "allocate access",
+     "^kv 2025",
+     "^nextdoor holdings",
+     "^khosla labs",
+     "^khosla impact",
+     "^khosla brothers",
+     "^khosla india"
+    ]
+   },
+   {
+    "desk": "us",
+    "patterns": [
+     "^khosla ventures",
+     "^vk services",
+     "^sk spac services"
+    ]
+   }
+  ],
+  "_note": "One desk: Khosla Ventures is a single Menlo Park adviser (2128 Sand Hill Road) with no geographic or strategy partition -- seed, main and opportunity funds are all venture strategies of the one ERA, so T1 keeps them together and the 2026-09-04 strategy-desk rule does not bite. Namesakes are verified by CIK and address, never by name: five natural persons named Khosla hold their own CIKs and Victor Khosla (Strategic Value Partners) is an unrelated distressed-debt investor. The external rule runs first per COLLECTION.md \u00a75.3. Two cofiler-closure entities were re-desked home on their filing address, the Lightspeed rule (COLLECTION.md \u00a75.3): VK Services, LLC (CIK 1501927) and SK SPAC Services, LLC (1848897) both file from 2128 Sand Hill Road. VK Services is the firm's management company and its 13F filer -- 31 13F-HRs, 70 Form 4s and 23 Form 3s across 2010-2026 -- so it carries fund-side ownership filings from four years before the CDX roster window opens, which is the pre-2014 recall the roster structurally misses."
+ },
+ "profile": {
+  "own_vehicle_pattern": "^khosla ventures",
+  "focus_min_companies": 18,
+  "focus_crosswalk": {
+   "Consumer & Retail": "Consumer & Marketplaces",
+   "Consumer Retail": "Consumer & Marketplaces",
+   "Consumer": "Consumer & Marketplaces",
+   "Retail": "Consumer & Marketplaces",
+   "Enterprise": "SaaS",
+   "Fintech": "Fintech & Payments",
+   "Financial services": "Fintech & Payments",
+   "Financial Services": "Fintech & Payments",
+   "Frontier": "Industrial & Robotics",
+   "Sustainability": "Climate & Energy",
+   "Digital Health": "Healthcare & Bio",
+   "MedTech & Diagnostics": "Healthcare & Bio",
+   "MedTech Diagnostics": "Healthcare & Bio",
+   "MedTech": "Healthcare & Bio",
+   "Diagnostics": "Healthcare & Bio",
+   "Therapeutics": "Healthcare & Bio",
+   "Health": "Healthcare & Bio",
+   "Advertising": "Media, Gaming & Advertising",
+   "Agriculture/food": "Industrial & Robotics",
+   "Agriculture food": "Industrial & Robotics",
+   "Agriculture": "Industrial & Robotics",
+   "Big data": "Data Infrastructure",
+   "Big Data": "Data Infrastructure",
+   "Chemicals/fuels": "Climate & Energy",
+   "Chemicals fuels": "Climate & Energy",
+   "Chemicals": "Climate & Energy",
+   "Fuels": "Climate & Energy",
+   "Education": "Consumer & Marketplaces",
+   "Efficiency": "Climate & Energy",
+   "Materials": "Industrial & Robotics",
+   "Power": "Climate & Energy",
+   "Robotics": "Industrial & Robotics",
+   "Space": "Industrial & Robotics",
+   "Storage": "Climate & Energy",
+   "Transportation": "Industrial & Robotics",
+   "Cleantech": "Climate & Energy",
+   "CleanTech": "Climate & Energy",
+   "Information technology": "SaaS",
+   "Information Technology": "SaaS",
+   "Internet": "Consumer & Marketplaces",
+   "Mobile": "Consumer & Marketplaces",
+   "Medical": "Healthcare & Bio",
+   "Energy": "Climate & Energy",
+   "AI & Applied AI": "AI & Applied AI",
+   "SaaS": "SaaS",
+   "Security": "Security",
+   "Healthcare & Bio": "Healthcare & Bio",
+   "Data Infrastructure": "Data Infrastructure",
+   "Industrial & Robotics": "Industrial & Robotics",
+   "Climate & Energy": "Climate & Energy",
+   "Crypto & Web3": "Crypto & Web3",
+   "Fintech & Payments": "Fintech & Payments",
+   "Consumer & Marketplaces": "Consumer & Marketplaces",
+   "Media, Gaming & Advertising": "Media, Gaming & Advertising",
+   "DevTools & APIs": "DevTools & APIs"
+  },
+  "_note": "Three site vocabularies are crosswalked. The live Webflow site groups the book into eight categories (Consumer & Retail, Enterprise, Fintech, Frontier, Sustainability, Digital Health, MedTech & Diagnostics, Therapeutics); the 2015-2023 WordPress site used sixteen sector filters (Advertising through Transportation); the 2010-2014 chart era split the whole portfolio into just 'information technology' and 'cleantech'/'sustainability'. 'Frontier' is the firm's own word for deep tech -- space, robotics, semiconductors, defence -- and crosswalks to Industrial & Robotics, with the AI-native rows re-read by the grind's own focus pass rather than inherited from the category. focus_min_companies ~4.5% of an expected ~400-row base."
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "doordash",
+   "instacart",
+   "impossible foods",
+   "affirm",
+   "square",
+   "stripe",
+   "opendoor",
+   "nutanix",
+   "okta",
+   "gitlab",
+   "rappi",
+   "faire",
+   "commonwealth fusion",
+   "openai",
+   "replit",
+   "cohere",
+   "ultima",
+   "sword health",
+   "oscar health",
+   "guardant health",
+   "rocket lab",
+   "berkshire grey",
+   "quantumscape",
+   "view",
+   "amyris",
+   "kior",
+   "lanzatech",
+   "climate corporation",
+   "blue river technology",
+   "vicarious surgical",
+   "nextdoor",
+   "bloom energy",
+   "hermeus",
+   "varda space"
+  ],
+  "sample_slugs": [],
+  "shape": {
+   "one_b_share_max": 0.2,
+   "c2a_rate_max": 0.8
+  }
+ },
+ "sample_slugs": [],
+ "commoncrawl": {
+  "company_paths": [
+   "portfolio"
+  ],
+  "people_paths": [
+   "team",
+   "team-member"
+  ]
+ }
+}

@@ -1,0 +1,517 @@
+{
+ "_readme": "Calibration sets for the Khosla Ventures run (COLLECTION.md \u00a74), pre-registered before the grind writes any verdict. membership_traps: the answer key is external evidence \u2014 a cited source, or the row's own filing read against decisions.md. stage_golden: every entry round is anchored to a document that names the round and the firm's participation; the site's own fund label and the archived pages' invest year are the LAYERS UNDER TEST and are never the key. Two layers are scored here before the grind is allowed to trust either.",
+ "registered_at": "2026-09-07",
+ "_scored_layers": [
+  "site_fund_label \u2014 the live Webflow card's Seed / Early / Growth (88 of 114 rows)",
+  "site_invest_year \u2014 the archived per-company page's <table class=dates> Invested year",
+  "formd_structural_band \u2014 the prior-filing-count band in COLLECTION.md \u00a76"
+ ],
+ "membership_traps": [
+  {
+   "slug": "box-inc",
+   "name": "BOX INC",
+   "expected": "not_member",
+   "basis": "operator job, not a firm position: Dan Levin was Box's COO and later President, and is a related person on Box's own Form Ds. Khosla's roster carries a 'Dan Levin' / 'Daniel Levin' pair whose Form D sweep pulled 24 issuers including Box, Box.net and a run of 'Capital Real Estate' and 'AVANA GAP' real-estate LLCs \u2014 three different people under one name key. Precedent: Accel's Daniel Levine cluster; Sagar Sanghvi as Instacart CFO.",
+   "evidence_span": "formd_sweep, roster name-match only",
+   "citation": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=BOX+INC&type=D"
+  },
+  {
+   "slug": "capital-real-estate-alturas-llc",
+   "name": "Capital Real Estate - Alturas, LLC",
+   "expected": "not_member",
+   "basis": "homonym: a real-estate syndicator's LLC series sharing the name key 'Daniel Levin'. Khosla makes no real-estate investments; T5 operating-company test and T4 person attribution both fail.",
+   "evidence_span": "formd_sweep name-match only",
+   "citation": null
+  },
+  {
+   "slug": "adaptive-flight-inc",
+   "name": "Adaptive Flight, Inc.",
+   "expected": "not_member",
+   "basis": "homonym: 'Eric Johnson' returned 23 unrelated issuers (Adaptive Flight, Allegiance Software, Arenal Energy, BlankMetal.ai) across sectors and decades with no Khosla listing on any. The name is one of the commonest in the sweep. COLLECTION.md \u00a73: name-match rows are judged cluster-first.",
+   "evidence_span": "formd_sweep name-match only",
+   "citation": null
+  },
+  {
+   "slug": "pluralsight-llc",
+   "name": "Pluralsight, LLC",
+   "expected": "not_member",
+   "basis": "homonym: 'Bryan Gartner' pulled Pluralsight, Udemy, Wizeline and Trendy Entertainment \u2014 an edtech/media cluster on no Khosla list in any era.",
+   "evidence_span": "formd_sweep name-match only",
+   "citation": null
+  },
+  {
+   "slug": "pacific-oak-residential-trust-inc",
+   "name": "PACIFIC OAK RESIDENTIAL TRUST, INC.",
+   "expected": "not_member",
+   "basis": "homonym: 'Michael Gough' pulled REIT and trust registrants (Battery Point Trust, Pacific Oak Residential). Khosla's Michael Gough is a design lead, not an investing partner, and REITs fail T5.",
+   "evidence_span": "formd_sweep name-match only",
+   "citation": null
+  },
+  {
+   "slug": "remitly-global-inc",
+   "name": "Remitly Global, Inc.",
+   "expected": "not_member",
+   "basis": "operator job on the other side of tenure: Ryno Blignaut was CFO/COO at Xoom and Remitly before joining Khosla. A seat is dated against the person's firm at filing time (COLLECTION.md \u00a71, T4). No Khosla fund on Remitly's cap table and no listing in any era.",
+   "evidence_span": "formd_sweep name-match only",
+   "citation": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&company=remitly&type=D"
+  },
+  {
+   "slug": "aruba-networks-inc",
+   "name": "ARUBA NETWORKS, INC.",
+   "expected": "not_member",
+   "basis": "personal directorship: Michael Kourey (Polycom CFO, later a Khosla operating partner) sat on Aruba's board in his own name. Director-of-record alone is the personal-seat class unless the issuer resolves to a documented Khosla deal (Erik's a16z narrowing, 2026-08-31).",
+   "evidence_span": "formd_sweep name-match only",
+   "citation": null
+  },
+  {
+   "slug": "juniper-networks",
+   "name": "Juniper Networks",
+   "expected": "not_member",
+   "basis": "prior firm: Vinod Khosla's Juniper investment was made at Kleiner Perkins in 1996, eight years before Khosla Ventures existed. decisions.md D3 \u2014 the KPCB record is a prior firm's, dated against the person's firm at filing time. The same ruling covers Cerent, Siara and NexGen.",
+   "evidence_span": "knowledge / press",
+   "citation": "https://en.wikipedia.org/wiki/Vinod_Khosla"
+  },
+  {
+   "slug": "nextdoor-holdings-inc",
+   "name": "Nextdoor Holdings, Inc.",
+   "expected": "uncertain",
+   "basis": "DELTA X1, awaiting Erik. Khosla Ventures Acquisition Co. II merged with Nextdoor in Nov 2021 and the registrant is now Nextdoor Holdings. T1/T2/T5 all say member; T3 names no case for a sponsor promote. Pre-registered as `uncertain` so the trap set does not score a row the decisions file has not decided.",
+   "evidence_span": "fund_filing (sponsor vehicle)",
+   "citation": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001846069"
+  },
+  {
+   "slug": "khosla-ventures-2023-allocate-access-fund-lp",
+   "name": "Khosla Ventures 2023 Allocate Access Fund, L.P.",
+   "expected": "not_member",
+   "basis": "third-party feeder, and fund-shaped: files from 1300 El Camino Real Suite 100 (Allocate Inc), not the firm's own address. decisions.md D1b; precedent Thrive IX Access.",
+   "evidence_span": "fund_filing",
+   "citation": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001977905"
+  },
+  {
+   "slug": "strategic-value-special-situations-fund-iv-lp",
+   "name": "Strategic Value Special Situations Fund IV, L.P.",
+   "expected": "not_member",
+   "basis": "namesake firm: Victor Khosla's Strategic Value Partners is an unrelated distressed-debt manager whose 20+ entities entered the registry through cofiler closure. Fund-shaped and external by desk rule. decisions.md D2.",
+   "evidence_span": "cofiler closure",
+   "citation": null
+  },
+  {
+   "slug": "khosla-ventures-acquisition-co-iii",
+   "name": "Khosla Ventures Acquisition Co. III",
+   "expected": "not_member",
+   "basis": "blank-check shell with no operating business; wound up with no deal (last filing SC 13G/A, Feb 2024). T5 \u2014 not a venture-outcome operating company. decisions.md D7.",
+   "evidence_span": "fund_filing",
+   "citation": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001846068"
+  },
+  {
+   "slug": "velo3d",
+   "name": "Velo3D",
+   "expected": "member",
+   "basis": "TRUE member that looks like the founder-operator trap: Benny Buller was a Khosla partner and left to found Velo3D \u2014 but Khosla funded it, and it appears in the firm's own archived portfolio listings. The trap is to reject it BECAUSE the founder is on the roster. Tests the D3 class in the direction that costs recall.",
+   "evidence_span": "site_listing + formd",
+   "citation": null
+  },
+  {
+   "slug": "doordash",
+   "name": "DoorDash",
+   "expected": "member",
+   "basis": "TRUE member with a roster founder: Evan Moore co-founded DoorDash and later joined Khosla as a partner, so he is a related person on DoorDash's Form Ds for reasons unrelated to the firm \u2014 but Khosla co-led the 2013 seed with CRV while Keith Rabois was a partner. Both facts are true and only the fund position makes it a member.",
+   "evidence_span": "site_listing + press",
+   "citation": "https://www.newcomer.co/p/the-story-of-a-cap-table-doordash"
+  },
+  {
+   "slug": "keeptruckin",
+   "name": "KeepTruckin (Motive)",
+   "expected": "member",
+   "basis": "TRUE member, same shape: Shoaib Makani was a Khosla principal (roster 2013) who left to found KeepTruckin, and Khosla backed it. Founder-on-roster is not by itself a rejection.",
+   "evidence_span": "site_listing",
+   "citation": null
+  },
+  {
+   "slug": "impossible-foods",
+   "name": "Impossible Foods",
+   "expected": "member",
+   "basis": "TRUE member, seed era: Khosla anchored the 2011 seed with a $3M first cheque as the first institutional investor.",
+   "evidence_span": "site_listing + press",
+   "citation": "https://www.crunchbase.com/funding_round/impossible-foods-series-a--a9af84ae"
+  },
+  {
+   "slug": "amyris",
+   "name": "Amyris",
+   "expected": "member",
+   "basis": "TRUE member, 2006 vintage \u2014 inside the base window but funded from Khosla Ventures I, which held only Vinod Khosla's own capital. Tests decisions.md D4 (a single-LP fund is still a fund) in the direction that costs the whole early book.",
+   "evidence_span": "site_listing + formd",
+   "citation": "https://www.biospace.com/amyris-biotechnologies-inc-raises-20-million-in-series-a-funding-appoints-b-john-g-melo-chief-executive-officer-b"
+  },
+  {
+   "slug": "altarock-energy",
+   "name": "AltaRock Energy",
+   "expected": "member",
+   "basis": "TRUE member, cleantech era, listed on the firm's own 2010 chart page and its 2015-2023 company page (invested 2007).",
+   "evidence_span": "site_listing",
+   "citation": null
+  },
+  {
+   "slug": "openai",
+   "name": "OpenAI",
+   "expected": "member",
+   "basis": "TRUE member and the firm's most cited position: Khosla led a $50M investment in Jan 2019, the first venture money into OpenAI. Listed on the live site.",
+   "evidence_span": "site_listing + press",
+   "citation": "https://www.khoslaventures.com/portfolio"
+  },
+  {
+   "slug": "arista-networks",
+   "name": "Arista Networks",
+   "expected": "uncertain",
+   "basis": "PRE-REGISTERED AS OPEN, not as an answer. Arista appears on the firm's own 2014-2015 all-companies list, which suffices for membership under D9 \u2014 but Accel's arista is the standing open boundary case (13G-only, no documented pre-IPO round) awaiting Erik's ruling, and the two runs must not disagree. Flagged for \u00a710 invariant 10.",
+   "evidence_span": "site_listing",
+   "citation": null
+  },
+  {
+   "slug": "shoes-of-prey",
+   "name": "Shoes of Prey, Inc.",
+   "expected": "not_member",
+   "basis": "next firm: Ben Ling left Khosla in 2019 to found Bling Capital, and the sweep's Ben Ling / Benjamin Ling pair pulled Plastiq, Pymetrics, Quantopian and Shoes of Prey. Seats are dated against the person's firm at filing time; Bling deals are not Khosla's.",
+   "evidence_span": "formd_sweep name-match only",
+   "citation": null
+  }
+ ],
+ "stage_golden": [
+  {
+   "slug": "doordash",
+   "name": "DoorDash",
+   "entry_stage": "Seed",
+   "entry_year": 2013,
+   "basis": "$2.4M seed, 30 Sep 2013, co-led by Khosla Ventures (Keith Rabois) and CRV; Sequoia led the $17.3M Series A the following year",
+   "citation": "https://www.newcomer.co/p/the-story-of-a-cap-table-doordash",
+   "site_fund_label": "Early"
+  },
+  {
+   "slug": "impossible-foods",
+   "name": "Impossible Foods",
+   "entry_stage": "Seed",
+   "entry_year": 2011,
+   "basis": "Khosla anchored the 2011 seed with an initial $3M cheque as the first institutional investor",
+   "citation": "https://www.crunchbase.com/funding_round/impossible-foods-series-a--a9af84ae",
+   "site_fund_label": "Seed"
+  },
+  {
+   "slug": "block",
+   "name": "Block (Square)",
+   "entry_stage": "Series A",
+   "entry_year": 2009,
+   "basis": "Khosla Ventures led Square's Series A in 2009; Vinod Khosla joined the board",
+   "citation": "https://techcrunch.com/?p=311159",
+   "site_fund_label": "Early"
+  },
+  {
+   "slug": "nutanix",
+   "name": "Nutanix",
+   "entry_stage": "Growth",
+   "entry_year": 2011,
+   "basis": "Khosla Ventures led Nutanix's $25M Series B (2011) \u2014 the company's own press release. Series B and later is Growth by taxonomy.",
+   "citation": "https://www.nutanix.com/press-releases/2011/nutanix-adds-25-million-in-series-b-round-led-by-khosla-ventures",
+   "site_fund_label": "Early"
+  },
+  {
+   "slug": "gitlab",
+   "name": "GitLab",
+   "entry_stage": "Series A",
+   "entry_year": 2015,
+   "basis": "Khosla Ventures led GitLab's $4M Series A, September 2015",
+   "citation": "https://techcrunch.com/2015/09/17/gitlab-raises-4m-series-a-round-from-khosla-ventures-for-its-open-source-collaboration-platform",
+   "site_fund_label": "Early"
+  },
+  {
+   "slug": "commonwealth-fusion-systems",
+   "name": "Commonwealth Fusion Systems",
+   "entry_stage": "Series A",
+   "entry_year": 2019,
+   "basis": "Khosla Ventures in the 2019 Series A alongside Breakthrough Energy Ventures and Eni",
+   "citation": "https://en.wikipedia.org/wiki/Commonwealth_Fusion_Systems",
+   "site_fund_label": "Early"
+  },
+  {
+   "slug": "openai",
+   "name": "OpenAI",
+   "entry_stage": "Growth",
+   "entry_year": 2019,
+   "basis": "Khosla led a $50M investment in Jan 2019, the first venture capital into OpenAI. No round name exists; an unnamed $50M entry into a three-year-old lab is an entry at scale, Growth by taxonomy. LOW-CONFIDENCE KEY ROW \u2014 the scoring runs both directions and this label is itself open to correction by the evidence.",
+   "citation": "https://theagiclock.com/articles/vinod-khosla-exponential-arbitrageur-ai-investments/",
+   "site_fund_label": "Early",
+   "key_confidence": "low"
+  },
+  {
+   "slug": "hermeus",
+   "name": "Hermeus",
+   "entry_stage": "Seed",
+   "entry_year": 2019,
+   "basis": "the company's own newsroom: 'Hermeus Raises Seed Funding from Khosla Ventures'",
+   "citation": "https://www.hermeus.com/newsroom-content/hermeus-raises-seed-funding-from-khosla-ventures-and-announces-advisory-board",
+   "site_fund_label": "Early"
+  },
+  {
+   "slug": "affirm",
+   "name": "Affirm",
+   "entry_stage": "Series A",
+   "entry_year": 2013,
+   "basis": "Khosla Ventures in Affirm's 2013 Series A",
+   "citation": "https://dealroom.co/investors/khosla-ventures/",
+   "site_fund_label": "Early",
+   "key_confidence": "medium"
+  },
+  {
+   "slug": "waabi",
+   "name": "Waabi",
+   "entry_stage": "Series A",
+   "entry_year": 2021,
+   "basis": "Sven Strohband of Khosla Ventures led Waabi's $83.5M Series A. The label follows what the record calls the round, not the cheque size (COLLECTION.md \u00a76).",
+   "citation": "https://dealroom.co/investors/khosla-ventures/",
+   "site_fund_label": "Early"
+  },
+  {
+   "slug": "amyris",
+   "name": "Amyris",
+   "entry_stage": "Series A",
+   "entry_year": 2006,
+   "basis": "Amyris Biotechnologies raised a $20M Series A led by Khosla Ventures, with KPCB and TPG Ventures",
+   "citation": "https://www.biospace.com/amyris-biotechnologies-inc-raises-20-million-in-series-a-funding-appoints-b-john-g-melo-chief-executive-officer-b",
+   "site_fund_label": null
+  },
+  {
+   "slug": "lanzatech",
+   "name": "LanzaTech",
+   "entry_stage": "Series A",
+   "entry_year": 2007,
+   "basis": "'LanzaTech NZ Ltd Secures Series A Funding From Khosla Ventures', US$3.5M",
+   "citation": "https://www.biospace.com/b-lanzatech-nz-ltd-b-secures-series-a-funding-from-b-khosla-ventures-b",
+   "site_fund_label": null
+  },
+  {
+   "slug": "altarock-energy",
+   "name": "AltaRock Energy",
+   "entry_stage": "Series A",
+   "entry_year": 2007,
+   "basis": "$4M Series A, 14 Aug 2007",
+   "citation": "https://www.fastcompany.com/898666/vinod-khoslas-green-ventures",
+   "site_fund_label": null
+  },
+  {
+   "slug": "ausra",
+   "name": "Ausra",
+   "entry_stage": "Series A",
+   "entry_year": 2007,
+   "basis": "$40M Series A, 10 Sep 2007",
+   "citation": "https://www.fastcompany.com/898666/vinod-khoslas-green-ventures",
+   "site_fund_label": null,
+   "key_confidence": "medium"
+  },
+  {
+   "slug": "okta",
+   "name": "Okta",
+   "entry_stage": "Growth",
+   "entry_year": 2011,
+   "basis": "Khosla Ventures (David Weiden) in Okta's 2011 Series B. Series B is Growth by taxonomy.",
+   "citation": "https://dealroom.co/investors/khosla-ventures/",
+   "site_fund_label": "Early",
+   "key_confidence": "medium"
+  },
+  {
+   "slug": "guardant-health",
+   "name": "Guardant Health",
+   "entry_stage": "Growth",
+   "entry_year": 2014,
+   "basis": "Khosla Ventures in Guardant's 2014 Series B",
+   "citation": "https://dealroom.co/investors/khosla-ventures/",
+   "site_fund_label": "Early",
+   "key_confidence": "medium"
+  },
+  {
+   "slug": "instacart",
+   "name": "Instacart",
+   "entry_stage": "Seed",
+   "entry_year": 2012,
+   "basis": "Khosla entered at the 2012 seed; Sequoia led the 2013 Series A",
+   "citation": "https://dealroom.co/investors/khosla-ventures/",
+   "site_fund_label": "Early",
+   "key_confidence": "medium"
+  },
+  {
+   "slug": "rocket-lab",
+   "name": "Rocket Lab",
+   "entry_stage": "Series A",
+   "entry_year": 2013,
+   "basis": "Khosla Ventures in Rocket Lab's 2013 Series A",
+   "citation": "https://dealroom.co/investors/khosla-ventures/",
+   "site_fund_label": "Seed",
+   "key_confidence": "medium"
+  },
+  {
+   "slug": "sword-health",
+   "name": "Sword Health",
+   "entry_stage": "Series A",
+   "entry_year": 2020,
+   "basis": "Khosla Ventures led the round with Founders Fund, Green Innovations, Lachy Groom, Vesalius Biocapital and Faber Ventures",
+   "citation": "https://www.mobihealthnews.com/tag/khosla-ventures",
+   "site_fund_label": "Early",
+   "key_confidence": "medium"
+  },
+  {
+   "slug": "ochre-bio",
+   "name": "Ochre Bio",
+   "entry_stage": "Seed",
+   "entry_year": 2021,
+   "basis": "$9.6M seed financing led by Khosla Ventures",
+   "citation": "https://nordic9.com/news/ochre-bio-announced-the-closing-of-a-96m-seed-financing-round-led-by-khosla-ventures/",
+   "site_fund_label": null
+  }
+ ],
+ "gate_results": {
+  "scored_at": "2026-09-07",
+  "layer_1_site_fund_label": {
+   "layer": "site_fund_label \u2014 the live Webflow card's Seed / Early / Growth",
+   "mapping_tested": "Seed\u2192Seed, Early\u2192Series A, Growth\u2192Growth",
+   "n": 15,
+   "hits": 7,
+   "score": "7/15",
+   "verdict": "DEMOTED to corroboration \u2014 may not label entry_stage",
+   "decomposition": "Every miss is an 'Early' row whose true entry was either EARLIER (DoorDash, Hermeus and Instacart all entered at the seed) or LATER (Nutanix, Okta and Guardant entered at the Series B; OpenAI at an unnamed $50M round), plus Rocket Lab where a 'Seed' label over-reads a documented Series A. The misses have one cause: the field names the FUND that holds the position, not the round the firm entered at, and Khosla's main fund ('Early') writes cheques from seed through Series B and later. This is the Accel socure class in a new place \u2014 a label that describes the company's relationship to the firm rather than the deal. The fix is the layer, not the instances.",
+   "comparison": "Accel CMS label 30/31 \u2192 class 1; Menlo milestones 33/34 \u2192 class 1; Thrive job board 0/10 \u2192 refused; Lux job board 3/19 \u2192 refused.",
+   "consequence": "entry_stage on this run rests on web_verified citation (class 1) and formd_structural (class 2). The fund label travels in the evidence pack as an unscored extra, and a row whose only stage evidence is the label publishes at low confidence with stage_uncited.",
+   "rows": [
+    {
+     "slug": "doordash",
+     "name": "DoorDash",
+     "label": "Early",
+     "predicted": "Series A",
+     "key": "Seed",
+     "hit": false
+    },
+    {
+     "slug": "impossible-foods",
+     "name": "Impossible Foods",
+     "label": "Seed",
+     "predicted": "Seed",
+     "key": "Seed",
+     "hit": true
+    },
+    {
+     "slug": "block",
+     "name": "Block (Square)",
+     "label": "Early",
+     "predicted": "Series A",
+     "key": "Series A",
+     "hit": true
+    },
+    {
+     "slug": "nutanix",
+     "name": "Nutanix",
+     "label": "Early",
+     "predicted": "Series A",
+     "key": "Growth",
+     "hit": false
+    },
+    {
+     "slug": "gitlab",
+     "name": "GitLab",
+     "label": "Early",
+     "predicted": "Series A",
+     "key": "Series A",
+     "hit": true
+    },
+    {
+     "slug": "commonwealth-fusion-systems",
+     "name": "Commonwealth Fusion Systems",
+     "label": "Early",
+     "predicted": "Series A",
+     "key": "Series A",
+     "hit": true
+    },
+    {
+     "slug": "openai",
+     "name": "OpenAI",
+     "label": "Early",
+     "predicted": "Series A",
+     "key": "Growth",
+     "hit": false
+    },
+    {
+     "slug": "hermeus",
+     "name": "Hermeus",
+     "label": "Early",
+     "predicted": "Series A",
+     "key": "Seed",
+     "hit": false
+    },
+    {
+     "slug": "affirm",
+     "name": "Affirm",
+     "label": "Early",
+     "predicted": "Series A",
+     "key": "Series A",
+     "hit": true
+    },
+    {
+     "slug": "waabi",
+     "name": "Waabi",
+     "label": "Early",
+     "predicted": "Series A",
+     "key": "Series A",
+     "hit": true
+    },
+    {
+     "slug": "okta",
+     "name": "Okta",
+     "label": "Early",
+     "predicted": "Series A",
+     "key": "Growth",
+     "hit": false
+    },
+    {
+     "slug": "guardant-health",
+     "name": "Guardant Health",
+     "label": "Early",
+     "predicted": "Series A",
+     "key": "Growth",
+     "hit": false
+    },
+    {
+     "slug": "instacart",
+     "name": "Instacart",
+     "label": "Early",
+     "predicted": "Series A",
+     "key": "Seed",
+     "hit": false
+    },
+    {
+     "slug": "rocket-lab",
+     "name": "Rocket Lab",
+     "label": "Seed",
+     "predicted": "Seed",
+     "key": "Series A",
+     "hit": false
+    },
+    {
+     "slug": "sword-health",
+     "name": "Sword Health",
+     "label": "Early",
+     "predicted": "Series A",
+     "key": "Series A",
+     "hit": true
+    }
+   ]
+  },
+  "layer_2_site_invest_year": {
+   "layer": "site_invest_year \u2014 the archived per-company page's <table class=dates> Invested year",
+   "status": "scoring in progress \u2014 the page pull is alphabetical and 15 of the 20 golden rows are not yet pulled",
+   "interim": "4 hit / 1 miss on the 5 scored (\u00b11 year). The miss is Amyris: the page says 2009 against a documented 2006 Series A.",
+   "note": "Read as a CLOSE year, never an announcement date (COLLECTION.md \u00a76, the Menlo rule). Scored for first_seen, not for a stage label \u2014 it carries no round word."
+  },
+  "layer_3_formd_structural_band": {
+   "status": "scores after `prepare` runs formd-issuer-rounds.py, which needs base.json"
+  },
+  "membership_trap_gate": {
+   "status": "pending \u2014 runs blind before the grind writes any verdict"
+  }
+ }
+}
