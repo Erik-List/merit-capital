@@ -290,3 +290,24 @@ positions carrying a Growth label** ("Battery ... acquired the founder's
 shares for a majority stake"). So the control test is not confined to the 71
 Buyout rows — a Growth label triggers it too whenever the evidence shows a
 majority. That is R2's symmetry, now measured rather than asserted.
+
+### R6 — Wikidata is demoted; the firm's own Location field replaces it (2026-09-06)
+
+`prepare` filled `hq_country` on 98 rows from Wikidata. Scored against
+Battery's own per-company Location field on the 67 rows carrying both, the
+join is wrong about **28%** of the time, and it is wrong in the way
+COLLECTION.md §5 records from First Round: this book is full of one-word names,
+and 73 of the 98 filled rows have a single-token name. Front→JP, Olo→FI,
+Marco Polo→MA, Cask→GB, Coram→NL, Cube→DE, Plain→NL, Taster→JP, Terminal→EE,
+Trip.com→CN, Cross River Bank→IL, Bonfire→GB; and three rows carried a
+footnoted prose string, `"Israel /  United States"`, which is not a country
+code at all. The failure is silent by construction: the queue asks only about
+EMPTY fields, so none of these rows would have reached the judge.
+
+So Wikidata is **demoted to corroboration** for this investor, and **Battery's
+own Location field is promoted to class 1** for both `hq_country` and
+`hq_city` — first-party, city-bearing, and covering 350 rows.
+`scratch/site-location-pass.py` re-judged **330 rows** from it, 23 of them
+overriding a wrong pre-fill with `model_disputes_source`. `hq_city` went from
+51 to 370 filled on the same pass. Multi-HQ strings ("New York, London & Tel
+Aviv") are left for the judge rather than collapsed. Flagged for review.
