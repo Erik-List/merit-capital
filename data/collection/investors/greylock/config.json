@@ -1,0 +1,528 @@
+{
+ "slug": "greylock",
+ "name": "Greylock Partners",
+ "wayback": {
+  "cdx_domain": "greylock.com",
+  "site_url_base": "https://greylock.com",
+  "eras": [
+   {
+    "parser": "listing_regex",
+    "path": "/company/startup_page1.htm",
+    "from": 1999,
+    "to": 2000,
+    "pattern": "(?is)<TD[^>]*>\\s*(?:19|20)\\d{2}\\s*</TD>\\s*<TD[^>]*>\\s*(?:<P>)?\\s*(?:<a\\b[^>]*>)?\\s*(?P<name>[^<>]{2,70}?)\\s*(?:</a>)?\\s*(?:</P>)?\\s*</TD>",
+    "raw": true,
+    "_note": "Era 1 (1999-2001), the frameset site, one page per stage and per sector. Each is a five-column table -- logo, YEAR FUNDED, company, product, STATUS ('IPO 1984', 'Acquired by Maxwell-Macmillan 1987') -- and the company cell is identified by the YEAR CELL BEFORE IT, not by its own markup: the year, product and status cells share its <TD> shape exactly, and an earlier pattern keyed on the <P> that only some name cells carry returned 6 rows of 90. This is the 1965-2000 book (Mentor Graphics 1981, Banyan 1983, Continental Cablevision). The /company/recent_page1.htm page of the same era is prose, not a table, and its rows reappear on era 2. The year and status columns are parsed separately into sources/site/archive-cards.json by scratch/build-archive-cards.py."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/company/expansion_page1.htm",
+    "from": 1999,
+    "to": 2000,
+    "pattern": "(?is)<TD[^>]*>\\s*(?:19|20)\\d{2}\\s*</TD>\\s*<TD[^>]*>\\s*(?:<P>)?\\s*(?:<a\\b[^>]*>)?\\s*(?P<name>[^<>]{2,70}?)\\s*(?:</a>)?\\s*(?:</P>)?\\s*</TD>",
+    "raw": true
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/company/software_page1.htm",
+    "from": 2000,
+    "to": 2000,
+    "pattern": "(?is)<TD[^>]*>\\s*(?:19|20)\\d{2}\\s*</TD>\\s*<TD[^>]*>\\s*(?:<P>)?\\s*(?:<a\\b[^>]*>)?\\s*(?P<name>[^<>]{2,70}?)\\s*(?:</a>)?\\s*(?:</P>)?\\s*</TD>",
+    "raw": true
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/company/internet_page1.htm",
+    "from": 2000,
+    "to": 2000,
+    "pattern": "(?is)<TD[^>]*>\\s*(?:19|20)\\d{2}\\s*</TD>\\s*<TD[^>]*>\\s*(?:<P>)?\\s*(?:<a\\b[^>]*>)?\\s*(?P<name>[^<>]{2,70}?)\\s*(?:</a>)?\\s*(?:</P>)?\\s*</TD>",
+    "raw": true
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/company/health_page1.htm",
+    "from": 2000,
+    "to": 2000,
+    "pattern": "(?is)<TD[^>]*>\\s*(?:19|20)\\d{2}\\s*</TD>\\s*<TD[^>]*>\\s*(?:<P>)?\\s*(?:<a\\b[^>]*>)?\\s*(?P<name>[^<>]{2,70}?)\\s*(?:</a>)?\\s*(?:</P>)?\\s*</TD>",
+    "raw": true
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/company/communications_page1.htm",
+    "from": 2000,
+    "to": 2000,
+    "pattern": "(?is)<TD[^>]*>\\s*(?:19|20)\\d{2}\\s*</TD>\\s*<TD[^>]*>\\s*(?:<P>)?\\s*(?:<a\\b[^>]*>)?\\s*(?P<name>[^<>]{2,70}?)\\s*(?:</a>)?\\s*(?:</P>)?\\s*</TD>",
+    "raw": true
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/company/other_page1.htm",
+    "from": 2000,
+    "to": 2000,
+    "pattern": "(?is)<TD[^>]*>\\s*(?:19|20)\\d{2}\\s*</TD>\\s*<TD[^>]*>\\s*(?:<P>)?\\s*(?:<a\\b[^>]*>)?\\s*(?P<name>[^<>]{2,70}?)\\s*(?:</a>)?\\s*(?:</P>)?\\s*</TD>",
+    "raw": true
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/company/public_page1.htm",
+    "from": 2000,
+    "to": 2000,
+    "pattern": "(?is)<TD[^>]*>\\s*(?:19|20)\\d{2}\\s*</TD>\\s*<TD[^>]*>\\s*(?:<P>)?\\s*(?:<a\\b[^>]*>)?\\s*(?P<name>[^<>]{2,70}?)\\s*(?:</a>)?\\s*(?:</P>)?\\s*</TD>",
+    "raw": true
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/company/buyout_page1.htm",
+    "from": 2000,
+    "to": 2000,
+    "pattern": "(?is)<TD[^>]*>\\s*(?:19|20)\\d{2}\\s*</TD>\\s*<TD[^>]*>\\s*(?:<P>)?\\s*(?:<a\\b[^>]*>)?\\s*(?P<name>[^<>]{2,70}?)\\s*(?:</a>)?\\s*(?:</P>)?\\s*</TD>",
+    "raw": true
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/company/mergers_page1.htm",
+    "from": 2001,
+    "to": 2001,
+    "pattern": "(?is)<TD[^>]*>\\s*(?:19|20)\\d{2}\\s*</TD>\\s*<TD[^>]*>\\s*(?:<P>)?\\s*(?:<a\\b[^>]*>)?\\s*(?P<name>[^<>]{2,70}?)\\s*(?:</a>)?\\s*(?:</P>)?\\s*</TD>",
+    "raw": true
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/companies/ByName.asp?s=&e=E",
+    "from": 2001,
+    "to": 2003,
+    "pattern": "(?i)<A class=\"companylink\" href=\"(?!ByName|ByCategory|OtherInvestments)[^\"]*\"[^>]*>(?:<IMG src=\"/images/companies/logos/[^\"]+\"[^>]*>)?(?:<BR>)?\\s*(?P<name>[^<>]{1,60}?)\\s*</A>",
+    "raw": true,
+    "_note": "Era 2 (2001-2003), the ASP site. Five alphabetical slices of one book, each row a logo+name anchor with class=companylink plus FOCUS, STATUS (Private/Public/Acquired) and the YEAR of the investment. The negative lookahead drops the A-D/E-H pagination links, which carry the same class. The logo filename is NOT taken as the slug (COLLECTION.md sec 5, the Lux rule that the row's own text wins): the firm's files carry a size suffix ('athoc_65.gif'), so an alt-first read publishes '@Hoc' as 'athoc_65'."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/companies/ByName.asp?s=E&e=I",
+    "from": 2001,
+    "to": 2003,
+    "pattern": "(?i)<A class=\"companylink\" href=\"(?!ByName|ByCategory|OtherInvestments)[^\"]*\"[^>]*>(?:<IMG src=\"/images/companies/logos/[^\"]+\"[^>]*>)?(?:<BR>)?\\s*(?P<name>[^<>]{1,60}?)\\s*</A>",
+    "raw": true
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/companies/ByName.asp?s=I&e=N",
+    "from": 2001,
+    "to": 2003,
+    "pattern": "(?i)<A class=\"companylink\" href=\"(?!ByName|ByCategory|OtherInvestments)[^\"]*\"[^>]*>(?:<IMG src=\"/images/companies/logos/[^\"]+\"[^>]*>)?(?:<BR>)?\\s*(?P<name>[^<>]{1,60}?)\\s*</A>",
+    "raw": true
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/companies/ByName.asp?s=N&e=T",
+    "from": 2001,
+    "to": 2003,
+    "pattern": "(?i)<A class=\"companylink\" href=\"(?!ByName|ByCategory|OtherInvestments)[^\"]*\"[^>]*>(?:<IMG src=\"/images/companies/logos/[^\"]+\"[^>]*>)?(?:<BR>)?\\s*(?P<name>[^<>]{1,60}?)\\s*</A>",
+    "raw": true
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/companies/ByName.asp?s=T&e=",
+    "from": 2001,
+    "to": 2003,
+    "pattern": "(?i)<A class=\"companylink\" href=\"(?!ByName|ByCategory|OtherInvestments)[^\"]*\"[^>]*>(?:<IMG src=\"/images/companies/logos/[^\"]+\"[^>]*>)?(?:<BR>)?\\s*(?P<name>[^<>]{1,60}?)\\s*</A>",
+    "raw": true
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/companies/OtherInvestments.asp",
+    "from": 2001,
+    "to": 2002,
+    "pattern": "(?i)<A class=\"companylink\" href=\"(?!ByName|ByCategory|OtherInvestments)[^\"]*\"[^>]*>(?:<IMG src=\"/images/companies/logos/[^\"]+\"[^>]*>)?(?:<BR>)?\\s*(?P<name>[^<>]{1,60}?)\\s*</A>",
+    "raw": true,
+    "_note": "Era 2's 'Other Investments' page: the positions outside the six sector buckets, on no ByName slice."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio/portfolio.cfm?cat=AllInvest",
+    "from": 2005,
+    "to": 2010,
+    "pattern": "(?i)<div class=\"dataHead\">\\s*(?P<name>[^<>]{2,70}?)\\s*</div>",
+    "raw": true,
+    "_note": "Era 3 (2005-2010), the ColdFusion site. cat=AllInvest renders the whole book on one page; the bare portfolio.cfm is only the category menu. Each row is a <div class=\"data\"> carrying the name in <div class=\"dataHead\">, the website, a description, 'Status:', 'Year Funded:', the GREYLOCK PARTNER on the deal (a link to team/bio.cfm) and a Region."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/companies?sector=applications",
+    "from": 2011,
+    "to": 2012,
+    "pattern": "(?i)<a href=\"/companies/\\d+\" class=\"show_company\">(?:<img alt=\"(?:Web-)?(?P<slug>[^\"]+)\"[^>]*/?>|(?P<name>[^<>]{1,70}?))\\s*</a>",
+    "raw": true,
+    "_note": "Era 4 (2011-2012), the Rails site. The sector parameter filters client-side, so any sector page ships the WHOLE book (230 rows in 2011) as <a href=\"/companies/<id>\" class=\"show_company\">; rows with a logo carry no anchor text and the name comes from the img alt ('Web-1000-memories'), rows without one carry the plain name. The numeric ids make cdx_company_pages useless for this era."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio/",
+    "from": 2018,
+    "to": 2025,
+    "pattern": "(?i)href=\"#(?P<slug>[a-z0-9][a-z0-9-]{0,60})-div\"[^>]*><span class=\"visually-hidden\">(?P<name>[^<>]{1,70}?)</span>",
+    "_note": "Era 5 (2018-2025), the WordPress site's single /portfolio/ page. Only the FEATURED companies get a logo-wall anchor carrying both identities (href=\"#<slug>-div\" plus a visually-hidden name); the rest of the page's 427 visually-hidden spans are social URLs, so this era contributes about a dozen rows and the era's real enumeration is era 6's CDX sweep of /portfolio/<slug> plus Common Crawl."
+   },
+   {
+    "parser": "cdx_company_pages",
+    "path": "/portfolio/",
+    "from": 2017,
+    "to": 2026,
+    "cdx_pages": 3,
+    "_note": "Era 6 (2017-2026), the per-company pages of the WordPress site and of the Next.js/Sanity site that replaced it in 2026. Same /portfolio/<slug> namespace across both, so one CDX enumeration covers the handover."
+   }
+  ],
+  "non_company_slugs": [
+   "home",
+   "index",
+   "default",
+   "contact",
+   "contact-us",
+   "about",
+   "about-us",
+   "news",
+   "news-events",
+   "news-archive",
+   "portfolio",
+   "portfolios",
+   "companies",
+   "company",
+   "greylock-companies",
+   "team",
+   "teams",
+   "teammembers",
+   "people",
+   "management",
+   "strategy",
+   "firm",
+   "jobs",
+   "careers",
+   "search",
+   "searches",
+   "sitemap",
+   "privacy",
+   "terms",
+   "legal",
+   "blog",
+   "events",
+   "videos",
+   "tag",
+   "category",
+   "author",
+   "community",
+   "communities",
+   "greylock",
+   "greylock-partners",
+   "greylock-u",
+   "greylocku",
+   "all",
+   "see-all",
+   "view-all",
+   "more",
+   "next",
+   "previous",
+   "www",
+   "page",
+   "eirs",
+   "eir",
+   "discovery",
+   "offices",
+   "israel",
+   "cn",
+   "holiday",
+   "top",
+   "email",
+   "phone",
+   "fax",
+   "directions",
+   "perspectives",
+   "greymatter",
+   "company-building",
+   "portfolio-news",
+   "edge",
+   "core",
+   "seed",
+   "careers-at-greylock",
+   "wp",
+   "wp-json",
+   "wp-content",
+   "wp-admin",
+   "feed",
+   "amp",
+   "null",
+   "undefined",
+   "s",
+   "api",
+   "static",
+   "system",
+   "images",
+   "graphics",
+   "_img",
+   "stylesheets",
+   "javascripts",
+   "filter",
+   "login",
+   "robots",
+   "a",
+   "b",
+   "c",
+   "d",
+   "e",
+   "f",
+   "g",
+   "h",
+   "i",
+   "j",
+   "k",
+   "l",
+   "m",
+   "n",
+   "o",
+   "p",
+   "q",
+   "r",
+   "s",
+   "t",
+   "u",
+   "v",
+   "w",
+   "x",
+   "y",
+   "z",
+   "read-more",
+   "learn-more",
+   "apply",
+   "subscribe",
+   "newsletter"
+  ]
+ },
+ "roster": {
+  "cdx_patterns": [
+   "greylock.com/team/*",
+   "greylock.com/teams/*",
+   "greylock.com/teammembers/*",
+   "greylock.com/team/bio.cfm*"
+  ],
+  "site_team_groups": [
+   "Investors",
+   "Emeritus",
+   "Venture Partners",
+   "Advisory Partners"
+  ],
+  "slug_re": "/(?:team|teams|teammembers)/([a-z][a-z0-9_.-]*[a-z0-9])(?:\\.s?html?)?/?$",
+  "listing_href_re": "/(?:team|teams|teammembers)/([a-zA-Z][a-zA-Z0-9_.-]*)(?:\\.s?html?)?[\"'/]",
+  "not_a_person": [
+   "index",
+   "team",
+   "teams",
+   "teammembers",
+   "our-team",
+   "bio",
+   "portfolio",
+   "news",
+   "contact",
+   "about",
+   "operations",
+   "advisors",
+   "eir",
+   "eirs",
+   "search",
+   "page",
+   "all",
+   "www",
+   "companies",
+   "people",
+   "greylock",
+   "greylock-partners",
+   "join-us",
+   "careers",
+   "alumni",
+   "emeritus",
+   "investors",
+   "talent",
+   "platform"
+  ],
+  "_note": "Four people namespaces over the site's life: /team/*.htm and /team/default.asp (1998-2004), /team/bio.cfm?Id=<n> (2005-2010, numeric and not slug-enumerable), /teams/<slug> (2011-2014) and /team/<slug> (2015-2026). The live roster is the Sanity teamMember type, which carries category ('Investors') and a departed flag, so current and alumni separate without a tenure guess. The Sanity `category` field is the site's own grouping -- Investors (19), EIRs (12), Emeritus (9), Venture Partners (6), Advisory Partners (3), Specialists (5), Operations (5) -- and site_team_groups keeps the four investing ones. EIRs are excluded on the a16z rule: an executive in residence is a related person on their own next company's Form D, which is a founder seat, not a firm position. The Sanity alias is `group`, not `site_group`: partner-roster.py reads r['group'] when it applies site_team_groups, and a differently named key silently disables the filter -- which on this firm would sweep the EIR directory (Nir Zuk of Palo Alto Networks, Jeff Weiner of LinkedIn, Glenn Kelman of Redfin, David McJannet of HashiCorp), the First Round founder-directory trap arriving through a group label instead of a case rule."
+ },
+ "site_api": {
+  "type": "scrape",
+  "sources": [
+   {
+    "parser": "json_list",
+    "url": "https://uz672vkd.api.sanity.io/v2024-01-01/data/query/production?query=%2A%5B_type%3D%3D%22portfolioCompany%22%5D%7Bname%2C%22slug%22%3Aslug.current%2C%22sector%22%3Acategory-%3Etitle%2C%22site_entry_stage%22%3AfirstPartnered%2C%22current%22%3Astatus%2C%22url%22%3Awebsite%2C%22hq%22%3Aheadquarters%2C%22partners%22%3Ainvestors%5B%5D-%3Ename%2C%22linkedin%22%3AlinkedInUrl%2Ctagline%2C%22leaders%22%3Aleadership%5B%5D.name%7D",
+    "list_path": "result",
+    "list": "sanity-companies",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "row_url": "https://greylock.com/portfolio/{slug}/",
+    "sectors": "sector",
+    "extras": [
+     "site_entry_stage",
+     "current",
+     "hq",
+     "partners",
+     "linkedin",
+     "tagline",
+     "leaders"
+    ]
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "json_list",
+    "url": "https://uz672vkd.api.sanity.io/v2024-01-01/data/query/production?query=%2A%5B_type%3D%3D%22teamMember%22%5D%7Bname%2C%22slug%22%3Aslug.current%2C%22group%22%3Acategory%2C%22member_status%22%3Astatus%2C%22legacy%22%3AlegacyId%7D",
+    "list_path": "result",
+    "list": "sanity-team",
+    "fields": {
+     "name": "name"
+    },
+    "row_url": "https://greylock.com/team/{slug}/",
+    "extras": [
+     "group",
+     "member_status",
+     "legacy"
+    ]
+   }
+  ],
+  "_note": "greylock.com is Next.js on Vercel over a PUBLIC Sanity dataset (project uz672vkd, dataset production), so the ladder stops at step 2. portfolioCompany carries the firm's own ENTRY ROUND (firstPartnered), a status, the headquarters string, the deal partners as references and a category; teamMember carries the roster with a departed flag. The live surface is only 158 rows for a firm founded in 1965 -- the archive eras are where the book is, and the site also serves a markdown alternate (/portfolio.md) that renders the same table."
+ },
+ "edgar": {
+  "seed_queries": [
+   "greylock",
+   "greylock+partners",
+   "greylock+discovery",
+   "greylock+israel"
+  ],
+  "fts_phrases": [
+   "Greylock Partners",
+   "Greylock XI Limited Partnership",
+   "Greylock XII Limited Partnership",
+   "Greylock XIII Limited Partnership",
+   "Greylock XIV Limited Partnership",
+   "Greylock 15 Limited Partnership",
+   "Greylock 16 Limited Partnership",
+   "Greylock 17 Limited Partnership",
+   "Greylock Equity Limited Partnership",
+   "Greylock IX Limited Partnership",
+   "Greylock X Limited Partnership"
+  ],
+  "fts_own_pattern": "^greylock (ltd|limited|capital limited|ventures limited|equity|investments|ix|x|xi|xii|xiii|xiv|1[5-9]|discovery|management|partners)",
+  "_note": "'Greylock' alone is unusable as an EDGAR full-text phrase: Greylock Capital Management (New York, Hans Humes) runs an unrelated distressed-debt and emerging-markets fund family under the same word, so the phrases are entity-qualified to the venture partnerships. Namesakes on EDGAR: the Greylock Global / Emerging Markets / Distressed Debt funds (NY and Cayman), Greylock Marketing Inc and Greylock Inc (Florida), Greylock Ventures LP - IAI-1 Series (Maryland)."
+ },
+ "wikipedia": {
+  "phrases": [
+   "Greylock Partners"
+  ]
+ },
+ "desks": {
+  "home": "us",
+  "partition": [],
+  "rank": [
+   "us",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "greylock capital management",
+     "greylock global",
+     "greylock emerging",
+     "greylock distressed",
+     "greylock marketing",
+     "^greylock, inc",
+     "^greylock inc",
+     "greylock ventures limited partnership - iai",
+     "greylock ventures gp llc - series",
+     "greylock investments slp",
+     "83north",
+     "83 north",
+     "greylock israel"
+    ]
+   },
+   {
+    "desk": "us",
+    "patterns": [
+     "^greylock (ltd|limited)",
+     "^greylock capital limited partnership",
+     "^greylock ventures limited partnership$",
+     "^greylock investments limited",
+     "^greylock equity",
+     "^greylock ix",
+     "^greylock x",
+     "^greylock xi",
+     "^greylock xii",
+     "^greylock xiii",
+     "^greylock xiv",
+     "^greylock 1[5-8]",
+     "^greylock discovery",
+     "^greylock management"
+    ]
+   }
+  ],
+  "_note": "One home desk. The venture partnerships file from Boston (One Federal Street, then 880 Winter Street, Waltham) and later California (2550 Sand Hill Road, Menlo Park). Desks resolve by CIK and filing address, never by the word alone -- three namesakes share it and one of them nearly took a home fund with it: GREYLOCK CAPITAL LIMITED PARTNERSHIP (CIK 940543) files from One Federal Street, Boston and is a Greylock Partners vehicle, while Greylock Capital MANAGEMENT (New York, Hans Humes) runs the unrelated Greylock Global / Emerging Markets / Distressed Debt family; a 'greylock capital' external pattern classed the Boston fund out on the first pass. The other namesakes: Greylock Investments SLP (Aztec Group House, St Helier, Jersey; related persons Richard Phillips and Liam Jones, no Greylock Partners connection), Greylock Ventures LP - IAI-1 Series (Burlington MA, GP 'Greylock Ventures GP LLC - Series IAI-1', related person Donald Sullivan), Greylock Marketing Inc and Greylock Inc (Florida). GREYLOCK ISRAEL L P (CIK 1370903, Ugland House, Grand Cayman) and the 83North entities are the T1 boundary question and are ruled in decisions.md, not by this pattern list."
+ },
+ "profile": {
+  "own_vehicle_pattern": "^greylock (ltd|limited|capital limited|ventures limited partnership$|investments limited|equity|ix|x |x$|x-|xi|xii|xiii|xiv|1[5-8]|discovery|management)",
+  "focus_min_companies": 15,
+  "focus_crosswalk": {},
+  "_note": "focus_min_companies ~4.5% of the expected base. The site's own sector vocabulary is the seven portfolioCategory documents (Applications, Consumer, Cybersecurity, Deep Tech, Fintech, Infrastructure, Other); the crosswalk is filled once the site pull lands."
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "airbnb",
+   "anthropic",
+   "appdynamics",
+   "arista",
+   "coinbase",
+   "discord",
+   "docker",
+   "dropbox",
+   "facebook",
+   "figma",
+   "instabase",
+   "linkedin",
+   "nextdoor",
+   "okta",
+   "openai",
+   "palo alto networks",
+   "ramp",
+   "roblox",
+   "rubrik",
+   "sumo logic",
+   "workday",
+   "wiz",
+   "abnormal",
+   "cloudera",
+   "medium",
+   "pandora",
+   "tumblr",
+   "red hat",
+   "ascend",
+   "continental cablevision",
+   "mentor graphics",
+   "open market"
+  ],
+  "sample_slugs": [],
+  "shape": {
+   "one_b_share_max": 0.2,
+   "c2a_rate_max": 0.8,
+   "_note": "Defaults kept at kickoff. Greylock has invested since 1965, so a large share of the base is pre-window (COLLECTION.md sec 1: entry_stage carries the best-supported label at low confidence behind a pre_window_entry flag, graduation null), and the C2A cohort is computed over a much smaller slice than the base size suggests. A guard that fires is restated in decisions.md against the evidence, never waived."
+  }
+ },
+ "sample_slugs": [],
+ "commoncrawl": {
+  "company_paths": [
+   "portfolio",
+   "companies"
+  ],
+  "people_paths": [
+   "team",
+   "teams"
+  ],
+  "_note": "The layer's job here is 2013-2017 and 2019-2021, where the Internet Archive enumerated the company namespace thinly (7 captures in 2013, 8 in 2020) and the 2014-2017 book was served by an XHR (/companies/filter/?...&format=js) the archive captured only as 404s."
+ }
+}
