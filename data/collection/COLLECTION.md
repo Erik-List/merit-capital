@@ -479,7 +479,35 @@ order the grind will use, instead of auditing one it already used.
    ones (`listing_regex`, `js_array_listing`) that cover most markup eras
    without new code. A logo-only era (names rendered as images) may stay
    deliberately unparsed when snapshots of another list surface bracket
-   those years — record the gap in the report. If the Internet Archive
+   those years — record the gap in the report.
+
+   **A logo-only era is often readable after all, through the firm's own
+   upload filenames, and it brings two artifact classes with it** (First
+   Round, 2026-09-06). The 2010–2011 wall rendered every name as an image with
+   no alt text, but the file names are the firm's own
+   (`bazaarvoice.jpg`, `aster_data.jpg`, `Gigya_Small.jpg`), so an era pattern
+   over `src="…/uploads/(?P<slug>…)"` recovers the roster. What it also
+   recovers is junk, and both classes have to be handled before the base is
+   published. **Filename variants of one company** ("birchboxsmall",
+   "smartlingverysmal", five spellings of StumbleUpon) are best fixed in the
+   PARSED SOURCE — a curated map applied to `sources/wayback/parsed/*.json`
+   before the build, keyed case- and separator-insensitively because the slugs
+   are file names — rather than in `identity-merges.json`, because a merge
+   keeps the junk name on the surviving row and the published surface then
+   carries it. And **the same page carries the ACQUIRER marks beside its
+   exits**: Google, Microsoft, Intuit, Adobe, eBay and Facebook all appeared on
+   First Round's wall next to the companies they had bought, and a
+   name-matching layer will confidently label them. Those are `rejects`, not
+   members.
+
+   **A `listing_regex` era whose name window is a bounded `.{0,N}?` can take
+   the NEXT row's name.** Measured on the same run: rows whose per-row JS
+   block omitted the name field pulled the following row's, shifting 14 of 153
+   names in one capture — silently, because every name in the file is a real
+   company name. Bound the window with a negative lookahead for the row
+   delimiter (`(?:(?!<li).){0,700}?`), and check the parsed names against the
+   slugs before the build: a name that does not normalise to its own slug is
+   the tell. If the Internet Archive
    goes down mid-run (measured on a16z: ~100 min), continue on the live
    surfaces and a provisional roster; the pulls are idempotent and
    multi-pass, so wayback lands after recovery. `wayback-pull.py` carries
@@ -666,6 +694,24 @@ order the grind will use, instead of auditing one it already used.
    current-team roster cannot see deals where only a departed partner sat
    the board and no list ever carried the company; the compliance list
    carries that recall in practice.
+
+   **A people namespace can hold a directory of PORTFOLIO FOUNDERS beside the
+   firm's own roster, and mixing them poisons the Form D sweep** (First Round,
+   2026-09-06). `/team/` carried both: the firm's partners at
+   `/team/<initial+lastname>.html`, `/team/profile/<first_last>` and
+   `/team/<group>/<first-last>`, and a 212-name network directory at
+   `/team/<First_Last>` whose pages read "<Role> at <Company>" — Travis
+   Kalanick, Jack Dorsey, Dave Baszucki, Neil Blumenthal. A founder IS a
+   related person on their own company's Form D, so sweeping those names
+   confirms hundreds of false members with filing-grade-looking evidence, and
+   `roster.site_team_groups` does not help because the archived namespace has
+   no groups. What separated them exactly was a **case rule** in
+   `roster.slug_re`: the firm's own slugs are lowercase, the directory's are
+   capitalised. Check what a people namespace actually contains before
+   sweeping it, and where a directory like this exists, pull it deliberately —
+   read the other way round it is a first-party company list, and on this run
+   it was the layer that found the only site-invisible member the recall probe
+   turned up.
 3. **EDGAR**: the investor's vehicle registry (`scripts/edgar-entities.py`,
    one table serving role resolution, fund exclusion and lineage), issuer
    filings via the submissions API (`scripts/edgar-companies.py`), the
@@ -696,6 +742,23 @@ order the grind will use, instead of auditing one it already used.
    match on every merged name, and treat its absence as no evidence — the first filing is a ceiling on entry
    recency, not the entry round, and a float is corroboration for a market
    cap, not the cap itself.
+
+   **Wikidata needs the same recognition check as a CIK join, and a book of
+   one-word names breaks it outright** (First Round, 2026-09-06). `prepare`
+   filled `hq_country` on 104 rows from Wikidata; 89 of those rows have a
+   single-token name, and the joins were wrong at a rate no layer survives —
+   Uber→NL, Square→JP and defunct, Clay→NL, Planet→GR, Play→PL, Free→FR,
+   Noon→SA, Togg→TR, Abra→GH and defunct, and Superhuman→"Ukraine[56]/ United
+   States[57]", a footnoted prose string rather than a country code. The
+   failure is silent in a way the float sweep's is not: `prepare` fills the
+   column, the queue then asks only about EMPTY fields, and the row never
+   reaches the judge (§8, the Black Forest Labs class). So **score the layer
+   against the base before trusting it**, demote it to corroboration where the
+   portfolio is full of common words, and re-judge every value it wrote with
+   `model_disputes_source`. The same property is what makes invariant 10 noisy
+   for such a firm: one-word names collide across investors (Maven, Whisper,
+   Drift, Level, Cover, Haven, Gem, Parallel, Prepared), and each pair needs a
+   `distinct` ruling rather than an alignment.
 
 **When the investor publishes no list at all** (measured on Thrive,
 2026-09-03, the first merged run): the `site_listing` class is not empty,
@@ -1391,6 +1454,16 @@ Every subcommand takes the investor slug.
   removes. **Emit only the keys for the needs asked** (plus `flags`, `note`)
   — extra keys clobber filing-grade facts at merge time; the one exception
   is a deliberate dispute.
+- **A person under two spellings is two people to the tenure filter** (First
+  Round, 2026-09-06). `partner-roster.py` unions its sources by slug, so
+  "Josh Kopelman" from the site and "Joshua Kopelman" from the Form D related
+  persons land as separate roster rows with separate windows, and
+  `build-company-base.py`'s ex-partner rule then reads a partner as departed
+  years before they left — it removed rows on a "last on site 2012" for a
+  partner who was still filing in 2020. Collapse the variants to one entry per
+  person with the union window and its basis before the base is built, and
+  re-check the removal list afterwards: the rule is doing exactly what it
+  should, on a roster that was wrong.
 - **Identity duplicates are fixed upstream**, in the investor's
   `identity-merges.json`, consumed by the base build on every
   rebuild; non-canonical rows carry `duplicate_of: <canonical-slug>`, the
@@ -1648,7 +1721,21 @@ Field recipes, learned on Sequoia and a16z:
   the firm's own sworn number and anchors the bottom of the range; press
   supplies the top. Resolve the adviser by CRD, not name — adviser names
   drift (AH Capital Management renamed to A16Z Capital Management under
-  the same CRD). An exempt reporting adviser files no Item 5.F; its
+  the same CRD).
+
+  **When IAPD's search cannot find the firm, the adviser files under a legal
+  name that is not the brand, and the SEC's own roster feed resolves it**
+  (First Round, 2026-09-06). IAPD returns nothing for "First Round"; the firm
+  reports as **FR Capital Holdings, LP** (CRD 160848). The deterministic route
+  is the SEC's FOIA firm-roster CSVs — "Information About Registered
+  Investment Advisers and Exempt Reporting Advisers", one zip per month, one
+  for RIAs and one for ERAs — which carry CRD, SEC number, firm type, every
+  Item 1 address, the 7.B fund count and gross assets, and the VC-fund flag,
+  in a file that greps in a second. Match on the **Form D filing address** of
+  a fund vehicle rather than on the name: the vehicles and the adviser share
+  an office, and that join is exact where a name search is hopeless. Do this
+  before concluding a firm has no adviser registration, and record the CRD in
+  the sidecar so the next run starts from it. An exempt reporting adviser files no Item 5.F; its
   Section 7.B private-fund gross assets are the sworn substitute. An
   affiliated but separately registered adviser (a crossover or
   public-equities arm) is excluded from both AUM and the fund list, so

@@ -203,3 +203,34 @@ the 200-call budget, with the cross-investor layer supplying seven cited marks
 that would otherwise have cost searches of their own.
 
 **Prompt count: 1 so far** (the kickoff). The ingest approval is the second.
+
+## Addendum — ingested 2026-09-06 on Erik's approval
+
+Icon first, then the investor row, then the companies, in the order a
+first-time investor requires (§9).
+
+- **Icon published.** Source `https://firstround.com/images/favicon.png`
+  (320×320 PNG, the largest raster the site declares). It clears every rule
+  without a flag: artwork **downscaled** 0.57× so the no-upscale rule is not
+  reached, edge ramp 0.74 px against the 2 px ceiling, contrast 19.6:1 against
+  the 3:1 floor, box 72% and radius 80% inside the keyline. The mark is a bare
+  black "1" on transparency, so the normaliser synthesised the white plate.
+  Provenance in `investor.sources.json`.
+- **`ingest-investor.ts`** upserted 1 institutional row.
+- **`ingest-companies.ts`** upserted **594 of 594** rows; the freshness check
+  passed against the exported `base.csv`.
+- **Verified in the database:** 594 company rows against investor
+  `a0481de6-5a78-4874-aba8-01deac79ffe4`, `hq_location` "Philadelphia, PA",
+  `aum` $3,843,440,251 both ends, `icon_url` on the bucket, and the derived
+  metrics recomputed — `track_record` names 11 IPO companies (Uber, Square,
+  Roblox, Planet, Upstart, Warby Parker, Clover Health, DoubleVerify,
+  FiscalNote, Merlin, Notable Labs) and the focus distribution matches the
+  base's own.
+
+The five playbook write-backs proposed above were landed in
+`data/collection/COLLECTION.md` in the same session. The `wayback-pull.py`
+change is still uncommitted: the working tree carries a sibling session's edit
+to the same file, so it is left for the tooling session rather than committed
+here.
+
+**Prompt count: 2** — kickoff and the ingest approval, which is the target.
