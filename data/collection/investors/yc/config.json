@@ -1,0 +1,273 @@
+{
+ "slug": "yc",
+ "name": "Y Combinator",
+ "site_api": {
+  "type": "scrape",
+  "sources": [
+   {
+    "parser": "search_index",
+    "list": "directory",
+    "url": "https://45bwzj1sgc-dsn.algolia.net/1/indexes/YCCompany_production/query",
+    "app_id": "45BWZJ1SGC",
+    "api_key": "NzllNTY5MzJiZGM2OTY2ZTQwMDEzOTNhYWZiZGRjODlhYzVkNjBmOGRjNzJiMWM4ZTU0ZDlhYTZjOTJiMjlhMWFuYWx5dGljc1RhZ3M9eWNkYyZyZXN0cmljdEluZGljZXM9WUNDb21wYW55X3Byb2R1Y3Rpb24lMkNZQ0NvbXBhbnlfQnlfTGF1bmNoX0RhdGVfcHJvZHVjdGlvbiZ0YWdGaWx0ZXJzPSU1QiUyMnljZGNfcHVibGljJTIyJTVE",
+    "index": "YCCompany_production",
+    "slice_facet": "batch",
+    "params": "hitsPerPage=1000",
+    "snapshot": "data/collection/investors/yc/sources/site/directory-index.json",
+    "fields": {
+     "name": "name",
+     "url": "website"
+    },
+    "sectors": "industries",
+    "row_url": "https://www.ycombinator.com/companies/{slug}",
+    "extras": [
+     "site_id",
+     "id",
+     "objectID",
+     "batch",
+     "status",
+     "stage",
+     "industries",
+     "industry",
+     "subindustry",
+     "regions",
+     "all_locations",
+     "team_size",
+     "top_company",
+     "nonprofit",
+     "former_names",
+     "launched_at",
+     "one_liner",
+     "small_logo_thumb_url",
+     "tags"
+    ],
+    "_note": "The YC Startup Directory (www.ycombinator.com/companies), an Inertia/React app over an Algolia index. The app id and search-only key are the ones the public page ships to every visitor (captured by watching the page's own XHR, ladder step 4, 2026-09-06); the key is a secured key whose payload pins restrictIndices=YCCompany_production,YCCompany_By_Launch_Date_production and tagFilters=[\"ycdc_public\"], so this reads exactly the rows an anonymous visitor is served. Sliced on `batch` (50 values, largest 398) because the index caps deep pagination at 1000 hits and the book is 6,203.",
+    "key_field": "site_id",
+    "rename": {
+     "slug": "site_id"
+    }
+   }
+  ],
+  "team_sources": []
+ },
+ "edgar": {
+  "seed_queries": [
+   "y+combinator",
+   "yc"
+  ],
+  "fts_phrases": [
+   "Y Combinator Continuity Fund",
+   "Y Combinator Continuity Affiliates",
+   "YC Continuity Management",
+   "Y Combinator ES",
+   "YC Affiliates Fund",
+   "YC Principals Fund",
+   "Y Combinator Management"
+  ],
+  "fts_own_pattern": "^(y combinator|yc (ii|iii|affiliates|principals|continuity|batch|esp|eco)|yca26|ycc20|yccg21|ycp2[46])",
+  "_note": "Entity-qualified phrases only, the §1 string-trap rule. 'YC' alone matches 55 EDGAR registrants of which most are namesakes or third-party access vehicles, and bare 'Y Combinator' full-text matches 1,008 filings that are overwhelmingly portfolio companies naming their accelerator, not YC filings — which is exactly what the exit-side sweep wants but is useless as an own-entity pattern. YC's own vehicles all file from 335 Pioneer Way, Mountain View CA; the address is the desk test, never the name (§5 registry rules)."
+ },
+ "wikipedia": {
+  "phrases": [
+   "Y Combinator"
+  ]
+ },
+ "desks": {
+  "home": "us",
+  "partition": [],
+  "rank": [
+   "us",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "a series of cgf2021",
+     "a series of kolysh",
+     "a series of a7 capital",
+     "a series of kepler",
+     "stonks y combinator",
+     "gcw access",
+     "poolit",
+     "yc alums fund",
+     "yc franchise investment",
+     "yc bozeman",
+     "^ycg",
+     "^ycharts",
+     "^yclip",
+     "^ycurb",
+     "^ycn ",
+     "^ycw13",
+     "^ycc holdings",
+     "^ycc international",
+     "^ych ",
+     "^yc holdings",
+     "^yc 1926",
+     "^ycs group",
+     "^yct fund",
+     "destination wealth",
+     "intelligent hotel",
+     "^yc allocate",
+     "^ycp cfs",
+     "^ycp [a-z]"
+    ],
+    "_note": "The §1 string trap, resolved 2026-09-06. Two distinct external classes share the 'YC' prefix and BOTH would be pulled in by a name rule: (a) third-party access/SPV vehicles that put the YC brand in their own name to sell exposure to a batch — Stonks' per-batch Access Funds, GCW Access - Y Combinator LP, Poolit, the CGF2021/Kolysh/A7/Kepler series SPVs, YC Alums Fund 2021 — every one of them an LP-side feeder, out under T5 (fund-shaped) and T3 (no venture entry by a YC fund); and (b) plain namesakes with no YC connection at all: YCG LLC and YCG Mutual Funds (a Texas asset manager), YCharts, Yclip, YCurb, the Massachusetts YC/YCC/YCH Holdings entities and the New York YCP funds. Resolved by filing address against 335 Pioneer Way, never by the pattern. Two pattern errors were caught by the address test on 2026-09-06 and are recorded because they are the rule proving itself: 'YC Allocate AF26 AI/QP, L.P.' file from 502 Waverley St., Palo Alto — Allocate's address, a private-markets access platform, so they are third-party feeders despite the YC name; and '^ycp[0-9]' had wrongly excluded YCP24 and YCP26, L.P., which file from 335 Pioneer Way and are YC's own Principals vehicles for those batch years. Nothing here is classified by name alone."
+   },
+   {
+    "desk": "us",
+    "patterns": [
+     "^y combinator",
+     "^yca26",
+     "^ycc20",
+     "^yccg21",
+     "^ycp24",
+     "^ycp26",
+     "^yc (ii|iii|affiliates|principals|continuity|batch|esp|eco)"
+    ]
+   }
+  ]
+ },
+ "wayback": {
+  "cdx_domain": "ycombinator.com",
+  "site_url_base": "https://www.ycombinator.com",
+  "eras": [
+   {
+    "parser": "cdx_company_pages",
+    "path": "/companies/",
+    "from": 2018,
+    "to": 2026,
+    "_note": "The directory's per-company namespace, /companies/<slug>. Its job here is NOT recall — the live index carries 6,203 rows including 1,072 Inactive and 815 Acquired, so the directory does not prune its own dead (measured 2026-09-06, and that is the survivorship question §5 tells this layer to answer). Its job is the narrower one of catching companies delisted from the public directory entirely (a company that opted out: the index is tag-filtered to ycdc_public). Captures before ~2018 are the pre-directory site; the earlier YC company list lived only in the batch/Demo Day pages and press, not on a portfolio route (/portfolio* has zero captures in the whole archive). The namespace is larger than CDX's per-query cap, so the era pages the index through CDX's resumption key (cdx_pages/cdx_limit): a single capped query returned only the alphabetical slice '0'-'A' and would have reported survivorship over 4% of the site as if it were the whole layer (found 2026-09-06).",
+    "cdx_pages": 40,
+    "cdx_limit": 5000
+   }
+  ],
+  "non_company_slugs": [
+   "",
+   "index",
+   "all",
+   "see-all",
+   "companies",
+   "company",
+   "search",
+   "founders",
+   "jobs",
+   "about",
+   "apply",
+   "blog",
+   "library",
+   "people",
+   "team",
+   "documents",
+   "resources",
+   "directory",
+   "launches",
+   "deals",
+   "wafflehouse",
+   "industry",
+   "location",
+   "batch",
+   "top-companies",
+   "www",
+   "next",
+   "previous",
+   "more",
+   "sitemap",
+   "faq",
+   "contact",
+   "privacy",
+   "terms",
+   "legal"
+  ]
+ },
+ "roster": {
+  "cdx_patterns": [
+   "ycombinator.com/people*"
+  ],
+  "site_team_groups": [],
+  "slug_re": "/people/([a-z][a-z0-9-]*)/?$",
+  "listing_href_re": "/people/([a-zA-Z][a-zA-Z0-9-]*)[\"'/]",
+  "not_a_person": [
+   "",
+   "index",
+   "people",
+   "team",
+   "about",
+   "all",
+   "search",
+   "www",
+   "founders",
+   "alumni",
+   "group-partners",
+   "visiting-partners"
+  ],
+  "_note": "YC's /people/<slug> namespace. Its job is the profile and the trap set, NOT recall: an accelerator does not take board seats at a rate that makes the Form D related-persons layer work, so the roster-name sweep that is the primary structural layer for a venture firm is near-empty here (issue PRO-74, Phase 2). Partner personal angel positions are the trap class the roster feeds (decisions.md D4)."
+ },
+ "profile": {
+  "own_vehicle_pattern": "^(y combinator|yc (ii|iii|affiliates|principals|continuity|batch|esp|eco)|yca26|ycc20|yccg21|ycp2[46])",
+  "focus_min_companies": 280,
+  "focus_crosswalk": {},
+  "_note": "focus_min_companies ~4.5% of a 6,200-row base (§11). The directory tags 6,185 of 6,203 rows with its own 59-value industry vocabulary, so the 25% coverage bar is cleared with room to spare — the first investor since a16z failed it where the recompute can actually publish. The crosswalk into the closed twelve is filled at the profile step, never adopted verbatim."
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "stripe",
+   "airbnb",
+   "doordash",
+   "coinbase",
+   "instacart",
+   "reddit",
+   "dropbox",
+   "twitch",
+   "cruise",
+   "gitlab",
+   "rippling",
+   "deel",
+   "brex",
+   "razorpay",
+   "flexport",
+   "zapier",
+   "segment",
+   "faire",
+   "gusto",
+   "benchling",
+   "scale ai",
+   "whatnot",
+   "checkr",
+   "podium",
+   "amplitude",
+   "weebly",
+   "optimizely",
+   "ginkgo bioworks",
+   "rappi",
+   "boom supersonic",
+   "embark",
+   "vanta",
+   "mercury",
+   "substack",
+   "retool",
+   "opensea",
+   "fivetran",
+   "posthog",
+   "goodleap"
+  ],
+  "sample_slugs": [],
+  "shape": {
+   "one_b_share_max": 0.06,
+   "c2a_rate_max": 0.55,
+   "_note": "Set to YC's own properties, not the megafund defaults (§8 lesson 5: base-shape guards are investor properties). A seed accelerator's book is mostly small: of 6,203 directory rows 1,072 read Inactive and 4,293 Active, and YC's own top_company flag marks 91 rows — so the $1B+ share belongs near 2-4%, and a 20% guard would never fire on anything. The C2A guard is the one that matters here: this is the firm the column was designed for, thousands of seed entries, and an accelerator's seed-to-A graduation rate is well under a lead investor's (Accel published 79.1% on 91 rows of led seeds; YC's cohort is every batch company). Both restated in decisions.md against the evidence; the guards still fire above these."
+  }
+ },
+ "sample_slugs": [],
+ "commoncrawl": {
+  "company_paths": [
+   "companies"
+  ],
+  "people_paths": [
+   "people"
+  ],
+  "_note": "Same namespaces as the wayback era. The layer's job is survivorship over the directory era, and it is expected to add little because the directory keeps its own dead; the negative result is recorded rather than assumed (§5)."
+ }
+}
