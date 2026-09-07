@@ -1,0 +1,253 @@
+{
+ "_readme": "Cross-investor rulings for invariant 10, merged by `verify` at read time (COLLECTION.md §12). `distinct` = the loose name key matched two different companies; `accepted` = the same company, the disagreement is real and explained; `same` = confirmed identity. The shared file data/collection/cross-investor.json is written only at wave alignment, by the designated session, so these live here.",
+ "same": [],
+ "distinct": [
+  {
+   "rows": [
+    "felicis:arena",
+    "a16z:arena"
+   ],
+   "note": "Two different companies behind one word. Felicis's Arena is arena.ai, a private US company the firm's own page says it led the Series A of after seeding. The a16z row cites https://techcrunch.com/2026/01/06/lmarena-lands-1-7b-valuation-four-months -- that is LMArena, which this base holds separately as `lm-arena` and which is now aligned to the same $1.7B figure. Lightspeed's `arena` row cites the same LMArena article and is the same collision."
+  },
+  {
+   "rows": [
+    "felicis:arena",
+    "lightspeed:arena"
+   ],
+   "note": "Same collision as the a16z pair: Lightspeed's row is LMArena, cited to the January-2026 $1.7B round, not arena.ai."
+  },
+  {
+   "rows": [
+    "felicis:luma",
+    "a16z:luma-ai"
+   ],
+   "note": "Felicis's Luma is the mesh-WiFi hardware company acquired by First Alert/Newell in 2018. a16z's luma-ai is Luma AI, the video-generation model company that raised $900M in Nov 2025. a16z separately carries its own `luma` row as acquired/below_1b, which agrees with this base exactly -- so the only disagreement is against the wrong company."
+  },
+  {
+   "rows": [
+    "felicis:guild",
+    "redpoint-ventures:guild"
+   ],
+   "note": "Felicis's `guild` is a CMS duplicate of `guild-education` (Denver workforce education) and is merged into it at the rebuild; Redpoint's row is Guild Education itself, held at $4.4B. Once the merge lands the pair compares guild-education to guild-education and the disagreement dissolves. Recorded as distinct only because the surviving slugs differ."
+  },
+  {
+   "rows": [
+    "felicis:covalent",
+    "menlo-ventures:covalent-technologies"
+   ],
+   "note": "Different companies behind one word. Felicis's Covalent is covalentnetworks.com, a US manufacturing-network company seeded in 2021; Menlo's Covalent Technologies is a separate business it holds as acquired."
+  },
+  {
+   "rows": [
+    "felicis:grove-labs",
+    "first-round-capital:grove"
+   ],
+   "note": "Different companies. Felicis's Grove Labs was an indoor-gardening hardware startup that wound down; First Round's Grove is Grove Collaborative, the consumer-products company, which it holds as acquired."
+  },
+  {
+   "rows": [
+    "felicis:aloha",
+    "cherry:aloha"
+   ],
+   "note": "'Aloha' is a bare word and the two rows are on different continents: Felicis's is a 2017 US seed, Cherry's is a European seed it cannot state a status for. No evidence ties them to one company."
+  },
+  {
+   "rows": [
+    "felicis:aloha",
+    "first-round-capital:aloha"
+   ],
+   "note": "Same collision as the Cherry pair; First Round's Aloha is a separate company it holds as defunct."
+  }
+ ],
+ "accepted": [
+  {
+   "rows": [
+    "felicis:motherduck",
+    "redpoint-ventures:motherduck"
+   ],
+   "note": "The same company, and the two runs genuinely disagree: Redpoint bands it 1b_plus citing MotherDuck's own Series B announcement, while a16z holds it below_1b and this run agrees with a16z. Neither side has a figure this run could confirm from a priced event, so the disagreement is recorded rather than papered over, and it is raised for the wave-level alignment where all three bases can be read together."
+  },
+  {
+   "rows": [
+    "felicis:runway",
+    "a16z:runway"
+   ],
+   "note": "Same company; this run is the fresher side. Felicis carries the $315M Series E at $5.3B of 2026-02-10 (TechCrunch); a16z and Lightspeed still read below_1b. §10 says the fix is to align the stale side, which is theirs, and a session aligns its own investor rather than editing a sibling's base -- so this is flagged for the wave-level pass."
+  },
+  {
+   "rows": [
+    "felicis:poolside",
+    "redpoint-ventures:poolside"
+   ],
+   "note": "Same company; this run is the fresher side at $12B (Oct 2025, Nvidia-backed round) against Redpoint's $3B. Flagged for the wave-level pass."
+  },
+  {
+   "rows": [
+    "felicis:assort-health",
+    "first-round-capital:assort-health"
+   ],
+   "note": "Same company; this run is the fresher side, carrying the $120M Series C at $1.2B of 2026-06-24. Three siblings (First Round, Lightspeed, Menlo) still read below_1b. Flagged for the wave-level pass."
+  },
+  {
+   "rows": [
+    "felicis:alloy",
+    "menlo-ventures:alloy"
+   ],
+   "note": "Same company; this run carries the September-2022 $1.55B round (TechCrunch) and Menlo reads below_1b. Flagged for the wave-level pass."
+  },
+  {
+   "rows": [
+    "felicis:cedar",
+    "a16z:cedar"
+   ],
+   "note": "Same company; this run carries the March-2021 $3.2B Series D and a16z reads below_1b. Both marks are stale; the disagreement is about whether the stale primary stands, which §6 says it does absent documented collapse evidence. Flagged for the wave-level pass."
+  },
+  {
+   "rows": [
+    "felicis:atspoke",
+    "greylock:atspoke"
+   ],
+   "note": "Greylock's published base carries no classification at all -- every column reads None -- so this is a comparison against an unclassified surface rather than a disagreement about a fact. Accepted until Greylock's run lands; nothing on this side needs changing."
+  },
+  {
+   "rows": [
+    "felicis:cardspring",
+    "greylock:cardspring"
+   ],
+   "note": "Greylock's published base carries no classification at all -- every column reads None -- so this is a comparison against an unclassified surface rather than a disagreement about a fact. Accepted until Greylock's run lands; nothing on this side needs changing."
+  },
+  {
+   "rows": [
+    "felicis:clearslide",
+    "greylock:clearslide"
+   ],
+   "note": "Greylock's published base carries no classification at all -- every column reads None -- so this is a comparison against an unclassified surface rather than a disagreement about a fact. Accepted until Greylock's run lands; nothing on this side needs changing."
+  },
+  {
+   "rows": [
+    "felicis:cleo",
+    "greylock:cleo"
+   ],
+   "note": "Greylock's published base carries no classification at all -- every column reads None -- so this is a comparison against an unclassified surface rather than a disagreement about a fact. Accepted until Greylock's run lands; nothing on this side needs changing."
+  },
+  {
+   "rows": [
+    "felicis:creativelive",
+    "greylock:creativelive"
+   ],
+   "note": "Greylock's published base carries no classification at all -- every column reads None -- so this is a comparison against an unclassified surface rather than a disagreement about a fact. Accepted until Greylock's run lands; nothing on this side needs changing."
+  },
+  {
+   "rows": [
+    "felicis:predibase",
+    "greylock:predibase"
+   ],
+   "note": "Greylock's published base carries no classification at all -- every column reads None -- so this is a comparison against an unclassified surface rather than a disagreement about a fact. Accepted until Greylock's run lands; nothing on this side needs changing."
+  },
+  {
+   "rows": [
+    "felicis:richrelevance",
+    "greylock:richrelevance"
+   ],
+   "note": "Greylock's published base carries no classification at all -- every column reads None -- so this is a comparison against an unclassified surface rather than a disagreement about a fact. Accepted until Greylock's run lands; nothing on this side needs changing."
+  },
+  {
+   "rows": [
+    "felicis:smartling",
+    "greylock:smartling-inc"
+   ],
+   "note": "Greylock's published base carries no classification at all -- every column reads None -- so this is a comparison against an unclassified surface rather than a disagreement about a fact. Accepted until Greylock's run lands; nothing on this side needs changing."
+  },
+  {
+   "rows": [
+    "felicis:groupon",
+    "greylock:groupon"
+   ],
+   "note": "Greylock's published base carries no classification at all -- every column reads None -- so this is a comparison against an unclassified surface rather than a disagreement about a fact. Accepted until Greylock's run lands; nothing on this side needs changing."
+  },
+  {
+   "rows": [
+    "felicis:linkedin",
+    "greylock:linkedin"
+   ],
+   "note": "Greylock's published base carries no classification at all -- every column reads None -- so this is a comparison against an unclassified surface rather than a disagreement about a fact. Accepted until Greylock's run lands; nothing on this side needs changing."
+  },
+  {
+   "rows": [
+    "felicis:exa",
+    "benchmark:exa-labs-inc"
+   ],
+   "note": "Same company (Exa Labs). Both sides now band it 1b_plus at $2.2B; the residual difference is the as-of date each run recorded, which the wave alignment settles."
+  },
+  {
+   "rows": [
+    "felicis:airware",
+    "first-round-capital:airware"
+   ],
+   "note": "Same company. Airware ceased operations in Sept 2018 and its assets went to Delair, which §6 reads as acquired-with-a-successor-note rather than defunct. First Round records defunct; this run applies the §6 convention. Raised for the wave alignment as a convention question, not a fact dispute."
+  },
+  {
+   "rows": [
+    "felicis:posterous",
+    "redpoint-ventures:posterous"
+   ],
+   "note": "Same company, same §6 convention question: Posterous was acquired by Twitter in March 2012 and shut down afterwards. Acquired-then-shut is `acquired`; Redpoint records defunct."
+  },
+  {
+   "rows": [
+    "felicis:kahuna",
+    "sequoia-capital:kahuna"
+   ],
+   "note": "Same company, same convention question: Kahuna's assets were sold rather than simply wound up."
+  },
+  {
+   "rows": [
+    "felicis:solum",
+    "a16z:solum"
+   ],
+   "note": "Same company. This run records acquired (Monsanto, 2014); a16z records unknown. The specific evidence is on this side."
+  },
+  {
+   "rows": [
+    "felicis:pickwick-weller",
+    "a16z:pickwick-weller"
+   ],
+   "note": "Same company; this run records defunct where a16z records unknown. A defensible reading either way and not worth a correction on a sub-$1B row."
+  },
+  {
+   "rows": [
+    "felicis:revel",
+    "union-square-ventures:revel"
+   ],
+   "note": "Possibly the same company and possibly not -- 'Revel' is a bare word, USV's is the mopeds business, and this run's row is a 2020 seed the firm listed without a sector. Accepted pending the wave alignment rather than guessed into a distinct ruling."
+  },
+  {
+   "rows": [
+    "felicis:assort-health",
+    "lightspeed:assort-health"
+   ],
+   "note": "Same company; this run is the fresher side, carrying the $120M Series C at $1.2B of 2026-06-24."
+  },
+  {
+   "rows": [
+    "felicis:assort-health",
+    "menlo-ventures:assort-health"
+   ],
+   "note": "Same company; this run is the fresher side (Series C at $1.2B, June 2026)."
+  },
+  {
+   "rows": [
+    "felicis:runway",
+    "lightspeed:runway"
+   ],
+   "note": "Same company; this run is the fresher side ($5.3B Series E, Feb 2026)."
+  },
+  {
+   "rows": [
+    "felicis:linkedin",
+    "sequoia-capital:linkedin"
+   ],
+   "note": "NOT a member of this base: the LinkedIn row is a parser artifact from the 2011 listing's social footer (decisions.md R7) and is removed from the parsed source. It disappears at the scheduled rebuild; recorded here so the mid-run comparison is explained rather than silently failing."
+  }
+ ]
+}

@@ -1,0 +1,469 @@
+{
+ "slug": "felicis",
+ "name": "Felicis",
+ "wayback": {
+  "cdx_domain": "felicis.com",
+  "site_url_base": "https://www.felicis.com",
+  "eras": [
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio.html",
+    "cdx_domain": "felicisventures.com",
+    "site_url_base": "http://www.felicisventures.com",
+    "from": 2006,
+    "to": 2007,
+    "raw": true,
+    "per_company_pages": false,
+    "pattern": "portfolio/images/(?P<slug>[A-Za-z0-9_.%-]+?)\\.(?:gif|jpg|jpeg|png)\"\\s+alt=\"(?P<name>[^\"]{2,60})\"",
+    "_note": "2006-2007 static HTML on the FIRM'S EARLIER DOMAIN felicisventures.com (felicis.com belonged to an unrelated owner until 2010; its 2003-2004 captures are that other site). /portfolio.html is a table of the angel-era book: <img src=portfolio/images/<Slug>.gif alt=\"<Name>\"> followed by a one-line description. Both slug and name are on the tag, so the era needs no naming pass."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio.aspx",
+    "cdx_domain": "felicisventures.com",
+    "site_url_base": "http://www.felicisventures.com",
+    "from": 2008,
+    "to": 2010,
+    "raw": true,
+    "per_company_pages": false,
+    "pattern": "src=\"images/public/(?P<slug>[A-Za-z0-9_.%-]+?)\\.(?:gif|jpg|jpeg|png)\"",
+    "_note": "2008-2010 ASP.NET era on felicisventures.com: a Repeater renders one card per company under 'Current Investments' and 'Acquired Portfolio Companies'. The visible <img> carries the DESCRIPTION in its title attribute, not the name, so only the logo filename identifies the row (COLLECTION.md logo-era rule: the slug is the identity and the judge names the row). The captures carry injected comment-spam anchors ('buy valium'), so the pattern is anchored on src= to keep spam text out of the slug."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio/",
+    "from": 2011,
+    "to": 2019,
+    "raw": true,
+    "per_company_pages": false,
+    "pattern": "src=\"/(?:[^\"]*?/)?images/logos/(?P<slug>[A-Za-z0-9_.%-]+?)\\.(?:png|jpg|jpeg|gif)\"\\s+alt=\"(?P<name>[^\"]{0,60})\"",
+    "_note": "2011-2019 WordPress era on felicis.com: #thumb-list renders one .span3 card per company as <img src=/wp-content/themes/felicis/images/logos/<slug>.png alt=\"Name\"> with a <p class=circles> listing the rounds Felicis joined (Seed / a / b / c / d). listing_regex keeps only slug and name, so the circles are parsed separately by scratch/parse-circles.py into sources/site/wayback-circles.json -- the firm's own per-company round ladder, and the strongest entry_stage candidate this run has. PATTERN TIGHTENED 2026-09-07: the 2011 capture renders the SOCIAL FOOTER with the same images/logos/ path (linkedin.png, groupon.png, twitter-small.png), so the untightened pattern published LinkedIn and Groupon as portfolio companies -- COLLECTION.md's First Round 'the same page carries marks that are not members' class, here as site chrome. The discriminator is exact: portfolio cards use a RELATIVE src (/wp-content/...), the chrome uses an absolute http://www.felicisvc.com/... host. The pattern now requires the leading slash."
+   },
+   {
+    "parser": "cdx_company_pages",
+    "path": "/portfolio-item/",
+    "from": 2013,
+    "to": 2021,
+    "per_company_pages": true,
+    "_note": "WordPress custom post type: one page per company. 274 distinct slugs across 2013-2016 and 2020-2021."
+   },
+   {
+    "parser": "cdx_company_pages",
+    "path": "/company/",
+    "from": 2020,
+    "to": 2021,
+    "per_company_pages": true,
+    "_note": "81 slugs, the 2020-2021 rename of /portfolio-item/."
+   },
+   {
+    "parser": "cdx_company_pages",
+    "path": "/companies/",
+    "from": 2022,
+    "to": 2026,
+    "per_company_pages": true,
+    "_note": "Next.js era: 462 distinct slugs in CDX against 277 companies on the live Sanity CMS, so this era carries the survivorship correction for the current site."
+   }
+  ],
+  "non_company_slugs": [
+   "index",
+   "home",
+   "index.php",
+   "index.htm",
+   "index.html",
+   "default",
+   "page",
+   "feed",
+   "all",
+   "see-all",
+   "category",
+   "tag",
+   "tags",
+   "wp-json",
+   "wp-content",
+   "wp-admin",
+   "wp-includes",
+   "wp-login",
+   "xmlrpc",
+   "about",
+   "team",
+   "people",
+   "founder",
+   "founders",
+   "news",
+   "contact",
+   "contactus",
+   "jobs",
+   "careers",
+   "search",
+   "sitemap",
+   "robots",
+   "favicon",
+   "css",
+   "images",
+   "assets",
+   "img",
+   "companies",
+   "company",
+   "portfolio",
+   "portfolio-item",
+   "portfolio-cat",
+   "all-portfolio",
+   "sectors",
+   "sector",
+   "insight",
+   "insights",
+   "blog",
+   "essay",
+   "author",
+   "attachment",
+   "comments",
+   "newsletter",
+   "podcast",
+   "fellows",
+   "fund",
+   "funds",
+   "legal",
+   "privacy",
+   "terms",
+   "timeline",
+   "numbers",
+   "endorsements",
+   "whatwedo",
+   "whatsnew",
+   "resources",
+   "location",
+   "tweet-item",
+   "job-item",
+   "jobdetail",
+   "careers_home",
+   "_next",
+   "cdn-cgi",
+   "static",
+   "js",
+   "admin",
+   "logo",
+   "logos",
+   "spacer",
+   "bg",
+   "header",
+   "footer",
+   "nav",
+   "btn",
+   "but1_1",
+   "but1_2",
+   "but2_1",
+   "but2_2",
+   "but3_1",
+   "but3_2",
+   "arrow",
+   "bullet",
+   "line",
+   "dot",
+   "pixel",
+   "blank",
+   "clear",
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "0",
+   "linkedin",
+   "groupon",
+   "twitter",
+   "twitter-small",
+   "facebook",
+   "googleplus",
+   "google-plus",
+   "rss",
+   "youtube",
+   "instagram"
+  ]
+ },
+ "roster": {
+  "cdx_patterns": [
+   "felicis.com/team/*"
+  ],
+  "site_team_groups": [
+   "Investors",
+   "Venture Partners"
+  ],
+  "slug_re": "/team/([a-z][a-z0-9-]*[a-z0-9])/?$",
+  "listing_href_re": "/team/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+  "not_a_person": [
+   "index",
+   "team",
+   "people",
+   "bio",
+   "page",
+   "feed",
+   "all",
+   "filter",
+   "attachment",
+   "tag",
+   "about",
+   "companies",
+   "news",
+   "contact",
+   "jobs",
+   "careers",
+   "partners",
+   "our-team",
+   "the-team",
+   "team-page",
+   "our-people",
+   "advisors",
+   "fellows",
+   "founder",
+   "founders",
+   "1.0"
+  ],
+  "_note": "The site keeps its own people at /team/<first-last> and a directory of PORTFOLIO FOUNDERS at /founder/<first-last> (153 slugs: Aaron Patzer, Adrian Aoun, Aza Raskin, Auren Hoffman, Brad Gerstner ...). That is the First Round trap of COLLECTION.md §5.2 in its cleanest form -- the two are separated by path, not by case, so slug_re constrained to /team/ is sufficient and no case rule is needed. /founder/ is pulled deliberately as a first-party company list (scratch/pull-founder-directory.py -> sources/site/founder-directory.json), never swept for Form D related persons.",
+  "_note_groups": "The team CMS carries a real group taxonomy (teamCategory: Investors 12, Venture Partners 9, Finance 9, Operations 8, Founder Success 6), so COLLECTION.md 5.2's site_team_groups constraint applies: only the two board-relevant groups are swept for Form D related persons. Finance, Operations and Founder Success staff (Beth Steinberg -> 8 Brightwood Capital rows, Olivia Liao, Kimberly Vogel) contribute homonym noise and never an attribution. The ARCHIVED /team/ slugs carry no group and are all kept: they are the firm's own team page in their own era, and a departed investor (Wesley Chan 2015-2022) must stay in the roster."
+ },
+ "site_api": {
+  "type": "scrape",
+  "sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/felicis/sources/site/entry-stage-layer.json",
+    "list": "companies-entry-stage",
+    "fields": {
+     "name": "name"
+    },
+    "extras": [
+     "site_entry_stage",
+     "stage_basis",
+     "stage_ladder"
+    ],
+    "_note": "FIRST source on purpose. scrape_companies keeps the first non-empty value per key (row.setdefault), so this resolved layer owns `site_entry_stage` and the CMS source below cannot overwrite it. Built by scratch/build-entry-stage-layer.py under decisions.md R3: layers agree -> publish, circles only -> publish, CMS only -> publish at medium, layers DISAGREE -> absent, so the queue asks the judge."
+   },
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/felicis/sources/site/sanity-companies.json",
+    "list": "companies-cms",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "sectors": "sectors_site",
+    "extras": [
+     "slug",
+     "site_status",
+     "site_stage",
+     "headquarters",
+     "partner",
+     "founders",
+     "description",
+     "story_text",
+     "featured",
+     "has_page",
+     "focus_areas",
+     "created_at",
+     "updated_at",
+     "site_entry_stage",
+     "partners"
+    ],
+    "rename": {
+     "site_stage": "site_entry_stage"
+    },
+    "_note_key": "No key_field: the CMS's own `slug` field is often the name with spaces ('Adaptive Innovations'), so it does not normalise to the same key as the founder directory's company name and the two sources would double every shared row. The 277 CMS names carry ZERO collisions (checked), so the normalised name is a safe identity here -- unlike YC's directory, which is why key_field exists."
+   },
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/felicis/sources/site/founder-directory.json",
+    "list": "companies-founder-directory",
+    "fields": {
+     "name": "name"
+    },
+    "extras": [
+     "founder",
+     "founder_slug",
+     "role_line",
+     "source_path"
+    ]
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/felicis/sources/site/team-cms.json",
+    "list": "team",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "slug",
+     "group",
+     "title",
+     "site_group",
+     "cms_title",
+     "linkedin_url",
+     "x_url",
+     "email",
+     "bio",
+     "seo_bio",
+     "featured_companies",
+     "role_bucket"
+    ],
+    "_note": "Points at team-cms.json, not team-members.json: the latter is build-firm-profile.py's required input and must be a FLAT LIST, while site-portfolio.py's file_list parser requires {'rows': [...]}. Two consumers, two shapes, one pull (scratch/build-profile-inputs.py writes both)."
+   }
+  ],
+  "_note": "www.felicis.com is a Next.js App Router site backed by a PUBLICLY QUERYABLE Sanity dataset (project ggsokyyr, dataset production) -- escalation ladder step 2, no rendering needed. 277 company docs carry name, slug, websiteUrl, a status enum (current|acquired|ipo), a stage reference (Seed | Series A | Series B | Series C | Common), domains, focusAreas, the deal partner reference, founder references and, on the 17 featured rows, a companyDescription that states the entry round in words ('Felicis first invested in Shopify in December 2010 as part of the company's $7 million Series A round'). scratch/pull-sanity.py writes the file_list sources; the stage field is scored on the golden set before it is trusted as a label (COLLECTION.md §4)."
+ },
+ "edgar": {
+  "seed_queries": [
+   "felicis"
+  ],
+  "fts_phrases": [
+   "Felicis Ventures",
+   "Felicis Associates",
+   "Felicis Side Fund",
+   "Felicis Focus Fund"
+  ],
+  "fts_own_pattern": "felicis ventures|felicis associates|felicis side fund|felicis focus fund|senkut aydin|senkut, aydin",
+  "_note": "Entity set from EDGAR company search 2026-09-06, every filer at 2460 Sand Hill Road #100, Menlo Park CA 94025: flagships Felicis Ventures II (CIK 1493916), III (1548506), IV (1614817), V (1669524), VI (1745992), VII (1805025), VIII (1875660), IX (1964181), X (2070105); parallel/associates vehicles Felicis Associates Fund VI (1746049), VII (1810544), VIII (1884330), Felicis Associates Focus Fund I (1884491); Felicis Focus Fund I (1876390); Felicis Side Fund V (1672620); and the GP entity Felicis Ventures GP II, LLC (1644840). No Fund I files -- the 2006-2009 book was Aydin Senkut's angel and first-fund era below the electronic Form D window, which is why the pre-2011 felicisventures.com captures are the only first-party record of it. Adviser: FELICIS VENTURES MANAGEMENT COMPANY, LLC, CRD 162301, SEC 802-74738 (an EXEMPT REPORTING ADVISER, so Section 7.B gross assets is the sworn AUM substitute, not Item 5.F). IAPD returns exactly one firm for 'felicis', so T1 finds no brand-sharing entity with its own registration."
+ },
+ "wikipedia": {
+  "phrases": [
+   "Felicis Ventures",
+   "Felicis Ventures Management",
+   "Aydin Senkut"
+  ],
+  "_note": "ENTITY-QUALIFIED after a first pass with the bare word 'Felicis' returned mostly Latin: 'felicis' is the genitive of 'felix' and appears in papal bulls (Dudum felicis), Roman inscriptions (ANTONINI PII FELICIS INVICTI), and dozens of species binomials (Cincinnobotrys felicis, Calonarius sancti-felicis). This is COLLECTION.md's Cherry lesson in its most extreme form -- the common-word name costs nothing once the phrase names the entity."
+ },
+ "desks": {
+  "home": "us",
+  "partition": [],
+  "rank": [
+   "us",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "^felicity",
+     "^felicitas",
+     "^felicia",
+     "^felix ",
+     "^felicis capital",
+     "^felicis partners",
+     "^felicis advisors",
+     "^felicis holdings"
+    ]
+   },
+   {
+    "desk": "us",
+    "patterns": [
+     "^felicis ventures",
+     "^felicis associates",
+     "^felicis side fund",
+     "^felicis focus fund"
+    ]
+   }
+  ],
+  "_note": "One desk: a single Menlo Park adviser with no geographic or strategy partition and no non-venture strategy, so neither the desk partition nor the strategy addendum of T1 applies. 'Felicis' is a rare Latin word and the EDGAR company search returns only the firm's own sixteen vehicles, so the namesake risk is low; the external rule runs first regardless."
+ },
+ "profile": {
+  "own_vehicle_pattern": "^(felicis ventures|felicis associates|felicis side fund|felicis focus fund)",
+  "focus_min_companies": 20,
+  "focus_crosswalk": {
+   "AI": "AI & Applied AI",
+   "AI Application": "AI & Applied AI",
+   "AI Models": "AI & Applied AI",
+   "Vertical AI": "AI & Applied AI",
+   "Artificial Intelligence": "AI & Applied AI",
+   "AgTech": "Industrial & Robotics",
+   "Commerce": "Consumer & Marketplaces",
+   "Consumer": "Consumer & Marketplaces",
+   "Consumer & Commerce": "Consumer & Marketplaces",
+   "Ecommerce": "Consumer & Marketplaces",
+   "ecommerce": "Consumer & Marketplaces",
+   "Mobile": "Consumer & Marketplaces",
+   "mobile": "Consumer & Marketplaces",
+   "Connected Devices": "Industrial & Robotics",
+   "connected-devices": "Industrial & Robotics",
+   "Cybersecurity": "Security",
+   "Cybersecurity & Defense": "Security",
+   "Physical Security": "Security",
+   "Defense Tech": "Industrial & Robotics",
+   "robotics": "Industrial & Robotics",
+   "Robotics": "Industrial & Robotics",
+   "3D Imaging": "Industrial & Robotics",
+   "3d-imaging": "Industrial & Robotics",
+   "Developer Tool": "DevTools & APIs",
+   "Energy": "Climate & Energy",
+   "Global Resilience": "Industrial & Robotics",
+   "Global Resilience & Energy": "Climate & Energy",
+   "Enterprise": "SaaS",
+   "enterprise": "SaaS",
+   "Vertical SaaS": "SaaS",
+   "MarTech": "SaaS",
+   "FinTech": "Fintech & Payments",
+   "Health & Bio": "Healthcare & Bio",
+   "Health & Bioinformatics": "Healthcare & Bio",
+   "health": "Healthcare & Bio",
+   "Infrastructure": "Data Infrastructure",
+   "SaaS": "SaaS",
+   "Security": "Security",
+   "AI & Applied AI": "AI & Applied AI",
+   "Healthcare & Bio": "Healthcare & Bio",
+   "Data Infrastructure": "Data Infrastructure",
+   "Industrial & Robotics": "Industrial & Robotics",
+   "Climate & Energy": "Climate & Energy",
+   "Crypto & Web3": "Crypto & Web3",
+   "Fintech & Payments": "Fintech & Payments",
+   "Consumer & Marketplaces": "Consumer & Marketplaces",
+   "Media, Gaming & Advertising": "Media, Gaming & Advertising",
+   "DevTools & APIs": "DevTools & APIs"
+  },
+  "_note": "Two site vocabularies are crosswalked: the live Sanity 'domain' tags (23 values, from 'AI Models' to 'Global Resilience') and the four 'focusArea' groupings the firm markets on (Artificial Intelligence, Health & Bio, Cybersecurity & Defense, Global Resilience & Energy), plus the 2011-2016 WordPress sector slugs (mobile, ecommerce, enterprise, education, health, connected-devices, 3d-imaging, other). 'Education' and 'Other' are deliberately UNMAPPED: education has no home in the closed twelve and force-fitting it to SaaS would corrupt the distribution (§6, null over force-fit), so the recompute reports them unmapped. focus_min_companies 20 is ~4.5% of the expected base (462 archived company slugs against 277 live CMS rows)."
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "shopify",
+   "adyen",
+   "canva",
+   "notion",
+   "plaid",
+   "ring",
+   "fitbit",
+   "credit karma",
+   "cruise",
+   "supabase",
+   "weights & biases",
+   "guardant health",
+   "flexport",
+   "runway",
+   "bonobos",
+   "brightroll",
+   "meraki",
+   "mint",
+   "dogster",
+   "freewebs",
+   "matterport"
+  ],
+  "sample_slugs": [],
+  "shape": {
+   "one_b_share_max": 0.2,
+   "c2a_rate_max": 0.8
+  },
+  "_note_known_positions": "'rippling' and 'airtable' were drafted into this guard from a general impression of Felicis's book and removed at verify time: neither appears on ANY Felicis surface across six site eras (2006-2026) or in the 460-slug archive. The guard is for positions the base must contain; a wrong entry turns it into a false recall alarm."
+ },
+ "sample_slugs": [],
+ "commoncrawl": {
+  "company_paths": [
+   "companies",
+   "company",
+   "portfolio-item",
+   "portfolio"
+  ],
+  "people_paths": [
+   "team"
+  ]
+ }
+}

@@ -1,0 +1,63 @@
+    retry 1 https://web.archive.org/cdx/search/cdx?url=felicisventures.com/portfolio.html&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=felicisventures.com/portfolio.html&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 https://web.archive.org/cdx/search/cdx?url=felicisventures.com/portfolio.html&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=felicisventures.com/portfolio.aspx&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=felicisventures.com/portfolio.aspx&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 https://web.archive.org/cdx/search/cdx?url=felicisventures.com/portfolio.aspx&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=felicisventures.com/portfolio.aspx&output=json&collapse=timestamp:4&fl=timestamp,original: rc=56
+    retry 2 https://web.archive.org/cdx/search/cdx?url=felicisventures.com/portfolio.aspx&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 https://web.archive.org/cdx/search/cdx?url=felicisventures.com/portfolio.aspx&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/web/20090503033440id_/http://www.felicisventures.com/portfolio.aspx: rc=7
+    retry 2 https://web.archive.org/web/20090503033440id_/http://www.felicisventures.com/portfolio.aspx: rc=7
+    retry 3 https://web.archive.org/web/20090503033440id_/http://www.felicisventures.com/portfolio.aspx: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=felicis.com/portfolio&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=felicis.com/portfolio&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 https://web.archive.org/cdx/search/cdx?url=felicis.com/portfolio&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/web/20110925061841id_/http://www.felicis.com:80/portfolio: rc=7
+    retry 2 https://web.archive.org/web/20110925061841id_/http://www.felicis.com:80/portfolio: rc=7
+    retry 3 https://web.archive.org/web/20110925061841id_/http://www.felicis.com:80/portfolio: rc=7
+    retry 1 https://web.archive.org/web/20120125002607id_/http://www.felicis.com:80/portfolio: rc=7
+    retry 2 https://web.archive.org/web/20120125002607id_/http://www.felicis.com:80/portfolio: rc=7
+    retry 3 https://web.archive.org/web/20120125002607id_/http://www.felicis.com:80/portfolio: rc=7
+    retry 1 https://web.archive.org/web/20130224045636id_/http://www.felicis.com:80/portfolio/: rc=7
+    retry 2 https://web.archive.org/web/20130224045636id_/http://www.felicis.com:80/portfolio/: rc=7
+    retry 3 https://web.archive.org/web/20130224045636id_/http://www.felicis.com:80/portfolio/: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=felicis.com/portfolio-item/*&output=json&filter=statuscode:200&collapse=urlkey&fl=timestamp,original&to=2021&limit=2000: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=felicis.com/portfolio-item/*&output=json&filter=statuscode:200&collapse=urlkey&fl=timestamp,original&to=2021&limit=2000: rc=56
+    retry 3 https://web.archive.org/cdx/search/cdx?url=felicis.com/portfolio-item/*&output=json&filter=statuscode:200&collapse=urlkey&fl=timestamp,original&to=2021&limit=2000: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=felicis.com/portfolio-item/*&output=json&collapse=urlkey&fl=timestamp,original&to=2021&limit=2000: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=felicis.com/portfolio-item/*&output=json&collapse=urlkey&fl=timestamp,original&to=2021&limit=2000: rc=7
+    retry 3 https://web.archive.org/cdx/search/cdx?url=felicis.com/portfolio-item/*&output=json&collapse=urlkey&fl=timestamp,original&to=2021&limit=2000: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=felicis.com/company/*&output=json&filter=statuscode:200&collapse=urlkey&fl=timestamp,original&to=2021&limit=2000: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=felicis.com/company/*&output=json&filter=statuscode:200&collapse=urlkey&fl=timestamp,original&to=2021&limit=2000: rc=7
+    retry 3 https://web.archive.org/cdx/search/cdx?url=felicis.com/company/*&output=json&filter=statuscode:200&collapse=urlkey&fl=timestamp,original&to=2021&limit=2000: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=felicis.com/company/*&output=json&collapse=urlkey&fl=timestamp,original&to=2021&limit=2000: rc=7
+== era /portfolio.html 2006-2007 (regex listing)
+  2007: 17 entries
+== era /portfolio.aspx 2008-2010 (regex listing)
+  CDX empty for felicisventures.com/portfolio.aspx; probing the replay per year
+  2008: 32 entries
+  2009: 0 entries
+  2010: 58 entries
+== era /portfolio/ 2011-2019 (regex listing)
+  2011: 0 entries
+  2012: 0 entries
+  2013: 0 entries
+  2014: 15 entries
+  2015: 25 entries
+  2016: 35 entries
+  2017: 111 entries
+  2018: 109 entries
+  2019: 101 entries
+== era /portfolio-item/ 2013-2021 (CDX index)
+== era /company/ 2020-2021 (CDX index)
+  2020: 65 companies (from CDX index)
+  2021: 3 companies (from CDX index)
+== era /companies/ 2022-2026 (CDX index)
+  2023: 277 companies (from CDX index)
+  2024: 23 companies (from CDX index)
+  2025: 31 companies (from CDX index)
+  2026: 12 companies (from CDX index)
+
+years: [2007, 2008, 2010, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2023, 2024, 2025, 2026]
+distinct slugs across all years: 532

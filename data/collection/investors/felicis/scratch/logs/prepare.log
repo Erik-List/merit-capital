@@ -1,0 +1,45 @@
+base: data/collection/investors/felicis/base.json
+target companies: 118  distinct issuer CIKs: 108
+scanning 74 quarterly datasets (offline)...
+filings collected: 425
+evidence: 250/250 base accessions found
+wrote data/collection/investors/felicis/scratch/issuer-evidence.json (109 CIKs, 53 with a name history)
+
+wrote data/collection/investors/felicis/sources/edgar/formd-issuer-rounds.json
+  companies with Form D history : 107
+  rounds after amendment merge  : 363 (62 amendments folded in)
+  companies with 2+ rounds      : 65
+  filings the partner sweep never saw: 175
+  companies gaining >=1 such filing  : 37
+  rounds carrying a sale date   : 359/363
+in flight: wrote data/collection/investors/felicis/scratch/in-flight.json
+rows: 612
+membership seed: 519 site_listing, 0 fund_filing; left for the judge: 93
+layer A (SEC public float): 612 rows to resolve
+    fetched 100/183
+    100/612
+    200/612
+    300/612
+    400/612
+    500/612
+    600/612
+    resolved a CIK: 321   with public float: 22
+layer B (Wikidata): 612 rows in batches of 60
+    60/612
+    120/612
+    180/612
+    240/612
+    300/612
+    360/612
+    420/612
+    480/612
+    540/612
+    600/612
+    612/612
+    matched: 116
+layer C (unicorn list): 627 current, 209 former
+graduation layer 1: 107 companies, 36 entered at Seed, 33 decided deterministically, 27 entries moved past pre-investor rounds
+
+deterministically resolved: 2/612
+retired (not_member, awaiting rebuild): 0
+queued for judgment       : 610 rows in 14 batches

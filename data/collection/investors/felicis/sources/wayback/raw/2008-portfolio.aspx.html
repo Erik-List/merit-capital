@@ -1,0 +1,682 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="ctl00_Head1"><title>
+	Felicis Ventures: Portfolio
+</title><link rel="stylesheet" type="text/css" href="styles/option1-home.css" /><link rel="shortcut icon" href="images/favicon.ico" />
+    <script language="javascript" type="text/javascript" src="scripts/popup.js"></script>
+    <script language="javascript" type="text/javascript" src="scripts/global.js"></script>  
+    <script type="text/javascript" language="javascript">
+        function body_onload(){
+            try{
+                PositionElements();
+            }catch(e1){
+            }
+        }
+    </script>
+
+
+</head>
+<body onload="body_onload();">
+
+    <div id="container">
+        <form name="aspnetForm" method="post" action="portfolio.aspx" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTI1NDI2MjkzNw9kFgJmD2QWBAIDD2QWBAIBD2QWAgIHDxYCHgVjbGFzcwUIc2VsZWN0ZWRkAgMPZBYCAgEPDxYCHgZBZGROZXcFBWZhbHNlZBYEZg8WAh4HVmlzaWJsZWhkAgQPFgIeC18hSXRlbUNvdW50AiAWQGYPZBYCAgEPD2QWAh4NUG9ydGZvbGlvRGF0ZWUWCmYPZBYEAgEPDxYCHgtOYXZpZ2F0ZVVybAUaaHR0cDovL3d3dy5icmlnaHRyb2xsLmNvbS8WAh4GdGFyZ2V0BQZfYmxhbmsWAmYPDxYEHgdUb29sVGlwBU9WaWRlbyBhZHZlcnRpc2luZyBuZXR3b3JrIGNvbm5lY3RpbmcgYWR2ZXJ0aXNlcnMgd2l0aCBoaWdoIHZvbHVtZSB2aWRlbyB0cmFmZmljHghJbWFnZVVybAUjfi9pbWFnZXMvcHVibGljL2JyaWdodHJvbGxfbG9nby5qcGdkZAIDDxYCHwJoZAICDw8WAh8CaGQWCAIBDw8WAh8FBRpodHRwOi8vd3d3LmJyaWdodHJvbGwuY29tLxYCHwYFBl9ibGFuaxYCZg8PFgIfCAUjfi9pbWFnZXMvcHVibGljL2JyaWdodHJvbGxfbG9nby5qcGdkZAIDDw8WAh4EVGV4dAUKQnJpZ2h0cm9sbGRkAgUPDxYCHwkFGmh0dHA6Ly93d3cuYnJpZ2h0cm9sbC5jb20vZGQCBw8PFgIfCQVPVmlkZW8gYWR2ZXJ0aXNpbmcgbmV0d29yayBjb25uZWN0aW5nIGFkdmVydGlzZXJzIHdpdGggaGlnaCB2b2x1bWUgdmlkZW8gdHJhZmZpY2RkAgQPDxYCHwkFAjMyZGQCCA8WAh8JZWQCCg8PFgIfAmhkFgQCAQ8WAh8JBQlQb3J0Zm9saW9kAgMPFgIfCQUJUG9ydGZvbGlvZAIBD2QWAgIBDw9kFgIfBGUWCmYPZBYEAgEPDxYCHwUFFWh0dHA6Ly9idXp6bG9naWMuY29tLxYCHwYFBl9ibGFuaxYCZg8PFgQfBwU+QXBwbHlpbmcgdGhlIHNjaWVuY2Ugb2YgaW5mbHVlbmNlIHRvIHRoZSB3b3JsZCBvZiBzb2NpYWwgbWVkaWEfCAUkfi9pbWFnZXMvcHVibGljL0J1enpMb2dpY19sYXRlc3QuanBnZGQCAw8WAh8CaGQCAg8PFgIfAmhkFggCAQ8PFgIfBQUVaHR0cDovL2J1enpsb2dpYy5jb20vFgIfBgUGX2JsYW5rFgJmDw8WAh8IBSR+L2ltYWdlcy9wdWJsaWMvQnV6ekxvZ2ljX2xhdGVzdC5qcGdkZAIDDw8WAh8JBQlCdXp6TG9naWNkZAIFDw8WAh8JBRVodHRwOi8vYnV6emxvZ2ljLmNvbS9kZAIHDw8WAh8JBT5BcHBseWluZyB0aGUgc2NpZW5jZSBvZiBpbmZsdWVuY2UgdG8gdGhlIHdvcmxkIG9mIHNvY2lhbCBtZWRpYWRkAgQPDxYCHwkFAjM1ZGQCCA8WAh8JZWQCCg8PFgIfAmhkFgQCAQ8WAh8JBQlQb3J0Zm9saW9kAgMPFgIfCQUJUG9ydGZvbGlvZAICD2QWAgIBDw9kFgIfBGUWCmYPZBYEAgEPDxYCHwUFLWh0dHBzOi8vd3d3LmNha2VmaW5hbmNpYWwuY29tL2FwcC9wdWJIZWxsby5kbxYCHwYFBl9ibGFuaxYCZg8PFgQfBwUbU29jaWFsIEludmVzdGluZyBSZXZvbHV0aW9uHwgFIn4vaW1hZ2VzL3B1YmxpYy9jYWtlX2ZpbmFuY2lhbC5naWZkZAIDDxYCHwJoZAICDw8WAh8CaGQWCAIBDw8WAh8FBS1odHRwczovL3d3dy5jYWtlZmluYW5jaWFsLmNvbS9hcHAvcHViSGVsbG8uZG8WAh8GBQZfYmxhbmsWAmYPDxYCHwgFIn4vaW1hZ2VzL3B1YmxpYy9jYWtlX2ZpbmFuY2lhbC5naWZkZAIDDw8WAh8JBQ5DYWtlIEZpbmFuY2lhbGRkAgUPDxYCHwkFLWh0dHBzOi8vd3d3LmNha2VmaW5hbmNpYWwuY29tL2FwcC9wdWJIZWxsby5kb2RkAgcPDxYCHwkFG1NvY2lhbCBJbnZlc3RpbmcgUmV2b2x1dGlvbmRkAgQPDxYCHwkFAjc1ZGQCCA8WAh8JZWQCCg8PFgIfAmhkFgQCAQ8WAh8JBQlQb3J0Zm9saW9kAgMPFgIfCQUJUG9ydGZvbGlvZAIDD2QWAgIBDw9kFgIfBGUWCmYPZBYEAgEPDxYCHwUFF2h0dHA6Ly93d3cuZG9nc3Rlci5jb20vFgIfBgUGX2JsYW5rFgJmDw8WBB8HBRZXZWJzaXRlIGZvciBkb2cgbG92ZXJzHwgFG34vaW1hZ2VzL3B1YmxpYy9Eb2dzdGVyLmdpZmRkAgMPFgIfAmhkAgIPDxYCHwJoZBYIAgEPDxYCHwUFF2h0dHA6Ly93d3cuZG9nc3Rlci5jb20vFgIfBgUGX2JsYW5rFgJmDw8WAh8IBRt+L2ltYWdlcy9wdWJsaWMvRG9nc3Rlci5naWZkZAIDDw8WAh8JBQhEb2dzdGVyIGRkAgUPDxYCHwkFF2h0dHA6Ly93d3cuZG9nc3Rlci5jb20vZGQCBw8PFgIfCQUWV2Vic2l0ZSBmb3IgZG9nIGxvdmVyc2RkAgQPDxYCHwkFAzIxMmRkAggPFgIfCWVkAgoPDxYCHwJoZBYEAgEPFgIfCQUJUG9ydGZvbGlvZAIDDxYCHwkFCVBvcnRmb2xpb2QCBA9kFgICAQ8PZBYCHwRlFgpmD2QWBAIBDw8WAh8FBRNodHRwOi8vZmVlZGppdC5jb20vFgIfBgUGX2JsYW5rFgJmDw8WBB8HBRhSZWFsLXRpbWUgYmxvZyBhbmFseXRpY3MfCAUbfi9pbWFnZXMvcHVibGljL2ZlZWRqaXQuanBnZGQCAw8WAh8CaGQCAg8PFgIfAmhkFggCAQ8PFgIfBQUTaHR0cDovL2ZlZWRqaXQuY29tLxYCHwYFBl9ibGFuaxYCZg8PFgIfCAUbfi9pbWFnZXMvcHVibGljL2ZlZWRqaXQuanBnZGQCAw8PFgIfCQUHRmVlZGppdGRkAgUPDxYCHwkFE2h0dHA6Ly9mZWVkaml0LmNvbS9kZAIHDw8WAh8JBRhSZWFsLXRpbWUgYmxvZyBhbmFseXRpY3NkZAIEDw8WAh8JBQMyNjZkZAIIDxYCHwllZAIKDw8WAh8CaGQWBAIBDxYCHwkFCVBvcnRmb2xpb2QCAw8WAh8JBQlQb3J0Zm9saW9kAgUPZBYCAgEPD2QWAh8EZRYKZg9kFgQCAQ8PFgIfBQUUaHR0cDovL2ZyZWV3ZWJzLmNvbS8WAh8GBQZfYmxhbmsWAmYPDxYEHwcFKUdsb2JhbCBvbmxpbmUgY29tbXVuaXR5IG9mIHdlYiBwdWJsaXNoZXJzHwgFHH4vaW1hZ2VzL3B1YmxpYy9GcmVld2Vicy5qcGdkZAIDDxYCHwJoZAICDw8WAh8CaGQWCAIBDw8WAh8FBRRodHRwOi8vZnJlZXdlYnMuY29tLxYCHwYFBl9ibGFuaxYCZg8PFgIfCAUcfi9pbWFnZXMvcHVibGljL0ZyZWV3ZWJzLmpwZ2RkAgMPDxYCHwkFCEZyZWV3ZWJzZGQCBQ8PFgIfCQUUaHR0cDovL2ZyZWV3ZWJzLmNvbS9kZAIHDw8WAh8JBSlHbG9iYWwgb25saW5lIGNvbW11bml0eSBvZiB3ZWIgcHVibGlzaGVyc2RkAgQPDxYCHwkFAjM4ZGQCCA8WAh8JZWQCCg8PFgIfAmhkFgQCAQ8WAh8JBQlQb3J0Zm9saW9kAgMPFgIfCQUJUG9ydGZvbGlvZAIGD2QWAgIBDw9kFgIfBGUWCmYPZBYEAgEPDxYCHwUFIGh0dHA6Ly93d3cuZ3lkZ2V0LmNvbS9teV93aWRnZXQvFgIfBgUGX2JsYW5rFgJmDw8WBB8HBX5WaXJhbCBwcm9tb3Rpb24gdG9vbCBmb3IgYW55IG9yZ2FuaXphdGlvbiB0byBnZXQgdGhlIHdvcmQgb3V0IHRvIGZhbnMgYWNyb3NzIGFsbCBzb2NpYWwgbmV0d29ya2luZyBzaXRlcyBhYm91dCBuZXdzIGFuZCBldmVudHMfCAUafi9pbWFnZXMvcHVibGljL2d5ZGdldC5qcGdkZAIDDxYCHwJoZAICDw8WAh8CaGQWCAIBDw8WAh8FBSBodHRwOi8vd3d3Lmd5ZGdldC5jb20vbXlfd2lkZ2V0LxYCHwYFBl9ibGFuaxYCZg8PFgIfCAUafi9pbWFnZXMvcHVibGljL2d5ZGdldC5qcGdkZAIDDw8WAh8JBQZHeWRnZXRkZAIFDw8WAh8JBSBodHRwOi8vd3d3Lmd5ZGdldC5jb20vbXlfd2lkZ2V0L2RkAgcPDxYCHwkFflZpcmFsIHByb21vdGlvbiB0b29sIGZvciBhbnkgb3JnYW5pemF0aW9uIHRvIGdldCB0aGUgd29yZCBvdXQgdG8gZmFucyBhY3Jvc3MgYWxsIHNvY2lhbCBuZXR3b3JraW5nIHNpdGVzIGFib3V0IG5ld3MgYW5kIGV2ZW50c2RkAgQPDxYCHwkFAjU4ZGQCCA8WAh8JZWQCCg8PFgIfAmhkFgQCAQ8WAh8JBQlQb3J0Zm9saW9kAgMPFgIfCQUJUG9ydGZvbGlvZAIHD2QWAgIBDw9kFgIfBGUWCmYPZBYEAgEPDxYCHwUFG2h0dHA6Ly93d3cuaGFuZGlwb2ludHMuY29tLxYCHwYFBl9ibGFuaxYCZg8PFgQfBwULS2lkcyBQb3J0YWwfCAUffi9pbWFnZXMvcHVibGljL2hhbmRpcG9pbnRzLmdpZmRkAgMPFgIfAmhkAgIPDxYCHwJoZBYIAgEPDxYCHwUFG2h0dHA6Ly93d3cuaGFuZGlwb2ludHMuY29tLxYCHwYFBl9ibGFuaxYCZg8PFgIfCAUffi9pbWFnZXMvcHVibGljL2hhbmRpcG9pbnRzLmdpZmRkAgMPDxYCHwkFC0hhbmRpcG9pbnRzZGQCBQ8PFgIfCQUbaHR0cDovL3d3dy5oYW5kaXBvaW50cy5jb20vZGQCBw8PFgIfCQULS2lkcyBQb3J0YWxkZAIEDw8WAh8JBQMyMTBkZAIIDxYCHwllZAIKDw8WAh8CaGQWBAIBDxYCHwkFCVBvcnRmb2xpb2QCAw8WAh8JBQlQb3J0Zm9saW9kAggPZBYCAgEPD2QWAh8EZRYKZg9kFgQCAQ8PFgIfBQUQaHR0cDovL2p1c3Rpbi50dhYCHwYFBl9ibGFuaxYCZg8PFgQfBwUvVGhlIG5ldyBwbGF0Zm9ybSBmb3IgbGl2ZSB2aWRlbyBvbiB0aGUgaW50ZXJuZXQfCAUgfi9pbWFnZXMvcHVibGljL2p1c3RpbnR2bG9nby5wbmdkZAIDDxYCHwJoZAICDw8WAh8CaGQWCAIBDw8WAh8FBRBodHRwOi8vanVzdGluLnR2FgIfBgUGX2JsYW5rFgJmDw8WAh8IBSB+L2ltYWdlcy9wdWJsaWMvanVzdGludHZsb2dvLnBuZ2RkAgMPDxYCHwkFCUp1c3Rpbi50dmRkAgUPDxYCHwkFEGh0dHA6Ly9qdXN0aW4udHZkZAIHDw8WAh8JBS9UaGUgbmV3IHBsYXRmb3JtIGZvciBsaXZlIHZpZGVvIG9uIHRoZSBpbnRlcm5ldGRkAgQPDxYCHwkFAzE4MGRkAggPFgIfCWVkAgoPDxYCHwJoZBYEAgEPFgIfCQUJUG9ydGZvbGlvZAIDDxYCHwkFCVBvcnRmb2xpb2QCCQ9kFgICAQ8PZBYCHwRlFgpmD2QWBAIBDw8WAh8FBRZodHRwOi8vd3d3Lmxvb21pYS5jb20vFgIfBgUGX2JsYW5rFgJmDw8WBB8HBS9SZWNvbW1lbmRhdGlvbi9QZXJzb25hbGl6YXRpb24gRW5naW5lIGFzIGFuIEFTUB8IBRp+L2ltYWdlcy9wdWJsaWMvTG9vbWlhLmdpZmRkAgMPFgIfAmhkAgIPDxYCHwJoZBYIAgEPDxYCHwUFFmh0dHA6Ly93d3cubG9vbWlhLmNvbS8WAh8GBQZfYmxhbmsWAmYPDxYCHwgFGn4vaW1hZ2VzL3B1YmxpYy9Mb29taWEuZ2lmZGQCAw8PFgIfCQUGTG9vbWlhZGQCBQ8PFgIfCQUWaHR0cDovL3d3dy5sb29taWEuY29tL2RkAgcPDxYCHwkFL1JlY29tbWVuZGF0aW9uL1BlcnNvbmFsaXphdGlvbiBFbmdpbmUgYXMgYW4gQVNQZGQCBA8PFgIfCQUCMzlkZAIIDxYCHwllZAIKDw8WAh8CaGQWBAIBDxYCHwkFCVBvcnRmb2xpb2QCAw8WAh8JBQlQb3J0Zm9saW9kAgoPZBYCAgEPD2QWAh8EZRYKZg9kFgQCAQ8PFgIfBQUXaHR0cDovL3d3dy5tYXNoZXJ5LmNvbS8WAh8GBQZfYmxhbmsWAmYPDxYEHwcFeU9mZmVycyBBUEkgbWFuYWdlbWVudCBzb2x1dGlvbiBmb3IgQVBJIHByb3ZpZGVycyBhbmQgdXNlcnMgdG8gZmFjaWxpdGF0ZSBkZXZlbG9wbWVudCwgZGVwbG95bWVudCBhbmQgdXNlIG9mIHdlYiBzZXJ2aWNlcy4fCAUifi9pbWFnZXMvcHVibGljL21hc2hlcnlfbG9nb18yLmpwZ2RkAgMPFgIfAmhkAgIPDxYCHwJoZBYIAgEPDxYCHwUFF2h0dHA6Ly93d3cubWFzaGVyeS5jb20vFgIfBgUGX2JsYW5rFgJmDw8WAh8IBSJ+L2ltYWdlcy9wdWJsaWMvbWFzaGVyeV9sb2dvXzIuanBnZGQCAw8PFgIfCQUHTWFzaGVyeWRkAgUPDxYCHwkFF2h0dHA6Ly93d3cubWFzaGVyeS5jb20vZGQCBw8PFgIfCQV5T2ZmZXJzIEFQSSBtYW5hZ2VtZW50IHNvbHV0aW9uIGZvciBBUEkgcHJvdmlkZXJzIGFuZCB1c2VycyB0byBmYWNpbGl0YXRlIGRldmVsb3BtZW50LCBkZXBsb3ltZW50IGFuZCB1c2Ugb2Ygd2ViIHNlcnZpY2VzLmRkAgQPDxYCHwkFAjcxZGQCCA8WAh8JZWQCCg8PFgIfAmhkFgQCAQ8WAh8JBQlQb3J0Zm9saW9kAgMPFgIfCQUJUG9ydGZvbGlvZAILD2QWAgIBDw9kFgIfBGUWCmYPZBYEAgEPDxYCHwUFEmh0dHA6Ly9tZXJha2kubmV0LxYCHwYFBl9ibGFuaxYCZg8PFgQfBwU8VGVjaG5vbG9neSB0aGF0IGVuYWJsZXMgbG93LWNvc3Qgd2lyZWxlc3MgY29tbXVuaXR5IG5ldHdvcmtzHwgFI34vaW1hZ2VzL3B1YmxpYy9NZXJha2kgTmV0d29ya3MuanBnZGQCAw8WAh8CaGQCAg8PFgIfAmhkFggCAQ8PFgIfBQUSaHR0cDovL21lcmFraS5uZXQvFgIfBgUGX2JsYW5rFgJmDw8WAh8IBSN+L2ltYWdlcy9wdWJsaWMvTWVyYWtpIE5ldHdvcmtzLmpwZ2RkAgMPDxYCHwkFD01lcmFraSBOZXR3b3Jrc2RkAgUPDxYCHwkFEmh0dHA6Ly9tZXJha2kubmV0L2RkAgcPDxYCHwkFPFRlY2hub2xvZ3kgdGhhdCBlbmFibGVzIGxvdy1jb3N0IHdpcmVsZXNzIGNvbW11bml0eSBuZXR3b3Jrc2RkAgQPDxYCHwkFAjQxZGQCCA8WAh8JZWQCCg8PFgIfAmhkFgQCAQ8WAh8JBQlQb3J0Zm9saW9kAgMPFgIfCQUJUG9ydGZvbGlvZAIMD2QWAgIBDw9kFgIfBGUWCmYPZBYEAgEPDxYCHwUFEGh0dHA6Ly9tZXNtby50di8WAh8GBQZfYmxhbmsWAmYPDxYEHwcFMERpc2NvdmVyIGFuZCBzaGFyZSBvbmxpbmUgdmlkZW9zIHRocm91Z2ggZnJpZW5kcx8IBRt+L2ltYWdlcy9wdWJsaWMvbWVzbW90di5wbmdkZAIDDxYCHwJoZAICDw8WAh8CaGQWCAIBDw8WAh8FBRBodHRwOi8vbWVzbW8udHYvFgIfBgUGX2JsYW5rFgJmDw8WAh8IBRt+L2ltYWdlcy9wdWJsaWMvbWVzbW90di5wbmdkZAIDDw8WAh8JBQhNZXNtby50dmRkAgUPDxYCHwkFEGh0dHA6Ly9tZXNtby50di9kZAIHDw8WAh8JBTBEaXNjb3ZlciBhbmQgc2hhcmUgb25saW5lIHZpZGVvcyB0aHJvdWdoIGZyaWVuZHNkZAIEDw8WAh8JBQMyMzVkZAIIDxYCHwllZAIKDw8WAh8CaGQWBAIBDxYCHwkFCVBvcnRmb2xpb2QCAw8WAh8JBQlQb3J0Zm9saW9kAg0PZBYCAgEPD2QWAh8EZRYKZg9kFgQCAQ8PFgIfBQUXaHR0cDovL3d3dy5tZWxvZGlzLmNvbS8WAh8GBQZfYmxhbmsWAmYPDxYEHwcFME5leHQgZ2VuZXJhdGlvbiBtdXNpYyBzZWFyY2ggJiBzb3VuZCByZWNvZ25pdGlvbh8IBSB+L2ltYWdlcy9wdWJsaWMvbWlkb21pX3NtYWxsLnBuZ2RkAgMPFgIfAmhkAgIPDxYCHwJoZBYIAgEPDxYCHwUFF2h0dHA6Ly93d3cubWVsb2Rpcy5jb20vFgIfBgUGX2JsYW5rFgJmDw8WAh8IBSB+L2ltYWdlcy9wdWJsaWMvbWlkb21pX3NtYWxsLnBuZ2RkAgMPDxYCHwkFEU1pZG9taSBieSBNZWxvZGlzZGQCBQ8PFgIfCQUXaHR0cDovL3d3dy5tZWxvZGlzLmNvbS9kZAIHDw8WAh8JBTBOZXh0IGdlbmVyYXRpb24gbXVzaWMgc2VhcmNoICYgc291bmQgcmVjb2duaXRpb25kZAIEDw8WAh8JBQI0MGRkAggPFgIfCWVkAgoPDxYCHwJoZBYEAgEPFgIfCQUJUG9ydGZvbGlvZAIDDxYCHwkFCVBvcnRmb2xpb2QCDg9kFgICAQ8PZBYCHwRlFgpmD2QWBAIBDw8WAh8FBRRodHRwOi8vd3d3Lm1pbnQuY29tLxYCHwYFBl9ibGFuaxYCZg8PFgQfBwUwT25saW5lIGludGVsbGlnZW50IHBlcnNvbmFsIGZpbmFuY2lhbCBtYW5hZ2VtZW50HwgFGn4vaW1hZ2VzL3B1YmxpYy9taW50XzIuanBnZGQCAw8WAh8CaGQCAg8PFgIfAmhkFggCAQ8PFgIfBQUUaHR0cDovL3d3dy5taW50LmNvbS8WAh8GBQZfYmxhbmsWAmYPDxYCHwgFGn4vaW1hZ2VzL3B1YmxpYy9taW50XzIuanBnZGQCAw8PFgIfCQUETWludGRkAgUPDxYCHwkFFGh0dHA6Ly93d3cubWludC5jb20vZGQCBw8PFgIfCQUwT25saW5lIGludGVsbGlnZW50IHBlcnNvbmFsIGZpbmFuY2lhbCBtYW5hZ2VtZW50ZGQCBA8PFgIfCQUCNDJkZAIIDxYCHwllZAIKDw8WAh8CaGQWBAIBDxYCHwkFCVBvcnRmb2xpb2QCAw8WAh8JBQlQb3J0Zm9saW9kAg8PZBYCAgEPD2QWAh8EZRYKZg9kFgQCAQ8PFgIfBQUUaHR0cDovL29jdG9wYXJ0LmNvbS8WAh8GBQZfYmxhbmsWAmYPDxYEHwcFIlNlYXJjaCBFbmdpbmUgZm9yIEVsZWN0cm9uaWMgUGFydHMfCAUhfi9pbWFnZXMvcHVibGljL29jdG9wYXJ0X2xvZ28uanBnZGQCAw8WAh8CaGQCAg8PFgIfAmhkFggCAQ8PFgIfBQUUaHR0cDovL29jdG9wYXJ0LmNvbS8WAh8GBQZfYmxhbmsWAmYPDxYCHwgFIX4vaW1hZ2VzL3B1YmxpYy9vY3RvcGFydF9sb2dvLmpwZ2RkAgMPDxYCHwkFCE9jdG9wYXJ0ZGQCBQ8PFgIfCQUUaHR0cDovL29jdG9wYXJ0LmNvbS9kZAIHDw8WAh8JBSJTZWFyY2ggRW5naW5lIGZvciBFbGVjdHJvbmljIFBhcnRzZGQCBA8PFgIfCQUDMjExZGQCCA8WAh8JZWQCCg8PFgIfAmhkFgQCAQ8WAh8JBQlQb3J0Zm9saW9kAgMPFgIfCQUJUG9ydGZvbGlvZAIQD2QWAgIBDw9kFgIfBGUWCmYPZBYEAgEPDxYCHwUFGWh0dHA6Ly93d3cub21uaWRyaXZlLmNvbS8WAh8GBQZfYmxhbmsWAmYPDxYEHwcFf09ubGluZSBzdG9yYWdlIHBsYXRmb3JtIHRoYXQgYWxsb3dzIHVzZXJzIHRvIHN0b3JlIGZpbGVzIG9ubGluZSBhbmQgYWNjZXNzIHRoZW0gZnJvbSBhbnl3aGVyZSB3aXRoIHRoZSBzcGVlZCBvZiBkZXNrdG9wIHN0b3JhZ2UfCAUifi9pbWFnZXMvcHVibGljL29tbmlkcml2ZV9sb2dvLmdpZmRkAgMPFgIfAmhkAgIPDxYCHwJoZBYIAgEPDxYCHwUFGWh0dHA6Ly93d3cub21uaWRyaXZlLmNvbS8WAh8GBQZfYmxhbmsWAmYPDxYCHwgFIn4vaW1hZ2VzL3B1YmxpYy9vbW5pZHJpdmVfbG9nby5naWZkZAIDDw8WAh8JBQlPbW5pZHJpdmVkZAIFDw8WAh8JBRlodHRwOi8vd3d3Lm9tbmlkcml2ZS5jb20vZGQCBw8PFgIfCQV/T25saW5lIHN0b3JhZ2UgcGxhdGZvcm0gdGhhdCBhbGxvd3MgdXNlcnMgdG8gc3RvcmUgZmlsZXMgb25saW5lIGFuZCBhY2Nlc3MgdGhlbSBmcm9tIGFueXdoZXJlIHdpdGggdGhlIHNwZWVkIG9mIGRlc2t0b3Agc3RvcmFnZWRkAgQPDxYCHwkFAjcyZGQCCA8WAh8JZWQCCg8PFgIfAmhkFgQCAQ8WAh8JBQlQb3J0Zm9saW9kAgMPFgIfCQUJUG9ydGZvbGlvZAIRD2QWAgIBDw9kFgIfBGUWCmYPZBYEAgEPDxYCHwUFH2h0dHA6Ly93d3cub3B0cmlwLmNvbS9ob21lLmh0bWwWAh8GBQZfYmxhbmsWAmYPDxYEHwcFJkludGVsbGlnZW50LCBhdXRvbWF0ZWQgdHJhdmVsIHBsYW5uaW5nHwgFJX4vaW1hZ2VzL3B1YmxpYy9vcHRyaXAtbG9nby1zbWFsbC5wbmdkZAIDDxYCHwJoZAICDw8WAh8CaGQWCAIBDw8WAh8FBR9odHRwOi8vd3d3Lm9wdHJpcC5jb20vaG9tZS5odG1sFgIfBgUGX2JsYW5rFgJmDw8WAh8IBSV+L2ltYWdlcy9wdWJsaWMvb3B0cmlwLWxvZ28tc21hbGwucG5nZGQCAw8PFgIfCQUGT3BUcmlwZGQCBQ8PFgIfCQUfaHR0cDovL3d3dy5vcHRyaXAuY29tL2hvbWUuaHRtbGRkAgcPDxYCHwkFJkludGVsbGlnZW50LCBhdXRvbWF0ZWQgdHJhdmVsIHBsYW5uaW5nZGQCBA8PFgIfCQUDMjI0ZGQCCA8WAh8JZWQCCg8PFgIfAmhkFgQCAQ8WAh8JBQlQb3J0Zm9saW9kAgMPFgIfCQUJUG9ydGZvbGlvZAISD2QWAgIBDw9kFgIfBGUWCmYPZBYEAgEPDxYCHwUFJWh0dHA6Ly9wbHVzbW8uY29tL2hvbWVwYWdlL2hvbWUuc2h0bWwWAh8GBQZfYmxhbmsWAmYPDxYEHwcFG01vYmlsZSB3aWRnZXRzL2FwcGxpY2F0aW9ucx8IBRp+L2ltYWdlcy9wdWJsaWMvUGx1c21vLmpwZ2RkAgMPFgIfAmhkAgIPDxYCHwJoZBYIAgEPDxYCHwUFJWh0dHA6Ly9wbHVzbW8uY29tL2hvbWVwYWdlL2hvbWUuc2h0bWwWAh8GBQZfYmxhbmsWAmYPDxYCHwgFGn4vaW1hZ2VzL3B1YmxpYy9QbHVzbW8uanBnZGQCAw8PFgIfCQUGUGx1c21vZGQCBQ8PFgIfCQUlaHR0cDovL3BsdXNtby5jb20vaG9tZXBhZ2UvaG9tZS5zaHRtbGRkAgcPDxYCHwkFG01vYmlsZSB3aWRnZXRzL2FwcGxpY2F0aW9uc2RkAgQPDxYCHwkFAjQzZGQCCA8WAh8JZWQCCg8PFgIfAmhkFgQCAQ8WAh8JBQlQb3J0Zm9saW9kAgMPFgIfCQUJUG9ydGZvbGlvZAITD2QWAgIBDw9kFgIfBGUWCmYPZBYEAgEPDxYCHwUFGGh0dHA6Ly93d3cucG93ZXJzZXQuY29tLxYCHwYFBl9ibGFuaxYCZg8PFgQfBwU3TmV4dCBnZW5lcmF0aW9uIHNlYXJjaCBiYXNlZCBvbiBsaW5ndWlzdGljIHRlY2hub2xvZ2llcx8IBRx+L2ltYWdlcy9wdWJsaWMvUG93ZXJzZXQuanBnZGQCAw8WAh8CaGQCAg8PFgIfAmhkFggCAQ8PFgIfBQUYaHR0cDovL3d3dy5wb3dlcnNldC5jb20vFgIfBgUGX2JsYW5rFgJmDw8WAh8IBRx+L2ltYWdlcy9wdWJsaWMvUG93ZXJzZXQuanBnZGQCAw8PFgIfCQUIUG93ZXJzZXRkZAIFDw8WAh8JBRhodHRwOi8vd3d3LnBvd2Vyc2V0LmNvbS9kZAIHDw8WAh8JBTdOZXh0IGdlbmVyYXRpb24gc2VhcmNoIGJhc2VkIG9uIGxpbmd1aXN0aWMgdGVjaG5vbG9naWVzZGQCBA8PFgIfCQUCNDRkZAIIDxYCHwllZAIKDw8WAh8CaGQWBAIBDxYCHwkFCVBvcnRmb2xpb2QCAw8WAh8JBQlQb3J0Zm9saW9kAhQPZBYCAgEPD2QWAh8EZRYKZg9kFgQCAQ8PFgIfBQUWaHR0cDovL3d3dy5yYXBsZWFmLmNvbRYCHwYFBl9ibGFuaxYCZg8PFgQfBwUYT25saW5lIHJlcHV0YXRpb24gbG9va3VwHwgFJ34vaW1hZ2VzL3B1YmxpYy9yYXBsZWFmX2xvZ29fMjgweDY1LnBuZ2RkAgMPFgIfAmhkAgIPDxYCHwJoZBYIAgEPDxYCHwUFFmh0dHA6Ly93d3cucmFwbGVhZi5jb20WAh8GBQZfYmxhbmsWAmYPDxYCHwgFJ34vaW1hZ2VzL3B1YmxpYy9yYXBsZWFmX2xvZ29fMjgweDY1LnBuZ2RkAgMPDxYCHwkFB1JhcExlYWZkZAIFDw8WAh8JBRZodHRwOi8vd3d3LnJhcGxlYWYuY29tZGQCBw8PFgIfCQUYT25saW5lIHJlcHV0YXRpb24gbG9va3VwZGQCBA8PFgIfCQUCOThkZAIIDxYCHwllZAIKDw8WAh8CaGQWBAIBDxYCHwkFCVBvcnRmb2xpb2QCAw8WAh8JBQlQb3J0Zm9saW9kAhUPZBYCAgEPD2QWAh8EZRYKZg9kFgQCAQ8PFgIfBQUZaHR0cDovL3JpY2hyZWxldmFuY2UuY29tLxYCHwYFBl9ibGFuaxYCZg8PFgQfBwVPcGVyc29uYWxpemVzIGEgdXNlcidzIHNob3BwaW5nIGV4cGVyaWVuY2Ugd2l0aCByZWxldmFudCBwcm9kdWN0IHJlY29tbWVuZGF0aW9ucx8IBRt+L2ltYWdlcy9wdWJsaWMvcnJfbG9nby5naWZkZAIDDxYCHwJoZAICDw8WAh8CaGQWCAIBDw8WAh8FBRlodHRwOi8vcmljaHJlbGV2YW5jZS5jb20vFgIfBgUGX2JsYW5rFgJmDw8WAh8IBRt+L2ltYWdlcy9wdWJsaWMvcnJfbG9nby5naWZkZAIDDw8WAh8JBQ1SaWNoUmVsZXZhbmNlZGQCBQ8PFgIfCQUZaHR0cDovL3JpY2hyZWxldmFuY2UuY29tL2RkAgcPDxYCHwkFT3BlcnNvbmFsaXplcyBhIHVzZXIncyBzaG9wcGluZyBleHBlcmllbmNlIHdpdGggcmVsZXZhbnQgcHJvZHVjdCByZWNvbW1lbmRhdGlvbnNkZAIEDw8WAh8JBQMyNTdkZAIIDxYCHwllZAIKDw8WAh8CaGQWBAIBDxYCHwkFCVBvcnRmb2xpb2QCAw8WAh8JBQlQb3J0Zm9saW9kAhYPZBYCAgEPD2QWAh8EZRYKZg9kFgQCAQ8PFgIfBQUgaHR0cDovL3d3dy5zYXlub3cuY29tL2luZGV4Lmh0bWwWAh8GBQZfYmxhbmsWAmYPDxYEHwcFG0Jyb2FkY2FzdGluZyBhdWRpbyBtZXNzYWdlcx8IBR5+L2ltYWdlcy9wdWJsaWMvc2F5bm93X25ldy5naWZkZAIDDxYCHwJoZAICDw8WAh8CaGQWCAIBDw8WAh8FBSBodHRwOi8vd3d3LnNheW5vdy5jb20vaW5kZXguaHRtbBYCHwYFBl9ibGFuaxYCZg8PFgIfCAUefi9pbWFnZXMvcHVibGljL3NheW5vd19uZXcuZ2lmZGQCAw8PFgIfCQUGU2F5Tm93ZGQCBQ8PFgIfCQUgaHR0cDovL3d3dy5zYXlub3cuY29tL2luZGV4Lmh0bWxkZAIHDw8WAh8JBRtCcm9hZGNhc3RpbmcgYXVkaW8gbWVzc2FnZXNkZAIEDw8WAh8JBQI0NmRkAggPFgIfCWVkAgoPDxYCHwJoZBYEAgEPFgIfCQUJUG9ydGZvbGlvZAIDDxYCHwkFCVBvcnRmb2xpb2QCFw9kFgICAQ8PZBYCHwRlFgpmD2QWBAIBDw8WAh8FBRVodHRwOi8vc2NhbnNjb3V0LmNvbS8WAh8GBQZfYmxhbmsWAmYPDxYEHwcFLkRlbGl2ZXJzIHNtYXJ0LCB0aW1lbHkgYW5kIHJlbGV2YW50IHZpZGVvIGFkcyAfCAUifi9pbWFnZXMvcHVibGljL2xvZ29fc2NhbnNjb3V0LmdpZmRkAgMPFgIfAmhkAgIPDxYCHwJoZBYIAgEPDxYCHwUFFWh0dHA6Ly9zY2Fuc2NvdXQuY29tLxYCHwYFBl9ibGFuaxYCZg8PFgIfCAUifi9pbWFnZXMvcHVibGljL2xvZ29fc2NhbnNjb3V0LmdpZmRkAgMPDxYCHwkFCVNjYW5TY291dGRkAgUPDxYCHwkFFWh0dHA6Ly9zY2Fuc2NvdXQuY29tL2RkAgcPDxYCHwkFLkRlbGl2ZXJzIHNtYXJ0LCB0aW1lbHkgYW5kIHJlbGV2YW50IHZpZGVvIGFkcyBkZAIEDw8WAh8JBQI0N2RkAggPFgIfCWVkAgoPDxYCHwJoZBYEAgEPFgIfCQUJUG9ydGZvbGlvZAIDDxYCHwkFCVBvcnRmb2xpb2QCGA9kFgICAQ8PZBYCHwRlFgpmD2QWBAIBDw8WAh8FBRhodHRwczovL3d3dy5zZW5kb3JpLmNvbS8WAh8GBQZfYmxhbmsWAmYPDxYEHwcFUENvbm5lY3RpbmcgbWlsbGlvbnMgb2Ygd2ViIHNlYXJjaGVycyB3aXRoIHRoZSB3b3JsZCdzIGxhcmdlc3Qgb25saW5lIGFkdmVydGlzZXJzHwgFG34vaW1hZ2VzL3B1YmxpYy9zZW5kb3JpLmpwZ2RkAgMPFgIfAmhkAgIPDxYCHwJoZBYIAgEPDxYCHwUFGGh0dHBzOi8vd3d3LnNlbmRvcmkuY29tLxYCHwYFBl9ibGFuaxYCZg8PFgIfCAUbfi9pbWFnZXMvcHVibGljL3NlbmRvcmkuanBnZGQCAw8PFgIfCQUHU2VuZG9yaWRkAgUPDxYCHwkFGGh0dHBzOi8vd3d3LnNlbmRvcmkuY29tL2RkAgcPDxYCHwkFUENvbm5lY3RpbmcgbWlsbGlvbnMgb2Ygd2ViIHNlYXJjaGVycyB3aXRoIHRoZSB3b3JsZCdzIGxhcmdlc3Qgb25saW5lIGFkdmVydGlzZXJzZGQCBA8PFgIfCQUDMjUxZGQCCA8WAh8JZWQCCg8PFgIfAmhkFgQCAQ8WAh8JBQlQb3J0Zm9saW9kAgMPFgIfCQUJUG9ydGZvbGlvZAIZD2QWAgIBDw9kFgIfBGUWCmYPZBYEAgEPDxYCHwUFI2h0dHA6Ly93d3cuc2hvcGl0dG9tZS5jb20vaW5kZXguanNwFgIfBgUGX2JsYW5rFgJmDw8WBB8HBWpwcm9hY3RpdmVseSBzZW5kcyB1c2VycyBpdGVtcyB0aGF0IG1hdGNoIHRoZWlyIHNpemUgYW5kIGJyYW5kIHByZWZlcmVuY2VzIGFzIHNvb24gYXMgdGhlIGl0ZW0gZ29lcyBvbiBzYWxlHwgFHn4vaW1hZ2VzL3B1YmxpYy9zaG9waXR0b21lLmdpZmRkAgMPFgIfAmhkAgIPDxYCHwJoZBYIAgEPDxYCHwUFI2h0dHA6Ly93d3cuc2hvcGl0dG9tZS5jb20vaW5kZXguanNwFgIfBgUGX2JsYW5rFgJmDw8WAh8IBR5+L2ltYWdlcy9wdWJsaWMvc2hvcGl0dG9tZS5naWZkZAIDDw8WAh8JBQ1TaG9wIEl0IFRvIE1lZGQCBQ8PFgIfCQUjaHR0cDovL3d3dy5zaG9waXR0b21lLmNvbS9pbmRleC5qc3BkZAIHDw8WAh8JBWpwcm9hY3RpdmVseSBz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ZSBXZWIgU2l0ZXNkZAIEDw8WAh8JBQMxNzNkZAIIDxYCHwllZAIKDw8WAh8CaGQWBAIBDxYCHwkFCVBvcnRmb2xpb2QCAw8WAh8JBQlQb3J0Zm9saW9kAh4PZBYCAgEPD2QWAh8EZRYKZg9kFgQCAQ8PFgIfBQUVaHR0cDovL3d3dy55YXB0YS5jb20vFgIfBgUGX2JsYW5rFgJmDw8WBB8HBUlZYXB0YSBtYWtlcyBpdCBlYXN5IHRvIHNlY3VyZSB0aGUgYmVzdCBhaXJmYXJlIGRlYWxzIGF2YWlsYWJsZSBvbiB0aGUgV2ViHwgFI34vaW1hZ2VzL3B1YmxpYy95YXB0YS1sb2dvLWJldGEuZ2lmZGQCAw8WAh8CaGQCAg8PFgIfAmhkFggCAQ8PFgIfBQUVaHR0cDovL3d3dy55YXB0YS5jb20vFgIfBgUGX2JsYW5rFgJmDw8WAh8IBSN+L2ltYWdlcy9wdWJsaWMveWFwdGEtbG9nby1iZXRhLmdpZmRkAgMPDxYCHwkFBVlhcHRhZGQCBQ8PFgIfCQUVaHR0cDovL3d3dy55YXB0YS5jb20vZGQCBw8PFgIfCQVJWWFwdGEgbWFrZXMgaXQgZWFzeSB0byBzZWN1cmUgdGhlIGJlc3QgYWlyZmFyZSBkZWFscyBhdmFpbGFibGUgb24gdGhlIFdlYmRkAgQPDxYCHwkFAzIwNmRkAggPFgIfCWVkAgoPDxYCHwJoZBYEAgEPFgIfCQUJUG9ydGZvbGlvZAIDDxYCHwkFCVBvcnRmb2xpb2QCHw9kFgICAQ8PZBYCHwRlFgpmD2QWBAIBDw8WAh8FBRtodHRwOi8vd3d3Lnl1bWVuZXR3b3Jrcy5jb20WAh8GBQZfYmxhbmsWAmYPDxYEHwcFSFRlY2hub2xvZ3kgdG8gY3VzdG9taXplICYgdGFyZ2V0IHJpY2gtbWVkaWEgYWR2ZXJ0aXNpbmcgb3ZlciBJUCBuZXR3b3Jrcx8IBSN+L2ltYWdlcy9wdWJsaWMveXVtZV9sb2dvX2NsZWFuLmdpZmRkAgMPFgIfAmhkAgIPDxYCHwJoZBYIAgEPDxYCHwUFG2h0dHA6Ly93d3cueXVtZW5ldHdvcmtzLmNvbRYCHwYFBl9ibGFuaxYCZg8PFgIfCAUjfi9pbWFnZXMvcHVibGljL3l1bWVfbG9nb19jbGVhbi5naWZkZAIDDw8WAh8JBQ1ZdW1lIE5ldHdvcmtzZGQCBQ8PFgIfCQUbaHR0cDovL3d3dy55dW1lbmV0d29ya3MuY29tZGQCBw8PFgIfCQVIVGVjaG5vbG9neSB0byBjdXN0b21pemUgJiB0YXJnZXQgcmljaC1tZWRpYSBhZHZlcnRpc2luZyBvdmVyIElQIG5ldHdvcmtzZGQCBA8PFgIfCQUCNDlkZAIIDxYCHwllZAIKDw8WAh8CaGQWBAIBDxYCHwkFCVBvcnRmb2xpb2QCAw8WAh8JBQlQb3J0Zm9saW9kAgcPFgIfCQUEMjAwOGRkh6zxt3hmsUJy9qt/osw3ibHOTII=" />
+            
+            <div id="header">
+            </div><!-- end of header div -->
+            
+            <div id="navigation">
+                
+<ul>
+	<li class="topnav"><span id="ctl00_HeaderNav_spanHome"><a href="default.aspx" id="ctl00_HeaderNav_aIndex">Home</a></span></li>
+	<li class="topnav"><span id="ctl00_HeaderNav_spanTeam"><a href="team.aspx" id="ctl00_HeaderNav_aTeam">Team</a></span></li>
+	<li class="topnav"><span id="ctl00_HeaderNav_spanNews"><a href="news.aspx" id="ctl00_HeaderNav_aNews">News</a></span></li>
+	<li class="topnav"><span id="ctl00_HeaderNav_spanPortfolio" class="selected"><a href="portfolio.aspx" id="ctl00_HeaderNav_aPortfolio">Portfolio</a></span></li>
+	<li class="topnav"><span id="ctl00_HeaderNav_spanEndorsements"><a href="endorsements.aspx" id="ctl00_HeaderNav_aEndorsements">Endorsements</a></span></li>
+	<li class="topnav"><span id="ctl00_HeaderNav_spanJobs"><a href="jobs.aspx" id="ctl00_HeaderNav_aJobs">Jobs</a></span></li>
+	<li class="topnav"><span id="ctl00_HeaderNav_spanBlog"><a href="http://blog.felicisvc.com">Blog</a></span></li>
+	<li class="topnavlast"><span id="ctl00_HeaderNav_spanContact"><a href="contactus.aspx" id="ctl00_HeaderNav_aContactUs">Contact Us</a></span></li>			
+    <li class="topnavlast"><span id="ctl00_HeaderNav_span1"></span></li>
+</ul>
+
+            </div><!-- end of navigation div -->
+            
+            <div id="content">
+                
+
+    <script language="javascript">
+        var imgBaseUrl;         // set this to a string with the basepath for image reference
+        var imgObjToUpdate;     // set this to the img object on the page
+        var fldObjToUpdate;     // set this to the hidden input object on the page
+        function UpdateImageName(imgName){
+            try{
+                imgObjToUpdate.src = imgBaseUrl + imgName;
+                fldObjToUpdate.value = imgName;
+            }catch(e1){
+                alert(e1);
+            }
+        }
+
+        function SetObjectReferences(imgId, fldId, baseUrl){
+            //alert('setting refs for: ' + imgId + ' : ' + fldId);
+            try{
+                imgObjToUpdate = document.getElementById(imgId);
+                fldObjToUpdate = document.getElementById(fldId);
+                imgBaseUrl = baseUrl;
+                //alert(imgObjToUpdate.outerHTML);
+                //alert(fldObjToUpdate.outerHTML);
+            }
+            catch(e1){
+                alert(e1);
+            }
+        }
+
+        function Popup(strPath)
+        {  
+            window.open(strPath, "preview", "resizable=yes,width=505,height=189,scrollbars=0");
+        }
+
+    </script>
+
+    <div id="single-col">  <!-- Main Body of the Content -->
+        
+
+<div id="ctl00_ContentPlaceHolder1_PorfolioList1_pnlAddNew">
+
+</div><br /><br />
+
+
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl00_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl00_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://www.brightroll.com/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl00_PortfolioListItem1_imgViewMode" title="Video advertising network connecting advertisers with high volume video traffic" src="images/public/brightroll_logo.jpg" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl00$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl00_PortfolioListItem1_hdnImageName" value="brightroll_logo.jpg" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl01_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl01_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://buzzlogic.com/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl01_PortfolioListItem1_imgViewMode" title="Applying the science of influence to the world of social media" src="images/public/BuzzLogic_latest.jpg" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl01$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl01_PortfolioListItem1_hdnImageName" value="BuzzLogic_latest.jpg" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl02_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl02_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="https://www.cakefinancial.com/app/pubHello.do"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl02_PortfolioListItem1_imgViewMode" title="Social Investing Revolution" src="images/public/cake_financial.gif" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl02$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl02_PortfolioListItem1_hdnImageName" value="cake_financial.gif" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl03_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl03_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://www.dogster.com/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl03_PortfolioListItem1_imgViewMode" title="Website for dog lovers" src="images/public/Dogster.gif" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl03$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl03_PortfolioListItem1_hdnImageName" value="Dogster.gif" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl04_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl04_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://feedjit.com/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl04_PortfolioListItem1_imgViewMode" title="Real-time blog analytics" src="images/public/feedjit.jpg" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl04$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl04_PortfolioListItem1_hdnImageName" value="feedjit.jpg" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl05_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl05_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://freewebs.com/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl05_PortfolioListItem1_imgViewMode" title="Global online community of web publishers" src="images/public/Freewebs.jpg" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl05$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl05_PortfolioListItem1_hdnImageName" value="Freewebs.jpg" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl06_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl06_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://www.gydget.com/my_widget/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl06_PortfolioListItem1_imgViewMode" title="Viral promotion tool for any organization to get the word out to fans across all social networking sites about news and events" src="images/public/gydget.jpg" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl06$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl06_PortfolioListItem1_hdnImageName" value="gydget.jpg" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl07_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl07_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://www.handipoints.com/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl07_PortfolioListItem1_imgViewMode" title="Kids Portal" src="images/public/handipoints.gif" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl07$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl07_PortfolioListItem1_hdnImageName" value="handipoints.gif" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl08_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl08_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://justin.tv"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl08_PortfolioListItem1_imgViewMode" title="The new platform for live video on the internet" src="images/public/justintvlogo.png" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl08$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl08_PortfolioListItem1_hdnImageName" value="justintvlogo.png" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl09_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl09_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://www.loomia.com/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl09_PortfolioListItem1_imgViewMode" title="Recommendation/Personalization Engine as an ASP" src="images/public/Loomia.gif" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl09$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl09_PortfolioListItem1_hdnImageName" value="Loomia.gif" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl10_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl10_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://www.mashery.com/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl10_PortfolioListItem1_imgViewMode" title="Offers API management solution for API providers and users to facilitate development, deployment and use of web services." src="images/public/mashery_logo_2.jpg" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl10$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl10_PortfolioListItem1_hdnImageName" value="mashery_logo_2.jpg" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl11_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl11_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://meraki.net/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl11_PortfolioListItem1_imgViewMode" title="Technology that enables low-cost wireless community networks" src="images/public/Meraki%20Networks.jpg" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl11$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl11_PortfolioListItem1_hdnImageName" value="Meraki Networks.jpg" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl12_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl12_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://mesmo.tv/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl12_PortfolioListItem1_imgViewMode" title="Discover and share online videos through friends" src="images/public/mesmotv.png" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl12$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl12_PortfolioListItem1_hdnImageName" value="mesmotv.png" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl13_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl13_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://www.melodis.com/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl13_PortfolioListItem1_imgViewMode" title="Next generation music search &amp; sound recognition" src="images/public/midomi_small.png" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl13$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl13_PortfolioListItem1_hdnImageName" value="midomi_small.png" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl14_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl14_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://www.mint.com/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl14_PortfolioListItem1_imgViewMode" title="Online intelligent personal financial management" src="images/public/mint_2.jpg" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl14$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl14_PortfolioListItem1_hdnImageName" value="mint_2.jpg" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl15_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl15_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://octopart.com/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl15_PortfolioListItem1_imgViewMode" title="Search Engine for Electronic Parts" src="images/public/octopart_logo.jpg" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl15$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl15_PortfolioListItem1_hdnImageName" value="octopart_logo.jpg" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl16_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl16_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://www.omnidrive.com/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl16_PortfolioListItem1_imgViewMode" title="Online storage platform that allows users to store files online and access them from anywhere with the speed of desktop storage" src="images/public/omnidrive_logo.gif" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl16$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl16_PortfolioListItem1_hdnImageName" value="omnidrive_logo.gif" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl17_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl17_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://www.optrip.com/home.html"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl17_PortfolioListItem1_imgViewMode" title="Intelligent, automated travel planning" src="images/public/optrip-logo-small.png" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl17$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl17_PortfolioListItem1_hdnImageName" value="optrip-logo-small.png" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl18_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl18_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://plusmo.com/homepage/home.shtml"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl18_PortfolioListItem1_imgViewMode" title="Mobile widgets/applications" src="images/public/Plusmo.jpg" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl18$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl18_PortfolioListItem1_hdnImageName" value="Plusmo.jpg" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl19_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl19_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://www.powerset.com/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl19_PortfolioListItem1_imgViewMode" title="Next generation search based on linguistic technologies" src="images/public/Powerset.jpg" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl19$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl19_PortfolioListItem1_hdnImageName" value="Powerset.jpg" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl20_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl20_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://www.rapleaf.com"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl20_PortfolioListItem1_imgViewMode" title="Online reputation lookup" src="images/public/rapleaf_logo_280x65.png" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl20$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl20_PortfolioListItem1_hdnImageName" value="rapleaf_logo_280x65.png" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl21_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl21_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://richrelevance.com/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl21_PortfolioListItem1_imgViewMode" title="personalizes a user's shopping experience with relevant product recommendations" src="images/public/rr_logo.gif" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl21$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl21_PortfolioListItem1_hdnImageName" value="rr_logo.gif" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl22_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl22_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://www.saynow.com/index.html"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl22_PortfolioListItem1_imgViewMode" title="Broadcasting audio messages" src="images/public/saynow_new.gif" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl22$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl22_PortfolioListItem1_hdnImageName" value="saynow_new.gif" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl23_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl23_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://scanscout.com/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl23_PortfolioListItem1_imgViewMode" title="Delivers smart, timely and relevant video ads " src="images/public/logo_scanscout.gif" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl23$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl23_PortfolioListItem1_hdnImageName" value="logo_scanscout.gif" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl24_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl24_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="https://www.sendori.com/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl24_PortfolioListItem1_imgViewMode" title="Connecting millions of web searchers with the world's largest online advertisers" src="images/public/sendori.jpg" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl24$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl24_PortfolioListItem1_hdnImageName" value="sendori.jpg" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl25_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl25_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://www.shopittome.com/index.jsp"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl25_PortfolioListItem1_imgViewMode" title="proactively sends users items that match their size and brand preferences as soon as the item goes on sale" src="images/public/shopittome.gif" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl25$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl25_PortfolioListItem1_hdnImageName" value="shopittome.gif" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl26_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl26_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://www.social.im"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl26_PortfolioListItem1_imgViewMode" title="The Social Network IM Client" src="images/public/socialim_logo.jpg" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl26$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl26_PortfolioListItem1_hdnImageName" value="socialim_logo.jpg" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl27_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl27_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://www.trivop.com/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl27_PortfolioListItem1_imgViewMode" title="First videoguide for hotels" src="images/public/trivop.jpg" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl27$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl27_PortfolioListItem1_hdnImageName" value="trivop.jpg" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl28_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl28_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://voicestar.com/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl28_PortfolioListItem1_imgViewMode" title="Pay per call advertising solutions platform" src="images/public/Voicestar.jpg" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl28$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl28_PortfolioListItem1_hdnImageName" value="Voicestar.jpg" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl29_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl29_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://www.weebly.com/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl29_PortfolioListItem1_imgViewMode" title="Easy (WYSIWYG) way to create Web Sites" src="images/public/weebly-logo-final.gif" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl29$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl29_PortfolioListItem1_hdnImageName" value="weebly-logo-final.gif" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl30_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl30_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://www.yapta.com/"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl30_PortfolioListItem1_imgViewMode" title="Yapta makes it easy to secure the best airfare deals available on the Web" src="images/public/yapta-logo-beta.gif" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl30$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl30_PortfolioListItem1_hdnImageName" value="yapta-logo-beta.gif" />
+    
+    
+    
+        </div>
+    
+        <div style="margin-left:25px;text-align:center;">
+            <div id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl31_PortfolioListItem1_pnlView">
+	
+        <div style="float:left;margin-right:70px;width:105px;">
+            <a id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl31_PortfolioListItem1_hypPortfolioCompanyURLView" target="_blank" href="http://www.yumenetworks.com"><img id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl31_PortfolioListItem1_imgViewMode" title="Technology to customize &amp; target rich-media advertising over IP networks" src="images/public/yume_logo_clean.gif" align="middle" border="0" /></a> 
+            
+        </div>
+    
+</div>
+    
+    
+    <input name="ctl00$ContentPlaceHolder1$PorfolioList1$Repeater1$ctl31$PortfolioListItem1$hdnImageName" type="hidden" id="ctl00_ContentPlaceHolder1_PorfolioList1_Repeater1_ctl31_PortfolioListItem1_hdnImageName" value="yume_logo_clean.gif" />
+    
+    
+    
+        </div>
+    
+ 
+    </div>
+    
+
+            </div> <!-- end of content div -->
+        </form>     
+                    
+        <div id="footer">
+            
+<ul>
+	<li class="topnav"><span id="ctl00_FooterNav_spanHome"><a href="default.aspx" id="ctl00_FooterNav_aIndex">Home</a></span></li>
+	<li class="topnav"><span id="ctl00_FooterNav_spanTeam"><a href="team.aspx" id="ctl00_FooterNav_aTeam">Team</a></span></li>
+	<li class="topnav"><span id="ctl00_FooterNav_spanNews"><a href="news.aspx" id="ctl00_FooterNav_aNews">News</a></span></li>
+	<li class="topnav"><span id="ctl00_FooterNav_spanPortfolio"><a href="portfolio.aspx" id="ctl00_FooterNav_aPortfolio">Portfolio</a></span></li>
+	<li class="topnav"><span id="ctl00_FooterNav_spanEndorsements"><a href="endorsements.aspx" id="ctl00_FooterNav_aEndorsements">Endorsements</a></span></li>
+	<li class="topnav"><span id="ctl00_FooterNav_spanJobs"><a href="jobs.aspx" id="ctl00_FooterNav_aJobs">Jobs</a></span></li>
+	<li class="topnav"><span id="ctl00_FooterNav_spanBlog"><a href="http://blog.felicisvc.com">Blog</a></span></li>
+	<li class="topnavlast"><span id="ctl00_FooterNav_spanContact"><a href="contactus.aspx" id="ctl00_FooterNav_aContactUs">Contact Us</a></span></li>			
+    <li class="topnavlast"><span id="ctl00_FooterNav_span1"></span></li>
+</ul>
+<br />
+            Copyright (c)2008 Felicis Ventures LLC. All rights reserved.<br />
+            
+<form id="searchbox_006375340929880525935:_o8mnmjjgyu" action="http://www.google.com/cse">
+    <div align="center">
+        <input type="hidden" name="cx" value="006375340929880525935:_o8mnmjjgyu" />
+        <input name="q" type="text" size="40" />
+        <input type="submit" name="sa" value="Search For Startups & Venture Funding" />
+        <input type="hidden" name="cof" value="FORID:0" />
+    </div>
+</form>
+
+        </div> <!-- end of footer div -->
+            
+    </div> <!-- end of container div -->
+    
+    <!-- Start Google Analytics -->
+    <script src=" http://www.google-analytics.com/urchin.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+    _uacct = "UA-2934697-1";
+    urchinTracker();
+    </script> 
+    <!-- End Google Analytics -->    
+    
+</body>
+</html>
