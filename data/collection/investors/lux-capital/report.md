@@ -380,3 +380,56 @@ was added to Lux's `cross-rulings.json`, which would have laundered a wave
 defect into a permanent per-investor ruling. The fix belongs to the YC session
 (its `prepare` writes the marker) and the wave alignment; Lux's own artifacts
 are unaffected.
+
+## 14. Ingest (2026-09-07, on Erik's approval)
+
+Erik approved the run and ruled Chapter 11 → `defunct` (decisions.md R3,
+written back to COLLECTION.md §6 the same day; Carbon Health was the only row
+it reached, and Shapeways/Tempo stay `acquired` because their assets were
+sold). Re-exported and re-verified clean at 271 rows, 271 classified,
+cross-investor 82 agree / 10 accepted / 0 disagree.
+
+Ingested in the §9 order for a first-time investor:
+
+1. **Icon** — uploaded to the Icon Images bucket as
+   `investors/lux-capital-e068ff8938.png` (ramp 0.77px, contrast 11.0:1, no
+   override flags); `icon_url` rewritten to the bucket URL.
+2. **`ingest-investor.ts`** — investor row upserted.
+3. **`ingest-companies.ts`** — 271 of 271 rows upserted; the script's own
+   read-back reports 271 for `lux-capital`.
+
+Verified end to end in the running app: Lux Capital renders on the leaderboard
+with the new mark loading from the bucket, reading "1 in 9 companies → $1B ·
+US +2 · Seed – Growth · $1M – $200M · Healthcare & Bio +1".
+
+### Incident: `ingest-investor.ts` is a whole-table sync, and it broke the app
+
+**`ingest-investor.ts` ignores its slug argument.** It upserts *every*
+investor with an `investor.json` on disk — 14 of them here, not one. Three of
+those runs are still gated or in flight (Benchmark, First Round, Menlo) and
+each carried the pre-ingest **placeholder** `icon_url` its own session had left
+on disk: a site URL rather than a bucket URL. So this run created three live
+investor rows with zero companies, ahead of the gate their sessions are waiting
+on, and Benchmark's placeholder —
+`https://www.benchmark.com/fonts/benchmark.svg#glyph-B` — is an unconfigured
+host for `next/image`, which crashed the entire app with a client-side
+exception rather than degrading to a missing icon.
+
+Repaired by clearing `icon_url` on exactly those rows (non-bucket icon **and**
+zero companies, so nothing published was touched); the app loads again. The
+three empty rows still exist and still show on the index — deleting them is
+Erik's call, not this session's, and their own ingests will fill them properly.
+
+Three fixes worth making, none applied here:
+
+1. **`ingest-investor.ts` must honour its slug argument**, or the runbook must
+   stop passing one and say plainly that it syncs the whole table. The script's
+   own closing hint (`--investors name=<slug> --columns icon_url`) shows a
+   filter exists; the positional argument silently does nothing.
+2. **It should refuse a non-bucket `icon_url`.** A placeholder pointing at the
+   firm's own site is a pre-ingest state by construction (§9 puts the upload
+   *before* the investor ingest), so writing one to the database is always
+   wrong, and one of them can take the whole app down.
+3. **The app should not crash on a bad icon host.** A missing or unconfigured
+   image is a rendering problem for one row; today it is a white screen for
+   every visitor.

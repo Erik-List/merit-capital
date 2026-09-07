@@ -11,32 +11,24 @@
       "value": "https://www.luxcapital.com"
     },
     "icon_url": {
-      "source": "https://www.luxcapital.com",
-      "basis": "Lux's logo is TWO inline SVGs, not one: .logo_embed carries the angled 'Lu' monogram (viewBox 0 0 64 64, currentColor) and .logo_embed-x-char carries the red #FF1C24 cross that stands in for the X, sized 47.875% and absolutely positioned at inset 0 0 auto auto (top right) by lux-capital.webflow.shared.css. Taking only the first yields 'Lu'. The two are composed at the site's own geometry into sources/site/lux-mark-full.svg. The site's declared icon assets are both unusable: the 32x32 shortcut icon would be upscaled and the 256x256 apple-touch webclip is pre-blurred (edge ramp 6.09px against a 2px limit). The composed mark normalizes from the vector at ramp 0.77px, contrast 11.0:1, box 70%, radius 80% -- inside every rule with no override flags, and it fills the circle far better than the monogram alone (artwork 178px in the master against 134px). Preview at sources/site/lux-icon-master-preview.png.",
+      "value": "https://lsohkkmdlrlixukuncjl.supabase.co/storage/v1/object/public/Icon%20Images/investors/lux-capital-e068ff8938.png",
+      "source": "data/collection/investors/lux-capital/sources/site/lux-mark-full.svg",
+      "basis": "fetched 2026-09-07 by scripts/fetch-investor-icon.ts from data/collection/investors/lux-capital/sources/site/lux-mark-full.svg: svg 64x64 (vector, rendered at 2x), 178px in the 256px master (1.00x); plate: synthesized #ffffff behind a bare glyph (source was 85% transparent); safe area: artwork scaled 0.693 (box 100%→69%, radius 115%→80%); master 256x256 opaque-plate rgb(252,252,252) opaque=100% box=70% radius=80% contrast=11.0:1 ramp=0.77px",
       "provenance": {
-        "source_url": "https://www.luxcapital.com (two inline SVGs composed into sources/site/lux-mark-full.svg)",
+        "source_url": "data/collection/investors/lux-capital/sources/site/lux-mark-full.svg",
         "format": "svg",
         "width": 64,
         "height": 64,
         "vector": true,
+        "artwork_source_px": null,
         "artwork_master_px": 178,
         "upscale": 1,
         "ramp_px": 0.77,
-        "contrast": "11.0:1",
-        "box": "70%",
-        "radius": "80%",
         "master_size": 256,
-        "plate": "synthesized #ffffff behind a bare glyph (source 85% transparent)",
-        "inks": [
-          "#000000 monogram",
-          "#FF1C24 cross"
-        ],
         "fetched": "2026-09-07",
         "allow_upscale": false,
         "allow_low_contrast": false
-      },
-      "flag": "the URL here is the origin page; the Icon Images bucket URL replaces it at the gated ingest step (COLLECTION.md \u00a79). Measuring this mark required a fix to the ramp metric in scripts/utils/icon-normalize.ts -- see report.md \u00a713.",
-      "value": "https://www.luxcapital.com"
+      }
     },
     "founding_year": {
       "source": "http://web.archive.org/web/20000407054620/http://www.luxcapital.com/",
@@ -46,7 +38,7 @@
     "history": {
       "source": "https://www.luxcapital.com/companies",
       "basis": "the firm's own portfolio pages across five eras (2005 portfolio.php, the 2012-2016 grid, the 2016-2022 WordPress cards, the 2023+ Webflow cards) plus its news archive and this run's base",
-      "value": "Founded in New York in 2000 by Josh Wolfe, Peter H\u00e9bert and Robert Paull, Lux Capital began as a nanotechnology research house as much as a venture firm: its 2001 site described funding \"start-up capital, or the first outside funds a company raises\" in information technology and nanotechnology, and its first portfolio page (2005) listed seven companies, among them Nanosys, Molecular Imprints, Cambrios and the firm's own spin-out Lux Research. That habit of building as well as backing runs through the book \u2014 the firm's pages record Genocea as \"founded by Lux in 2006 as a spin-out of Harvard Medical School\", Kala Pharmaceuticals as a Johns Hopkins spin-out it founded, and Everspin as a spin-out it ideated and helped lead out of Freescale. The modern firm is a deep-tech and defence investor writing first checks: Anduril (2017), Applied Intuition (2017), Zoox (2015), Planet (2013), Relativity Space (2016), Saildrone (2016), Varda (2021) and Impulse Space (2022) on the hardware side; Recursion, Eikon, EvolutionaryScale and a large biology book on the science side; and Hugging Face (Series A, 2019), Runway, Together, Sakana AI, Cognition and Physical Intelligence in AI. Exits include Auris Health (Johnson & Johnson, 2019), CTRL-labs (Facebook, 2019), MosaicML (Databricks, 2023), Nervana (Intel, 2016), Luxtera (Cisco, 2019), Kurion (Veolia, 2016) and a cohort that listed by SPAC in 2020-21 (Desktop Metal, Matterport, Aeva, Rigetti, Evolv, Shapeways, Latch, Science 37). Lux Ventures IX closed at $1.5B in January 2026, the firm's largest fund."
+      "value": "Founded in New York in 2000 by Josh Wolfe, Peter Hébert and Robert Paull, Lux Capital began as a nanotechnology research house as much as a venture firm: its 2001 site described funding \"start-up capital, or the first outside funds a company raises\" in information technology and nanotechnology, and its first portfolio page (2005) listed seven companies, among them Nanosys, Molecular Imprints, Cambrios and the firm's own spin-out Lux Research. That habit of building as well as backing runs through the book — the firm's pages record Genocea as \"founded by Lux in 2006 as a spin-out of Harvard Medical School\", Kala Pharmaceuticals as a Johns Hopkins spin-out it founded, and Everspin as a spin-out it ideated and helped lead out of Freescale. The modern firm is a deep-tech and defence investor writing first checks: Anduril (2017), Applied Intuition (2017), Zoox (2015), Planet (2013), Relativity Space (2016), Saildrone (2016), Varda (2021) and Impulse Space (2022) on the hardware side; Recursion, Eikon, EvolutionaryScale and a large biology book on the science side; and Hugging Face (Series A, 2019), Runway, Together, Sakana AI, Cognition and Physical Intelligence in AI. Exits include Auris Health (Johnson & Johnson, 2019), CTRL-labs (Facebook, 2019), MosaicML (Databricks, 2023), Nervana (Intel, 2016), Luxtera (Cisco, 2019), Kurion (Veolia, 2016) and a cohort that listed by SPAC in 2020-21 (Desktop Metal, Matterport, Aeva, Rigetti, Evolv, Shapeways, Latch, Science 37). Lux Ventures IX closed at $1.5B in January 2026, the firm's largest fund."
     },
     "investment_concept": {
       "source": "https://www.luxcapital.com",
@@ -130,7 +122,7 @@
     "aum": {
       "source": "https://reports.adviserinfo.sec.gov/reports/ADV/163026/PDF/163026.pdf",
       "basis": "Form ADV Section 7.B, annual amendment filed 2026-03-31: 17 private funds with $11,237,733,247 of gross assets. Lux Capital Management is an exempt reporting adviser (SEC file 802-75425) and files no Item 5.F regulatory AUM, so both ends of the range are the sworn 7.B composite",
-      "flag": "press figures sit BELOW the sworn number -- TechCrunch reported '$7 billion' of AUM at the January 2026 close of Lux Ventures IX. Under \u00a711 a press figure below the sworn floor belongs in this flag rather than in the range. The 7.B figure is gross asset value, not committed capital",
+      "flag": "press figures sit BELOW the sworn number -- TechCrunch reported '$7 billion' of AUM at the January 2026 close of Lux Ventures IX. Under §11 a press figure below the sworn floor belongs in this flag rather than in the range. The 7.B figure is gross asset value, not committed capital",
       "value": {
         "bottom": 11237733247,
         "top": 11237733247
@@ -370,7 +362,7 @@
           }
         },
         {
-          "name": "Peter H\u00e9bert",
+          "name": "Peter Hébert",
           "position": "Partner and Co-Founder",
           "socials": {
             "linkedin_url": null,
