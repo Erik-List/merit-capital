@@ -185,11 +185,32 @@ def main() -> None:
     # enumerate because the modern page is JS-rendered with no per-company URLs.
     site_path = P.site / "companies.json"
     site_n = 0
+    site_keys: dict[str, str] = {}          # name key -> the site id holding it
     if site_path.exists():
         for c in json.load(open(site_path)):
             key = norm(c["name"])
             if not key:
                 continue
+            # A company name is not an identity at scale. YC's directory
+            # carries 89 names borne by two different companies in different
+            # batches (Parse S11, the Facebook-acquired backend, vs Parse
+            # F25), and name-keying merged 100 real companies into 89 rows.
+            # Where the site publishes its own id, the FIRST row to claim a
+            # name key keeps it — so the EDGAR, wayback and Form D layers
+            # still join on the name as before — and a later row bearing the
+            # same name under a different site id takes its own key instead
+            # of silently folding into the first. Sites with no id are
+            # unaffected: site_id is empty and the key is the name.
+            # Strictly opt-in: `site_id` exists only where the investor's
+            # config renames the source's own id into it. It must NOT fall
+            # back to the row's `slug`, which is derived from the name —
+            # "Mark Logic" and "MarkLogic" carry different slugs and the same
+            # name key, and norm() merges them on purpose.
+            site_id = str(c.get("site_id") or "")
+            if site_id:
+                held = site_keys.setdefault(key, site_id)
+                if held != site_id:
+                    key = f"{key}~{norm(site_id)}"
             row = row_for(key, c["name"])
             # The firm's own current rendering is canonical for display and
             # slug — a wayback/CC slug that created the row first must not
