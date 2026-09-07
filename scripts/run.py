@@ -173,6 +173,14 @@ ISO_OF = {
     "Ghana": "GH", "Morocco": "MA", "Tunisia": "TN", "Ethiopia": "ET",
     "Senegal": "SN", "Rwanda": "RW", "Uganda": "UG",
     "Australia": "AU", "New Zealand": "NZ",
+    # Added 2026-09-06 on the YC run, the first investor global enough to
+    # reach them: seven countries its portfolio has companies in that this
+    # table did not carry, so their rows bounced `record` as "not a known ISO
+    # 3166-1 alpha-2 code" and took their whole batch with them. Purely
+    # additive — no landed investor can hold a row in a country the table
+    # rejected, since verify is green on all of them.
+    "Georgia": "GE", "Tanzania": "TZ", "Nepal": "NP", "Zambia": "ZM",
+    "Cambodia": "KH", "Bolivia": "BO", "Paraguay": "PY",
 }
 ISO_CODES = frozenset(ISO_OF.values())
 
