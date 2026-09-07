@@ -1,0 +1,313 @@
+{
+ "slug": "8vc",
+ "name": "8VC",
+ "wayback": {
+  "cdx_domain": "8vc.com",
+  "site_url_base": "https://www.8vc.com",
+  "eras": [
+   {
+    "parser": "cdx_company_pages",
+    "path": "/companies/",
+    "from": 2015,
+    "to": 2026,
+    "per_company_pages": true,
+    "_note": "One continuous path era: /companies/<slug> has been the per-company URL since the first 8VC capture (2016-06-27), across the 2015-2021 WordPress site and the 2022+ Webflow rebuild. The CDX index enumerates 256 distinct slugs against 176 on the live sitemap, so ~80 rows are survivorship-only. Captures before 2015 belong to a PREVIOUS OWNER of the domain (a Chinese film site: /DongHuaPian, /AiQingPian, 2002-2009) and are excluded by the era window."
+   }
+  ],
+  "non_company_slugs": [
+   "index",
+   "home",
+   "index.php",
+   "page",
+   "feed",
+   "all",
+   "see-all",
+   "category",
+   "tag",
+   "wp-json",
+   "wp-content",
+   "wp-admin",
+   "wp-includes",
+   "xmlrpc",
+   "about",
+   "about-us",
+   "about-us-split-01",
+   "team",
+   "team-members",
+   "people",
+   "advisors",
+   "advisor-upside-faq",
+   "au",
+   "au-faq",
+   "news",
+   "contact",
+   "jobs",
+   "search",
+   "sitemap",
+   "robots",
+   "favicon",
+   "css",
+   "images",
+   "assets",
+   "companies",
+   "company",
+   "portfolio",
+   "sector",
+   "industries",
+   "theses",
+   "resources",
+   "resource-category",
+   "whitepapers",
+   "fellows",
+   "fellowships",
+   "bio-it-fellowship",
+   "8vc-angel",
+   "8vc-fellowship-program",
+   "build",
+   "checkout",
+   "order-confirmation",
+   "paypal-checkout",
+   "our-thesis",
+   "drafts",
+   "events",
+   "legal-notices",
+   "pixeleight",
+   "llamastackhackathon",
+   "community",
+   "data-science",
+   "design",
+   "blog",
+   "author",
+   "attachment",
+   "comments",
+   "newsletter",
+   "cdn-cgi",
+   "_next",
+   ".wf_graphql",
+   "DongHuaPian",
+   "AiQingPian",
+   "GuShiPian",
+   "XiJuPian",
+   "DongZhuoPian",
+   "0",
+   "1",
+   "2",
+   "3",
+   "4",
+   "5"
+  ]
+ },
+ "roster": {
+  "cdx_patterns": [
+   "8vc.com/team/*",
+   "8vc.com/team-members/*"
+  ],
+  "site_team_groups": [],
+  "slug_re": "/(?:team|team-members)/([a-z][a-z0-9-]*[a-z0-9])/?$",
+  "listing_href_re": "/(?:team|team-members)/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+  "not_a_person": [
+   "index",
+   "team",
+   "team-members",
+   "people",
+   "advisors",
+   "bio",
+   "page",
+   "feed",
+   "all",
+   "filter",
+   "attachment",
+   "tag",
+   "about",
+   "companies",
+   "news",
+   "contact",
+   "jobs",
+   "careers",
+   "partners",
+   "our-team",
+   "the-team",
+   "team-page",
+   "our-people",
+   "fellows",
+   "fellowships",
+   "alicia-jackson",
+   "andrew-perlman",
+   "arie-belldegrun-md",
+   "daniel-hodge",
+   "ganesh-krishnan",
+   "jerry-yang",
+   "john-mack",
+   "ronnie-lott",
+   "scott-cook",
+   "stephen-harper",
+   "zachary-bookman"
+  ],
+  "_note": "The roster sweep is /team/ (plus the 2016 /team-members/ alias) ONLY, and 11 slugs in that namespace are excluded by name in not_a_person because the WordPress-era site put ADVISOR profiles under /team/<slug> alongside the partners -- the COLLECTION.md First Round rule, firing here through a different mechanism than a case rule. The discriminator is the firm's own card class on its two index pages (square--team vs square--advisor), pulled per archived year by scratch/wp-people-pull.py into sources/site/wp-people.json (65 team, 76 advisors, 2016-2022); a person rendered as both across years is a partner (team wins: Alex Moore, Jake Medwell, Bhaskar Ghosh, Sir Deryck Maughan). Left in the sweep, Scott Cook, Jerry Yang, John Mack, Ronnie Lott, Stephen Harper, Arie Belldegrun and Zachary Bookman would each have confirmed members off their OWN companies' Form Ds with filing-grade-looking evidence. Two further people namespaces are not swept at all: /advisors/ (73 live pages, the Advisor Upside network; robots.txt disallows it and the pages render nothing server-side -- recorded as a negative result in sources/site/advisors.json) and /fellows/ (249 pages, the 8VC Fellowship). Both are pulled as first-party lists and read the other way round; the 2016 /advisors/ capture names each advisor's role and company (sources/site/advisors-2016.json) and is corroboration only -- an advisor's employer is not thereby a portfolio company (Intuit, Yahoo!, Morgan Stanley, Box)."
+ },
+ "site_api": {
+  "type": "scrape",
+  "sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/8vc/sources/site/webflow-companies.json",
+    "list": "companies-live",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "sectors": "sectors_site",
+    "extras": [
+     "description",
+     "site_stage",
+     "site_founded",
+     "site_region",
+     "site_fund",
+     "slug",
+     "linkedin",
+     "twitter"
+    ]
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/8vc/sources/site/team-webflow.json",
+    "list": "team",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "slug",
+     "group",
+     "title"
+    ]
+   }
+  ],
+  "_note": "www.8vc.com is a Webflow site (escalation ladder step 5; the .wf_graphql endpoint is the editor's, not a public read API). The sitemap enumerates 176 /companies/<slug>, 53 /team/<slug>, 73 /advisors/<slug> and 250 /fellows/<slug> pages. Each company page server-renders the firm's own description, a sector tag, website/twitter/linkedin links and four CMS fields (Stage, Founded, Region, Fund) that are populated only on some rows. scratch/site-pull.py fetches and parses them into the file_list sources above."
+ },
+ "edgar": {
+  "seed_queries": [
+   "8vc",
+   "eight+partners",
+   "anduin+opportunities",
+   "offset+fund",
+   "kodiak+fund"
+  ],
+  "fts_phrases": [
+   "8VC Fund",
+   "8VC Entrepreneurs Fund",
+   "8VC Opportunities Fund",
+   "Eight Partners VC",
+   "8VC Co-Invest"
+  ],
+  "fts_own_pattern": "8vc |eight partners|kodiak fund i|kodiak gp i|kodiak holdings capital|anduin opportunities|offset fund i|lonsdale joe|oetting drew|medwell jake|scotti kimmy|kolicich alex|moore alex|ghosn anthony|gimenez francisco|rioumine maria|spitz reid|cummings brett",
+  "_note": "Entity set from EDGAR company search 2026-09-06: 78 CIKs under the '8VC' name prefix plus 'Eight Partners VC Fund I, L.P.' (1667762), 'Eight Partners Fund 1, L.P.' (1645776) and 'Eight Partners Fund 1 Associates, L.P.' (1657349) -- 8VC's first fund family filed under the legal name, not the brand, which is why the name search needs both prefixes. Current address 907 South Congress Avenue, Austin TX; the 2015-2021 vehicles filed from 501 Second Street, Suite 300, San Francisco. Adviser: EIGHT PARTNERS VC, LLC, CRD 283031 / 801-134666, d/b/a 8VC, with one relying adviser (KODIAK HOLDINGS CAPITAL MANAGEMENT, LP) and 65 private funds in Section 7.B. The PREDECESSOR firm Formation 8 files separately: FORMATION8 PARTNERS, LLC, CRD 163046 / 802-74921 (an ERA, Los Altos CA), with Formation8 Partners Fund I (CIK 1543731) and Fund II (1620135) -- see decisions.md D1."
+ },
+ "wikipedia": {
+  "phrases": [
+   "8VC"
+  ]
+ },
+ "desks": {
+  "home": "us",
+  "partition": [],
+  "rank": [
+   "us",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "^f8$",
+     "^f8 ",
+     "^eclipse",
+     "^formation8",
+     "^formation 8",
+     "^formation group",
+     "^formation vc",
+     "^formation venture",
+     "^formation dido",
+     "^formation bio",
+     "^8vc capital partners",
+     "^888",
+     "^8x8",
+     "^8point3",
+     "^eight bar",
+     "^eighteen",
+     "^eight capital",
+     "^eight roads",
+     "^eight advisory"
+    ]
+   },
+   {
+    "desk": "us",
+    "patterns": [
+     "^8vc ",
+     "^8vc$",
+     "^eight partners",
+     "^kodiak fund i",
+     "^kodiak gp i",
+     "^kodiak ugp i",
+     "^kodiak holdings capital",
+     "^anduin opportunities",
+     "^offset fund i"
+    ]
+   }
+  ],
+  "_note": "One desk: 8VC is a single adviser (Eight Partners VC, LLC, CRD 283031, Austin TX, with a San Francisco office at Pier 5) running one venture strategy; Kodiak Holdings Capital Management LP is its relying adviser under the same umbrella registration and Kodiak Fund I is a Form D 'Venture Capital Fund' filed from 8VC's own address, so no strategy partition applies. Namesakes are verified by CIK and filing address, never by name: '8' and 'Eight' are common corporate tokens. THREE sister firms came out of the same 2015 Formation 8 breakup and all three are caught by the external rule, which runs first — Formation8 Partners LLC (its own ERA 802-74921, Los Altos) with the Formation8 Partners and F8 SPV vehicles, Formation Group (Brian Koo's Asia successor) and Eclipse Ventures (Lior Susan's hardware successor, ERA 802-101492, whose lineage runs through Formation8 Partners Hardware Fund I). See decisions.md D1."
+ },
+ "profile": {
+  "own_vehicle_pattern": "^(8vc |8vc$|eight partners|kodiak fund i|kodiak gp i|kodiak ugp i|kodiak holdings capital|anduin opportunities|offset fund i)",
+  "focus_min_companies": 12,
+  "focus_crosswalk": {},
+  "_note": "focus_min_companies ~4.5% of an expected ~260-row base. The focus crosswalk is filled from the site's own sector vocabulary once the company pull lands."
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "addepar",
+   "anduril",
+   "blend",
+   "joby",
+   "saronic",
+   "epirus",
+   "pathai",
+   "project44",
+   "deliverr",
+   "flexport",
+   "hims",
+   "ramp",
+   "airbyte",
+   "altos labs",
+   "cognition",
+   "commure",
+   "cityblock",
+   "mammoth biosciences",
+   "orca bio",
+   "twingate",
+   "qualia",
+   "nylas",
+   "hexagon bio"
+  ],
+  "sample_slugs": [],
+  "shape": {
+   "one_b_share_max": 0.3,
+   "c2a_rate_max": 0.8,
+   "_note": "A 2015-vintage firm whose published list is a curated ~176 rows heavily weighted to its own build-and-lead winners (Anduril, Saronic, Addepar, Oscar, Guardant, Base Power, Element Biosciences), so the $1B+ share is expected above the 20% megafund default; the guard still fires above 30%."
+  },
+  "_known_positions_note": "Verified against the landed base rather than asserted from memory. The kickoff list carried eight names the base does not have — oscar health (the row is 'oscar'), radiology partners, base power, element biosciences, oura, chef robotics, vast and atlan — and `verify` was right to flag them. Only 'oscar' was a naming slip; the other seven were model priors about 8VC's book that its own surfaces do not support, and each is a recall-probe candidate rather than a known position. Five more were removed after the grind: oscar, wish, illumio, opengov and guardant health are the Delta A predecessor class and are ruled not_member on this run, so listing them as known positions would make `verify` demand rows the ruling deliberately excludes. Palantir and Color left for the same reason (D7 and Delta A). If Erik reverses Delta A the whole class goes back in together: palantir, color, oscar, wish, illumio, opengov, guardant health, relateiq, salesforceiq, oculus and the Formation 8-era archive rows."
+ },
+ "sample_slugs": [],
+ "commoncrawl": {
+  "company_paths": [
+   "companies"
+  ],
+  "people_paths": [
+   "team"
+  ]
+ }
+}

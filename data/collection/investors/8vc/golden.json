@@ -1,0 +1,391 @@
+{
+ "_readme": "8VC calibration sets (COLLECTION.md §4). Part 1, the membership trap set, is committed before the base build and gates the grind at zero false members at high confidence. Part 2, the stage golden set, is measured blind before entry_stage publishes. The stage golden set is assembled after the base build and before `prepare`, from EXTERNAL documents only: 8VC's own dated announcement archive (sources/site/resources.json, 224 posts, the class-1 candidate layer to be scored) and press releases naming the round and 8VC's participation. The membership trap set below is committed BEFORE the build, per §4, because the build seeds verdicts from evidence classes; a stage key cannot be contaminated by the build, which writes no stage answer (the formd_band pre-fill happens in `prepare`). The stage set has 24 rows: nine press-anchored (the subset the announcement-archive layer is SCORED against, so the score is not self-referential), fourteen anchored in 8VC's own dated posts where press is silent, and one Form-D-only control. It is under §4's 30-40 guidance because every answer carries a citable document rather than a model opinion; it is extended during the citation pass. Three rows are deliberate traps for the Menlo inversion (Saronic, Subskribe, Twingate) and four are the Delta A predecessor class (Guardant, Illumio, Wish, Palantir), where the key records the entry FIRM as well as the round.",
+ "committed": "2026-09-06",
+ "membership_traps": [
+  {
+   "key": "advanced-technology-select-fund-xii",
+   "name": "Advanced Technology Select Fund XII LLC",
+   "expect": "not_member",
+   "class": "homonym",
+   "why": "A different KEVIN CHEN. One person explains 34 issuers in the sweep, almost all of them 'Advanced Technology Select Fund IX-XX' and 'ATSF XIX/XX Series B-F' — an SPV factory, not 8VC deals. Also fund-shaped (T5)."
+  },
+  {
+   "key": "atsf-xix-series-e",
+   "name": "ATSF XIX Series E",
+   "expect": "not_member",
+   "class": "homonym",
+   "why": "Same KEVIN CHEN cluster; fund-shaped series vehicle."
+  },
+  {
+   "key": "bain-capital-partnership-strategies-fund",
+   "name": "Bain Capital Partnership Strategies Fund, L.P.",
+   "expect": "not_member",
+   "class": "homonym",
+   "why": "A different COLIN CAMPBELL; 15 issuers, ten of them Bain Capital vehicles. Fund-shaped and another firm's."
+  },
+  {
+   "key": "indus-emerging-markets-fund",
+   "name": "Indus Emerging Markets Fund, Ltd.",
+   "expect": "not_member",
+   "class": "homonym",
+   "why": "A different BRIAN GUZMAN (Indus Capital hedge funds). 8VC's person is Brian de Guzman — the sweep's normalisation drops the particle."
+  },
+  {
+   "key": "tca-flagler",
+   "name": "TCA Flagler, LLC",
+   "expect": "not_member",
+   "class": "homonym",
+   "why": "A different PETER CONWAY; 13 issuers, all TCA/Trinity real-estate LLCs. 8VC's is Peterson Conway."
+  },
+  {
+   "key": "sg-dan-holdings",
+   "name": "SG DAN Holdings LLC",
+   "expect": "not_member",
+   "class": "homonym",
+   "why": "A different JIN KIM; SG *Holdings/Investment* LLC pairs and Haven Capital. Note Formation 8's Jim Kim is a THIRD person (D1)."
+  },
+  {
+   "key": "golden-gate-ventures-k9",
+   "name": "Golden Gate Ventures K9, L.P.",
+   "expect": "not_member",
+   "class": "homonym",
+   "why": "A different JUSTIN HALL (Golden Gate Ventures, Singapore). Fund-shaped as well."
+  },
+  {
+   "key": "novabay-pharmaceuticals",
+   "name": "NovaBay Pharmaceuticals, Inc.",
+   "expect": "not_member",
+   "class": "homonym",
+   "why": "Same JUSTIN HALL cluster; a public company with no 8VC round."
+  },
+  {
+   "key": "intuit",
+   "name": "Intuit Inc.",
+   "expect": "not_member",
+   "class": "advisor",
+   "why": "Scott Cook is an 8VC ADVISOR whose profile lived at /team/scott-cook in the WordPress era. His own company is not an 8VC position (T2)."
+  },
+  {
+   "key": "box",
+   "name": "Box, Inc.",
+   "expect": "not_member",
+   "class": "advisor",
+   "why": "Aaron Levie is an 8VC advisor; CEO of Box. Same class."
+  },
+  {
+   "key": "opengov-advisor-seat",
+   "name": "OpenGov (via advisor Zachary Bookman)",
+   "expect": "member_only_if_fund",
+   "class": "advisor+legacy",
+   "why": "Two traps at once: Bookman is OpenGov's CEO AND an 8VC advisor, and OpenGov is a Lonsdale-founded, Formation 8-backed company (Delta A). Membership must rest on an 8VC vehicle's position, never on the advisor seat."
+  },
+  {
+   "key": "haven-capital-partners-i",
+   "name": "Haven Capital Partners I, L.P.",
+   "expect": "not_member",
+   "class": "fund_shaped",
+   "why": "Fund-shaped name, unidentifiable as an operating company -> not_member until identification lands."
+  },
+  {
+   "key": "trinity-capital-value-fund-iv",
+   "name": "Trinity Capital Value Fund IV, L.P.",
+   "expect": "not_member",
+   "class": "fund_shaped",
+   "why": "Fund-shaped; PETER CONWAY cluster."
+  },
+  {
+   "key": "8vc-entrepreneurs-fund-iii",
+   "name": "8VC Entrepreneurs Fund III, L.P.",
+   "expect": "not_member",
+   "class": "own_vehicle",
+   "why": "8VC's own vehicle, not a portfolio company (T5). Must never enter the base as a row."
+  },
+  {
+   "key": "relateiq",
+   "name": "RelateIQ",
+   "expect": "not_member",
+   "class": "predecessor",
+   "why": "Acquired by Salesforce in July 2014, a year before 8VC existed; on 8vc.com/companies in the 2016 capture only. Formation 8 / Lonsdale-era. Under Delta A's recommended ruling this is not_member absent an 8VC vehicle position."
+  },
+  {
+   "key": "wish",
+   "name": "Wish (ContextLogic)",
+   "expect": "member_only_if_fund",
+   "class": "predecessor",
+   "why": "8VC's own post says 'we co-led the angel round in 2010, led the Series A in 2012' -- 2010 predates Formation 8 (2011) and 8VC (2015). Delta A decides it; 8VC GP I's 13F does not list ContextLogic."
+  },
+  {
+   "key": "saronic",
+   "name": "Saronic Technologies, Inc.",
+   "expect": "member",
+   "class": "true_build",
+   "why": "8VC Build vehicle by name (8VC Build Saronic SPV, SPV II, II-A) and the site's own Fund field says '8VC Fund IV'. Alex Moore's Form D cluster carries it."
+  },
+  {
+   "key": "epirus",
+   "name": "Epirus, Inc.",
+   "expect": "member",
+   "class": "true_formd",
+   "why": "In the ALEX MOORE cluster (a genuine 8VC partner) alongside Saronic, GridMatrix, Nylas and Quaestor."
+  },
+  {
+   "key": "twingate",
+   "name": "Twingate",
+   "expect": "member",
+   "class": "true_firstparty",
+   "why": "8VC's own post: 'we co-led their seed and Series A rounds' (8vc.com/resources/announcing-twingates-series-b-funding-round)."
+  },
+  {
+   "key": "orca-bio",
+   "name": "Orca Bio",
+   "expect": "member",
+   "class": "true_firstparty",
+   "why": "8VC's own post: 'a proud investor since leading their Series B in 2019'."
+  },
+  {
+   "key": "mantra-bio",
+   "name": "Mantra Bio, Inc.",
+   "expect": "member",
+   "class": "true_formd",
+   "why": "FRANCISCO GIMENEZ cluster (8VC bio partner) plus the firm's own August-2020 investment post."
+  },
+  {
+   "key": "lightbeam",
+   "name": "LightBeam",
+   "expect": "member",
+   "class": "true_firstparty",
+   "why": "8VC's own post: '8VC is honored to have led their seed round' (Apr 2022)."
+  }
+ ],
+ "stage_golden": [
+  {
+   "slug": "airbyte",
+   "stage": "Series A",
+   "src": "press",
+   "year": 2021,
+   "cite": "https://techcrunch.com/2021/05/25/airbyte-announces-26m-series-a-for-open-source-data-connector-platform/",
+   "why": "$26M Series A led by Benchmark 'with help from 8VC, Accel, SV Angel, Y Combinator'. The $5.2M March-2021 seed was Accel-led and does not name 8VC."
+  },
+  {
+   "slug": "project44",
+   "stage": "Growth",
+   "src": "press",
+   "year": 2018,
+   "cite": "https://www.project44.com/blog/project44-raises-additional-45-million-funding/",
+   "why": "8VC came in as a NEW investor at the $35M Series B led by OpenView. Series B = Growth by taxonomy."
+  },
+  {
+   "slug": "deliverr",
+   "stage": "Seed",
+   "src": "press",
+   "year": 2018,
+   "cite": "https://techcrunch.com/2025/09/04/ai-logistics-startup-augment-from-deliverrs-founder-raises-massive-85m-series-a/",
+   "why": "8VC led Deliverr's seed; Alex Kolicich wrote the founders' first check in 2017. Exited to Shopify for $2.1B in 2022."
+  },
+  {
+   "slug": "ramp",
+   "stage": "Growth",
+   "src": "press",
+   "year": 2024,
+   "cite": "https://techcrunch.com/2024/04/17/ramp-raises-another-150-million-co-led-by-khosla-founders-fund-at-a-7-65b-valuation/",
+   "why": "8VC is named as a NEW backer in the April-2024 $150M round at $7.65B. Ramp's 2019 seed and 2020 rounds do not name 8VC."
+  },
+  {
+   "slug": "saronic-technologies-inc",
+   "stage": "Seed",
+   "src": "press+vehicle",
+   "year": 2022,
+   "cite": "https://techcrunch.com/2023/10/09/saronic-a-defense-startup-building-autonomous-ships-raises-55m/",
+   "why": "TRAP ROW for the Menlo inversion: press names 8VC only as a PARTICIPANT in the Oct-2023 $55M Series A led by Caffeinated Capital, but 8VC built the company (vehicles named 8VC Build Saronic SPV / SPV II / II-A) and its own site's Fund field says 8VC Fund IV. The entry is the pre-A position; a key answer of 'Series A' would be the band reading the first big round as the entry."
+  },
+  {
+   "slug": "guardant-health",
+   "stage": "predecessor:Growth",
+   "src": "press",
+   "year": 2015,
+   "cite": "https://techcrunch.com/2015/02/03/guardant-health-secures-50-million-in-series-c-to-help-more-doctors-can-track-cancer-in-real-time/",
+   "why": "FORMATION 8 entered at the Feb-2015 Series C led by Lightspeed; no 8VC vehicle appears, and Guardant has been public (NASDAQ: GH) since Oct 2018 with no 8VC 13F holding. Delta A decides membership; if it lands as a member the stage is Growth."
+  },
+  {
+   "slug": "illumio",
+   "stage": "predecessor:Growth",
+   "src": "press",
+   "year": 2013,
+   "cite": "https://techcrunch.com/2013/09/20/illumio-the-stealthy-security-startup-for-the-anywhere-app-universe/",
+   "why": "FORMATION 8 was among the institutional investors by the Oct-2013/2014 rounds (a16z Series A $8M, General Catalyst-led $34.5M). Delta A class."
+  },
+  {
+   "slug": "wish",
+   "stage": "predecessor:Seed",
+   "src": "firstparty",
+   "year": 2010,
+   "cite": "https://www.8vc.com/resources/reflections-on-our-investment-in-wish",
+   "why": "'we co-led the angel round in 2010, led the Series A in 2012' — 2010 predates Formation 8 (2011) and 8VC (2015), so this is Lonsdale's personal angel money. Delta A class, and the sharpest instance of it."
+  },
+  {
+   "slug": "palantir",
+   "stage": "predecessor:none",
+   "src": "firstparty",
+   "year": 2003,
+   "cite": "https://www.8vc.com/companies/palantir",
+   "why": "Listed on 8vc.com but co-founded by Lonsdale in 2003; no 8VC vehicle holds it (8VC GP I's 13Fs report only Joby). D7."
+  },
+  {
+   "slug": "twingate",
+   "stage": "Seed",
+   "src": "firstparty",
+   "year": 2019,
+   "cite": "https://www.8vc.com/resources/announcing-twingates-series-b-funding-round",
+   "why": "'we co-led their seed and Series A rounds'. The post ANNOUNCES the Series B — the Menlo pattern exactly, and the entry sentence is in the body."
+  },
+  {
+   "slug": "orca-bio",
+   "stage": "Growth",
+   "src": "firstparty",
+   "year": 2019,
+   "cite": "https://www.8vc.com/resources/orca-bio-earns-fda-approval",
+   "why": "'8VC has been a proud investor since leading their Series B in 2019'. The June-2020 'Announcing Our Investment in Orca Bio' post is a LATER round; the entry sentence is in the 2026 post."
+  },
+  {
+   "slug": "lightbeam-ai",
+   "stage": "Seed",
+   "src": "firstparty",
+   "year": 2022,
+   "cite": "https://www.8vc.com/resources/illuminating-the-path-to-privacy",
+   "why": "'8VC is honored to have led their seed round' (Apr 2022)."
+  },
+  {
+   "slug": "seemetrics",
+   "stage": "Seed",
+   "src": "firstparty",
+   "year": 2022,
+   "cite": "https://www.8vc.com/resources/announcing-8vcs-investment-in-seemetrics-april-2022",
+   "why": "'8VC's participation in their $6 million seed round'."
+  },
+  {
+   "slug": "mantra-bio",
+   "stage": "Pre-Seed",
+   "src": "firstparty",
+   "year": 2020,
+   "cite": "https://www.8vc.com/resources/8vcs-investment-in-mantra-bio",
+   "why": "The Aug-2020 post names both a pre-seed and a Series A; the pre-seed is 8VC's entry."
+  },
+  {
+   "slug": "unlearn",
+   "stage": "Series A",
+   "src": "firstparty",
+   "year": 2020,
+   "cite": "https://www.8vc.com/resources/8vcs-investment-in-unlearn-ai",
+   "why": "May-2020 post announcing 8VC's investment at the Series A."
+  },
+  {
+   "slug": "ushur",
+   "stage": "Growth",
+   "src": "firstparty",
+   "year": 2020,
+   "cite": "https://www.8vc.com/resources/8vcs-investment-in-ushur",
+   "why": "'8VC's participation in Ushur's $25M Series B, led by Third Point Ventures'. Series B = Growth. KEY CONFIRMED BY SEAT DATING: the 2018q3 Form D ($11.8M) carries BHASKAR GHOSH, but the site rendered him as an ADVISOR in 2016-2018 (VP Eng, NerdWallet) and as team only from 2019, so that filing is out of tenure and is not 8VC's entry. The entry is the 2020q4 $28M Series B, which is Growth.",
+   "cite_2": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001747969&type=D"
+  },
+  {
+   "slug": "photys-therapeutics",
+   "stage": "Series A",
+   "src": "firstparty",
+   "year": 2022,
+   "cite": "https://www.8vc.com/resources/announcing-our-investment-in-photys-therapeutics",
+   "why": "$75M Series A led by MPM Capital, 8VC participating."
+  },
+  {
+   "slug": "bobyard",
+   "stage": "Series A",
+   "src": "firstparty",
+   "year": 2025,
+   "cite": "https://www.8vc.com/resources/from-plans-to-progress-announcing-the-8vc-bobyard-partnership",
+   "why": "'as lead investors in their $35mm Series A'."
+  },
+  {
+   "slug": "outset",
+   "stage": "Series A",
+   "src": "firstparty",
+   "year": 2025,
+   "cite": "https://www.8vc.com/resources/8vc-emerging-builders-spotlight-jeffrey",
+   "why": "'When we led Outset's Series A'."
+  },
+  {
+   "slug": "augment",
+   "stage": "Seed",
+   "src": "firstparty",
+   "year": 2025,
+   "cite": "https://www.8vc.com/resources/announcing-the-augment-8vc-partnership",
+   "why": "'we led Augment's $25 million seed round, our second time backing Harish Abbott'."
+  },
+  {
+   "slug": "yugabyte",
+   "stage": "Growth",
+   "src": "firstparty",
+   "year": 2020,
+   "cite": "https://www.8vc.com/resources/my-experience-as-an-8vc-fellow",
+   "why": "'8VC led Yugabyte's oversubscribed Series B earlier this year' (post dated Sep 2020)."
+  },
+  {
+   "slug": "branch",
+   "stage": "Seed",
+   "src": "firstparty",
+   "year": 2015,
+   "cite": "https://www.8vc.com/resources/announcing-our-investment-in-branch",
+   "why": "May-2015 announcement of the first investment in Matt Flannery's Branch. NOTE the date: May 2015 predates 8VC's own first fund close, so this is also a Delta A boundary probe."
+  },
+  {
+   "slug": "subskribe",
+   "stage": "Seed",
+   "src": "firstparty",
+   "year": 2021,
+   "cite": "https://www.8vc.com/resources/announcing-subskribe-series-a",
+   "why": "TRAP ROW: the post is titled 'Announcing Subskribe Series A' but announces the round, not the entry. Whether 8VC entered at the seed is the question; an answer of 'Series A' taken from the title is the Menlo failure."
+  },
+  {
+   "slug": "epirus",
+   "stage": "unresolved",
+   "src": "unresolved",
+   "year": 2018,
+   "cite": "ALEX MOORE Form D cluster (Epirus, Inc.)",
+   "why": "DROPPED FROM SCORING. The original key answer (Seed) rested on a model inference, not a document, which §4 does not allow. The evidence is genuinely mixed: the 2019q4 $17.8M Form D carries JOHN TENET, who was 8VC team in 2019-2020 — but is also Epirus's own co-founder and vice chairman, so the seat may be a founder seat rather than a fund seat (T4). The first partner-anchored filing is ALEX MOORE on the 2022q1 $229.5M round. 8VC has listed Epirus since 2019. Resolved in the grind, not in the key."
+  }
+ ],
+ "results": {
+  "run_date": "2026-09-06",
+  "membership_trap_set": {
+   "verdict": "CLEARED",
+   "gate": "zero false members at high confidence before any verdict writes",
+   "false_members_at_high_confidence": 0,
+   "how": "22 traps. Fifteen never reached the base at all — build-company-base.py's pooled-fund filter dropped 108 fund issuers (161 filings), which removed the whole KEVIN CHEN 'Advanced Technology Select Fund IX-XX' factory, the Bain Capital Partnership Strategies vehicles from the COLIN CAMPBELL cluster, the Indus funds from BRIAN GUZMAN, the TCA/Trinity real-estate LLCs from PETER CONWAY and 8VC's own Entrepreneurs Fund. Of the traps that did reach the base, novabay-pharmaceuticals-inc and made-by-haven-inc are name-match-only rows with no site listing and an out-of-tenure or homonym person, and both are queued for the judge rather than seeded as members (evidence_class formd_only, need includes membership).",
+   "new_finding": "The trap set surfaced a class the key did not name: smith-raymond, a NATURAL PERSON carried as a base row off a 2010 Form D. T5. Retired in the grind."
+  },
+  "layer_scores": {
+   "wikidata_hq_country": {
+    "verdict": "DEMOTED to corroboration; all 44 values stripped and re-judged",
+    "score": "at least 15 of 61 single-token rows wrong on inspection",
+    "detail": "8VC's book is full of one-word names and the joins failed exactly as COLLECTION.md's First Round rule predicts: Color -> CZ, Oscar -> BE, Esper -> DE, Honor -> CN, Oculus -> LV, Baton -> RU, Alloy -> AU, Luna -> RS, Orchestra -> FR, Rainbow -> PL, Create -> JP, Flux and Premise -> CZ, Pango and Radius -> SE — every one of them a US company. Because `prepare` asks only about EMPTY fields these rows would never have reached the judge. scratch/requeue.py strips the column and re-queues them; rows keep flag `wikidata_country_demoted`."
+   },
+   "formd_band_entry_stage": {
+    "verdict": "DEMOTED to a ceiling (never a label), matching Accel's 5/13",
+    "score": "2 of 6 scorable golden rows",
+    "detail": "Hits: illumio (Growth), unlearn (Series A). Misses: mantra-bio (band Growth off a single $30.1M filing, against the firm's own post naming a PRE-SEED); ushur (band Series A off a 2018 filing carrying a person who was an ADVISOR that year, against a 2020 Series B entry); bobyard (band Growth, against the firm's own 'lead investors in their $35mm Series A'); palantir (band asserts Series A for a row that is not a member at all). epirus excluded as unresolved. Coverage is the bigger finding: only 106 of 318 rows have any Form D history and only 7 of 24 golden rows — 8VC's book is largely 4(a)(2) and SAFE-era rounds that never file."
+   },
+   "site_stage_field": {
+    "verdict": "NOT A LAYER — not scored, not used",
+    "score": "5 of 175 rows populated",
+    "detail": "The Webflow company template carries Stage / Founded / Region / Fund cells but they are bound empty on all but a handful of rows (Stage 5, Founded 6, Region 2, Fund 4). Kept in the evidence pack as an unscored extra."
+   },
+   "announcement_archive": {
+    "verdict": "class 1 for the round it NAMES; asserts an entry only where the post says so",
+    "score": "not locally scored — no press-anchored golden row overlaps it",
+    "detail": "224 dated posts with bodies. The standing Menlo rule governs and this archive shows the pattern in both directions: Twingate's post ANNOUNCES the Series B while its body names the entry ('we co-led their seed and Series A rounds'), and Subskribe's is titled 'Announcing Subskribe Series A' while saying nothing about which round 8VC entered. Titles are never read as entries."
+   },
+   "seat_dating_defect": {
+    "verdict": "REPORTED — the round history does not apply the tenure window",
+    "detail": "The Form D sweep and the issuer round histories attribute a filing to a roster name without checking that the filing year falls inside that person's tenure, so the band picks an out-of-tenure filing as the entry (§1 T4). 31 of the 106 rows with Form D history have an OUT-OF-TENURE earliest filing. scratch/enrich-queue.py puts {person, quarter, tenure, in_tenure} on every queue item so the grind can apply the rule; the script fix is proposed at close."
+   }
+  }
+ }
+}
