@@ -149,3 +149,59 @@ describing the company today, not the round YC entered at, so it cannot be
 an `entry_stage` label whatever it scores; it is recorded as corroboration.
 "Inactive" is **not** identical to `defunct` and the mapping is measured,
 not assumed.
+
+### D6. Nonprofits are OUT (T3 and T5, same answer)
+
+**Facts.** YC has run nonprofits through its batches since 2013. They receive
+a **grant**, not an equity investment: "Nonprofits get $100k of funding and go
+through the standard YC program, participating side by side with for-profits"
+(YC blog, 2017-09-29, via the Internet Archive; the live URL 404s). YC's
+current nonprofits page states only that it works with 2–4 nonprofits per
+batch and "more than 30 companies so far"; the directory's own `nonprofit`
+flag marks **42** rows, so YC's two published numbers disagree and the
+directory is the higher one. The current grant amount is not published
+anywhere and is recorded as unverified.
+
+**Tests.** T3 (venture entry) and T5 (venture-outcome operating company).
+**Outcome: OUT, and both tests agree** — a grant is not a round, no equity is
+issued, so there is no entry stage, no valuation, no exit and no C2A cohort
+membership; and a nonprofit is not a venture-outcome operating company. The
+42 flagged rows leave the published base into `excluded.csv`.
+**Not a delta**: no test is stretched and none collide.
+
+### D7. The directory lists *launched* companies, not funded ones
+
+**Facts.** YC's own directory says so in its result count: filtering to the
+current batch renders "Showing 40 of 235 **launched** companies — more will be
+added as Summer 2026 launches!" Companies are also removed after the fact
+(YC parted ways with Delve in April 2026 and its company page came down).
+The directory's prose still reads "over 5,000 companies" while the index
+returns 6,203, so the prose is stale rather than contradicted.
+
+**Outcome.** The count is *publicly listed launched companies as of
+2026-09-06*. It excludes unlaunched and stealth companies in in-flight
+batches and any company whose page has been pulled. This is the evidential
+basis for R1 (the directory is a floor) and it is stated in the report as the
+layer's coverage caveat, not hidden.
+
+### D8. Adviser registration: one ERA, no RIA, no separate Continuity adviser
+
+**Facts.** `Y COMBINATOR MANAGEMENT, LLC` (business name "Y Combinator"),
+**CRD 171730**, SEC file 802-80528, **exempt reporting adviser** — ERA-Active
+with the SEC since 2014-10-23 and with California since 2018-04-19; not SEC-
+or state-registered as an RIA. Latest annual amendment 2026-03-27, filed from
+335 Pioneer Way. An ERA files no Item 5.F, so there is no regulatory AUM;
+**Section 7.B reports 19 private funds at $21,962,163,829 gross**, which is
+the sworn AUM anchor (§11: for an ERA, 7.B is the substitute and both range
+ends are the composite). IAPD returns no "YC Continuity" or "Y Combinator
+Continuity" adviser at all, and Continuity Fund I is reported under this same
+ADV.
+
+**Test.** T1. **Outcome.** One adviser covers the whole firm, so there is no
+brand-sharing entity to exclude and no desk partition — the D1 derivation is
+confirmed by registration and not only by address.
+
+**Four vehicles appear in the ADV but nowhere in EDGAR**, so the Form D sweep
+alone would have missed them and the profile's fund table takes them from the
+ADV: `Y Combinator Fund I, LP` ($672.0M), `Y Combinator Fund II, LP`
+($295.9M), `YCVC Fund I, L.P.` ($536.3M), `YCVC W14, LLC` ($22.5M).
