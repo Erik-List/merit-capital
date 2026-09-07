@@ -70,9 +70,13 @@ delta:
 
 - **R2 (2026-09-07) — the site's own entry-round field publishes only when it
   says Series B or later.** Scored on the stage golden set before the grind
-  (§4): `firstPartnered` is 11/17 overall, and the misses are one class.
-  6/6 where it claims Series B or later; **2/7 where it claims Seed** and 3/4
-  where it claims Series A. Where Greylock was the first institutional money
+  (§4): `firstPartnered` is 12/17 overall and the misses are ONE class.
+  6/6 where it claims Series B or later, 4/4 where it claims Series A and
+  **2/7 where it claims Seed**. (The single Series A "miss" was my own
+  recognition failure rather than the layer's: that key row was written against
+  Joinhandshake, the campus recruiting company, while Greylock's Handshake is
+  handshake.org, the naming protocol. Corrected in `golden.json` before the
+  grind, under §4's rule that a golden label can itself be wrong.) Where Greylock was the first institutional money
   the field reads "Seed" whatever the record calls the round (AppDynamics'
   $5.5M Series A, Sumo Logic's $5.8M Series A, TellApart's $4.75M first round,
   Abnormal's $24M Series A — whose first Form D *is* that Series A, so no

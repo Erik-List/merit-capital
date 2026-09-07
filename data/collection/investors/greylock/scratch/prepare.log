@@ -1,0 +1,47 @@
+base: data/collection/investors/greylock/base.json
+target companies: 115  distinct issuer CIKs: 109
+scanning 74 quarterly datasets (offline)...
+filings collected: 461
+evidence: 280/280 base accessions found
+wrote data/collection/investors/greylock/scratch/issuer-evidence.json (120 CIKs, 64 with a name history)
+
+wrote data/collection/investors/greylock/sources/edgar/formd-issuer-rounds.json
+  companies with Form D history : 108
+  rounds after amendment merge  : 360 (101 amendments folded in)
+  companies with 2+ rounds      : 82
+  filings the partner sweep never saw: 177
+  companies gaining >=1 such filing  : 42
+  rounds carrying a sale date   : 354/360
+in flight: wrote data/collection/investors/greylock/scratch/in-flight.json
+rows: 674
+membership seed: 611 site_listing, 3 fund_filing; left for the judge: 60
+layer A (SEC public float): 674 rows to resolve
+    fetched 100/240
+    fetched 200/240
+    100/674
+    200/674
+    300/674
+    400/674
+    500/674
+    600/674
+    resolved a CIK: 410   with public float: 84
+layer B (Wikidata): 674 rows in batches of 60
+    60/674
+    120/674
+    180/674
+    240/674
+    300/674
+    360/674
+    420/674
+    480/674
+    540/674
+    600/674
+    660/674
+    674/674
+    matched: 137
+layer C (unicorn list): 627 current, 209 former
+graduation layer 1: 108 companies, 29 entered at Seed, 28 decided deterministically, 34 entries moved past pre-investor rounds
+
+deterministically resolved: 9/674
+retired (not_member, awaiting rebuild): 0
+queued for judgment       : 665 rows in 15 batches
