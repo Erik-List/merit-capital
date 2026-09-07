@@ -305,7 +305,23 @@
  "profile": {
   "own_vehicle_pattern": "^battery (ventures|investment partners|partners) ",
   "focus_min_companies": 30,
-  "_note": "focus_min_companies ~4.5% of the expected ~680-row base. Battery publishes its own five-sector vocabulary (Application Software, Infrastructure Software, Consumer, Industrial Tech, Life Science Tools), which stands until the base-derived tag coverage clears the 25% bar."
+  "_note": "focus_min_companies ~4.5% of the 658-row base. Battery publishes its own sector vocabulary per company (Application Software, Infrastructure Software, Consumer, Industrial Tech + Life Science Tools, plus the finer tags Financial Tech, Security, Data/AI, AI-Powered Apps, DevOps and Dev Tools, Healthcare IT, Sales / Marketing, Collaboration & Productivity, Industry Specific, Tech-Enabled Services); the crosswalk maps those to the closed twelve under COLLECTION.md 6's precedence rules.",
+  "focus_crosswalk": {
+   "Application Software": "SaaS",
+   "Infrastructure Software": "Data Infrastructure",
+   "Consumer": "Consumer & Marketplaces",
+   "Industrial Tech + Life Science Tools": "Industrial & Robotics",
+   "Financial Tech": "Fintech & Payments",
+   "Security": "Security",
+   "Data/AI": "Data Infrastructure",
+   "AI-Powered Apps": "AI & Applied AI",
+   "DevOps and Dev Tools": "DevTools & APIs",
+   "Healthcare IT": "Healthcare & Bio",
+   "Sales / Marketing": "SaaS",
+   "Collaboration & Productivity": "SaaS",
+   "Industry Specific": "SaaS",
+   "Tech-Enabled Services": "SaaS"
+  }
  },
  "verify": {
   "text_mention_leaks": [],
