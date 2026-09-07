@@ -302,3 +302,39 @@ wayback year and a wrong status onto each modern row. Both are pinned apart in
 `identity-merges.json` under `never_merge`. On a fifty-year book the automatic
 merge is a liability as much as a convenience, and the flagged pairs were found
 only because the modern rows carried an impossible first-seen year.
+
+### R8 — One site generation, two listing markups: the 2002–2003 sector pages (2026-09-06, post-close)
+
+The 2002–2003 XHTML site renders companies **two different ways on the same
+generation**. `all_alpha` and `prior_investments` use a bare `<li>Name</li>`
+list; the four sector pages (`communications`, `healthcare`, `internet`,
+`services_and_software`) use a `<div class="company">` card whose
+`<p class="summary">` holds the name and the firm's own one-line description.
+The era pattern was written from the alphabetical pages and applied to all six,
+so the eight sector-page captures parsed to **zero rows and read as empty years**
+— a silent recall hole, not a fetch failure: every page was fetched, is on disk
+at 10–20 KB, and carries the right title.
+
+Corrected by giving the four sector eras their own pattern. It recovered
+**Bravanta, Covalent Technologies and Lantern Communications** — three companies
+listed only in 2002–2003, absent from every later Menlo surface including Prior
+Investments, and therefore invisible to every other layer. It also supplied
+fuller names for 15 rows already in the base (`Big Bear` → `Big Bear Networks`,
+`vBrick` → `VBrick Systems`, `GoDIGITAL TELECOMMUNICATIONS` → `GoDigital Networks
+Corporation`), which re-slugged them; the ledger, classification and inner slug
+fields were re-keyed rather than re-judged, since the evidence and verdicts are
+unchanged.
+
+Two second-order gains. The firm's own descriptions **retired the
+`identity_uncertain` flag on three rows** (Big Bear Networks, Parama Networks,
+Phiar Corporation) — including a disputed GB namesake pre-fill on Big Bear that
+the description ("opto-electronic modules for high-speed optical networks")
+settles as a Sunnyvale optical-components startup. And they proved Menlo's
+**Phiar Corporation** ("high-speed photonic switching applications", 2002) is not
+YC's **Phiar** (S18, AR navigation); the suffix-stripped cross-investor key joins
+them, so the pair is now ruled `distinct` in `cross-investor.json`.
+
+The general lesson, written to §5: **a zero-row year on a page that fetched
+successfully is a parser hypothesis that failed, not an absence.** The era
+pattern is a claim about markup, and it must be checked against a page that
+returned bytes before an empty year is believed.

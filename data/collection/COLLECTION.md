@@ -673,9 +673,29 @@ order the grind will use, instead of auditing one it already used.
    of them a real position that the text-only pattern missed. The slug is the
    company's identity, so the row lands unnamed and the judge names it.
 
-   **CDX over plain HTTP is refused** (measured 2026-09-06: connection-refused
-   on every `http://web.archive.org/cdx/...` query while the same query answers
-   over HTTPS). `wayback-pull.py` and `partner-roster.py` use HTTPS.
+   **A zero-row year on a page that returned bytes is a failed parser
+   hypothesis, not an absence.** One site generation can carry two listing
+   markups: Menlo's 2002–2003 XHTML site lists companies as bare `<li>Name</li>`
+   on `all_alpha` and `prior_investments` and as `<div class="company">` summary
+   cards on its four sector pages, so an era pattern written from the first and
+   applied to both parsed eight cleanly-fetched captures (10–20 KB, correct
+   titles) to zero rows — and the years read as empty. Found post-close, it cost
+   three companies no other layer could see. **Before believing an empty year,
+   check whether the raw file exists and has content**; if it does, the era
+   pattern is the thing that failed, and each distinct page shape in an era needs
+   its own pattern. The same check separates this from the fetch-failure case
+   below: absence of a capture, absence of a response, and a capture the pattern
+   could not read are three different claims.
+
+   **The CDX scheme is not the variable — a failed fetch is.** An earlier
+   version of this paragraph claimed plain HTTP was refused; that was wrong,
+   and it was retracted on 2026-09-06 after two 8-query measurements per scheme
+   (http 14/16, https 13/16) in which *every* failure was a curl rc=28 timeout,
+   never rc=7 connection-refused. HTTPS is not more reliable and a scheme swap
+   fixes nothing. `wayback-pull.py` and `partner-roster.py` use HTTPS as a
+   convention only. What actually matters is that a failed fetch must never be
+   recorded as an empty year: absence of a capture and absence of a response
+   are different claims, and only the first is evidence.
 
    **A CMS that names deal partners is a judge instrument, not just a
    listing.** Accel's per-company partner refs fed `partners_site` at

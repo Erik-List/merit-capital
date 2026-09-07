@@ -5,7 +5,7 @@ and firm profile under the merged shape of `../../COLLECTION.md`. Slug
 `menlo-ventures`. Ingestion is gated on Erik's explicit approval and has not run.
 
 **Usage line:** kickoff percentages were not read for this session; weekly % and
-Fable % to be filled at ingest, against **596 base rows**.
+Fable % to be filled at ingest, against **599 base rows**.
 
 **Prompt count: 1 so far** — the kickoff ("please collect menlo ventures").
 The count is final only after the ingest decision.
@@ -17,7 +17,7 @@ The count is final only after the ingest decision.
 Menlo Ventures was founded on Sand Hill Road in **1976** and is by three decades
 the oldest firm this project has collected. Its book runs from Dysan and Eldec in
 the late 1970s to Anthropic and Lovable in 2026, and that span is the run's
-defining fact: **219 of 596 rows have a first-seen year before 2006**, so the
+defining fact: **222 of 599 rows have a first-seen year before 2006**, so the
 2006 policy constant nulls `entry_stage` and `seed_to_a_graduation` on
 **259 rows — 43% of the base**. That is the delta PRO-91 predicted, and it is
 policy rather than debt. Every one of those rows carries an explicit
@@ -81,16 +81,16 @@ Both changes are investor-agnostic and are proposed for write-back (§8).
 
 **`verify` is clean in full (plain) mode.**
 
-**596 rows** — Tier A 357 (two-sourced), B 235, C 4. Evidence class: 592
+**599 rows** — Tier A 357 (two-sourced), B 238, C 4. Evidence class: 595
 `site_listing`, 4 `formd_adjudicated`.
 
 | Column | Distribution |
 |---|---|
-| status | acquired 295 · private 208 · defunct 76 · public 17 |
-| entry_stage | null (pre-window) 240 · Series A 193 · Growth 103 · Seed 56 · Pre-Seed 4 |
-| valuation_range | below_1b 551 · 1b_plus 31 · 10b_plus 10 · 100b_plus 4 |
-| hq_country | US 563 (94.5%) · GB 7 · IL 6 · SE 4 · DE 3 · CA 2 · IN/CN/TR/AU 1 each |
-| focus | Data Infrastructure 106 · Healthcare & Bio 82 · Industrial & Robotics 72 · Consumer & Marketplaces 72 · SaaS 54 · Security 53 · Fintech & Payments 50 · Media/Gaming/Advertising 50 · AI & Applied AI 26 · DevTools & APIs 23 · Crypto & Web3 4 · Climate & Energy 4 |
+| status | acquired 298 · private 208 · defunct 76 · public 17 |
+| entry_stage | null (pre-window) 243 · Series A 193 · Growth 103 · Seed 56 · Pre-Seed 4 |
+| valuation_range | below_1b 554 · 1b_plus 31 · 10b_plus 10 · 100b_plus 4 |
+| hq_country | US 567 (94.7%) · IL 6 · GB 6 · SE 4 · DE 3 · CA 2 · IN/CN/TR/AU/CZ/FR/CH/HR 1 each |
+| focus | Data Infrastructure 107 · Healthcare & Bio 82 · Industrial & Robotics 72 · Consumer & Marketplaces 72 · SaaS 55 · Security 53 · Fintech & Payments 50 · Media/Gaming/Advertising 50 · AI & Applied AI 26 · DevTools & APIs 24 · Crypto & Web3 4 · Climate & Energy 4 |
 | C2A | cohort 36, graduated 20, **55.6%** |
 
 **Read the shape before the numbers.** `acquired` at 50% and `defunct` at 13% is
@@ -281,9 +281,32 @@ Six changes, all investor-agnostic, all already made in the scripts:
    post-rebuild delta.** Two rows ruled `not_member` in the delta had nowhere to
    go; a second, final rebuild before export is needed whenever the delta grind
    produces a membership verdict. Proposed for §8.
-6. **CDX over plain HTTP is refused** (connection refused on every query, while
-   HTTPS answers). `wayback-pull.py` and `partner-roster.py` now use HTTPS.
-   Proposed for §5.
+6. ~~**CDX over plain HTTP is refused**~~ — **RETRACTED 2026-09-06.** The
+   original finding was drawn from a handful of failures during an archive
+   outage and misread timeouts as refusals. Re-measured deliberately (two
+   8-query runs per scheme): http 14/16, https 13/16, and every single failure
+   was a curl rc=28 timeout, never rc=7 connection-refused. The scheme is not
+   the variable. `wayback-pull.py` and `partner-roster.py` still use HTTPS, but
+   as a convention, not a fix. The real lesson, which the YC session found
+   independently in `wayback-pull.py`, is that a **failed fetch must never be
+   recorded as an empty year** — absence of a capture and absence of a response
+   are different claims. Written to §5 in that corrected form.
+
+7. **One site generation can carry two listing markups, and the second one
+   parsed to zero.** Found 2026-09-06, after this run had closed, while checking
+   the YC session's warning that a failed fetch was being read as an empty year.
+   Menlo's 2002–2003 XHTML site lists companies as bare `<li>Name</li>` on
+   `all_alpha` and `prior_investments` but as `<div class="company">` summary
+   cards on its four sector pages. The era pattern was written from the former
+   and applied to both, so eight captures that fetched cleanly (10–20 KB, correct
+   titles, on disk) parsed to **zero rows and read as empty years**. The fix
+   recovered **three companies no other layer could see** — Bravanta, Covalent
+   Technologies and Lantern Communications, listed only in 2002–2003 and absent
+   even from Prior Investments — plus fuller names for 15 existing rows, and the
+   firm's own descriptions retired `identity_uncertain` on three rows and proved
+   Menlo's Phiar is not YC's. The rule for §5: **a zero-row year on a page that
+   returned bytes is a failed parser hypothesis, not an absence**, and it must be
+   checked against the fetched page before the year is believed. See R8.
 
 Two smaller mechanics worth recording in §5 and §8:
 
