@@ -319,16 +319,36 @@ for its own, but the eras between them gave neither.
    systematically late as an ENTRY signal, for the same reason the first filed
    Form D is.
 
-## 10. What is not done
+## 10. Ingest — done 2026-09-06 with Erik's approval
 
-**Ingest.** `ingest-investor.ts` and `ingest-companies.ts` have not run. On
-approval the order is: icon upload (the source is measured and chosen,
-`https://www.redpoint.com/favicon.png`, and it clears every rule on a dry run),
-then `ingest-investor.ts`, then `ingest-companies.ts`.
+In the order COLLECTION.md §9 requires for a first-time investor:
 
-**The wave alignment.** Eleven cross-investor pairs where a sibling is the stale
+1. **Icon uploaded.** `investors/redpoint-ventures-b569a5e1a9.png`, normalized
+   from the site's own 260x260 favicon; provenance in `investor.sources.json`.
+2. **`ingest-investor.ts`** — 1 row upserted.
+3. **`ingest-companies.ts`** — **412 of 412** rows upserted; the database holds
+   412 for the slug and **zero orphans**.
+
+Two payload corrections were needed and are recorded in the sidecar: the row
+carried `investor_type: "VC"`, which no investor uses and which made the ingest
+silently find nothing (the loader filters on Institutional/Individual); and
+`investment_geo.other` carried `"China"`, which is not in `data/taxonomy/geo.json`
+— the ingest would have added it to the geography vocabulary, which §11 forbids.
+It is published as **Asia**, with the China reading kept in the basis.
+
+**Accel re-ingested** on Erik's ruling: 885 of 885 rows upserted, and the
+orphaned `Arista` row (public / 100b_plus / **$246,810,000,000**) was deleted by
+id after the upsert. `ingest-companies.ts` upserts and never prunes, so a row
+removed from a base survives in the database until it is deleted explicitly —
+worth knowing for every future re-ingest that shrinks a base. Accel's investor
+row also re-ingested with a pre-existing warning this pass did not introduce:
+`investment_geo.other` carries `"Oceania"`, which is likewise not in the geo
+taxonomy.
+
+**The wave alignment.** Twelve cross-investor pairs where a sibling is the stale
 side are listed in `cross-rulings.json` and belong to the wave-level pass, not
-to this session.
+to this session — plus the 38 YC artifact entries, which must be **deleted**
+there once YC classifies.
 
 ---
 
