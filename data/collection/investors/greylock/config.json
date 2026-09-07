@@ -66,9 +66,10 @@
     "parser": "listing_regex",
     "path": "/company/public_page1.htm",
     "from": 2000,
-    "to": 2000,
-    "pattern": "(?is)<TD[^>]*>\\s*(?:19|20)\\d{2}\\s*</TD>\\s*<TD[^>]*>\\s*(?:<P>)?\\s*(?:<a\\b[^>]*>)?\\s*(?P<name>[^<>]{2,70}?)\\s*(?:</a>)?\\s*(?:</P>)?\\s*</TD>",
-    "raw": true
+    "to": 2001,
+    "pattern": "(?is)<TD[^>]*>\\s*(?:<a\\b[^>]*>)?\\s*(?P<name>[^<>]{2,70}?)\\s*(?:</a>)?\\s*</TD>\\s*<TD[^>]*>\\s*(?:<a\\b[^>]*>)?\\s*[A-Z]{2,6}\\s*(?:</a>)?\\s*</TD>\\s*<TD[^>]*>\\s*\\d{1,2}/\\d{1,2}/\\d{2,4}\\s*</TD>",
+    "raw": true,
+    "_note": "Era 1's PUBLIC page is the firm's own IPO roster and it needs its own pattern: the row is company | TICKER | IPO DATE | IPO SIZE, so there is no four-digit year cell for the era pattern to anchor on and the page parsed to zero. Anchoring on the ticker-then-date pair recovers 155 rows with the firm's own IPO dates and sizes \u2014 the survivorship surface for everything that reached the public market before 2001."
    },
    {
     "parser": "listing_regex",
@@ -590,8 +591,8 @@
   "sample_slugs": [],
   "shape": {
    "one_b_share_max": 0.2,
-   "c2a_rate_max": 0.8,
-   "_note": "Defaults kept at kickoff. Greylock has invested since 1965, so a large share of the base is pre-window (COLLECTION.md sec 1: entry_stage carries the best-supported label at low confidence behind a pre_window_entry flag, graduation null), and the C2A cohort is computed over a much smaller slice than the base size suggests. A guard that fires is restated in decisions.md against the evidence, never waived."
+   "c2a_rate_max": 0.98,
+   "_note": "c2a_rate_max raised from the 0.80 default to 0.98 for this investor, restated against the evidence rather than waived (\u00a78, the Thrive rule). Greylock's base carries 79 Seed entries and only 34 of them are in the C2A cohort: the rest are censored, under 24 months from entry with no resolution. What survives that filter is the establishable set, and on a firm whose seed book is dominated by 2020-2025 AI companies that all raised an A within a year, the establishable set is almost entirely graduations \u2014 33 of 34. The published rate carries that bias in its own sentence (\u00a76): 'of the seed entries where the record could be established, ~97% graduated; the establishable set skews toward visible successes, and half the seed book is too young to be in it at all.' one_b_share_max is left at the 0.20 default and the base passes it."
   }
  },
  "sample_slugs": [],

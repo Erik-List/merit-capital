@@ -1,0 +1,86 @@
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/mergers_page1.htm&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=56
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/ByName.asp?s=&e=E&output=json&collapse=timestamp:4&fl=timestamp,original: rc=56
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/ByName.asp?s=N&e=T&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=56
+== era /company/startup_page1.htm 1999-2000 (regex listing)
+  1999: 85 entries
+  2000: 90 entries
+== era /company/expansion_page1.htm 1999-2000 (regex listing)
+  1999: 65 entries
+  2000: 75 entries
+== era /company/software_page1.htm 2000-2000 (regex listing)
+  2000: 69 entries
+== era /company/internet_page1.htm 2000-2000 (regex listing)
+  2000: 38 entries
+== era /company/health_page1.htm 2000-2000 (regex listing)
+  2000: 47 entries
+== era /company/communications_page1.htm 2000-2000 (regex listing)
+  2000: 31 entries
+== era /company/other_page1.htm 2000-2000 (regex listing)
+  2000: 13 entries
+== era /company/public_page1.htm 2000-2001 (regex listing)
+  2000: 96 entries
+== era /company/buyout_page1.htm 2000-2000 (regex listing)
+  2000: 17 entries
+== era /company/mergers_page1.htm 2001-2001 (regex listing)
+  2001: 62 entries
+== era /companies/ByName.asp?s=&e=E 2001-2003 (regex listing)
+  CDX empty for greylock.com/companies/ByName.asp?s=&e=E; probing the replay per year
+  2001: 44 entries
+  2002: 44 entries
+  2003: 43 entries
+== era /companies/ByName.asp?s=E&e=I 2001-2003 (regex listing)
+  CDX empty for greylock.com/companies/ByName.asp?s=E&e=I; probing the replay per year
+  2001: 25 entries
+  2002: 27 entries
+  2003: 28 entries
+== era /companies/ByName.asp?s=I&e=N 2001-2003 (regex listing)
+  CDX empty for greylock.com/companies/ByName.asp?s=I&e=N; probing the replay per year
+  2001: 34 entries
+  2002: 35 entries
+  2003: 36 entries
+== era /companies/ByName.asp?s=N&e=T 2001-2003 (regex listing)
+  CDX empty for greylock.com/companies/ByName.asp?s=N&e=T; probing the replay per year
+  2001: 57 entries
+  2002: 61 entries
+  2003: 61 entries
+== era /companies/ByName.asp?s=T&e= 2001-2003 (regex listing)
+  CDX empty for greylock.com/companies/ByName.asp?s=T&e=; probing the replay per year
+  2001: 27 entries
+  2002: 26 entries
+  2003: 26 entries
+== era /companies/OtherInvestments.asp 2001-2002 (regex listing)
+  2001: 0 entries
+== era /portfolio/portfolio.cfm?cat=AllInvest 2005-2010 (regex listing)
+  2005: 226 entries
+  2006: 237 entries
+  2007: 254 entries
+  2008: 0 entries
+  2009: 0 entries
+== era /companies?sector=applications 2011-2014 (regex listing)
+  2011: 230 entries
+  2012: 245 entries
+  2013: 251 entries
+  2014: 258 entries
+== era /portfolio/ 2018-2025 (regex listing)
+  2020: 0 entries
+  2021: 0 entries
+  2022: 0 entries
+  2023: 0 entries
+  2024: 13 entries
+  2025: 12 entries
+== era /portfolio 2018-2023 (regex listing)
+  2020: 82 entries
+  2021: 90 entries
+  2022: 89 entries
+  2023: 14 entries
+== era /portfolio/ 2017-2026 (CDX index)
+  cdx page 1: +1848 rows (1848 total) — end of index
+  2021: 1 companies (from CDX index)
+  2022: 1 companies (from CDX index)
+  2023: 127 companies (from CDX index)
+  2024: 1 companies (from CDX index)
+  2025: 35 companies (from CDX index)
+  2026: 1 companies (from CDX index)
+
+years: [1999, 2000, 2001, 2002, 2003, 2005, 2006, 2007, 2011, 2012, 2013, 2014, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+distinct slugs across all years: 825

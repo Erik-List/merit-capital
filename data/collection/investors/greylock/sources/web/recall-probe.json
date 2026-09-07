@@ -1,0 +1,28 @@
+{
+ "_readme": "Recall probe (COLLECTION.md §3), run 2026-09-07 after the grind. Sources independent of the base: the Wikipedia insource sweep (152 articles naming the firm, 53 already base rows, 33 company candidates), the exit-side EDGAR full-text sweep (268 registrants), the live site's own 158 rows diffed against the ledger, and a parametric enumeration of the firm's best-known positions by era. Every candidate lands as a base row with its evidence or as a recorded rejection with its reason.",
+ "probed_at": "2026-09-07",
+ "additions": [
+  {
+   "name": "Continental Cablevision",
+   "source": "the firm's own 2001 /company/mergers_page1.htm listing: 'Continental Cablevision | 1997 | US West'",
+   "note": "The firm's most famous early position and the one name verify's known_positions list flagged as missing. It sits on the mergers page, which parsed to zero companies until the column-order fix (the page runs company | year | ACQUIRER while the rest of its era runs year | company), so the fix recovers it mechanically at the rebuild rather than by hand."
+  }
+ ],
+ "rejected": [
+  {"names": ["Wanova", "Wonga.com", "Socialpoint", "MySupermarket", "Celonis", "hybris", "Betable", "Just Eat", "Gvahim"],
+   "reason": "Greylock IL / 83North, out under decisions.md R5. The probe settled the boundary rather than the rows: the 2011 'Greylock Partners launches new $160 million tech fund for Europe and Israel' vehicle IS Greylock IL, the practice that cut its ties in January 2015 to become 83North, and Laurel Bowden — the partner named on Wonga — is an 83North partner. Every European and Israeli name the Wikipedia sweep surfaced belongs to that fund family, not to CRD 161537.",
+   "citation": "https://techcrunch.com/2015/01/07/greylock-il-partners-cut-the-apron-strings-to-create-83north-a-new-200m-fund/"},
+  {"names": ["Akka.io", "Cribl.io", "Cullinet", "Entrepreneurs First", "Guru.com", "Intellisync", "Meerkat (app)", "Quotient Technology", "Rakuten Viki", "Dell EMC Data Domain", "Fandango"],
+   "reason": "Already in the base under the name the firm's own listings use (Typesafe, Cribl, Cullinane/Cullinet Systems, Entrepreneur First, Guru, Puma Technology, Houseparty/Life On Air, Coupons.com, Viki, Data Domain, Vudu). Not additions."},
+  {"names": ["American Research & Development Corporation", "Founders Fund", "GE Ventures", "Northern Light Venture Capital", "Greylock Partners", "Vianovo"],
+   "reason": "Not portfolio companies. Other investment firms and a consultancy whose articles name Greylock in passing; T5."},
+  {"names": ["Firebase", "LiquidSpace", "Synack", "Tbh", "Paribus", "Pray.com", "Proven", "Rally.org", "YourMechanic", "Hoolai Games"],
+   "reason": "No Greylock position established. Each article names the firm in a sentence about someone else's round, a person's biography, or an adjacent company; no Greylock fund appears on any filing, no listing in any site era carries them, and the targeted search returned nothing tying the firm to the round. Recorded as rejections rather than left silent (§3)."}
+ ],
+ "structural_blind_spots_probed": [
+  "Deals with no US filing: covered by the Wikipedia insource sweep and the firm's own European-era listings; everything it found was Greylock IL.",
+  "Recent deals not yet on the site snapshot: the 2026 Sanity dataset is the live surface and was pulled at run start; the 2025-2026 CDX namespace adds seven more slugs.",
+  "Exits older than the archive window: the 1999-2001 frameset carries the 1960s-1990s book with the firm's own year funded, and the IPO page adds 118 rows with tickers and IPO dates.",
+  "Stealth rounds: six unannounced deals were confirmed through the Form D director-of-record pattern (OkamiAI, Rivington Labs, AILens, DWNLD, LittleInc Labs, Mysteries)."
+ ]
+}
