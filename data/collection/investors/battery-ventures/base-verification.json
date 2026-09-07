@@ -159,12 +159,14 @@
     "who": "seed-evidence"
    },
    "advertisement": {
-    "basis": "Listed on the investor's own portfolio site (2023,2024,2025).",
+    "basis": "Scrape artifact, not a company (T5). 'advertisement' is a row of the COOKIE-CONSENT table on /list-of-all-companies/, which uses the same <td> markup as the 2024 capture of the investment list itself. The era pattern's negative lookahead removed most of that vocabulary; this one survived under a different casing. Not a row.",
+    "citation": "https://www.battery.com/list-of-all-companies/",
     "confidence": "high",
     "decided": "2026-09-06",
     "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "slug": "advertisement",
+    "verdict": "not_member",
+    "who": "agent"
    },
    "aegis-ai": {
     "basis": "Listed on the investor's own portfolio site (current site).",
@@ -297,12 +299,14 @@
     "who": "seed-evidence"
    },
    "always-active": {
-    "basis": "Listed on the investor's own portfolio site (2026).",
+    "basis": "Scrape artifact, not a company (T5). 'Always Active' is the cookie-consent table's own status label on /list-of-all-companies/, captured because that table shares markup with the investment list. Not a row.",
+    "citation": "https://www.battery.com/list-of-all-companies/",
     "confidence": "high",
     "decided": "2026-09-06",
     "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "slug": "always-active",
+    "verdict": "not_member",
+    "who": "agent"
    },
    "amalfi-semiconductor": {
     "basis": "Listed on the investor's own portfolio site (2010,2011,2012,2021,2022,2023,2024,2025,2026).",
@@ -357,12 +361,14 @@
     "who": "agent"
    },
    "analytics": {
-    "basis": "Listed on the investor's own portfolio site (2023,2024,2025).",
+    "basis": "Scrape artifact, not a company (T5). 'analytics' is a cookie-category row of the consent table on /list-of-all-companies/. Not a row.",
+    "citation": "https://www.battery.com/list-of-all-companies/",
     "confidence": "high",
     "decided": "2026-09-06",
     "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "slug": "analytics",
+    "verdict": "not_member",
+    "who": "agent"
    },
    "angie-s-list": {
     "basis": "Listed on the investor's own portfolio site (2009,2010,2011,2012,2021,2022,2023,2024,2025,2026).",
@@ -535,12 +541,14 @@
     "who": "seed-evidence"
    },
    "audio-precision-inc": {
-    "basis": "Listed on the investor's own portfolio site (2021,2022).",
-    "confidence": "high",
+    "basis": "control position: Audio Precision, Inc. is an add-on inside Battery's Axiometrix Solutions test-and-measurement platform, which the firm labels Buyout (INVESTED 2018). An acquisition made by a controlled platform is part of that control position, not a separate venture entry (T3 addendum).",
+    "citation": "https://www.battery.com/list-of-all-companies/",
+    "confidence": "medium",
     "decided": "2026-09-06",
     "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "slug": "audio-precision-inc",
+    "verdict": "not_member",
+    "who": "agent"
    },
    "auditboard": {
     "basis": "Listed on the investor's own portfolio site (2019,2021,2022,2023,2024,2025,2026).",
@@ -583,12 +591,14 @@
     "who": "seed-evidence"
    },
    "avrios": {
-    "basis": "Listed on the investor's own portfolio site (2023).",
-    "confidence": "high",
+    "basis": "control position: Avrios (Zurich fleet management) was combined with Vimcar in 2023 to form Shiftmove, Battery's controlled platform labelled Buyout. The constituent of a controlled combination is part of that control position, not a separate venture entry (T3 addendum).",
+    "citation": "https://www.battery.com/company/shiftmove/",
+    "confidence": "medium",
     "decided": "2026-09-06",
     "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "slug": "avrios",
+    "verdict": "not_member",
+    "who": "agent"
    },
    "avs": {
     "basis": "Listed on the investor's own portfolio site (2021,2022,2024,2025,2026).",
@@ -891,12 +901,14 @@
     "who": "seed-evidence"
    },
    "browser-id": {
-    "basis": "Listed on the investor's own portfolio site (2023,2024,2025).",
+    "basis": "Scrape artifact, not a company (T5). 'browser_id' is a cookie NAME in the consent table on /list-of-all-companies/. Not a row.",
+    "citation": "https://www.battery.com/list-of-all-companies/",
     "confidence": "high",
     "decided": "2026-09-06",
     "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "slug": "browser-id",
+    "verdict": "not_member",
+    "who": "agent"
    },
    "buildscale-inc-dba-vidyard": {
     "basis": "Listed on the investor's own portfolio site (2021,2022,2023,2024,2025,2026).",
@@ -6751,12 +6763,14 @@
     "who": "seed-evidence"
    },
    "vero-software": {
-    "basis": "Listed on the investor's own portfolio site (2011,2012,2021,2022,2023,2024,2025,2026).",
+    "basis": "control position: Battery's STAGE label is Buyout and its own case study records that Hexagon AB acquired Vero Software in 2014 from Battery's ownership \u2014 the firm assembled the CAD/CAM platform from 2010 and its CEO later ran Battery's CAMBRIO platform. A control acquisition is not a venture entry (T3 addendum).",
+    "citation": "https://www.battery.com/blog/vero-software-case-study/",
     "confidence": "high",
     "decided": "2026-09-06",
     "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "slug": "vero-software",
+    "verdict": "not_member",
+    "who": "agent"
    },
    "vertical-circuits": {
     "basis": "Listed on the investor's own portfolio site (2021,2022,2023,2024,2025,2026).",
@@ -6767,12 +6781,14 @@
     "who": "seed-evidence"
    },
    "vertigis": {
-    "basis": "Listed on the investor's own portfolio site (2019,2021,2022,2023,2024,2025,2026).",
-    "confidence": "high",
+    "basis": "control position: Battery's STAGE label is Buyout and VertiGIS Holdings (geospatial software, assembled from Geocom, Latitude Geographics and others) has been a Battery-controlled platform since 2017. T3's control addendum applies.",
+    "citation": "https://www.battery.com/company/vertigis/",
+    "confidence": "medium",
     "decided": "2026-09-06",
     "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "slug": "vertigis",
+    "verdict": "not_member",
+    "who": "agent"
    },
    "vetspire": {
     "basis": "Listed on the investor's own portfolio site (current site).",
@@ -6983,12 +6999,14 @@
     "who": "seed-evidence"
    },
    "webpt": {
-    "basis": "Listed on the investor's own portfolio site (2021,2022,2023,2024,2025,2026).",
+    "basis": "control position, stated by the firm in words: 'In 2014, Battery partnered with the company, acquiring a portion of the founders' shares for a MAJORITY STAKE in the business, while the founders maintained a significant, minority share.' A majority recapitalisation is a control acquisition under T3's addendum. This row carries the site's GROWTH label, not Buyout, and is one of the two calibration rows proving the control test cannot be confined to Buyout-labelled rows (R2, R5).",
+    "citation": "https://www.battery.com/blog/webpt-case-study/",
     "confidence": "high",
     "decided": "2026-09-06",
     "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "slug": "webpt",
+    "verdict": "not_member",
+    "who": "agent"
    },
    "weddington-way": {
     "basis": "Listed on the investor's own portfolio site (2011,2012,2021,2022,2023,2024,2025,2026).",
@@ -7079,12 +7097,14 @@
     "who": "seed-evidence"
    },
    "workwell-technologies": {
-    "basis": "Listed on the investor's own portfolio site (2022,2023,2024,2025,2026).",
-    "confidence": "high",
+    "basis": "control position: Battery's STAGE label is Buyout and Workwell Technologies (formerly Team Software / workforce management for contract services, Carlsbad CA) is a Battery-controlled platform. T3's control addendum applies. This is the one portfolio row Battery publishes with no INVESTED year.",
+    "citation": "https://www.battery.com/company/workwell-technologies/",
+    "confidence": "medium",
     "decided": "2026-09-06",
     "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "slug": "workwell-technologies",
+    "verdict": "not_member",
+    "who": "agent"
    },
    "world-golf-tour": {
     "basis": "Listed on the investor's own portfolio site (2007,2008,2009,2010,2011,2012,2021,2022,2023,2024,2025,2026).",
@@ -7215,12 +7235,14 @@
     "who": "seed-evidence"
    },
    "yankeetek": {
-    "basis": "Listed on the investor's own portfolio site (2021,2022,2023,2024,2025,2026).",
+    "basis": "Fund-shaped list entry: 'YankeeTek, LP' is a Cambridge-based venture fund (YankeeTek Ventures), not an operating company \u2014 the 'LP' suffix and the fund name are decisive. Under the standing fund-shaped rule this is the LP-stake class and is not_member (T5).",
+    "citation": "https://www.battery.com/list-of-all-companies/",
     "confidence": "high",
     "decided": "2026-09-06",
     "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "slug": "yankeetek",
+    "verdict": "not_member",
+    "who": "agent"
    },
    "yesware": {
     "basis": "Listed on the investor's own portfolio site (2021,2022,2023,2024,2025,2026).",
