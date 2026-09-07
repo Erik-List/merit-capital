@@ -168,6 +168,17 @@ def main() -> None:
             row["wayback_years"].add(year)
             if row["wayback_first"] is None or year < row["wayback_first"][0]:
                 row["wayback_first"] = (year, r.get("snapshot_ts", ""), r["path"])
+            # An archived per-company page can state the firm's own investment
+            # year even where the live site does not (Khosla's 2017-2023 pages
+            # carry <table class=dates> with Founded and Invested). That is the
+            # same claim the site layer reads below, from the same publisher,
+            # so it feeds the same column rather than a second source — folding
+            # it in through site_api instead would count one source twice and
+            # lift every archived row from tier B to tier A. Optional key: a
+            # parsed row without it behaves exactly as before.
+            wy = str(r.get("invest_year") or "")[:4]
+            if wy.isdigit():
+                row["site_invest_year"] = min(wy, row.get("site_invest_year") or wy)
             for tag in (r.get("filters") or "").split(","):
                 tag = tag.strip()
                 if not tag:
@@ -287,8 +298,23 @@ def main() -> None:
         adds = json.load(open(bv_early)).get(
             SLUG, {}).get("recall_additions", [])
         for add in adds:
-            row = row_for(norm(add["name"]), add["name"])
-            row["slug"] = add.get("slug") or slug_of(add["name"])
+            # A recall addition normally keys on its name like any other row.
+            # But a name is not an identity on a base whose source publishes
+            # two companies under one name: YC Continuity's Convoy (the
+            # Seattle freight company) and the directory's own Convoy (a
+            # Winter 2022 webhooks company) collide, and keying on the name
+            # silently folded the addition into the wrong row. Where the
+            # addition declares its own slug AND the name key is already held
+            # by a row with a different slug, the declared slug is the key.
+            # A landed investor's additions are unaffected: with no collision
+            # the key is norm(name) exactly as before.
+            add_key = norm(add["name"])
+            add_slug = add.get("slug") or slug_of(add["name"])
+            held = base.get(add_key)
+            if add.get("slug") and held is not None and held.get("slug") != add_slug:
+                add_key = norm(add["slug"])
+            row = row_for(add_key, add["name"])
+            row["slug"] = add_slug
             if add.get("first_seen"):
                 # ride the formd_first slot so the assembly's min() picks it up
                 row["formd_first"] = row["formd_first"] or str(add["first_seen"])

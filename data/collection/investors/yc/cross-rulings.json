@@ -1,0 +1,266 @@
+{
+ "_doc": "Cross-investor rulings for the YC run (COLLECTION.md §12). `distinct`: pairs that share a name key but are different companies, so invariant 10 never compares them. Adjudicated 2026-09-07 over the 47 pairs YC's verify surfaced. YC collides with the rest of the dataset more than any other investor — 1,031 shared name keys across 14 landed bases — and 37 of the 47 disagreements were not disagreements at all, just one-word collisions. Merged at read time by verify; the shared file is written only at wave alignment.",
+ "distinct": [
+  {
+   "rows": [
+    "a16z:cedar",
+    "yc:cedar"
+   ],
+   "note": "YC's Cedar is a two-person Winter 2025 sales copilot (mail.cedarcopilot.com, formerly ByteBelli/GraphIQal); a16z's Cedar row is neither that company on either available reading of it — the announcement URL it was harvested from is about cedar.com, the New York patient-billing platform (Otto/Lidow, $102M June 2020, $3.2B Series D 2021), while the a16z run itself classified the row as a speedrun SR0 [https://a16z.com/announcement/investing-in-cedar/]"
+  },
+  {
+   "rows": [
+    "a16z:clipboard-inc",
+    "yc:clipboard"
+   ],
+   "note": "YC's Clipboard is Clipboard Health, the W2017 healthcare shift marketplace (clipboardworks.com, ~1,000 staff, $1.3B in February 2022); a16z's Clipboard, Inc. is the web-clipping and curation product acquired by Salesforce in 2013. [https://www.businesswire.com/news/home/20220414005913/en/Clipboard-Health-Secures-Total-of-$80M-in-Funding-Reaching-$1.3B-Valuation]"
+  },
+  {
+   "rows": [
+    "a16z:maven",
+    "yc:maven"
+   ],
+   "note": "YC's Maven is a two-person Winter 2026 company building payments infrastructure for voice agents (trymaven.com, formerly Lattice); a16z's Maven is Gagan Biyani's cohort-based-course platform, which a16z led a $20M Series A in (June 2021) — and the $1.7B mark on the YC row is a third Maven, Maven Clinic, carried in from Sequoia. [https://a16z.com/announcement/investing-in-maven/]"
+  },
+  {
+   "rows": [
+    "a16z:nomi",
+    "yc:nomi"
+   ],
+   "note": "YC's Nomi is a five-person Spring 2025 realtime sales copilot in Paris (nomi.so); a16z's NoMi is a speedrun SR003 cohort company at nomi.fyi in AI agents/gaming/health — different domain, different programme, and the 'defunct as of 2015' on the YC row is a third Nomi again, the retail-analytics company carried in from First Round. [https://www.ycombinator.com/companies/nomi]"
+  },
+  {
+   "rows": [
+    "a16z:nova-labs",
+    "yc:nova"
+   ],
+   "note": "YC publishes two acquired Novas under this slug — the W2016 AI sales-outreach company (nova.ai, San Francisco) and the S2018 investor-subscriptions company (novahq.com, Dallas) — while a16z's Nova Labs is Helium Inc. renamed, the DePIN network parent that took a $200M Series D at $1.2B in March 2022. [https://siliconangle.com/2022/03/30/helium-changes-name-nova-labs-confirms-200m-round-1-2b-valuation/]"
+  },
+  {
+   "rows": [
+    "a16z:runway",
+    "yc:runway"
+   ],
+   "note": "YC's Runway is the W2021 New York mobile app-release automation company (runway.team, ~20 staff); a16z's Runway is Runway Financial, Siqi Chen's finance-planning company whose Series A a16z led in 2023 — and the $5.3B mark on the YC row belongs to a third company, RunwayML, the video-AI company, carried in from Lux. [https://a16z.com/announcement/investing-in-runway/]"
+  },
+  {
+   "rows": [
+    "a16z:wave",
+    "yc:wave"
+   ],
+   "note": "YC's Wave is Wave Mobile Money, the Dakar-based francophone-Africa mobile money company (W2012, wave.com, ~1,600 staff, $200M Series A at $1.7B in September 2021, still private); a16z's Wave is an unresolved archive-era row their own run marks acquired and leads toward WaveForms AI (bought by Meta, August 2025) — a16z is not an investor in the African Wave, whose Series A was led by Stripe with Se [https://www.fintechfutures.com/fintech/african-fintech-wave-hits-unicorn-status-with-200m-series-a-round]"
+  },
+  {
+   "rows": [
+    "cherry:shift",
+    "yc:shift-labs"
+   ],
+   "note": "YC's Shift Labs is the Seattle medical-device maker behind the DripAssist infusion monitor (W2015, shiftlabs.com, 6 staff); Cherry's Shift is the Munich 3D-printing marketplace it seeded in September 2018 and Xometry acquired in December 2019 — the suffix-stripped key joined 'Shift Labs' to 'Shift', and the $1B on the YC row is the Shift Technologies (used cars) unicorn-list pre-fill Cherry's run  [https://www.ycombinator.com/companies/shift-labs]"
+  },
+  {
+   "rows": [
+    "first-round-capital:cascade",
+    "yc:cascade"
+   ],
+   "note": "YC's Cascade is a two-person Winter 2026 company distilling proprietary models (runcascade.com); First Round's Cascade is the no-code data-app platform listed 2022-2023 and recorded as acquired/distributed — the 2011-07-31 as-of on the YC row is carried noise, not a date for either company. [https://www.ycombinator.com/companies/cascade]"
+  },
+  {
+   "rows": [
+    "first-round-capital:clipboard",
+    "yc:clipboard"
+   ],
+   "note": "Same collision as the a16z pair: YC's Clipboard is Clipboard Health (W2017, $1.3B 2022); First Round's Clipboard is the 2012-2013 web-clipping company acquired by Salesforce in 2013. [https://www.businesswire.com/news/home/20220414005913/en/Clipboard-Health-Secures-Total-of-$80M-in-Funding-Reaching-$1.3B-Valuation]"
+  },
+  {
+   "rows": [
+    "first-round-capital:gem",
+    "yc:gem"
+   ],
+   "note": "YC's Gem is the S2017 recruiting-CRM/talent-engagement company (gem.com, ~200 staff, formerly ZenSourcer); First Round's Gem is the crypto developer-API company acquired by Blockdaemon — First Round's own cross-rulings already record this split against Accel's recruiting Gem. [https://www.ycombinator.com/companies/gem]"
+  },
+  {
+   "rows": [
+    "first-round-capital:glimpse",
+    "yc:glimpse"
+   ],
+   "note": "YC publishes two Glimpses under this slug, both from 2020 — the S2020 CPG retail-operations company (tryglimpse.com, New York) and the acquired W2020 social video chat (joinglimpse.com) — while First Round's Glimpse is a single 2014 portfolio listing whose fate is not on the record; First Round already quarantined the $41M public registrant that the float sweep joined to it, and that same wrong re [https://www.ycombinator.com/companies/glimpse]"
+  },
+  {
+   "rows": [
+    "first-round-capital:maven",
+    "yc:maven"
+   ],
+   "note": "Same collision: YC's Maven is the Winter 2026 voice-agent payments company (trymaven.com); First Round's Maven is the cohort-based-course marketplace, which First Round's own cross-rulings already separated from Sequoia's Maven Clinic. [https://www.ycombinator.com/companies/maven]"
+  },
+  {
+   "rows": [
+    "first-round-capital:sprout",
+    "yc:sprout"
+   ],
+   "note": "YC's Sprout is Sproutfi, the São Paulo investing social network (S2021, formerly named Sprout, YC marks it Acquired); First Round's Sprout is the US virtual-spaces company listed 2022-2024 — both rows are thin, and the only column in dispute is the band, where First Round's below_1b holds for either company. [https://www.ycombinator.com/companies/sproutfi]"
+  },
+  {
+   "rows": [
+    "lightspeed:avocado-software",
+    "yc:avocado"
+   ],
+   "note": "YC's Avocado is the W2021 AI-native restaurant POS (avocadopos.com, formerly Instamenu, 4 staff, active); Lightspeed's row is 'Avocado Software', a 2012-2015 listing their own run recorded as an unidentifiable stray — nine years and two industries apart. [https://www.ycombinator.com/companies/avocado]"
+  },
+  {
+   "rows": [
+    "lightspeed:flow",
+    "yc:flow"
+   ],
+   "note": "Three different Flows meet on this key: YC's is a three-person S2019 browser-productivity tool (enterflow.app, Inactive); Lightspeed's is Flow Specialty, the insurance wholesale brokerage formerly called Capitola whose team and IP ReSource Pro bought on 2026-06-24; and the $2.5B mark sitting on the YC row is Adam Neumann's Flow, carried in from a16z. [https://www.ycombinator.com/companies/flow]"
+  },
+  {
+   "rows": [
+    "lightspeed:koko-labs",
+    "yc:koko"
+   ],
+   "note": "YC's Koko is Rob Morris's mental-health organisation (kokocares.org, YC W2022, relaunched as a nonprofit after Airbnb bought the venture-backed original in 2018); Lightspeed's row is 'Koko Labs', a name that appears once on their site in 2023 and that their own run recorded as an unidentifiable stray — five years after the Airbnb deal and not a company a venture fund holds equity in. [https://www.fastcompany.com/90763291/koko-nonprofit-mental-health-rob-morris]"
+  },
+  {
+   "rows": [
+    "lightspeed:level",
+    "yc:level"
+   ],
+   "note": "YC's Level is a S2021 fintech-financing company (trylevel.app, team size 0, YC marks it Acquired); Lightspeed's Level is a Series A company its own card says it has backed since 2020, a year before the YC company existed — First Round's run already ruled its own Level (the New York dental-benefits company) distinct from Lightspeed's on the same one-word name. [https://www.ycombinator.com/companies/level]"
+  },
+  {
+   "rows": [
+    "lightspeed:pulse",
+    "yc:pulse"
+   ],
+   "note": "YC publishes three Pulses under this slug — W2017 Electronic Medical Records for India (getpulse.care, Bengaluru), W2018 Pulse Q&A (pulse.qa, acquired) and S2024 document extraction (runpulse.com) — none of which can be Lightspeed's Pulse, whose own card says seed-stage and backed since 2010. [https://www.ycombinator.com/companies/pulse]"
+  },
+  {
+   "rows": [
+    "lightspeed:runway",
+    "yc:runway"
+   ],
+   "note": "Same collision: YC's Runway is runway.team (W2021, mobile release management); Lightspeed's Runway is the finance-modelling company (Runway Financial, seed 2020), which its own note already says is 'not the video-AI Runway'. [https://www.ycombinator.com/companies/runway]"
+  },
+  {
+   "rows": [
+    "lightspeed:vector",
+    "yc:vector"
+   ],
+   "note": "YC's Vector is the W2023 Boston advertising platform (vector.co, ~20 staff, active); Lightspeed's Vector is a 2017-2021 listing their run recorded as identity-thin and unidentifiable, six years earlier than the YC company. [https://www.ycombinator.com/companies/vector]"
+  },
+  {
+   "rows": [
+    "lux-capital:rivet",
+    "yc:rivet"
+   ],
+   "note": "YC's Rivet rows are the W2023 open-source stateful-workload infrastructure company (rivet.dev) and a Fall 2025 design-agent company (rivet.design); Lux's Rivet is Rivet Health, the Utah healthcare-payments company (rivethealth.com, Form D 2020, Goulburn) acquired by Zelis in 2026. [https://www.ycombinator.com/companies/rivet]"
+  },
+  {
+   "rows": [
+    "sequoia-capital:avalanche-technology-inc",
+    "yc:avalanche"
+   ],
+   "note": "YC's Avalanche is a one-person W2019 referral-program SDK for startups (useavalanche.com, formerly GeoPredict, YC marks it Inactive); Sequoia's Avalanche Technology Inc is the Fremont MRAM semiconductor company filing since 2010 — and the $2.97B on the YC row is a third entity again, the AVAX token market cap, a mis-join that should be dropped. [https://www.ycombinator.com/companies/avalanche]"
+  },
+  {
+   "rows": [
+    "sequoia-capital:bird",
+    "yc:bird"
+   ],
+   "note": "YC's Bird is MessageBird, the Amsterdam omnichannel communications platform that renamed to Bird (bird.com, 500 staff, $3.8B on the April 2021 SparkPost round); Sequoia's Bird is Bird Global, the e-scooter company that filed Chapter 11 in December 2023 — the same split cross-investor.json already records for sequoia:bird vs accel:bird. [https://www.cnbc.com/2021/04/28/messagebird-acquires-us-email-startup-sparkpost-to-take-on-twilio.html]"
+  },
+  {
+   "rows": [
+    "sequoia-capital:canvas",
+    "yc:canvas"
+   ],
+   "note": "YC's Canvas is a three-person Fall 2024 company building self-improving AI systems (canvas.inc, formerly Iris); Sequoia's Canvas is the construction drywall-robotics company it backed in a 2021 Series B — different decade of founding and different industry. [https://www.ycombinator.com/companies/canvas]"
+  },
+  {
+   "rows": [
+    "sequoia-capital:convex",
+    "yc:convex"
+   ],
+   "note": "YC's Convex is the W2019 commercial-services sales software company (convex.com, San Francisco, ~110 staff); Sequoia's Convex is Convex Computer of Richardson, Texas, the 1982 minisupercomputer maker acquired by HP in 1995 — cross-investor.json already carries the same split for sequoia:convex against a16z's convex.dev. [https://www.ycombinator.com/companies/convex]"
+  },
+  {
+   "rows": [
+    "sequoia-capital:open",
+    "yc:open"
+   ],
+   "note": "YC's Open is the W2024 enterprise AI customer-support company (open.cx, formerly OpenCopilot, 21 staff); Sequoia's Open is an unidentified era-A/B portfolio row first listed in 2006 that their run could not resolve — eighteen years apart, and First Round already ruled the same Sequoia row distinct from its own &Open. [https://www.ycombinator.com/companies/open]"
+  },
+  {
+   "rows": [
+    "sequoia-capital:parallel",
+    "yc:parallel"
+   ],
+   "note": "YC's Parallel is the W2024 Paris company building AI agents for healthcare admin (beparallel.com, formerly Kiosk); Sequoia's Parallel is Parallel Finance, the DeFi lending protocol it backed in 2021 that faded after 2022 — and the $2.0B mark on the YC row is a third Parallel, Parag Agrawal's Parallel Web Systems, carried in from Spark. [https://www.ycombinator.com/companies/parallel]"
+  },
+  {
+   "rows": [
+    "sequoia-capital:tandem",
+    "yc:tandem"
+   ],
+   "note": "YC's Tandem rows are the S2019 virtual office for remote teams (tandem.chat, formerly Wisp) and a S2024 AI office-leasing broker (tandemspace.com); Sequoia's Tandem is Tandem Computers of Cupertino, its 1974 founding-era deal, acquired by Compaq in 1997 — cross-investor.json already carries the same split against a16z's Tandem. [https://www.ycombinator.com/companies/tandem]"
+  },
+  {
+   "rows": [
+    "spark-capital:cover",
+    "yc:cover"
+   ],
+   "note": "YC's Cover is the W2016 mobile-first insurance platform (cover.com, San Francisco, ~50 staff); Spark's Cover is the restaurant bill-payment app it led a $5.5M Series A in (February 2014) whose service shut down in 2017. [https://www.ycombinator.com/companies/cover]"
+  },
+  {
+   "rows": [
+    "spark-capital:fig",
+    "yc:fig"
+   ],
+   "note": "YC's Fig is the S2020 terminal-autocomplete developer tool (fig.io, acquired by Amazon in 2023); Spark's Fig is fig.co, the games crowdfunding platform it seeded in 2015 and that Republic acquired in 2020. [https://www.ycombinator.com/companies/fig]"
+  },
+  {
+   "rows": [
+    "spark-capital:x1",
+    "yc:x1"
+   ],
+   "note": "YC's x1 is the Fall 2024 AI iPhone-app builder (x1.new, formerly Foundry/FoundryAI, 5 staff); Spark's X1 is the X1 Card, the income-based credit card whose $12M Series A Spark led in 2021 and which Robinhood acquired for $95M in July 2023. [https://www.ycombinator.com/companies/x1]"
+  },
+  {
+   "rows": [
+    "thrive-capital:capsule",
+    "yc:capsule"
+   ],
+   "note": "YC's CAPSULE is a four-person S2022 social-commerce app (shopcapsule.ai, formerly Dryftwell/GLIMPSE, YC marks it Inactive); Thrive's Capsule is the New York online pharmacy (capsule.com) that passed $1B on the $300M Durable-led round in April 2021 — and the 'public' status on the YC row is unsupported by either. [https://medcitynews.com/2021/04/online-pharmacy-startup-capsule-passes-1b-valuation/]"
+  },
+  {
+   "rows": [
+    "thrive-capital:fabric",
+    "yc:fabric"
+   ],
+   "note": "YC's Fabric is the two-person S2016 location-based personal journal (fabric.me, formerly EchoWorks, YC marks it Acquired); Thrive's Fabric is the New York AI healthcare platform founded 2021 (fabrichealth.com) — and the $1.5B TechCrunch mark on the YC row belongs to a third Fabric, the micro-fulfilment company, so it should be dropped. [https://www.ycombinator.com/companies/fabric]"
+  },
+  {
+   "rows": [
+    "thrive-capital:tempo",
+    "yc:tempo"
+   ],
+   "note": "YC's Tempo rows are the W2015 computer-vision home fitness company (tempo.fit, San Francisco) and the S2023 AI React visual editor (tempo.new, Toronto, formerly Tempo Labs); Thrive's Tempo is tempo.xyz, the Stripe-affiliated payments blockchain whose $500M round at $5B (October 2025) Thrive co-led with Greenoaks. [https://www.theblock.co/post/375152/stripe-tempo-500-million-series-a-thrive]"
+  },
+  {
+   "rows": [
+    "union-square-ventures:canvas",
+    "yc:canvas"
+   ],
+   "note": "YC's Canvas is the Fall 2024 AI company at canvas.inc; USV's Canvas is Chris Poole's drawing community at canv.as (USV/a16z $3M Series A in 2011, shut down January 2014) — a decade apart, and the 'acquired' on the YC row comes from yet another Canvas carried in from Menlo. [https://www.ycombinator.com/companies/canvas]"
+  },
+  {
+   "rows": [
+    "union-square-ventures:nova-labs",
+    "yc:nova"
+   ],
+   "note": "Same collision: YC's Novas are the W2016 AI sales company and the S2018 investor-subscriptions company; USV's Nova Labs is Helium Systems Inc. (USV co-led the $15M Series C in June 2019), $1.2B in March 2022. [https://siliconangle.com/2022/03/30/helium-changes-name-nova-labs-confirms-200m-round-1-2b-valuation/]"
+  }
+ ],
+ "accepted": [],
+ "same": []
+}
