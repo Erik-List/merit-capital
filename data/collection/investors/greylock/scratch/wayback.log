@@ -231,3 +231,173 @@
 
 years: [1999, 2000, 2001, 2002, 2003, 2005, 2007, 2011, 2021, 2022, 2023, 2024, 2025, 2026]
 distinct slugs across all years: 635
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/startup_page1.htm&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=56
+    retry 2 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/startup_page1.htm&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/startup_page1.htm&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/startup_page1.htm&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/startup_page1.htm&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/startup_page1.htm&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/software_page1.htm&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=56
+    retry 2 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/software_page1.htm&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/software_page1.htm&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/software_page1.htm&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/software_page1.htm&output=json&collapse=timestamp:4&fl=timestamp,original: rc=56
+    retry 3 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/software_page1.htm&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/web/20000122055930id_/http://www.greylock.com:80/company/software_page1.htm: rc=7
+    retry 2 https://web.archive.org/web/20000122055930id_/http://www.greylock.com:80/company/software_page1.htm: rc=7
+    retry 3 https://web.archive.org/web/20000122055930id_/http://www.greylock.com:80/company/software_page1.htm: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/internet_page1.htm&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/internet_page1.htm&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/internet_page1.htm&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/internet_page1.htm&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/internet_page1.htm&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/internet_page1.htm&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/health_page1.htm&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/health_page1.htm&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/health_page1.htm&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/web/20000117040615id_/http://www.greylock.com:80/company/health_page1.htm: rc=7
+    retry 2 https://web.archive.org/web/20000117040615id_/http://www.greylock.com:80/company/health_page1.htm: rc=7
+    retry 3 https://web.archive.org/web/20000117040615id_/http://www.greylock.com:80/company/health_page1.htm: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/communications_page1.htm&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/communications_page1.htm&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/other_page1.htm&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/other_page1.htm&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/public_page1.htm&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/public_page1.htm&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/public_page1.htm&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/public_page1.htm&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/web/20001217180000id_/http://www.greylock.com:80/company/public_page1.htm: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/company/buyout_page1.htm&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/ByName.asp?s=&e=E&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/ByName.asp?s=&e=E&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/ByName.asp?s=&e=E&output=json&collapse=timestamp:4&fl=timestamp,original: rc=56
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/ByName.asp?s=E&e=I&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/ByName.asp?s=E&e=I&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/ByName.asp?s=E&e=I&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/ByName.asp?s=I&e=N&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/ByName.asp?s=I&e=N&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=56
+    retry 3 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/ByName.asp?s=I&e=N&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/ByName.asp?s=I&e=N&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/ByName.asp?s=I&e=N&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/ByName.asp?s=I&e=N&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/web/20030620024239id_/http://greylock.com/companies/ByName.asp?s=I&e=N: rc=7
+    retry 2 https://web.archive.org/web/20030620024239id_/http://greylock.com/companies/ByName.asp?s=I&e=N: rc=7
+    retry 3 https://web.archive.org/web/20030620024239id_/http://greylock.com/companies/ByName.asp?s=I&e=N: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/ByName.asp?s=N&e=T&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/ByName.asp?s=N&e=T&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/ByName.asp?s=N&e=T&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/ByName.asp?s=N&e=T&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/ByName.asp?s=T&e=&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/ByName.asp?s=T&e=&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 3 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/ByName.asp?s=T&e=&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/ByName.asp?s=T&e=&output=json&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/web/20020612224518id_/http://greylock.com/companies/ByName.asp?s=T&e=: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/OtherInvestments.asp&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=greylock.com/companies/OtherInvestments.asp&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/web/20010428021520id_/http://www.greylock.com:80/companies/OtherInvestments.asp: rc=7
+    retry 2 https://web.archive.org/web/20010428021520id_/http://www.greylock.com:80/companies/OtherInvestments.asp: rc=7
+    retry 3 https://web.archive.org/web/20010428021520id_/http://www.greylock.com:80/companies/OtherInvestments.asp: rc=7
+    retry 1 https://web.archive.org/web/20060115203203id_/http://www.greylock.com:80/portfolio/portfolio.cfm?cat=AllInvest: rc=7
+    retry 2 https://web.archive.org/web/20060115203203id_/http://www.greylock.com:80/portfolio/portfolio.cfm?cat=AllInvest: rc=7
+    retry 3 https://web.archive.org/web/20060115203203id_/http://www.greylock.com:80/portfolio/portfolio.cfm?cat=AllInvest: rc=7
+    retry 1 https://web.archive.org/web/20120217133523id_/http://www.greylock.com:80/companies?sector=applications: rc=7
+    retry 2 https://web.archive.org/web/20120217133523id_/http://www.greylock.com:80/companies?sector=applications: rc=7
+    retry 3 https://web.archive.org/web/20120217133523id_/http://www.greylock.com:80/companies?sector=applications: rc=7
+    retry 1 https://web.archive.org/web/20130114143601id_/http://greylock.com/companies?sector=applications: rc=7
+    retry 2 https://web.archive.org/web/20130114143601id_/http://greylock.com/companies?sector=applications: rc=7
+    retry 3 https://web.archive.org/web/20130114143601id_/http://greylock.com/companies?sector=applications: rc=7
+    retry 1 https://web.archive.org/web/20140201152154id_/http://www.greylock.com:80/companies?sector=applications: rc=7
+    retry 2 https://web.archive.org/web/20140201152154id_/http://www.greylock.com:80/companies?sector=applications: rc=7
+    retry 3 https://web.archive.org/web/20140201152154id_/http://www.greylock.com:80/companies?sector=applications: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/portfolio&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=greylock.com/portfolio&output=json&filter=statuscode:200&collapse=timestamp:4&fl=timestamp,original: rc=7
+    retry 1 https://web.archive.org/web/20210102104059/https://greylock.com/portfolio/: rc=7
+    retry 2 https://web.archive.org/web/20210102104059/https://greylock.com/portfolio/: rc=7
+    retry 3 https://web.archive.org/web/20210102104059/https://greylock.com/portfolio/: rc=7
+    retry 1 https://web.archive.org/web/20230108193705/https://greylock.com/portfolio/: rc=7
+    retry 2 https://web.archive.org/web/20230108193705/https://greylock.com/portfolio/: rc=7
+    retry 3 https://web.archive.org/web/20230108193705/https://greylock.com/portfolio/: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/portfolio/*&output=json&filter=statuscode:200&collapse=urlkey&fl=timestamp,original&to=2026&showResumeKey=true&limit=2000: rc=7
+    retry 2 https://web.archive.org/cdx/search/cdx?url=greylock.com/portfolio/*&output=json&filter=statuscode:200&collapse=urlkey&fl=timestamp,original&to=2026&showResumeKey=true&limit=2000: rc=7
+    retry 3 https://web.archive.org/cdx/search/cdx?url=greylock.com/portfolio/*&output=json&filter=statuscode:200&collapse=urlkey&fl=timestamp,original&to=2026&showResumeKey=true&limit=2000: rc=7
+    retry 1 https://web.archive.org/cdx/search/cdx?url=greylock.com/portfolio/*&output=json&filter=statuscode:200&collapse=urlkey&fl=timestamp,original&to=2026&showResumeKey=true&limit=2000&resumeKey=eJxLzs_VSS9KrczJT87W1C_ILypJy8_JzEdiGeubGCoYGRiYGxoamBgYGpubmAAABq4Q5w: rc=7
+== era /company/startup_page1.htm 1999-2000 (regex listing)
+  CDX empty for greylock.com/company/startup_page1.htm; probing the replay per year
+  1999: 85 entries
+  2000: 90 entries
+== era /company/expansion_page1.htm 1999-2000 (regex listing)
+  1999: 65 entries
+  2000: 75 entries
+== era /company/software_page1.htm 2000-2000 (regex listing)
+  CDX empty for greylock.com/company/software_page1.htm; probing the replay per year
+  2000: 0 entries
+== era /company/internet_page1.htm 2000-2000 (regex listing)
+  CDX empty for greylock.com/company/internet_page1.htm; probing the replay per year
+  2000: 38 entries
+== era /company/health_page1.htm 2000-2000 (regex listing)
+  2000: 0 entries
+== era /company/communications_page1.htm 2000-2000 (regex listing)
+  2000: 31 entries
+== era /company/other_page1.htm 2000-2000 (regex listing)
+  2000: 13 entries
+== era /company/public_page1.htm 2000-2000 (regex listing)
+  2000: 0 entries
+== era /company/buyout_page1.htm 2000-2000 (regex listing)
+  2000: 17 entries
+== era /company/mergers_page1.htm 2001-2001 (regex listing)
+  2001: 57 entries
+== era /companies/ByName.asp?s=&e=E 2001-2003 (regex listing)
+  CDX empty for greylock.com/companies/ByName.asp?s=&e=E; probing the replay per year
+  2001: 44 entries
+  2002: 44 entries
+  2003: 43 entries
+== era /companies/ByName.asp?s=E&e=I 2001-2003 (regex listing)
+  CDX empty for greylock.com/companies/ByName.asp?s=E&e=I; probing the replay per year
+  2001: 25 entries
+  2002: 27 entries
+  2003: 28 entries
+== era /companies/ByName.asp?s=I&e=N 2001-2003 (regex listing)
+  CDX empty for greylock.com/companies/ByName.asp?s=I&e=N; probing the replay per year
+  2001: 34 entries
+  2002: 35 entries
+  2003: 0 entries
+== era /companies/ByName.asp?s=N&e=T 2001-2003 (regex listing)
+  CDX empty for greylock.com/companies/ByName.asp?s=N&e=T; probing the replay per year
+  2001: 57 entries
+  2002: 61 entries
+  2003: 61 entries
+== era /companies/ByName.asp?s=T&e= 2001-2003 (regex listing)
+  CDX empty for greylock.com/companies/ByName.asp?s=T&e=; probing the replay per year
+  2001: 27 entries
+  2002: 26 entries
+  2003: 26 entries
+== era /companies/OtherInvestments.asp 2001-2002 (regex listing)
+  2001: 0 entries
+== era /portfolio/portfolio.cfm?cat=AllInvest 2005-2010 (regex listing)
+  2005: 226 entries
+  2006: 0 entries
+  2007: 254 entries
+== era /companies?sector=applications 2011-2014 (regex listing)
+  2011: 230 entries
+  2012: 0 entries
+  2013: 0 entries
+  2014: 0 entries
+== era /portfolio/ 2018-2025 (regex listing)
+  2020: 0 entries
+  2021: 0 entries
+  2022: 0 entries
+  2023: 0 entries
+  2024: 13 entries
+  2025: 12 entries
+== era /portfolio/ 2017-2026 (CDX index)
+  cdx page 1: +2000 rows (2000 total)
+  cdx page 2: +449 rows (2449 total) — end of index
+  2021: 1 companies (from CDX index)
+  2022: 1 companies (from CDX index)
+  2023: 128 companies (from CDX index)
+  2024: 1 companies (from CDX index)
+  2025: 35 companies (from CDX index)
+  2026: 7 companies (from CDX index)
+
+years: [1999, 2000, 2001, 2002, 2003, 2005, 2007, 2011, 2021, 2022, 2023, 2024, 2025, 2026]
+distinct slugs across all years: 689

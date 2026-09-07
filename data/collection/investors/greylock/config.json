@@ -149,10 +149,10 @@
     "parser": "listing_regex",
     "path": "/companies?sector=applications",
     "from": 2011,
-    "to": 2012,
+    "to": 2014,
     "pattern": "(?i)<a href=\"/companies/\\d+\" class=\"show_company\">(?:<img alt=\"(?:Web-)?(?P<slug>[^\"]+)\"[^>]*/?>|(?P<name>[^<>]{1,70}?))\\s*</a>",
     "raw": true,
-    "_note": "Era 4 (2011-2012), the Rails site. The sector parameter filters client-side, so any sector page ships the WHOLE book (230 rows in 2011) as <a href=\"/companies/<id>\" class=\"show_company\">; rows with a logo carry no anchor text and the name comes from the img alt ('Web-1000-memories'), rows without one carry the plain name. The numeric ids make cdx_company_pages useless for this era."
+    "_note": "Era 4 (2011-2014), the Rails site. The sector parameter filters client-side, so any sector page ships the WHOLE book (230 rows in 2011) as <a href=\"/companies/<id>\" class=\"show_company\">; rows with a logo carry no anchor text and the name comes from the img alt ('Web-1000-memories'), rows without one carry the plain name. The numeric ids make cdx_company_pages useless for this era. Widened to 2014 after Common Crawl showed the sector pages still server-rendering the whole book in 2013 and 2014 (268 show_company anchors on a 2014-09 capture); the Internet Archive enumerated those two years thinly."
    },
    {
     "parser": "listing_regex",
@@ -161,6 +161,14 @@
     "to": 2025,
     "pattern": "(?i)href=\"#(?P<slug>[a-z0-9][a-z0-9-]{0,60})-div\"[^>]*><span class=\"visually-hidden\">(?P<name>[^<>]{1,70}?)</span>",
     "_note": "Era 5 (2018-2025), the WordPress site's single /portfolio/ page. Only the FEATURED companies get a logo-wall anchor carrying both identities (href=\"#<slug>-div\" plus a visually-hidden name); the rest of the page's 427 visually-hidden spans are social URLs, so this era contributes about a dozen rows and the era's real enumeration is era 6's CDX sweep of /portfolio/<slug> plus Common Crawl."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio",
+    "from": 2018,
+    "to": 2023,
+    "pattern": "(?i)wp-content/uploads/\\d{4}/\\d{2}/(?P<slug>[A-Za-z0-9][A-Za-z0-9_.\\-]*?)[-_]listing[^\"\\']*?\\.(?:png|jpg|jpeg|svg|webp)",
+    "_note": "Era 5b (2018-2023), the same WordPress /portfolio page read through the firm's own UPLOAD FILENAMES. Its rows render as logo images with an EMPTY alt, so the visually-hidden-span pattern of era 5 sees only the dozen featured companies while the wall itself carries 86 more -- and the file names are the firm's own ('Abnormal-Security-Listing-181x115.png', 'Grand-Rounds-Listing-181x115.png'), which is the COLLECTION.md logo-era rule. The '-Listing' infix is what separates portfolio logos from every other image the theme ships. Note the path has NO trailing slash so it does not collide with era 5's own snapshot memo; both eras read the same page and their rows merge per year on slug+path. Rows recovered here that no later surface carries: Bounty Jobs, Caavo, Convoy, Creative Live, Crew, Grand Rounds, Latent Space."
    },
    {
     "parser": "cdx_company_pages",
@@ -339,9 +347,41 @@
    "emeritus",
    "investors",
    "talent",
-   "platform"
+   "platform",
+   "cyrus-pinto",
+   "dwane-hamilton",
+   "john-delaney",
+   "julie-smith",
+   "katy-amaya",
+   "elisa-schreiber",
+   "glen-evans",
+   "holly-rose-faith",
+   "lee-haney",
+   "chang-li",
+   "allie-dalglish",
+   "heather-mack",
+   "kaitlin-durkosh",
+   "renee-signore",
+   "jeff-markowitz",
+   "manuel-bernal",
+   "maya-frai",
+   "dj-patil",
+   "casey-winters",
+   "david-mcjannet",
+   "glenn-kelman",
+   "howard-ting",
+   "jeff-weiner",
+   "keith-peiris",
+   "nir-zuk",
+   "sara-clemens",
+   "stephanie-hannon",
+   "tom-levey",
+   "wade-chambers",
+   "wade-chambers-2",
+   "mustafa-suleyman",
+   "jennifer-haroon"
   ],
-  "_note": "Four people namespaces over the site's life: /team/*.htm and /team/default.asp (1998-2004), /team/bio.cfm?Id=<n> (2005-2010, numeric and not slug-enumerable), /teams/<slug> (2011-2014) and /team/<slug> (2015-2026). The live roster is the Sanity teamMember type, which carries category ('Investors') and a departed flag, so current and alumni separate without a tenure guess. The Sanity `category` field is the site's own grouping -- Investors (19), EIRs (12), Emeritus (9), Venture Partners (6), Advisory Partners (3), Specialists (5), Operations (5) -- and site_team_groups keeps the four investing ones. EIRs are excluded on the a16z rule: an executive in residence is a related person on their own next company's Form D, which is a founder seat, not a firm position. The Sanity alias is `group`, not `site_group`: partner-roster.py reads r['group'] when it applies site_team_groups, and a differently named key silently disables the filter -- which on this firm would sweep the EIR directory (Nir Zuk of Palo Alto Networks, Jeff Weiner of LinkedIn, Glenn Kelman of Redfin, David McJannet of HashiCorp), the First Round founder-directory trap arriving through a group label instead of a case rule."
+  "_note": "Four people namespaces over the site's life: /team/*.htm and /team/default.asp (1998-2004), /team/bio.cfm?Id=<n> (2005-2010, numeric and not slug-enumerable), /teams/<slug> (2011-2014) and /team/<slug> (2015-2026). The live roster is the Sanity teamMember type, which carries category ('Investors') and a departed flag, so current and alumni separate without a tenure guess. The Sanity `category` field is the site's own grouping -- Investors (19), EIRs (12), Emeritus (9), Venture Partners (6), Advisory Partners (3), Specialists (5), Operations (5) -- and site_team_groups keeps the four investing ones. EIRs are excluded on the a16z rule: an executive in residence is a related person on their own next company's Form D, which is a founder seat, not a firm position. The Sanity alias is `group`, not `site_group`: partner-roster.py reads r['group'] when it applies site_team_groups, and a differently named key silently disables the filter -- which on this firm would sweep the EIR directory (Nir Zuk of Palo Alto Networks, Jeff Weiner of LinkedIn, Glenn Kelman of Redfin, David McJannet of HashiCorp), the First Round founder-directory trap arriving through a group label instead of a case rule. Five ungrouped names (Cyrus Pinto, Dwane Hamilton, John Delaney, Julie Smith, Katy Amaya) carry no Sanity category at all, so site_team_groups cannot see them and they reached the Form D sweep: John Delaney confirmed Alliance Partners LLC and Julie Smith confirmed Carbon Health and e-Scape Bio, each on a common-name match against a company neither Greylock nor that person has any position in. They and the EIR directory are excluded BY NAME in not_a_person, which is the First Round remedy applied through the only lever the roster config offers when the group label is missing."
  },
  "site_api": {
   "type": "scrape",
@@ -366,6 +406,24 @@
      "tagline",
      "leaders"
     ]
+   },
+   {
+    "parser": "file_list",
+    "list": "archive-cards",
+    "path": "data/collection/investors/greylock/sources/site/archive-cards.json",
+    "fields": {
+     "name": "name",
+     "url": "website"
+    },
+    "extras": [
+     "invest_year",
+     "partners",
+     "status_line",
+     "status_line_2013",
+     "desc",
+     "region",
+     "sources"
+    ]
    }
   ],
   "team_sources": [
@@ -385,7 +443,7 @@
     ]
    }
   ],
-  "_note": "greylock.com is Next.js on Vercel over a PUBLIC Sanity dataset (project uz672vkd, dataset production), so the ladder stops at step 2. portfolioCompany carries the firm's own ENTRY ROUND (firstPartnered), a status, the headquarters string, the deal partners as references and a category; teamMember carries the roster with a departed flag. The live surface is only 158 rows for a firm founded in 1965 -- the archive eras are where the book is, and the site also serves a markdown alternate (/portfolio.md) that renders the same table."
+  "_note": "greylock.com is Next.js on Vercel over a PUBLIC Sanity dataset (project uz672vkd, dataset production), so the ladder stops at step 2. portfolioCompany carries the firm's own ENTRY ROUND (firstPartnered), a status, the headquarters string, the deal partners as references and a category; teamMember carries the roster with a departed flag. The live surface is only 158 rows for a firm founded in 1965 -- the archive eras are where the book is, and the site also serves a markdown alternate (/portfolio.md) that renders the same table. A second source, archive-cards.json, is the SAME first-party listings read for their other columns: scratch/build-archive-cards.py parses the firm's own YEAR FUNDED, status line, deal partner and region out of the 1999-2001, 2001-2003, 2005-2010 and 2011-2014 captures (456 companies, investment years 1967-2007). wayback-pull's listing_regex keeps slug and name only, so without this the firm's own dated record of its pre-window book would be discarded by the layer best placed to supply it. Membership is unchanged -- these rows ARE listings on the investor's own site under COLLECTION.md \u00a71's evidence sufficiency, any era -- and the status wording is evidence for the judge, never a label."
  },
  "edgar": {
   "seed_queries": [
@@ -433,8 +491,6 @@
      "greylock marketing",
      "^greylock, inc",
      "^greylock inc",
-     "greylock ventures limited partnership - iai",
-     "greylock ventures gp llc - series",
      "greylock investments slp",
      "83north",
      "83 north",
@@ -457,14 +513,16 @@
      "^greylock xiv",
      "^greylock 1[5-8]",
      "^greylock discovery",
-     "^greylock management"
+     "^greylock management",
+     "^greylock ventures limited partnership - ",
+     "^greylock ventures gp llc - series"
     ]
    }
   ],
-  "_note": "One home desk. The venture partnerships file from Boston (One Federal Street, then 880 Winter Street, Waltham) and later California (2550 Sand Hill Road, Menlo Park). Desks resolve by CIK and filing address, never by the word alone -- three namesakes share it and one of them nearly took a home fund with it: GREYLOCK CAPITAL LIMITED PARTNERSHIP (CIK 940543) files from One Federal Street, Boston and is a Greylock Partners vehicle, while Greylock Capital MANAGEMENT (New York, Hans Humes) runs the unrelated Greylock Global / Emerging Markets / Distressed Debt family; a 'greylock capital' external pattern classed the Boston fund out on the first pass. The other namesakes: Greylock Investments SLP (Aztec Group House, St Helier, Jersey; related persons Richard Phillips and Liam Jones, no Greylock Partners connection), Greylock Ventures LP - IAI-1 Series (Burlington MA, GP 'Greylock Ventures GP LLC - Series IAI-1', related person Donald Sullivan), Greylock Marketing Inc and Greylock Inc (Florida). GREYLOCK ISRAEL L P (CIK 1370903, Ugland House, Grand Cayman) and the 83North entities are the T1 boundary question and are ruled in decisions.md, not by this pattern list."
+  "_note": "One home desk. The venture partnerships file from Boston (One Federal Street, then 880 Winter Street, Waltham) and later California (2550 Sand Hill Road, Menlo Park). Desks resolve by CIK and filing address, never by the word alone -- three namesakes share it and one of them nearly took a home fund with it: GREYLOCK CAPITAL LIMITED PARTNERSHIP (CIK 940543) files from One Federal Street, Boston and is a Greylock Partners vehicle, while Greylock Capital MANAGEMENT (New York, Hans Humes) runs the unrelated Greylock Global / Emerging Markets / Distressed Debt family; a 'greylock capital' external pattern classed the Boston fund out on the first pass. The other namesakes: Greylock Investments SLP (Aztec Group House, St Helier, Jersey; related persons Richard Phillips and Liam Jones, no Greylock Partners connection), Greylock Marketing Inc and Greylock Inc (Florida). GREYLOCK ISRAEL L P (CIK 1370903, Ugland House, Grand Cayman) and the 83North entities are the T1 boundary question and are ruled in decisions.md, not by this pattern list. GREYLOCK VENTURES LIMITED PARTNERSHIP - IAI-1 SERIES (CIK 1921288) went the other way on the second pass and is HOME: its related person Donald Sullivan is Greylock's own operations partner -- the firm's 2011-2014 site names him as the Greylock partner on Lytro -- and its GP, 'Greylock Ventures GP LLC - Series IAI-1', follows the firm's own GP naming. The Burlington MA address is a fund administrator's, not a namesake's. It is a series SPV, filed 2022, Indefinite offering, $0 sold."
  },
  "profile": {
-  "own_vehicle_pattern": "^greylock (ltd|limited|capital limited|ventures limited partnership$|investments limited|equity|ix|x |x$|x-|xi|xii|xiii|xiv|1[5-8]|discovery|management)",
+  "own_vehicle_pattern": "^greylock (ltd|limited|capital limited|ventures limited partnership|investments limited|equity|ix|x |x$|x-|xi|xii|xiii|xiv|1[5-8]|discovery|management)",
   "focus_min_companies": 15,
   "focus_crosswalk": {},
   "_note": "focus_min_companies ~4.5% of the expected base. The site's own sector vocabulary is the seven portfolioCategory documents (Applications, Consumer, Cybersecurity, Deep Tech, Fintech, Infrastructure, Other); the crosswalk is filled once the site pull lands."
@@ -523,6 +581,6 @@
    "team",
    "teams"
   ],
-  "_note": "The layer's job here is 2013-2017 and 2019-2021, where the Internet Archive enumerated the company namespace thinly (7 captures in 2013, 8 in 2020) and the 2014-2017 book was served by an XHR (/companies/filter/?...&format=js) the archive captured only as 404s."
+  "_note": "index.commoncrawl.org was refusing every request for this run's whole first half, so the layer is served by scratch/cc-direct.py instead: cluster.idx and the cdx-000NN.gz shards live on data.commoncrawl.org, which stayed up, and a binary search over byte ranges reads the same index the query API fronts. 126 crawls, ~19k captures. What it bought, none of it reachable otherwise while the Internet Archive was also refusing: the 2013 and 2014 list pages (253 and 258 rows, two years the archive gave nothing for), the 2018-2021 logo wall through the upload filenames, the 2015 listing as an id enumeration, and -- the largest single win -- the 2011-2014 Rails per-company partials, 270 of them, each carrying the outcome line and the Greylock partner on the deal (sources/site/rails-cards.json)."
  }
 }

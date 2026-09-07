@@ -57,8 +57,11 @@ def era2(html, ts):
         blk = m.group(1)
         if 'class="companylink"' not in blk:
             continue
-        a = re.search(r'(?is)<A class="companylink"[^>]*>(?:<IMG[^>]*>)?(?:<BR>)?\s*'
-                      r'([^<>]{1,60}?)\s*</A>', blk)
+        # The A-D / E-H pagination links carry the same class as the company
+        # anchors, so the href is what separates them (era 2's listing_regex
+        # uses the same negative lookahead).
+        a = re.search(r'(?is)<A class="companylink" href="(?!ByName|ByCategory|OtherInvestments)'
+                      r'[^"]*"[^>]*>(?:<IMG[^>]*>)?(?:<BR>)?\s*([^<>]{1,60}?)\s*</A>', blk)
         if not a:
             continue
         cells = [clean(c) for c in re.findall(r"(?is)<TD[^>]*>(.*?)</TD>", blk)]
@@ -76,26 +79,38 @@ def era2(html, ts):
 
 
 def era3(html, ts):
-    """2005-2010 ColdFusion: <div class="data"> cards."""
+    """2005-2010 ColdFusion cards.
+
+    The 2005 capture wraps each company in its own <div class="data">; the 2007
+    one puts a WHOLE COLUMN in a single div and separates the companies with a
+    1px rule image, so a div-per-company reading finds 2 cards where the page
+    has 254. Slice on the name element instead: each card runs from its own
+    <div class="dataHead"> to the next one.
+    """
     out = []
-    for m in re.finditer(r'(?is)<div class="data">(.*?)</div>\s*</td>', html):
-        blk = m.group(1)
-        n = re.search(r'(?is)<div class="dataHead">\s*(.*?)\s*</div>', blk)
-        if not n:
-            continue
+    heads = list(re.finditer(r'(?is)<div class="dataHead">\s*(.*?)\s*</div>', html))
+    for n, m in enumerate(heads):
+        blk = html[m.start():heads[n + 1].start() if n + 1 < len(heads) else
+                   min(len(html), m.start() + 4000)]
         text = clean(blk)
-        row = {"name": clean(n.group(1)), "era": "2005-2010 coldfusion",
+        row = {"name": clean(m.group(1)), "era": "2005-2010 coldfusion",
                "snapshot_ts": ts}
-        w = re.search(r'href="(https?://[^"]+)"', blk)
+        pre = html[max(0, m.start() - 400):m.start()]
+        w = re.search(r'href="(https?://[^"]+)"[^>]*>\s*$', pre) or \
+            re.search(r'href="(https?://[^"]+)"', blk)
         if w:
             row["website"] = w.group(1)
-        for key, pat in (("status_line", r"Status:\s*([A-Za-z/ ]{3,40}?)\s*(?:Year Funded|Region|Greylock|$)"),
+        for key, pat in (("status_line", r"Status:\s*([A-Za-z/&, ]{3,60}?)\s*(?:Year Funded|Region|Greylock|$)"),
                          ("invest_year", r"Year Funded:\s*((?:19|20)\d{2})"),
                          ("region", r"Region:\s*([A-Za-z ]{2,30}?)\s*$")):
             mm = re.search(pat, text)
             if mm:
                 row[key] = int(mm.group(1)) if key == "invest_year" else mm.group(1).strip()
-        row["partners"] = [clean(p) for p in
+        desc = re.sub(r"^" + re.escape(row["name"]), "", text).strip()
+        desc = re.split(r"\s*(?:Status:|Year Funded:|Greylock:)", desc)[0].strip()
+        if 3 < len(desc) < 160:
+            row["desc"] = desc
+        row["partners"] = [clean(x) for x in
                            re.findall(r'href="\.\./team/bio\.cfm\?Id=\d+"[^>]*>([^<]{2,40})</a>', blk)]
         out.append(row)
     return out
@@ -103,6 +118,26 @@ def era3(html, ts):
 
 ERAS = [("company-", era1), ("companies-ByName", era2), ("companies-OtherInvest", era2),
         ("portfolio-portfolio.cfm", era3)]
+
+
+def rails_cards():
+    """The 2011-2014 Rails partials, pulled from Common Crawl by cc-direct.py."""
+    src = ROOT / "data/collection/investors/greylock/sources/site/rails-cards.json"
+    if not src.exists():
+        return []
+    out = []
+    for c in json.load(open(src))["companies"].values():
+        if not c.get("name"):
+            continue
+        r = {"name": c["name"], "era": "2011-2014 rails", "snapshot_ts": c["snapshot_ts"]}
+        for k in ("desc", "website", "status_line", "partners"):
+            if c.get(k):
+                r[k] = c[k]
+        # "Acquired by Ancestry.com in 2012" / "IPO 1995, Acquired by ..." — the
+        # YEAR in an outcome line is the exit year, never the investment year,
+        # so nothing here fills invest_year.
+        out.append(r)
+    return out
 
 
 def main():
@@ -132,6 +167,21 @@ def main():
                         cur.setdefault("_from", {})[k] = f.name
                 cur["sources"].append(f"{r['era']} ({r['snapshot_ts']})")
             break
+    rails = rails_cards()
+    if rails:
+        files.append(f"rails-cards.json (Common Crawl): {len(rails)}")
+        for r in rails:
+            key = re.sub(r"[^a-z0-9]+", "", r["name"].lower())
+            if not key:
+                continue
+            cur = cards.setdefault(key, {"name": r["name"], "sources": []})
+            for k, v in r.items():
+                if k in ("name", "era", "snapshot_ts") or v in (None, "", []):
+                    continue
+                cur.setdefault(k, v)          # older listings keep their fields
+            if r.get("status_line"):
+                cur["status_line_2013"] = r["status_line"]
+            cur["sources"].append(f"{r['era']} ({r['snapshot_ts']})")
     for c in cards.values():
         c.pop("_from", None)
     OUT.parent.mkdir(parents=True, exist_ok=True)
@@ -148,7 +198,7 @@ def main():
                     "still comes from the wayback layer; this is a classification input, and "
                     "the site's status wording is evidence for the judge, never a label."),
         "_files": files,
-        "companies": sorted(cards.values(), key=lambda c: c["name"].lower()),
+        "rows": sorted(cards.values(), key=lambda c: c["name"].lower()),
     }, indent=1) + "\n")
     print(f"wrote {OUT} — {len(cards)} companies from {len(files)} captures")
     for f in files:

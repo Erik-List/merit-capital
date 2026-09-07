@@ -99,3 +99,20 @@ delta:
   for it. `excluded.csv`, reason `control_position`. Greylock has no earlier
   position in the company, so nothing survives the exclusion. Raised for the
   wave alignment because Accel's published base holds the same row.
+- **R5 (2026-09-07) — the Israel book is out for its whole life, not only after
+  the 2015 rebrand, and the archived listings are a shared-brand surface.**
+  D2 ruled Greylock Israel out on its separate ERA. Its own Form ADV closes the
+  question of what that entity is: **GREYLOCK ISRAEL GLOBAL MANAGEMENT LTD.
+  (CRD 162176) gives its website as 83north.com** and advises GREYLOCK ISRAEL
+  LIMITED PARTNERSHIP (Cayman) — the Israeli adviser simply renamed, so the
+  Israel funds were never advised by Greylock Management Corporation (CRD
+  161537) at any point. The firm's 2005–2013 listings nonetheless carried the
+  Israeli companies, which is the Lightspeed shared-brand case: archived
+  listing years from a shared-brand surface are not, alone, home-firm listing
+  evidence, and membership resolves by the current attribution plus independent
+  vehicle or partner evidence. Class-wide: a row whose only Greylock
+  attribution is an Israel-desk partner — **Moshe Mor (2001–2013, 8 attributed
+  deals), Erez Ofer (2004–2007), Yoram Snir (2005)** — and which the current
+  site does not list is `not_member`, reason external desk. A row those
+  partners share with a home-desk partner, or that a Greylock (not Greylock
+  Israel) fund vehicle filed on, stays.
