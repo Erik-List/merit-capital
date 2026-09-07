@@ -1,7 +1,7 @@
 {
- "_readme": "YC companies that are NOT in the public Algolia directory index, recovered two ways and carried as first-party site evidence (COLLECTION.md §1: a listing on the investor's own site, ANY era, suffices for membership on its own). `live_page_unindexed`: /companies/<slug> returns 200 and the page's own Inertia payload carries the full company record, but the slug is absent from the ycdc_public-tagged search index — including batch_name 'ycc_only', YC's own marker for a Continuity-only holding that never went through a batch (Monzo). `delisted_archived`: the slug 404s on the live site today and the record comes from the Internet Archive capture of its company page. Both classes were found by paging the archived /companies/ CDX namespace and probing each slug against the live site; a 301 meant a rename or an id-form URL and became an identity merge instead (decisions.md R1, R3). Three slugs in this namespace are YC founder-community pages, not companies (black-founders, hispanic-latino-founders, women-founders); they are filtered here and listed in wayback.non_company_slugs.",
+ "_readme": "YC companies that are NOT in the public Algolia directory index, recovered two ways and carried as first-party site evidence (COLLECTION.md §1: a listing on the investor's own site, ANY era, suffices for membership on its own). `live_page_unindexed`: /companies/<slug> returns 200 and the page's own Inertia payload carries the full company record, but the slug is absent from the ycdc_public-tagged search index — including batch_name 'ycc_only', YC's own marker for a Continuity-only holding that never went through a batch (Monzo). `delisted_archived`: the slug 404s on the live site today and the record comes from the Internet Archive capture of its company page. Both classes were found by paging the archived /companies/ CDX namespace and probing each slug against the live site; a 301 meant a rename or an id-form URL and became an identity merge instead (decisions.md R1, R3). Three slugs in this namespace are YC founder-community pages, not companies (black-founders, hispanic-latino-founders, women-founders); they are filtered here and listed in wayback.non_company_slugs. The ycc_only class is now known to be EXACTLY two companies — Convoy (id 11874, Seattle, the digital-freight company, Inactive) and Monzo Bank (id 4787) — verified three ways on 2026-09-06: each page's own Inertia payload, the yc-oss public mirror's batches/ycc_only.json (2 records), and a batch:ycc_only query against the public index returning zero. Note the directory's OWN 'Convoy' is a different company entirely (slug convoy-2, id 25720, Winter 2022, London/Nigeria); the two were never merged.",
  "pulled": "2026-09-06",
- "count": 128,
+ "count": 129,
  "rows": [
   {
    "name": "Monzo Bank",
@@ -1983,6 +1983,19 @@
     "databases"
    ],
    "_class": "delisted_archived"
+  },
+  {
+   "name": "Convoy",
+   "site_id": "convoy",
+   "url": "",
+   "batch": "ycc_only",
+   "status": "Inactive",
+   "all_locations": "Seattle, WA",
+   "country": "US",
+   "one_liner": "",
+   "year_founded": 2015,
+   "tags": [],
+   "_class": "live_page_unindexed"
   }
  ]
 }

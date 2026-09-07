@@ -205,3 +205,70 @@ confirmed by registration and not only by address.
 alone would have missed them and the profile's fund table takes them from the
 ADV: `Y Combinator Fund I, LP` ($672.0M), `Y Combinator Fund II, LP`
 ($295.9M), `YCVC Fund I, L.P.` ($536.3M), `YCVC W14, LLC` ($22.5M).
+
+---
+
+## Part 4 — Calibration gate results (2026-09-06, before any verdict wrote)
+
+Both sets pre-registered in `golden.json` first. §4 requires scoring every
+candidate evidence layer, not only the judge, and the four scores below set
+the evidence order the grind uses.
+
+### Layer: the directory's own `stage` field — **REFUSED** (4/29)
+
+Its vocabulary is two values, `Early` (5,114) and `Growth` (1,089), and it
+describes the company **today**, not the round YC entered at. Mapped as
+generously as possible (`Early`→Seed, `Growth`→Growth) it scores 4 of 29 and
+misses in exactly the way that matters: `Growth` for Checkr, DoorDash,
+Ginkgo, Razorpay, Podium, Lob, Whatnot, RevenueCat, Zepto, Webflow, Airbnb,
+Dropbox and Stripe — every one a batch entry the field reads as a later
+round. That is the entry-versus-participation error the golden set was built
+to catch, and it is worse in kind than Thrive's job-board stage field (0/10,
+refused). **Never an `entry_stage` label; carried as evidence only.**
+
+### Layer: the batch record — **PROMOTED to class 1** (31/31)
+
+`batch present → Seed`, `batch == "ycc_only" → Growth`, cited to YC's own
+deal terms for the era (recorded in `golden.json._batch_deal_eras`). Perfect
+on all four classes: 2/2 on the two rows where the label itself
+discriminates, 11/11 against publicised Continuity distractors, 8/8 against
+famous Series A distractors, 10/10 on controls.
+
+**A YC batch entry is `Seed`, never `Pre-Seed`.** First-party basis: YC's own
+about page, sustained from at least 2009 to 2020 — "Y Combinator provides
+seed funding for startups. Seed funding is the earliest stage of venture
+funding." The 2005–2007 cheques ($6,000 per founder, capped near $20,000)
+tempt a Pre-Seed answer, but YC's contemporaneous language calls it seed and
+the term did not then exist. **`Pre-Seed` and `Series A` are structurally
+empty for this investor**: Continuity's mandate was pro rata and later-stage
+growth, so it never led a Series A.
+
+**The gate caught a live trap in its own scoring.** The rule first scored
+30/31, the single miss being Convoy — because the lookup resolved the name
+"Convoy" to the directory's `convoy-2` (Winter 2022, London/Nigeria) rather
+than to `convoy` (id 11874, Seattle, the digital-freight company tagged
+`ycc_only`). Re-scored with site_id identity it is 31/31. R2's name-collision
+problem therefore bites the **judge**, not only the base build: every grind
+lookup keys on YC's id, never on the name.
+
+### Layer: the directory's `status` field — **corroboration only** (67.5%)
+
+Scored against the 767 rows already judged in landed bases: 518 agree, 249
+disagree. The mapping that fails is the dead-and-exited tail, exactly where
+the column matters: `Inactive` lands as `private` 41 times and `unknown` 28
+times against only 27 `defunct`, so **"Inactive" is emphatically not
+`defunct`** (Phase 0 ruling 5, now measured rather than assumed). `Acquired`
+reads `private` 36 times and `defunct` 20; the site is also stale in the
+other direction, reading `Active` for 35 acquired and 21 defunct companies.
+Only `Active → private` (386) is dependable. **Never a label**; the base
+overrides it with the cited event, as §6 requires.
+
+### Layer: `all_locations` — country **class 2**, city **normalize first**
+
+`hq_country` agrees with landed bases on 616/730 (84.4%), and part of the
+residue is name-collision noise on the *landed* side rather than directory
+error (a French "Angle" against YC's Angle Health, a Czech "RADAR" against
+YC's RADAR). `hq_city` agrees on only 273/544 (50.2%), but the largest single
+cause is shape, not fact — "New York City" against the §6 rule's bare
+municipality "New York". City is normalized to the §6 shape before use and
+the judge overrides on conflict; neither field publishes without that check.
