@@ -214,11 +214,62 @@ export async function measure(img: sharp.Sharp): Promise<IconMetrics> {
   let acc = 0, p995 = 255;
   for (let v = 0; v < 256; v++) { acc += histo[v]; if (acc >= 0.995 * w * h) { p995 = v; break; } }
   const full = Math.max(1, p995);
+
+  // A logo may carry more than one ink, and normalizing every pixel against a
+  // single "full ink" reads the second colour as anti-aliasing. Lux's mark is
+  // a black monogram beside a #FF1C24 cross: red sits at 0.70 of black's
+  // deviation from white, inside the 15-85% partial band, so every red pixel
+  // counted as a soft edge and a pixel-crisp vector measured a 5.45px ramp —
+  // the same geometry filled black measured 0.87px.
+  //
+  // The distinction that matters is FLATNESS, not colour count: a two-ink logo
+  // puts nearly all of its non-plate pixels at a couple of exact colours, while
+  // a blurred or upscaled source smears them across a continuum. So quantize
+  // the non-plate pixels, keep only bins holding >=10% of them, and use those
+  // as ink colours ONLY when they account for most of the artwork
+  // (FLAT_MASS_MIN). Measured on this run: the Lux mark puts 87% of its mass in
+  // two bins, while the same mark blurred puts 20% in its largest and 33% in
+  // every bin over 5%. Below the bar we fall through to the single-ink rule, so
+  // the soft-source guard behaves exactly as before.
+  const FLAT_BIN_MIN = 0.10;   // share of non-plate pixels for a bin to be an ink
+  const FLAT_MASS_MIN = 0.60;  // ... and the inks together must cover this much
+  const INK_DIST = 24;         // RGB euclidean; a flat fill lands within a bin's width
+  const composite = (i: number): [number, number, number] => {
+    const a = data[i * c + 3] / 255;
+    return [data[i * c] * a + (plate ? plate[0] : 255) * (1 - a),
+            data[i * c + 1] * a + (plate ? plate[1] : 255) * (1 - a),
+            data[i * c + 2] * a + (plate ? plate[2] : 255) * (1 - a)];
+  };
+  let cand = 0;
+  const bins = new Map<number, { n: number; r: number; g: number; b: number }>();
+  for (let i = 0; i < w * h; i++) {
+    if (dev[i] / full <= 0.15) continue;
+    cand++;
+    const [r, g, b] = composite(i);
+    const key = ((r >> 4) << 8) | ((g >> 4) << 4) | (b >> 4);
+    const e = bins.get(key) || { n: 0, r: 0, g: 0, b: 0 };
+    e.n++; e.r += r; e.g += g; e.b += b; bins.set(key, e);
+  }
+  const inks: [number, number, number][] = [];
+  let flatMass = 0;
+  for (const e of [...bins.values()].sort((a, b) => b.n - a.n).slice(0, 4)) {
+    if (e.n < FLAT_BIN_MIN * Math.max(1, cand)) break;
+    inks.push([e.r / e.n, e.g / e.n, e.b / e.n]);
+    flatMass += e.n;
+  }
+  const multiInk = inks.length > 1 && flatMass >= FLAT_MASS_MIN * Math.max(1, cand);
+  const atFlatInk = (i: number) => {
+    if (!multiInk) return false;
+    const [r, g, b] = composite(i);
+    for (const k of inks) if (Math.hypot(r - k[0], g - k[1], b - k[2]) <= INK_DIST) return true;
+    return false;
+  };
   const inkMask = new Uint8Array(w * h);
   let partial = 0;
   for (let i = 0; i < w * h; i++) {
     const d = dev[i] / full;
-    if (d > 0.85) inkMask[i] = 1; else if (d > 0.15) partial++;
+    if (d > 0.85 || (d > 0.15 && atFlatInk(i))) inkMask[i] = 1;
+    else if (d > 0.15) partial++;
   }
   let perimeter = 0;
   for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
