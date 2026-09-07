@@ -2095,7 +2095,13 @@
   "valuation_range": "below_1b"
  },
  "chai-discovery": {
-  "flags": [],
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "model",
+  "flags": [
+   "needs_web_value",
+   "stage_uncited"
+  ],
   "hq_city": "San Francisco",
   "hq_city_confidence": "high",
   "hq_city_source": "web_verified",
@@ -2103,8 +2109,10 @@
   "hq_country_citation": "https://www.battery.com/company/chai-discovery/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book.",
-  "slug": "chai-discovery"
+  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Chai Discovery, AI foundation models for molecular structure and biologics design. Battery's Growth label with INVESTED 2026; the company raised at a reported multi-billion mark, which needs a priced-event citation (Rule A) \u2014 queued for the A/B pass.",
+  "slug": "chai-discovery",
+  "status": "private",
+  "valuation_range": "below_1b"
  },
  "champions-oncology": {
   "flags": [],
@@ -2117,6 +2125,25 @@
   "hq_country_source": "web_verified",
   "note": "Battery's own Location field on its company page: 'Baltimore, Maryland'. First-party and city-bearing, so it outranks the Wikidata join for this book.",
   "slug": "champions-oncology"
+ },
+ "chargify": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "Atlanta",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "Chargify, subscription billing; combined with SaaSOptics in 2022 to form Maxio, which has its own portfolio row. DUPLICATE of maxio for the identity overlay.",
+  "slug": "chargify",
+  "status": "private",
+  "valuation_range": "below_1b"
  },
  "check-technologies": {
   "entry_stage": "Series A",
@@ -2313,6 +2340,25 @@
   "status": "defunct",
   "valuation_range": "below_1b"
  },
+ "clearbit": {
+  "entry_stage": "Series A",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "San Francisco",
+  "hq_city_confidence": "medium",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "Clearbit, B2B data enrichment; acquired by HubSpot in 2023. DUPLICATE of apihub-inc-dba-clearbit, the registered-name row.",
+  "slug": "clearbit",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
  "clearcare": {
   "flags": [],
   "hq_city": "San Francisco",
@@ -2376,10 +2422,16 @@
   "slug": "clubessential-holdings"
  },
  "clubhouse-software-inc": {
+  "entry_stage": "Series A",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
   "flags": [
-   "cite_pending"
+   "cite_pending",
+   "model_disputes_source",
+   "possible_duplicate",
+   "stage_uncited"
   ],
-  "note": "Queued for the adversarial A/B pass: a $1B+ or public row whose stage citation or market-cap citation is still owed. The figure here came from a deterministic layer (unicorn list or SEC float), not from a judged, cited event.",
+  "note": "Queued for the adversarial A/B pass: a $1B+ or public row whose stage citation or market-cap citation is still owed. The figure here came from a deterministic layer (unicorn list or SEC float), not from a judged, cited event. | Clubhouse Software, Inc. is the former name of Shortcut, the project-management tool with its own portfolio row (INVESTED 2017). DISPUTE: the $4.0B unicorn-list mark belongs to the AUDIO app Clubhouse Media/Alpha Exploration, a different company \u2014 a name collision. The figure is not this row's; carried as a dispute for the A/B pass to strike. DUPLICATE of shortcut.",
   "slug": "clubhouse-software-inc"
  },
  "code-ocean": {
@@ -2883,6 +2935,42 @@
   "status": "private",
   "valuation_range": "below_1b"
  },
+ "crivello-corp-dba-lindy": {
+  "entry_stage": "Seed",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "model",
+  "flags": [
+   "city_unknown",
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_country": "US",
+  "hq_country_confidence": "medium",
+  "hq_country_source": "model_knowledge",
+  "note": "Crivello Corp. dba Lindy is the registered name behind the lindy row. DUPLICATE flagged for the identity overlay.",
+  "slug": "crivello-corp-dba-lindy",
+  "status": "private",
+  "valuation_range": "below_1b"
+ },
+ "crivello-corp-dba-teamflow": {
+  "entry_stage": "Seed",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "San Francisco",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "medium",
+  "hq_country_source": "model_knowledge",
+  "note": "Crivello Corp. dba Teamflow, the virtual-office product that became Lindy \u2014 the SAME registered entity as crivello-corp-dba-lindy, listed twice under its two trading names. This is the compliance list recording a pivot, and it is a duplicate pair.",
+  "slug": "crivello-corp-dba-teamflow",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
  "cross-access": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
@@ -2920,6 +3008,17 @@
   "note": "Battery's own Location field on its company page: 'Fort Lee, New Jersey'. First-party and city-bearing, so it outranks the Wikidata join for this book; overrides wikidata value 'IL'. | Cross River Bank, the Fort Lee NJ banking-as-a-service lender. Battery's Growth label with INVESTED 2016. The Wikidata IL country was corrected to US from the firm's own location. Reported above $3B in 2022; the mark needs a priced-event citation (Rule A). Duplicate of the crb-group row (its holding company).",
   "slug": "cross-river-bank",
   "status": "private",
+  "valuation_range": "below_1b"
+ },
+ "crowdgather": {
+  "entry_stage": "Seed",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "stage_uncited"
+  ],
+  "note": "CrowdGather (OTC: CRWG), a network of online forums; the compliance list names Adisn as the related entity, which is the 2013 Adisn/CrowdGather transaction. The deterministic acquired status stands.",
+  "slug": "crowdgather",
   "valuation_range": "below_1b"
  },
  "cruise-technologies": {
@@ -3139,10 +3238,20 @@
   "slug": "databricks"
  },
  "datadog": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
   "flags": [
-   "cite_pending"
+   "cite_pending",
+   "stage_uncited"
   ],
-  "note": "Queued for the adversarial A/B pass: a $1B+ or public row whose stage citation or market-cap citation is still owed. The figure here came from a deterministic layer (unicorn list or SEC float), not from a judged, cited event.",
+  "hq_city": "New York",
+  "hq_city_confidence": "medium",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "Queued for the adversarial A/B pass: a $1B+ or public row whose stage citation or market-cap citation is still owed. The figure here came from a deterministic layer (unicorn list or SEC float), not from a judged, cited event. | Datadog (NASDAQ: DDOG), cloud monitoring, New York; IPO 2019. On Battery's own compliance list marked exited, which is first-party membership evidence even though the firm publishes no portfolio page for it. The deterministic public status and $43B float stand; a cited market cap is owed in the A/B pass.",
   "slug": "datadog"
  },
  "dataiku": {
@@ -3203,6 +3312,44 @@
   "slug": "delphix",
   "valuation_range": "below_1b"
  },
+ "deltus-36-ag-easy-software-xtra-esy": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "M\u00fclheim an der Ruhr",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "DE",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "Deltus 36. AG is the bid vehicle through which Battery took EASY SOFTWARE AG (XETRA: ESY) private in 2023 \u2014 the business now trades as conrizon, a Battery-controlled platform. This row is the acquisition vehicle's rendering; DUPLICATE of deltus36-easy-software-ag and of conrizon, where the control ruling is carried.",
+  "slug": "deltus-36-ag-easy-software-xtra-esy",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
+ "deltus36-easy-software-ag": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "M\u00fclheim an der Ruhr",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "DE",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "The other compliance-list rendering of the Deltus 36 / EASY SOFTWARE take-private. DUPLICATE flagged for the identity overlay.",
+  "slug": "deltus36-easy-software-ag",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
  "descartes-underwriting": {
   "entry_stage": "Growth",
   "entry_stage_confidence": "medium",
@@ -3239,6 +3386,25 @@
   "note": "Battery's own Location field on its company page: 'Ottawa, Ontario'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Diablo Technologies, memory-channel storage (Memory1); wound down around 2017 after the Netlist litigation. Battery's Early label with INVESTED 2012.",
   "slug": "diablo-technologies",
   "status": "defunct",
+  "valuation_range": "below_1b"
+ },
+ "dial-page-inc": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "pre_window",
+   "stage_uncited"
+  ],
+  "hq_city": "Greenville",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "Dial Page, Inc., the SMR/paging carrier on Battery's 1997 portfolio page; merged into Nextel in 1995, which the compliance list records by naming Dial Page beside the Nextel entry. A founding-era position.",
+  "slug": "dial-page-inc",
+  "status": "acquired",
   "valuation_range": "below_1b"
  },
  "diametric-capital": {
@@ -3318,6 +3484,26 @@
   "hq_country_source": "model_knowledge",
   "note": "Dirig Software, application-performance management for J2EE, Nashua NH; absorbed in the late 2000s.",
   "slug": "dirig-software",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
+ "distribution-management-systems": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "city_unknown",
+   "country_prior",
+   "identity_uncertain",
+   "pre_window",
+   "stage_prior",
+   "stage_uncited"
+  ],
+  "hq_country": "US",
+  "hq_country_confidence": "low",
+  "hq_country_source": "model_knowledge",
+  "note": "Distribution Management Systems, on the 2007-2012 alphabetical page's prior-holdings column; a generic 1990s name with no other evidence.",
+  "slug": "distribution-management-systems",
   "status": "acquired",
   "valuation_range": "below_1b"
  },
@@ -3440,6 +3626,44 @@
   "status": "acquired",
   "valuation_range": "below_1b"
  },
+ "door-to-door-organic": {
+  "entry_stage": "Series A",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "Louisville",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "Door to Door Organics, online organic grocery delivery, Colorado; merged with Relay Foods in 2016 and wound down in 2018. DUPLICATE of door-to-door-organics-inc-dba-relay-foods and related to the relay-foods row.",
+  "slug": "door-to-door-organic",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
+ "door-to-door-organics-inc-dba-relay-foods": {
+  "entry_stage": "Series A",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "Louisville",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "Door-to-Door Organics, Inc. dba Relay Foods \u2014 the post-merger registered name of the relay-foods row. DUPLICATE flagged for the identity overlay.",
+  "slug": "door-to-door-organics-inc-dba-relay-foods",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
  "drillinginfo": {
   "flags": [],
   "hq_city": "Austin",
@@ -3469,6 +3693,24 @@
   "status": "acquired",
   "valuation_range": "below_1b"
  },
+ "dronomy-ltd-dba-siteaware": {
+  "entry_stage": "Series A",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "model",
+  "flags": [
+   "stage_uncited"
+  ],
+  "hq_city": "Tel Aviv",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "IL",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "Dronomy Ltd. dba SiteAware, drone-based digital construction verification, Tel Aviv; the compliance list marks it exited.",
+  "slug": "dronomy-ltd-dba-siteaware",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
  "duetto": {
   "flags": [],
   "hq_city": "San Francisco",
@@ -3480,6 +3722,25 @@
   "hq_country_source": "web_verified",
   "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Duetto Research, revenue management for hotels, San Francisco; the firm's own status reads Exited and the company was recapitalised under Warburg-backed ownership. Brian O'Malley on the 2013-2015 Form Ds inside his 2007-2014 tenure \u2014 the 2015 filing is a follow-on to a position taken while he was there.",
   "slug": "duetto",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
+ "e-offering": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "pre_window",
+   "stage_uncited"
+  ],
+  "hq_city": "San Francisco",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "E*Offering, the online investment bank founded with E*Trade to underwrite internet IPOs; acquired by Wit Capital in 2000. A dot-com-era position.",
+  "slug": "e-offering",
   "status": "acquired",
   "valuation_range": "below_1b"
  },
@@ -3500,6 +3761,25 @@
   "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Earnest, student-loan refinancing, San Francisco; acquired by Navient in 2017 for $155M. Battery's Early label with INVESTED 2014, the Series A year.",
   "slug": "earnest",
   "status": "acquired",
+  "valuation_range": "below_1b"
+ },
+ "easy-software-dba-conrizon": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "M\u00fclheim an der Ruhr",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "DE",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "easy software dba conrizon \u2014 the compliance list's rendering of the conrizon portfolio row, where the control ruling is carried. DUPLICATE flagged for the identity overlay.",
+  "slug": "easy-software-dba-conrizon",
+  "status": "private",
   "valuation_range": "below_1b"
  },
  "ec-cubed": {
@@ -3628,6 +3908,44 @@
   "note": "Battery's own Location field on its company page: 'Herzliya, Israel'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Elastifile, scalable cloud file storage; acquired by Google in 2019. Battery's Early label with INVESTED 2014, the Series A year.",
   "slug": "elastifile",
   "status": "acquired",
+  "valuation_range": "below_1b"
+ },
+ "elder-technologies-dba-sage": {
+  "entry_stage": "Series A",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "New York",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "Elder Technologies dba Sage, senior-living caregiver platform \u2014 the registered name behind the sage row, and the reason that row's Wikidata 'PL' country is wrong. DUPLICATE flagged for the identity overlay.",
+  "slug": "elder-technologies-dba-sage",
+  "status": "private",
+  "valuation_range": "below_1b"
+ },
+ "empowertel-networks-inc": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "pre_window",
+   "stage_uncited"
+  ],
+  "hq_city": "Andover",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "medium",
+  "hq_country_source": "model_knowledge",
+  "note": "EmpowerTel Networks, voice-over-broadband access equipment; wound down after the 2001 telecom collapse.",
+  "slug": "empowertel-networks-inc",
+  "status": "defunct",
   "valuation_range": "below_1b"
  },
  "encore": {
@@ -3781,12 +4099,50 @@
   "status": "private",
   "valuation_range": "below_1b"
  },
+ "eshares-inc-dba-carta": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "San Francisco",
+  "hq_city_confidence": "medium",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "eShares, Inc. dba Carta \u2014 the registered-name row for Carta. DUPLICATE flagged for the identity overlay; the mark and the country dispute are carried on the carta row.",
+  "slug": "eshares-inc-dba-carta",
+  "status": "private",
+  "valuation_range": "below_1b"
+ },
  "euronet-worldwide-inc": {
   "flags": [
    "cite_pending"
   ],
   "note": "Queued for the adversarial A/B pass: a $1B+ or public row whose stage citation or market-cap citation is still owed. The figure here came from a deterministic layer (unicorn list or SEC float), not from a judged, cited event.",
   "slug": "euronet-worldwide-inc"
+ },
+ "evigence-sensors": {
+  "entry_stage": "Series A",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "Tel Aviv",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "IL",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "Evigence Sensors, freshness-indicator labels for perishables; the compliance list gives the registered name Freshpoint Quality Assurance Ltd. DUPLICATE of freshpoint-quality-assurance-ltd-dba-evigence-sensors.",
+  "slug": "evigence-sensors",
+  "status": "private",
+  "valuation_range": "below_1b"
  },
  "exacttarget": {
   "flags": [],
@@ -3874,6 +4230,24 @@
   "flags": [],
   "note": "Fairmatic, AI-based commercial auto insurance founded by Zendrive's Jonathan Matus. Marcus Ryu on the 2023 Form Ds inside tenure; the $42M and $40M filings around the 2023 Series A/B put the entry at Growth, already resolved.",
   "slug": "fairmatic-services-inc",
+  "status": "private",
+  "valuation_range": "below_1b"
+ },
+ "fairxchange-inc-dba-lmx-labs": {
+  "entry_stage": "Series A",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "stage_uncited"
+  ],
+  "hq_city": "London",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "GB",
+  "hq_country_confidence": "medium",
+  "hq_country_source": "model_knowledge",
+  "note": "FairXchange dba LMX Labs, FX trading analytics, London; the compliance list marks it exited.",
+  "slug": "fairxchange-inc-dba-lmx-labs",
   "status": "private",
   "valuation_range": "below_1b"
  },
@@ -3997,6 +4371,25 @@
   "status": "acquired",
   "valuation_range": "below_1b"
  },
+ "fingerhut": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "Eden Prairie",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "Fingerhut, the catalogue retailer that became the core of Bluestem Brands; Battery's position runs through Bluestem, which has its own row. Related-entity duplicate flagged.",
+  "slug": "fingerhut",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
  "finisar": {
   "entry_stage": "Growth",
   "entry_stage_confidence": "low",
@@ -4045,6 +4438,24 @@
   "status": "acquired",
   "valuation_range": "below_1b"
  },
+ "flanks": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "stage_uncited"
+  ],
+  "hq_city": "Barcelona",
+  "hq_city_confidence": "medium",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "ES",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "Flanks, wealth-management data aggregation, Barcelona; the compliance list gives the registered name Split Payments S.L. Not marked exited.",
+  "slug": "flanks",
+  "status": "private",
+  "valuation_range": "below_1b"
+ },
  "flash": {
   "entry_stage": "Growth",
   "entry_stage_confidence": "medium",
@@ -4061,6 +4472,25 @@
   "hq_country_source": "web_verified",
   "note": "Battery's own Location field on its company page: 'Sao Paulo, Brazil'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Flash App, Brazilian employee-benefits and expense platform, S\u00e3o Paulo. Battery's Growth label with INVESTED 2022. The 2012 XtremIO post the matcher attached is a different 'Flash' and is ignored.",
   "slug": "flash",
+  "status": "private",
+  "valuation_range": "below_1b"
+ },
+ "flashapp": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "S\u00e3o Paulo",
+  "hq_city_confidence": "medium",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "BR",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "FlashApp is the registered rendering of Flash, the Brazilian benefits and expense platform with its own portfolio row. DUPLICATE flagged for the identity overlay.",
+  "slug": "flashapp",
   "status": "private",
   "valuation_range": "below_1b"
  },
@@ -4168,7 +4598,12 @@
   "slug": "forterro"
  },
  "freehand": {
-  "flags": [],
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "model",
+  "flags": [
+   "stage_uncited"
+  ],
   "hq_city": "San Francisco",
   "hq_city_confidence": "high",
   "hq_city_source": "web_verified",
@@ -4176,8 +4611,10 @@
   "hq_country_citation": "https://www.battery.com/company/freehand/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book.",
-  "slug": "freehand"
+  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Freehand, AI for the built environment. Battery's Growth label with INVESTED 2026 \u2014 added after the Q1 2026 compliance list, so portfolio-page-only.",
+  "slug": "freehand",
+  "status": "private",
+  "valuation_range": "below_1b"
  },
  "freescale": {
   "flags": [],
@@ -4219,6 +4656,25 @@
   "note": "FreshDish, Inc., meal delivery; wound down. Compliance-list-only, marked exited.",
   "slug": "freshdish",
   "status": "defunct",
+  "valuation_range": "below_1b"
+ },
+ "freshpoint-quality-assurance-ltd-dba-evigence-sensors": {
+  "entry_stage": "Series A",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "Tel Aviv",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "IL",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "Freshpoint Quality Assurance Ltd. dba Evigence Sensors \u2014 the registered-name row. DUPLICATE of evigence-sensors.",
+  "slug": "freshpoint-quality-assurance-ltd-dba-evigence-sensors",
+  "status": "private",
   "valuation_range": "below_1b"
  },
  "friendster": {
@@ -4291,7 +4747,13 @@
   "valuation_range": "below_1b"
  },
  "function-health": {
-  "flags": [],
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "model",
+  "flags": [
+   "needs_web_value",
+   "stage_uncited"
+  ],
   "hq_city": "Austin",
   "hq_city_confidence": "high",
   "hq_city_source": "web_verified",
@@ -4299,11 +4761,18 @@
   "hq_country_citation": "https://www.battery.com/company/function-health/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'Austin, Texas'. First-party and city-bearing, so it outranks the Wikidata join for this book.",
-  "slug": "function-health"
+  "note": "Battery's own Location field on its company page: 'Austin, Texas'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Function Health, consumer lab testing and health membership, Austin. Battery's Growth label with INVESTED 2025; the 2025 Series B was reported above $2B, a mark needing a priced-event citation (Rule A) \u2014 queued for the A/B pass.",
+  "slug": "function-health",
+  "status": "private",
+  "valuation_range": "below_1b"
  },
  "fundamental": {
-  "flags": [],
+  "entry_stage": "Series A",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "model",
+  "flags": [
+   "stage_uncited"
+  ],
   "hq_city": "San Francisco",
   "hq_city_confidence": "high",
   "hq_city_source": "web_verified",
@@ -4311,8 +4780,10 @@
   "hq_country_citation": "https://www.battery.com/company/fundamental/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book.",
-  "slug": "fundamental"
+  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Fundamental Technologies, financial planning and reporting for startups. Battery's Early label with INVESTED 2025. The 2023 'Series B dashboards' post the matcher attached is thought-leadership about Series B companies, not an announcement about this company \u2014 read under the Menlo rule it asserts nothing.",
+  "slug": "fundamental",
+  "status": "private",
+  "valuation_range": "below_1b"
  },
  "fungible": {
   "entry_stage": "Series A",
@@ -4366,6 +4837,25 @@
   "status": "acquired",
   "valuation_range": "below_1b"
  },
+ "galilleo-technologies-inc": {
+  "entry_stage": "Seed",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "San Francisco",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "'Galilleo Technologies, Inc.' is a misspelling of Galileo Technologies, the AI evaluation company acquired by Cisco in 2026, which has its own portfolio row. DUPLICATE flagged for the identity overlay.",
+  "slug": "galilleo-technologies-inc",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
  "gen-g": {
   "entry_stage": "Growth",
   "entry_stage_confidence": "low",
@@ -4384,6 +4874,41 @@
   "note": "Battery's own Location field on its company page: 'Los Angeles, California'. First-party and city-bearing, so it outranks the Wikidata join for this book; overrides wikidata value 'KR'. | Gen.G (KSV eSports International), esports organisation with Seoul and Los Angeles operations. The Wikidata KR country was corrected to US from the firm's own Los Angeles location; the group is genuinely dual-based, and the firm's own rendering decides.",
   "slug": "gen-g",
   "status": "private",
+  "valuation_range": "below_1b"
+ },
+ "general-wireless-inc": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "city_unknown",
+   "pre_window",
+   "stage_uncited"
+  ],
+  "hq_country": "US",
+  "hq_country_confidence": "medium",
+  "hq_country_source": "model_knowledge",
+  "note": "General Wireless, Inc., a 1990s PCS spectrum licensee on Battery's 1997 portfolio page; rolled up during the wireless consolidation.",
+  "slug": "general-wireless-inc",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
+ "general-workings-inc-dba-stream-labs": {
+  "entry_stage": "Series A",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "stage_uncited"
+  ],
+  "hq_city": "San Francisco",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "General Workings, Inc. dba Streamlabs, live-streaming creator tools; acquired by Logitech in 2019.",
+  "slug": "general-workings-inc-dba-stream-labs",
+  "status": "acquired",
   "valuation_range": "below_1b"
  },
  "genlogs": {
@@ -4652,6 +5177,25 @@
   "status": "acquired",
   "valuation_range": "below_1b"
  },
+ "hackerrank": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "Mountain View",
+  "hq_city_confidence": "medium",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "HackerRank, technical hiring assessments; the compliance list gives the registered name Interviewstreet, Inc. Not marked exited. DUPLICATE of interviewstreet-inc-dba-hacker.",
+  "slug": "hackerrank",
+  "status": "private",
+  "valuation_range": "below_1b"
+ },
  "hallo": {
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
@@ -4715,6 +5259,25 @@
   "hq_country_source": "web_verified",
   "note": "Battery's own Location field on its company page: 'Irving, Texas'. First-party and city-bearing, so it outranks the Wikidata join for this book.",
   "slug": "healthvision"
+ },
+ "heartyyfresh": {
+  "entry_stage": "Seed",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "Newark",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "Rahein Inc. dba HeartyyFresh \u2014 the double-y spelling of the rahein-incorporation-dba-heartyfresh row, which carries the Form D evidence. DUPLICATE flagged for the identity overlay.",
+  "slug": "heartyyfresh",
+  "status": "defunct",
+  "valuation_range": "below_1b"
  },
  "hibob": {
   "entry_stage": "Growth",
@@ -4822,6 +5385,25 @@
   "status": "acquired",
   "valuation_range": "below_1b"
  },
+ "homesuite-inc-dba-2nd-address": {
+  "entry_stage": "Series A",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "San Francisco",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "HomeSuite Inc. dba 2nd Address, corporate-housing marketplace; acquired by Blueground in 2021. DUPLICATE of the 2nd-address row \u2014 the registered name preserved by the compliance list.",
+  "slug": "homesuite-inc-dba-2nd-address",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
  "honeybook": {
   "entry_stage": "Growth",
   "entry_stage_confidence": "medium",
@@ -4893,6 +5475,26 @@
   "status": "private",
   "valuation_range": "below_1b"
  },
+ "hyper-labs-inc-dba-hyperscience": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "needs_web_value",
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "New York",
+  "hq_city_confidence": "medium",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "Hyper Labs, Inc. dba HyperScience, document AI and intelligent automation, New York. DUPLICATE of the hyperscience row. The 2021 Series E was reported above $1B; the mark needs a priced-event citation (Rule A).",
+  "slug": "hyper-labs-inc-dba-hyperscience",
+  "status": "private",
+  "valuation_range": "below_1b"
+ },
  "hyperexponential": {
   "entry_stage": "Growth",
   "entry_stage_citation": "https://www.battery.com/blog/backing-the-next-generation-of-insurtech-battery-leads-hyperexponentials-series-b/",
@@ -4908,6 +5510,26 @@
   "hq_country_source": "web_verified",
   "note": "Battery's own Location field on its company page: 'London, United Kingdom'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Hyperexponential Ltd., pricing decision intelligence for insurers, London. Battery's own post title states it led the Series B in 2024 \u2014 class 1 for the round it names.",
   "slug": "hyperexponential",
+  "status": "private",
+  "valuation_range": "below_1b"
+ },
+ "hyperscience": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "needs_web_value",
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "New York",
+  "hq_city_confidence": "medium",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "HyperScience, the trading name of Hyper Labs, Inc. DUPLICATE of hyper-labs-inc-dba-hyperscience.",
+  "slug": "hyperscience",
   "status": "private",
   "valuation_range": "below_1b"
  },
@@ -4964,6 +5586,26 @@
   "status": "public",
   "valuation_range": "below_1b"
  },
+ "idi-insurance": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "needs_web_value",
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "Petah Tikva",
+  "hq_city_confidence": "medium",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "IL",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "IDI Insurance Co. Ltd (TASE: IDIN), the Israeli direct insurer. DUPLICATE of idi-direct-insurance, Battery's own portfolio row. Listed outside SEC registration, so the market cap is web-cited under the non-US-listing rule \u2014 owed in the A/B pass.",
+  "slug": "idi-insurance",
+  "status": "public",
+  "valuation_range": "below_1b"
+ },
  "ifplabs": {
   "flags": [],
   "hq_city": "Berlin",
@@ -5005,7 +5647,12 @@
   "slug": "imara"
  },
  "imper-ai": {
-  "flags": [],
+  "entry_stage": "Seed",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "model",
+  "flags": [
+   "stage_uncited"
+  ],
   "hq_city": "Tel Aviv",
   "hq_city_confidence": "high",
   "hq_city_source": "web_verified",
@@ -5013,8 +5660,10 @@
   "hq_country_citation": "https://www.battery.com/company/imper-ai/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'Tel Aviv, Israel'. First-party and city-bearing, so it outranks the Wikidata join for this book.",
-  "slug": "imper-ai"
+  "note": "Battery's own Location field on its company page: 'Tel Aviv, Israel'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Imper.AI, AI for insurance underwriting and claims, Tel Aviv. Battery's Early label with INVESTED 2025.",
+  "slug": "imper-ai",
+  "status": "private",
+  "valuation_range": "below_1b"
  },
  "in-focus-systems": {
   "entry_stage": "Growth",
@@ -5032,6 +5681,44 @@
   "hq_country_source": "model_knowledge",
   "note": "In Focus Systems, projection displays, Wilsonville OR; on Battery's 1997 portfolio page marked public. Merged with Proxima in 2000 and later absorbed.",
   "slug": "in-focus-systems",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
+ "incloud-llc": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "San Francisco",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "InCloud, LLC is the registered entity behind InCloudCounsel, the legal-workflow company that became Ontra; Ontra has its own portfolio row. DUPLICATE flagged for the identity overlay.",
+  "slug": "incloud-llc",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
+ "incloudcounsel": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "San Francisco",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "InCloudCounsel, renamed Ontra in 2022; the ontra row carries the live position. DUPLICATE flagged for the identity overlay.",
+  "slug": "incloudcounsel",
   "status": "acquired",
   "valuation_range": "below_1b"
  },
@@ -5107,6 +5794,44 @@
   "note": "Inkra Networks, virtualised network services switches; wound down in 2005 after the post-bubble collapse.",
   "slug": "inkra-networks",
   "status": "defunct",
+  "valuation_range": "below_1b"
+ },
+ "input-factory": {
+  "entry_stage": "Seed",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "San Francisco",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "Input Factory, Inc. dba Polar, the mobile polling app; acqui-hired by Google in 2016, which the compliance list names as the successor. DUPLICATE of inputfactory-inc-dba-polar.",
+  "slug": "input-factory",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
+ "inputfactory-inc-dba-polar": {
+  "entry_stage": "Seed",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "San Francisco",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "The dba rendering of the input-factory row. DUPLICATE flagged for the identity overlay.",
+  "slug": "inputfactory-inc-dba-polar",
+  "status": "acquired",
   "valuation_range": "below_1b"
  },
  "insert-mobile": {
@@ -5225,6 +5950,25 @@
   "status": "acquired",
   "valuation_range": "below_1b"
  },
+ "interana-inc-dba-scuba": {
+  "entry_stage": "Series A",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "Menlo Park",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "Interana, Inc. dba Scuba \u2014 the registered-name row for scuba. DUPLICATE flagged for the identity overlay.",
+  "slug": "interana-inc-dba-scuba",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
  "internet-brands": {
   "flags": [],
   "hq_city": "Los Angeles",
@@ -5236,6 +5980,25 @@
   "hq_country_source": "web_verified",
   "note": "Battery's own Location field on its company page: 'Los Angeles, California'. First-party and city-bearing, so it outranks the Wikidata join for this book.",
   "slug": "internet-brands"
+ },
+ "interviewstreet-inc-dba-hacker": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "Mountain View",
+  "hq_city_confidence": "medium",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "Interviewstreet, Inc. dba HackerRank \u2014 the registered-name row. DUPLICATE of hackerrank; note the compliance list truncates the trading name to 'Hacker'.",
+  "slug": "interviewstreet-inc-dba-hacker",
+  "status": "private",
+  "valuation_range": "below_1b"
  },
  "inventa": {
   "entry_stage": "Growth",
@@ -5295,6 +6058,24 @@
   "status": "acquired",
   "valuation_range": "below_1b"
  },
+ "ip-unity-glenayre": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "stage_uncited"
+  ],
+  "hq_city": "Milpitas",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "medium",
+  "hq_country_source": "model_knowledge",
+  "note": "IP Unity Glenayre, carrier messaging and conferencing infrastructure formed from the 2008 IP Unity/Glenayre merger; absorbed in the 2010s.",
+  "slug": "ip-unity-glenayre",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
  "istra-research": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
@@ -5345,6 +6126,24 @@
   "note": "Battery's own Location field on its company page: 'Dallas, Texas'. First-party and city-bearing, so it outranks the Wikidata join for this book. | J. Hilburn, custom menswear sold through personal stylists, Dallas; the business wound down in the early 2020s. Brian O'Malley and Michael Brown on the 2012 $15M Form D, both inside tenure; the Series A entry is already resolved.",
   "slug": "j-hilburn",
   "status": "defunct",
+  "valuation_range": "below_1b"
+ },
+ "jack-mobile-dba-ozlo": {
+  "entry_stage": "Seed",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "model",
+  "flags": [
+   "stage_uncited"
+  ],
+  "hq_city": "Palo Alto",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "Jack Mobile dba Ozlo, conversational AI assistant founded by ex-Siri engineers; acqui-hired by Facebook in 2017.",
+  "slug": "jack-mobile-dba-ozlo",
+  "status": "acquired",
   "valuation_range": "below_1b"
  },
  "jamf": {
@@ -5415,6 +6214,25 @@
   "status": "acquired",
   "valuation_range": "below_1b"
  },
+ "jetcu-p-c-b-ltd": {
+  "entry_stage": "Series A",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "city_unknown",
+   "country_prior",
+   "identity_uncertain",
+   "stage_prior",
+   "stage_uncited"
+  ],
+  "hq_country": "IL",
+  "hq_country_confidence": "low",
+  "hq_country_source": "model_knowledge",
+  "note": "JetCu P.C.B. Ltd., printed-circuit-board technology; compliance-list-only and marked exited. The 'Ltd.' plus the naming style suggests an Israeli position, flagged as a prior.",
+  "slug": "jetcu-p-c-b-ltd",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
  "jfrog": {
   "entry_stage": "Growth",
   "entry_stage_citation": "https://www.battery.com/blog/jfrog-case-study/",
@@ -5464,6 +6282,25 @@
   "note": "Joya Communications, the video-messaging app Sesame/Glide lineage; absorbed in the 2010s. Compliance-list-only, not marked exited.",
   "slug": "joya-communications",
   "status": "acquired",
+  "valuation_range": "below_1b"
+ },
+ "jrsk-inc-dba-away": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "New York",
+  "hq_city_confidence": "medium",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "JRSK, Inc. dba Away \u2014 the registered-name row for the away row. DUPLICATE flagged for the identity overlay.",
+  "slug": "jrsk-inc-dba-away",
+  "status": "private",
   "valuation_range": "below_1b"
  },
  "jump": {
@@ -5633,6 +6470,43 @@
   "note": "Koru Careers, predictive hiring assessment, Seattle; acquired by Cappfinity in 2020.",
   "slug": "koru-careers",
   "status": "acquired",
+  "valuation_range": "below_1b"
+ },
+ "kovr-ai": {
+  "entry_stage": "Seed",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "model",
+  "flags": [
+   "stage_uncited"
+  ],
+  "hq_city": "Washington",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "medium",
+  "hq_country_source": "model_knowledge",
+  "note": "Kovr.ai Corp, AI compliance automation for federal authorisation (FedRAMP/ATO). Compliance-list-only and not marked exited.",
+  "slug": "kovr-ai",
+  "status": "private",
+  "valuation_range": "below_1b"
+ },
+ "ksv-esports-international-ltd-dba-gen-g": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "Los Angeles",
+  "hq_city_confidence": "medium",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "medium",
+  "hq_country_source": "model_knowledge",
+  "note": "KSV eSports International Ltd. dba Gen.G \u2014 the registered-name row for gen-g. DUPLICATE flagged for the identity overlay.",
+  "slug": "ksv-esports-international-ltd-dba-gen-g",
+  "status": "private",
   "valuation_range": "below_1b"
  },
  "kustomer": {
@@ -5815,7 +6689,13 @@
   "slug": "learnosity-ltd"
  },
  "leeo": {
-  "flags": [],
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "stage_uncited"
+  ],
   "hq_city": "New York",
   "hq_city_confidence": "high",
   "hq_city_source": "web_verified",
@@ -5823,8 +6703,10 @@
   "hq_country_citation": "https://www.battery.com/company/leeo/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'New York, New York'. First-party and city-bearing, so it outranks the Wikidata join for this book.",
-  "slug": "leeo"
+  "note": "Battery's own Location field on its company page: 'New York, New York'. First-party and city-bearing, so it outranks the Wikidata join for this book. | LEEO Insurance Services, LLC, formerly Fairmatic Services \u2014 the compliance list records the rename, and fairmatic-services-inc is the Form D registrant row for the same lineage. DUPLICATE flagged for the identity overlay.",
+  "slug": "leeo",
+  "status": "private",
+  "valuation_range": "below_1b"
  },
  "legent": {
   "entry_stage": "Growth",
@@ -5961,6 +6843,26 @@
   "status": "acquired",
   "valuation_range": "below_1b"
  },
+ "liffe-london-international-financial-futures-and-options-exchange": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "pre_window",
+   "stage_uncited"
+  ],
+  "hq_city": "London",
+  "hq_city_confidence": "medium",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "GB",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "LIFFE, the London derivatives exchange; acquired by Euronext in 2002 and now ICE. Battery participated in its 2000-2001 demutualisation-era financing. DUPLICATE of london-international-financial-futures-and-options-exchange, the unabbreviated compliance-list rendering.",
+  "slug": "liffe-london-international-financial-futures-and-options-exchange",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
  "lightbox": {
   "flags": [],
   "hq_city": "Shelton",
@@ -6023,6 +6925,25 @@
   "status": "private",
   "valuation_range": "below_1b"
  },
+ "lion-cells": {
+  "entry_stage": "Series A",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "city_unknown",
+   "country_prior",
+   "identity_uncertain",
+   "stage_prior",
+   "stage_uncited"
+  ],
+  "hq_country": "US",
+  "hq_country_confidence": "low",
+  "hq_country_source": "model_knowledge",
+  "note": "Lion Cells, lithium-ion cell technology; unrecognized beyond the listing. A cleantech-era position.",
+  "slug": "lion-cells",
+  "status": "defunct",
+  "valuation_range": "below_1b"
+ },
  "liquidlight": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
@@ -6050,6 +6971,26 @@
   "hq_country_source": "web_verified",
   "note": "Battery's own Location field on its company page: 'New York, New York'. First-party and city-bearing, so it outranks the Wikidata join for this book. | LiveIntent, email-based advertising and identity; acquired by Zeta Global in 2024, which the compliance list names as the successor. Roger Lee on the 2014 $9M Form D inside tenure; the Series A entry is already resolved.",
   "slug": "liveintent",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
+ "lmx-labs": {
+  "entry_stage": "Series A",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "model_disputes_source",
+   "possible_duplicate",
+   "stage_uncited"
+  ],
+  "hq_city": "London",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "GB",
+  "hq_country_confidence": "medium",
+  "hq_country_source": "model_knowledge",
+  "note": "LMX Labs, the FX analytics business of FairXchange; the compliance list marks it exited. DISPUTE: the parenthetical the parser read as a successor resolved to Coinbase's ticker, which is a parse artifact of the list's own bracket style, not an acquirer. DUPLICATE of fairxchange-inc-dba-lmx-labs.",
+  "slug": "lmx-labs",
   "status": "acquired",
   "valuation_range": "below_1b"
  },
@@ -6089,6 +7030,21 @@
   "note": "Battery's own Location field on its company page: 'Cambridge, Massachussetts'. First-party and city-bearing, so it outranks the Wikidata join for this book. | LogRocket, session replay and frontend monitoring, Cambridge MA. Battery's Early label with INVESTED 2019, the year of the $15M Series A.",
   "slug": "logrocket",
   "status": "private",
+  "valuation_range": "below_1b"
+ },
+ "london-international-financial-futures-and-options-exchange": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "city_unknown",
+   "possible_duplicate",
+   "pre_window",
+   "stage_uncited"
+  ],
+  "note": "The unabbreviated compliance-list rendering of LIFFE. DUPLICATE of the liffe- row.",
+  "slug": "london-international-financial-futures-and-options-exchange",
+  "status": "acquired",
   "valuation_range": "below_1b"
  },
  "looking-glass-networks": {
@@ -6263,6 +7219,24 @@
   "slug": "marketo",
   "valuation_range": "below_1b"
  },
+ "mass-relevance-dba-spredfast-inc": {
+  "entry_stage": "Series A",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "stage_uncited"
+  ],
+  "hq_city": "Austin",
+  "hq_city_confidence": "medium",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "Mass Relevance, social-content curation, Austin; merged into Spredfast in 2015, which became Khoros. The compliance list marks it exited.",
+  "slug": "mass-relevance-dba-spredfast-inc",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
  "matillion": {
   "flags": [],
   "hq_city": "Manchester",
@@ -6365,6 +7339,25 @@
   "hq_country_source": "model_knowledge",
   "note": "MCA Solutions, service-parts planning and optimisation, Philadelphia; acquired by Servigistics in 2011.",
   "slug": "mca-solutions",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
+ "mediawise-networks-inc": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "pre_window",
+   "stage_uncited"
+  ],
+  "hq_city": "San Jose",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "medium",
+  "hq_country_source": "model_knowledge",
+  "note": "MediaWise Networks, video networking over IP; on Battery's 1997 portfolio page under Communications/Networking and absorbed in the late 1990s.",
+  "slug": "mediawise-networks-inc",
   "status": "acquired",
   "valuation_range": "below_1b"
  },
@@ -6538,7 +7531,12 @@
   "valuation_range": "below_1b"
  },
  "miter": {
-  "flags": [],
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "model",
+  "flags": [
+   "stage_uncited"
+  ],
   "hq_city": "San Francisco",
   "hq_city_confidence": "high",
   "hq_city_source": "web_verified",
@@ -6546,8 +7544,46 @@
   "hq_country_citation": "https://www.battery.com/company/miter/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book.",
-  "slug": "miter"
+  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Miter, payroll and workforce management for construction contractors. Battery's Growth label with INVESTED 2024.",
+  "slug": "miter",
+  "status": "private",
+  "valuation_range": "below_1b"
+ },
+ "mobile-radio-new-england": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "city_unknown",
+   "possible_duplicate",
+   "pre_window",
+   "stage_uncited"
+  ],
+  "hq_country": "US",
+  "hq_country_confidence": "medium",
+  "hq_country_source": "model_knowledge",
+  "note": "Mobile Radio New England, an SMR carrier rolled into the Nextel consolidation. DUPLICATE of mobile-radio-of-new-england \u2014 the compliance list and the alphabetical page render the same company with and without the 'of'.",
+  "slug": "mobile-radio-new-england",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
+ "mobile-radio-of-new-england": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "city_unknown",
+   "possible_duplicate",
+   "pre_window",
+   "stage_uncited"
+  ],
+  "hq_country": "US",
+  "hq_country_confidence": "medium",
+  "hq_country_source": "model_knowledge",
+  "note": "The 'of' rendering, from the 2007-2012 alphabetical page's prior-holdings column. DUPLICATE flagged for the identity overlay.",
+  "slug": "mobile-radio-of-new-england",
+  "status": "acquired",
+  "valuation_range": "below_1b"
  },
  "modern-health": {
   "entry_stage": "Growth",
@@ -6859,6 +7895,25 @@
   "status": "acquired",
   "valuation_range": "below_1b"
  },
+ "netlink-inc": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "pre_window",
+   "stage_uncited"
+  ],
+  "hq_city": "Research Triangle Park",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "medium",
+  "hq_country_source": "model_knowledge",
+  "note": "Netlink, Inc., SNA-over-IP internetworking; acquired by Sync Research in 1996. A founding-era position, marked exited.",
+  "slug": "netlink-inc",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
  "netswork": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
@@ -6877,6 +7932,26 @@
   "note": "NetsWork, Inc.: compliance-list-only, marked exited, unrecognized; a dot-com-era name.",
   "slug": "netswork",
   "status": "defunct",
+  "valuation_range": "below_1b"
+ },
+ "network-equipment-technologies-inc": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "possible_duplicate",
+   "pre_window",
+   "stage_uncited"
+  ],
+  "hq_city": "Fremont",
+  "hq_city_confidence": "low",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_confidence": "high",
+  "hq_country_source": "model_knowledge",
+  "note": "Network Equipment Technologies, Inc. \u2014 the full name of the 'NET' row on Battery's 1997 portfolio page; acquired by Sonus Networks in 2012. DUPLICATE of net, where the Wikidata 'CZ' country and the defunct status were both disputed.",
+  "slug": "network-equipment-technologies-inc",
+  "status": "acquired",
   "valuation_range": "below_1b"
  },
  "network-management": {
