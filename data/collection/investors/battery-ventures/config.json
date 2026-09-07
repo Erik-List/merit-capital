@@ -1,0 +1,330 @@
+{
+ "slug": "battery-ventures",
+ "name": "Battery Ventures",
+ "wayback": {
+  "cdx_domain": "battery.com",
+  "site_url_base": "https://www.battery.com",
+  "eras": [
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio.htm",
+    "from": 1996,
+    "to": 2000,
+    "site_url_base": "http://www.battery.com",
+    "raw": true,
+    "pattern": "<p>\\s*(?:<a href=\"[^\"]*\"[^>]*>)?\\s*<b>(?P<name>[A-Za-z0-9@][^<>]{1,70}?)</b>",
+    "_note": "Era 1, the FrontPage site. Sector-sectioned <h3><a name=Comm|Wireless|Software|Internet|Other>, each company a <p> whose name sits in <b>, linked to its own site or bare (Concord Data Systems). A trailing <strong>*</strong> marks a public company in this era, not an exit. This is the 1980s-90s book: Banyan Systems, Fore Systems, Brooktrout, FaxSav, Focal."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio/viewalpha.html",
+    "from": 2004,
+    "to": 2012,
+    "site_url_base": "http://www.battery.com",
+    "raw": true,
+    "pattern": "(?:<br\\s*/?>|<p>|<td[^>]*>)\\s*(?:<a href=\"[a-z0-9_.&-]+\\.html\"[^>]*>\\s*)?(?P<name>[A-Za-z@][^<>]{1,58}?)\\s*(?:</a>)?\\s*(?=<br\\s*/?>|</p>|</td>)",
+    "_note": "Era 3, the alphabetical view -- the richest pre-2013 surface. Two columns: CURRENT holdings as <a href=\"<slug>.html\">Name</a>, PRIOR holdings as bare text between <br/>s (@stake, Akamai, Banyan, Fore Systems, Infoseek, Ximian). The anchor is deliberately non-capturing so both columns key on the NAME: era slugs drift across Battery's five site generations (portfolio/tejas.html -> company/tejas-networks/) while norm(name) is stable, and the build keys on norm(name)."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/our-companies/",
+    "from": 2013,
+    "to": 2020,
+    "raw": true,
+    "pattern": "/our-companies/company/(?P<slug>[a-z0-9][a-z0-9-]{1,60})/\"\\s+class=\"dynamic_company_link",
+    "_note": "Era 4, the WordPress logo wall. Cards are logo-only -- no alt text and no rendered name -- so the identity is the href slug and the row lands unnamed for the judge to name (COLLECTION.md 5, the logo-era rule). The class attribute also carries the firm's own sector-/stage-/status- filters; listing_regex drops them and the live site layer supplies those fields instead."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/list-of-all-companies/",
+    "from": 2021,
+    "to": 2026,
+    "raw": true,
+    "pattern": "(?:<(?:p|span|td)[^>]*>|<br\\s*/?>)\\s*(?!(?:\\d+\\s+(?:second|minute|hour|day|week|month|year)|Always\\b|Close\\b|Manage\\b|Description\\b|CONSENT\\b|AWSELB|CookieLawInfo|cookieyes|_ga|viewed_cookie|Session\\b|Necessary\\b|Functional\\b|Analytics\\b|Performance\\b|Advertisement\\b|Others\\b|Cookie\\b|Duration\\b|Yes\\b|No\\b|Enabled\\b|Disabled\\b|EN\\b|FR\\b|DE\\b))(?P<name>[A-Za-z0-9@#][^<>]{1,110}?)\\s*(?=</span>|</p>|</td>|<br\\s*/?>)",
+    "_note": "Era 5a, the marketing-rule compliance list -- the highest-recall surface Battery publishes and the only one carrying the 1980s-90s book. THREE markup shapes across six captured years: bare 'Name<br />' runs (2021-2023, 2025), a '<tr><td>Name</td></tr>' table (2024) and '<p><span style=font-weight:400>Name</span></p>' (2026), so the pattern accepts an opening p/span/td OR a preceding <br> and closes on a lookahead, which also lets consecutive <br>-separated rows chain. Rows carry full legal names, tickers and a trailing '*' the page's own legend defines as 'Denotes an exited investment.' The series runs 588 (2021) -> 679 (2026), so it dates each row's first listing as well as enumerating it."
+   },
+   {
+    "parser": "cdx_company_pages",
+    "path": "/company",
+    "from": 2021,
+    "to": 2026,
+    "cdx_pages": 3,
+    "_note": "Era 5b. Per-company pages captured directly; corroborates the compliance list and dates each row's listing tenure."
+   }
+  ],
+  "non_company_slugs": [
+   "battery-ventures",
+   "all",
+   "see-all",
+   "index",
+   "overview",
+   "company",
+   "companies",
+   "our-companies",
+   "list-of-all-companies",
+   "portfolio",
+   "viewalpha",
+   "viewstage",
+   "viewlocation",
+   "case",
+   "people",
+   "team",
+   "news",
+   "about",
+   "contact",
+   "search",
+   "home",
+   "welcome",
+   "default",
+   "application-software",
+   "infrastructure-software",
+   "consumer",
+   "industrial-tech",
+   "life-science-tools",
+   "blog",
+   "insights",
+   "services",
+   "privacy-policy",
+   "terms-and-conditions",
+   "cookie-policy",
+   "battery-ventures-home",
+   "menu",
+   "footer",
+   "header",
+   "nav",
+   "communications-networking",
+   "wireless-communications",
+   "software",
+   "internet-online",
+   "other",
+   "semiconductors",
+   "ecommerce",
+   "infrastructure",
+   "communication",
+   "internet",
+   "view-by-sector",
+   "view-by-stage",
+   "view-alphabetically",
+   "view-by-location",
+   "case-studies",
+   "our-team",
+   "general-partners",
+   "partners",
+   "venture-partners",
+   "investment-professionals",
+   "operations",
+   "north-america",
+   "india",
+   "israel",
+   "europe",
+   "latest-news",
+   "portfolio-news",
+   "battery-news",
+   "events-calendar",
+   "battery-charger",
+   "submit-a-business-plan",
+   "entrepreneur-network",
+   "our-value",
+   "introduction",
+   "venture-capital",
+   "private-equity",
+   "additional-investment-vehicles",
+   "contact-us",
+   "home-page"
+  ]
+ },
+ "roster": {
+  "cdx_patterns": [
+   "battery.com/people/*",
+   "battery.com/our-team/*"
+  ],
+  "site_team_groups": [],
+  "slug_re": "/(?:people|our-team)/([a-z][a-z0-9_.-]*[a-z0-9])(?:\\.s?html?)?/?$",
+  "listing_href_re": "/(?:people|our-team)/([a-zA-Z][a-zA-Z0-9_.-]*)(?:\\.s?html?)?[\"'/]",
+  "not_a_person": [
+   "index",
+   "overview",
+   "generalpartners",
+   "partners",
+   "venturepartners",
+   "ips",
+   "operations",
+   "team",
+   "our-team",
+   "people",
+   "all",
+   "leadership",
+   "investment-team",
+   "operating-partners",
+   "firm-operations",
+   "portfolio-services",
+   "eirs",
+   "advisors"
+  ],
+  "_note": "Two people namespaces: /people/<slug>.html in the 2004-2012 site and /people/<first-last>/ from 2013. The 2008 site also grouped them behind generalpartners.html / partners.html / venturepartners.html / ips.html / operations.html, which are group pages, not people. Slugs are lowercase throughout, so First Round's capitalised-directory trap does not arise here; the namespace holds no founder directory."
+ },
+ "site_api": {
+  "type": "scrape",
+  "sources": [
+   {
+    "parser": "file_list",
+    "list": "company-pages",
+    "path": "data/collection/investors/battery-ventures/sources/site/company-pages.json",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "key_field": "slug",
+    "sectors": "sectors",
+    "extras": [
+     "slug",
+     "invest_year",
+     "site_status",
+     "site_location",
+     "site_stage",
+     "partners",
+     "team",
+     "company_site",
+     "linkedin",
+     "description"
+    ],
+    "rename": {
+     "site_stage": "site_entry_stage"
+    }
+   },
+   {
+    "parser": "file_list",
+    "list": "compliance-list",
+    "path": "data/collection/investors/battery-ventures/sources/site/compliance-list.json",
+    "fields": {
+     "name": "name"
+    },
+    "key_field": "slug",
+    "extras": [
+     "legal_name",
+     "exited",
+     "ticker",
+     "exchange",
+     "alias",
+     "successor",
+     "registered_name",
+     "slug"
+    ],
+    "row_url": "https://www.battery.com/list-of-all-companies/"
+   }
+  ],
+  "_note": "Two surfaces, unioned. (1) battery.com is WordPress and answers /wp-json/wp/v2/types, but the `company` post type is NOT REST-exposed and the /company/ index loads over admin-ajax, so ladder step 1 fails and the rows come from 351 per-company detail fetches driven by the Yoast company sitemap -- scratch/pull-site-companies.py, saved as a file_list so the union stays reproducible. Those pages carry the firm's own SECTORS, INVESTED year, free-text STATUS, Location, STAGE (Early|Growth|Buyout) and the per-deal Battery Team. (2) /list-of-all-companies/ is the marketing-rule compliance list, 679 entries headed 'All investments as of Q1 2026' with no declared exclusions -- roughly double the portfolio surface and the only surface carrying the 1980s-90s book. site_entry_stage and invest_year are scored on the calibration gate before either labels a row.",
+  "team_sources": [
+   {
+    "parser": "file_list",
+    "list": "people-pages",
+    "path": "data/collection/investors/battery-ventures/sources/site/team-pages.json",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "key_field": "slug",
+    "extras": [
+     "slug",
+     "title",
+     "office",
+     "joined",
+     "focus_areas",
+     "linkedin_url",
+     "x_url"
+    ]
+   }
+  ]
+ },
+ "edgar": {
+  "seed_queries": [
+   "battery+ventures",
+   "battery+investment+partners",
+   "battery+partners"
+  ],
+  "fts_phrases": [
+   "Battery Ventures",
+   "Battery Investment Partners",
+   "Battery Partners"
+  ],
+  "fts_own_pattern": "battery (ventures|investment partners|partners|management corp)",
+  "_note": "Entity-qualified phrases only. Bare 'Battery' is unusable on EDGAR full-text search: it matches every lithium-battery issuer, every 'battery of tests' and Battery Park. The registered namesakes that share the word and are NOT this firm: Battery Park (Nomura CLO / high-yield vehicles, New York), Batterymarch (the Legg Mason quant shop), Battery Future Acquisition Corp (a SPAC), Battery Global Advisors LLC (CRD 158508, a separate active RIA at the same Boston tower, suite 1150, whose Alternative Income / Uncorrelated / Opportunity funds file from there), Battery Private Inc (CRD 284734, a d/b/a of Advisory Services Network), Battery East Group / Scenic Advisement, and a cluster of battery-metals miners."
+ },
+ "wikipedia": {
+  "phrases": [
+   "Battery Ventures"
+  ]
+ },
+ "desks": {
+  "home": "us",
+  "partition": [],
+  "rank": [
+   "us",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "battery park",
+     "batterymarch",
+     "battery future acquisition",
+     "battery global advisors",
+     "battery private",
+     "battery east",
+     "battery metals",
+     "battery mineral",
+     "battery grade materials",
+     "battery electron transport",
+     "battery & space materials",
+     "battery x metals",
+     "battery storage feeder",
+     "battery point trust",
+     "batteryxchange",
+     "battery alternative income",
+     "battery uncorrelated",
+     "battery opportunity fund",
+     "battery ventures opportunities access"
+    ]
+   },
+   {
+    "desk": "us",
+    "patterns": [
+     "^battery ventures",
+     "^battery investment partners",
+     "^battery partners",
+     "^battery management corp",
+     "^bmc uk subadvisor"
+    ]
+   }
+  ],
+  "_note": "One adviser, one desk, no partition. Battery Management Corp. (CRD 160921, active RIA) is the whole firm, d/b/a Battery Ventures, with two RELYING advisers -- BMC UK Subadvisor Support Ltd and Battery Ventures Israel Ltd -- so the UK and Israel offices are IN under T1 exactly as LSVP's US/Europe/Israel offices are under CRD 160187. Crucially the firm runs early, growth AND buyout out of ONE fund family (Battery Ventures VI-XV, Side Funds, Select I-II), so the T1 strategy-desk addendum finds no separate vehicle to partition and desks.partition stays empty; the buyout book is separated at the TRANSACTION level by T3's control test instead. Excluded: Battery Global Advisors (its own RIA, CRD 158508, suite 1150 of the same tower -- the Accel-KKR / Lightspeed Faction pattern) and its Alternative Income / Uncorrelated / Opportunity funds; the Opportunities Access feeders, which file from 200 West Street, Goldman Sachs' address, and are third-party feeders (the Thrive IX Access precedent). Desks resolve by CIK and filing address, never the name pattern alone."
+ },
+ "profile": {
+  "own_vehicle_pattern": "^battery (ventures|investment partners|partners) ",
+  "focus_min_companies": 30,
+  "_note": "focus_min_companies ~4.5% of the expected ~680-row base. Battery publishes its own five-sector vocabulary (Application Software, Infrastructure Software, Consumer, Industrial Tech, Life Science Tools), which stands until the base-derived tag coverage clears the 25% bar."
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [],
+  "sample_slugs": [],
+  "shape": {
+   "one_b_share_max": 0.2,
+   "c2a_rate_max": 0.8,
+   "_note": "Defaults kept at kickoff. Battery has invested since 1983 and its published list runs to 679 names, most of them 1990s and 2000s enterprise-infrastructure companies, so the $1B share should sit well under the guard."
+  }
+ },
+ "sample_slugs": [],
+ "commoncrawl": {
+  "company_paths": [
+   "/company/",
+   "/our-companies/company/"
+  ],
+  "people_paths": [
+   "/people/"
+  ],
+  "_note": "The layer's job here is 2017-2021, between the logo-wall era's last good captures and the current site, and as the standing fallback if the Internet Archive goes down mid-run."
+ }
+}

@@ -1,0 +1,32 @@
+
+==== formd-query.py
+targets: 133 roster names
+wrote /Users/erik/Developer/merit-capital/data/collection/investors/battery-ventures/sources/edgar/formd-sweep.json
+# accessions matched: 723
+# distinct issuers: 334
+
+==== edgar-entities.py
+== seeding from EDGAR company search
+   60 entities
+== folding in own pooled Form D vehicles
+   +1 (total 61)
+== co-filer closure (sampling filings of seed entities)
+   85 entities
+   unclassified resolved: 9 partners (people), 14 external co-filers excluded from crawling
+
+wrote data/collection/investors/battery-ventures/entities.json — 85 entities
+  by desk: {'external': 17, 'us': 68}
+  crawlable (desk != external): 68
+
+==== edgar-companies.py
+registry: 85 entities · {'external': 17, 'us': 68}
+crawling 68 (external excluded)
+  25/68 entities · 172 unique accessions
+  50/68 entities · 267 unique accessions
+unique ownership filings: 422
+  headers 250/422 · 36 companies
+
+wrote edgar-companies.json — 42 companies
+  by desk: {'us': 41, 'unknown': 1}
+
+no base.json yet — the Form D rescan (formd-issuer-rounds.py) runs via `prepare` after build-company-base.py
