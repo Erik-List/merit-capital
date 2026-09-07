@@ -742,10 +742,12 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Queued for the adversarial A/B pass: a $1B+ or public row whose stage citation or market-cap citation is still owed. The figure here came from a deterministic layer (unicorn list or SEC float), not from a judged, cited event. | The registered-name row for Braze, which has its own base row. DUPLICATE flagged for the identity overlay.",
+  "note": "Queued for the adversarial A/B pass: a $1B+ or public row whose stage citation or market-cap citation is still owed. The figure here came from a deterministic layer (unicorn list or SEC float), not from a judged, cited event. | The registered-name row for Braze, which has its own base row. DUPLICATE flagged for the identity overlay. | Appboy, Inc. is Braze's original registered name \u2014 the company is NASDAQ: BRZE, not acquired. Correcting this row to match the braze row it duplicates; the figure is the SEC public float and a cited market cap is owed in the A/B pass.",
   "slug": "appboy-inc",
-  "status": "acquired",
-  "valuation_range": "below_1b"
+  "status": "public",
+  "valuation_range": "1b_plus",
+  "valuation_source": "sec_public_float",
+  "valuation_usd": 2700000000
  },
  "appdynamics": {
   "entry_stage": "Growth",
@@ -8304,6 +8306,24 @@
   "hq_country_source": "web_verified",
   "note": "Battery's own Location field on its company page: 'Stone Mountain, Georgia'. First-party and city-bearing, so it outranks the Wikidata join for this book.",
   "slug": "nova-metrix"
+ },
+ "nova-technologies": {
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "model",
+  "flags": [
+   "city_unknown",
+   "identity_uncertain",
+   "pre_window",
+   "stage_uncited"
+  ],
+  "hq_country": "US",
+  "hq_country_confidence": "low",
+  "hq_country_source": "model_knowledge",
+  "note": "Nova Technologies appears in the 2007-2012 alphabetical page's PRIOR-holdings column, which is the 1990s book \u2014 distinct from Nova Instruments and Nova Metrix, the 2009-2010 measurement platforms Battery controls. Kept as a member on that reading, with the identity flagged rather than folded into the platform rows.",
+  "slug": "nova-technologies",
+  "status": "acquired",
+  "valuation_range": "below_1b"
  },
  "novaxess": {
   "entry_stage": "Growth",
