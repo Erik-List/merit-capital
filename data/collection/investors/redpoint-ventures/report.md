@@ -275,15 +275,34 @@ for its own, but the eras between them gave neither.
 
 ## 9. Proposed playbook write-backs
 
-1. **`scripts/wayback-pull.py` and `scripts/partner-roster.py` should use https,
-   not http.** The Internet Archive refused plain-HTTP (port 80) connections
-   intermittently for the whole of this run — `curl` rc=7 on 2 of 3 tries while
-   https answered 3 of 3 — and both scripts build every CDX and replay URL as
-   http. The first pull landed 4 of 14 era-years and printed the rest as "0
-   entries", which reads as *no captures* rather than *could not connect*. A
-   run-local https copy (`scratch/wayback-pull-https.py`) then landed all 14.
-   Reported to the YC session, which holds the script-edit role this wave;
-   `scripts/` was not touched from here (§12).
+1. **A replay helper must check curl's return code, not just its body.** Both
+   `scripts/wayback-pull.py` and this run's `scratch/build-early-eras.py`
+   treated "the probe returned nothing" and "the probe never connected" as one
+   outcome, and printed both as `0 entries` / `no capture` — which reads as *the
+   archive holds nothing for this year* when it actually means *unknown*. The
+   first pull landed 4 of 14 era-years that way, and the early-era builder lost
+   3 year-slots.
+   **Correction (2026-09-06).** This entry first blamed the scheme: it claimed
+   the archive was refusing port 80 while https answered, on my n=3 vs n=3
+   sample. That is wrong. The YC session measured it properly — 9 paced
+   alternating requests, http 7/9 and https 6/9, and the failures were rc=28
+   timeouts on BOTH schemes, not rc=7 refusals. The archive was flaky for
+   everyone that hour; the scheme swap was cosmetic and the run-local https
+   copies only "fixed" it by retrying. The defect was always the swallowed
+   return code. Credit for the measurement is the YC run's.
+   The fix (landed upstream by YC as `12402a7`, mirrored here in
+   `scratch/build-early-eras.py`): retry a transport failure 3x with backoff,
+   and when the probes still never connect, name those years in a loud line as
+   UNKNOWN rather than empty. §5 should state the rule directly — **an absence
+   may only be read off a year whose probe actually answered.**
+   *This was not academic.* Re-running the repaired early-era builder recovered
+   3 of the 4 slots this run had recorded as "no capture": `index-oid152 2006`
+   (65 companies, a whole year of additions the base never saw), `index-oid157`
+   2003 and 2005. Re-running the fixed `scripts/wayback-pull.py` then recovered
+   two whole era-years that had been printed as `0 entries` — `/companies/`
+   **2021 (128 entries) and 2024 (178)** — neither of which existed in
+   `sources/wayback/parsed/` at close. The already-exported and already-ingested
+   base moved as a result; see the second addendum.
 2. **A firm's own portfolio page can carry two books.** §5 should say that a
    listing surface is read for its SECTION HEADINGS before its rows: a firm that
    spun out of another displays its founders' prior track record beside its own,
@@ -397,3 +416,111 @@ Redpoint and 80 on Accel. These are recorded as `accepted` in both investors'
 wave alignment** once YC classifies; they are a sibling's missing marker, not a
 disagreement about a published track record. Reported to the YC session.
 
+
+## Addendum, 2026-09-06 (second) — a probe bug re-opened the base; 412 → 413
+
+This addendum exists because a **peer session corrected me**, and the
+correction changed a base that had already been exported and ingested.
+
+**What I got wrong.** Write-back 1 of §9 originally claimed the Internet
+Archive was refusing plain-HTTP (port 80) connections while https answered, and
+proposed swapping the scheme in `scripts/wayback-pull.py`. My evidence was three
+requests a side. The YC session re-measured it — 9 paced alternating requests,
+**http 7/9 and https 6/9, the failures rc=28 timeouts on both schemes** — and
+the claim does not survive. The archive was simply flaky that hour. My
+run-local https shims "worked" because re-running a request is a retry, not
+because of the scheme. §9 write-back 1 is rewritten to say this, and the shims
+are deleted (`scratch/README-retired-shims.md`).
+
+**The defect underneath, which was real.** Neither puller checked `curl`'s
+return code. A year whose probe never connected was recorded and printed
+exactly like a year the archive genuinely holds nothing for: `0 entries`,
+`no capture`. **Absence was being read off silence** — and portfolio recall is
+built out of exactly those absences. YC fixed it upstream in `12402a7`; this
+run's own `scratch/build-early-eras.py` had the identical bug and is fixed the
+same way (3 retries with backoff, then a loud line naming the affected years as
+UNKNOWN rather than empty).
+
+**Re-running the repaired builder recovered 3 of the 4 slots** this run had
+recorded as "no capture": `index-oid152` 2006 (65 companies — a full year of
+additions the base never saw), and `index-oid157` 2003 and 2005. Only
+`portfolio-default.shtml` 2002 is a true absence; its probe answered.
+
+**What that changed in the published base.** Less than the recovered volume
+suggests, because 2006's other 61 rows were already held from adjacent years:
+
+- **+1 company. `amp-d` — Amp'd Mobile**, the Los Angeles MVNO. Defunct
+  (Chapter 11, June 2007). Entry recorded as Growth at low confidence: the
+  firm's own archive names Redpoint in the round — *"Amp'd Mobile Announces
+  $67M in Funding with Investments from Universal Music Group, Highland Capital
+  Partners, Columbia Capital and Redpoint Ventures"* (2005-08-08) — and the
+  April 2006 release calls the next one the third round, so $67M is a ceiling,
+  not a floor. The same archive carries an Amp'd post from **2004-08-25**, a
+  year before that round, which hints the true entry is earlier; nothing cites
+  it, so the row keeps `stage_uncited` and low confidence.
+- **1 `first_seen` correction. `cgen-digital-media-advertising` 2007 → 2006**,
+  merged from the logo-only `cgenmedia` row (`identity-merges.json`).
+- `soa-software` and `vativ-technologies` also appear in the recovered capture
+  and were already members; no change.
+
+**Then the same bug turned up in the late eras, and cost more.** `/companies/`
+**2021 and 2024** had failed transport on every retry of the original pull
+(`rc=7` three times each, logged in `scratch/wayback-pull2.log`) and were
+recorded as `0 entries`. Neither year existed in `sources/wayback/parsed/`.
+Re-running the fixed `scripts/wayback-pull.py` landed both — **2021: 128
+entries, 2024: 178** — along with every other era-year. That is two full years
+of the firm's own listing that the closed run never read.
+
+- It surfaced one more row, `profitboss`, which is **Owner** (owner.com) under
+  its former name — the firm's own card says so: *"Redpoint first partnered
+  with Owner, previously named Profitboss, during their seed in 2020."* Merged
+  to the existing `owner` row, whose `first_seen` stays 2020.
+- The wider effect is evidential rather than numerical: two more years of
+  listing evidence moved **10 rows from tier B to tier A** (337 → 347
+  auto-confirmed, `needs_review` 76 → 66).
+
+**Two parser rules came out of it**, both in `build-early-eras.py`:
+
+1. **Join acquired rows on the logo filename.** When a company is acquired the
+   row's anchor is re-pointed at the ACQUIRER, so its acquisition year loses
+   both the name and the company URL and reads as a brand-new company. The logo
+   image does not change. `ACF783.jpg` is `m7` in 2003–2005 and nameless in
+   2006; without the join it comes back as a second row for a company already
+   in the base.
+2. **Take an anchor as the company's own site only when that host is one the
+   firm names elsewhere.** The first cut of this rule guessed instead, by
+   testing the anchor host against the acquirer's *name* — and invented a
+   company out of every acquirer whose name and domain differ (`amcc`,
+   `getthere`, `webtv`, `mmcnet`). Caught by diffing the rebuild against the
+   ingested base before export, which is the only reason it is a footnote and
+   not seven fabricated rows in the published track record.
+
+**New shape:** 413 members, 153 rows in `excluded.csv`. (The first addendum's
+"157" was wrong; the file has held 153 since that rebuild.) $1B+ 60 / $10B+ 15
+/ $100B+ 5. Entry stage Series A 238 / Growth 115 / Seed 57 / Pre-Seed 3. C2A
+54.3% on 46 cohort rows. Tiers A 347 / B 57 / C 9. `verify` clean, profile
+rebuilt.
+
+Net of both recoveries the base is 412 → 413: **+2 companies** (Amp'd Mobile,
+and Owner surfacing again under its old name) **−1 merge**. The count moved
+barely; what moved is the evidence under it, and the fact that four year-slots
+and two whole era-years were being read as "the firm listed nothing" when the
+truth was "we never got an answer".
+
+**Cross-investor note.** The 38 `accepted` YC-artifact entries in
+`cross-rulings.json` are deleted, and the 86 on Accel with them, now that YC
+carries an in-flight marker. Neither changed row is held by another investor,
+so nothing was hidden by the comparison being skipped.
+
+### Debt this leaves open
+
+- **`portfolio-default.shtml` 2002** remains the one genuine absence in the
+  early eras; its probe answered. No debt.
+- The re-pull began while the archive was refusing connections on **both**
+  schemes (`rc=7`, `rc=56` — logged in `scratch/wayback-pull3.log`), which is
+  the cleanest confirmation available that the scheme was never the variable,
+  and the retry loop then rode it out and landed every year. Worth keeping as
+  the evidence for write-back 1.
+- A **stale `scratch/in-flight.json` for `accel`** (pid 66968, dead) suppressed
+  invariant 10 against that sibling. Left in place rather than deleted from
+  under another session.

@@ -24,6 +24,7 @@ import json
 import re
 import subprocess
 import sys
+import time
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -49,33 +50,51 @@ ERAS = [
 PROBES = ("0615", "0201", "1015", "1101", "0301")
 
 
-def replay(url: str, year: int) -> tuple[str, str]:
-    """(html, true_timestamp) for the capture nearest a probe date inside `year`.
+def replay(url: str, year: int) -> tuple[str, str, bool]:
+    """(html, true_timestamp, reachable) for the capture nearest a probe date.
 
-    https only: the archive's port 80 was refusing connections intermittently
-    for the whole of this run while https answered (reported at close)."""
+    `reachable` is False when every probe failed at the TRANSPORT layer (curl
+    returned non-zero: timeout, refused connection). That is NOT the same as
+    the archive answering "nothing here" — a year whose probes never connected
+    is UNKNOWN, not empty, and no absence may be read off it. The first cut of
+    this function tested only the body and so recorded the two as one; the
+    measurement that separated them is the YC run's (2026-09-06, 9 paced
+    alternating requests: failures were rc=28 timeouts on both schemes, not a
+    port-80 refusal), and scripts/wayback-pull.py carries the same fix."""
+    unreachable = True
     for probe in PROBES:
-        shared_throttle.wait("ia")
-        r = subprocess.run(
-            ["curl", "-sL", "--max-time", "150", "-w", "\n%{url_effective}",
-             "-H", f"User-Agent: {UA}",
-             f"https://web.archive.org/web/{year}{probe}id_/{url}"],
-            capture_output=True, text=True, errors="replace")
+        for attempt in range(3):
+            shared_throttle.wait("ia")
+            r = subprocess.run(
+                ["curl", "-sL", "--max-time", "150", "-w", "\n%{url_effective}",
+                 "-H", f"User-Agent: {UA}",
+                 f"https://web.archive.org/web/{year}{probe}id_/{url}"],
+                capture_output=True, text=True, errors="replace")
+            if r.returncode == 0 and (r.stdout or "").strip():
+                unreachable = False
+                break
+            time.sleep(2 ** attempt)
+        else:
+            continue                       # 3 transport failures: next probe
         body, _, eff = (r.stdout or "").rpartition("\n")
         m = re.search(r"/web/(\d{14})id_/", eff)
         if m and m.group(1)[:4] == str(year) and len(body) > 2000:
-            return body, m.group(1)
-    return "", ""
+            return body, m.group(1), True
+    return "", "", not unreachable
 
 
-def derive_name(row: dict) -> tuple[str, str]:
+def derive_name(row: dict, logos: dict[str, str] | None = None,
+                named_hosts: set[str] | None = None) -> tuple[str, str]:
     """(name, basis). The firm's own rendering wins; a logo-only row is named
     from its own domain, with the logo filename as the tie-break."""
     if row.get("name_alt"):
         return row["name_alt"], "site_alt"
     if row.get("name_text"):
         return row["name_text"], "site_text"
-    host = urlparse(row.get("url") or "").netloc.lower()
+    lf = (row.get("logo_file") or "").lower()
+    if logos and lf in logos:
+        return logos[lf], "logo_map"
+    host = urlparse(own_site(row, named_hosts or set())).netloc.lower()
     host = re.sub(r"^(www|corp|home)\.", "", host)
     stem = re.sub(r"\.(jpg|jpeg|gif|png)$", "", row.get("logo_file") or "", flags=re.I)
     stem = re.sub(r"[_-]?(logo|final|new|web|sm|lrg|home)[_ -]?", " ", stem, flags=re.I)
@@ -83,8 +102,58 @@ def derive_name(row: dict) -> tuple[str, str]:
     if host:
         base = host.rsplit(".", 1)[0] if host.count(".") >= 1 else host
         base = re.sub(r"\.(co|com)$", "", base)
+        # the firm's own logo filename spells the name it uses ("Amp'd.jpg");
+        # take its spelling when it is the same token as the host
+        if stem and alnum(stem) == alnum(base):
+            return stem, "site_logo_name"
         return base, "derived_from_url"
     return stem or "", "derived_from_logo"
+
+
+OPAQUE_LOGO = re.compile(r"^acf\d+$", re.I)          # the CMS's own upload ids
+
+
+def alnum(x: str) -> str:
+    return re.sub(r"[^a-z0-9]", "", (x or "").lower())
+
+
+def own_site(row: dict, named_hosts: set[str]) -> str:
+    """The company's OWN url, including acquired rows that only have an anchor.
+
+    An acquired row's anchor is re-pointed at the ACQUIRER only some of the
+    time: ACF783 links to bea.com under acquirer "BEA Systems" (the acquirer),
+    while ACF647 links to metreo.com under "Symphony Technology Group" (still
+    the company). The test is NOT a guess about the acquirer's name — that
+    invents a company out of every acquirer whose name and domain differ
+    (AMCC, Sabre/GetThere). The anchor is taken as the company's own site only
+    when that host is one the firm NAMES on some other page of its own, i.e.
+    it already belongs to a row in this portfolio."""
+    if row.get("url"):
+        return row["url"]
+    anchor = row.get("acquirer_url") or ""
+    return anchor if host_of(anchor) in named_hosts else ""
+
+
+def logo_map() -> dict[str, str]:
+    """logo filename -> the firm's own rendering of that company's name.
+
+    The logo file is the one identity key that survives an ACQUIRED row: when
+    a company is acquired the row's anchor is re-pointed at the ACQUIRER, so
+    the year of the acquisition loses both the name and the company URL and
+    the row reads as a brand-new company. Its logo image does not change.
+    ACF783.jpg is m7 in 2003-2005 and nameless in 2006. Without this join it
+    comes back as a second row for a company already in the base."""
+    out: dict[str, str] = {}
+    for f in sorted(P.site.glob("companies*.json")):
+        d = json.loads(f.read_text())
+        rows = d.get("rows", d) if isinstance(d, dict) else d
+        for r in (rows if isinstance(rows, list) else []):
+            lf = (r.get("logo_file") or "").lower()
+            name = (r.get("name") or "").strip()
+            if lf and name and r.get("_name_basis") != "derived_from_logo" \
+                    and not OPAQUE_LOGO.match(slug_of(name)):
+                out.setdefault(lf, name)
+    return out
 
 
 def slug_of(name: str) -> str:
@@ -140,28 +209,64 @@ def main() -> None:
     prev: dict[str, dict] = {}       # key -> predecessor-book row
     per_year: dict[int, list] = {}
     names = name_map()
+    logos = logo_map()
+    print(f"logo map: {len(logos)} logo files named by a rendering surface")
     print(f"name map: {len(names)} hosts named by a rendering surface")
     # site_alt/site_text beat a name derived from the row's own domain, and a
     # name rendered on ANY era's surface beats both when it is the same company
-    RANK = {"site_alt": 0, "site_text": 1, "name_map": 2,
-            "derived_from_url": 3, "derived_from_logo": 4}
+    RANK = {"site_alt": 0, "site_text": 1, "site_logo_name": 2, "logo_map": 3,
+            "name_map": 4, "derived_from_url": 5, "derived_from_logo": 6}
 
+    unknown_years: list[str] = []
+    captures: list = []
     for seg, path_label, url, years in ERAS:
         for y in years:
             f = raw_dir / f"{y}-{seg}.html"
             html = f.read_text(errors="replace") if f.exists() else ""
             ts = ""
             if not html and not args.no_fetch:
-                html, ts = replay(url, y)
+                html, ts, reachable = replay(url, y)
+                if not reachable:
+                    unknown_years.append(f"{seg} {y}")
                 if html:
                     f.write_text(html)
                     (raw_dir / f"{y}-{seg}.ts").write_text(ts)
             elif f.exists() and (raw_dir / f"{y}-{seg}.ts").exists():
                 ts = (raw_dir / f"{y}-{seg}.ts").read_text().strip()
             if not html:
-                print(f"  {seg} {y}: no capture")
+                print(f"  {seg} {y}: no capture"
+                      + ("  (UNREACHABLE - unknown, not empty)"
+                         if f"{seg} {y}" in unknown_years else ""))
                 continue
-            sections = PE.split_sections(html)
+            captures.append((seg, path_label, y, ts, PE.split_sections(html)))
+
+    # PASS 1 of 2. A company is anchor-hijacked only in its ACQUISITION year:
+    # every other year of the same era names it and carries its own url. So
+    # harvest those namings first, then assign — that is what lets an acquired
+    # row be joined to itself instead of read as a new company. Doing it in one
+    # pass makes the result depend on era order.
+    for seg, path_label, y, ts, sections in captures:
+        for section, body in sections.items():
+            for r in PE.parse_rows(body):
+                nm = (r.get("name_alt") or r.get("name_text") or "").strip()
+                if not nm:
+                    continue
+                h = host_of(r.get("url") or "")
+                if h:
+                    names.setdefault(h, nm)
+                lf = (r.get("logo_file") or "").lower()
+                if lf and not OPAQUE_LOGO.match(slug_of(nm)):
+                    logos.setdefault(lf, nm)
+                # a self-naming logo file ("musicmatch.jpg", "metatv.jpg") is
+                # the firm's own spelling for the host its row points at
+                stem = re.sub(r"\.(jpg|jpeg|gif|png)$", "", lf, flags=re.I)
+                stem = re.sub(r"[_ -]?(logo|final|new|web|sm|lrg|home)[_ -]?", " ", stem,
+                              flags=re.I).strip()
+                if h and stem and alnum(stem) == alnum(h.rsplit(".", 1)[0]):
+                    names.setdefault(h, nm)
+
+    for seg, path_label, y, ts, sections in captures:
+        if True:
             counts = {}
             for section, body in sections.items():
                 rows = PE.parse_rows(body)
@@ -170,8 +275,8 @@ def main() -> None:
                             for r in PE.parse_previous_text(body)]
                 counts[section] = len(rows)
                 for r in rows:
-                    name, basis = derive_name(r)
-                    host = "" if r.get("acquirer") else host_of(r.get("url") or "")
+                    name, basis = derive_name(r, logos, set(names))
+                    host = host_of(own_site(r, set(names)))
                     if host in names and basis.startswith("derived"):
                         name, basis = names[host], "name_map"
                     if not name:
@@ -230,6 +335,11 @@ def main() -> None:
         indent=1) + "\n")
     print(f"\ncurrent-section companies: {len(rich)}   "
           f"previous-by-partners: {len(prev)}   years: {sorted(per_year)}")
+    if unknown_years:
+        print("\n!! probes could not connect on "
+              f"{len(unknown_years)} year-slot(s): {', '.join(unknown_years)}")
+        print("   Those years are UNKNOWN, not empty - re-run before reading "
+              "any absence off them.")
 
 
 if __name__ == "__main__":
