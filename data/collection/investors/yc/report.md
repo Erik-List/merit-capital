@@ -154,6 +154,50 @@ class-B rows that dangle a large publicised Continuity round.
 
 ---
 
+## 4. The C2A cohort — the column this investor was supposed to answer
+
+This is the most important negative result of the run.
+
+`seed_to_a_graduation` exists because thousands of seed entries should make the
+seed→A graduation rate the single most informative number the dataset can
+produce, and **YC is the firm the column was designed for**. It is also the
+firm where the column cannot be computed from the evidence the pipeline has.
+
+| | |
+|---|---|
+| Seed entries | 6,391 |
+| C2A cohort (entry ≥24 months ago) | **5,041** |
+| Censored (entered within 24 months, null by rule) | 1,290 |
+| Deterministically verified on both legs | **0 (0.00%)** |
+
+**Why, structurally.** The deterministic graduation path is the Form D issuer
+round history: entry round, then a later round ≥2× and ≥$5M. That works for a
+venture firm's book because priced rounds file Form D. It does not work here.
+YC companies raise on SAFEs under Section 4(a)(2) and overwhelmingly file no
+Form D at all, so **there is no filing record of the seed→A transition** for
+essentially the entire cohort. The layer that carries C2A for every other
+investor resolves 34 companies on this base — and those 34 are drawn from the
+Form D partner-name-match rows, which are themselves being ruled `not_member`.
+
+**What is published:** nothing. All 5,041 cohort rows carry `cohort_unverified`
+and a null graduation. Publishing a rate off a 0% verified share would be
+inventing the dataset's headline number, and §6's own instruction is that the
+published rate carries its verified share — here that share is zero.
+
+**What would be needed.** Not a Form D fix. Either a per-company round history
+from a source that records unpriced and SAFE rounds, or ~5,000 web checks — a
+different order of cost from anything the playbook currently budgets. One
+cheaper candidate exists and is deliberately **not** used here: YC's own
+`stage` field ({Early, Growth}) marks companies that have raised beyond seed,
+which is close to what graduation asks. It was refused as an `entry_stage`
+label at 4/29 on the gate, and using it for graduation is a different question
+that a future run should **score against a purpose-built graduation golden set
+before trusting** — §4's rule is that an unscored layer may corroborate but may
+never label, and that rule does not bend because the answer would be
+convenient.
+
+---
+
 ## 9. Playbook write-back proposed
 
 _(Numbering follows the standing report shape; sections 4–8 and 10 are completed
