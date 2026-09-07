@@ -170,7 +170,48 @@ a 13F holding is never membership evidence and never an entry.
 
 ## Part 2 — Deltas (Erik confirms these, and only these)
 
-**None raised at kickoff.** Every question the issue flagged — the sleeves,
+### CONFIRMED 2026-09-06 — T3, no round named + partnered after IPO
+
+**Erik's ruling, standing from this run on and binding every investor:** where
+the firm's own claim names **no round** and the partnering **postdates the
+company's IPO**, the position is not a venture entry and the row is **not a
+member**. This is the T3 sharpening the Accel run left open ("arista, a 13G-only
+post-IPO holding with no documented venture entry").
+
+Applied here to six rows, all `who: "erik"` in the ledger:
+
+| row | the firm's own claim | IPO | why it fails |
+|---|---|---|---|
+| `arista-networks` | "We partnered in 2014" | NYSE, 2014-06-06 | no round named, no pre-IPO round on the record, no Redpoint ownership filing |
+| `internet-brands` | "We first partnered in 2008" | NASDAQ INET, 2007-11 | no round named, listed a year earlier |
+| `juniper` / `juniper-networks` | no round sentence at all; card dates it 2000 | NASDAQ JNPR, 1999-06-25 | four months before Redpoint Ventures I closed |
+| `concur` / `concur-technologies` | no round sentence; card dates it 1998 | NASDAQ CNQR, 1998-12-16 | a year before the firm existed |
+
+`juniper-networks` and `concur-technologies` are the same two companies under
+their full names; they resurfaced as their own rows once their canonicals were
+excluded (COLLECTION.md §8) and take the same verdict.
+
+**Two rows the ruling does NOT reach**, and they stay members pending the D5
+question: `ask-com`, whose card does name a stage ("their Early-stage investment
+in 1999"), and `mmc-networks`, whose card carries no partnering claim at all so
+the second condition cannot be established. Both remain flagged
+`identity_uncertain`.
+
+**Applied to Accel in the same pass** (`accel:arista` and the capture-created
+`accel:arista-ipo`), on Erik's instruction, and Accel was re-exported and
+re-ingested.
+
+### CONFIRMED 2026-09-06 — merge Cyngn and Cyanogen
+
+**Erik's ruling:** one company, one row. Cyanogen Inc (the commercial
+CyanogenMod distribution Redpoint backed in 2013) closed its consumer business
+in December 2016, kept the cyngn.com domain and renamed to CYNGN Inc, which
+trades on NASDAQ as CYN. The base carried both because the 2015-2019 cards
+listed "Cyanogen" and the 2020 card listed "CYNGN" with the same link and the
+same "Series A in 2013" claim. The `never_merge` guard this run had placed on
+the pair is removed and `cyanogen` merges into `cyngn`.
+
+**Nothing else was raised at kickoff.** Every question the issue flagged — the sleeves,
 the China independence check, the crypto vehicle, and the Brazil JV found
 alongside them — resolved on the sworn record under T1 and T2 (D1–D4), and
 the predecessor-book question resolved under T2 and T4 (D5). The derivations

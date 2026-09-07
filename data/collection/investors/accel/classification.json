@@ -6581,10 +6581,14 @@
   "hq_city_source": "web_verified",
   "hq_country": "US",
   "hq_country_source": "web_verified",
+  "note": "Corrected 2026-09-06 during the PRO-90 pass that re-ingests Accel on Erik's arista ruling. The row published valuation_range=below_1b while the unicorn layer carried $5.4B, which fails the source gate. Web-checked rather than taken from the snapshot (Rule A: the unicorn list is a coverage floor, never a mark): Higgsfield raised a $400M Series B on 2026-08-17 at a $5.4B post-money, quadrupling the $1.3B mark from the January 2026 Series A extension Accel led. The row was judged before that round.",
   "slug": "higgsfield",
   "status": "private",
-  "valuation_confidence": "medium",
-  "valuation_range": "below_1b",
+  "valuation_citation": "https://techcrunch.com/2026/08/17/higgsfield-raises-400m-quadrupling-its-valuation-in-8-months-to-5-4b/",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 5400000000,
   "who": "agent-judge-pro65"
  },
  "high-gear-media-inc": {
@@ -8897,12 +8901,14 @@
   "entry_stage": "Growth",
   "entry_stage_confidence": "medium",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "cite_pending"
+  ],
   "focus": "DevTools & APIs",
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_source": "web_verified",
-  "note": "entry at the 2025 Series B (Redpoint's A preceded) | Cross-investor alignment 2026-09-04 (Creandum run): $87M Series B (Sep 2025, Lux) at $1.1B post-money; May 2026 reports of talks at $4.5B not closed",
+  "note": "entry at the 2025 Series B (Redpoint's A preceded) | Cross-investor alignment 2026-09-04 (Creandum run): $87M Series B (Sep 2025, Lux) at $1.1B post-money; May 2026 reports of talks at $4.5B not closed | entry at the 2025 Series B (Redpoint's A preceded) | Cross-investor alignment 2026-09-04 (Creandum run): $87M Series B (Sep 2025, Lux) at $1.1B post-money; May 2026 reports of talks at $4.5B not closed | cite_pending added 2026-09-06 during the PRO-90 re-ingest pass: a $1B+ row whose entry stage rests on a model reading with no citation must carry the flag (COLLECTION.md invariant 4). Redpoint's own row cites the firm's card for a 2023 Series A entry, which is consistent with Accel's 'Redpoint's A preceded' note.",
   "slug": "modal",
   "status": "private",
   "valuation_asof": "2025-09",

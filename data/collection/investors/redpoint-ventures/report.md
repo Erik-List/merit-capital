@@ -1,13 +1,13 @@
 # Redpoint Ventures — collection run report (PRO-90)
 
 **Run:** one session, 2026-09-06, under the merged shape of `../../COLLECTION.md`.
-**Result:** `verify` clean in plain mode. **417 members**, 147 rows preserved in
+**Result:** `verify` clean in plain mode. **412 members**, 147 rows preserved in
 `excluded.csv`, firm profile through the taxonomy gate, review surface rendered
 and checked.
 **Prompt count: 1** (kickoff). The ingest approval will be prompt 2 — the target.
 **Usage line:** kickoff percentages were not supplied to this session; the
 weekly and Fable percentages are to be filled at the ingest decision, against
-417 base rows. Web-search spend was ~22 calls of the 200-call budget: 6 in
+412 base rows. Web-search spend was ~22 calls of the 200-call budget: 6 in
 Phase 0 and the golden key, 8 on the public market caps, 8 on the momentum
 slice — the rest of the run's evidence came from the firm's own surfaces.
 
@@ -329,3 +329,51 @@ then `ingest-investor.ts`, then `ingest-companies.ts`.
 **The wave alignment.** Eleven cross-investor pairs where a sibling is the stale
 side are listed in `cross-rulings.json` and belong to the wave-level pass, not
 to this session.
+
+---
+
+## Addendum, 2026-09-06 — Erik's rulings applied; base 417 → 412
+
+Two rulings arrived after the run closed and are recorded in `decisions.md`
+Part 2 as confirmed deltas.
+
+**1. T3 — no round named + partnered after IPO is not a member.** Standing from
+this run on, binding every investor. It reaches six rows here:
+`arista-networks` (card: "We partnered in 2014"; NYSE 2014-06-06),
+`internet-brands` ("We first partnered in 2008"; NASDAQ 2007-11), and `juniper`
+and `concur` — plus `juniper-networks` and `concur-technologies`, the same two
+companies under their full names, which resurfaced once their canonicals were
+excluded. Juniper IPO'd four months before Redpoint Ventures I closed and
+Concur a year before the firm existed.
+
+Two rows the ruling does **not** reach and which stay members: `ask-com`, whose
+card does name a stage ("their Early-stage investment in 1999"), and
+`mmc-networks`, whose card carries no partnering claim at all so the second
+condition cannot be established. Both remain flagged for the still-open D5
+question.
+
+**Applied to Accel in the same pass** on Erik's instruction: `accel:arista` and
+`accel:arista-ipo` are `not_member`, which removes a 100b_plus / $246.8B row
+from that published track record and closes the open ruling the Accel run left
+(`accel/decisions.md`). Accel was re-exported, its profile rebuilt and its
+review surface regenerated, and two unrelated defects found in that base were
+corrected and recorded rather than shipped: `higgsfield` (below_1b against a
+$5.4B figure — web-checked to the 2026-08-17 $400M Series B at $5.4B) and
+`modal` (a $1B+ row with an uncited entry stage, now `cite_pending`).
+
+**2. Merge Cyngn and Cyanogen.** One company across one rename. The
+`never_merge` guard this run had placed on the pair is removed.
+
+**New shape:** 412 members, 157 rows in `excluded.csv`. $1B+ 60 / $10B+ 15 /
+$100B+ 5 (14.6%). Entry stage Series A 239 / Growth 114 / Seed 56 / Pre-Seed 3.
+C2A 53.3% on 45 cohort rows. `verify` clean; Arista Networks removed from
+`notable_investments`.
+
+**One sibling-state note.** The YC base (7,283 rows) landed today with no
+classification at all and no `scratch/in-flight.json`, so every one of its rows
+compares as a cross-investor disagreement against every sibling — 38 pairs on
+Redpoint and 80 on Accel. These are recorded as `accepted` in both investors'
+`cross-rulings.json` with an explicit instruction to **delete the entries at the
+wave alignment** once YC classifies; they are a sibling's missing marker, not a
+disagreement about a published track record. Reported to the YC session.
+

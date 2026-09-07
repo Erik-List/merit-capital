@@ -610,3 +610,27 @@ reproducible from `data/collection/shared/cross-align/2026-09-03.py`.
 public / 34 unknown** (`ipo_companies` 37 → 32). `verify` clean. **Re-ingested 2026-09-03** with Erik's
 approval; the database now derives 105 / 22 / 5 and 32 public on 886
 rows.
+
+---
+
+## Addendum, 2026-09-06 — Erik's T3 ruling applied; base 886 → 885
+
+Written from the PRO-90 (Redpoint Ventures) session on Erik's instruction. Full
+reasoning in `decisions.md` under *Ruling from Erik, 2026-09-06*.
+
+The open ruling §7 of this report raised is answered: **a position whose claim
+names no round and postdates the company's IPO is not a venture entry.**
+`arista` and the capture-created `arista-ipo` are now `not_member` (`who:
+"erik"`), which removes a 100b_plus / $246.8B row from the published track
+record. The same ruling took four rows out of the Redpoint base in the same
+pass (arista-networks, internet-brands, juniper, concur), so the two published
+records stay consistent.
+
+Two unrelated defects were corrected because this pass re-ingests the base:
+`higgsfield` (below_1b against a $5.4B unicorn-layer figure — web-checked to the
+2026-08-17 $400M Series B at $5.4B and moved to 1b_plus) and `modal` (a $1B+ row
+whose entry stage rests on a model reading, now flagged `cite_pending`).
+
+`verify` clean. Re-exported, profile rebuilt, review.html regenerated,
+re-ingested with Erik's approval.
+

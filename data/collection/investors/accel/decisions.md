@@ -66,3 +66,52 @@ class-wide rule rather than a row fix.
 Verdicts live in `base-verification.json` and are re-applied on every
 rebuild; human verdicts (`who: "erik"`) outrank agent verdicts; excluded
 rows are preserved in `excluded.csv`, never deleted.
+
+---
+
+## Ruling from Erik, 2026-09-06 — T3, no round named + partnered after IPO
+
+**Recorded from the PRO-90 (Redpoint Ventures) session, on Erik's explicit
+instruction to apply it here and re-ingest.**
+
+The open question this run's `report.md` raised — *"arista: … no source
+documents any pre-IPO Accel round … Erik may want to rule on whether a post-IPO
+public position belongs in the portfolio at all"* — is answered:
+
+> **Where the firm's own claim names NO round and the partnering postdates the
+> company's IPO, the position is not a venture entry and the row is not a
+> member.**
+
+The ruling is standing and binds every investor from this date.
+
+Applied to two rows, both `who: "erik"` in the ledger:
+
+- **`arista`** — member on the current site listing alone, `first_seen` 2018,
+  no entry-round citation, no documented pre-IPO Accel round. Arista Networks
+  IPO'd on the NYSE on 2014-06-06, four years before. → `not_member`. It left a
+  100b_plus / $246.8B row out of the published base, which is the point: the
+  track record should not carry a post-IPO holding as a venture outcome.
+- **`arista-ipo`** — resurfaced as its own row once the canonical was excluded
+  (the merge-duplicate mechanic of COLLECTION.md §8). It is not a second company
+  in any case: `/companies/arista-ipo/` is the CMS route the firm used for the
+  Arista IPO announcement, captured 2018-2020 and read as a company slug by the
+  wayback layer. Out on T3 and on T5.
+
+Base 886 → **885 rows**; `excluded.csv` 114 → 116. `verify` clean, re-exported,
+profile rebuilt, review surface regenerated, re-ingested.
+
+**Two unrelated defects were found and fixed in the same pass**, because this
+session was re-ingesting the base and would otherwise have shipped them:
+
+- **`higgsfield`** published `valuation_range: below_1b` against a $5.4B figure
+  from the unicorn layer — a source-gate contradiction. Web-checked rather than
+  taken from the snapshot (Rule A): Higgsfield raised a $400M Series B on
+  2026-08-17 at a **$5.4B** post-money, quadrupling the $1.3B mark from the
+  January 2026 Series A extension Accel led. The row was judged before that
+  round. Corrected to 1b_plus with the citation.
+- **`modal`** carried a 1b_plus band with a `model`-sourced entry stage and no
+  citation, which invariant 4 requires to be flagged. `cite_pending` added.
+
+Both are recorded here rather than folded in silently, since neither is part of
+Erik's ruling.
+
