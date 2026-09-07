@@ -12,24 +12,30 @@
     },
     "icon_url": {
       "source": "https://www.luxcapital.com",
-      "basis": "The site's declared icon assets both fail the measured rules: the 32x32 shortcut icon would be upscaled, and the 256x256 apple-touch webclip is pre-blurred (edge ramp 6.09px against a 2px limit). The mark itself ships as an inline SVG in the page (viewBox 0 0 64 64, the angled LU monogram), extracted to sources/site/lux-mark.svg and normalized from the vector: ramp 0.97px, contrast 17.9:1, box 52%, radius 55% -- inside every rule with no override flags. Preview at sources/site/lux-icon-master-preview.png.",
+      "basis": "Lux's logo is TWO inline SVGs, not one: .logo_embed carries the angled 'Lu' monogram (viewBox 0 0 64 64, currentColor) and .logo_embed-x-char carries the red #FF1C24 cross that stands in for the X, sized 47.875% and absolutely positioned at inset 0 0 auto auto (top right) by lux-capital.webflow.shared.css. Taking only the first yields 'Lu'. The two are composed at the site's own geometry into sources/site/lux-mark-full.svg. The site's declared icon assets are both unusable: the 32x32 shortcut icon would be upscaled and the 256x256 apple-touch webclip is pre-blurred (edge ramp 6.09px against a 2px limit). The composed mark normalizes from the vector at ramp 0.77px, contrast 11.0:1, box 70%, radius 80% -- inside every rule with no override flags, and it fills the circle far better than the monogram alone (artwork 178px in the master against 134px). Preview at sources/site/lux-icon-master-preview.png.",
       "provenance": {
-        "source_url": "https://www.luxcapital.com (inline SVG, saved to sources/site/lux-mark.svg)",
+        "source_url": "https://www.luxcapital.com (two inline SVGs composed into sources/site/lux-mark-full.svg)",
         "format": "svg",
         "width": 64,
         "height": 64,
         "vector": true,
-        "artwork_master_px": 134,
+        "artwork_master_px": 178,
         "upscale": 1,
-        "ramp_px": 0.97,
-        "contrast": "17.9:1",
+        "ramp_px": 0.77,
+        "contrast": "11.0:1",
+        "box": "70%",
+        "radius": "80%",
         "master_size": 256,
-        "plate": "synthesized #ffffff behind a bare glyph (source 91% transparent)",
-        "fetched": "2026-09-06",
+        "plate": "synthesized #ffffff behind a bare glyph (source 85% transparent)",
+        "inks": [
+          "#000000 monogram",
+          "#FF1C24 cross"
+        ],
+        "fetched": "2026-09-07",
         "allow_upscale": false,
         "allow_low_contrast": false
       },
-      "flag": "the URL here is the origin page; the Icon Images bucket URL replaces it at the gated ingest step (COLLECTION.md \u00a79)",
+      "flag": "the URL here is the origin page; the Icon Images bucket URL replaces it at the gated ingest step (COLLECTION.md \u00a79). Measuring this mark required a fix to the ramp metric in scripts/utils/icon-normalize.ts -- see report.md \u00a713.",
       "value": "https://www.luxcapital.com"
     },
     "founding_year": {
@@ -545,6 +551,6 @@
     }
   },
   "slug": "lux-capital",
-  "generated_at": "2026-09-06T18:59:00+00:00",
+  "generated_at": "2026-09-07T01:35:30+00:00",
   "run": "PRO-95"
 }
