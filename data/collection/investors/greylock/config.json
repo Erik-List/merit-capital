@@ -83,8 +83,9 @@
     "path": "/company/mergers_page1.htm",
     "from": 2001,
     "to": 2001,
-    "pattern": "(?is)<TD[^>]*>\\s*(?:19|20)\\d{2}\\s*</TD>\\s*<TD[^>]*>\\s*(?:<P>)?\\s*(?:<a\\b[^>]*>)?\\s*(?P<name>[^<>]{2,70}?)\\s*(?:</a>)?\\s*(?:</P>)?\\s*</TD>",
-    "raw": true
+    "pattern": "(?is)<TD[^>]*>\\s*(?:<a\\b[^>]*>)?\\s*(?P<name>[^<>]{2,70}?)\\s*(?:</a>)?\\s*</TD>\\s*<TD[^>]*>\\s*(?:19|20)\\d{2}\\s*</TD>",
+    "raw": true,
+    "_note": "Era 1's MERGERS page inverts the column order of every other page in its era, and that inversion is an acquirer-mark trap. The stage and sector pages run logo | YEAR | company | product | status, so the era pattern takes the cell AFTER the year; this page runs logo | company | YEAR | ACQUIRER, so the same pattern harvested 45 acquirers as portfolio rows -- ADP, Cisco, IBM, Lotus, Lucent, Pfizer, Siemens, Sun Microsystems, Westinghouse. That is COLLECTION.md \u00a75's First Round acquirer-mark class arriving through a column order rather than a logo wall. This pattern takes the cell BEFORE the year instead."
    },
    {
     "parser": "listing_regex",
@@ -300,7 +301,29 @@
    "learn-more",
    "apply",
    "subscribe",
-   "newsletter"
+   "newsletter",
+   "applications",
+   "consumer",
+   "cybersecurity",
+   "deep-tech",
+   "fintech",
+   "infrastructure",
+   "curated",
+   "other",
+   "greylock-logo",
+   "jellylogo-website",
+   "paloaltologo1",
+   "portco",
+   "wrapplogo-main",
+   "sumo-main",
+   "greylock-logo-dark-rgb",
+   "logo",
+   "listing",
+   "featured",
+   "markets",
+   "team-members",
+   "first-partners",
+   "statuses"
   ]
  },
  "roster": {
