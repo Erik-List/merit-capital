@@ -311,3 +311,18 @@ own Location field is promoted to class 1** for both `hq_country` and
 overriding a wrong pre-fill with `model_disputes_source`. `hq_city` went from
 51 to 370 filled on the same pass. Multi-HQ strings ("New York, London & Tel
 Aviv") are left for the judge rather than collapsed. Flagged for review.
+
+### R7 — Two classification lines for one slug in one file: the second wins (2026-09-06)
+
+Mechanical, and worth recording because COLLECTION.md §8 says the opposite for
+the neighbouring case. A MEMBER needs two lines — a verdict line and a
+classification line — because `record` routes on the presence of `verdict`.
+But two CLASSIFICATION lines for the same slug in one file do **not** merge:
+`record` reads the file into a dict keyed by slug, so the second line replaces
+the first before any per-key merge happens. Seven rows here lost their
+`status` and `valuation_range` that way — every one of them a row where the
+dispute of a deterministic band was written as its own line.
+
+The rule is one classification line per slug per file, carrying every key
+including the dispute. Recorded for write-back to §8, which currently reads as
+if splitting were safe.
