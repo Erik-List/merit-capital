@@ -181,6 +181,15 @@ ISO_OF = {
     # rejected, since verify is green on all of them.
     "Georgia": "GE", "Tanzania": "TZ", "Nepal": "NP", "Zambia": "ZM",
     "Cambodia": "KH", "Bolivia": "BO", "Paraguay": "PY",
+    # Second pass, from YC's own region and location vocabulary rather than
+    # one rejected batch at a time: every country-shaped value its directory
+    # carries is now present. "United States of America" is the directory's
+    # own long form.
+    "Algeria": "DZ", "Belarus": "BY", "Bermuda": "BM", "Cayman Islands": "KY",
+    "Czechia": "CZ", "Democratic Republic of the Congo": "CD", "Iraq": "IQ",
+    "Ivory Coast": "CI", "Kyrgyzstan": "KG", "Namibia": "NA",
+    "Puerto Rico": "PR", "Seychelles": "SC",
+    "United States of America": "US",
 }
 ISO_CODES = frozenset(ISO_OF.values())
 
