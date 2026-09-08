@@ -767,7 +767,8 @@ def cmd_prepare(args) -> None:
         elif b.get("parent"):
             rec.update({"status": "acquired", "valuation_usd": None,
                         "valuation_source": "wikidata", "valuation_confidence": "medium"})
-        elif (u := uni["current"].get(S.norm(row["name"]))) and u.get("valuation_usd"):
+        elif (u := uni["current"].get(S.norm(row["name"]))) and u.get("valuation_usd") \
+                and P.config().get("verify", {}).get("unicorn_bands", True):
             # Still-private $1B+ by external list. Name-match only, so medium
             # confidence and a flag; every $1B+ claim is web-verified before it
             # ships regardless of source.
@@ -779,6 +780,15 @@ def cmd_prepare(args) -> None:
                 rec["hq_country"] = canon_country(u["country"])
                 rec["hq_country_source"] = "wikidata"
             rec["flags"] = sorted(set(rec.get("flags", []) + ["unicorn_name_match"]))
+        elif (u := uni["current"].get(S.norm(row["name"]))) and u.get("valuation_usd"):
+            # verify.unicorn_bands = false: the investor's config declines to let
+            # the unicorn snapshot BAND a row, per Rule A (Erik, 2026-09-06) —
+            # it is an aggregator, a coverage floor to verify, never a mark. The
+            # coverage signal is kept as a flag for the web pass; no figure and
+            # no band are written. Absent the key the old behaviour stands, so
+            # this changes nothing for any other investor.
+            rec["flags"] = sorted(set(rec.get("flags", [])
+                                      + ["unicorn_name_match", "needs_web_value"]))
 
         if rec.get("valuation_usd"):
             rec["valuation_range"] = range_of(rec["valuation_usd"])
