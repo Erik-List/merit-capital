@@ -503,15 +503,34 @@
   },
   "layer_2_site_invest_year": {
    "layer": "site_invest_year \u2014 the archived per-company page's <table class=dates> Invested year",
-   "status": "scoring in progress \u2014 the page pull is alphabetical and 15 of the 20 golden rows are not yet pulled",
-   "interim": "4 hit / 1 miss on the 5 scored (\u00b11 year). The miss is Amyris: the page says 2009 against a documented 2006 Series A.",
-   "note": "Read as a CLOSE year, never an announcement date (COLLECTION.md \u00a76, the Menlo rule). Scored for first_seen, not for a stage label \u2014 it carries no round word."
+   "n_scoreable": 16,
+   "hits": 14,
+   "score": "14/16",
+   "verdict": "PROMOTED to class 1 for first_seen on entries from 2011 onward; DEMOTED to corroboration (a ceiling on entry recency) for entries before 2011.",
+   "decomposition": "Fourteen of sixteen land on the documented entry year exactly, including every row from 2011 on. Both misses are pre-2010 cleantech rows and both are LATE by the same three years \u2014 Amyris 2009 against a documented 2006 Series A, LanzaTech 2010 against a documented 2007 Series A. The cause is not noise: the WordPress CMS this field lives in was built in 2015, so the early book was entered retrospectively and the reconstructed year drifts toward a later round the record-writer could see. That makes the field a CEILING on entry recency before 2011, in exactly the way COLLECTION.md \u00a76 already treats a first filed round, and a reliable close year after it. Both misses being late and none early is what makes it a ceiling rather than a spread.",
+   "consequence": "first_seen takes the field directly for >=2011 entries. For a pre-2011 row it competes with the wayback listing year and the Form D first filing, and the judge is told the year may be late; a pre-2011 row whose only date is this field publishes with the year flagged. It carries no round word, so it never labels entry_stage on its own.",
+   "note": "Read as a CLOSE year, never an announcement date (COLLECTION.md \u00a76, the Menlo rule).",
+   "rows_absent": [
+    "Block (Square)",
+    "GitLab",
+    "Sword Health",
+    "Ochre Bio"
+   ]
   },
   "layer_3_formd_structural_band": {
    "status": "scores after `prepare` runs formd-issuer-rounds.py, which needs base.json"
   },
   "membership_trap_gate": {
    "status": "pending \u2014 runs blind before the grind writes any verdict"
+  },
+  "layer_4_wikidata_hq_country": {
+   "layer": "wikidata \u2014 hq_country pre-fill run by `prepare`",
+   "n": 65,
+   "non_us": 15,
+   "wrong": 13,
+   "verdict": "REFUSED \u2014 all 65 fills cleared before the grind; the column is judged from scratch",
+   "decomposition": "The First Round failure exactly (COLLECTION.md \u00a75.4). Khosla's book is full of one-word names and the joins are wrong at a rate no layer survives: Datera\u2192CZ (Santa Clara), Fundera\u2192IT (New York), Plum\u2192JP, Fresh\u2192IE, Castle\u2192GB, Donna\u2192ZA, Dragonfly\u2192GB, Narrative\u2192SE, Bold\u2192CL, BRT\u2192IT, Atmos\u2192CA, Forward\u2192GB. Only Blockstream (Victoria BC) and Bridge International Academies (Nairobi) survive. Sword Health returned 'Portugal /  United States [96]' \u2014 footnoted prose, not a country code, which would have failed verify's vocabulary check at the very end rather than here. The failure is silent in the way the float sweep's is not: `prepare` fills the column, the queue then asks only about EMPTY fields, and the row never reaches the judge.",
+   "consequence": "Every row carries flag `wikidata_country_demoted` and a note recording the clearance; hq_country is authored by the grind from formd_address, knowledge and web."
   }
  }
 }

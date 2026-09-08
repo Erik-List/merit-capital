@@ -79,7 +79,9 @@ def main():
             c["years_seen"] = sorted(set(c.get("years_seen", [])) | set(o.get("years_seen", [])))
             c["first_seen"] = min(x for x in (c.get("first_seen"), o.get("first_seen")) if x)
             c["last_seen"] = max(x for x in (c.get("last_seen"), o.get("last_seen")) if x)
-            c["snapshots"] = (c.get("snapshots") or []) + (o.get("snapshots") or [])
+            # `snapshots` is a CAPTURE COUNT (int), not a list — build-company-base.py
+            # compares it against MIN_SNAPS. Sum the two windows' counts.
+            c["snapshots"] = (c.get("snapshots") or 0) + (o.get("snapshots") or 0)
             c["sources"] = sorted(set(c.get("sources", [])) | set(o.get("sources", [])))
             c.setdefault("_curation", []).append(
                 f"union window with duplicate slug {v} (COLLECTION.md §8, two-spellings rule)")
@@ -112,7 +114,7 @@ def main():
                 added.append((slug, f"window extended to {p['first_seen']}"))
             else:
                 by[slug] = {"slug": slug, "name": name, "years_seen": [yr],
-                            "first_seen": yr, "last_seen": yr, "snapshots": [],
+                            "first_seen": yr, "last_seen": yr, "snapshots": 1,
                             "sources": [rec["source"]],
                             "_curation": [f"pre-2014 roster, resolved from {rec['path']} "
                                           f"({rec['year']}); decisions.md D11"]}
