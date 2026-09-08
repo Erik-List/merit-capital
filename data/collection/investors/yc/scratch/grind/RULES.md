@@ -125,3 +125,15 @@ row's own evidence.
   Bank), which are `Growth` — YC Continuity growth rounds into companies that
   never went through a batch. `Pre-Seed` and `Series A` are structurally empty
   for this investor; never emit them.
+
+---
+
+## Note for the run operator (not the judge)
+
+**Never delete `*.out.jsonl` when regenerating batch inputs.** Regeneration
+deletes and renumbers the input files; if an agent is still working, or has
+finished and not yet been recorded, its output is destroyed with them. This
+happened twice on this run — once orphaning a batch into a renumbered file,
+once losing 380 judged rows outright. Regeneration must delete only
+`(prio|tail)-NNN.json`, record every existing `.out.jsonl` first, and ideally
+name each wave's outputs distinctly so a later wave cannot overwrite them.
