@@ -214,7 +214,12 @@
   "cdx_patterns": [
    "ycombinator.com/people*"
   ],
-  "site_team_groups": [],
+  "site_team_groups": [
+   "President & CEO",
+   "Partners",
+   "Founders",
+   "Batch"
+  ],
   "slug_re": "/people/([a-z][a-z0-9-]*)/?$",
   "listing_href_re": "/people/([a-zA-Z][a-zA-Z0-9-]*)[\"'/]",
   "not_a_person": [
@@ -231,7 +236,7 @@
    "group-partners",
    "visiting-partners"
   ],
-  "_note": "YC's /people/<slug> namespace. Its job is the profile and the trap set, NOT recall: an accelerator does not take board seats at a rate that makes the Form D related-persons layer work, so the roster-name sweep that is the primary structural layer for a venture firm is near-empty here (issue PRO-74, Phase 2). Partner personal angel positions are the trap class the roster feeds (decisions.md D4)."
+  "_note": "YC's /people/<slug> namespace. Its job is the profile and the trap set, NOT recall: an accelerator does not take board seats at a rate that makes the Form D related-persons layer work, so the roster-name sweep that is the primary structural layer for a venture firm is near-empty here (issue PRO-74, Phase 2). Partner personal angel positions are the trap class the roster feeds (decisions.md D4). YC's /people page publishes 106 people across 14 sections, of which only 40 are investing roles — President & CEO (1), Partners (17), Founders (4) and Batch group partners (18). The other 66 are Legal, Finance, Media, HR, Policy, Software, Hacker News and operations staff. Same shape as a16z's 469-of-572 non-investor namespace, so site_team_groups constrains the profile's people list to YC's own investing groups (§5 layer 2)."
  },
  "profile": {
   "own_vehicle_pattern": "^(y combinator|yc (ii|iii|affiliates|principals|continuity|batch|esp|eco)|yca26|ycc20|yccg21|ycp2[46])",

@@ -107,3 +107,21 @@ names match.
 the row's evidence fits it: batch year, sector tag, team size. A mismatch
 means a different company with the same name. Treat it as unrecognised and
 flag `identity_uncertain`. Being wrong here is worse than answering `unknown`.
+
+## Other columns some rows ask for
+
+A row's `need` list may also contain `hq_country` or `entry_stage`. These
+appear only on rows the directory has no record for, so answer them from the
+row's own evidence.
+
+- **`hq_country`**: ISO 3166-1 alpha-2 (`US`, `GB`, `IN`, `NG`...). Emit
+  `hq_country_source` alongside — one of `model_knowledge` or `web_verified`.
+  If you genuinely cannot place the company, omit the key rather than guess.
+- **`entry_stage`**: for a YC company this is **`Seed`** — the batch investment
+  is the entry, and YC's own sustained language calls it seed funding. Emit
+  `entry_stage_source: "web_verified"` with
+  `entry_stage_citation: "https://www.ycombinator.com/deal"`. The only
+  exceptions in this whole base are the two `ycc_only` rows (Convoy and Monzo
+  Bank), which are `Growth` — YC Continuity growth rounds into companies that
+  never went through a batch. `Pre-Seed` and `Series A` are structurally empty
+  for this investor; never emit them.
