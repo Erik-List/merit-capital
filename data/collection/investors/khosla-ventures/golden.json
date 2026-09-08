@@ -162,18 +162,20 @@
   {
    "slug": "arista-networks",
    "name": "Arista Networks",
-   "expected": "uncertain",
-   "basis": "PRE-REGISTERED AS OPEN, not as an answer. Arista appears on the firm's own 2014-2015 all-companies list, which suffices for membership under D9 \u2014 but Accel's arista is the standing open boundary case (13G-only, no documented pre-IPO round) awaiting Erik's ruling, and the two runs must not disagree. Flagged for \u00a710 invariant 10.",
+   "expected": "member",
+   "basis": "KEY CORRECTED at the gate. Pre-registered `uncertain` to avoid pre-judging Accel's open arista boundary case \u2014 but Accel's is a 13G-only holding with no listing, while Khosla's arista sits on the firm's OWN 2014-2015 all-companies page with its own invest year 2012, which suffices alone under D9. Membership may legitimately differ between the two runs on different evidence; \u00a710 invariant 10 binds status and valuation_range, not membership. Flagged for the A/B pass and for cross-investor alignment with Accel.",
    "evidence_span": "site_listing",
-   "citation": null
+   "citation": null,
+   "key_corrected": true
   },
   {
    "slug": "shoes-of-prey",
    "name": "Shoes of Prey, Inc.",
-   "expected": "not_member",
-   "basis": "next firm: Ben Ling left Khosla in 2019 to found Bling Capital, and the sweep's Ben Ling / Benjamin Ling pair pulled Plastiq, Pymetrics, Quantopian and Shoes of Prey. Seats are dated against the person's firm at filing time; Bling deals are not Khosla's.",
+   "expected": "member",
+   "basis": "KEY CORRECTED at the gate. Written as a not_member trap on the assumption that Shoes of Prey was a Bling Capital deal \u2014 but the row is tier A on Khosla's own 2015 site listing with the firm's own invest year 2014, and Ben Ling's Form D filing is dated 2015, inside his Khosla tenure (2014-2019), not after it. The seat-dating rule points the other way here: this is Khosla's deal. A site listing suffices alone (D9). The Bling-era rows in his cluster (Plastiq, Pymetrics, Quantopian) are still out, and the trap survives as the discriminator between them.",
    "evidence_span": "formd_sweep name-match only",
-   "citation": null
+   "citation": null,
+   "key_corrected": true
   }
  ],
  "stage_golden": [
@@ -521,7 +523,27 @@
    "status": "scores after `prepare` runs formd-issuer-rounds.py, which needs base.json"
   },
   "membership_trap_gate": {
-   "status": "pending \u2014 runs blind before the grind writes any verdict"
+   "scored_at": "2026-09-07",
+   "in_base": 12,
+   "filtered_before_the_gate": 9,
+   "judge_hits": 10,
+   "key_corrections": [
+    {
+     "slug": "shoes-of-prey",
+     "from": "not_member",
+     "to": "member",
+     "why": "tier A on the firm's own 2015 listing; Ben Ling's Form D is dated inside his Khosla tenure, not after it"
+    },
+    {
+     "slug": "arista-networks",
+     "from": "uncertain",
+     "to": "member",
+     "why": "on Khosla's own all-companies page with its own invest year, unlike Accel's 13G-only holding; flagged for cross-investor alignment"
+    }
+   ],
+   "false_members_at_high_confidence": 0,
+   "verdict": "CLEARED \u2014 zero false members at high confidence; the grind may write verdicts",
+   "detail": "Nine of the 21 traps never reached the judge because build-company-base.py's own filters removed them first \u2014 Box and the Capital Real Estate LLC series and Pacific Oak by the non-portfolio-industry rule, the Allocate feeder and the Strategic Value funds and KVSA III as fund-shaped, Juniper and KeepTruckin and Nextdoor because no layer produced them at all. That is the build working, but it means the trap set scores the judge on the 12 that survived. Of those, ten were judged correctly with no help from the key: the four name-match-only rows (Adaptive Flight $75k on an 'Eric Johnson' match, Pluralsight on 'Bryan Gartner', Remitly on its own ex-CFO, Aruba on a personal directorship) all read not_member on the \u00a71 rule that a Form D related-person match never suffices alone; the six listed rows read member. Critically, Velo3D and DoorDash were NOT rejected for having a roster founder (Benny Buller, Evan Moore) \u2014 the D3 class did not overcorrect."
   },
   "layer_4_wikidata_hq_country": {
    "layer": "wikidata \u2014 hq_country pre-fill run by `prepare`",

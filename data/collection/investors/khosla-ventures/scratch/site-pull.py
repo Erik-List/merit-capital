@@ -127,11 +127,13 @@ if __name__ == "__main__":
               "Growth) and is scored on the golden set before it may label entry_stage.")
     (OUT / "webflow-portfolio.json").write_text(json.dumps(
         {"_readme": readme, "pulled": time.strftime("%Y-%m-%d"),
-         "companies-live": comps}, indent=1))
+         "companies-live": comps, "rows": comps}, indent=1))
+    # "rows" is the key site-portfolio.py's parse_file_list actually reads;
+    # the descriptive key is kept so the file reads on its own.
     print(f"portfolio: {len(comps)} companies -> {OUT/'webflow-portfolio.json'}")
     t = team()
     (OUT / "team-webflow.json").write_text(json.dumps(
         {"_readme": "https://www.khoslaventures.com/team/<slug> pages enumerated from "
                     "the live sitemap by scratch/site-pull.py.",
-         "pulled": time.strftime("%Y-%m-%d"), "team": t}, indent=1))
+         "pulled": time.strftime("%Y-%m-%d"), "team": t, "rows": t}, indent=1))
     print(f"team: {len(t)} people -> {OUT/'team-webflow.json'}")

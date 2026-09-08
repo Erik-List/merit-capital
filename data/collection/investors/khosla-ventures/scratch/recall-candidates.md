@@ -36,3 +36,20 @@ of surviving only in a session's scrollback.
   the a16z crypto-site case: 27 rows lived only there).
 - `old.khoslaventures.com` — a legacy host still in search indexes, dead on
   fetch. Probe the archive.
+
+## From `verify`'s known-positions guard (kickoff model priors, tested against the landed base)
+
+Four were present under a different name shape and the guard was corrected:
+Oscar, Climate Corp., Varda, Opendoor Technologies Inc.
+
+Genuinely absent, to be judged by the recall probe with evidence rather than
+assumed either way:
+
+- **Rappi**, **Replit**, **Cohere** — on no era of the firm's own site and in no
+  filing layer. All three were kickoff model priors; the probe decides.
+- **Bloom Energy** — a Kleiner Perkins position, not Khosla's, on the same
+  prior-firm reasoning as decisions.md D3. Expect a recorded rejection.
+- **Nextdoor** — delta X1, ruled by Erik 2026-09-07: out unless a Khosla fund
+  held it through a venture round before the KVSA II merger. The probe checks
+  the pre-merger cap table and records the result either way.
+- **Dusty Robotics** — dropped by the non-portfolio-industry filter (see above).
