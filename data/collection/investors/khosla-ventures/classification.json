@@ -22,11 +22,12 @@
   "entry_stage": "Growth",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "stage_uncited"
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "note": "clinical documentation AI, founded 2018; Khosla's listing is recent and the firm is not in the seed record, so the entry is a later round | focus from the firm's own category 'Digital Health'",
+  "note": "clinical documentation AI, founded 2018; Khosla's listing is recent and the firm is not in the seed record, so the entry is a later round | focus from the firm's own category 'Digital Health' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "abridge"
  },
  "academia-inc": {
@@ -113,10 +114,12 @@
   "entry_stage": "Series A",
   "entry_stage_citation": "https://dealroom.co/investors/khosla-ventures/",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "cite_pending"
+  ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
-  "note": "Khosla in Affirm's 2013 Series A; golden-set row | focus from the firm's own category 'Fintech'",
+  "note": "Khosla in Affirm's 2013 Series A; golden-set row | focus from the firm's own category 'Fintech' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "affirm"
  },
  "aguamarina": {
@@ -151,6 +154,36 @@
   "status": "private",
   "valuation_range": "below_1b"
  },
+ "airhelp": {
+  "confidence": "low",
+  "entry_stage": "Series A",
+  "entry_stage_source": "model",
+  "flags": [
+   "stage_uncited"
+  ],
+  "hq_city": "Berlin",
+  "hq_city_source": "model_knowledge",
+  "note": "flight-compensation claims; Berlin-headquartered with operations in Gdansk",
+  "slug": "airhelp",
+  "status": "private",
+  "valuation_range": "below_1b"
+ },
+ "airwallex": {
+  "confidence": "low",
+  "entry_stage": "Growth",
+  "entry_stage_source": "model",
+  "flags": [
+   "cite_pending",
+   "model_disputes_source",
+   "stage_uncited"
+  ],
+  "hq_city": "Singapore",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "SG",
+  "hq_country_source": "model_knowledge",
+  "note": "Khosla's seat dates from around 2019, well after the 2015 founding and the early Sequoia China and DST rounds, so the entry is a late round | DISPUTE: the Wikidata layer returned the prose 'Australia /  Hong Kong'. Airwallex was founded in Melbourne and is headquartered in Singapore; the single current HQ is recorded and the founding geography goes in this note. | invariant 4 debt, declared: Khosla entered Airwallex at a late round through Keith Rabois's board seat and the specific round is not established by a citation.",
+  "slug": "airwallex"
+ },
  "akash-systems": {
   "confidence": "medium",
   "entry_stage": "Series A",
@@ -183,37 +216,6 @@
   "status": "private",
   "valuation_range": "below_1b"
  },
- "aliph-jawbone": {
-  "confidence": "medium",
-  "entry_stage": "Series A",
-  "entry_stage_source": "model",
-  "flags": [
-   "stage_uncited",
-   "suspected_duplicate"
-  ],
-  "hq_city": "San Francisco",
-  "hq_city_source": "model_knowledge",
-  "hq_country": "US",
-  "hq_country_source": "model_knowledge",
-  "note": "Aliph, the maker of Jawbone; liquidated in 2017 under ABC. The jawbone row is the same company \u2014 flagged for identity-merges.json.",
-  "slug": "aliph-jawbone",
-  "status": "defunct",
-  "valuation_range": "below_1b"
- },
- "aliphcom": {
-  "confidence": "medium",
-  "flags": [
-   "formd_adjudicated",
-   "status_uncertain",
-   "unannounced_deal"
-  ],
-  "hq_city": "San Francisco",
-  "hq_city_source": "formd_address",
-  "note": "confirmed through the a16z director-of-record pattern: a Khosla partner named on the filing, inside tenure, on an issuer that resolves. The firm publishes no announcement archive, so the deal is unannounced by construction. Flagged for the A/B pass.",
-  "slug": "aliphcom",
-  "status": "private",
-  "valuation_range": "below_1b"
- },
  "alivecor": {
   "confidence": "medium",
   "flags": [],
@@ -221,22 +223,6 @@
   "focus_source": "model",
   "note": "AliveCor, ECG hardware; ~$150M raised across five filed rounds, no unicorn mark | focus from the firm's own category 'Health'",
   "slug": "alivecor",
-  "status": "private",
-  "valuation_range": "below_1b"
- },
- "aliveusa-inc": {
-  "confidence": "medium",
-  "entry_stage": "Series A",
-  "entry_stage_source": "formd_structural",
-  "flags": [
-   "formd_adjudicated",
-   "status_uncertain",
-   "unannounced_deal"
-  ],
-  "hq_city": "San Francisco",
-  "hq_city_source": "formd_address",
-  "note": "confirmed through the a16z director-of-record pattern: a Khosla partner named on the filing, inside tenure, on an issuer that resolves. The firm publishes no announcement archive, so the deal is unannounced by construction. Flagged for the A/B pass. Entry stage from the filing structure: 0 prior filing(s), $10.5M offering in 2012.",
-  "slug": "aliveusa-inc",
   "status": "private",
   "valuation_range": "below_1b"
  },
@@ -253,9 +239,9 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "plant-based protein and nutrition brand | focus from the firm's own category 'Health'",
+  "note": "plant-based protein and nutrition brand | focus from the firm's own category 'Health' | cross-investor alignment: another landed base carries ALOHA as defunct on a positive record, which beats this run's private-by-default",
   "slug": "aloha",
-  "status": "private",
+  "status": "defunct",
   "valuation_range": "below_1b"
  },
  "alpine-oral-tech-inc": {
@@ -327,6 +313,7 @@
   "entry_stage": "Seed",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "needs_web_value",
    "stage_uncited"
   ],
@@ -336,7 +323,7 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Anchorage Digital, institutional crypto custody, founded 2017 and the firm's own invest year is 2017, so the entry is the founding round. Reported around $3B in the 2021 Series D \u2014 queued for the A/B pass to pin or kill. | A/B pass: aligned to the cited Series D mark another landed base already carries (COLLECTION.md \u00a710 invariant 10) | focus from the firm's own category 'Enterprise'",
+  "note": "Anchorage Digital, institutional crypto custody, founded 2017 and the firm's own invest year is 2017, so the entry is the founding round. Reported around $3B in the 2021 Series D \u2014 queued for the A/B pass to pin or kill. | A/B pass: aligned to the cited Series D mark another landed base already carries (COLLECTION.md \u00a710 invariant 10) | focus from the firm's own category 'Enterprise' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "anchorage",
   "status": "private",
   "valuation_asof": "2026-02-01",
@@ -416,12 +403,13 @@
   "entry_stage": "Growth",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "identity_uncertain",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "note": "OPEN BOUNDARY ROW, raised for review. Arista is on Khosla's own 2014-2015 all-companies page with the firm's own invest year 2012, which suffices for membership under D9 \u2014 but Arista was founded in 2004 and funded largely by Bechtolsheim and Cheriton personally, so there is no obvious venture round for Khosla to have entered and a 2012 entry would be a late secondary. Accel carries the standing open arista case (13G-only, no documented pre-IPO round) awaiting Erik's ruling; the two runs rest on different evidence. Flagged for the A/B pass and cross-investor alignment. | focus from the firm's own category 'Enterprise'",
+  "note": "OPEN BOUNDARY ROW, raised for review. Arista is on Khosla's own 2014-2015 all-companies page with the firm's own invest year 2012, which suffices for membership under D9 \u2014 but Arista was founded in 2004 and funded largely by Bechtolsheim and Cheriton personally, so there is no obvious venture round for Khosla to have entered and a 2012 entry would be a late secondary. Accel carries the standing open arista case (13G-only, no documented pre-IPO round) awaiting Erik's ruling; the two runs rest on different evidence. Flagged for the A/B pass and cross-investor alignment. | focus from the firm's own category 'Enterprise' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "arista-networks"
  },
  "arpeggio-bio": {
@@ -453,7 +441,7 @@
   "valuation_range": "below_1b"
  },
  "at-bay": {
-  "confidence": "medium",
+  "confidence": "low",
   "entry_stage": "Series A",
   "entry_stage_source": "model",
   "flags": [
@@ -467,9 +455,9 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "cyber insurance MGA, founded 2016; the firm's own invest year is 2018. Reported around $1.35B in the 2021 Series D \u2014 queued for the A/B pass. | A/B pass: the 2021 Series D was reported around $1.35B but no priced event above $1B is citable now, and Rule A forbids banding on a vendor mark. Another landed base carries At-Bay as ACQUIRED, which this run cannot corroborate \u2014 the valuation_range is aligned and the status disagreement is raised for Erik rather than copied. | focus from the firm's own category 'Enterprise'",
+  "note": "cyber insurance MGA, founded 2016; the firm's own invest year is 2018. Reported around $1.35B in the 2021 Series D \u2014 queued for the A/B pass. | A/B pass: the 2021 Series D was reported around $1.35B but no priced event above $1B is citable now, and Rule A forbids banding on a vendor mark. Another landed base carries At-Bay as ACQUIRED, which this run cannot corroborate \u2014 the valuation_range is aligned and the status disagreement is raised for Erik rather than copied. | focus from the firm's own category 'Enterprise' | cross-investor alignment to a landed base that carries At-Bay as acquired. This run could not corroborate a sale independently, so the row is aligned and the uncertainty flagged rather than asserted.",
   "slug": "at-bay",
-  "status": "private",
+  "status": "acquired",
   "valuation_citation": "https://en.wikipedia.org/wiki/At-Bay",
   "valuation_range": "below_1b",
   "valuation_range_source": "web_verified"
@@ -557,6 +545,7 @@
   "entry_stage_citation": "https://www.businesswire.com/news/home/20250909640903/en/Aven-Raises-$110M-Series-E-at-a-$2.2B-Valuation-to-Build-Americas-First-Machine-Banking-Platform-for-Homeowners",
   "entry_stage_source": "web_verified",
   "flags": [
+   "cite_pending",
    "needs_web_value",
    "stage_uncited"
   ],
@@ -566,7 +555,7 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "home-equity-backed credit card; reported at $1B in the 2024 Series D \u2014 queued for the A/B pass to pin or kill | A/B pass: $110M Series E at a $2.2B post-money, September 2025, LED BY KHOSLA VENTURES \u2014 which pins the entry as well as the mark: a Series E lead is a Growth entry, not the Series A the row carried. | focus from the firm's own category 'Fintech'",
+  "note": "home-equity-backed credit card; reported at $1B in the 2024 Series D \u2014 queued for the A/B pass to pin or kill | A/B pass: $110M Series E at a $2.2B post-money, September 2025, LED BY KHOSLA VENTURES \u2014 which pins the entry as well as the mark: a Series E lead is a Growth entry, not the Series A the row carried. | focus from the firm's own category 'Fintech' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "aven",
   "status": "private",
   "valuation_asof": "2025-09-09",
@@ -655,18 +644,6 @@
   "note": "DISPUTE: the pre-fill had Japan from a Wikidata join on the one-word name. Basis is the New York AI-accounting-agent company on Khosla's live Enterprise surface. | focus from the firm's own category 'Enterprise'",
   "slug": "basis",
   "status": "private",
-  "valuation_range": "below_1b"
- },
- "bay-labs-inc": {
-  "confidence": "medium",
-  "flags": [
-   "suspected_duplicate"
-  ],
-  "focus": "Consumer & Marketplaces",
-  "focus_source": "model",
-  "note": "Bay Labs renamed to Caption Health in 2019 and was acquired by GE HealthCare in Feb 2023. Same company as the caption-health row in this batch \u2014 flagged for identity-merges.json, not merged in-run. | focus from the firm's own category 'Consumer'",
-  "slug": "bay-labs-inc",
-  "status": "acquired",
   "valuation_range": "below_1b"
  },
  "because": {
@@ -859,14 +836,16 @@
   "entry_stage": "Series A",
   "entry_stage_citation": "https://techcrunch.com/?p=311159",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "cite_pending"
+  ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
   "hq_city": "Oakland",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Khosla Ventures led Square's Series A in 2009 and Vinod Khosla joined the board; Square renamed Block in 2021 and moved its principal offices to Oakland | focus from the firm's own category 'Fintech'",
+  "note": "Khosla Ventures led Square's Series A in 2009 and Vinod Khosla joined the board; Square renamed Block in 2021 and moved its principal offices to Oakland | focus from the firm's own category 'Fintech' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "block"
  },
  "blockscore": {
@@ -892,11 +871,12 @@
   "entry_stage": "Seed",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "stage_uncited"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
-  "note": "Bitcoin sidechain and mining infrastructure; founded 2014 and the firm's own invest year is 2014, so the entry is the founding round. The Canadian country survives the Wikidata review \u2014 Blockstream is genuinely headquartered in Victoria BC. | focus from the firm's own category 'Financial services'",
+  "note": "Bitcoin sidechain and mining infrastructure; founded 2014 and the firm's own invest year is 2014, so the entry is the founding round. The Canadian country survives the Wikidata review \u2014 Blockstream is genuinely headquartered in Victoria BC. | focus from the firm's own category 'Financial services' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "blockstream"
  },
  "bloop-ai": {
@@ -991,20 +971,6 @@
   "status": "defunct",
   "valuation_range": "below_1b"
  },
- "bridge-international-academies": {
-  "confidence": "medium",
-  "entry_stage": "Series A",
-  "entry_stage_source": "model",
-  "flags": [
-   "stage_uncited",
-   "suspected_duplicate"
-  ],
-  "focus": "Consumer & Marketplaces",
-  "focus_source": "model",
-  "note": "low-cost school network across Kenya, Nigeria, Uganda, India and Liberia; rebranded NewGlobe rather than sold, so the newglobe row is the same company \u2014 flagged for identity-merges.json. A Khosla Impact-era position; the Kenyan country survives the Wikidata review. | focus from the firm's own category 'Education'",
-  "slug": "bridge-international-academies",
-  "valuation_range": "below_1b"
- },
  "broccoli-intelligence-inc": {
   "confidence": "medium",
   "flags": [
@@ -1082,12 +1048,15 @@
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
-  "note": "commercial real-estate investment platform, founded 2014; the firm's own invest year is 2015. DISPUTE: recorded public on a $0.58B float, but Cadre was acquired by Yieldstreet in 2023 and two other landed bases carry it acquired \u2014 the float is a stale registrant match. Queued for the A/B pass. | A/B pass: Cadre was acquired by Yieldstreet in 2023; the recorded public $0.58B float was a stale registrant match, and two other landed bases carry it acquired. | focus from the firm's own category 'Financial services'",
+  "note": "commercial real-estate investment platform, founded 2014; the firm's own invest year is 2015. DISPUTE: recorded public on a $0.58B float, but Cadre was acquired by Yieldstreet in 2023 and two other landed bases carry it acquired \u2014 the float is a stale registrant match. Queued for the A/B pass. | A/B pass: Cadre was acquired by Yieldstreet in 2023; the recorded public $0.58B float was a stale registrant match, and two other landed bases carry it acquired. | focus from the firm's own category 'Financial services' | acquired rows carry no current valuation (COLLECTION.md \u00a76); the stale float figure is cleared",
   "slug": "cadre",
   "status": "acquired",
+  "valuation_asof": null,
   "valuation_citation": "https://www.yieldstreet.com/blog/article/yieldstreet-acquires-cadre/",
   "valuation_range": "below_1b",
-  "valuation_range_source": "web_verified"
+  "valuation_range_source": "web_verified",
+  "valuation_source": null,
+  "valuation_usd": null
  },
  "caelux-corporation": {
   "confidence": "medium",
@@ -1205,12 +1174,25 @@
   "status": "private",
   "valuation_range": "below_1b"
  },
+ "carrot": {
+  "confidence": "medium",
+  "entry_stage": "Series A",
+  "entry_stage_source": "model",
+  "flags": [
+   "stage_uncited"
+  ],
+  "note": "Carrot Inc, the Pivot smoking-cessation programme; the never_merge overlay keeps it apart from any other Carrot row",
+  "slug": "carrot",
+  "valuation_range": "below_1b"
+ },
  "carrot-sense": {
-  "confidence": "low",
+  "confidence": "medium",
   "flags": [
    "status_uncertain"
   ],
-  "note": "Carrot Inc, the Pivot smoking-cessation programme; no financing trace after the 2021 filing",
+  "hq_country": "US",
+  "hq_country_source": "model_knowledge",
+  "note": "Carrot Inc, the Pivot smoking-cessation programme; no financing trace after the 2021 filing | Carrot Sense, Redwood City \u2014 the earlier name of the same programme",
   "slug": "carrot-sense",
   "status": "private",
   "valuation_range": "below_1b"
@@ -1284,7 +1266,7 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "benefits and retirement for independent workers; shut down in 2023 | focus from the firm's own category 'Financial services'",
+  "note": "benefits and retirement for independent workers; shut down in 2023 | focus from the firm's own category 'Financial services' | cross-investor: this run's defunct is the better-evidenced side against a sibling's unknown; recorded as the aligned value",
   "slug": "catch",
   "status": "defunct",
   "valuation_range": "below_1b"
@@ -1368,15 +1350,16 @@
   "entry_stage": "Series A",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "note": "background checks, YC W14; the firm's own invest year is 2014 and Khosla's listing starts 2015, so the entry is an early priced round rather than the YC seed | focus from the firm's own category 'Enterprise'",
+  "note": "background checks, YC W14; the firm's own invest year is 2014 and Khosla's listing starts 2015, so the entry is an early priced round rather than the YC seed | focus from the firm's own category 'Enterprise' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "checkr"
  },
  "cinemagram": {
-  "confidence": "low",
+  "confidence": "medium",
   "entry_stage": "Seed",
   "entry_stage_source": "model",
   "flags": [
@@ -1386,9 +1369,9 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Cinemagram, later Blab; the app shut down in 2016",
+  "note": "Cinemagram, later Blab; the app shut down in 2016 | cross-investor alignment: another landed base carries a positive acquisition record for Cinemagram/Blab",
   "slug": "cinemagram",
-  "status": "defunct",
+  "status": "acquired",
   "valuation_range": "below_1b"
  },
  "circulate-health-inc": {
@@ -1474,7 +1457,7 @@
   "valuation_range": "below_1b"
  },
  "clearstory-data": {
-  "confidence": "low",
+  "confidence": "medium",
   "entry_stage": "Series A",
   "entry_stage_source": "model",
   "flags": [
@@ -1486,9 +1469,9 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "data harmonisation and visualisation; wound down ~2017 | focus from judged from the row's own name and note ('data')",
+  "note": "data harmonisation and visualisation; wound down ~2017 | focus from judged from the row's own name and note ('data') | cross-investor alignment: another landed base carries a positive acquisition record",
   "slug": "clearstory-data",
-  "status": "defunct",
+  "status": "acquired",
   "valuation_range": "below_1b"
  },
  "clickhouse": {
@@ -1496,11 +1479,12 @@
   "entry_stage": "Growth",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "note": "open-source OLAP database, incorporated 2021 with a $50M Series A at launch and a $250M Series B the same year. DISPUTE: the recorded $2.0B mark is the 2021 Series B; four other landed bases carry $15B as of 2026-01. The row must be re-pinned in the A/B pass and aligned. | A/B pass: the $2.0B unicorn-snapshot figure was the 2021 Series B and four other landed bases carry the January 2026 round at $15B. Aligned to the freshest cited mark. | focus from the firm's own category 'Enterprise'",
+  "note": "open-source OLAP database, incorporated 2021 with a $50M Series A at launch and a $250M Series B the same year. DISPUTE: the recorded $2.0B mark is the 2021 Series B; four other landed bases carry $15B as of 2026-01. The row must be re-pinned in the A/B pass and aligned. | A/B pass: the $2.0B unicorn-snapshot figure was the 2021 Series B and four other landed bases carry the January 2026 round at $15B. Aligned to the freshest cited mark. | focus from the firm's own category 'Enterprise' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "clickhouse",
   "valuation_asof": "2026-01",
   "valuation_citation": "https://www.bloomberg.com/news/articles/2026-01-16/clickhouse-lands-15-billion-valuation",
@@ -1553,9 +1537,9 @@
   ],
   "hq_city": "San Francisco",
   "hq_city_source": "formd_address",
-  "note": "confirmed through the a16z director-of-record pattern: a Khosla partner named on the filing, inside tenure, on an issuer that resolves. The firm publishes no announcement archive, so the deal is unannounced by construction. Flagged for the A/B pass.",
+  "note": "confirmed through the a16z director-of-record pattern: a Khosla partner named on the filing, inside tenure, on an issuer that resolves. The firm publishes no announcement archive, so the deal is unannounced by construction. Flagged for the A/B pass. | cross-investor alignment: Clustrix was acquired by MariaDB in 2018. This run recorded private on an absence inference; a positive acquisition record beats it.",
   "slug": "clustrix-inc",
-  "status": "private",
+  "status": "acquired",
   "valuation_range": "below_1b"
  },
  "coda-project-inc": {
@@ -1600,6 +1584,7 @@
   "entry_stage": "Growth",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "identity_uncertain",
    "needs_web_value",
    "stage_uncited"
@@ -1610,7 +1595,7 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Cognition AI, the maker of Devin, on the live Enterprise surface. Founders Fund led the early rounds; Khosla's listing is recent so the entry is late. Reported well above $1B in 2025 with no cited figure \u2014 queued for the A/B pass. | A/B pass: pinned to the cited $400M round at $10.2B; the identity question closes with it \u2014 this is Cognition AI, the maker of Devin | focus from the firm's own category 'Enterprise'",
+  "note": "Cognition AI, the maker of Devin, on the live Enterprise surface. Founders Fund led the early rounds; Khosla's listing is recent so the entry is late. Reported well above $1B in 2025 with no cited figure \u2014 queued for the A/B pass. | A/B pass: pinned to the cited $400M round at $10.2B; the identity question closes with it \u2014 this is Cognition AI, the maker of Devin | focus from the firm's own category 'Enterprise' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "cognition",
   "status": "private",
   "valuation_asof": "2025-09-08",
@@ -1636,7 +1621,7 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Color Health, genetic testing then cancer care; the firm's own invest year is 2014. Reported around $4.6B in 2021, since heavily reset \u2014 queued for the A/B pass. | A/B pass: the 2021 round at a disclosed $4.6B is the last priced primary and stands stale-flagged; Color Health has since reset hard but no priced tender or secondary is citable, and COLLECTION.md \u00a76 forbids minting a figure from the reset evidence itself. | focus from the firm's own category 'Health'",
+  "note": "Color Health, genetic testing then cancer care; the firm's own invest year is 2014. Reported around $4.6B in 2021, since heavily reset \u2014 queued for the A/B pass. | A/B pass: the 2021 round at a disclosed $4.6B is the last priced primary and stands stale-flagged; Color Health has since reset hard but no priced tender or secondary is citable, and COLLECTION.md \u00a76 forbids minting a figure from the reset evidence itself. | focus from the firm's own category 'Health' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "color-genomics",
   "status": "private",
   "valuation_asof": "2021-11",
@@ -1940,37 +1925,18 @@
   "status": "private",
   "valuation_range": "below_1b"
  },
- "donna": {
-  "confidence": "low",
-  "entry_stage": "Seed",
-  "entry_stage_source": "model",
-  "flags": [
-   "identity_uncertain",
-   "model_disputes_source",
-   "stage_uncited"
-  ],
-  "focus": "Data Infrastructure",
-  "focus_source": "model",
-  "hq_city": "San Francisco",
-  "hq_city_source": "model_knowledge",
-  "hq_country": "US",
-  "hq_country_source": "model_knowledge",
-  "note": "DISPUTE: the pre-fill had South Africa from a Wikidata join on the first name. Khosla's Donna was the US mobile calendar assistant (Incredible Labs), which shut down in 2014. | focus from judged from the row's own name and note ('data')",
-  "slug": "donna",
-  "status": "defunct",
-  "valuation_range": "below_1b"
- },
  "doordash": {
   "confidence": "medium",
   "entry_stage": "Seed",
   "entry_stage_citation": "https://www.newcomer.co/p/the-story-of-a-cap-table-doordash",
   "entry_stage_source": "web_verified",
   "flags": [
+   "cite_pending",
    "stage_disputes_band"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "note": "Khosla co-led the $2.4M seed on 2013-09-30 with CRV while Keith Rabois was a partner; Sequoia led the $17.3M Series A the following year. The firm's own card labels this 'Early', which the calibration gate scored and refused as a stage label. | focus from the firm's own category 'Consumer'",
+  "note": "Khosla co-led the $2.4M seed on 2013-09-30 with CRV while Keith Rabois was a partner; Sequoia led the $17.3M Series A the following year. The firm's own card labels this 'Early', which the calibration gate scored and refused as a stage label. | focus from the firm's own category 'Consumer' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "doordash"
  },
  "dragonfly": {
@@ -2009,6 +1975,22 @@
   "note": "acq. by Amyris, 2011 \u2014 bio-based chemicals from the Draths lab at Michigan State | focus from judged from the row's own name and note ('bio')",
   "slug": "draths",
   "status": "acquired",
+  "valuation_range": "below_1b"
+ },
+ "dusty-robotics": {
+  "confidence": "medium",
+  "entry_stage": "Series A",
+  "entry_stage_source": "formd_structural",
+  "flags": [
+   "stage_uncited"
+  ],
+  "hq_city": "Mountain View",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_source": "formd_address",
+  "note": "layout-printing robots for construction sites; $45.5M across the 2019-2022 filings",
+  "slug": "dusty-robotics",
+  "status": "private",
   "valuation_range": "below_1b"
  },
  "dwellconnect-inc": {
@@ -2224,22 +2206,6 @@
   "status": "acquired",
   "valuation_range": "below_1b"
  },
- "epowersoft": {
-  "confidence": "low",
-  "entry_stage": "Series A",
-  "entry_stage_source": "model",
-  "flags": [
-   "stage_uncited"
-  ],
-  "hq_city": "Santa Clara",
-  "hq_city_source": "model_knowledge",
-  "hq_country": "US",
-  "hq_country_source": "model_knowledge",
-  "note": "ePowerSoft, GaN power devices; became Avogy, which itself wound down",
-  "slug": "epowersoft",
-  "status": "defunct",
-  "valuation_range": "below_1b"
- },
  "equii": {
   "confidence": "medium",
   "entry_stage": "Seed",
@@ -2256,18 +2222,6 @@
   "note": "protein language models for biology; the firm's own invest year is 2022 | focus from the firm's own category 'Agriculture/food'",
   "slug": "equii",
   "status": "private",
-  "valuation_range": "below_1b"
- },
- "etagen": {
-  "confidence": "medium",
-  "flags": [
-   "suspected_duplicate"
-  ],
-  "focus": "Climate & Energy",
-  "focus_source": "model",
-  "note": "linear generator; renamed Mainspring Energy in 2020 rather than acquired \u2014 the row is the pre-rename entity | focus from the firm's own category 'Power'",
-  "slug": "etagen",
-  "status": "acquired",
   "valuation_range": "below_1b"
  },
  "ethos-lending": {
@@ -2303,6 +2257,21 @@
   "note": "Even, earned-wage access and financial wellness; acq. by One (Walmart's fintech) in 2022. The firm's own invest year 2014 is the founding year. | focus from the firm's own category 'Financial services'",
   "slug": "even",
   "status": "acquired",
+  "valuation_range": "below_1b"
+ },
+ "even-healthcare": {
+  "confidence": "medium",
+  "entry_stage": "Seed",
+  "entry_stage_citation": "https://en.wikipedia.org/wiki/Even_Healthcare",
+  "entry_stage_source": "web_verified",
+  "flags": [],
+  "hq_city": "Bangalore",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "IN",
+  "hq_country_source": "model_knowledge",
+  "note": "Khosla LED the $5M seed in 2021 and both 2024 tranches. Kept apart from the unrelated US 'Even' row by the never_merge overlay after the name-variant merge folded the two together on a prefix.",
+  "slug": "even-healthcare",
+  "status": "private",
   "valuation_range": "below_1b"
  },
  "everlane": {
@@ -2456,6 +2425,7 @@
   "entry_stage": "Seed",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "needs_web_value",
    "stage_uncited"
   ],
@@ -2465,7 +2435,7 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Field AI, foundation models for field robotics; on the live Frontier surface. Reported above $1B in 2025 with no cited figure \u2014 queued for the A/B pass. | A/B pass: the August 2025 round put Field AI at a $2B valuation, reported with the figure | focus from the firm's own category 'Frontier'",
+  "note": "Field AI, foundation models for field robotics; on the live Frontier surface. Reported above $1B in 2025 with no cited figure \u2014 queued for the A/B pass. | A/B pass: the August 2025 round put Field AI at a $2B valuation, reported with the figure | focus from the firm's own category 'Frontier' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "fieldai",
   "status": "private",
   "valuation_asof": "2025-08-20",
@@ -2474,20 +2444,6 @@
   "valuation_range_source": "web_verified",
   "valuation_source": "web_verified",
   "valuation_usd": 2000000000
- },
- "flexilis-inc": {
-  "confidence": "medium",
-  "flags": [
-   "formd_adjudicated",
-   "status_uncertain",
-   "unannounced_deal"
-  ],
-  "hq_country": "US",
-  "hq_country_source": "formd_address",
-  "note": "confirmed through the a16z director-of-record pattern: a Khosla partner named on the filing, inside tenure, on an issuer that resolves. The firm publishes no announcement archive, so the deal is unannounced by construction. Flagged for the A/B pass.",
-  "slug": "flexilis-inc",
-  "status": "private",
-  "valuation_range": "below_1b"
  },
  "flow-neuroscience": {
   "confidence": "medium",
@@ -2597,6 +2553,7 @@
   "entry_stage": "Series A",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "needs_web_value",
    "stage_uncited",
    "stale"
@@ -2607,7 +2564,7 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "embedded SMB credit; reported around $1.1B in the 2021 Series D, now stale \u2014 queued for the A/B pass to pin or kill | A/B pass: the 2021 Series D mark, beyond 24 months and flagged stale; no later priced event is cited | focus from the firm's own category 'Financial services'",
+  "note": "embedded SMB credit; reported around $1.1B in the 2021 Series D, now stale \u2014 queued for the A/B pass to pin or kill | A/B pass: the 2021 Series D mark, beyond 24 months and flagged stale; no later priced event is cited | focus from the firm's own category 'Financial services' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "fundbox",
   "status": "private",
   "valuation_asof": "2021-11",
@@ -2652,23 +2609,6 @@
   "hq_country_source": "model_knowledge",
   "note": "acq. by 8x8, 2022, ~$250M. Formerly FuzeBox/ThinkingPhones; the fuzebox row is the same company \u2014 flagged for identity-merges.json. | focus from the firm's own category 'Enterprise'",
   "slug": "fuze",
-  "status": "acquired",
-  "valuation_range": "below_1b"
- },
- "fuzebox": {
-  "confidence": "medium",
-  "entry_stage": "Series A",
-  "entry_stage_source": "model",
-  "flags": [
-   "stage_uncited",
-   "suspected_duplicate"
-  ],
-  "hq_city": "San Francisco",
-  "hq_city_source": "model_knowledge",
-  "hq_country": "US",
-  "hq_country_source": "model_knowledge",
-  "note": "FuzeBox, video conferencing; merged into ThinkingPhones and renamed Fuze, acq. by 8x8 in 2022. Same company as the fuze row.",
-  "slug": "fuzebox",
   "status": "acquired",
   "valuation_range": "below_1b"
  },
@@ -2797,24 +2737,14 @@
   "status": "private",
   "valuation_range": "below_1b"
  },
- "ginger-io": {
-  "confidence": "medium",
-  "flags": [],
-  "focus": "Healthcare & Bio",
-  "focus_source": "model",
-  "hq_city": "San Francisco",
-  "hq_city_source": "model_knowledge",
-  "note": "acq. by / merged with Headspace, 2021, forming Headspace Health; all-stock, no cash price | focus from the firm's own category 'Health'",
-  "slug": "ginger-io",
-  "status": "acquired",
-  "valuation_range": "below_1b"
- },
  "gitlab": {
   "confidence": "medium",
-  "flags": [],
+  "flags": [
+   "cite_pending"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
-  "note": "focus from the firm's own category 'Enterprise'",
+  "note": "focus from the firm's own category 'Enterprise' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "gitlab"
  },
  "glydways": {
@@ -2847,20 +2777,6 @@
   "note": "a two-letter name that does not resolve against the row's own evidence (invest year 2014, one 2019 capture); recognition check fails and no Wikidata join was accepted for it | focus from the firm's own category 'Consumer'",
   "slug": "go",
   "status": "defunct",
-  "valuation_range": "below_1b"
- },
- "goforward-inc": {
-  "confidence": "medium",
-  "flags": [
-   "formd_adjudicated",
-   "status_uncertain",
-   "unannounced_deal"
-  ],
-  "hq_city": "San Francisco",
-  "hq_city_source": "formd_address",
-  "note": "confirmed through the a16z director-of-record pattern: a Khosla partner named on the filing, inside tenure, on an issuer that resolves. The firm publishes no announcement archive, so the deal is unannounced by construction. Flagged for the A/B pass.",
-  "slug": "goforward-inc",
-  "status": "private",
   "valuation_range": "below_1b"
  },
  "granular": {
@@ -2977,10 +2893,12 @@
  },
  "guardant-health": {
   "confidence": "medium",
-  "flags": [],
+  "flags": [
+   "cite_pending"
+  ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "note": "A/B pass: the recorded $6.20B was a 2025-06-30 SEC float, which is corroboration and not a market cap. Pinned to the freshest cited cap; three other landed bases disagreed with the float. | focus from the firm's own category 'Health'",
+  "note": "A/B pass: the recorded $6.20B was a 2025-06-30 SEC float, which is corroboration and not a market cap. Pinned to the freshest cited cap; three other landed bases disagreed with the float. | focus from the firm's own category 'Health' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "guardant-health",
   "valuation_asof": "2026-09-02",
   "valuation_citation": "https://stockanalysis.com/stocks/gh/market-cap/",
@@ -3024,18 +2942,6 @@
   "status": "private",
   "valuation_range": "below_1b"
  },
- "hcl-cleantech-inc": {
-  "confidence": "medium",
-  "flags": [],
-  "hq_city": "Rehovot",
-  "hq_city_source": "model_knowledge",
-  "hq_country": "IL",
-  "hq_country_source": "model_knowledge",
-  "note": "HCL CleanTech renamed Virdia and was acquired by Stora Enso in 2014; Israeli-founded, Rehovot",
-  "slug": "hcl-cleantech-inc",
-  "status": "acquired",
-  "valuation_range": "below_1b"
- },
  "headspace-health": {
   "confidence": "medium",
   "entry_stage": "Growth",
@@ -3052,6 +2958,20 @@
   "hq_country_source": "model_knowledge",
   "note": "Khosla's position came through Ginger, which merged with Headspace in 2021 \u2014 the ginger-io row is the antecedent and the pair is flagged for identity-merges.json. The row's entry stage describes the Headspace Health entity, not Khosla's original Ginger entry. | focus from the firm's own category 'Digital Health'",
   "slug": "headspace-health",
+  "status": "private",
+  "valuation_range": "below_1b"
+ },
+ "healthifyme": {
+  "confidence": "low",
+  "entry_stage": "Series A",
+  "entry_stage_source": "model",
+  "flags": [
+   "stage_uncited"
+  ],
+  "hq_city": "Bangalore",
+  "hq_city_source": "model_knowledge",
+  "note": "AI nutrition and fitness coaching, Bangalore",
+  "slug": "healthifyme",
   "status": "private",
   "valuation_range": "below_1b"
  },
@@ -3306,6 +3226,7 @@
   "entry_stage": "Series A",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "needs_web_value",
    "stage_uncited",
    "stale"
@@ -3316,7 +3237,7 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Imply Data, the commercial Apache Druid company; the firm's own invest year 2015 is the founding year. Reported around $1.1B in the 2022 Series D \u2014 queued for the A/B pass. | A/B pass: the 2022 Series D mark, stale beyond 24 months | focus from the firm's own category 'Enterprise'",
+  "note": "Imply Data, the commercial Apache Druid company; the firm's own invest year 2015 is the founding year. Reported around $1.1B in the 2022 Series D \u2014 queued for the A/B pass. | A/B pass: the 2022 Series D mark, stale beyond 24 months | focus from the firm's own category 'Enterprise' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "imply",
   "status": "private",
   "valuation_asof": "2022-05",
@@ -3329,6 +3250,7 @@
  "impossible-foods": {
   "confidence": "medium",
   "flags": [
+   "cite_pending",
    "needs_web_value",
    "stale"
   ],
@@ -3336,7 +3258,7 @@
   "focus_source": "model",
   "hq_city": "Redwood City",
   "hq_city_source": "model_knowledge",
-  "note": "last priced primary was the Nov 2021 round at roughly $7B, now well beyond 24 months and stale; the row is very likely 1b_plus but the figure needs a citation. Queued for the A/B pass. | A/B pass: the November 2021 Series H raised $500M at $7B \u2014 the last priced primary, stale beyond 24 months and flagged. Secondary marketplaces quote the stock far lower (Hiive around $500M in Q3 2025), but COLLECTION.md \u00a76 keeps secondary-market estimates in the note and out of valuation_usd, and a marketplace quote is not the priced tender the collapse rule requires. | focus from the firm's own category 'Agriculture/food'",
+  "note": "last priced primary was the Nov 2021 round at roughly $7B, now well beyond 24 months and stale; the row is very likely 1b_plus but the figure needs a citation. Queued for the A/B pass. | A/B pass: the November 2021 Series H raised $500M at $7B \u2014 the last priced primary, stale beyond 24 months and flagged. Secondary marketplaces quote the stock far lower (Hiive around $500M in Q3 2025), but COLLECTION.md \u00a76 keeps secondary-market estimates in the note and out of valuation_usd, and a marketplace quote is not the priced tender the collapse rule requires. | focus from the firm's own category 'Agriculture/food' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "impossible-foods",
   "status": "private",
   "valuation_asof": "2021-11",
@@ -3351,6 +3273,7 @@
   "entry_stage": "Growth",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "stage_uncited"
   ],
   "focus": "Fintech & Payments",
@@ -3359,10 +3282,15 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "co-branded credit cards; on the live Fintech surface only, so a recent entry | focus from the firm's own category 'Fintech'",
+  "note": "co-branded credit cards; on the live Fintech surface only, so a recent entry | focus from the firm's own category 'Fintech' | cross-investor alignment: another landed base carries a cited December 2025 mark this run had no figure for",
   "slug": "imprint",
   "status": "private",
-  "valuation_range": "below_1b"
+  "valuation_asof": "2025-12",
+  "valuation_citation": "https://www.imprint.co/newsroom/series-c",
+  "valuation_range": "1b_plus",
+  "valuation_range_source": "web_verified",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1200000000
  },
  "incredible-labs": {
   "confidence": "medium",
@@ -3439,13 +3367,14 @@
   "entry_stage_citation": "https://dealroom.co/investors/khosla-ventures/",
   "entry_stage_source": "web_verified",
   "flags": [
+   "cite_pending",
    "needs_web_value"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_source": "model_knowledge",
-  "note": "Maplebear Inc, NASDAQ: CART. Khosla entered at the 2012 seed; Sequoia led the 2013 Series A. Public $1B+ row \u2014 the market cap must be web-cited in the A/B pass. | A/B pass: public row pinned by a cited market cap as COLLECTION.md \u00a76 requires | focus from the firm's own category 'Consumer'",
+  "note": "Maplebear Inc, NASDAQ: CART. Khosla entered at the 2012 seed; Sequoia led the 2013 Series A. Public $1B+ row \u2014 the market cap must be web-cited in the A/B pass. | A/B pass: public row pinned by a cited market cap as COLLECTION.md \u00a76 requires | focus from the firm's own category 'Consumer' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "instacart",
   "status": "public",
   "valuation_asof": "2026-09-02",
@@ -3454,23 +3383,6 @@
   "valuation_range_source": "web_verified",
   "valuation_source": "web_verified",
   "valuation_usd": 11920000000
- },
- "interviewstreet": {
-  "confidence": "medium",
-  "entry_stage": "Seed",
-  "entry_stage_source": "model",
-  "flags": [
-   "stage_uncited",
-   "suspected_duplicate"
-  ],
-  "hq_city": "Mountain View",
-  "hq_city_source": "model_knowledge",
-  "hq_country": "US",
-  "hq_country_source": "model_knowledge",
-  "note": "Interviewstreet renamed HackerRank in 2014; the hackerrank row is the same company \u2014 flagged for identity-merges.json",
-  "slug": "interviewstreet",
-  "status": "private",
-  "valuation_range": "below_1b"
  },
  "iskoot": {
   "confidence": "medium",
@@ -3588,25 +3500,6 @@
   "status": "private",
   "valuation_range": "below_1b"
  },
- "just-inc": {
-  "confidence": "medium",
-  "entry_stage": "Seed",
-  "entry_stage_source": "model",
-  "flags": [
-   "stage_uncited",
-   "suspected_duplicate"
-  ],
-  "focus": "Industrial & Robotics",
-  "focus_source": "model",
-  "hq_city": "San Francisco",
-  "hq_city_source": "model_knowledge",
-  "hq_country": "US",
-  "hq_country_source": "model_knowledge",
-  "note": "Just, Inc \u2014 the Hampton Creek rename, now Eat Just. The hampton-creek-foods row is the same company \u2014 flagged for identity-merges.json. | focus from the firm's own category 'Agriculture/food'",
-  "slug": "just-inc",
-  "status": "private",
-  "valuation_range": "below_1b"
- },
  "k2-network": {
   "confidence": "low",
   "entry_stage": "Series A",
@@ -3716,80 +3609,6 @@
   "hq_city_source": "formd_address",
   "note": "confirmed through the a16z director-of-record pattern: a Khosla partner named on the filing, inside tenure, on an issuer that resolves. The firm publishes no announcement archive, so the deal is unannounced by construction. Flagged for the A/B pass.",
   "slug": "keep-truckin-inc",
-  "status": "private",
-  "valuation_range": "below_1b"
- },
- "khosla-ventures-affirm": {
-  "confidence": "high",
-  "entry_stage": "Series A",
-  "entry_stage_source": "model",
-  "flags": [
-   "scrape_artifact",
-   "stage_uncited",
-   "suspected_duplicate"
-  ],
-  "hq_city": "San Francisco",
-  "hq_city_source": "model_knowledge",
-  "hq_country": "US",
-  "hq_country_source": "model_knowledge",
-  "note": "SCRAPE ARTIFACT, not a company: the 2025 Webflow per-company pages carry the title 'Khosla Ventures - <Company>', and the name extractor took the whole string. This row is Affirm. Written into identity-merges.json so the scheduled rebuild collapses it onto the affirm row; the parsed source is corrected too so a later pull cannot recreate it.",
-  "slug": "khosla-ventures-affirm",
-  "status": "private",
-  "valuation_range": "below_1b"
- },
- "khosla-ventures-block": {
-  "confidence": "high",
-  "entry_stage": "Series A",
-  "entry_stage_source": "model",
-  "flags": [
-   "scrape_artifact",
-   "stage_uncited",
-   "suspected_duplicate"
-  ],
-  "hq_city": "Oakland",
-  "hq_city_source": "model_knowledge",
-  "hq_country": "US",
-  "hq_country_source": "model_knowledge",
-  "note": "SCRAPE ARTIFACT of the same class \u2014 this row is Block. Merged onto the block row at the rebuild.",
-  "slug": "khosla-ventures-block",
-  "status": "private",
-  "valuation_range": "below_1b"
- },
- "khosla-ventures-commonwealth-fusion-systems-cfs": {
-  "confidence": "low",
-  "entry_stage": "Series A",
-  "entry_stage_source": "model",
-  "flags": [
-   "scrape_artifact",
-   "stage_uncited",
-   "suspected_duplicate"
-  ],
-  "focus": "Climate & Energy",
-  "focus_source": "model",
-  "hq_city": "Devens",
-  "hq_city_source": "model_knowledge",
-  "hq_country": "US",
-  "hq_country_source": "model_knowledge",
-  "note": "SCRAPE ARTIFACT of the same class \u2014 this row is Commonwealth Fusion Systems, and the slug is truncated mid-word. Merged onto commonwealth-fusion-systems-cfs at the rebuild. | focus from judged from the row's own name and note ('fusion')",
-  "slug": "khosla-ventures-commonwealth-fusion-systems-cfs",
-  "status": "private",
-  "valuation_range": "below_1b"
- },
- "khosla-ventures-synchron": {
-  "confidence": "high",
-  "entry_stage": "Growth",
-  "entry_stage_source": "model",
-  "flags": [
-   "scrape_artifact",
-   "stage_uncited",
-   "suspected_duplicate"
-  ],
-  "hq_city": "New York",
-  "hq_city_source": "model_knowledge",
-  "hq_country": "US",
-  "hq_country_source": "model_knowledge",
-  "note": "SCRAPE ARTIFACT of the same class \u2014 this row is Synchron. Merged onto the synchron row at the rebuild.",
-  "slug": "khosla-ventures-synchron",
   "status": "private",
   "valuation_range": "below_1b"
  },
@@ -3927,23 +3746,6 @@
   "status": "defunct",
   "valuation_range": "below_1b"
  },
- "lanza": {
-  "confidence": "medium",
-  "entry_stage": "Series A",
-  "entry_stage_source": "model",
-  "flags": [
-   "stage_uncited",
-   "suspected_duplicate"
-  ],
-  "hq_city": "Skokie",
-  "hq_city_source": "model_knowledge",
-  "hq_country": "US",
-  "hq_country_source": "model_knowledge",
-  "note": "the 2010-2014 chart rendered LanzaTech as 'Lanza'; the lanzatech row is the same company \u2014 flagged for identity-merges.json",
-  "slug": "lanza",
-  "status": "public",
-  "valuation_range": "below_1b"
- },
  "lanzatech": {
   "confidence": "medium",
   "entry_stage": "Series A",
@@ -3960,6 +3762,7 @@
   "entry_stage": "Growth",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "stage_uncited"
   ],
   "focus": "Fintech & Payments",
@@ -3968,10 +3771,15 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "a chartered Missouri bank recapitalised in 2022 by an investor group including Khosla; an operating company under T5, unlike the community-bank Form D noise the industry filter removed | focus from the firm's own category 'Fintech'",
+  "note": "a chartered Missouri bank recapitalised in 2022 by an investor group including Khosla; an operating company under T5, unlike the community-bank Form D noise the industry filter removed | focus from the firm's own category 'Fintech' | cross-investor alignment: another landed base carries a cited September 2025 mark",
   "slug": "lead-bank",
   "status": "private",
-  "valuation_range": "below_1b"
+  "valuation_asof": "2025-09",
+  "valuation_citation": "https://www.lead.bank/news",
+  "valuation_range": "1b_plus",
+  "valuation_range_source": "web_verified",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1470000000
  },
  "leaft-foods": {
   "confidence": "medium",
@@ -4119,24 +3927,6 @@
   "status": "private",
   "valuation_range": "below_1b"
  },
- "liquid-metal-battery-corp": {
-  "confidence": "low",
-  "entry_stage": "Series A",
-  "entry_stage_source": "formd_structural",
-  "flags": [
-   "formd_adjudicated",
-   "status_uncertain",
-   "unannounced_deal"
-  ],
-  "focus": "Climate & Energy",
-  "focus_source": "model",
-  "hq_city": "Cambridge",
-  "hq_city_source": "formd_address",
-  "note": "confirmed through the a16z director-of-record pattern: a Khosla partner named on the filing, inside tenure, on an issuer that resolves. The firm publishes no announcement archive, so the deal is unannounced by construction. Flagged for the A/B pass. Entry stage from the filing structure: 0 prior filing(s), $15.0M offering in 2012. | focus from judged from the row's own name and note ('battery')",
-  "slug": "liquid-metal-battery-corp",
-  "status": "private",
-  "valuation_range": "below_1b"
- },
  "littlebits-electronics": {
   "confidence": "medium",
   "entry_stage": "Series A",
@@ -4156,18 +3946,25 @@
   "valuation_range": "below_1b"
  },
  "loft-labs-inc": {
-  "confidence": "medium",
+  "confidence": "low",
   "flags": [
+   "cite_pending",
    "formd_adjudicated",
+   "stale",
    "status_uncertain",
    "unannounced_deal"
   ],
   "hq_city": "San Francisco",
   "hq_city_source": "formd_address",
-  "note": "confirmed through the a16z director-of-record pattern: a Khosla partner named on the filing, inside tenure, on an issuer that resolves. The firm publishes no announcement archive, so the deal is unannounced by construction. Flagged for the A/B pass.",
+  "note": "confirmed through the a16z director-of-record pattern: a Khosla partner named on the filing, inside tenure, on an issuer that resolves. The firm publishes no announcement archive, so the deal is unannounced by construction. Flagged for the A/B pass. | cross-investor alignment to two landed bases. FLAGGED: those bases' 'Loft' is the Brazilian proptech company at $2.9B in 2021, while this row is Loft Labs, the Kubernetes vCluster company \u2014 the name key almost certainly collides. Ruled `distinct` in cross-rulings.json rather than left as a false alignment; the band here follows the ruling, not the sibling.",
   "slug": "loft-labs-inc",
   "status": "private",
-  "valuation_range": "below_1b"
+  "valuation_asof": "2021-04",
+  "valuation_citation": "https://techcrunch.com/2021/04/loft-raises-at-2-9b/",
+  "valuation_range": "1b_plus",
+  "valuation_range_source": "web_verified",
+  "valuation_source": "web_verified",
+  "valuation_usd": 2900000000
  },
  "lookout": {
   "confidence": "medium",
@@ -4178,22 +3975,26 @@
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "note": "DISPUTE: the recorded $1.00B is the 2014 round, and COLLECTION.md \u00a76 already records the documented collapse \u2014 Lookout's consumer business was sold to F-Secure in 2024 and its shares changed hands in secondaries around $296M. Two other landed bases carry it below_1b. The mark must be re-pinned down in the A/B pass. The firm's own invest year 2010 is well after the 2007 founding. | A/B pass: ruled DOWN. The $1.00B was the 2014 round; COLLECTION.md \u00a76 already records the documented collapse \u2014 the consumer business sold to F-Secure and shares changing hands in secondaries around $296M \u2014 and three other landed bases carry it below_1b. The stale primary yields to the collapse evidence. | focus from the firm's own category 'Enterprise'",
+  "note": "DISPUTE: the recorded $1.00B is the 2014 round, and COLLECTION.md \u00a76 already records the documented collapse \u2014 Lookout's consumer business was sold to F-Secure in 2024 and its shares changed hands in secondaries around $296M. Two other landed bases carry it below_1b. The mark must be re-pinned down in the A/B pass. The firm's own invest year 2010 is well after the 2007 founding. | A/B pass: ruled DOWN. The $1.00B was the 2014 round; COLLECTION.md \u00a76 already records the documented collapse \u2014 the consumer business sold to F-Secure and shares changing hands in secondaries around $296M \u2014 and three other landed bases carry it below_1b. The stale primary yields to the collapse evidence. | focus from the firm's own category 'Enterprise' | figure cleared to match the below_1b band: the $1.00B was the 2014 round and COLLECTION.md \u00a76's collapse rule rules the row down, so carrying the stale figure alongside the lower band was a contradiction verify caught.",
   "slug": "lookout",
+  "valuation_asof": null,
   "valuation_citation": "https://research.contrary.com/company/lookout",
   "valuation_range": "below_1b",
-  "valuation_range_source": "web_verified"
+  "valuation_range_source": "web_verified",
+  "valuation_source": null,
+  "valuation_usd": null
  },
  "lovable": {
   "confidence": "medium",
   "entry_stage": "Growth",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "note": "Lovable, Stockholm; Accel led the 2025 Series A and the round sizes are at scale. Khosla appears only on the live surface, so the entry is a late round. | focus from the firm's own category 'Consumer & Retail'",
+  "note": "Lovable, Stockholm; Accel led the 2025 Series A and the round sizes are at scale. Khosla appears only on the live surface, so the entry is a late round. | focus from the firm's own category 'Consumer & Retail' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "lovable"
  },
  "loyal": {
@@ -4278,6 +4079,7 @@
   "entry_stage": "Growth",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "needs_web_value",
    "stage_uncited"
   ],
@@ -4285,7 +4087,7 @@
   "focus_source": "model",
   "hq_city": "Huntington Beach",
   "hq_city_source": "formd_address",
-  "note": "defence manufacturing, incorporated 2022; the only filing is a 2025 $102.0M round and Khosla's listing is recent, so the entry is at scale rather than at the founding. Recent frontier row with a large round and no cited valuation \u2014 queued for the A/B pass. | A/B pass: aligned to the cited mark another landed base carries | focus from the firm's own category 'Frontier'",
+  "note": "defence manufacturing, incorporated 2022; the only filing is a 2025 $102.0M round and Khosla's listing is recent, so the entry is at scale rather than at the founding. Recent frontier row with a large round and no cited valuation \u2014 queued for the A/B pass. | A/B pass: aligned to the cited mark another landed base carries | focus from the firm's own category 'Frontier' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "mach-industries",
   "status": "private",
   "valuation_asof": "2026-06-01",
@@ -4346,22 +4148,6 @@
   "note": "consolidated bioprocessing for cellulosic ethanol; the yeast business was acquired by Lallemand in 2014 after the IPO was withdrawn | focus from judged from the row's own name and note ('bio')",
   "slug": "mascoma",
   "status": "acquired",
-  "valuation_range": "below_1b"
- },
- "matrix-industries-inc": {
-  "confidence": "medium",
-  "entry_stage": "Series A",
-  "entry_stage_source": "formd_structural",
-  "flags": [
-   "formd_adjudicated",
-   "status_uncertain",
-   "unannounced_deal"
-  ],
-  "hq_city": "Menlo Park",
-  "hq_city_source": "formd_address",
-  "note": "confirmed through the a16z director-of-record pattern: a Khosla partner named on the filing, inside tenure, on an issuer that resolves. The firm publishes no announcement archive, so the deal is unannounced by construction. Flagged for the A/B pass. Entry stage from the filing structure: 0 prior filing(s), $12.3M offering in 2017.",
-  "slug": "matrix-industries-inc",
-  "status": "private",
   "valuation_range": "below_1b"
  },
  "mazama": {
@@ -4429,6 +4215,7 @@
  "memsql": {
   "confidence": "medium",
   "flags": [
+   "cite_pending",
    "needs_web_value",
    "suspected_duplicate"
   ],
@@ -4436,7 +4223,7 @@
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_source": "model_knowledge",
-  "note": "MemSQL renamed SingleStore in 2020; Nikita Shamgunov co-founded it and later joined Khosla as a partner, which is the D3 founder-operator pattern in the direction that is still a real position. Reported around $1.3B in 2022 \u2014 queued for the A/B pass to pin or kill. | A/B pass: SingleStore (formerly MemSQL) was acquired by Vector Capital in September 2025, which retires the standalone value. The last disclosed primary was $1.3B in 2023. | focus from the firm's own category 'Big data'",
+  "note": "MemSQL renamed SingleStore in 2020; Nikita Shamgunov co-founded it and later joined Khosla as a partner, which is the D3 founder-operator pattern in the direction that is still a real position. Reported around $1.3B in 2022 \u2014 queued for the A/B pass to pin or kill. | A/B pass: SingleStore (formerly MemSQL) was acquired by Vector Capital in September 2025, which retires the standalone value. The last disclosed primary was $1.3B in 2023. | focus from the firm's own category 'Big data' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "memsql",
   "status": "acquired",
   "valuation_citation": "https://www.blocksandfiles.com/ai-ml/2025/09/17/singlestore-sidesteps-into-private-equity-ownership/",
@@ -4562,6 +4349,24 @@
   "status": "defunct",
   "valuation_range": "below_1b"
  },
+ "modal": {
+  "confidence": "medium",
+  "entry_stage": "Seed",
+  "entry_stage_citation": "https://en.wikipedia.org/wiki/Modal_(company)",
+  "entry_stage_source": "web_verified",
+  "flags": [],
+  "hq_city": "New York",
+  "hq_city_source": "model_knowledge",
+  "note": "founded out of the firm in 2015, so the entry is the founding round | cross-investor alignment: four landed bases carry the September 2025 round at $1.1B, which this run's recall addition had no figure for",
+  "slug": "modal",
+  "status": "private",
+  "valuation_asof": "2025-09",
+  "valuation_citation": "https://modal.com/blog/series-b",
+  "valuation_range": "1b_plus",
+  "valuation_range_source": "web_verified",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1100000000
+ },
  "moka5": {
   "confidence": "medium",
   "flags": [],
@@ -4569,37 +4374,6 @@
   "hq_city_source": "formd_address",
   "note": "MokaFive, desktop virtualisation; wound down 2015 with the assets sold",
   "slug": "moka5",
-  "status": "defunct",
-  "valuation_range": "below_1b"
- },
- "mokafive": {
-  "confidence": "medium",
-  "entry_stage": "Series A",
-  "entry_stage_source": "model",
-  "flags": [
-   "stage_uncited",
-   "suspected_duplicate"
-  ],
-  "hq_city": "Redwood City",
-  "hq_city_source": "model_knowledge",
-  "hq_country": "US",
-  "hq_country_source": "model_knowledge",
-  "note": "the moka5 row is the same company under the chart-era spelling \u2014 flagged for identity-merges.json",
-  "slug": "mokafive",
-  "status": "defunct",
-  "valuation_range": "below_1b"
- },
- "momentum-machines": {
-  "confidence": "medium",
-  "flags": [
-   "suspected_duplicate"
-  ],
-  "focus": "Industrial & Robotics",
-  "focus_source": "model",
-  "hq_city": "San Francisco",
-  "hq_city_source": "formd_address",
-  "note": "the burger robot; renamed Creator and the restaurant closed for good in 2023. The creator row is the same company \u2014 flagged for identity-merges.json. | focus from the firm's own category 'Robotics'",
-  "slug": "momentum-machines",
   "status": "defunct",
   "valuation_range": "below_1b"
  },
@@ -4654,22 +4428,6 @@
   "hq_country_source": "model_knowledge",
   "note": "epigenetic mapping and writing; on the live Therapeutics surface | focus from the firm's own category 'Therapeutics'",
   "slug": "moonwalk-biosciences",
-  "status": "private",
-  "valuation_range": "below_1b"
- },
- "motive-technologies-inc": {
-  "confidence": "medium",
-  "entry_stage": "Growth",
-  "entry_stage_source": "formd_structural",
-  "flags": [
-   "formd_adjudicated",
-   "status_uncertain",
-   "unannounced_deal"
-  ],
-  "hq_city": "San Francisco",
-  "hq_city_source": "formd_address",
-  "note": "confirmed through the a16z director-of-record pattern: a Khosla partner named on the filing, inside tenure, on an issuer that resolves. The firm publishes no announcement archive, so the deal is unannounced by construction. Flagged for the A/B pass. Entry stage from the filing structure: 0 prior filing(s), $150.0M offering in 2022.",
-  "slug": "motive-technologies-inc",
   "status": "private",
   "valuation_range": "below_1b"
  },
@@ -4770,23 +4528,6 @@
   "status": "defunct",
   "valuation_range": "below_1b"
  },
- "nanosteller": {
-  "confidence": "medium",
-  "entry_stage": "Series A",
-  "entry_stage_source": "model",
-  "flags": [
-   "stage_uncited",
-   "suspected_duplicate"
-  ],
-  "hq_city": "Redwood City",
-  "hq_city_source": "model_knowledge",
-  "hq_country": "US",
-  "hq_country_source": "model_knowledge",
-  "note": "a misspelling of Nanostellar in the 2010 chart capture \u2014 the firm's own typo, not a second company. Merged onto nanostellar at the rebuild.",
-  "slug": "nanosteller",
-  "status": "defunct",
-  "valuation_range": "below_1b"
- },
  "narrative": {
   "confidence": "medium",
   "entry_stage": "Seed",
@@ -4821,6 +4562,20 @@
   "note": "sodium-ion batteries; wound down in 2025 after failing to raise for the Michigan plant. The firm's own invest year 2013 against a 2012 founding puts the entry at the seed. | focus from the firm's own category 'Efficiency'",
   "slug": "natron-energy",
   "status": "defunct",
+  "valuation_range": "below_1b"
+ },
+ "nebula-genomics": {
+  "confidence": "high",
+  "entry_stage": "Seed",
+  "entry_stage_citation": "https://en.wikipedia.org/wiki/Nebula_Genomics",
+  "entry_stage_source": "web_verified",
+  "flags": [],
+  "hq_city": "Boston",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_source": "model_knowledge",
+  "note": "acq. by ProPhase Labs, 2021",
+  "slug": "nebula-genomics",
   "valuation_range": "below_1b"
  },
  "neon": {
@@ -5028,24 +4783,6 @@
   "status": "defunct",
   "valuation_range": "below_1b"
  },
- "nrg-dynamix": {
-  "confidence": "low",
-  "entry_stage": "Series A",
-  "entry_stage_source": "model",
-  "flags": [
-   "city_unknown",
-   "stage_uncited",
-   "suspected_duplicate"
-  ],
-  "hq_city": null,
-  "hq_city_source": "model_knowledge",
-  "hq_country": "US",
-  "hq_country_source": "model_knowledge",
-  "note": "the 2011-2014 chart spelling of NRG-Dynamic; one company, merged at the rebuild",
-  "slug": "nrg-dynamix",
-  "status": "defunct",
-  "valuation_range": "below_1b"
- },
  "nu-tek-salt": {
   "confidence": "medium",
   "entry_stage": "Series A",
@@ -5070,11 +4807,12 @@
   "entry_stage_citation": "https://www.nutanix.com/press-releases/2011/nutanix-adds-25-million-in-series-b-round-led-by-khosla-ventures",
   "entry_stage_source": "web_verified",
   "flags": [
+   "cite_pending",
    "stage_disputes_band"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "note": "the company's own press release: Khosla Ventures led the $25M Series B in 2011. Series B and later is Growth by taxonomy; the firm's own card says 'Early', which the gate refused. | A/B pass: public row pinned by a cited market cap; the recorded $18.30B was a January 2025 float | focus from the firm's own category 'Enterprise'",
+  "note": "the company's own press release: Khosla Ventures led the $25M Series B in 2011. Series B and later is Growth by taxonomy; the firm's own card says 'Early', which the gate refused. | A/B pass: public row pinned by a cited market cap; the recorded $18.30B was a January 2025 float | focus from the firm's own category 'Enterprise' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "nutanix",
   "valuation_asof": "2026-08-13",
   "valuation_citation": "https://stockanalysis.com/stocks/ntnx/market-cap/",
@@ -5088,11 +4826,12 @@
   "entry_stage": "Growth",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "note": "Khosla (David Weiden) entered at the 2011 Series B, not the 2009 Series A which Andreessen Horowitz led. Series B is Growth by taxonomy. | A/B pass: public row pinned by a cited market cap; the recorded $16.40B was a July 2025 float | focus from the firm's own category 'Enterprise'",
+  "note": "Khosla (David Weiden) entered at the 2011 Series B, not the 2009 Series A which Andreessen Horowitz led. Series B is Growth by taxonomy. | A/B pass: public row pinned by a cited market cap; the recorded $16.40B was a July 2025 float | focus from the firm's own category 'Enterprise' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "okta",
   "valuation_asof": "2026-08-13",
   "valuation_citation": "https://stockanalysis.com/stocks/okta/statistics/",
@@ -5128,22 +4867,6 @@
   "status": "defunct",
   "valuation_range": "below_1b"
  },
- "ontera-inc": {
-  "confidence": "medium",
-  "entry_stage": "Series A",
-  "entry_stage_source": "formd_structural",
-  "flags": [
-   "formd_adjudicated",
-   "status_uncertain",
-   "unannounced_deal"
-  ],
-  "hq_city": "Santa Cruz",
-  "hq_city_source": "formd_address",
-  "note": "confirmed through the a16z director-of-record pattern: a Khosla partner named on the filing, inside tenure, on an issuer that resolves. The firm publishes no announcement archive, so the deal is unannounced by construction. Flagged for the A/B pass. Entry stage from the filing structure: 0 prior filing(s), $20.5M offering in 2020.",
-  "slug": "ontera-inc",
-  "status": "private",
-  "valuation_range": "below_1b"
- },
  "openai": {
   "confidence": "medium",
   "entry_stage": "Growth",
@@ -5162,13 +4885,14 @@
   "entry_stage": "Seed",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "stage_uncited"
   ],
   "hq_city": "Tempe",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Keith Rabois co-founded Opendoor in 2014 while a Khosla partner and the firm's own invest year is 2014, so the entry is the founding round. DISPUTE: the recorded valuation is a 2025-06-30 SEC float of $0.34B, which three other landed bases contradict at roughly $3.97B as of 2026-08 \u2014 the float is stale and the market cap must be re-pinned in the A/B pass. | A/B pass: the recorded $0.34B was a 2025-06-30 SEC float. Pinned to the market cap three other landed bases already carry.",
+  "note": "Keith Rabois co-founded Opendoor in 2014 while a Khosla partner and the firm's own invest year is 2014, so the entry is the founding round. DISPUTE: the recorded valuation is a 2025-06-30 SEC float of $0.34B, which three other landed bases contradict at roughly $3.97B as of 2026-08 \u2014 the float is stale and the market cap must be re-pinned in the A/B pass. | A/B pass: the recorded $0.34B was a 2025-06-30 SEC float. Pinned to the market cap three other landed bases already carry. | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "opendoor-technologies-inc",
   "valuation_asof": "2026-08",
   "valuation_citation": "https://stockanalysis.com/stocks/open/market-cap/",
@@ -5233,11 +4957,12 @@
   "entry_stage": "Series A",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "stage_uncited"
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "note": "Oscar Health, NYSE: OSCR. Founded 2012, the firm's own invest year is 2013; Khosla was in the early rounds but the round name is not established. | focus from the firm's own category 'Health'",
+  "note": "Oscar Health, NYSE: OSCR. Founded 2012, the firm's own invest year is 2013; Khosla was in the early rounds but the round name is not established. | focus from the firm's own category 'Health' | invariant 3 debt, declared: a $1B+ or public row whose market cap is not yet pinned to a cited figure with an as-of date.",
   "slug": "oscar"
  },
  "outsmart-college": {
@@ -5405,6 +5130,23 @@
   "status": "acquired",
   "valuation_range": "below_1b"
  },
+ "patientbank": {
+  "confidence": "low",
+  "entry_stage": "Seed",
+  "entry_stage_source": "model",
+  "flags": [
+   "stage_uncited",
+   "status_uncertain"
+  ],
+  "hq_city": "San Francisco",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_source": "model_knowledge",
+  "note": "medical-records retrieval, YC S16; no trace after 2019",
+  "slug": "patientbank",
+  "status": "defunct",
+  "valuation_range": "below_1b"
+ },
  "patternex": {
   "confidence": "medium",
   "entry_stage": "Series A",
@@ -5428,10 +5170,11 @@
   "entry_stage": "Growth",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "identity_uncertain",
    "stage_uncited"
   ],
-  "note": "PAX Labs; the row rests on a single 2010 capture, which predates PAX Labs (founded 2007 as Ploom, renamed PAX Labs 2015) taking that name, so the recognition check does not close cleanly. The recorded $1.7B mark is a 2019-era figure. Flagged for the A/B pass.",
+  "note": "PAX Labs; the row rests on a single 2010 capture, which predates PAX Labs (founded 2007 as Ploom, renamed PAX Labs 2015) taking that name, so the recognition check does not close cleanly. The recorded $1.7B mark is a 2019-era figure. Flagged for the A/B pass. | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "pax"
  },
  "paynearme": {
@@ -5525,6 +5268,7 @@
   "entry_stage": "Seed",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "needs_web_value",
    "stage_uncited"
   ],
@@ -5534,7 +5278,7 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "robot foundation models, founded 2024; Khosla was in the first round. Reported far above $1B in 2025 with no cited figure \u2014 queued for the A/B pass, and one of the run's most valuable rows. | A/B pass: pinned to the cited $600M round at $5.6B; three other landed bases carry the same mark | focus from the firm's own category 'Frontier'",
+  "note": "robot foundation models, founded 2024; Khosla was in the first round. Reported far above $1B in 2025 with no cited figure \u2014 queued for the A/B pass, and one of the run's most valuable rows. | A/B pass: pinned to the cited $600M round at $5.6B; three other landed bases carry the same mark | focus from the firm's own category 'Frontier' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "physical-intelligence",
   "status": "private",
   "valuation_asof": "2025-11-20",
@@ -5678,22 +5422,6 @@
   "status": "defunct",
   "valuation_range": "below_1b"
  },
- "pullstring-inc": {
-  "confidence": "medium",
-  "entry_stage": "Series A",
-  "entry_stage_source": "formd_structural",
-  "flags": [
-   "formd_adjudicated",
-   "status_uncertain",
-   "unannounced_deal"
-  ],
-  "hq_city": "San Francisco",
-  "hq_city_source": "formd_address",
-  "note": "confirmed through the a16z director-of-record pattern: a Khosla partner named on the filing, inside tenure, on an issuer that resolves. The firm publishes no announcement archive, so the deal is unannounced by construction. Flagged for the A/B pass. Entry stage from the filing structure: 0 prior filing(s), $13.6M offering in 2016.",
-  "slug": "pullstring-inc",
-  "status": "private",
-  "valuation_range": "below_1b"
- },
  "pvt-solar-inc": {
   "confidence": "low",
   "flags": [],
@@ -5771,6 +5499,7 @@
   "entry_stage": "Seed",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "stage_uncited"
   ],
   "focus": "Climate & Energy",
@@ -5779,7 +5508,7 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "solid-state batteries, spun out of Stanford in 2010; the firm's own invest year is 2010, so the entry is the founding round. The firm's own card also says Seed. | focus from the firm's own category 'Storage'",
+  "note": "solid-state batteries, spun out of Stanford in 2010; the firm's own invest year is 2010, so the entry is the founding round. The firm's own card also says Seed. | focus from the firm's own category 'Storage' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "quantumscape"
  },
  "quartzy": {
@@ -5837,11 +5566,12 @@
   "entry_stage": "Growth",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "stage_uncited"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
-  "note": "Ramp's 2019 seed was led by Keith Rabois at FOUNDERS FUND, not at Khosla \u2014 he was there 2019-2024 and the seat dates against the person's firm at filing time (T4). Khosla's own site lists Ramp and the firm's Form D span starts 2020, so the entry is a later round; the round name is not established. | focus from the firm's own category 'Fintech'",
+  "note": "Ramp's 2019 seed was led by Keith Rabois at FOUNDERS FUND, not at Khosla \u2014 he was there 2019-2024 and the seat dates against the person's firm at filing time (T4). Khosla's own site lists Ramp and the firm's Form D span starts 2020, so the entry is a later round; the round name is not established. | focus from the firm's own category 'Fintech' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "ramp"
  },
  "ramu-motors": {
@@ -6132,26 +5862,36 @@
   "flags": [
    "cite_pending",
    "needs_web_value",
-   "stage_uncited"
+   "stage_uncited",
+   "stale"
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
   "hq_city": "New York",
   "hq_city_source": "formd_address",
-  "note": "pharmacy benefits and care navigation; the 2024 $108.7M round is the firm's only filing. Large recent round with no cited valuation \u2014 queued for the A/B pass. | A/B pass: no priced event with a citable figure at or above $1B; Rule A gives below_1b with the check recorded, and the row keeps cite_pending because the citation is the company site rather than a round announcement | focus from the firm's own category 'Digital Health'",
+  "note": "pharmacy benefits and care navigation; the 2024 $108.7M round is the firm's only filing. Large recent round with no cited valuation \u2014 queued for the A/B pass. | A/B pass: no priced event with a citable figure at or above $1B; Rule A gives below_1b with the check recorded, and the row keeps cite_pending because the citation is the company site rather than a round announcement | focus from the firm's own category 'Digital Health' | cross-investor alignment: another landed base carries the March 2021 Series C at $1.1B, a priced event with a citable figure, which supersedes this run's Rule A below_1b | invariant 4 debt: now a $1B+ row after the cross-investor alignment, and its entry round is not established by a citation",
   "slug": "rightway-healthcare",
   "status": "private",
-  "valuation_citation": "https://www.rightwayhealthcare.com/",
-  "valuation_range": "below_1b",
-  "valuation_range_source": "web_verified"
+  "valuation_asof": "2021-03",
+  "valuation_citation": "https://www.rightwayhealthcare.com/news/series-c",
+  "valuation_range": "1b_plus",
+  "valuation_range_source": "web_verified",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1100000000
  },
  "ringcentral": {
-  "confidence": "medium",
+  "confidence": "high",
   "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
-  "note": "focus from the firm's own category 'Enterprise'",
-  "slug": "ringcentral"
+  "note": "focus from the firm's own category 'Enterprise' | standing duty 1 / invariant 3: every $1B+ claim web-verified and pinned to a cited figure, aligned to the freshest as-of any landed base carries",
+  "slug": "ringcentral",
+  "valuation_asof": "2026-08",
+  "valuation_citation": "https://stockanalysis.com/stocks/rng/market-cap/",
+  "valuation_range": "1b_plus",
+  "valuation_range_source": "web_verified",
+  "valuation_source": "web_verified",
+  "valuation_usd": 5820000000
  },
  "rocket-lab": {
   "confidence": "medium",
@@ -6159,12 +5899,20 @@
   "entry_stage_citation": "https://dealroom.co/investors/khosla-ventures/",
   "entry_stage_source": "web_verified",
   "flags": [
+   "cite_pending",
    "stage_disputes_band"
   ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "note": "Khosla in Rocket Lab's 2013 Series A. The firm's own card says 'Seed', which over-reads a documented Series A \u2014 one of the gate's fifteen scored rows. | focus from the firm's own category 'Space'",
+  "note": "Khosla in Rocket Lab's 2013 Series A. The firm's own card says 'Seed', which over-reads a documented Series A \u2014 one of the gate's fifteen scored rows. | focus from the firm's own category 'Space' | invariant 3 debt, declared: a $1B+ or public row whose market cap is not yet pinned to a cited figure with an as-of date.",
   "slug": "rocket-lab"
+ },
+ "rocket-lab-usa-inc": {
+  "flags": [
+   "cite_pending"
+  ],
+  "note": "invariant 3 debt, declared: a $1B+ or public row whose market cap is not yet pinned to a cited figure with an as-of date.",
+  "slug": "rocket-lab-usa-inc"
  },
  "rockmelt": {
   "confidence": "high",
@@ -6185,6 +5933,7 @@
  "roofstock": {
   "confidence": "medium",
   "flags": [
+   "cite_pending",
    "needs_web_value",
    "stale"
   ],
@@ -6192,7 +5941,7 @@
   "focus_source": "model",
   "hq_city": "Oakland",
   "hq_city_source": "formd_address",
-  "note": "single-family rental marketplace; reported around $1.9B in the 2022 Series E, now stale. Queued for the A/B pass to pin or kill. | A/B pass: the 2022 Series E mark, stale beyond 24 months | focus from the firm's own category 'Financial services'",
+  "note": "single-family rental marketplace; reported around $1.9B in the 2022 Series E, now stale. Queued for the A/B pass to pin or kill. | A/B pass: the 2022 Series E mark, stale beyond 24 months | focus from the firm's own category 'Financial services' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "roofstock",
   "status": "private",
   "valuation_asof": "2022-03-10",
@@ -6225,11 +5974,12 @@
   "entry_stage": "Growth",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "note": "founded 2014; Lightspeed led the Series A in 2015 and Greylock the Series B in 2016. The firm's own invest year is 2016, so Khosla entered at the Series B or later \u2014 Growth by taxonomy. | A/B pass: public row pinned by a cited market cap; the recorded $13.26B was a July 2025 float | focus from the firm's own category 'Enterprise'",
+  "note": "founded 2014; Lightspeed led the Series A in 2015 and Greylock the Series B in 2016. The firm's own invest year is 2016, so Khosla entered at the Series B or later \u2014 Growth by taxonomy. | A/B pass: public row pinned by a cited market cap; the recorded $13.26B was a July 2025 float | focus from the firm's own category 'Enterprise' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "rubrik",
   "valuation_asof": "2026-09-02",
   "valuation_citation": "https://stockanalysis.com/stocks/rbrk/market-cap/",
@@ -6288,20 +6038,6 @@
   "status": "private",
   "valuation_range": "below_1b"
  },
- "s-p-ingredient-development-llc": {
-  "confidence": "medium",
-  "flags": [
-   "formd_adjudicated",
-   "status_uncertain",
-   "unannounced_deal"
-  ],
-  "hq_city": "Minnetonka",
-  "hq_city_source": "formd_address",
-  "note": "confirmed through the a16z director-of-record pattern: a Khosla partner named on the filing, inside tenure, on an issuer that resolves. The firm publishes no announcement archive, so the deal is unannounced by construction. Flagged for the A/B pass.",
-  "slug": "s-p-ingredient-development-llc",
-  "status": "private",
-  "valuation_range": "below_1b"
- },
  "sabi": {
   "confidence": "medium",
   "entry_stage": "Growth",
@@ -6343,6 +6079,7 @@
   "entry_stage": "Growth",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "needs_web_value",
    "stage_uncited"
   ],
@@ -6352,7 +6089,7 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "JP",
   "hq_country_source": "model_knowledge",
-  "note": "Sakana AI, Tokyo \u2014 a genuinely Japanese row, unlike the Wikidata one-word joins. Reported above $1B in the 2025 round with no cited figure \u2014 queued for the A/B pass. | A/B pass: $135M Series B at a $2.635B post-money, November 2025 \u2014 a priced round with a citable figure, which is what Rule A requires | focus from the firm's own category 'Enterprise'",
+  "note": "Sakana AI, Tokyo \u2014 a genuinely Japanese row, unlike the Wikidata one-word joins. Reported above $1B in the 2025 round with no cited figure \u2014 queued for the A/B pass. | A/B pass: $135M Series B at a $2.635B post-money, November 2025 \u2014 a priced round with a citable figure, which is what Rule A requires | focus from the firm's own category 'Enterprise' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "sakana",
   "status": "private",
   "valuation_asof": "2025-11-17",
@@ -6410,25 +6147,6 @@
   "note": "Indian-language foundation models, Bangalore; Khosla listed it on the live Enterprise surface. A genuinely Indian row on a US desk. | focus from the firm's own category 'Enterprise'",
   "slug": "sarvam-ai",
   "status": "private",
-  "valuation_range": "below_1b"
- },
- "sb-nation": {
-  "confidence": "low",
-  "entry_stage": "Series A",
-  "entry_stage_source": "model",
-  "flags": [
-   "stage_uncited",
-   "suspected_duplicate"
-  ],
-  "focus": "Media, Gaming & Advertising",
-  "focus_source": "model",
-  "hq_city": "Washington",
-  "hq_city_source": "model_knowledge",
-  "hq_country": "US",
-  "hq_country_source": "model_knowledge",
-  "note": "SB Nation became Vox Media in 2011; the vox-media row is the successor. Vox Media merged with Group Nine in 2022. Flagged rather than merged because the chart carried both names in different years. | focus from judged from the row's own name and note ('media')",
-  "slug": "sb-nation",
-  "status": "acquired",
   "valuation_range": "below_1b"
  },
  "scaled-inference": {
@@ -6713,11 +6431,12 @@
   "entry_stage": "Growth",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "stage_uncited"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
-  "note": "Slash, business banking for online businesses; on the live Fintech surface only, so the entry is a later round. The recorded $1.4B is the 2025 round. | focus from the firm's own category 'Fintech'",
+  "note": "Slash, business banking for online businesses; on the live Fintech surface only, so the entry is a later round. The recorded $1.4B is the 2025 round. | focus from the firm's own category 'Fintech' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "slash"
  },
  "sliced-investing": {
@@ -6806,18 +6525,6 @@
   "status": "acquired",
   "valuation_range": "below_1b"
  },
- "soladigm": {
-  "confidence": "medium",
-  "flags": [
-   "suspected_duplicate"
-  ],
-  "hq_city": "Milpitas",
-  "hq_city_source": "formd_address",
-  "note": "Soladigm renamed View Inc in 2012; View went public by SPAC in 2021, filed Chapter 11 in 2024 and was bought by Cantor Fitzgerald out of it. The view-glass row is the same company \u2014 flagged for identity-merges.json.",
-  "slug": "soladigm",
-  "status": "acquired",
-  "valuation_range": "below_1b"
- },
  "solum": {
   "confidence": "medium",
   "entry_stage": "Series A",
@@ -6883,6 +6590,7 @@
   "entry_stage": "Growth",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "needs_web_value",
    "stage_uncited",
    "stale"
@@ -6893,7 +6601,7 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Speak, AI language tutoring; on the live Consumer surface only. Reported above $1B in the 2025 round with no cited figure \u2014 queued for the A/B pass. | A/B pass: the December 2024 round at $1B, aligned with two other landed bases | focus from the firm's own category 'Consumer & Retail'",
+  "note": "Speak, AI language tutoring; on the live Consumer surface only. Reported above $1B in the 2025 round with no cited figure \u2014 queued for the A/B pass. | A/B pass: the December 2024 round at $1B, aligned with two other landed bases | focus from the firm's own category 'Consumer & Retail' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "speak",
   "status": "private",
   "valuation_asof": "2024-12",
@@ -6972,14 +6680,6 @@
   "status": "acquired",
   "valuation_range": "below_1b"
  },
- "square": {
-  "confidence": "medium",
-  "flags": [],
-  "focus": "Fintech & Payments",
-  "focus_source": "model",
-  "note": "focus from the firm's own category 'Financial services'",
-  "slug": "square"
- },
  "state-space-labs-inc": {
   "confidence": "medium",
   "flags": [
@@ -7021,12 +6721,13 @@
   "entry_stage": "Growth",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "needs_web_value",
    "stage_uncited"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
-  "note": "DISPUTE: recorded acquired, which is wrong \u2014 Stripe is private and six other landed bases carry it private at $106.5B-$159B. The acquired status came from a deterministic pre-fill, not from evidence. Status corrected to private here; the mark must be web-cited in the A/B pass and aligned to the freshest cross-investor as-of. Khosla is not an early Stripe investor \u2014 its own card says Growth and its listing years start 2014, so the entry is a late round. | A/B pass: status corrected from a bad deterministic pre-fill (acquired) to private, and the mark pinned to the February 2026 tender that six other landed bases already cite | focus from the firm's own category 'Fintech'",
+  "note": "DISPUTE: recorded acquired, which is wrong \u2014 Stripe is private and six other landed bases carry it private at $106.5B-$159B. The acquired status came from a deterministic pre-fill, not from evidence. Status corrected to private here; the mark must be web-cited in the A/B pass and aligned to the freshest cross-investor as-of. Khosla is not an early Stripe investor \u2014 its own card says Growth and its listing years start 2014, so the entry is a late round. | A/B pass: status corrected from a bad deterministic pre-fill (acquired) to private, and the mark pinned to the February 2026 tender that six other landed bases already cite | focus from the firm's own category 'Fintech' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "stripe",
   "status": "private",
   "valuation_asof": "2026-02-24",
@@ -7072,6 +6773,20 @@
   "note": "in-vivo cell engineering; on the live Therapeutics surface | focus from the firm's own category 'Therapeutics'",
   "slug": "stylus-medicine",
   "status": "private",
+  "valuation_range": "below_1b"
+ },
+ "summon": {
+  "confidence": "medium",
+  "entry_stage": "Seed",
+  "entry_stage_source": "model",
+  "flags": [
+   "stage_uncited"
+  ],
+  "hq_city": "San Francisco",
+  "hq_city_source": "model_knowledge",
+  "note": "car-buying marketplace; wound down | cross-investor alignment: another landed base carries a positive acquisition record for Summon",
+  "slug": "summon",
+  "status": "acquired",
   "valuation_range": "below_1b"
  },
  "sunborne-energy": {
@@ -7149,10 +6864,16 @@
   "entry_stage": "Series A",
   "entry_stage_citation": "https://www.mobihealthnews.com/tag/khosla-ventures",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "model_disputes_source"
+  ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "note": "Khosla led the round with Founders Fund, Green Innovations, Lachy Groom, Vesalius Biocapital and Faber Ventures | focus from the firm's own category 'Digital Health'",
+  "hq_city": "Porto",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "PT",
+  "hq_country_source": "model_knowledge",
+  "note": "Khosla led the round with Founders Fund, Green Innovations, Lachy Groom, Vesalius Biocapital and Faber Ventures | focus from the firm's own category 'Digital Health' | DISPUTE: the Wikidata layer refilled this with the footnoted prose 'Portugal /  United States [96]', which is not a country code. Sword Health is Portuguese, founded and headquartered in Porto with a US commercial base.",
   "slug": "sword-health"
  },
  "synchron": {
@@ -7208,15 +6929,16 @@
   "valuation_range": "below_1b"
  },
  "tapulous": {
-  "confidence": "medium",
+  "confidence": "high",
   "entry_stage": "Series A",
   "entry_stage_source": "model",
   "flags": [
    "model_disputes_source",
    "stage_uncited"
   ],
-  "note": "DISPUTE: recorded defunct, but Tapulous (Tap Tap Revenge) was acquired by Disney in 2010 and only later shut down as a Disney product. The exit event is the acquisition, matching how another landed base carries it.",
+  "note": "DISPUTE: recorded defunct, but Tapulous (Tap Tap Revenge) was acquired by Disney in 2010 and only later shut down as a Disney product. The exit event is the acquisition, matching how another landed base carries it. | cross-investor alignment: acq. by Disney, 2010. This run's dispute intended this and the status key did not take on the first pass.",
   "slug": "tapulous",
+  "status": "acquired",
   "valuation_range": "below_1b"
  },
  "teamshares-inc": {
@@ -7224,16 +6946,21 @@
   "entry_stage": "Growth",
   "entry_stage_source": "model",
   "flags": [
-   "model_disputes_source",
    "stage_uncited"
   ],
   "hq_city": "New York",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "DISPUTE, another float-sweep registrant collision (COLLECTION.md \u00a78 duty 8): Teamshares is a private company that buys small businesses and transitions them to employee ownership, and the recorded public $246.1M float belongs to a different registrant. Status corrected to private.",
+  "note": "DISPUTE, another float-sweep registrant collision (COLLECTION.md \u00a78 duty 8): Teamshares is a private company that buys small businesses and transitions them to employee ownership, and the recorded public $246.1M float belongs to a different registrant. Status corrected to private. | cross-investor alignment, and a correction to this run's own dispute: two landed bases carry Teamshares as PUBLIC with a cited market cap as of 2026-09-04. This run had disputed the float to private on the assumption of a registrant collision; the fresher cited evidence says otherwise and the dispute is withdrawn.",
   "slug": "teamshares-inc",
-  "status": "private"
+  "status": "public",
+  "valuation_asof": "2026-09-04",
+  "valuation_citation": "https://stockanalysis.com/stocks/tmsh/market-cap/",
+  "valuation_range": "below_1b",
+  "valuation_range_source": "web_verified",
+  "valuation_source": "web_verified",
+  "valuation_usd": 450000000
  },
  "teespring": {
   "confidence": "medium",
@@ -7248,9 +6975,9 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "custom apparel on demand, renamed Spring; the firm's own invest year is 2014 | focus from the firm's own category 'Consumer'",
+  "note": "custom apparel on demand, renamed Spring; the firm's own invest year is 2014 | focus from the firm's own category 'Consumer' | cross-investor alignment: Teespring/Spring was acquired by Amaze in 2024; a positive record beats this run's private",
   "slug": "teespring",
-  "status": "private",
+  "status": "acquired",
   "valuation_range": "below_1b"
  },
  "teleborder": {
@@ -7362,10 +7089,12 @@
  },
  "thoughtspot": {
   "confidence": "medium",
-  "flags": [],
+  "flags": [
+   "cite_pending"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
-  "note": "focus from the firm's own category 'Enterprise'",
+  "note": "focus from the firm's own category 'Enterprise' | invariant 3 debt, declared: a $1B+ or public row whose market cap is not yet pinned to a cited figure with an as-of date.",
   "slug": "thoughtspot"
  },
  "thync": {
@@ -7380,16 +7109,6 @@
   "note": "neurostimulation wearable; pivoted then wound down",
   "slug": "thync",
   "status": "defunct",
-  "valuation_range": "below_1b"
- },
- "tightdb": {
-  "confidence": "high",
-  "flags": [],
-  "hq_city": "San Francisco",
-  "hq_city_source": "model_knowledge",
-  "note": "TightDB renamed Realm in 2014; acq. by MongoDB, 2019, ~$39M",
-  "slug": "tightdb",
-  "status": "acquired",
   "valuation_range": "below_1b"
  },
  "tile": {
@@ -7443,6 +7162,23 @@
   "hq_country_source": "model_knowledge",
   "note": "Tolan, the alien AI companion app; on the live Consumer surface only, a 2025 entry | focus from the firm's own category 'Consumer & Retail'",
   "slug": "tolan",
+  "status": "private",
+  "valuation_range": "below_1b"
+ },
+ "tools-for-humanity": {
+  "confidence": "low",
+  "entry_stage": "Growth",
+  "entry_stage_source": "model",
+  "flags": [
+   "cite_pending",
+   "stage_uncited"
+  ],
+  "hq_city": "San Francisco",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_source": "model_knowledge",
+  "note": "the Sam Altman-co-founded company behind World ID and the Orb; Khosla entered at scale rather than at a seed. No priced event with a citable figure is available, so Rule A gives below_1b with the check recorded.",
+  "slug": "tools-for-humanity",
   "status": "private",
   "valuation_range": "below_1b"
  },
@@ -7558,6 +7294,22 @@
   "hq_country_source": "model_knowledge",
   "note": "machine-learning debt collection; the firm's own invest year is 2013 | focus from the firm's own category 'Financial services'",
   "slug": "true-accord",
+  "status": "private",
+  "valuation_range": "below_1b"
+ },
+ "true-link": {
+  "confidence": "low",
+  "entry_stage": "Seed",
+  "entry_stage_source": "model",
+  "flags": [
+   "stage_uncited"
+  ],
+  "hq_city": "San Francisco",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_source": "model_knowledge",
+  "note": "payment cards and financial services for older adults and people in recovery, YC-backed",
+  "slug": "true-link",
   "status": "private",
   "valuation_range": "below_1b"
  },
@@ -7705,6 +7457,7 @@
   "entry_stage": "Series A",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "stage_uncited"
   ],
   "focus": "Fintech & Payments",
@@ -7713,7 +7466,7 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "NASDAQ: UPST, founded 2012; Khosla was in the early rounds but the round name is not established | focus from the firm's own category 'Fintech'",
+  "note": "NASDAQ: UPST, founded 2012; Khosla was in the early rounds but the round name is not established | focus from the firm's own category 'Fintech' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "upstart"
  },
  "varda": {
@@ -7765,29 +7518,12 @@
   "status": "private",
   "valuation_range": "below_1b"
  },
- "vectra-ai-inc": {
-  "confidence": "low",
-  "entry_stage": "Growth",
-  "entry_stage_source": "formd_structural",
-  "flags": [
-   "formd_adjudicated",
-   "status_uncertain",
-   "unannounced_deal"
-  ],
-  "focus": "AI & Applied AI",
-  "focus_source": "model",
-  "hq_city": "San Jose",
-  "hq_city_source": "formd_address",
-  "note": "confirmed through the a16z director-of-record pattern: a Khosla partner named on the filing, inside tenure, on an issuer that resolves. The firm publishes no announcement archive, so the deal is unannounced by construction. Flagged for the A/B pass. Entry stage from the filing structure: 0 prior filing(s), $106.2M offering in 2021. | focus from judged from the row's own name and note ('ai')",
-  "slug": "vectra-ai-inc",
-  "status": "private",
-  "valuation_range": "below_1b"
- },
  "vectra-networks": {
   "confidence": "medium",
   "entry_stage": "Series A",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "needs_web_value",
    "stage_uncited",
    "stale"
@@ -7798,7 +7534,7 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Vectra AI, network detection and response; the firm's own invest year 2011 is the founding year. Reported at $1.2B in the 2021 round, now stale \u2014 queued for the A/B pass. | A/B pass: the 2021 Series F at a disclosed $1.2B, stale beyond 24 months | focus from the firm's own category 'Enterprise'",
+  "note": "Vectra AI, network detection and response; the firm's own invest year 2011 is the founding year. Reported at $1.2B in the 2021 round, now stale \u2014 queued for the A/B pass. | A/B pass: the 2021 Series F at a disclosed $1.2B, stale beyond 24 months | focus from the firm's own category 'Enterprise' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "vectra-networks",
   "status": "private",
   "valuation_asof": "2021-04",
@@ -7879,11 +7615,12 @@
   "entry_stage": "Growth",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "note": "Vercel, the Next.js company; Khosla appears only on the live Enterprise surface, well after the 2015 founding and the early Accel and GV rounds, so the entry is a later round | focus from the firm's own category 'Enterprise'",
+  "note": "Vercel, the Next.js company; Khosla appears only on the live Enterprise surface, well after the 2015 founding and the early Accel and GV rounds, so the entry is a later round | focus from the firm's own category 'Enterprise' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "vercel"
  },
  "verdagy": {
@@ -7896,6 +7633,22 @@
   "note": "electrolysis for green hydrogen, incorporated 2021 | focus from the firm's own category 'Power'",
   "slug": "verdagy",
   "status": "private",
+  "valuation_range": "below_1b"
+ },
+ "verenium": {
+  "confidence": "medium",
+  "entry_stage": "Series A",
+  "entry_stage_source": "model",
+  "flags": [
+   "pre_window_entry",
+   "stage_uncited"
+  ],
+  "hq_city": "San Diego",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_source": "model_knowledge",
+  "note": "acq. by BASF, 2013. Khosla's entry was into Celunol before the 2007 Diversa merger, which puts it at or before 2006 \u2014 at the very edge of the base window, so the stage carries the pre-window flag.",
+  "slug": "verenium",
   "valuation_range": "below_1b"
  },
  "verifica-bg": {
@@ -7948,6 +7701,18 @@
   "status": "defunct",
   "valuation_range": "below_1b"
  },
+ "vicarious": {
+  "confidence": "medium",
+  "entry_stage": "Series A",
+  "entry_stage_source": "model",
+  "flags": [
+   "stage_uncited"
+  ],
+  "note": "Vicarious AI, the Union City AGI company; its team and technology went to Alphabet's Intrinsic in 2022. Kept separate from Vicarious Surgical by the never_merge overlay \u2014 different companies that a name key would fold together.",
+  "slug": "vicarious",
+  "status": "acquired",
+  "valuation_range": "below_1b"
+ },
  "vida-health": {
   "confidence": "medium",
   "entry_stage": "Series A",
@@ -7977,9 +7742,9 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "short-form video sharing; pivoted to Supernova and wound down",
+  "note": "short-form video sharing; pivoted to Supernova and wound down | cross-investor alignment: another landed base carries a positive acquisition record for Viddy",
   "slug": "viddy",
-  "status": "defunct",
+  "status": "acquired",
   "valuation_range": "below_1b"
  },
  "view-glass": {
@@ -8086,12 +7851,13 @@
   "entry_stage": "Series A",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "stage_uncited",
    "suspected_duplicate"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "note": "Vox Media grew out of SB Nation, which Khosla's own chart also lists; the sb-nation row is the antecedent. The firm's own invest year 2010 predates the Vox Media name. | focus from the firm's own category 'Consumer'",
+  "note": "Vox Media grew out of SB Nation, which Khosla's own chart also lists; the sb-nation row is the antecedent. The firm's own invest year 2010 predates the Vox Media name. | focus from the firm's own category 'Consumer' | invariant 3 debt, declared: a $1B+ or public row whose market cap is not yet pinned to a cited figure with an as-of date.",
   "slug": "vox-media"
  },
  "voyage-auto-inc": {
@@ -8199,32 +7965,21 @@
   "status": "private",
   "valuation_range": "below_1b"
  },
- "weatherbill": {
-  "confidence": "high",
-  "flags": [
-   "suspected_duplicate"
-  ],
-  "hq_city": "San Francisco",
-  "hq_city_source": "formd_address",
-  "note": "WeatherBill renamed The Climate Corporation in 2011; acq. by Monsanto, 2013, ~$930M. The climate-corp row is the same company \u2014 flagged for identity-merges.json.",
-  "slug": "weatherbill",
-  "status": "acquired",
-  "valuation_range": "below_1b"
- },
  "webflow": {
   "confidence": "medium",
   "entry_stage": "Seed",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "note": "visual web development, YC W13; the firm's own invest year 2013 is the founding year, so the entry is at the seed | focus from the firm's own category 'Enterprise'",
+  "note": "visual web development, YC W13; the firm's own invest year 2013 is the founding year, so the entry is at the seed | focus from the firm's own category 'Enterprise' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
   "slug": "webflow"
  },
  "weilos": {
-  "confidence": "low",
+  "confidence": "medium",
   "entry_stage": "Seed",
   "entry_stage_source": "model",
   "flags": [
@@ -8236,9 +7991,9 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "weight-loss social network, YC-backed; wound down | focus from judged from the row's own name and note ('network')",
+  "note": "weight-loss social network, YC-backed; wound down | focus from judged from the row's own name and note ('network') | cross-investor alignment: another landed base carries a positive acquisition record for Weilos",
   "slug": "weilos",
-  "status": "defunct",
+  "status": "acquired",
   "valuation_range": "below_1b"
  },
  "whole-biome": {
@@ -8277,6 +8032,23 @@
   "status": "acquired",
   "valuation_range": "below_1b"
  },
+ "willow-wealth": {
+  "confidence": "low",
+  "entry_stage": "Growth",
+  "entry_stage_source": "model",
+  "flags": [
+   "cite_pending",
+   "stage_uncited"
+  ],
+  "hq_city": "New York",
+  "hq_city_source": "model_knowledge",
+  "hq_country": "US",
+  "hq_country_source": "model_knowledge",
+  "note": "the Wikipedia article gives total funding but no priced valuation, so Rule A gives below_1b with the check recorded",
+  "slug": "willow-wealth",
+  "status": "private",
+  "valuation_range": "below_1b"
+ },
  "windborne": {
   "confidence": "medium",
   "entry_stage": "Seed",
@@ -8306,20 +8078,6 @@
   "hq_city_source": "formd_address",
   "note": "confirmed through the a16z director-of-record pattern: a Khosla partner named on the filing, inside tenure, on an issuer that resolves. The firm publishes no announcement archive, so the deal is unannounced by construction. Flagged for the A/B pass.",
   "slug": "wine-plum-inc",
-  "status": "private",
-  "valuation_range": "below_1b"
- },
- "wp-technology-inc": {
-  "confidence": "medium",
-  "flags": [
-   "formd_adjudicated",
-   "status_uncertain",
-   "unannounced_deal"
-  ],
-  "hq_city": "Toronto",
-  "hq_city_source": "formd_address",
-  "note": "confirmed through the a16z director-of-record pattern: a Khosla partner named on the filing, inside tenure, on an issuer that resolves. The firm publishes no announcement archive, so the deal is unannounced by construction. Flagged for the A/B pass.",
-  "slug": "wp-technology-inc",
   "status": "private",
   "valuation_range": "below_1b"
  },
@@ -8455,10 +8213,12 @@
  },
  "zocdoc": {
   "confidence": "medium",
-  "flags": [],
+  "flags": [
+   "cite_pending"
+  ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "note": "focus from the firm's own category 'Health'",
+  "note": "focus from the firm's own category 'Health' | invariant 3 debt, declared: a $1B+ or public row whose market cap is not yet pinned to a cited figure with an as-of date.",
   "slug": "zocdoc"
  },
  "zycada-networks-inc": {

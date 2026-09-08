@@ -386,8 +386,13 @@ def main() -> None:
     # Entity form: a venture-backed operating company is a corporation or an
     # LLC, essentially never a limited partnership. An LP with no listing
     # evidence is a fund, SPV or professional partnership, not an investment.
-    # This is the legal entity type, not a name-content pattern.
-    LP_FORM = re.compile(r",?\s*(L\.\s?P\.?|LP)\s*$", re.I)
+    # This is the legal entity type, not a name-content pattern — and the
+    # pattern must SAY so: without a separator before the suffix, `LP$` matches
+    # the last two letters of an ordinary word and silently deletes the row.
+    # Measured on Khosla, where the recall probe's AirHelp was dropped as a
+    # limited partnership; Yelp, Gulp and Kelp are the same shape, and any of
+    # them would vanish on a base where the row carries no listing evidence.
+    LP_FORM = re.compile(r"(?:^|[\s,.])\s*(L\.\s?P\.?|LP)\s*$", re.I)
     lp_dropped = []
     for key, r in list(base.items()):
         if (LP_FORM.search(r["name"]) and not r["wayback_years"]
@@ -402,9 +407,18 @@ def main() -> None:
 
     # Apply the deferred financial/real-estate rule now that all layers are in:
     # drop only where Form D is the sole evidence.
+    # A RECALL ADDITION is exempt: it reached the base only because a session
+    # verified it against a citation, which is stronger evidence than the
+    # industry code this rule reads. Khosla's Dusty Robotics was dropped here
+    # as "Construction", re-found by the recall probe, and dropped a second
+    # time by the same rule — the probe's whole purpose defeated by a
+    # self-classification. (The rule itself stays: 46 of the 48 rows it removed
+    # on this run were genuine homonym noise.)
     fin_dropped = []
     for key, industry in finance_deferred.items():
         r = base.get(key)
+        if r and any(n.startswith("recall addition:") for n in r.get("notes", [])):
+            continue
         if r and not r["wayback_years"] and not r["edgar_forms"] and not r["site_listed"]:
             fin_dropped.append(f"{r['name']} [{industry}]")
             del base[key]
@@ -427,6 +441,14 @@ def main() -> None:
             continue
         filed = int(r["formd_first"])
         stale_notes, any_current = [], False
+        # A recall addition is exempt from the ex-partner rule for the same
+        # reason it is exempt from the industry rule: it entered because a
+        # session verified it against a citation, so an ex-partner on its
+        # filing is not the ONLY evidence the row has. Khosla's Dusty Robotics
+        # was dropped here on Richard Boyle's tenure after surviving the
+        # industry filter -- the probe's finding undone by a second rule.
+        if any(n.startswith("recall addition:") for n in r.get("notes", [])):
+            continue
         for p in r["formd_partners"]:
             hit = next(((ls, ns) for nm, (ls, ns) in tenure.items()
                         if same_person(nm, p)), None)
