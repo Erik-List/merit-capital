@@ -12,8 +12,9 @@ Felicis shares with other published bases.
 
 **Usage line:** Erik reads Settings > Usage — kickoff percentages were not
 given for this session; the line is filled at ingest (weekly %, Fable %, base
-rows 493). Web searches used: 18, plus 12 direct page fetches. Prompt count: 1
-at the time of writing (kickoff), pending the ingest decision.
+rows 493). Web searches used: 18, plus 12 direct page fetches. **Prompt count:
+2** — kickoff and the ingest approval, which is §9's target shape. Ingested
+2026-09-07; see §14.
 
 ---
 
