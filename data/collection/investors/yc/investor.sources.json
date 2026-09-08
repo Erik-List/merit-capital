@@ -1,0 +1,740 @@
+{
+ "fields": {
+  "name": {
+   "basis": "YC's own site and its Form ADV Item 1.B primary business name.",
+   "sources": [
+    {
+     "source": "Form ADV, Y Combinator Management, LLC (CRD 171730)",
+     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/171730/PDF/171730.pdf"
+    }
+   ],
+   "value": "Y Combinator"
+  },
+  "website": {
+   "basis": "The firm's own site.",
+   "sources": [
+    {
+     "source": "ycombinator.com",
+     "url": "https://www.ycombinator.com"
+    }
+   ],
+   "value": "https://www.ycombinator.com"
+  },
+  "icon_url": {
+   "basis": "Pending: uploaded with the ingest, after approval. Source chosen by measurement (--discover): YC's own 256x256 favicon, the only candidate on the site that is YC's own mark — the other 33 discovered assets are portfolio-company logos (Airbnb, Stripe, OpenAI), which would be wrong to publish as the investor icon.",
+   "sources": [
+    {
+     "source": "YC favicon, 256x256 PNG inside an .ico",
+     "url": "https://bookface-static.ycombinator.com/assets/ycdc/favicon-c8a914eeeba9fe6f7a863b35608b55aeedd7c1ff409c97b9ecb96b7a6c278d70.ico"
+    }
+   ],
+   "value": "pending-upload"
+  },
+  "founding_year": {
+   "basis": "Founded March 2005; the first Summer Founders Program ran that summer.",
+   "sources": [
+    {
+     "source": "YC's own about page and the archived 2005 SFP page",
+     "url": "http://web.archive.org/web/20061118091132/http://ycombinator.com:80/sfp.html"
+    }
+   ],
+   "value": 2005
+  },
+  "history": {
+   "basis": "Founders and 2005 start from YC's own pages; presidency dates from YC announcements and press; Continuity's Oct 2015 launch from YC's own blog and its March 2023 wind-back from contemporaneous reporting; four batches a year from YC's about page.",
+   "sources": [
+    {
+     "source": "YC Continuity launch post",
+     "url": "https://www.ycombinator.com/blog/yc-continuity-fund"
+    },
+    {
+     "source": "TechCrunch, YC cuts staff and scales back growth-stage investing, 2023-03-13",
+     "url": "https://techcrunch.com/2023/03/13/y-combinator-cuts-nearly-20-of-staff-scales-back-growth-stage-investments/"
+    }
+   ],
+   "value": "Y Combinator was founded in March 2005 in Cambridge, Massachusetts by Paul Graham, Jessica Livingston, Robert Morris and Trevor Blackwell, and ran its first Summer Founders Program that year. The batch model — a fixed cheque, a fixed programme and a Demo Day — was the innovation, and it moved to Mountain View, California soon after. Sam Altman was president 2014-2019, Geoff Ralston 2019-2022 and Garry Tan from January 2023. YC Continuity, the growth fund, launched in October 2015 and was wound back in March 2023 when YC scaled off late-stage investing. YC now runs four batches a year (from 2025) and states it has funded over 5,000 companies since 2005; its public directory listed 6,203 launched companies when this base was built."
+  },
+  "investment_concept": {
+   "basis": "Derived from YC's own description of the standard deal and the batch programme.",
+   "sources": [
+    {
+     "source": "YC's deal page",
+     "url": "https://www.ycombinator.com/deal"
+    }
+   ],
+   "value": "YC invests a fixed amount in every company it accepts, on identical terms, and runs them through a three-month programme ending in Demo Day. It is an accelerator rather than a stage investor: selection and volume do the work that diligence and cheque-sizing do elsewhere."
+  },
+  "investment_stage": {
+   "basis": "Published as ONE label rather than padding the array: the batch investment is the entry for every member, and the calibration gate scored the batch rule 31/31 on the golden set. Pre-Seed and Series A are structurally empty for this investor — YC's own sustained language calls the batch cheque seed funding, and Continuity's mandate was pro rata and later-stage growth, so it never led a Series A. The only non-Seed entries in the entire base are the two ycc_only rows (Convoy, Monzo), which are Growth.",
+   "sources": [
+    {
+     "source": "YC about page, archived 2009-2020: 'Y Combinator provides seed funding for startups.'",
+     "url": "http://web.archive.org/web/20090707084142/http://ycombinator.com:80/about.html"
+    }
+   ],
+   "value": [
+    "Seed"
+   ]
+  },
+  "investment_geo": {
+   "basis": "From the landed base's own hq_country distribution: US 76.9% of 6,348 placed rows, then GB 3.7%, IN 3.5%, CA 2.5%. Only the US clears any reasonable core threshold, so the two-label geo cap is not reached and no taxonomy escalation arises — the risk this run's issue flagged did not materialise. 359 of the US rows are flagged country_prior at low confidence (no location evidence on the row) and are excluded from any claim stronger than the ordering.",
+   "sources": [
+    {
+     "source": "Landed base hq_country distribution, this run",
+     "url": "https://www.ycombinator.com/companies"
+    }
+   ],
+   "value": {
+    "core": [
+     "US"
+    ],
+    "other": [
+     "United Kingdom",
+     "India",
+     "Canada",
+     "Latin America",
+     "Europe",
+     "Africa",
+     "Southeast Asia"
+    ]
+   }
+  },
+  "investment_range": {
+   "basis": "NOT a range in the sense the other firms use, and recorded as the fixed instrument it is: YC invests $500,000 per company — $125,000 for 7% on a post-money SAFE plus $375,000 on an uncapped SAFE with an MFN — identically for every company it accepts, so lower, median and upper are the same number. The Form D entry-round median that the other profiles compute is meaningless for an accelerator and is deliberately NOT computed. Historical progression, all from YC's own posts: ~$6,000 per founder (2005-06), $5,000 + $5,000 per founder (2007-09), $11,000 + $3,000 per founder plus an outside note (2010-14), $120,000 for 7% (Apr 2014), $150,000 for 7% (from W19), $125,000 for 7% (from W21), and the $500,000 structure from Jan 2022. YC Continuity separately wrote growth cheques up to ~$144M (Monzo's Series F), but that vehicle was wound back in 2023 and its cheques are not the firm's current instrument.",
+   "sources": [
+    {
+     "source": "YC's current deal page",
+     "url": "https://www.ycombinator.com/deal"
+    },
+    {
+     "source": "YC blog, YC's $500,000 standard deal, 2022-01-11",
+     "url": "https://www.ycombinator.com/blog/ycs-500-000-standard-deal"
+    }
+   ],
+   "value": {
+    "lower_limit": 500000,
+    "median": 500000,
+    "upper_limit": 500000
+   }
+  },
+  "notable_investments": {
+   "basis": "Recognition over the confirmed base only. YC is the one investor where the candidate list is far longer than the cap, so the cap does the work.",
+   "sources": [
+    {
+     "source": "This run's landed base",
+     "url": "https://www.ycombinator.com/companies"
+    }
+   ],
+   "value": [
+    "Airbnb",
+    "Stripe",
+    "Coinbase",
+    "DoorDash",
+    "Instacart",
+    "Reddit",
+    "Dropbox",
+    "Twitch",
+    "Rippling",
+    "Brex",
+    "Gusto",
+    "Deel",
+    "Razorpay",
+    "Flexport",
+    "GitLab",
+    "Zapier",
+    "Faire",
+    "Scale AI"
+   ]
+  },
+  "aum": {
+   "basis": "Y Combinator Management, LLC is an EXEMPT REPORTING ADVISER (CRD 171730, SEC file 802-80528, ERA-active with the SEC since 2014-10-23), not an RIA. An ERA files no Item 5.F regulatory AUM, so both ends of the range are the sworn Section 7.B(1) composite: 19 private funds at $21,962,163,829 total current gross asset value, from the annual amendment filed 2026-03-27. There is no separate YC Continuity adviser registration — Continuity Fund I is reported under this same ADV.",
+   "sources": [
+    {
+     "source": "Form ADV Section 7.B(1), Y Combinator Management, LLC",
+     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/171730/PDF/171730.pdf"
+    },
+    {
+     "source": "IAPD firm summary, CRD 171730",
+     "url": "https://adviserinfo.sec.gov/firm/summary/171730"
+    }
+   ],
+   "value": {
+    "bottom": 21962163829,
+    "top": 21962163829
+   }
+  },
+  "funds": {
+   "basis": "All 19 private funds reported in Section 7.B(1) of the ADV, with their sworn gross asset values. Vintages are null: the ADV does not carry them and Form D is not a reliable substitute here — YC's vehicles file 'Indefinite' offerings. FOUR of these funds appear in the ADV and NOWHERE in EDGAR (Y Combinator Fund I and II, YCVC Fund I, YCVC W14), so a Form D sweep alone would have missed them. Conversely the batch vehicles file real numbers: Y Combinator ES24, LLC sold $152,698,436 and ES26 sold $228,321,282, which is better than the accelerator structure was assumed to support.",
+   "sources": [
+    {
+     "source": "Form ADV Section 7.B(1)",
+     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/171730/PDF/171730.pdf"
+    }
+   ],
+   "value": [
+    {
+     "name": "YC II, L.P.",
+     "size": 7828145069,
+     "vintage": null,
+     "sources": [
+      {
+       "source": "Form ADV Section 7.B(1), Y Combinator Management, LLC (CRD 171730), annual amendment filed 2026-03-27",
+       "url": "https://reports.adviserinfo.sec.gov/reports/ADV/171730/PDF/171730.pdf"
+      }
+     ]
+    },
+    {
+     "name": "Y Combinator ES20, LLC",
+     "size": 3118959390,
+     "vintage": null,
+     "sources": [
+      {
+       "source": "Form ADV Section 7.B(1), Y Combinator Management, LLC (CRD 171730), annual amendment filed 2026-03-27",
+       "url": "https://reports.adviserinfo.sec.gov/reports/ADV/171730/PDF/171730.pdf"
+      }
+     ]
+    },
+    {
+     "name": "Y Combinator Continuity Fund I, L.P.",
+     "size": 2632819339,
+     "vintage": null,
+     "sources": [
+      {
+       "source": "Form ADV Section 7.B(1), Y Combinator Management, LLC (CRD 171730), annual amendment filed 2026-03-27",
+       "url": "https://reports.adviserinfo.sec.gov/reports/ADV/171730/PDF/171730.pdf"
+      }
+     ]
+    },
+    {
+     "name": "YCC20, L.P.",
+     "size": 2259947049,
+     "vintage": null,
+     "sources": [
+      {
+       "source": "Form ADV Section 7.B(1), Y Combinator Management, LLC (CRD 171730), annual amendment filed 2026-03-27",
+       "url": "https://reports.adviserinfo.sec.gov/reports/ADV/171730/PDF/171730.pdf"
+      }
+     ]
+    },
+    {
+     "name": "YCCG21, L.P.",
+     "size": 1582725829,
+     "vintage": null,
+     "sources": [
+      {
+       "source": "Form ADV Section 7.B(1), Y Combinator Management, LLC (CRD 171730), annual amendment filed 2026-03-27",
+       "url": "https://reports.adviserinfo.sec.gov/reports/ADV/171730/PDF/171730.pdf"
+      }
+     ]
+    },
+    {
+     "name": "YCP24, L.P.",
+     "size": 1088023748,
+     "vintage": null,
+     "sources": [
+      {
+       "source": "Form ADV Section 7.B(1), Y Combinator Management, LLC (CRD 171730), annual amendment filed 2026-03-27",
+       "url": "https://reports.adviserinfo.sec.gov/reports/ADV/171730/PDF/171730.pdf"
+      }
+     ]
+    },
+    {
+     "name": "YC ESP22, L.P.",
+     "size": 767721262,
+     "vintage": null,
+     "sources": [
+      {
+       "source": "Form ADV Section 7.B(1), Y Combinator Management, LLC (CRD 171730), annual amendment filed 2026-03-27",
+       "url": "https://reports.adviserinfo.sec.gov/reports/ADV/171730/PDF/171730.pdf"
+      }
+     ]
+    },
+    {
+     "name": "Y Combinator Fund I, LP",
+     "size": 672007521,
+     "vintage": null,
+     "sources": [
+      {
+       "source": "Form ADV Section 7.B(1), Y Combinator Management, LLC (CRD 171730), annual amendment filed 2026-03-27",
+       "url": "https://reports.adviserinfo.sec.gov/reports/ADV/171730/PDF/171730.pdf"
+      }
+     ]
+    },
+    {
+     "name": "YCVC Fund I, L.P.",
+     "size": 536277395,
+     "vintage": null,
+     "sources": [
+      {
+       "source": "Form ADV Section 7.B(1), Y Combinator Management, LLC (CRD 171730), annual amendment filed 2026-03-27",
+       "url": "https://reports.adviserinfo.sec.gov/reports/ADV/171730/PDF/171730.pdf"
+      }
+     ]
+    },
+    {
+     "name": "YC Principals Fund II, L.P.",
+     "size": 388376279,
+     "vintage": null,
+     "sources": [
+      {
+       "source": "Form ADV Section 7.B(1), Y Combinator Management, LLC (CRD 171730), annual amendment filed 2026-03-27",
+       "url": "https://reports.adviserinfo.sec.gov/reports/ADV/171730/PDF/171730.pdf"
+      }
+     ]
+    },
+    {
+     "name": "YC ESP24, L.P.",
+     "size": 306344110,
+     "vintage": null,
+     "sources": [
+      {
+       "source": "Form ADV Section 7.B(1), Y Combinator Management, LLC (CRD 171730), annual amendment filed 2026-03-27",
+       "url": "https://reports.adviserinfo.sec.gov/reports/ADV/171730/PDF/171730.pdf"
+      }
+     ]
+    },
+    {
+     "name": "Y Combinator Fund II, LP",
+     "size": 295885697,
+     "vintage": null,
+     "sources": [
+      {
+       "source": "Form ADV Section 7.B(1), Y Combinator Management, LLC (CRD 171730), annual amendment filed 2026-03-27",
+       "url": "https://reports.adviserinfo.sec.gov/reports/ADV/171730/PDF/171730.pdf"
+      }
+     ]
+    },
+    {
+     "name": "Y Combinator ES24, LLC",
+     "size": 115651252,
+     "vintage": null,
+     "sources": [
+      {
+       "source": "Form ADV Section 7.B(1), Y Combinator Management, LLC (CRD 171730), annual amendment filed 2026-03-27",
+       "url": "https://reports.adviserinfo.sec.gov/reports/ADV/171730/PDF/171730.pdf"
+      }
+     ]
+    },
+    {
+     "name": "YC Affiliates Fund II (QP), L.P.",
+     "size": 114045000,
+     "vintage": null,
+     "sources": [
+      {
+       "source": "Form ADV Section 7.B(1), Y Combinator Management, LLC (CRD 171730), annual amendment filed 2026-03-27",
+       "url": "https://reports.adviserinfo.sec.gov/reports/ADV/171730/PDF/171730.pdf"
+      }
+     ]
+    },
+    {
+     "name": "YC Affiliates Fund IIA, LP",
+     "size": 88074094,
+     "vintage": null,
+     "sources": [
+      {
+       "source": "Form ADV Section 7.B(1), Y Combinator Management, LLC (CRD 171730), annual amendment filed 2026-03-27",
+       "url": "https://reports.adviserinfo.sec.gov/reports/ADV/171730/PDF/171730.pdf"
+      }
+     ]
+    },
+    {
+     "name": "YC ECO24, L.P.",
+     "size": 79560033,
+     "vintage": null,
+     "sources": [
+      {
+       "source": "Form ADV Section 7.B(1), Y Combinator Management, LLC (CRD 171730), annual amendment filed 2026-03-27",
+       "url": "https://reports.adviserinfo.sec.gov/reports/ADV/171730/PDF/171730.pdf"
+      }
+     ]
+    },
+    {
+     "name": "Y Combinator Continuity Affiliates Fund I, L.P.",
+     "size": 40387194,
+     "vintage": null,
+     "sources": [
+      {
+       "source": "Form ADV Section 7.B(1), Y Combinator Management, LLC (CRD 171730), annual amendment filed 2026-03-27",
+       "url": "https://reports.adviserinfo.sec.gov/reports/ADV/171730/PDF/171730.pdf"
+      }
+     ]
+    },
+    {
+     "name": "YC Affiliates Fund II, L.P.",
+     "size": 24732788,
+     "vintage": null,
+     "sources": [
+      {
+       "source": "Form ADV Section 7.B(1), Y Combinator Management, LLC (CRD 171730), annual amendment filed 2026-03-27",
+       "url": "https://reports.adviserinfo.sec.gov/reports/ADV/171730/PDF/171730.pdf"
+      }
+     ]
+    },
+    {
+     "name": "YCVC W14, LLC",
+     "size": 22480780,
+     "vintage": null,
+     "sources": [
+      {
+       "source": "Form ADV Section 7.B(1), Y Combinator Management, LLC (CRD 171730), annual amendment filed 2026-03-27",
+       "url": "https://reports.adviserinfo.sec.gov/reports/ADV/171730/PDF/171730.pdf"
+      }
+     ]
+    }
+   ]
+  },
+  "hq_location": {
+   "value": "Mountain View, CA",
+   "source": "sources/edgar/formd-sweep.json",
+   "basis": "issuer address on 31 of 31 of the firm's own Form D filings; unanimous. Filing-grade."
+  },
+  "individuals": {
+   "value": [
+    {
+     "name": "Aaron Epstein",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Alexis Katsilometes",
+     "position": "Executive Assistant",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Andrew Miklas",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Ankit Gupta",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Brad Flora",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Chris Golda",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "David Lieb",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Diana Hu",
+     "position": "Managing Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Esther Ha",
+     "position": "Executive Assistant",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Gabrielle Rokeach",
+     "position": "Executive Coordinator",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Garrett Cason",
+     "position": "Executive Assistant",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Garry Tan",
+     "position": "President & CEO",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Grey Baker",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Gustaf Alströmer",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Harj Taggar",
+     "position": "Managing Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Harshita Arora",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Jared Friedman",
+     "position": "Managing Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Jessica Livingston",
+     "position": "Founder, Retired",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Jessica Shapiro",
+     "position": "Head of Events",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Jon Xu",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Katie King",
+     "position": "Executive Assistant",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Katy Howard",
+     "position": "Executive Assistant",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Kelley Tighe",
+     "position": "Executive Assistant",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Lauren Field",
+     "position": "Executive Assistant",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Lauren Goldberg",
+     "position": "Senior Executive Assistant",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Leah Ulip",
+     "position": "Executive Assistant",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Maria Vasina",
+     "position": "Senior Executive Assistant",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Megan Ehrlich",
+     "position": "Executive Assistant",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Miranda Correll",
+     "position": "Executive Assistant",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Nicolas Dessaigne",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Paul Graham",
+     "position": "Founder, Retired",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Pegah Saki Payne",
+     "position": "Senior Executive Assistant",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Pete Koomen",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Renée Beck",
+     "position": "Chief of Staff",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Robert Morris",
+     "position": "Founder, Retired",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Tayler Princeau",
+     "position": "Executive Assistant",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Tom Blomfield",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Trevor Blackwell",
+     "position": "Founder, Retired",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Tyler Bosmeny",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Victoria Holst",
+     "position": "Executive Assistant",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    }
+   ],
+   "source": "sources/site/team-members.json",
+   "basis": "Live team CMS: 40 members. Positions are CMS titles (40 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 4 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 0 LinkedIn, 0 X."
+  },
+  "investment_scope": {
+   "value": {
+    "type": "Generalist",
+    "focus": [
+     "AI & Applied AI",
+     "SaaS",
+     "Fintech & Payments",
+     "Consumer & Marketplaces",
+     "DevTools & APIs",
+     "Healthcare & Bio",
+     "Industrial & Robotics"
+    ]
+   },
+   "basis": "Ordered by the landed base's judged `focus` column: AI & Applied AI 1,407, SaaS 1,220, Fintech & Payments 782, Consumer & Marketplaces 776, DevTools & APIs 576, Healthcare & Bio 513, Industrial & Robotics 417. NOT taken from the profile's site-tag recompute, which reads the base `sector` column — that column carries YC's INDUSTRY vocabulary, which has no AI value at all, so the recompute would publish an empty AI bucket on the investor that has funded more AI companies than any other. Type is Generalist: YC funds across every sector by construction.",
+   "sources": [
+    {
+     "source": "This run's landed classification, focus column",
+     "url": "https://www.ycombinator.com/companies"
+    }
+   ]
+  }
+ },
+ "generated_at": "2026-09-08T02:25:18+00:00"
+}

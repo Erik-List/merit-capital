@@ -216,7 +216,17 @@ def main():
                              f"of the base: {not_member}")
 
     # ---- recompute the evidence-derived fields
-    own = own_formd_filings(sweep, own_re)
+    # The roster sweep finds a firm's own vehicles only when a ROSTER HUMAN is
+    # named on the filing. That holds for a venture firm, whose fund Form Ds
+    # list partners as related persons, and fails for an accelerator: every YC
+    # vehicle names a management LLC ("YC Continuity Management I, LLC")
+    # instead, so none of its 31 own filings appear in the roster sweep at all.
+    # The dedicated fund-filer sweep already has them, so union the two before
+    # splitting. Additive: where a filing is in both, it is the same record
+    # under the same accession, so this is a no-op for every landed investor.
+    own = own_formd_filings(
+        {**sweep, **{k: v for k, v in fund_formds.items() if k != "_readme"}},
+        own_re)
     (hq, hq_count), hq_places = hq_from_filings(own)
     latest_year, people, departed = current_people(roster, team)
 
