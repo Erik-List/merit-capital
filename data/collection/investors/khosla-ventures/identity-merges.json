@@ -1,27 +1,260 @@
 {
- "_readme": "Identity duplicates fixed upstream (COLLECTION.md §8), consumed by build-company-base.py at the one scheduled rebuild. Non-canonical slugs carry duplicate_of; the canonical carries no exclusion flag. Every pair here was found during the grind and flagged on the row with `suspected_duplicate` rather than merged silently. Three causes on this run: renames the archive captured on both sides of the change, the 2010-2014 chart's short display names against the WordPress era's full ones, and four scrape artifacts where the 2025 Webflow page title 'Khosla Ventures - <Company>' was taken as the company name.",
+ "_readme": "Identity duplicates fixed upstream (COLLECTION.md \u00a78), consumed by build-company-base.py at the one scheduled rebuild. Non-canonical slugs carry duplicate_of; the canonical carries no exclusion flag. Every pair here was found during the grind and flagged on the row with `suspected_duplicate` rather than merged silently. Three causes on this run: renames the archive captured on both sides of the change, the 2010-2014 chart's short display names against the WordPress era's full ones, and four scrape artifacts where the 2025 Webflow page title 'Khosla Ventures - <Company>' was taken as the company name.",
  "merges": [
-  {"canonical": "caption-health", "duplicates": ["bay-labs-inc"], "why": "Bay Labs renamed Caption Health in 2019; acq. by GE HealthCare 2023"},
-  {"canonical": "mainspring-energy", "duplicates": ["etagen"], "why": "Etagen renamed Mainspring Energy in 2020"},
-  {"canonical": "creator", "duplicates": ["momentum-machines"], "why": "Momentum Machines renamed Creator; the restaurant closed 2023"},
-  {"canonical": "view-glass", "duplicates": ["soladigm"], "why": "Soladigm renamed View Inc in 2012"},
-  {"canonical": "climate-corp", "duplicates": ["weatherbill"], "why": "WeatherBill renamed The Climate Corporation in 2011; acq. by Monsanto 2013"},
-  {"canonical": "jawbone", "duplicates": ["aliph-jawbone"], "why": "the 2010-2012 chart rendered the company as 'Aliph | Jawbone'; Aliph was the legal name"},
-  {"canonical": "hackerrank", "duplicates": ["interviewstreet"], "why": "Interviewstreet renamed HackerRank in 2014"},
-  {"canonical": "hampton-creek-foods", "duplicates": ["just-inc"], "why": "Hampton Creek renamed Just, Inc. in 2018, now Eat Just"},
-  {"canonical": "lanzatech", "duplicates": ["lanza"], "why": "the 2010-2014 chart's short display name for LanzaTech"},
-  {"canonical": "moka5", "duplicates": ["mokafive"], "why": "one company under the chart-era and WordPress-era spellings"},
-  {"canonical": "fuze", "duplicates": ["fuzebox"], "why": "FuzeBox merged into ThinkingPhones and the combined company took the Fuze name; acq. by 8x8 2022"},
-  {"canonical": "incredible-labs", "duplicates": ["donna"], "why": "Donna was Incredible Labs' product; the company shut down in 2014 and the archive lists both"},
-  {"canonical": "headspace-health", "duplicates": ["ginger-io"], "why": "Ginger merged into Headspace in 2021 and Headspace Health is the surviving entity that carries Khosla's position"},
-  {"canonical": "newglobe", "duplicates": ["bridge-international-academies"], "why": "Bridge International Academies rebranded NewGlobe in 2021 — a rename, not a sale"},
-  {"canonical": "avogy", "duplicates": ["epowersoft"], "why": "ePowerSoft became Avogy; the GaN assets later moved to Nexgen Power Systems"},
-  {"canonical": "affirm", "duplicates": ["khosla-ventures-affirm"], "why": "scrape artifact: the 2025 Webflow page title is 'Khosla Ventures - Affirm'"},
-  {"canonical": "block", "duplicates": ["khosla-ventures-block"], "why": "scrape artifact of the same class"},
-  {"canonical": "commonwealth-fusion-systems-cfs", "duplicates": ["khosla-ventures-commonwealth-fusion-systems-cfs"], "why": "scrape artifact of the same class"},
-  {"canonical": "synchron", "duplicates": ["khosla-ventures-synchron"], "why": "scrape artifact of the same class"}
+  {
+   "canonical": "caption-health",
+   "duplicates": [
+    "bay-labs-inc"
+   ],
+   "why": "Bay Labs renamed Caption Health in 2019; acq. by GE HealthCare 2023"
+  },
+  {
+   "canonical": "mainspring-energy",
+   "duplicates": [
+    "etagen"
+   ],
+   "why": "Etagen renamed Mainspring Energy in 2020"
+  },
+  {
+   "canonical": "creator",
+   "duplicates": [
+    "momentum-machines"
+   ],
+   "why": "Momentum Machines renamed Creator; the restaurant closed 2023"
+  },
+  {
+   "canonical": "view-glass",
+   "duplicates": [
+    "soladigm"
+   ],
+   "why": "Soladigm renamed View Inc in 2012"
+  },
+  {
+   "canonical": "climate-corp",
+   "duplicates": [
+    "weatherbill"
+   ],
+   "why": "WeatherBill renamed The Climate Corporation in 2011; acq. by Monsanto 2013"
+  },
+  {
+   "canonical": "jawbone",
+   "duplicates": [
+    "aliph-jawbone",
+    "aliphcom"
+   ],
+   "why": "the 2010-2012 chart rendered the company as 'Aliph | Jawbone'; Aliph was the legal name"
+  },
+  {
+   "canonical": "hackerrank",
+   "duplicates": [
+    "interviewstreet"
+   ],
+   "why": "Interviewstreet renamed HackerRank in 2014"
+  },
+  {
+   "canonical": "hampton-creek-foods",
+   "duplicates": [
+    "just-inc"
+   ],
+   "why": "Hampton Creek renamed Just, Inc. in 2018, now Eat Just"
+  },
+  {
+   "canonical": "lanzatech",
+   "duplicates": [
+    "lanza"
+   ],
+   "why": "the 2010-2014 chart's short display name for LanzaTech"
+  },
+  {
+   "canonical": "moka5",
+   "duplicates": [
+    "mokafive"
+   ],
+   "why": "one company under the chart-era and WordPress-era spellings"
+  },
+  {
+   "canonical": "fuze",
+   "duplicates": [
+    "fuzebox"
+   ],
+   "why": "FuzeBox merged into ThinkingPhones and the combined company took the Fuze name; acq. by 8x8 2022"
+  },
+  {
+   "canonical": "incredible-labs",
+   "duplicates": [
+    "donna"
+   ],
+   "why": "Donna was Incredible Labs' product; the company shut down in 2014 and the archive lists both"
+  },
+  {
+   "canonical": "headspace-health",
+   "duplicates": [
+    "ginger-io"
+   ],
+   "why": "Ginger merged into Headspace in 2021 and Headspace Health is the surviving entity that carries Khosla's position"
+  },
+  {
+   "canonical": "newglobe",
+   "duplicates": [
+    "bridge-international-academies"
+   ],
+   "why": "Bridge International Academies rebranded NewGlobe in 2021 \u2014 a rename, not a sale"
+  },
+  {
+   "canonical": "avogy",
+   "duplicates": [
+    "epowersoft"
+   ],
+   "why": "ePowerSoft became Avogy; the GaN assets later moved to Nexgen Power Systems"
+  },
+  {
+   "canonical": "affirm",
+   "duplicates": [
+    "khosla-ventures-affirm"
+   ],
+   "why": "scrape artifact: the 2025 Webflow page title is 'Khosla Ventures - Affirm'"
+  },
+  {
+   "canonical": "block",
+   "duplicates": [
+    "khosla-ventures-block",
+    "square"
+   ],
+   "why": "scrape artifact of the same class"
+  },
+  {
+   "canonical": "commonwealth-fusion-systems-cfs",
+   "duplicates": [
+    "khosla-ventures-commonwealth-fusion-systems-cfs"
+   ],
+   "why": "scrape artifact of the same class"
+  },
+  {
+   "canonical": "synchron",
+   "duplicates": [
+    "khosla-ventures-synchron"
+   ],
+   "why": "scrape artifact of the same class"
+  },
+  {
+   "canonical": "nanostellar",
+   "duplicates": [
+    "nanosteller"
+   ],
+   "why": "a misspelling in the 2010 chart capture \u2014 the firm's own typo, not a second company"
+  },
+  {
+   "canonical": "nrg-dynamic",
+   "duplicates": [
+    "nrg-dynamix"
+   ],
+   "why": "one company under the 2010 and 2011-2014 chart spellings"
+  },
+  {
+   "canonical": "realm",
+   "duplicates": [
+    "tightdb"
+   ],
+   "why": "TightDB renamed Realm in 2014; acq. by MongoDB 2019"
+  },
+  {
+   "canonical": "virdia",
+   "duplicates": [
+    "hcl-cleantech-inc"
+   ],
+   "why": "HCL CleanTech renamed Virdia; acq. by Stora Enso 2014"
+  },
+  {
+   "canonical": "vox-media",
+   "duplicates": [
+    "sb-nation"
+   ],
+   "why": "SB Nation became Vox Media in 2011"
+  },
+  {
+   "canonical": "lookout",
+   "duplicates": [
+    "flexilis-inc"
+   ],
+   "why": "FLEXILIS is Lookout's original legal name, recovered from the Form D sweep"
+  },
+  {
+   "canonical": "alivecor",
+   "duplicates": [
+    "aliveusa-inc"
+   ],
+   "why": "AliveUSA is AliveCor's legal name on its Form D"
+  },
+  {
+   "canonical": "ambri",
+   "duplicates": [
+    "liquid-metal-battery-corp"
+   ],
+   "why": "Liquid Metal Battery Corp is Ambri's original legal name"
+  },
+  {
+   "canonical": "wattpad",
+   "duplicates": [
+    "wp-technology-inc"
+   ],
+   "why": "WP Technology is Wattpad's legal name on its Form D"
+  },
+  {
+   "canonical": "vectra-networks",
+   "duplicates": [
+    "vectra-ai-inc"
+   ],
+   "why": "Vectra AI is the later legal name of Vectra Networks"
+  },
+  {
+   "canonical": "silicium-energy",
+   "duplicates": [
+    "matrix-industries-inc"
+   ],
+   "why": "Silicium Energy renamed Matrix Industries"
+  },
+  {
+   "canonical": "two-pore-guys-inc",
+   "duplicates": [
+    "ontera-inc"
+   ],
+   "why": "Two Pore Guys renamed Ontera"
+  },
+  {
+   "canonical": "toytalk",
+   "duplicates": [
+    "pullstring-inc"
+   ],
+   "why": "ToyTalk renamed PullString in 2016; acq. by Apple 2019"
+  },
+  {
+   "canonical": "nu-tek-salt",
+   "duplicates": [
+    "s-p-ingredient-development-llc"
+   ],
+   "why": "S & P Ingredient Development is Nu-Tek Salt's filing entity"
+  },
+  {
+   "canonical": "keep-truckin-inc",
+   "duplicates": [
+    "motive-technologies-inc"
+   ],
+   "why": "KeepTruckin renamed Motive Technologies"
+  },
+  {
+   "canonical": "forward",
+   "duplicates": [
+    "goforward-inc"
+   ],
+   "why": "GoForward is Forward's legal name on its Form D"
+  }
  ],
  "kept_separate": [
-  {"slugs": ["vicarious-surgical"], "why": "Vicarious Surgical (surgical robotics, NYSE: RBOT) and Vicarious AI (the Union City AGI company acquired by Alphabet's Intrinsic in 2022) are different companies that a name key would merge. Only vicarious-surgical is in this base; recorded so a later pull does not merge them."}
+  {
+   "slugs": [
+    "vicarious-surgical"
+   ],
+   "why": "Vicarious Surgical (surgical robotics, NYSE: RBOT) and Vicarious AI (the Union City AGI company acquired by Alphabet's Intrinsic in 2022) are different companies that a name key would merge. Only vicarious-surgical is in this base; recorded so a later pull does not merge them."
+  }
  ]
 }

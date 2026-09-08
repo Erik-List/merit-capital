@@ -53,3 +53,49 @@ assumed either way:
   held it through a venture round before the KVSA II merger. The probe checks
   the pre-merger cap table and records the result either way.
 - **Dusty Robotics** — dropped by the non-portfolio-industry filter (see above).
+
+## Recall probe outcome (§3), 2026-09-07
+
+Three independent streams were diffed against the landed base: the Wikipedia
+insource sweep (178 articles naming the firm, 69 already in the base, 32 company
+candidates), the exit-side EDGAR full-text sweep (700 registrants, 230
+third-party) and parametric enumeration by era and sector.
+
+**14 additions landed**, every one with a citation, in
+`base-verification.json` → `recall_additions`. The shape is exactly what
+COLLECTION.md predicts for a US-desk firm: the misses are companies with **no US
+Form D and no site listing** — five non-US issuers (AirHelp, Airwallex, Even
+Healthcare, HealthifyMe, and Tools for Humanity), an incubation the site never
+listed (Modal), five quiet US seeds (Nebula Genomics, PatientBank, Summon, True
+Link, Willow Wealth), one 2007 merger-era position only the exit-side sweep saw
+(Verenium, out of the Diversa/Celunol combination), one 13G-evidenced row
+(Serve Robotics) and one the build's own industry filter had removed
+(Dusty Robotics).
+
+**Recorded rejections**, so the next run does not re-ask:
+
+- **Rappi**, **Replit**, **Cohere**, **Bloom Energy** — kickoff model priors in
+  `verify.known_positions`. None appears on any era of the firm's own site, in
+  the Form D sweep, in the Wikipedia sweep or in the EDGAR full-text sweep.
+  Bloom Energy in particular is a Kleiner Perkins position, which is decisions.md
+  D3 (Vinod Khosla's prior firm) rather than a Khosla one. All four rejected.
+- **Nextdoor** — delta X1, ruled by Erik 2026-09-07: out unless a Khosla fund
+  held it through a venture round before the KVSA II merger. No such round is in
+  any layer — the only Khosla connection is the sponsor promote — so the row
+  stays out, which is the ruling applied rather than an absence assumed.
+- **Riverbed Technology, Ouster, Markforged, Inphi, ON Semiconductor,
+  ServiceNow, Duolingo, Insight Enterprises, Hanmi Financial** — EDGAR full-text
+  hits whose sentences are director biographies naming Khosla Ventures, or
+  mutual-fund NPORT holdings of the firm's public rows, not positions. Rejected.
+- **Breakout Ventures, Diamond Castle Holdings, Founders Fund, Sherpa Capital,
+  Virgin Green Fund** — Wikipedia candidates that are other FIRMS, not companies.
+  Rejected on T5.
+- **Lever** — named in the sweep with no sentence tying Khosla to a round;
+  Lever's documented investors are Matrix, Scale and Adam Nash. Rejected for want
+  of corroboration, and recorded rather than left silent.
+
+Fifteen further Wikipedia "candidates" were name-shape misses on rows already in
+the base (Eat Just = hampton-creek-foods, Hyperloop One = hyperloop-technologies,
+SingleStore = memsql, View Inc = view-glass, Xsigo Systems = xsigo, Misfit,
+LittleBits, Miso, Range Fuels, Sakana AI, Imply Data, Upstart Holdings, Varda
+Space Industries, DALL-E → OpenAI, Khosla Ventures itself).
