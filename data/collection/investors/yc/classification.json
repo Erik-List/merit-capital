@@ -7227,6 +7227,8 @@
   "flags": [
    "cohort_unverified",
    "cross_investor_bound",
+   "model_disputes_source",
+   "needs_web_value",
    "site_field_prefill"
   ],
   "focus": "DevTools & APIs",
@@ -7237,15 +7239,11 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Summer 2011); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z, sequoia-capital (freshest as-of: a16z); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) a16z, sequoia-capital (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns.",
+  "note": "YC directory record (batch Summer 2011); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z, sequoia-capital (freshest as-of: a16z); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) a16z, sequoia-capital (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns. | Apollo: the $1.5B band rested on a PitchBook profile. Rule A (Erik, 2026-09-06) is explicit that a vendor valuation never bands a row \u2014 a band at or above 1b_plus needs a priced event with a citable figure from the company, a filing or the press. Downgraded and flagged for the web pass.",
   "slug": "apollo",
   "status": "private",
-  "valuation_asof": "2026-08",
-  "valuation_citation": "https://pitchbook.com/profiles/company/54872-02",
-  "valuation_confidence": "medium",
-  "valuation_range": "1b_plus",
-  "valuation_source": "web_verified",
-  "valuation_usd": 1500000000.0
+  "valuation_confidence": "low",
+  "valuation_range": "below_1b"
  },
  "apollo-2": {
   "entry_stage": "Seed",
@@ -7830,6 +7828,7 @@
   "flags": [
    "cohort_unverified",
    "cross_investor_bound",
+   "model_disputes_source",
    "site_field_prefill"
   ],
   "focus": "Fintech & Payments",
@@ -7840,15 +7839,11 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Summer 2014); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) accel, cherry (freshest as-of: accel); invariant 10 binds these two columns across investors. The landed bases already disagree with each other on this row. | status and valuation_range carried from landed base(s) accel, cherry (freshest as-of: accel); COLLECTION.md invariant 10 binds these two columns. The landed bases already disagree with each other on this row.",
+  "note": "YC directory record (batch Summer 2014); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) accel, cherry (freshest as-of: accel); invariant 10 binds these two columns across investors. The landed bases already disagree with each other on this row. | status and valuation_range carried from landed base(s) accel, cherry (freshest as-of: accel); COLLECTION.md invariant 10 binds these two columns. The landed bases already disagree with each other on this row. | Apto Payments (YC): the row had carried Shift Technology's $1B mark from an unrelated TechCrunch article. No priced $1B+ event exists for Apto.",
   "slug": "apto-payments",
   "status": "private",
-  "valuation_asof": "2021-05",
-  "valuation_citation": "https://techcrunch.com/2021/05/05/shift-technology-raises-220m-at-a-1b-valuation-to-fight-insurance-fraud-with-ai/",
   "valuation_confidence": "medium",
-  "valuation_range": "1b_plus",
-  "valuation_source": "web_verified",
-  "valuation_usd": 1000000000.0
+  "valuation_range": "below_1b"
  },
  "apurata": {
   "entry_stage": "Seed",
@@ -9242,6 +9237,7 @@
   "flags": [
    "cohort_unverified",
    "cross_investor_bound",
+   "model_disputes_source",
    "site_field_prefill"
   ],
   "focus": "SaaS",
@@ -9252,15 +9248,11 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Winter 2024); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns.",
+  "note": "YC directory record (batch Winter 2024); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns. | Artos: the row had carried Talos's $1.5B mark. Different company; the citation was a name-match artifact.",
   "slug": "artos",
   "status": "private",
-  "valuation_asof": "2026-01",
-  "valuation_citation": "https://finance.yahoo.com/news/talos-reaches-1-5b-valuation-165148757.html",
   "valuation_confidence": "medium",
-  "valuation_range": "1b_plus",
-  "valuation_source": "web_verified",
-  "valuation_usd": 1500000000.0
+  "valuation_range": "below_1b"
  },
  "arva-ai": {
   "entry_stage": "Seed",
@@ -34987,6 +34979,7 @@
   "flags": [
    "cohort_unverified",
    "cross_investor_bound",
+   "model_disputes_source",
    "site_field_prefill"
   ],
   "focus": "AI & Applied AI",
@@ -34997,15 +34990,11 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Summer 2022); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z, union-square-ventures (freshest as-of: a16z); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) a16z, union-square-ventures (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns.",
+  "note": "YC directory record (batch Summer 2022); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z, union-square-ventures (freshest as-of: a16z); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) a16z, union-square-ventures (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns. | Dev Tools AI: the row had carried Radiant's $300M-round mark. Different company.",
   "slug": "dev-tools-ai",
   "status": "private",
-  "valuation_asof": "2025-12",
-  "valuation_citation": "https://siliconvalleyinvestclub.com/2025/12/25/radiant-raises-300-million-at-a-1-8-billion-valuation/",
   "valuation_confidence": "medium",
-  "valuation_range": "1b_plus",
-  "valuation_source": "web_verified",
-  "valuation_usd": 1800000000.0
+  "valuation_range": "below_1b"
  },
  "devcolor": {
   "entry_stage": "Seed",
@@ -41719,6 +41708,7 @@
   "flags": [
    "cohort_unverified",
    "cross_investor_bound",
+   "model_disputes_source",
    "site_field_prefill"
   ],
   "focus": "Crypto & Web3",
@@ -41729,15 +41719,11 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Summer 2022); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) accel, sequoia-capital, a16z (freshest as-of: accel); invariant 10 binds these two columns across investors. The landed bases already disagree with each other on this row. | status and valuation_range carried from landed base(s) accel, sequoia-capital, a16z (freshest as-of: accel); COLLECTION.md invariant 10 binds these two columns. The landed bases already disagree with each other on this row.",
+  "note": "YC directory record (batch Summer 2022); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) accel, sequoia-capital, a16z (freshest as-of: accel); invariant 10 binds these two columns across investors. The landed bases already disagree with each other on this row. | status and valuation_range carried from landed base(s) accel, sequoia-capital, a16z (freshest as-of: accel); COLLECTION.md invariant 10 binds these two columns. The landed bases already disagree with each other on this row. | EthosX: the row had carried a public market cap for ticker LIFE, an unrelated listed company.",
   "slug": "ethosx",
   "status": "public",
-  "valuation_asof": "2026-09-03",
-  "valuation_citation": "https://stockanalysis.com/stocks/life/market-cap/",
   "valuation_confidence": "medium",
-  "valuation_range": "1b_plus",
-  "valuation_source": "web_verified",
-  "valuation_usd": 2420000000.0
+  "valuation_range": "below_1b"
  },
  "etleap": {
   "entry_stage": "Seed",
@@ -53975,11 +53961,10 @@
   "entry_stage_source": "web_verified",
   "flags": [
    "band_downgraded_no_figure",
-   "cite_pending",
    "cohort_unverified",
    "cross_investor_bound",
-   "needs_web_value",
-   "site_field_prefill"
+   "site_field_prefill",
+   "stale"
   ],
   "focus": "SaaS",
   "focus_source": "model",
@@ -53989,14 +53974,15 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Winter 2012); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns. Source is the unicorn snapshot with no citation \u2014 an aggregator, so the figure is carried to stay consistent with the published dataset and flagged for the A/B pass to pin or kill (Rule A).",
+  "note": "Gusto (W12): $175M Series E at $9.5B, Aug 2021 \u2014 below the $10B threshold, so the band is 1b_plus, not 10b_plus. Re-sourced from the priced round rather than the unicorn snapshot, which cannot band a row under Rule A. Flagged stale.",
   "slug": "gusto",
   "status": "private",
-  "valuation_asof": "2021",
+  "valuation_asof": "2021-08-11",
+  "valuation_citation": "https://techcrunch.com/2021/08/11/gusto-raises-175m-at-9-5b-valuation/",
   "valuation_confidence": "medium",
-  "valuation_range": "10b_plus",
-  "valuation_source": "unicorn_list",
-  "valuation_usd": 10000000000.0
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 9500000000
  },
  "gutgutgoose": {
   "entry_stage": "Seed",
@@ -70015,6 +70001,7 @@
   "flags": [
    "cohort_unverified",
    "cross_investor_bound",
+   "model_disputes_source",
    "site_field_prefill"
   ],
   "focus": "Fintech & Payments",
@@ -70025,15 +70012,11 @@
   "hq_country": "GB",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Summer 2021); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) thrive-capital, sequoia-capital (freshest as-of: thrive-capital); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) thrive-capital, sequoia-capital (freshest as-of: thrive-capital); COLLECTION.md invariant 10 binds these two columns.",
+  "note": "YC directory record (batch Summer 2021); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) thrive-capital, sequoia-capital (freshest as-of: thrive-capital); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) thrive-capital, sequoia-capital (freshest as-of: thrive-capital); COLLECTION.md invariant 10 binds these two columns. | LemFi: the row had carried Lemonade's market capitalisation (NYSE: LMND) \u2014 an entirely different company. LemFi's last disclosed raise is a $53M Series B (2025) with no valuation named.",
   "slug": "lemfi",
   "status": "public",
-  "valuation_asof": "2026-09-03",
-  "valuation_citation": "https://stockanalysis.com/stocks/lmnd/market-cap/",
   "valuation_confidence": "medium",
-  "valuation_range": "1b_plus",
-  "valuation_source": "web_verified",
-  "valuation_usd": 4130000000.0
+  "valuation_range": "below_1b"
  },
  "lemma": {
   "entry_stage": "Seed",
@@ -90315,11 +90298,10 @@
   "entry_stage_source": "web_verified",
   "flags": [
    "band_downgraded_no_figure",
-   "cite_pending",
    "cohort_unverified",
    "cross_investor_bound",
-   "needs_web_value",
-   "site_field_prefill"
+   "site_field_prefill",
+   "stale"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
@@ -90329,14 +90311,15 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Winter 2018); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns. Source is the unicorn snapshot with no citation \u2014 an aggregator, so the figure is carried to stay consistent with the published dataset and flagged for the A/B pass to pin or kill (Rule A).",
+  "note": "YC directory record (batch Winter 2018); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns. Source is the unicorn snapshot with no citation \u2014 an aggregator, so the figure is carried to stay consistent with the published dataset and flagged for the A/B pass to pin or kill (Rule A). | OpenSea (W18): $300M Series C at $13.3B, Jan 2022. Re-sourced from the priced round rather than the unicorn snapshot, which cannot band a row under Rule A. Flagged stale \u2014 the mark predates the NFT market decline by years.",
   "slug": "opensea",
   "status": "private",
-  "valuation_asof": "2025",
+  "valuation_asof": "2022-01-04",
+  "valuation_citation": "https://www.cnbc.com/2022/01/04/opensea-nft-marketplace-valued-at-13point3-billion-in-new-round.html",
   "valuation_confidence": "medium",
   "valuation_range": "10b_plus",
-  "valuation_source": "unicorn_list",
-  "valuation_usd": 13300000000.0
+  "valuation_source": "web_verified",
+  "valuation_usd": 13300000000
  },
  "opensight": {
   "entry_stage": "Seed",
@@ -94339,6 +94322,7 @@
   "flags": [
    "cohort_unverified",
    "cross_investor_bound",
+   "model_disputes_source",
    "site_field_prefill"
   ],
   "focus": "Fintech & Payments",
@@ -94349,15 +94333,11 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Summer 2015); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) lightspeed, sequoia-capital, thrive-capital, spark-capital, lux-capital, redpoint-ventures (freshest as-of: lightspeed); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) lightspeed, sequoia-capital, thrive-capital, spark-capital, lux-capital, redpoint-ventures (freshest as-of: lightspeed); COLLECTION.md invariant 10 binds these two columns.",
+  "note": "YC directory record (batch Summer 2015); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) lightspeed, sequoia-capital, thrive-capital, spark-capital, lux-capital, redpoint-ventures (freshest as-of: lightspeed); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) lightspeed, sequoia-capital, thrive-capital, spark-capital, lux-capital, redpoint-ventures (freshest as-of: lightspeed); COLLECTION.md invariant 10 binds these two columns. | Paribus (YC S15): a price-tracking app acquired by Capital One in 2016. The row had carried Ramp's $44B mark with a CNBC citation about Ramp \u2014 the two are connected only by founders (Eric Glyman and Karim Atiyeh founded Paribus, sold it, then founded Ramp), which is the alumni-founded trap in reverse. Ramp is not this row and is not a YC company. Acquired rows carry no figure (COLLECTION.md 6).",
   "slug": "paribus",
-  "status": "private",
-  "valuation_asof": "2026-06-04",
-  "valuation_citation": "https://www.cnbc.com/2026/06/04/ramp-valuation-funding-ai-spend.html",
-  "valuation_confidence": "medium",
-  "valuation_range": "10b_plus",
-  "valuation_source": "web_verified",
-  "valuation_usd": 44000000000.0
+  "status": "acquired",
+  "valuation_confidence": "high",
+  "valuation_range": "below_1b"
  },
  "parker": {
   "entry_stage": "Seed",
@@ -104370,6 +104350,7 @@
   "flags": [
    "cohort_unverified",
    "cross_investor_bound",
+   "model_disputes_source",
    "site_field_prefill"
   ],
   "focus": "SaaS",
@@ -104380,15 +104361,11 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Winter 2020); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) accel, lightspeed (freshest as-of: accel); invariant 10 binds these two columns across investors. The landed bases already disagree with each other on this row. | status and valuation_range carried from landed base(s) accel, lightspeed (freshest as-of: accel); COLLECTION.md invariant 10 binds these two columns. The landed bases already disagree with each other on this row.",
+  "note": "YC directory record (batch Winter 2020); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) accel, lightspeed (freshest as-of: accel); invariant 10 binds these two columns across investors. The landed bases already disagree with each other on this row. | status and valuation_range carried from landed base(s) accel, lightspeed (freshest as-of: accel); COLLECTION.md invariant 10 binds these two columns. The landed bases already disagree with each other on this row. | Quill (YC W20), a fullstack API and data-management platform, Active in YC's directory. The row had carried Circle Internet Group's market capitalisation (NYSE: CRCL) from a weak registrant match \u2014 an entirely unrelated company. No priced $1B+ event exists for this Quill.",
   "slug": "quill",
-  "status": "public",
-  "valuation_asof": "2026-08",
-  "valuation_citation": "https://stockanalysis.com/stocks/crcl/market-cap/",
+  "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "10b_plus",
-  "valuation_source": "web_verified",
-  "valuation_usd": 16070000000.0
+  "valuation_range": "below_1b"
  },
  "quill-bills": {
   "entry_stage": "Seed",
@@ -114640,6 +114617,7 @@
   "flags": [
    "cohort_unverified",
    "cross_investor_bound",
+   "model_disputes_source",
    "site_field_prefill"
   ],
   "focus": "SaaS",
@@ -114653,12 +114631,8 @@
   "note": "YC directory record (batch Summer 2022); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) lightspeed, spark-capital, union-square-ventures, a16z, redpoint-ventures (freshest as-of: lightspeed); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) lightspeed, spark-capital, union-square-ventures, a16z, redpoint-ventures (freshest as-of: lightspeed); COLLECTION.md invariant 10 binds these two columns.",
   "slug": "sculpt",
   "status": "private",
-  "valuation_asof": "2026-04",
-  "valuation_citation": "https://www.mobihealthnews.com/news/abridge-secures-300m-boosts-valuation-53b",
   "valuation_confidence": "medium",
-  "valuation_range": "1b_plus",
-  "valuation_source": "web_verified",
-  "valuation_usd": 5300000000.0
+  "valuation_range": "below_1b"
  },
  "seabound": {
   "entry_stage": "Seed",
