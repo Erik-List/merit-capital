@@ -411,3 +411,33 @@ site-chrome defect and 24 otherwise-unseen companies.
 **A self-matching `pgrep` cost two dead waits.** `until ! pgrep -f "wikipedia-insource.py felicis"`
 matches its own shell's command line and never exits. Worth knowing for
 anyone scripting waits in this repo.
+
+---
+
+## 14. Ingest (2026-09-07, on Erik's approval)
+
+Order per §9: icon upload → `ingest-investor.ts` → `ingest-companies.ts`.
+
+- Icon uploaded: `investors/felicis-b5ca5f2614.png`.
+- Investor row live, `id 8008aa85-be07-4037-8ce5-fc71a09bb163`.
+- **493 companies** in `public.companies`.
+- App verified rendering: the leaderboard row reads "Felicis · 1 in 10
+  companies → $1B · US +3 · Seed–Growth · $1M–$350M · Generalist (8)", the icon
+  loads through `next/image` from the bucket, and there are no console errors.
+
+**The Lux incident was avoided, not fixed.** `ingest-investor.ts` still ignores
+its positional slug and syncs the whole table. Four investors on disk were
+carrying pre-ingest placeholder `icon_url`s at ingest time — 8vc,
+battery-ventures, benchmark and greylock — and Benchmark's
+(`benchmark.svg#glyph-B`) is the exact unconfigured `next/image` host that
+white-screened the app during the Lux run. Running it as
+`npx tsx scripts/ingest-investor.ts --investors name=felicis` confines the
+write to one row, and the DB was checked afterwards: **zero** non-bucket
+`icon_url`s across all 15 investor rows, so the crash condition is absent and
+four sibling sessions' ingest gates are untouched.
+
+The three fixes PRO-95 proposed remain unmade. #1 is the cheap one — the
+`--investors name=<slug>` filter demonstrably works, so only the default and
+the silently-ignored positional argument are wrong.
+
+**Prompt count: 2** — kickoff and the ingest approval, which is §9's target.
