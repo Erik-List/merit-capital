@@ -168,6 +168,26 @@ confirmed ruling.
   firm profile**: the published track record then covers the firm's
   venture activity rather than the firm, and without that statement it
   reads as the latter.
+
+  **Sponsor promotes** (Erik, 2026-09-07, ruled on Khosla's KVSA II /
+  Nextdoor). A firm that sponsors a blank-check company and takes it
+  public through a de-SPAC has **not** made a venture entry: the
+  sponsor's founder shares are issued by the shell at nominal cost when
+  the shell is formed, and the position in the operating business
+  arises from a reverse merger into a listing, not from a financing of
+  that business. It is not T3's OUT limb either — the shares are not
+  bought on the market and the entry is contemporaneous with the
+  listing rather than after it — so T3 named no case until this
+  ruling. **OUT, unless one of the firm's funds held the target
+  through a venture round before the merger**, in which case the row is
+  a member on that earlier round and the SPAC is irrelevant to its
+  membership. The reasoning is the control-position one: a promote is a
+  fee for assembling a listing vehicle, and every column that describes
+  a round (`entry_stage`, entry valuation, the C2A cohort) is
+  meaningless where there is no round to name. The SPAC shell itself is
+  separately out under T5, as a vehicle with no operating business. A
+  fund's PIPE into the merger is a different instrument and is judged
+  on its own facts.
 - **T4 — Person or firm.** Whose money sat behind the seat on that date?
   A filing by a natural person locates the person, never a firm position,
   and a seat is dated against the person's firm at filing time. The full

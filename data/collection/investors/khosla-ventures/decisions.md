@@ -203,6 +203,18 @@ The grind checks the pre-merger cap table first; whichever way this lands it is
 a boundary ruling of the kind COLLECTION.md §9 trigger 2 reserves for Erik,
 because it decides how every future sponsor-vehicle position is read.
 
+## 2a. Delta outcomes
+
+**X1 — RULED by Erik, 2026-09-07: OUT unless a fund held it pre-merger.**
+A sponsor promote is not a venture entry. Nextdoor is a member only if a Khosla
+Ventures fund held it through a venture round before the KVSA II merger, in
+which case the row is a member on that round and the SPAC is irrelevant to its
+membership; otherwise it is `not_member`. The grind checks the pre-merger cap
+table and records the result either way. The ruling is investor-agnostic and has
+been ratcheted into `COLLECTION.md` §1 under T3 the same day (§1, "confirmed
+deltas ratchet the same day"), so it binds every future sponsor-vehicle position
+rather than only this run.
+
 ## 3. Run-time standing rulings
 
 _(dated, class-wide, flagged for review; added during the run)_
