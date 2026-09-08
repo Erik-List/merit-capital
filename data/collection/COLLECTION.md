@@ -1716,6 +1716,41 @@ investor's `investor.json` plus `investor.sources.json`, one source entry
 per field; every field populated or explicitly null, through the taxonomy
 gate, onto the review surface.
 
+**Two of these fields are READER-FACING COPY, and they are written differently
+from the rest** (ruled by Erik, 2026-09-07, after ten of the first eleven
+profiles were found carrying provenance into the page). `components/investor/
+overview.tsx` renders exactly `investment_concept` and `history`; every other
+string is either a short label (`name`, `hq_location`) or, like
+`funds[].sources[].note`, not rendered at all, since `funds.tsx` shows only a
+fund's name, size and vintage. So the accession trail belongs in the fund notes
+and the sidecar bases, and three things must stay out of the two paragraphs a
+reader sees:
+
+- **Adviser-registration and filing vocabulary.** CRD numbers, "exempt
+  reporting adviser", "relying adviser", Form ADV, Form D, Item 5.F, Schedule
+  D, CIK, EDGAR. These establish the firm boundary and they are load-bearing,
+  but they belong in `investor.sources.json`, under the `aum` and boundary
+  bases, where the next session and Erik can check them. A reader wants to know
+  the firm is one partnership, not its CRD.
+- **This pipeline's own vocabulary.** "base", "this project's book", "the
+  confirmed base", "excluded here". The reader has no idea what a base is. Say
+  "the companies recorded here", "the portfolio", "not counted here".
+- **Em-dashes.** Use commas, semicolons, colons, parentheses, or restructure
+  the sentence.
+
+The substance is never dropped to satisfy this, and the boundary statement that
+§1 requires of a control-position base is **restated**, not removed: Battery's
+reads "the venture track record shown here covers the firm's minority
+investments rather than the whole of what it does", with the registration facts
+behind it in the sidecar. The test is simple. If a sentence would only make
+sense to someone who has read this playbook, it belongs in the sidecar.
+
+**The sidecar's `value` must mirror `investor.json`, and a placeholder is a
+defect.** `"see investor.json"` in a `fields.<name>.value` breaks the field
+verifier, which reads the sidecar rather than the profile; two Redpoint fields
+shipped that way. A rewrite of a reader-facing field therefore touches both
+files.
+
 **`build-firm-profile.py` has two required inputs that nothing else writes**
 (Lux, 2026-09-06 — every run so far has hand-built them and rediscovered the
 same traps). It refuses to start without `sources/edgar/fund-formds.json` and
