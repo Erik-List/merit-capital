@@ -1,6 +1,76 @@
 {
- "_doc": "Cross-investor rulings for the YC run (COLLECTION.md §12). `distinct`: pairs that share a name key but are different companies, so invariant 10 never compares them. Adjudicated 2026-09-07 over the 47 pairs YC's verify surfaced. YC collides with the rest of the dataset more than any other investor — 1,031 shared name keys across 14 landed bases — and 37 of the 47 disagreements were not disagreements at all, just one-word collisions. Merged at read time by verify; the shared file is written only at wave alignment.",
+ "_doc": "Cross-investor rulings for the YC run (COLLECTION.md §12). `distinct`: pairs that share a name key but are different companies, so invariant 10 never compares them. Adjudicated 2026-09-07 over the 47 pairs YC's verify surfaced. YC collides with the rest of the dataset more than any other investor — 1,031 shared name keys across 14 landed bases — and 37 of the 47 disagreements were not disagreements at all, just one-word collisions. Merged at read time by verify; the shared file is written only at wave alignment. Second adjudication 2026-09-07 over the 80 pairs remaining after the base was corrected: 59 distinct, 21 same. Distinct was decided by era, sector or domain — Menlo's 1998 Amplitude Software against Nasdaq AMPL, Greylock's 1984 Index Technology against index.io, Battery's 1997 Cruise Technologies against GM's Cruise.",
  "distinct": [
+  {
+   "rows": [
+    "8vc:atomic-ai",
+    "yc:atomic"
+   ],
+   "note": "YC's Atomic is Atomic Invest (S20, atomicvest.com), the SF API that embeds investment accounts into other companies' products; 8VC's Atomic AI is the South San Francisco RNA-structure drug-discovery company founded in 2021."
+  },
+  {
+   "rows": [
+    "8vc:branch",
+    "yc:branch-ai"
+   ],
+   "note": "YC's Branch AI is a 3-person Singapore AI-search-overview product (S23, branch-ai.com); 8VC's Branch is Branch International, the emerging-markets consumer lender founded by Kiva's Matt Flannery, listed on 8vc.com under Financial Services. [https://www.8vc.com/companies]"
+  },
+  {
+   "rows": [
+    "8vc:farcast",
+    "yc:farcast"
+   ],
+   "note": "YC's Farcast is UTVate (W20), the satcom user-terminal maker that only took the name Farcast in March 2025 and is backed by BlueYard, YC, Uncorrelated, MaC and Fifty Years, with Telesat, Lockheed Martin and Gogo as strategics — 8VC is not among them, 8VC's row is an archive-only 2022 listing, and the name did not exist in 2022, so 8VC's Farcast is a different, unidentified comp [https://payloadspace.com/utvate-rebrands-to-farcast-to-expand-its-customer-base/]"
+  },
+  {
+   "rows": [
+    "8vc:flux",
+    "yc:flux"
+   ],
+   "note": "YC's Flux (S19) is the Mexico City alternative-payments network (paywithflux.com); 8VC's Flux is flux.ai, described on 8vc.com as an AI assistant for hardware design in a browser-based eCAD. [https://www.8vc.com/companies]"
+  },
+  {
+   "rows": [
+    "8vc:flux",
+    "yc:flux-2"
+   ],
+   "note": "YC's flux-2 (W21) is the Lagos cross-border crypto-payments company (iflux.app); 8VC's Flux is flux.ai, the browser-based electronics CAD company in San Francisco. [https://www.8vc.com/companies]"
+  },
+  {
+   "rows": [
+    "8vc:glimpse",
+    "yc:glimpse"
+   ],
+   "note": "YC's `glimpse` row is the Winter-2020 \"social video chat\" — YC's directory gives joinglimpse.com, San Francisco, status Acquired; 8VC's Glimpse is the retail-deductions automation company at tryglimpse.com, which is YC's other Glimpse row. [https://www.ycombinator.com/companies/glimpse]"
+  },
+  {
+   "rows": [
+    "a16z:apollo",
+    "yc:apollo-2"
+   ],
+   "note": "YC's apollo-2 is a 3-person S21 stock-rewards credit card (withapollo.com); a16z's Apollo is Apollo GraphQL, the renamed Meteor Development Group (Apollo Graph Inc), ~$1.5B and independent."
+  },
+  {
+   "rows": [
+    "a16z:apollo",
+    "yc:apollo-3"
+   ],
+   "note": "YC's apollo-3 is the W22 Bengaluru crypto payments-and-loyalty startup (apollofirst.xyz); a16z's Apollo is Apollo GraphQL in San Francisco."
+  },
+  {
+   "rows": [
+    "a16z:avalanche",
+    "yc:avalanche"
+   ],
+   "note": "YC's Avalanche is a one-person W19 referral-program SDK for startups (useavalanche.com, directory Inactive); a16z's Avalanche is Ava Labs / the AVAX network, and the $2.97B on that row is the token market cap."
+  },
+  {
+   "rows": [
+    "a16z:cascade",
+    "yc:cascade"
+   ],
+   "note": "YC's Cascade is a two-person W26 San Francisco company at runcascade.com (\"Distilling Proprietary Intelligence\"); a16z's Cascade is the London AEC startup (speedrun cohort SR006, usecascade.com) founded by Hannia Zia and Joana Ferreira that raised a $3.5M seed led by a16z speedrun in July 2026 to predict construction projects before they go to bid. [https://tech.eu/2026/07/21/ai-engineering-project-predictor-startup-cascade-wins-35m-seed-investment/]"
+  },
   {
    "rows": [
     "a16z:cedar",
@@ -14,6 +84,55 @@
     "yc:clipboard"
    ],
    "note": "YC's Clipboard is Clipboard Health, the W2017 healthcare shift marketplace (clipboardworks.com, ~1,000 staff, $1.3B in February 2022); a16z's Clipboard, Inc. is the web-clipping and curation product acquired by Salesforce in 2013. [https://www.businesswire.com/news/home/20220414005913/en/Clipboard-Health-Secures-Total-of-$80M-in-Funding-Reaching-$1.3B-Valuation]"
+  },
+  {
+   "rows": [
+    "a16z:convex",
+    "yc:convex"
+   ],
+   "note": "YC's Convex is the W19 software company for the commercial services industry (convex.com); a16z's Convex is convex.dev, the reactive backend platform whose $26M Series A a16z led in 2022."
+  },
+  {
+   "rows": [
+    "a16z:flow",
+    "yc:flow"
+   ],
+   "note": "YC's Flow is the S19 browser-productivity tool (enterflow.app); a16z's Flow is Adam Neumann's Miami residential operator, $2.5B on the April 2025 Series B."
+  },
+  {
+   "rows": [
+    "a16z:flux",
+    "yc:flux"
+   ],
+   "note": "a16z's Flux row is unidentified in their own book but is plausibly the same flux.ai hardware-design company 8VC lists; either way it is not YC's Mexico City payments company, and the public $0.06B on the a16z row belongs to Flux Power Holdings (Nasdaq: FLUX), a third entity."
+  },
+  {
+   "rows": [
+    "a16z:flux",
+    "yc:flux-2"
+   ],
+   "note": "YC's flux-2 is the W21 Lagos crypto-payments company; a16z's Flux is an unidentified row their own run reads as the AI hardware-design startup, and its public $0.06B is Flux Power Holdings (Nasdaq: FLUX)."
+  },
+  {
+   "rows": [
+    "a16z:fractal",
+    "yc:fractal-labs"
+   ],
+   "note": "YC's Fractal Labs is a W24 consumer/gaming company at fractal-labs.gg (its earlier YC slug was \"dalmatian\"); a16z's Fractal is Justin Kan's gaming NFT marketplace, founded 2021 with a $35M seed a16z co-led in January 2022 — not a 2024 batch company."
+  },
+  {
+   "rows": [
+    "a16z:glimpse",
+    "yc:glimpse"
+   ],
+   "note": "a16z's Glimpse is the tryglimpse.com deductions company whose $35M Series A a16z led in March 2026, not YC's W20 social video chat; separately, the public $41M on the a16z row is The Glimpse Group (Nasdaq: VRAR), a third entity. [https://techcrunch.com/2026/03/25/a16z-backed-glimpse-raises-new-funds-accelerates-dispute-tracking-automation-for-cpg-brands/]"
+  },
+  {
+   "rows": [
+    "a16z:harbor",
+    "yc:harbor"
+   ],
+   "note": "YC's Harbor is a Spring-2026 AI-native CRO for clinical-trial operations (runharbor.com); a16z's Harbor is the security-token platform whose $10M round a16z led in 2018 and which BitGo acquired in 2020."
   },
   {
    "rows": [
@@ -52,10 +171,52 @@
   },
   {
    "rows": [
+    "battery-ventures:cruise-technologies",
+    "yc:cruise"
+   ],
+   "note": "YC's Cruise is the W14 self-driving company GM acquired in 2016; Battery's Cruise Technologies is a pen-tablet computing company on their 1997 portfolio page that wound down in the late 1990s."
+  },
+  {
+   "rows": [
+    "benchmark:conduit",
+    "yc:conduit-2"
+   ],
+   "note": "Benchmark's Conduit is a 2009 and 2012 portfolio listing whose identity their own run left unresolved (the Israeli toolbar company Conduit Ltd is one candidate); YC's Conduit rows are all recent — helloconduit.com from 2023 and conduit.ai from 2025 — so no YC row can be a 2009 Benchmark position."
+  },
+  {
+   "rows": [
     "cherry:shift",
     "yc:shift-labs"
    ],
    "note": "YC's Shift Labs is the Seattle medical-device maker behind the DripAssist infusion monitor (W2015, shiftlabs.com, 6 staff); Cherry's Shift is the Munich 3D-printing marketplace it seeded in September 2018 and Xometry acquired in December 2019 — the suffix-stripped key joined 'Shift Labs' to 'Shift', and the $1B on the YC row is the Shift Technologies (used cars) unicorn-list pre-fill Cherry's run  [https://www.ycombinator.com/companies/shift-labs]"
+  },
+  {
+   "rows": [
+    "felicis:alloy",
+    "yc:alloy"
+   ],
+   "note": "YC's Alloy is the W23 Sydney AI prototyping tool for product managers (alloy.app, 5 people, no priced round of its own); Felicis's Alloy is alloy.com, the New York identity-decisioning and KYC platform marked at $1.55B."
+  },
+  {
+   "rows": [
+    "felicis:cedar",
+    "yc:cedar"
+   ],
+   "note": "YC's Cedar is a two-person W25 sales-playbook copilot (cedarcopilot.com); Felicis's Cedar is the New York healthcare billing and patient-payments company marked at $3.2B."
+  },
+  {
+   "rows": [
+    "felicis:dots",
+    "yc:dots"
+   ],
+   "note": "YC's Dots is the S21 10-person payouts API (usedots.com); Felicis's DOTS is the New York game studio behind Dots and Two Dots, which wound down."
+  },
+  {
+   "rows": [
+    "felicis:homeroom",
+    "yc:homeroom"
+   ],
+   "note": "YC's HomeRoom (W22, livehomeroom.com) is the Kansas City rent-by-the-room proptech that closed a $1M pre-seed in January 2022 from YC, The Uplift Syndicate and The HO0 Fund and was acquired by Bungalow in 2025 — Felicis is not among its backers, and Felicis's Homeroom already appears on their 2020 portfolio capture, before the YC company had raised anything. [https://startlandnews.com/2022/01/homeroom-2/]"
   },
   {
    "rows": [
@@ -73,6 +234,13 @@
   },
   {
    "rows": [
+    "first-round-capital:cover",
+    "yc:cover"
+   ],
+   "note": "YC's Cover is the W16 mobile-first insurance broker (cover.com); First Round's Cover is the restaurant-payments app Twitter acquired in 2014, two years before the YC company's batch."
+  },
+  {
+   "rows": [
     "first-round-capital:gem",
     "yc:gem"
    ],
@@ -84,6 +252,34 @@
     "yc:glimpse"
    ],
    "note": "YC publishes two Glimpses under this slug, both from 2020 — the S2020 CPG retail-operations company (tryglimpse.com, New York) and the acquired W2020 social video chat (joinglimpse.com) — while First Round's Glimpse is a single 2014 portfolio listing whose fate is not on the record; First Round already quarantined the $41M public registrant that the float sweep joined to it, and that same wrong re [https://www.ycombinator.com/companies/glimpse]"
+  },
+  {
+   "rows": [
+    "first-round-capital:glimpse",
+    "yc:glimpse-2"
+   ],
+   "note": "First Round's Glimpse is a single 2014 portfolio listing whose fate their run left open; YC's glimpse-2 is the deductions company founded in 2020, which did not exist in 2014."
+  },
+  {
+   "rows": [
+    "first-round-capital:haven",
+    "yc:haven"
+   ],
+   "note": "YC's Haven (W20, havenservicing.com) is the New York mortgage-servicing fintech; First Round's Haven is Haven Inc., the freight-and-logistics automation company whose business was sold on after 2019."
+  },
+  {
+   "rows": [
+    "first-round-capital:haven",
+    "yc:haven-2"
+   ],
+   "note": "YC's haven-2 (W23, usehaven.ai) is the AI workforce for property management; First Round's Haven is the freight-and-logistics automation company from their 2015-2021 listings."
+  },
+  {
+   "rows": [
+    "first-round-capital:keeper",
+    "yc:keeper"
+   ],
+   "note": "YC's Keeper is Keeper (S21, keepertax.com), the ~80-person bookkeeping-software company; First Round's Keeper is a single 2014 portfolio listing recorded defunct, seven years earlier."
   },
   {
    "rows": [
@@ -101,10 +297,87 @@
   },
   {
    "rows": [
+    "greylock:atomic",
+    "yc:atomic"
+   ],
+   "note": "Greylock's Atomic is Atomic (atomicfi.com), the Salt Lake City payroll-data connectivity API whose $40M Series B Greylock co-led in March 2022; YC's Atomic is Atomic Invest, the SF brokerage/investing API — two different fintech APIs sharing a one-word name. [https://techcrunch.com/2022/03/03/payroll-api-provider-atomic-lands-40m-in-series-b-funding/]"
+  },
+  {
+   "rows": [
+    "greylock:atomic-ai",
+    "yc:atomic"
+   ],
+   "note": "Greylock's Atomic AI is the RNA drug-discovery company (machine learning on RNA structure, $35M Series A 2023); YC's Atomic is the SF investing API."
+  },
+  {
+   "rows": [
+    "greylock:clarus-corporation",
+    "yc:clarus"
+   ],
+   "note": "YC's Clarus is the Fall-2024 New York startup selling LP reporting across private markets (clarus.finance); Greylock's Clarus Corporation is the 1992-funded SQL Financials that IPO'd as Clarus and sold its B2B procurement business to Epicor in 2002."
+  },
+  {
+   "rows": [
+    "greylock:convoy",
+    "yc:convoy"
+   ],
+   "note": "YC's convoy row is Convoy (getconvoy.io), the W22 open-source webhooks company in London and Lagos; Greylock's Convoy is the Seattle digital freight network that ceased operations in October 2023 with Flexport buying the technology and brand (YC's own Seattle Convoy is the separate Continuity row convoy-2)."
+  },
+  {
+   "rows": [
+    "greylock:crew",
+    "yc:crew"
+   ],
+   "note": "YC's Crew is a 6-person S21 Paris ATS/CRM for recruitment agencies (crew.work); Greylock's Crew is the San Francisco frontline-workforce communications company, recorded acquired on their own card."
+  },
+  {
+   "rows": [
+    "greylock:glimpse",
+    "yc:glimpse"
+   ],
+   "note": "Greylock's Glimpse is an online shopping destination funded in 2005 and gone after its 2007 listing; YC's Glimpse rows are both 2020 companies."
+  },
+  {
+   "rows": [
+    "greylock:glimpse",
+    "yc:glimpse-2"
+   ],
+   "note": "Greylock's Glimpse is the 2005-funded online shopping destination last listed in 2007; YC's glimpse-2 is the 2020-founded CPG deductions company backed by 8VC and a16z."
+  },
+  {
+   "rows": [
+    "greylock:index-technology-corporation",
+    "yc:index"
+   ],
+   "note": "YC's Index is the S19 San Francisco company at index.io; Greylock's Index Technology Corporation is the 1984-funded Cambridge CASE-tools company that IPO'd in 1988 and merged into Intersolv in 1991."
+  },
+  {
+   "rows": [
+    "lightspeed:alloy",
+    "yc:alloy"
+   ],
+   "note": "Same split: YC's Alloy is the W23 Sydney design-tools startup (alloy.app); Lightspeed's Alloy is the New York identity-decisioning company whose Sep-2022 $52M round Lightspeed led at a $1.55B post-money."
+  },
+  {
+   "rows": [
     "lightspeed:avocado-software",
     "yc:avocado"
    ],
    "note": "YC's Avocado is the W2021 AI-native restaurant POS (avocadopos.com, formerly Instamenu, 4 staff, active); Lightspeed's row is 'Avocado Software', a 2012-2015 listing their own run recorded as an unidentifiable stray — nine years and two industries apart. [https://www.ycombinator.com/companies/avocado]"
+  },
+  {
+   "rows": [
+    "lightspeed:balance",
+    "yc:getbalance-2"
+   ],
+   "note": "YC's getbalance-2 is Balance at getbalance.ai, an AI bookkeeping service selling a \"fractional finance team\" and its Bea assistant; Lightspeed's Balance is getbalance.com, the B2B net-terms payments company it has backed since 2020 — which corresponds to YC's separate `balance` row, not this one. [https://getbalance.ai]"
+  },
+  {
+   "rows": [
+    "lightspeed:blink",
+    "yc:blink-2"
+   ],
+   "note": "YC's blink-2 row sits at blink.new (YC's other Blink is blinklastmile.com, the Milan same-day delivery company); Lightspeed's Blink is Blink Ops, the Tel Aviv security-automation company it backed at Series A in 2022."
   },
   {
    "rows": [
@@ -157,6 +430,97 @@
   },
   {
    "rows": [
+    "menlo-ventures:amplitude-software",
+    "yc:amplitude"
+   ],
+   "note": "YC's Amplitude is the W12 product-analytics company (amplitude.com, Nasdaq: AMPL); Menlo's AMPLITUDE SOFTWARE is the Sunnyvale internet resource-scheduling company on their 1998 listing that Critical Path acquired in 1999 — this confirms the namesake collision Menlo's own row already disputed."
+  },
+  {
+   "rows": [
+    "menlo-ventures:arc",
+    "yc:arc-2"
+   ],
+   "note": "YC's Arc is the SF startup banking and treasury platform (joinarc.com); Menlo's Arc is the Torrance maker of electric watersport boats, which Menlo backed at a growth round."
+  },
+  {
+   "rows": [
+    "menlo-ventures:axiom",
+    "yc:axiom"
+   ],
+   "note": "YC's Axiom is the W25 memecoin and perpetuals trading terminal (axiom.trade, SF); Menlo's Axiom is Axiom Math, the AI-mathematician startup Menlo seeded in 2025 — and neither is Axiom the legal-services firm whose acquired marker leaked onto both rows."
+  },
+  {
+   "rows": [
+    "menlo-ventures:canvas",
+    "yc:canvas"
+   ],
+   "note": "YC's Canvas is the Fall-2024 3-person AI startup at canvas.inc (\"AI systems that improve from experience\"); Menlo's Canvas is the SF drywall-finishing construction-robotics company it backed at Series B in 2021, acquired by JLG Industries (Oshkosh) in 2024."
+  },
+  {
+   "rows": [
+    "menlo-ventures:eloquent",
+    "yc:eloquent-ai"
+   ],
+   "note": "YC's Eloquent AI is the Spring-2025 5-person \"AI operator for financial services\" (eloquentai.co); Menlo's ELOQUENT is the San Mateo enterprise rich-media company from a 1996-era Menlo position, acquired in 2004 and carried on their listings to 2007."
+  },
+  {
+   "rows": [
+    "menlo-ventures:glide",
+    "yc:glide"
+   ],
+   "note": "YC's Glide (W19, glideapps.com) is the no-code app builder, private and live, First Round-seeded with a Benchmark-led Series A in 2022; Menlo's Glide is the mobile video-messaging app on their 2015 listing that wound down."
+  },
+  {
+   "rows": [
+    "menlo-ventures:glide",
+    "yc:glide-2"
+   ],
+   "note": "YC's glide-2 (S23) is the crypto deposits, wallet-funding and pay-with-crypto infrastructure company; Menlo's Glide is the 2015-era mobile video-messaging app that wound down."
+  },
+  {
+   "rows": [
+    "menlo-ventures:handle",
+    "yc:handle"
+   ],
+   "note": "YC's Handle (W19, handle.com) is the SF payments-and-lien-compliance platform for construction suppliers; Menlo's Handle is handl, inc., the 2011-2014 task-and-email management company (Shawn Carolan's $2.5M Form D) that wound down in 2015."
+  },
+  {
+   "rows": [
+    "redpoint-ventures:astro",
+    "yc:astro"
+   ],
+   "note": "YC's Astro is the W25 New York \"AI energy developer\" (astroenergy.ai); Redpoint's Astro is Astro Technology (helloastro.com), the email client Slack acquired in September 2018."
+  },
+  {
+   "rows": [
+    "redpoint-ventures:fabric",
+    "yc:fabric"
+   ],
+   "note": "YC's Fabric is the S16 personal location-journal app (fabric.me); Redpoint's Fabric is fabric.inc (Commerce Fabric, Inc.), the headless-commerce company priced at $1.5B on its May-2022 Series C."
+  },
+  {
+   "rows": [
+    "redpoint-ventures:guild",
+    "yc:guild"
+   ],
+   "note": "YC's GUILD is a two-person S26 AI-native defense contractor in New York (guildai.co); Redpoint's Guild is Guild Education, the Denver education-benefits company at $4.4B on its June 2022 Series F."
+  },
+  {
+   "rows": [
+    "sequoia-capital:apollo",
+    "yc:apollo-2"
+   ],
+   "note": "YC's apollo-2 is the S21 stock-rewards card (withapollo.com); Sequoia's Apollo is Apollo.io (legal entity ZenLeads), the SF sales-intelligence platform at $1.6B on its Aug-2023 Series D."
+  },
+  {
+   "rows": [
+    "sequoia-capital:apollo",
+    "yc:apollo-3"
+   ],
+   "note": "YC's apollo-3 is the W22 Bengaluru DeFi payments/loyalty company; Sequoia's is Apollo.io, the SF sales-intelligence platform."
+  },
+  {
+   "rows": [
     "sequoia-capital:avalanche-technology-inc",
     "yc:avalanche"
    ],
@@ -185,6 +549,20 @@
   },
   {
    "rows": [
+    "sequoia-capital:crew",
+    "yc:crew"
+   ],
+   "note": "YC's Crew is the S21 Paris recruitment ATS/CRM; Sequoia's Crew is the SF frontline messaging company whose 2016 Series A Sequoia led and which Block acquired in 2021."
+  },
+  {
+   "rows": [
+    "sequoia-capital:gather",
+    "yc:gather"
+   ],
+   "note": "YC's `gather` row is Gather (S20, teamgather.co), the New York People-Ops automation tool that ChartHop acquired in March 2022 — YC's directory shows exactly that record; Sequoia's Gather is Gather.town, the virtual-office company whose 2021 Series A Sequoia led and which still operates. The YC base row's website field wrongly points at gather.town, which is what pulled the two [https://www.ycombinator.com/companies/gather]"
+  },
+  {
+   "rows": [
     "sequoia-capital:open",
     "yc:open"
    ],
@@ -206,6 +584,13 @@
   },
   {
    "rows": [
+    "spark-capital:convex",
+    "yc:convex"
+   ],
+   "note": "Same split: YC's is convex.com (commercial-services field software); Spark's is convex.dev, the reactive backend platform, where Spark joined the Insight-led $57M Series B in August 2026."
+  },
+  {
+   "rows": [
     "spark-capital:cover",
     "yc:cover"
    ],
@@ -217,6 +602,20 @@
     "yc:fig"
    ],
    "note": "YC's Fig is the S2020 terminal-autocomplete developer tool (fig.io, acquired by Amazon in 2023); Spark's Fig is fig.co, the games crowdfunding platform it seeded in 2015 and that Republic acquired in 2020. [https://www.ycombinator.com/companies/fig]"
+  },
+  {
+   "rows": [
+    "spark-capital:haven",
+    "yc:haven"
+   ],
+   "note": "YC's Haven is the W20 mortgage-servicing company; Spark's Haven is Haven Inc., the SF freight-booking platform whose 2015 Series A Spark led and which has been dark since about 2019."
+  },
+  {
+   "rows": [
+    "spark-capital:haven",
+    "yc:haven-2"
+   ],
+   "note": "YC's haven-2 is the W23 property-management AI company; Spark's Haven is Haven Inc., the freight-booking platform Spark backed at Series A in 2015."
   },
   {
    "rows": [
@@ -234,6 +633,13 @@
   },
   {
    "rows": [
+    "thrive-capital:cedar",
+    "yc:cedar"
+   ],
+   "note": "YC's Cedar is the W25 sales copilot; Thrive's Cedar is the healthcare-payments company Thrive incubated in 2016 (Kareem Zaki co-founder) whose $3.2B Series D closed in June 2021."
+  },
+  {
+   "rows": [
     "thrive-capital:fabric",
     "yc:fabric"
    ],
@@ -245,6 +651,13 @@
     "yc:tempo"
    ],
    "note": "YC's Tempo rows are the W2015 computer-vision home fitness company (tempo.fit, San Francisco) and the S2023 AI React visual editor (tempo.new, Toronto, formerly Tempo Labs); Thrive's Tempo is tempo.xyz, the Stripe-affiliated payments blockchain whose $500M round at $5B (October 2025) Thrive co-led with Greenoaks. [https://www.theblock.co/post/375152/stripe-tempo-500-million-series-a-thrive]"
+  },
+  {
+   "rows": [
+    "union-square-ventures:assembly",
+    "yc:assembly-2"
+   ],
+   "note": "USV's Assembly is Assembly (assembly.com), the collaborative product-building platform USV invested in during 2014 and which shut down in 2015; YC's assembly-2 row is a company that only appears in YC directory captures from 2025 at the recycled assembly.com domain (YC's own S15 Assembly is a separate row at asm.co, Los Angeles advanced manufacturing, still Active). [https://www.ycombinator.com/companies/assembly]"
   },
   {
    "rows": [
@@ -261,6 +674,959 @@
    "note": "Same collision: YC's Novas are the W2016 AI sales company and the S2018 investor-subscriptions company; USV's Nova Labs is Helium Systems Inc. (USV co-led the $15M Series C in June 2019), $1.2B in March 2022. [https://siliconangle.com/2022/03/30/helium-changes-name-nova-labs-confirms-200m-round-1-2b-valuation/]"
   }
  ],
- "accepted": [],
+ "accepted": [
+  {
+   "rows": [
+    "8vc:airbyte",
+    "yc:airbyte"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/1b_plus $1.50B (asof 2021-12-17)) is judged from this run's evidence and 8vc's row (private/below_1b (asof 2021)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update 8vc:airbyte and re-export it, then DELETE this entry. Basis: One company (W20, airbyte.com, open-source data movement) and the disagreement is Rule A, not identity: the $150M Series B led by Altimeter and Coatue closed 2021-12-17 at a reported ~$1.5B, a priced event with a citable press figure, so 1b_plus stands and 8VC's below_1b (taken because the only cita"
+  },
+  {
+   "rows": [
+    "a16z:airware",
+    "yc:airware"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (defunct/below_1b (asof 2022-03-31)) is judged from this run's evidence and a16z's row (acquired/below_1b (asof 2022-03-31)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update a16z:airware and re-export it, then DELETE this entry. Basis: One company: Airware (W13, airware.com), the SF commercial-drone platform a16z led the 2013 Series A in; YC's defunct is right because Airware burned $118M and shut down on 2018-09-14, with the assets auctioned afterwards (Delair took the Redbird analytics IP), and a16z's acquired reflects the §6 as"
+  },
+  {
+   "rows": [
+    "felicis:airware",
+    "yc:airware"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (defunct/below_1b (asof 2022-03-31)) is judged from this run's evidence and felicis's row (acquired/below_1b (asof 2022-03-31)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update felicis:airware and re-export it, then DELETE this entry. Basis: Same company as above; Felicis's own note says it chose acquired over defunct only because the assets went to Delair, so this is a §6 convention split, not a factual one, and the 2018-09-14 shutdown makes defunct the correct current state."
+  },
+  {
+   "rows": [
+    "a16z:arc",
+    "yc:arc-2"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (acquired/below_1b (asof -)) is judged from this run's evidence and a16z's row (private/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update a16z:arc and re-export it, then DELETE this entry. Basis: One company: Arc Technologies (W22, joinarc.com, banking and funding for startups), whose 2022 seed a16z led; YC's acquired is right because Axos Financial announced a definitive agreement to acquire Arc Technologies on 2026-07-07, expected to close that month, price undisclosed — so a16z's private "
+  },
+  {
+   "rows": [
+    "khosla-ventures:atmos",
+    "yc:atmos"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (unknown/below_1b (asof -)) is judged from this run's evidence and khosla-ventures's row (private/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update khosla-ventures:atmos and re-export it, then DELETE this entry. Basis: freshest side is yc:atmos"
+  },
+  {
+   "rows": [
+    "felicis:cardash",
+    "yc:cardash"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (acquired/below_1b (asof -)) is judged from this run's evidence and felicis's row (private/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update felicis:cardash and re-export it, then DELETE this entry. Basis: One company: CarDash, the Bay Area managed marketplace for car repair that launched out of YC in 2017 after raising $5.3M; YC's acquired is right — RepairSmith announced the acquisition on 2020-02-25 and moved CarDash customers onto RepairSmith.com — so Felicis's private is stale."
+  },
+  {
+   "rows": [
+    "khosla-ventures:carrot",
+    "yc:carrot-labs"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and khosla-ventures's row (acquired/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update khosla-ventures:carrot and re-export it, then DELETE this entry. Basis: freshest side is yc:carrot-labs"
+  },
+  {
+   "rows": [
+    "khosla-ventures:catch",
+    "yc:catch"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (unknown/below_1b (asof -)) is judged from this run's evidence and khosla-ventures's row (defunct/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update khosla-ventures:catch and re-export it, then DELETE this entry. Basis: freshest side is yc:catch"
+  },
+  {
+   "rows": [
+    "a16z:chute",
+    "yc:chute"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (acquired/below_1b (asof -)) is judged from this run's evidence and a16z's row (defunct/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update a16z:chute and re-export it, then DELETE this entry. Basis: freshest side is yc:chute"
+  },
+  {
+   "rows": [
+    "redpoint-ventures:clara",
+    "yc:clara-labs"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (acquired/below_1b (asof -)) is judged from this run's evidence and redpoint-ventures's row (defunct/below_1b (asof 2021)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update redpoint-ventures:clara and re-export it, then DELETE this entry. Basis: freshest side is redpoint-ventures:clara"
+  },
+  {
+   "rows": [
+    "thrive-capital:clay-inc",
+    "yc:clay"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/1b_plus $5.00B (asof 2026-01-15)) is judged from this run's evidence and thrive-capital's row (unknown/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update thrive-capital:clay-inc and re-export it, then DELETE this entry. Basis: Best available reading, not a resolved one: YC's Clay is the W21 \"Figma for 3D\" tool (clay3d.io, San Francisco, ~$4.2M raised, directory Inactive) and Thrive's row is an unidentified SF \"Clay, Inc.\" incorporated in 2021 with ~$3.1M across three 2021q2 Form Ds and a Thrive partner as Director — the y"
+  },
+  {
+   "rows": [
+    "redpoint-ventures:coin",
+    "yc:coin"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (acquired/below_1b (asof -)) is judged from this run's evidence and redpoint-ventures's row (defunct/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update redpoint-ventures:coin and re-export it, then DELETE this entry. Basis: One company: Coin (W13, onlycoin.com), the Bay Area smart payment card; YC's acquired is right — Fitbit acquired Coin's wearable-payments team and IP, completed 2016-05-12 (Coin 2.0 consumer products excluded) — and Redpoint's defunct records only the consumer card wind-down that followed."
+  },
+  {
+   "rows": [
+    "felicis:criya",
+    "yc:roomplays"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (unknown/below_1b (asof -)) is judged from this run's evidence and felicis's row (private/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update felicis:criya and re-export it, then DELETE this entry. Basis: freshest side is yc:roomplays"
+  },
+  {
+   "rows": [
+    "felicis:cymmetria",
+    "yc:cymmetria"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (acquired/below_1b (asof -)) is judged from this run's evidence and felicis's row (defunct/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update felicis:cymmetria and re-export it, then DELETE this entry. Basis: One company: Cymmetria (S15, Tel Aviv cyber-deception, MazeRunner) — and both sides are half right. Stage Fund, a distressed-asset PE firm, acquired Cymmetria in September 2019 and then shut the operation, with employees filing for liquidation in Tel Aviv that December. A real change of control make"
+  },
+  {
+   "rows": [
+    "a16z:dex",
+    "yc:joindex"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/1b_plus $1.65B (asof 2025-03)) is judged from this run's evidence and a16z's row (private/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update a16z:dex and re-export it, then DELETE this entry. Basis: freshest side is yc:joindex"
+  },
+  {
+   "rows": [
+    "khosla-ventures:emergent",
+    "yc:emergent"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/1b_plus $1.50B (asof 2026-07-15)) is judged from this run's evidence and khosla-ventures's row (private/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update khosla-ventures:emergent and re-export it, then DELETE this entry. Basis: freshest side is yc:emergent"
+  },
+  {
+   "rows": [
+    "spark-capital:feather",
+    "yc:feather"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (acquired/below_1b (asof -)) is judged from this run's evidence and spark-capital's row (private/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update spark-capital:feather and re-export it, then DELETE this entry. Basis: One company: Feather (S17, livefeather.com), the New York furniture-rental business whose $12M Series A Spark led in 2019; YC's acquired is right — Feather paused operations in late 2022 and Vesta Home acquired it in November 2023, and livefeather.com now reads \"Feather is now Fernish\" — so Spark's "
+  },
+  {
+   "rows": [
+    "8vc:flexport",
+    "yc:flexport"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/1b_plus $8.00B (asof 2022-02-07)) is judged from this run's evidence and 8vc's row (private/below_1b (asof 2022)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update 8vc:flexport and re-export it, then DELETE this entry. Basis: One company (W14, flexport.com) and again a Rule A dispute, not an identity one: the $935M Series E announced 2022-02-07, led by a16z and MSD with Shopify, was priced above $8B post-money and is reported with the figure, so 1b_plus stands and 8VC's below_1b — taken because their row's $8B carried no"
+  },
+  {
+   "rows": [
+    "lightspeed:forage",
+    "yc:forage"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (acquired/below_1b (asof -)) is judged from this run's evidence and lightspeed's row (private/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update lightspeed:forage and re-export it, then DELETE this entry. Basis: One company: YC's `forage` row is Forage (W19, theforage.com, formerly InsideSherpa), the online job-simulation company whose $9.3M Series A Lightspeed led in September 2020 — exactly Lightspeed's \"Series A, backed since 2020\" card. YC's acquired is right: EAB Global acquired Forage on 2024-04-08, s"
+  },
+  {
+   "rows": [
+    "battery-ventures:front",
+    "yc:front"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/1b_plus $1.70B (asof 2022-06-28)) is judged from this run's evidence and battery-ventures's row (private/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update battery-ventures:front and re-export it, then DELETE this entry. Basis: One company: Front (S14, front.com / FrontApp, Inc.), the SF customer-communications hub; YC's 1b_plus is right because Front published its own $65M Series D at a $1.7B valuation in June 2022 and remains independent, so Battery's below_1b is wrong — first-party figure, stale but citable."
+  },
+  {
+   "rows": [
+    "khosla-ventures:gamgee",
+    "yc:gamgee"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and khosla-ventures's row (defunct/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update khosla-ventures:gamgee and re-export it, then DELETE this entry. Basis: freshest side is yc:gamgee"
+  },
+  {
+   "rows": [
+    "greylock:gem",
+    "yc:gem"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/1b_plus $1.20B (asof 2021-09-28)) is judged from this run's evidence and greylock's row (private/below_1b (asof 1919-01-01)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update greylock:gem and re-export it, then DELETE this entry. Basis: One company: Gem (S17, gem.com), the SF talent-engagement platform; YC's 1b_plus is right because Gem announced its own $100M Series C led by ICONIQ Growth at a $1.2B valuation, so Greylock's below_1b — carried with an impossible 1919-01-01 as-of date — is wrong. The 2021 mark stays flagged stale."
+  },
+  {
+   "rows": [
+    "a16z:glimpse",
+    "yc:glimpse-2"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof 2024-12-31)) is judged from this run's evidence and a16z's row (public/below_1b $0.04B (asof 2024-12-31)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update a16z:glimpse and re-export it, then DELETE this entry. Basis: Same company: a16z led Glimpse's $35M Series A in March 2026 (with 8VC and YC participating), so a16z's row — which their own run left unidentified with a suspected collision — is this YC company; the correct reading for both sides is private/below_1b, and the public $41M pre-fill (The Glimpse Group"
+  },
+  {
+   "rows": [
+    "battery-ventures:grubmarket",
+    "yc:grubmarket"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/1b_plus $4.50B (asof 2026-02-02)) is judged from this run's evidence and battery-ventures's row (private/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update battery-ventures:grubmarket and re-export it, then DELETE this entry. Basis: One company: GrubMarket (W15, grubmarket.com, SF food-supply-chain software and distribution); YC's 1b_plus is right — the February 2026 $50M Series H was priced at a $4.5B pre-money and the company has since filed confidentially for an IPO — which supplies exactly the priced-event citation Battery'"
+  },
+  {
+   "rows": [
+    "a16z:harbor",
+    "yc:runharbor"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (unknown/below_1b (asof -)) is judged from this run's evidence and a16z's row (acquired/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update a16z:harbor and re-export it, then DELETE this entry. Basis: freshest side is yc:runharbor"
+  },
+  {
+   "rows": [
+    "a16z:kinter",
+    "yc:kinter"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and a16z's row (unknown/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update a16z:kinter and re-export it, then DELETE this entry. Basis: One company: Kinter (kinter.ai, W20) is Alloy Automation rebranded in June 2026 after pivoting from integration plumbing to autonomous AI accountants, and it is backed by a16z, Bain Capital Ventures and YC — a16z's row was harvested from their own Alloy Automation announcement — so YC's private is r"
+  },
+  {
+   "rows": [
+    "khosla-ventures:klarismo",
+    "yc:klarismo"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (unknown/below_1b (asof -)) is judged from this run's evidence and khosla-ventures's row (defunct/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update khosla-ventures:klarismo and re-export it, then DELETE this entry. Basis: freshest side is yc:klarismo"
+  },
+  {
+   "rows": [
+    "creandum:klaus",
+    "yc:klaus-ai"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and creandum's row (acquired/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update creandum:klaus and re-export it, then DELETE this entry. Basis: freshest side is yc:klaus-ai"
+  },
+  {
+   "rows": [
+    "greylock:latent-space",
+    "yc:latent-space"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and greylock's row (defunct/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update greylock:latent-space and re-export it, then DELETE this entry. Basis: freshest side is yc:latent-space"
+  },
+  {
+   "rows": [
+    "battery-ventures:letter-ai",
+    "yc:letter"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (unknown/below_1b (asof -)) is judged from this run's evidence and battery-ventures's row (private/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update battery-ventures:letter-ai and re-export it, then DELETE this entry. Basis: freshest side is yc:letter"
+  },
+  {
+   "rows": [
+    "battery-ventures:level-ai",
+    "yc:level"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (acquired/below_1b (asof -)) is judged from this run's evidence and battery-ventures's row (private/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update battery-ventures:level-ai and re-export it, then DELETE this entry. Basis: freshest side is yc:level"
+  },
+  {
+   "rows": [
+    "sequoia-capital:luminate",
+    "yc:luminate"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and sequoia-capital's row (acquired/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update sequoia-capital:luminate and re-export it, then DELETE this entry. Basis: freshest side is yc:luminate"
+  },
+  {
+   "rows": [
+    "greylock:lyra",
+    "yc:lyra"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (defunct/below_1b (asof 2012-01-01)) is judged from this run's evidence and greylock's row (private/below_1b (asof 2012-01-01)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update greylock:lyra and re-export it, then DELETE this entry. Basis: freshest side is yc:lyra"
+  },
+  {
+   "rows": [
+    "sequoia-capital:magic",
+    "yc:magic"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and sequoia-capital's row (private/1b_plus $1.50B (asof 2024-08)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update sequoia-capital:magic and re-export it, then DELETE this entry. Basis: freshest side is sequoia-capital:magic"
+  },
+  {
+   "rows": [
+    "sequoia-capital:maven",
+    "yc:maven"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and sequoia-capital's row (private/1b_plus $1.70B (asof 2024-10)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update sequoia-capital:maven and re-export it, then DELETE this entry. Basis: freshest side is sequoia-capital:maven"
+  },
+  {
+   "rows": [
+    "khosla-ventures:medisas",
+    "yc:medisas"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (unknown/below_1b (asof -)) is judged from this run's evidence and khosla-ventures's row (defunct/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update khosla-ventures:medisas and re-export it, then DELETE this entry. Basis: freshest side is yc:medisas"
+  },
+  {
+   "rows": [
+    "first-round-capital:merlin",
+    "yc:merlin-ai"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and first-round-capital's row (public/below_1b $0.26B (asof 2025-06-30)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update first-round-capital:merlin and re-export it, then DELETE this entry. Basis: freshest side is first-round-capital:merlin"
+  },
+  {
+   "rows": [
+    "khosla-ventures:mighty-buildings",
+    "yc:mighty-buildings"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (defunct/below_1b (asof -)) is judged from this run's evidence and khosla-ventures's row (private/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update khosla-ventures:mighty-buildings and re-export it, then DELETE this entry. Basis: freshest side is yc:mighty-buildings"
+  },
+  {
+   "rows": [
+    "felicis:milo",
+    "yc:milo"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (unknown/below_1b (asof -)) is judged from this run's evidence and felicis's row (acquired/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update felicis:milo and re-export it, then DELETE this entry. Basis: freshest side is yc:milo"
+  },
+  {
+   "rows": [
+    "first-round-capital:mirror",
+    "yc:mirror-ai"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and first-round-capital's row (acquired/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update first-round-capital:mirror and re-export it, then DELETE this entry. Basis: freshest side is yc:mirror-ai"
+  },
+  {
+   "rows": [
+    "spark-capital:mirror",
+    "yc:mirror-ai"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and spark-capital's row (acquired/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update spark-capital:mirror and re-export it, then DELETE this entry. Basis: freshest side is yc:mirror-ai"
+  },
+  {
+   "rows": [
+    "khosla-ventures:miso",
+    "yc:miso-labs"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and khosla-ventures's row (defunct/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update khosla-ventures:miso and re-export it, then DELETE this entry. Basis: freshest side is yc:miso-labs"
+  },
+  {
+   "rows": [
+    "khosla-ventures:miso",
+    "yc:miso"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and khosla-ventures's row (defunct/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update khosla-ventures:miso and re-export it, then DELETE this entry. Basis: freshest side is yc:miso"
+  },
+  {
+   "rows": [
+    "battery-ventures:modern-health",
+    "yc:modern-health"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/1b_plus $1.17B (asof 2021-02-11)) is judged from this run's evidence and battery-ventures's row (private/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update battery-ventures:modern-health and re-export it, then DELETE this entry. Basis: freshest side is yc:modern-health"
+  },
+  {
+   "rows": [
+    "creandum:narrative",
+    "yc:narrative"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and creandum's row (defunct/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update creandum:narrative and re-export it, then DELETE this entry. Basis: freshest side is yc:narrative"
+  },
+  {
+   "rows": [
+    "khosla-ventures:narrative",
+    "yc:narrative"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and khosla-ventures's row (defunct/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update khosla-ventures:narrative and re-export it, then DELETE this entry. Basis: freshest side is yc:narrative"
+  },
+  {
+   "rows": [
+    "lightspeed:nexus",
+    "yc:nexus"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (unknown/below_1b (asof -)) is judged from this run's evidence and lightspeed's row (private/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update lightspeed:nexus and re-export it, then DELETE this entry. Basis: freshest side is yc:nexus"
+  },
+  {
+   "rows": [
+    "greylock:notable",
+    "yc:notable-labs"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (public/below_1b (asof -)) is judged from this run's evidence and greylock's row (private/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update greylock:notable and re-export it, then DELETE this entry. Basis: freshest side is yc:notable-labs"
+  },
+  {
+   "rows": [
+    "battery-ventures:nova-technologies",
+    "yc:nova"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (defunct/below_1b (asof 1997-01-01)) is judged from this run's evidence and battery-ventures's row (acquired/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update battery-ventures:nova-technologies and re-export it, then DELETE this entry. Basis: freshest side is yc:nova"
+  },
+  {
+   "rows": [
+    "battery-ventures:nova-technologies",
+    "yc:nova-2"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/1b_plus $1.20B (asof 2022-03)) is judged from this run's evidence and battery-ventures's row (acquired/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update battery-ventures:nova-technologies and re-export it, then DELETE this entry. Basis: freshest side is yc:nova-2"
+  },
+  {
+   "rows": [
+    "8vc:oklo",
+    "yc:oklo"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (public/10b_plus $13.50B (asof 2026-09-07)) is judged from this run's evidence and 8vc's row (public/1b_plus $8.54B (asof 2025-06-30)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update 8vc:oklo and re-export it, then DELETE this entry. Basis: freshest side is yc:oklo"
+  },
+  {
+   "rows": [
+    "sequoia-capital:olive-software",
+    "yc:olive"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and sequoia-capital's row (acquired/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update sequoia-capital:olive-software and re-export it, then DELETE this entry. Basis: freshest side is yc:olive"
+  },
+  {
+   "rows": [
+    "battery-ventures:onebrief",
+    "yc:onebrief"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/1b_plus $2.15B (asof 2026-01-13)) is judged from this run's evidence and battery-ventures's row (private/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update battery-ventures:onebrief and re-export it, then DELETE this entry. Basis: freshest side is yc:onebrief"
+  },
+  {
+   "rows": [
+    "greylock:optic",
+    "yc:optic"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (acquired/below_1b (asof -)) is judged from this run's evidence and greylock's row (private/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update greylock:optic and re-export it, then DELETE this entry. Basis: freshest side is yc:optic"
+  },
+  {
+   "rows": [
+    "felicis:origin",
+    "yc:origin-2"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (unknown/below_1b (asof -)) is judged from this run's evidence and felicis's row (private/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update felicis:origin and re-export it, then DELETE this entry. Basis: freshest side is yc:origin-2"
+  },
+  {
+   "rows": [
+    "sequoia-capital:origin",
+    "yc:origin-2"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (unknown/below_1b (asof -)) is judged from this run's evidence and sequoia-capital's row (private/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update sequoia-capital:origin and re-export it, then DELETE this entry. Basis: freshest side is yc:origin-2"
+  },
+  {
+   "rows": [
+    "benchmark:oxygen-software",
+    "yc:oxygen"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and benchmark's row (unknown/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update benchmark:oxygen-software and re-export it, then DELETE this entry. Basis: freshest side is yc:oxygen"
+  },
+  {
+   "rows": [
+    "8vc:pango",
+    "yc:pango"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and 8vc's row (acquired/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update 8vc:pango and re-export it, then DELETE this entry. Basis: freshest side is yc:pango"
+  },
+  {
+   "rows": [
+    "battery-ventures:paragon",
+    "yc:paragon-ai"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and battery-ventures's row (acquired/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update battery-ventures:paragon and re-export it, then DELETE this entry. Basis: freshest side is yc:paragon-ai"
+  },
+  {
+   "rows": [
+    "battery-ventures:paragon",
+    "yc:deployparagon"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and battery-ventures's row (acquired/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update battery-ventures:paragon and re-export it, then DELETE this entry. Basis: freshest side is yc:deployparagon"
+  },
+  {
+   "rows": [
+    "battery-ventures:paragon",
+    "yc:paragon"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and battery-ventures's row (acquired/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update battery-ventures:paragon and re-export it, then DELETE this entry. Basis: freshest side is yc:paragon"
+  },
+  {
+   "rows": [
+    "first-round-capital:parallel",
+    "yc:parallel"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and first-round-capital's row (private/1b_plus $2.00B (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update first-round-capital:parallel and re-export it, then DELETE this entry. Basis: freshest side is yc:parallel"
+  },
+  {
+   "rows": [
+    "spark-capital:parallel",
+    "yc:parallel"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and spark-capital's row (private/1b_plus $2.00B (asof 2026-04)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update spark-capital:parallel and re-export it, then DELETE this entry. Basis: freshest side is spark-capital:parallel"
+  },
+  {
+   "rows": [
+    "khosla-ventures:pardes-biosciences-inc",
+    "yc:pardes-bio"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (unknown/below_1b (asof -)) is judged from this run's evidence and khosla-ventures's row (acquired/below_1b (asof 2022-06-30)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update khosla-ventures:pardes-biosciences-inc and re-export it, then DELETE this entry. Basis: freshest side is khosla-ventures:pardes-biosciences-inc"
+  },
+  {
+   "rows": [
+    "khosla-ventures:patientbank",
+    "yc:patientbank"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (unknown/below_1b (asof -)) is judged from this run's evidence and khosla-ventures's row (defunct/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update khosla-ventures:patientbank and re-export it, then DELETE this entry. Basis: freshest side is yc:patientbank"
+  },
+  {
+   "rows": [
+    "a16z:pave",
+    "yc:pave"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and a16z's row (private/1b_plus $1.60B (asof 2022-06)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update a16z:pave and re-export it, then DELETE this entry. Basis: freshest side is a16z:pave"
+  },
+  {
+   "rows": [
+    "khosla-ventures:pax",
+    "yc:pax"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and khosla-ventures's row (private/1b_plus $1.70B (asof 2019)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update khosla-ventures:pax and re-export it, then DELETE this entry. Basis: freshest side is khosla-ventures:pax"
+  },
+  {
+   "rows": [
+    "felicis:pharos",
+    "yc:pharos"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (defunct/below_1b (asof -)) is judged from this run's evidence and felicis's row (private/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update felicis:pharos and re-export it, then DELETE this entry. Basis: freshest side is yc:pharos"
+  },
+  {
+   "rows": [
+    "battery-ventures:phoenix-technologies-inc",
+    "yc:phoenix"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and battery-ventures's row (acquired/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update battery-ventures:phoenix-technologies-inc and re-export it, then DELETE this entry. Basis: freshest side is yc:phoenix"
+  },
+  {
+   "rows": [
+    "a16z:pillar",
+    "yc:pillar"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and a16z's row (unknown/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update a16z:pillar and re-export it, then DELETE this entry. Basis: freshest side is yc:pillar"
+  },
+  {
+   "rows": [
+    "felicis:posterous",
+    "yc:posterous"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (defunct/below_1b (asof 2013-04-30)) is judged from this run's evidence and felicis's row (acquired/below_1b (asof 2013-04-30)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update felicis:posterous and re-export it, then DELETE this entry. Basis: freshest side is yc:posterous"
+  },
+  {
+   "rows": [
+    "8vc:radius",
+    "yc:radiusbrowser"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (unknown/below_1b (asof -)) is judged from this run's evidence and 8vc's row (defunct/below_1b (asof 2002-01-01)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update 8vc:radius and re-export it, then DELETE this entry. Basis: freshest side is 8vc:radius"
+  },
+  {
+   "rows": [
+    "battery-ventures:rally",
+    "yc:rally"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and battery-ventures's row (acquired/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update battery-ventures:rally and re-export it, then DELETE this entry. Basis: freshest side is yc:rally"
+  },
+  {
+   "rows": [
+    "greylock:rally-software",
+    "yc:rally"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and greylock's row (acquired/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update greylock:rally-software and re-export it, then DELETE this entry. Basis: freshest side is yc:rally"
+  },
+  {
+   "rows": [
+    "battery-ventures:rally",
+    "yc:rally-2"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and battery-ventures's row (acquired/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update battery-ventures:rally and re-export it, then DELETE this entry. Basis: freshest side is yc:rally-2"
+  },
+  {
+   "rows": [
+    "greylock:rally-software",
+    "yc:rally-2"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and greylock's row (acquired/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update greylock:rally-software and re-export it, then DELETE this entry. Basis: freshest side is yc:rally-2"
+  },
+  {
+   "rows": [
+    "battery-ventures:rally",
+    "yc:rallyuxr"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and battery-ventures's row (acquired/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update battery-ventures:rally and re-export it, then DELETE this entry. Basis: freshest side is yc:rallyuxr"
+  },
+  {
+   "rows": [
+    "greylock:rally-software",
+    "yc:rallyuxr"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. Adjudicated as the same company; the YC side (private/below_1b (asof -)) is judged from this run's evidence and greylock's row (acquired/below_1b (asof -)) is the stale side. A collection session may not edit another investor's directory (COLLECTION.md 12), so the fix belongs to the wave alignment: update greylock:rally-software and re-export it, then DELETE this entry. Basis: freshest side is yc:rallyuxr"
+  },
+  {
+   "rows": [
+    "battery-ventures:paragon",
+    "yc:paragon-2"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Paragon' — YC reads private/below_1b (asof -); battery-ventures reads acquired/below_1b (asof -). YC is the fresher side, so battery-ventures:paragon is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "felicis:revel",
+    "yc:revel"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Revel' — YC reads unknown/below_1b (asof -); felicis reads private/below_1b (asof -). YC is the fresher side, so felicis:revel is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "redpoint-ventures:revel",
+    "yc:revel"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Revel' — YC reads unknown/below_1b (asof -); redpoint-ventures reads private/below_1b (asof -). YC is the fresher side, so redpoint-ventures:revel is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "thrive-capital:revel",
+    "yc:revel"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Revel' — YC reads unknown/below_1b (asof -); thrive-capital reads private/below_1b (asof -). YC is the fresher side, so thrive-capital:revel is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "menlo-ventures:rubric",
+    "yc:rubric-ai"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Rubric AI' — YC reads private/below_1b (asof -); menlo-ventures reads acquired/below_1b (asof -). YC is the fresher side, so menlo-ventures:rubric is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "felicis:runway",
+    "yc:runway"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Runway' — YC reads private/below_1b (asof -); felicis reads private/1b_plus $5.30B (asof -). YC is the fresher side, so felicis:runway is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "lux-capital:runway",
+    "yc:runway"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Runway' — YC reads private/below_1b (asof -); lux-capital reads private/1b_plus $5.30B (asof 2026-02-10). lux-capital is the fresher side, so the YC row should be re-judged against it at alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "8vc:sable",
+    "yc:sable"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Sable' — YC reads acquired/below_1b (asof -); 8vc reads private/below_1b (asof -). YC is the fresher side, so 8vc:sable is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "sequoia-capital:sable-ai",
+    "yc:sable"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Sable' — YC reads acquired/below_1b (asof -); sequoia-capital reads private/below_1b (asof -). YC is the fresher side, so sequoia-capital:sable-ai is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "sequoia-capital:sanctum",
+    "yc:sanctum"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Sanctum' — YC reads private/below_1b (asof -); sequoia-capital reads acquired/below_1b (asof -). YC is the fresher side, so sequoia-capital:sanctum is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "redpoint-ventures:scribe",
+    "yc:scribe"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Scribe' — YC reads acquired/below_1b (asof -); redpoint-ventures reads private/below_1b (asof -). YC is the fresher side, so redpoint-ventures:scribe is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "battery-ventures:scuba",
+    "yc:interana"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Scuba' — YC reads unknown/below_1b (asof -); battery-ventures reads acquired/below_1b (asof -). YC is the fresher side, so battery-ventures:scuba is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "first-round-capital:simple",
+    "yc:simple-ai"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Simple AI' — YC reads private/below_1b (asof -); first-round-capital reads acquired/below_1b (asof -). YC is the fresher side, so first-round-capital:simple is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "thrive-capital:simple",
+    "yc:simple-ai"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Simple AI' — YC reads private/below_1b (asof -); thrive-capital reads acquired/below_1b (asof -). YC is the fresher side, so thrive-capital:simple is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "a16z:slingshot-ai",
+    "yc:slingshot"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Slingshot' — YC reads acquired/below_1b (asof -); a16z reads private/below_1b (asof -). YC is the fresher side, so a16z:slingshot-ai is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "felicis:slingshot",
+    "yc:slingshot"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Slingshot' — YC reads acquired/below_1b (asof -); felicis reads private/below_1b (asof -). YC is the fresher side, so felicis:slingshot is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "menlo-ventures:slingshot-ai",
+    "yc:slingshot"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Slingshot' — YC reads acquired/below_1b (asof -); menlo-ventures reads private/below_1b (asof -). YC is the fresher side, so menlo-ventures:slingshot-ai is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "khosla-ventures:smarking",
+    "yc:smarking"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Smarking' — YC reads acquired/below_1b (asof -); khosla-ventures reads private/below_1b (asof -). YC is the fresher side, so khosla-ventures:smarking is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "battery-ventures:sonia-labs",
+    "yc:sonia"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Sonia' — YC reads private/below_1b (asof -); battery-ventures reads acquired/below_1b (asof -). YC is the fresher side, so battery-ventures:sonia-labs is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "lightspeed:stacks-ai",
+    "yc:stacks"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Stacks' — YC reads unknown/below_1b (asof -); lightspeed reads private/below_1b (asof -). YC is the fresher side, so lightspeed:stacks-ai is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "union-square-ventures:stacks",
+    "yc:stacks"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Stacks' — YC reads unknown/below_1b (asof -); union-square-ventures reads private/below_1b (asof -). YC is the fresher side, so union-square-ventures:stacks is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "felicis:stream",
+    "yc:stream"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Stream' — YC reads defunct/below_1b (asof 2003-01-01); felicis reads private/below_1b (asof 2003-01-01). YC is the fresher side, so felicis:stream is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "khosla-ventures:summon",
+    "yc:summon"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Summon' — YC reads private/below_1b (asof -); khosla-ventures reads acquired/below_1b (asof -). YC is the fresher side, so khosla-ventures:summon is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "redpoint-ventures:summon",
+    "yc:summon"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Summon' — YC reads private/below_1b (asof -); redpoint-ventures reads acquired/below_1b (asof -). YC is the fresher side, so redpoint-ventures:summon is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "a16z:superb",
+    "yc:superb-ai"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Superb AI' — YC reads private/below_1b (asof -); a16z reads unknown/below_1b (asof -). YC is the fresher side, so a16z:superb is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "first-round-capital:superb",
+    "yc:superb-ai"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Superb AI' — YC reads private/below_1b (asof -); first-round-capital reads defunct/below_1b (asof -). YC is the fresher side, so first-round-capital:superb is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "khosla-ventures:supernova",
+    "yc:supernova"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Supernova' — YC reads private/below_1b (asof -); khosla-ventures reads defunct/below_1b (asof -). YC is the fresher side, so khosla-ventures:supernova is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "a16z:talos",
+    "yc:talos"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Talos' — YC reads private/below_1b (asof -); a16z reads private/1b_plus $1.50B (asof 2026-01). a16z is the fresher side, so the YC row should be re-judged against it at alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "a16z:tandem",
+    "yc:tandem"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Tandem' — YC reads unknown/below_1b (asof -); a16z reads private/below_1b (asof -). YC is the fresher side, so a16z:tandem is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "sequoia-capital:tandem",
+    "yc:tandem-2"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Tandem' — YC reads private/below_1b (asof -); sequoia-capital reads acquired/below_1b (asof -). YC is the fresher side, so sequoia-capital:tandem is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "a16z:teleport",
+    "yc:teleport"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Teleport' — YC reads private/1b_plus $1.10B (asof 2022-05-03); a16z reads acquired/below_1b (asof -). YC is the fresher side, so a16z:teleport is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "benchmark:terracotta",
+    "yc:terracotta-ai"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Terracotta AI' — YC reads private/below_1b (asof -); benchmark reads acquired/below_1b (asof -). YC is the fresher side, so benchmark:terracotta is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "felicis:the-supplant-company",
+    "yc:stem-sugar"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'The Supplant Company' — YC reads unknown/below_1b (asof -); felicis reads private/below_1b (asof -). YC is the fresher side, so felicis:the-supplant-company is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "a16z:thread",
+    "yc:thread"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Thread' — YC reads acquired/below_1b (asof -); a16z reads unknown/below_1b (asof -). YC is the fresher side, so a16z:thread is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "first-round-capital:thread",
+    "yc:thread"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Thread' — YC reads acquired/below_1b (asof -); first-round-capital reads defunct/below_1b (asof -). YC is the fresher side, so first-round-capital:thread is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "sequoia-capital:thread",
+    "yc:thread"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Thread' — YC reads acquired/below_1b (asof -); sequoia-capital reads unknown/below_1b (asof -). YC is the fresher side, so sequoia-capital:thread is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "cherry:together",
+    "yc:together-software"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Together Software' — YC reads acquired/below_1b (asof -); cherry reads private/below_1b (asof -). YC is the fresher side, so cherry:together is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "first-round-capital:together-ai",
+    "yc:together-software"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Together Software' — YC reads acquired/below_1b (asof -); first-round-capital reads private/1b_plus $8.30B (asof 2026-07). first-round-capital is the fresher side, so the YC row should be re-judged against it at alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "lux-capital:together-ai",
+    "yc:together-software"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Together Software' — YC reads acquired/below_1b (asof -); lux-capital reads private/1b_plus $8.30B (asof 2026-07). lux-capital is the fresher side, so the YC row should be re-judged against it at alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "felicis:torch",
+    "yc:torch"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Torch' — YC reads unknown/below_1b (asof -); felicis reads private/below_1b (asof -). YC is the fresher side, so felicis:torch is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "khosla-ventures:two-tap",
+    "yc:two-tap"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Two Tap' — YC reads acquired/below_1b (asof -); khosla-ventures reads defunct/below_1b (asof -). YC is the fresher side, so khosla-ventures:two-tap is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "greylock:tydo",
+    "yc:polyops"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Tydo' — YC reads unknown/below_1b (asof -); greylock reads private/below_1b (asof -). YC is the fresher side, so greylock:tydo is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "battery-ventures:unify",
+    "yc:unify"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Unify' — YC reads private/below_1b (asof 2014-10-31); battery-ventures reads acquired/below_1b (asof 2014-10-31). YC is the fresher side, so battery-ventures:unify is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "battery-ventures:upkeep-technologies",
+    "yc:upkeep"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'UpKeep' — YC reads acquired/below_1b (asof -); battery-ventures reads private/below_1b (asof -). YC is the fresher side, so battery-ventures:upkeep-technologies is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "a16z:uplift",
+    "yc:uplift-ai"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Uplift AI' — YC reads private/below_1b (asof -); a16z reads unknown/below_1b (asof -). YC is the fresher side, so a16z:uplift is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "greylock:vessel",
+    "yc:vessel"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Vessel' — YC reads unknown/below_1b (asof -); greylock reads defunct/below_1b (asof -). YC is the fresher side, so greylock:vessel is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "a16z:wabi-ai",
+    "yc:wabi"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Wabi' — YC reads unknown/below_1b (asof -); a16z reads private/below_1b (asof -). YC is the fresher side, so a16z:wabi-ai is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "felicis:walrus-ai",
+    "yc:walrus"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Walrus' — YC reads private/below_1b (asof -); felicis reads acquired/below_1b (asof -). YC is the fresher side, so felicis:walrus-ai is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "felicis:warmly",
+    "yc:warmly"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Warmly,' — YC reads acquired/below_1b (asof -); felicis reads private/below_1b (asof -). YC is the fresher side, so felicis:warmly is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "battery-ventures:waystocap",
+    "yc:waystocap"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'WaystoCap' — YC reads acquired/below_1b (asof -); battery-ventures reads defunct/below_1b (asof -). YC is the fresher side, so battery-ventures:waystocap is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "felicis:workbase",
+    "yc:workbase"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'Workbase' — YC reads acquired/below_1b (asof -); felicis reads defunct/below_1b (asof -). YC is the fresher side, so felicis:workbase is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "felicis:dnovo",
+    "yc:dnovo"
+   ],
+   "reason": "ALIGNMENT PENDING, not accepted away. 'dNovo' — YC reads unknown/below_1b (asof -); felicis reads private/below_1b (asof -). YC is the fresher side, so felicis:dnovo is stale and must be updated at the wave alignment, then this entry DELETED. Surfaced after this run's own corrections moved the YC values; not individually adjudicated, so it carries less weight than the 96 distinct and 78 adjudicated entries above."
+  },
+  {
+   "rows": [
+    "sequoia-capital:mira-labs",
+    "yc:mira"
+   ],
+   "reason": "ALIGNMENT PENDING. 'Mira': YC reads unknown/below_1b (asof -) on an unidentified or dark row; sequoia-capital reads acquired/below_1b (asof -) on 'mira-labs'. The slugs differ (mira vs mira-labs), so these are probably different companies and this is a loose-name-key artifact — but the YC row carries too little evidence to rule it distinct honestly. Resolve at the wave alignment and either rule it distinct or align the stale side, then DELETE."
+  },
+  {
+   "rows": [
+    "lightspeed:nexus",
+    "yc:gpt"
+   ],
+   "reason": "ALIGNMENT PENDING. 'Nexus': YC reads unknown/below_1b (asof -) on an unidentified or dark row; lightspeed reads private/below_1b (asof -) on 'nexus'. The slugs differ (gpt vs nexus), so these are probably different companies and this is a loose-name-key artifact — but the YC row carries too little evidence to rule it distinct honestly. Resolve at the wave alignment and either rule it distinct or align the stale side, then DELETE."
+  },
+  {
+   "rows": [
+    "a16z:orchid-labs",
+    "yc:orchid-ai"
+   ],
+   "reason": "ALIGNMENT PENDING. 'Orchid': YC reads unknown/below_1b (asof -) on an unidentified or dark row; a16z reads private/below_1b (asof -) on 'orchid-labs'. The slugs differ (orchid-ai vs orchid-labs), so these are probably different companies and this is a loose-name-key artifact — but the YC row carries too little evidence to rule it distinct honestly. Resolve at the wave alignment and either rule it distinct or align the stale side, then DELETE."
+  },
+  {
+   "rows": [
+    "sequoia-capital:orchid-labs",
+    "yc:orchid-ai"
+   ],
+   "reason": "ALIGNMENT PENDING. 'Orchid': YC reads unknown/below_1b (asof -) on an unidentified or dark row; sequoia-capital reads private/below_1b (asof -) on 'orchid-labs'. The slugs differ (orchid-ai vs orchid-labs), so these are probably different companies and this is a loose-name-key artifact — but the YC row carries too little evidence to rule it distinct honestly. Resolve at the wave alignment and either rule it distinct or align the stale side, then DELETE."
+  },
+  {
+   "rows": [
+    "a16z:rivet",
+    "yc:rivet-design"
+   ],
+   "reason": "ALIGNMENT PENDING. 'Rivet': YC reads unknown/below_1b (asof -) on an unidentified or dark row; a16z reads private/below_1b (asof -) on 'rivet'. The slugs differ (rivet-design vs rivet), so these are probably different companies and this is a loose-name-key artifact — but the YC row carries too little evidence to rule it distinct honestly. Resolve at the wave alignment and either rule it distinct or align the stale side, then DELETE."
+  },
+  {
+   "rows": [
+    "lux-capital:rivet",
+    "yc:rivet-design"
+   ],
+   "reason": "ALIGNMENT PENDING. 'Rivet': YC reads unknown/below_1b (asof -) on an unidentified or dark row; lux-capital reads acquired/below_1b (asof -) on 'rivet'. The slugs differ (rivet-design vs rivet), so these are probably different companies and this is a loose-name-key artifact — but the YC row carries too little evidence to rule it distinct honestly. Resolve at the wave alignment and either rule it distinct or align the stale side, then DELETE."
+  }
+ ],
  "same": []
 }

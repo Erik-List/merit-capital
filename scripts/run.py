@@ -376,6 +376,18 @@ def graduation_from_formd(rounds: list[dict], partner_accs: frozenset | set = fr
     the initial investment"), and it survives across eras in a way that fixed
     "a Series A is $5-30M" bands do not.
     """
+    # An investor may decline to publish a deterministic C2A verdict at all
+    # (verify.c2a_deterministic: false). YC needs it: the cohort is 5,041 rows
+    # and the Form D layer resolves 13, a 0.26% verified share, because YC
+    # companies raise on SAFEs under 4(a)(2) and overwhelmingly file no Form D
+    # — so the seed-to-A transition has no filing record. Publishing those 13
+    # would let any consumer compute a ~100% graduation rate for the firm.
+    # COLLECTION.md 6 requires the published rate to carry its verified share;
+    # at this share no rate is publishable. Absent the key nothing changes.
+    if not P.config().get("verify", {}).get("c2a_deterministic", True):
+        return {"entry_stage": None, "seed_to_a_graduation": None,
+                "graduation_source": "formd", "graduation_confidence": "low",
+                "flags": ["cohort_unverified"]}
     priced = [r for r in rounds if r.get("offering_usd")]
     if not priced:
         return {"entry_stage": None, "seed_to_a_graduation": None,

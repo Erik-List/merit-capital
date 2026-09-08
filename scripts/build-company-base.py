@@ -224,6 +224,17 @@ def main() -> None:
                 if held != site_id:
                     key = f"{key}~{norm(site_id)}"
                     collided = True
+                    # Both members of a colliding group take their own site id,
+                    # not just the later claimant. Otherwise which row keeps the
+                    # bare name slug depends on processing order, and the base
+                    # slug ends up pointing at the SIBLING's source record: YC's
+                    # base `gather` was the directory's `gather-2`, so every
+                    # by-slug evidence lookup returned the wrong company's
+                    # batch, one-liner and tags — and a name check cannot catch
+                    # it, because the names are identical by construction.
+                    first = base.get(key.split("~")[0])
+                    if first is not None and first.get("_site_id"):
+                        first["slug"] = slug_of(first["_site_id"])
             row = row_for(key, c["name"])
             # The firm's own current rendering is canonical for display and
             # slug — a wayback/CC slug that created the row first must not
@@ -750,6 +761,13 @@ def main() -> None:
             if gone is None or gone is keep:
                 continue
             union_rows(keep, gone)
+            # The site's own rendering owns the name (COLLECTION.md 5). An
+            # identity merge can absorb the row that carries the CURRENT name
+            # into one created from an old archive slug — YC's OpenReplay into
+            # a row still called "Asayer" — so the same better_name rule the
+            # near-duplicate path uses is applied here too, and the published
+            # name follows the firm rather than the archive.
+            keep["name"] = better_name(keep["name"], gone["name"])
             keep["notes"] = "; ".join(filter(None, [
                 keep["notes"], f"absorbed {ds} ({m['reason']})"]))
             rows_out.remove(gone)
