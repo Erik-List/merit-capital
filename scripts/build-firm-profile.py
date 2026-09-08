@@ -47,8 +47,16 @@ def own_formd_filings(sweep: dict, own_re: re.Pattern) -> dict:
     """The firm's own fund filings, split from the portfolio companies."""
     out = defaultdict(list)
     for accession, rec in sweep.items():
-        if own_re.search(rec["issuer"]):
-            out[rec["issuer"]].append((accession, rec))
+        # The caller unions two files of DIFFERENT shape: formd-sweep.json is
+        # keyed by accession and carries "issuer" on the record, while
+        # fund-formds.json is keyed by the issuer NAME and carries only
+        # {cik, filings}. Reading rec["issuer"] unconditionally raises on
+        # every entry from the second file (measured on Khosla; the union is
+        # newer than the landed runs, so no earlier investor exercised it).
+        # The key is the issuer name in that case, so fall back to it.
+        issuer = rec.get("issuer") or accession
+        if own_re.search(issuer):
+            out[issuer].append((accession, rec))
     return out
 
 
@@ -69,9 +77,12 @@ EDGAR_COUNTRY_CODES = {
 
 def hq_from_filings(own: dict):
     """Issuer address on the firm's own filings. Filing-grade."""
+    # Only sweep-shaped records carry an address; the fund-formds entries the
+    # caller unions in carry {cik, filings} and no place at all, so they simply
+    # do not vote rather than raising (same shape mismatch as own_formd_filings).
     places = Counter(
         f'{re.sub(r"\s+-\s+.*$", "", r["city"]).title()}, {EDGAR_COUNTRY_CODES.get(r["state"], r["state"])}'
-        for items in own.values() for _, r in items
+        for items in own.values() for _, r in items if r.get("city")
     )
     return places.most_common(1)[0], places
 
