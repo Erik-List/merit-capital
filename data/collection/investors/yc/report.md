@@ -99,7 +99,7 @@ patch (§5, *invention may change the pipeline*):
 |---|---|
 | Site (Algolia directory) | 6,203 rows with batch, status, stage, industries, subindustry, regions, all_locations, team_size, top_company, nonprofit, launched_at, **former_names** (3,031 rows) |
 | Site (unindexed) | 129 rows: live company pages absent from the search index, plus archived pages that 404 today |
-| Wayback `/companies/` | 8,202 distinct slugs after CDX paging was added; **2018–2019 UNRESOLVED** (see 6) |
+| Wayback `/companies/` | 8,202 distinct slugs after CDX paging was added; 2018–19 established as a **genuine absence** (see 2.1) |
 | Common Crawl | 6,708 company slugs, 17 people — an independent capture set |
 | EDGAR entity registry | 60 entities, **20 address-verified to 335 Pioneer Way** |
 | EDGAR issuer ownership | **structurally empty** — 0 filings |
@@ -109,6 +109,25 @@ patch (§5, *invention may change the pipeline*):
 **EDGAR's ownership layer being empty is the shape, not a failure.** An
 accelerator never crosses 5% and never takes the board seats that trigger
 Section 16, exactly as the issue predicted.
+
+### 2.1 An empty year, established rather than assumed
+
+The era's 2018 and 2019 years came back with nothing, and a direct probe
+showed 2018 *does* have `/companies/*` captures — which under the
+zero-rows-is-not-an-absence rule (Menlo, PRO-91) made the years UNKNOWN, not
+empty. Resolving it took three attempts across an archive outage that returned
+`rc=7` on HTTPS and, once, a **truncated body that parsed as invalid JSON** —
+a third transport failure mode neither this run nor the sibling runs had
+catalogued.
+
+The answer is that the absence is real. All 150 captures in those two years are
+of `/companies/` **itself**, none carries a per-company slug segment, and the
+index page is a 3.7 KB JavaScript shell with no server-rendered company list.
+YC's per-company URLs begin in 2020. The era now starts there.
+
+Worth recording because the cheap conclusion — "the archive was flaky, so the
+years are unknown" — and the expensive one — "the years are genuinely empty" —
+look identical from the pull log, and only the second one is true here.
 
 ---
 
