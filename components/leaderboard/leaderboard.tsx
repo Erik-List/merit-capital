@@ -714,35 +714,45 @@ export default function Leaderboard() {
   }, [stage, range, median, geo, scope]);
 
   return (
-    <div className="w-full container mx-auto py-6">
-      {/* The masthead sits on the raw background photo, whose bright patches
-          wash out muted text. A light text shadow keeps both lines legible
-          wherever the image happens to be light. */}
-      <header className="mb-6 [text-shadow:0_1px_2px_rgb(0_0_0/0.5)]">
-        <h1 className="text-xl font-medium sm:text-2xl">The venture capital performance index</h1>
-        <p className="mt-1 max-w-3xl text-sm text-foreground/85">
-          $1B, $10B and $100B investment outcomes, IPOs, and seed to Series A graduation rates for{" "}
-          {investors.length > 0 ? `${investors.length} of the most well-known investors` : "the most well-known investors"}, built from public filings and human-reviewed.
-        </p>
-      </header>
-      <div className="grid gap-6 lg:min-h-[calc(100dvh-var(--nav-height,0px)-48px)] lg:grid-cols-[320px_1fr]">
-        <div className="hidden lg:block lg:sticky lg:top-[calc(var(--nav-height,0px)+24px)] lg:self-start">
-          <FilterCard {...filterProps} />
-        </div>
-        <div className="space-y-4 lg:min-h-0 lg:h-[calc(100dvh-var(--nav-height,0px)-48px)] lg:overflow-y-auto lg:pr-2 lg:glass-scrollbar">
-          <div className="flex items-center gap-2 lg:justify-end">
-            <SortDropdown value={sort} onChange={(v) => set({ sort: v })} />
-            <FilterDrawer {...filterProps} activeCount={activeFilterCount} />
+    // Viewport-bound on md+, the same way the investor profile is: the page
+    // itself never scrolls, the cards scroll inside. Below md (phones) the
+    // layout falls back to normal document flow, which is the only thing that
+    // fits a single narrow column. The nav occupies --nav-height plus its 1px
+    // bottom border.
+    <div className="min-h-screen md:min-h-0 md:h-[calc(100dvh-var(--nav-height)-1px)] md:overflow-hidden">
+      <div className="w-full container mx-auto py-6 md:flex md:h-full md:flex-col">
+        {/* The masthead sits on the raw background photo, whose bright patches
+            wash out muted text. A light text shadow keeps both lines legible
+            wherever the image happens to be light. */}
+        <header className="mb-6 shrink-0 [text-shadow:0_1px_2px_rgb(0_0_0/0.5)]">
+          <h1 className="text-xl font-medium sm:text-2xl">The venture capital performance index</h1>
+          <p className="mt-1 max-w-3xl text-sm text-foreground/85">
+            $1B, $10B and $100B investment outcomes, IPOs, and seed to Series A graduation rates for{" "}
+            {investors.length > 0 ? `${investors.length} of the most well-known investors` : "the most well-known investors"}, built from public filings and human-reviewed.
+          </p>
+        </header>
+        <div className="grid gap-6 md:min-h-0 md:flex-1 lg:grid-cols-[320px_1fr]">
+          <div className="hidden lg:block lg:h-full lg:min-h-0">
+            <FilterCard {...filterProps} variant="sidebar" />
           </div>
-          <SearchCard value={search} onChange={(v: string) => set({ search: v })} />
-          <InvestorsTable
-            investors={filtered}
-            loading={isLoading}
-            view={view}
-            stage={stage}
-            geo={geo}
-            scope={scope}
-          />
+          {/* Sort row and search stay put; only the results card scrolls. */}
+          <div className="flex flex-col gap-4 md:h-full md:min-h-0">
+            <div className="flex shrink-0 items-center gap-2 lg:justify-end">
+              <SortDropdown value={sort} onChange={(v) => set({ sort: v })} />
+              <FilterDrawer {...filterProps} activeCount={activeFilterCount} />
+            </div>
+            <div className="shrink-0">
+              <SearchCard value={search} onChange={(v: string) => set({ search: v })} />
+            </div>
+            <InvestorsTable
+              investors={filtered}
+              loading={isLoading}
+              view={view}
+              stage={stage}
+              geo={geo}
+              scope={scope}
+            />
+          </div>
         </div>
       </div>
     </div>

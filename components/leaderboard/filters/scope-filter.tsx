@@ -17,6 +17,9 @@ interface ScopeFilterProps {
   value: ScopeState;
   onChange: (next: ScopeState) => void;
   options: string[];
+  /** Initial expand state. The `lg` sidebar starts this section collapsed;
+   *  everywhere else it opens. */
+  defaultOpen?: boolean;
 }
 
 const PRIMARY_FOCUS_PREFERENCES = PRIMARY_FOCUS_VALUES;
@@ -30,8 +33,8 @@ const GENERALIST_KEYWORD = "generalist";
 // plus four). Anything currently selected stays visible regardless.
 const VISIBLE_SCOPE_COUNT = 5;
 
-export default function ScopeFilter({ className, value, onChange, options }: ScopeFilterProps) {
-  const [open, setOpen] = useState(true);
+export default function ScopeFilter({ className, value, onChange, options, defaultOpen = true }: ScopeFilterProps) {
+  const [open, setOpen] = useState(defaultOpen);
   const [expanded, setExpanded] = useState(false);
 
   const normalizedOptions = useMemo(() => {

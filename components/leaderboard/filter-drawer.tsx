@@ -13,16 +13,17 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 
-interface FilterDrawerProps extends FilterCardProps {
+interface FilterDrawerProps extends Omit<FilterCardProps, "variant"> {
   /** Number of result-narrowing filters away from their default. */
   activeCount: number;
 }
 
 /**
  * Below `lg` the filter sidebar would bury the results, so the same
- * `<FilterCard>` moves into a bottom sheet. It takes the identical prop set as
- * the sidebar copy: both are controlled by `leaderboard.tsx`, so the two
- * instances cannot drift, and vaul unmounts this one while it is closed.
+ * `<FilterCard>` moves into a bottom sheet. It takes the same prop set as the
+ * sidebar copy apart from `variant`, which it fixes to "drawer": both are
+ * controlled by `leaderboard.tsx`, so the two instances cannot drift, and vaul
+ * unmounts this one while it is closed.
  */
 export default function FilterDrawer({ activeCount, ...filterProps }: FilterDrawerProps) {
   return (
@@ -51,7 +52,7 @@ export default function FilterDrawer({ activeCount, ...filterProps }: FilterDraw
           <DrawerTitle>Filters</DrawerTitle>
         </DrawerHeader>
         <div className="min-h-0 flex-1 overflow-y-auto glass-scrollbar px-4">
-          <FilterCard {...filterProps} />
+          <FilterCard {...filterProps} variant="drawer" />
         </div>
         <DrawerFooter>
           <DrawerClose asChild>
