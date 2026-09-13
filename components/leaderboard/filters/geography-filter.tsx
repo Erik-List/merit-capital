@@ -17,12 +17,15 @@ interface GeographyFilterProps {
   value: GeographyState;
   onChange: (next: GeographyState) => void;
   options: string[];
+  /** Initial expand state. The `lg` sidebar starts this section collapsed;
+   *  everywhere else it opens. */
+  defaultOpen?: boolean;
 }
 
 const PRIMARY_LABELS = GEO_PRIMARY_LABELS;
 
-export default function GeographyFilter({ className, value, onChange, options }: GeographyFilterProps) {
-  const [open, setOpen] = useState(true);
+export default function GeographyFilter({ className, value, onChange, options, defaultOpen = true }: GeographyFilterProps) {
+  const [open, setOpen] = useState(defaultOpen);
   const [expanded, setExpanded] = useState(false);
 
   const selectedSet = useMemo(() => new Set(value.selected), [value.selected]);
