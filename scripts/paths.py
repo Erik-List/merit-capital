@@ -8,6 +8,7 @@ Cross-investor caches (SEC public float, CIK lookup, unicorn lists) live in
 root. Per-investor constants (site domain, wayback era map, desk rules, seed
 CIK queries, own-vehicle regex, ...) live in the investor's `config.json`,
 loaded via `Paths.config()` — the scripts themselves carry none.
+`scripts/utils/paths.ts` mirrors this class for the TypeScript scripts.
 """
 import contextlib
 import json
@@ -93,6 +94,7 @@ class Paths:
         self.wayback = self.sources / "wayback"
         self.site = self.sources / "site"
         self.edgar = self.sources / "edgar"
+        self.web = self.sources / "web"                    # fts / wikipedia sweeps
         self.formd_rounds = self.edgar / "formd-issuer-rounds.json"
 
     def config(self) -> dict:

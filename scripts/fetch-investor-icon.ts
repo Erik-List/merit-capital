@@ -1,9 +1,9 @@
 import "dotenv/config";
 import { createHash } from "node:crypto";
 import { readFileSync, writeFileSync, readdirSync, existsSync } from "node:fs";
-import path from "node:path";
 import { createClient } from "@supabase/supabase-js";
 import sharp from "sharp";
+import { INVESTORS_DIR, Paths } from "./utils/paths";
 import {
   normalize, measure, describe, probeSource,
   MASTER_SIZE, MAX_UPSCALE, MAX_RAMP,
@@ -38,9 +38,8 @@ import {
 //   tsx scripts/fetch-investor-icon.ts --audit [slug ...]
 
 const BUCKET = "Icon Images";
-const COLLECTION = path.join(process.cwd(), "data/collection/investors");
-const investorFile = (slug: string) => path.join(COLLECTION, slug, "investor.json");
-const sourcesFile = (slug: string) => path.join(COLLECTION, slug, "investor.sources.json");
+const investorFile = (slug: string) => new Paths(slug).investor;
+const sourcesFile = (slug: string) => new Paths(slug).investor_sources;
 
 const UA = { "user-agent": "Mozilla/5.0 (compatible; MeritCapital icon fetch)" };
 
@@ -130,7 +129,7 @@ async function discover(siteUrl: string) {
 
 /** Replay the current rules against what is already published. Read-only. */
 async function audit(slugs: string[]) {
-  const targets = slugs.length ? slugs : readdirSync(COLLECTION).filter((d) => {
+  const targets = slugs.length ? slugs : readdirSync(INVESTORS_DIR).filter((d) => {
     try { return readFileSync(investorFile(d), "utf8").length > 0; } catch { return false; }
   });
   let failures = 0;

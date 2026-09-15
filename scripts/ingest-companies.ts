@@ -13,18 +13,14 @@
 
 import "dotenv/config";
 import { readFileSync } from "fs";
-import { join } from "path";
 import { createClient } from "@supabase/supabase-js";
 import type { Database, TablesInsert } from "../types/supabase";
 import { parseFlags, COMPANY_COLUMNS } from "./utils/flags";
+import { Paths } from "./utils/paths";
 import { batchUpsertCompanies } from "./utils/db-helpers";
 import { validateCompanyFields } from "./utils/taxonomy-validate";
 
 type CompanyInsert = TablesInsert<"companies">;
-
-// Run from the repo root (as the npm script does); matches utils/collection.ts.
-const ROOT = process.cwd();
-const INVESTORS_DIR = join(ROOT, "data", "collection", "investors");
 
 const UPSERT_BATCH_SIZE = 500;
 
@@ -89,7 +85,7 @@ function parseCsv(text: string): Record<string, string>[] {
 
 function checkFreshness(investor: string, csvRows: Record<string, string>[]): void {
   const base: { slug: string }[] = JSON.parse(
-    readFileSync(join(INVESTORS_DIR, investor, "base.json"), "utf8")
+    readFileSync(new Paths(investor).base_json, "utf8")
   );
   const baseSlugs = new Set(base.map((r) => r.slug));
   const stale = csvRows.filter((r) => !baseSlugs.has(r.slug));
@@ -121,7 +117,7 @@ async function main() {
     );
   }
 
-  const csvPath = join(INVESTORS_DIR, investor, "base.csv");
+  const csvPath = new Paths(investor).base_csv;
   const csvRows = parseCsv(readFileSync(csvPath, "utf8"));
   console.log(`Read ${csvRows.length} rows from ${investor}/base.csv`);
   checkFreshness(investor, csvRows);

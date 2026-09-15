@@ -17,7 +17,8 @@ import csv, json, re, sys, time, urllib.parse, urllib.request
 from pathlib import Path
 
 UA = "merit-capital research (erik@meritcapit.al) python-urllib"
-ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from paths import Paths  # noqa: E402
 API = "https://en.wikipedia.org/w/api.php"
 
 
@@ -55,18 +56,18 @@ def sentences(text, phrase_re):
 
 def main():
     slug = sys.argv[1]
-    inv = ROOT / "data/collection/investors" / slug
-    cfg = json.load(open(inv / "config.json"))
+    P = Paths(slug)
+    cfg = P.config()
     phrases = (cfg.get("wikipedia") or {}).get("phrases") or [cfg.get("name") or slug.replace("-", " ").title()]
     phrase_re = re.compile("|".join(re.escape(p) for p in phrases), re.I)
 
-    base = {loose(r["name"]): r["slug"] for r in json.load(open(inv / "base.json"))}
-    for r in json.load(open(inv / "base.json")):
+    base = {loose(r["name"]): r["slug"] for r in json.load(open(P.base_json))}
+    for r in json.load(open(P.base_json)):
         for u in filter(None, [r.get("site_url")]):
             base[loose(re.sub(r"^https?://(www\.)?|\..*$", "", u))] = r["slug"]
     excluded = {}
-    if (inv / "excluded.csv").exists():
-        for r in csv.DictReader(open(inv / "excluded.csv")):
+    if P.excluded.exists():
+        for r in csv.DictReader(open(P.excluded)):
             excluded[loose(r["name"])] = r["slug"]
 
     titles = {}
@@ -98,7 +99,7 @@ def main():
         tag = "base" if base.get(k) else ("excl" if excluded.get(k) else ("CAND" if is_company else "other"))
         print(f"  {tag:5} {title[:40]:40} [{kind}] {(rows[-1]['sentences'] or [''])[0][:110]}")
 
-    out = inv / "sources/web/wikipedia-insource.json"
+    out = P.web / "wikipedia-insource.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     json.dump({"_readme": "Wikipedia insource sweep (scripts/wikipedia-insource.py): every article whose source "
                           "mentions the configured phrases, with the sentences that mention it; is_company from the "
@@ -106,7 +107,7 @@ def main():
                           "articles not in the base; the judge cites the article and its underlying reference.",
                "phrases": phrases, "swept_at": time.strftime("%Y-%m-%d"), "articles": rows},
               open(out, "w"), indent=2, ensure_ascii=False)
-    print(f"wrote {out.relative_to(ROOT)}: {len(rows)} articles, "
+    print(f"wrote {P.rel(out)}: {len(rows)} articles, "
           f"{sum(1 for r in rows if r['in_base'])} in base, {sum(1 for r in rows if r['is_company'] and not r['in_base'] and not r['in_excluded'])} company candidates")
 
 

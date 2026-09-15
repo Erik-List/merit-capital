@@ -20,7 +20,8 @@ import json, re, sys, time, urllib.parse, urllib.request, html
 from pathlib import Path
 
 UA = "merit-capital research erik@meritcapit.al"
-ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from paths import Paths  # noqa: E402
 LP_FORMS = {"NPORT-P", "NPORT-P/A", "N-CSR", "N-CSRS", "N-CSR/A", "N-2", "N-2/A", "N-PORT", "497", "497K", "N-1A"}
 OWN_FORMS = {"D", "D/A", "13F-HR", "13F-HR/A", "13F-NT", "SC 13D", "SC 13D/A", "SC 13G", "SC 13G/A", "3", "4", "4/A", "3/A", "5", "ADV"}
 
@@ -57,8 +58,8 @@ def strip_html(b):
 def main():
     slug = sys.argv[1]
     no_fetch = "--no-fetch" in sys.argv
-    inv = ROOT / "data/collection/investors" / slug
-    cfg = json.load(open(inv / "config.json"))
+    P = Paths(slug)
+    cfg = P.config()
     ecfg = cfg.get("edgar", {})
     phrases = ecfg.get("fts_phrases") or [cfg.get("name") or slug.replace("-", " ").title()]
     own_pat = ecfg.get("fts_own_pattern")
@@ -138,7 +139,7 @@ def main():
             print(f"  {rec['registrant'][:44]:44} {rec['first_date']} {dict(rec['forms'])} "
                   f"snippets={sum(s.get('mentions', 0) for s in rec['snippets'])}")
 
-    out = inv / "sources/edgar/fts-hits.json"
+    out = P.edgar / "fts-hits.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     json.dump({"_readme": "EDGAR full-text sweep (scripts/edgar-fts-sweep.py): hits for the configured phrases "
                           "aggregated by registrant; bucket third_party = exit-side disclosure candidates for the "
@@ -149,7 +150,7 @@ def main():
                "phrases": phrases, "own_pattern": own_pat, "swept_at": time.strftime("%Y-%m-%d"),
                "registrants": sorted(by.values(), key=lambda r: (r["bucket"], r["first_date"]))},
               open(out, "w"), indent=2, ensure_ascii=False)
-    print("wrote", out.relative_to(ROOT))
+    print("wrote", P.rel(out))
 
 
 if __name__ == "__main__":

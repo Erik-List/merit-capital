@@ -1288,7 +1288,7 @@ def published_rows(investor: str) -> list[dict]:
     records. The CSV is what that investor ingested, so it is the state a
     reader of the site actually sees."""
     out = []
-    p = INVESTORS / investor / "base.csv"
+    p = Paths(investor).base_csv
     if not p.exists():
         return out
     try:
@@ -1305,7 +1305,7 @@ def published_rows(investor: str) -> list[dict]:
         print(f"  note: sibling {investor} base.csv unreadable "
               f"({e.__class__.__name__}); not compared")
         return []
-    base = INVESTORS / investor / "base.json"
+    base = Paths(investor).base_json
     if base.exists():
         try:
             base_slugs = {b["slug"] for b in json.loads(base.read_text())}
