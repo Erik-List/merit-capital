@@ -272,3 +272,75 @@ YC's RADAR). `hq_city` agrees on only 273/544 (50.2%), but the largest single
 cause is shape, not fact — "New York City" against the §6 rule's bare
 municipality "New York". City is normalized to the §6 shape before use and
 the judge overrides on conflict; neither field publishes without that check.
+
+---
+
+## Part 3 (continued) — rulings made during the grind and close
+
+### R5 (2026-09-07). Acquired-then-shut-down is `acquired`
+
+My own grind contract had said "Acquired -> acquired unless the company later
+shut down", which contradicts §6: `defunct` is reserved for businesses that
+ended *without* an acquisition, and an acquirer retiring the product does not
+undo the exit (Chariot/Ford, Hipmunk/SAP Concur). Contract corrected; only the
+two rows judged here under the wrong clause were flipped. Twenty rows reading
+`defunct` against a directory `Acquired` came from landed bases and are bound
+by invariant 10, so they were left alone. **Open for Erik**: Coin (Fitbit took
+platform and team, card business died) and Cymmetria (Stage Fund bought it,
+then wound it down) sit on the same asset-sale-versus-wind-down line as
+Airware, which reads `defunct` because no buyer took the business.
+
+### R6 (2026-09-07). The unicorn snapshot never bands a row here (Rule A)
+
+`verify.unicorn_bands: false`. The pipeline banded rows off a unicorn-list
+name match on every `prepare`; it had put Cohere's $6.8B on a Summer 2020
+company the directory marks Acquired. Every $1B+ row now rests on a priced
+event with a citable figure; the six carried in from landed bases on the
+snapshot were re-cited from their rounds (Fivetran, Relativity Space,
+SmartAsset, Substack, Flutterwave, Astranis).
+
+### R7 (2026-09-07). C2A is withheld, not published at 100%
+
+`verify.c2a_deterministic: false`. Cohort 5,041, deterministically verified
+13 (0.26%). See report §4. The column ships uniformly null with
+`cohort_unverified` on every cohort row.
+
+### R8 (2026-09-07). Imported values are checked against a date the row knows
+
+An event dated before the company's own batch cannot be the company's. Five
+cross-investor imports failed that test (Guild Education's $4.4B on a Summer
+2026 row, the identity-verification Alloy's $1.55B on a Winter 2023 row) and
+none of them had surfaced as a disagreement, because nothing on the other
+side contradicted them. Applied to every `cross_investor_bound` row.
+
+### R9 (2026-09-07). Weak CIK joins are quarantined unless the directory says Public
+
+84 rows had a public float from a same-named registrant (Dover Corp $25B,
+Parametric $18.5B, Iliad SA, Lucid, Plexus, Mosaic Co). Every one was already
+flagged `cik_weak`. Quarantined under §8 duty 8; only `gitlab` and `oklo`
+kept theirs, both `Public` in YC's own directory.
+
+### R10 (2026-09-07). Membership of OpenAI — raised, not decided here
+
+The Internet Archive holds a full YC company page for OpenAI, so under §1 a
+site listing in any era suffices and the row is a member; my golden trap set
+had said the opposite on the strength of a live 404 and was corrected. Whether
+YC's own listing settles it against a 2015 funding round that came from
+individuals rather than a YC fund is a boundary question for Erik. At $852B
+it is the largest row in the dataset.
+
+### R11 (2026-09-15). Wave alignment is recorded, not accepted away
+
+140 cross-investor pairs are in `cross-rulings.json` under `accepted`, each
+reason naming which side is stale and that the entry is to be DELETED at the
+wave alignment once the other investor's row is updated. A collection session
+may not edit another investor's directory (§12). 96 pairs are ruled
+`distinct`, mostly one-word collisions.
+
+### R12 (2026-09-15). The PRO-109 ledger rename
+
+The tooling session renamed the ledger to `membership-ledger.json` while this
+run was in flight and YC's file was not migrated; a later `record` created a
+fresh, near-empty ledger and one rebuild ran against it. Merged
+authoritatively from the orphaned `base-verification.json`, which is retired
+in the closing commit. No other investor was affected.

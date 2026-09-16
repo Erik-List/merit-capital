@@ -10097,7 +10097,8 @@
    "cohort_unverified",
    "cross_investor_bound",
    "needs_web_value",
-   "site_field_prefill"
+   "site_field_prefill",
+   "stale"
   ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
@@ -10107,14 +10108,15 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Winter 2016); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z, lux-capital (freshest as-of: a16z); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) a16z, lux-capital (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns. Source is the unicorn snapshot with no citation \u2014 an aggregator, so the figure is carried to stay consistent with the published dataset and flagged for the A/B pass to pin or kill (Rule A).",
+  "note": "YC directory record (batch Winter 2016); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z, lux-capital (freshest as-of: a16z); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) a16z, lux-capital (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns. Source is the unicorn snapshot with no citation \u2014 an aggregator, so the figure is carried to stay consistent with the published dataset and flagged for the A/B pass to pin or kill (Rule A). | Astranis (W16): $250M Series C at $1.4B, April 2021, the last priced mark this run can cite; the 2024 Series D disclosed no valuation. The unicorn snapshot carried $2.8B as of 2026, uncited and not used. Flagged stale and for the web pass.",
   "slug": "astranis",
   "status": "private",
-  "valuation_asof": "2026",
+  "valuation_asof": "2021-04-14",
+  "valuation_citation": "https://techcrunch.com/2021/04/14/astranis-raises-250m-series-c-at-1-4b-valuation/",
   "valuation_confidence": "medium",
   "valuation_range": "1b_plus",
-  "valuation_source": "unicorn_list",
-  "valuation_usd": 2800000000.0
+  "valuation_source": "web_verified",
+  "valuation_usd": 1400000000
  },
  "astrix-health": {
   "entry_stage": "Seed",
@@ -10653,6 +10655,7 @@
   "flags": [
    "cohort_unverified",
    "cross_investor_bound",
+   "model_disputes_source",
    "site_field_prefill"
   ],
   "focus": "AI & Applied AI",
@@ -10663,9 +10666,9 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Summer 2020); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns.",
+  "note": "YC directory record (batch Summer 2020); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns. | Atomic: Active in YC's directory, private. The `public` status was residue of a weak registrant join whose float had already been quarantined.",
   "slug": "atomic",
-  "status": "public",
+  "status": "private",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b"
  },
@@ -41719,9 +41722,9 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Summer 2022); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) accel, sequoia-capital, a16z (freshest as-of: accel); invariant 10 binds these two columns across investors. The landed bases already disagree with each other on this row. | status and valuation_range carried from landed base(s) accel, sequoia-capital, a16z (freshest as-of: accel); COLLECTION.md invariant 10 binds these two columns. The landed bases already disagree with each other on this row. | EthosX: the row had carried a public market cap for ticker LIFE, an unrelated listed company.",
+  "note": "YC directory record (batch Summer 2022); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) accel, sequoia-capital, a16z (freshest as-of: accel); invariant 10 binds these two columns across investors. The landed bases already disagree with each other on this row. | status and valuation_range carried from landed base(s) accel, sequoia-capital, a16z (freshest as-of: accel); COLLECTION.md invariant 10 binds these two columns. The landed bases already disagree with each other on this row. | EthosX: the row had carried a public market cap for ticker LIFE, an unrelated listed company. | EthosX: Active in YC's directory, private. The `public` status was residue of the weak join to ticker LIFE whose figure was already cleared.",
   "slug": "ethosx",
-  "status": "public",
+  "status": "private",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b"
  },
@@ -45607,7 +45610,8 @@
    "cohort_unverified",
    "cross_investor_bound",
    "needs_web_value",
-   "site_field_prefill"
+   "site_field_prefill",
+   "stale"
   ],
   "focus": "SaaS",
   "focus_source": "model",
@@ -45617,14 +45621,15 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Winter 2013); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns. Source is the unicorn snapshot with no citation \u2014 an aggregator, so the figure is carried to stay consistent with the published dataset and flagged for the A/B pass to pin or kill (Rule A).",
+  "note": "YC directory record (batch Winter 2013); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns. Source is the unicorn snapshot with no citation \u2014 an aggregator, so the figure is carried to stay consistent with the published dataset and flagged for the A/B pass to pin or kill (Rule A). | Fivetran (W13): $565M Series D at $5.6B, Sept 2021. Re-sourced from the priced round; the unicorn snapshot cannot band a row under Rule A. Flagged stale.",
   "slug": "fivetran",
   "status": "private",
-  "valuation_asof": "2021",
+  "valuation_asof": "2021-09-20",
+  "valuation_citation": "https://techcrunch.com/2021/09/20/fivetran-hauls-in-565m-on-5-6b-valuation-buys-hvr-for-700m/",
   "valuation_confidence": "medium",
   "valuation_range": "1b_plus",
-  "valuation_source": "unicorn_list",
-  "valuation_usd": 5600000000.0
+  "valuation_source": "web_verified",
+  "valuation_usd": 5600000000
  },
  "fixed": {
   "entry_stage": "Seed",
@@ -47147,7 +47152,8 @@
    "cohort_unverified",
    "cross_investor_bound",
    "needs_web_value",
-   "site_field_prefill"
+   "site_field_prefill",
+   "stale"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
@@ -47157,14 +47163,15 @@
   "hq_country": "NG",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Summer 2016); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) lux-capital (freshest as-of: lux-capital); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) lux-capital (freshest as-of: lux-capital); COLLECTION.md invariant 10 binds these two columns. Source is the unicorn snapshot with no citation \u2014 an aggregator, so the figure is carried to stay consistent with the published dataset and flagged for the A/B pass to pin or kill (Rule A).",
+  "note": "YC directory record (batch Summer 2016); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) lux-capital (freshest as-of: lux-capital); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) lux-capital (freshest as-of: lux-capital); COLLECTION.md invariant 10 binds these two columns. Source is the unicorn snapshot with no citation \u2014 an aggregator, so the figure is carried to stay consistent with the published dataset and flagged for the A/B pass to pin or kill (Rule A). | Flutterwave (S16): $250M Series D at over $3B, Feb 2022, the last priced round this run can cite. The unicorn snapshot carried $3.2B as of mid-2026, which is uncited and so not used. Flagged stale and for the web pass.",
   "slug": "flutterwave",
   "status": "private",
-  "valuation_asof": "2026-06",
+  "valuation_asof": "2022-02-16",
+  "valuation_citation": "https://techcrunch.com/2022/02/16/flutterwave-triples-valuation-to-over-3b-after-250m-series-d/",
   "valuation_confidence": "medium",
   "valuation_range": "1b_plus",
-  "valuation_source": "unicorn_list",
-  "valuation_usd": 3200000000.0
+  "valuation_source": "web_verified",
+  "valuation_usd": 3000000000
  },
  "flux": {
   "entry_stage": "Seed",
@@ -67443,6 +67450,25 @@
   "status": "acquired",
   "valuation_range": "below_1b"
  },
+ "koko-2": {
+  "entry_stage": "Seed",
+  "entry_stage_citation": "https://www.ycombinator.com/deal",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "web_verified",
+  "flags": [
+   "country_prior",
+   "identity_uncertain",
+   "stage_prior"
+  ],
+  "hq_country": "US",
+  "hq_country_confidence": "low",
+  "hq_country_source": "model_knowledge",
+  "note": "Surfaced by the final rebuild with no directory record; flagged priors per COLLECTION.md 3, none a finding.",
+  "slug": "koko-2",
+  "status": "unknown",
+  "valuation_confidence": "low",
+  "valuation_range": "below_1b"
+ },
  "kombo": {
   "entry_stage": "Seed",
   "entry_stage_citation": "https://www.ycombinator.com/deal",
@@ -70012,9 +70038,9 @@
   "hq_country": "GB",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Summer 2021); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) thrive-capital, sequoia-capital (freshest as-of: thrive-capital); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) thrive-capital, sequoia-capital (freshest as-of: thrive-capital); COLLECTION.md invariant 10 binds these two columns. | LemFi: the row had carried Lemonade's market capitalisation (NYSE: LMND) \u2014 an entirely different company. LemFi's last disclosed raise is a $53M Series B (2025) with no valuation named.",
+  "note": "YC directory record (batch Summer 2021); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) thrive-capital, sequoia-capital (freshest as-of: thrive-capital); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) thrive-capital, sequoia-capital (freshest as-of: thrive-capital); COLLECTION.md invariant 10 binds these two columns. | LemFi: the row had carried Lemonade's market capitalisation (NYSE: LMND) \u2014 an entirely different company. LemFi's last disclosed raise is a $53M Series B (2025) with no valuation named. | LemFi: Active in YC's directory, private. The `public` status was residue of the weak join to Lemonade (LMND) whose figure was already cleared.",
   "slug": "lemfi",
-  "status": "public",
+  "status": "private",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b"
  },
@@ -84742,6 +84768,25 @@
   "slug": "new-story",
   "status": "private",
   "valuation_confidence": "high",
+  "valuation_range": "below_1b"
+ },
+ "new-story-charity": {
+  "entry_stage": "Seed",
+  "entry_stage_citation": "https://www.ycombinator.com/deal",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "web_verified",
+  "flags": [
+   "country_prior",
+   "identity_uncertain",
+   "stage_prior"
+  ],
+  "hq_country": "US",
+  "hq_country_confidence": "low",
+  "hq_country_source": "model_knowledge",
+  "note": "Surfaced by the final rebuild with no directory record; flagged priors per COLLECTION.md 3, none a finding.",
+  "slug": "new-story-charity",
+  "status": "unknown",
+  "valuation_confidence": "low",
   "valuation_range": "below_1b"
  },
  "newcope": {
@@ -107517,7 +107562,8 @@
    "cohort_unverified",
    "cross_investor_bound",
    "needs_web_value",
-   "site_field_prefill"
+   "site_field_prefill",
+   "stale"
   ],
   "focus": "AI & Applied AI",
   "focus_source": "model",
@@ -107527,14 +107573,15 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Winter 2016); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) lux-capital (freshest as-of: lux-capital); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) lux-capital (freshest as-of: lux-capital); COLLECTION.md invariant 10 binds these two columns. Source is the unicorn snapshot with no citation \u2014 an aggregator, so the figure is carried to stay consistent with the published dataset and flagged for the A/B pass to pin or kill (Rule A).",
+  "note": "YC directory record (batch Winter 2016); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) lux-capital (freshest as-of: lux-capital); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) lux-capital (freshest as-of: lux-capital); COLLECTION.md invariant 10 binds these two columns. Source is the unicorn snapshot with no citation \u2014 an aggregator, so the figure is carried to stay consistent with the published dataset and flagged for the A/B pass to pin or kill (Rule A). | Relativity Space (W16): $650M Series E at $4.2B, June 2021. Re-sourced from the priced round under Rule A. Flagged stale.",
   "slug": "relativity-space",
   "status": "private",
-  "valuation_asof": "2021",
+  "valuation_asof": "2021-06-08",
+  "valuation_citation": "https://www.cnbc.com/2021/06/08/relativity-space-raises-650-million-to-build-terran-r-rocket.html",
   "valuation_confidence": "medium",
   "valuation_range": "1b_plus",
-  "valuation_source": "unicorn_list",
-  "valuation_usd": 4200000000.0
+  "valuation_source": "web_verified",
+  "valuation_usd": 4200000000
  },
  "relaw": {
   "entry_stage": "Seed",
@@ -119822,7 +119869,8 @@
    "cohort_unverified",
    "cross_investor_bound",
    "needs_web_value",
-   "site_field_prefill"
+   "site_field_prefill",
+   "stale"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
@@ -119832,14 +119880,15 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Summer 2012); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns. Source is the unicorn snapshot with no citation \u2014 an aggregator, so the figure is carried to stay consistent with the published dataset and flagged for the A/B pass to pin or kill (Rule A).",
+  "note": "YC directory record (batch Summer 2012); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns. Source is the unicorn snapshot with no citation \u2014 an aggregator, so the figure is carried to stay consistent with the published dataset and flagged for the A/B pass to pin or kill (Rule A). | SmartAsset (S12): $110M Series D at a $1B+ valuation, June 2021. Re-sourced from the priced round under Rule A. Sits on the band edge; flagged stale.",
   "slug": "smartasset",
   "status": "private",
-  "valuation_asof": "2021",
+  "valuation_asof": "2021-06-22",
+  "valuation_citation": "https://techcrunch.com/2021/06/22/smartasset-raises-110m-at-a-1b-valuation/",
   "valuation_confidence": "medium",
   "valuation_range": "1b_plus",
-  "valuation_source": "unicorn_list",
-  "valuation_usd": 1000000000.0
+  "valuation_source": "web_verified",
+  "valuation_usd": 1000000000
  },
  "smartbase": {
   "entry_stage": "Seed",
@@ -125767,14 +125816,15 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Winter 2018); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns. Source is the unicorn snapshot with no citation \u2014 an aggregator, so the figure is carried to stay consistent with the published dataset and flagged for the A/B pass to pin or kill (Rule A).",
+  "note": "YC directory record (batch Winter 2018); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns. Source is the unicorn snapshot with no citation \u2014 an aggregator, so the figure is carried to stay consistent with the published dataset and flagged for the A/B pass to pin or kill (Rule A). | Substack (W18): $100M Series C at $1.1B, July 2025. Re-sourced from the priced round under Rule A.",
   "slug": "substack",
   "status": "private",
-  "valuation_asof": "2025",
+  "valuation_asof": "2025-07-16",
+  "valuation_citation": "https://techcrunch.com/2025/07/16/substack-raises-100m-series-c-at-1-1b-valuation/",
   "valuation_confidence": "medium",
   "valuation_range": "1b_plus",
-  "valuation_source": "unicorn_list",
-  "valuation_usd": 1100000000.0
+  "valuation_source": "web_verified",
+  "valuation_usd": 1100000000
  },
  "substrate": {
   "entry_stage": "Seed",
@@ -129182,6 +129232,25 @@
   "slug": "tarifflo-inc",
   "status": "private",
   "valuation_confidence": "high",
+  "valuation_range": "below_1b"
+ },
+ "tarjimly": {
+  "entry_stage": "Seed",
+  "entry_stage_citation": "https://www.ycombinator.com/deal",
+  "entry_stage_confidence": "low",
+  "entry_stage_source": "web_verified",
+  "flags": [
+   "country_prior",
+   "identity_uncertain",
+   "stage_prior"
+  ],
+  "hq_country": "US",
+  "hq_country_confidence": "low",
+  "hq_country_source": "model_knowledge",
+  "note": "Surfaced by the final rebuild with no directory record; flagged priors per COLLECTION.md 3, none a finding.",
+  "slug": "tarjimly",
+  "status": "unknown",
+  "valuation_confidence": "low",
   "valuation_range": "below_1b"
  },
  "tarjimly-acquired": {

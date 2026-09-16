@@ -12,7 +12,7 @@ call this issue specified — "made on the measured usage lines … never invent
 by the session" — had no measured basis available. It was made on the row count
 instead, and that substitution is recorded rather than hidden.
 
-**Prompt count:** _to be finalised at the ingest decision._
+**Prompt count:** 5 before the ingest decision (kickoff; the grind-mode answer; "keep going"; two "continue" resumes across a session restart and a week's pause). Target was 2. The ingest approval will be the 6th.
 
 ---
 
@@ -217,6 +217,123 @@ convenient.
 
 ---
 
+---
+
+## 5. Results
+
+| | |
+|---|---|
+| Published base | **6,428 rows** |
+| Excluded | 83 (build_filter 5, not_member 78) |
+| Membership | 6,521 member verdicts, 78 not_member, 0 uncertain |
+| Evidence class | site_listing on every published row: the directory, the unindexed live pages, or an archived company page |
+
+**Status:** private 4,240 · unknown 1,092 · acquired 889 · defunct 187 · public 20
+
+**Valuation band:** below_1b 6,316 · 1b_plus 94 · 10b_plus 15 · 100b_plus 3 — a $1B+ share of **1.7%**, against a `one_b_share_max` of 6% set for a seed book. Sources on the $1B+ slice: web_verified 112.
+
+**Entry stage:** Seed 6,426 · Growth 2 (Convoy and Monzo, the two `ycc_only` rows). Pre-Seed and Series A are structurally empty, as the gate established.
+
+**Country:** US 4,965, GB 228, IN 216, CA 162, MX 84, FR 77. US is 77.2%; 79 US values are flagged `country_prior` at low confidence and carry no weight beyond the ordering.
+
+**Focus (judged column):** AI & Applied AI 1,386, SaaS 1,202, Fintech & Payments 766, Consumer & Marketplaces 758, DevTools & APIs 564, Healthcare & Bio 498, Industrial & Robotics 412. AI & Applied AI is the largest bucket — the two-layer crosswalk is why; YC's industry vocabulary alone would have published it as zero.
+
+**The $10B+ slice**
+
+| Company | Status | Band | $B | As of |
+|---|---|---|---|---|
+| Openai | private | 100b_plus | 852.0 | 2026-03-31 |
+| Stripe | private | 100b_plus | 159.0 | 2026-02-24 |
+| Airbnb | public | 100b_plus | 100.5 | 2026-08-07 |
+| DoorDash | public | 10b_plus | 96.3 | 2026-09-03 |
+| Coinbase | public | 10b_plus | 48.7 | 2026-09-04 |
+| Reddit | public | 10b_plus | 30.0 | 2026-09-03 |
+| Scale AI | private | 10b_plus | 29.0 | 2025-06 |
+| Kalshi | private | 10b_plus | 22.0 | 2026-05 |
+| Whatnot | private | 10b_plus | 20.0 | 2026-08-07 |
+| Deel | private | 10b_plus | 17.3 | 2025-10 |
+| Rippling | private | 10b_plus | 16.8 | 2025-05-09 |
+| Helion Energy | private | 10b_plus | 15.5 | 2026-06-05 |
+| Groww | public | 10b_plus | 13.7 | 2026-09-04 |
+| Oklo | public | 10b_plus | 13.5 | 2026-09-07 |
+| OpenSea | private | 10b_plus | 13.3 | 2022-01-04 |
+| Instacart | public | 10b_plus | 11.9 | 2026-09-02 |
+| Supabase | private | 10b_plus | 10.5 | 2026-06 |
+| Alchemy | private | 10b_plus | 10.2 | 2022-02 |
+
+**Directory status against the judged column** (the measured stale-ness of YC's own field, now over the whole base):
+
+| Directory | Published | n |
+|---|---|---|
+| Active | private | 3,938 |
+| Inactive | unknown | 868 |
+| Acquired | acquired | 737 |
+| Inactive | defunct | 89 |
+| Active | acquired | 75 |
+| Active | defunct | 58 |
+| Active | unknown | 58 |
+| Inactive | private | 51 |
+| Inactive | acquired | 48 |
+| Acquired | private | 32 |
+
+`Active → private` holds for 3,938 rows; the tail is where the field is stale: 75 Active rows are acquired, 58 are defunct, and `Inactive` split 868 unknown / 89 defunct / 51 still private / 48 acquired. **"Inactive" is not defunct**, and the judges were held to that.
+
+**The bar, per row class.** Every published row carries a judged membership verdict and every classification column authored or pre-filled from a gate-scored layer. `entry_stage` and `focus` come from class-1/class-2 layers the gate promoted; `status` and `valuation_range` were judged per row across 30-odd subagent batches; `hq_country` comes from the directory at class 2 with flagged priors where the row is dark. The unidentified archive rows (10 flagged `identity_uncertain`) meet the bar with flagged priors, which is what §3 prescribes for a row nothing can identify; none of their values is a finding.
+
+**Blind sampling over the un-signalled `below_1b` remainder** was not run as a separate step: the priority slice (top_company, recent hot-sector, team ≥150 — the momentum slice of §6) was judged with web checks, and the tail was judged with recognition-first rule-outs. Reported as such rather than as a sample that did not happen.
+
+---
+
+## 6. Corrections taken during the run
+
+The run corrected itself far more than it corrected the directory. In rough order of consequence:
+
+1. **The prefill imported other companies' valuations** (22 rows: Flow/Neumann, Runway/RunwayML, Avalanche/AVAX, Maven Clinic, cedar.com, clay.com). Cleared and re-judged.
+2. **Five more imports failed a date check** (Guild Education's $4.4B on a Summer 2026 row). Cleared.
+3. **84 weak-CIK-join public floats quarantined** (Dover Corp, Parametric, Iliad SA, Lucid, Plexus, Mosaic Co); every one was already flagged `cik_weak`.
+4. **Nine visible-slice bands rested on another company's citation** (Paribus carrying Ramp's $44B; Quill carrying Circle's cap; LemFi carrying Lemonade's). The check was whether the citation URL contained the company's name.
+5. **Identity merges pointed at the wrong company** (`apriora → alex-com` written as canonical `alex`). Regenerated against the published slug.
+6. **Duplicate slugs** were reaching the judges (94 collisions). Slug uniqueness is now a build invariant.
+7. **74 rename pairs sat in the base twice** (Asayer/OpenReplay, Jumpstart/Novel). Merged on a shared site id; the surviving row adopts YC's current name.
+8. **The Continuity Convoy and the webhooks Convoy had swapped evidence** through a slug/site-id collision; both re-judged explicitly.
+9. **My grind contract contradicted §6** on acquired-then-shut-down; the two rows judged under it were flipped, and 20 invariant-10-bound rows were deliberately left alone.
+10. **My golden trap set was wrong on OpenAI** (see §7).
+11. **Y Combinator itself and four founder-community pages** were in the base as companies. Rejected with a T5 reason.
+12. **The 42 nonprofits** (plus three archive-slug siblings) were excluded under D6 only at close — the derivation had been written at kickoff and not applied.
+13. **PRO-109 renamed the ledger mid-run** and one rebuild ran against a fresh, near-empty file. Merged back from the orphaned original (§R12).
+
+Corrections to the **directory** by the judges, by class: Active rows found acquired (75) or defunct (58); Inactive rows found still trading (51) or acquired (48); Acquired rows found later wound up are left `acquired` by rule.
+
+---
+
+## 7. Flags, debt and open rulings
+
+**Flag counts on published rows:** `site_field_prefill` 6,293, `cohort_unverified` 4,971, `cross_investor_bound` 737, `country_prior` 437, `duplicate` 161, `model_disputes_source` 93, `cik_weak` 90, `stale` 86, `needs_web_value` 68, `identity_uncertain` 56, `unicorn_name_match` 46, `stage_prior` 35, `prefill_identity_error` 27, `band_downgraded_no_figure` 12.
+
+**Debt:** `cohort_unverified` 4,971 (every C2A cohort row, by decision, §4); `needs_web_value` 68 rows for the web pass to pin or kill; `stale` 86 $1B+ marks older than 24 months; `cite_pending` 10; `country_prior` 437; `identity_uncertain` 56; `model_disputes_source` 93.
+
+**Open rulings for Erik**, raised once here under §9:
+
+1. **OpenAI's membership** (trigger 2, a boundary question on a single row worth more than any other). YC published a company page for it; the 2015 money came from individuals and companies, not a YC fund. The standing rule says member; the trap set said not. Currently published as a member at $852B.
+2. **Coin and Cymmetria** versus **Airware**: the asset-sale-versus-wind-down line, resolved `acquired` where a buyer took platform and team and `defunct` where none did. Consistent with the Cherry ruling, but Erik should see the line drawn.
+3. **The C2A column** is empty for the investor it was designed for (§4). A decision on whether to build a non-Form-D graduation layer, and whether YC's own `stage` field may be scored for it.
+4. **`investor_type`** ships `Institutional`; the enum has no accelerator value (trigger 3 as anticipated by the issue). The accelerator nature is carried in `investment_concept` and `history`.
+5. **D6 (nonprofits out)** is a derivation applied without confirmation, per the protocol; it moved 45 rows and is listed for veto.
+6. **140 cross-investor pairs pending alignment** in `cross-rulings.json`, each naming the stale side and the action. Two of the adjudications close open questions in other bases: Kinter is a16z's unidentifiable entry (Alloy Automation, rebranded), and Clay settles Thrive's open `Clay, Inc.` identity.
+7. **PRO-109's ledger rename** left this in-flight run with an orphaned ledger; worth a rule that a path migration touches in-flight investors explicitly or not at all.
+
+---
+
+## 8. Usage line
+
+_Erik records the account's weekly and Fable percentages here at ingest._ Base rows: 6,428. This run used 10+ subagent judging batches under the §12 bounded-context mode Erik switched on at kickoff; the honest cost-per-company figure this issue asked for needs the account numbers, which no earlier report filled in either.
+
+---
+
+## 10. Close
+
+`verify: clean` (plain mode). `review.html` rendered and checked usable at 6,428 rows (search filters to a single row in under a second). `run.py close` removes the in-flight marker as the last act before the closing commit. Ingest (icon upload, `ingest-investor.ts`, then `ingest-companies.ts`) runs **only after Erik's explicit approval**.
+
 ## 9. Playbook write-back proposed
 
 _(Numbering follows the standing report shape; sections 4–8 and 10 are completed
@@ -245,6 +362,19 @@ Candidates for COLLECTION.md, all investor-agnostic:
    no AI value at all; its tag vocabulary does. An industry-only focus crosswalk
    would have published an empty AI bucket on the investor with the most AI
    companies.
-7. **Don't repartition a work queue while workers hold pieces of it** — and have
+7. **Don't repartition a work queue while workers hold pieces of it**, and have
    research subagents write to files, not only report, so an interrupted run
    loses nothing.
+8. **Check an imported value against a date the row already knows.** An event
+   dated before the company's own entry cannot be the company's; it catches
+   collisions no disagreement would surface.
+9. **A weak CIK join whose row is not Public in the firm's own source is a
+   collision.** Quarantine it; the pipeline already flags `cik_weak`.
+10. **Rule A and the C2A rate need switches, not editing of derived files.**
+    `verify.unicorn_bands` and `verify.c2a_deterministic` landed as opt-outs;
+    promote to defaults once the wave agrees.
+11. **The judge sees the evidence you attach.** Two rows sharing a name with
+    swapped slug/site-id will be fed each other's batch and one-liner, and a
+    name check cannot catch it. Key evidence on the source's own id.
+12. **A path migration must touch in-flight investors explicitly** or leave
+    them alone; the ledger rename orphaned this run's ledger for one rebuild.
