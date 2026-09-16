@@ -344,3 +344,22 @@ run was in flight and YC's file was not migrated; a later `record` created a
 fresh, near-empty ledger and one rebuild ran against it. Merged
 authoritatively from the orphaned `base-verification.json`, which is retired
 in the closing commit. No other investor was affected.
+
+### R10 resolved (Erik, 2026-09-16). OpenAI is OUT. A confirmed delta
+
+Erik: "If OpenAI did not receive investment from a YC entity, keep out." It
+did not. The 2015 funders were Altman, Brockman, Musk, Livingston, Thiel, AWS,
+Infosys and YC Research (TechCrunch, 2015-12-11), as contributions to a
+non-profit; YC Research was a non-profit lab Altman jump-started with $10M of
+his own money, "not ... with the goal of helping YC's startups succeed or
+adding to our bottom line" (YC's own post), and it is none of YC's 20 fund
+vehicles nor any of the 19 funds in the ADV. No YC fund appears in any later
+OpenAI round. Verdict `not_member`, `who: erik`.
+
+**The delta to ratchet** (COLLECTION.md 1, T2 precedents, for the tooling
+session): *a listing on the firm's own site that reflects affiliation rather
+than fund money does not carry membership.* The site-listing sufficiency rule
+assumes the listing records an investment; where the firm lists a company it
+is affiliated with through a person or a related non-profit, T2 governs and
+the row needs fund money to be a member. First instance: YC's archived company
+page for OpenAI.

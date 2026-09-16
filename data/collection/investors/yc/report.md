@@ -223,14 +223,14 @@ convenient.
 
 | | |
 |---|---|
-| Published base | **6,428 rows** |
-| Excluded | 83 (build_filter 5, not_member 78) |
+| Published base | **6,427 rows** |
+| Excluded | 84 (build_filter 5, not_member 78) |
 | Membership | 6,521 member verdicts, 78 not_member, 0 uncertain |
 | Evidence class | site_listing on every published row: the directory, the unindexed live pages, or an archived company page |
 
-**Status:** private 4,240 · unknown 1,092 · acquired 889 · defunct 187 · public 20
+**Status:** private 4,239 · unknown 1,092 · acquired 889 · defunct 187 · public 20
 
-**Valuation band:** below_1b 6,316 · 1b_plus 94 · 10b_plus 15 · 100b_plus 3 — a $1B+ share of **1.7%**, against a `one_b_share_max` of 6% set for a seed book. Sources on the $1B+ slice: web_verified 112.
+**Valuation band:** below_1b 6,316 · 1b_plus 94 · 10b_plus 15 · 100b_plus 2 — a $1B+ share of **1.7%**, against a `one_b_share_max` of 6% set for a seed book. Sources on the $1B+ slice: web_verified 112.
 
 **Entry stage:** Seed 6,426 · Growth 2 (Convoy and Monzo, the two `ycc_only` rows). Pre-Seed and Series A are structurally empty, as the gate established.
 
@@ -242,7 +242,6 @@ convenient.
 
 | Company | Status | Band | $B | As of |
 |---|---|---|---|---|
-| Openai | private | 100b_plus | 852.0 | 2026-03-31 |
 | Stripe | private | 100b_plus | 159.0 | 2026-02-24 |
 | Airbnb | public | 100b_plus | 100.5 | 2026-08-07 |
 | DoorDash | public | 10b_plus | 96.3 | 2026-09-03 |
@@ -314,7 +313,7 @@ Corrections to the **directory** by the judges, by class: Active rows found acqu
 
 **Open rulings for Erik**, raised once here under §9:
 
-1. **OpenAI's membership** (trigger 2, a boundary question on a single row worth more than any other). YC published a company page for it; the 2015 money came from individuals and companies, not a YC fund. The standing rule says member; the trap set said not. Currently published as a member at $852B.
+1. **OpenAI: RESOLVED by Erik, 2026-09-16, OUT.** "If OpenAI did not receive investment from a YC entity, keep out." Verified that it did not: the 2015 funders were individuals, AWS, Infosys and YC Research, a non-profit lab Altman funded personally that is not a YC fund, and no YC vehicle appears in any later round. Recorded `who: erik`; the $852B row left the base. The delta it establishes (an affiliation listing does not carry membership) is ratchet item 13 in §9.
 2. **Coin and Cymmetria** versus **Airware**: the asset-sale-versus-wind-down line, resolved `acquired` where a buyer took platform and team and `defunct` where none did. Consistent with the Cherry ruling, but Erik should see the line drawn.
 3. **The C2A column** is empty for the investor it was designed for (§4). A decision on whether to build a non-Form-D graduation layer, and whether YC's own `stage` field may be scored for it.
 4. **`investor_type`** ships `Institutional`; the enum has no accelerator value (trigger 3 as anticipated by the issue). The accelerator nature is carried in `investment_concept` and `history`.
@@ -378,3 +377,8 @@ Candidates for COLLECTION.md, all investor-agnostic:
     name check cannot catch it. Key evidence on the source's own id.
 12. **A path migration must touch in-flight investors explicitly** or leave
     them alone; the ledger rename orphaned this run's ledger for one rebuild.
+13. **An affiliation listing does not carry membership** (Erik, 2026-09-16,
+    OpenAI). The site-listing sufficiency rule assumes the listing records an
+    investment; where the firm lists a company it is tied to through a person
+    or a related non-profit, T2 governs and the row needs fund money. Ratchet
+    into COLLECTION.md 1 as a T2 precedent.
