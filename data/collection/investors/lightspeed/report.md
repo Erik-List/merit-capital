@@ -22,7 +22,7 @@ COLLECTION.md write-back landed with the close commit.
 
 **931 published rows at base sign-off** — 627 Tier A / 294 Tier B / 10
 Tier C — every row an affirmed **member** (0 uncertain), plus **333
-not_member rows** and 1 other_desk row preserved in `excluded.csv`.
+not_member rows** and 1 other_desk row preserved in `excluded.json`.
 Ledger: 1,288 verdicts (orphaned keys from merge canonicalization
 expected). By author: 968 evidence-class seeds surviving as-is, ~320
 judge verdicts (gate fixes, the LSIP book, the China sweep, the 273-row
@@ -210,7 +210,7 @@ The membership-verified base is ready for Erik's sampling:
 chip = 91 stratified rows incl. every recall addition, every
 director-pattern member, the LSIP/China boundary keeps, and every
 $10B+ pre-fill), `base.csv` (931 rows, classification columns carrying
-only flagged deterministic pre-fills pending PRO-66), `excluded.csv`
+only flagged deterministic pre-fills pending PRO-66), `excluded.json`
 (334, preserved), `golden.json` (pre-registered key + 22/22 pass),
 `base-verification.json` (1,288 verdicts + 3 recall additions + 7
 recorded rejections). `verify --base-only` is **clean**. Corrections
@@ -225,7 +225,7 @@ PRO-66 is unblocked on sign-off.
 | `base.json` / `base.csv` | Evidence layer / merged surface (931 rows) |
 | `base-verification.json` | 1,288 verdicts, 3 recall additions, 7 rejections |
 | `identity-merges.json` | 25 merge groups |
-| `excluded.csv` | 334 rows, preserved (333 not_member, 1 other_desk) |
+| `excluded.json` | 334 rows, preserved (333 not_member, 1 other_desk) |
 | `golden.json` | 22-row membership trap set, pre-registered (9efb036) |
 | `decisions.md` | 10 rulings (8 Erik-confirmed Phase 0; 9–10 agent-standing, flagged) |
 | `entities.json` | 148-entity registry (98 us / 7 china / 5 india / 5 faction / 33 external) |

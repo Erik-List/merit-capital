@@ -126,7 +126,7 @@ value, 2026-03-27 amendment) anchor the profile instead.
   MetaStable Capital, Polychain Capital, Placeholder) are LP stakes in other
   funds, not venture-outcome operating companies → `not_member` (T5;
   fund-shaped list entries; a16z ruling 6 precedent), preserved in
-  `excluded.csv` and counted in the report. **Numerai** is a member: the firm
+  `excluded.json` and counted in the report. **Numerai** is a member: the firm
   led the Series A of Numerai's management company (2016 post), an operating
   company that runs a fund. **Bright Moments DAO** is judged under the token
   rule (a DAO with treasury and governance maps to an organization).
@@ -217,7 +217,7 @@ Dated, class-wide, flagged for Erik's review; added during the run.
   2026-09-05; T5 applied): Autonomous Partners, Multicoin Capital, BlockTower
   Capital, MetaStable Capital, Polychain Capital, Placeholder — the firm's
   2018 "Investing in Token Focused Funds" post describes them as fund
-  commitments. `not_member`, preserved in `excluded.csv`. Numerai (the firm
+  commitments. `not_member`, preserved in `excluded.json`. Numerai (the firm
   led the Series A of the management company) and the DAO position (Bright
   Moments, a token purchase into a governed treasury) stay in.
 - **R4 — The site's entry-round label is class 1, and the record beats it**
@@ -253,7 +253,7 @@ Dated, class-wide, flagged for Erik's review; added during the run.
 
 Verdicts live in `base-verification.json` and are re-applied on every
 rebuild; human verdicts (`who: "erik"`) outrank agent verdicts; excluded rows
-are preserved in `excluded.csv`, never deleted.
+are preserved in `excluded.json`, never deleted.
 
 ## Run-time rulings, A/B pass and close (2026-09-05, session 1, continued)
 

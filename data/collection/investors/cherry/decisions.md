@@ -129,7 +129,7 @@ general partners and limited partners — 44 entities — and no portfolio.
   company Drover", 2020) and **Xometry** ("acquired our portfolio company
   Shift in 2019") under the acquirer's name; the shares are sale consideration
   for the Drover and Shift rows, so Cazoo and Xometry are `not_member`
-  (excluded.csv) and Drover and Shift stay the members. Precedent: Creandum's
+  (excluded.json) and Drover and Shift stay the members. Precedent: Creandum's
   Elastic (Opbeat), agent-flagged there and applied here the same way —
   flagged for Erik.
 - **D9 — FX and non-US public rows (policy constants).** Inherited from the

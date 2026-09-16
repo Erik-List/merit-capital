@@ -71,7 +71,7 @@ class Paths:
         self.resolved = self.root / "resolved.json"
         self.classification = self.root / "classification.json"
         self.entities = self.root / "entities.json"
-        self.excluded = self.root / "excluded.csv"        # reason: build_filter | other_desk | not_member
+        self.excluded = self.root / "excluded.json"       # reason: build_filter | other_desk | not_member
         self.investor = self.root / "investor.json"       # the ingest row
         self.investor_sources = self.root / "investor.sources.json"
         self.config_file = self.root / "config.json"

@@ -43,4 +43,4 @@ cites these rulings per line; all confirmed by Erik, 2026-08-18.
 
 Verdicts live in `base-verification.json` and are re-applied on every
 rebuild; human verdicts (`who: "erik"`) outrank agent verdicts; excluded
-rows are preserved in `excluded.csv`, never deleted.
+rows are preserved in `excluded.json`, never deleted.

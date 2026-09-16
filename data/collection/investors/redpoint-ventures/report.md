@@ -2,7 +2,7 @@
 
 **Run:** one session, 2026-09-06, under the merged shape of `../../COLLECTION.md`.
 **Result:** `verify` clean in plain mode. **412 members**, 147 rows preserved in
-`excluded.csv`, firm profile through the taxonomy gate, review surface rendered
+`excluded.json`, firm profile through the taxonomy gate, review surface rendered
 and checked.
 **Prompt count: 1** (kickoff). The ingest approval will be prompt 2 — the target.
 **Usage line:** kickoff percentages were not supplied to this session; the
@@ -37,7 +37,7 @@ That is **decisions.md D5**, and it is the largest single judgment of this run:
 **60 rows left the base** on it, including 3Com, Ask Jeeves, Avici, Bay
 Networks, Documentum, Excite@Home, FileNet, Foundry Networks, Juniper Networks,
 Netflix, NextCard, Polycom, SkyStream, Stamps.com, Sybase, TiVo and WebTV. All
-are preserved in `excluded.csv` with the citation.
+are preserved in `excluded.json` with the citation.
 
 **The rule is evidence-based, not mechanical**: a row is `not_member` only when
 it appears *solely* in a previous-by-partners section and carries no Redpoint
@@ -403,7 +403,7 @@ $5.4B figure — web-checked to the 2026-08-17 $400M Series B at $5.4B) and
 **2. Merge Cyngn and Cyanogen.** One company across one rename. The
 `never_merge` guard this run had placed on the pair is removed.
 
-**New shape:** 412 members, 157 rows in `excluded.csv`. $1B+ 60 / $10B+ 15 /
+**New shape:** 412 members, 157 rows in `excluded.json`. $1B+ 60 / $10B+ 15 /
 $100B+ 5 (14.6%). Entry stage Series A 239 / Growth 114 / Seed 56 / Pre-Seed 3.
 C2A 53.3% on 45 cohort rows. `verify` clean; Arista Networks removed from
 `notable_investments`.
@@ -495,7 +495,7 @@ of the firm's own listing that the closed run never read.
    ingested base before export, which is the only reason it is a footnote and
    not seven fabricated rows in the published track record.
 
-**New shape:** 413 members, 153 rows in `excluded.csv`. (The first addendum's
+**New shape:** 413 members, 153 rows in `excluded.json`. (The first addendum's
 "157" was wrong; the file has held 153 since that rebuild.) $1B+ 60 / $10B+ 15
 / $100B+ 5. Entry stage Series A 238 / Growth 115 / Seed 57 / Pre-Seed 3. C2A
 54.3% on 46 cohort rows. Tiers A 347 / B 57 / C 9. `verify` clean, profile

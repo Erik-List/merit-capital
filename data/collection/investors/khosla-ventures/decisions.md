@@ -117,7 +117,7 @@ is a minority venture investor across seed, early and growth; primaries,
 follow-ons, secondaries and tenders are IN, and a secondary or tender entry is
 Growth by the policy constant. The 2026-09-04 control-position rule is recorded
 as applicable but no Khosla LBO or majority recapitalisation is known; any that
-the grind surfaces lands in `excluded.csv` under `control_position` and the
+the grind surfaces lands in `excluded.json` under `control_position` and the
 profile says so.
 
 **D6 — T3: post-RIA public and secondary purchases with no venture entry are

@@ -2,7 +2,7 @@
 
 **Run:** one session, 2026-09-06, under the merged shape of `../../COLLECTION.md`.
 **Result:** `verify` clean in plain mode. **284 members**, 131 rows preserved in
-`excluded.csv` (88 other-desk, 43 not_member), firm profile through the taxonomy
+`excluded.json` (88 other-desk, 43 not_member), firm profile through the taxonomy
 gate, review surface rendered and checked.
 **Prompt count: 1** (kickoff). The ingest approval will be prompt 2 — the target.
 **Usage line:** kickoff percentages were not given for this session; weekly % and
@@ -66,7 +66,7 @@ rows and 38 Israel rows partitioned**, and the lists read exactly as they should
 (Betfair, Bebo, Lovefilm, Yoox, NaturalMotion, Zopa, Codemasters on one; Gigya,
 Metacafe, Panaya, Wilocity, Seeking Alpha on the other). MySQL and Wix stay on
 the home desk because the post-split list carries them. **PRO-106 inherits all 88
-rows in `excluded.csv`.**
+rows in `excluded.json`.**
 
 **D1 changed under verification and the change is recorded rather than quietly
 corrected.** The issue asked whether a growth or opportunity vehicle exists. At
@@ -315,7 +315,7 @@ exists). Wave alignment with the rest of PRO-87 happens once, at the end.
 Top level: `config.json`, `decisions.md` (D1–D8, R1–R9), `golden.json` (33 traps,
 25 cited stage rows), `identity-merges.json` (16 merges, 86 desk reassignments,
 1 never-merge), `cross-rulings.json`, `entities.json` (62), `base.json` /
-`base.csv` (284), `excluded.csv` (131), `classification.json`,
+`base.csv` (284), `excluded.json` (131), `classification.json`,
 `base-verification.json` (343 verdicts, 6 recall additions, 2 rejections),
 `resolved.json`, `review.html`, `investor.json`, `investor.sources.json`, this
 report. `sources/`: site (the 2010–2013 list, team, the extracted mark), wayback

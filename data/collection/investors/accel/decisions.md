@@ -65,7 +65,7 @@ class-wide rule rather than a row fix.
 
 Verdicts live in `base-verification.json` and are re-applied on every
 rebuild; human verdicts (`who: "erik"`) outrank agent verdicts; excluded
-rows are preserved in `excluded.csv`, never deleted.
+rows are preserved in `excluded.json`, never deleted.
 
 ---
 
@@ -97,7 +97,7 @@ Applied to two rows, both `who: "erik"` in the ledger:
   Arista IPO announcement, captured 2018-2020 and read as a company slug by the
   wayback layer. Out on T3 and on T5.
 
-Base 886 → **885 rows**; `excluded.csv` 114 → 116. `verify` clean, re-exported,
+Base 886 → **885 rows**; `excluded.json` 114 → 116. `verify` clean, re-exported,
 profile rebuilt, review surface regenerated, re-ingested.
 
 **Two unrelated defects were found and fixed in the same pass**, because this

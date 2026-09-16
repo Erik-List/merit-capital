@@ -120,7 +120,7 @@ across 41 roster-name clusters, 369 of the firm's own announcement posts, and a
 
 ## 4. Membership: 73 rows excluded, and why
 
-The trap set's classes all fired. `excluded.csv` holds 73 `not_member` rows:
+The trap set's classes all fired. `excluded.json` holds 73 `not_member` rows:
 
 * **Next-firm and prior-firm seats** — the largest class. Christopher Kersey left
   Menlo for Camden Partners in 2002 (Essence Group, Essia Health, LifeNexus,

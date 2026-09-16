@@ -12,7 +12,7 @@ the merged shape of `data/collection/COLLECTION.md`.
 |---|---|
 | **Published base** | **658 companies** |
 | Tiers | A 599 (91%) · B 56 · C 3 |
-| Excluded, preserved in `excluded.csv` | **336** |
+| Excluded, preserved in `excluded.json` | **336** |
 | Membership verdicts on the ledger | 1,081 · 0 uncertain |
 | `entry_stage` | Growth 320 · Series A 227 · Seed 105 · Pre-Seed 6 — 100% fill |
 | `status` | acquired 371 · private 181 · defunct 72 · public 26 · unknown 8 |
@@ -95,7 +95,7 @@ are in flight, so the run did not add it.
 What it did instead (R1): every control row is a ledger `not_member` whose
 basis sentence opens **"control position:"**. That is lossless for counting
 and for this report — the 124 rows are exactly recoverable with one filter —
-and lossy only in `excluded.csv`'s reason column, which reads `not_member`
+and lossy only in `excluded.json`'s reason column, which reads `not_member`
 for all 336 excluded rows. Re-labelling them once the build emits the code is
 a one-line change.
 

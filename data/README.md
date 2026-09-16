@@ -29,7 +29,7 @@ Inside `collection/investors/<slug>/`:
 | `base-verification.json` | The durable membership verdict ledger, re-applied on every rebuild. |
 | `identity-merges.json` | Durable identity corrections (renames, rejects, desk moves, never-merge pairs). |
 | `resolved.json` / `classification.json` | The deterministic layer output and the judged classification overlay — two files by design (PRO-57): `prepare` overwrites the first wholesale, `record` merges into the second per key, and their disagreement is the audit trail. |
-| `excluded.csv` | Every row partitioned out of the published base, with a `reason` column: `build_filter` (identity-overlay rejects), `other_desk` (decision-desk partition), `not_member` (verification verdicts). Preserved, never deleted. |
+| `excluded.json` | Every row partitioned out of the published base, with a `reason` column: `build_filter` (identity-overlay rejects), `other_desk` (decision-desk partition), `not_member` (verification verdicts). Preserved, never deleted. |
 | `entities.json` | The investor's own SEC vehicles (CIK → desk), one table serving role resolution, fund exclusion and lineage. |
 | `investor.json` / `investor.sources.json` | The firm-profile ingest row and its per-field provenance sidecar. Researched values live here as data; `scripts/build-firm-profile.py` recomputes the evidence-derived fields and validates the rest. |
 | `review.html` | The read-only review surface, written by `run.py review`. |

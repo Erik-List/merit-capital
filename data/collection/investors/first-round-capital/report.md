@@ -15,7 +15,7 @@ One run, one session, 2026-09-06, under the merged shape of
 | Entry stage | **Seed 509 (86%)** · Series A 59 · Pre-Seed 22 · Growth 4 |
 | Valuation | below_1b 576 · 1b_plus 14 · 10b_plus 3 · 100b_plus 1 |
 | **Seed-to-A graduation** | **57.1% — 20 of a 35-company verified cohort** |
-| Excluded | 41 rows preserved in `excluded.csv` |
+| Excluded | 41 rows preserved in `excluded.json` |
 | Cross-investor | 125 shared rows, 105 agree, 19 accepted, 0 disagree |
 
 The shape is the one PRO-93 predicted and the opposite of a growth investor's:

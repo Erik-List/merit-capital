@@ -1,12 +1,12 @@
 # Greylock Partners — collection run (PRO-89)
 
 One session, one run, 2026-09-07. **561 members, `verify` clean in full mode**,
-107 rows in `excluded.csv`, profile built, review surface rendered.
+107 rows in `excluded.json`, profile built, review surface rendered.
 
 | | |
 |---|---|
 | Members | **561** — Tier A 457, B 96, C 8 |
-| Excluded | 107 (`not_member`), preserved in `excluded.csv` |
+| Excluded | 107 (`not_member`), preserved in `excluded.json` |
 | Entry years | 1967–2026; **309 of 548 dated rows are pre-window** (56%) |
 | Status | acquired 330 · private 126 · defunct 65 · public 34 · unknown 6 |
 | Visible slice | 43 rows at $1B+, 26 at $10B+, 11 at $100B+ |

@@ -116,7 +116,7 @@ thirteen since. So the base has two halves with different evidence models:
 
   Mechanically: the Europe vehicles classify to desk `europe`, which is in
   `desks.partition`, so their rows leave the published base into
-  `excluded.csv` with reason `other_desk` — **preserved, not deleted**, so
+  `excluded.json` with reason `other_desk` — **preserved, not deleted**, so
   Balderton's run inherits them (COLLECTION.md §12, cross-investor
   etiquette). This is the ruling PRO-88 asked to be recorded for Balderton
   to read.

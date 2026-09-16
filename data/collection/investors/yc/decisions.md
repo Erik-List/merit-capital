@@ -166,7 +166,7 @@ anywhere and is recorded as unverified.
 **Outcome: OUT, and both tests agree** — a grant is not a round, no equity is
 issued, so there is no entry stage, no valuation, no exit and no C2A cohort
 membership; and a nonprofit is not a venture-outcome operating company. The
-42 flagged rows leave the published base into `excluded.csv`.
+42 flagged rows leave the published base into `excluded.json`.
 **Not a delta**: no test is stretched and none collide.
 
 ### D7. The directory lists *launched* companies, not funded ones

@@ -11,15 +11,13 @@ Outputs:
   base.json      (the evidence layer)
   base.csv       (via run.py export: the merged published surface — base +
                   membership verdict + classification)
-  excluded.csv   (every partitioned row, with a reason column:
+  excluded.json  (every partitioned row, with a reason field:
                   build_filter | other_desk | not_member)
 
 Usage: python3 scripts/build-company-base.py <investor-slug>
 """
 import argparse
-import csv
 import html
-import io
 import json
 import re
 import subprocess
@@ -630,7 +628,7 @@ def main() -> None:
     # COLLECTION.md plus the investor's decisions file, written by the
     # adversarial review passes and by human sampling.
     # not_member rows leave the published base (preserved in
-    # excluded.csv, reason not_member); uncertain rows stay, marked for sampling.
+    # excluded.json, reason not_member); uncertain rows stay, marked for sampling.
     verification_excluded: list[dict] = []
     bv_path = P.ledger
     if bv_path.exists():
@@ -810,19 +808,16 @@ def main() -> None:
               f"({dict(Counter(r['lineage'] for r in other))})")
 
     # One partition surface: every row that leaves the published base lands in
-    # excluded.csv with the reason it left, preserved and reversible.
+    # excluded.json with the reason it left, preserved and reversible.
     excluded_rows = (
         [("build_filter", r) for r in sorted(rejected, key=lambda x: x["slug"])]
         + [("other_desk", r) for r in sorted(other, key=lambda x: x["slug"])]
         + [("not_member", r) for r in verification_excluded]
     )
-    buf = io.StringIO()
-    w = csv.DictWriter(buf, fieldnames=["reason"] + COLUMN_ORDER)
-    w.writeheader()
-    w.writerows({"reason": reason, **{k: r[k] for k in COLUMN_ORDER}}
-                for reason, r in excluded_rows)
-    write_atomic(P.excluded, buf.getvalue())
-    print(f"excluded.csv: {len(excluded_rows)} rows "
+    write_atomic(P.excluded, "[" + ",\n".join(          # one row per line
+        json.dumps({"reason": reason, **{k: r[k] for k in COLUMN_ORDER}})
+        for reason, r in excluded_rows) + "]\n")
+    print(f"excluded.json: {len(excluded_rows)} rows "
           f"({dict(Counter(reason for reason, _ in excluded_rows))})")
 
     # Slug uniqueness is an invariant, not a hope. Every overlay — the

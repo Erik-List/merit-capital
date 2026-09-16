@@ -33,7 +33,7 @@ Erik's sample sign-off is the open exit criterion.
 
 **1,798 published rows** — 1,164 Tier A / 623 Tier B / 11 Tier C — every
 row an affirmed **member** (0 uncertain after Erik's review rulings),
-plus **134 not_member rows** preserved in `excluded.csv`. Verdicts by evidence class: 1,792 site_listing,
+plus **134 not_member rows** preserved in `excluded.json`. Verdicts by evidence class: 1,792 site_listing,
 10 formd_adjudicated, 2 fund_filing, 3 web (recall additions); by author:
 1,786 evidence-class seeds, 21 judge verdicts surviving on published rows
 (the other ~160 judge verdicts sit on excluded or absorbed rows).
@@ -129,7 +129,7 @@ Technologies (Olivia Moore). Ruled member at medium confidence as
 unannounced deals (the compliance list's own permission-exclusion
 explains their absence); each flagged for the PRO-31 A/B pass.
 
-**Exclusion classes recorded** (128 rows in excluded.csv, after Erik's HP correction): homonym
+**Exclusion classes recorded** (128 rows in excluded.json, after Erik's HP correction): homonym
 clusters (Brian Roberts/Comcast-NBCU-ViewRay, Rod-Rodney-Rodger
 Johnson/SpringSource-SandRidge-Elastic, James Sullivan biotech cluster,
 Timothy Sullivan/Ancestry); Executive-Officer homonyms (pymetrics' own
@@ -233,7 +233,7 @@ Sequoia; the probe confirmed the shape rather than breaking it.
 The membership-verified base is ready for Erik's sampling: `review.html`
 (read-only, sample chip = 18 stratified slugs incl. every uncertain row
 and each new evidence class), `base.csv` (1,798 rows, classification
-columns empty pending PRO-31), `excluded.csv` (134), `golden.json` (the
+columns empty pending PRO-31), `excluded.json` (134), `golden.json` (the
 pre-registered key), `base-verification.json` (2,007 durable verdicts).
 Corrections in chat are recorded class-wide as `who: "erik"` ledger
 verdicts. PRO-31 (classification) is unblocked on sign-off.
@@ -245,7 +245,7 @@ verdicts. PRO-31 (classification) is unblocked on sign-off.
 | `base.json` / `base.csv` | Evidence layer / merged published surface (1,798 rows) |
 | `base-verification.json` | Durable verdict ledger (2,007 verdicts + 23 recall additions) |
 | `identity-merges.json` | 30 merge groups, 2 never-merge pairs |
-| `excluded.csv` | 134 not_member rows, preserved |
+| `excluded.json` | 134 not_member rows, preserved |
 | `golden.json` | Membership trap set + pre-registered key (stage set: PRO-31) |
 | `decisions.md` | Phase 0 rulings (confirmed 2026-08-18) |
 | `entities.json` | 133-entity vehicle registry |
@@ -386,7 +386,7 @@ hq_city, focus, seed_to_a_graduation, flags, note. `verify` is clean.
 - Membership flips (agent verdicts under standing rulings, for review):
   polychain (LP stake in Polychain's funds, ruling #4) and ycvc-w14 (the
   YC W14 batch vehicle a16z backed as an LP, rulings #4/#6) are now
-  not_member and sit in excluded.csv.
+  not_member and sit in excluded.json.
 - nitra was restored: the base scrape had glued "NG.CashNitra" into one
   artifact row; Nitra's a16z backing is announcement-corroborated. The
   artifact row stays, flagged, pointing at both real rows.

@@ -9,7 +9,7 @@ Usage line: weekly __% → __%, Fable __% → __% (Erik records the account perc
 | | |
 |---|---|
 | base rows (members) | 220 |
-| ledger verdicts | 266 (43 not_member → excluded.csv, 0 uncertain) |
+| ledger verdicts | 266 (43 not_member → excluded.json, 0 uncertain) |
 | recall additions | 7 (Uniswap, Diem, Brilliant.org, Chamber, Glif, Tasklet, Alqem) |
 | identity merges | 31 + 21 name-variant merges |
 | $1B+ / $10B+ / $100B+ | 23 / 5 / 1 |
@@ -185,7 +185,7 @@ then, after the icon decision, `tsx scripts/fetch-investor-icon.ts union-square-
 
 ## 9. Files
 
-Top level: `config.json`, `decisions.md` (D1–D9, R1–R13), `golden.json`, `identity-merges.json`, `cross-rulings.json` (11 distinct, 5 accepted, 1 same), `entities.json`, `base.json` / `base.csv` (220 rows), `excluded.csv` (43), `classification.json`, `resolved.json`, `base-verification.json`, `review.html`, `investor.json`, `investor.sources.json`, this report. `sources/`: site (live list, 3,807 posts, team), wayback (five parsed eras, curated roster), edgar (Form D sweep 417 accessions, 42 own entities, fund filings, FTS hits, issuer rounds), web (Wikipedia insource). `scratch/`: queue and out files, judgments-1..5, fix and align files, gate protocol and blind pass, run-log.md, verify logs, `collection-writeback.md` (ten proposed COLLECTION.md edits, for the tooling session, nothing committed from here).
+Top level: `config.json`, `decisions.md` (D1–D9, R1–R13), `golden.json`, `identity-merges.json`, `cross-rulings.json` (11 distinct, 5 accepted, 1 same), `entities.json`, `base.json` / `base.csv` (220 rows), `excluded.json` (43), `classification.json`, `resolved.json`, `base-verification.json`, `review.html`, `investor.json`, `investor.sources.json`, this report. `sources/`: site (live list, 3,807 posts, team), wayback (five parsed eras, curated roster), edgar (Form D sweep 417 accessions, 42 own entities, fund filings, FTS hits, issuer rounds), web (Wikipedia insource). `scratch/`: queue and out files, judgments-1..5, fix and align files, gate protocol and blind pass, run-log.md, verify logs, `collection-writeback.md` (ten proposed COLLECTION.md edits, for the tooling session, nothing committed from here).
 
 ## Addendum 2026-09-06 — Rule A ruled
 

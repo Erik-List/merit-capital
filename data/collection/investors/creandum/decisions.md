@@ -164,7 +164,7 @@ rule rather than a row fix, flagged for Erik's review.
     2026-09-04, flagged): the live CMS lists Elastic as a commitment from
     2017-06, the month Elastic acquired Creandum-seeded Opbeat (own post);
     the shares are sale consideration for the Opbeat row and no Creandum
-    fund invested in Elastic, so Elastic is `not_member` (excluded.csv) and
+    fund invested in Elastic, so Elastic is `not_member` (excluded.json) and
     Opbeat stays the member. A site listing suffices for membership in
     general; a site-listed acquirer of a portfolio company is checked for
     the consideration reading first (COLLECTION.md §1 consideration rule).
@@ -230,4 +230,4 @@ rule rather than a row fix, flagged for Erik's review.
 
 Verdicts live in `base-verification.json` and are re-applied on every rebuild;
 human verdicts (`who: "erik"`) outrank agent verdicts; excluded rows are
-preserved in `excluded.csv`, never deleted.
+preserved in `excluded.json`, never deleted.

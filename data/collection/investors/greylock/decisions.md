@@ -32,7 +32,7 @@ Firm facts verified at kickoff (not model priors):
 | D5 | Other namesakes | Greylock Investments SLP (Aztec Group House, St Helier, Jersey; related persons Richard Phillips, Liam Jones), Greylock Ventures LP – IAI-1 Series (Burlington MA; GP "Greylock Ventures GP LLC – Series IAI-1"; related person Donald Sullivan), Greylock Marketing Inc and Greylock Inc (Florida) — no address, person or fund overlap with CRD 161537 | T1/T5 | **OUT** | Menlo's namesake list |
 | D6 | Scout checks, angel books, programs | No scout program or accelerator is disclosed; partners' personal board seats appear on Forms 3/4 | T2 | **OUT** where no fund of the firm held the position | Ruled on Sequoia, a16z, Accel, Lightspeed; Cherry's founder-angel positions |
 | D7 | Secondaries and tenders | No dedicated crossover or public vehicle in the registry; the Discovery Fund is a venture vehicle | T3 | **IN** as Growth entries; positions first appearing as 13F holdings or post-IPO 13Gs **OUT** | The standing post-RIA rule (§1) |
-| D8 | Control positions | No buyout or credit strategy under CRD 161537; the 1999 site's "management buyouts and recapitalizations" page is the 1980s–90s book and each such row is tested individually | T3 | **OUT** where the firm and its co-investor group take 50%+ or the company reports a change of control; `excluded.csv` reason `control_position` | Erik, 2026-09-04 |
+| D8 | Control positions | No buyout or credit strategy under CRD 161537; the 1999 site's "management buyouts and recapitalizations" page is the 1980s–90s book and each such row is tested individually | T3 | **OUT** where the firm and its co-investor group take 50%+ or the company reports a change of control; `excluded.json` reason `control_position` | Erik, 2026-09-04 |
 | D9 | Seat dating and person attribution | Greylock partners move (Aneel Bhusri to Workday as CEO; Reid Hoffman's LinkedIn and OpenAI seats; David Sze, Asheem Chandna, Josh Elman) | T4 | Standard: a seat is dated against the person's firm at filing time, never against the roster | Accel's Jonathan Turner; Ethan Choi at Khosla |
 | D10 | Fund-shaped and token rows, scrape artifacts | The archive eras yield logo-filename slugs (`accel-chip`, `athoc_65`) and nav junk | T5 | Standard: fund-shaped entries `not_member` until identified; artifacts filtered in `non_company_slugs` | a16z rulings 6–7 |
 
@@ -100,7 +100,7 @@ delta:
   a ~$600M valuation; both founders stepped back from day-to-day roles. Under
   T3's control-position addendum (Erik, 2026-09-04) that is not a venture
   round, so `entry_stage`, entry valuation and the C2A cohort are meaningless
-  for it. `excluded.csv`, reason `control_position`. Greylock has no earlier
+  for it. `excluded.json`, reason `control_position`. Greylock has no earlier
   position in the company, so nothing survives the exclusion. Raised for the
   wave alignment because Accel's published base holds the same row.
 - **R5 (2026-09-07) — the Israel book is out for its whole life, not only after

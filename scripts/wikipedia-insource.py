@@ -13,7 +13,7 @@ Usage: python3 scripts/wikipedia-insource.py <slug>
 Config: wikipedia.phrases (default: the investor name)
 Output: sources/web/wikipedia-insource.json
 """
-import csv, json, re, sys, time, urllib.parse, urllib.request
+import json, re, sys, time, urllib.parse, urllib.request
 from pathlib import Path
 
 UA = "merit-capital research (erik@meritcapit.al) python-urllib"
@@ -65,10 +65,7 @@ def main():
     for r in json.load(open(P.base_json)):
         for u in filter(None, [r.get("site_url")]):
             base[loose(re.sub(r"^https?://(www\.)?|\..*$", "", u))] = r["slug"]
-    excluded = {}
-    if P.excluded.exists():
-        for r in csv.DictReader(open(P.excluded)):
-            excluded[loose(r["name"])] = r["slug"]
+    excluded = {loose(r["name"]): r["slug"] for r in json.load(open(P.excluded))} if P.excluded.exists() else {}
 
     titles = {}
     for phrase in phrases:

@@ -19,7 +19,7 @@ written. **Nothing has been ingested** — that waits on your approval (§9).
 | | |
 |---|---|
 | Published members | **507** |
-| Preserved in `excluded.csv` | **165**, all `not_member` |
+| Preserved in `excluded.json` | **165**, all `not_member` |
 | Tiers | A 153 · B 290 · C 64 |
 | Status | private 251 · acquired 123 · defunct 107 · public 25 · unknown 1 |
 | Valuation band | below_1b 454 · 1b_plus 37 · 10b_plus 13 · 100b_plus 3 |

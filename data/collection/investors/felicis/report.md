@@ -6,7 +6,7 @@ T1–T5 derivation is PRO-87's, carried out against verified Felicis facts in
 `decisions.md`.
 
 **Result: `verify` clean in plain mode.** 493 published rows, 92 in
-`excluded.csv`, 100% fill on `status`, `valuation_range`, `entry_stage` and
+`excluded.json`, 100% fill on `status`, `valuation_range`, `entry_stage` and
 `hq_country`, and **zero cross-investor disagreements** across the 208 rows
 Felicis shares with other published bases.
 

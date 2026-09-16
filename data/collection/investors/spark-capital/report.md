@@ -61,7 +61,7 @@ leaves for recall.
 
 **325 published rows** — Tier A 261 / B 47 / C 17 — 332 ledger
 members and 4 `uncertain` (identity unresolved: Kepler Software, Lulo
-Ventures, Postabon, STTG); **46 rows in `excluded.csv`** (not_member 45 · build_filter 1).
+Ventures, Postabon, STTG); **46 rows in `excluded.json`** (not_member 45 · build_filter 1).
 Ledger 381 verdicts (member 332 · not_member 45 · uncertain 4); member evidence classes: site_listing 315 · web 9 · formd_adjudicated 6 · fund_filing 2.
 Identity: 45 merge groups, 2 never-merge pairs (Medallion /
 Medallion Resources, Cover / Cover Genius), 1 rejected merge.
@@ -225,7 +225,7 @@ Second rebuild logged in `scratch/run-log.md`.
 
 ### 13. Artifacts
 
-`base.json` / `base.csv` (325 rows), `excluded.csv` (46), `review.html`
+`base.json` / `base.csv` (325 rows), `excluded.json` (46), `review.html`
 (shared server http://localhost:8931/spark-capital/review.html),
 `classification.json`, `base-verification.json` (ledger + 11 recall
 additions), `golden.json`, `identity-merges.json`, `cross-rulings.json`,

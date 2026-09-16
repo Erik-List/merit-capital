@@ -105,7 +105,7 @@ confirmed ruling.
   geography: non-venture strategies of the same adviser (buyout,
   credit, infrastructure, public equities, real assets) are
   `other_desk`, not `external`, and their rows leave the published base
-  preserved in `excluded.csv`, exactly as Accel's non-home desks
+  preserved in `excluded.json`, exactly as Accel's non-home desks
   already do. Resolve the desk per vehicle by CRD or CIK, never by the
   brand that announced the deal. Reaches Bain Capital Ventures and EQT
   Ventures, where the venture arm may or may not carry its own
@@ -162,7 +162,7 @@ confirmed ruling.
   proxy: a Form D exists for a financing and not for a purchase of
   existing shares, so a round whose Form D names the firm is a
   financing absent contrary evidence. Control rows leave the published
-  base under `excluded.csv` reason `control_position`, preserved and
+  base under `excluded.json` reason `control_position`, preserved and
   counted in the report (new reason code; not yet emitted by
   `build-company-base.py`). A base that excludes them **says so on the
   firm profile**: the published track record then covers the firm's
@@ -381,7 +381,7 @@ mechanically so on the ledger: `record` refuses to overwrite them.
 Classification keys carry the same guard in `record`: an agent record may
 add keys to a `who: "erik"` row but never overwrite or unflag the keys the
 human set. Belt and braces: never re-emit a key Erik has set.
-`not_member` rows leave the published base into `excluded.csv` (reason
+`not_member` rows leave the published base into `excluded.json` (reason
 `not_member`), preserved, never deleted; `uncertain` rows stay in the base,
 marked for sampling.
 
@@ -1460,7 +1460,7 @@ Every subcommand takes the investor slug.
   a batch number in context that disk already knows.
 - **Exactly one rebuild is scheduled**, after the recall probe. The
   standing rule that the base is not rebuilt mid-run still holds; the
-  rebuild is the one step that moves `not_member` rows into `excluded.csv`
+  rebuild is the one step that moves `not_member` rows into `excluded.json`
   and lands recall additions. After it, one `prepare` re-emits the delta
   (new rows, and any need still open) and the grind finishes it.
   Rebuilding at any other point costs a re-prepare and a renumbered queue

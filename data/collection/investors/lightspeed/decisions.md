@@ -91,4 +91,4 @@ class-wide rule rather than a row fix.
 
 Verdicts live in `base-verification.json` and are re-applied on every
 rebuild; human verdicts (`who: "erik"`) outrank agent verdicts; excluded
-rows are preserved in `excluded.csv`, never deleted.
+rows are preserved in `excluded.json`, never deleted.

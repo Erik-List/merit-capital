@@ -56,7 +56,7 @@ restated for this book (ruling 13, `config.json` `verify.shape`).
 ### 2. Result
 
 **155 published rows** — 22 Tier A / 84 Tier B / 49 Tier C — every row a
-ledger member; **18 `not_member` rows** in `excluded.csv` (Shopify and
+ledger member; **18 `not_member` rows** in `excluded.json` (Shopify and
 Amazon 2026 public purchases, Thrive Holdings acquisitions, ex-partner
 seats, namesake filers, LP vehicles). Ledger 179 verdicts. Eight
 identity merges (Mulberry Health = Oscar, Degree = Lattice, TherapyMatch
@@ -249,7 +249,7 @@ context reset mid-run. Machine time ~6 h wall-clock for the whole run.
 
 ### 13. Artifacts
 
-`base.csv` / `base.json` (155), `excluded.csv` (18), `base-verification.json`
+`base.csv` / `base.json` (155), `excluded.json` (18), `base-verification.json`
 (179), `classification.json`, `resolved.json`, `golden.json`,
 `identity-merges.json`, `decisions.md` (rulings 1–13), `config.json`,
 `investor.json` + `investor.sources.json`, `review.html` (served and

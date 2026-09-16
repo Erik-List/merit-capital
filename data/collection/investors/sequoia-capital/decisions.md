@@ -4,7 +4,7 @@ Applies the membership rules of `../../COLLECTION.md` to Sequoia. The judge
 cites these rulings per line; all confirmed by Erik, 2026-08-13.
 
 1. **Firm boundary**: "Sequoia" means the US/EU venture funds. China/India
-   desk deals leave via the desk partition into `excluded.csv` (reason
+   desk deals leave via the desk partition into `excluded.json` (reason
    `other_desk`).
    Sequoia Heritage is a different entity. Public-market buys by the
    crossover vehicles are not venture outcomes.
@@ -40,4 +40,4 @@ cites these rulings per line; all confirmed by Erik, 2026-08-13.
 
 Verdicts live in `base-verification.json` and are re-applied on every
 rebuild; human verdicts (`who: "erik"`) outrank agent verdicts; excluded
-rows are preserved in `excluded.csv` (reason `not_member`), never deleted.
+rows are preserved in `excluded.json` (reason `not_member`), never deleted.

@@ -1143,13 +1143,13 @@ def verify_base(rows: list[dict], investor: str, problems: list[str],
             problems.append(f"own-vehicle appears as a company: {own[:5]}")
 
     if P.excluded.exists():
-        onames = {r["name"].lower() for r in csv.DictReader(open(P.excluded))
+        onames = {r["name"].lower() for r in json.loads(P.excluded.read_text())
                   if r.get("reason") == "other_desk"}
         overlap = names & onames
         if overlap:
             problems.append(f"row in both base and other-desk: {sorted(overlap)[:5]}")
     else:
-        problems.append("excluded.csv missing")
+        problems.append("excluded.json missing")
 
     gap = [r["name"] for r in rows if r["edgar_forms"] and not r.get("edgar_links")]
     if gap:

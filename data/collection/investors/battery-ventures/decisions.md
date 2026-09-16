@@ -106,7 +106,7 @@ review.
      happens to file under Buyout) **stays in the base** as a normal
      Growth entry.
   4. A row that meets it leaves the published base, preserved in
-     `excluded.csv`, and every round-describing column (`entry_stage`,
+     `excluded.json`, and every round-describing column (`entry_stage`,
      entry valuation, the C2A cohort) is meaningless for it and is not
      authored.
 
@@ -175,7 +175,7 @@ message rather than blocking the run:
    for the tooling session while siblings are in flight. So control rows
    land as ledger `not_member` verdicts whose basis sentence names the
    control test, which is lossless for counting and for the report, and
-   lossy only in `excluded.csv`'s reason column. See R1.
+   lossy only in `excluded.json`'s reason column. See R1.
 2. **Whether Battery's buyout book should be excluded at all** is a
    consequence of a rule Erik has already confirmed, applied here for the
    first time. The run applies it and reports the venture and control
@@ -192,7 +192,7 @@ Class-wide, and a workaround recorded rather than hidden. A row ruled a
 control position is written to the ledger as `not_member`, `who: "agent"`,
 with a basis sentence that opens **"control position:"** and states the
 evidence (majority stake, change of control, or the firm's own wording).
-`excluded.csv` will therefore show it under reason `not_member` rather than
+`excluded.json` will therefore show it under reason `not_member` rather than
 `control_position` until the build emits the fourth code. The prefix makes
 the class exactly countable from the ledger for the report, and re-labelling
 them later is a one-line filter. Flagged for review.

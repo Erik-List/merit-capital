@@ -22,7 +22,7 @@ session-to-session.
 
 **886 published rows** — 776 Tier A / 49 Tier B / 61 Tier C — every row
 an affirmed **member** (0 uncertain), plus **115 not_member rows**
-preserved in `excluded.csv`. Ledger: 1,015 verdicts (14 orphaned keys
+preserved in `excluded.json`. Ledger: 1,015 verdicts (14 orphaned keys
 from slug canonicalization, expected). Published verdicts by evidence
 class: 819 site_listing, 35 formd_adjudicated, 21 fund_filing, 11 web
 (recall additions); by author: 840 evidence-class seeds, 46 judge
@@ -314,7 +314,7 @@ flat rows, sample chip = 63 stratified rows incl. every recall
 addition, judged Director-pattern members, auto-seeded oddballs
 (Amerigroup, Gentle Dental), Atoms and alias rows), `base.csv` (871
 rows, classification columns carrying only flagged deterministic
-pre-fills pending PRO-65), `excluded.csv` (76), `golden.json` (the
+pre-fills pending PRO-65), `excluded.json` (76), `golden.json` (the
 pre-registered key + 21/21 pass), `base-verification.json` (947
 verdicts + 11 recall additions). `verify --base-only` is **clean**.
 Corrections in chat are recorded class-wide as `who: "erik"` ledger
@@ -328,7 +328,7 @@ verdicts. Ingestion stays gated on Erik's explicit approval
 | `base.json` / `base.csv` | Evidence layer / merged published surface (871 rows) |
 | `base-verification.json` | Durable verdict ledger (947 verdicts + 11 recall additions) |
 | `identity-merges.json` | 24 merge groups, 3 never-merge pairs |
-| `excluded.csv` | 76 not_member rows, preserved |
+| `excluded.json` | 76 not_member rows, preserved |
 | `golden.json` | Membership trap set + pre-registered key (stage set: PRO-65) |
 | `decisions.md` | 9 rulings (7 confirmed at kickoff incl. Erik's Atoms ruling; #8 Meritech + #9 Erasmic agent-standing, flagged for review) |
 | `entities.json` | 181-entity vehicle registry |
