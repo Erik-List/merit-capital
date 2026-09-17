@@ -155,7 +155,7 @@ Benchling, Rightway, Capsule, Airbyte, Stytch (17 `stale` rows in all).
   $1.25B private, Plaid $6.1B, xDOF private, Loft $2.9B private) — a16z
   needs a re-ingest of those rows.
 
-### 6. The C2A sentence
+### 6. The C2A sentence (superseded by §15, 2026-09-16)
 
 Of the 43 seed entries, 27 have a verified graduation leg: 26 raised a
 Series A or later, 1 (Tutorspree) did not. The other 16 carry
@@ -328,3 +328,57 @@ the web-search budget is a run constraint the A/B pass must be planned
 around; (5) base-shape guards are investor properties. Recommendation:
 keep the merged shape for Creandum, Cherry and YC; their three-issue
 templates can collapse to one issue each.
+
+### 15. C2A re-judged under the status contract (2026-09-16, the pilot investor)
+
+`seed_to_a_graduation` became a judged status (`graduated | not_graduated
+| censored | undetermined`, COLLECTION.md §6) after the coverage audit
+found the column had never been queued for judgment. Thrive went first.
+
+**Method.** `migrate-graduation` kept 3 cited graduations, dropped 48
+legacy values (model-sourced, uncited, or the Form D layer's own verdicts)
+and removed 16 `cohort_unverified` flags; `prepare` queued the 44 re-opened
+Seed rows; one judge batch answered them (73 web calls), confirming the
+Form D layer on 3 rows and overturning it on 2 (Zola: $25M Series C, Dec
+2016, Business Wire; Grailed: $15M Series A, Jun 2018, Index's own post).
+Invariant 5 then demanded the entry-stage leg on 13 decided rows whose
+Seed label rested on model knowledge: 4 cited (Retro, Maisonette, Modern
+Life, Fabric), 5 re-staged because the citation first names Thrive at a
+later round (Mesh Optical and xDOF at the Series A, Folio at the A, Pace
+and Fora at Growth; `entry_date` moved to that round, medium confidence, a
+seed seat undocumented rather than excluded), 4 left undetermined because
+no page ties Thrive to the seed (Forus, GroupMe, Milewise, Fortell).
+
+| seed entries | censored | undetermined | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|---|
+| 42 | 3 | 11 | 28 | 26 | 2 | 92.9% | 71.8% |
+
+Of 42 seed entries, 3 were too recent to count (Doji 2025-05, Neon
+2024-11, Ellis 2026-07); of the 39 whose record could be sought, 28 were
+established (72% coverage) and 92.9% of those graduated — the establishable
+set skews toward visible successes. The two "no"s: Clay (Form D absence
+52 months after the 2021 entry, identity uncertain, medium confidence) and
+Tutorspree (shut down Sep 2013, TechCrunch; absence checked 2026-09-16).
+Undetermined (11): Formal, Rent App, Specter, Vetcove, Advocate, Geneva
+(later filings never reach 2× the $14.2M entry; Bumble's acquisition is
+not a no because the seed was not the last round), Kickstarter (the 2021
+a16z deal was a tender, not a primary round), Forus, GroupMe, Milewise,
+Fortell (Wired and Forbes refused the fetch; worth citing by hand).
+
+Notes corrected on the way: Modern Life's Series A is Nov 2025, not Jul
+2023; Console's seed was reported 2025-06, not 2024; Fora's A was co-led
+by Heartcore and Forerunner, not Thrive. Business Wire, Forbes and Fora's
+newsroom refuse fetches (403/429), so those citations rest on titles and
+syndicated text naming round, amount and lead. Entry stages now Growth 81
+/ Series A 47 / Seed 42.
+
+`verify` is clean (links sampled) except two pre-existing cross-investor
+disagreements with Battery (Chai Discovery's stale below_1b mark against
+Thrive's $3.8B of 2026-07; Unify private vs acquired on the same as-of),
+to be aligned in Battery's own C2A pass this wave. `verify.shape`
+`c2a_rate_max` stays 1.00 with its note restated for the new instrument.
+
+For Erik: Milewise's membership rests on CB Insights' exit list alone
+(the seed's investor list in TechCrunch omits Thrive) — a membership
+question, not a graduation one; and the five re-staged rows are worth a
+glance, since a Seed seat may exist that no page records.
