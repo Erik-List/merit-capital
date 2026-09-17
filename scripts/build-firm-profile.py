@@ -3,7 +3,7 @@
 
 The researched values — name, website, history, AUM, the curated fund list,
 investment stage/geo/range, notable picks — are per-investor DATA and live in
-the investor's `investor.json` (the ingest row) and `investor.sources.json`
+the investor's `investor/investor.json` (the ingest row) and `investor/sources.json`
 (per-field provenance: source URL or evidence path, basis, flags). This script
 carries none of them. What it does, keyed only by the slug:
 
@@ -41,7 +41,7 @@ formd_rounds = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(formd_rounds)
 
 # Researched fields that must already be present in investor.json, each with a
-# provenance entry in investor.sources.json. Field semantics, not values.
+# provenance entry in investor/sources.json. Field semantics, not values.
 RESEARCHED_FIELDS = [
     "name", "website", "icon_url", "founding_year", "history",
     "investment_concept", "investment_stage", "investment_geo",
@@ -214,7 +214,7 @@ def main():
                          f"field(s): {missing}")
     unsourced = [k for k in RESEARCHED_FIELDS if k not in fields]
     if unsourced:
-        raise SystemExit(f"Refusing to write: investor.sources.json missing "
+        raise SystemExit(f"Refusing to write: investor/sources.json missing "
                          f"provenance for: {unsourced}")
 
     sweep = json.loads((p.edgar / "formd-sweep.json").read_text())
@@ -321,7 +321,7 @@ def main():
         f"filings{'; unanimous' if hq_count == total else ''}. Filing-grade.")
     if focus_representative:
         fields["investment_scope"] = field(
-            scope, "base.json",
+            scope, "companies/base.json",
             "focus from the firm's own site sector tags on %d base rows, crosswalked "
             "to data/taxonomy/focus.json (crosswalk in config.json), published above "
             "%d companies. Scope type is the curated judgement carried in "

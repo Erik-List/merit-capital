@@ -157,7 +157,7 @@ West Co merge.
 
 ### 8. Firm profile
 
-`investor.json` / `investor.sources.json` built by `build-firm-profile.py`
+`investor.json` / `investor/sources.json` built by `build-firm-profile.py`
 against the landed base: HQ Boston, MA (30/30 own filings); founded 2005;
 15 funds (sizes from the closing Form Ds where filed — III, IV, Growth I–III,
 VI, IX, Growth VI — press for the $0-sold first filings); AUM
@@ -229,7 +229,7 @@ Second rebuild logged in `scratch/run-log.md`.
 (shared server http://localhost:8931/spark-capital/review.html),
 `classification.json`, `membership-ledger.json` (ledger + 11 recall
 additions), `golden.json`, `identity-merges.json`, `cross-rulings.json`,
-`investor.json`, `investor.sources.json`, `decisions.md` (D1–D12, rulings
+`investor.json`, `investor/sources.json`, `decisions.md` (D1–D12, rulings
 13–20), `config.json`; `sources/` (site, wayback, edgar incl.
 `fund-formds.json`, web); `scratch/` (queue, judgments-*.py, A/B and
 momentum records, run-log, rebuild-queue, team pages, icon dry run).

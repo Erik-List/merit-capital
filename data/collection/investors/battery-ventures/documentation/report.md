@@ -75,7 +75,7 @@ Growth-labelled ones. The base is **658 venture rows against 124 control
 rows**: the firm's venture activity is roughly **84%** of what it publishes,
 and the excluded 16% is preserved and reversible.
 
-**The profile says so.** `investor.sources.json` carries a `base_boundary`
+**The profile says so.** `investor/sources.json` carries a `base_boundary`
 field stating in plain words that the published base covers Battery's
 minority venture activity while `aum` and `funds` cover the whole adviser.
 That asymmetry is unavoidable here and is not the §1 shape it resembles:

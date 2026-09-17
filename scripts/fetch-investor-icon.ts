@@ -14,7 +14,7 @@ import {
 // investors/<slug>-<contenthash>.png, write the public URL into the
 // investor's icon_url in data/collection/investors/<slug>/investor.json and
 // the source provenance (URL, intrinsic size, artwork pixels, scale, ramp)
-// into investor.sources.json. The DB row updates through the normal ingest:
+// into investor/sources.json. The DB row updates through the normal ingest:
 //   npm run ingest:investor -- --investors name=<slug> --columns icon_url
 //
 // Normalization is not just a resize: scripts/utils/icon-normalize.ts holds
@@ -277,7 +277,7 @@ async function main() {
       (allowLowContrast ? "; published with --allow-low-contrast (brand plate accepted by Erik)" : "");
     sources.fields.icon_url = { value: iconUrl, source: sourceUrl, basis, provenance };
     writeFileSync(sPath, `${JSON.stringify(sources, null, 2)}\n`);
-    console.log(`✓ provenance in investor.sources.json`);
+    console.log(`✓ provenance in investor/sources.json`);
   }
 
   console.log(`✓ Uploaded ${objectPath} (${master.length} bytes)`);

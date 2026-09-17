@@ -393,7 +393,7 @@ Autonomous session 2, kicked off 2026-09-02 ("please execute lightspeed
 investor classification"), run base-less in parallel with the PRO-63 base
 session per COLLECTION.md §11. File ownership was declared by session
 message within minutes of detecting the parallel run: profile session owns
-`investor.json` + `investor.sources.json`, the team payloads
+`investor.json` + `investor/sources.json`, the team payloads
 (`sources/site/team.json`, `team-members.json`) and the fund filer sweep
 (`sources/edgar/fund-formds.json`); base session owns `config.json`,
 `decisions.md`, site companies extraction, the EDGAR partner sweeps, base +
@@ -452,7 +452,7 @@ hq recompute.
 
 ### Results
 
-- `investor.json` + `investor.sources.json`: every PRO-7 field populated or
+- `investor.json` + `investor/sources.json`: every PRO-7 field populated or
   explicitly null with per-field source + basis; 8 flags carried.
 - AUM {bottom: $50,005,412,721, top: $50,005,412,721}, sworn, parse-proven.
 - Funds: 15 entries, vintages 2016–2025, sorted by size — $3.28B

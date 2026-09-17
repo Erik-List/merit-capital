@@ -218,7 +218,7 @@ property of a thirty-year book, not unfinished work.
 
 ## 8. Firm profile
 
-`investor.json` + `investor.sources.json`, built against the landed base: HQ
+`investor.json` + `investor/sources.json`, built against the landed base: HQ
 Woodside, CA (20/23 own filings; the site lists San Francisco first and the
 sidecar records the discrepancy), founded 1995, **AUM $7,582,538,663** (ADV
 Section 7.B composite, 34 funds, 2026-03-24 — an ERA with no Item 5.F), 13 funds,
@@ -317,7 +317,7 @@ Top level: `config.json`, `decisions.md` (D1–D8, R1–R9), `golden.json` (33 t
 1 never-merge), `cross-rulings.json`, `entities.json` (62), `base.json` /
 `base.csv` (284), `excluded.json` (131), `classification.json`,
 `membership-ledger.json` (343 verdicts, 6 recall additions, 2 rejections),
-`resolved.json`, `review.html`, `investor.json`, `investor.sources.json`, this
+`resolved.json`, `review.html`, `investor.json`, `investor/sources.json`, this
 report. `sources/`: site (the 2010–2013 list, team, the extracted mark), wayback
 (nine parsed eras, curated roster, desk rosters), edgar (Form D sweep 313
 accessions, 62 entities, own fund filings, FTS 256 registrants, issuer rounds),

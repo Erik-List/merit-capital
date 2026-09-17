@@ -119,7 +119,7 @@ async function main() {
 
   const csvPath = new Paths(investor).base_csv;
   const csvRows = parseCsv(readFileSync(csvPath, "utf8"));
-  console.log(`Read ${csvRows.length} rows from ${investor}/base.csv`);
+  console.log(`Read ${csvRows.length} rows from ${investor}/companies/base.csv`);
   checkFreshness(investor, csvRows);
 
   const supabase = createClient<Database>(url, serviceKey);

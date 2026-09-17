@@ -56,26 +56,33 @@ class Paths:
     def __init__(self, slug: str):
         self.slug = slug
         self.root = INVESTORS / slug
-
-        # published surfaces
-        self.base_json = self.root / "base.json"          # the evidence layer
-        self.base_csv = self.root / "base.csv"            # the one merged CSV
-        self.review_html = self.root / "review.html"
-
-        # curated / durable state
-        self.decisions = self.root / "decisions.md"
-        self.report = self.root / "report.md"
-        self.golden = self.root / "golden.json"
-        self.ledger = self.root / "membership-ledger.json"
-        self.identity_merges = self.root / "identity-merges.json"
-        self.resolved = self.root / "resolved.json"
-        self.classification = self.root / "classification.json"
-        self.entities = self.root / "entities.json"
-        self.excluded = self.root / "excluded.json"       # reason: build_filter | other_desk | not_member
-        self.investor = self.root / "investor.json"       # the ingest row
-        self.investor_sources = self.root / "investor.sources.json"
+        # Three entity-level subdirectories (PRO-112); what feeds both pipelines
+        # (config.json, entities.json, sources/, scratch/) stays at the root.
+        self.investor_dir = self.root / "investor"
+        self.companies_dir = self.root / "companies"
+        self.docs_dir = self.root / "documentation"
         self.config_file = self.root / "config.json"
-        self.cross_rulings = self.root / "cross-rulings.json"  # this investor's invariant-10 rulings
+        self.entities = self.root / "entities.json"
+
+        # investor/: the firm-profile ingest row and its provenance sidecar
+        self.investor = self.investor_dir / "investor.json"
+        self.investor_sources = self.investor_dir / "sources.json"
+
+        # companies/: the Company Base, its overlays and surfaces
+        self.base_json = self.companies_dir / "base.json"          # the evidence layer
+        self.base_csv = self.companies_dir / "base.csv"            # the one merged CSV
+        self.review_html = self.companies_dir / "review.html"
+        self.golden = self.companies_dir / "golden.json"
+        self.ledger = self.companies_dir / "membership-ledger.json"
+        self.identity_merges = self.companies_dir / "identity-merges.json"
+        self.resolved = self.companies_dir / "resolved.json"
+        self.classification = self.companies_dir / "classification.json"
+        self.excluded = self.companies_dir / "excluded.json"       # reason: build_filter | other_desk | not_member
+        self.cross_rulings = self.companies_dir / "cross-rulings.json"  # this investor's invariant-10 rulings
+
+        # documentation/: the decisions file and the run report
+        self.decisions = self.docs_dir / "decisions.md"
+        self.report = self.docs_dir / "report.md"
 
         # run scratch, under scratch/: everything here regenerates, so the
         # investor's top level holds only curated inputs and published

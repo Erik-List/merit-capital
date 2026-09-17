@@ -173,7 +173,7 @@ press-visible book, not the firm's seed hit rate.
 
 ### 8. Firm profile
 
-`investor.json` + `investor.sources.json`, `build-firm-profile.py` clean
+`investor.json` + `investor/sources.json`, `build-firm-profile.py` clean
 (hq from 42/42 own Form D filings: New York, NY; 17 people, current
 cohort 2026; notable_investments asserted against ledger members;
 13 fund accessions asserted against filed sold amounts).
@@ -252,7 +252,7 @@ context reset mid-run. Machine time ~6 h wall-clock for the whole run.
 `base.csv` / `base.json` (155), `excluded.json` (18), `membership-ledger.json`
 (179), `classification.json`, `resolved.json`, `golden.json`,
 `identity-merges.json`, `decisions.md` (rulings 1–13), `config.json`,
-`investor.json` + `investor.sources.json`, `review.html` (served and
+`investor.json` + `investor/sources.json`, `review.html` (served and
 checked: rows flat, profile panel expands), `sources/` (job board, EDGAR
 sweeps, ADV-derived fund roster, curated partner roster and team),
 `scratch/` (gate, layers, queue batches, run-log, verified-median,

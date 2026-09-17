@@ -342,7 +342,7 @@ verdicts. Ingestion stays gated on Erik's explicit approval
 
 Autonomous session 2, run base-less in parallel with PRO-62 per §11, then
 re-asserted three times the same day as the base landed, rebuilt, and
-refreshed. Output: `investor.json` + `investor.sources.json` (every field
+refreshed. Output: `investor.json` + `investor/sources.json` (every field
 populated with per-field provenance, 8 flags), rendered as the investor
 panel in the merged `review.html` (886 rows + profile). Taxonomy gate:
 **0 errors, 1 warning** (`Oceania`, the site's own region label; geo is

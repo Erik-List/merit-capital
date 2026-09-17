@@ -53,7 +53,7 @@ the old shape.
 ## 1. Investor-specific decisions
 
 Each investor gets one decisions file next to its base:
-`data/collection/investors/<slug>/decisions.md`. The judge cites its rulings
+`data/collection/investors/<slug>/documentation/decisions.md`. The judge cites its rulings
 per line; once a ruling is written there, no further approval is needed
 before verdicts write. The file is not a restatement of the standing rules
 below — it is their **derivation** for this investor's facts, plus the
@@ -1712,7 +1712,7 @@ end.
 Every field here answers a question about the firm, not its portfolio,
 and the profile is **step 7 of the same run**: built once, after the base
 has landed and the grind is complete, by the same session. Output is the
-investor's `investor.json` plus `investor.sources.json`, one source entry
+investor's `investor.json` plus `investor/sources.json`, one source entry
 per field; every field populated or explicitly null, through the taxonomy
 gate, onto the review surface.
 
@@ -1729,7 +1729,7 @@ reader sees:
 - **Adviser-registration and filing vocabulary.** CRD numbers, "exempt
   reporting adviser", "relying adviser", Form ADV, Form D, Item 5.F, Schedule
   D, CIK, EDGAR. These establish the firm boundary and they are load-bearing,
-  but they belong in `investor.sources.json`, under the `aum` and boundary
+  but they belong in `investor/sources.json`, under the `aum` and boundary
   bases, where the next session and Erik can check them. A reader wants to know
   the firm is one partnership, not its CRD.
 - **This pipeline's own vocabulary.** "base", "this project's book", "the
@@ -1770,7 +1770,7 @@ over the local bulk zips, so there is no fund file to shape. Two standing
 traps: a fund entry carrying an `accession` is asserted against
 `TOTALAMOUNTSOLD` on that filing and the build fails on mismatch, so a fund
 whose latest Form D reports `$0 sold` must carry no accession; and the
-`fields` of `investor.sources.json` each need a `value` mirroring
+`fields` of `investor/sources.json` each need a `value` mirroring
 `investor.json`, which is what the verifier actually reads.
 
 Built after the base, `build-firm-profile.py` runs its base-bound checks
@@ -1911,7 +1911,7 @@ Field recipes, learned on Sequoia and a16z:
   (`<link rel=icon>`, apple-touch-icon, manifest icons, og:image, logo
   `<img>`s, inline logo SVGs) with intrinsic sizes and a verdict; take the
   vector or the largest raster, never the first favicon. Every publish
-  writes **provenance** into `investor.sources.json` (`fields.icon_url.
+  writes **provenance** into `investor/sources.json` (`fields.icon_url.
   provenance`: source URL, format, intrinsic size, artwork pixels in
   source and master, scale, ramp), and `--allow-upscale` is the only way
   past the rules — logged in that provenance. `--plate <colour>` overrides
@@ -2042,7 +2042,7 @@ checkout safe, and the etiquette that keeps it safe:
   (same schema as the shared file: `distinct`, `accepted`, `same`); `verify`
   merges them at read time. The shared file is written only at alignment.
 - **Review surface.** One server, the `review-surface` launch entry on 8931,
-  serves every slug at `/<slug>/review.html`.
+  serves every slug at `/<slug>/companies/review.html`.
 - **Alignment once per wave**, on main, after every session in the wave has
   closed: the cross-investor invariant over all published bases, the stale
   side aligned and re-exported, the wave's playbook write-backs landed once,

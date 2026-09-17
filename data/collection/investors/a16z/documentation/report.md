@@ -260,7 +260,7 @@ verdicts. PRO-31 (classification) is unblocked on sign-off.
 
 Autonomous session 2, run base-less in parallel with PRO-30 per the issue's
 design, then recomputed once the base landed the same day. Output:
-`investor.json` + `investor.sources.json` (every field populated, per-field
+`investor.json` + `investor/sources.json` (every field populated, per-field
 provenance, 8 flags), rendered as the investor panel in the merged
 `review.html` (1,807 rows + profile). Taxonomy gate: **0 errors,
 0 warnings**. Ingest deliberately not run — it follows Erik's sign-off.

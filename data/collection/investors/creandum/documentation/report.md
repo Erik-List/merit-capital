@@ -149,7 +149,7 @@ reading (mixed-round posts) — recorded as a caveat, gate PASS.
 
 ## 5. Firm profile (§11), built once against the landed base
 
-`investor.json` + `investor.sources.json` through the builder: HQ
+`investor.json` + `investor/sources.json` through the builder: HQ
 "Stockholm, Sweden" from the firm's own Form D filings (EDGAR country code
 V7 mapped by the builder, a new EU-fund rule); AUM bottom = top =
 $4,568,130,162 (sworn 7.B gross asset values; press "$2B" and the firm's own

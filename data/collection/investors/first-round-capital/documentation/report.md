@@ -215,7 +215,7 @@ first-time investor requires (§9).
   reached, edge ramp 0.74 px against the 2 px ceiling, contrast 19.6:1 against
   the 3:1 floor, box 72% and radius 80% inside the keyline. The mark is a bare
   black "1" on transparency, so the normaliser synthesised the white plate.
-  Provenance in `investor.sources.json`.
+  Provenance in `investor/sources.json`.
 - **`ingest-investor.ts`** upserted 1 institutional row.
 - **`ingest-companies.ts`** upserted **594 of 594** rows; the freshness check
   passed against the exported `base.csv`.

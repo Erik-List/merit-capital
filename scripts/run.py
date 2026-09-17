@@ -22,7 +22,7 @@ Subcommands:
   review    write the read-only review.html
 
 Base and classification share one surface: `export` writes
-data/collection/investors/<slug>/base.csv with identity, membership
+data/collection/investors/<slug>/companies/base.csv with identity, membership
 verdict, evidence links and every classification column. A base that runs
 without classification just leaves those fields empty. Durable state stays in
 the overlays (membership-ledger.json, classification.json, identity-merges
@@ -1272,7 +1272,7 @@ def load_cross_rulings() -> tuple[set[frozenset], dict[frozenset, str], set[str]
     # A session rules in its own investor's cross-rulings.json (same schema)
     # and never edits the shared file, so parallel runs cannot clobber each
     # other's rulings; pairs are unordered, so either side may hold one.
-    for own_file in sorted(INVESTORS.glob("*/cross-rulings.json")):
+    for own_file in sorted(INVESTORS.glob("*/companies/cross-rulings.json")):
         own = load(own_file, {})
         for k in entries:
             entries[k] += own.get(k, [])

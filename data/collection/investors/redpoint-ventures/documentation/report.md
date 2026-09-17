@@ -343,7 +343,7 @@ for its own, but the eras between them gave neither.
 In the order COLLECTION.md §9 requires for a first-time investor:
 
 1. **Icon uploaded.** `investors/redpoint-ventures-b569a5e1a9.png`, normalized
-   from the site's own 260x260 favicon; provenance in `investor.sources.json`.
+   from the site's own 260x260 favicon; provenance in `investor/sources.json`.
 2. **`ingest-investor.ts`** — 1 row upserted.
 3. **`ingest-companies.ts`** — **412 of 412** rows upserted; the database holds
    412 for the slug and **zero orphans**.

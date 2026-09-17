@@ -19,23 +19,25 @@ investor's `config.json`.
 | `collection/shared/` | Cross-investor caches: the SEC public-float series (`sec/public-float/`), the CIK lookup table, the unicorn lists. |
 | `collection/investors/<slug>/` | Everything belonging to one investor — see below. |
 
-Inside `collection/investors/<slug>/`:
+Inside `collection/investors/<slug>/` (PRO-112: three entity-level subdirectories; what feeds both pipelines stays at the root):
 
-| File | What it is |
+| Path | What it is |
 |---|---|
-| `config.json` | The per-investor constants the scripts read: site domain and wayback era map, roster CDX patterns, EDGAR seed queries, desk rules, own-vehicle regex, focus crosswalk, verify leak lists, sample slugs. |
-| `decisions.md` | The investor-specific decisions file (COLLECTION.md §1), confirmed by Erik before anything runs. |
-| `base.json` / `base.csv` | The Company Base: `base.json` is the evidence layer (build output); `base.csv` is the one merged published surface (identity, membership verdict, evidence links, classification), derived by `run.py export` and read by `scripts/ingest-companies.ts`. |
-| `membership-ledger.json` | The durable membership verdict ledger, re-applied on every rebuild. |
-| `identity-merges.json` | Durable identity corrections (renames, rejects, desk moves, never-merge pairs). |
-| `resolved.json` / `classification.json` | The deterministic layer output and the judged classification overlay — two files by design (PRO-57): `prepare` overwrites the first wholesale, `record` merges into the second per key, and their disagreement is the audit trail. |
-| `excluded.json` | Every row partitioned out of the published base, with a `reason` column: `build_filter` (identity-overlay rejects), `other_desk` (decision-desk partition), `not_member` (verification verdicts). Preserved, never deleted. |
-| `entities.json` | The investor's own SEC vehicles (CIK → desk), one table serving role resolution, fund exclusion and lineage. |
-| `investor.json` / `investor.sources.json` | The firm-profile ingest row and its per-field provenance sidecar. Researched values live here as data; `scripts/build-firm-profile.py` recomputes the evidence-derived fields and validates the rest. |
-| `review.html` | The read-only review surface, written by `run.py review`. |
-| `report.md` / `golden.json` | The run report and the stage golden set. |
-| `sources/` | Extracted evidence snapshots (`wayback/`, `site/`, `edgar/`) that the sidecars cite. Small, and re-extraction is not deterministic, so they are kept. |
-| `scratch/` | Run scratch (`queue/`, `layer-a.json`, `layer-b.json`, `issuer-evidence.json`, `graduation-formd.json`): everything here regenerates, so the top level holds only curated inputs and published outputs. Kept on disk because layer B holds live Wikidata answers and `verify` reads layer A for the duplicate tripwire. |
+| `config.json` | The per-investor constants the scripts read: site domain and wayback era map, roster CDX patterns, EDGAR seed queries, desk rules, own-vehicle regex, focus crosswalk, verify leak lists, sample slugs, team bucket maps. |
+| `entities.json` | The investor's own SEC vehicles (CIK → desk), one table serving role resolution, fund exclusion, lineage and the profile's own-fund filings. |
+| `sources/` | Extracted evidence snapshots (`wayback/`, `site/`, `edgar/`, `web/`) that base rows and the profile sidecar cite. Small, and re-extraction is not deterministic, so they are kept. `site/team.json` is the profile's team input. |
+| `scratch/` | Run scratch (`queue/`, `layer-a.json`, `layer-b.json`, `issuer-evidence.json`, `graduation-formd.json`, `in-flight.json`): everything here regenerates. Kept on disk because layer B holds live Wikidata answers and `verify` reads layer A for the duplicate tripwire. |
+| `investor/investor.json` / `investor/sources.json` | The firm-profile ingest row and its per-field provenance sidecar. Researched values live here as data; `scripts/build-firm-profile.py` recomputes the evidence-derived fields and validates the rest. |
+| `companies/base.json` / `companies/base.csv` | The Company Base: `base.json` is the evidence layer (build output); `base.csv` is the one merged published surface (identity, membership verdict, evidence links, classification), derived by `run.py export` and read by `scripts/ingest-companies.ts`. |
+| `companies/membership-ledger.json` | The durable membership verdict ledger, re-applied on every rebuild. |
+| `companies/identity-merges.json` | Durable identity corrections (renames, rejects, desk moves, never-merge pairs). |
+| `companies/resolved.json` / `companies/classification.json` | The deterministic layer output and the judged classification overlay — two files by design (PRO-57): `prepare` overwrites the first wholesale, `record` merges into the second per key, and their disagreement is the audit trail. |
+| `companies/excluded.json` | Every row partitioned out of the published base, with a `reason` field: `build_filter` (identity-overlay rejects), `other_desk` (decision-desk partition), `not_member` (verification verdicts). Preserved, never deleted. |
+| `companies/cross-rulings.json` | This investor's cross-investor (verify invariant 10) rulings, where any exist. |
+| `companies/golden.json` | The calibration sets (membership traps, stage golden set). |
+| `companies/review.html` | The read-only review surface, written by `run.py review`. |
+| `documentation/decisions.md` | The investor-specific decisions file (COLLECTION.md §1), confirmed by Erik before anything runs. |
+| `documentation/report.md` | The run report. |
 
 ## Not tracked: bulk SEC source material
 
@@ -65,7 +67,7 @@ is produced by the pipeline: the site/wayback/roster collectors plus
 `entities.json`, `build-company-base.py <slug>` writes the base,
 `run.py prepare/record/verify/export/review --investor <slug>` runs the
 classification, and `build-firm-profile.py <slug>` assembles the profile once
-`investor.json` / `investor.sources.json` carry the researched data. Nothing
+`investor.json` / `investor/sources.json` carry the researched data. Nothing
 outside the investor's directory changes.
 
 There is no per-investor derivation step. The investor-level metrics
