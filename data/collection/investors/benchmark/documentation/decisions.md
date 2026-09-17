@@ -334,3 +334,25 @@ blocked on a confirmation.
   `in_tenure | pre_tenure | post_tenure | boundary` flag, because
   `formd_span` is year-granular and thirteen of Benchmark's rows turn on a
   boundary inside a year.
+
+- **R10 — S2A re-judged under the status contract; the cohort ceiling
+  restated** (2026-09-16, agent, class-wide). Under the 2026-09-16 contract
+  (COLLECTION.md §6) every Seed entry was re-judged with both legs cited.
+  Four of the eleven Seed rows left the cohort because the citation shows
+  Benchmark's entry at a later round (Boku and uShip Series A, Blue Hexagon
+  Series A, Stitcher Growth), and Polyvore's anchor moved to the earlier
+  unlettered round. The seven that remain all graduated, so the S2A block
+  reads 7 seed entries, 0 censored, 0 undetermined, cohort 7, rate 100%,
+  coverage 100%. `verify.shape.c2a_rate_max` is restated at 1.0 against
+  this evidence: a Series-A firm's seed book is a handful of documented
+  winners, and the app ranks no cohort under 30 rows. **Class finding for
+  the deterministic layer**: Boku's two 2009q3 offerings ($3.19M sold
+  2009-03-16 and $10.0M) are one $13M round's closes, which the step-up
+  test read as entry + graduation; a later filing in the entry's own
+  quarter is a close, not a graduation (fix proposed for `run.py`).
+  **Pre-window flag applied**: the 145 rows first seen before 2006
+  (`first_seen` is a ceiling on entry recency, R5) now carry
+  `pre_window_entry` with their model label at low confidence and
+  graduation null, per the 2026-09-07 constant; rows first seen 2006-07
+  whose notes claim an earlier entry (Prosper, Silver Peak, Zillow, Igglo,
+  ManiaTV) are left unflagged, the note being the only claim.

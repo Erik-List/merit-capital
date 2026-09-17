@@ -198,11 +198,11 @@ unknown, 22 public. **Stage:** 243 Series A, 29 Growth, 11 Seed, 1 Pre-Seed —
 the most Series-A-concentrated base this project has produced, which is what an
 equal partnership that leads first institutional rounds should look like.
 **Valuation:** 24 rows at $1B+ (8.5% of the base, well under the 20% guard), 6 at
-$10B+, 2 at $100B+ (Equinix $102.2B, Uber $154.7B). **C2A:** 10 cohort rows, 8
-graduated — 80%, and that rate is quoted with its selection bias, not as a
-finding: the cohort is tiny because Benchmark almost never enters at seed, and
-knowledge-true graduations are easier to establish than confirmed
-non-graduations.
+$10B+, 2 at $100B+ (Equinix $102.2B, Uber $154.7B). **C2A** (superseded by
+§11, 2026-09-16): 10 cohort rows, 8 graduated — 80%, and that rate is quoted
+with its selection bias, not as a finding: the cohort is tiny because
+Benchmark almost never enters at seed, and knowledge-true graduations are
+easier to establish than confirmed non-graduations.
 
 **Debt carried, all flagged:** 65 `stage_prior` (dot-com-era rows with no
 documented round), 35 `stale`, 12 `stage_uncited`, 10 `cik_weak`, 10
@@ -297,6 +297,46 @@ Plus two mechanical fixes made in this run: `wayback-pull.py`'s `listing_regex`
 now collapses internal whitespace in extracted names (a listing that wraps a name
 across source lines was publishing the newlines), and `scratch/enrich-queue.py`
 is offered as the quarter-level seat-dating step.
+
+## 11. S2A re-judged under the status contract (2026-09-16)
+
+`seed_to_a_graduation` became a judged status (`graduated | not_graduated |
+censored | undetermined`, COLLECTION.md §6). `migrate-graduation` dropped the 9
+legacy values and 3 `cohort_unverified` flags; the 11 Seed rows were re-judged
+in one batch (22 web calls) with both legs cited in the same pass.
+
+Four rows left the cohort because the citation places Benchmark's entry at a
+later round: Boku (Series A on the $13M June-2009 round, whose two 2009q3
+closes the Form D layer had read as entry plus graduation), uShip (Series A,
+June 2005, the firm's own release), Blue Hexagon (a quietly led $6M Series A,
+2019) and Stitcher (Growth: the $6M was a Series B after a 2008 Series A).
+Polyvore's anchor moved to the earlier unlettered $2.5M round, its graduation
+being the $5.6M Series B the layer had taken as the entry. LangChain and
+Legora kept their seeds with stronger citations (the companies' own seed
+posts) and graduate on cited Series As; Minerva's $25M "largest seed to date"
+graduates on its $70M Series B.
+
+| seed entries | censored | undetermined | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|---|
+| 7 | 0 | 0 | 7 | 7 | 0 | 100% | 100% |
+
+Of 7 seed entries, none was too recent and all 7 could be established, and
+all 7 graduated. A Series-A firm's seed book is a handful of documented
+winners; the rate publishes with its seed count, the app ranks no cohort
+under 30 rows, and `verify.shape.c2a_rate_max` is restated at 1.0 against
+this evidence (R10).
+
+**Pre-window flag applied** (the 2026-09-07 constant): the 145 rows first
+seen before 2006 now carry `pre_window_entry`, their model label at low
+confidence (143 rows; two cited stages keep theirs) and graduation null by
+rule. Rows first seen 2006–07 whose notes claim an earlier entry (Prosper,
+Silver Peak, Zillow, Igglo, ManiaTV) stay unflagged: the note is the only
+claim. Entry stages now Series A 246 / Growth 30 / Seed 7 / Pre-Seed 1.
+
+**Class finding**: a later filing in the entry round's own quarter is a
+second close, not a graduation; the deterministic layer read Boku's that way.
+A same-round guard for `graduation_from_formd` is proposed in `run.py`.
+`verify` is clean.
 
 ## 11. Ingest request (runs only on Erik's approval)
 

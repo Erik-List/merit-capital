@@ -1,38 +1,42 @@
 {
  "1-800-flowers": {
   "entry_stage": "Growth",
-  "entry_stage_confidence": "medium",
+  "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "note": "1-800-Flowers.com (FLWS, Nasdaq); Benchmark came in with the 1999 pre-IPO financing months before the August 1999 IPO, not at the company's founding (1976) -> Growth | A/B pass 2026-09-06: 1-800-Flowers.com (FLWS, Nasdaq) market cap $239.09M.",
+  "note": "1-800-Flowers.com (FLWS, Nasdaq); Benchmark came in with the 1999 pre-IPO financing months before the August 1999 IPO, not at the company's founding (1976) -> Growth | A/B pass 2026-09-06: 1-800-Flowers.com (FLWS, Nasdaq) market cap $239.09M. | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "1-800-flowers",
   "valuation_citation": "https://stockanalysis.com/stocks/flws/market-cap/",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_source": "web_verified",
   "valuation_usd": 239090000,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "12-entrepreneuring": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "12 Entrepreneuring, the Halsey Minor / Eric Greenberg incubator holding company; raised heavily in 2000 and was wound down in 2001. Pre-2003 entry, Series A by convention",
+  "note": "12 Entrepreneuring, the Halsey Minor / Eric Greenberg incubator holding company; raised heavily in 2000 and was wound down in 2001. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "12-entrepreneuring",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "1life-healthcare": {
   "flags": [],
@@ -61,55 +65,60 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain"
+   "identity_uncertain",
+   "pre_window_entry"
   ],
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Listed as 'Abaco' on the 1999-2003 captures with the link pointing at abacoinc.com; the row does not resolve to a company whose outcome is on the record, so status and sector are left unasserted",
+  "note": "Listed as 'Abaco' on the 1999-2003 captures with the link pointing at abacoinc.com; the row does not resolve to a company whose outcome is on the record, so status and sector are left unasserted | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "abaco-international-group",
   "status": "unknown",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "abrizio": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
   "hq_city": "Fremont",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Switch-fabric silicon; acquired by PMC-Sierra 1999 (~$400M) \u2014 the firm's 2001 list already points the row at pmc-sierra.com. Pre-2003 entry, first institutional round Series A by convention",
+  "note": "Switch-fabric silicon; acquired by PMC-Sierra 1999 (~$400M) \u2014 the firm's 2001 list already points the row at pmc-sierra.com. Pre-2003 entry, first institutional round Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "abrizio",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "accept-com": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
   "hq_city": "Palo Alto",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Online payments; acquired by Amazon 1999 \u2014 the firm's own 1999-2001 list links the row to amazon.com. Pre-2003 entry, Series A by convention",
+  "note": "Online payments; acquired by Amazon 1999 \u2014 the firm's own 1999-2001 list links the row to amazon.com. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "accept-com",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "acuitymd-inc": {
   "entry_stage": "Series A",
@@ -156,38 +165,41 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "needs_web_value"
+   "needs_web_value",
+   "pre_window_entry"
   ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_city": "San Jose",
   "hq_city_source": "model_knowledge",
-  "note": "Larry Boucher's TCP-offload/storage-acceleration company (1997); no exit and no shutdown on the record, latterly a patent-licensing operation \u2014 private at low confidence, no mark",
+  "note": "Larry Boucher's TCP-offload/storage-acceleration company (1997); no exit and no shutdown on the record, latterly a patent-licensing operation \u2014 private at low confidence, no mark | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "alacritech",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "allegis": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "San Mateo",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Allegis Corporation, partner relationship management software; acquired by Click Commerce 2003. Pre-2003 entry, Series A by convention",
+  "note": "Allegis Corporation, partner relationship management software; acquired by Click Commerce 2003. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "allegis",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "allposters-com": {
   "entry_stage": "Growth",
@@ -214,46 +226,51 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_city": "Paris",
   "hq_city_source": "model_knowledge",
   "hq_country": "FR",
   "hq_country_source": "model_knowledge",
-  "note": "Alternis SA, French web-services infrastructure; on the 2001-2002 captures and gone with the bust. On the HOME desk because it appears on the undifferentiated alphabetical list only \u2014 an early cross-border deal of the US fund rather than a Benchmark Europe row. Pre-2003 entry, Series A by convention",
+  "note": "Alternis SA, French web-services infrastructure; on the 2001-2002 captures and gone with the bust. On the HOME desk because it appears on the undifferentiated alphabetical list only \u2014 an early cross-border deal of the US fund rather than a Benchmark Europe row. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "alternis",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "alventive": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Santa Clara",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Alventive, collaborative product-design software; ceased operations with the 2001 bust. Pre-2003 entry, Series A by convention",
+  "note": "Alventive, collaborative product-design software; ceased operations with the 2001 bust. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "alventive",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "ambarella": {
   "entry_stage": "Series A",
-  "entry_stage_confidence": "medium",
+  "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "cite_pending"
+   "cite_pending",
+   "pre_window_entry"
   ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
@@ -261,14 +278,14 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Ambarella (AMBA, Nasdaq); video-compression SoCs founded 2004, Benchmark on the firm's list from the 2005 capture -> an early-round entry | A/B pass 2026-09-06: Ambarella (AMBA, Nasdaq) market cap $2.78B. | A/B pass: Ambarella's entry round is not cited. Benchmark published no announcement archive and stopped listing companies in 2013, so a $1B+ row whose round predates or postdates the searchable press is carried as explicit citation debt rather than given a manufactured citation (COLLECTION.md \u00a77). The stage itself stands on the firm's own listing year plus the round record; only the citation is missing.",
+  "note": "Ambarella (AMBA, Nasdaq); video-compression SoCs founded 2004, Benchmark on the firm's list from the 2005 capture -> an early-round entry | A/B pass 2026-09-06: Ambarella (AMBA, Nasdaq) market cap $2.78B. | A/B pass: Ambarella's entry round is not cited. Benchmark published no announcement archive and stopped listing companies in 2013, so a $1B+ row whose round predates or postdates the searchable press is carried as explicit citation debt rather than given a manufactured citation (COLLECTION.md \u00a77). The stage itself stands on the firm's own listing year plus the round record; only the citation is missing. | pre-window entry (first_seen 2005 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "ambarella",
   "valuation_citation": "https://stockanalysis.com/stocks/amba/market-cap/",
   "valuation_confidence": "high",
   "valuation_range": "1b_plus",
   "valuation_source": "web_verified",
   "valuation_usd": 2780000000,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "amplitude-inc": {
   "flags": [],
@@ -282,50 +299,57 @@
   "who": "agent-judge-pro88"
  },
  "aquifi-inc": {
+  "entry_date": "2012-03-23",
   "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "note": "Aquifi (formerly Imimtek), 3D machine vision for logistics; the business wound down in the early 2020s and the row is a suspected duplicate of imimtek",
+  "graduation_confidence": "high",
+  "graduation_source": "formd",
+  "note": "Aquifi (formerly Imimtek), 3D machine vision for logistics; the business wound down in the early 2020s and the row is a suspected duplicate of imimtek | Form D sequence: $4.12M offering sold 2012-03-23 with Bruce Dunlevie on the filing (band Seed), then $5.16M 2013q4, $12.86M 2015q2 (3.1x, the qualifying round) and $16.05M 2017q4. Verdict accepted; no press record of the rounds was sought (formd_only row).",
+  "seed_to_a_graduation": "graduated",
   "slug": "aquifi-inc",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-judge-s2a-benchmark"
  },
  "ariba": {
   "entry_stage": "Series A",
-  "entry_stage_confidence": "medium",
+  "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Sunnyvale",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "B2B commerce network; Benchmark led the 1996 first institutional round and Ariba IPO'd in 1999; acquired by SAP 2012 ($4.3B) -> band below_1b by the acquired-row convention",
+  "note": "B2B commerce network; Benchmark led the 1996 first institutional round and Ariba IPO'd in 1999; acquired by SAP 2012 ($4.3B) -> band below_1b by the acquired-row convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "ariba",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "art-com": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "note": "Art.com (formerly allposters.com); acquired by Walmart 2018 | Standing duty (\u00a78) 2026-09-06: duty 2. Same band artefact: a 1999 entry read as Seed off a 2013 Form D. Pre-2003 entry, Series A by convention, cohort nulled.",
-  "seed_to_a_graduation": null,
+  "note": "Art.com (formerly allposters.com); acquired by Walmart 2018 | Standing duty (\u00a78) 2026-09-06: duty 2. Same band artefact: a 1999 entry read as Seed off a 2013 Form D. Pre-2003 entry, Series A by convention, cohort nulled. | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "art-com",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "arteis": {
   "entry_stage": "Series A",
@@ -359,92 +383,102 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "Houston",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Luxury-goods e-tailer, IPO 1999; acquired by Global Sports/GSI Commerce 2001. Pre-2003 entry, Series A by convention",
+  "note": "Luxury-goods e-tailer, IPO 1999; acquired by Global Sports/GSI Commerce 2001. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "ashford-com",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "aspendos": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "note": "Aspendos Communications, VDSL silicon; the company did not survive the mid-2000s and the deterministic hq_country (DE) is left standing as not a queued need. Pre-2003 entry, Series A by convention",
+  "note": "Aspendos Communications, VDSL silicon; the company did not survive the mid-2000s and the deterministic hq_country (DE) is left standing as not a queued need. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2005 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "aspendos",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "atmosphere-networks": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_city": "Santa Clara",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Optical/metro networking; the firm's own 2001 list already points the row at ditechcom.com, so the assets went to Ditech Communications. Pre-2003 entry, Series A by convention",
+  "note": "Optical/metro networking; the firm's own 2001 list already points the row at ditechcom.com, so the assets went to Ditech Communications. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "atmosphere-networks",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "atrica": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_city": "San Jose",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Carrier-Ethernet transport; a US/Israeli company that sits on the HOME desk because the firm's own Silicon Valley portfolio page carries it (D4.2); acquired by Nokia Siemens Networks 2008. Pre-2003 entry, Series A by convention",
+  "note": "Carrier-Ethernet transport; a US/Israeli company that sits on the HOME desk because the firm's own Silicon Valley portfolio page carries it (D4.2); acquired by Nokia Siemens Networks 2008. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "atrica",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "avamar": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_city": "Irvine",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Avamar Technologies, data de-duplication backup; acquired by EMC 2006 (~$165M). Pre-2003 entry, Series A by convention",
+  "note": "Avamar Technologies, data de-duplication backup; acquired by EMC 2006 (~$165M). Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "avamar",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "avvo": {
   "entry_stage": "Series A",
@@ -519,6 +553,7 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_prior"
   ],
   "focus": "SaaS",
@@ -527,57 +562,58 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "IT data-intelligence software; on the firm's list 2004-2012 and dark since \u2014 no exit, no shutdown notice, so status unknown rather than a guessed defunct",
+  "note": "IT data-intelligence software; on the firm's list 2004-2012 and dark since \u2014 no exit, no shutdown notice, so status unknown rather than a guessed defunct | pre-window entry (first_seen 2004 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "blazent",
   "status": "unknown",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "blue-coat-systems": {
   "entry_stage": "Series A",
-  "entry_stage_confidence": "medium",
+  "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Security",
   "focus_source": "model",
   "hq_city": "Sunnyvale",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Founded as CacheFlow (1996), renamed Blue Coat 2002; Benchmark backed the early rounds and the row carries the CacheFlow lineage. Public 1999, taken private by Thoma Bravo 2011, acquired by Symantec 2016 ($4.65B)",
+  "note": "Founded as CacheFlow (1996), renamed Blue Coat 2002; Benchmark backed the early rounds and the row carries the CacheFlow lineage. Public 1999, taken private by Thoma Bravo 2011, acquired by Symantec 2016 ($4.65B) | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "blue-coat-systems",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "blue-hexagon-inc": {
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
-  "entry_stage_source": "model",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "entry_date": "2017-09-29",
+  "entry_stage": "Series A",
+  "entry_stage_citation": "https://techcrunch.com/2019/02/05/backed-by-benchmark-blue-hexagon-just-raised-31-million-for-its-deep-learning-cybersecurity-software/",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
+  "flags": [],
   "focus": "Security",
   "focus_source": "model",
-  "graduation_confidence": "medium",
-  "graduation_source": "model",
-  "note": "Blue Hexagon, deep-learning network threat detection; the team and technology were absorbed by Qualys in 2022 after the company wound down | Standing duty (\u00a78) 2026-09-06: duty 2 vetted and kept: Benchmark led the ~$6M seed (2018 Form D $5.93M) and Blue Hexagon wound down without a Series A \u2014 a genuine non-graduation. | Cohort leg debt flagged: the ~$6M seed is read off the 2017 Form D offering amount, not a cited announcement, and the non-graduation is an absence claim.",
-  "seed_to_a_graduation": false,
+  "note": "Blue Hexagon, deep-learning network threat detection; the team and technology were absorbed by Qualys in 2022 after the company wound down | Standing duty (\u00a78) 2026-09-06: duty 2 vetted and kept: Benchmark led the ~$6M seed (2018 Form D $5.93M) and Blue Hexagon wound down without a Series A \u2014 a genuine non-graduation. | Cohort leg debt flagged: the ~$6M seed is read off the 2017 Form D offering amount, not a cited announcement, and the non-graduation is an absence claim. | Re-staged: TechCrunch 2019-02-05 says the $31M round from Benchmark and Altimeter 'comes roughly one year after Benchmark quietly led a $6 million Series A round'; the Form D $6.03M sold 2017-09-29 is that Series A, so Benchmark entered at Series A, not a seed. The layer's not_graduated was also wrong on its own terms: the $31M 2019 round never filed a Form D. Row leaves the C2A cohort.",
+  "seed_to_a_graduation": null,
   "slug": "blue-hexagon-inc",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-judge-s2a-benchmark"
  },
  "blue-lane-technologies": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_prior"
   ],
   "focus": "Security",
@@ -586,13 +622,13 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Blue Lane Technologies, virtual-machine patch shielding; acquired by VMware 2008",
+  "note": "Blue Lane Technologies, virtual-machine patch shielding; acquired by VMware 2008 | pre-window entry (first_seen 2005 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "blue-lane-technologies",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "bo-lt": {
   "entry_stage": "Series A",
@@ -616,35 +652,43 @@
   "who": "agent-judge-pro88"
  },
  "boku": {
+  "entry_date": "2009-03-16",
+  "entry_stage": "Series A",
+  "entry_stage_citation": "https://www.retaildive.com/ex/mobilecommercedaily/boku-gets-13m-in-funding-acquires-paymo-mobillcash",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "web_verified",
   "flags": [],
   "focus": "Fintech & Payments",
   "focus_source": "model",
-  "note": "Boku Inc, mobile-payments network; listed on London's AIM (BOKU) rather than under SEC registration, so there is no public-float layer \u2014 the cap needs a web citation before the band is asserted (COLLECTION.md \u00a76, non-SEC listings) | A/B pass 2026-09-06: Boku Inc trades on London's AIM (BOKU), outside SEC registration, so no public-float layer exists and stockanalysis.com carries no LON quote. The AIM market capitalisation has run in the \u00a3450-700M range, comfortably under $1B, and no priced event above the threshold is on the record; band held at below_1b with the check recorded rather than left as an unexamined default.",
+  "note": "Boku Inc, mobile-payments network; listed on London's AIM (BOKU) rather than under SEC registration, so there is no public-float layer \u2014 the cap needs a web citation before the band is asserted (COLLECTION.md \u00a76, non-SEC listings) | A/B pass 2026-09-06: Boku Inc trades on London's AIM (BOKU), outside SEC registration, so no public-float layer exists and stockanalysis.com carries no LON quote. The AIM market capitalisation has run in the \u00a3450-700M range, comfortably under $1B, and no priced event above the threshold is on the record; band held at below_1b with the check recorded rather than left as an unexamined default. | Form D verdict disputed: the two 2009q3 offerings ($3.19M first sale 2009-03-16 and $10.0M) sum to the single $13M round announced 2009-06-16 as 'venture funding led by Benchmark Capital, with participation from Index Ventures and Khosla Ventures' (Mobile Commerce Daily), so the $10M 'graduation' is the second close of the entry round, not a later round. A $13M round led by Benchmark is not a seed by any reading; the record does not letter it, so the stage is Series A by band on the full round (medium). Row leaves the C2A cohort.",
+  "seed_to_a_graduation": null,
   "slug": "boku",
   "status": "public",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-judge-s2a-benchmark"
  },
  "bridgespan": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
   "hq_city": "Portland",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "BridgeSpan, the Blue Cross online health-insurance venture; wound down in 2001. Pre-2003 entry, Series A by convention",
+  "note": "BridgeSpan, the Blue Cross online health-insurance venture; wound down in 2001. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "bridgespan",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "brighter": {
   "entry_stage": "Series A",
@@ -692,42 +736,46 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Menlo Park",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Analytic CRM; IPO 1999, merged with Kana Communications 2001. Pre-2003 entry, Series A by convention",
+  "note": "Analytic CRM; IPO 1999, merged with Kana Communications 2001. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "broadbase-software",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "broadcom": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_uncited"
   ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "note": "Appears once, on the 2001 capture, with no other evidence layer; Benchmark was not an early Broadcom backer and the likeliest reading is the row standing in for an acquired portfolio company (Epigram, Broadcom's 1999 purchase). Kept as a listed row with the identity question recorded; raised in the report. The deterministic hq_country SG is Broadcom Inc's later domicile",
+  "note": "Appears once, on the 2001 capture, with no other evidence layer; Benchmark was not an early Broadcom backer and the likeliest reading is the row standing in for an acquired portfolio company (Epigram, Broadcom's 1999 purchase). Kept as a listed row with the identity question recorded; raised in the report. The deterministic hq_country SG is Broadcom Inc's later domicile | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "broadcom",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "business-com": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_prior"
   ],
   "focus": "Media, Gaming & Advertising",
@@ -736,32 +784,34 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Business.com B2B search and directory; sold to R.H. Donnelley 2007 ($345M), later to Resource Nation and then Purch",
+  "note": "Business.com B2B search and directory; sold to R.H. Donnelley 2007 ($345M), later to Resource Nation and then Purch | pre-window entry (first_seen 2005 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "business-com",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "bytemobile": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_city": "Santa Clara",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Mobile-network optimisation; acquired by Citrix 2012 (~$435M). Pre-2003 entry, Series A by convention",
+  "note": "Mobile-network optimisation; acquired by Citrix 2012 (~$435M). Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "bytemobile",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "c-ats-software": {
   "entry_stage": "Series A",
@@ -786,20 +836,22 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
   "hq_city": "North Andover",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "C-Port Corporation, network processors; acquired by Motorola 2000 (~$430M). Pre-2003 entry, Series A by convention",
+  "note": "C-Port Corporation, network processors; acquired by Motorola 2000 (~$430M). Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "c-port",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "cacheflow": {
   "entry_stage": "Series A",
@@ -825,20 +877,22 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_city": "Santa Clara",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Cambia Networks, optical access equipment; did not survive the 2001-2002 telecom collapse. Pre-2003 entry, Series A by convention",
+  "note": "Cambia Networks, optical access equipment; did not survive the 2001-2002 telecom collapse. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "cambia-networks",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "carbondrop-inc": {
   "flags": [],
@@ -856,39 +910,43 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "DevTools & APIs",
   "focus_source": "model",
   "hq_city": "Cupertino",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Catapulse Inc, software-development tooling (Marc Benioff-era founders); acquired by Rational Software 2001. Pre-2003 entry, Series A by convention",
+  "note": "Catapulse Inc, software-development tooling (Marc Benioff-era founders); acquired by Rational Software 2001. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "catapulse",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "cellectivity-ltd": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
   "hq_city": "London",
   "hq_city_source": "model_knowledge",
   "hq_country": "GB",
   "hq_country_source": "model_knowledge",
-  "note": "Cellectivity Ltd, mobile marketing; a UK company that sits on the HOME desk only because the undifferentiated list carries it, and the Europe desk page carries it too \u2014 the desk overlay resolves it to europe and the row is partitioned at the rebuild. Wound down in the late 2000s",
+  "note": "Cellectivity Ltd, mobile marketing; a UK company that sits on the HOME desk only because the undifferentiated list carries it, and the Europe desk page carries it too \u2014 the desk overlay resolves it to europe and the row is partitioned at the rebuild. Wound down in the late 2000s | pre-window entry (first_seen 2002 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "cellectivity-ltd",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "cerebras-systems-inc": {
   "entry_stage": "Series A",
@@ -929,20 +987,22 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
   "hq_city": "Redwood City",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Online workplace-giving platform; ceased operations in 2001 with the dot-com collapse. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Online workplace-giving platform; ceased operations in 2001 with the dot-com collapse. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "charitableway-com",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "clicker": {
   "flags": [],
@@ -996,54 +1056,58 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_prior"
   ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "On the firm's own listing for 2002-2003 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). ",
+  "note": "On the firm's own listing for 2002-2003 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit).  | pre-window entry (first_seen 2002 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "cohesiant",
   "status": "unknown",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "collabnet": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "DevTools & APIs",
   "focus_source": "model",
-  "note": "CollabNet, the Subversion company; merged with VersionOne and XebiaLabs into Digital.ai 2019-2020 | Standing duty (\u00a78) 2026-09-06: duty 2. A 2000 entry cannot be a band-derived Seed: the first filing the sweep saw is a 2010 Form D, a decade after the entry (R5). Pre-2003 entry, Series A by convention, cohort nulled.",
-  "seed_to_a_graduation": null,
+  "note": "CollabNet, the Subversion company; merged with VersionOne and XebiaLabs into Digital.ai 2019-2020 | Standing duty (\u00a78) 2026-09-06: duty 2. A 2000 entry cannot be a band-derived Seed: the first filing the sweep saw is a 2010 Form D, a decade after the entry (R5). Pre-2003 entry, Series A by convention, cohort nulled. | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "collabnet",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "comcore": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
   "hq_city": "Santa Clara",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Comcore Semiconductor; acquired by National Semiconductor 2000 \u2014 the firm's own list already points the row at national.com. Pre-2003 entry, Series A by convention",
+  "note": "Comcore Semiconductor; acquired by National Semiconductor 2000 \u2014 the firm's own list already points the row at national.com. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "comcore",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "commerce-layer-inc": {
   "flags": [],
@@ -1120,39 +1184,42 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_city": "Linthicum",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "CoreExpress, an IP-VPN carrier; filed for bankruptcy in 2001 when the telecom capital markets closed. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "CoreExpress, an IP-VPN carrier; filed for bankruptcy in 2001 when the telecom capital markets closed. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "coreexpress",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "coretet-ltd": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_prior"
   ],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
   "hq_country": "GB",
   "hq_country_source": "model_knowledge",
-  "note": "On the firm's own listing for 2002 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). A UK entity on the undifferentiated list; the desk overlay leaves it on the home desk because no desk page carries it.",
+  "note": "On the firm's own listing for 2002 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). A UK entity on the undifferentiated list; the desk overlay leaves it on the home desk because no desk page carries it. | pre-window entry (first_seen 2002 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "coretet-ltd",
   "status": "unknown",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "couchsurfing": {
   "flags": [],
@@ -1185,39 +1252,43 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Internet messaging infrastructure; IPO 1999, restructured after the 2001 accounting scandal, taken private 2013. Pre-2003 entry, Series A by convention",
+  "note": "Internet messaging infrastructure; IPO 1999, restructured after the 2001 accounting scandal, taken private 2013. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "critical-path",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "crossgain": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "DevTools & APIs",
   "focus_source": "model",
   "hq_city": "Kirkland",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Crossgain Corp (Adam Bosworth's XML company); acquired by BEA Systems 2001 \u2014 the firm's own list points the row at bea.com. Pre-2003 entry, Series A by convention",
+  "note": "Crossgain Corp (Adam Bosworth's XML company); acquired by BEA Systems 2001 \u2014 the firm's own list points the row at bea.com. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "crossgain",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "cyngn-inc": {
   "flags": [],
@@ -1270,20 +1341,22 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Security",
   "focus_source": "model",
   "hq_city": "Redwood City",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Storage security appliances; acquired by NetApp 2005 (~$272M). Pre-2003 entry, Series A by convention",
+  "note": "Storage security appliances; acquired by NetApp 2005 (~$272M). Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2003 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "decru",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "deep-cogito-inc": {
   "entry_stage": "Series A",
@@ -1423,79 +1496,87 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Online eye-care and optical retail; wound up in 2001. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Online eye-care and optical retail; wound up in 2001. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "e-dr-network",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "e-loan": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
   "hq_city": "Pleasanton",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Online lending marketplace; IPO 1999, acquired by Banco Popular 2005. Pre-2003 entry, Series A by convention",
+  "note": "Online lending marketplace; IPO 1999, acquired by Banco Popular 2005. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "e-loan",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "ebags": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "Greenwood Village",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Online luggage retailer; acquired by Samsonite 2017. Pre-2003 entry, Series A by convention",
+  "note": "Online luggage retailer; acquired by Samsonite 2017. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "ebags",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "ebay": {
   "entry_stage": "Series A",
   "entry_stage_citation": "https://www.fundinguniverse.com/company-histories/benchmark-capital-history/",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "San Jose",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "eBay (EBAY, Nasdaq); Benchmark's $6.7M 1997 first institutional round \u2014 the firm's founding win and the best-documented Series A in its record | A/B pass 2026-09-06: eBay (EBAY, Nasdaq) market cap $46.02B. | A/B pass: Bob Kagle led Benchmark's $6.7M SERIES A into eBay in 1997 for roughly 22% \u2014 the single best-performing venture investment in Silicon Valley history, worth about $5B by spring 1999.",
+  "note": "eBay (EBAY, Nasdaq); Benchmark's $6.7M 1997 first institutional round \u2014 the firm's founding win and the best-documented Series A in its record | A/B pass 2026-09-06: eBay (EBAY, Nasdaq) market cap $46.02B. | A/B pass: Bob Kagle led Benchmark's $6.7M SERIES A into eBay in 1997 for roughly 22% \u2014 the single best-performing venture investment in Silicon Valley history, worth about $5B by spring 1999. | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "ebay",
   "valuation_citation": "https://stockanalysis.com/stocks/ebay/market-cap/",
   "valuation_confidence": "high",
   "valuation_range": "10b_plus",
   "valuation_source": "web_verified",
   "valuation_usd": 46020000000,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "editopia": {
   "entry_stage": "Series A",
@@ -1568,71 +1649,78 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Emerging.com, an internet media property of the 2000 cohort; gone with the bust. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Emerging.com, an internet media property of the 2000 cohort; gone with the bust. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "emerging-com",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "employeesavings-com": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Workplace discount marketplace; ceased operations in 2001. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Workplace discount marketplace; ceased operations in 2001. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "employeesavings-com",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "encompass": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain"
+   "identity_uncertain",
+   "pre_window_entry"
   ],
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Listed as 'Encompass' across the 1999-2012 captures; the name resolves to several companies of the era and the row's identity is not established, so status and sector are left unasserted. Pre-2003 entry, Series A by convention",
+  "note": "Listed as 'Encompass' across the 1999-2012 captures; the name resolves to several companies of the era and the row's identity is not established, so status and sector are left unasserted. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "encompass",
   "status": "unknown",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "engim": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
   "hq_city": "Acton",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Engim Inc, multi-channel WLAN silicon; shut down in 2007 after failing to reach volume. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Engim Inc, multi-channel WLAN silicon; shut down in 2007 after failing to reach volume. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2004 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "engim",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "engineyard": {
   "flags": [],
@@ -1652,36 +1740,39 @@
   "entry_stage_source": "model",
   "flags": [
    "identity_uncertain",
+   "pre_window_entry",
    "stage_prior"
   ],
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "On the firm's own listing for 2000 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). A three-letter name that does not resolve.",
+  "note": "On the firm's own listing for 2000 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). A three-letter name that does not resolve. | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "ens",
   "status": "unknown",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "entrisphere": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_city": "Santa Clara",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Fiber access equipment; acquired by Ericsson 2007. Pre-2003 entry, Series A by convention",
+  "note": "Fiber access equipment; acquired by Ericsson 2007. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "entrisphere",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "enverv": {
   "entry_stage": "Series A",
@@ -1706,114 +1797,125 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
   "hq_city": "Mountain View",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Handheld prescribing for physicians; wound down in 2002. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Handheld prescribing for physicians; wound down in 2002. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "ephysician",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "epigram": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
   "hq_city": "Sunnyvale",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Home-networking silicon (HomePNA); acquired by Broadcom 1999 (~$316M). Pre-2003 entry, Series A by convention",
+  "note": "Home-networking silicon (HomePNA); acquired by Broadcom 1999 (~$316M). Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "epigram",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "epinions": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "Brisbane",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Consumer review site; merged with DealTime to form Shopping.com 2003, acquired by eBay 2005. Pre-2003 entry, Series A by convention",
+  "note": "Consumer review site; merged with DealTime to form Shopping.com 2003, acquired by eBay 2005. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "epinions",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "epoch-partners": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Online investment bank founded by Benchmark with Schwab, TD Waterhouse and Ameritrade; acquired by Goldman Sachs 2001. A fund-shaped NAME that is an operating company, so it stays in (COLLECTION.md \u00a71, fund-shaped list entries)",
+  "note": "Online investment bank founded by Benchmark with Schwab, TD Waterhouse and Ameritrade; acquired by Goldman Sachs 2001. A fund-shaped NAME that is an operating company, so it stays in (COLLECTION.md \u00a71, fund-shaped list entries) | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "epoch-partners",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "equinix": {
   "entry_stage": "Series A",
-  "entry_stage_confidence": "medium",
+  "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "cite_pending"
+   "cite_pending",
+   "pre_window_entry"
   ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
-  "note": "Equinix (EQIX, Nasdaq); Benchmark in the 1998 first institutional round of the Al Avery/Jay Adelson carrier-neutral colocation company, years before the 2000 IPO | A/B pass 2026-09-06: Equinix (EQIX, Nasdaq) market cap $102.22B. | A/B pass: Equinix's entry round is not cited. Benchmark published no announcement archive and stopped listing companies in 2013, so a $1B+ row whose round predates or postdates the searchable press is carried as explicit citation debt rather than given a manufactured citation (COLLECTION.md \u00a77). The stage itself stands on the firm's own listing year plus the round record; only the citation is missing.",
+  "note": "Equinix (EQIX, Nasdaq); Benchmark in the 1998 first institutional round of the Al Avery/Jay Adelson carrier-neutral colocation company, years before the 2000 IPO | A/B pass 2026-09-06: Equinix (EQIX, Nasdaq) market cap $102.22B. | A/B pass: Equinix's entry round is not cited. Benchmark published no announcement archive and stopped listing companies in 2013, so a $1B+ row whose round predates or postdates the searchable press is carried as explicit citation debt rather than given a manufactured citation (COLLECTION.md \u00a77). The stage itself stands on the firm's own listing year plus the round record; only the citation is missing. | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "equinix",
   "valuation_citation": "https://stockanalysis.com/stocks/eqix/market-cap/",
   "valuation_confidence": "high",
   "valuation_range": "100b_plus",
   "valuation_source": "web_verified",
   "valuation_usd": 102220000000,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "ethnic-grocer": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "Chicago",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "EthnicGrocer.com, speciality-food e-tailer; pivoted to Namaste.com and closed in 2001. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "EthnicGrocer.com, speciality-food e-tailer; pivoted to Namaste.com and closed in 2001. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "ethnic-grocer",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "eucalyptus-systems": {
   "flags": [],
@@ -1867,38 +1969,41 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_prior"
   ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "On the firm's own listing for 2002-2003 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). ",
+  "note": "On the firm's own listing for 2002-2003 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit).  | pre-window entry (first_seen 2002 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "fhp-wireless",
   "status": "unknown",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "flutter-com": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "London",
   "hq_city_source": "model_knowledge",
   "hq_country": "GB",
   "hq_country_source": "model_knowledge",
-  "note": "Person-to-person betting exchange; merged with Betfair in 2001 \u2014 the surviving business is Betfair, which sits on the partitioned Europe desk. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Person-to-person betting exchange; merged with Betfair in 2001 \u2014 the surviving business is Betfair, which sits on the partitioned Europe desk. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "flutter-com",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "fomo-labs-inc": {
   "flags": [
@@ -1938,16 +2043,17 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "note": "Benchmark and Kleiner Perkins put ~$13M into Friendster in October 2003, the company's first institutional financing; the contemporary record calls it both an A and a B, so the label is low confidence. Wound down 2015; the Wikidata country (MY) is the last-known HQ after the 2009 sale to MOL Global and is left standing",
+  "note": "Benchmark and Kleiner Perkins put ~$13M into Friendster in October 2003, the company's first institutional financing; the contemporary record calls it both an A and a B, so the label is low confidence. Wound down 2015; the Wikidata country (MY) is the last-known HQ after the 2009 sale to MOL Global and is left standing | pre-window entry (first_seen 2004 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "friendster",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "gaia-interactive": {
   "entry_stage": "Series A",
@@ -1993,21 +2099,26 @@
   "who": "agent-judge-pro88"
  },
  "gaikai": {
+  "entry_date": "2009-12-22",
   "flags": [],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
-  "note": "Cloud game streaming (David Perry); acquired by Sony 2012 ($380M)",
+  "graduation_confidence": "high",
+  "graduation_source": "formd",
+  "note": "Cloud game streaming (David Perry); acquired by Sony 2012 ($380M) | Form D sequence: $5.32M offering sold 2009-12-22 with Mitch Lasky on the filing (Game Developer 2010-01-06 reported the filing; the round is not lettered, band Seed), then $13.38M in 2010q2, the round PR Newswire (2010-05) announced as the Gaikai Series B with Benchmark participating; step-up 2.5x passes. Verdict accepted.",
+  "seed_to_a_graduation": "graduated",
   "slug": "gaikai",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-judge-s2a-benchmark"
  },
  "galyan-s-trading-company": {
   "entry_stage": "Growth",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
@@ -2016,70 +2127,76 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Sporting-goods retailer bought out of The Limited in 1995 by Freeman Spogli with Benchmark alongside; IPO 2001, acquired by Dick's Sporting Goods 2004. A buyout-scale, non-venture-round position: kept as a member on the firm's own listing, entry Growth by taxonomy, and RAISED as an open ruling \u2014 under the 2026-09-04 control-position addendum a transaction in which the firm's co-investor group takes control is out, and whether that reaches a minority co-investor in a 1995 retail LBO is Erik's boundary call, not a row fix",
+  "note": "Sporting-goods retailer bought out of The Limited in 1995 by Freeman Spogli with Benchmark alongside; IPO 2001, acquired by Dick's Sporting Goods 2004. A buyout-scale, non-venture-round position: kept as a member on the firm's own listing, entry Growth by taxonomy, and RAISED as an open ruling \u2014 under the 2026-09-04 control-position addendum a transaction in which the firm's co-investor group takes control is out, and whether that reaches a minority co-investor in a 1995 retail LBO is Erik's boundary call, not a row fix | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "galyan-s-trading-company",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "gemini-networks": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_city": "Rocky Hill",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Gemini Networks, a New England fibre overbuilder; abandoned its build and wound down in 2002. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Gemini Networks, a New England fibre overbuilder; abandoned its build and wound down in 2002. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "gemini-networks",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "genesys-telecommunications": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Daly City",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Call-centre software; IPO 1997, acquired by Alcatel 2000 ($1.5B), later Permira. Pre-2003 entry, Series A by convention",
+  "note": "Call-centre software; IPO 1997, acquired by Alcatel 2000 ($1.5B), later Permira. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1998 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "genesys-telecommunications",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "get2chip": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
   "hq_city": "San Jose",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Chip-synthesis EDA; acquired by Cadence Design Systems 2003. Pre-2003 entry, Series A by convention",
+  "note": "Chip-synthesis EDA; acquired by Cadence Design Systems 2003. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2002 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "get2chip",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "glassdoor-com": {
   "entry_stage": "Series A",
@@ -2104,32 +2221,36 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Security",
   "focus_source": "model",
-  "note": "Mobile device management, formerly Good Technology/Visto; Benchmark backed the early rounds from 2000-2001; acquired by BlackBerry 2015 ($425M). Pre-2003 entry, Series A by convention",
+  "note": "Mobile device management, formerly Good Technology/Visto; Benchmark backed the early rounds from 2000-2001; acquired by BlackBerry 2015 ($425M). Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "good-technology",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "greatentertaining-com": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Party-goods e-tailer; closed in 2001. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Party-goods e-tailer; closed in 2001. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "greatentertaining-com",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "grockit": {
   "entry_stage": "Series A",
@@ -2171,37 +2292,40 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "Madison",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Guild.com, the online fine-art and craft marketplace; the business was sold on and the site retired in the mid-2000s.",
+  "note": "Guild.com, the online fine-art and craft marketplace; the business was sold on and the site retired in the mid-2000s. | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "guild-com",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "handspring": {
   "entry_stage": "Series A",
-  "entry_stage_confidence": "medium",
+  "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "unstable"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "note": "Jeff Hawkins and Donna Dubinsky's Palm-OS handheld company; Benchmark in the 1998 first round; IPO 2000, merged into palmOne 2003 | Duty 7/9 (\u00a78) 2026-09-06: the blind 5% re-classification disagreed on three rows and every one was the same defect \u2014 a band-derived value on a row whose `entry_stage` or `status` was never queued, so the judge never saw it. Swept class-wide over all 284 rows rather than adjudicated row by row. Handspring published defunct while its own note records the 2003 MERGER into palmOne. A merger that folds a company into an acquirer is `acquired` (\u00a76), not defunct. Corrected.",
+  "note": "Jeff Hawkins and Donna Dubinsky's Palm-OS handheld company; Benchmark in the 1998 first round; IPO 2000, merged into palmOne 2003 | Duty 7/9 (\u00a78) 2026-09-06: the blind 5% re-classification disagreed on three rows and every one was the same defect \u2014 a band-derived value on a row whose `entry_stage` or `status` was never queued, so the judge never saw it. Swept class-wide over all 284 rows rather than adjudicated row by row. Handspring published defunct while its own note records the 2003 MERGER into palmOne. A merger that folds a company into an acquirer is `acquired` (\u00a76), not defunct. Corrected. | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "handspring",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "here-not-there-inc": {
   "flags": [],
@@ -2320,20 +2444,22 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
   "hq_city": "Santa Clara",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Video-compression silicon; acquired by GlobespanVirata 2000 and so into Conexant. Pre-2003 entry, Series A by convention",
+  "note": "Video-compression silicon; acquired by GlobespanVirata 2000 and so into Conexant. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "icompression",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "igglo": {
   "entry_stage": "Series A",
@@ -2377,40 +2503,45 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Campbell",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Impresse Corporation, B2B print procurement; closed in 2001. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Impresse Corporation, B2B print procurement; closed in 2001. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "impresse",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "infinera": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
-  "note": "Optical transport systems (founded 2000 as Zepton Networks); Benchmark in the early rounds from 2001-2003, on the firm's list from the 2003 capture; IPO 2007, acquired by Nokia 2025. Pre-2003 entry, Series A by convention",
+  "note": "Optical transport systems (founded 2000 as Zepton Networks); Benchmark in the early rounds from 2001-2003, on the firm's list from the 2003 capture; IPO 2007, acquired by Nokia 2025. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "infinera",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "ingenio": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_prior"
   ],
   "focus": "Media, Gaming & Advertising",
@@ -2419,13 +2550,13 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Pay-per-call advertising and the Ether marketplace; acquired by AT&T 2007",
+  "note": "Pay-per-call advertising and the Ether marketplace; acquired by AT&T 2007 | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "ingenio",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "instagram-burbn": {
   "entry_stage": "Series A",
@@ -2448,36 +2579,40 @@
   "who": "agent-judge-pro88"
  },
  "jamba-juice": {
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Smoothie retailer; Benchmark's growth position, IPO by SPAC 2006, acquired by Focus Brands 2018",
+  "note": "Smoothie retailer; Benchmark's growth position, IPO by SPAC 2006, acquired by Focus Brands 2018 | pre-window entry (first_seen 2004 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "jamba-juice",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "jamdat": {
   "entry_stage": "Series A",
-  "entry_stage_confidence": "medium",
+  "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
   "hq_city": "Los Angeles",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "JAMDAT Mobile, mobile games; Benchmark led the first round in 2000; IPO 2004, acquired by Electronic Arts 2006 ($680M)",
+  "note": "JAMDAT Mobile, mobile games; Benchmark led the first round in 2000; IPO 2004, acquired by Electronic Arts 2006 ($680M) | pre-window entry (first_seen 2004 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "jamdat",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "jasper-wireless": {
   "flags": [],
@@ -2496,7 +2631,8 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain"
+   "identity_uncertain",
+   "pre_window_entry"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
@@ -2504,13 +2640,13 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Juniper Bank, the credit-card bank founded by Richard Vague; acquired by Barclays in 2004 and became Barclaycard US. The base also carries juniper-financial, its holding company \u2014 suspected duplicate, flagged for the identity-merge file.",
+  "note": "Juniper Bank, the credit-card bank founded by Richard Vague; acquired by Barclays in 2004 and became Barclaycard US. The base also carries juniper-financial, its holding company \u2014 suspected duplicate, flagged for the identity-merge file. | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "juniper-bank",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "juniper-financial": {
   "entry_stage": "Series A",
@@ -2535,28 +2671,32 @@
  },
  "juniper-networks": {
   "entry_stage": "Series A",
-  "entry_stage_confidence": "medium",
+  "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
-  "note": "Juniper Networks; Benchmark in the 1996-1997 early rounds of Pradeep Sindhu's router company, IPO 1998 \u2014 one of the firm's two founding-era wins with eBay. Acquired by Hewlett Packard Enterprise 2025, so the standalone mark is retired",
+  "note": "Juniper Networks; Benchmark in the 1996-1997 early rounds of Pradeep Sindhu's router company, IPO 1998 \u2014 one of the firm's two founding-era wins with eBay. Acquired by Hewlett Packard Enterprise 2025, so the standalone mark is retired | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "juniper-networks",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "kana-software": {
   "entry_stage": "Series A",
-  "entry_stage_confidence": "medium",
+  "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
-  "note": "Kana Communications, customer-service software; Benchmark in the 1997-1998 first rounds, IPO 1999; merged with Broadbase 2001 and later sold on",
+  "note": "Kana Communications, customer-service software; Benchmark in the 1997-1998 first rounds, IPO 1999; merged with Broadbase 2001 and later sold on | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "kana-software",
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "keen-com": {
   "entry_stage": "Series A",
@@ -2583,20 +2723,22 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "London",
   "hq_city_source": "model_knowledge",
   "hq_country": "GB",
   "hq_country_source": "model_knowledge",
-  "note": "The European arm of Keen.com; closed with the parent's 2003 repositioning. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "The European arm of Keen.com; closed with the parent's 2003 repositioning. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "keeneurope-com",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "klip": {
   "entry_stage": "Series A",
@@ -2624,37 +2766,41 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_city": "Sunnyvale",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Peer-assisted video delivery; acquired by VeriSign 2006, spun out 2008 and acquired by Kollective. Pre-2003 entry, Series A by convention",
+  "note": "Peer-assisted video delivery; acquired by VeriSign 2006, spun out 2008 and acquired by Kollective. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "kontiki",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "langchain": {
+  "entry_date": "2023-04-04",
   "entry_stage": "Seed",
-  "entry_stage_citation": "https://sacra.com/c/langchain/",
+  "entry_stage_citation": "https://www.langchain.com/blog/announcing-our-10m-seed-round-led-by-benchmark",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [],
   "focus": "AI & Applied AI",
   "focus_source": "model",
+  "graduation_citation": "https://blog.langchain.com/langsmith-ga/",
   "graduation_confidence": "high",
-  "graduation_source": "web_verified",
+  "graduation_source": "first_party",
   "hq_city": "San Francisco",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "The LLM application framework and LangSmith observability platform; Benchmark led the $10M seed (April 2023) and Sequoia led a $25M Series A months later, which is the graduation. A later round was reported around a $1.25B valuation \u2014 press-reported and not pinned here, so the band stays below_1b until the A/B pass cites it | A/B pass 2026-09-06: aligned to Sequoia's cited row: $125M Series B at $1.25B led by IVP (2025-10-21).",
-  "seed_to_a_graduation": true,
+  "note": "The LLM application framework and LangSmith observability platform; Benchmark led the $10M seed (April 2023) and Sequoia led a $25M Series A months later, which is the graduation. A later round was reported around a $1.25B valuation \u2014 press-reported and not pinned here, so the band stays below_1b until the A/B pass cites it | A/B pass 2026-09-06: aligned to Sequoia's cited row: $125M Series B at $1.25B led by IVP (2025-10-21). | Seed: $10M led by Benchmark, announced on LangChain's own blog 2023-04-04 (replaces the sacra.com stage citation). Graduation: the $25M Series A led by Sequoia Capital, announced on the company's blog with LangSmith GA (February 2024); Sequoia's base carries the same A. No Form D on file for either round.",
+  "seed_to_a_graduation": "graduated",
   "slug": "langchain",
   "status": "private",
   "valuation_citation": "https://techcrunch.com/2025/10/21/open-source-agentic-startup-langchain-hits-1-25b-valuation",
@@ -2662,17 +2808,22 @@
   "valuation_range": "1b_plus",
   "valuation_source": "web_verified",
   "valuation_usd": 1250000000,
-  "who": "agent-judge-pro88"
+  "who": "agent-judge-s2a-benchmark"
  },
  "legora-inc": {
+  "entry_date": "2024-05",
   "entry_stage": "Seed",
-  "entry_stage_citation": "https://legora.com/blog/series-b",
-  "entry_stage_confidence": "medium",
+  "entry_stage_citation": "https://sifted.eu/articles/benchmark-ai-legaltech-leya-news",
+  "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [],
   "focus": "AI & Applied AI",
   "focus_source": "model",
-  "note": "R4/R5: the band's stage rests on the FIRST FILING THE SWEEP SAW, which for this firm runs years after the entry \u2014 the gate scored the band 7/16 \u2014 so the stage is re-authored here. Benchmark backed Legora's $10.5M SEED, not the $80M Series B that ICONIQ and General Catalyst led in May 2025 at a $675M post-money \u2014 the band read the Series B filing as a Growth entry, which is the exact failure the gate measured. The 2026 filing at $600M suggests a much larger round; the band is not raised without a cited figure | A/B pass 2026-09-06: aligned to Accel's and Cherry's cited rows: $550M Series D at $5.55B post (2026-03-20). Benchmark's entry remains the seed.",
+  "graduation_citation": "https://www.businesswire.com/news/home/20240717535543/en/Leya-Secures-25-Million-in-Series-A-Funding-to-Augment-Legal-Work-with-AI-Led-by-Redpoint-Ventures",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
+  "note": "R4/R5: the band's stage rests on the FIRST FILING THE SWEEP SAW, which for this firm runs years after the entry \u2014 the gate scored the band 7/16 \u2014 so the stage is re-authored here. Benchmark backed Legora's $10.5M SEED, not the $80M Series B that ICONIQ and General Catalyst led in May 2025 at a $675M post-money \u2014 the band read the Series B filing as a Growth entry, which is the exact failure the gate measured. The 2026 filing at $600M suggests a much larger round; the band is not raised without a cited figure | A/B pass 2026-09-06: aligned to Accel's and Cherry's cited rows: $550M Series D at $5.55B post (2026-03-20). Benchmark's entry remains the seed. | Seed: $10.5M led by Benchmark into Leya (now Legora), reported by Sifted and Artificial Lawyer in mid-May 2024 (replaces the series-b blog as the stage citation, which names Benchmark only as an existing investor). Graduation: the $25M Series A led by Redpoint Ventures with existing investor Benchmark, Business Wire 2024-07-17; the Form D sequence starts only at the $80M Series B (2025-05-19). Entry 28 months before today, so not censored.",
+  "seed_to_a_graduation": "graduated",
   "slug": "legora-inc",
   "status": "private",
   "valuation_citation": "https://tech.eu/2026/04/23/legora-makes-second-acquisition-in-two-months/",
@@ -2680,41 +2831,44 @@
   "valuation_range": "1b_plus",
   "valuation_source": "web_verified",
   "valuation_usd": 5550000000,
-  "who": "agent-judge-pro88"
+  "who": "agent-judge-s2a-benchmark"
  },
  "linden-lab": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
-  "note": "Linden Research, maker of Second Life; Benchmark in the early rounds from the 2000s. Bought by an investor group led by Randy Waterfield and Brad Oberwager in 2020 \u2014 a change of control, so the row reads acquired and the standalone mark is retired",
+  "note": "Linden Research, maker of Second Life; Benchmark in the early rounds from the 2000s. Bought by an investor group led by Randy Waterfield and Brad Oberwager in 2020 \u2014 a change of control, so the row reads acquired and the standalone mark is retired | pre-window entry (first_seen 2005 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "linden-lab",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "liquid-systems": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_prior"
   ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "On the firm's own listing for 2005 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). ",
+  "note": "On the firm's own listing for 2005 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit).  | pre-window entry (first_seen 2005 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "liquid-systems",
   "status": "unknown",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "liveops": {
   "entry_stage": "Series A",
@@ -2737,37 +2891,40 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "Austin",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Living.com, online home furnishings; shut down in August 2000, one of the first big dot-com failures. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Living.com, online home furnishings; shut down in August 2000, one of the first big dot-com failures. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "living-com",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "logoworks": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_prior"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "note": "Crowdsourced logo and identity design; acquired by Hewlett-Packard 2007",
+  "note": "Crowdsourced logo and identity design; acquired by Hewlett-Packard 2007 | pre-window entry (first_seen 2005 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "logoworks",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "loudcloud": {
   "entry_stage": "Series A",
@@ -2794,20 +2951,22 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_city": "Petaluma",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Mahi Networks, multiservice optical switching; merged into Meriton Networks in 2005 and the combined company was wound down. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | Duty 7/9 (\u00a78) 2026-09-06: the blind 5% re-classification disagreed on three rows and every one was the same defect \u2014 a band-derived value on a row whose `entry_stage` or `status` was never queued, so the judge never saw it. Swept class-wide over all 284 rows rather than adjudicated row by row. Mahi Networks merged into Meriton Networks in 2005; the later wind-down of the combined company is Meriton's outcome, not Mahi's. Corrected from defunct to acquired.",
+  "note": "Mahi Networks, multiservice optical switching; merged into Meriton Networks in 2005 and the combined company was wound down. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | Duty 7/9 (\u00a78) 2026-09-06: the blind 5% re-classification disagreed on three rows and every one was the same defect \u2014 a band-derived value on a row whose `entry_stage` or `status` was never queued, so the judge never saw it. Swept class-wide over all 284 rows rather than adjudicated row by row. Mahi Networks merged into Meriton Networks in 2005; the later wind-down of the combined company is Meriton's outcome, not Mahi's. Corrected from defunct to acquired. | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "mahi-networks",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "maniatv-networks": {
   "entry_stage": "Series A",
@@ -2877,39 +3036,43 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
   "hq_city": "Santa Clara",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Three-dimensional one-time-programmable memory; acquired by SanDisk 2006 (~$250M). Pre-2003 entry, Series A by convention",
+  "note": "Three-dimensional one-time-programmable memory; acquired by SanDisk 2006 (~$250M). Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "matrix-semiconductor",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "mazu-networks": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Security",
   "focus_source": "model",
   "hq_city": "Cambridge",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Network behaviour analysis for DDoS and insider threat; acquired by Riverbed Technology 2009. Pre-2003 entry, Series A by convention",
+  "note": "Network behaviour analysis for DDoS and insider threat; acquired by Riverbed Technology 2009. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "mazu-networks",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "mercor-io-corp": {
   "entry_stage": "Series A",
@@ -2947,25 +3110,27 @@
   "who": "agent-judge-pro88"
  },
  "minerva-project-inc": {
+  "entry_date": "2012-03-26",
   "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
-  "entry_stage_source": "model",
+  "entry_stage_citation": "https://techcrunch.com/2012/04/03/minerva-gets-25m-from-benchmark/",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
   "flags": [
-   "cohort_unverified",
    "unstable"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "graduation_confidence": "medium",
-  "graduation_source": "model",
-  "note": "Minerva Project, the reinvented undergraduate university; Benchmark led the $25M seed in 2012, Kevin Harvey on the board. Still operating; no credible recent primary mark | Duty 7/9 (\u00a78) 2026-09-06: the blind 5% re-classification disagreed on three rows and every one was the same defect \u2014 a band-derived value on a row whose `entry_stage` or `status` was never queued, so the judge never saw it. Swept class-wide over all 284 rows rather than adjudicated row by row. Minerva published Series A off the band while the round the firm actually led was the $25M SEED of 2012, reported at the time as the largest seed ever raised. The label follows what the record calls the round, not the check size (\u00a76). Corrected to Seed, which puts the row in the C2A cohort; the $70M follow-on is the graduation, carried as an unverified leg.",
-  "seed_to_a_graduation": true,
+  "graduation_citation": "https://www.prnewswire.com/news-releases/minerva-project-announces-70-million-in-additional-funding-279245742.html",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
+  "note": "Minerva Project, the reinvented undergraduate university; Benchmark led the $25M seed in 2012, Kevin Harvey on the board. Still operating; no credible recent primary mark | Duty 7/9 (\u00a78) 2026-09-06: the blind 5% re-classification disagreed on three rows and every one was the same defect \u2014 a band-derived value on a row whose `entry_stage` or `status` was never queued, so the judge never saw it. Swept class-wide over all 284 rows rather than adjudicated row by row. Minerva published Series A off the band while the round the firm actually led was the $25M SEED of 2012, reported at the time as the largest seed ever raised. The label follows what the record calls the round, not the check size (\u00a76). Corrected to Seed, which puts the row in the C2A cohort; the $70M follow-on is the graduation, carried as an unverified leg. | Seed: TechCrunch 2012-04-03, 'Benchmark Capital made its largest seed investment to date, $25 million'; the Form D $25M sold 2012-03-26 is that round. Graduation: the $70M Series B announced by PR Newswire 2014-10-15 (TAL Education, ZhenFund, Yongjin, Benchmark returning as 'the original seed investment in 2012'), 2.8x the seed; the Form D $78.6M in 2014q4 matches.",
+  "seed_to_a_graduation": "graduated",
   "slug": "minerva-project-inc",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-judge-s2a-benchmark"
  },
  "mint": {
   "flags": [],
@@ -3060,45 +3225,50 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Electronic municipal-bond trading; closed in 2002. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Electronic municipal-bond trading; closed in 2002. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "municipaltrade-com",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "mvp-com": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "Chicago",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "MVP.com, the Gretzky/Jordan/Elway sporting-goods venture \u2014 David Beirne's deal, and the one he later said seeded the Fantex idea; sold its assets to The Sports Authority in 2001. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "MVP.com, the Gretzky/Jordan/Elway sporting-goods venture \u2014 David Beirne's deal, and the one he later said seeded the Fantex idea; sold its assets to The Sports Authority in 2001. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "mvp-com",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "mysql": {
   "entry_stage": "Growth",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_uncited"
   ],
   "focus": "Data Infrastructure",
@@ -3107,46 +3277,50 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "SE",
   "hq_country_source": "model_knowledge",
-  "note": "MySQL AB, the open-source database company; Benchmark and Index led the $19.5M round in 2003, after the company's first institutional financing, so the entry is Growth by taxonomy. Acquired by Sun Microsystems 2008 ($1B) and so into Oracle. The row sits on the HOME desk because the firm's own post-split 2010-2013 list carries it (decisions.md D4.1), although Benchmark Europe was also in the deal; last-known HQ Uppsala, Sweden",
+  "note": "MySQL AB, the open-source database company; Benchmark and Index led the $19.5M round in 2003, after the company's first institutional financing, so the entry is Growth by taxonomy. Acquired by Sun Microsystems 2008 ($1B) and so into Oracle. The row sits on the HOME desk because the firm's own post-split 2010-2013 list carries it (decisions.md D4.1), although Benchmark Europe was also in the deal; last-known HQ Uppsala, Sweden | pre-window entry (first_seen 2004 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "mysql",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "nanosolar": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Climate & Energy",
   "focus_source": "model",
-  "note": "Thin-film CIGS solar; Benchmark in the early rounds from 2004; the company wound down in 2013 after failing to reach cost parity",
+  "note": "Thin-film CIGS solar; Benchmark in the early rounds from 2004; the company wound down in 2013 after failing to reach cost parity | pre-window entry (first_seen 2004 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "nanosolar",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "netigy": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "San Jose",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Netigy Corporation, a network consultancy that scaled to 1,200 staff and collapsed in 2001. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Netigy Corporation, a network consultancy that scaled to 1,200 staff and collapsed in 2001. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "netigy",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "netxen": {
   "entry_stage": "Series A",
@@ -3217,6 +3391,7 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
@@ -3225,32 +3400,34 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "The 1999 carve-out of Nordstrom's online business, funded by Benchmark and Madrona alongside the parent; folded back into Nordstrom in 2002. A corporate carve-out rather than a startup round \u2014 Growth by taxonomy. Pre-2003 entry",
+  "note": "The 1999 carve-out of Nordstrom's online business, funded by Benchmark and Madrona alongside the parent; folded back into Nordstrom in 2002. A corporate carve-out rather than a startup round \u2014 Growth by taxonomy. Pre-2003 entry | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "nordstrom-com",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "northpoint-communications": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "DSL wholesaler; IPO 1999, filed for Chapter 11 in January 2001 after the Verizon deal collapsed and sold its assets to AT&T. Pre-2003 entry, Series A by convention",
+  "note": "DSL wholesaler; IPO 1999, filed for Chapter 11 in January 2001 after the Verizon deal collapsed and sold its assets to AT&T. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "northpoint-communications",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "northstar": {
   "entry_stage": "Series A",
@@ -3258,17 +3435,18 @@
   "entry_stage_source": "model",
   "flags": [
    "identity_uncertain",
+   "pre_window_entry",
    "stage_prior"
   ],
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Listed as 'Northstar' on the 2004-2008 captures; the name is shared by many companies and the row does not resolve to a specific operating entity, so status and sector are left unasserted",
+  "note": "Listed as 'Northstar' on the 2004-2008 captures; the name is shared by many companies and the row does not resolve to a specific operating entity, so status and sector are left unasserted | pre-window entry (first_seen 2004 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "northstar",
   "status": "unknown",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "numeral-two-inc": {
   "flags": [],
@@ -3298,50 +3476,55 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "Emeryville",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Online photo printing; acquired by Eastman Kodak 2001 and rebranded Kodak Gallery. Pre-2003 entry, Series A by convention",
+  "note": "Online photo printing; acquired by Eastman Kodak 2001 and rebranded Kodak Gallery. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "ofoto",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "opentable": {
   "entry_stage": "Series A",
-  "entry_stage_confidence": "medium",
+  "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "note": "Restaurant reservations; Benchmark in the early rounds around 2000, on the firm's list from the 2001 capture; IPO 2009, acquired by Priceline 2014 ($2.6B) \u2014 the standalone mark is retired. Pre-2003 entry",
+  "note": "Restaurant reservations; Benchmark in the early rounds around 2000, on the firm's list from the 2001 capture; IPO 2009, acquired by Priceline 2014 ($2.6B) \u2014 the standalone mark is retired. Pre-2003 entry | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "opentable",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "opsware": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain"
+   "identity_uncertain",
+   "pre_window_entry"
   ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
-  "note": "Opsware IS the renamed Loudcloud (2002), which the base also carries as its own row \u2014 suspected duplicate, flagged for the identity-merge file. Acquired by Hewlett-Packard 2007 ($1.6B). Pre-2003 entry via Loudcloud, Series A by convention",
+  "note": "Opsware IS the renamed Loudcloud (2002), which the base also carries as its own row \u2014 suspected duplicate, flagged for the identity-merge file. Acquired by Hewlett-Packard 2007 ($1.6B). Pre-2003 entry via Loudcloud, Series A by convention | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "opsware",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "optimizely-inc": {
   "entry_stage": "Series A",
@@ -3364,38 +3547,41 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_prior"
   ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "On the firm's own listing for 2003 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). ",
+  "note": "On the firm's own listing for 2003 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit).  | pre-window entry (first_seen 2003 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "oxygen-software",
   "status": "unknown",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "pedestal-networks": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_city": "San Jose",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Pedestal Networks, remote DSL access multiplexers; its assets were sold to Zhone Technologies in 2007. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Pedestal Networks, remote DSL access multiplexers; its assets were sold to Zhone Technologies in 2007. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2003 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "pedestal-networks",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "peixe-urbano": {
   "entry_stage": "Series A",
@@ -3439,20 +3625,22 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Los Angeles",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Outsourced customer care with Philippine delivery centres; IPO 2004, acquired by Essar 2008 ($250M). Pre-2003 entry, Series A by convention",
+  "note": "Outsourced customer care with Philippine delivery centres; IPO 2004, acquired by Essar 2008 ($250M). Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "peoplesupport",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "picarro": {
   "entry_stage": "Series A",
@@ -3460,36 +3648,39 @@
   "entry_stage_source": "model",
   "flags": [
    "needs_web_value",
+   "pre_window_entry",
    "stage_prior"
   ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "note": "Cavity ring-down spectroscopy instruments for greenhouse-gas and methane sensing; on the firm's list from 2003 and still operating independently, no credible recent primary mark",
+  "note": "Cavity ring-down spectroscopy instruments for greenhouse-gas and methane sensing; on the firm's list from 2003 and still operating independently, no credible recent primary mark | pre-window entry (first_seen 2003 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "picarro",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "picturevision": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "Herndon",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "PhotoNet online photo service; acquired by Eastman Kodak 2000. Pre-2003 entry, Series A by convention",
+  "note": "PhotoNet online photo service; acquired by Eastman Kodak 2000. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "picturevision",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "pipewise": {
   "entry_stage": "Series A",
@@ -3514,20 +3705,22 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
   "hq_city": "South San Francisco",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Online pharmacy; IPO 1999, collapsed with the dot-com bust and ceased operations in 2001. Pre-2003 entry, Series A by convention",
+  "note": "Online pharmacy; IPO 1999, collapsed with the dot-com bust and ceased operations in 2001. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "planetrx",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "playfab-inc": {
   "flags": [],
@@ -3542,22 +3735,32 @@
   "who": "agent-judge-pro88"
  },
  "polyvore": {
+  "entry_date": "2008",
+  "entry_stage": "Seed",
+  "entry_stage_citation": "https://techcrunch.com/?p=93158",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "web_verified",
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "note": "Fashion collage and shopping community; Peter Fenton's Form D seats 2009-2012, in tenure; acquired by Yahoo 2015 and shut down by Verizon Media in 2018",
+  "graduation_citation": "https://techcrunch.com/?p=93158",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
+  "note": "Fashion collage and shopping community; Peter Fenton's Form D seats 2009-2012, in tenure; acquired by Yahoo 2015 and shut down by Verizon Media in 2018 | Form D anchor disputed: the layer's entry ($5.6M, 2009-08-17) is the $5.6M Series B led by Matrix Partners 'alongside previous investors Benchmark Capital and Harrison Metal' (TechCrunch 2009-08-18); Benchmark's entry was the earlier $2.5M first round from Benchmark, Harrison Metal, Reid Hoffman and Nirav Tolia, unlettered in the record and Seed by band (medium); Benchmark's site listed Polyvore by 2009-01-06, so the entry is 2008 (site ceiling, R5). Graduation: the $5.6M Series B of August 2009, >= max(2x $2.5M, $5M).",
+  "seed_to_a_graduation": "graduated",
   "slug": "polyvore",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-judge-s2a-benchmark"
  },
  "potbelly-sandwich-works": {
   "entry_stage": "Growth",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
@@ -3566,30 +3769,32 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Sandwich chain; Benchmark's Bob Kagle backed the 2001-2003 expansion capital of an already-operating restaurant business rather than a startup round \u2014 Growth by taxonomy. IPO 2013; the deterministic layer's 'acquired' is left standing as the last recorded corporate event",
+  "note": "Sandwich chain; Benchmark's Bob Kagle backed the 2001-2003 expansion capital of an already-operating restaurant business rather than a startup round \u2014 Growth by taxonomy. IPO 2013; the deterministic layer's 'acquired' is left standing as the last recorded corporate event | pre-window entry (first_seen 2003 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "potbelly-sandwich-works",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "proofpoint": {
   "entry_stage": "Series A",
-  "entry_stage_confidence": "medium",
+  "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Security",
   "focus_source": "model",
   "hq_city": "Sunnyvale",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Email security (Eric Hahn, a Benchmark venture partner of the era, founded it); Benchmark in the 2002-2004 early rounds, on the firm's list from the 2004 capture; IPO 2012, taken private by Thoma Bravo 2021 ($12.3B) \u2014 an acquisition, so the standalone mark is retired",
+  "note": "Email security (Eric Hahn, a Benchmark venture partner of the era, founded it); Benchmark in the 2002-2004 early rounds, on the firm's list from the 2004 capture; IPO 2012, taken private by Thoma Bravo 2021 ($12.3B) \u2014 an acquisition, so the standalone mark is retired | pre-window entry (first_seen 2004 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "proofpoint",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "prosper": {
   "entry_stage": "Series A",
@@ -3639,20 +3844,22 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "DevTools & APIs",
   "focus_source": "model",
   "hq_city": "Tel Aviv",
   "hq_city_source": "model_knowledge",
   "hq_country": "IL",
   "hq_country_source": "model_knowledge",
-  "note": "Qlusters, open-source systems management (openQRM); ceased operations in 2008. A US/Israeli company that sits on the home desk because the Silicon Valley portfolio page carries it. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Qlusters, open-source systems management (openQRM); ceased operations in 2008. A US/Israeli company that sits on the home desk because the Silicon Valley portfolio page carries it. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2003 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "qlusters",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "quip-inc": {
   "entry_stage": "Series A",
@@ -3692,20 +3899,22 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
   "hq_city": "San Jose",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Raza Foundries, Atiq Raza's fabless-semiconductor incubator holding company; wound down after the 2001 bust. The operating successor is Raza Microelectronics. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Raza Foundries, Atiq Raza's fabless-semiconductor incubator holding company; wound down after the 2001 bust. The operating successor is Raza Microelectronics. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "raza-foundries",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "raza-microelectronics": {
   "entry_stage": "Series A",
@@ -3748,17 +3957,19 @@
  },
  "red-hat": {
   "entry_stage": "Series A",
-  "entry_stage_confidence": "medium",
+  "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "DevTools & APIs",
   "focus_source": "model",
-  "note": "Red Hat Software; Benchmark in the 1998 institutional round before the August 1999 IPO \u2014 the firm's own 1999 alphabetical list carries it as 'Red Hat Software'. Acquired by IBM 2019 ($34B), so the standalone mark is retired",
+  "note": "Red Hat Software; Benchmark in the 1998 institutional round before the August 1999 IPO \u2014 the firm's own 1999 alphabetical list carries it as 'Red Hat Software'. Acquired by IBM 2019 ($34B), so the standalone mark is retired | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "red-hat",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "red-robot": {
   "entry_stage": "Series A",
@@ -3806,20 +4017,22 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Usenet and online-community service (formerly Supernews); acquired by Critical Path 1999. Pre-2003 entry, Series A by convention",
+  "note": "Usenet and online-community service (formerly Supernews); acquired by Critical Path 1999. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "remarq-communities",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "researchgate": {
   "flags": [
@@ -3844,20 +4057,22 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "Palo Alto",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Respond.com, a request-for-quote marketplace; closed in 2002. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Respond.com, a request-for-quote marketplace; closed in 2002. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "respond-com",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "revinate-inc": {
   "flags": [],
@@ -3912,35 +4127,41 @@
   "who": "agent-judge-pro88"
  },
  "robocorp-technologies-inc": {
+  "entry_date": "2019-10-15",
   "flags": [],
   "focus": "DevTools & APIs",
   "focus_source": "model",
-  "note": "Robocorp, open-source robotic process automation in Python; acquired by Sema4.ai in 2024",
+  "graduation_confidence": "high",
+  "graduation_source": "formd",
+  "note": "Robocorp, open-source robotic process automation in Python; acquired by Sema4.ai in 2024 | Form D sequence: $5.65M offering sold 2019-10-15 with Peter Fenton on the filing (band Seed), $5.65M again 2020q2, then $21.0M in 2021q3 (3.7x, the qualifying round). Verdict accepted.",
+  "seed_to_a_graduation": "graduated",
   "slug": "robocorp-technologies-inc",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-judge-s2a-benchmark"
  },
  "routescience": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_city": "Menlo Park",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "RouteScience Technologies, route-optimisation appliances; acquired by Avaya in 2004.",
+  "note": "RouteScience Technologies, route-optimisation appliances; acquired by Avaya in 2004. | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "routescience",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "ruba": {
   "entry_stage": "Series A",
@@ -3998,90 +4219,98 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "note": "Scient Corporation, the internet consultancy; Benchmark backed the 1997-1998 expansion of an already-scaled services business, IPO 1999, merged with iXL in 2001 and the successor was wound down. The Wikidata country (JP) reflects a later namesake and is left standing as it is not a queued need \u2014 the operating company was San Francisco",
+  "note": "Scient Corporation, the internet consultancy; Benchmark backed the 1997-1998 expansion of an already-scaled services business, IPO 1999, merged with iXL in 2001 and the successor was wound down. The Wikidata country (JP) reflects a later namesake and is left standing as it is not a queued need \u2014 the operating company was San Francisco | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "scient",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "secureall-systems": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_prior"
   ],
   "focus": "Security",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "On the firm's own listing for 2004 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). ",
+  "note": "On the firm's own listing for 2004 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit).  | pre-window entry (first_seen 2004 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "secureall-systems",
   "status": "unknown",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "securify": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Security",
   "focus_source": "model",
   "hq_city": "Cupertino",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Network security policy monitoring; sold to Kavado/Secure Computing 2008 and so into McAfee. Pre-2003 entry, Series A by convention",
+  "note": "Network security policy monitoring; sold to Kavado/Secure Computing 2008 and so into McAfee. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2003 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "securify",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "send-com": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Send.com, an online gift retailer; closed in 2001. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Send.com, an online gift retailer; closed in 2001. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "send-com",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "sendwine-com": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "Boston",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Sendwine.com, wine gifting; folded into Geerlings & Wade and retired in 2001. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Sendwine.com, wine gifting; folded into Geerlings & Wade and retired in 2001. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "sendwine-com",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "servicesource": {
   "entry_stage": "Growth",
@@ -4103,72 +4332,80 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_city": "Sunnyvale",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Broadband subscriber management; acquired by Nortel Networks 1999 ($340M). Pre-2003 entry, Series A by convention",
+  "note": "Broadband subscriber management; acquired by Nortel Networks 1999 ($340M). Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "shasta-networks",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "shopping-com": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "note": "Shopping.com, formed from the 2003 DealTime/Epinions merger \u2014 Benchmark's position descends from its Epinions entry (1999-2000), so the entry is that early round rather than the merged company's. IPO 2004, acquired by eBay 2005 ($620M)",
+  "note": "Shopping.com, formed from the 2003 DealTime/Epinions merger \u2014 Benchmark's position descends from its Epinions entry (1999-2000), so the entry is that early round rather than the merged company's. IPO 2004, acquired by eBay 2005 ($620M) | pre-window entry (first_seen 2004 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "shopping-com",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "sigma-networks": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_city": "San Jose",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Sigma Networks, metro optical transport for carriers; ceased operations in 2002. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Sigma Networks, metro optical transport for carriers; ceased operations in 2002. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "sigma-networks",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "silicon-gaming": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
   "hq_city": "Palo Alto",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Odyssey interactive slot machines; IPO 1996, restructured through bankruptcy in 2001 and its assets were bought by International Game Technology. Pre-2003 entry, Series A by convention",
+  "note": "Odyssey interactive slot machines; IPO 1996, restructured through bankruptcy in 2001 and its assets were bought by International Game Technology. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "silicon-gaming",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "silver-peak": {
   "entry_stage": "Series A",
@@ -4216,39 +4453,43 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
   "hq_city": "San Jose",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Assisted-GPS for handsets; acquired by Qualcomm 2000 (~$1B in stock). Pre-2003 entry, Series A by convention",
+  "note": "Assisted-GPS for handsets; acquired by Qualcomm 2000 (~$1B in stock). Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "snaptrack",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "sparks-com": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Sparks.com, online greeting cards; shut down in 2001 and its assets went to Hallmark. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Sparks.com, online greeting cards; shut down in 2001 and its assets went to Hallmark. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "sparks-com",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "spodtronic": {
   "entry_stage": "Series A",
@@ -4306,43 +4547,42 @@
   "who": "agent-judge-pro88"
  },
  "stitcher": {
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
-  "entry_stage_source": "model",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "entry_date": "2010-03-24",
+  "entry_stage": "Growth",
+  "entry_stage_citation": "https://techcrunch.com/2010/04/06/stitcher-benchmark-6-million",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
+  "flags": [],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
-  "graduation_confidence": "medium",
-  "graduation_source": "model",
-  "note": "Stitcher, the podcast platform; Bob Kagle's Form D seats 2010-2014, in tenure; acquired by Deezer 2014, then Scripps 2016, then SiriusXM 2020, and the app was retired in 2023 | Standing duty (\u00a78) 2026-09-06: duty 2 vetted and kept: Bob Kagle's Form D seat dates from Stitcher's 2010 seed and the company was sold to Deezer in 2014 without a round twice the entry \u2014 a genuine non-graduation, not a censored row. | Cohort leg debt flagged: the seed entry rests on Bob Kagle's 2010 Form D seat rather than a cited seed announcement, and the non-graduation is an absence claim over 2010-2014 \u2014 neither leg is document-verified, so the row carries cohort_unverified rather than counting as a clean cohort member.",
-  "seed_to_a_graduation": false,
+  "note": "Stitcher, the podcast platform; Bob Kagle's Form D seats 2010-2014, in tenure; acquired by Deezer 2014, then Scripps 2016, then SiriusXM 2020, and the app was retired in 2023 | Standing duty (\u00a78) 2026-09-06: duty 2 vetted and kept: Bob Kagle's Form D seat dates from Stitcher's 2010 seed and the company was sold to Deezer in 2014 without a round twice the entry \u2014 a genuine non-graduation, not a censored row. | Cohort leg debt flagged: the seed entry rests on Bob Kagle's 2010 Form D seat rather than a cited seed announcement, and the non-graduation is an absence claim over 2010-2014 \u2014 neither leg is document-verified, so the row carries cohort_unverified rather than counting as a clean cohort member. | Re-staged: TechCrunch 2010-04-06 names Benchmark's $6M round as a Series B ('a $6 million Series B ... led by Benchmark Capital') following a $2.7M Series A in 2008, so Benchmark first entered at Series B (Growth in the taxonomy), not a seed; the Form D $6.0M sold 2010-03-24 is that round. Row leaves the C2A cohort; the layer's not_graduated is moot.",
+  "seed_to_a_graduation": null,
   "slug": "stitcher",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-judge-s2a-benchmark"
  },
  "sun-hill-software": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_prior"
   ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "On the firm's own listing for 2004 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). ",
+  "note": "On the firm's own listing for 2004 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit).  | pre-window entry (first_seen 2004 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "sun-hill-software",
   "status": "unknown",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "supergreat-inc": {
   "flags": [],
@@ -4378,16 +4618,17 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_prior"
   ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "note": "Tabula Inc, three-dimensional programmable logic (Spacetime architecture); the company shut down in 2015 after failing to reach production yields",
+  "note": "Tabula Inc, three-dimensional programmable logic (Spacetime architecture); the company shut down in 2015 after failing to reach production yields | pre-window entry (first_seen 2005 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "tabula",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "telecommunications-labs": {
   "entry_stage": "Series A",
@@ -4413,38 +4654,41 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "AI & Applied AI",
   "focus_source": "model",
   "hq_city": "Mountain View",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Tellme Networks, voice application platform (Mike McCue, Angus Davis); Benchmark in the 1999 first round; acquired by Microsoft 2007 (~$800M). Pre-2003 entry, Series A by convention",
+  "note": "Tellme Networks, voice application platform (Mike McCue, Angus Davis); Benchmark in the 1999 first round; acquired by Microsoft 2007 (~$800M). Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "tellme",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "terracotta": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Terracotta Inc, in-memory data management for Java (Ehcache, BigMemory); acquired by Software AG 2011 | Standing duty (\u00a78) 2026-09-06: duty 2. Entry 2005, first swept filing 2009. Series A, cohort nulled.",
-  "seed_to_a_graduation": null,
+  "note": "Terracotta Inc, in-memory data management for Java (Ehcache, BigMemory); acquired by Software AG 2011 | Standing duty (\u00a78) 2026-09-06: duty 2. Entry 2005, first swept filing 2009. Series A, cohort nulled. | pre-window entry (first_seen 2005 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "terracotta",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "timescale-inc": {
   "entry_stage": "Series A",
@@ -4470,39 +4714,43 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "New York",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "TradeOut.com, the B2B surplus-asset exchange; merged with Bid4Assets and its marketplace was absorbed by eBay's business unit in 2002.",
+  "note": "TradeOut.com, the B2B surplus-asset exchange; merged with Bid4Assets and its marketplace was absorbed by eBay's business unit in 2002. | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "tradeout-com",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "transparent-networks": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_city": "Santa Clara",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Transparent Networks, all-optical switching; shut down in 2002 when the optical market collapsed. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Transparent Networks, all-optical switching; shut down in 2002 when the optical market collapsed. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "transparent-networks",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "travelpost": {
   "entry_stage": "Series A",
@@ -4529,36 +4777,39 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Security",
   "focus_source": "model",
   "hq_city": "Redwood Shores",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "TriStrata Security, enterprise encryption; ceased operations in 2001. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "TriStrata Security, enterprise encryption; ceased operations in 2001. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "tristrata-security",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "tropos-networks": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
-  "note": "Metro-scale Wi-Fi mesh networking; Bill Gurley's Form D seat 2009, in tenure; acquired by ABB 2012 | Standing duty (\u00a78) 2026-09-06: duty 2. Entry 2004, first swept filing 2009 \u2014 the Seed label is the band reading a late filing (R5). Series A, cohort nulled.",
-  "seed_to_a_graduation": null,
+  "note": "Metro-scale Wi-Fi mesh networking; Bill Gurley's Form D seat 2009, in tenure; acquired by ABB 2012 | Standing duty (\u00a78) 2026-09-06: duty 2. Entry 2004, first swept filing 2009 \u2014 the Seed label is the band reading a late filing (R5). Series A, cohort nulled. | pre-window entry (first_seen 2004 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "tropos-networks",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "trover": {
   "entry_stage": "Series A",
@@ -4585,20 +4836,22 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_city": "Santa Clara",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "DSL loop-management hardware; IPO 2000, wound itself up and returned cash to shareholders in 2004 after the CLEC market collapsed. Pre-2003 entry, Series A by convention",
+  "note": "DSL loop-management hardware; IPO 2000, wound itself up and returned cash to shareholders in 2004 after the CLEC market collapsed. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "turnstone-systems",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "twin-creeks-technologies": {
   "entry_stage": "Series A",
@@ -4678,38 +4931,41 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_prior"
   ],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "On the firm's own listing for 2001 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). ",
+  "note": "On the firm's own listing for 2001 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit).  | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "undoo",
   "status": "unknown",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "unicru": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Beaverton",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Unicru, pre-hire assessment and hourly-workforce screening; acquired by Kronos in 2006.",
+  "note": "Unicru, pre-hire assessment and hourly-workforce screening; acquired by Kronos in 2006. | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "unicru",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "upwork-inc": {
   "entry_stage": "Series A",
@@ -4734,94 +4990,106 @@
   "who": "agent-judge-pro88"
  },
  "uship": {
+  "entry_date": "2005-06",
+  "entry_stage": "Series A",
+  "entry_stage_citation": "https://about.uship.com/press-release/uship-secures-series-a-funding-from-benchmark-capital/",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
   "flags": [
    "needs_web_value"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "note": "uShip, the shipping marketplace (Austin); Bob Kagle's Form D seats 2011-2017, in tenure; still operating and private, no credible recent primary mark",
+  "note": "uShip, the shipping marketplace (Austin); Bob Kagle's Form D seats 2011-2017, in tenure; still operating and private, no credible recent primary mark | Form D anchor disputed: Benchmark's site listed uShip from 2006 and uShip's own press release 'uShip Secures Series A Funding from Benchmark Capital' (June 2005, Bob Kagle joining the board) dates the entry to a 2005 Series A, four filings before the sweep's first electronic Form D ($4.05M, 2011-01-24), which is a later round. Row leaves the C2A cohort.",
+  "seed_to_a_graduation": null,
   "slug": "uship",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-judge-s2a-benchmark"
  },
  "vayusphere": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_prior"
   ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "On the firm's own listing for 2001-2002 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). ",
+  "note": "On the firm's own listing for 2001-2002 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit).  | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "vayusphere",
   "status": "unknown",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "vcommerce-com": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "Scottsdale",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Vcommerce, outsourced e-commerce operations; acquired by Digital River in 2010.",
+  "note": "Vcommerce, outsourced e-commerce operations; acquired by Digital River in 2010. | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "vcommerce-com",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "visionary-design-systems": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Santa Clara",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Visionary Design Systems, a Pro/ENGINEER reseller and PLM services firm; acquired by Rand Technologies in 2000.",
+  "note": "Visionary Design Systems, a Pro/ENGINEER reseller and PLM services firm; acquired by Rand Technologies in 2000. | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "visionary-design-systems",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "vivecon": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_prior"
   ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "On the firm's own listing for 2003-2006 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). Vivecon, supply-chain risk software.",
+  "note": "On the firm's own listing for 2003-2006 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). Vivecon, supply-chain risk software. | pre-window entry (first_seen 2003 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "vivecon",
   "status": "unknown",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "vivox": {
   "entry_stage": "Series A",
@@ -4844,39 +5112,43 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Security",
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Data loss prevention; acquired by Symantec 2007 ($350M). Pre-2003 entry, Series A by convention",
+  "note": "Data loss prevention; acquired by Symantec 2007 ($350M). Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2003 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "vontu",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "vstore-com": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Vstore, white-label online storefronts; folded in 2001. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence.",
+  "note": "Vstore, white-label online storefronts; folded in 2001. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "vstore-com",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "vudu": {
   "entry_stage": "Series A",
@@ -4932,18 +5204,19 @@
   "entry_stage_source": "model",
   "flags": [
    "model_disputes_source",
+   "pre_window_entry",
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Webvan Group, online grocery; Benchmark was in the late-1990s pre-IPO financing of an already heavily capitalised company \u2014 Growth by taxonomy. IPO 1999, Chapter 11 in July 2001. The Wikidata country is a glitch and is not a queued need | A/B pass 2026-09-06: HQ CORRECTION: the deterministic layer emitted 'North Korea', which is not even a valid ISO code and fails the source gate. Webvan Group was Foster City, California.",
+  "note": "Webvan Group, online grocery; Benchmark was in the late-1990s pre-IPO financing of an already heavily capitalised company \u2014 Growth by taxonomy. IPO 1999, Chapter 11 in July 2001. The Wikidata country is a glitch and is not a queued need | A/B pass 2026-09-06: HQ CORRECTION: the deterministic layer emitted 'North Korea', which is not even a valid ISO code and fails the source gate. Webvan Group was Foster City, California. | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "webvan",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "wework-companies-inc": {
   "entry_stage": "Series A",
@@ -4966,39 +5239,43 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "When.com, the web calendar; acquired by AOL 1999. Pre-2003 entry, Series A by convention",
+  "note": "When.com, the web calendar; acquired by AOL 1999. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "when-com",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "wink-communications": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
   "hq_city": "Alameda",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Interactive-television software; IPO 1999, acquired by Liberty Broadband/OpenTV 2002. Pre-2003 entry, Series A by convention",
+  "note": "Interactive-television software; IPO 1999, acquired by Liberty Broadband/OpenTV 2002. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "wink-communications",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "wix": {
   "entry_stage": "Growth",
@@ -5028,96 +5305,104 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
   "hq_city": "Newton",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "WorldWinner, skill-gaming for cash; acquired by Liberty Media's FUN Technologies 2007 and folded into Game Show Network. Pre-2003 entry, Series A by convention",
+  "note": "WorldWinner, skill-gaming for cash; acquired by Liberty Media's FUN Technologies 2007 and folded into Game Show Network. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2003 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "worldwinner",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "xantel": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_prior"
   ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "On the firm's own listing for 1999 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). ",
+  "note": "On the firm's own listing for 1999 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit).  | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "xantel",
   "status": "unknown",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "xignal-ag": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
   "hq_city": "Munich",
   "hq_city_source": "model_knowledge",
   "hq_country": "DE",
   "hq_country_source": "model_knowledge",
-  "note": "Xignal Technologies AG, continuous-time sigma-delta converters; its assets were sold to National Semiconductor in 2005. A German company that also appears on the Europe desk page, so the desk overlay partitions it at the rebuild. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | Duty 7/9 (\u00a78) 2026-09-06: the blind 5% re-classification disagreed on three rows and every one was the same defect \u2014 a band-derived value on a row whose `entry_stage` or `status` was never queued, so the judge never saw it. Swept class-wide over all 284 rows rather than adjudicated row by row. Xignal's converter business and team went to National Semiconductor in 2005 and continued there \u2014 an asset sale in which the business survives reads `acquired` (the Cherry insolvency rule). Corrected from defunct.",
+  "note": "Xignal Technologies AG, continuous-time sigma-delta converters; its assets were sold to National Semiconductor in 2005. A German company that also appears on the Europe desk page, so the desk overlay partitions it at the rebuild. Pre-2003 entry; the first institutional round is Series A by convention (COLLECTION.md \u00a76), low confidence. | Duty 7/9 (\u00a78) 2026-09-06: the blind 5% re-classification disagreed on three rows and every one was the same defect \u2014 a band-derived value on a row whose `entry_stage` or `status` was never queued, so the judge never saw it. Swept class-wide over all 284 rows rather than adjudicated row by row. Xignal's converter business and team went to National Semiconductor in 2005 and continued there \u2014 an asset sale in which the business survives reads `acquired` (the Cherry insolvency rule). Corrected from defunct. | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "xignal-ag",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "xoomsys": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "pre_window_entry",
    "stage_prior"
   ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "On the firm's own listing for 2005-2008 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). Xoomsys, parallel-database software.",
+  "note": "On the firm's own listing for 2005-2008 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). Xoomsys, parallel-database software. | pre-window entry (first_seen 2005 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "xoomsys",
   "status": "unknown",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "xylo": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "Bellevue",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Xylo Inc, employee work-life services; acquired by Symphony Services in 2005.",
+  "note": "Xylo Inc, employee work-life services; acquired by Symphony Services in 2005. | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "xylo",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "yelp": {
   "flags": [],
@@ -5196,7 +5481,6 @@
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "note": "Zillow; Bill Gurley's board seat from the 2005-2006 early rounds. The deterministic 'acquired' is the 2015 Trulia-era reorganisation into Zillow Group and the row's standalone mark is retired accordingly; the successor Zillow Group is public and is raised in the A/B pass rather than silently re-banded | Standing duty (\u00a78) 2026-09-06: duty 2. The band called Benchmark's Zillow entry a Seed and then recorded graduation False. Both are wrong: Bill Gurley took the board seat at Zillow's 2005 first institutional round, a $32M financing that no taxonomy calls a seed. Re-authored as Series A under R4 and the cohort leg nulled, since a non-Seed entry is not in the C2A cohort at all.",
-  "seed_to_a_graduation": null,
   "slug": "zillow-com",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
@@ -5240,15 +5524,17 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "pre_window_entry"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "note": "ZipRealty, the discount online brokerage; Benchmark in the 1999-2000 rounds; IPO 2004, acquired by Realogy 2014 ($166M). Pre-2003 entry, Series A by convention",
+  "note": "ZipRealty, the discount online brokerage; Benchmark in the 1999-2000 rounds; IPO 2004, acquired by Realogy 2014 ($166M). Pre-2003 entry, Series A by convention | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
   "slug": "ziprealty",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-s2a-pass"
  },
  "zuora": {
   "flags": [],
