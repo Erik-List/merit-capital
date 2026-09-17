@@ -765,7 +765,11 @@ def main() -> None:
             # a row still called "Asayer" — so the same better_name rule the
             # near-duplicate path uses is applied here too, and the published
             # name follows the firm rather than the archive.
-            keep["name"] = better_name(keep["name"], gone["name"])
+            # ...unless the merge pins its display name: the author of a merge
+            # knows which entity the position is (Menlo's Chipcom, absorbed
+            # into a CMS row filed under the acquirer 3Com), and the
+            # longest-rendering fallback would publish the wrong one.
+            keep["name"] = m.get("name") or better_name(keep["name"], gone["name"])
             keep["notes"] = "; ".join(filter(None, [
                 keep["notes"], f"absorbed {ds} ({m['reason']})"]))
             rows_out.remove(gone)

@@ -323,6 +323,20 @@ tying the round to the firm). Absence of corroboration on a name-match is a
 `not_member` verdict, not an `uncertain` one: the base asserts membership,
 and an unsupported assertion is the defect class the judge exists to kill.
 
+**A site listing suffices unless the firm itself disclaims the position**
+(Erik, 2026-09-17, on Menlo). A company a firm lists because a partner backed
+it at a *previous* firm is not a member. Menlo's live site carried fourteen
+such historical rows (AppDynamics, DocuSign, Upstart from a partner's KPCB
+years; Smartsheet from Summit; Upwork from Globespan) with no dated milestone,
+its own team pages credit them to the prior firm, and no round names a Menlo
+fund; T4 decides it, since the money behind the seat was the other firm's.
+The signature: a listing with no milestone or date, a company too well known
+to have gone unannounced, and a partner bio that claims it elsewhere. Verdict
+`not_member` with `who: "erik"` and the team page as citation; every name
+variant and every slug of its merge group needs its own verdict, because the
+rebuild resurfaces them once the canonical leaves, and any such name in
+`verify.known_positions` moves to `verify.not_members`.
+
 One adjudicated pattern above a bare name-match (a16z, 2026-08-29): a
 **current partner as Director of record** on a Form D — the filing itself
 lists the seat, in tenure, inside the coverage window, exact distinctive
@@ -1530,7 +1544,14 @@ Every subcommand takes the investor slug.
 - **Identity duplicates are fixed upstream**, in the investor's
   `identity-merges.json`, consumed by the base build on every
   rebuild; non-canonical rows carry `duplicate_of: <canonical-slug>`, the
-  canonical carries no exclusion flag. In-run: any suspected duplicate →
+  canonical carries no exclusion flag. A merge entry may pin its display name
+  with `"name"`; without it the builder takes the better of the two
+  renderings (the live site's, then Title Case over CAPS, then the longer),
+  which on an old book can publish the acquirer or an archive spelling
+  (Menlo, 2026-09-17: Chipcom became "3com" against its own ruling). Diff
+  the names of a rebuilt base against the published one before any ingest:
+  the database upserts on (investor, name), so a renamed row would land as
+  a second company. In-run: any suspected duplicate →
   flag + note, never a silent merge. Verdicts key on slugs and merges move
   slugs: after any change to the merge file, re-check that ledger verdicts
   still attach to the intended rows — an un-merge resurrects the twin with
