@@ -87,6 +87,7 @@ CENSOR_MONTHS = 24
 STAGE_BANDS = ((1_000_000, "Pre-Seed"), (7_500_000, "Seed"), (30_000_000, "Series A"))
 GRADUATION_MULTIPLE = 2.0
 GRADUATION_FLOOR = 5_000_000
+SAME_ROUND_DAYS = 90        # closes of one round land within a quarter of each other
 
 # seed_to_a_graduation is a status, never a boolean (COLLECTION.md §6,
 # 2026-09-16). An in-window Seed entry carries exactly one of these; null is
@@ -382,6 +383,16 @@ def round_date(rnd: dict) -> str | None:
     return rnd.get("sale_date") or rnd.get("filing_date") or None
 
 
+def iso_day(iso: str | None) -> date | None:
+    """A full YYYY-MM-DD date, or None for anything less precise."""
+    if not iso or len(str(iso)) < 10:
+        return None
+    try:
+        return datetime.fromisoformat(str(iso)[:10]).date()
+    except ValueError:
+        return None
+
+
 def months_since(iso: str | None, asof: str | None = None) -> int | None:
     """Whole months from a date (YYYY, YYYY-MM or YYYY-MM-DD; a bare year or
     month reads as its first day, the earliest the entry can be) to `asof`,
@@ -455,8 +466,24 @@ def graduation_from_formd(rounds: list[dict], partner_accs: frozenset | set = fr
     entry_usd = entry["offering_usd"]
     stage = band_stage(entry_usd)
 
+    # A round closes in tranches, and each close can file its own Form D:
+    # Boku's $13M June-2009 round filed a $3.19M sale (March) and a $10.0M
+    # sale (June) three days apart, and the step-up test read the second
+    # close as a graduation (Benchmark, 2026-09-16). A later filing whose sale
+    # date sits within SAME_ROUND_DAYS of the entry's is the same round.
+    # `quarter` is the filing dataset, not the sale quarter, and cannot tell
+    # (a seed and an A filed late on one day share it), so only dates decide.
+    entry_day = iso_day(round_date(entry))
+
+    def distinct_round(r: dict) -> bool:
+        d = iso_day(round_date(r))
+        if entry_day is None or d is None:
+            return True
+        return (d - entry_day).days > SAME_ROUND_DAYS
+
     later = [r for r in priced[entry_idx + 1:]
-             if r["offering_usd"] >= max(entry_usd * GRADUATION_MULTIPLE, GRADUATION_FLOOR)]
+             if distinct_round(r)
+             and r["offering_usd"] >= max(entry_usd * GRADUATION_MULTIPLE, GRADUATION_FLOOR)]
     graduated = later[0] if later else None
 
     rec = {

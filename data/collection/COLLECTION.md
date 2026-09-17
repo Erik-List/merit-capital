@@ -1318,7 +1318,10 @@ less, so no verified tag exists — the cohort is the verified set):
 
 - `graduated`: a later priced round ≥ max(2× entry, $5M) in the company's
   own Form D sequence (`graduation_source: formd`, the accessions are the
-  citation, and the answer must agree with the layer), or a cited later
+  citation, and the answer must agree with the layer; a filing whose sale
+  date is within 90 days of the entry's is a close of the same round, not a
+  later one — Boku's $13M round filed its March and June closes separately,
+  Benchmark 2026-09-16), or a cited later
   round — the firm's own post or company page, the company's own funding
   page (`first_party`), a press release or SEC filing naming the round
   (`web_verified`) — with `graduation_citation`. A named Series A or later
