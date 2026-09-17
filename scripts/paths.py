@@ -66,7 +66,7 @@ class Paths:
         self.decisions = self.root / "decisions.md"
         self.report = self.root / "report.md"
         self.golden = self.root / "golden.json"
-        self.ledger = self.root / "base-verification.json"
+        self.ledger = self.root / "membership-ledger.json"
         self.identity_merges = self.root / "identity-merges.json"
         self.resolved = self.root / "resolved.json"
         self.classification = self.root / "classification.json"

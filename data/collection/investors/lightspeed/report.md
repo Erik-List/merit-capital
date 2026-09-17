@@ -212,7 +212,7 @@ director-pattern member, the LSIP/China boundary keeps, and every
 $10B+ pre-fill), `base.csv` (931 rows, classification columns carrying
 only flagged deterministic pre-fills pending PRO-66), `excluded.json`
 (334, preserved), `golden.json` (pre-registered key + 22/22 pass),
-`base-verification.json` (1,288 verdicts + 3 recall additions + 7
+`membership-ledger.json` (1,288 verdicts + 3 recall additions + 7
 recorded rejections). `verify --base-only` is **clean**. Corrections
 in chat are recorded class-wide as `who: "erik"` ledger verdicts.
 Ingestion stays gated on Erik's explicit approval (COLLECTION.md §9);
@@ -223,7 +223,7 @@ PRO-66 is unblocked on sign-off.
 | File | What |
 |---|---|
 | `base.json` / `base.csv` | Evidence layer / merged surface (931 rows) |
-| `base-verification.json` | 1,288 verdicts, 3 recall additions, 7 rejections |
+| `membership-ledger.json` | 1,288 verdicts, 3 recall additions, 7 rejections |
 | `identity-merges.json` | 25 merge groups |
 | `excluded.json` | 334 rows, preserved (333 not_member, 1 other_desk) |
 | `golden.json` | 22-row membership trap set, pre-registered (9efb036) |

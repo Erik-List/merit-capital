@@ -315,7 +315,7 @@ addition, judged Director-pattern members, auto-seeded oddballs
 (Amerigroup, Gentle Dental), Atoms and alias rows), `base.csv` (871
 rows, classification columns carrying only flagged deterministic
 pre-fills pending PRO-65), `excluded.json` (76), `golden.json` (the
-pre-registered key + 21/21 pass), `base-verification.json` (947
+pre-registered key + 21/21 pass), `membership-ledger.json` (947
 verdicts + 11 recall additions). `verify --base-only` is **clean**.
 Corrections in chat are recorded class-wide as `who: "erik"` ledger
 verdicts. Ingestion stays gated on Erik's explicit approval
@@ -326,7 +326,7 @@ verdicts. Ingestion stays gated on Erik's explicit approval
 | File | What |
 |---|---|
 | `base.json` / `base.csv` | Evidence layer / merged published surface (871 rows) |
-| `base-verification.json` | Durable verdict ledger (947 verdicts + 11 recall additions) |
+| `membership-ledger.json` | Durable verdict ledger (947 verdicts + 11 recall additions) |
 | `identity-merges.json` | 24 merge groups, 3 never-merge pairs |
 | `excluded.json` | 76 not_member rows, preserved |
 | `golden.json` | Membership trap set + pre-registered key (stage set: PRO-65) |

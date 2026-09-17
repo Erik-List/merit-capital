@@ -227,7 +227,7 @@ Second rebuild logged in `scratch/run-log.md`.
 
 `base.json` / `base.csv` (325 rows), `excluded.json` (46), `review.html`
 (shared server http://localhost:8931/spark-capital/review.html),
-`classification.json`, `base-verification.json` (ledger + 11 recall
+`classification.json`, `membership-ledger.json` (ledger + 11 recall
 additions), `golden.json`, `identity-merges.json`, `cross-rulings.json`,
 `investor.json`, `investor.sources.json`, `decisions.md` (D1–D12, rulings
 13–20), `config.json`; `sources/` (site, wayback, edgar incl.

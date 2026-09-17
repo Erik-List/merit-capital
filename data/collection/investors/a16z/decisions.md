@@ -41,6 +41,6 @@ cites these rulings per line; all confirmed by Erik, 2026-08-18.
    token and its company are both listed, they are one row under the
    company (Filecoin -> Protocol Labs).
 
-Verdicts live in `base-verification.json` and are re-applied on every
+Verdicts live in `membership-ledger.json` and are re-applied on every
 rebuild; human verdicts (`who: "erik"`) outrank agent verdicts; excluded
 rows are preserved in `excluded.json`, never deleted.

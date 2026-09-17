@@ -63,7 +63,7 @@ class-wide rule rather than a row fix.
    an Erasmic-only attribution with no Accel listing is not_member —
    different fund, different firm at the time.
 
-Verdicts live in `base-verification.json` and are re-applied on every
+Verdicts live in `membership-ledger.json` and are re-applied on every
 rebuild; human verdicts (`who: "erik"`) outrank agent verdicts; excluded
 rows are preserved in `excluded.json`, never deleted.
 

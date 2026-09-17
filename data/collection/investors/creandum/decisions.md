@@ -228,6 +228,6 @@ rule rather than a row fix, flagged for Erik's review.
     mechanically; on this base 34 such rows remain unchecked and are open
     debt until that sweep runs.
 
-Verdicts live in `base-verification.json` and are re-applied on every rebuild;
+Verdicts live in `membership-ledger.json` and are re-applied on every rebuild;
 human verdicts (`who: "erik"`) outrank agent verdicts; excluded rows are
 preserved in `excluded.json`, never deleted.

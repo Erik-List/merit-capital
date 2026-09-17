@@ -372,7 +372,7 @@ with no main-fund follow-on, LP positions in other funds or accelerators.
 ## 2. The verdict ledger
 
 Membership verdicts are durable, in the investor's
-`base-verification.json`: per slug a verdict
+`membership-ledger.json`: per slug a verdict
 (`member | not_member | uncertain`), `who`, an evidence class
 (`site_listing | fund_filing | formd_adjudicated | knowledge | web`), a
 basis sentence and a citation where one exists. The ledger is re-applied on

@@ -25,7 +25,7 @@ Base and classification share one surface: `export` writes
 data/collection/investors/<slug>/base.csv with identity, membership
 verdict, evidence links and every classification column. A base that runs
 without classification just leaves those fields empty. Durable state stays in
-the overlays (base-verification.json, classification.json, identity-merges
+the overlays (membership-ledger.json, classification.json, identity-merges
 .json); the CSV is derived from them in one merge step and is what
 scripts/ingest-companies.ts reads.
 
@@ -1903,7 +1903,7 @@ a:hover { text-decoration:underline; }
   Read-only. Rows stay one line; <b>click any row</b> for the full note, membership
   basis and citations. Sorted by cost of error: $1B+ claims, then layer disagreements,
   then low confidence. Corrections land as overlay edits
-  (<code>base-verification.json</code> / <code>classification.json</code>), recorded via
+  (<code>membership-ledger.json</code> / <code>classification.json</code>), recorded via
   <code>python3 scripts/run.py record</code>.
 </div>
 <div id="drawer">

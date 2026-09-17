@@ -316,7 +316,7 @@ Top level: `config.json`, `decisions.md` (D1–D8, R1–R9), `golden.json` (33 t
 25 cited stage rows), `identity-merges.json` (16 merges, 86 desk reassignments,
 1 never-merge), `cross-rulings.json`, `entities.json` (62), `base.json` /
 `base.csv` (284), `excluded.json` (131), `classification.json`,
-`base-verification.json` (343 verdicts, 6 recall additions, 2 rejections),
+`membership-ledger.json` (343 verdicts, 6 recall additions, 2 rejections),
 `resolved.json`, `review.html`, `investor.json`, `investor.sources.json`, this
 report. `sources/`: site (the 2010–2013 list, team, the extracted mark), wayback
 (nine parsed eras, curated roster, desk rosters), edgar (Form D sweep 313

@@ -89,6 +89,6 @@ class-wide rule rather than a row fix.
    independent LSVP evidence; 61 of the 65 lsip-only slugs built base
    rows through those captures and are judged under this ruling.
 
-Verdicts live in `base-verification.json` and are re-applied on every
+Verdicts live in `membership-ledger.json` and are re-applied on every
 rebuild; human verdicts (`who: "erik"`) outrank agent verdicts; excluded
 rows are preserved in `excluded.json`, never deleted.

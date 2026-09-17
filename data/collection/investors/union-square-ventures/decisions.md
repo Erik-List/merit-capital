@@ -251,7 +251,7 @@ Dated, class-wide, flagged for Erik's review; added during the run.
   (Tumblr, Flurry, Delicious), Google (FeedBurner, Firebase) are acquirers,
   never rows.
 
-Verdicts live in `base-verification.json` and are re-applied on every
+Verdicts live in `membership-ledger.json` and are re-applied on every
 rebuild; human verdicts (`who: "erik"`) outrank agent verdicts; excluded rows
 are preserved in `excluded.json`, never deleted.
 

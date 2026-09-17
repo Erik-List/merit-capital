@@ -26,7 +26,7 @@ Inside `collection/investors/<slug>/`:
 | `config.json` | The per-investor constants the scripts read: site domain and wayback era map, roster CDX patterns, EDGAR seed queries, desk rules, own-vehicle regex, focus crosswalk, verify leak lists, sample slugs. |
 | `decisions.md` | The investor-specific decisions file (COLLECTION.md §1), confirmed by Erik before anything runs. |
 | `base.json` / `base.csv` | The Company Base: `base.json` is the evidence layer (build output); `base.csv` is the one merged published surface (identity, membership verdict, evidence links, classification), derived by `run.py export` and read by `scripts/ingest-companies.ts`. |
-| `base-verification.json` | The durable membership verdict ledger, re-applied on every rebuild. |
+| `membership-ledger.json` | The durable membership verdict ledger, re-applied on every rebuild. |
 | `identity-merges.json` | Durable identity corrections (renames, rejects, desk moves, never-merge pairs). |
 | `resolved.json` / `classification.json` | The deterministic layer output and the judged classification overlay — two files by design (PRO-57): `prepare` overwrites the first wholesale, `record` merges into the second per key, and their disagreement is the audit trail. |
 | `excluded.json` | Every row partitioned out of the published base, with a `reason` column: `build_filter` (identity-overlay rejects), `other_desk` (decision-desk partition), `not_member` (verification verdicts). Preserved, never deleted. |

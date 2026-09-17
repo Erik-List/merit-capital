@@ -234,7 +234,7 @@ The membership-verified base is ready for Erik's sampling: `review.html`
 (read-only, sample chip = 18 stratified slugs incl. every uncertain row
 and each new evidence class), `base.csv` (1,798 rows, classification
 columns empty pending PRO-31), `excluded.json` (134), `golden.json` (the
-pre-registered key), `base-verification.json` (2,007 durable verdicts).
+pre-registered key), `membership-ledger.json` (2,007 durable verdicts).
 Corrections in chat are recorded class-wide as `who: "erik"` ledger
 verdicts. PRO-31 (classification) is unblocked on sign-off.
 
@@ -243,7 +243,7 @@ verdicts. PRO-31 (classification) is unblocked on sign-off.
 | File | What |
 |---|---|
 | `base.json` / `base.csv` | Evidence layer / merged published surface (1,798 rows) |
-| `base-verification.json` | Durable verdict ledger (2,007 verdicts + 23 recall additions) |
+| `membership-ledger.json` | Durable verdict ledger (2,007 verdicts + 23 recall additions) |
 | `identity-merges.json` | 30 merge groups, 2 never-merge pairs |
 | `excluded.json` | 134 not_member rows, preserved |
 | `golden.json` | Membership trap set + pre-registered key (stage set: PRO-31) |
@@ -432,7 +432,7 @@ hq_city, focus, seed_to_a_graduation, flags, note. `verify` is clean.
 - base.csv (1,722 rows, full classification columns) - the ingest surface.
 - review.html - flat rows, click drawer, flag chips (cite_pending etc.).
 - classification.json (1,795 keyed rows incl. 73 orphaned pre-rebuild keys,
-  reported by verify as info), base-verification.json (2,008 verdicts),
+  reported by verify as info), membership-ledger.json (2,008 verdicts),
   identity-merges.json (98 groups), scratch/webpass/* (agent evidence).
 
 Exit criterion: Erik's classification sample sign-off via review.html.

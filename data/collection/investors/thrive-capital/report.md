@@ -249,7 +249,7 @@ context reset mid-run. Machine time ~6 h wall-clock for the whole run.
 
 ### 13. Artifacts
 
-`base.csv` / `base.json` (155), `excluded.json` (18), `base-verification.json`
+`base.csv` / `base.json` (155), `excluded.json` (18), `membership-ledger.json`
 (179), `classification.json`, `resolved.json`, `golden.json`,
 `identity-merges.json`, `decisions.md` (rulings 1–13), `config.json`,
 `investor.json` + `investor.sources.json`, `review.html` (served and

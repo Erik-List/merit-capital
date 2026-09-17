@@ -185,7 +185,7 @@ then, after the icon decision, `tsx scripts/fetch-investor-icon.ts union-square-
 
 ## 9. Files
 
-Top level: `config.json`, `decisions.md` (D1–D9, R1–R13), `golden.json`, `identity-merges.json`, `cross-rulings.json` (11 distinct, 5 accepted, 1 same), `entities.json`, `base.json` / `base.csv` (220 rows), `excluded.json` (43), `classification.json`, `resolved.json`, `base-verification.json`, `review.html`, `investor.json`, `investor.sources.json`, this report. `sources/`: site (live list, 3,807 posts, team), wayback (five parsed eras, curated roster), edgar (Form D sweep 417 accessions, 42 own entities, fund filings, FTS hits, issuer rounds), web (Wikipedia insource). `scratch/`: queue and out files, judgments-1..5, fix and align files, gate protocol and blind pass, run-log.md, verify logs, `collection-writeback.md` (ten proposed COLLECTION.md edits, for the tooling session, nothing committed from here).
+Top level: `config.json`, `decisions.md` (D1–D9, R1–R13), `golden.json`, `identity-merges.json`, `cross-rulings.json` (11 distinct, 5 accepted, 1 same), `entities.json`, `base.json` / `base.csv` (220 rows), `excluded.json` (43), `classification.json`, `resolved.json`, `membership-ledger.json`, `review.html`, `investor.json`, `investor.sources.json`, this report. `sources/`: site (live list, 3,807 posts, team), wayback (five parsed eras, curated roster), edgar (Form D sweep 417 accessions, 42 own entities, fund filings, FTS hits, issuer rounds), web (Wikipedia insource). `scratch/`: queue and out files, judgments-1..5, fix and align files, gate protocol and blind pass, run-log.md, verify logs, `collection-writeback.md` (ten proposed COLLECTION.md edits, for the tooling session, nothing committed from here).
 
 ## Addendum 2026-09-06 — Rule A ruled
 

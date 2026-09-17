@@ -38,6 +38,6 @@ cites these rulings per line; all confirmed by Erik, 2026-08-13.
    run already read xAI that way; the Lightspeed run was aligned to it and
    the rule now lives in COLLECTION.md §6.
 
-Verdicts live in `base-verification.json` and are re-applied on every
+Verdicts live in `membership-ledger.json` and are re-applied on every
 rebuild; human verdicts (`who: "erik"`) outrank agent verdicts; excluded
 rows are preserved in `excluded.json` (reason `not_member`), never deleted.

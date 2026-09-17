@@ -159,6 +159,6 @@ rule rather than a row fix.
     names the firm is judged; both layers are re-run before any
     re-collection.
 
-Verdicts live in `base-verification.json` and are re-applied on every
+Verdicts live in `membership-ledger.json` and are re-applied on every
 rebuild; human verdicts (`who: "erik"`) outrank agent verdicts; excluded
 rows are preserved in `excluded.json`, never deleted.
