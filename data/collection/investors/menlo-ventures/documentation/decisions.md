@@ -338,3 +338,36 @@ The general lesson, written to §5: **a zero-row year on a page that fetched
 successfully is a parser hypothesis that failed, not an absence.** The era
 pattern is a claim about markup, and it must be checked against a page that
 returned bytes before an empty year is believed.
+
+### R-S2A — Seed-to-A graduation re-judged under the status contract; the pre-window rows labelled; fourteen partner-carried listings surfaced (2026-09-16, agent, class-wide)
+
+**S2A.** Under the 2026-09-16 contract (COLLECTION.md §6) every in-window
+Seed row was re-judged with both legs cited: 45 seed entries, 7 censored,
+8 undetermined, cohort 30, graduated 21, rate 70.0%, coverage 79%. Six rows
+left the cohort because the citation places Menlo's entry later (Glympse,
+Mog, Vidyo, SpeedDate and Jobfox at Growth; ClearBrain at the Series A its
+own Milestones name). Decent ($8M seed, $10M Series A) and Mimic ($27M seed,
+$50M Series A) are named Series As that fail the 2× step-up on known amounts
+and stay `undetermined` under the rule Erik kept; a ruling that a named
+Series A always counts would move both to graduated. The 0.80 ceiling is
+not approached.
+
+**Pre-window rows.** The 243 rows an earlier pass had nulled as pre-window
+now carry a label under the 2026-09-07 constant. 211 are genuinely
+pre-window (the firm's archive lists them before 2006): `pre_window_entry`,
+Series A by the pre-2003 convention at low confidence, except five judged
+or cited Growth (Ingrian Networks, PassMark Security, IMVU, USinternetworking,
+CinemaNow); graduation null by rule. 32 were never pre-window: historical
+listings with no dated milestone. Their `pre_window` flag is cleared and the
+label is in-window (6 cited, 26 `stage_uncited` and archive-bracketed).
+
+**Partner-carried listings (ruling needed, T1/T4).** Fourteen of those 32
+are deals Menlo's own team pages attribute to a partner's previous firm,
+with no Menlo fund named in any round: AppDynamics, Puppet, DocuSign,
+Egnyte, DataStax, Drawbridge, SessionM, Upstart, AutoNavi (Matt Murphy,
+KPCB); Smartsheet, Clearwater Analytics, Ascentis (JP Sanday, Summit);
+Upwork, Exeros (Venky Ganesan, Globespan). T4 asks whose money sat behind
+the seat; on the record it was not Menlo's. They stay members until Erik
+rules, labelled by the carried round at low confidence with
+`PARTNER-CARRIED` in the note; DocuSign, Upstart and Upwork carry
+`cite_pending` as $1B+ rows without a cited stage, as does Calix.

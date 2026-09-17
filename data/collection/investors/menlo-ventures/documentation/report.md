@@ -353,3 +353,53 @@ Two smaller mechanics worth recording in §5 and §8:
    here rather than hidden — but it is a fifth of the published `entry_stage`
    column and worth a decision on whether the frontend should treat a
    low-confidence prior differently from an established round.
+
+## Addendum, 2026-09-16 — S2A re-judged under the status contract; the pre-window rows labelled
+
+**S2A.** `seed_to_a_graduation` became a judged status (`graduated |
+not_graduated | censored | undetermined`, COLLECTION.md §6), superseding the
+C2A figures above. `migrate-graduation` dropped 21 legacy values and their
+`cohort_unverified` flags; 51 Seed rows were re-judged (49 plus a 2-row delta,
+63 web calls) with both legs cited in the same pass.
+
+| seed entries | censored | undetermined | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|---|
+| 45 | 7 | 8 | 30 | 21 | 9 | 70.0% | 79% |
+
+Of 45 seed entries, 7 were too recent to count (entries of 2025–26); of the
+38 whose record could be sought, 30 were established (79% coverage) and 70%
+of those graduated — the establishable set skews toward visible successes.
+Nine "no"s: seven on Form D absence (Handle, Librato, Mr. Number, Skeema,
+Sticky, Swantide, Intermodal Data) and two on cited acquisitions with the
+absence checked 2026-09-16 (Periscope, Fintool). Six rows left the cohort by
+citation: Glympse (the $7.5M 2011 round was the Series B), Mog, Vidyo,
+SpeedDate and Jobfox at Growth, ClearBrain at the Series A its own
+Milestones name. Undetermined (8): Alcove, Anycart, Brain Jar Games, Lindy
+(the A exists only on aggregator pages), Xaira (seed and A inside one launch
+financing), Redfast (no round word anywhere), and **Decent and Mimic, named
+Series As that fail the 2× step-up on known amounts** ($8M → $10M; $27M →
+$50M) — for Erik: a ruling that a named Series A always counts would move
+both to graduated. Seven further Seed rows are pre-window and carry no
+graduation value by rule.
+
+**Pre-window rows.** The 243 rows previously exported with an empty stage
+now carry one (R-S2A): 211 genuinely pre-window rows with `pre_window_entry`
+(Series A by the pre-2003 convention at low confidence; five judged or cited
+Growth), and 32 rows that were never pre-window, re-labelled in-window with
+the flag cleared (6 cited, 26 `stage_uncited`). Entry stages now Series A
+408 / Growth 135 / Seed 52 / Pre-Seed 4, **no empty stage left**, so the
+database's NOT NULL `entry_stage` no longer blocks this investor's first
+companies ingest.
+
+**For Erik, a membership class (T1/T4):** fourteen REST-only historical
+listings are partner-carried prior-firm deals by the firm's own team pages —
+AppDynamics, Puppet, DocuSign, Egnyte, DataStax, Drawbridge, SessionM,
+Upstart, AutoNavi (Matt Murphy, KPCB); Smartsheet, Clearwater Analytics,
+Ascentis (JP Sanday, Summit); Upwork, Exeros (Venky Ganesan, Globespan) —
+with no Menlo fund named in any round. They stay members, flagged, until
+ruled; four $1B+ rows among the re-labelled carry `cite_pending`. Status
+notes for a later pass: ClearBrain's Amplitude acquisition closed March
+2020, not 2021; Redfast was acquired by Recurly in 2025, not by Pandora in
+2017; OpenRouter and Axiom have fresh priced marks above $1B.
+
+`verify` is clean, cross-investor section included.
