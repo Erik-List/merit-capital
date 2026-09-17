@@ -405,7 +405,24 @@
    "c2a_rate_max": 0.8,
    "_note": "Defaults kept at kickoff. Redpoint is a 1999-vintage US firm whose live list carries OpenAI, Anthropic, Stripe, Snowflake, Twilio, Nubank, HashiCorp, Ramp and Mistral, so the $1B+ share is expected near rather than far below the guard. A guard that fires is restated in decisions.md against the evidence, not waived."
   },
-  "_note_known_positions": "netflix and tivo were removed after the grind ruled them not_member under decisions.md D5 (the firm's own 'Previous Investments by Redpoint Partners' table). They were pre-registered as trap rows in golden.json expecting exactly that verdict, so their absence from the base is the intended outcome, not a recall failure. arista networks and concur were removed 2026-09-06 after ERIK'S T3 RULING (no round named + partnered after IPO) took them out of the base, alongside juniper and internet-brands. Their absence is the intended outcome."
+  "_note_known_positions": "netflix and tivo were removed after the grind ruled them not_member under decisions.md D5 (the firm's own 'Previous Investments by Redpoint Partners' table). They were pre-registered as trap rows in golden.json expecting exactly that verdict, so their absence from the base is the intended outcome, not a recall failure. arista networks and concur were removed 2026-09-06 after ERIK'S T3 RULING (no round named + partnered after IPO) took them out of the base, alongside juniper and internet-brands. Their absence is the intended outcome.",
+  "not_members": [
+   {"name": "oro-mining-ltd", "slug": "oro-mining-ltd", "why": "A Form D name match on 'Greg Martin' only; a Canadian mining issuer with no Redpoint listing in any era, no fund filing and no announcement. Redpoint has never invested in mining."},
+   {"name": "energy-developments-ltd", "slug": "energy-developments-ltd", "why": "'Greg Martin' name match only; an energy issuer outside every sector the firm has ever listed."},
+   {"name": "stable-imaging-solutions-llc", "slug": "stable-imaging-solutions-llc", "why": "'Greg Martin' name match only, LLC, no site listing in any era."},
+   {"name": "data-driven-holdings-llc", "slug": "data-driven-holdings-llc", "why": "'Jeff Miller' name match on a fund-shaped LLC name that cannot be identified as an operating company — the LP-stake class of COLLECTION.md 1."},
+   {"name": "agents-reinsurance-co", "slug": "agents-reinsurance-co", "why": "Name match only; a reinsurance carrier, not a venture-outcome operating company on any Redpoint surface."},
+   {"name": "ash-improvement-technology-inc", "slug": "ash-improvement-technology-inc", "why": "Name match only, 2014-2015, no listing, no announcement, no fund filing."},
+   {"name": "ananda-scientific-inc", "slug": "ananda-scientific-inc", "why": "Name match only, 2019; a cannabinoid pharma issuer with no Redpoint trace."},
+   {"name": "appnexus-inc", "slug": "appnexus-inc", "why": "Form D name match only. AppNexus's rounds were led by Khosla, First Round, Microsoft and TCV; the company appears on no Redpoint listing in any of the five eras and in no announcement."},
+   {"name": "associated-content-inc", "slug": "associated-content-inc", "why": "Form D name match only, 2009; backed by Softbank and Canaan, absent from every Redpoint surface."},
+   {"name": "act-on-software-inc", "slug": "act-on-software-inc", "why": "Form D name match only, 2014; US Venture Partners / Trinity / Voyager, absent from every Redpoint surface."},
+   {"name": "campaign-monitor-holdings-pty-ltd", "slug": "campaign-monitor-holdings-pty-ltd", "why": "Form D name match only, 2014; Insight Venture Partners' Australian deal, absent from every Redpoint surface."},
+   {"name": "archetype-media-inc", "slug": "archetype-media-inc", "why": "'Greg Martin' name match only, 2009; absent from every Redpoint listing era."},
+   {"name": "netflix", "slug": "netflix", "why": "decisions.md D5. The firm's own 2000-2006 site lists Netflix under 'Previous Investments by Redpoint Partners', and the live site's own excerpt dates the partnership to 'their Series B in 1998' — a year before Redpoint Ventures existed. The"},
+   {"name": "tivo", "slug": "tivo", "why": "decisions.md D5. In 'Previous Investments by Redpoint Partners' on the firm's own 2000-2006 pages; TiVo IPO'd in September 1999, before Redpoint's first fund closed, so no Redpoint fund could have taken a venture entry. On the live site tod"},
+   {"name": "juniper-networks", "slug": "juniper-networks", "why": "decisions.md D5. Listed under 'Previous Investments by Redpoint Partners'; Geoff Yang's own bio names Juniper among 'the firm's investments' at IVP, before founding Redpoint. Not in the base as a separate row is also acceptable; if present "}
+  ]
  },
  "sample_slugs": [],
  "commoncrawl": {

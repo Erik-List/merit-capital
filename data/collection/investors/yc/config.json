@@ -472,7 +472,23 @@
   "_known_positions_note": "'mercury' and 'goodleap' removed 2026-09-07. Mercury is in this run's own membership TRAP set with a not_member answer — Immad Akhund founded Heyzap (YC W09) and was a YC part-time partner, but Mercury itself never did a batch and no YC fund is on its cap table. Listing it as a known position would have made the trap set and the verify guard contradict each other. GoodLeap is likewise not a YC company. 'boom supersonic' is left in and is a genuine open recall question.",
   "unicorn_bands": false,
   "_unicorn_note": "Rule A (Erik, 2026-09-06): the unicorn snapshot is an aggregator — a coverage floor to verify, never a mark. With this false the list still flags a row for the web pass but never writes a figure or a band, so a name-matched aggregator entry cannot override a judged below_1b. YC needs it because the list name-matched unrelated companies onto its rows (cohere at $6.8B onto a S20 company the directory marks Acquired).",
-  "c2a_deterministic": false
+  "c2a_deterministic": false,
+  "not_members": [
+   {"name": "Mercury", "why": "Immad Akhund founded Heyzap (YC W09) and was a YC part-time partner for W17; Mercury itself never did a batch and YC is not on the cap table (Series B led by Coatue)."},
+   {"name": "OpenAI", "why": "RULED OUT by Erik, 2026-09-16: 'If OpenAI did not receive investment from a YC entity, keep out.' History of this row: keyed not_member at kickoff on the funding record; flipped to member on 2026-09-07 when the archive produced a full YC co"},
+   {"name": "Superhuman", "why": "Rahul Vohra founded Rapportive (YC S10); Superhuman was seeded by First Round, then a16z and IVP."},
+   {"name": "Airtable", "why": "Howie Liu founded Etacts (YC W10); Airtable raised from Caffeinated, Freestyle, CRV, Thrive and Benchmark with no YC money."},
+   {"name": "The Bot Company", "why": "Kyle Vogt is a two-time YC founder (Justin.tv W07, Cruise W14); this third company raised from Friedman, Gross, the Collisons and Greenoaks."},
+   {"name": "Tools for Humanity", "why": "Sam Altman co-founded it in 2019; funded by a16z, Khosla, Bain Capital Crypto and Reid Hoffman."},
+   {"name": "Asana", "why": "The sitting YC president personally led the $50M Series C in March 2016; YC the fund is not on the round."},
+   {"name": "Vicarious", "why": "Two serving YC partners were personally on the March 2014 $40M round of a non-YC company; no YC fund participated."},
+   {"name": "Storenvy", "why": "Accepted to YC S10, then YC reversed before the batch started; YC never invested."},
+   {"name": "Medobed", "why": "YC S23; removed mid-batch for ethics-policy irregularities and had not raised funding through the program at the time of removal."},
+   {"name": "Anysphere", "why": "Blogs assert an S22 batch and a YC cheque; the actual history is an OpenAI Startup Fund seed then a16z, Thrive, Accel/Coatue, with no YC."},
+   {"name": "Rebel Fund", "why": "An independent fund with a YC-only mandate anchored by YC alumni LPs; its own site states it is not sponsored or endorsed by Y Combinator."},
+   {"name": "Demo Day Funds", "why": "AngelList/Meridian vehicles sold as exposure to a named YC batch; their own disclaimer states no official relationship with YC."},
+   {"name": "MiraclePlus", "why": "Formerly YC China; YC shut YC China in Nov 2019 and confirmed no involvement going forward, so MiraclePlus batch companies are not YC portfolio companies."}
+  ]
  },
  "sample_slugs": [],
  "commoncrawl": {

@@ -50,7 +50,7 @@ COLUMN_ORDER = [
     # The firm's own per-company entry claim, where its site publishes one
     # (Menlo's portfolio-card Milestones: "2011 - Partnered, Series B"). It
     # travels to the queue item as evidence for entry_stage and first_seen —
-    # never as a label until the calibration gate has scored it.
+    # never as a label until it is measured against documented rounds (§6).
     "site_entry_stage", "site_invest_year",
 ]
 
@@ -263,9 +263,9 @@ def main() -> None:
             # The firm's own statement of the round it entered at, where the
             # site publishes one (Menlo's portfolio-card "Milestones": "2011 -
             # Partnered, Series B"). It reaches the queue item as evidence,
-            # never as a label: COLLECTION.md 4 requires it to be scored on the
-            # golden set first, and the round it names is the ENTRY round only
-            # because that is what the field claims.
+            # never as a label: COLLECTION.md 6 requires it to be measured against
+            # documented rounds first, and the round it names is the ENTRY round
+            # only because that is what the field claims.
             if c.get("site_entry_stage"):
                 row["site_entry_stage"] = c["site_entry_stage"]
             site_n += 1

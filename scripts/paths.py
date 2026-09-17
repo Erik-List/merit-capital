@@ -72,7 +72,6 @@ class Paths:
         self.base_json = self.companies_dir / "base.json"          # the evidence layer
         self.base_csv = self.companies_dir / "base.csv"            # the one merged CSV
         self.review_html = self.companies_dir / "review.html"
-        self.golden = self.companies_dir / "golden.json"
         self.ledger = self.companies_dir / "membership-ledger.json"
         self.identity_merges = self.companies_dir / "identity-merges.json"
         self.resolved = self.companies_dir / "resolved.json"

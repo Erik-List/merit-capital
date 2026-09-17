@@ -274,8 +274,8 @@ EVIDENCE_FIELDS = ("site_url", "wayback_years", "wayback_first_link",
                    "formd_accessions", "partners_site", "partners_formd",
                    # A site that states its own entry round and year per company
                    # (Menlo's portfolio-card Milestones) carries the strongest
-                   # entry_stage evidence a run can have — but only once the
-                   # calibration gate has scored it (COLLECTION.md 4).
+                   # entry_stage evidence a run can have — but only once it is
+                   # measured against documented rounds (COLLECTION.md 6).
                    "site_entry_stage", "site_invest_year")
 
 
@@ -1135,6 +1135,24 @@ def verify_base(rows: list[dict], investor: str, problems: list[str],
                    if not any(w in n for n in names)]
         if missing:
             problems.append(f"known positions missing: {missing}")
+        # Membership traps (PRO-114, the gate's survivor): a name the run must
+        # never publish as a member. Absent from the base is a pass; present
+        # needs a not_member verdict (awaiting the rebuild). Matched on slug or
+        # the normalised name, never a substring, so a homonym member survives.
+        traps = vcfg.get("not_members", [])
+        if traps:
+            _, verdicts = load_ledger(investor)
+            by_name = {S.norm(r["name"]): r["slug"] for r in rows}
+            published = []
+            for t in traps:
+                s = t.get("slug") if t.get("slug") in slugs else by_name.get(S.norm(t["name"]))
+                if s and verdicts.get(s, {}).get("verdict") != "not_member":
+                    published.append(s)
+            if published:
+                problems.append(f"membership trap published as member: {published[:5]}")
+            clash = {S.norm(t["name"]) for t in traps} & {S.norm(w) for w in vcfg.get("known_positions", [])}
+            if clash:
+                problems.append(f"verify.not_members and known_positions overlap: {sorted(clash)[:5]}")
 
     if P.entities.exists():
         ent_ciks = {e["cik"] for e in json.loads(P.entities.read_text())}

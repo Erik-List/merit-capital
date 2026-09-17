@@ -617,7 +617,21 @@
    "one_b_share_max": 0.2,
    "c2a_rate_max": 0.98,
    "_note": "c2a_rate_max raised from the 0.80 default to 0.98 for this investor, restated against the evidence rather than waived (\u00a78, the Thrive rule). Greylock's base carries 79 Seed entries and only 34 of them are in the C2A cohort: the rest are censored, under 24 months from entry with no resolution. What survives that filter is the establishable set, and on a firm whose seed book is dominated by 2020-2025 AI companies that all raised an A within a year, the establishable set is almost entirely graduations \u2014 33 of 34. The published rate carries that bias in its own sentence (\u00a76): 'of the seed entries where the record could be established, ~97% graduated; the establishable set skews toward visible successes, and half the seed book is too young to be in it at all.' one_b_share_max is left at the 0.20 default and the base passes it."
-  }
+  },
+  "not_members": [
+   {"name": "ai fund", "slug": "ai-fund", "why": "TRAP, fund-shaped list entry (T5). Listed on greylock.com/portfolio with no entry round; AI Fund is Andrew Ng's venture studio and fund, not an operating company Greylock holds equity in as a venture position. The standing rule: a fund-shap"},
+   {"name": "gofundme", "slug": "gofundme", "why": "TRAP, control position (T3, Erik 2026-09-04). June 2015: an investor group led by Accel and TCV, INCLUDING GREYLOCK, took a controlling stake by buying founders' shares at a ~$600M valuation (techcrunch.com/2015/06/24/gofundmes-investors-ta"},
+   {"name": "greylock xiv limited partnership", "slug": "greylock-xiv-limited-partnership", "why": "TRAP, the firm's own fund vehicle (T5). Appears in the EDGAR entity registry and must never become a portfolio row"},
+   {"name": "83north ii limited partnership", "slug": "83north-ii-limited-partnership", "why": "TRAP, separately advised affiliate (T1, decisions.md D3). 83North holds its own registrations (CRD 283471, 294729); its funds are not Greylock vehicles and its companies are not Greylock rows"},
+   {"name": "greylock israel l p", "slug": "greylock-israel-l-p", "why": "TRAP, own ERA (T1, decisions.md D2). GREYLOCK ISRAEL GLOBAL MANAGEMENT LTD. reports under CRD 162176 / SEC file 802-75092, separate from the home adviser's CRD 161537"},
+   {"name": "siemens", "slug": "siemens", "why": "TRAP, ACQUIRER MARK (the First Round lesson). Greylock's 2001-2003 and 2005-2010 listings carry outcome text such as 'Acquired by Siemens in 1999' beside the company; a name-matching layer reads the acquirer as a listed company"},
+   {"name": "greylock capital management", "slug": "greylock-capital-management", "why": "TRAP, namesake firm (decisions.md D4/R1). Hans Humes' New York distressed-debt manager, CRD 137825, shares the word and nothing else; its Global / Emerging Markets / Distressed Debt funds are not Greylock Partners vehicles"},
+   {"name": "conviction", "slug": "conviction", "why": "TRAP, ex-partner next-firm deal (T4). Sarah Guo was a Greylock partner and left in 2022 to found Conviction; deals she has led since are Conviction's, and her name on a post-2022 Form D locates her at Conviction, not Greylock"},
+   {"name": "robinhood", "slug": "robinhood", "why": "TRAP, personal and next-firm seat (T4). Josh Elman was a Greylock partner and later a Robinhood product VP; a Section 16 filing by him is a person-level filing and never a Greylock fund position. No Greylock fund is on Robinhood's cap table"},
+   {"name": "check point software", "slug": "check-point-software", "why": "TRAP, operator history not a position (T2/T4). Asheem Chandna was a Check Point executive before joining Greylock in 2003; the employer of a partner before their tenure is not a portfolio company"},
+   {"name": "camp greylock", "slug": "camp-greylock", "why": "TRAP, name collision (T5). A Massachusetts summer camp that shares the word and appears in web and job-board search results for the firm"},
+   {"name": "workday inc 401k", "slug": "workday-inc-401k", "why": "TRAP, scrape artifact (T5). Benefit-plan and filer-agent entities that carry a portfolio company's name are not rows"}
+  ]
  },
  "sample_slugs": [],
  "commoncrawl": {

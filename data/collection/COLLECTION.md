@@ -28,8 +28,8 @@ The shape of a collection, in order:
 1. Investor-specific decisions derived from the standing rule set, plus
    the confirmed deltas (§1).
 2. Evidence layers collected (§5), base built.
-3. **Both** calibration sets — membership traps and stage golden set —
-   assembled, pre-registered and cleared (§4), before any verdict writes.
+3. Membership traps written to `config.verify.not_members` (§10 invariant
+   11) before any verdict writes; `verify` enforces them on every run.
 4. One grind (§3, §6, §8): every queued row answered for membership and,
    where it is a member, for every open classification column, in the
    same pass.
@@ -447,47 +447,16 @@ found zero missing members — the noise is precision-side. Expect that
 shape, but run the probe anyway; it is the only check that catches it when
 the shape breaks.
 
-## 4. Calibration gate
+## 4. Calibration gate (removed 2026-09-17, PRO-114)
 
-Two measured sets, both assembled, pre-registered (keys committed before
-the base build) and cleared before the grind starts — the single grind
-writes verdicts and `entry_stage` in the same pass, so both keys exist
-before either column may write:
-
-- **Membership trap set** (~20 rows): ex-partner next-firm deals, homonym
-  partners and founders, scout checks, LP stakes, mixed with known-true
-  members across eras. Gate: zero false members at high confidence before
-  any verdict writes.
-- **Stage golden set** (~30–40 documented entries with named rounds and
-  years). Measured blind before `entry_stage` publishes; misses are
-  diagnosed and the evidence order rebuilt until the set passes. This is the
-  column that fails silently when a filing band is trusted as a label
-  (Sequoia: 32/39 banded, 39/39 after the rebuild in §6).
-
-No status/valuation calibration set is required: the A/B citation pass (§7)
-is what guarantees those columns.
-
-The gate's loop, in order: **assemble the answer key first**, every answer
-anchored to a citation and web-verified where uncertain — the key is
-external documents, not model opinion, which is what keeps the test honest
-when the same model writes and takes it. Then a **blind pass**: the golden
-rows are judged through the exact production protocol, key out of context.
-Then **score and decompose** — the question is not "how many right" but
-"what do the misses have in common": a miss indicts a layer, and the fix is
-the layer, never the instance (Sequoia: all seven stage misses were band
-rows, so the band lost its authority). Scoring runs both directions — a
-golden label can itself be wrong and gets corrected by the evidence. The
-sets persist in the investor's `golden.json` and replay as a regression
-test after any protocol change.
-
-**The gate calibrates layers, not only the judge.** Score every candidate
-evidence layer for the guarded column against the key, and promote or
-demote it by its score before the grind trusts it. Measured on Accel: the
-firm's own CMS entry-stage label scored 30/31 and was promoted to class 1;
-the Form D band scored 5/13 and was demoted to a ceiling. A layer that was
-never scored is not a label. This is what the stage set is for when it
-runs before the grind rather than after the base: it decides the evidence
-order the grind will use, instead of auditing one it already used.
+The pre-registered trap set, the stage golden set and the blind pass over them
+are gone: the same session wrote and took the test, and the layer scores it
+produced are standing rules in §6 (the Form D band is a ceiling; the firm's own
+label is class 1 for the round it names; a documented round overrides both).
+What survives is the membership trap list, as `config.verify.not_members`
+assertions that `verify` enforces on every run (§10 invariant 11), beside the
+`known_positions` list. Earlier reports cite this section for their gate
+results; those results stand as history.
 
 ## 5. Evidence layers
 
@@ -674,8 +643,8 @@ order the grind will use, instead of auditing one it already used.
    entry_stage layer a run can have — and it must reach the queue.** Menlo's
    portfolio cards carry a Milestones list giving the firm's own entry year and
    round ("2011 - Partnered, Series B" on Uber, "2018 - Partnered, Series C" on
-   Chime) for 214 of 245 listed rows; scored blind on the golden set it went
-   33/34 and was promoted to class 1 for the round word (§4, §6). Two mechanics
+   Chime) for 214 of 245 listed rows; measured against 36 documented rounds it
+   went 33/34 and is class 1 for the round word (§6). Two mechanics
    the run had to build, both now standing: `build-company-base.py` carries
    `site_entry_stage` and `site_invest_year` onto the base row and into
    `COLUMN_ORDER`, and `run.py`'s `EVIDENCE_FIELDS` carries both into every
@@ -921,9 +890,8 @@ caught by the entity registry's address check, never by the phrase layers.
 
 **Evidence-pack mechanics that bit** (Cherry): a sentence splitter that
 breaks at the decimal point of "$5.1M pre-seed" truncates the round word,
-and the golden key and the blind pass both read the truncated snippet the
-same wrong way (two key rows corrected after the pass); the splitter must
-keep decimals. And a page whose rendered title sits below a hero block makes
+and every reader of the truncated snippet gets the round word wrong the
+same way; the splitter must keep decimals. And a page whose rendered title sits below a hero block makes
 a name extractor fall back to the URL slug (nine rows published as slugs
 until a names-only rebuild) — check the extracted names against the CMS
 rendering before the build.
@@ -1079,9 +1047,9 @@ checklist:
 
 Four rules make an invented layer usable, and they are not optional:
 
-1. **Score it before you trust it** (§4). Measure the new layer's field
-   against the golden set, exactly as the site's own stage field is
-   measured: Accel's CMS label scored 30/31 and was promoted to class 1,
+1. **Measure it before you trust it.** Check the new layer's field against
+   documented rounds (press, the firm's own posts), exactly as the site's own
+   stage field was measured: Accel's CMS label scored 30/31 and was promoted to class 1,
    Thrive's job-board stage scored 0/10 and was refused. An unscored layer
    may corroborate; it may not label.
 2. **Class it** (§1 evidence rules). Every row it produces carries an
@@ -1210,7 +1178,7 @@ be read off it, and the report says so.
   through vendor marks reads `below_1b` with the check recorded (Justworks:
   an undisclosed 2020 Series E and three vendors at $1.4B–$2.53B; MatX: the
   company's own "several billion" without a figure). The unicorn snapshot
-  is itself an aggregator — a coverage floor to verify (§4), never a mark.
+  is itself an aggregator — a coverage floor to verify (§7), never a mark.
 - **A stale primary mark yields to documented collapse evidence**: a priced
   tender or secondary far below it, or the sale of the business's core,
   rules the row into the lower band with the evidence cited in the note
@@ -1301,8 +1269,8 @@ maturity today. 100% fill.
   archive for a named earlier round; a found announcement is class 1 and
   overrides with `stage_disputes_band`.
 - **The firm's own stage label is class 1 on early rounds and fails on
-  late at-scale entries.** Score it on the gate (§4) before trusting it;
-  where it passes it is class 1 — but a CMS that says "seed" or "Series A"
+  late at-scale entries.** Check it against documented rounds before trusting
+  it; where it holds it is class 1 — but a CMS that says "seed" or "Series A"
   for a company the firm demonstrably entered at B or later is describing
   the company when it was listed, not the deal (Accel: 17 rows, the socure
   class). Precedence: **the label follows the record** — a documented
@@ -1697,6 +1665,11 @@ run before the investor row exists (Thrive, 2026-09-04).
     and another had missed). Runs done months apart will still straddle a
     band edge on as-of date alone for public rows (DoorDash at $92B vs
     $103B in the same month); align to one fresh cap rather than accept.
+11. Membership traps: no name in `config.verify.not_members` is published
+    as a member (absent from the base, or present with a `not_member`
+    verdict awaiting the rebuild; matched on slug or normalised name, never
+    a substring), and `not_members` and `known_positions` are disjoint.
+    Replaced the pre-registered trap set of the former §4 (PRO-114).
 
 Two modes. Plain `verify` is the contract: every invariant above, full
 fills, distribution guards, published surfaces current. `verify
@@ -1784,8 +1757,8 @@ legitimately sits `needs_review` while being a member (Accel:
 Flipkart/Spotify/Supercell during the archive outage). The profile's own
 evidence work — the ADV pull, the fund filer sweep, the team payloads —
 does not depend on the base and may be collected at any point in the run;
-the fund filer sweep in particular is a trap-set input (§4) and belongs
-early.
+the fund filer sweep in particular feeds the membership traps in
+`config.verify.not_members` (§10) and belongs early.
 
 Why not in parallel any more: on Accel and Lightspeed the profile ran
 base-less in a second session and re-asserted against the landed base

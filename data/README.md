@@ -34,7 +34,6 @@ Inside `collection/investors/<slug>/` (PRO-112: three entity-level subdirectorie
 | `companies/resolved.json` / `companies/classification.json` | The deterministic layer output and the judged classification overlay — two files by design (PRO-57): `prepare` overwrites the first wholesale, `record` merges into the second per key, and their disagreement is the audit trail. |
 | `companies/excluded.json` | Every row partitioned out of the published base, with a `reason` field: `build_filter` (identity-overlay rejects), `other_desk` (decision-desk partition), `not_member` (verification verdicts). Preserved, never deleted. |
 | `companies/cross-rulings.json` | This investor's cross-investor (verify invariant 10) rulings, where any exist. |
-| `companies/golden.json` | The calibration sets (membership traps, stage golden set). |
 | `companies/review.html` | The read-only review surface, written by `run.py review`. |
 | `documentation/decisions.md` | The investor-specific decisions file (COLLECTION.md §1), confirmed by Erik before anything runs. |
 | `documentation/report.md` | The run report. |
