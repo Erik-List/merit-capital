@@ -407,7 +407,29 @@
         ]
       }
     ],
-    "_note": "menlovc.com is WordPress and answers /wp-json/wp/v2/types, so the ladder stops at step 1 -- but the union needs three surfaces, not one. (1) The `portfolios` REST collection, paged, is the recall surface: 322 companies against the 245 the rendered /portfolio/ page shows, and the 77 REST-only rows are the firm's best-known exits (UUNET, Infoseek, DocuSign, Redfin, Upstart, Upwork, Palo Alto Networks, Shazam, AppDynamics, Smartsheet, Clearwater Analytics, HNC Software) -- a run that scraped the rendered page would have dropped them. (2) portfolio-cards.json is that rendered page, parsed by scratch/build-portfolio-cards.py for what REST does not expose (ACF is unpublished): the exit line, the Menlo DEAL PARTNERS, and a Milestones list in which the firm states its own entry year and entry round ('2011 - Partnered, Series B' on Uber) -- 214 rows carry both. That field is a candidate class-1 entry_stage layer and is scored on the golden set before it labels anything. (3) jobboard.json is jobs.menlovc.com (Getro), a first-party list of currently-hiring companies built by scratch/build-jobboard-list.py, which carries about ten rows on no other surface plus each company's own founded year and industry tags."
+    "_note": "menlovc.com is WordPress and answers /wp-json/wp/v2/types, so the ladder stops at step 1 -- but the union needs three surfaces, not one. (1) The `portfolios` REST collection, paged, is the recall surface: 322 companies against the 245 the rendered /portfolio/ page shows, and the 77 REST-only rows are the firm's best-known exits (UUNET, Infoseek, DocuSign, Redfin, Upstart, Upwork, Palo Alto Networks, Shazam, AppDynamics, Smartsheet, Clearwater Analytics, HNC Software) -- a run that scraped the rendered page would have dropped them. (2) portfolio-cards.json is that rendered page, parsed by scratch/build-portfolio-cards.py for what REST does not expose (ACF is unpublished): the exit line, the Menlo DEAL PARTNERS, and a Milestones list in which the firm states its own entry year and entry round ('2011 - Partnered, Series B' on Uber) -- 214 rows carry both. That field is a candidate class-1 entry_stage layer and is scored on the golden set before it labels anything. (3) jobboard.json is jobs.menlovc.com (Getro), a first-party list of currently-hiring companies built by scratch/build-jobboard-list.py, which carries about ten rows on no other surface plus each company's own founded year and industry tags.",
+    "team_buckets": {},
+    "team_bucket_overrides": {
+      "Amy Wu Martin": "investing",
+      "Brent Fellows": "platform",
+      "Bryan Eglan": "platform",
+      "Claire Palmer": "platform",
+      "Darcy Yee": "platform",
+      "Deborah Carrillo": "platform",
+      "Doug Carlisle": "investing",
+      "Greg Rudin": "investing",
+      "Houman Haghighi": "platform",
+      "John Jarve": "investing",
+      "Jordan Ormont": "platform",
+      "Kandace Elam": "platform",
+      "Kayla Hinderscheid": "platform",
+      "Kirsten Mello": "platform",
+      "Naomi Pilosof Ionita": "investing",
+      "Ryan Hand": "platform",
+      "Scott Orviss": "platform",
+      "Shawn Carolan": "investing",
+      "Tiffany Spencer": "platform"
+    }
   },
   "edgar": {
     "seed_queries": [

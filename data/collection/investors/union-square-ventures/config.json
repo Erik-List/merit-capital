@@ -98,7 +98,12 @@
     "extras": ["slug", "title", "socials"]
    }
   ],
-  "_note": "usv.com is WordPress with an open REST API, but the `company` post type has no REST route (wp-json/wp/v2/types lists posts, pages and media only; the 15-term `Company` taxonomy is a writing tag). Escalation ladder step 5: /companies/ is server-rendered as one table, read by scratch/pull-live-list.py into live-companies.json together with the firm's own Sector (32 terms), Status (acquired/current/exited/inactive/public) and Entry Point taxonomy terms per company, read off the filtered list pages. The posts archive (3,807 posts since 2004) is pulled by scratch/pull-wp-posts.py into wp-posts.json: the firm's own announcement layer for entry-round citations."
+  "_note": "usv.com is WordPress with an open REST API, but the `company` post type has no REST route (wp-json/wp/v2/types lists posts, pages and media only; the 15-term `Company` taxonomy is a writing tag). Escalation ladder step 5: /companies/ is server-rendered as one table, read by scratch/pull-live-list.py into live-companies.json together with the firm's own Sector (32 terms), Status (acquired/current/exited/inactive/public) and Entry Point taxonomy terms per company, read off the filtered list pages. The posts archive (3,807 posts since 2004) is pulled by scratch/pull-wp-posts.py into wp-posts.json: the firm's own announcement layer for entry-round citations.",
+  "team_buckets": {},
+  "team_bucket_overrides": {
+   "Akhil Ramgopal": "operations",
+   "Matt Cynamon": "operations"
+  }
  },
  "edgar": {
   "seed_queries": [

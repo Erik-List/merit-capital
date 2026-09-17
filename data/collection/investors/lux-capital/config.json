@@ -203,7 +203,11 @@
     ]
    }
   ],
-  "_note": "www.luxcapital.com is a Webflow site with no public CMS API (escalation ladder step 5). The sitemap enumerates 215 /companies/<slug>, 31 /people/<slug> and 10 /advisors/<slug> pages; each company page server-renders the firm's own description, its industries taxonomy, a Milestones block whose first line is 'Lux investment: <year>' (the firm's own entry year), the founders and a comma-joined list of the Lux people who own the relationship. scratch/site-pull.py fetches and parses them into the file_list sources above."
+  "_note": "www.luxcapital.com is a Webflow site with no public CMS API (escalation ladder step 5). The sitemap enumerates 215 /companies/<slug>, 31 /people/<slug> and 10 /advisors/<slug> pages; each company page server-renders the firm's own description, its industries taxonomy, a Milestones block whose first line is 'Lux investment: <year>' (the firm's own entry year), the founders and a comma-joined list of the Lux people who own the relationship. scratch/site-pull.py fetches and parses them into the file_list sources above.",
+  "team_buckets": {
+   "team": "investing",
+   "advisor": "advisor"
+  }
  },
  "edgar": {
   "seed_queries": [

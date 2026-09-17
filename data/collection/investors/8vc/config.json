@@ -185,7 +185,21 @@
     ]
    }
   ],
-  "_note": "www.8vc.com is a Webflow site (escalation ladder step 5; the .wf_graphql endpoint is the editor's, not a public read API). The sitemap enumerates 176 /companies/<slug>, 53 /team/<slug>, 73 /advisors/<slug> and 250 /fellows/<slug> pages. Each company page server-renders the firm's own description, a sector tag, website/twitter/linkedin links and four CMS fields (Stage, Founded, Region, Fund) that are populated only on some rows. scratch/site-pull.py fetches and parses them into the file_list sources above."
+  "_note": "www.8vc.com is a Webflow site (escalation ladder step 5; the .wf_graphql endpoint is the editor's, not a public read API). The sitemap enumerates 176 /companies/<slug>, 53 /team/<slug>, 73 /advisors/<slug> and 250 /fellows/<slug> pages. Each company page server-renders the firm's own description, a sector tag, website/twitter/linkedin links and four CMS fields (Stage, Founded, Region, Fund) that are populated only on some rows. scratch/site-pull.py fetches and parses them into the file_list sources above.",
+  "team_buckets": {
+   "Operations": "operations",
+   "Investment Team": "investing",
+   "Portfolio Support": "platform",
+   "Finance/Legal/IR": "finance"
+  },
+  "team_bucket_overrides": {
+   "Erica Sun": "operations",
+   "Katherine Cahill": "operations"
+  },
+  "team_social_exclude": [
+   "8vc"
+  ],
+  "_team_social_note": "The 2026-09-06 hand-built team pull recorded https://twitter.com/@8vc, the firm's own handle, as every member's x_url; the exclude keeps the shared pull from repeating that. The 51 inherited values are still in team.json pending Erik's call."
  },
  "edgar": {
   "seed_queries": [

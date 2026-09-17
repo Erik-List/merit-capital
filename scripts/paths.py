@@ -93,6 +93,7 @@ class Paths:
         self.sources = self.root / "sources"
         self.wayback = self.sources / "wayback"
         self.site = self.sources / "site"
+        self.team = self.site / "team.json"                # the live team, profile input
         self.edgar = self.sources / "edgar"
         self.web = self.sources / "web"                    # fts / wikipedia sweeps
         self.formd_rounds = self.edgar / "formd-issuer-rounds.json"

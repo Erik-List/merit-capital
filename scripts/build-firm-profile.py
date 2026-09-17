@@ -24,6 +24,7 @@ investor's data files, not this script.
 Usage: python3 scripts/build-firm-profile.py <investor-slug>
 """
 import argparse
+import importlib.util
 import json
 import re
 import sys
@@ -33,6 +34,11 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from paths import ROOT, Paths, write_atomic  # noqa: E402
+
+_spec = importlib.util.spec_from_file_location(
+    "formd_issuer_rounds", Path(__file__).resolve().parent / "formd-issuer-rounds.py")
+formd_rounds = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(formd_rounds)
 
 # Researched fields that must already be present in investor.json, each with a
 # provenance entry in investor.sources.json. Field semantics, not values.
@@ -47,13 +53,9 @@ def own_formd_filings(sweep: dict, own_re: re.Pattern) -> dict:
     """The firm's own fund filings, split from the portfolio companies."""
     out = defaultdict(list)
     for accession, rec in sweep.items():
-        # The caller unions two files of DIFFERENT shape: formd-sweep.json is
-        # keyed by accession and carries "issuer" on the record, while
-        # fund-formds.json is keyed by the issuer NAME and carries only
-        # {cik, filings}. Reading rec["issuer"] unconditionally raises on
-        # every entry from the second file (measured on Khosla; the union is
-        # newer than the landed runs, so no earlier investor exercised it).
-        # The key is the issuer name in that case, so fall back to it.
+        # The caller unions two shapes: formd-sweep.json is keyed by accession
+        # and carries "issuer"; the derived own-fund dict is keyed by the
+        # issuer NAME and carries only {cik, filings}, so the key is the name.
         issuer = rec.get("issuer") or accession
         if own_re.search(issuer):
             out[issuer].append((accession, rec))
@@ -75,11 +77,46 @@ EDGAR_COUNTRY_CODES = {
 }
 
 
+def indent_of(path: Path, default: int = 2) -> int:
+    """The indentation an existing JSON file uses, so a rewrite diffs by content."""
+    if path.exists():
+        for line in path.read_text().splitlines():
+            if line.startswith(" "):
+                return len(line) - len(line.lstrip(" "))
+    return default
+
+
+def own_fund_filings(p: Paths) -> dict:
+    """The firm's own fund-vehicle Form D filings, keyed by issuer name:
+    {name: {cik, filings: [{form, accession, quarter, offering, sold, first_sale,
+    pooled}]}}. Derived at build time from the own-desk CIKs in entities.json
+    over the local bulk zips, via the issuer-rounds scanner (COLLECTION.md §11).
+    Replaces the hand-built fund-formds.json (PRO-113): the roster-name sweep
+    only sees a vehicle's filing when a swept person is a related person on it,
+    and an accelerator's vehicles name a management LLC instead (YC).
+    """
+    entities = json.loads(p.entities.read_text())
+    own = {str(int(e["cik"])): e["name"] for e in entities
+           if e.get("desk") != "external"
+           and e.get("vehicle_role") not in ("person", "outside-cofiler")}
+    filings, _ = formd_rounds.scan(own, set())
+    out: dict = {}
+    for f in sorted(filings.values(), key=formd_rounds.sort_key):
+        entry = out.setdefault(f["issuer"] or f["slug"], {"cik": f["cik"], "filings": []})
+        entry["filings"].append({
+            "form": "D/A" if f.get("is_amendment") else "D",
+            "accession": f["accession"], "quarter": f["quarter"],
+            "offering": f.get("offering_usd"), "sold": f.get("sold_usd"),
+            "first_sale": f.get("sale_date"), "pooled": f.get("is_pooled", False)})
+    print(f"own fund filings: {sum(len(v['filings']) for v in out.values())} "
+          f"on {len(out)} vehicles ({len(own)} own-desk CIKs scanned)")
+    return out
+
+
 def hq_from_filings(own: dict):
     """Issuer address on the firm's own filings. Filing-grade."""
-    # Only sweep-shaped records carry an address; the fund-formds entries the
-    # caller unions in carry {cik, filings} and no place at all, so they simply
-    # do not vote rather than raising (same shape mismatch as own_formd_filings).
+    # Only sweep-shaped records carry an address; the own-fund entries carry
+    # {cik, filings} and no place, so they do not vote.
     places = Counter(
         f'{re.sub(r"\s+-\s+.*$", "", r["city"]).title()}, {EDGAR_COUNTRY_CODES.get(r["state"], r["state"])}'
         for items in own.values() for _, r in items if r.get("city")
@@ -97,7 +134,7 @@ def current_people(roster: list, team: list):
     latest = max(p["last_seen"] for p in roster)
     roster_names = {p["name"].lower() for p in roster if p["last_seen"] == latest}
 
-    INVESTING_BUCKETS = {"seed-early", "growth", "investing"}
+    INVESTING_BUCKETS = {"investing"}
 
     def position(m):
         if m.get("cms_title"):
@@ -112,7 +149,8 @@ def current_people(roster: list, team: list):
 
     people = [
         {"name": m["name"], "position": position(m),
-         "socials": {"linkedin_url": m.get("linkedin_url"), "x_url": m.get("x_url")}}
+         "socials": {"linkedin_url": m.get("linkedin_url") or None,
+                     "x_url": m.get("x_url") or None}}
         for m in sorted(team, key=sort_key)
     ]
     departed = sorted(n for n in roster_names
@@ -180,9 +218,11 @@ def main():
                          f"provenance for: {unsourced}")
 
     sweep = json.loads((p.edgar / "formd-sweep.json").read_text())
-    fund_formds = json.loads((p.edgar / "fund-formds.json").read_text())
+    fund_formds = own_fund_filings(p)
     roster = json.loads((p.wayback / "partner-roster.json").read_text())
-    team = json.loads((p.site / "team-members.json").read_text())
+    # Only rows the site pull bucketed publish: an unmapped group is how a
+    # site's operations staff stays out of the profile (COLLECTION.md §11).
+    team = [m for m in json.loads(p.team.read_text()) if m.get("role_bucket")]
     # The profile session runs in parallel with the base collection
     # (COLLECTION.md §11), so the base may not exist yet — or may exist
     # mid-membership (the accel run built base.json before its judge pass).
@@ -204,7 +244,7 @@ def main():
 
     # ---- validate the curated claims against the evidence layers
     verify_funds_against_filings(fields["funds"]["value"], fund_formds,
-                                 "sources/edgar/fund-formds.json")
+                                 "the firm's own Form D filings (bulk zips)")
 
     if base is None:
         print("no base.json yet — notable_investments NOT asserted against the "
@@ -236,7 +276,7 @@ def main():
     # splitting. Additive: where a filing is in both, it is the same record
     # under the same accession, so this is a no-op for every landed investor.
     own = own_formd_filings(
-        {**sweep, **{k: v for k, v in fund_formds.items() if k != "_readme"}},
+        {**sweep, **fund_formds},
         own_re)
     (hq, hq_count), hq_places = hq_from_filings(own)
     latest_year, people, departed = current_people(roster, team)
@@ -287,7 +327,7 @@ def main():
             "%d companies. Scope type is the curated judgement carried in "
             "investor.json." % (sum(mapped.values()), cfg["focus_min_companies"]))
     fields["individuals"] = field(
-        people, "sources/site/team-members.json",
+        people, "sources/site/team.json",
         f"Live team CMS: {len(people)} members. Positions are CMS titles "
         f"({sum(1 for q in people if q['position'] and q['position'] != 'Partner')} "
         f"explicit); untitled members under the investing tabs render as "
@@ -298,8 +338,11 @@ def main():
         f"{sum(1 for q in people if q['socials']['x_url'])} X.")
     sources["generated_at"] = now
 
-    write_atomic(p.investor, json.dumps(row, indent=2) + "\n")
-    write_atomic(p.investor_sources, json.dumps(sources, indent=2) + "\n")
+    # Keep each file's existing indentation: a build must not rewrite every
+    # line of a file whose content it changed in four places.
+    write_atomic(p.investor, json.dumps(row, indent=indent_of(p.investor)) + "\n")
+    write_atomic(p.investor_sources,
+                 json.dumps(sources, indent=indent_of(p.investor_sources)) + "\n")
 
     print(f"hq            {hq}  ({hq_count}/{total} filings)")
     print(f"funds         {len(fields['funds']['value'])}  aum {row['aum']}")

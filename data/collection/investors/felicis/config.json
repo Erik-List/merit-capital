@@ -310,7 +310,19 @@
     "_note": "Points at team-cms.json, not team-members.json: the latter is build-firm-profile.py's required input and must be a FLAT LIST, while site-portfolio.py's file_list parser requires {'rows': [...]}. Two consumers, two shapes, one pull (scratch/build-profile-inputs.py writes both)."
    }
   ],
-  "_note": "www.felicis.com is a Next.js App Router site backed by a PUBLICLY QUERYABLE Sanity dataset (project ggsokyyr, dataset production) -- escalation ladder step 2, no rendering needed. 277 company docs carry name, slug, websiteUrl, a status enum (current|acquired|ipo), a stage reference (Seed | Series A | Series B | Series C | Common), domains, focusAreas, the deal partner reference, founder references and, on the 17 featured rows, a companyDescription that states the entry round in words ('Felicis first invested in Shopify in December 2010 as part of the company's $7 million Series A round'). scratch/pull-sanity.py writes the file_list sources; the stage field is scored on the golden set before it is trusted as a label (COLLECTION.md §4)."
+  "_note": "www.felicis.com is a Next.js App Router site backed by a PUBLICLY QUERYABLE Sanity dataset (project ggsokyyr, dataset production) -- escalation ladder step 2, no rendering needed. 277 company docs carry name, slug, websiteUrl, a status enum (current|acquired|ipo), a stage reference (Seed | Series A | Series B | Series C | Common), domains, focusAreas, the deal partner reference, founder references and, on the 17 featured rows, a companyDescription that states the entry round in words ('Felicis first invested in Shopify in December 2010 as part of the company's $7 million Series A round'). scratch/pull-sanity.py writes the file_list sources; the stage field is scored on the golden set before it is trusted as a label (COLLECTION.md §4).",
+  "team_buckets": {
+   "Venture Partners": "investing",
+   "Finance": "finance",
+   "Investors": "investing",
+   "Founder Success": "platform",
+   "Operations": "operations"
+  },
+  "team_bucket_overrides": {
+   "Colette Keane": "other",
+   "Elara Voss": "other",
+   "Mateo Aranda": "other"
+  }
  },
  "edgar": {
   "seed_queries": [

@@ -467,7 +467,23 @@
     ]
    }
   ],
-  "_note": "greylock.com is Next.js on Vercel over a PUBLIC Sanity dataset (project uz672vkd, dataset production), so the ladder stops at step 2. portfolioCompany carries the firm's own ENTRY ROUND (firstPartnered), a status, the headquarters string, the deal partners as references and a category; teamMember carries the roster with a departed flag. The live surface is only 158 rows for a firm founded in 1965 -- the archive eras are where the book is, and the site also serves a markdown alternate (/portfolio.md) that renders the same table. A second source, archive-cards.json, is the SAME first-party listings read for their other columns: scratch/build-archive-cards.py parses the firm's own YEAR FUNDED, status line, deal partner and region out of the 1999-2001, 2001-2003, 2005-2010 and 2011-2014 captures (456 companies, investment years 1967-2007). wayback-pull's listing_regex keeps slug and name only, so without this the firm's own dated record of its pre-window book would be discarded by the layer best placed to supply it. Membership is unchanged -- these rows ARE listings on the investor's own site under COLLECTION.md \u00a71's evidence sufficiency, any era -- and the status wording is evidence for the judge, never a label."
+  "_note": "greylock.com is Next.js on Vercel over a PUBLIC Sanity dataset (project uz672vkd, dataset production), so the ladder stops at step 2. portfolioCompany carries the firm's own ENTRY ROUND (firstPartnered), a status, the headquarters string, the deal partners as references and a category; teamMember carries the roster with a departed flag. The live surface is only 158 rows for a firm founded in 1965 -- the archive eras are where the book is, and the site also serves a markdown alternate (/portfolio.md) that renders the same table. A second source, archive-cards.json, is the SAME first-party listings read for their other columns: scratch/build-archive-cards.py parses the firm's own YEAR FUNDED, status line, deal partner and region out of the 1999-2001, 2001-2003, 2005-2010 and 2011-2014 captures (456 companies, investment years 1967-2007). wayback-pull's listing_regex keeps slug and name only, so without this the firm's own dated record of its pre-window book would be discarded by the layer best placed to supply it. Membership is unchanged -- these rows ARE listings on the investor's own site under COLLECTION.md \u00a71's evidence sufficiency, any era -- and the status wording is evidence for the judge, never a label.",
+  "team_buckets": {
+   "Operations": "operations",
+   "Investors": "investing",
+   "Emeritus": "investing",
+   "Advisory Partners": "investing",
+   "EIRs": "eir",
+   "Specialists": "platform",
+   "Venture Partners": "investing"
+  },
+  "team_bucket_overrides": {
+   "Cyrus Pinto": "operations",
+   "Dwane Hamilton": "operations",
+   "John Delaney": "operations",
+   "Julie Smith": "operations",
+   "Katy Amaya": "operations"
+  }
  },
  "edgar": {
   "seed_queries": [

@@ -1751,17 +1751,23 @@ verifier, which reads the sidecar rather than the profile; two Redpoint fields
 shipped that way. A rewrite of a reader-facing field therefore touches both
 files.
 
-**`build-firm-profile.py` has two required inputs that nothing else writes**
-(Lux, 2026-09-06 — every run so far has hand-built them and rediscovered the
-same traps). It refuses to start without `sources/edgar/fund-formds.json` and
-`sources/site/team-members.json`. The first is a mechanical filter of
-`sources/edgar/formd-sweep.json` by `config.profile.own_vehicle_pattern`,
-keyed by issuer name, each value `{cik, filings:[{form, accession, quarter,
-offering, sold, indefinite, first_sale, pooled, fund_type, co_issuers}]}` —
-and its `_readme` must be a **dict**, not a string, because the fund verifier
-iterates every value. The second is the site team pull as a flat list of
-`{name, cms_title, role_bucket, site_group, linkedin_url, x_url, source}`.
-Two further traps: a fund entry carrying an `accession` is asserted against
+**`build-firm-profile.py` reads two shared-script outputs and hand-builds
+nothing** (PRO-113, 2026-09-16; until then every run hand-built
+`team-members.json` and `fund-formds.json` and rediscovered the same traps).
+The team is `sources/site/team.json` as `site-portfolio.py` writes it: every
+row carries `cms_title`, `role_bucket` (a list from the closed vocabulary
+`investing | operations | platform | finance | advisor | emeritus | eir |
+founder | other`), `linkedin_url` and `x_url`. The bucket is mechanical where
+it can be — `site_api.team_buckets` maps the site's own group label, and a
+row with no group falls to the title rules in the script — and
+`site_api.team_bucket_overrides` carries the per-person judgement calls by
+name. Only rows with a non-empty bucket publish; an unmapped group is the
+way to keep a site's operations staff out of the profile. Socials come from
+the CMS list where it carries them and from the member's own profile page
+otherwise (`--no-fetch-profiles` skips the page fetch). The firm's own Form D
+filings are derived at build time from the own-desk CIKs in `entities.json`
+over the local bulk zips, so there is no fund file to shape. Two standing
+traps: a fund entry carrying an `accession` is asserted against
 `TOTALAMOUNTSOLD` on that filing and the build fails on mismatch, so a fund
 whose latest Form D reports `$0 sold` must carry no accession; and the
 `fields` of `investor.sources.json` each need a `value` mirroring

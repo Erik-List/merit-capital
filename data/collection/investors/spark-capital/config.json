@@ -302,7 +302,13 @@
     ]
    }
   ],
-  "_note": "sparkcapital.com is a Webflow site (no public CMS API; escalation ladder step 5): /companies server-renders 124 cards across six tabs that repeat the same 45 companies (parsed once into webflow-companies.json with the card's exit marker and website); /team renders 23 people in four tabs. Archived listing eras are read by wayback-pull.py (config.wayback); their per-card fields (Webflow exit markers 2020-2026, WordPress sector/geo/stage classes 2015-2019) are extracted by scratch scripts into further file_list sources added below once landed."
+  "_note": "sparkcapital.com is a Webflow site (no public CMS API; escalation ladder step 5): /companies server-renders 124 cards across six tabs that repeat the same 45 companies (parsed once into webflow-companies.json with the card's exit marker and website); /team renders 23 people in four tabs. Archived listing eras are read by wayback-pull.py (config.wayback); their per-card fields (Webflow exit markers 2020-2026, WordPress sector/geo/stage classes 2015-2019) are extracted by scratch scripts into further file_list sources added below once landed.",
+  "team_buckets": {
+   "Early": "investing",
+   "Growth": "investing",
+   "Operations": "operations",
+   "Emeritus": "emeritus"
+  }
  },
  "edgar": {
   "seed_queries": [

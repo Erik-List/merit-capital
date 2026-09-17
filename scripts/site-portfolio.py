@@ -33,7 +33,8 @@ same named-strategy-in-code, constants-in-config pattern wayback-pull.py uses:
                   generated from — Contentful entries on creandum.com);
                   decoded through node, entries flattened to their fields
 
-Output: <investor>/sources/site/companies.json, team.json
+Output: <investor>/sources/site/companies.json, team.json (every team row carries
+        cms_title, role_bucket, linkedin_url, x_url: the profile builder's fields)
 
 Usage: python3 scripts/site-portfolio.py <investor-slug>
 """
@@ -420,6 +421,97 @@ SCRAPE_PARSERS = {
 }
 
 
+# ---------------------------------------------------------------------------
+# team shaping: the profile builder's fields on every team row (PRO-113)
+# ---------------------------------------------------------------------------
+
+BUCKETS = ("investing", "operations", "platform", "finance", "advisor",
+           "emeritus", "eir", "founder", "other")
+TITLE_KEYS = ("cms_title", "title", "role", "jobPosition", "role_display", "position")
+# Title rules, for sites that publish no team group. First match wins; a site
+# with groups never reaches these (an unmapped group means: do not publish).
+TITLE_RULES = [
+    (r"emeritus", "emeritus"),
+    (r"entrepreneur.in.residence|\beir\b", "eir"),
+    (r"advis", "advisor"),
+    (r"\b(cfo|coo|financ|controller|accounting|legal|counsel|compliance|"
+     r"investor relations|tax|fund admin)", "finance"),
+    (r"platform|talent|community|marketing|communications|comms|brand|content|"
+     r"events|people|\bhr\b|recruit|portfolio (support|services)|founder (success|"
+     r"experience)|network|editor|media|design|engineer|\bit\b|office|assistant|"
+     r"chief of staff|operations|operating", "operations"),
+    (r"investment team|general partner|managing (partner|director)|\bpartner\b|"
+     r"principal|associate|analyst|investor|venture|scout|fellow|\bvp\b|"
+     r"vice president|director|president|founder|ceo|chairman", "investing"),
+]
+LINKEDIN_RE = re.compile(r"https?://(?:[a-z]{2,3}\.)?linkedin\.com/(?:in|pub)/[^\"'\s<>?#]+", re.I)
+X_RE = re.compile(r"https?://(?:www\.)?(?:twitter|x)\.com/"
+                  r"(?!intent|share|home|search|hashtag|login|i/)([A-Za-z0-9_]{1,15})\b", re.I)
+
+
+def norm_name(name: str) -> str:
+    return re.sub(r"[^a-z]", "", (name or "").lower())
+
+
+def title_bucket(title: str | None) -> str | None:
+    t = (title or "").lower()
+    for rx, bucket in TITLE_RULES:
+        if re.search(rx, t):
+            return bucket
+    return None
+
+
+def bucket_of(row: dict, api: dict) -> list[str]:
+    """The row's role bucket(s): the per-person override by name (an empty list
+    means "do not publish"), else nothing if a `team_exclude_keys` key is set on
+    the row, else the site group through `team_buckets`, else (only when the
+    site has no groups) the title rules. Values outside BUCKETS are dropped."""
+    over = {norm_name(k): v for k, v in (api.get("team_bucket_overrides") or {}).items()}
+    key = norm_name(row.get("name"))
+    if key in over:
+        b = over[key]                       # [] is a judgement call: do not publish
+    elif any(row.get(k) for k in api.get("team_exclude_keys") or []):
+        b = None                            # e.g. a CMS "archived" flag
+    elif row.get("group") or row.get("section"):
+        b = (api.get("team_buckets") or {}).get(row.get("group") or row.get("section"))
+    else:
+        b = title_bucket(row.get("cms_title"))
+    return [x for x in ([b] if isinstance(b, str) else (b or [])) if x in BUCKETS]
+
+
+def socials_of(row: dict, fetch: bool, exclude: set[str]) -> tuple[str, str]:
+    """LinkedIn and X URLs: the CMS list's own keys first, the member's profile
+    page second (the same href regexes every per-investor pull used)."""
+    li = row.get("linkedin_url") or row.get("linkedin") or ""
+    x = row.get("x_url") or row.get("twitter") or row.get("twitterLink") or ""
+    for u in row.get("socials") or []:
+        if not li and "linkedin.com" in str(u):
+            li = str(u)
+        elif not x and re.search(r"(twitter|x)\.com", str(u)):
+            x = str(u)
+    if (not li or not x) and fetch and row.get("url"):
+        html = get_text(row["url"])
+        time.sleep(0.5)
+        if not li:
+            m = LINKEDIN_RE.search(html)
+            li = m.group(0) if m else ""
+        if not x:
+            x = next((m.group(0) for m in X_RE.finditer(html)
+                      if m.group(1).lower() not in exclude), "")
+    return li or "", x or ""
+
+
+def shape_team(rows: list[dict], api: dict, fetch: bool) -> list[dict]:
+    """Every team row gains cms_title, role_bucket, linkedin_url, x_url."""
+    exclude = {h.lower() for h in api.get("team_social_exclude") or []}
+    for r in rows:
+        r["cms_title"] = next((str(r[k]).strip() for k in
+                               api.get("team_title_keys") or TITLE_KEYS if r.get(k)), "")
+        r["role_bucket"] = bucket_of(r, api)
+        r["linkedin_url"], r["x_url"] = socials_of(r, fetch, exclude)
+    return rows
+
+
 def scrape_companies(api: dict) -> list[dict]:
     """Run every configured source, merge rows by normalized name.
 
@@ -533,7 +625,10 @@ def categories_from(class_list) -> list[str]:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("investor")
+    ap.add_argument("--no-fetch-profiles", action="store_true",
+                    help="skip the per-member profile-page fetch for socials")
     args = ap.parse_args()
+    fetch = not args.no_fetch_profiles
 
     p = Paths(args.investor)
     api = p.config()["site_api"]
@@ -549,8 +644,8 @@ def main() -> None:
         # Team through the same machinery, when the CMS carries people too
         # (roster.site_team_groups then filters on each row's "group" extra).
         if api.get("team_sources"):
-            team = scrape_companies({"sources": api["team_sources"]})
-            write_atomic(p.site / "team.json", json.dumps(team, indent=1) + "\n")
+            team = shape_team(scrape_companies({"sources": api["team_sources"]}), api, fetch)
+            write_atomic(p.team, json.dumps(team, indent=1) + "\n")
             groups = Counter(t.get("group") or "?" for t in team)
             print(f"team members: {len(team)}   groups: {dict(groups)}")
         return
@@ -578,7 +673,7 @@ def main() -> None:
         "url": t.get("link"),
     } for t in team if t.get("title", {}).get("rendered")]
     people.sort(key=lambda p_: p_["name"].lower())
-    write_atomic(p.site / "team.json", json.dumps(people, indent=1) + "\n")
+    write_atomic(p.team, json.dumps(shape_team(people, api, fetch), indent=1) + "\n")
 
     from collections import Counter
     sect = Counter(s for c in companies for s in c["sectors"])

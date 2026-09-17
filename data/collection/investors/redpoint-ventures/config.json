@@ -240,7 +240,11 @@
     "_note": "The live Sanity person docs. `team` is the site's own group taxonomy (investors / founders / founder-experience / operations) and roster.site_team_groups keeps the first two; `relatedCompanies` is the firm's own per-partner deal attribution map, 20 partners deep, which the judge uses to resolve Form D name-match clusters (COLLECTION.md 5)."
    }
   ],
-  "_note": "Five company surfaces, one per site era, unioned. The live Sanity CMS is the current book; the four file_list sources are the archived eras, each built by scratch/build-era-sources.py out of the wayback raw captures, carrying the columns that era published (2002-2006: company URL, description, location, status, logo file \u2014 a LOGO-ONLY era whose names are derived from the company's own domain and corrected against the bracketing text lists; 2007-2012: alt-text name, description, location, status; 2015-2020: sector, stage, active_state and deal partner from the card classes; 2021-2026: data-filter name, sectors and stage plus the archived page-data JSON). Each file's _readme records how it was made so the union stays reproducible."
+  "_note": "Five company surfaces, one per site era, unioned. The live Sanity CMS is the current book; the four file_list sources are the archived eras, each built by scratch/build-era-sources.py out of the wayback raw captures, carrying the columns that era published (2002-2006: company URL, description, location, status, logo file \u2014 a LOGO-ONLY era whose names are derived from the company's own domain and corrected against the bracketing text lists; 2007-2012: alt-text name, description, location, status; 2015-2020: sector, stage, active_state and deal partner from the card classes; 2021-2026: data-filter name, sectors and stage plus the archived page-data JSON). Each file's _readme records how it was made so the union stays reproducible.",
+  "team_buckets": {
+   "investors": "investing",
+   "founders": "investing"
+  }
  },
  "edgar": {
   "seed_queries": [
