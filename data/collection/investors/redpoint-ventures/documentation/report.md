@@ -524,3 +524,48 @@ so nothing was hidden by the comparison being skipped.
 - A **stale `scratch/in-flight.json` for `accel`** (pid 66968, dead) suppressed
   invariant 10 against that sibling. Left in place rather than deleted from
   under another session.
+
+## Addendum, 2026-09-16 — S2A re-judged under the status contract
+
+`seed_to_a_graduation` became a judged status (`graduated | not_graduated |
+censored | undetermined`, COLLECTION.md §6), which supersedes the C2A figures
+above (53.3% on 45 rows with 30 `cohort_unverified`). `migrate-graduation`
+dropped 40 legacy values and the 30 flags; the 57 Seed rows were re-judged in
+two batches (70 web calls) with both legs cited in the same pass.
+
+Eleven rows left the cohort because the citation places Redpoint's entry at
+a later round — Adap.tv, Greenplaces, Quantifind, TruSignal, LuxeValet and
+Memoir at the Series A; Pure Storage, Twilio and Plastic Jungle at Growth —
+or before the window (Avnera 2004, Oodle 2005, now `pre_window_entry`). Seven
+Form D verdicts were confirmed as filed (Acompli, Boon, Curious, Extole,
+Moogsoft, Qualified, SparkPlay); six were overturned on the entry anchor or
+the round word, each with a citation.
+
+| seed entries | censored | undetermined | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|---|
+| 46 | 7 | 12 | 27 | 22 | 5 | 81.5% | 69% |
+
+Of 46 seed entries, 7 were too recent to count (entries of 2025–26); of the
+39 whose record could be sought, 27 were established (69% coverage) and
+81.5% of those graduated — the establishable set skews toward visible
+successes. The five "no"s: Acompli and SparkPlay (Form D absence), Proper
+(Intuit's IP purchase, Mar 2024), Simpo (WalkMe, per its 2021 Form 20-F),
+Cascade (the founders' post-mortem); each carries its terminal citation and
+the date the absence was checked. Undetermined (12): Atmosfy, Erply (the
+2013 "Series B" fails the step-up), Fimio, Fixie, OnPlan, Scale3, Silk +
+Sonder, AutoGPT, Signadot, Restate, Voyce.me and tbh (no page ties Redpoint
+to the seed). Prior notes that turned out uncited were not carried (Fixie
+"absorbed", Scale3 "acquired", Cascade "team acquired", Signadot "2024
+Series A").
+
+`verify.shape.c2a_rate_max` is restated from 0.80 to 0.85 (D-S2A): the
+default describes a 900-row megafund base, and a 27-row cohort sits a point
+above it. One row outside the column was corrected: Cascade's public-float
+join was a name collision (Cascade.io wound down 2023), disputed with
+`model_disputes_source` per R3. Entry stages now Series A 245 / Growth 119 /
+Seed 46 / Pre-Seed 3.
+
+`verify` is clean except five cross-investor pairs with Battery, all
+freshest on this side (Function Health $2.5B, Guild $4.4B, MotherDuck $1.0B
+against Battery's below_1b; Gogobot defunct vs acquired; Kustomer acquired
+vs private); Battery's own S2A pass aligns them.

@@ -262,3 +262,20 @@ arrived as a recall-probe addition, but Membase — already a member — is the
 company that merged into it. Under T5 a position that moves through plumbing
 stays a row through its original entry, so Couchbase is `not_member` as a
 duplicate identity and the Couchbase outcome is written onto the membase row.
+
+### D-S2A — Seed-to-A graduation re-judged under the status contract; the cohort ceiling restated (2026-09-16, agent, class-wide)
+
+Under the 2026-09-16 contract (COLLECTION.md §6) every in-window Seed row
+was re-judged with both legs cited: 46 seed entries, 7 censored (entries of
+2025–26), 12 undetermined, cohort 27, graduated 22, rate 81.5%, coverage
+69%. Eleven rows left the cohort because the citation places Redpoint's
+entry at a later round (Adap.tv, Greenplaces, Quantifind, TruSignal,
+LuxeValet, Memoir at Series A; Pure Storage, Twilio, Plastic Jungle at
+Growth) or before the window (Avnera 2004, Oodle 2005, now
+`pre_window_entry`). `verify.shape.c2a_rate_max` is restated from 0.80 to
+0.85: the default describes a 900-row megafund base, and a 27-row cohort
+whose establishable set skews to visible successes sits a point above it;
+the guard still fires above 0.85 and the published sentence carries the
+coverage. One row outside the column was corrected on the way: Cascade's
+public-float join was a name collision (Cascade.io wound down in 2023),
+disputed with `model_disputes_source` per R3.
