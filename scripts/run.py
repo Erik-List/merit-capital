@@ -1240,8 +1240,16 @@ def cmd_migrate_graduation(args) -> None:
         if g in GRADUATION_STATUSES:
             n["already_status"] += 1
         elif touched and rec.get("who") == "erik":
-            n["human_row_left"] += 1
-            print(f"  human row left as is: {slug} = {g!r}")
+            # A human ruling is not re-judged, but its value must speak the
+            # contract's vocabulary: the boolean converts one-to-one to the
+            # decided status, every other key and the authorship untouched.
+            if isinstance(g, bool):
+                rec["seed_to_a_graduation"] = "graduated" if g else "not_graduated"
+                n["human_row_converted"] += 1
+                print(f"  human row converted, not re-judged: {slug} = {rec['seed_to_a_graduation']}")
+            else:
+                n["human_row_left"] += 1
+                print(f"  human row left as is: {slug} = {g!r}")
         elif touched:
             stage_cited = bool((rec.get("entry_stage_citation") or "").strip()) \
                 or rec.get("entry_stage_source") in ("formd_structural", "formd_band")
