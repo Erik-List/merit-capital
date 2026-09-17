@@ -23,6 +23,25 @@ type Investor = Database["public"]["Tables"]["investors"]["Row"];
 
 export type SortOption = "track-record-desc" | "graduation-rate-desc";
 
+// A graduation rate ranks only when its decided cohort is large enough and
+// covers enough of the seed entries old enough to be decided; a rate on a
+// thin or mostly undetermined cohort sorts as null (last), never as a small
+// number. The shape is what recompute_investor_metrics writes.
+const RANK_MIN_COHORT = 30;
+const RANK_MIN_COVERAGE = 0.5;
+function rankableGraduationRate(value: unknown): number | null {
+  const bucket = (value as { seed_to_series_a?: Record<string, unknown> | null } | null)?.seed_to_series_a;
+  if (!bucket) return null;
+  const rate = Number(bucket.rate_percent);
+  const cohort = Number(bucket.sample_size) || 0;
+  const seedEntries = Number(bucket.seed_entries) || cohort;
+  const censored = Number(bucket.censored) || 0;
+  const establishable = seedEntries - censored;
+  if (!Number.isFinite(rate) || cohort < RANK_MIN_COHORT) return null;
+  if (establishable <= 0 || cohort / establishable < RANK_MIN_COVERAGE) return null;
+  return rate;
+}
+
 const DEFAULT_SORT: SortOption = "track-record-desc";
 
 const defaultView: ViewState = {
@@ -663,10 +682,8 @@ export default function Leaderboard() {
         aValue = Number.isFinite(aHitRate.percent) ? aHitRate.percent : null;
         bValue = Number.isFinite(bHitRate.percent) ? bHitRate.percent : null;
       } else if (sort === "graduation-rate-desc") {
-        const aGrad = a.graduation_rate as { seed_to_series_a?: { rate?: number | null } | null } | null;
-        const bGrad = b.graduation_rate as { seed_to_series_a?: { rate?: number | null } | null } | null;
-        aValue = aGrad?.seed_to_series_a?.rate ?? null;
-        bValue = bGrad?.seed_to_series_a?.rate ?? null;
+        aValue = rankableGraduationRate(a.graduation_rate);
+        bValue = rankableGraduationRate(b.graduation_rate);
       }
 
       // Handle nulls: put them last for descending sort

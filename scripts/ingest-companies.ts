@@ -163,12 +163,10 @@ async function main() {
       valuation_asof: r.valuation_asof
         ? coerceAsofDate(r.valuation_asof, r.slug, errors)
         : null,
-      seed_to_a_graduation:
-        r.seed_to_a_graduation === "True"
-          ? true
-          : r.seed_to_a_graduation === "False"
-            ? false
-            : null,
+      // A status (graduated | not_graduated | censored | undetermined), null
+      // only where the column does not apply; validateCompanyFields holds the
+      // vocabulary, so a legacy "True"/"False" cell fails the run loudly.
+      seed_to_a_graduation: r.seed_to_a_graduation || null,
       updated_at: updatedAt,
     };
 

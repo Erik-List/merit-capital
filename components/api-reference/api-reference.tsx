@@ -140,7 +140,7 @@ function formatType(property: SpecProperty): string {
   // PostgREST puts the Postgres type in `format`, the JSON type in `type`.
   const raw = property.format ?? property.type ?? "";
   if (raw.includes("timestamp")) return "timestamp";
-  if (raw.includes("InvestorType")) return "enum";
+  if (raw.includes("InvestorType") || raw.includes("graduation_status")) return "enum";
   if (raw === "jsonb" || raw === "json") return "json";
   if (raw === "integer" || raw === "bigint" || raw === "numeric") return "number";
   return raw;

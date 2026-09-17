@@ -13,7 +13,9 @@ export interface ParsedFlags {
 
 // The writable columns of public.investors. A --columns value outside this
 // list is a typo and must fail loudly, not silently write nothing.
-// (id is deliberately absent: the database mints it and ingest never sends it.)
+// (id is deliberately absent: the database mints it and ingest never sends it.
+// track_record and graduation_rate are absent too: the database derives them
+// from public.companies on every write, and ingest-investor.ts refuses them.)
 export const INVESTOR_COLUMNS = [
   "slug",
   "name",
@@ -33,8 +35,6 @@ export const INVESTOR_COLUMNS = [
   "funds",
   "individuals",
   "affiliation",
-  "track_record",
-  "graduation_rate",
   "updated_at",
 ] as const;
 

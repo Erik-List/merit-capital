@@ -4,7 +4,6 @@ import { useMemo } from 'react';
 
 import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
-import { CANONICAL_STAGES, canonicalizeStage } from '@/lib/taxonomy';
 import type { Database } from '@/types/supabase';
 
 type Investor = Database['public']['Tables']['investors']['Row'];
@@ -23,15 +22,21 @@ type TrackRecord = {
   ipo_companies?: TrackRecordBucket;
 } | null;
 
+// The shape recompute_investor_metrics writes: the decided cohort
+// (sample_size) with its rate, and the seed entries it was drawn from, so the
+// coverage of the rate is visible next to it. rate_percent is null when the
+// cohort is empty.
 type GraduationBucket = {
   rate_percent?: number | null;
+  graduated?: number | null;
   sample_size?: number | null;
+  seed_entries?: number | null;
+  censored?: number | null;
+  undetermined?: number | null;
 } | null;
 
 type GraduationRate = {
-  pre_seed_to_seed?: GraduationBucket;
   seed_to_series_a?: GraduationBucket;
-  series_a_to_series_b?: GraduationBucket;
 } | null;
 
 interface InvestorMeritProps {
@@ -54,19 +59,6 @@ function normalizeGraduationRate(rate: Investor['graduation_rate']): GraduationR
   return rate as GraduationRate;
 }
 
-function ensureArray(value: Investor['investment_stage']): string[] {
-  if (!value) return [];
-  if (Array.isArray(value)) {
-    return value
-      .map((entry) => (typeof entry === 'string' ? entry : null))
-      .filter((entry): entry is string => Boolean(entry));
-  }
-  if (typeof value === 'string') {
-    return [value];
-  }
-  return [];
-}
-
 function calculatePercentage(count: number, total: number): string {
   if (!total || total <= 0 || !count) return '0%';
   const pct = Math.round((count / total) * 1000) / 10;
@@ -74,13 +66,16 @@ function calculatePercentage(count: number, total: number): string {
   return `${formatted}%`;
 }
 
-// The sample size gates rendering: a rate without its cohort must never
-// show, so a bucket missing sample_size is treated as absent.
+// The seed entries gate rendering: the section shows whenever the investor
+// has a seed book, even when nothing in it could be established yet (the row
+// then says so instead of showing a rate). A bucket without seed_entries is
+// the pre-coverage shape and renders only with a non-empty cohort.
 function hasGraduationData(bucket: GraduationBucket | null | undefined): boolean {
   if (!bucket) return false;
-  const rate = Number(bucket.rate_percent);
+  const seedEntries = Number(bucket.seed_entries);
+  if (Number.isFinite(seedEntries) && seedEntries > 0) return true;
   const sample = Number(bucket.sample_size);
-  return Number.isFinite(rate) && rate >= 0 && Number.isFinite(sample) && sample > 0;
+  return Number.isFinite(sample) && sample > 0;
 }
 
 type MilestoneKey = 'one_b' | 'ten_b' | 'hundred_b' | 'ipo';
@@ -114,33 +109,15 @@ function getYearSpan(startYear?: number | null): number | null {
   return span > 0 ? span : 1;
 }
 
-// Everything from Series A onward, derived from the canonical ordering rather
-// than restated, so a new stage in the taxonomy lands on the right side of the
-// split automatically.
-const SERIES_A_AND_BEYOND = CANONICAL_STAGES.slice(CANONICAL_STAGES.indexOf('Series A'));
-
 export function InvestorMerit({
   investor,
 }: InvestorMeritProps) {
   const trackRecord = useMemo(() => normalizeTrackRecord(investor.track_record), [investor.track_record]);
   const trackMetrics = useMemo(() => computeTrackRecordMetrics(trackRecord), [trackRecord]);
   const graduationRate = useMemo(() => normalizeGraduationRate(investor.graduation_rate), [investor.graduation_rate]);
-  const stages = useMemo(() => ensureArray(investor.investment_stage), [investor.investment_stage]);
 
-  const canonicalStages = useMemo(
-    () => stages.map((stage) => canonicalizeStage(stage)).filter((stage): stage is string => Boolean(stage)),
-    [stages],
-  );
-  const hasPreSeed = canonicalStages.includes('Pre-Seed');
-  const hasSeriesAPlus = canonicalStages.some((stage) => SERIES_A_AND_BEYOND.includes(stage));
-
-  const preSeedGraduation = hasPreSeed ? graduationRate?.pre_seed_to_seed : null;
   const seedGraduation = graduationRate?.seed_to_series_a;
-  const seriesGraduation = hasSeriesAPlus ? graduationRate?.series_a_to_series_b : null;
-
-  const showPreSeed = hasGraduationData(preSeedGraduation);
   const showSeed = hasGraduationData(seedGraduation);
-  const showSeries = hasGraduationData(seriesGraduation);
 
   const investingSpan = getYearSpan(trackRecord?.investing_start_year);
 
@@ -245,24 +222,16 @@ export function InvestorMerit({
       ) : null}
 
       {/* Graduation Rates */}
-      {(showPreSeed || showSeed || showSeries) ? (
+      {showSeed ? (
         <section className="space-y-4">
           <div className="space-y-2">
             <div className="text-lg font-semibold">Graduation Rates</div>
             <p className="text-xs text-muted-foreground">
-              Graduation rates show the companies that completed an additional investment round after the initial investment of {investor.name}
+              The share of seed-stage entries of {investor.name} that raised a later round. The rate covers the entries whose record could be established; the coverage beside it says how many that is, and entries under two years old are not counted.
             </p>
           </div>
           <div className="space-y-3">
-            {showPreSeed ? (
-              <GraduationRow label="Pre-Seed → Seed" bucket={preSeedGraduation} />
-            ) : null}
-            {showSeed ? (
-              <GraduationRow label="Seed → Series A" bucket={seedGraduation} />
-            ) : null}
-            {showSeries ? (
-              <GraduationRow label="Series A → Series B" bucket={seriesGraduation} />
-            ) : null}
+            <GraduationRow label="Seed → Series A" bucket={seedGraduation} />
           </div>
         </section>
       ) : null}
@@ -277,18 +246,35 @@ interface GraduationRowProps {
 
 function GraduationRow({ label, bucket }: GraduationRowProps) {
   if (!bucket) return null;
-  const rate = Number(bucket?.rate_percent) || 0;
-  const sampleSize = Number(bucket?.sample_size) || 0;
-  const percentage = rate % 1 === 0 ? `${rate.toFixed(0)}%` : `${rate.toFixed(1)}%`;
+  const sampleSize = Number(bucket.sample_size) || 0;
+  const censored = Number(bucket.censored) || 0;
+  const rate = bucket.rate_percent == null ? null : Number(bucket.rate_percent);
+  const hasRate = rate !== null && Number.isFinite(rate) && sampleSize > 0;
+  const percentage = !hasRate ? null : rate % 1 === 0 ? `${rate.toFixed(0)}%` : `${rate.toFixed(1)}%`;
+  // Coverage: the decided cohort over the entries old enough to be decided.
+  // Only stated when the bucket carries its seed entries; the pre-coverage
+  // shape says nothing about how much of the seed book the rate covers.
+  const seedEntries = Number(bucket.seed_entries);
+  const hasCoverage = Number.isFinite(seedEntries) && seedEntries > 0;
+  const establishable = hasCoverage ? Math.max(0, seedEntries - censored) : 0;
+  const coverage = establishable > 0 ? Math.round((sampleSize / establishable) * 100) : null;
+  const detail = !hasCoverage ? null : [
+    `${seedEntries} seed ${seedEntries === 1 ? 'entry' : 'entries'}`,
+    censored > 0 ? `${censored} too recent` : null,
+    coverage !== null ? `${coverage}% coverage` : null,
+  ].filter(Boolean).join(' · ');
 
   return (
-    <div className="grid grid-cols-1 items-center gap-1 lg:grid-cols-[minmax(0,200px)_1fr] lg:gap-4">
+    <div className="grid grid-cols-1 items-start gap-1 lg:grid-cols-[minmax(0,200px)_1fr] lg:gap-4">
       <span className="text-sm font-medium text-muted-foreground">{label}</span>
-      <div className="flex min-w-0 items-center gap-3">
-        <Progress value={Math.max(0, Math.min(100, rate))} className="h-1.5 w-full min-w-0 bg-muted-foreground/30 lg:w-40 lg:shrink-0" />
-        <span className="shrink-0 whitespace-nowrap text-sm font-medium text-muted-foreground">
-          {percentage} of {sampleSize} companies
-        </span>
+      <div className="flex min-w-0 flex-col gap-1">
+        <div className="flex min-w-0 items-center gap-3">
+          <Progress value={hasRate ? Math.max(0, Math.min(100, rate)) : 0} className="h-1.5 w-full min-w-0 bg-muted-foreground/30 lg:w-40 lg:shrink-0" />
+          <span className="shrink-0 whitespace-nowrap text-sm font-medium text-muted-foreground">
+            {hasRate ? `${percentage} of ${sampleSize} established` : 'no established cohort yet'}
+          </span>
+        </div>
+        {detail ? <span className="text-xs text-muted-foreground/80">{detail}</span> : null}
       </div>
     </div>
   );

@@ -22,7 +22,7 @@ Two objects are exposed:
 | Object | One row is |
 |---|---|
 | `/data/investors` | An investor (institution or individual): profile, funds, people, and the derived performance metrics. |
-| `/data/companies` | One (investor, company) pair: entry stage, status, valuation range, and seed-to-A graduation. |
+| `/data/companies` | One (investor, company) pair: entry stage, status, valuation range, and seed-to-A graduation as a status (graduated, not graduated, censored, undetermined). |
 
 ### Examples
 

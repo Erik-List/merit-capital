@@ -151,5 +151,26 @@ export function validateCompanyFields(row: Record<string, any>): TaxonomyIssues 
     errors.push("hq_country: expected a string or null");
   }
 
+  // seed_to_a_graduation is a closed status (public.graduation_status); the
+  // pipeline's own verify enforces the evidence behind each value, this only
+  // keeps a stray spelling or a legacy boolean cell out of the table.
+  if (typeof row.seed_to_a_graduation === "string") {
+    if (!(GRADUATION_STATUSES as readonly string[]).includes(row.seed_to_a_graduation)) {
+      errors.push(
+        `seed_to_a_graduation: "${row.seed_to_a_graduation}" is not a graduation status ` +
+          `(${GRADUATION_STATUSES.join(", ")})`
+      );
+    }
+  } else if (row.seed_to_a_graduation != null) {
+    errors.push("seed_to_a_graduation: expected a status string or null");
+  }
+
   return { errors, warnings };
 }
+
+export const GRADUATION_STATUSES = [
+  "graduated",
+  "not_graduated",
+  "censored",
+  "undetermined",
+] as const;
