@@ -1304,22 +1304,56 @@ maturity today. 100% fill.
 
 ### seed_to_a_graduation (C2A)
 
-Cohort = final `entry_stage` == Seed, ≥24 months since entry or resolved
-earlier (censored rows null by rule). Graduation on the deterministic path =
-a later round ≥2× entry amount and ≥$5M; for knowledge-based seeds that
-predate Form D coverage, a documented follow-on with citation. Cohort rows
-are verified on both legs (entry stage and the A follow-on) or carry
-`cohort_unverified`; the published rate is accompanied by its verified
-share. Cross-check: no row may end `false` + (valuation ≥$1B or public) —
-that combination is a Form D blind spot (4(a)(2), foreign), disputed to true
-with source model/web.
+**A status, never a boolean** (Erik, 2026-09-16, after the coverage audit:
+2,736 of 3,664 Seed rows carried no answer and the judge had never been
+asked). Every in-window Seed entry carries exactly one of
+`graduated | not_graduated | censored | undetermined`; null is reserved for
+a non-Seed entry and for a pre-window row. The column is **judged, never
+pre-filled**: `prepare` queues the `seed_to_a_graduation` need on every
+in-window Seed row, the Form D layer's verdict rides in the item as
+`formd_graduation` evidence, and only a judged status closes the need.
 
-The published rate carries its selection bias in the sentence, not in a
-footnote: knowledge-true graduations are easier to author than confirmed
-non-graduations, and nulls hide the undetermined. The honest form (Accel,
-79.1% on 91 rows): "of the seed entries where the record could be
-established, ~79% graduated — the establishable set skews toward visible
-successes."
+Evidence per status, verified by construction (`record` refuses anything
+less, so no verified tag exists — the cohort is the verified set):
+
+- `graduated`: a later priced round ≥ max(2× entry, $5M) in the company's
+  own Form D sequence (`graduation_source: formd`, the accessions are the
+  citation, and the answer must agree with the layer), or a cited later
+  round — the firm's own post or company page, the company's own funding
+  page (`first_party`), a press release or SEC filing naming the round
+  (`web_verified`) — with `graduation_citation`. A named Series A or later
+  counts when amounts are unknown; when both amounts are known the step-up
+  test applies.
+- `not_graduated`: Form D absence with the rescan as-of ≥ entry + 24 months
+  (`formd`), or a cited acquisition/shutdown plus a dated absence check
+  (`graduation_asof`, the date the record was searched) whose note names
+  the seed as the last round. Vendor pages never carry a no (Rule A).
+- `censored`: `entry_date` less than 24 months before today. The clock is
+  re-read on every `verify`; an entry that has aged past it owes a decision.
+- `undetermined`: everything else, with a note naming what was tried. Never
+  a silent null: `export` writes `undetermined` on any in-window Seed row
+  nobody decided.
+
+`graduation_source` ∈ `formd | first_party | web_verified` — the model may
+not decide a graduation. `entry_date` (YYYY, YYYY-MM or YYYY-MM-DD) is
+expected on every judged Seed row and required on a `censored` one; a bare
+year reads as 1 January, so a recent entry needs month precision. Cross-
+check (invariant 7): no row ends `not_graduated` + (valuation ≥$1B or
+public) — that combination is a Form D blind spot (4(a)(2), foreign), and
+the round that exists is cited instead.
+
+The published block carries six numbers — seed entries, censored,
+undetermined, cohort (`sample_size`), graduated, rate — and coverage is
+their ratio, `sample_size / (seed_entries − censored)`. The rate carries
+its selection bias in the sentence: "of N seed entries, K were too recent
+to count; of the M whose record could be established (X% coverage), R%
+graduated — the establishable set skews toward visible successes." An
+investor whose evidence cannot establish the column at all declines it in
+`config.json` (`verify.c2a_deterministic: false`, YC): it is never asked
+and publishes `undetermined` throughout, so its rate is null with its
+seed count beside it. A classification file from before this rule is
+rewritten once by `run.py migrate-graduation`: a cited `web_verified`
+graduation on a cited stage stays, everything else re-enters the queue.
 
 ### hq_country
 
@@ -1383,8 +1417,10 @@ to the sampling sheet. Elsewhere: one rigorous cited pass, blind sampling as
 the review element.
 
 Debt is explicit, never hidden: `cite_pending` is the resumable citation
-queue, `cohort_unverified` the C2A leg debt. `verify` tolerates only flagged
-debt.
+queue; on the C2A column the only debt is the published value
+`undetermined`, counted in the report (`cohort_unverified` retired
+2026-09-16: an unverified yes or no is not recorded at all). `verify`
+tolerates only flagged debt.
 
 ## 8. Run mechanics (`scripts/run.py`)
 
@@ -1407,10 +1443,21 @@ Every subcommand takes the investor slug.
   Labs class: a band-labeled entry stage that was never queued for
   judgment. A `formd_band`-sourced stage on a $1B+ or post-2020 row goes
   back through the judge (with the §6 announcement check), never past it.
+- **Graduation is judged, never pre-filled** (2026-09-16). Every in-window
+  Seed row, and every row whose stage is itself open, carries the
+  `seed_to_a_graduation` need; the Form D layer's verdict rides in the
+  item as `formd_graduation` (status, entry and step-up amounts, entry
+  date, the rescan's as-of), which the judge confirms with
+  `graduation_source: formd` or disputes with a citation. The need closes
+  on a judged status, on a judged non-Seed stage, or on a pre-window flag.
+  The item carries `entry_date` and `entry_quarter` from the filings and
+  `site_invest_year` from the site as the judge's clock for the censor
+  rule; where none exists the date comes from the citation or the
+  program's cohort table in `decisions.md`.
 - **One queue, one pass per row.** `prepare` emits every open need for a
   row in one item — `membership` first when the row is unjudged, then
-  whichever of `status`, `hq_country`, `entry_stage`, `valuation_range`
-  the deterministic layers left empty — and carries the row's evidence
+  whichever of `status`, `hq_country`, `entry_stage`, `valuation_range`,
+  `seed_to_a_graduation` the deterministic layers left empty — and carries the row's evidence
   (`evidence_class`, site, wayback, EDGAR and Form D links, partner
   attribution) so the judge rules membership from the item alone. The
   judge answers membership first: a `not_member` row gets its verdict line
@@ -1461,7 +1508,8 @@ Every subcommand takes the investor slug.
   deterministic layer files): everything there regenerates; everything at the
   investor's top level is curated or published and is never deleted by a run.
 - **`record` is the gate**: it validates every line (enums, source gates,
-  citation URLs, city shape, country codes) and rejects violations; answers
+  citation URLs, the §6 graduation contract against the record on disk,
+  city shape, country codes) and rejects violations; answers
   merge per key into existing records; flags union; only `clear_flags`
   removes. **Emit only the keys for the needs asked** (plus `flags`, `note`)
   — extra keys clobber filing-grade facts at merge time; the one exception
@@ -1492,8 +1540,9 @@ Every subcommand takes the investor slug.
 - **Standing verification duties**, after the grind, before verify-clean:
   1. Web-verify every $1B+ claim regardless of source: identity and current
      status; update or downgrade.
-  2. Vet every `seed_to_a_graduation: false` against reality (the C2A
-     cross-check above).
+  2. Vet every `not_graduated` against reality (invariant 7: a $1B+ or
+     public row cannot be a no) and every `censored` clock (an entry now
+     ≥24 months old owes a decision).
   3. Audit every weak CIK join encountered: does the registrant actually
      fit the row, or is it a suffix-stripped name collision? A weak join
      poisons downstream layers — the issuer-rounds history inherits the
@@ -1607,7 +1656,9 @@ and check that rows render flat, the profile panel expands, and the
 surface is actually reviewable. It is an exit-criterion artifact, not a
 byproduct.
 
-Every run ends in the investor's `report.md`: method deltas, results,
+Every run ends in the investor's `report.md`: method deltas, results
+(the C2A block in its six numbers — seed entries, censored, undetermined,
+cohort, graduated, rate — with coverage in the sentence, §6),
 corrections taken, the flag and debt counts behind `verify`, the open
 rulings raised, the usage line (§12), and the session's prompt count — the number this pipeline
 exists to drive down. **The target is two prompts: kickoff and the ingest
@@ -1639,15 +1690,20 @@ run before the investor row exists (Thrive, 2026-09-04).
 
 1. Coverage: every base slug carries a membership verdict; `status`,
    `valuation_range`, `entry_stage`, `hq_country` at 100% fill with valid
-   vocabulary.
+   vocabulary; every in-window Seed row carries a graduation status.
 2. Source gate: a dollar figure only from an allowed source; only
    `below_1b` without a figure.
 3. Public $1B+ row → cited market cap, else `cite_pending`.
 4. $1B+ row → class 1/2 stage evidence (citation or filing structure), else
    `cite_pending`.
-5. Cohort row → both legs verified, else `cohort_unverified`.
+5. Cohort row (`graduated` / `not_graduated`) → both legs verified: a cited
+   or structural entry stage, and a graduation source carrying its evidence
+   (`formd` agreeing with the layer; `first_party` / `web_verified` with
+   `graduation_citation`; a no outside Form D also with `graduation_asof`).
+   `cohort_unverified` is not an allowed end state (retired 2026-09-16).
 6. Non-US country on a visible row → citation or formd/wikidata provenance.
-7. No row ends graduation `false` + (≥$1B or public).
+7. No row ends `not_graduated` + (≥$1B or public); no `censored` row whose
+   entry is ≥24 months old.
 8. Drift: overlay keys ⊆ live base slugs (the no-rebuild-mid-run rule).
 9. Debt only where flagged; the flags are counted in the report.
 10. Cross-investor: a company held by another investor reads the same
@@ -1674,7 +1730,8 @@ run before the investor row exists (Thrive, 2026-09-04).
 Two modes. Plain `verify` is the contract: every invariant above, full
 fills, distribution guards, published surfaces current. `verify
 --in-flight` runs mid-grind: invariants 2–7, 9 and 10 over every answered
-row and drift (8) always, while unjudged rows, unfilled columns and
+row and drift (8) always, while unjudged rows, unfilled columns (Seed rows
+without a graduation status among them), an expired censor clock and
 `not_member` rows awaiting the rebuild are counted and reported rather
 than failed, and the distribution guards wait for the full mode. A merged
 run is green in flight at every milestone and green in full once, at the

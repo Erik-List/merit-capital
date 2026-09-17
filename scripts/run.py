@@ -20,6 +20,9 @@ Subcommands:
             rows and not_member rows awaiting the rebuild are not failures
   export    write the one merged CSV (the published per-investor surface)
   review    write the read-only review.html
+  migrate-graduation
+            one-time rewrite of a classification file from the retired
+            graduation booleans to the status vocabulary (2026-09-16)
 
 Base and classification share one surface: `export` writes
 data/collection/investors/<slug>/companies/base.csv with identity, membership
@@ -84,6 +87,25 @@ CENSOR_MONTHS = 24
 STAGE_BANDS = ((1_000_000, "Pre-Seed"), (7_500_000, "Seed"), (30_000_000, "Series A"))
 GRADUATION_MULTIPLE = 2.0
 GRADUATION_FLOOR = 5_000_000
+
+# seed_to_a_graduation is a status, never a boolean (COLLECTION.md §6,
+# 2026-09-16). An in-window Seed entry carries exactly one of these; null is
+# reserved for a non-Seed or pre-window entry. The published rate divides
+# over the two decided states; censored and undetermined are counted beside
+# it as coverage, never hidden in a null.
+GRADUATION_STATUSES = ("graduated", "not_graduated", "censored", "undetermined")
+COHORT_STATUSES = ("graduated", "not_graduated")
+# A decided status is verified by construction: `formd` cites its accessions
+# (the layer's own verdict, confirmed by the judge), the other two must carry
+# graduation_citation. The model may not decide a graduation.
+GRADUATION_SOURCES = ("formd", "first_party", "web_verified")
+ENTRY_DATE_RE = re.compile(r"\d{4}(-\d{2}){0,2}")
+PRE_WINDOW_FLAGS = frozenset({"pre_window", "pre_window_entry"})
+# What the Form D layer decided travels to the judge as evidence, under
+# formd_graduation, and never occupies the judged column itself.
+FORMD_GRADUATION_KEYS = ("seed_to_a_graduation", "graduation_source", "graduation_confidence")
+FORMD_GRADUATION_EVIDENCE = ("seed_to_a_graduation", "entry_offering_usd", "entry_date",
+                             "next_offering_usd", "next_quarter", "formd_asof")
 
 VALUATION_RANGES = ("below_1b", "1b_plus", "10b_plus", "100b_plus")
 VALID_STAGES = {"Pre-Seed", "Seed", "Series A", "Growth"}
@@ -303,7 +325,9 @@ def open_needs(item: dict, verdicts: dict, merged: dict) -> list[str]:
     "membership" is answered by a ledger verdict; every other need by a
     non-null value for that key in the merged record. A not_member verdict
     retires the row outright: its classification needs are moot, and the row
-    leaves base.json at the next rebuild.
+    leaves base.json at the next rebuild. The graduation need also closes
+    when the judged entry stage turns out not to be Seed, or the row is
+    pre-window: the column is null by rule there, not missing.
     """
     verdict = verdicts.get(item["slug"], {}).get("verdict")
     if verdict == "not_member":
@@ -314,6 +338,15 @@ def open_needs(item: dict, verdicts: dict, merged: dict) -> list[str]:
         if need == "membership":
             if not verdict:
                 out.append(need)
+        elif need == "seed_to_a_graduation":
+            stage = rec.get("entry_stage")
+            if rec.get(need) in GRADUATION_STATUSES:
+                continue
+            if stage and stage != "Seed":
+                continue
+            if set(rec.get("flags") or []) & PRE_WINDOW_FLAGS:
+                continue
+            out.append(need)
         elif rec.get(need) is None:
             out.append(need)
     return out
@@ -349,18 +382,26 @@ def round_date(rnd: dict) -> str | None:
     return rnd.get("sale_date") or rnd.get("filing_date") or None
 
 
-def months_since(iso: str | None) -> int | None:
+def months_since(iso: str | None, asof: str | None = None) -> int | None:
+    """Whole months from a date (YYYY, YYYY-MM or YYYY-MM-DD; a bare year or
+    month reads as its first day, the earliest the entry can be) to `asof`,
+    today by default. None when either side is not a date."""
     if not iso:
         return None
+    s = str(iso)
+    if not ENTRY_DATE_RE.fullmatch(s):
+        return None
+    s = s + "-01" * ((10 - len(s)) // 3)
     try:
-        then = datetime.fromisoformat(iso[:10]).date()
+        then = datetime.fromisoformat(s[:10]).date()
+        now = datetime.fromisoformat(asof[:10]).date() if asof else date.today()
     except ValueError:
         return None
-    now = date.today()
     return (now.year - then.year) * 12 + (now.month - then.month)
 
 
-def graduation_from_formd(rounds: list[dict], partner_accs: frozenset | set = frozenset()) -> dict:
+def graduation_from_formd(rounds: list[dict], partner_accs: frozenset | set = frozenset(),
+                          formd_asof: str | None = None) -> dict:
     """Entry stage and graduation from a company's own Form D sequence.
 
     **Entry is anchored at the earliest partner-attributed round**, per PRO-6's
@@ -375,24 +416,25 @@ def graduation_from_formd(rounds: list[dict], partner_accs: frozenset | set = fr
     profile card actually claims ("completed an additional investment round after
     the initial investment"), and it survives across eras in a way that fixed
     "a Series A is $5-30M" bands do not.
+
+    The verdict is a status (GRADUATION_STATUSES). An absence is dated: a seed
+    with no later filing is `not_graduated` only when the rescan (`formd_asof`,
+    the rounds file's own date) looked at least CENSOR_MONTHS after the entry,
+    and `censored` before that. The judge confirms every verdict from the queue
+    (COLLECTION.md §6); this layer never fills the column on its own.
     """
-    # An investor may decline to publish a deterministic C2A verdict at all
+    # An investor may decline the C2A column altogether
     # (verify.c2a_deterministic: false). YC needs it: the cohort is 5,041 rows
-    # and the Form D layer resolves 13, a 0.26% verified share, because YC
-    # companies raise on SAFEs under 4(a)(2) and overwhelmingly file no Form D
-    # — so the seed-to-A transition has no filing record. Publishing those 13
-    # would let any consumer compute a ~100% graduation rate for the firm.
-    # COLLECTION.md 6 requires the published rate to carry its verified share;
-    # at this share no rate is publishable. Absent the key nothing changes.
+    # and the Form D layer resolves 13, a 0.26% share, because YC companies
+    # raise on SAFEs under 4(a)(2) and overwhelmingly file no Form D — so the
+    # seed-to-A transition has no filing record and no judge could establish
+    # it at that scale. Such an investor publishes `undetermined` throughout
+    # (export) and is never asked (prepare). Absent the key nothing changes.
     if not P.config().get("verify", {}).get("c2a_deterministic", True):
-        return {"entry_stage": None, "seed_to_a_graduation": None,
-                "graduation_source": "formd", "graduation_confidence": "low",
-                "flags": ["cohort_unverified"]}
+        return {"entry_stage": None, "seed_to_a_graduation": None, "flags": []}
     priced = [r for r in rounds if r.get("offering_usd")]
     if not priced:
-        return {"entry_stage": None, "seed_to_a_graduation": None,
-                "graduation_source": "formd", "graduation_confidence": "low",
-                "flags": []}
+        return {"entry_stage": None, "seed_to_a_graduation": None, "flags": []}
 
     priced.sort(key=lambda r: (round_date(r) or "", r.get("quarter") or ""))
 
@@ -426,6 +468,7 @@ def graduation_from_formd(rounds: list[dict], partner_accs: frozenset | set = fr
         "round_count": len(priced),
         "next_offering_usd": graduated["offering_usd"] if graduated else None,
         "next_quarter": graduated.get("quarter") if graduated else None,
+        "formd_asof": formd_asof,
         "graduation_source": "formd",
         "graduation_confidence": "high",
         "flags": flags,
@@ -436,20 +479,19 @@ def graduation_from_formd(rounds: list[dict], partner_accs: frozenset | set = fr
         return rec
 
     if graduated:
-        rec["seed_to_a_graduation"] = True
+        rec["seed_to_a_graduation"] = "graduated"
         return rec
 
-    age = months_since(round_date(entry))
+    age = months_since(round_date(entry), formd_asof)
     if age is not None and age < CENSOR_MONTHS:
-        # Too recent to have had the chance. Counting it False would bias the
-        # published rate downward, so it leaves the denominator entirely.
-        rec["seed_to_a_graduation"] = None
-        rec["flags"].append("censored")
+        # Too recent to have had the chance. Counting it a no would bias the
+        # published rate downward, so it leaves the cohort as censored.
+        rec["seed_to_a_graduation"] = "censored"
     elif age is None:
-        rec["seed_to_a_graduation"] = None
+        rec["seed_to_a_graduation"] = None           # undatable: the judge decides
         rec["graduation_confidence"] = "low"
     else:
-        rec["seed_to_a_graduation"] = False
+        rec["seed_to_a_graduation"] = "not_graduated"
     return rec
 
 
@@ -715,17 +757,23 @@ def cmd_prepare(args) -> None:
     print(f"layer C (unicorn list): {len(uni['current'])} current, "
           f"{len(uni['former'])} former")
 
-    # ---- Graduation layer 1, entry anchored at partner-attributed filings
+    # ---- Graduation layer 1, entry anchored at partner-attributed filings.
+    # The rounds file's own date is the as-of of every absence it asserts.
+    formd_asof = date.fromtimestamp(P.formd_rounds.stat().st_mtime).isoformat()
     partner_accs = {r["slug"]: accs_of(r) for r in rows}
-    grad = {slug: graduation_from_formd(rec["rounds"], partner_accs.get(slug, set()))
+    grad = {slug: graduation_from_formd(rec["rounds"], partner_accs.get(slug, set()), formd_asof)
             for slug, rec in formd.items()}
     write_atomic(P.graduation, json.dumps(grad, indent=1))
-    determined = sum(1 for g in grad.values() if g.get("seed_to_a_graduation") is not None)
+    determined = sum(1 for g in grad.values() if g.get("seed_to_a_graduation") in COHORT_STATUSES)
     seeds = sum(1 for g in grad.values() if g.get("entry_stage") == "Seed")
     anchored = sum(1 for g in grad.values() if g.get("prior_rounds", 0) > 0)
     print(f"graduation layer 1: {len(grad)} companies, {seeds} entered at Seed, "
-          f"{determined} decided deterministically, "
+          f"{determined} decided by the filings as of {formd_asof} (the judge confirms each), "
           f"{anchored} entries moved past pre-investor rounds")
+    # The C2A column is judged for every investor that publishes it; an
+    # investor whose config declines it (YC) is never asked and exports
+    # `undetermined` throughout.
+    c2a_on = bool(P.config().get("verify", {}).get("c2a_deterministic", True))
 
     issuer_ev = load(P.issuer_evidence, {}).get("accessions", {})
 
@@ -748,7 +796,13 @@ def cmd_prepare(args) -> None:
         slug = row["slug"]
         a, b, g = layer_a.get(slug, {}), layer_b.get(slug, {}), grad.get(slug, {})
         rec: dict = {"slug": slug, "name": row["name"]}
-        rec.update({k: v for k, v in g.items() if v is not None or k == "seed_to_a_graduation"})
+        # The Form D layer's graduation verdict is evidence for the judge, not
+        # a fill: it travels under formd_graduation, and the judged status
+        # alone occupies seed_to_a_graduation (COLLECTION.md §6).
+        rec.update({k: v for k, v in g.items()
+                    if v is not None and k not in FORMD_GRADUATION_KEYS})
+        if g.get("seed_to_a_graduation"):
+            rec["formd_graduation"] = {k: g.get(k) for k in FORMD_GRADUATION_EVIDENCE}
         if rec.get("entry_stage"):
             rec["entry_stage_source"] = "formd_band"
         # Country precedence: entry-time Form D business address beats a
@@ -816,6 +870,15 @@ def cmd_prepare(args) -> None:
         # batch judge may only ever rule DOWN to below_1b, never mint a figure.
         if not overlaid.get("valuation_range") and "needs_web_value" not in flags_now:
             need.append("valuation_range")
+        # Graduation is judged, never pre-filled: every in-window Seed row is
+        # asked (also a row whose stage is itself open — the need closes if
+        # the judge rules it non-Seed), the Form D verdict rides along as
+        # evidence, and only a status already judged closes the need.
+        prior_g = cls_prev.get(slug, {}).get("seed_to_a_graduation")
+        if c2a_on and prior_g not in GRADUATION_STATUSES \
+                and (overlaid.get("entry_stage") == "Seed" or "entry_stage" in need) \
+                and not (flags_now & PRE_WINDOW_FLAGS):
+            need.append("seed_to_a_graduation")
         item = {
             "slug": slug, "name": row["name"],
             "first_seen": row.get("first_seen"),
@@ -823,6 +886,9 @@ def cmd_prepare(args) -> None:
             "tier": row.get("tier"),
             "formd_span": row.get("formd_span"),
             "formd_max_round_usd": row.get("formd_max_round_usd"),
+            # the judge's clock for the censor rule, where the filings give one
+            "entry_date": g.get("entry_date"),
+            "entry_quarter": g.get("entry_quarter"),
             "rounds": [
                 {"q": r.get("quarter"), "usd": r.get("offering_usd")}
                 for r in formd.get(slug, {}).get("rounds", [])
@@ -851,8 +917,12 @@ def cmd_prepare(args) -> None:
                 "former_unicorn": uni["former"].get(S.norm(row["name"])),
                 "known": {k: overlaid.get(k) for k in
                           ("status", "valuation_usd", "entry_stage",
-                           "seed_to_a_graduation", "hq_country", "valuation_range", "note")
+                           "hq_country", "valuation_range", "note")
                           if overlaid.get(k) is not None},
+                # the filings' own graduation verdict with its step-up
+                # evidence, for the judge to confirm (source formd) or
+                # dispute with a citation; null when the filings say nothing
+                "formd_graduation": rec.get("formd_graduation"),
                 "need": need,
             })
             queue.append(item)
@@ -901,7 +971,11 @@ def validate_verdict(rec: dict, slugs: set[str]) -> list[str]:
     return errs
 
 
-def validate_record(rec: dict, slugs: set[str]) -> list[str]:
+def validate_record(rec: dict, slugs: set[str], merged: dict | None = None) -> list[str]:
+    """Reject a classification line that breaks the contract. `merged` is the
+    record on disk (resolved + classification), so a line is judged as it
+    will read once merged: a graduation answer may ride on an entry stage or
+    a citation recorded earlier."""
     errs = []
     slug = rec.get("slug")
     if not slug or slug not in slugs:
@@ -915,8 +989,60 @@ def validate_record(rec: dict, slugs: set[str]) -> list[str]:
             if rec.get("valuation_source") not in VALUE_SOURCES:
                 errs.append(f"{slug}: figure with source "
                             f"{rec.get('valuation_source')!r} (model may not mint numbers)")
-    if rec.get("seed_to_a_graduation") is not None and rec.get("entry_stage") != "Seed":
-        errs.append(f"{slug}: graduation set but entry_stage={rec.get('entry_stage')!r}")
+    # ---- seed_to_a_graduation: a status, verified by construction (§6)
+    for key in ("seed_to_a_graduation_source", "seed_to_a_graduation_confidence"):
+        if key in rec:
+            errs.append(f"{slug}: {key} is not a key; use {key.replace('seed_to_a_', '')}")
+    on_disk = (merged or {}).get(slug) or {}
+    view = {**on_disk, **{k: v for k, v in rec.items() if v is not None}}
+    view_flags = set(on_disk.get("flags") or []) | set(rec.get("flags") or [])
+    if rec.get("graduation_source") is not None \
+            and rec["graduation_source"] not in GRADUATION_SOURCES:
+        errs.append(f"{slug}: graduation_source {rec['graduation_source']!r} (one of "
+                    f"{', '.join(GRADUATION_SOURCES)}; the model may not decide a graduation)")
+    for key in ("entry_date", "graduation_asof"):
+        v = rec.get(key)
+        if v is not None and months_since(str(v)) is None:
+            errs.append(f"{slug}: {key} {v!r} is not a date (YYYY, YYYY-MM or YYYY-MM-DD)")
+    if rec.get("graduation_asof") is not None and len(str(rec["graduation_asof"])) != 10:
+        errs.append(f"{slug}: graduation_asof must be a full date (YYYY-MM-DD)")
+    if "seed_to_a_graduation" in rec:
+        g = rec["seed_to_a_graduation"]
+        if isinstance(g, bool):
+            errs.append(f"{slug}: seed_to_a_graduation {g!r} is the retired boolean; "
+                        f"emit a status ({', '.join(GRADUATION_STATUSES)})")
+        elif g is not None and g not in GRADUATION_STATUSES:
+            errs.append(f"{slug}: seed_to_a_graduation {g!r} not in vocabulary")
+        elif g is not None:
+            if view.get("entry_stage") != "Seed":
+                errs.append(f"{slug}: graduation set but entry_stage={view.get('entry_stage')!r}")
+            if view_flags & PRE_WINDOW_FLAGS:
+                errs.append(f"{slug}: graduation on a pre-window entry (null by rule)")
+            src = view.get("graduation_source")
+            if g in COHORT_STATUSES:
+                if src not in GRADUATION_SOURCES:
+                    errs.append(f"{slug}: {g} needs graduation_source (got {src!r})")
+                elif src == "formd":
+                    fd = (on_disk.get("formd_graduation") or {}).get("seed_to_a_graduation")
+                    if fd != g:
+                        errs.append(f"{slug}: {g} with source formd but the Form D layer "
+                                    f"says {fd!r}; cite the round that decides it")
+                else:
+                    if not str(view.get("graduation_citation") or "").startswith("http"):
+                        errs.append(f"{slug}: {g} from {src} without graduation_citation")
+                    if g == "not_graduated" and not view.get("graduation_asof"):
+                        errs.append(f"{slug}: not_graduated from {src} without "
+                                    f"graduation_asof (the date the absence was checked)")
+            elif g == "censored":
+                age = months_since(view.get("entry_date"))
+                if age is None:
+                    errs.append(f"{slug}: censored needs entry_date (YYYY, YYYY-MM or YYYY-MM-DD)")
+                elif age >= CENSOR_MONTHS:
+                    errs.append(f"{slug}: censored but entry_date {view['entry_date']!r} is "
+                                f"{age} months old (>= {CENSOR_MONTHS}); decide it")
+            elif g == "undetermined" and not (rec.get("note") or "").strip():
+                errs.append(f"{slug}: undetermined needs a note on the line saying "
+                            f"what was tried")
     for key in ("valuation_confidence", "graduation_confidence",
                 "entry_stage_confidence", "hq_country_confidence",
                 "hq_city_confidence"):
@@ -954,7 +1080,8 @@ def validate_record(rec: dict, slugs: set[str]) -> list[str]:
     if rec.get("entry_stage_source") == "web_verified" \
             and not (rec.get("entry_stage_citation") or "").strip():
         errs.append(f"{slug}: web_verified stage without entry_stage_citation")
-    for key in ("valuation_citation", "hq_country_citation", "entry_stage_citation"):
+    for key in ("valuation_citation", "hq_country_citation", "entry_stage_citation",
+                "graduation_citation"):
         v = rec.get(key)
         if v is not None and (not isinstance(v, str) or not v.startswith("http")):
             errs.append(f"{slug}: {key} must be a URL")
@@ -979,8 +1106,10 @@ def cmd_record(args) -> None:
     half-recorded.
     """
     src = Path(args.jsonl)
-    slugs = {r["slug"] for r in load_base(args.investor)}
+    rows = load_base(args.investor)
+    slugs = {r["slug"] for r in rows}
     cls = load(P.classification, {})
+    merged = merge_rows(rows, load(P.resolved, {}), cls)
     led, verdicts = load_ledger(args.investor)
     cls_in, verd_in, errors = {}, {}, []
     for n, line in enumerate(src.read_text().splitlines(), 1):
@@ -1000,7 +1129,7 @@ def cmd_record(args) -> None:
         # code before validation so only genuinely unknown names bounce.
         if isinstance(rec, dict) and rec.get("hq_country"):
             rec["hq_country"] = canon_country(rec["hq_country"]) or rec["hq_country"]
-        errors.extend(validate_record(rec, slugs))
+        errors.extend(validate_record(rec, slugs, merged))
         cls_in[rec["slug"]] = rec
     if errors:
         print(f"REJECTED — {len(errors)} problem(s), nothing recorded:")
@@ -1058,6 +1187,56 @@ def cmd_record(args) -> None:
         write_atomic(P.classification, json.dumps(cls, indent=1, sort_keys=True))
     print(f"recorded {len(verd_in)} verdicts + {len(cls_in)} classification rows; "
           f"ledger holds {len(verdicts)}, classification holds {len(cls)}")
+
+
+def cmd_migrate_graduation(args) -> None:
+    """One-time rewrite of classification.json from the retired graduation
+    booleans to the status vocabulary (COLLECTION.md §6, 2026-09-16).
+
+    Kept, as `graduated`: a `true` whose both legs were already verified — a
+    cited or structural entry stage, and a web_verified graduation with its
+    citation. Everything else the old instrument produced (model-sourced
+    answers, uncited web claims, the Form D layer's own verdicts, every
+    `false`, every explicit null) is dropped with its graduation keys and the
+    retired `cohort_unverified` flag, so the next `prepare` asks the judge.
+    Idempotent: a status value passes through untouched. A human row (who:
+    erik) is never rewritten; it is reported instead.
+    """
+    cls = load(P.classification, {})
+    legacy = ("seed_to_a_graduation", "graduation_source", "graduation_confidence",
+              "graduation_citation", "graduation_asof",
+              "seed_to_a_graduation_source", "seed_to_a_graduation_confidence")
+    n: Counter = Counter()
+    for slug, rec in cls.items():
+        g = rec.get("seed_to_a_graduation")
+        touched = any(k in rec for k in legacy)
+        if g in GRADUATION_STATUSES:
+            n["already_status"] += 1
+        elif touched and rec.get("who") == "erik":
+            n["human_row_left"] += 1
+            print(f"  human row left as is: {slug} = {g!r}")
+        elif touched:
+            stage_cited = bool((rec.get("entry_stage_citation") or "").strip()) \
+                or rec.get("entry_stage_source") in ("formd_structural", "formd_band")
+            if g is True and rec.get("graduation_source") == "web_verified" \
+                    and str(rec.get("graduation_citation") or "").startswith("http") \
+                    and stage_cited:
+                rec["seed_to_a_graduation"] = "graduated"
+                n["kept_graduated"] += 1
+            else:
+                for k in legacy:
+                    rec.pop(k, None)
+                n["dropped_for_rejudge"] += 1
+        if "entry_year" in rec:
+            y = rec.pop("entry_year")
+            if re.fullmatch(r"\d{4}", str(y)) and not rec.get("entry_date"):
+                rec["entry_date"] = str(y)
+                n["entry_year_renamed"] += 1
+        if "cohort_unverified" in (rec.get("flags") or []):
+            rec["flags"] = [f for f in rec["flags"] if f != "cohort_unverified"]
+            n["cohort_unverified_removed"] += 1
+    write_atomic(P.classification, json.dumps(cls, indent=1, sort_keys=True))
+    print(f"migrate-graduation {args.investor}: {dict(n) or 'nothing to do'}")
 
 
 def cmd_status(args) -> None:
@@ -1444,6 +1623,9 @@ def cmd_verify(args) -> None:
     # same consistency, source-gate and citation contract as at the end.
     in_flight = args.in_flight
     unanswered = 0
+    open_grad = 0                    # in-window Seed rows the judge has not answered
+    notes: list[str] = []            # in-flight observations that are not defects
+    c2a_on = bool((CFG.get("verify") or {}).get("c2a_deterministic", True))
     merged = merge_rows(rows, resolved, cls)
     for slug, rec in merged.items():
         if not rec.get("status"):
@@ -1461,7 +1643,13 @@ def cmd_verify(args) -> None:
         if rec.get("valuation_usd") and rec.get("valuation_source") not in VALUE_SOURCES:
             problems.append(f"{slug}: figure from {rec.get('valuation_source')!r} "
                             f"is not a value-bearing source")
-        if rec.get("seed_to_a_graduation") is not None and rec.get("entry_stage") != "Seed":
+        g = rec.get("seed_to_a_graduation")
+        if isinstance(g, bool):
+            problems.append(f"{slug}: seed_to_a_graduation {g!r} is the retired boolean; "
+                            f"run migrate-graduation")
+        elif g is not None and g not in GRADUATION_STATUSES:
+            problems.append(f"{slug}: seed_to_a_graduation {g!r} not in vocabulary")
+        if g is not None and rec.get("entry_stage") != "Seed":
             problems.append(f"{slug}: graduation set but entry_stage={rec.get('entry_stage')!r}")
 
         # ---- full fills, tag/figure consistency
@@ -1517,13 +1705,48 @@ def cmd_verify(args) -> None:
                 and not (rec.get("valuation_citation") or "").strip() \
                 and "cite_pending" not in flags_now and (judged or not in_flight):
             problems.append(f"{slug}: public $1B+ row without a cited market cap")
-        # invariant 3: cohort rows are verified on both legs or carry the flag
-        if rec.get("seed_to_a_graduation") is not None:
-            legs_verified = stage_cited and rec.get("graduation_source") in (
-                "formd", "web_verified")
-            if not legs_verified and "cohort_unverified" not in (rec.get("flags") or []):
-                problems.append(f"{slug}: cohort row neither verified nor flagged "
-                                f"cohort_unverified")
+        # COLLECTION.md invariants 1, 5 and 7 on the graduation column. A
+        # decided row is verified on both legs — a cited or structural entry
+        # stage, and a source that carries its evidence (Form D accessions, or
+        # a citation); cohort_unverified is no longer an allowed end state. A
+        # censored row's clock is re-read on every verify: once the entry is
+        # old enough, the row owes a decision. An in-window Seed row without
+        # a status is missing work in full mode and counted in flight.
+        in_window_seed = rec.get("entry_stage") == "Seed" and not (flags_now & PRE_WINDOW_FLAGS)
+        if "cohort_unverified" in flags_now:
+            problems.append(f"{slug}: cohort_unverified is retired; decide the row or "
+                            f"mark it undetermined")
+        if g in COHORT_STATUSES:
+            src = rec.get("graduation_source")
+            if not stage_cited:
+                problems.append(f"{slug}: {g} on an uncited entry stage")
+            if src not in GRADUATION_SOURCES:
+                problems.append(f"{slug}: {g} from {src!r} is not a verified source")
+            elif src == "formd":
+                fd = (rec.get("formd_graduation") or {}).get("seed_to_a_graduation")
+                if fd != g:
+                    problems.append(f"{slug}: {g} cites Form D but the layer says {fd!r}")
+            elif not str(rec.get("graduation_citation") or "").startswith("http"):
+                problems.append(f"{slug}: {g} from {src} without graduation_citation")
+            if g == "not_graduated":
+                if src != "formd" and not rec.get("graduation_asof"):
+                    problems.append(f"{slug}: not_graduated from {src} without graduation_asof")
+                if rec.get("valuation_range") in ("1b_plus", "10b_plus", "100b_plus") \
+                        or rec.get("is_public"):
+                    problems.append(f"{slug}: not_graduated on a $1B+/public row "
+                                    f"(invariant 7: a Form D blind spot, not a no)")
+        elif g == "censored":
+            age = months_since(rec.get("entry_date"))
+            if age is None or age >= CENSOR_MONTHS:
+                msg = (f"{slug}: censored but entry_date {rec.get('entry_date')!r} is "
+                       f"{age if age is not None else 'not a date'}"
+                       f"{' months old' if age is not None else ''}; decide it")
+                (notes if in_flight else problems).append(msg)
+        elif g is None and in_window_seed and c2a_on:
+            if in_flight:
+                open_grad += 1
+            else:
+                problems.append(f"{slug}: Seed entry without a graduation status")
 
     # cumulative invariant
     def names(floor):
@@ -1595,10 +1818,20 @@ def cmd_verify(args) -> None:
     print(f"valuation_range : {dict(tags.most_common())}")
     stages = Counter(r.get("entry_stage") for r in merged.values())
     print(f"entry_stage     : {dict(stages.most_common())}")
-    cohort = [r for r in merged.values() if r.get("seed_to_a_graduation") is not None]
-    grad = sum(1 for r in cohort if r["seed_to_a_graduation"])
-    print(f"C2A cohort      : {len(cohort)}  graduated {grad}"
-          f"  rate {grad / len(cohort) * 100:.1f}%" if cohort else "C2A cohort      : 0")
+    # The published C2A block, in the shape the report and the database
+    # carry: seed entries, the too-young share, the undetermined remainder,
+    # and the rate over the decided cohort with its coverage.
+    seed_rows = [r for r in merged.values()
+                 if r.get("entry_stage") == "Seed"
+                 and not (set(r.get("flags") or []) & PRE_WINDOW_FLAGS)]
+    gc = Counter(r.get("seed_to_a_graduation") or "undetermined" for r in seed_rows)
+    cohort_n = gc["graduated"] + gc["not_graduated"]
+    c2a_rate = gc["graduated"] / cohort_n if cohort_n else None
+    establishable = len(seed_rows) - gc["censored"]
+    coverage = cohort_n / establishable if establishable else None
+    print(f"C2A             : {len(seed_rows)} seed entries, {gc['censored']} censored, "
+          f"{gc['undetermined']} undetermined; cohort {cohort_n}, graduated {gc['graduated']}"
+          + (f", rate {c2a_rate:.1%}, coverage {coverage:.1%}" if cohort_n else ""))
 
     # Sanity guard, not an invariant. Raised from 15% once the initial-only
     # person-match defect was fixed: dropping ~50 misattributed near-worthless
@@ -1617,8 +1850,8 @@ def cmd_verify(args) -> None:
     if not in_flight:
         if one_b and len(one_b) / total > one_b_max:
             problems.append(f"$1B+ is {len(one_b)/total:.1%} of the base; expected <{one_b_max:.0%}")
-        if cohort and grad / len(cohort) > c2a_max:
-            problems.append(f"C2A is {grad/len(cohort):.1%}; expected <{c2a_max:.0%}")
+        if cohort_n and c2a_rate > c2a_max:
+            problems.append(f"C2A is {c2a_rate:.1%}; expected <{c2a_max:.0%}")
 
     # published surfaces current: the merged CSV and review.html must reflect
     # the live base (same slugs, same first row). Mid-run they are re-derived
@@ -1638,7 +1871,7 @@ def cmd_verify(args) -> None:
             encoding="utf-8", errors="replace"):
         surface.append("review.html stale relative to the base; re-run review")
     if in_flight:
-        for s in surface:
+        for s in surface + notes:
             print(f"  note: {s}")
     else:
         problems.extend(surface)
@@ -1650,8 +1883,8 @@ def cmd_verify(args) -> None:
         sys.exit(1)
     if in_flight:
         print(f"\nverify (in-flight): clean — {unjudged} rows unjudged, "
-              f"{unanswered} unanswered on status, {awaiting} not_member "
-              f"awaiting rebuild")
+              f"{unanswered} unanswered on status, {open_grad} Seed rows without a "
+              f"graduation status, {awaiting} not_member awaiting rebuild")
     else:
         print("\nverify: clean")
 
@@ -1670,7 +1903,9 @@ EXPORT_COLUMNS = [
     "status", "valuation_range", "valuation_usd", "valuation_asof",
     "valuation_source", "valuation_citation",
     "entry_stage", "entry_stage_source", "entry_stage_citation",
-    "hq_city", "hq_country", "focus", "seed_to_a_graduation", "flags", "note",
+    "hq_city", "hq_country", "focus",
+    "seed_to_a_graduation", "graduation_source", "graduation_citation", "entry_date",
+    "flags", "note",
 ]
 
 EVIDENCE_COLUMNS = ("first_seen", "sector", "partners_site", "partners_formd",
@@ -1697,6 +1932,12 @@ def cmd_export(args) -> None:
         out.update({k: row.get(k, "") for k in EVIDENCE_COLUMNS})
         out.update({k: rec.get(k) for k in EXPORT_COLUMNS if k not in out})
         out["flags"] = ";".join(rec.get("flags") or [])
+        # Never a silent null on the graduation column: an in-window Seed row
+        # nobody decided publishes as undetermined, which is what it is. Null
+        # stays only where the column does not apply (non-Seed, pre-window).
+        if out.get("seed_to_a_graduation") is None and rec.get("entry_stage") == "Seed" \
+                and not (set(rec.get("flags") or []) & PRE_WINDOW_FLAGS):
+            out["seed_to_a_graduation"] = "undetermined"
         out_rows.append({k: "" if out.get(k) is None else out[k]
                          for k in EXPORT_COLUMNS})
 
@@ -1716,15 +1957,15 @@ def cmd_export(args) -> None:
 def in_sample(r: dict) -> bool:
     """Rows a human should spot-check, since sampling replaced full review.
 
-    Every row that publishes a headline claim ($10B+ bucket or a graduation
-    boolean), plus low-confidence rows attached to a published claim, plus the
-    verification loop's own recoveries and seeding checks.
+    Every row that publishes a headline claim ($10B+ bucket or a decided
+    graduation), plus low-confidence rows attached to a published claim, plus
+    the verification loop's own recoveries and seeding checks.
     """
     if r["slug"] in SAMPLE_SLUGS:
         return True
     if (r.get("valuation_usd") or 0) >= 1e10:
         return True
-    if r.get("seed_to_a_graduation") is not None:
+    if r.get("seed_to_a_graduation") in COHORT_STATUSES:
         return True
     publishes = bool(r.get("valuation_usd")) or bool(r.get("is_public"))
     return publishes and (r.get("valuation_confidence") == "low"
@@ -1735,14 +1976,14 @@ def priority(r: dict) -> tuple:
     """Lower sorts first. Ranked by the cost of getting the row wrong.
 
     Low confidence only elevates a row when it is attached to a claim that
-    publishes (a bucket membership or a graduation boolean). A low-confidence
+    publishes (a bucket membership or a decided graduation). A low-confidence
     "obscure and worth nothing" row publishes nothing, so it must not outrank
     the rows that do.
     """
     val = r.get("valuation_usd") or 0
     flags = set(r.get("flags") or [])
     publishes = bool(val) or bool(r.get("is_public")) \
-        or r.get("seed_to_a_graduation") is not None
+        or r.get("seed_to_a_graduation") in COHORT_STATUSES
     low_conf = (r.get("valuation_confidence") == "low"
                 or r.get("graduation_confidence") == "low")
     if val >= 1e9:
@@ -1755,7 +1996,7 @@ def priority(r: dict) -> tuple:
     if flags & {"boundary", "cik_weak", "stale", "unicorn_name_match",
                 "entry_anchor_weak"}:
         return (3, 0)
-    if r.get("seed_to_a_graduation") is not None:
+    if r.get("seed_to_a_graduation") in COHORT_STATUSES:
         return (4, 0)                                 # feeds the published rate
     return (5, 0)
 
@@ -1766,7 +2007,8 @@ REVIEW_FIELDS = [
     "valuation_source", "valuation_confidence", "is_public",
     "entry_stage", "entry_stage_source", "entry_stage_confidence",
     "entry_stage_citation", "valuation_citation", "entry_offering_usd",
-    "round_count", "seed_to_a_graduation", "graduation_confidence",
+    "round_count", "seed_to_a_graduation", "graduation_source",
+    "graduation_citation", "graduation_confidence", "entry_date",
     "hq_city", "hq_country", "focus", "flags", "tier", "first_seen", "sector",
     "site_url", "formd_links", "edgar_links", "wayback_first_link", "note",
 ]
@@ -1854,11 +2096,13 @@ tr.row:hover { background:var(--chip); }
 .s-unknown { background:var(--no); color:#fff; }
 .v-member { background:color-mix(in srgb,var(--ok) 35%,transparent); }
 .v-uncertain { background:var(--no); color:#fff; }
-.g-true { background:var(--ok); color:#fff; }
-.g-false { background:var(--chip); }
+.g-graduated { background:var(--ok); color:#fff; }
+.g-not_graduated { background:var(--chip); }
+.g-censored, .g-undetermined { background:transparent; color:var(--muted);
+  border:1px dashed var(--line); }
 .f { font-size:10px; padding:1px 5px; border-radius:3px; background:var(--no);
   color:#fff; margin-right:3px; white-space:nowrap; }
-.f-censored, .f-cik_weak, .f-cite_pending, .f-cohort_unverified { background:var(--muted); }
+.f-cik_weak, .f-cite_pending { background:var(--muted); }
 .c-low { color:var(--no); font-weight:600; }
 a { color:var(--accent); text-decoration:none; }
 a:hover { text-decoration:underline; }
@@ -1888,13 +2132,14 @@ a:hover { text-decoration:underline; }
     <span class="mut" style="margin-left:8px">flag</span>
     <button class="chip" data-f="flag" data-v="duplicate">duplicate</button>
     <button class="chip" data-f="flag" data-v="cite_pending">cite pending</button>
-    <button class="chip" data-f="flag" data-v="censored">censored</button>
     <button class="chip" data-f="flag" data-v="cik_weak">weak cik</button>
     <span class="mut" style="margin-left:8px">conf</span>
     <button class="chip" data-f="conf" data-v="low">low</button>
     <span class="mut" style="margin-left:8px">C2A</span>
-    <button class="chip" data-f="grad" data-v="true">graduated</button>
-    <button class="chip" data-f="grad" data-v="false">not</button>
+    <button class="chip" data-f="grad" data-v="graduated">graduated</button>
+    <button class="chip" data-f="grad" data-v="not_graduated">not</button>
+    <button class="chip" data-f="grad" data-v="censored">censored</button>
+    <button class="chip" data-f="grad" data-v="undetermined">undetermined</button>
   </div>
   <div class="bar" style="margin-top:6px">
     <input type="search" id="q" placeholder="search name, slug, city, country, sector…">
@@ -1998,8 +2243,10 @@ function render() {
       srcLabel !== 'sec' && edgar ? lnk(edgar,'SEC') : '',
     ].filter(Boolean).join(' ');
     const g = r.seed_to_a_graduation;
-    const gCell = g === true ? '<span class="tag g-true">yes</span>'
-                : g === false ? '<span class="tag g-false">no</span>' : '';
+    const gCell = g ? `<span class="tag g-${g}" title="${esc(r.graduation_source||'')}">${
+                    g === 'graduated' ? 'yes' : g === 'not_graduated' ? 'no' : g}</span>` +
+                  (r.graduation_citation ? ` <a class="lnk" href="${r.graduation_citation}" target="_blank" rel="noopener">cite</a>` : '')
+                : '';
     const conf = (r.valuation_confidence === 'low' || r.graduation_confidence === 'low')
                 ? ' <span class="c-low">low</span>' : '';
     const v = r.membership_verdict || '';
@@ -2045,6 +2292,8 @@ function openDrawer(slug) {
     ['Flags', (r.flags||[]).join(', ')],
     ['Stage citation', link(r.entry_stage_citation)],
     ['Value citation', link(r.valuation_citation)],
+    ['Graduation', r.seed_to_a_graduation ? `${r.seed_to_a_graduation}${r.graduation_source ? ` (${r.graduation_source})` : ''}${r.entry_date ? ` · entry ${r.entry_date}` : ''}` : ''],
+    ['Graduation citation', link(r.graduation_citation)],
     ['Sources', [r.site_url && link(r.site_url), r.wayback_first_link && link(r.wayback_first_link),
                   (r.formd_links||'').split('; ')[0] && link((r.formd_links||'').split('; ')[0]),
                   (r.edgar_links||'').split('; ')[0] && link((r.edgar_links||'').split('; ')[0])]
@@ -2158,6 +2407,7 @@ def main() -> None:
     p = sub.add_parser("export"); p.set_defaults(fn=cmd_export)
     p = sub.add_parser("review"); p.set_defaults(fn=cmd_review)
     p = sub.add_parser("close"); p.set_defaults(fn=cmd_close)
+    p = sub.add_parser("migrate-graduation"); p.set_defaults(fn=cmd_migrate_graduation)
 
     for name, sp in sub.choices.items():
         if name not in ("collect", "prepare"):
