@@ -371,3 +371,37 @@ the seat; on the record it was not Menlo's. They stay members until Erik
 rules, labelled by the carried round at low confidence with
 `PARTNER-CARRIED` in the note; DocuSign, Upstart and Upwork carry
 `cite_pending` as $1B+ rows without a cited stage, as does Calix.
+
+### E1 — Partner-carried prior-firm listings are out (Erik, 2026-09-17, class-wide)
+
+Ruling: "exclude the Menlo deals from partners' previous firms." The fourteen
+REST-only historical listings that Menlo's own team pages credit to a
+partner's earlier firm are **`not_member`**: AppDynamics, Puppet, DocuSign,
+Egnyte, DataStax, Drawbridge, SessionM, Upstart, AutoNavi (Matt Murphy,
+KPCB); Smartsheet, Clearwater Analytics, Ascentis (JP Sanday, Summit
+Partners); Upwork, Exeros (Venky Ganesan, Globespan; Exeros by inference,
+medium confidence). T4 asks whose money sat behind the seat, and on the
+record it was never a Menlo fund: no round names the firm and the listing
+carries no dated milestone. Recorded as ledger verdicts with `who: "erik"`
+(citation: the partner's team page), so the class binds every rebuild.
+
+Mechanics, for the next run that meets this class: the rebuild resurfaced
+two variant rows once their canonical left the base (`clearwater`, a name
+variant of Clearwater Analytics, and `odesk-corp`, the identity-merge
+duplicate of Upwork); each got its own verdict, as §8 requires for every slug
+of a merge group whose canonical is `not_member`. Six of the names were in
+`config.verify.known_positions` and moved to `verify.not_members`, where all
+fourteen now sit as membership traps. Base 599 → 585. This supersedes the
+"ruling needed" paragraph of R-S2A.
+
+### E1a — A merge group may pin its display name (2026-09-17, agent, mechanical)
+
+The rebuild also renamed six unrelated rows, because the base builder now
+applies its longest-rendering `better_name` rule inside identity merges
+(added on a later investor's run): Chipcom became "3com" against R4, Handle
+became "handl, inc.", and two 1990s rows took their archive renderings. A
+merge entry in `identity-merges.json` may now carry `"name"`, which wins over
+the fallback; the six groups are pinned (Chipcom Corporation, Handle,
+Dstillery, OverOps, printCafe Software, Vermeer Technologies). Dstillery and
+OverOps are the companies' current names and replace Media6Degrees and
+Takipi. No Menlo company is in the database, so no upsert key moved.

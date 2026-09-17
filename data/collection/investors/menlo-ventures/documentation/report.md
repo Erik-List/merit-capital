@@ -403,3 +403,23 @@ notes for a later pass: ClearBrain's Amplitude acquisition closed March
 2017; OpenRouter and Axiom have fresh priced marks above $1B.
 
 `verify` is clean, cross-investor section included.
+
+## Addendum, 2026-09-17 — Erik's ruling on partner-carried listings applied; base 599 → 585
+
+Erik ruled the fourteen partner-carried prior-firm listings out (decisions.md
+E1): AppDynamics, Puppet, DocuSign, Egnyte, DataStax, Drawbridge, SessionM,
+Upstart, AutoNavi, Smartsheet, Clearwater Analytics, Ascentis, Upwork and
+Exeros are `not_member` by human verdict, as are the two variant rows the
+rebuild resurfaced (`clearwater`, `odesk-corp`). One rebuild pair later the
+base is **585 rows**, 91 rows in `excluded.json`, and the fourteen names are
+membership traps in `config.json`. Track record effect: DocuSign, Upstart,
+Smartsheet, Clearwater Analytics, AppDynamics and Upwork were $1B+ or public
+rows, so the published $1B+ count falls accordingly; the S2A block is
+unchanged (none was a Seed entry). Entry stages now Series A 406 / Growth 123
+/ Seed 52 / Pre-Seed 4; `cite_pending` remains only on Calix.
+
+The rebuild also exposed a builder rule that renamed six rows by their
+longest rendering; merge groups can now pin a display name and the six are
+pinned (E1a). `verify` is clean except one cross-investor pair: this base
+reads OverOps (formerly Takipi) as acquired, Lightspeed's row still says
+private; Lightspeed's own S2A pass aligns it.
