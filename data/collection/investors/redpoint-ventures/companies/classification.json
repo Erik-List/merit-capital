@@ -2917,11 +2917,13 @@
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "note": "Gogobot, the social travel-planning site that became Trip.com's US brand and then Trip by Skyscanner; the standalone company ended. ~$39M raised. | Focus derived in one parametric pass from the firm's own sector taxonomy on the row (the site's nine values crosswalked to data/taxonomy/focus.json), with COLLECTION.md 6's precedence applied: Security over SaaS/DevTools/Industrial, Crypto & Web3 over Fintech, Healthcare & Bio over SaaS, ad networks and games to Media, and chips and photonics to Industrial & Robotics.",
+  "note": "Gogobot, the social travel-planning site that became Trip.com's US brand and then Trip by Skyscanner; the standalone company ended. ~$39M raised. | Focus derived in one parametric pass from the firm's own sector taxonomy on the row (the site's nine values crosswalked to data/taxonomy/focus.json), with COLLECTION.md 6's precedence applied: Security over SaaS/DevTools/Industrial, Crypto & Web3 over Fintech, Healthcare & Bio over SaaS, ad networks and games to Media, and chips and photonics to Industrial & Robotics. | Invariant 10 correction from the battery-ventures session (PRO-97 S2A pass). Same company; the Redpoint row is the stale side. Redpoint published status=defunct, but Gogobot did not wind down - it renamed itself Trip.com and was acquired: TechCrunch of 2017-11-01 reports 'Trip.com, a travel discovery app formerly known as Gogobot' being bought by CTrip Group for an undisclosed sum, with its technology folded into Skyscanner. Battery's row reads acquired, which is the correct terminal event; both sides now read acquired / below_1b.",
   "slug": "gogobot",
-  "status": "defunct",
+  "status": "acquired",
+  "valuation_citation": "https://techcrunch.com/2017/11/01/ctrip-group-snaps-up-travel-search-startup-trip-com/",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-battery"
  },
  "golden-child": {
   "entry_stage": "Series A",
@@ -3865,11 +3867,16 @@
   "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
-  "note": "Meta acquired Kustomer in 2022 at a reported $1B and sold it back to a Battery/Redpoint-led investor group in 2023; the company is again private and its 2023-2025 Form Ds are recapitalisation rounds far below that price. Acquired rows carry no figure. | Focus derived in one parametric pass from the firm's own sector taxonomy on the row (the site's nine values crosswalked to data/taxonomy/focus.json), with COLLECTION.md 6's precedence applied: Security over SaaS/DevTools/Industrial, Crypto & Web3 over Fintech, Healthcare & Bio over SaaS, ad networks and games to Media, and chips and photonics to Industrial & Robotics.",
+  "note": "Meta acquired Kustomer in 2022 at a reported $1B and sold it back to a Battery/Redpoint-led investor group in 2023; the company is again private and its 2023-2025 Form Ds are recapitalisation rounds far below that price. Acquired rows carry no figure. | Focus derived in one parametric pass from the firm's own sector taxonomy on the row (the site's nine values crosswalked to data/taxonomy/focus.json), with COLLECTION.md 6's precedence applied: Security over SaaS/DevTools/Industrial, Crypto & Web3 over Fintech, Healthcare & Bio over SaaS, ad networks and games to Media, and chips and photonics to Industrial & Robotics. | Invariant 10 correction from the battery-ventures session (PRO-97 S2A pass). Same company; the Redpoint row is the stale side. Redpoint published status=acquired, but its own note already records what happened next: Meta bought Kustomer in 2022 and sold it back to a Battery- and Redpoint-led investor group in 2023, so the company is independent and private again. TechCrunch of 2023-05-16 names the spin-out at a $250M valuation. Battery's row reads private, and the firm's own company page reads 'Acquired by Meta; Active'. Both sides now read private / below_1b.",
   "slug": "kustomer",
-  "status": "acquired",
+  "status": "private",
+  "valuation_asof": "2023-05",
+  "valuation_citation": "https://techcrunch.com/2023/05/16/kustomer-meta-spin-out/",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "valuation_source": "web_verified",
+  "valuation_usd": 250000000,
+  "who": "agent-judge-s2a-battery"
  },
  "kyligence": {
   "entry_stage": "Series A",
@@ -4774,16 +4781,17 @@
   "hq_city_confidence": "high",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
-  "note": "Redpoint led the seed (2022, the firm's own card; announced November 2022 alongside an a16z-led Series A); the $52.5M Series B led by Felicis at $400M with Redpoint participating (2023-09-20, TechCrunch) is the cited later priced round.",
+  "note": "Redpoint led the seed (2022, the firm's own card; announced November 2022 alongside an a16z-led Series A); the $52.5M Series B led by Felicis at $400M with Redpoint participating (2023-09-20, TechCrunch) is the cited later priced round. | Invariant 10 correction from the battery-ventures session (PRO-97 S2A pass). Same company; the Redpoint row is the stale side. Redpoint published valuation_usd $1.0B with no as-of, citing motherduck.com/blog/series-b-announcement/, which returns no content - and Redpoint's own note on the row says the Series B priced the company at $400M. The last priced event on the record is the $52.5M Series B led by Felicis announced 2023-09-20 at a $400M valuation (TechCrunch, and GeekWire the same day); searches on 2026-09-17 found no later MotherDuck round. Under Rule A a $1B+ band needs a priced event with a citable figure, and none exists, so the row moves to below_1b at $400M as of 2023-09 and matches Battery's below_1b.",
   "seed_to_a_graduation": "graduated",
   "slug": "motherduck",
   "status": "private",
-  "valuation_citation": "https://motherduck.com/blog/series-b-announcement/",
-  "valuation_confidence": "medium",
-  "valuation_range": "1b_plus",
+  "valuation_asof": "2023-09",
+  "valuation_citation": "https://techcrunch.com/2023/09/20/database-startup-motherduck-lands-52-5m-to-grow-its-duckdb-based-platform/",
+  "valuation_confidence": "high",
+  "valuation_range": "below_1b",
   "valuation_source": "web_verified",
-  "valuation_usd": 1000000000,
-  "who": "agent-judge-s2a-redpoint"
+  "valuation_usd": 400000000,
+  "who": "agent-judge-s2a-battery"
  },
  "motif": {
   "entry_date": "2024",

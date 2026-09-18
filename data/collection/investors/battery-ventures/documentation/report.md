@@ -319,3 +319,32 @@ session in the wave takes it.
 
 **2** at close — the kickoff and one "continue". The ingest approval will make
 it 3.
+
+## Addendum 2026-09-17 — S2A re-judged under the status contract
+
+`seed_to_a_graduation` became a judged status (COLLECTION.md §6). All 105
+in-window Seed rows were judged with both legs cited.
+
+| seed entries | censored | undetermined | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|---|
+| 86 | 2 | 47 | 37 | 15 | 22 | 40.5% | 44% |
+
+Of 86 seed entries, 2 were too recent to count; of the 84 whose record could
+be sought, 37 were established (44% coverage) and 40.5% of those graduated.
+**This is the only book in the wave where "no" is the majority verdict** —
+22 of 37 decided rows did not raise again — and it is the clearest evidence
+that the old instrument was measuring visibility rather than outcome: the
+same base previously published a far higher figure on an unverified cohort.
+
+Nineteen rows left the cohort (fifteen to Series A, four to Growth under R5),
+and one Form D verdict was overturned under the named-round ruling. The 47
+undetermined are largely a membership problem wearing an S2A label:
+seventeen are compliance-list names with no identifiable company and twenty
+are small dead companies with neither a citable round nor a citable terminal
+event.
+
+Eight cross-investor pairs were resolved in the same pass, three by
+correcting this base and three by correcting the sibling, with two ruled
+distinct; details in D-S2A. A backlog of 32 further pairs against Greylock,
+Menlo and others remains, surfaced as those siblings closed their runs, and
+is a valuation/status job rather than an S2A one.

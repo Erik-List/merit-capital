@@ -326,3 +326,49 @@ dispute of a deterministic band was written as its own line.
 The rule is one classification line per slug per file, carrying every key
 including the dispute. Recorded for write-back to §8, which currently reads as
 if splitting were safe.
+
+### D-S2A — Seed-to-A graduation re-judged under the status contract; eight cross-investor pairs aligned (2026-09-17, agent, class-wide)
+
+Under the 2026-09-16 contract (COLLECTION.md §6) all 105 in-window Seed rows
+were re-judged with both legs cited: 86 seed entries, 2 censored, 47
+undetermined, cohort 37, graduated 15, not graduated 22, rate 40.5%, coverage
+44%. **This is the lowest rate in the wave and the only book where "no" is
+the majority verdict**, which is what a 1983-vintage generalist's seed tail
+looks like once the Form D absence test is applied to it honestly.
+
+Nineteen rows left the cohort. Fifteen move to Series A on cited rounds;
+four move to Growth under **R5**, which scores Battery's own `STAGE=Growth`
+label class 1 for Growth and never for Seed (H.Bloom, PrimeRevenue,
+SmarterHQ, Sofar Sounds), each with round-level corroboration. Those
+re-stagings discard two Form D `graduated` verdicts and one `not_graduated`.
+One Form D verdict was overturned under Erik's named-round ruling:
+**offline-labs-inc-dba-sosh**, whose $10.1M round of 2013 FinSMEs names a
+**Series B** led by Khosla with Battery a prior investor, so the 2× shortfall
+no longer decides it.
+
+**The undetermined 47 are mostly not a graduation question at all.** Seventeen
+are compliance-list-only names with no identifiable company (Local Bushel,
+Real Gift Services, VibeSec, Joya Communications and the like) and twenty are
+small dead companies with neither a citable round nor a citable terminal
+event. That is a membership and identity problem surfacing in this column,
+not an S2A one, and it is why coverage sits at 44%.
+
+**Eight cross-investor pairs resolved** (invariant 10): Battery was stale on
+`chai-discovery` ($3.8B, SiliconANGLE 2026-07-14), `function-health` ($2.5B,
+TechCrunch 2025-11-19) and `unify` (private/below_1b — Battery had been
+carrying the 1990s Unify Corporation's public float, an identity conflation
+the overlay still needs to split). The sibling was stale on `motherduck`
+(Redpoint published $1.0B on a citation that returns nothing while its own
+note said $400M; the last priced event is the $52.5M Series B of 2023-09 at
+$400M, and Rule A bars a band without one), `gogobot` (acquired by CTrip as
+Trip.com, not defunct) and `kustomer` (private at $250M after the Meta
+spin-out). `guild-technologies` and `northstar-technology` are ruled
+**distinct** in `cross-rulings.json`: both Battery rows are unresolved
+compliance-list names, against Guild Education and a Benchmark pre-window
+capture.
+
+**Open — 32 further cross-investor pairs** remain on this base, against
+Greylock, Menlo and others. They surfaced as those siblings closed their own
+runs and re-exported; Battery's original run had compared against in-flight
+bases that were skipped. They are a valuation and status alignment job, not
+an S2A one, and this book is not in the re-ingest wave.
