@@ -113,52 +113,78 @@ def seg_of(era: dict) -> str:
     return era["path"].strip("/")
 
 
+def ia_replay_probe(url: str, probe: str) -> tuple[str, str]:
+    """One replay probe, paced by the shared bucket -> (effective_url, code).
+
+    Every IA request in this file goes through `wait("ia")`. The bucket's
+    guarantee is AGGREGATE: it holds the total across every process on the
+    machine to one request per second however many sessions run. Traffic
+    issued outside it has no such guarantee, so N sessions make N times the
+    rate — which is what earns the Internet Archive's hour-long firewall
+    block (775 of 816 logged IA failures were rc=7 refusals). These probes
+    were bare `subprocess.run` calls until PRO-127; at five sessions they
+    put ~3.3 req/s against IA's 1.0 ceiling, unseen by the bucket.
+
+    A transport failure and a year with genuinely no capture MUST stay
+    distinguishable: a failure comes back as an "rc<N>" code, never as an
+    empty answer a caller could read as absence (12402a7 — the Redpoint run
+    recorded 10 of 14 era-years as empty because rc was never read).
+    """
+    last = ("", "rc-1")
+    for _ in range(3):
+        shared_throttle.wait("ia")
+        r = subprocess.run(
+            ["curl", "-sL", "--max-time", "90", "-o", "/dev/null",
+             "-w", "%{url_effective}\n%{http_code}",
+             "-H", f"User-Agent: {UA['User-Agent']}",
+             f"https://web.archive.org/web/{probe}id_/{url}"],
+            capture_output=True)
+        if r.returncode == 0 and r.stdout.strip():
+            eff, code = (r.stdout.decode().split("\n") + ["", ""])[:2]
+            last = (eff, code)
+            if code not in ("429", "503"):
+                return last
+            time.sleep(8)       # IA wants more room than the bucket gives
+        else:
+            last = ("", f"rc{r.returncode}")
+    return last
+
+
 def replay_yearly(urls: list[str], y0: int, y1: int) -> dict:
     """CDX-outage fallback (COLLECTION.md §5, measured 2026-09 on Lightspeed
     and Creandum: connection-refused CDX, working replay): for each year ask
     the replay for the capture nearest three probe dates and keep the first
     whose true timestamp, read off the redirected id_ URL, falls in the year.
     `urls` are the candidate originals (the current site base and the
-    http://www. form the early captures were stored under)."""
-    out = {}
+    http://www. form the early captures were stored under).
+
+    The search stops at the first hit, so a year that resolves on the current
+    base costs ONE probe and only a year that resolves nowhere costs the full
+    grid (len(urls) x 3). PRO-127 briefly added a two-pass "cap" on top of
+    this; measured against the same synthetic archives it issued exactly the
+    same number of probes in every case, because this short-circuit was
+    already doing the work. What was actually wrong was that the probes
+    bypassed the rate bucket — see `ia_replay_probe`.
+    """
+    if not urls:
+        return {}
+    out: dict = {}
     unreachable: list = []
-    for y in range(y0, y1 + 1):
+    probes = 0
+    years = list(range(y0, y1 + 1))
+    for y in years:
         found = None
         for url in urls:
             for probe in (f"{y}0615", f"{y}0201", f"{y}1015"):
-                # A refused connection and a year with genuinely no capture
-                # were indistinguishable here: curl's return code was never
-                # read, so a transport failure (rc=7) left eff/code empty, the
-                # timestamp regex missed, and the year was recorded as "0
-                # entries" — evidence of absence produced by a network error.
-                # Reported by the Redpoint run 2026-09-06, which lost 10 of 14
-                # era-years to it while a plain https fetch got every one.
-                # Retry a transport failure before believing it, and say so.
-                for attempt in range(3):
-                    r = subprocess.run(
-                        ["curl", "-sL", "--max-time", "90", "-o", "/dev/null",
-                         "-w", "%{url_effective}\n%{http_code}",
-                         "-H", f"User-Agent: {UA['User-Agent']}",
-                         f"https://web.archive.org/web/{probe}id_/{url}"],
-                        capture_output=True)
-                    if r.returncode == 0 and r.stdout.strip():
-                        break
-                    time.sleep(2 * (attempt + 1))
-                else:
+                probes += 1
+                eff, code = ia_replay_probe(url, probe)
+                if code.startswith("rc"):
+                    # A refused connection and a year with genuinely no
+                    # capture must not look alike: record it as unreachable
+                    # and say so below, never as an empty year (12402a7).
                     unreachable.append(f"{y}/{probe}")
-                eff, code = (r.stdout.decode().split("\n") + ["", ""])[:2]
+                    continue
                 m = re.search(r"/web/(\d{14})id_/(.*)$", eff)
-                time.sleep(0.8)
-                if code in ("429", "503"):          # replay throttling: back off, retry once
-                    time.sleep(8)
-                    r = subprocess.run(
-                        ["curl", "-sL", "--max-time", "90", "-o", "/dev/null",
-                         "-w", "%{url_effective}\n%{http_code}",
-                         "-H", f"User-Agent: {UA['User-Agent']}",
-                         f"https://web.archive.org/web/{probe}id_/{url}"],
-                        capture_output=True)
-                    eff, code = (r.stdout.decode().split("\n") + ["", ""])[:2]
-                    m = re.search(r"/web/(\d{14})id_/(.*)$", eff)
                 if m and m.group(1)[:4] == str(y) and code.startswith("2"):
                     found = (m.group(1), m.group(2))
                     break
@@ -166,6 +192,9 @@ def replay_yearly(urls: list[str], y0: int, y1: int) -> dict:
                 break
         if found:
             out[y] = found
+
+    print(f"  replay probes: {probes} for {len(years)} era-year(s), "
+          f"{len(out)} resolved (worst case would be {len(years) * len(urls) * 3})")
     if unreachable:
         print(f"  !! replay probe could not connect on {len(unreachable)} "
               f"probe(s): {', '.join(unreachable[:8])}"
