@@ -323,6 +323,15 @@ tying the round to the firm). Absence of corroboration on a name-match is a
 `not_member` verdict, not an `uncertain` one: the base asserts membership,
 and an unsupported assertion is the defect class the judge exists to kill.
 
+**A capture URL is a valid citation when the live page is gone.** A listing
+that existed and was captured is evidence whether or not the firm still serves
+it, so a `web.archive.org` or `index.commoncrawl.org` URL properly cites a page
+a site migration has since 404'd (Cherry's pre-migration `cherry.vc/2021/...`
+announcement posts, four S2A rows). Common Crawl was retired as a sweep layer
+in 2026-09 because it surfaced no company the Internet Archive did not already
+hold; **that retirement is about where we look, not about what counts, and it
+does not invalidate a Common Crawl citation already recorded.**
+
 **A site listing suffices unless the firm itself disclaims the position**
 (Erik, 2026-09-17, on Menlo). A company a firm lists because a partner backed
 it at a *previous* firm is not a member. Menlo's live site carried fourteen
