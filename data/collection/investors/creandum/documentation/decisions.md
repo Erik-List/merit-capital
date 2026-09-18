@@ -231,3 +231,40 @@ rule rather than a row fix, flagged for Erik's review.
 Verdicts live in `membership-ledger.json` and are re-applied on every rebuild;
 human verdicts (`who: "erik"`) outrank agent verdicts; excluded rows are
 preserved in `excluded.json`, never deleted.
+
+### D-S2A — Seed-to-A graduation re-judged under the status contract (2026-09-17, agent, class-wide)
+
+Under the 2026-09-16 contract (COLLECTION.md §6) all 78 in-window Seed rows
+were re-judged with both legs cited: 79 seed entries, 8 censored, 34
+undetermined, cohort 37, graduated 31, not graduated 1 (Opbeat to Elastic, on
+the firm's own 2017 post), rate 83.8%, coverage 52%. Creandum files no Form
+Ds, so every decision rests on a citation, and the firm's own archive on disk
+(`sources/site/stories.json`, `announcements.json`) settled the majority.
+
+Three rows are pre-window and now carry `pre_window_entry` with graduation
+null, each pinned to the firm's own press archive: **nanoxis** (2003-09-16),
+**tekki** (2004-02-24), **saligus** (2005-04-07). That is why `entry_stage`
+counts 82 Seed rows while the S2A block counts 79 seed entries.
+
+Erik's named-round ruling of 2026-09-17 decided **project-eaden** (a €8M seed
+followed by a €15M Series A, about $1M short of the old 2× test) and would
+have decided **packfleet** had a URL been reachable.
+
+**`augustus` (Ivy) keeps Erik's graduated ruling of 2026-09-04** and now
+carries the citation the contract requires: the company's own release
+announcing a $180M Series B, which was already cited on the row for
+`hq_country`. His `who` and his verdict are untouched.
+
+`verify.shape.c2a_rate_max` is restated from 0.80 to 0.90 with the coverage
+published beside the rate.
+
+**Web channels, for the next run on this book.** DuckDuckGo serves a CAPTCHA;
+Bing, Mojeek, Startpage, Ecosia, Qwant and SearxNG are blocked; Brave works
+but rate-limits after about four calls. `web.archive.org` was both blocked to
+WebFetch and returning "Temporarily Offline" to curl. What worked was **curl
+from Bash** against publisher site searches (eu-startups, FinSMEs,
+TechCrunch), plus Google News RSS for outlet and date discovery — note its
+links no longer encode the source URL, and tech.eu, Sifted and GeekWire
+refuse direct fetches, which is what stranded **packfleet**, whose March-2024
+$10M Series A is carried by Reuters, Sifted and Retail Technology Innovation
+Hub but could not be verified at a URL.

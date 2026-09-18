@@ -205,3 +205,29 @@ rendered-name-over-slug; `build-firm-profile.py` EDGAR country codes; the
 ADV 7.B PDF parse for ERAs (`scratch/adv-7b-funds.json`); the EU register
 entity file shape (`sources/registers/entities.json`); the announcement
 archive as a class-1 layer. Written back to COLLECTION.md §1, §5, §6, §11.
+
+## Addendum 2026-09-17 — S2A re-judged under the status contract
+
+`seed_to_a_graduation` became a judged status (`graduated | not_graduated |
+censored | undetermined`, COLLECTION.md §6), superseding the C2A figures
+above. `migrate-graduation` kept five cited graduations, converted Erik's
+human ruling on `augustus` from the retired boolean, and dropped 87 legacy
+values with their 66 `cohort_unverified` flags; the 78 re-opened Seed rows
+were judged in two batches with both legs cited in the same pass.
+
+| seed entries | censored | undetermined | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|---|
+| 79 | 8 | 34 | 37 | 31 | 1 | 83.8% | 52% |
+
+Of 79 seed entries, 8 were too recent to count; of the 71 whose record could
+be sought, 37 were established (52% coverage) and 83.8% of those graduated —
+the establishable set skews toward visible successes. The single "no" is
+Opbeat's acquisition by Elastic, on the firm's own post. Of the 34
+undetermined, twelve fail only on the stage leg and would flip on one URL
+(Topi, Resolution Games, Yababa, Soundtrack Your Brand among them), five
+have a terminal event no reachable publisher covers, and eight are live
+companies with no later round on the record. Three rows are pre-window and
+leave the cohort by rule.
+
+`verify.shape.c2a_rate_max` is restated 0.80 → 0.90 (D-S2A). `verify` is
+clean.
