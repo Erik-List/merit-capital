@@ -433,3 +433,34 @@ Three fixes worth making, none applied here:
 3. **The app should not crash on a bad icon host.** A missing or unconfigured
    image is a rendering problem for one row; today it is a white screen for
    every visitor.
+
+## Addendum 2026-09-17 — S2A re-judged under the status contract
+
+`seed_to_a_graduation` became a judged status (`graduated | not_graduated |
+censored | undetermined`, COLLECTION.md §6), superseding the C2A figures
+above. `migrate-graduation` dropped 83 legacy values with their 73
+`cohort_unverified` flags; all 133 in-window Seed rows were judged in three
+batches plus a correction pass (about 134 fetches).
+
+| seed entries | censored | undetermined | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|---|
+| 130 | 9 | 94 | 27 | 24 | 3 | 88.9% | 22% |
+
+Of 130 seed entries, 9 were too recent to count; of the 121 whose record could
+be sought, only 27 could be established (22% coverage) and 88.9% of those
+graduated. **That coverage is the finding, not a defect.** The limit is the
+entry-stage leg rather than the graduation: only 25 rows arrive with a
+verified stage, and deciding the rest needs a page naming the seed round with
+Lux in it, which a firm that announces through a newsletter rather than a deal
+blog rarely leaves behind. Twenty-six undetermined rows carry a cited later
+round and fail only because Lux cannot be tied to the seed.
+
+At 22% coverage this investor sits well below the leaderboard's 50% ranking
+floor, so its rate will publish with its coverage but will not rank — which is
+the honest outcome for a book this thinly documented on the entry side.
+
+Three Form D verdicts were overturned (Aeva, Flex Logix, Sols Systems) and
+fourteen confirmed; three rows left the cohort on the firm's own posts or on
+arithmetic (Applied Intuition, Mos, Echodyne). Five entry-stage questions are
+open for Erik in D-S2A. `verify.shape.c2a_rate_max` is restated 0.80 → 0.90.
+`verify` is clean.

@@ -166,3 +166,45 @@ insolvency **followed by an asset sale** is still `acquired` with a successor
 note (Shapeways, Tempo Automation), because there the business continues under
 an acquirer. Class-wide and investor-agnostic; written back to COLLECTION.md §6
 the same day under the ratchet rule.
+
+### D-S2A — Seed-to-A graduation re-judged; the stage leg, not the graduation, is what limits this book (2026-09-17, agent, class-wide)
+
+Under the 2026-09-16 contract (COLLECTION.md §6) all 133 in-window Seed rows
+were re-judged: 130 seed entries, 9 censored, 94 undetermined, cohort 27,
+graduated 24, not graduated 3, rate 88.9%, **coverage 22%** — the thinnest of
+the wave, and for a reason worth recording.
+
+**The binding constraint is the entry-stage leg.** Only 25 of the 133 rows
+arrive with a verified stage (17 `formd_band`, 8 with an on-disk citation).
+Deciding any of the other 108 needs a page naming the *seed round with Lux in
+it*, and Lux's announcement surface is a newsletter rather than a deal blog,
+exactly as Δ2 predicted. So the common shape of an `undetermined` here is not
+a missing graduation: it is a well-cited later round in which Lux appears only
+as a participant, or a company whose seed no publisher attributed. Of the 94
+undetermined, 26 have a cited later round and fail only on the seed leg, 31
+have nothing but the site's own year, 34 have neither leg, and 3 have a
+settled stage whose graduation source refuses automated fetching.
+
+`verify.shape.c2a_rate_max` is restated from 0.80 to 0.90: what survives the
+stage filter is a remnant of well-covered companies, so the rate sits high on
+very thin coverage, and the coverage is published beside it.
+
+Three Form D verdicts were overturned with citations (**aeva**, a $45M Series
+A of Oct 2018 the filings miss and which invariant 7 forbade calling a no on a
+public row; **flex-logix**, a named $55M Series D of Mar 2021; **sols-systems**,
+an $11.1M Series B of Feb 2015); fourteen were confirmed. Three rows left the
+cohort, each on evidence that forces it rather than merely suggests it:
+**applied-intuition** and **mos** on Lux's own posts naming the round a Series
+A, and **echodyne** on arithmetic (the May 2017 $29M is explicitly the Series
+B and total raised is $44M, so the Dec 2014 $15M that names Lux is the A).
+The standing line: a re-stage needs the firm's own post naming the round or
+arithmetic that forces it; a citation merely naming Lux inside a later round
+is not enough, and those rows stay `undetermined`.
+
+**Open for Erik — five entry-stage questions**, each a row where Lux is named
+in a later round and the site year points earlier:
+1. **cajal-neuroscience** — Lux co-led the $96M Series A (2022-11-29); the site dates the investment 2020.
+2. **impulse-space** — Founders Fund led the $20M seed in early 2022, and TechCrunch says Lux "previously supported the company with a $10 million funding deal last summer" (FinSMEs dates it 2022-06-20); the round Lux entered has no name.
+3. **summer-health** — Lux co-led the $11.65M Series A (2024-04-23), and the report lists the returning investors without Lux, against a 2022 site year.
+4. **lightform** — Lux led the unnamed $5M round of 2017-11-22, which followed a $2.6M seed that does not name Lux.
+5. **sols-systems** — the structural `formd_band` Seed was kept, but if the Feb 2015 round is the Series B then the Lux-led April 2014 round is the Series A and the band is wrong.

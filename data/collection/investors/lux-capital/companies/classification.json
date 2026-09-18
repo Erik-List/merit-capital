@@ -64,20 +64,18 @@
   "confidence": "medium",
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "flags": [],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Seattle women's-health genetics company, seed-stage",
-  "seed_to_a_graduation": false,
+  "note": "Seattle women's-health genetics company, seed-stage | S2A: Lux's site dates its Adyn investment to 2021, which under R1 is an entry-year anchor and not a round label. Searched Lux's own news archive and the press for a seed announcement naming Lux and for any later round as of 2026-09-17: nothing found; the job board still reports the company at seed stage with 7 staff (R2: refused as a stage label). Neither leg could be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "adyn",
   "status": "private",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "aera-therapeutics": {
   "confidence": "medium",
@@ -95,17 +93,23 @@
   "valuation_range": "below_1b"
  },
  "aeva": {
+  "entry_date": "2017-01-13",
   "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "note": "NASDAQ: AEVA market capitalization, 2026-09-05",
+  "graduation_citation": "https://www.therobotreport.com/robotics-investments-recap-october-2018/",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
+  "note": "NASDAQ: AEVA market capitalization, 2026-09-05 | S2A: DISPUTES the Form D verdict (not_graduated). The $4.5M entry of 2017-01-13 (Shahin Farshchi on the filing) was followed by a $45M Series A in October 2018 led by Lux Capital and Canaan Partners (The Robot Report recap; Wikipedia cites the same source), then the 2021 InterPrivate SPAC listing. Invariant 7 forbids a no on a public row and the round exists.",
+  "seed_to_a_graduation": "graduated",
   "slug": "aeva",
   "valuation_asof": "2026-09-05",
   "valuation_citation": "https://stockanalysis.com/stocks/aeva/",
   "valuation_confidence": "high",
   "valuation_range": "1b_plus",
   "valuation_source": "web_verified",
-  "valuation_usd": 1090000000
+  "valuation_usd": 1090000000,
+  "who": "agent-judge-s2a-lux"
  },
  "ahana": {
   "confidence": "high",
@@ -116,33 +120,45 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "acq. by IBM, 2023 (the firm's own milestone line); Presto-based SQL analytics, San Mateo",
+  "note": "acq. by IBM, 2023 (the firm's own milestone line); Presto-based SQL analytics, San Mateo | S2A: Ahana's $2.25M seed of 2020-06-02 was led by GV with Leslie Ventures and angels and does not name Lux (FinSMEs); Lux appears only as an existing investor in the $20M Series A of 2021-08-04 led by Third Point Ventures, before the 2023 IBM acquisition. No page ties Lux to the seed, so the stage leg could not be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "ahana",
   "status": "acquired",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "aira": {
   "confidence": "medium",
+  "entry_date": "2016-01-05",
   "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
-  "note": "Aira Tech, visual-interpreting service for blind and low-vision users; three Form D rounds to $17.2M",
+  "graduation_confidence": "high",
+  "graduation_source": "formd",
+  "note": "Aira Tech, visual-interpreting service for blind and low-vision users; three Form D rounds to $17.2M | S2A: Form D verdict accepted. $3.45M entry (first sale 2016-01-05) followed by the $12.0M offering of 2017q2 and $19.2M in 2018q4; the second clears max(2x entry, $5M) and sits 17 months after the entry, well outside the same-round window.",
+  "seed_to_a_graduation": "graduated",
   "slug": "aira",
   "status": "private",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "airmap": {
   "confidence": "high",
+  "entry_date": "2015-06-30",
   "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "note": "acq. 2021 (the firm's own milestone line); drone airspace management, Santa Monica",
+  "graduation_confidence": "high",
+  "graduation_source": "formd",
+  "note": "acq. 2021 (the firm's own milestone line); drone airspace management, Santa Monica | S2A: Form D verdict accepted. $2.68M entry (first sale 2015-06-30) followed by the $46.8M offering of 2020q1, far above max(2x entry, $5M); the company was acquired in 2021 (the firm's own milestone line).",
+  "seed_to_a_graduation": "graduated",
   "slug": "airmap",
   "status": "acquired",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "airweave": {
   "confidence": "low",
@@ -156,11 +172,13 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "job-board row; the deterministic layer set hq_country JP from a name-match on the Japanese bedding brand of the same name | country corrected: the deterministic Wikidata layer matched the row's short common-word name to a foreign entity of the same name. The company is US-based; recorded as a dispute rather than silently accepting the layer",
+  "note": "job-board row; the deterministic layer set hq_country JP from a name-match on the Japanese bedding brand of the same name | country corrected: the deterministic Wikidata layer matched the row's short common-word name to a foreign entity of the same name. The company is US-based; recorded as a dispute rather than silently accepting the layer | S2A: job-board row with no Lux investment year on the site, no round announcement retrievable under the name, and the job board's own stage field refused as a label (R2). Neither the seed with Lux nor a later round could be established. The row also carries model_disputes_source on a Wikidata name-match.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "airweave",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "alife": {
   "confidence": "high",
@@ -171,11 +189,9 @@
   "flags": [
    "suspected_duplicate"
   ],
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
   "note": "Alife Health; Lux led the $9.5M seed. Duplicate of 'alife-health'",
-  "seed_to_a_graduation": false,
   "slug": "alife",
   "status": "private",
   "valuation_confidence": "medium",
@@ -188,20 +204,19 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "cohort_unverified",
    "suspected_duplicate"
   ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "AI for IVF; Lux led the $9.5M seed in 2021. Canonical of the pair with 'alife'",
-  "seed_to_a_graduation": false,
+  "note": "AI for IVF; Lux led the $9.5M seed in 2021. Canonical of the pair with 'alife' | S2A: Lux led Alife Health's $9.5M seed announced 2021-05-03 (the firm's own post, already the stage citation; TechCrunch covered the same round 2021-05-05). A $22M Series A was reported 2022-03-22 by Fierce Healthcare and MobiHealthNews, but both refuse automated fetches and no other page carrying that round could be retrieved, so the graduation has no citable source.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "alife-health",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "allstripes": {
   "confidence": "high",
@@ -223,11 +238,13 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "acq. by Augury, 2019 (the firm's own milestone line); industrial machine-data company",
+  "note": "acq. by Augury, 2019 (the firm's own milestone line); industrial machine-data company | S2A: no Alluvium round announcement naming Lux could be retrieved, and the 2019 Augury acquisition rests only on the firm's own milestone line. The site's 2015 year is an anchor only (R1). Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "alluvium",
   "status": "acquired",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "altspacevr": {
   "entry_stage": "Series A",
@@ -253,30 +270,30 @@
   ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "note": "listed 2024-2025 with no round documented on any Lux surface | hq_country CZ comes from a Wikidata name-match on a four-letter name and is not corroborated; the row's identity is unresolved and the country is left as filed with the conflict flagged",
+  "note": "listed 2024-2025 with no round documented on any Lux surface | hq_country CZ comes from a Wikidata name-match on a four-letter name and is not corroborated; the row's identity is unresolved and the country is left as filed with the conflict flagged | S2A: Amca's reported rounds are $76.5M (2025-04-10) and a $300M Series B (2026-05-20); neither report names Lux and no page names a seed round with Lux in it. Lux's site year 2024 is an anchor only (R1) and the row still carries identity_uncertain and country_conflict. Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "amca",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "anagenex": {
   "confidence": "medium",
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "flags": [],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "DNA-encoded library plus machine learning for small molecules; Lux from 2020",
-  "seed_to_a_graduation": true,
+  "note": "DNA-encoded library plus machine learning for small molecules; Lux from 2020 | S2A: Anagenex's $30M Series A of 2022-06-08 is a named later round, but no retrievable page names Lux in a seed and the site's 2020 year is an anchor only (R1). The stage leg could not be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "anagenex",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "anchorage": {
   "confidence": "medium",
@@ -315,16 +332,21 @@
  },
  "anduril": {
   "confidence": "high",
+  "entry_date": "2017",
   "entry_stage": "Seed",
-  "entry_stage_citation": "https://www.luxcapital.com/companies/anduril",
+  "entry_stage_citation": "https://www.luxcapital.com/news/serious-investment-serious-company-anduril",
   "entry_stage_confidence": "medium",
   "entry_stage_source": "web_verified",
   "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
+  "graduation_citation": "https://www.luxcapital.com/news/serious-investment-serious-company-anduril",
+  "graduation_confidence": "low",
+  "graduation_source": "first_party",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Costa Mesa defense technology; the firm's own page records 'Lux investment: 2017', the year of Anduril's first round, and Lux describes writing one of the first checks | $2.5B Series G led by Founders Fund at a $30.5B post-money, June 2025 (TechCrunch and CNBC). Later figures of $60-61B circulate on vendor pages (PremierAlts, TSG, techmarketbriefs) and a July 2026 report has the company in talks at ~$100B; under Rule A a vendor mark never bands a row, so the last priced event with a citable figure stands. The band is 10b_plus on either number",
+  "note": "Costa Mesa defense technology; the firm's own page records 'Lux investment: 2017', the year of Anduril's first round, and Lux describes writing one of the first checks | $2.5B Series G led by Founders Fund at a $30.5B post-money, June 2025 (TechCrunch and CNBC). Later figures of $60-61B circulate on vendor pages (PremierAlts, TSG, techmarketbriefs) and a July 2026 report has the company in talks at ~$100B; under Rule A a vendor mark never bands a row, so the last priced event with a citable figure stands. The band is 10b_plus on either number | S2A: Lux's own post of 2019-10-04 states 'We invested from the very first round of Anduril and have invested very substantially in this most recent round' - first-party evidence of both the entry at the first (2017) round and of a later round, the September 2019 raise. The post names neither round nor amount, hence low confidence; Wikipedia additionally records a June 2021 $450M Series D with Lux among the investors.",
+  "seed_to_a_graduation": "graduated",
   "slug": "anduril",
   "status": "private",
   "valuation_asof": "2025-06-05",
@@ -332,7 +354,8 @@
   "valuation_confidence": "high",
   "valuation_range": "10b_plus",
   "valuation_source": "web_verified",
-  "valuation_usd": 30500000000
+  "valuation_usd": 30500000000,
+  "who": "agent-judge-s2a-lux"
  },
  "angstrom-publishing": {
   "confidence": "medium",
@@ -354,6 +377,7 @@
  },
  "applied-compute": {
   "confidence": "medium",
+  "entry_date": "2025",
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
   "flags": [],
@@ -361,47 +385,50 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "2025 AI infrastructure company; entered at the seed",
+  "note": "2025 AI infrastructure company; entered at the seed | S2A: Lux's site dates its Applied Compute investment to 2025 and the company's first reported raise is $80M in October 2025; any month in 2025 is under the 24-month clock as of 2026-09-17, so the row is censored whatever the precise date.",
+  "seed_to_a_graduation": "censored",
   "slug": "applied-compute",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "applied-intuition": {
-  "entry_stage": "Seed",
-  "entry_stage_citation": "https://www.luxcapital.com/news/re-investing-in-applied-intuition-to-accelerate-autonomous-driving",
+  "entry_date": "2018-09",
+  "entry_stage": "Series A",
+  "entry_stage_citation": "https://www.luxcapital.com/news/advanced-simulation-software-autonomous-vehicles",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "note": "Lux's own 2019 post is titled 'Re-investing in Applied Intuition' for the $40M Series B, so the 2017 site year is the entry and the B is a follow-on; the 2018 post names the angel/Series A it backed | $600M Series F and tender co-led by BlackRock-managed funds and Kleiner Perkins at a $15B valuation, June 2025, per the company's own release; up from $6B at the 2024 Series E",
+  "note": "Lux's own 2019 post is titled 'Re-investing in Applied Intuition' for the $40M Series B, so the 2017 site year is the entry and the B is a follow-on; the 2018 post names the angel/Series A it backed | $600M Series F and tender co-led by BlackRock-managed funds and Kleiner Perkins at a $15B valuation, June 2025, per the company's own release; up from $6B at the 2024 Series E | S2A: RE-STAGED out of the cohort. Lux's own post of 2018-09-12 says 'Today they are publicly unveiling their new company, Applied Intuition, and we are proud Lux Capital is an investor and a partner with them in their Series A financing', and its 2024-03-12 Q&A recaps 'In September 2018, I wrote about Applied Intuition's Series A financing, and in October 2020 about their Series C'. Under R1 that dated announcement overrides the site's 2017 anchor: the entry is the Series A, so the graduation column is null.",
+  "seed_to_a_graduation": null,
   "slug": "applied-intuition",
   "valuation_asof": "2025-06-17",
   "valuation_citation": "https://www.appliedintuition.com/press-releases/series-f",
   "valuation_confidence": "high",
   "valuation_range": "10b_plus",
   "valuation_source": "web_verified",
-  "valuation_usd": 15000000000
+  "valuation_usd": 15000000000,
+  "who": "agent-judge-s2a-lux"
  },
  "aptible": {
   "confidence": "medium",
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "flags": [],
   "focus": "DevTools & APIs",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "developer-platform and compliance company; Lux entered 2014 at the seed",
-  "seed_to_a_graduation": true,
+  "note": "developer-platform and compliance company; Lux entered 2014 at the seed | S2A: no page found naming Lux in an Aptible seed round; the site's 2014 year is an anchor only (R1) and the job board's 'acquisition' stage is refused as a label (R2). No later round citable either. Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "aptible",
   "status": "private",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "aria-insights": {
   "confidence": "medium",
@@ -421,18 +448,26 @@
  },
  "armada": {
   "confidence": "medium",
+  "entry_date": "2023-12",
   "entry_stage": "Seed",
+  "entry_stage_citation": "https://www.finsmes.com/2023/12/armada-raises-over-55m-in-funding.html",
   "entry_stage_confidence": "medium",
+  "entry_stage_source": "web_verified",
   "flags": [],
   "focus": "Data Infrastructure",
   "focus_source": "model",
+  "graduation_citation": "https://www.finsmes.com/2026/05/armada-raises-230m-in-series-b-funding.html",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "edge-computing company launched 2023 with a large seed; Lux listed from 2023",
+  "note": "edge-computing company launched 2023 with a large seed; Lux listed from 2023 | S2A: Armada emerged from stealth on 2023-12-11 with over $55M co-led by Founders Fund, Lux Capital, Shield Capital and 8090 Industries - the company's first round, matching Lux's 2023 site year. The report does not use the word seed, hence medium stage confidence. A $230M Series B followed on 2026-05-19, a named later round.",
+  "seed_to_a_graduation": "graduated",
   "slug": "armada",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "arraiy": {
   "confidence": "medium",
@@ -445,11 +480,13 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "computer vision for visual effects, Palo Alto; wound down around 2019",
+  "note": "computer vision for visual effects, Palo Alto; wound down around 2019 | S2A: Arraiy wound down around 2019 and no round announcement naming Lux could be retrieved; no Lux site year either. Neither leg established, so no dated no is available.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "arraiy",
   "status": "defunct",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "astranis": {
   "entry_stage": "Seed",
@@ -459,8 +496,10 @@
   ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "note": "the firm's own page records a 2016 investment, the year of Astranis's seed, ahead of the 2018 a16z-led Series A",
-  "slug": "astranis"
+  "note": "the firm's own page records a 2016 investment, the year of Astranis's seed, ahead of the 2018 a16z-led Series A | S2A: Astranis's cited rounds - $13.5M out of stealth in 2018 led by Andreessen Horowitz, the $90M Series B of 2020-02-13 led by Venrock, $250M in April 2021 and a $200M Series D in July 2024 - name no Lux participation, and no page ties Lux to a 2016 seed. Lux's site year 2016 is an anchor only (R1). The stage leg could not be established; the row keeps its cite_pending marker.",
+  "seed_to_a_graduation": "undetermined",
+  "slug": "astranis",
+  "who": "agent-judge-s2a-lux"
  },
  "atair-aerospace": {
   "confidence": "medium",
@@ -517,20 +556,19 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Palo Alto AI drug-discovery company; no round documented on a Lux surface",
-  "seed_to_a_graduation": false,
+  "note": "Palo Alto AI drug-discovery company; no round documented on a Lux surface | S2A: no round of any kind documented on a Lux surface or in the press for Auransa; the site's 2014 year is an anchor only (R1) and the job board's series_a label is refused (R2). Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "auransa",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "auris-health": {
   "confidence": "high",
@@ -575,14 +613,21 @@
  },
  "authorea": {
   "confidence": "medium",
+  "entry_date": "2015-12-22",
+  "entry_stage_citation": "https://www.finsmes.com/2016/01/authorea-closes-1-5m-vc-funding.html",
+  "entry_stage_confidence": "medium",
   "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
-  "note": "collaborative scientific-writing platform, acquired by Atypon/Wiley; two small Form D rounds to $1.0M",
+  "graduation_confidence": "high",
+  "graduation_source": "formd",
+  "note": "collaborative scientific-writing platform, acquired by Atypon/Wiley; two small Form D rounds to $1.0M | S2A: Form D verdict accepted. Entry sale 2015-12-22 ($1.5M offering, filed 2016q1) with no later filing clearing max(2x entry, $5M) by the 2026-09-06 rescan; the company was absorbed by Atypon/Wiley rather than raising again. | S2A: stage citation added - FinSMEs (2016-01-26) reports the $1.5M financing LED BY LUX CAPITAL with the Knight Foundation, matching the Form D entry sale of 2015-12-22. Re-checked for a named later round under the new rule: none exists, only the 2016 Winnower acquisition by Authorea, so the not_graduated stands.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "authorea",
   "status": "acquired",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "avail": {
   "confidence": "low",
@@ -615,20 +660,19 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "listed from 2024, no round documented on a Lux surface",
-  "seed_to_a_graduation": false,
+  "note": "listed from 2024, no round documented on a Lux surface | S2A: Babylon Bio is listed from 2024 with no round documented on any Lux surface and no press round found; the site year is an anchor only (R1). Neither leg established, and a 2024 entry cannot be called censored without a month.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "babylon-bio",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "babylon-biosciences": {
   "confidence": "low",
@@ -638,11 +682,9 @@
    "stage_uncited",
    "suspected_duplicate"
   ],
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
   "note": "duplicate of 'babylon-bio'",
-  "seed_to_a_graduation": false,
   "slug": "babylon-biosciences",
   "status": "private",
   "valuation_confidence": "medium",
@@ -653,20 +695,19 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "New York retirement-investing fintech; listed from 2023",
-  "seed_to_a_graduation": false,
+  "note": "New York retirement-investing fintech; listed from 2023 | S2A: no page found naming Lux in a Basic Capital seed round, and no later named round retrievable; the site's 2023 year is an anchor only (R1) and the job board's series_a label is refused (R2).",
+  "seed_to_a_graduation": "undetermined",
   "slug": "basic-capital",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "benchling": {
   "confidence": "medium",
@@ -720,61 +761,59 @@
  },
  "bluenote": {
   "confidence": "low",
+  "entry_date": "2025",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "listed from 2025",
-  "seed_to_a_graduation": false,
+  "note": "listed from 2025 | S2A: Lux's site dates its Bluenote investment to 2025; any month in 2025 is inside the 24-month clock as of 2026-09-17, so the row is censored whatever the precise date.",
+  "seed_to_a_graduation": "censored",
   "slug": "bluenote",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "braid-health": {
   "confidence": "low",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "graduation_confidence": "low",
-  "note": "clinical imaging and reporting company; Lux listed from 2018",
-  "seed_to_a_graduation": false,
+  "note": "clinical imaging and reporting company; Lux listed from 2018 | S2A: no seed announcement naming Lux and no later round found for Braid Health; the site's 2018 year is an anchor only (R1) and the job board's series_unknown label is refused (R2).",
+  "seed_to_a_graduation": "undetermined",
   "slug": "braid-health",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "brainiac": {
   "confidence": "low",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "listed from 2018",
-  "seed_to_a_graduation": false,
+  "note": "listed from 2018 | S2A: no Brainiac round announcement naming Lux could be retrieved; the site's 2018 year is an anchor only (R1).",
+  "seed_to_a_graduation": "undetermined",
   "slug": "brainiac",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "bright-machines": {
   "confidence": "medium",
@@ -810,20 +849,18 @@
   "confidence": "medium",
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "flags": [],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Seattle neurodegeneration drug-discovery company; Lux from 2020, ahead of the 2022 Series A",
-  "seed_to_a_graduation": true,
+  "note": "Seattle neurodegeneration drug-discovery company; Lux from 2020, ahead of the 2022 Series A | S2A: Lux CO-LED Cajal's $96M Series A announced 2022-11-29 with The Column Group (FinSMEs; GeekWire and Business Wire the same day), but Lux's site dates its investment to 2020 and no page ties Lux to a seed round. Entry stage unresolved between Seed (site anchor) and Series A (the only cited round) - open ruling for Erik.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "cajal-neuroscience",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "cala-health": {
   "confidence": "medium",
@@ -862,11 +899,13 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "acq. by Moody's, 2025 (the firm's own milestone line); geospatial property analytics",
+  "note": "acq. by Moody's, 2025 (the firm's own milestone line); geospatial property analytics | S2A: only the Moody's acquisition of 2025-01-13 (TechCrunch) could be retrieved for Cape Analytics; no page names Lux in a seed round and no later round announcement was fetchable. Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "cape-analytics",
   "status": "acquired",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "capella-biosciences": {
   "confidence": "low",
@@ -1009,39 +1048,42 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "clinical AI company on Lux's 2016-era pages",
-  "seed_to_a_graduation": false,
+  "note": "clinical AI company on Lux's 2016-era pages | S2A: CloudMedx appears only on Lux's 2016-era archived pages; no round announcement naming Lux could be retrieved and there is no site investment year. Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "cloudmedx",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "cognichip": {
   "confidence": "medium",
+  "entry_date": "2025-05",
   "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "entry_stage_citation": "https://techcrunch.com/2025/05/15/cognichip-emerges-from-stealth-with-the-goal-of-using-generative-ai-to-develop-new-chips/",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
+  "flags": [],
   "focus": "AI & Applied AI",
   "focus_source": "model",
-  "graduation_confidence": "low",
+  "graduation_citation": "https://pulse2.com/cognichip-60-million-raised-for-physics-informed-ai-chip-design-platform/",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "San Francisco AI-for-chip-design company; emerged 2025 with a seed",
-  "seed_to_a_graduation": false,
+  "note": "San Francisco AI-for-chip-design company; emerged 2025 with a seed | S2A: Cognichip came out of stealth on 2025-05-15 with $33M in seed funding co-led by Lux Capital and Mayfield (TechCrunch). Seligman Ventures led a $60M Series A announced 2026-03-31/2026-04-01 with Lux participating. A named Series A graduates the row even though $60M does not clear 2x the $33M seed.",
+  "seed_to_a_graduation": "graduated",
   "slug": "cognichip",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "cognition": {
   "confidence": "medium",
@@ -1115,20 +1157,19 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Crypto & Web3",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "decentralised data-market protocol company from the late 2010s",
-  "seed_to_a_graduation": false,
+  "note": "decentralised data-market protocol company from the late 2010s | S2A: no Computable Labs round announcement could be retrieved; the row survives only as a late-2010s archived listing with no Lux site year.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "computable-labs",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "conductorai": {
   "confidence": "low",
@@ -1149,14 +1190,19 @@
  },
  "copia": {
   "confidence": "medium",
+  "entry_date": "2020-08-21",
   "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "note": "Copia Automation, New York industrial DevOps company; four Form D rounds to $18M",
+  "graduation_confidence": "high",
+  "graduation_source": "formd",
+  "note": "Copia Automation, New York industrial DevOps company; four Form D rounds to $18M | S2A: Form D verdict accepted. Entry sale 2020-08-21 followed by a $12.27M offering, above max(2x entry, $5M) and outside the 90-day same-round window.",
+  "seed_to_a_graduation": "graduated",
   "slug": "copia",
   "status": "private",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "coris": {
   "confidence": "low",
@@ -1170,11 +1216,13 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "the deterministic layer set hq_country JP from a Wikidata name-match; Coris is a US risk-intelligence company for fintechs. Country left as filed and flagged rather than overwritten | country corrected: the deterministic Wikidata layer matched the row's short common-word name to a foreign entity of the same name. The company is US-based; recorded as a dispute rather than silently accepting the layer",
+  "note": "the deterministic layer set hq_country JP from a Wikidata name-match; Coris is a US risk-intelligence company for fintechs. Country left as filed and flagged rather than overwritten | country corrected: the deterministic Wikidata layer matched the row's short common-word name to a foreign entity of the same name. The company is US-based; recorded as a dispute rather than silently accepting the layer | S2A: no Coris funding coverage retrievable under that name (the searches return unrelated companies), no Lux seed citation and no later round. The site's 2024 year is an anchor only (R1) and the row still carries model_disputes_source on hq_country.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "coris",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "covariant": {
   "confidence": "medium",
@@ -1185,11 +1233,13 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Emeryville robotic-manipulation company (founded 2017 as Embodied Intelligence). In 2024 Amazon hired its founders and about a quarter of its staff and licensed its models -- an acquihire, so the standalone value no longer stands",
+  "note": "Emeryville robotic-manipulation company (founded 2017 as Embodied Intelligence). In 2024 Amazon hired its founders and about a quarter of its staff and licensed its models -- an acquihire, so the standalone value no longer stands | S2A: Covariant's cited rounds - $7M founding round from Amplify Partners in 2017, a $20M Series A, the $40M Series B of 2020-05-06 led by Index, the $80M Series C of 2021-07 and the $75M extension of 2023-04-04 (TechCrunch) - name no Lux participation; Lux's site year 2017 is an anchor only (R1). The stage leg could not be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "covariant",
   "status": "acquired",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "creyon": {
   "confidence": "medium",
@@ -1251,22 +1301,29 @@
   "focus_source": "model",
   "hq_country": "CA",
   "hq_country_source": "model_knowledge",
-  "note": "acq. by Snowflake, 2020 (the firm's own milestone line); Toronto data-privacy company",
+  "note": "acq. by Snowflake, 2020 (the firm's own milestone line); Toronto data-privacy company | S2A: no round announcement naming Lux could be retrieved for CryptoNumerics, and the Snowflake acquisition of 2020 rests only on the firm's own milestone line, which is not a dated terminal-event citation. Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "cryptonumerics",
   "status": "acquired",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "crystal-is": {
   "confidence": "high",
+  "entry_date": "2009-11-16",
   "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "note": "acq. by Asahi Kasei (the firm's own milestone line, year not stated on the card); Green Island NY aluminium-nitride UV LED company, one of Lux's earliest positions",
+  "graduation_confidence": "high",
+  "graduation_source": "formd",
+  "note": "acq. by Asahi Kasei (the firm's own milestone line, year not stated on the card); Green Island NY aluminium-nitride UV LED company, one of Lux's earliest positions | S2A: Form D verdict accepted. $1.1M entry (first sale 2009-11-16) followed by the $7.0M offering of 2010q3, above max(2x entry, $5M) and ten months later; Asahi Kasei acquired the company afterwards. Lux's site year 2006 is in-window, so D8 does not apply.",
+  "seed_to_a_graduation": "graduated",
   "slug": "crystal-is",
   "status": "acquired",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "ctrl-labs": {
   "entry_stage": "Series A",
@@ -1283,14 +1340,19 @@
  },
  "cyphy-works": {
   "confidence": "medium",
+  "entry_date": "2013-10-31",
   "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "note": "tethered-drone company founded by Helen Greiner; renamed Aria Insights in 2019 and shut down the same year",
+  "graduation_confidence": "high",
+  "graduation_source": "formd",
+  "note": "tethered-drone company founded by Helen Greiner; renamed Aria Insights in 2019 and shut down the same year | S2A: Form D verdict accepted. $7.05M entry (first sale 2013-10-31) followed by the $22.4M offering of 2015q4, above max(2x entry, $5M); the company later became Aria Insights and shut down, which does not disturb the graduation.",
+  "seed_to_a_graduation": "graduated",
   "slug": "cyphy-works",
   "status": "defunct",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "databricks": {
   "entry_stage": "Growth",
@@ -1308,60 +1370,56 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "identity_uncertain",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "job-board row; the one-word name is hard to pin",
-  "seed_to_a_graduation": false,
+  "note": "job-board row; the one-word name is hard to pin | S2A: job-board row with no Lux investment year on the site, no round announcement retrievable under the name, and the job board's own stage field refused as a label (R2). Neither the seed with Lux nor a later round could be established. The row also carries identity_uncertain on the one-word name.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "decent",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "deep-sentinel": {
   "confidence": "medium",
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "flags": [],
   "focus": "Security",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "AI-monitored home security; Lux from 2016",
-  "seed_to_a_graduation": true,
+  "note": "AI-monitored home security; Lux from 2016 | S2A: Deep Sentinel's first reported round is $7.4M on 2017-05-01 led by Shasta Ventures, with $15M in 2023 and a $15M Series B on 2025-06-03 (FinSMEs); none of these name Lux and no page ties Lux to a 2016 seed. The stage leg could not be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "deep-sentinel",
   "status": "private",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "deepsim": {
   "confidence": "low",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "AI & Applied AI",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "job-board row; AI simulation for engineering design",
-  "seed_to_a_graduation": false,
+  "note": "job-board row; AI simulation for engineering design | S2A: job-board row with no Lux investment year on the site, no round announcement retrievable under the name, and the job board's own stage field refused as a label (R2). Neither the seed with Lux nor a later round could be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "deepsim",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "desktop-metal": {
   "confidence": "high",
@@ -1379,20 +1437,19 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "job-board row",
-  "seed_to_a_graduation": false,
+  "note": "job-board row | S2A: job-board row with no Lux investment year on the site, no round announcement retrievable under the name, and the job board's own stage field refused as a label (R2). Neither the seed with Lux nor a later round could be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "digital-biology",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "donotpay": {
   "confidence": "medium",
@@ -1456,22 +1513,23 @@
  },
  "echodyne": {
   "confidence": "medium",
-  "entry_stage": "Seed",
+  "entry_date": "2014-12",
+  "entry_stage": "Series A",
+  "entry_stage_citation": "https://www.finsmes.com/2014/12/echodyne-raises-15m-in-funding.html",
   "entry_stage_confidence": "medium",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "entry_stage_source": "web_verified",
+  "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Kirkland WA metamaterials radar company spun out of Intellectual Ventures; Lux from 2014, at the seed",
-  "seed_to_a_graduation": true,
+  "note": "Kirkland WA metamaterials radar company spun out of Intellectual Ventures; Lux from 2014, at the seed | S2A: RE-STAGED out of the cohort. Echodyne's 2014-12-19 $15M round names Lux Capital alongside Bill Gates, Madrona, Vulcan and Kresge; the May 2017 $29M round is explicitly the SERIES B and TechCrunch puts total raised at $44M, i.e. $15M + $29M, so the 2014 round Lux joined is the Series A and there is no earlier seed. Graduation is null on a Series A entry.",
+  "seed_to_a_graduation": null,
   "slug": "echodyne",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "egenesis": {
   "confidence": "medium",
@@ -1514,11 +1572,13 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "digital-measurement company (Atlas); the team went to HumanFirst around 2021",
+  "note": "digital-measurement company (Atlas); the team went to HumanFirst around 2021 | S2A: Elektra Labs wound down around 2021 with its team going to HumanFirst; no round announcement naming Lux could be retrieved and there is no site investment year, so no stage citation and no dated terminal-event citation are available.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "elektra-labs",
   "status": "defunct",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "embodied-intelligence": {
   "confidence": "medium",
@@ -1578,6 +1638,7 @@
  },
  "erebor": {
   "confidence": "medium",
+  "entry_date": "2025",
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
   "flags": [
@@ -1585,7 +1646,8 @@
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
-  "note": "digital-asset bank founded in 2025 by Palmer Luckey and Joe Lonsdale with Founders Fund and Lux backing; Lux entered at formation. Press reports a large priced round but no figure is sourced here | Bloomberg reports the round doubling Erebor's valuation to $4.35B in December 2025, raised from funds led by Lux Capital -- which also corroborates Lux's position. A later $8B raise was still in discussions in August 2026 and does not band the row",
+  "note": "digital-asset bank founded in 2025 by Palmer Luckey and Joe Lonsdale with Founders Fund and Lux backing; Lux entered at formation. Press reports a large priced round but no figure is sourced here | Bloomberg reports the round doubling Erebor's valuation to $4.35B in December 2025, raised from funds led by Lux Capital -- which also corroborates Lux's position. A later $8B raise was still in discussions in August 2026 and does not band the row | S2A: Erebor was founded in 2025 and Lux's site dates its investment to 2025; the company's reported raises run from mid-2025 at a $2B valuation through $350M in December 2025 and $1.5B at $8B in July 2026. Any 2025 month is inside the 24-month clock, so the row is censored - and censored, not a no, is what invariant 7 requires on a $1B+ row.",
+  "seed_to_a_graduation": "censored",
   "slug": "erebor",
   "status": "private",
   "valuation_asof": "2025-12-22",
@@ -1593,7 +1655,8 @@
   "valuation_confidence": "high",
   "valuation_range": "1b_plus",
   "valuation_source": "web_verified",
-  "valuation_usd": 4350000000
+  "valuation_usd": 4350000000,
+  "who": "agent-judge-s2a-lux"
  },
  "everly-health": {
   "confidence": "medium",
@@ -1628,27 +1691,38 @@
   "status": "private"
  },
  "everspin-technologies": {
+  "entry_date": "2012-01-27",
   "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "slug": "everspin-technologies"
+  "graduation_confidence": "high",
+  "graduation_source": "formd",
+  "note": "S2A: Form D verdict accepted. $5.0M entry (first sale 2012-01-27) followed by the $15.2M offering of 2013q3, above max(2x entry, $5M); the company listed on NASDAQ as MRAM in 2016.",
+  "seed_to_a_graduation": "graduated",
+  "slug": "everspin-technologies",
+  "who": "agent-judge-s2a-lux"
  },
  "evolutionary-scale": {
   "confidence": "medium",
+  "entry_date": "2024-06",
   "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
+  "entry_stage_citation": "https://www.finsmes.com/2024/06/evolutionaryscale-raises-142m-in-seed-funding.html",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
   "flags": [],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "New York protein-language-model company (ESM3) founded 2023 by the ex-Meta FAIR protein team; Lux backed the $142M seed | the $142M seed of June 2024 (Nat Friedman and Daniel Gross with Lux, Amazon and Nvidia's NVentures) disclosed no valuation, and no priced event with a citable figure has been published since. Under Rule A the row reads below_1b with the check recorded rather than taking a vendor estimate",
+  "note": "New York protein-language-model company (ESM3) founded 2023 by the ex-Meta FAIR protein team; Lux backed the $142M seed | the $142M seed of June 2024 (Nat Friedman and Daniel Gross with Lux, Amazon and Nvidia's NVentures) disclosed no valuation, and no priced event with a citable figure has been published since. Under Rule A the row reads below_1b with the check recorded rather than taking a vendor estimate | S2A: the stage leg is settled - EvolutionaryScale's $142M SEED of 2024-06-28 was led by Nat Friedman, Daniel Gross and Lux Capital (FinSMEs; TechCrunch 2024-06-25 covers the same round). No later round exists and the firm's own milestone line records an acquisition in 2025, reported in November 2025 as a Chan Zuckerberg Initiative deal, but no citable primary source for that acquisition could be retrieved, so a dated not_graduated is not available.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "evolutionary-scale",
   "status": "private",
   "valuation_citation": "https://techcrunch.com/2024/06/25/evolutionaryscale-backed-by-amazon-and-nvidia-raises-142m-for-protein-generating-ai/",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "valuation_range_source": "web_verified"
+  "valuation_range_source": "web_verified",
+  "who": "agent-judge-s2a-lux"
  },
  "evolv-technology": {
   "confidence": "high",
@@ -1677,11 +1751,13 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "the deterministic layer set hq_country EE from a Wikidata name-match on the common word 'Factory'; Lux's Factory is the US AI software-engineering company. Country left as filed and flagged | country corrected: the deterministic Wikidata layer matched the row's short common-word name to a foreign entity of the same name. The company is US-based; recorded as a dispute rather than silently accepting the layer",
+  "note": "the deterministic layer set hq_country EE from a Wikidata name-match on the common word 'Factory'; Lux's Factory is the US AI software-engineering company. Country left as filed and flagged | country corrected: the deterministic Wikidata layer matched the row's short common-word name to a foreign entity of the same name. The company is US-based; recorded as a dispute rather than silently accepting the layer | S2A: the row has no Lux site year and carries model_disputes_source on a Wikidata name-match; no page ties Lux to a Factory seed round and no later round could be attributed to the same entity with confidence. Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "factory",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "fiddler": {
   "confidence": "medium",
@@ -1711,14 +1787,20 @@
  },
  "flex-logix": {
   "confidence": "medium",
+  "entry_date": "2015-10-20",
   "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "note": "Mountain View eFPGA and AI-inference IP company; the eFPGA business and team went to Analog Devices in 2024. Status carried at medium confidence and re-checked in the A/B pass | acquired, so the standalone figure is null by the status rule",
+  "graduation_citation": "https://www.finsmes.com/2021/03/flex-logix-raises-55m-in-series-d-financing.html",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
+  "note": "Mountain View eFPGA and AI-inference IP company; the eFPGA business and team went to Analog Devices in 2024. Status carried at medium confidence and re-checked in the A/B pass | acquired, so the standalone figure is null by the status rule | S2A: DISPUTES the Form D verdict (not_graduated). The Form D sequence stops at the $5M Series B of 2017, but Flex Logix raised a $55M SERIES D announced 2021-03-26, a named later round well above the $7.47M entry of 2015-10-20. The eFPGA business went to Analog Devices afterwards.",
+  "seed_to_a_graduation": "graduated",
   "slug": "flex-logix",
   "status": "acquired",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "flutterwave": {
   "entry_stage": "Growth",
@@ -1738,40 +1820,37 @@
   "confidence": "medium",
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Chicago robots-as-a-service company for manufacturers; Lux from 2020",
-  "seed_to_a_graduation": true,
+  "note": "Chicago robots-as-a-service company for manufacturers; Lux from 2020 | S2A: Lux Capital is named among the investors in Formic's $27.4M Series A of 2024-06-25 led by Blackhorn Ventures (FinSMEs), but no page names Lux in a seed round and the article does not describe one; Lux's site year 2020 is an anchor only (R1). The stage leg could not be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "formic",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "fruitful": {
   "confidence": "low",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "personal-finance advice company; listed from 2022",
-  "seed_to_a_graduation": false,
+  "note": "personal-finance advice company; listed from 2022 | S2A: no Fruitful round announcement naming Lux could be retrieved and no later round found; the site's 2022 year is an anchor only (R1).",
+  "seed_to_a_graduation": "undetermined",
   "slug": "fruitful",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "ftx": {
   "confidence": "low",
@@ -1953,22 +2032,31 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "acq. 2021 (the firm's own milestone line); neurostimulation headset for athletic training. Duplicate of the Form D row 'halo-neuro-inc'",
+  "note": "acq. 2021 (the firm's own milestone line); neurostimulation headset for athletic training. Duplicate of the Form D row 'halo-neuro-inc' | S2A: the only retrievable Halo round is the $1.5M raise of 2014-05-01 (TechCrunch), which does not name Lux, and the 2021 acquisition rests on the firm's own milestone line. Lux's 2014 site year is an anchor only (R1). Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "halo-neuroscience",
   "status": "acquired",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "hangar-technology": {
   "confidence": "medium",
+  "entry_date": "2016-09-07",
+  "entry_stage_citation": "https://www.finsmes.com/2016/10/hangar-raises-6-5m-in-seed-funding.html",
+  "entry_stage_confidence": "high",
   "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "note": "Austin drone-data company; one Form D round of $6.3M and no trace after 2019",
+  "graduation_confidence": "high",
+  "graduation_source": "formd",
+  "note": "Austin drone-data company; one Form D round of $6.3M and no trace after 2019 | S2A: Form D verdict accepted. One $6.5M offering with first sale 2016-09-07 and no later filing by the 2026-09-06 rescan, nine years on; the company left no trace after 2019. | S2A: stage citation added - FinSMEs (2016-10-20) reports Hangar's $6.5M SEED round led by Lux, matching the Form D entry sale of 2016-09-07. Re-checked for a named later round under the new rule: none exists, so the not_graduated stands.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "hangar-technology",
   "status": "defunct",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "happiest-baby": {
   "confidence": "medium",
@@ -1985,40 +2073,37 @@
   "confidence": "medium",
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Durham NC homebuilding design software; Lux from 2018",
-  "seed_to_a_graduation": true,
+  "note": "Durham NC homebuilding design software; Lux from 2018 | S2A: Lux Capital is named as a previous investor participating in Higharc's $53M Series B of 2024-02-15 led by Spark Capital and Pillar VC (FinSMEs), which places Lux before the B but does not name the round it entered; no seed announcement naming Lux could be retrieved. The stage leg could not be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "higharc",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "hihello": {
   "confidence": "low",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "digital business-card company; listed from 2021",
-  "seed_to_a_graduation": false,
+  "note": "digital business-card company; listed from 2021 | S2A: no HiHello round announcement naming Lux could be retrieved and no later round found; the site's 2021 year is an anchor only (R1).",
+  "seed_to_a_graduation": "undetermined",
   "slug": "hihello",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "hihello-me": {
   "confidence": "low",
@@ -2028,11 +2113,9 @@
    "stage_uncited",
    "suspected_duplicate"
   ],
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
   "note": "duplicate of 'hihello'",
-  "seed_to_a_graduation": false,
   "slug": "hihello-me",
   "status": "private",
   "valuation_confidence": "medium",
@@ -2087,20 +2170,19 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "digital-measurement software for clinical trials; Lux from 2019",
-  "seed_to_a_graduation": true,
+  "note": "digital-measurement software for clinical trials; Lux from 2019 | S2A: no HumanFirst round announcement naming Lux could be retrieved and no later round found; the site's 2019 year is an anchor only (R1).",
+  "seed_to_a_graduation": "undetermined",
   "slug": "humanfirst",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "impulse-space": {
   "confidence": "medium",
@@ -2109,51 +2191,55 @@
   "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "note": "in-space transportation company founded by Tom Mueller; Lux put in $10M in 2022 alongside the Founders Fund-led seed",
+  "note": "in-space transportation company founded by Tom Mueller; Lux put in $10M in 2022 alongside the Founders Fund-led seed | S2A: TechCrunch (2023-07-24, the $45M Series A) states 'Founders Fund led Impulse's $20 million seed round in early 2022, while Lux Capital previously supported the company with a $10 million funding deal last summer', and FinSMEs dates that separate $10M round to 2022-06-20. Lux therefore did not enter at the seed, but the $10M round carries no round name, so the entry stage is unresolved - open ruling for Erik. Later named rounds exist (Series A 2023, Series B 2024, Series C 2025, Series D 2026).",
+  "seed_to_a_graduation": "undetermined",
   "slug": "impulse-space",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "inductive-bio": {
   "confidence": "low",
+  "entry_date": "2023-12",
   "entry_stage": "Seed",
-  "entry_stage_confidence": "low",
-  "flags": [
-   "cohort_unverified",
-   "stage_uncited"
-  ],
+  "entry_stage_citation": "https://www.finsmes.com/2023/12/inductive-bio-raises-4-3m-in-seed-funding.html",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
+  "flags": [],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "graduation_confidence": "low",
+  "graduation_citation": "https://www.finsmes.com/2025/05/inductive-bio-raises-25m-in-series-a-funding.html",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "ML for small-molecule ADMET prediction",
-  "seed_to_a_graduation": false,
+  "note": "ML for small-molecule ADMET prediction | S2A: Inductive Bio's $4.3M SEED of 2023-12-13 was co-led by a16z Bio + Health and Lux Capital (FinSMEs); a $25M Series A followed on 2025-05-07, a named later round that also clears max(2x seed, $5M).",
+  "seed_to_a_graduation": "graduated",
   "slug": "inductive-bio",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "instock": {
   "confidence": "low",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "warehouse robotics-as-a-service",
-  "seed_to_a_graduation": false,
+  "note": "warehouse robotics-as-a-service | S2A: the only retrievable Instock round is $3.2M on 2023-12-07 (total $6.2M), with no round name and no investors named, so neither the seed with Lux nor a later round could be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "instock",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "instock-com": {
   "confidence": "low",
@@ -2163,11 +2249,9 @@
    "stage_uncited",
    "suspected_duplicate"
   ],
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
   "note": "duplicate of 'instock'",
-  "seed_to_a_graduation": false,
   "slug": "instock-com",
   "status": "private",
   "valuation_confidence": "medium",
@@ -2196,10 +2280,16 @@
   "valuation_usd": 3200000000
  },
  "kala-pharmaceuticals": {
+  "entry_date": "2009-12-11",
   "flags": [],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "slug": "kala-pharmaceuticals"
+  "graduation_confidence": "high",
+  "graduation_source": "formd",
+  "note": "S2A: Form D verdict accepted. $2.0M entry (first sale 2009-12-11) followed by the $7.24M offering of 2012q1 and eleven further filings; Kala listed on NASDAQ in 2017. Lux founded the company in 2009 (its own milestone line), which is in-window, so D8 does not apply.",
+  "seed_to_a_graduation": "graduated",
+  "slug": "kala-pharmaceuticals",
+  "who": "agent-judge-s2a-lux"
  },
  "kallyope": {
   "confidence": "medium",
@@ -2217,20 +2307,19 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "IL",
   "hq_country_source": "model_knowledge",
-  "note": "Israeli defence-technology company; listed from 2024",
-  "seed_to_a_graduation": false,
+  "note": "Israeli defence-technology company; listed from 2024 | S2A: Kela unveiled itself on 2025-03-17 with $39M and a Sequoia partnership post the same day; no retrievable page names Lux in a Kela seed round, and Lux's 2024 site year is an anchor only (R1). A 2024 entry cannot be called censored without a month, so neither leg is established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "kela-technologies",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "kereos-inc": {
   "confidence": "medium",
@@ -2252,14 +2341,19 @@
  },
  "kurion": {
   "confidence": "high",
+  "entry_date": "2014-02-12",
   "flags": [],
   "focus": "Climate & Energy",
   "focus_source": "model",
-  "note": "acq. by Veolia, 2016 (the firm's own milestone line); nuclear-waste treatment company Lux incubated",
+  "graduation_confidence": "high",
+  "graduation_source": "formd",
+  "note": "acq. by Veolia, 2016 (the firm's own milestone line); nuclear-waste treatment company Lux incubated | S2A: Form D verdict accepted. $1.30M entry (first sale 2014-02-12) followed by the $10.0M offering of 2015q2, above max(2x entry, $5M); Veolia acquired Kurion in 2016. Lux founded the company in 2008 per its own milestone line, but the partner-attributed filing sequence anchors the entry in 2014.",
+  "seed_to_a_graduation": "graduated",
   "slug": "kurion",
   "status": "acquired",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "kymeta": {
   "confidence": "medium",
@@ -2305,16 +2399,14 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
   "flags": [
-   "cite_pending",
-   "cohort_unverified"
+   "cite_pending"
   ],
   "focus": "AI & Applied AI",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "LLM application framework; Lux from 2023, the year of the seed | cross-investor alignment (invariant 10): Sequoia publishes the $125M Series B at $1.25B led by IVP, October 2025",
-  "seed_to_a_graduation": true,
+  "note": "LLM application framework; Lux from 2023, the year of the seed | cross-investor alignment (invariant 10): Sequoia publishes the $125M Series B at $1.25B led by IVP, October 2025 | S2A: LangChain's own post announcing the $10M seed of 2023-04-04 names only Benchmark as lead and no other investor, so it does not tie Lux to the seed; Lux's 2023 site year is an anchor only (R1). Later rounds exist (Sequoia-led Series A 2024, a 2025 Series B at $1.25B) but the stage leg could not be established; the row keeps its cite_pending marker.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "langchain",
   "status": "private",
   "valuation_asof": "2025-10",
@@ -2322,7 +2414,8 @@
   "valuation_confidence": "high",
   "valuation_range": "1b_plus",
   "valuation_source": "web_verified",
-  "valuation_usd": 1250000000
+  "valuation_usd": 1250000000,
+  "who": "agent-judge-s2a-lux"
  },
  "latch": {
   "entry_stage": "Series A",
@@ -2337,103 +2430,102 @@
  },
  "latch-bio": {
   "confidence": "low",
+  "entry_date": "2021-10",
   "entry_stage": "Seed",
-  "entry_stage_confidence": "low",
-  "flags": [
-   "cohort_unverified",
-   "stage_uncited"
-  ],
+  "entry_stage_citation": "https://www.finsmes.com/2021/10/latch-bio-raises-5m-in-seed-funding.html",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
+  "flags": [],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "graduation_confidence": "low",
+  "graduation_citation": "https://www.finsmes.com/2022/06/latchbio-raises-28m-in-series-a-funding.html",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "LatchBio, cloud platform for biological data; distinct from Latch the access company",
-  "seed_to_a_graduation": false,
+  "note": "LatchBio, cloud platform for biological data; distinct from Latch the access company | S2A: LatchBio's $5M SEED of 2021-10-04 was led by Lux; a $28M Series A co-led by Coatue followed on 2022-06-03, a named later round that also clears max(2x seed, $5M).",
+  "seed_to_a_graduation": "graduated",
   "slug": "latch-bio",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "layup-parts": {
   "confidence": "low",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "job-board row; automated composite-parts manufacturing",
-  "seed_to_a_graduation": false,
+  "note": "job-board row; automated composite-parts manufacturing | S2A: job-board row with no Lux investment year on the site, no round announcement retrievable under the name, and the job board's own stage field refused as a label (R2). Neither the seed with Lux nor a later round could be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "layup-parts",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "lightform": {
   "confidence": "low",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "projected-augmented-reality hardware company",
-  "seed_to_a_graduation": false,
+  "note": "projected-augmented-reality hardware company | S2A: Lightform's $2.6M seed of 2017-03-27 names no Lux; the round Lux LED is the $5M raise of 2017-11-22, which carries no round name (FinSMEs). Lux therefore did not enter at the seed but the entry round cannot be labelled, so neither leg is established - open ruling for Erik.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "lightform",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "lightsense-technology": {
   "confidence": "low",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "job-board row; portable spectroscopy",
-  "seed_to_a_graduation": false,
+  "note": "job-board row; portable spectroscopy | S2A: job-board row with no Lux investment year on the site, no round announcement retrievable under the name, and the job board's own stage field refused as a label (R2). Neither the seed with Lux nor a later round could be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "lightsense-technology",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "looking-glass": {
   "confidence": "low",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Looking Glass Factory, holographic displays, Brooklyn",
-  "seed_to_a_graduation": true,
+  "note": "Looking Glass Factory, holographic displays, Brooklyn | S2A: the only retrievable Looking Glass Factory financing is an undisclosed strategic investment from Accenture Ventures on 2023-02-08; no seed announcement naming Lux and no named later round. The site's 2015 year is an anchor only (R1).",
+  "seed_to_a_graduation": "undetermined",
   "slug": "looking-glass",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "looking-glass-factory": {
   "confidence": "low",
@@ -2443,11 +2535,9 @@
    "stage_uncited",
    "suspected_duplicate"
   ],
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
   "note": "duplicate of 'looking-glass'",
-  "seed_to_a_graduation": true,
   "slug": "looking-glass-factory",
   "status": "private",
   "valuation_confidence": "medium",
@@ -2458,80 +2548,76 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "identity_uncertain",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "an archived CMS slug whose rendering carried a trailing marker; identity not resolved",
-  "seed_to_a_graduation": false,
+  "note": "an archived CMS slug whose rendering carried a trailing marker; identity not resolved | S2A: the slug is an archived CMS artefact whose underlying identity is unresolved (identity_uncertain), so no round could be searched for with confidence. Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "loom-vision-f",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "lumafield": {
   "confidence": "medium",
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Cambridge MA industrial CT scanning; Lux from 2019, at the seed",
-  "seed_to_a_graduation": true,
+  "note": "Cambridge MA industrial CT scanning; Lux from 2019, at the seed | S2A: Lux Capital participated in Lumafield's $35M Series B of 2022-09-12 led by Spark Capital, and the article says $32.5M was raised across the earlier seed and Series A without naming those investors; Lux's 2019 site year is an anchor only (R1). The stage leg could not be established, though Series C ($75M, 2025-03-14) and a $50M raise in 2025 exist.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "lumafield",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "lumaril": {
   "confidence": "low",
+  "entry_date": "2025",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "listed from 2025",
-  "seed_to_a_graduation": false,
+  "note": "listed from 2025 | S2A: Lux's site dates its Lumaril investment to 2025; any month in 2025 is inside the 24-month clock as of 2026-09-17, so the row is censored whatever the precise date.",
+  "seed_to_a_graduation": "censored",
   "slug": "lumaril",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "lumenous-3d": {
   "confidence": "low",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "precision laser-machined medical devices",
-  "seed_to_a_graduation": false,
+  "note": "precision laser-machined medical devices | S2A: no Lumenous 3D round announcement could be retrieved; the row survives only as a mid-2010s archived listing with no Lux site year.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "lumenous-3d",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "lux-research-inc": {
   "confidence": "high",
@@ -2570,20 +2656,19 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Madaket Health, provider-data and payer-enrolment automation; Lux from 2012",
-  "seed_to_a_graduation": true,
+  "note": "Madaket Health, provider-data and payer-enrolment automation; Lux from 2012 | S2A: the only retrievable Madaket Health round is the $10M Series B of 2018-07-24 led by Qiming Venture Partners, which does not name Lux; no seed announcement naming Lux could be found and the site's 2012 year is an anchor only (R1).",
+  "seed_to_a_graduation": "undetermined",
   "slug": "madaket",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "magen": {
   "confidence": "medium",
@@ -2635,22 +2720,26 @@
  },
  "majestic-labs": {
   "confidence": "medium",
+  "entry_date": "2024",
   "entry_stage": "Seed",
+  "entry_stage_citation": "https://siliconangle.com/2025/11/10/majestic-labs-launches-100m-build-memory-dense-ai-servers/",
   "entry_stage_confidence": "medium",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "entry_stage_source": "web_verified",
+  "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "graduation_confidence": "low",
+  "graduation_citation": "https://siliconangle.com/2025/11/10/majestic-labs-launches-100m-build-memory-dense-ai-servers/",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "AI server-architecture company founded by ex-Google and ex-Meta silicon engineers; Lux from 2024",
-  "seed_to_a_graduation": false,
+  "note": "AI server-architecture company founded by ex-Google and ex-Meta silicon engineers; Lux from 2024 | S2A: one page carries both legs - SiliconANGLE (2025-11-10) reports Majestic Labs launching with $100M total, of which a $71M SERIES A led by Bow Wave Capital, and states that Lux Capital led the company's earlier seed investment. The seed amount is undisclosed, hence medium stage confidence; the seed year follows Lux's own 2024 site entry.",
+  "seed_to_a_graduation": "graduated",
   "slug": "majestic-labs",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "majestic-labs-ai": {
   "confidence": "medium",
@@ -2659,11 +2748,9 @@
   "flags": [
    "suspected_duplicate"
   ],
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
   "note": "duplicate of 'majestic-labs'",
-  "seed_to_a_graduation": false,
   "slug": "majestic-labs-ai",
   "status": "private",
   "valuation_confidence": "medium",
@@ -2674,31 +2761,35 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "job-board row",
-  "seed_to_a_graduation": false,
+  "note": "job-board row | S2A: job-board row with no Lux investment year on the site, no round announcement retrievable under the name, and the job board's own stage field refused as a label (R2). Neither the seed with Lux nor a later round could be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "mandrel",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "matterport": {
   "confidence": "high",
+  "entry_date": "2013-01-17",
   "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "note": "listed via SPAC in 2021 and acquired by CoStar in 2025, both on the firm's own milestone lines. Acquired retires the standalone figure",
+  "graduation_confidence": "high",
+  "graduation_source": "formd",
+  "note": "listed via SPAC in 2021 and acquired by CoStar in 2025, both on the firm's own milestone lines. Acquired retires the standalone figure | S2A: Form D verdict accepted. $7.36M entry (first sale 2013-01-17) followed by the $16.0M offering of 2014q3 and five more filings; Matterport listed by SPAC in 2021 and CoStar acquired it in 2025.",
+  "seed_to_a_graduation": "graduated",
   "slug": "matterport",
   "status": "acquired",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "mave": {
   "confidence": "low",
@@ -2711,11 +2802,13 @@
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "note": "the deterministic layer set hq_country CZ on a name-match; identity unresolved | hq_country CZ comes from a Wikidata name-match; identity unresolved, country left as filed and flagged",
+  "note": "the deterministic layer set hq_country CZ on a name-match; identity unresolved | hq_country CZ comes from a Wikidata name-match; identity unresolved, country left as filed and flagged | S2A: the row's identity is unresolved (identity_uncertain plus a country_conflict from a Wikidata name-match), so no round could be searched for with confidence. Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "mave",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "maven": {
   "confidence": "medium",
@@ -2768,20 +2861,19 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Medra AI, robotic surgery",
-  "seed_to_a_graduation": false,
+  "note": "Medra AI, robotic surgery | S2A: Medra carries no Lux investment year on the site and no retrievable round announcement of its own; Menlo lists it at Series A on its own portfolio page, which is not evidence about Lux's entry. Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "medra",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "mendaera-inc": {
   "confidence": "low",
@@ -2808,11 +2900,9 @@
    "stage_uncited",
    "suspected_duplicate"
   ],
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
   "note": "duplicate of 'miga-health'",
-  "seed_to_a_graduation": false,
   "slug": "miga",
   "status": "private",
   "valuation_confidence": "medium",
@@ -2823,34 +2913,31 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "metabolic-health company; listed from 2022",
-  "seed_to_a_graduation": false,
+  "note": "metabolic-health company; listed from 2022 | S2A: no Miga Health round announcement naming Lux could be retrieved and no later named round found; the site's 2022 year is an anchor only (R1).",
+  "seed_to_a_graduation": "undetermined",
   "slug": "miga-health",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "modal": {
   "confidence": "medium",
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
   "flags": [
-   "cite_pending",
-   "cohort_unverified"
+   "cite_pending"
   ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
-  "graduation_confidence": "low",
-  "note": "Modal Labs, serverless compute for AI workloads; Lux from 2022, at the seed | cross-investor alignment (invariant 10): Accel and Creandum publish the September 2025 Series B at a $1.1B post-money, a round their notes record Lux as joining",
-  "seed_to_a_graduation": true,
+  "note": "Modal Labs, serverless compute for AI workloads; Lux from 2022, at the seed | cross-investor alignment (invariant 10): Accel and Creandum publish the September 2025 Series B at a $1.1B post-money, a round their notes record Lux as joining | S2A: TechCrunch (2023-10-10) reports Modal's $16M Series A with Lux Capital among the participants and describes a $7M seed raised by early 2022 without naming its investors; Lux's 2022 site year is an anchor only (R1). No page ties Lux to the seed, so the stage leg could not be established; the row keeps its cite_pending marker.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "modal",
   "status": "private",
   "valuation_asof": "2025-09",
@@ -2858,7 +2945,8 @@
   "valuation_confidence": "high",
   "valuation_range": "1b_plus",
   "valuation_source": "web_verified",
-  "valuation_usd": 1100000000
+  "valuation_usd": 1100000000,
+  "who": "agent-judge-s2a-lux"
  },
  "modal-labs": {
   "confidence": "medium",
@@ -2867,11 +2955,9 @@
   "flags": [
    "suspected_duplicate"
   ],
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
   "note": "duplicate of 'modal'",
-  "seed_to_a_graduation": true,
   "slug": "modal-labs",
   "status": "private",
   "valuation_confidence": "medium",
@@ -2897,21 +2983,29 @@
  },
  "moment": {
   "confidence": "low",
+  "entry_date": "2016-05-10",
   "flags": [
    "identity_uncertain"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "note": "Seattle row with one $3M Form D round and Zack Schildhorn as related person; the common name makes the current entity hard to pin",
+  "graduation_confidence": "medium",
+  "graduation_source": "formd",
+  "note": "Seattle row with one $3M Form D round and Zack Schildhorn as related person; the common name makes the current entity hard to pin | S2A: Form D verdict accepted. Entry sale 2016-05-10 ($3.0M offering) with no later filing clearing max(2x entry, $5M) by the 2026-09-06 rescan, ten years on. Confidence medium because the row still carries identity_uncertain on the common name Moment, though Zack Schildhorn is the related person on the filing.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "moment",
   "status": "private",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "mos": {
   "confidence": "medium",
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
+  "entry_date": "2020-05",
+  "entry_stage": "Series A",
+  "entry_stage_citation": "https://www.luxcapital.com/news/announcing-our-investment-in-mos-series-a-a-rebel-founder-takes-on-solving-the-u-s-student-debt-crisis",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
   "flags": [
    "model_disputes_source"
   ],
@@ -2919,11 +3013,13 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "student financial-aid and banking company; Lux's own post covers the Series A, entered at the 2020 seed. The deterministic layer set hq_country NL on a name-match; Mos is a US company | country corrected: the deterministic Wikidata layer matched the row's short common-word name to a foreign entity of the same name. The company is US-based; recorded as a dispute rather than silently accepting the layer",
+  "note": "student financial-aid and banking company; Lux's own post covers the Series A, entered at the 2020 seed. The deterministic layer set hq_country NL on a name-match; Mos is a US company | country corrected: the deterministic Wikidata layer matched the row's short common-word name to a foreign entity of the same name. The company is US-based; recorded as a dispute rather than silently accepting the layer | S2A: RE-STAGED out of the cohort. Lux's own post of 2020-05-13 is titled 'Announcing our Investment in Mos' Series A' and describes it as Lux's investment in the company; under R1 that dated announcement overrides the site's 2020 anchor as a round label. Entry is the Series A, so the graduation column is null.",
+  "seed_to_a_graduation": null,
   "slug": "mos",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "mosaicml": {
   "confidence": "high",
@@ -3015,41 +3111,39 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "identity_uncertain",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "listed from 2020; the one-word name is hard to pin to a single entity",
-  "seed_to_a_graduation": false,
+  "note": "listed from 2020; the one-word name is hard to pin to a single entity | S2A: the row carries identity_uncertain on the one-word name Neo and no round announcement could be tied to the listed entity; the site's 2020 year is an anchor only (R1). Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "neo",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "neo-tax": {
   "confidence": "low",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "job-board row; R&D tax-credit automation",
-  "seed_to_a_graduation": false,
+  "note": "job-board row; R&D tax-credit automation | S2A: job-board row with no Lux investment year on the site, no round announcement retrievable under the name, and the job board's own stage field refused as a label (R2). Neither the seed with Lux nor a later round could be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "neo-tax",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "nervana-systems": {
   "entry_stage": "Series A",
@@ -3083,27 +3177,29 @@
   "confidence": "medium",
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "flags": [],
   "focus": "AI & Applied AI",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Nomic AI, embedding and data-visualisation tools (Atlas, GPT4All); Lux from 2021",
-  "seed_to_a_graduation": false,
+  "note": "Nomic AI, embedding and data-visualisation tools (Atlas, GPT4All); Lux from 2021 | S2A: no Nomic round announcement naming Lux could be retrieved (searches return unrelated companies), and no later named round; the site's 2021 year is an anchor only (R1).",
+  "seed_to_a_graduation": "undetermined",
   "slug": "nomic",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "nominal": {
   "confidence": "medium",
+  "entry_date": "2022-11-21",
   "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
-  "note": "Austin test-and-validation software for hardware programmes; $80M raised across the Form D history, Lux led with Sequoia | cross-investor alignment (invariant 10): Lightspeed and Sequoia publish the $80M round led by Founders Fund at a $1B post-money, March 2026",
+  "graduation_confidence": "high",
+  "graduation_source": "formd",
+  "note": "Austin test-and-validation software for hardware programmes; $80M raised across the Form D history, Lux led with Sequoia | cross-investor alignment (invariant 10): Lightspeed and Sequoia publish the $80M round led by Founders Fund at a $1B post-money, March 2026 | S2A: Form D verdict accepted. $4.9M entry (first sale 2022-11-21) followed by a $50.85M offering in 2025q2, far above max(2x entry, $5M); the press sequence corroborates - $20M Series A 2025-07-09, $75M Series B 2025-06-12 and an $80M Series B extension at a $1B valuation on 2026-03-06.",
+  "seed_to_a_graduation": "graduated",
   "slug": "nominal",
   "status": "private",
   "valuation_asof": "2026-03-05",
@@ -3111,7 +3207,8 @@
   "valuation_confidence": "high",
   "valuation_range": "1b_plus",
   "valuation_source": "web_verified",
-  "valuation_usd": 1000000000
+  "valuation_usd": 1000000000,
+  "who": "agent-judge-s2a-lux"
  },
  "noon-home": {
   "confidence": "medium",
@@ -3124,31 +3221,32 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Noon Home, smart lighting; the business was acquired by Racepoint Energy/Savant in 2019",
+  "note": "Noon Home, smart lighting; the business was acquired by Racepoint Energy/Savant in 2019 | S2A: no Noon Home round announcement naming Lux could be retrieved; the row has no Lux site year and the business was absorbed by Racepoint Energy/Savant in 2019 with no citable deal page. Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "noon-home",
   "status": "acquired",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "novel-effect": {
   "confidence": "low",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "voice-responsive soundtracks for children's reading, Seattle",
-  "seed_to_a_graduation": false,
+  "note": "voice-responsive soundtracks for children's reading, Seattle | S2A: no Novel Effect round announcement naming Lux could be retrieved and no later named round; the row has no Lux site year.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "novel-effect",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "nozomi-networks": {
   "confidence": "medium",
@@ -3183,39 +3281,36 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "job-board row",
-  "seed_to_a_graduation": false,
+  "note": "job-board row | S2A: job-board row with no Lux investment year on the site, no round announcement retrievable under the name, and the job board's own stage field refused as a label (R2). Neither the seed with Lux nor a later round could be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "observable-space",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "octant-bio": {
   "confidence": "medium",
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "flags": [],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "synthetic-biology drug discovery, Emeryville; Lux from 2017",
-  "seed_to_a_graduation": true,
+  "note": "synthetic-biology drug discovery, Emeryville; Lux from 2017 | S2A: Octant's $30M Series A of 2020-05-21 was led by Andreessen Horowitz with 8VC, SV Angel and Allen & Co and does NOT name Lux, and it describes no earlier seed; the $80M Series B of 2022-04-21 was led by Catalio. Lux's 2017 site year is an anchor only (R1), so the stage leg could not be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "octant-bio",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "omada-health": {
   "entry_stage": "Growth",
@@ -3242,20 +3337,19 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "job-board row; frontline-worker rewards",
-  "seed_to_a_graduation": false,
+  "note": "job-board row; frontline-worker rewards | S2A: job-board row with no Lux investment year on the site, no round announcement retrievable under the name, and the job board's own stage field refused as a label (R2). Neither the seed with Lux nor a later round could be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "onaroll",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "openspace": {
   "confidence": "medium",
@@ -3316,38 +3410,51 @@
   "flags": [],
   "focus": "AI & Applied AI",
   "focus_source": "model",
-  "note": "digital olfaction company spun out of Google Research; Lux led the seed",
+  "note": "digital olfaction company spun out of Google Research; Lux led the seed | S2A: the firm's own milestone line reads 'Lux Founded: 2023' rather than naming a round, and the only retrievable Osmo financing is the $70M Series B of 2026-02-04 led by Two Sigma Ventures. No page names Lux in a seed or first round, so the stage leg could not be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "osmo",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "paceline": {
   "confidence": "medium",
+  "entry_date": "2020-12",
   "entry_stage": "Seed",
-  "entry_stage_confidence": "low",
-  "flags": [
-   "stage_uncited"
-  ],
-  "focus": "Healthcare & Bio",
-  "focus_source": "model",
-  "hq_country": "US",
-  "hq_country_source": "model_knowledge",
-  "note": "rewards-for-exercise fintech; wound down into an acquisition of its assets",
-  "slug": "paceline",
-  "valuation_confidence": "high",
-  "valuation_range": "below_1b"
- },
- "pager": {
-  "confidence": "medium",
+  "entry_stage_citation": "https://www.finsmes.com/2020/12/paceline-raises-5m-in-seed-funding.html",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
   "flags": [],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "note": "New York virtual-care navigation company; Lux from 2014",
+  "graduation_citation": "https://www.finsmes.com/2021/06/paceline-raises-29-5m-in-series-a-financing.html",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
+  "hq_country": "US",
+  "hq_country_source": "model_knowledge",
+  "note": "rewards-for-exercise fintech; wound down into an acquisition of its assets | S2A: Paceline's $5M SEED of 2020-12-20, co-led by Montage Ventures and Propel Venture Partners, names Lux Capital among the participants; a $29.5M Series A followed on 2021-06-25, a named later round that also clears max(2x seed, $5M). The later wind-down into an asset sale does not change the answer.",
+  "seed_to_a_graduation": "graduated",
+  "slug": "paceline",
+  "valuation_confidence": "high",
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
+ },
+ "pager": {
+  "confidence": "medium",
+  "entry_date": "2014-07-11",
+  "flags": [],
+  "focus": "Healthcare & Bio",
+  "focus_source": "model",
+  "graduation_confidence": "high",
+  "graduation_source": "formd",
+  "note": "New York virtual-care navigation company; Lux from 2014 | S2A: Form D verdict accepted. $6.14M entry (first sale 2014-07-11) followed by the $14.0M offering of 2015q3 and four further filings up to $50M in 2021q2.",
+  "seed_to_a_graduation": "graduated",
   "slug": "pager",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "paradigm": {
   "confidence": "low",
@@ -3361,11 +3468,13 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "the deterministic layer set hq_country JP on a name-match; Lux's Paradigm is a US clinical-trial-access company, not the crypto fund of the same name | country corrected: the deterministic Wikidata layer matched the row's short common-word name to a foreign entity of the same name. The company is US-based; recorded as a dispute rather than silently accepting the layer",
+  "note": "the deterministic layer set hq_country JP on a name-match; Lux's Paradigm is a US clinical-trial-access company, not the crypto fund of the same name | country corrected: the deterministic Wikidata layer matched the row's short common-word name to a foreign entity of the same name. The company is US-based; recorded as a dispute rather than silently accepting the layer | S2A: the only retrievable Paradigm financing is a $78M Series B for Paradigm Health of Columbus OH (2025-12-04, ARCH Venture), which may not be the same entity as the Lux row founded by Kent Thoelke and Jonathan Hirsch; the row also carries identity flags. No page names Lux in a seed round, so neither leg is established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "paradigm",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "pawp": {
   "confidence": "medium",
@@ -3414,24 +3523,23 @@
  },
  "phonic": {
   "confidence": "high",
+  "entry_date": "2025-04",
   "entry_stage": "Seed",
   "entry_stage_citation": "https://www.luxcapital.com/news/announcing-our-investment-in-phonic",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "flags": [],
   "focus": "AI & Applied AI",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "voice-agent reliability company; Lux's own post announces the $4M seed",
-  "seed_to_a_graduation": false,
+  "note": "voice-agent reliability company; Lux's own post announces the $4M seed | S2A: Lux led Phonic's $4M SEED announced in its own post on 2025-04-03 (already the stage citation). Seventeen months old as of 2026-09-17 and no later round reported, so the row is censored rather than a no.",
+  "seed_to_a_graduation": "censored",
   "slug": "phonic",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "physera": {
   "confidence": "high",
@@ -3442,11 +3550,13 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "acq. by Omada Health, 2020 (the firm's own milestone line); virtual physical therapy",
+  "note": "acq. by Omada Health, 2020 (the firm's own milestone line); virtual physical therapy | S2A: no Physera round announcement naming Lux could be retrieved, and the 2020 Omada Health acquisition rests only on the firm's own milestone line, which is not a dated terminal-event citation. Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "physera",
   "status": "acquired",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "physical-intelligence": {
   "confidence": "medium",
@@ -3459,7 +3569,8 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "San Francisco robot foundation-model company; Lux backed the 2024 seed. Believed well above $1B on the later round but no sourced figure here | $600M Series B led by Alphabet's CapitalG at $5.6B, November 2025. A reported $11B round was still in talks in March 2026 and is not a closed priced event, so it does not band the row",
+  "note": "San Francisco robot foundation-model company; Lux backed the 2024 seed. Believed well above $1B on the later round but no sourced figure here | $600M Series B led by Alphabet's CapitalG at $5.6B, November 2025. A reported $11B round was still in talks in March 2026 and is not a closed priced event, so it does not band the row | S2A: Physical Intelligence's $400M round of 2024-11-04 at $2.4B is well documented (CNBC, reused by Thrive), but no retrievable page names Lux in the March 2024 seed - Lux's own 2024 site year is an anchor only (R1) and the only stage source a sibling investor holds is a Crunchbase News page, a vendor source refused under Rule A. The stage leg could not be established; the row keeps its cite_pending marker.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "physical-intelligence",
   "status": "private",
   "valuation_asof": "2025-11-20",
@@ -3467,7 +3578,8 @@
   "valuation_confidence": "high",
   "valuation_range": "1b_plus",
   "valuation_source": "web_verified",
-  "valuation_usd": 5600000000
+  "valuation_usd": 5600000000,
+  "who": "agent-judge-s2a-lux"
  },
  "picnichealth": {
   "confidence": "low",
@@ -3491,39 +3603,36 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "AI & Applied AI",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "AI-generated photoreal avatars, Los Angeles",
-  "seed_to_a_graduation": false,
+  "note": "AI-generated photoreal avatars, Los Angeles | S2A: no Pinscreen round announcement could be retrieved at all; the site's 2015 year is an anchor only (R1) and the job board's series_a label is refused (R2).",
+  "seed_to_a_graduation": "undetermined",
   "slug": "pinscreen",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "pivotal-commware": {
   "confidence": "medium",
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Kirkland WA holographic beam-forming mmWave repeaters, an Intellectual Ventures spin-out; Lux from 2017",
-  "seed_to_a_graduation": true,
+  "note": "Kirkland WA holographic beam-forming mmWave repeaters, an Intellectual Ventures spin-out; Lux from 2017 | S2A: Pivotal Commware's $17M Series A of 2017-06-18 (The Thermo Companies) does not name Lux and no seed announcement naming Lux could be retrieved; the site's 2017 year is an anchor only (R1).",
+  "seed_to_a_graduation": "undetermined",
   "slug": "pivotal-commware",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "planet": {
   "confidence": "high",
@@ -3558,11 +3667,13 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "CNC machining automation company on Lux's mid-2010s pages; the business was sold in 2019",
+  "note": "CNC machining automation company on Lux's mid-2010s pages; the business was sold in 2019 | S2A: no Plethora round announcement naming Lux could be retrieved and the 2019 sale of the business has no citable dated source; the row survives only on Lux's mid-2010s pages. Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "plethora",
   "status": "acquired",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "plexium": {
   "confidence": "high",
@@ -3626,11 +3737,13 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "QD Soleil, cadmium-free quantum-dot materials, on Lux's mid-2010s pages; no trace since",
+  "note": "QD Soleil, cadmium-free quantum-dot materials, on Lux's mid-2010s pages; no trace since | S2A: QD Soleil appears only on Lux's mid-2010s pages with no round announcement retrievable and no trace since; no stage citation and no dated shutdown citation are available.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "qd-soleil",
   "status": "defunct",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "ramp": {
   "entry_stage": "Growth",
@@ -3651,11 +3764,9 @@
    "stage_uncited",
    "suspected_duplicate"
   ],
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
   "note": "RDMD, the rare-disease data company that renamed itself AllStripes; duplicate of 'allstripes'",
-  "seed_to_a_graduation": true,
   "slug": "rdmd",
   "status": "private",
   "valuation_confidence": "medium",
@@ -3694,6 +3805,7 @@
   "valuation_range": "below_1b"
  },
  "reflex": {
+  "entry_date": "2023-08",
   "entry_stage": "Seed",
   "entry_stage_citation": "https://www.luxcapital.com/news/our-investment-in-reflex",
   "entry_stage_confidence": "high",
@@ -3705,10 +3817,12 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Reflex, Python web-app framework; Lux's own post announces the $5M seed. The deterministic layer set hq_country CZ on a name-match; Reflex is a US company | country corrected: the deterministic Wikidata layer matched the row's short common-word name to a foreign entity of the same name. The company is US-based; recorded as a dispute rather than silently accepting the layer",
+  "note": "Reflex, Python web-app framework; Lux's own post announces the $5M seed. The deterministic layer set hq_country CZ on a name-match; Reflex is a US company | country corrected: the deterministic Wikidata layer matched the row's short common-word name to a foreign entity of the same name. The company is US-based; recorded as a dispute rather than silently accepting the layer | S2A: Lux led Reflex's $5M SEED announced in its own post on 2023-08-02 (already the stage citation), so the stage leg is settled. The entry is 37 months old, but no later round could be found and the acquisition the row carries has no citable dated source, so neither a graduation nor a dated no is available.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "reflex",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "relativity-space": {
   "entry_stage": "Seed",
@@ -3718,8 +3832,10 @@
   ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "note": "Lux backed Relativity at the seed in 2016, before the Playground and Social Capital rounds",
-  "slug": "relativity-space"
+  "note": "Lux backed Relativity at the seed in 2016, before the Playground and Social Capital rounds | S2A: Relativity's named rounds - $35M Series B (2018-03-27), $140M Series C (2019-10-01), $500M Series D (2020-11-23) - name no Lux participation in the retrievable reports, and no page ties Lux to the 2016 seed. Lux's 2016 site year is an anchor only (R1); the row keeps its cite_pending marker.",
+  "seed_to_a_graduation": "undetermined",
+  "slug": "relativity-space",
+  "who": "agent-judge-s2a-lux"
  },
  "resilience": {
   "confidence": "medium",
@@ -3791,40 +3907,38 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "job-board row; networked note-taking tool",
-  "seed_to_a_graduation": false,
+  "note": "job-board row; networked note-taking tool | S2A: job-board row with no Lux investment year on the site, no round announcement retrievable under the name, and the job board's own stage field refused as a label (R2). Neither the seed with Lux nor a later round could be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "roam-research",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "rosebud-ai": {
   "confidence": "low",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "AI & Applied AI",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "job-board row; generative game creation",
-  "seed_to_a_graduation": false,
+  "note": "job-board row; generative game creation | S2A: job-board row with no Lux investment year on the site, no round announcement retrievable under the name, and the job board's own stage field refused as a label (R2). Neither the seed with Lux nor a later round could be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "rosebud-ai",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "runway": {
   "confidence": "medium",
@@ -3837,7 +3951,8 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "New York generative video company; Lux backed it from 2018, at the seed. Believed above $1B on the 2023-25 rounds but no sourced figure here | $315M Series E led by General Atlantic at $5.3B, February 2026, up from just over $3B at the April 2025 round",
+  "note": "New York generative video company; Lux backed it from 2018, at the seed. Believed above $1B on the 2023-25 rounds but no sourced figure here | $315M Series E led by General Atlantic at $5.3B, February 2026, up from just over $3B at the April 2025 round | S2A: no retrievable page names Lux in a Runway seed round; the sibling stage source is Lightspeed's own portfolio page, which is not evidence about Lux. Later rounds are well documented ($308M in 2025-04, $315M at $5.3B in 2026-02, TechCrunch) but the stage leg could not be established; the row keeps its cite_pending marker.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "runway",
   "status": "private",
   "valuation_asof": "2026-02-10",
@@ -3845,7 +3960,8 @@
   "valuation_confidence": "high",
   "valuation_range": "1b_plus",
   "valuation_source": "web_verified",
-  "valuation_usd": 5300000000
+  "valuation_usd": 5300000000,
+  "who": "agent-judge-s2a-lux"
  },
  "saildrone": {
   "confidence": "medium",
@@ -3868,14 +3984,19 @@
  },
  "sakana-ai": {
   "confidence": "medium",
+  "entry_date": "2024-01",
   "entry_stage": "Seed",
-  "entry_stage_citation": "https://en.wikipedia.org/wiki/Sakana_AI",
+  "entry_stage_citation": "https://www.luxcapital.com/news/our-investment-in-japans-sakana-ai-to-build-nature-inspired-ai-foundation-models",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [],
   "focus": "AI & Applied AI",
   "focus_source": "model",
-  "note": "Tokyo nature-inspired AI research company; Lux backed the $30M seed with Khosla. Believed above $1B on the 2024-25 rounds but no sourced figure here | Series B of 20 billion yen (about $135M) in November 2025 at a post-money of roughly 400 billion yen. Converted under the policy constant: JPY 400.00B @ ECB 2025-11-20 (JPY/EUR 181.47, EUR/USD 1.1514) = $2.54B",
+  "graduation_citation": "https://techcrunch.com/2025/11/17/sakana-ai-raises-135m-series-b-at-a-2-65b-valuation-to-continue-building-ai-models-for-japan/",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
+  "note": "Tokyo nature-inspired AI research company; Lux backed the $30M seed with Khosla. Believed above $1B on the 2024-25 rounds but no sourced figure here | Series B of 20 billion yen (about $135M) in November 2025 at a post-money of roughly 400 billion yen. Converted under the policy constant: JPY 400.00B @ ECB 2025-11-20 (JPY/EUR 181.47, EUR/USD 1.1514) = $2.54B | S2A: Lux's own post of 2024-01-16 unveils 'the $30 million founding seed round for Sakana AI'; a $135M Series B at a $2.65B valuation followed on 2025-11-17 (TechCrunch), a named later round well above max(2x seed, $5M). Stage citation upgraded from the Wikipedia page to the firm's own post.",
+  "seed_to_a_graduation": "graduated",
   "slug": "sakana-ai",
   "status": "private",
   "valuation_asof": "2025-11-20",
@@ -3883,7 +4004,8 @@
   "valuation_confidence": "high",
   "valuation_range": "1b_plus",
   "valuation_source": "web_verified",
-  "valuation_usd": 2537940155
+  "valuation_usd": 2537940155,
+  "who": "agent-judge-s2a-lux"
  },
  "scaled-inference": {
   "confidence": "medium",
@@ -3896,11 +4018,13 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Palo Alto machine-intelligence API company from the mid-2010s; no trace after the archive era",
+  "note": "Palo Alto machine-intelligence API company from the mid-2010s; no trace after the archive era | S2A: no Scaled Inference round announcement could be retrieved; the company left no trace after the mid-2010s archive pages and the row has no Lux site year. Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "scaled-inference",
   "status": "defunct",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "scatter": {
   "confidence": "low",
@@ -3913,11 +4037,13 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "archived listing row with no current trace",
+  "note": "archived listing row with no current trace | S2A: Scatter survives only as an archived listing with no current trace and no retrievable round announcement; no Lux site year. Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "scatter",
   "status": "defunct",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "science-37": {
   "entry_stage": "Series A",
@@ -3954,24 +4080,26 @@
  },
  "shiru": {
   "confidence": "high",
+  "entry_date": "2019-10",
   "entry_stage": "Seed",
   "entry_stage_citation": "https://www.luxcapital.com/news/shiru-an-investment-in-the-future",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "flags": [],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "graduation_confidence": "low",
+  "graduation_citation": "https://www.finsmes.com/2021/10/shiru-raises-17m-in-series-a-funding.html",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "alternative-protein discovery company; Lux's own post announces the $3.5M seed",
-  "seed_to_a_graduation": true,
+  "note": "alternative-protein discovery company; Lux's own post announces the $3.5M seed | S2A: Lux led Shiru's $3.5M SEED announced in its own post on 2019-10-24 (already the stage citation; FinSMEs dates the same round 2019-10-27). A $17M Series A followed on 2021-10-27, a named later round that also clears max(2x seed, $5M); a further $16M came in 2024-11 from S2G Ventures.",
+  "seed_to_a_graduation": "graduated",
   "slug": "shiru",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "sibeam": {
   "confidence": "high",
@@ -4025,31 +4153,37 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "job-board row; aircraft-parts procurement",
-  "seed_to_a_graduation": false,
+  "note": "job-board row; aircraft-parts procurement | S2A: job-board row with no Lux investment year on the site, no round announcement retrievable under the name, and the job board's own stage field refused as a label (R2). Neither the seed with Lux nor a later round could be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "skyselect",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "sols-systems": {
   "confidence": "high",
+  "entry_date": "2014-03-31",
+  "entry_stage_citation": "https://www.finsmes.com/2014/04/sols-systems-raises-6-4m-funding.html",
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "note": "acq. by Aetrex, 2017 (the firm's own milestone line); 3D-printed custom orthotics",
+  "graduation_citation": "https://www.finsmes.com/2015/02/sols-completes-11-1m-series-b-funding.html",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
+  "note": "acq. by Aetrex, 2017 (the firm's own milestone line); 3D-printed custom orthotics | S2A: Form D verdict accepted. Entry sale 2014-03-31 ($6.0M offering) with no later filing clearing max(2x entry, $5M) by the 2026-09-06 rescan; the $7.0M filing of 2016q1 falls short and Aetrex acquired the company in 2017. | S2A CORRECTION, supersedes the earlier not_graduated on this row: the Form D verdict is DISPUTED. The $6.0M entry (first sale 2014-03-31) is the round FinSMEs reports on 2014-04-30 as $6.4M LED BY LUX CAPITAL, and Sols completed an $11.1M SERIES B on 2015-02-27 - a named later round, which graduates the row whatever the step-up arithmetic. Aetrex acquired the company in 2017. Note for Erik: if the Feb 2015 round is the Series B then the Lux-led April 2014 round is the Series A and the formd_band Seed is wrong; I did not override a structural stage on that inference, so the row stays Seed - open ruling.",
+  "seed_to_a_graduation": "graduated",
   "slug": "sols-systems",
   "status": "acquired",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "sourcegraph": {
   "entry_stage": "Series A",
@@ -4157,20 +4291,18 @@
   "confidence": "medium",
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "flags": [],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "text-based paediatrics service; Lux from 2022",
-  "seed_to_a_graduation": true,
+  "note": "text-based paediatrics service; Lux from 2022 | S2A: Lux CO-LED Summer Health's $11.65M Series A of 2024-04-23 with 7wire Ventures, and the report lists Sequoia, Metrodora, Box Group and Shrug as the RETURNING investors without naming Lux among them - which points at a Series A entry - while Lux's own site dates its investment to 2022. No page ties Lux to a seed, so the entry stage is unresolved - open ruling for Erik.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "summer-health",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "super": {
   "entry_stage": "Seed",
@@ -4180,10 +4312,12 @@
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "note": "home-care subscription company that wound down",
+  "note": "home-care subscription company that wound down | S2A: the home-care subscription company wound down and no round announcement naming Lux could be retrieved under the one-word name; no Lux site year. Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "super",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "survios": {
   "confidence": "medium",
@@ -4219,20 +4353,18 @@
   "confidence": "medium",
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "flags": [],
   "focus": "Climate & Energy",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "carbon-accounting software; Lux from 2022",
-  "seed_to_a_graduation": false,
+  "note": "carbon-accounting software; Lux from 2022 | S2A: no Tactic round announcement naming Lux could be retrieved, and the 2023 TaxBit acquisition rests only on the firm's own milestone line. The site's 2022 year is an anchor only (R1). Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "tactic",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "tecton": {
   "entry_stage": "Series A",
@@ -4269,59 +4401,65 @@
  },
  "tenzai": {
   "confidence": "medium",
+  "entry_date": "2025",
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "flags": [],
   "focus": "Security",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "AI penetration-testing company; listed from 2025",
-  "seed_to_a_graduation": false,
+  "note": "AI penetration-testing company; listed from 2025 | S2A: Lux's site dates its Tenzai investment to 2025 and the company's public traces start in 2025-2026; any month in 2025 is inside the 24-month clock as of 2026-09-17, so the row is censored whatever the precise date.",
+  "seed_to_a_graduation": "censored",
   "slug": "tenzai",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "thatch": {
   "confidence": "medium",
+  "entry_date": "2023-02",
   "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
+  "entry_stage_citation": "https://www.finsmes.com/2023/02/thatch-launches-with-over-6m-in-total-funding.html",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
   "flags": [
    "model_disputes_source"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
+  "graduation_citation": "https://www.finsmes.com/2024/09/thatch-raises-38m-in-series-a-funding.html",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "health-benefits platform; Lux from 2022. The deterministic layer set hq_country GB on a name-match; Thatch is a US company | country corrected: the deterministic Wikidata layer matched the row's short common-word name to a foreign entity of the same name. The company is US-based; recorded as a dispute rather than silently accepting the layer",
+  "note": "health-benefits platform; Lux from 2022. The deterministic layer set hq_country GB on a name-match; Thatch is a US company | country corrected: the deterministic Wikidata layer matched the row's short common-word name to a foreign entity of the same name. The company is US-based; recorded as a dispute rather than silently accepting the layer | S2A: Thatch launched on 2023-02-16 with over $6M across a pre-seed and a SEED round, the seed 'led by a16z and GV, with participation from Lux Capital, Quiet Capital, Not Boring Capital and BrightEdge'. A $38M Series A led by Index Ventures followed on 2024-09-05, a named later round well above max(2x seed, $5M).",
+  "seed_to_a_graduation": "graduated",
   "slug": "thatch",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "thematic": {
   "confidence": "low",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "listed from 2021",
-  "seed_to_a_graduation": false,
+  "note": "listed from 2021 | S2A: no Thematic round announcement naming Lux could be retrieved, and the 2025 Stocktwits acquisition rests only on the firm's own milestone line. The site's 2021 year is an anchor only (R1). Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "thematic",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "thrive-detect": {
   "confidence": "medium",
@@ -4367,11 +4505,13 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "acq. 2021 by Datadog (the firm's own milestone line); observability pipelines (Vector)",
+  "note": "acq. 2021 by Datadog (the firm's own milestone line); observability pipelines (Vector) | S2A: no Timber.io round announcement could be retrieved at all, and the 2021 Datadog acquisition rests only on the firm's own milestone line. Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "timber-io",
   "status": "acquired",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "timber-technologies": {
   "confidence": "medium",
@@ -4418,28 +4558,29 @@
   ],
   "focus": "AI & Applied AI",
   "focus_source": "model",
-  "note": "Lux backed Together at the 2023 seed, before the Series A",
-  "slug": "together-ai"
+  "note": "Lux backed Together at the 2023 seed, before the Series A | S2A: no retrievable page names Lux in Together AI's 2023 seed; Lux's own posts call it a 'first check' company without naming a round, which under R1 is not a round label. Later rounds are well documented but the stage leg could not be established; the row keeps its cite_pending marker.",
+  "seed_to_a_graduation": "undetermined",
+  "slug": "together-ai",
+  "who": "agent-judge-s2a-lux"
  },
  "transfyr-bio": {
   "confidence": "low",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "job-board row; cell-engineering company",
-  "seed_to_a_graduation": false,
+  "note": "job-board row; cell-engineering company | S2A: job-board row with no Lux investment year on the site, no round announcement retrievable under the name, and the job board's own stage field refused as a label (R2). Neither the seed with Lux nor a later round could be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "transfyr-bio",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "transphorm": {
   "confidence": "medium",
@@ -4463,37 +4604,34 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "oncology clinical-trial equity-of-access company; Lux from 2022",
-  "seed_to_a_graduation": false,
+  "note": "oncology clinical-trial equity-of-access company; Lux from 2022 | S2A: Trial Library's $10M Series A of 2025-12-02 is a named later round, but no retrievable page names Lux in a seed and the site's 2022 year is an anchor only (R1). The stage leg could not be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "trial-library",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "unconventional-ai": {
   "confidence": "low",
+  "entry_date": "2025-12",
   "entry_stage": "Seed",
   "entry_stage_citation": "https://techcrunch.com/2025/12/09/unconventional-ai-confirms-its-massive-475m-seed-round",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "flags": [],
   "focus": "AI & Applied AI",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "listed from 2024 | cross-investor alignment (invariant 10): a16z and Lightspeed publish the $475M seed at a $4.5B post-money, December 2025 -- which also fixes the entry stage as a seed | the round Lux entered is the $475M seed itself, so the entry stage is cited by the same source as the valuation",
-  "seed_to_a_graduation": false,
+  "note": "listed from 2024 | cross-investor alignment (invariant 10): a16z and Lightspeed publish the $475M seed at a $4.5B post-money, December 2025 -- which also fixes the entry stage as a seed | the round Lux entered is the $475M seed itself, so the entry stage is cited by the same source as the valuation | S2A: TechCrunch (2025-12-09, already the stage citation) reports Unconventional AI confirming a $475M SEED at a $4.5B valuation led by Andreessen Horowitz and Lightspeed with Lux Capital and DCVC participating - a first installment toward up to $1B. Nine months old as of 2026-09-17, so censored; the site's 2024 year is the founding anchor, not the round.",
+  "seed_to_a_graduation": "censored",
   "slug": "unconventional-ai",
   "status": "private",
   "valuation_asof": "2025-12-09",
@@ -4501,27 +4639,27 @@
   "valuation_confidence": "high",
   "valuation_range": "1b_plus",
   "valuation_source": "web_verified",
-  "valuation_usd": 4500000000
+  "valuation_usd": 4500000000,
+  "who": "agent-judge-s2a-lux"
  },
  "unlimited-labs": {
   "confidence": "low",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "job-board row",
-  "seed_to_a_graduation": false,
+  "note": "job-board row | S2A: job-board row with no Lux investment year on the site, no round announcement retrievable under the name, and the job board's own stage field refused as a label (R2). Neither the seed with Lux nor a later round could be established. The company became Team B12.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "unlimited-labs",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "until": {
   "confidence": "low",
@@ -4531,11 +4669,9 @@
    "stage_uncited",
    "suspected_duplicate"
   ],
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
   "note": "duplicate of 'until-labs'",
-  "seed_to_a_graduation": false,
   "slug": "until",
   "status": "private",
   "valuation_confidence": "medium",
@@ -4543,42 +4679,41 @@
  },
  "until-labs": {
   "confidence": "low",
+  "entry_date": "2025",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "listed from 2025",
-  "seed_to_a_graduation": false,
+  "note": "listed from 2025 | S2A: Lux's site dates its Until Labs investment to 2025 and no round has been reported for the Laura Deming company; any month in 2025 is inside the 24-month clock as of 2026-09-17, so the row is censored whatever the precise date.",
+  "seed_to_a_graduation": "censored",
   "slug": "until-labs",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "valthos": {
   "confidence": "medium",
+  "entry_date": "2025-10",
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "flags": [],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "biodefence company that emerged from stealth in October 2025 with Lux, OpenAI and Founders Fund backing",
-  "seed_to_a_graduation": false,
+  "note": "biodefence company that emerged from stealth in October 2025 with Lux, OpenAI and Founders Fund backing | S2A: Valthos emerged from stealth on 2025-10-24 with $30M backed by OpenAI, Founders Fund and Lux (Bloomberg, Yahoo Finance and others that week). Eleven months old as of 2026-09-17, so censored rather than a no.",
+  "seed_to_a_graduation": "censored",
   "slug": "valthos",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "varda": {
   "confidence": "medium",
@@ -4591,11 +4726,13 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "in-space manufacturing; duplicate of the Form D row 'varda-space-industries'. Lux co-led the 2021 seed",
+  "note": "in-space manufacturing; duplicate of the Form D row 'varda-space-industries'. Lux co-led the 2021 seed | S2A: Varda's retrievable rounds are the $90M Series B (2024-04-05) and the $187M Series C (2025-07-14); no page carrying the 2021 seed Lux co-led could be retrieved, so the stage leg is uncited. The row is also flagged a suspected duplicate of the Form D row varda-space-industries.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "varda",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "varda-space-industries": {
   "confidence": "medium",
@@ -4656,20 +4793,19 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "archived listing row; AI video creation",
-  "seed_to_a_graduation": false,
+  "note": "archived listing row; AI video creation | S2A: Visla survives only as an archived listing with no retrievable round announcement and no Lux site year. Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "visla",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "visor": {
   "confidence": "low",
@@ -4683,11 +4819,13 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "tax-preparation company; Lux from 2016. The deterministic layer set hq_country ES on a name-match | country corrected: the deterministic Wikidata layer matched the row's short common-word name to a foreign entity of the same name. The company is US-based; recorded as a dispute rather than silently accepting the layer",
+  "note": "tax-preparation company; Lux from 2016. The deterministic layer set hq_country ES on a name-match | country corrected: the deterministic Wikidata layer matched the row's short common-word name to a foreign entity of the same name. The company is US-based; recorded as a dispute rather than silently accepting the layer | S2A: no Visor round announcement naming Lux could be retrieved; the site's 2016 year is an anchor only (R1) and the row still carries model_disputes_source on hq_country.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "visor",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "visterra": {
   "confidence": "high",
@@ -4725,39 +4863,36 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "NL",
   "hq_country_source": "model_knowledge",
-  "note": "Rotterdam agricultural-commodity trading exchange; Lux from 2022",
-  "seed_to_a_graduation": false,
+  "note": "Rotterdam agricultural-commodity trading exchange; Lux from 2022 | S2A: no Vosbor round announcement could be retrieved at all; the site's 2022 year is an anchor only (R1). Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "vosbor",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "w4-games": {
   "confidence": "medium",
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "flags": [],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "IE",
   "hq_country_source": "model_knowledge",
-  "note": "commercial company behind the Godot game engine; Lux from 2022",
-  "seed_to_a_graduation": false,
+  "note": "commercial company behind the Godot game engine; Lux from 2022 | S2A: no W4 Games round announcement could be retrieved; the site's 2022 year is an anchor only (R1). Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "w4-games",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "waymark": {
   "confidence": "high",
@@ -4781,58 +4916,53 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "cohort_unverified",
    "stage_uncited"
   ],
   "focus": "DevTools & APIs",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "job-board row; internal developer tooling",
-  "seed_to_a_graduation": false,
+  "note": "job-board row; internal developer tooling | S2A: job-board row with no Lux investment year on the site, no round announcement retrievable under the name, and the job board's own stage field refused as a label (R2). Neither the seed with Lux nor a later round could be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "wayscript",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "whisper-aero": {
   "confidence": "medium",
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Tennessee quiet electric propulsion company; Lux from 2021",
-  "seed_to_a_graduation": true,
+  "note": "Tennessee quiet electric propulsion company; Lux from 2021 | S2A: Whisper Aero's $32M Series A of 2023-04-18 (the company's own press release, Menlo-led syndicate) does not name Lux and references no earlier seed; Lux's 2021 site year is an anchor only (R1). The stage leg could not be established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "whisper-aero",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "windborne-systems": {
   "confidence": "medium",
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
-  "flags": [
-   "cohort_unverified"
-  ],
+  "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "graduation_confidence": "low",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "long-duration weather balloons and forecasting models, Palo Alto",
-  "seed_to_a_graduation": true,
+  "note": "long-duration weather balloons and forecasting models, Palo Alto | S2A: WindBorne's $6M SEED of 2023-06-26 was led by Footwork with Khosla participating and does not name Lux; the Series A ($15M, 2024-06-04) and Series B ($37M, 2026-08-05, Khosla) are named later rounds but the stage leg for Lux could not be established. Job-board row with no Lux site year.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "windborne-systems",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "workit-health": {
   "confidence": "low",
@@ -4884,11 +5014,13 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "acq. by Anthem, 2020 (the firm's own milestone line); pharmacy-matching company",
+  "note": "acq. by Anthem, 2020 (the firm's own milestone line); pharmacy-matching company | S2A: no Zipdrug round announcement naming Lux could be retrieved, and the 2020 Anthem acquisition rests only on the firm's own milestone line, which is not a dated terminal-event citation. Neither leg established.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "zipdrug",
   "status": "acquired",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-s2a-lux"
  },
  "zoox": {
   "entry_stage": "Series A",
