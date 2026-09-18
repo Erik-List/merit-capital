@@ -201,3 +201,31 @@ Icon: Erik accepted the site's white-on-green 512px mark despite the 2.70:1 cont
 
 Erik authorized the flag: `--allow-low-contrast` added to `fetch-investor-icon.ts` / `icon-normalize.ts` (logged in provenance; `--audit` reports the contrast as a warning, not a failure). Published from the site's 512x512 `cropped-usv_logo.jpg`: 256px master, opaque green plate rgb(4,164,76), artwork inset to a 57% box (0.28x, no upscale), ramp 1.10px, contrast 2.7:1 accepted. `icon_url` on the investor row updated (`ingest-investor.ts --columns icon_url`). PRO-86 complete: base, classification and profile ingested with the icon.
 Republished the same day from a trimmed copy of the source (the JPEG's ~6px lighter rim had shown as a faint inner outline in the first master): 496x496 lossless crop, no resampling; the normaliser then keyed the uniform plate and inset only the letters (box 59%, 0.52x, ramp 1.67px, contrast 2.8:1 accepted). Object `union-square-ventures-654b4ec1a9.png`; the first object (`…-d7c6803058.png`) stays in storage unreferenced.
+
+## Addendum 2026-09-17 — S2A re-judged under the status contract
+
+`seed_to_a_graduation` became a judged status (`graduated | not_graduated |
+censored | undetermined`, COLLECTION.md §6), superseding the C2A figures
+above. `migrate-graduation` kept one cited graduation and dropped 90 legacy
+values with their 48 `cohort_unverified` flags; the 72 re-opened Seed rows
+were judged in two batches with both legs cited in the same pass.
+
+| seed entries | censored | undetermined | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|---|
+| 68 | 9 | 22 | 37 | 32 | 5 | 86.5% | 63% |
+
+Of 68 seed entries, 9 were too recent to count (entries of 2025–26); of the
+59 whose record could be sought, 37 were established (63% coverage) and
+86.5% of those graduated — the establishable set skews toward visible
+successes, and on this book the undetermined third is structural: token and
+DAO positions (Arweave, Stacks, Bright Moments DAO, Paragraph) with no priced
+Series A to find, and seeds whose later record is silent (Anon, Caretaker,
+Dreambound, FloodMapp, Heyzap, Kiosk, Koko, Lithos Carbon, m3ter, Wren,
+Code, Daylight, Revel, Super Payments, Suppco, Tapestry, Tracked, Chamber).
+The five "no"s: Brewster (FullContact, 2016) and Mediachain (Spotify, 2017)
+on cited acquisitions with the absence checked 2026-09-17, and Meet Cute,
+Tasty Labs, Zemanta on Form D absence. Three rows left the cohort by
+citation (Simulmedia, Veniam, Shortwave at the Series A); Delicious and
+InfoNgen are pre-window (`pre_window_entry`). `verify.shape.c2a_rate_max` is
+restated from 0.80 to 0.90 (D-S2A). `verify` is clean, cross-investor
+section included.

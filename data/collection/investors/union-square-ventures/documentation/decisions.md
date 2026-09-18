@@ -310,3 +310,19 @@ are preserved in `excluded.json`, never deleted.
   the gate (it was not seeded); the firm's office is 817 Broadway (site, ADV
   Item 1.F) while the Form Ds still say 915 Broadway (`hq_location` reads
   "New York, NY" from 25/25 own filings either way).
+
+### D-S2A — Seed-to-A graduation re-judged under the status contract; the cohort ceiling restated (2026-09-17, agent, class-wide)
+
+Under the 2026-09-16 contract (COLLECTION.md §6) every in-window Seed row
+was re-judged with both legs cited: 68 seed entries, 9 censored (entries of
+2025–26), 22 undetermined, cohort 37, graduated 32, not graduated 5, rate
+86.5%, coverage 63%. Three rows left the cohort because the citation places
+USV's entry at the Series A (Simulmedia, Veniam, Shortwave) and two are
+pre-window (Delicious, InfoNgen: `pre_window_entry`, graduation null). The
+undetermined third is the shape of this book: token and DAO positions
+(Arweave, Stacks, Bright Moments) with no priced Series A to find, and
+seeds whose later record is silent. `verify.shape.c2a_rate_max` is restated
+from 0.80 to 0.90: the default describes a 900-row megafund base, and a
+37-row decided set drawn from 59 establishable seeds skews to visible
+successes; the guard still fires above 0.90 and the published sentence
+carries the coverage.
