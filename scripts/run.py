@@ -408,7 +408,11 @@ def months_since(iso: str | None, asof: str | None = None) -> int | None:
         now = datetime.fromisoformat(asof[:10]).date() if asof else date.today()
     except ValueError:
         return None
-    return (now.year - then.year) * 12 + (now.month - then.month)
+    # Whole months elapsed, not calendar boundaries crossed: an entry of
+    # 2024-09-30 is 23 months old on 2026-09-18, not 24, and the difference
+    # decides whether the row is censored (Cherry's flinn-ai, 2026-09-17).
+    months = (now.year - then.year) * 12 + (now.month - then.month)
+    return months - 1 if now.day < then.day else months
 
 
 def graduation_from_formd(rounds: list[dict], partner_accs: frozenset | set = frozenset(),
