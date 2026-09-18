@@ -1338,9 +1338,13 @@ less, so no verified tag exists — the cohort is the verified set):
   Benchmark 2026-09-16), or a cited later
   round — the firm's own post or company page, the company's own funding
   page (`first_party`), a press release or SEC filing naming the round
-  (`web_verified`) — with `graduation_citation`. A named Series A or later
-  counts when amounts are unknown; when both amounts are known the step-up
-  test applies.
+  (`web_verified`) — with `graduation_citation`. **A later round the record NAMES as a Series A
+  or later graduates the row whatever the amounts** (Erik, 2026-09-17): the
+  round word is the fact the column asks about, and a flat or small A is
+  still an A (Menlo's Decent, $8M seed → $10M A; Mimic, $27M → $50M; Spark's
+  Panjo, $1.6M → $4.6M). The 2× / $5M step-up decides only rounds with no
+  name, which in practice means the Form D layer: it reports amounts and
+  never round words, so there the test stands unchanged.
 - `not_graduated`: Form D absence with the rescan as-of ≥ entry + 24 months
   (`formd`), or a cited acquisition/shutdown plus a dated absence check
   (`graduation_asof`, the date the record was searched) whose note names

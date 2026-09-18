@@ -543,7 +543,7 @@ the round word, each with a citation.
 
 | seed entries | censored | undetermined | cohort | graduated | not graduated | rate | coverage |
 |---|---|---|---|---|---|---|---|
-| 46 | 7 | 12 | 27 | 22 | 5 | 81.5% | 69% |
+| 46 | 7 | 11 | 28 | 23 | 5 | 82.1% | 72% |
 
 Of 46 seed entries, 7 were too recent to count (entries of 2025–26); of the
 39 whose record could be sought, 27 were established (69% coverage) and
@@ -551,8 +551,7 @@ Of 46 seed entries, 7 were too recent to count (entries of 2025–26); of the
 successes. The five "no"s: Acompli and SparkPlay (Form D absence), Proper
 (Intuit's IP purchase, Mar 2024), Simpo (WalkMe, per its 2021 Form 20-F),
 Cascade (the founders' post-mortem); each carries its terminal citation and
-the date the absence was checked. Undetermined (12): Atmosfy, Erply (the
-2013 "Series B" fails the step-up), Fimio, Fixie, OnPlan, Scale3, Silk +
+the date the absence was checked. Undetermined (11): Atmosfy, Fimio, Fixie, OnPlan, Scale3, Silk +
 Sonder, AutoGPT, Signadot, Restate, Voyce.me and tbh (no page ties Redpoint
 to the seed). Prior notes that turned out uncited were not carried (Fixie
 "absorbed", Scale3 "acquired", Cascade "team acquired", Signadot "2024
@@ -569,3 +568,11 @@ Seed 46 / Pre-Seed 3.
 freshest on this side (Function Health $2.5B, Guild $4.4B, MotherDuck $1.0B
 against Battery's below_1b; Gogobot defunct vs acquired; Kustomer acquired
 vs private); Battery's own S2A pass aligns them.
+
+**Update, 2026-09-17 (Erik's named-round ruling).** A later round the record
+names a Series A or later now graduates a row whatever the amounts. Erply
+moves from undetermined to graduated: its $2.15M round of May 2013 is named
+a Series B by TechCrunch, later than a Series A, against the $2M seed of
+March 2010. The cohort becomes 28 with 23 graduated, 82.1% at 72% coverage,
+which now sits under the restated 0.85 ceiling rather than over the 0.80
+default.

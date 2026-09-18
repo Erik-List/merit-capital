@@ -258,7 +258,7 @@ legs cited in the same pass (33 rows gained a stage citation).
 
 | seed entries | censored | undetermined | cohort | graduated | not graduated | rate | coverage |
 |---|---|---|---|---|---|---|---|
-| 60 | 1 | 19 | 40 | 29 | 11 | 72.5% | 68% |
+| 60 | 1 | 18 | 41 | 30 | 11 | 73.2% | 70% |
 
 Of 60 seed entries, 1 was too recent to count (Wordware, 2024-11); of the 59
 whose record could be sought, 40 were established (68% coverage) and 72.5%
@@ -271,9 +271,7 @@ round). Five rows left the cohort because the record calls the entry a
 Series A (Coach.me, Linkwell Health, MilkRun, Rare Bits, Super/Jelly).
 Undetermined (19): Clora, DIY, Gowalla, Heyday, Jamiphy, Poggio,
 Priceonomics, Producer, Sonera, Tashtego, Close.io, Drop Messages, Hey, Kumu,
-Sensr.net, Kinnu, West, Workshop for Emotional & Spiritual Technology, and
-**Panjo — a named $4.6M Series A under the $5M floor** (with Menlo's Decent
-and Mimic, a step-up class for Erik). The session-wide search allowance ran
+Sensr.net, Kinnu, West and Workshop for Emotional & Spiritual Technology. The session-wide search allowance ran
 out during batch 002; Hey and Panjo's Tapatalk citation were short-changed
 and say so.
 
@@ -284,3 +282,9 @@ A entry the filings contradict (Spark led the $1M seed in early 2010);
 `super` is Jelly; `quaestor` and `standard-metrics` are one company. Entry
 stages now Series A 152 / Growth 113 / Seed 60. `verify` is clean,
 cross-investor section included; the 0.80 ceiling (D12) stands.
+
+**Update, 2026-09-17 (Erik's named-round ruling).** A later round the record
+names a Series A or later now graduates a row whatever the amounts. Panjo
+moves from undetermined to graduated on the $4.6M Series A of November 2015
+led by Spark (FinSMEs), which the $5M floor had blocked against its $1.6M
+seed. The cohort becomes 41 with 30 graduated, 73.2% at 70% coverage.
