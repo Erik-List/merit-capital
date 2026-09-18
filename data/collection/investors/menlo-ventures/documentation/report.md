@@ -364,7 +364,7 @@ C2A figures above. `migrate-graduation` dropped 21 legacy values and their
 
 | seed entries | censored | undetermined | cohort | graduated | not graduated | rate | coverage |
 |---|---|---|---|---|---|---|---|
-| 45 | 7 | 8 | 30 | 21 | 9 | 70.0% | 79% |
+| 45 | 7 | 6 | 32 | 23 | 9 | 71.9% | 84% |
 
 Of 45 seed entries, 7 were too recent to count (entries of 2025–26); of the
 38 whose record could be sought, 30 were established (79% coverage) and 70%
@@ -423,3 +423,13 @@ longest rendering; merge groups can now pin a display name and the six are
 pinned (E1a). `verify` is clean except one cross-investor pair: this base
 reads OverOps (formerly Takipi) as acquired, Lightspeed's row still says
 private; Lightspeed's own S2A pass aligns it.
+
+**Update, 2026-09-17 (Erik's named-round ruling).** A later round the record
+names a Series A or later now graduates a row whatever the amounts, so the
+two step-up casualties flagged above are decided: **Decent** graduates on the
+$10M Series A led by QED (FinSMEs, 2020-09-11) and **Mimic** on the $50M
+Series A co-led by GV and Menlo (SiliconAngle, 2025-02-27; Mimic Networks,
+the ransomware-defence company, not the Zurich robotics firm of the same
+name). The cohort becomes 32 with 23 graduated, 71.9% at 84% coverage.
+Decent's `entry_date` stays the firm's own 2018 Milestones close year under
+R1, not the September 2019 launch press.

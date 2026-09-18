@@ -212,7 +212,7 @@ were judged in two batches with both legs cited in the same pass.
 
 | seed entries | censored | undetermined | cohort | graduated | not graduated | rate | coverage |
 |---|---|---|---|---|---|---|---|
-| 68 | 9 | 22 | 37 | 32 | 5 | 86.5% | 63% |
+| 68 | 9 | 21 | 38 | 33 | 5 | 86.8% | 64% |
 
 Of 68 seed entries, 9 were too recent to count (entries of 2025–26); of the
 59 whose record could be sought, 37 were established (63% coverage) and
@@ -221,7 +221,7 @@ successes, and on this book the undetermined third is structural: token and
 DAO positions (Arweave, Stacks, Bright Moments DAO, Paragraph) with no priced
 Series A to find, and seeds whose later record is silent (Anon, Caretaker,
 Dreambound, FloodMapp, Heyzap, Kiosk, Koko, Lithos Carbon, m3ter, Wren,
-Code, Daylight, Revel, Super Payments, Suppco, Tapestry, Tracked, Chamber).
+Code, Daylight, Revel, Super Payments, Suppco, Tracked, Chamber).
 The five "no"s: Brewster (FullContact, 2016) and Mediachain (Spotify, 2017)
 on cited acquisitions with the absence checked 2026-09-17, and Meet Cute,
 Tasty Labs, Zemanta on Form D absence. Three rows left the cohort by
@@ -229,3 +229,11 @@ citation (Simulmedia, Veniam, Shortwave at the Series A); Delicious and
 InfoNgen are pre-window (`pre_window_entry`). `verify.shape.c2a_rate_max` is
 restated from 0.80 to 0.90 (D-S2A). `verify` is clean, cross-investor
 section included.
+
+**Update, 2026-09-17 (Erik's named-round ruling).** A later round the record
+names a Series A or later now graduates a row whatever the amounts.
+**Tapestry** graduates on the $5.75M Series A co-led by USV and Fabric
+Ventures, from the company's own post of January 2025; the step-up against
+its $4M seed had blocked it. The cohort becomes 38 with 33 graduated, 86.8%
+at 64% coverage, still under the restated 0.90 ceiling. Its `entry_date`
+stays USV's own 2021 site year rather than the January 2022 announcement.
