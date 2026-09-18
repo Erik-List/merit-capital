@@ -1,7 +1,7 @@
 """Cross-process pacing for the external services every collection run hits.
 
 Several investor sessions may run at once on one machine, and SEC, the
-Internet Archive, Common Crawl and Wikidata all meter the whole machine as one
+Internet Archive and Wikidata all meter the whole machine as one
 client. Per-process sleeps therefore add up: two sessions at 8 requests per
 second each are 16 against SEC's 10. This module keeps ONE token bucket per
 service, persisted in a small lock file, so the aggregate rate across every
@@ -10,7 +10,7 @@ did before.
 
     from shared_throttle import wait, exclusive
     wait("sec")                 # sleep until this process's next slot
-    with exclusive("cc"):       # one Common Crawl puller at a time
+    with exclusive("cik-lookup"):   # one puller at a time for this service
         ...
 
 Rates (requests per second) default to SEC 8.0, IA 1.0, Wikidata 0.67 and can
@@ -130,9 +130,9 @@ def wait(service: str, rate: float | None = None) -> None:
 def exclusive(service: str, note_every: float = 30.0):
     """Hold `service` exclusively for the block (one puller at a time).
 
-    Used for Common Crawl, which answers parallel clients with silent empty
-    result sets. While blocked, a note names the holder every `note_every`
-    seconds so a waiting session knows why it is waiting.
+    For a service that cannot take parallel clients at all. While blocked,
+    a note names the holder every `note_every` seconds so a waiting session
+    knows why it is waiting.
     """
     d = lock_dir()
     if d is None:

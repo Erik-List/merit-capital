@@ -633,16 +633,5 @@
    {"name": "workday inc 401k", "slug": "workday-inc-401k", "why": "TRAP, scrape artifact (T5). Benefit-plan and filer-agent entities that carry a portfolio company's name are not rows"}
   ]
  },
- "sample_slugs": [],
- "commoncrawl": {
-  "company_paths": [
-   "portfolio",
-   "companies"
-  ],
-  "people_paths": [
-   "team",
-   "teams"
-  ],
-  "_note": "index.commoncrawl.org was refusing every request for this run's whole first half, so the layer is served by scratch/cc-direct.py instead: cluster.idx and the cdx-000NN.gz shards live on data.commoncrawl.org, which stayed up, and a binary search over byte ranges reads the same index the query API fronts. 126 crawls, ~19k captures. What it bought, none of it reachable otherwise while the Internet Archive was also refusing: the 2013 and 2014 list pages (253 and 258 rows, two years the archive gave nothing for), the 2018-2021 logo wall through the upload filenames, the 2015 listing as an id enumeration, and -- the largest single win -- the 2011-2014 Rails per-company partials, 270 of them, each carrying the outcome line and the Greylock partner on the deal (sources/site/rails-cards.json)."
- }
+ "sample_slugs": []
 }

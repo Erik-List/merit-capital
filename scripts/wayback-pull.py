@@ -546,11 +546,12 @@ def main():
         for y, rows in PARSERS[era["parser"]](era, era_cfg, raw).items():
             all_years.setdefault(y, []).extend(rows)
     for y, rows in sorted(all_years.items()):
-        # Merge with what the year file already holds rather than replacing:
-        # the Common Crawl layer (commoncrawl-pull.py) writes the same
-        # per-year shape from a different capture universe (per-company
-        # pages vs listing snapshots), and each source must survive the
-        # other's re-runs. Keyed by (slug, path); existing rows win.
+        # Merge with what the year file already holds rather than replacing.
+        # Do NOT "simplify" this to a write: a retired second archive wrote
+        # the same per-year shape from a different capture universe
+        # (per-company pages vs listing snapshots) and those rows are no
+        # longer reproducible, so replacing would silently delete them.
+        # Keyed by (slug, path); existing rows win.
         dest = parsed / f"{y}.json"
         merged = {(r["slug"], r.get("path")): r
                   for r in (json.loads(dest.read_text()) if dest.exists() else [])}

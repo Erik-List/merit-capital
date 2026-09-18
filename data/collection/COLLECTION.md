@@ -238,7 +238,7 @@ that register supports one.
 
 Below the threshold a jurisdiction is **decided in the run, never
 degraded in advance**. The run probes its register under a bounded effort
-budget, the same way §5 requires the Wayback and Common Crawl eras to be
+budget, the same way §5 requires the Wayback eras to be
 checked before concluding that no list ever existed, and records a
 finding: usable (cite it, and propose the layer for write-back), or not
 usable (name the obstacle, fall back to the layers that are proven, count
@@ -522,10 +522,11 @@ results; those results stand as history.
    `cdx_domain` / `site_url_base` (lightspeedvp.com 2000–2012 while
    lsvp.com sat parked on a squatter page; an empty archive under the
    current domain is not a coverage gap until the old domain is
-   checked). **Parsed year files merge across capture universes**
-   (keyed slug+path): the IA pull and the Common Crawl pull write the
-   same per-year shape from different capture sets, and each must
-   survive the other's re-runs. **When CDX refuses but replay answers**
+   checked). **Parsed year files merge rather than replace**
+   (keyed slug+path): a retired second capture archive wrote the same
+   per-year shape from a different capture set, and those rows are no
+   longer reproducible, so a pull that replaced the file would silently
+   delete them. **When CDX refuses but replay answers**
    (the 2026-09 partial outage: connection-refused CDX, working
    replay), year-targeted replay redirects fetched into wayback-pull's
    own raw/parsed shapes — true snapshot timestamps recovered from the
@@ -541,28 +542,19 @@ results; those results stand as history.
    parsing, and JS payloads are written byte-safe); and **0-byte files
    from a throttled probe are deleted, never parsed**.
 
-   **Layer 1a — Common Crawl**, the second capture archive
-   (`scripts/commoncrawl-pull.py`, configured by `commoncrawl.company_paths`
-   and `people_paths`; omitting the block silently disables the layer). It
-   serves the wayback layer's two jobs — survivorship correction and roster
-   tenure — from an independent capture set, and it carried Accel through
-   a full-run Internet Archive outage (the third measured outage across
-   runs). It writes the same per-year parsed shape as `wayback-pull.py`,
-   so the IA pull converges over it on recovery. Five rules, each paid for
-   on Accel:
+   **Four rules every capture enumeration pays for** (each one bought on
+   Accel):
 
-   - **Serial pacing only.** CC throttles parallel clients into silent
-     empties; the script paces one request at a time and stores explicit
-     no-captures markers so a resume skips what was genuinely empty.
    - **Catch-all shells are filtered by body digest.** accel.com in 2018
      served one identical body for any `/companies/<slug>`; 453 junk
      captures of crawler-invented slugs (adobe, amazon) shared one digest
      and were dropped. A capture enumeration without this filter invents
      members.
-   - **Read the WARC body, not only the index.** A page can be served,
-     captured and pulled within weeks (Accel: Corsa, "(ACCEL INVESTMENT) /
-     Seed-Series A" in a May-2026 body, a 404 by run time, absent from
-     the CMS) — the body is the evidence.
+   - **Read the captured body, not only the index row.** A page can be
+     served, captured and pulled within weeks (Accel: Corsa, "(ACCEL
+     INVESTMENT) / Seed-Series A" in a May-2026 body, a 404 by run time,
+     absent from the CMS) — the body is the evidence, the index row only
+     says a body exists.
    - **Capture-year tenure windows are roster evidence.** People-page
      captures give per-person first and last years that matched known
      departures exactly (Breyer 2014–2016, Lixandru 2017–2019); Accel's
@@ -810,7 +802,7 @@ sweeps run as a primary layer: every press-evidenced row lands as cited
 of 155 rows). Expect the base to be small and winner-heavy — the
 fund-vehicle and press layers surface the companies that made news — and
 say so in the report rather than reading it as a defect (§8, `verify.shape`).
-Check the Wayback and Common Crawl eras before concluding no list ever
+Check the Wayback eras before concluding no list ever
 existed; on Thrive none did (2010–2026), and that is recorded, not assumed.
 
 **Two recall layers run before the recall probe, disclosing site or not**
@@ -1015,9 +1007,8 @@ run happens to have access, never as a layer the base depends on.
 
 **The layers above are a floor, not a ceiling, and every one of them was
 invented mid-run by a session that needed evidence it did not have.**
-Common Crawl came out of an archive outage. The exit-side EDGAR full-text
-sweep and the Wikipedia insource sweep came out of an investor that
-published no portfolio page. The Nuxt payload parsers and the CDX-outage
+The exit-side EDGAR full-text sweep and the Wikipedia insource sweep came
+out of an investor that published no portfolio page. The Nuxt payload parsers and the CDX-outage
 replay path came out of a site and an archive that both refused the
 configured route. None of them existed when the run that needed them
 started.
@@ -1701,8 +1692,8 @@ file, not only in the investor's `decisions.md` or the report — propose
 the COLLECTION.md diff as the last act of the run, after the last
 artifact, never at a milestone. The a16z run wrote seven durable lessons
 into code and local files and none into the playbook; Accel wrote its
-diff at its mid-run checkpoint and then ran nine more hours, so the whole
-Common Crawl layer and every classification-phase rule went unrecorded
+diff at its mid-run checkpoint and then ran nine more hours, so a whole
+evidence layer and every classification-phase rule went unrecorded
 until the next investor needed them.
 
 The icon is part of the gated step: at profile time
@@ -2081,10 +2072,9 @@ checkout safe, and the etiquette that keeps it safe:
 - **One budget per external service.** `scripts/shared_throttle.py` paces
   SEC (8 requests per second), the Internet Archive (1) and Wikidata (0.67)
   across every process on the machine through lock files in
-  `~/Library/Caches/merit-capital/locks`; Common Crawl runs one puller at a
-  time (`exclusive("cc")`). No session raises a rate (`MERIT_<SERVICE>_RATE`
-  exists for lowering one). Long pulls (`wayback-pull.py`,
-  `commoncrawl-pull.py`, `run.py collect`) start in the background in a
+  `~/Library/Caches/merit-capital/locks`. No session raises a rate
+  (`MERIT_<SERVICE>_RATE` exists for lowering one). Long pulls
+  (`wayback-pull.py`, `run.py collect`) start in the background in a
   run's first minutes so the wave's I/O serializes early.
 - **Git etiquette on the shared checkout.** A collection session commits
   only with an explicit pathspec of its own investor directory
