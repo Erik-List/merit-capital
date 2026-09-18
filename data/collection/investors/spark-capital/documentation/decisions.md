@@ -260,3 +260,25 @@ ruled `not_member` in the grind on the same basis.
 ## Post-close ruling, 2026-09-06 (Erik)
 
 - **Rule A — vendor marks never band a row** (uniform for USV, Spark and every further investor; written into COLLECTION.md §7 valuation): a `1b_plus` band needs a priced round, tender or public float with a citable figure from the company, a filing or the press; PitchBook, CB Insights, Tracxn, Dealroom, Sacra, GetLatka, Contrary, Forge, Caplight, PremierAlts and UpMarket figures go to the note. Applied to nine rows (report.md addendum): six re-cited to the priced event, Capitolis re-dated, Justworks and MatX re-banded `below_1b`, Enfabrica's figure to the note. Supersedes the run's ruling 3 (aggregator figures at low confidence).
+
+### D-S2A — Seed-to-A graduation re-judged under the status contract (2026-09-17, agent, class-wide)
+
+Under the 2026-09-16 contract (COLLECTION.md §6) every in-window Seed row
+was re-judged with both legs cited: 60 seed entries, 1 censored (Wordware,
+2024-11), 19 undetermined, cohort 40, graduated 29, not graduated 11, rate
+72.5%, coverage 68%; the 0.80 ceiling (D12) is not approached. Five rows
+left the cohort because the record calls the entry a Series A (Coach.me,
+Linkwell Health, MilkRun, Rare Bits, Super — Jelly Industries' A of May
+2013). Three Form D verdicts were overturned with citations: Helaina's $20M
+Series A never filed; Lulo Ventures is Onswipe's legal entity and the layer
+had anchored on its $5M Series A rather than the $1M seed; Tumblr's anchor
+was its fourth round. Panjo is a named $4.6M Series A under the $5M floor
+and stays `undetermined` under the step-up rule (with Menlo's Decent and
+Mimic, a class for Erik). Identity findings flagged `duplicate` for the next
+rebuild: `post` and `postabon-inc` are both Signpost (whose canonical row
+records a 2012 Series A entry the filings contradict — Spark led the $1M seed
+in early 2010); `lulo-ventures-inc` is Onswipe (the `onswipe` row's stage
+should read Seed, 2011-01); `super` is Jelly; `quaestor` and
+`standard-metrics` are one company. The session-wide web-search allowance
+ran out during batch 002; two rows (Hey, Panjo's Tapatalk citation) were
+short-changed and say so.

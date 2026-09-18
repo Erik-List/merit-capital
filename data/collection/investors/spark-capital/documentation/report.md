@@ -246,3 +246,41 @@ Vendor valuations (PitchBook, CB Insights, Sacra, GetLatka, Caplight, PremierAlt
 - **Figure to the note, band unchanged**: Enfabrica (PitchBook's $445–560M estimate).
 
 Open ruling 3 ("Aggregator figures") and the Justworks item in §7 are resolved by this rule.
+
+## Addendum 2026-09-17 — S2A re-judged under the status contract
+
+`seed_to_a_graduation` became a judged status (`graduated | not_graduated |
+censored | undetermined`, COLLECTION.md §6), superseding the C2A figures
+above. `migrate-graduation` kept 3 cited graduations, dropped 81 legacy values
+with 30 `cohort_unverified` flags and renamed 53 bare `entry_year` values to
+`entry_date`; the 62 re-opened Seed rows were judged in two batches with both
+legs cited in the same pass (33 rows gained a stage citation).
+
+| seed entries | censored | undetermined | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|---|
+| 60 | 1 | 19 | 40 | 29 | 11 | 72.5% | 68% |
+
+Of 60 seed entries, 1 was too recent to count (Wordware, 2024-11); of the 59
+whose record could be sought, 40 were established (68% coverage) and 72.5%
+of those graduated — the establishable set skews toward visible successes.
+Eleven "no"s: eight on Form D absence, three on cited terminal events with
+the absence checked 2026-09-17. Three Form D verdicts were overturned with
+citations (Helaina's unfiled $20M Series A; Lulo Ventures, which is Onswipe,
+anchored on its A rather than its $1M seed; Tumblr's anchor was its fourth
+round). Five rows left the cohort because the record calls the entry a
+Series A (Coach.me, Linkwell Health, MilkRun, Rare Bits, Super/Jelly).
+Undetermined (19): Clora, DIY, Gowalla, Heyday, Jamiphy, Poggio,
+Priceonomics, Producer, Sonera, Tashtego, Close.io, Drop Messages, Hey, Kumu,
+Sensr.net, Kinnu, West, Workshop for Emotional & Spiritual Technology, and
+**Panjo — a named $4.6M Series A under the $5M floor** (with Menlo's Decent
+and Mimic, a step-up class for Erik). The session-wide search allowance ran
+out during batch 002; Hey and Panjo's Tapatalk citation were short-changed
+and say so.
+
+Identity findings for the next rebuild (flagged `duplicate`): `post` and
+`postabon-inc` are both Signpost, whose canonical row records a 2012 Series
+A entry the filings contradict (Spark led the $1M seed in early 2010);
+`lulo-ventures-inc` is Onswipe (the `onswipe` row's stage should read Seed);
+`super` is Jelly; `quaestor` and `standard-metrics` are one company. Entry
+stages now Series A 152 / Growth 113 / Seed 60. `verify` is clean,
+cross-investor section included; the 0.80 ceiling (D12) stands.
