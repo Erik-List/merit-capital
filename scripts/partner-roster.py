@@ -21,7 +21,6 @@ Usage: python3 scripts/partner-roster.py <investor-slug>
 import argparse
 import json
 import re
-import subprocess
 import sys
 import time
 from collections import defaultdict
@@ -29,7 +28,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from paths import Paths, write_atomic  # noqa: E402
-import shared_throttle  # noqa: E402
+import ia_fetch  # noqa: E402
 
 UA = "MeritCapitalResearch/1.0 (erik@meritcapit.al)"
 
@@ -38,15 +37,15 @@ ASSET_RE = re.compile(r"\.(gif|jpe?g|png|svg|css|js|ico)$|document\.|_ro$", re.I
 
 
 def curl(url: str) -> str:
-    for attempt in range(3):
-        shared_throttle.wait("ia")
-        try:
-            return subprocess.run(
-                ["curl", "-sfL", "--max-time", "90", "-H", f"User-Agent: {UA}", url],
-                capture_output=True, check=True).stdout.decode("utf-8", errors="replace")
-        except subprocess.CalledProcessError:
-            time.sleep(2 * (attempt + 1))
-    return ""
+    """Body of `url`, or "" if IA would not give us one.
+
+    Was `curl -sfL ... check=True`, which made 429, 503 and 404 the same
+    generic failure and retried after 2 s — i.e. ignored the rate-limit
+    warning IA blocks us for ignoring. Pacing, Retry-After and the firewall
+    cooldown now live in `ia_fetch` (PRO-128).
+    """
+    body, _code = ia_fetch.get(url)
+    return body.decode("utf-8", errors="replace")
 
 
 def cdx_people(cfg: dict) -> dict[str, list[str]]:

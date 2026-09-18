@@ -32,7 +32,6 @@ import gzip
 import json
 import re
 from urllib.parse import quote
-import subprocess
 import sys
 import time
 from html import unescape
@@ -40,31 +39,37 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from paths import Paths, write_atomic  # noqa: E402
-import shared_throttle  # noqa: E402
+import ia_fetch  # noqa: E402
 
 UA = {"User-Agent": "MeritCapitalResearch/1.0 (erik@meritcapit.al)"}
 
 
 def curl(url: str) -> bytes:
-    for attempt in range(3):
-        shared_throttle.wait("ia")
+    """Body of `url`, or b"" if IA would not give us one.
+
+    Thin wrapper over the shared status-aware fetch. b"" now means ONLY
+    "no body"; callers that must distinguish an empty answer from a failed
+    request use `curl_status` instead.
+    """
+    return curl_status(url)[0]
+
+
+def curl_status(url: str) -> tuple[bytes, str]:
+    """(body, code) — "200", "404", "rc7" for the firewall block, ...
+
+    Replaces `curl -sfL ... check=True`, which collapsed 429, 503 and 404
+    into one generic failure and retried a rate-limit warning after 3 s.
+    That retry loop is what earned the hour-long IA block (PRO-128).
+    """
+    body, code = ia_fetch.get(url)
+    if body[:2] == b"\x1f\x8b":
+        # the id_ replay hands back captures that were stored gzip-encoded
+        # without the header curl --compressed keys on (Creandum, 2026-09-04)
         try:
-            # --compressed: the id_ replay of a capture stored gzip-encoded
-            # comes back Content-Encoding: gzip, and without it curl saves
-            # the compressed bytes as the "page" (Creandum, 2026-09-04).
-            out = subprocess.run(
-                ["curl", "-sfL", "--compressed", "--max-time", "90",
-                 "-H", f"User-Agent: {UA['User-Agent']}", url],
-                capture_output=True, check=True).stdout
-            if out[:2] == b"\x1f\x8b":
-                # the id_ replay hands back captures that were stored gzip-
-                # encoded without the header curl --compressed keys on
-                out = gzip.decompress(out)
-            return out
-        except subprocess.CalledProcessError as e:
-            print(f"    retry {attempt+1} {url}: rc={e.returncode}", file=sys.stderr, flush=True)
-            time.sleep(3)
-    return b""
+            body = gzip.decompress(body)
+        except OSError:
+            pass
+    return body, code
 
 
 def fetch(url: str, dest: Path) -> str:
@@ -77,17 +82,24 @@ def fetch(url: str, dest: Path) -> str:
 
 
 def cdx(url_pattern: str, **params) -> list[list[str]]:
-    qs = "&".join([f"url={url_pattern}", "output=json", "filter=statuscode:200",
-                   *[f"{k}={v}" for k, v in params.items()]])
-    data = json.loads(curl(f"https://web.archive.org/cdx/search/cdx?{qs}") or b"[]")
-    if not data:
-        # Degraded-CDX fallback (observed in the 2026-08-29 IA outage): the
-        # statuscode-filtered query times out while the unfiltered one
-        # answers. Replay follows redirects, so the worst case of an
-        # unfiltered pick is a snapshot that parses to zero rows.
+    """CDX rows for `url_pattern`, [] when the index genuinely holds none."""
+    def query(**extra) -> tuple[list, str]:
         qs = "&".join([f"url={url_pattern}", "output=json",
-                       *[f"{k}={v}" for k, v in params.items()]])
-        data = json.loads(curl(f"https://web.archive.org/cdx/search/cdx?{qs}") or b"[]")
+                       *[f"{k}={v}" for k, v in {**params, **extra}.items()]])
+        body, code = curl_status(f"https://web.archive.org/cdx/search/cdx?{qs}")
+        try:
+            return json.loads(body or b"[]"), code
+        except ValueError:
+            return [], code
+
+    data, code = query(**{"filter": "statuscode:200"})
+    if not data and code == "200":
+        # Degraded-CDX fallback (the 2026-08-29 outage): the statuscode-
+        # filtered query can answer empty while the unfiltered one has rows.
+        # Gated on a GENUINE empty 200 — before PRO-128 this fired on any
+        # falsy result, including a failed request, so every failure doubled
+        # our traffic exactly when IA was least able to take it.
+        data, code = query()
     return data[1:] if data else []
 
 
@@ -114,40 +126,13 @@ def seg_of(era: dict) -> str:
 
 
 def ia_replay_probe(url: str, probe: str) -> tuple[str, str]:
-    """One replay probe, paced by the shared bucket -> (effective_url, code).
+    """One replay probe, paced and status-aware -> (effective_url, code).
 
-    Every IA request in this file goes through `wait("ia")`. The bucket's
-    guarantee is AGGREGATE: it holds the total across every process on the
-    machine to one request per second however many sessions run. Traffic
-    issued outside it has no such guarantee, so N sessions make N times the
-    rate — which is what earns the Internet Archive's hour-long firewall
-    block (775 of 816 logged IA failures were rc=7 refusals). These probes
-    were bare `subprocess.run` calls until PRO-127; at five sessions they
-    put ~3.3 req/s against IA's 1.0 ceiling, unseen by the bucket.
-
-    A transport failure and a year with genuinely no capture MUST stay
-    distinguishable: a failure comes back as an "rc<N>" code, never as an
-    empty answer a caller could read as absence (12402a7 — the Redpoint run
-    recorded 10 of 14 era-years as empty because rc was never read).
+    Pacing, the 429 Retry-After honour, the 503 backoff and the firewall
+    cooldown all live in `ia_fetch`; this is here so `replay_yearly` reads
+    the same way it always did.
     """
-    last = ("", "rc-1")
-    for _ in range(3):
-        shared_throttle.wait("ia")
-        r = subprocess.run(
-            ["curl", "-sL", "--max-time", "90", "-o", "/dev/null",
-             "-w", "%{url_effective}\n%{http_code}",
-             "-H", f"User-Agent: {UA['User-Agent']}",
-             f"https://web.archive.org/web/{probe}id_/{url}"],
-            capture_output=True)
-        if r.returncode == 0 and r.stdout.strip():
-            eff, code = (r.stdout.decode().split("\n") + ["", ""])[:2]
-            last = (eff, code)
-            if code not in ("429", "503"):
-                return last
-            time.sleep(8)       # IA wants more room than the bucket gives
-        else:
-            last = ("", f"rc{r.returncode}")
-    return last
+    return ia_fetch.probe(url, probe)
 
 
 def replay_yearly(urls: list[str], y0: int, y1: int) -> dict:

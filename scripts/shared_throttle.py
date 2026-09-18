@@ -38,6 +38,16 @@ from pathlib import Path
 
 DEFAULT_RATES: dict[str, float] = {"sec": 8.0, "ia": 1.0, "wikidata": 0.67}
 
+# Machine-wide cooldown after a service blocks us at the firewall. The
+# Internet Archive blocks an IP for an hour when 429s are ignored for more
+# than a minute, and DOUBLES on each recurrence, so a session that keeps
+# knocking re-arms the doubling for everyone. One hour, doubling if a fresh
+# block lands within DOUBLE_WINDOW of the last one being set.
+COOLDOWN_BASE = 3600.0
+COOLDOWN_MAX = 8 * 3600.0
+DOUBLE_WINDOW = 4 * 3600.0
+_local_cooldown: dict[str, tuple[float, float, float]] = {}
+
 _warned = False
 _local_lock = threading.Lock()
 _local_slots: dict[str, float] = {}
@@ -95,6 +105,7 @@ def wait(service: str, rate: float | None = None) -> None:
     write the slot after it, release, then sleep outside the lock. Wall-clock
     time is used because it is the only clock comparable across processes.
     """
+    _serve_cooldown(service)
     r = rate_of(service, rate)
     interval = 1.0 / r if r > 0 else 0.0
     d = lock_dir()
@@ -124,6 +135,88 @@ def wait(service: str, rate: float | None = None) -> None:
     delay = slot - time.time()
     if delay > 0:
         time.sleep(delay)
+
+
+def _read_cooldown(service: str) -> tuple[float, float, float]:
+    """(expiry, duration, set_at); zeros when no cooldown has been recorded."""
+    d = lock_dir()
+    if d is None:
+        return _local_cooldown.get(service, (0.0, 0.0, 0.0))
+    path = d / f"{service}.cooldown"
+    if not path.exists():
+        return (0.0, 0.0, 0.0)
+    try:
+        parts = path.read_text().split()
+        return (float(parts[0]), float(parts[1]), float(parts[2]))
+    except (OSError, ValueError, IndexError):
+        return (0.0, 0.0, 0.0)
+
+
+def cooldown_remaining(service: str) -> float:
+    """Seconds left on a machine-wide cooldown for `service`, 0 if none."""
+    return max(0.0, _read_cooldown(service)[0] - time.time())
+
+
+def cooldown(service: str, seconds: float | None = None) -> float:
+    """Record a machine-wide stop for `service`; returns the expiry time.
+
+    Called when a session sees the firewall signature (a refused connection
+    in ~85 ms). Every process then blocks in `wait()` until it expires, so
+    one session's block stops the machine rather than letting the other
+    sessions keep knocking and re-arm the doubling.
+
+    With `seconds` omitted the duration is COOLDOWN_BASE, doubling up to
+    COOLDOWN_MAX when a fresh block lands within DOUBLE_WINDOW of the last,
+    mirroring the service's own rule.
+    """
+    now = time.time()
+    prev_expiry, prev_dur, prev_set = _read_cooldown(service)
+    if seconds is None:
+        dur = COOLDOWN_BASE
+        if prev_set and now - prev_set < DOUBLE_WINDOW:
+            dur = min(COOLDOWN_MAX, (prev_dur or COOLDOWN_BASE) * 2)
+    else:
+        dur = float(seconds)
+    expiry = max(now + dur, prev_expiry)
+    d = lock_dir()
+    if d is None:
+        _local_cooldown[service] = (expiry, dur, now)
+        return expiry
+    path = d / f"{service}.cooldown"
+    with open(path, "a+") as fh:
+        fcntl.flock(fh.fileno(), fcntl.LOCK_EX)
+        try:
+            fh.seek(0)
+            fh.truncate()
+            fh.write(f"{expiry:.6f} {dur:.6f} {now:.6f}\n")
+            fh.flush()
+        finally:
+            fcntl.flock(fh.fileno(), fcntl.LOCK_UN)
+    return expiry
+
+
+def clear_cooldown(service: str) -> None:
+    """Drop a cooldown early (tests, or a human who knows the block lifted)."""
+    d = lock_dir()
+    _local_cooldown.pop(service, None)
+    if d is not None:
+        (d / f"{service}.cooldown").unlink(missing_ok=True)
+
+
+def _serve_cooldown(service: str, note_every: float = 60.0) -> None:
+    """Sleep out an active cooldown, saying so rather than looking hung."""
+    said = 0.0
+    while True:
+        left = cooldown_remaining(service)
+        if left <= 0:
+            return
+        if time.time() - said >= note_every:
+            print(f"shared_throttle: {service} is in a machine-wide cooldown, "
+                  f"{left/60:.0f} min left (a session hit the firewall; every "
+                  f"session waits so the block does not double)",
+                  file=sys.stderr, flush=True)
+            said = time.time()
+        time.sleep(min(5.0, left))
 
 
 @contextlib.contextmanager
