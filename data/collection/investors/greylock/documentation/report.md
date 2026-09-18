@@ -282,3 +282,31 @@ not invent them. The measurable costs it can report: **~30 web searches** of the
 200-call budget, ~19,000 Common Crawl index entries read over ~3,000 HTTP range
 requests, and roughly nine hours wall-clock, of which the first two were spent
 working around two simultaneous archive outages.
+
+## Addendum 2026-09-17 — S2A re-judged under the status contract
+
+`seed_to_a_graduation` became a judged status (`graduated | not_graduated |
+censored | undetermined`, COLLECTION.md §6), superseding the C2A figures
+above. `migrate-graduation` dropped 45 legacy values with their 34
+`cohort_unverified` flags; the 79 re-opened Seed rows were judged in two
+batches with both legs cited in the same pass.
+
+| seed entries | censored | undetermined | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|---|
+| 71 | 10 | 22 | 39 | 37 | 0 | 94.9% | 64% |
+
+Of 71 seed entries, 10 were too recent to count; of the 61 whose record could
+be sought, 39 were established (64% coverage) and 94.9% of those graduated.
+**No row could be decided as a "no"** — on a book whose seed cohort is
+dominated by 2020–2025 AI companies, a company that has not raised again is
+usually still operating rather than dead, and the contract will not call that
+a failure without a cited terminal event. That is the honest shape: this rate
+measures which seeds are known to have graduated, not what share of the book
+succeeded. The 22 undetermined are mostly companies with no round on the
+public record at all.
+
+Two rows left the cohort (Upwind re-staged to Series A, Workday flagged
+pre-window) and Wisetack's entry date moved to its 2019 seed; three identity
+questions and two citation traps are written up in D-S2A. `verify` is clean
+apart from the pre-existing `ai-fund` membership trap, which is Erik's to
+rule.

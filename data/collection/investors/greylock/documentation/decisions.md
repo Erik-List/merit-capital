@@ -120,3 +120,40 @@ delta:
   site does not list is `not_member`, reason external desk. A row those
   partners share with a home-desk partner, or that a Greylock (not Greylock
   Israel) fund vehicle filed on, stays.
+
+### D-S2A — Seed-to-A graduation re-judged under the status contract (2026-09-17, agent, class-wide)
+
+Under the 2026-09-16 contract (COLLECTION.md §6) every in-window Seed row was
+re-judged with both legs cited: 71 seed entries, 10 censored, 22
+undetermined, cohort 39, graduated 37, rate 94.9%, coverage 64%. No Form D
+verdict was disputed, because no row in the delta carried one. Two rows left
+the cohort: **upwind** re-staged to Series A (SiliconANGLE dates Greylock's
+entry to the $50M Series A it co-led at the 2023 stealth exit, with $80M
+already raised, so an earlier round exists that no page puts Greylock in),
+and **workday** takes `pre_window_entry` at low confidence under the 2006
+constant, keeping its `cite_pending` flag, which is what satisfies the
+public-$1B+ market-cap invariant. **wisetack**'s entry date was moved off the
+Form D layer's $15M filing to the 2019 seed, since TechCrunch describes the
+$19M as spanning "its seed and Series A rounds, which were both led by
+Greylock" and the firm's own post says it incubated the company.
+
+`verify.shape.c2a_rate_max` stays at 0.98, but its note is re-derived: the
+old reasoning counted a cohort of unverified rows, and the shape it described
+survives the harder instrument.
+
+**Open — three identity questions for a rebuild.**
+1. **`ailens-inc` is almost certainly TruEra before its rebrand**, not a
+   separate company: its single 2019 Menlo Park filing is $5,099,988, exactly
+   the 2019q2 round the `truera` row already carries, with the same Jerry Chen
+   director signature, and FinSMEs reports that $5.1M as TruEra's first round
+   led by Greylock. Left `undetermined`, because that is an identity ruling
+   and not an S2A answer.
+2. **`greenlite` and `bretton-ai` are one company** (Greenlite AI rebranded to
+   Bretton AI in February 2026), judged identically on both rows.
+3. **`bedrock-data` and `bedrock-security` are one company**, likewise.
+
+**Two traps recorded for the next run.** `greylock.com/blog/bedrock-security/`
+serves the Kodem announcement body under a Bedrock title, so it is not a
+Bedrock citation. And "Airspeed" is a name collision: the $20M Series A of
+June 2026 belongs to a different London/New York go-to-market company, not
+Greylock's Slack-based Airspeed.
