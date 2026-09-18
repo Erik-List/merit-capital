@@ -174,3 +174,34 @@ opaque plate, contrast 3.6:1); upload pending approval.
 3. `npx tsx scripts/ingest-companies.ts cherry`.
 4. Re-ingest Accel and Lightspeed for the three aligned rows.
 5. Set PRO-73 to Done.
+
+## Addendum 2026-09-17 — S2A re-judged under the status contract
+
+`seed_to_a_graduation` became a judged status (`graduated | not_graduated |
+censored | undetermined`, COLLECTION.md §6), superseding the C2A figures
+above. `migrate-graduation` dropped 113 legacy values with their 78
+`cohort_unverified` flags; all 113 Seed rows were judged in three batches
+with both legs cited in the same pass (27 rows gained a stage citation).
+
+| seed entries | censored | undetermined | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|---|
+| 112 | 10 | 50 | 52 | 48 | 4 | 92.3% | 51% |
+
+Of 112 seed entries, 10 were too recent to count; of the 102 whose record
+could be sought, 52 were established (51% coverage) and 92.3% of those
+graduated — the establishable set skews toward visible successes, and on
+this book that bias is the strongest yet measured: Cherry files no Form Ds,
+so a row is decidable only if a publisher or the firm itself wrote about the
+later round. The four "no"s are all cited acquisitions (Kitchen Stories,
+Qura, Shift, Speechly). Of the 50 undetermined, 27 are live companies whose
+seed is cited but whose later record is silent, 19 are rows no page ties
+Cherry to a seed at all, three are unresolved identities and one is an
+ownership change rather than a round. `verify.shape.c2a_rate_max` is
+restated from 0.80 to 0.95 (D-S2A), and `spryker` left the cohort on a
+first-party listing that contradicts itself — both are written up there.
+
+Coverage of 51% sits just above the leaderboard's ranking floor of 50%, so
+this investor's rate is the one most sensitive to a handful of further
+citations.
+
+`verify` is clean.

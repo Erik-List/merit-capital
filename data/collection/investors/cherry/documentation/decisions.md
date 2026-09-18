@@ -231,3 +231,45 @@ entity-qualified `edgar.fts_phrases` / `wikipedia.phrases`.
     (Adzuna out of insolvency 2026), Caroobi (Deutsches Workshopnetz 2020);
     Watchmaster, Weengs, Lesara, Move24, Gobutler, HappyFresh, FactoryMarket,
     Styla and Enchanted Diamonds, whose businesses ended, are `defunct`.
+
+### D-S2A — Seed-to-A graduation re-judged under the status contract; the cohort ceiling restated (2026-09-17, agent, class-wide)
+
+Under the 2026-09-16 contract (COLLECTION.md §6) every in-window Seed row was
+re-judged with both legs cited: 112 seed entries, 10 censored, 50
+undetermined, cohort 52, graduated 48, not graduated 4 (Kitchen Stories to
+BSH 2017, Qura to Legora 2026, Shift to Xometry 2019, Speechly to Roblox
+2023), rate 92.3%, coverage 51%. Cherry files no Form Ds, so every decision
+rests on a citation: 22 came from the firm's own posts, 30 from press.
+
+`verify.shape.c2a_rate_max` is restated from 0.80 to 0.95. The old note
+expected a genuine seed book to sit under 80%, but it was written against a
+cohort that counted unverified rows. On a young European pre-seed book only
+about half the seeds have a reachable published record, and the half that
+does is the half the press covered, which is the winners; the rate now
+publishes with that coverage beside it.
+
+**Open for Erik — `spryker`.** The firm's own archived portfolio listing
+contradicts itself: its stage attribute reads `Seed` while the prose in the
+same entry says "Cherry was co-leading the Series A in May 2015", matching
+its own 2015-05-26 investment date. The judge took the explicit prose over
+the coarse attribute, so the row is now a Series A entry and leaves the
+cohort. One first-party source disagreeing with itself is a class this book
+will hit again.
+
+Two prior notes were overturned with citations: **gobutler** was recorded as
+having shut down without a Series A, but deutsche-startups records an $8M
+round in July 2015, four months after Cherry's seed, so it graduated;
+**quandoo**'s entry stage had been cited to a Crunchbase funding-round page,
+which Rule A does not allow, and now rests on the firm's own 2016 listing.
+Five rows (afilio, curio, qualifyze, sanity-group, hologate) rest on an
+inference the judge flagged at medium confidence: the archived listing gives
+an investment date but no stage label, and that date precedes a cited Series
+A. Those are the rows to spot-check first.
+
+**Citation channels, for the next run on this book.** `web.archive.org` is
+blocked for the session and the live `cherry.vc/2021/...` WordPress URLs 404
+after the site migration, so a surviving post is cited to its archived
+sitemap entry or a Common Crawl capture with the slug and date named in the
+note, per the PRO-73 precedent. Publisher site search (eu-startups,
+deutsche-startups, FinSMEs, TechCrunch) and direct fetches of
+`cherry.vc/news/<slug>` work; every general search engine tried was blocked.
