@@ -14,24 +14,35 @@
 -- entry_stage 'Pre-Seed' and no band, because a company we cannot name still
 -- cannot be valued.
 --
--- So the implication runs one way. An undetermined entry_stage still forces an
--- undetermined valuation_range and an undetermined graduation: if we cannot
--- say what the company is, we cannot band it or judge its graduation. An
--- undetermined valuation_range on its own is now legal, and the row is still
--- excluded from every derived metric, which this migration also makes
--- explicit: the metric basis drops any row with an undetermined column rather
--- than keying on entry_stage alone.
+-- A third ruling then moved the cascade out of the table altogether. A
+-- TOKEN-FUNDED company (Erik, 2026-09-19) reads `undetermined` in entry_stage
+-- and seed_to_a_graduation because no priced round exists to stage -- yet it
+-- is named and bandable, so "an undetermined stage forces an undetermined
+-- band" is true only when the reason is that the company cannot be named.
+-- That reason lives in a flag this table does not carry, so the cascade stays
+-- in run.py's record and verify, where the flags are visible, and the CHECK
+-- keeps only what the columns can prove: an undetermined band carries no
+-- figure.
+--
+-- What this migration still does centrally is the metric basis: a row with
+-- ANY undetermined column is not a data point and leaves every distribution,
+-- rather than the basis keying on entry_stage alone.
 
 BEGIN;
 
 ALTER TABLE public.companies DROP CONSTRAINT companies_undetermined_is_coherent;
 ALTER TABLE public.companies
   ADD CONSTRAINT companies_undetermined_is_coherent CHECK (
-    -- an unnameable company has no band and no figure ...
-    (entry_stage <> 'undetermined'
-     OR (valuation_range = 'undetermined' AND valuation_usd IS NULL))
-    -- ... and an undetermined band never carries a figure either
-    AND (valuation_range <> 'undetermined' OR valuation_usd IS NULL));
+    -- An undetermined band never carries a figure. That is the whole of what
+    -- this table can check: the CASCADE from an undetermined stage to an
+    -- undetermined band holds only when the REASON is that the company cannot
+    -- be named, and the reason lives in a flag `public.companies` does not
+    -- carry. A token-funded company (Erik, 2026-09-19) reads `undetermined` in
+    -- entry_stage and seed_to_a_graduation because no priced round exists to
+    -- stage, yet it is named and bandable, so a stage-to-band cascade enforced
+    -- here would reject a correct row. `run.py`'s record and verify hold the
+    -- cascade instead, where the flags are visible.
+    valuation_range <> 'undetermined' OR valuation_usd IS NULL);
 
 COMMIT;
 

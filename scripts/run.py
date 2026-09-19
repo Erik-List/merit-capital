@@ -1122,14 +1122,25 @@ def validate_record(rec: dict, slugs: set[str], merged: dict | None = None) -> l
                         f"emit a status ({', '.join(GRADUATION_STATUSES)})")
         elif g is not None and g not in GRADUATION_STATUSES:
             errs.append(f"{slug}: seed_to_a_graduation {g!r} not in vocabulary")
-        elif g == UNDETERMINED and not unresolved:
+        elif g == UNDETERMINED and not unresolved \
+                and view.get("entry_stage") != UNDETERMINED:
             # A judge may not answer `undetermined` about a company it can
-            # name (Erik, 2026-09-18). The word belongs to the unresolvable
-            # row; a named company owes a decision.
-            errs.append(f"{slug}: seed_to_a_graduation {UNDETERMINED!r} is only for a row "
-                        f"flagged {IDENTITY_UNRESOLVED}; decide the row instead")
+            # name (Erik, 2026-09-18), unless the STAGE is undetermined too --
+            # a row with no stage has no seed-to-A transition to decide. That
+            # covers the unnameable row and the token-funded one alike (Erik,
+            # 2026-09-19): where the money went in as a token purchase, no
+            # priced round exists to stage, so both columns read undetermined
+            # while the company stays named and bandable.
+            errs.append(f"{slug}: seed_to_a_graduation {UNDETERMINED!r} on a row with a "
+                        f"stage ({view.get('entry_stage')!r}); decide the row, or write "
+                        f"{UNDETERMINED!r} in entry_stage too if no priced round exists")
         elif g is not None:
-            if view.get("entry_stage") != "Seed" and not unresolved:
+            # The column belongs to a Seed entry. `undetermined` on an
+            # undetermined stage is not a claim about one, so it passes: it is
+            # what an unnameable row and a token-funded row both carry.
+            if view.get("entry_stage") != "Seed" and not unresolved \
+                    and not (g == UNDETERMINED
+                             and view.get("entry_stage") == UNDETERMINED):
                 errs.append(f"{slug}: graduation set but entry_stage={view.get('entry_stage')!r}")
             src = view.get("graduation_source")
             if g in COHORT_STATUSES:
@@ -1834,9 +1845,12 @@ def cmd_verify(args) -> None:
                                 f"behind it; write {UNDETERMINED!r} instead")
             if row_flags & INFERRED_FLAGS:
                 problems.append(f"{slug}: {IDENTITY_UNRESOLVED} row carries an inferred value")
-        elif rec.get("entry_stage") == UNDETERMINED and g is not None:
-            # A stage nothing establishes is not a Seed entry, so the
-            # graduation column does not apply and stays null.
+        elif rec.get("entry_stage") == UNDETERMINED and g not in (None, UNDETERMINED):
+            # A stage nothing establishes is not a Seed entry, so the column
+            # does not apply: it is null where the row never had one, and
+            # `undetermined` where a judge looked and found no priced round to
+            # stage -- the token-funded case (Erik, 2026-09-19). What it may
+            # not be is a decision.
             problems.append(f"{slug}: {UNDETERMINED!r} entry_stage with "
                             f"seed_to_a_graduation {g!r}; the column applies to a Seed "
                             f"entry only")

@@ -167,15 +167,12 @@ export function validateCompanyFields(row: Record<string, any>): TaxonomyIssues 
     errors.push("valuation_range: expected a range string");
   }
 
-  // `undetermined` propagates downward from identity: a company we cannot name
-  // has no band either. The converse does not hold — a Form D sequence or a
-  // programme's standard terms give a stage for a company nobody can name, and
-  // that row carries a stage with an undetermined band.
-  if (row.entry_stage === UNDETERMINED && row.valuation_range !== UNDETERMINED) {
-    errors.push(
-      "undetermined: an undetermined entry_stage requires an undetermined valuation_range"
-    );
-  }
+  // No cascade between the stage and the band is enforced here. It holds only
+  // when the REASON is that the company cannot be named, and the reason lives
+  // in a flag this table does not carry: a token-funded company (Erik,
+  // 2026-09-19) has an undetermined stage because no priced round exists, yet
+  // it is named and bandable. run.py's verify holds the cascade where the
+  // flags are visible.
   if (row.valuation_usd != null
       && (row.entry_stage === UNDETERMINED || row.valuation_range === UNDETERMINED)) {
     errors.push("undetermined: a row with an undetermined column cannot carry a valuation_usd");

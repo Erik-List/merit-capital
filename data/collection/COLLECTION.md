@@ -1446,8 +1446,29 @@ less, so no verified tag exists — the cohort is the verified set):
   acquisition/shutdown plus a dated absence check
   (`graduation_asof`, the date the record was searched) whose note names
   the seed as the last round. Vendor pages never carry a no (Rule A).
-- `censored`: `entry_date` less than 24 months before today. The clock is
+- `censored`: `entry_date` less than 24 months before today. **The clock
+  wins inside the window** (Erik, 2026-09-19): a dated search that finds
+  nothing on a row younger than 24 months leaves it `censored`, not
+  `not_graduated`. The clock is about opportunity rather than evidence, and a
+  six-month-old seed with no Series A is not a failure; reading absence as a
+  no there would delete censoring and turn the column into a point-in-time
+  snapshot, which is a different metric. The clock is
   re-read on every `verify`; an entry that has aged past it owes a decision.
+- **A paywall is not a reason to abstain** (Erik, 2026-09-19). Where a round
+  is known to exist behind a publisher that blocks us, classify on what is
+  visible independent of the paywall: a headline, a snippet or an index entry
+  naming a later round graduates the row, cited to that visible surface. What
+  the body text would add is detail, not the fact. The same holds in reverse
+  — a paywalled page proves nothing about a round it does not name.
+- **A token-funded position reads `undetermined` in the stage AND the
+  graduation** (Erik, 2026-09-19). Where the money went in as a token
+  purchase and no priced round exists to stage — USV's DAO and protocol
+  positions are the class — there is no seed to enter and no Series A to
+  graduate to, so both columns say so and the row leaves the cohort. It keeps
+  its band and its status: the company is named and its scale is often
+  knowable, which is why this is not the unnameable case and why the
+  stage-to-band cascade does not apply. Flag it `token_funded` so the class
+  can be counted rather than inferred from prose.
 - `undetermined`: **not an answer a judge may give about a company it can
   name** (Erik, 2026-09-18). The word belongs to the unresolvable row: a row
   flagged `identity_unresolved` reads `undetermined` in `entry_stage`,
