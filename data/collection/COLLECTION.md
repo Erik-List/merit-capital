@@ -469,15 +469,18 @@ distinction.
   `identity_unresolved` flag and its values, and it stays in the metrics.
   What an unresolvable row may never do is assert a stage from `model` or an
   inferred fill: `record` and `verify` both refuse it.
-- **Inferred values only ever flagged, and an inferred STAGE only on a
-  recognised company.** Where an inferred value fills a gap (US for a row on
-  a US desk, the firm's classic entry stage for a stray) it is confidence low
-  and carries its flag (`country_prior`, `stage_prior`). An inferred value
-  never lands silently. On an `identity_unresolved` row `stage_prior` may not
-  appear at all — that cell reads `undetermined`, so the flag would
-  contradict the value — while `country_prior` may: the desk prior is all
-  such a row has, the flag is what marks it inferred, and invariant 1 still
-  wants a country.
+- **An inferred value is only ever flagged, and a STAGE may no longer be
+  inferred at all.** Where an inferred value fills a gap (US for a row on a US
+  desk) it is confidence low and carries its flag (`country_prior`); it never
+  lands silently. **`stage_prior` is deleted, not renamed** (Erik, 2026-09-19,
+  PRO-135: "just rm stage_prior and use the other possible source options").
+  The firm's classic entry round is a fact about the firm, and writing it into
+  a company's row said something about that company the record never said — on
+  950 rows. There is no honest fill between the evidence and `undetermined`, so
+  the flag is refused by `record` and by `verify`, and the rows it marked carry
+  one of the surviving sources or read `undetermined`. `country_prior` is
+  untouched: the desk prior is all such a row has, the flag is what marks it
+  inferred, and invariant 1 still wants a country.
 - **Disputes.** When knowledge contradicts a deterministic layer, record the
   corrected keys + flag `model_disputes_source` + note. Never silently accept
   a value known to be wrong, never silently override either.
@@ -706,6 +709,44 @@ results; those results stand as history.
    queue item — a class-1 layer the item does not carry is a layer the grind
    cannot use, which is the Black Forest Labs failure in a new place. Read the
    year as a CLOSE year, not an announcement date (§6).
+
+   **Which of a site's fields may LABEL a row is a semantic question, settled
+   once per book and then mechanical** (PRO-135). PRO-131 (a) made the firm's
+   own listing class-1 stage evidence where it gives a round word; the field
+   that carries it is declared in `config.site_api.entry_stage_fields`, the
+   base build resolves it through `stage_words.py` into `site_entry_round` and
+   `site_entry_stage_citation`, and every row it reaches is a row nobody has
+   to write `undetermined`. Two tests, and they are different questions:
+   **eligibility** asks whether the field is the firm's claim about the round
+   IT entered — `initialInvestmentType`, the card's "Invested", USV's "FIRST
+   INVESTMENT" — and refuses a field that reports the company's CURRENT stage
+   or lists every round the firm joined; **the value** must then collapse onto
+   one taxonomy stage (§6). Scored blind against each book's own cited rows,
+   2026-09-19, eligible fields hold and ineligible ones fail in the same
+   direction the semantics predict:
+
+   | Field | Labels | Score | Verdict |
+   | -- | -- | -- | -- |
+   | Lightspeed `stage_invested` | 525 | 522/522 | promoted |
+   | Accel `initial_type` | 567 | 552/553 | promoted |
+   | Menlo `site_entry_stage` | 210 | 193/194 | promoted (was already in use) |
+   | Felicis `site_entry_stage` / `stage_ladder` | 728 | 66/67 | promoted |
+   | Redpoint `site_stage` | 258 | 178/182 | promoted |
+   | USV `round_site` | 203 | 132/139 | promoted |
+   | Battery `site_entry_stage` | 198 | 19/19 | promoted (`Early` is an anchor) |
+   | Spark `stage_site_first` | 62 | 34/37 | promoted at `medium` |
+   | Greylock `site_entry_stage` | 155 | 41/50 | promoted at `medium` |
+   | Cherry `stage_site` | 46 | 11/14 | promoted at `medium` |
+   | a16z `stages` | — | 38/57 | **refused**: a tag list of every round joined, not the entry; thirteen misses read Growth on a Series A entry |
+   | Khosla `site_fund_label` | — | unscoreable | **refused** (D9): it names the FUND holding the position, and the firm re-lists follow-ons |
+   | Lux `stage_board`, Thrive `stage`, Cherry `stage` | — | 5/14, 16/29, 8/32 | **refused**: Getro job boards, already refused by Lux R2 and Thrive ruling 8 |
+
+   The score sets CONFIDENCE, not admission: `high` at ≥95% over ≥30 scored
+   rows, `medium` otherwise, and a documented round still overrides the
+   firm's own label with `stage_disputes_band` (§6, the socure and Personio
+   classes). The refusals matter as much as the promotions — a job board's
+   `stage` field looks exactly like an entry round and is the company's
+   current one, which is why eligibility is judged before the score.
 
    **A logo-only era is recoverable from the image filename.** COLLECTION.md
    used to accept a logo era as a deliberate gap (a16z). It need not be one:
@@ -1315,18 +1356,40 @@ maturity today. 100% fill.
      investment year and no round word may set `first_seen` and may bound
      entry recency; it may not mint a `Seed`. Dozens of rows have been
      re-staged from Series A to Growth for exactly that mistake.
+     **The same guard generalises: a label is usable exactly when it collapses
+     onto ONE taxonomy stage** (PRO-135). `Late Stage`, `Growth` and `Buyout`
+     all collapse onto `Growth`, so they label; `Early`, `Early Stage` and
+     `venture` straddle Seed and Series A, so they are anchors like the year.
+     `Common`, `Token`, `IPO` and `series_unknown` name no round at all.
+     `scripts/stage_words.py` is that vocabulary, shared by the base build and
+     by `record`, and a word it does not know is reported rather than dropped.
   2. `formd_structural`: partner-anchored entry position with prior-filing
      count; the accessions are the citation.
   3. `model` with a named deal in the note ("led the 2011 Series A") at
      high/medium confidence.
-  4. `model` at low confidence on a company the pass could name, or an
-     inferred `stage_prior` on a named company whose round the record does
-     not give. A row whose COMPANY could not be identified takes neither:
-     it reads `undetermined` (below).
+  4. `model` at low confidence on a company the pass could name. There is no
+     rung below this one: the inferred `stage_prior` fill that used to sit
+     here is deleted (§3), and a named company whose round the record does not
+     give reads `undetermined`. A row whose COMPANY could not be identified
+     reads `undetermined` too (below).
 
   A publication-visible claim wants class 1 or 2. Citation is attempted for
   every row, priority $1B+ (incl. IPO), then recents, then the tail;
   `stage_uncited` marks attempted failures.
+- **No staged row without a source, and a `web_verified` citation names THAT
+  company's round** (PRO-135, both enforced by `record` and by `verify`).
+  A stage with an empty `entry_stage_source` is a claim with no provenance and
+  no rung on the order above; 214 rows carried one. And a citation shared by
+  ten rows or more is, by construction, not evidence about any one of them, so
+  it may not carry a `web_verified` stage: a reused portfolio index is a
+  per-company page pressed into service. **What makes a shared citation legal
+  is what the page IS, not how many rows point at it.** A `program_terms` row
+  cites a terms document that states what every cohort company got, and a
+  `first_party` row cites a listing that states a round for each row on it —
+  Felicis and Menlo both publish a per-company stage on the portfolio page, so
+  there the evidence was real all along and only the SOURCE was wrong. Both
+  stay legal at any number of rows. `undetermined` is exempt from all of it: it
+  asserts nothing, so there is nothing to cite.
 - **A programme entry on standard small-check terms is `Pre-Seed`** (Erik,
   2026-09-19). Where a firm runs an accelerator or programme that invests a
   standard cheque on standard terms — a16z's SPEEDRUN at $500k, YC's batch
@@ -1691,6 +1754,21 @@ Every subcommand takes the investor slug.
   person with the union window and its basis before the base is built, and
   re-check the removal list afterwards: the rule is doing exactly what it
   should, on a roster that was wrong.
+- **A rebuild that renames a row carries the row's answers with it**
+  (PRO-135). The slug is derived from the display name and the builder takes
+  the most recent rendering (c8f28f7), so a rebuild can rename a row it has
+  not otherwise touched — `MapR Technology` to `MapR`, `Sidecar Technologies,
+  Inc.` to `Sidecar` — and every overlay joins on the slug. Left alone the row
+  loses its verdict and its classification, comes back unjudged, and `verify`
+  reports the old key as merely stale rather than as work thrown away: nine
+  Lightspeed rows, two Spark, one Accel, on one rebuild. `rekey_overlays.py`
+  now runs inside the build and moves them, matching the two sides on evidence
+  a rename does not touch (site id, site URL, CIK, first Form D accession,
+  first wayback capture), and only where that evidence is unique to one row.
+  Where nothing matches it moves nothing and prints the pair, because from the
+  slug alone a departure and an arrival look exactly like a rename. It prints
+  every move it makes; read them, because this is the same surface as the
+  database rename problem below.
 - **Identity duplicates are fixed upstream**, in the investor's
   `identity-merges.json`, consumed by the base build on every
   rebuild; non-canonical rows carry `duplicate_of: <canonical-slug>`, the
@@ -1879,7 +1957,12 @@ run before the investor row exists (Thrive, 2026-09-04).
    `below_1b` without a figure.
 3. Public $1B+ row → cited market cap, else `cite_pending`.
 4. $1B+ row → class 1/2 stage evidence (citation or filing structure), else
-   `cite_pending`.
+   `cite_pending`. And at every visibility (PRO-135): a staged row carries an
+   `entry_stage_source`; a `web_verified` or `first_party` stage carries its
+   citation; and a `web_verified` citation is not one shared by ten rows or
+   more, which is a page about no one of them. `program_terms` and
+   `first_party` may share a citation — a terms document and a listing do
+   state something per row (§6) — and `undetermined` is exempt.
 5. Cohort row (`graduated` / `not_graduated`) → both legs verified: a cited
    or structural entry stage, and a graduation source carrying its evidence
    (`formd` agreeing with the layer; `first_party` / `web_verified` with

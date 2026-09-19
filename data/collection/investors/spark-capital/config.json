@@ -237,6 +237,8 @@
   "_note": "Four people namespaces over twenty years: /team/<first>_<last>.html (2006-07 static, underscores), /team/bio/<firstlast> and /index.php/team/bio/<firstlast> (2008-2011 ExpressionEngine, no separator), /team/<first>-<last>/ (2012-2019 WordPress), /team-profiles/<first>-<last> (2020-2023 Webflow) and /team-members/<first>-<last> (2024+ Webflow). partner-roster.py enumerates the dash-separated namespaces; the 2006-2011 people (Dagres, Politi, Conway, Sabet, Finkelstein, Miller, Borenstein, Koyfman, Go, Parker, Huang, Haber) are CURATED into sources/wayback/partner-roster.json by scratch/roster-curate.py from the CDX capture years of their bio pages (decisions.md D8). The live team.json carries the Webflow tab as group; Operations (finance, platform, marketing) is excluded from the Form D sweep because those people never sit issuer boards for the firm."
  },
  "site_api": {
+  "entry_stage_fields": ["stage_site_first", "stage_site_all"],
+  "entry_stage_listing_url": "https://www.sparkcapital.com/companies",
   "type": "scrape",
   "sources": [
    {

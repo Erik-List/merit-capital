@@ -126,12 +126,21 @@ IDENTITY_UNRESOLVED = "identity_unresolved"   # the company cannot be named at a
 IDENTITY_CONFLATED = "identity_conflated"     # one company across two rows
 IDENTITY_HOMONYM = "identity_homonym"         # two real companies sharing a name
 IDENTITY_FLAGS = (IDENTITY_UNRESOLVED, IDENTITY_CONFLATED, IDENTITY_HOMONYM)
-# An inferred STAGE cannot coexist with an unresolvable row: that cell now
-# reads `undetermined`, so the flag would contradict the value. An inferred
-# COUNTRY can -- the desk prior is all such a row has, the flag is what marks
-# it as inferred, and invariant 1 still wants the cell filled. (PRO-135
-# re-sweeps every inferred value and renames both flags.)
-INFERRED_FLAGS = frozenset({"stage_prior"})
+# `stage_prior` -- a stage inferred from the firm's habits rather than read off
+# the company's own round -- is DELETED, not renamed (Erik, 2026-09-19,
+# PRO-135: "just rm stage_prior and use the other possible source options").
+# There is no honest fill between the evidence and `undetermined`: the flag let
+# 950 rows publish the firm's modal round as if it were the company's. A line
+# still carrying it is rejected, so the class cannot return. `country_prior` is
+# untouched and still awaits its rename to `country_inferred`.
+RETIRED_FLAGS = {"stage_prior": "the stage is read off the company's round or "
+                                "reads 'undetermined' (PRO-135)"}
+# A citation shared by this many rows is, by construction, not evidence about
+# any one of them. It is the right citation for `program_terms` (a terms
+# document states what EVERY cohort company got) and for `first_party` (the
+# firm's listing states a round per row on it), and it is never evidence for a
+# `web_verified` claim, which asserts that a page names THIS company's round.
+SHARED_CITATION_MIN = 10
 # ... but a source that describes the TRANSACTION rather than the company is
 # evidence even when the name is not. A row whose stage comes out of its own
 # Form D sequence keeps that stage and is judged from the filings, name or no
@@ -1056,11 +1065,28 @@ def validate_verdict(rec: dict, slugs: set[str]) -> list[str]:
     return errs
 
 
-def validate_record(rec: dict, slugs: set[str], merged: dict | None = None) -> list[str]:
+def shared_stage_citations(merged: dict, incoming: list[dict] | None = None) -> set[str]:
+    """Entry-stage citations carried by SHARED_CITATION_MIN rows or more.
+
+    Counted over every row whatever its source, because what disqualifies a
+    page for a `web_verified` claim is what the page IS, not which rows happen
+    to cite it today; a batch that would newly push a page over the line is
+    counted with the rows already on disk."""
+    seen = Counter()
+    for rec in list(merged.values()) + list(incoming or []):
+        c = (rec.get("entry_stage_citation") or "").strip()
+        if c:
+            seen[c] += 1
+    return {c for c, n in seen.items() if n >= SHARED_CITATION_MIN}
+
+
+def validate_record(rec: dict, slugs: set[str], merged: dict | None = None,
+                    shared: set[str] | None = None) -> list[str]:
     """Reject a classification line that breaks the contract. `merged` is the
     record on disk (resolved + classification), so a line is judged as it
     will read once merged: a graduation answer may ride on an entry stage or
-    a citation recorded earlier."""
+    a citation recorded earlier. `shared` is the reused-citation set the
+    `web_verified` gate below keys on."""
     errs = []
     slug = rec.get("slug")
     if not slug or slug not in slugs:
@@ -1098,9 +1124,10 @@ def validate_record(rec: dict, slugs: set[str], merged: dict | None = None) -> l
     # An unresolvable company may not carry an inferred value, and only such a
     # row may carry `undetermined` in the outcome columns (COLLECTION.md 3).
     unresolved = IDENTITY_UNRESOLVED in view_flags
-    if unresolved and (view_flags & INFERRED_FLAGS):
-        errs.append(f"{slug}: {IDENTITY_UNRESOLVED} row carries an inferred value "
-                    f"({sorted(view_flags & INFERRED_FLAGS)}); write {UNDETERMINED!r} instead")
+    # A retired flag is refused on every row, not only an unresolvable one: the
+    # class it marked has no honest fill left anywhere (PRO-135).
+    for f in sorted(view_flags & set(RETIRED_FLAGS)):
+        errs.append(f"{slug}: {f} is retired -- {RETIRED_FLAGS[f]}")
     # A band is UNDETERMINED only when the company cannot be named. A STAGE is
     # UNDETERMINED on any row (PRO-137, Erik 2026-09-19): with no date rule and
     # no inferred fill left, a nameable company whose round the record does not
@@ -1208,11 +1235,34 @@ def validate_record(rec: dict, slugs: set[str], merged: dict | None = None) -> l
         errs.append(f"{slug}: entry_stage_source {rec['entry_stage_source']!r}")
     # A cited stage claim carries its citation (COLLECTION.md §6). `first_party`
     # is the firm's own listing, which must publish a ROUND WORD for the
-    # company: a bare investment year is an anchor, not a label.
-    if rec.get("entry_stage_source") in ("web_verified", "first_party") \
-            and not (rec.get("entry_stage_citation") or "").strip():
-        errs.append(f"{slug}: {rec['entry_stage_source']} stage without "
+    # company: a bare investment year is an anchor, not a label. Checked on the
+    # VIEW, so a line that re-sources a row whose citation is already on disk
+    # passes and a line that strips the citation does not.
+    if view.get("entry_stage_source") in ("web_verified", "first_party") \
+            and not (view.get("entry_stage_citation") or "").strip():
+        errs.append(f"{slug}: {view['entry_stage_source']} stage without "
                     f"entry_stage_citation")
+    # **No staged row without a source** (PRO-135 item 3). A stage with an empty
+    # source is a claim with no provenance at all -- 214 rows carried one -- and
+    # there is no reading of the evidence order that produces it. `undetermined`
+    # is exempt: it asserts nothing, so there is nothing to cite.
+    if view.get("entry_stage") not in (None, UNDETERMINED) \
+            and not view.get("entry_stage_source"):
+        errs.append(f"{slug}: entry_stage {view['entry_stage']!r} with no "
+                    f"entry_stage_source; source it or write {UNDETERMINED!r}")
+    # **A `web_verified` citation names THAT company's round** (PRO-135 item 4).
+    # A portfolio index shared by ten rows or more is a per-company page pressed
+    # into service and states nothing about any one of them -- the same refusal
+    # `record` already makes for a vendor page under a valuation. The other two
+    # shared-citation sources are legitimate and untouched: `program_terms`
+    # cites a terms document that states what every cohort company got, and
+    # `first_party` cites a listing that states a round per row on it.
+    cite = (view.get("entry_stage_citation") or "").strip()
+    if view.get("entry_stage_source") == "web_verified" and cite in (shared or set()):
+        errs.append(f"{slug}: web_verified stage on {cite} -- a citation shared by "
+                    f"{SHARED_CITATION_MIN}+ rows is not evidence about this one; "
+                    f"cite the company's round, or re-source (first_party where "
+                    f"the firm's listing names the round)")
     for key in ("valuation_citation", "hq_country_citation", "entry_stage_citation",
                 "graduation_citation"):
         v = rec.get(key)
@@ -1245,6 +1295,9 @@ def cmd_record(args) -> None:
     merged = merge_rows(rows, load(P.resolved, {}), cls)
     led, verdicts = load_ledger(args.investor)
     cls_in, verd_in, errors = {}, {}, []
+    incoming = [r for r in (json.loads(l) for l in src.read_text().splitlines() if l.strip())
+                if isinstance(r, dict) and "verdict" not in r]
+    shared = shared_stage_citations(merged, incoming)
     for n, line in enumerate(src.read_text().splitlines(), 1):
         line = line.strip()
         if not line:
@@ -1262,7 +1315,7 @@ def cmd_record(args) -> None:
         # code before validation so only genuinely unknown names bounce.
         if isinstance(rec, dict) and rec.get("hq_country"):
             rec["hq_country"] = canon_country(rec["hq_country"]) or rec["hq_country"]
-        errors.extend(validate_record(rec, slugs, merged))
+        errors.extend(validate_record(rec, slugs, merged, shared))
         cls_in[rec["slug"]] = rec
     if errors:
         print(f"REJECTED — {len(errors)} problem(s), nothing recorded:")
@@ -1781,6 +1834,7 @@ def cmd_verify(args) -> None:
     notes: list[str] = []            # in-flight observations that are not defects
     c2a_on = bool((CFG.get("verify") or {}).get("c2a_deterministic", True))
     merged = merge_rows(rows, resolved, cls)
+    shared_cites = shared_stage_citations(merged)
     for slug, rec in merged.items():
         if not rec.get("status"):
             if in_flight:
@@ -1843,8 +1897,6 @@ def cmd_verify(args) -> None:
                 problems.append(f"{slug}: {IDENTITY_UNRESOLVED} row asserts an outcome "
                                 f"(entry_stage={rec.get('entry_stage')!r}) with no Form D "
                                 f"behind it; write {UNDETERMINED!r} instead")
-            if row_flags & INFERRED_FLAGS:
-                problems.append(f"{slug}: {IDENTITY_UNRESOLVED} row carries an inferred value")
         elif rec.get("entry_stage") == UNDETERMINED and g not in (None, UNDETERMINED):
             # A stage nothing establishes is not a Seed entry, so the column
             # does not apply: it is null where the row never had one, and
@@ -1889,6 +1941,24 @@ def cmd_verify(args) -> None:
                 problems.append(f"{slug}: no entry_stage")
         elif rec["entry_stage"] not in VALID_STAGES:
             problems.append(f"{slug}: entry_stage {rec['entry_stage']!r} not in vocabulary")
+        # Invariant 4's other half, added PRO-135: the column is a fact about
+        # the company's own round, so every staged row says where the round
+        # came from, and a `web_verified` claim rests on a page about THAT
+        # company. Both hold at every visibility, not only $1B+, and both hold
+        # in flight: they are defects in what has been answered.
+        if rec.get("entry_stage") not in (None, UNDETERMINED):
+            if not rec.get("entry_stage_source"):
+                problems.append(f"{slug}: entry_stage {rec['entry_stage']!r} with no "
+                                f"entry_stage_source")
+            elif rec["entry_stage_source"] in ("web_verified", "first_party") \
+                    and not (rec.get("entry_stage_citation") or "").strip():
+                problems.append(f"{slug}: {rec['entry_stage_source']} stage without "
+                                f"entry_stage_citation")
+            elif rec["entry_stage_source"] == "web_verified" \
+                    and (rec.get("entry_stage_citation") or "").strip() in shared_cites:
+                problems.append(f"{slug}: web_verified stage on a citation shared by "
+                                f"{SHARED_CITATION_MIN}+ rows "
+                                f"({rec['entry_stage_citation']})")
         # COLLECTION.md invariant 4: a bucket-visible row needs class 1/2
         # stage evidence (a citation, or the deterministic filing structure).
         # In flight the citation debts are owed by the judge, so a row the

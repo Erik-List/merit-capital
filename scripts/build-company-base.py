@@ -24,10 +24,13 @@ import subprocess
 import sys
 from collections import Counter
 from pathlib import Path
+from urllib.parse import urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from paths import Paths, write_atomic  # noqa: E402
 from people_common import dedupe_people, name_parts, same_person  # noqa: E402
+from rekey_overlays import apply_rename, rename_map  # noqa: E402
+from stage_words import earliest_round, unknown_round_words  # noqa: E402
 
 ap = argparse.ArgumentParser()
 ap.add_argument("investor")
@@ -37,6 +40,41 @@ P = Paths(SLUG)
 CFG = P.config()
 WB = P.wayback
 ED = P.edgar
+
+# ---- the firm's own entry-round claim (PRO-131 a, harvested PRO-135)
+# Which of the site layer's fields carry the firm's claim about the round IT
+# entered, in the order they should be tried. Eligibility is a semantic
+# judgement recorded per investor, never a guess by field name: a Getro job
+# board also publishes a `stage`, and that one describes the company today.
+# COLLECTION.md §5 carries the promoted list and what each scored.
+_STAGE_FIELDS = tuple(CFG.get("site_api", {}).get("entry_stage_fields") or ())
+# The page the claim is read off, for rows whose own `url` points at the
+# company's website rather than the firm's. A listing shared by many rows is a
+# legitimate citation HERE — unlike a `web_verified` one — because the page
+# states a round for each row on it (COLLECTION.md §6).
+_STAGE_LISTING = CFG.get("site_api", {}).get("entry_stage_listing_url") or ""
+# ...or the firm's per-company page, where the site has one and the site row
+# carries the slug that addresses it (Redpoint's 194-of-195 match against the
+# pages its own cited rows already point at).
+_STAGE_ROW_URL = CFG.get("site_api", {}).get("entry_stage_row_url") or ""
+_FIRM_HOST = (urlparse(CFG.get("wayback", {}).get("site_url_base") or "").netloc
+              or "").lower().removeprefix("www.")
+_unknown_round_words: Counter = Counter()
+
+
+def stage_citation(c: dict) -> str:
+    """The URL that carries this row's round word: the firm's own per-company
+    page where the row has one, else the listing the field was read off."""
+    u = str(c.get("url") or "")
+    host = urlparse(u).netloc.lower().removeprefix("www.")
+    if _FIRM_HOST and host and (host == _FIRM_HOST or host.endswith("." + _FIRM_HOST)):
+        return u
+    if "web.archive.org" in host and _FIRM_HOST and _FIRM_HOST in u:
+        return u  # an archived capture of the firm's own listing
+    site_slug = str(c.get("slug") or c.get("site_id") or "")
+    if _STAGE_ROW_URL and site_slug:
+        return _STAGE_ROW_URL.format(slug=site_slug)
+    return _STAGE_LISTING
 
 # Column order, tuned for review: identity → decision → evidence links →
 # attribution → classification, with secondary/audit fields trailing.
@@ -52,6 +90,11 @@ COLUMN_ORDER = [
     # travels to the queue item as evidence for entry_stage and first_seen —
     # never as a label until it is measured against documented rounds (§6).
     "site_entry_stage", "site_invest_year",
+    # ...and what that claim resolves to. `site_entry_stage` is the firm's own
+    # words ("Early", "Series C Partner"); `site_entry_round` is the taxonomy
+    # stage they collapse onto, empty where they name no single round, and
+    # `site_entry_stage_citation` is the listing that says it (PRO-131 a).
+    "site_entry_round", "site_entry_stage_citation",
 ]
 
 # Form D industry branches populated by investment vehicles, banks and property
@@ -268,8 +311,37 @@ def main() -> None:
             # only because that is what the field claims.
             if c.get("site_entry_stage"):
                 row["site_entry_stage"] = c["site_entry_stage"]
+            # The same claim, resolved to a taxonomy stage. The raw words stay
+            # in `site_entry_stage` as the firm wrote them; this column is the
+            # single round they collapse onto, and it is EMPTY where they do
+            # not collapse onto one -- "Early Stage" and "venture" straddle Seed
+            # and Series A, so they bound entry recency and may not mint a
+            # stage, exactly as a bare year may not (PRO-131 a).
+            for f in ("site_entry_stage",) + _STAGE_FIELDS:
+                raw = c.get(f)
+                if raw in (None, "", [], {}):
+                    continue
+                _unknown_round_words.update(unknown_round_words(raw))
+                lab = earliest_round(raw)
+                if not lab:
+                    continue
+                row["site_entry_round"] = lab
+                row["site_entry_stage_citation"] = stage_citation(c)
+                if not row.get("site_entry_stage"):
+                    row["site_entry_stage"] = raw if isinstance(raw, str) \
+                        else " | ".join(str(x) for x in raw)
+                break
             site_n += 1
         print(f"site API portfolio: {site_n} companies")
+        if _STAGE_FIELDS or _unknown_round_words:
+            staged = sum(1 for r in base.values() if r.get("site_entry_round"))
+            print(f"  first-party entry round: {staged} rows from "
+                  f"{', '.join(('site_entry_stage',) + _STAGE_FIELDS)}")
+            if _unknown_round_words:
+                # A site that starts publishing a word the vocabulary does not
+                # know is a parser question, not a silent refusal.
+                print(f"  unrecognised round words: "
+                      f"{dict(_unknown_round_words.most_common(8))}")
 
     # ---- layer 2: EDGAR public-market filings
     ent_path = P.entities
@@ -605,6 +677,8 @@ def main() -> None:
             "lineage": lineage, "first_seen": first,
             "site_entry_stage": r.get("site_entry_stage") or "",
             "site_invest_year": r.get("site_invest_year") or "",
+            "site_entry_round": r.get("site_entry_round") or "",
+            "site_entry_stage_citation": r.get("site_entry_stage_citation") or "",
             "wayback_years": ",".join(map(str, sorted(r["wayback_years"]))),
             "wayback_first_link": wb_link,
             "site_url": r["site_url"],
@@ -889,6 +963,19 @@ def main() -> None:
 
     rows_out.sort(key=lambda x: (x["tier"], x["slug"]))
     rows_out = [{k: r[k] for k in COLUMN_ORDER} for r in rows_out]
+    # A rebuild that renames a row must not orphan its verdict and its
+    # classification: the overlays all join on the slug, and a rename is
+    # indistinguishable from a departure once the old base is gone. Match the
+    # two sides on evidence the rename does not touch, and move the answers
+    # before the new base lands.
+    if P.base_json.exists():
+        renames = rename_map(json.loads(P.base_json.read_text()), rows_out)
+        if renames:
+            print(f"rows renamed by the rebuild: {len(renames)}")
+            for old_slug, new_slug in sorted(renames.items()):
+                print(f"    {old_slug} -> {new_slug}")
+            for line in apply_rename(P, renames):
+                print(f"    {line}")
     write_atomic(P.base_json, json.dumps(rows_out, indent=1))
 
     # Base and classification share one surface: the sibling CSV is the merged
