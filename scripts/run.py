@@ -87,7 +87,14 @@ CENSOR_MONTHS = 24
 STAGE_BANDS = ((1_000_000, "Pre-Seed"), (7_500_000, "Seed"), (30_000_000, "Series A"))
 GRADUATION_MULTIPLE = 2.0
 GRADUATION_FLOOR = 5_000_000
-SAME_ROUND_DAYS = 90        # closes of one round land within a quarter of each other
+SAME_ROUND_DAYS = 90
+# An absence verdict requires the entry to sit inside the layer's coverage
+# (Erik, 2026-09-19, PRO-137). Electronic Form D filing opens in September
+# 2008, so "no later filing" on an earlier entry is a blind window rather
+# than evidence that no round happened -- the layer cannot see the years it
+# would have to look at. Stated as a coverage start rather than a date
+# exception, so any register with one can carry the same rule.
+FORMD_COVERAGE_START = "2008-09"        # closes of one round land within a quarter of each other
 
 # seed_to_a_graduation is a status, never a boolean (COLLECTION.md §6,
 # 2026-09-16). An in-window Seed entry carries exactly one of these; null is
@@ -537,6 +544,7 @@ def graduation_from_formd(rounds: list[dict], partner_accs: frozenset | set = fr
         return rec
 
     age = months_since(round_date(entry), formd_asof)
+    entry_iso = round_date(entry) or ""
     if age is not None and age < CENSOR_MONTHS:
         # Too recent to have had the chance. Counting it a no would bias the
         # published rate downward, so it leaves the cohort as censored.
@@ -544,6 +552,14 @@ def graduation_from_formd(rounds: list[dict], partner_accs: frozenset | set = fr
     elif age is None:
         rec["seed_to_a_graduation"] = None           # undatable: the judge decides
         rec["graduation_confidence"] = "low"
+    elif entry_iso[:7] < FORMD_COVERAGE_START:
+        # Outside the layer's coverage: the follow-on window sits in years the
+        # filings do not cover, so their silence says nothing. The layer
+        # declines rather than reading absence as a no, and the judge decides
+        # the row from evidence outside the filings.
+        rec["seed_to_a_graduation"] = None
+        rec["graduation_confidence"] = "low"
+        rec["flags"] = sorted(set(flags) | {"formd_before_coverage"})
     else:
         rec["seed_to_a_graduation"] = "not_graduated"
     return rec

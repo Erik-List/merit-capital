@@ -1405,7 +1405,14 @@ less, so no verified tag exists — the cohort is the verified set):
   name, which in practice means the Form D layer: it reports amounts and
   never round words, so there the test stands unchanged.
 - `not_graduated`: Form D absence with the rescan as-of ≥ entry + 24 months
-  (`formd`), or a cited acquisition/shutdown plus a dated absence check
+  (`formd`) **and the entry inside the layer's coverage** — electronic Form D
+  filing opens in September 2008, so on an earlier entry the follow-on window
+  sits in years the filings do not cover and their silence says nothing. The
+  layer declines such a row (`formd_before_coverage`) and the judge decides it
+  from evidence outside the filings. An absence verdict requires the entry to
+  sit inside the register's coverage; stated that way, any register with a
+  start date carries the same rule (Erik, 2026-09-19) — or a cited
+  acquisition/shutdown plus a dated absence check
   (`graduation_asof`, the date the record was searched) whose note names
   the seed as the last round. Vendor pages never carry a no (Rule A).
 - `censored`: `entry_date` less than 24 months before today. The clock is
