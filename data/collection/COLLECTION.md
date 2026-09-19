@@ -1395,16 +1395,20 @@ less, so no verified tag exists — the cohort is the verified set):
   the seed as the last round. Vendor pages never carry a no (Rule A).
 - `censored`: `entry_date` less than 24 months before today. The clock is
   re-read on every `verify`; an entry that has aged past it owes a decision.
-- `undetermined`: everything else, with a note naming what was tried. Never
-  a silent null: `export` writes `undetermined` on any in-window Seed row
-  nobody decided.
+- `undetermined`: **not an answer a judge may give about a company it can
+  name** (Erik, 2026-09-18). The word belongs to the unresolvable row: a row
+  flagged `identity_unresolved` reads `undetermined` in `entry_stage`,
+  `valuation_range` and here, and `record` rejects the value anywhere else.
+  A named company owes a decision, and a Seed row still carrying none fails
+  invariant 1 in full mode rather than publishing a shrug. `export` writes
+  `undetermined` on an in-window Seed row nobody decided, which is how the
+  remainder stays visible in the report and the API while it is still debt.
 
-Two populations wear this word and only one of them is counted. A judged
-`undetermined` sits on a row that IS a Seed entry: it enters `seed_entries`,
-sits outside the cohort, and is published as the honest remainder. An
-`identity_unresolved` row reads `undetermined` in `entry_stage` too, so it
-is not a Seed entry at all and enters none of the six numbers — an
-unnameable company is not evidence about a graduation rate.
+An `identity_unresolved` row is not a Seed entry at all, so it enters none
+of the six numbers — an unnameable company is not evidence about a
+graduation rate. The rows carrying a judged `undetermined` from before this
+rule are debt: each owes a decision, and until it is made `export` keeps
+publishing the word.
 
 `graduation_source` ∈ `formd | first_party | web_verified` — the model may
 not decide a graduation. `entry_date` (YYYY, YYYY-MM or YYYY-MM-DD) is

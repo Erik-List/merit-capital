@@ -122,13 +122,6 @@ IDENTITY_HOMONYM = "identity_homonym"         # two real companies sharing a nam
 IDENTITY_FLAGS = (IDENTITY_UNRESOLVED, IDENTITY_CONFLATED, IDENTITY_HOMONYM)
 # Values a judge may not infer onto an unresolvable row.
 INFERRED_FLAGS = frozenset({"stage_prior", "country_prior"})
-# PRO-133 restricts `seed_to_a_graduation: undetermined` to an unresolvable
-# row, so that a judge who cannot find a round says `not_graduated` instead.
-# That answer does not exist yet -- it is PRO-132's ruling -- and COLLECTION.md
-# 6, `export`'s fill and YC's whole column still produce a judged
-# `undetermined` with a note. Flipping this to False is PRO-132's last step,
-# after the ~300 stored judged-undetermined rows have been re-decided.
-JUDGED_UNDETERMINED_ALLOWED = True
 
 VALUATION_RANGES = ("below_1b", "1b_plus", "10b_plus", "100b_plus", UNDETERMINED)
 VALID_STAGES = {"Pre-Seed", "Seed", "Series A", "Growth", UNDETERMINED}
@@ -1076,7 +1069,10 @@ def validate_record(rec: dict, slugs: set[str], merged: dict | None = None) -> l
                         f"emit a status ({', '.join(GRADUATION_STATUSES)})")
         elif g is not None and g not in GRADUATION_STATUSES:
             errs.append(f"{slug}: seed_to_a_graduation {g!r} not in vocabulary")
-        elif g == UNDETERMINED and not unresolved and not JUDGED_UNDETERMINED_ALLOWED:
+        elif g == UNDETERMINED and not unresolved:
+            # A judge may not answer `undetermined` about a company it can
+            # name (Erik, 2026-09-18). The word belongs to the unresolvable
+            # row; a named company owes a decision.
             errs.append(f"{slug}: seed_to_a_graduation {UNDETERMINED!r} is only for a row "
                         f"flagged {IDENTITY_UNRESOLVED}; decide the row instead")
         elif g is not None:
