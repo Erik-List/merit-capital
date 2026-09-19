@@ -464,3 +464,39 @@ fourteen confirmed; three rows left the cohort on the firm's own posts or on
 arithmetic (Applied Intuition, Mos, Echodyne). Five entry-stage questions are
 open for Erik in D-S2A. `verify.shape.c2a_rate_max` is restated 0.80 → 0.90.
 `verify` is clean.
+
+## Addendum 2026-09-19 — identity reclassification (PRO-136)
+
+The nine rows flagged `identity_uncertain` were decided against the new
+three-flag taxonomy. Lux's own company list (`sources/site/companies.json`)
+settled eight of them without a single web fetch: it carries a url, a
+description and often the founders and the investment year per card, which
+is exactly what "can this company be named" asks.
+
+| Row | Disposition | What decided it |
+| --- | --- | --- |
+| `amca` | flag cleared | amca.co, founders Jai Malik and Eli Giovanetti, Lux investment 2024, full description |
+| `decent` | flag cleared | decent.com, "more affordable healthcare by aligning incentives" |
+| `moment` | flag cleared | shopmoment.com, and the site's own team slug `zack-schildhorn` is the related person signing the 2016 Form D |
+| `column` | `identity_homonym` | column.us, the public-notice software company — not Column the bank (column.com) nor Column Tax |
+| `galileo` | `identity_homonym` | galileo.io under the health tag: Galileo Health, not the AI-evaluation Galileo (galileo.ai) |
+| `neo` | `identity_conflated` → merged | the live-list card "Neo" carries url neo.tax; the job-board card "Neo.Tax" is the same company. `neo-tax` merged into `neo`, name pinned "Neo.Tax" |
+| `ftx` | `identity_unresolved` | only a `/companies/ftx/` path in the crawl index: no card, url, description or filing. Which FTX was never established |
+| `loom-vision-f` | `identity_unresolved` | an archived CMS slug with a trailing render marker, absent from the company list |
+| `mave` | `identity_unresolved` | `/companies/mave/` is its own CMS path listed beside `/companies/maven`, so it is not a truncation of Maven and cannot be merged onto it |
+
+The three unresolvable rows now read `undetermined` in `entry_stage`,
+`valuation_range` and `seed_to_a_graduation`, and `verify` reports them as
+excluded from every metric. `ftx` also loses its `defunct` status: that read
+the crypto exchange's bankruptcy into a row nothing ties to it. All three
+stay members on the site-listing rule.
+
+**Two renames the rebuild wanted, and did not get.** `better_name` now
+resolves `blockstack` to "Hiro" and `cyphy-works` to "Aria Insights" — both
+real renames (Blockstack → Hiro Systems, CyPhy Works → Aria Insights in
+2019), neither published before. The database upserts on (investor, name),
+so an unannounced rename lands as a second company rather than updating the
+first. Both are pinned to the published rendering in `identity-merges.json`
+with the reason, and the rename is Erik's to decide.
+
+Base 271 → 270 rows; `verify` clean; three rows excluded from the metrics.

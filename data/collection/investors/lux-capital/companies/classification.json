@@ -265,18 +265,17 @@
   "entry_stage_confidence": "low",
   "flags": [
    "country_conflict",
-   "identity_uncertain",
    "stage_uncited"
   ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "note": "listed 2024-2025 with no round documented on any Lux surface | hq_country CZ comes from a Wikidata name-match on a four-letter name and is not corroborated; the row's identity is unresolved and the country is left as filed with the conflict flagged | S2A: Amca's reported rounds are $76.5M (2025-04-10) and a $300M Series B (2026-05-20); neither report names Lux and no page names a seed round with Lux in it. Lux's site year 2024 is an anchor only (R1) and the row still carries identity_uncertain and country_conflict. Neither leg established.",
+  "note": "listed 2024-2025 with no round documented on any Lux surface | hq_country CZ comes from a Wikidata name-match on a four-letter name and is not corroborated; the row's identity is unresolved and the country is left as filed with the conflict flagged | S2A: Amca's reported rounds are $76.5M (2025-04-10) and a $300M Series B (2026-05-20); neither report names Lux and no page names a seed round with Lux in it. Lux's site year 2024 is an anchor only (R1) and the row still carries identity_uncertain and country_conflict. Neither leg established. | IDENTITY RESOLVED (PRO-136): Lux's own company record names it \u2014 amca.co, founders Jai Malik and Eli Giovanetti, Lux investment year 2024, 'building a new industrial base for America'. A named and described company carries no identity flag; the Wikidata CZ country match that produced country_conflict is a name collision on a four-letter name and is not this company.",
   "seed_to_a_graduation": "undetermined",
   "slug": "amca",
   "status": "private",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-lux"
+  "who": "agent-pro136-lux"
  },
  "anagenex": {
   "confidence": "medium",
@@ -1111,18 +1110,19 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "flags": [
-   "identity_uncertain",
+   "identity_homonym",
    "stage_uncited"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "listed from 2022 under the firm's productivity tag; the name is ambiguous between Column (the developer-infrastructure bank) and Column Tax, and no Lux surface names the round",
+  "note": "listed from 2022 under the firm's productivity tag; the name is ambiguous between Column (the developer-infrastructure bank) and Column Tax, and no Lux surface names the round | IDENTITY RESOLVED, NAMESAKE RECORDED (PRO-136): Lux's own record gives url column.us \u2014 Column the public-benefit company whose software runs legally required public notices for publishers. NEVER merge with Column the developer-infrastructure bank (column.com) or with Column Tax (columntax.com); neither is in this base, so the guard is this flag and note.",
   "slug": "column",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-pro136-lux"
  },
  "common-networks": {
   "confidence": "medium",
@@ -1370,20 +1370,19 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "flags": [
-   "identity_uncertain",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "job-board row; the one-word name is hard to pin | S2A: job-board row with no Lux investment year on the site, no round announcement retrievable under the name, and the job board's own stage field refused as a label (R2). Neither the seed with Lux nor a later round could be established. The row also carries identity_uncertain on the one-word name.",
+  "note": "job-board row; the one-word name is hard to pin | S2A: job-board row with no Lux investment year on the site, no round announcement retrievable under the name, and the job board's own stage field refused as a label (R2). Neither the seed with Lux nor a later round could be established. The row also carries identity_uncertain on the one-word name. | IDENTITY RESOLVED (PRO-136): Lux's own company record gives url decent.com and the description 'more affordable healthcare by aligning incentives' \u2014 Decent, the health plan for the self-employed. Named and described, so no identity flag.",
   "seed_to_a_graduation": "undetermined",
   "slug": "decent",
   "status": "private",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-lux"
+  "who": "agent-pro136-lux"
  },
  "deep-sentinel": {
   "confidence": "medium",
@@ -1854,21 +1853,24 @@
  },
  "ftx": {
   "confidence": "low",
-  "entry_stage": "Growth",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
   "flags": [
-   "identity_uncertain",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "Crypto & Web3",
   "focus_source": "model",
   "hq_country": "BS",
   "hq_country_source": "model_knowledge",
-  "note": "a /companies/ftx path appears in the archived site index; the crypto exchange collapsed into bankruptcy in November 2022. Whether this is a Lux position at all is unresolved on the evidence in hand and the row is raised for the A/B pass before it publishes",
+  "note": "a /companies/ftx path appears in the archived site index; the crypto exchange collapsed into bankruptcy in November 2022. Whether this is a Lux position at all is unresolved on the evidence in hand and the row is raised for the A/B pass before it publishes | UNRESOLVABLE (PRO-136): the only trace is a /companies/ftx/ path in the archived site index \u2014 no site card, no url, no description, no founders, no filing. Which FTX this is was never established, so the row asserts nothing: stage, band and graduation all undetermined and the status returns to unknown. The earlier 'defunct' read the crypto exchange's bankruptcy into a row nothing ties to it. The path keeps it a member under the site-listing rule.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "ftx",
-  "status": "defunct",
+  "status": "unknown",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-lux"
  },
  "g2x-energy": {
   "confidence": "high",
@@ -1892,18 +1894,19 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "flags": [
-   "identity_uncertain",
+   "identity_homonym",
    "stage_uncited"
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "listed from 2021 under the firm's health tag, which points to Galileo Health rather than the AI-evaluation company of the same name; no Lux surface names the round",
+  "note": "listed from 2021 under the firm's health tag, which points to Galileo Health rather than the AI-evaluation company of the same name; no Lux surface names the round | IDENTITY RESOLVED, NAMESAKE RECORDED (PRO-136): Lux's own record gives url galileo.io under its health tag \u2014 Galileo Health, the virtual multi-specialty care provider. NEVER merge with Galileo the AI-evaluation company (galileo.ai), which is not in this base.",
   "slug": "galileo",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-pro136-lux"
  },
  "gameto": {
   "confidence": "medium",
@@ -2545,23 +2548,24 @@
  },
  "loom-vision-f": {
   "confidence": "low",
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
   "flags": [
-   "identity_uncertain",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "an archived CMS slug whose rendering carried a trailing marker; identity not resolved | S2A: the slug is an archived CMS artefact whose underlying identity is unresolved (identity_uncertain), so no round could be searched for with confidence. Neither leg established.",
+  "note": "an archived CMS slug whose rendering carried a trailing marker; identity not resolved | S2A: the slug is an archived CMS artefact whose underlying identity is unresolved (identity_uncertain), so no round could be searched for with confidence. Neither leg established. | UNRESOLVABLE (PRO-136): an archived CMS slug carrying a trailing render marker, absent from Lux's own company list, with no url, description or filing. No company can be named, so stage, band and graduation are undetermined rather than inferred.",
   "seed_to_a_graduation": "undetermined",
   "slug": "loom-vision-f",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-lux"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-lux"
  },
  "lumafield": {
   "confidence": "medium",
@@ -2793,22 +2797,23 @@
  },
  "mave": {
   "confidence": "low",
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
   "flags": [
    "country_conflict",
-   "identity_uncertain",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "note": "the deterministic layer set hq_country CZ on a name-match; identity unresolved | hq_country CZ comes from a Wikidata name-match; identity unresolved, country left as filed and flagged | S2A: the row's identity is unresolved (identity_uncertain plus a country_conflict from a Wikidata name-match), so no round could be searched for with confidence. Neither leg established.",
+  "note": "the deterministic layer set hq_country CZ on a name-match; identity unresolved | hq_country CZ comes from a Wikidata name-match; identity unresolved, country left as filed and flagged | S2A: the row's identity is unresolved (identity_uncertain plus a country_conflict from a Wikidata name-match), so no round could be searched for with confidence. Neither leg established. | UNRESOLVABLE (PRO-136): /companies/mave/ is its own CMS path in the crawl index, listed beside /companies/maven, so it is not a truncated rendering of Maven and cannot be merged onto it. No site card, url, description or filing names the company. The Wikidata CZ country match behind country_conflict is a name collision, not evidence. Stage, band and graduation undetermined.",
   "seed_to_a_graduation": "undetermined",
   "slug": "mave",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-lux"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-lux"
  },
  "maven": {
   "confidence": "medium",
@@ -2984,20 +2989,18 @@
  "moment": {
   "confidence": "low",
   "entry_date": "2016-05-10",
-  "flags": [
-   "identity_uncertain"
-  ],
+  "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "graduation_confidence": "medium",
   "graduation_source": "formd",
-  "note": "Seattle row with one $3M Form D round and Zack Schildhorn as related person; the common name makes the current entity hard to pin | S2A: Form D verdict accepted. Entry sale 2016-05-10 ($3.0M offering) with no later filing clearing max(2x entry, $5M) by the 2026-09-06 rescan, ten years on. Confidence medium because the row still carries identity_uncertain on the common name Moment, though Zack Schildhorn is the related person on the filing.",
+  "note": "Seattle row with one $3M Form D round and Zack Schildhorn as related person; the common name makes the current entity hard to pin | S2A: Form D verdict accepted. Entry sale 2016-05-10 ($3.0M offering) with no later filing clearing max(2x entry, $5M) by the 2026-09-06 rescan, ten years on. Confidence medium because the row still carries identity_uncertain on the common name Moment, though Zack Schildhorn is the related person on the filing. | IDENTITY RESOLVED (PRO-136): Lux's own record gives url shopmoment.com and team slug zack-schildhorn \u2014 the same Zack Schildhorn who signs the 2016 $3.0M Form D on this row. The common name does not make the company doubtful when the filing and the site card agree, so the identity flag goes and the Form D not_graduated stands.",
   "seed_to_a_graduation": "not_graduated",
   "slug": "moment",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-lux"
+  "who": "agent-pro136-lux"
  },
  "mos": {
   "confidence": "medium",

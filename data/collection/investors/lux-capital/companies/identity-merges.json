@@ -3,6 +3,14 @@
   "_readme": "Durable identity corrections consumed by build-company-base.py on every rebuild (COLLECTION.md \u00a78). Lux's rows arrive from five renderings of the same book -- the 2005-2008 PHP portfolio, the 2012-2016 logo grid, the 2016-2022 WordPress cards, the 2023+ Webflow cards and the Getro job board -- plus Form D issuers filing under a registered name no listing ever used (Latchable for Latch, Open Space Labs for OpenSpace, Auris Surgical Robotics for Auris Health). Canonical = the firm's current rendering where the company is still listed, else the last rendering.",
   "merges": [
    {
+    "canonical": "neo",
+    "duplicates": [
+     "neo-tax"
+    ],
+    "name": "Neo.Tax",
+    "reason": "one company across two rows (PRO-136): the live-list card 'Neo' carries url https://www.neo.tax/ and Lux investment year 2020, the job-board card 'Neo.Tax' carries url http://neo.tax. Same company, two renderings; the canonical keeps the live-list row's wayback history (2020-2026) and the display name is pinned to the company's own."
+   },
+   {
     "canonical": "auris-health",
     "duplicates": [
      "auris-surgical-robotics"
@@ -63,6 +71,8 @@
     "duplicates": [
      "aria-insights"
     ],
+    "name": "CyPhy Works",
+    "_name_note": "pinned to the published rendering: better_name now prefers Aria Insights, the 2019 rename before the shutdown. Unpinning it is a separate decision, because the database upserts on (investor, name).",
     "reason": "CyPhy Works renamed itself Aria Insights in 2019 before shutting down"
    },
    {
@@ -127,6 +137,8 @@
      "hiro",
      "stacks"
     ],
+    "name": "Blockstack",
+    "_name_note": "pinned to the published rendering: better_name now prefers Hiro, and the database upserts on (investor, name), so an unpinned rename would land as a second company. The rename to Hiro Systems is real and is a separate decision.",
     "reason": "Blockstack renamed itself Hiro Systems and ships the Stacks protocol; one company, three renderings"
    },
    {
