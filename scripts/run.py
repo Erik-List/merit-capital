@@ -1913,7 +1913,13 @@ def cmd_verify(args) -> None:
         # with an undetermined STAGE still owes its valuation checks.
         if undet and unresolved:
             continue
-        if g is not None and rec.get("entry_stage") != "Seed":
+        if g is not None and rec.get("entry_stage") != "Seed" \
+                and not (g == UNDETERMINED and rec.get("entry_stage") == UNDETERMINED):
+            # The one legal pairing outside Seed: a row whose stage is
+            # undetermined and whose graduation says the same thing. That is
+            # what the token-funded ruling writes (Erik, 2026-09-19) and what
+            # the cascade writes on an unnameable row, and `record` has always
+            # accepted it -- `verify` was still failing it.
             problems.append(f"{slug}: graduation set but entry_stage={rec.get('entry_stage')!r}")
 
         # ---- full fills, tag/figure consistency

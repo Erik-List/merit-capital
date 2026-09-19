@@ -333,8 +333,8 @@ def main() -> None:
                 break
             site_n += 1
         print(f"site API portfolio: {site_n} companies")
-        if _STAGE_FIELDS or _unknown_round_words:
-            staged = sum(1 for r in base.values() if r.get("site_entry_round"))
+        staged = sum(1 for r in base.values() if r.get("site_entry_round"))
+        if staged or _unknown_round_words:
             print(f"  first-party entry round: {staged} rows from "
                   f"{', '.join(('site_entry_stage',) + _STAGE_FIELDS)}")
             if _unknown_round_words:

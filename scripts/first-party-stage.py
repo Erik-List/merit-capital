@@ -57,6 +57,12 @@ SHARED_MIN = 10
 VISIBLE_RANGES = {"1b_plus", "10b_plus", "100b_plus"}
 
 base = {r["slug"]: r for r in json.loads(P.base_json.read_text())}
+# A row ruled out of the book is not staged, whatever its listing says: it
+# leaves base.json at the next rebuild and nothing published reads it.
+_led = json.loads(P.ledger.read_text()) if P.ledger.exists() else {}
+not_members = {slug for book in _led.values()
+               for slug, v in ((book or {}).get("verdicts") or {}).items()
+               if (v or {}).get("verdict") == "not_member"}
 cls = json.loads(P.classification.read_text()) if P.classification.exists() else {}
 
 shared = {}
@@ -93,10 +99,17 @@ def visible(rec: dict) -> bool:
     return year.isdigit() and int(year) >= 2021
 
 
+# A weak row is not necessarily a defect. `model` is rungs 3 and 4 of the
+# evidence order and stays legal where the pass can name the company's round in
+# the note; the harvest simply outranks it where the listing has the round word.
+# The three classes PRO-135 REFUSES must end up somewhere else or read
+# `undetermined`, so they are counted apart.
+REFUSED = {"no source", "stage_prior", "shared citation"}
+
 lines, review, residue, counts = [], [], [], {}
 for slug, rec in sorted(cls.items()):
     why = weakness(rec)
-    if not why:
+    if not why or slug in not_members:
         continue
     counts[why] = counts.get(why, 0) + 1
     row = base.get(slug) or {}
@@ -132,7 +145,14 @@ print(f"{args.investor}: {sum(counts.values())} weak rows {counts}")
 print(f"  re-source (value unchanged): {resourced}")
 print(f"  re-stage  (value changes):   {len(lines) - resourced}")
 print(f"  for the judge ($1B+/recent): {len(review)}")
-print(f"  residue (no round word):     {len(residue)}")
+must = [r for r in residue if r[1] in REFUSED]
+print(f"  no round word, keeps {'{'}model{'}'}:     {len(residue) - len(must)}")
+print(f"  no round word, MUST resolve:  {len(must)}")
+if must:
+    byclass: dict[str, int] = {}
+    for _, why, _ in must:
+        byclass[why] = byclass.get(why, 0) + 1
+    print(f"      {byclass}")
 for slug, why, was, now, val in review[:15]:
     print(f"      {slug}: {was} -> {now} ({why}, {val})")
 
