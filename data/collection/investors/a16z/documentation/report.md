@@ -484,3 +484,55 @@ status 1033 / 262 / 108 / 49 / 267 → **1035 private / 264 acquired / 109
 defunct / 49 public / 262 unknown**. `verify` clean. **Re-ingested 2026-09-03** with Erik's
 approval; the database now derives 165 / 42 / 7 and 49 public on 1,719
 rows.
+
+## Addendum 2026-09-19 — identity reclassification (PRO-136)
+
+Ninety-nine published rows carried `identity_uncertain`, the largest set in
+the sweep, and **eighty-nine of them now read `undetermined`**. a16z's flagged
+rows are one-word list entries — `admin`, `blank`, `bold`, `if`, `pure`,
+`special`, `uno`, `wave` — where the run wrote "identity unresolved" and then,
+because invariant 1 demanded a filled cell, published a Seed anyway.
+
+The second half of that pattern is what makes these rows dangerous rather than
+merely thin: a deterministic layer had joined each bare name to SOMETHING and
+the note records it as "left standing". `cavia` carries a defunct-JP match to
+a Japanese game developer, `paloma` a JP match to a water-heater maker,
+`insitu` a match to the drone company Boeing bought in 2008 — before a16z
+existed — and `cohere-networks` a $6.8B/CA match to Cohere the AI company.
+`concept`, `endra`, `glimpse`, `mirage` and `damora-therapeutics` each carry a
+public-float match that reads as a ticker collision. Those are joins on a
+name, not identifications, and a row that asserts nothing cannot carry them
+into a metric.
+
+**Seven rows are named and lose the flag**: `daylight` (the home-energy
+company whose 2024 seed a16z led), `dispatch` (sidewalk-delivery robots, 2016),
+`eon` (Endeavor Optical Networks — a later pass resolved it and the "identity
+unresolved" wording was never retired), `libra` (the Libra/Diem association,
+where the open question is membership rather than identity), `sky` (MakerDAO's
+rebrand, already merged with `maker`), `treeline` and `atoms`.
+
+**Three rows are one company under two renderings**: `locomobi` against the
+base's `locombi`, `butter-sysems` against `butter-systems` (the list's own
+typo), and `ng-cashnitra`, a scrape artifact that glued NG.Cash and Nitra —
+two real a16z companies — into one row that names neither correctly. They are
+flagged `identity_conflated` and recorded rather than merged: the merge file
+and the rebuild that applies it belong to a pass that owns this base.
+
+### One thing worth a decision: the SPEEDRUN rows
+
+Nine of the eighty-nine (`auto`, `cascade`, `coalition-systems`, `darwin`,
+`general-magic`, `mara`, `oasis`, `panorama`, `sun`) are live SPEEDRUN
+accelerator listings, and they lose something real. The program's $500k terms
+DATE and SIZE the entry — that is more than most unnameable rows have — but
+the terms describe what a16z offers every speedrun company rather than a round
+this one took, which is the same reason YC's batch-deal record cannot carry a
+stage on an unnameable row. They are treated the same way here, deliberately.
+If the pipeline gained a `program_terms` stage source, ranking with the Form D
+sources under the carried-through exception, these nine would keep a Seed that
+is genuinely evidenced. That is Erik's call, not this pass's.
+
+`verify --skip-cross` still fails on this book for reasons that predate the
+pass — 1,017 problems, all of them the S2A debt: retired booleans,
+`cohort_unverified` flags and Seed rows with no graduation status. None of the
+reclassified rows appears among them. The seed cohort reads 967 rather than
+1,056.
