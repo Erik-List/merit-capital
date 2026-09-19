@@ -2097,16 +2097,25 @@ def cmd_verify(args) -> None:
         problems.append(f"base rows without a classification: {unclassified[:10]}"
                         + (" …" if len(unclassified) > 10 else ""))
     print(f"$1B+ / $10B+ / $100B+ : {len(one_b)} / {len(ten_b)} / {len(hundred_b)}")
-    # Determined rows only: an unresolvable company is not a Seed entry, not a
-    # below-$1B outcome and not a graduation denominator (Erik, 2026-09-18).
-    # A row is a data point only where it asserts one: any UNDETERMINED column
-    # takes it out of every distribution, exactly as the database does.
+    # A row is a data point only in the columns it actually asserts, and since
+    # PRO-137 the two kinds of `undetermined` are no longer the same row. An
+    # UNRESOLVABLE company asserts nothing anywhere and leaves every
+    # distribution (Erik, 2026-09-18). A NAMEABLE company whose round the record
+    # does not give leaves the stage distribution and the S2A cohort only: it
+    # keeps its band and its status, which is exactly what §6 means by
+    # "`undetermined` here leaves `valuation_range` alone". Excluding it
+    # everywhere silently dropped 137 of Lux's 270 rows out of the valuation and
+    # focus distributions the moment PRO-135 wrote the honest value.
     determined = [r for r in merged.values()
-                  if r.get("entry_stage") != UNDETERMINED
-                  and r.get("valuation_range") != UNDETERMINED]
-    undet_rows = len(merged) - len(determined)
-    if undet_rows:
-        print(f"identity        : {undet_rows} undetermined rows, excluded from every metric")
+                  if r.get("valuation_range") != UNDETERMINED]
+    staged = [r for r in determined if r.get("entry_stage") != UNDETERMINED]
+    unresolvable = len(merged) - len(determined)
+    unstaged_rows = len(determined) - len(staged)
+    if unresolvable:
+        print(f"identity        : {unresolvable} unnameable rows, excluded from every metric")
+    if unstaged_rows:
+        print(f"stage unknown   : {unstaged_rows} nameable rows whose round the record does "
+              f"not give, excluded from the stage distribution and the S2A cohort")
     bad_focus = [s for s, r in merged.items()
                  if r.get("focus") is not None and r["focus"] not in VALID_FOCUS]
     if bad_focus:
@@ -2125,12 +2134,12 @@ def cmd_verify(args) -> None:
           f"{dict(cities.most_common(8))}")
     tags = Counter(r.get("valuation_range") for r in determined)
     print(f"valuation_range : {dict(tags.most_common())}")
-    stages = Counter(r.get("entry_stage") for r in determined)
+    stages = Counter(r.get("entry_stage") for r in staged)
     print(f"entry_stage     : {dict(stages.most_common())}")
     # The published C2A block, in the shape the report and the database
     # carry: seed entries, the too-young share, the undetermined remainder,
     # and the rate over the decided cohort with its coverage.
-    seed_rows = [r for r in determined if r.get("entry_stage") == "Seed"]
+    seed_rows = [r for r in staged if r.get("entry_stage") == "Seed"]
     gc = Counter(r.get("seed_to_a_graduation") or "undetermined" for r in seed_rows)
     cohort_n = gc["graduated"] + gc["not_graduated"]
     c2a_rate = gc["graduated"] / cohort_n if cohort_n else None

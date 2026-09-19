@@ -208,3 +208,45 @@ in a later round and the site year points earlier:
 3. **summer-health** — Lux co-led the $11.65M Series A (2024-04-23), and the report lists the returning investors without Lux, against a 2022 site year.
 4. **lightform** — Lux led the unnamed $5M round of 2017-11-22, which followed a $2.6M seed that does not name Lux.
 5. **sols-systems** — the structural `formd_band` Seed was kept, but if the Feb 2015 round is the Series B then the Lux-led April 2014 round is the Series A and the band is wrong.
+
+**R4 (2026-09-19, PRO-135) — this book's 188 sourceless stages are decided by
+what their own notes say, and 137 of them read `undetermined`.** Lux carried
+every one of the repo's 214 stages with an empty `entry_stage_source`, and the
+reason is structural rather than an oversight: the firm publishes no round word
+anywhere. Its site gives `lux_investment_year` and a milestone line ("Lux
+investment: 2021"), which R1 already ruled an anchor and not a label; its Getro
+job board gives a `stage` field, which R2 already refused as the company's
+current stage; and neither is eligible under PRO-135's first-party harvest, so
+Lux is the one book of twenty where that harvest yields nothing. What it does
+have is the firm's own **announcement archive**, and that is where five rows
+came back: auris-health ("Lux co-led Auris Health's Series A financing in
+2012"), matterport ("Lux led Matterport's Series A financing"), steadymd ("Lux
+Capital is leading SteadyMD's $25M Series B", so the B is the entry and the row
+is Growth), plus hugging-face and fiddler on the firm's own 2019 posts. Those
+are class-1 `first_party` with the post as the citation.
+
+For the rest the row's own note is the record of what the earlier pass knew, and
+it decides:
+
+- **45 rows take `model`.** The note names the company's own round pinned to one
+  transaction by an amount or a date — "launched 2023 with a $193M Series A",
+  "Ahana's $2.25M seed of 2020-06-02" — which is rung 3 of the evidence order.
+  The empty source field was a recording omission, not an absent source.
+- **137 rows read `undetermined`.** The note names no round, or says outright
+  that none could be found: "entry round not documented on any Lux surface", "no
+  Pinscreen round announcement could be retrieved at all", "pre-window entry so
+  entry_stage is null by policy" — and PRO-137 has since retired the date policy
+  the last phrasing rested on. An absence phrase outranks a round word mentioned
+  in passing in the same note.
+- **`Growth` is the one stage a note establishes without a round word**, because
+  it is the whole ladder from Series B up: eleven rows say the entry came after
+  the company's earlier rounds ("Lux entered in 2020 at a later round, not at
+  formation"; "a decade after founding and at one of the late private rounds")
+  and that sentence settles Growth whatever the round was called. The same
+  sentence would not settle Seed or Series A, so the rule is gated on the value.
+
+The published effect is large and intended: 137 of 270 rows leave the stage
+distribution, the S2A cohort drops to 26 decided rows, and the rate moves to
+88.5% over that cohort. They keep their band, their status and their focus —
+an unknown round is not an unknown company (§6) — and `verify` now says so on
+its own `stage unknown` line instead of folding them in with the unnameable.
