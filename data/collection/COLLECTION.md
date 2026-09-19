@@ -1304,6 +1304,17 @@ maturity today. 100% fill.
 
   1. `web_verified` + `entry_stage_citation` (URL naming the round and the
      firm's participation, or the firm's own memo/company page).
+  1b. `first_party` + `entry_stage_citation`: **the firm's own listing, where
+     it publishes a round word** (Erik, 2026-09-19, PRO-131 a). A company on
+     the firm's site with an investment year AND a stage label is class-1
+     evidence, the listing URL its citation. Menlo's R1 and Lightspeed's
+     per-company round field already were this; it now holds wherever a firm
+     publishes one, and it is the cheapest evidence there is, because the
+     source is already on disk under `sources/site/`.
+     **A bare year is an anchor, not a label.** A listing carrying an
+     investment year and no round word may set `first_seen` and may bound
+     entry recency; it may not mint a `Seed`. Dozens of rows have been
+     re-staged from Series A to Growth for exactly that mistake.
   2. `formd_structural`: partner-anchored entry position with prior-filing
      count; the accessions are the citation.
   3. `model` with a named deal in the note ("led the 2011 Series A") at
@@ -1439,6 +1450,19 @@ less, so no verified tag exists — the cohort is the verified set):
   invariant 1 in full mode rather than publishing a shrug. `export` writes
   `undetermined` on an in-window Seed row nobody decided, which is how the
   remainder stays visible in the report and the API while it is still debt.
+
+**A cited graduation rests on an uncited stage** (Erik, 2026-09-19, PRO-131
+b). Where the later round is cited but no page ties the firm to the seed, the
+row is DECIDED rather than left undetermined: the graduation keeps its source
+and citation, `entry_stage_confidence` reads `low`, and the row carries
+`stage_uncited`. The graduation is the published fact and the stage is
+context; discarding the row threw away something the record gives for want of
+something it does not. `verify` accepts that combination under rule 5 and
+counts it on its `stage leg` line, so the softening is visible rather than
+silent. It licenses nothing else: a graduation still needs its citation, and
+`not_graduated` still needs its own evidence, because an absence claim rests
+on the entry date being known. The firm's own listing (evidence class 1b
+above) is the cheaper fix and is tried first.
 
 An `identity_unresolved` row is not a Seed entry at all, so it enters none
 of the six numbers — an unnameable company is not evidence about a
@@ -1828,6 +1852,9 @@ run before the investor row exists (Thrive, 2026-09-04).
    or structural entry stage, and a graduation source carrying its evidence
    (`formd` agreeing with the layer; `first_party` / `web_verified` with
    `graduation_citation`; a no outside Form D also with `graduation_asof`).
+   **Exception (PRO-131 b): a CITED graduation may carry an uncited stage**
+   when the row is flagged `stage_uncited` at `entry_stage_confidence: low`;
+   those rows are counted on the `stage leg` line rather than failed.
    `cohort_unverified` is not an allowed end state (retired 2026-09-16).
 6. Non-US country on a visible row → citation or formd/wikidata provenance.
 7. No row ends `not_graduated` + (≥$1B or public); no `censored` row whose

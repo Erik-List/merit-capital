@@ -1193,12 +1193,15 @@ def validate_record(rec: dict, slugs: set[str], merged: dict | None = None) -> l
         errs.append(f"{slug}: hq_city_source {rec['hq_city_source']!r}")
     if rec.get("entry_stage_source") is not None and rec["entry_stage_source"] not in (
             "formd_band", "formd_structural", "model", "web_verified",
-            "program_terms"):
+            "program_terms", "first_party"):
         errs.append(f"{slug}: entry_stage_source {rec['entry_stage_source']!r}")
-    # web_verified stage claims must carry their citation (COLLECTION.md §6)
-    if rec.get("entry_stage_source") == "web_verified" \
+    # A cited stage claim carries its citation (COLLECTION.md §6). `first_party`
+    # is the firm's own listing, which must publish a ROUND WORD for the
+    # company: a bare investment year is an anchor, not a label.
+    if rec.get("entry_stage_source") in ("web_verified", "first_party") \
             and not (rec.get("entry_stage_citation") or "").strip():
-        errs.append(f"{slug}: web_verified stage without entry_stage_citation")
+        errs.append(f"{slug}: {rec['entry_stage_source']} stage without "
+                    f"entry_stage_citation")
     for key in ("valuation_citation", "hq_country_citation", "entry_stage_citation",
                 "graduation_citation"):
         v = rec.get(key)
@@ -1763,6 +1766,7 @@ def cmd_verify(args) -> None:
     in_flight = args.in_flight
     unanswered = 0
     open_grad = 0                    # in-window Seed rows the judge has not answered
+    cohort_uncited_stage = 0         # decided rows resting on an uncited stage (PRO-131 b)
     notes: list[str] = []            # in-flight observations that are not defects
     c2a_on = bool((CFG.get("verify") or {}).get("c2a_deterministic", True))
     merged = merge_rows(rows, resolved, cls)
@@ -1909,8 +1913,22 @@ def cmd_verify(args) -> None:
                             f"mark it undetermined")
         if g in COHORT_STATUSES:
             src = rec.get("graduation_source")
+            # Erik, 2026-09-19 (PRO-131 b): a CITED graduation is a published
+            # fact and is not thrown away because the firm never announced its
+            # seed. The row stays in the cohort with the stage marked
+            # `stage_uncited` at low confidence -- the graduation is the claim,
+            # the stage is context -- and the report counts how many rest on it.
             if not stage_cited:
-                problems.append(f"{slug}: {g} on an uncited entry stage")
+                grad_cited = (src == "formd"
+                              or str(rec.get("graduation_citation") or "").startswith("http"))
+                if (grad_cited and "stage_uncited" in flags_now
+                        and rec.get("entry_stage_confidence") == "low"):
+                    cohort_uncited_stage += 1
+                else:
+                    problems.append(
+                        f"{slug}: {g} on an uncited entry stage; a cited graduation may "
+                        f"carry one only with flag stage_uncited and entry_stage_confidence "
+                        f"low (PRO-131 b)")
             if src not in GRADUATION_SOURCES:
                 problems.append(f"{slug}: {g} from {src!r} is not a verified source")
             elif src == "formd":
@@ -2028,6 +2046,9 @@ def cmd_verify(args) -> None:
     c2a_rate = gc["graduated"] / cohort_n if cohort_n else None
     establishable = len(seed_rows) - gc["censored"]
     coverage = cohort_n / establishable if establishable else None
+    if cohort_uncited_stage:
+        print(f"stage leg       : {cohort_uncited_stage} decided rows rest on an uncited "
+              f"entry stage (cited graduation, stage low)")
     print(f"C2A             : {len(seed_rows)} seed entries, {gc['censored']} censored, "
           f"{gc['undetermined']} undetermined; cohort {cohort_n}, graduated {gc['graduated']}"
           + (f", rate {c2a_rate:.1%}, coverage {coverage:.1%}" if cohort_n else ""))
