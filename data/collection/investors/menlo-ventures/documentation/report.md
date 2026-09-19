@@ -433,3 +433,48 @@ the ransomware-defence company, not the Zurich robotics firm of the same
 name). The cohort becomes 32 with 23 graduated, 71.9% at 84% coverage.
 Decent's `entry_date` stays the firm's own 2018 Milestones close year under
 R1, not the September 2019 launch press.
+
+## Addendum 2026-09-19 — identity reclassification (PRO-136)
+
+Forty-seven published rows carried `identity_uncertain`, all of them live (no
+stale keys). Menlo's set splits along a line the other books do not have: the
+firm's 1998-2007 pages DESCRIBED what each company did, while its modern REST
+listings give a name and nothing else.
+
+**Twenty-four rows are named and lose the flag.** The old pages carry their
+own descriptions — Care Visions Corporation is "day and respite care for
+children", Charlton Associates is "disk storage media", Tudor is "Tudor
+Publishing - Curriculum design software" — and three rows were flagged for
+what are plainly rendering defects rather than doubts: `netedge` is a logo
+FILENAME for NetEdge Systems, `maven-laboatories-inc` carries the 1998 page's
+own misspelling, and `influxda` is a truncated capture of InfluxData. A typo
+in a capture is not an unnameable company.
+
+**Five rows are identified with a real namesake** and take `identity_homonym`:
+`cibus-pharmaceutical-inc` (not Cibus Inc, the modern CBUS), `crowdcast` (not
+the later webinar product), `endgame` (not the security company Elastic
+bought), `solace` (Solace Health, not Solace Systems) and `inception` (the
+diffusion-LLM company — and its "acquired" pre-fill came from exactly that
+collision).
+
+**Eighteen rows read `undetermined`**, and seventeen of them are the modern
+REST listings: `atta`, `barnyard-games`, `beheard`, `bluenote`, `crosswise`,
+`flapping-airplanes`, `fleet-ai`, `fractal`, `kabata`, `okthx`, `questa`,
+`regspot`, `scan`, `skipper`, `trove-ai`, `walden-robotics`, `workup`. Each is
+a name plus a menlovc.com URL with no description, milestone or filing, and
+each published a Series A that was the desk's convention rather than a round
+anyone could point to. Two of them name what they are NOT — `crosswise` is not
+the Israeli company Oracle bought, `questa` is not Siemens' verification tool
+— and ruling a candidate out is not the same as naming the company.
+
+The eighteenth is `presidio`, a logo filename from the 1998 healthcare page
+that the run could not resolve among the Presidio Medical / Presidio
+Pharmaceuticals class. It is also the case the precedence question was about:
+it carries `pre_window_entry`, whose rule nulls the stage, and
+`identity_unresolved`, whose rule writes `undetermined`. `undetermined` wins,
+because it is the more specific statement — we do not merely decline to label
+this row's stage by policy, we cannot say what company it is.
+
+`verify --skip-cross` clean. The S2A block moves from 52 to 45 seed entries as
+the undetermined rows leave the cohort; the rate reads 71.9% over 32 decided
+rows.

@@ -776,7 +776,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window",
    "pre_window_entry"
   ],
@@ -788,11 +787,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Apexon (the 2004-2007 listing), enterprise software services; the name later passed to Infostretch's rebrand. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | Apexon (the 2004-2007 listing), enterprise software services; the name later passed to Infostretch's rebrand. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 2002 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule",
+  "note": "Apexon (the 2004-2007 listing), enterprise software services; the name later passed to Infostretch's rebrand. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | Apexon (the 2004-2007 listing), enterprise software services; the name later passed to Infostretch's rebrand. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 2002 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule | IDENTITY RESOLVED (PRO-136): Apexon, enterprise software services, on the firm's own 2004-2007 listings; the name later passed to Infostretch's rebrand, which is a name question rather than a doubt about this position.",
   "slug": "apexon",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-prewindow-menlo"
+  "who": "agent-pro136-menlo"
  },
  "appdome": {
   "entry_stage": "Growth",
@@ -1224,12 +1223,11 @@
   "who": "agent-judge-prewindow-menlo"
  },
  "atta": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -1240,11 +1238,13 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Atta, a REST-only site row with no description, milestone or filing. Identification is thin; status private on the listing alone, entry round not established. | Atta, a REST-only site row with no description, milestone or filing. Identification is thin; status private on the listing alone, entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "Atta, a REST-only site row with no description, milestone or filing. Identification is thin; status private on the listing alone, entry round not established. | Atta, a REST-only site row with no description, milestone or filing. Identification is thin; status private on the listing alone, entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | UNRESOLVABLE (PRO-136): a REST-only site row with a name and the firm's own portfolio url, and no description, milestone or filing. The Series A was a convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric. The firm's own listing keeps it a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "atta",
   "status": "private",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-menlo"
  },
  "aurascape": {
   "entry_stage": "Series A",
@@ -1461,12 +1461,11 @@
   "who": "agent-judge-prewindow-menlo"
  },
  "barnyard-games": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "Media, Gaming & Advertising",
@@ -1477,11 +1476,13 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Barnyard Games, a 2024 listing with no description or milestone. Entry round not established. | Barnyard Games, a 2024 listing with no description or milestone. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "Barnyard Games, a 2024 listing with no description or milestone. Entry round not established. | Barnyard Games, a 2024 listing with no description or milestone. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | UNRESOLVABLE (PRO-136): a 2024 listing with no description or milestone. The Series A was a convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric. The firm's own listing keeps it a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "barnyard-games",
   "status": "private",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-menlo"
  },
  "bay-networks": {
   "entry_stage": "Series A",
@@ -1507,12 +1508,11 @@
   "who": "agent-judge-prewindow-menlo"
  },
  "beheard": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -1523,11 +1523,13 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "BeHeard, a 2025 REST-only listing with no description or milestone. Thin identification; entry round not established. | BeHeard, a 2025 REST-only listing with no description or milestone. Thin identification; entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "BeHeard, a 2025 REST-only listing with no description or milestone. Thin identification; entry round not established. | BeHeard, a 2025 REST-only listing with no description or milestone. Thin identification; entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | UNRESOLVABLE (PRO-136): a 2025 REST-only listing with no description or milestone. The Series A was a convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric. The firm's own listing keeps it a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "beheard",
   "status": "private",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-menlo"
  },
  "benchling": {
   "entry_stage": "Growth",
@@ -1746,12 +1748,11 @@
   "who": "agent-judge-prewindow-menlo"
  },
  "bluenote": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -1762,11 +1763,13 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Bluenote, a 2025 REST-only listing with no description or milestone. Thin identification; entry round not established. | Bluenote, a 2025 REST-only listing with no description or milestone. Thin identification; entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "Bluenote, a 2025 REST-only listing with no description or milestone. Thin identification; entry round not established. | Bluenote, a 2025 REST-only listing with no description or milestone. Thin identification; entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | UNRESOLVABLE (PRO-136): a 2025 REST-only listing with no description or milestone. The Series A was a convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric. The firm's own listing keeps it a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "bluenote",
   "status": "private",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-menlo"
  },
  "bluesocket": {
   "flags": [
@@ -2004,7 +2007,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "stage_prior",
    "stage_uncited"
   ],
@@ -2016,11 +2018,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Butler Labs, document AI; a 2023 listing with no milestone. Entry round not established. | Butler Labs, document AI; a 2023 listing with no milestone. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "Butler Labs, document AI; a 2023 listing with no milestone. Entry round not established. | Butler Labs, document AI; a 2023 listing with no milestone. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | IDENTITY RESOLVED (PRO-136): Butler Labs, document AI, on the firm's own 2023 listing.",
   "slug": "butler-labs",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "who": "agent-pro136-menlo"
  },
  "calix": {
   "entry_stage": "Growth",
@@ -2133,7 +2135,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window",
    "pre_window_entry"
   ],
@@ -2142,11 +2143,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Care Visions Corporation, day and respite care for children (the 1998 page's own description); wound down. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | Care Visions Corporation, day and respite care for children (the 1998 page's own description); wound down. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 1998 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule",
+  "note": "Care Visions Corporation, day and respite care for children (the 1998 page's own description); wound down. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | Care Visions Corporation, day and respite care for children (the 1998 page's own description); wound down. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 1998 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule | IDENTITY RESOLVED (PRO-136): Care Visions Corporation, day and respite care for children, described in those words on the firm's own 1998 page.",
   "slug": "care-visions-corporation",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-prewindow-menlo"
+  "who": "agent-pro136-menlo"
  },
  "carrier-access-corporation": {
   "entry_stage": "Series A",
@@ -2445,7 +2446,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window",
    "pre_window_entry"
   ],
@@ -2454,11 +2454,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Charlton Associates, disk storage media (the 1998 page's own description); a late-1970s or early-1980s Menlo position \u2014 among the oldest rows in the base. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | Charlton Associates, disk storage media (the 1998 page's own description); a late-1970s or early-1980s Menlo position \u2014 among the oldest rows in the base. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 1998 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule",
+  "note": "Charlton Associates, disk storage media (the 1998 page's own description); a late-1970s or early-1980s Menlo position \u2014 among the oldest rows in the base. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | Charlton Associates, disk storage media (the 1998 page's own description); a late-1970s or early-1980s Menlo position \u2014 among the oldest rows in the base. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 1998 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule | IDENTITY RESOLVED (PRO-136): Charlton Associates, disk storage media, described in those words on the firm's own 1998 page - among the oldest positions in this base.",
   "slug": "charlton-associates",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-prewindow-menlo"
+  "who": "agent-pro136-menlo"
  },
  "check": {
   "entry_stage": "Series A",
@@ -2557,7 +2557,7 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
+   "identity_homonym",
    "pre_window",
    "pre_window_entry"
   ],
@@ -2569,11 +2569,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Cibus Pharmaceutical of the 1998 healthcare page; wound down. Distinct from Cibus Inc (CBUS), the modern gene-editing agriculture company. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | Cibus Pharmaceutical of the 1998 healthcare page; wound down. Distinct from Cibus Inc (CBUS), the modern gene-editing agriculture company. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 1998 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule",
+  "note": "Cibus Pharmaceutical of the 1998 healthcare page; wound down. Distinct from Cibus Inc (CBUS), the modern gene-editing agriculture company. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | Cibus Pharmaceutical of the 1998 healthcare page; wound down. Distinct from Cibus Inc (CBUS), the modern gene-editing agriculture company. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 1998 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule | IDENTIFIED, NAMESAKE RECORDED (PRO-136): Cibus Pharmaceutical of the firm's own 1998 healthcare page, which wound down. NEVER to be joined with Cibus Inc (NASDAQ: CBUS), the modern gene-editing agriculture company.",
   "slug": "cibus-pharmaceutical-inc",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-prewindow-menlo"
+  "who": "agent-pro136-menlo"
  },
  "cielo-communications-inc": {
   "entry_stage": "Series A",
@@ -2602,7 +2602,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "stage_prior",
    "stage_uncited"
   ],
@@ -2614,11 +2613,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Cinemagram, looping video sharing; the team and app were wound into other products after 2014. Listed 2013 only; entry round not established. | Cinemagram, looping video sharing; the team and app were wound into other products after 2014. Listed 2013 only; entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "Cinemagram, looping video sharing; the team and app were wound into other products after 2014. Listed 2013 only; entry round not established. | Cinemagram, looping video sharing; the team and app were wound into other products after 2014. Listed 2013 only; entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | IDENTITY RESOLVED (PRO-136): Cinemagram, looping video sharing, whose team and app were wound into other products after 2014.",
   "slug": "cinemagram",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "who": "agent-pro136-menlo"
  },
  "cinemanow": {
   "entry_stage": "Growth",
@@ -2971,7 +2970,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window",
    "pre_window_entry"
   ],
@@ -2980,11 +2978,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "ComView Medical Systems, a 2000-era listing with no other surface. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | ComView Medical Systems, a 2000-era listing with no other surface. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 2000 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule",
+  "note": "ComView Medical Systems, a 2000-era listing with no other surface. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | ComView Medical Systems, a 2000-era listing with no other surface. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 2000 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule | IDENTITY RESOLVED (PRO-136): ComView Medical Systems, named on the firm's own 2000 listing.",
   "slug": "comview-medical-systems",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-prewindow-menlo"
+  "who": "agent-pro136-menlo"
  },
  "converzai": {
   "entry_stage": "Series A",
@@ -3133,12 +3131,11 @@
   "who": "agent-judge-pro91"
  },
  "crosswise": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -3149,18 +3146,20 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Crosswise, a 2026 listing (founded 2024) with no description or milestone. Entry round not established. Distinct from the Israeli Crosswise that Oracle bought in 2016. | Crosswise, a 2026 listing (founded 2024) with no description or milestone. Entry round not established. Distinct from the Israeli Crosswise that Oracle bought in 2016. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "Crosswise, a 2026 listing (founded 2024) with no description or milestone. Entry round not established. Distinct from the Israeli Crosswise that Oracle bought in 2016. | Crosswise, a 2026 listing (founded 2024) with no description or milestone. Entry round not established. Distinct from the Israeli Crosswise that Oracle bought in 2016. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | UNRESOLVABLE (PRO-136): a 2026 listing with no description or milestone. It is explicitly NOT the Israeli Crosswise that Oracle bought in 2016, but knowing what a row is not does not name it. The Series A was a convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric. The firm's own listing keeps it a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "crosswise",
   "status": "private",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-menlo"
  },
  "crowdcast": {
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
+   "identity_homonym",
    "stage_prior",
    "stage_uncited"
   ],
@@ -3169,11 +3168,11 @@
   "hq_city": "San Francisco",
   "hq_city_confidence": "high",
   "hq_city_source": "model_knowledge",
-  "note": "Crowdcast, crowd forecasting for enterprises (the 2010 era company, not the later webinar product); acquired in 2013. Listed 2010-2012; entry round not established. | Crowdcast, crowd forecasting for enterprises (the 2010 era company, not the later webinar product); acquired in 2013. Listed 2010-2012; entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "Crowdcast, crowd forecasting for enterprises (the 2010 era company, not the later webinar product); acquired in 2013. Listed 2010-2012; entry round not established. | Crowdcast, crowd forecasting for enterprises (the 2010 era company, not the later webinar product); acquired in 2013. Listed 2010-2012; entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | IDENTIFIED, NAMESAKE RECORDED (PRO-136): Crowdcast, crowd forecasting for enterprises, listed 2010-2012 and acquired in 2013. NEVER to be joined with the later Crowdcast webinar product, a different company of the same name.",
   "slug": "crowdcast",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "who": "agent-pro136-menlo"
  },
  "cyras": {
   "entry_stage": "Series A",
@@ -3696,7 +3695,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window",
    "pre_window_entry"
   ],
@@ -3705,11 +3703,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "EdVision, education software; a 2000-era listing that did not survive the dot-com collapse. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | EdVision, education software; a 2000-era listing that did not survive the dot-com collapse. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 2000 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule",
+  "note": "EdVision, education software; a 2000-era listing that did not survive the dot-com collapse. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | EdVision, education software; a 2000-era listing that did not survive the dot-com collapse. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 2000 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule | IDENTITY RESOLVED (PRO-136): EdVision, education software, named on the firm's own 2000 listing; it did not survive the dot-com collapse.",
   "slug": "edvision-inc",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-prewindow-menlo"
+  "who": "agent-pro136-menlo"
  },
  "eero": {
   "entry_date": "2014",
@@ -3972,7 +3970,7 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "identity_uncertain"
+   "identity_homonym"
   ],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
@@ -3982,11 +3980,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Endgame, product-led sales; Menlo partnered at the Series A in 2021 (firm's own page). Distinct from Endgame Inc, the security company Elastic bought in 2019.",
+  "note": "Endgame, product-led sales; Menlo partnered at the Series A in 2021 (firm's own page). Distinct from Endgame Inc, the security company Elastic bought in 2019. | IDENTIFIED, NAMESAKE RECORDED (PRO-136): Endgame, product-led sales, which Menlo partnered at the Series A in 2021 per the firm's own page. NEVER to be joined with Endgame Inc, the security company Elastic bought in 2019.",
   "slug": "endgame",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "who": "agent-pro136-menlo"
  },
  "endovascular-technologies": {
   "entry_stage": "Series A",
@@ -4060,7 +4058,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window",
    "pre_window_entry"
   ],
@@ -4069,11 +4066,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Enviso, a 2004 listing with no other surface. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | Enviso, a 2004 listing with no other surface. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 2004 in the firm's archive): Series A by convention, low confidence (nothing in the note or the site field documents a seed or a Series B-or-later entry); graduation null by rule",
+  "note": "Enviso, a 2004 listing with no other surface. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | Enviso, a 2004 listing with no other surface. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 2004 in the firm's archive): Series A by convention, low confidence (nothing in the note or the site field documents a seed or a Series B-or-later entry); graduation null by rule | IDENTITY RESOLVED (PRO-136): Enviso, named on the firm's own 2004 listing.",
   "slug": "enviso",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-prewindow-menlo"
+  "who": "agent-pro136-menlo"
  },
  "envoy": {
   "entry_stage": "Growth",
@@ -4704,12 +4701,11 @@
   "who": "agent-judge-pro91"
  },
  "flapping-airplanes": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
@@ -4720,19 +4716,20 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Flapping Airplanes, a REST-only listing with no description, dating or filing. Identification is thin; entry round not established. | Flapping Airplanes, a REST-only listing with no description, dating or filing. Identification is thin; entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "Flapping Airplanes, a REST-only listing with no description, dating or filing. Identification is thin; entry round not established. | Flapping Airplanes, a REST-only listing with no description, dating or filing. Identification is thin; entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | UNRESOLVABLE (PRO-136): a REST-only listing with no description, dating or filing. The Series A was a convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric. The firm's own listing keeps it a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "flapping-airplanes",
   "status": "private",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-menlo"
  },
  "fleet-ai": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "AI & Applied AI",
@@ -4743,11 +4740,13 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Fleet AI, a REST-only listing with no description, dating or filing. Entry round not established. | Fleet AI, a REST-only listing with no description, dating or filing. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "Fleet AI, a REST-only listing with no description, dating or filing. Entry round not established. | Fleet AI, a REST-only listing with no description, dating or filing. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | UNRESOLVABLE (PRO-136): a REST-only listing with no description, dating or filing. The Series A was a convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric. The firm's own listing keeps it a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "fleet-ai",
   "status": "private",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-menlo"
  },
  "fleetsmith": {
   "entry_stage": "Growth",
@@ -4859,12 +4858,11 @@
   "who": "agent-judge-pro91"
  },
  "fractal": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -4875,11 +4873,13 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Fractal, a 2023 listing with no description or milestone. Identification is thin \u2014 several companies trade under the name. Entry round not established. | Fractal, a 2023 listing with no description or milestone. Identification is thin \u2014 several companies trade under the name. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "Fractal, a 2023 listing with no description or milestone. Identification is thin \u2014 several companies trade under the name. Entry round not established. | Fractal, a 2023 listing with no description or milestone. Identification is thin \u2014 several companies trade under the name. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | UNRESOLVABLE (PRO-136): a 2023 listing with no description or milestone, under a name several companies trade beneath. The Series A was a convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric. The firm's own listing keeps it a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "fractal",
   "status": "private",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-menlo"
  },
  "frame-technology-corporation": {
   "entry_stage": "Series A",
@@ -5560,7 +5560,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window",
    "pre_window_entry"
   ],
@@ -5569,11 +5568,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Healthway Communications International, a 2000-era listing with no other surface. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | Healthway Communications International, a 2000-era listing with no other surface. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 2000 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule",
+  "note": "Healthway Communications International, a 2000-era listing with no other surface. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | Healthway Communications International, a 2000-era listing with no other surface. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 2000 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule | IDENTITY RESOLVED (PRO-136): Healthway Communications International, named on the firm's own 2000 listing.",
   "slug": "healthway-communications-international",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-prewindow-menlo"
+  "who": "agent-pro136-menlo"
  },
  "heap": {
   "entry_stage": "Series A",
@@ -5661,7 +5660,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "stage_prior",
    "stage_uncited"
   ],
@@ -5673,11 +5671,11 @@
   "hq_country": "SE",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Hem (formerly Fab.com's European design business), furniture and homeware; the business was restructured and sold on. Listed 2015 only; entry round not established. | Hem (formerly Fab.com's European design business), furniture and homeware; the business was restructured and sold on. Listed 2015 only; entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "Hem (formerly Fab.com's European design business), furniture and homeware; the business was restructured and sold on. Listed 2015 only; entry round not established. | Hem (formerly Fab.com's European design business), furniture and homeware; the business was restructured and sold on. Listed 2015 only; entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | IDENTITY RESOLVED (PRO-136): Hem, furniture and homeware - formerly Fab.com's European design business - which was restructured and sold on.",
   "slug": "hem",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "who": "agent-pro136-menlo"
  },
  "higgsfield": {
   "entry_date": "2024-04",
@@ -5861,7 +5859,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window",
    "pre_window_entry"
   ],
@@ -5873,11 +5870,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Idetic (MobiTV's predecessor technology arm), mobile content delivery; absorbed into MobiTV. Listed 2005 only. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | Idetic (MobiTV's predecessor technology arm), mobile content delivery; absorbed into MobiTV. Listed 2005 only. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 2005 in the firm's archive): Series A by convention, low confidence (nothing in the note or the site field documents a seed or a Series B-or-later entry); graduation null by rule",
+  "note": "Idetic (MobiTV's predecessor technology arm), mobile content delivery; absorbed into MobiTV. Listed 2005 only. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | Idetic (MobiTV's predecessor technology arm), mobile content delivery; absorbed into MobiTV. Listed 2005 only. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 2005 in the firm's archive): Series A by convention, low confidence (nothing in the note or the site field documents a seed or a Series B-or-later entry); graduation null by rule | IDENTITY RESOLVED (PRO-136): Idetic, MobiTV's predecessor technology arm for mobile content delivery, absorbed into MobiTV.",
   "slug": "idetic",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-prewindow-menlo"
+  "who": "agent-pro136-menlo"
  },
  "ikos-systems-inc": {
   "entry_stage": "Series A",
@@ -5989,7 +5986,7 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
+   "identity_homonym",
    "model_disputes_source",
    "stage_prior",
    "stage_uncited"
@@ -6002,10 +5999,10 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Inception, the diffusion-LLM company (Mercury); a REST-only listing with no dating. The 'acquired' pre-fill is a namesake collision with one of several companies called Inception and is disputed. Entry round not established. | Inception, the diffusion-LLM company (Mercury); a REST-only listing with no dating. The 'acquired' pre-fill is a namesake collision with one of several companies called Inception and is disputed. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "Inception, the diffusion-LLM company (Mercury); a REST-only listing with no dating. The 'acquired' pre-fill is a namesake collision with one of several companies called Inception and is disputed. Entry round not established. | Inception, the diffusion-LLM company (Mercury); a REST-only listing with no dating. The 'acquired' pre-fill is a namesake collision with one of several companies called Inception and is disputed. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | IDENTIFIED, NAMESAKE RECORDED (PRO-136): Inception, the diffusion-LLM company behind Mercury. NEVER to be joined with the other companies trading as Inception - the 'acquired' pre-fill on this row came from exactly that collision and is disputed.",
   "slug": "inception",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "who": "agent-pro136-menlo"
  },
  "indio": {
   "entry_stage": "Growth",
@@ -6031,7 +6028,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "stage_prior",
    "stage_uncited"
   ],
@@ -6043,13 +6039,13 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "'Influxda' is a truncated capture of InfluxData, the time-series database company; a 2024 REST-only row. Identification is thin and the entry round is not established. | 'Influxda' is a truncated capture of InfluxData, the time-series database company; a 2024 REST-only row. Identification is thin and the entry round is not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | A/B pass 2026-09-06, MOMENTUM SLICE (COLLECTION.md 6): this row is private, first seen within the last five years and in a hot sector, so it takes one mechanical web check even without a trigger. As of 2026-09-06 it carries no priced round, tender or listing at or above $1B on the record \u2014 it is absent from the re-pulled unicorn snapshot, carries no cited figure in any of the ten sibling bases this project has landed, and the round announcements that exist price it below the band. Pinecone is the clearest case: the firm's own post dates its $750M mark. The absence claim carries its date.",
+  "note": "'Influxda' is a truncated capture of InfluxData, the time-series database company; a 2024 REST-only row. Identification is thin and the entry round is not established. | 'Influxda' is a truncated capture of InfluxData, the time-series database company; a 2024 REST-only row. Identification is thin and the entry round is not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | A/B pass 2026-09-06, MOMENTUM SLICE (COLLECTION.md 6): this row is private, first seen within the last five years and in a hot sector, so it takes one mechanical web check even without a trigger. As of 2026-09-06 it carries no priced round, tender or listing at or above $1B on the record \u2014 it is absent from the re-pulled unicorn snapshot, carries no cited figure in any of the ten sibling bases this project has landed, and the round announcements that exist price it below the band. Pinecone is the clearest case: the firm's own post dates its $750M mark. The absence claim carries its date. | IDENTITY RESOLVED (PRO-136): InfluxData, the time-series database company; 'Influxda' is a truncated capture of that name. A truncation is a rendering defect, not an unnameable company, and the row keeps the firm's own listing as its membership evidence.",
   "slug": "influxda",
   "status": "private",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
   "valuation_range_source": "web_verified",
-  "who": "agent-judge-pro91"
+  "who": "agent-pro136-menlo"
  },
  "information-advantage-software-inc": {
   "entry_stage": "Series A",
@@ -6308,7 +6304,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window",
    "pre_window_entry"
   ],
@@ -6317,11 +6312,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "iS3, a 2004 listing with no other surface. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | iS3, a 2004 listing with no other surface. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 2004 in the firm's archive): Series A by convention, low confidence (nothing in the note or the site field documents a seed or a Series B-or-later entry); graduation null by rule",
+  "note": "iS3, a 2004 listing with no other surface. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | iS3, a 2004 listing with no other surface. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 2004 in the firm's archive): Series A by convention, low confidence (nothing in the note or the site field documents a seed or a Series B-or-later entry); graduation null by rule | IDENTITY RESOLVED (PRO-136): iS3, named on the firm's own 2004 listing.",
   "slug": "is3",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-prewindow-menlo"
+  "who": "agent-pro136-menlo"
  },
  "ivac-holdings-inc": {
   "entry_stage": "Series A",
@@ -6407,12 +6402,11 @@
   "who": "agent-judge-pro91"
  },
  "kabata": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -6420,11 +6414,13 @@
   "hq_city": "Tokyo",
   "hq_city_confidence": "high",
   "hq_city_source": "model_knowledge",
-  "note": "Kabata, a 2025 listing with no description or milestone; Japanese per the pre-fill. Entry round not established. | Kabata, a 2025 listing with no description or milestone; Japanese per the pre-fill. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "Kabata, a 2025 listing with no description or milestone; Japanese per the pre-fill. Entry round not established. | Kabata, a 2025 listing with no description or milestone; Japanese per the pre-fill. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | UNRESOLVABLE (PRO-136): a 2025 listing with no description or milestone. The Series A was a convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric. The firm's own listing keeps it a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "kabata",
   "status": "private",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-menlo"
  },
  "kalpana": {
   "entry_stage": "Series A",
@@ -6906,7 +6902,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window",
    "pre_window_entry"
   ],
@@ -6915,11 +6910,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Long Term Care Physicians Corporation, physician services for long-term care; acquired in the 1990s. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | Long Term Care Physicians Corporation, physician services for long-term care; acquired in the 1990s. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 1998 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule",
+  "note": "Long Term Care Physicians Corporation, physician services for long-term care; acquired in the 1990s. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | Long Term Care Physicians Corporation, physician services for long-term care; acquired in the 1990s. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 1998 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule | IDENTITY RESOLVED (PRO-136): Long Term Care Physicians Corporation, physician services for long-term care, acquired in the 1990s.",
   "slug": "long-term-care-physicians-corporation",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-prewindow-menlo"
+  "who": "agent-pro136-menlo"
  },
  "lovable": {
   "entry_stage": "Growth",
@@ -7174,7 +7169,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
@@ -7185,11 +7179,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Market10, online marketplace; wound down. Listed 2007 only; entry round not established. | Market10, online marketplace; wound down. Listed 2007 only; entry round not established. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | No press, filing or vendor record names a Market10 round at all. The firm's archive lists it only on the 2007-01-07 capture (absent 2006-03-29), so the entry falls between Apr 2006 and Jan 2007, inside the window; a first-listed, short-lived 2006 start-up is a Series A by base rate.",
+  "note": "Market10, online marketplace; wound down. Listed 2007 only; entry round not established. | Market10, online marketplace; wound down. Listed 2007 only; entry round not established. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | No press, filing or vendor record names a Market10 round at all. The firm's archive lists it only on the 2007-01-07 capture (absent 2006-03-29), so the entry falls between Apr 2006 and Jan 2007, inside the window; a first-listed, short-lived 2006 start-up is a Series A by base rate. | IDENTITY RESOLVED (PRO-136): Market10, an online marketplace that wound down, named on the firm's own 2007 listing.",
   "slug": "market10",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-prewindow-menlo"
+  "who": "agent-pro136-menlo"
  },
  "matik": {
   "entry_date": "2019-10-11",
@@ -7263,7 +7257,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window",
    "pre_window_entry"
   ],
@@ -7272,11 +7265,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Maven Laboratories (the 1998 page's own misspelling 'MAVEN LABOATORIES'), devices for nausea and vomiting; wound down. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | Maven Laboratories (the 1998 page's own misspelling 'MAVEN LABOATORIES'), devices for nausea and vomiting; wound down. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 1998 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule",
+  "note": "Maven Laboratories (the 1998 page's own misspelling 'MAVEN LABOATORIES'), devices for nausea and vomiting; wound down. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | Maven Laboratories (the 1998 page's own misspelling 'MAVEN LABOATORIES'), devices for nausea and vomiting; wound down. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 1998 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule | IDENTITY RESOLVED (PRO-136): Maven Laboratories, devices for nausea and vomiting, named on the firm's own 1998 page - which is also where the misspelling 'MAVEN LABOATORIES' comes from. A typo in a capture is not an identity doubt.",
   "slug": "maven-laboatories-inc",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-prewindow-menlo"
+  "who": "agent-pro136-menlo"
  },
  "mealpal": {
   "entry_stage": "Growth",
@@ -7303,7 +7296,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "stage_prior",
    "stage_uncited"
   ],
@@ -7312,11 +7304,11 @@
   "hq_city": "New York",
   "hq_city_confidence": "high",
   "hq_city_source": "model_knowledge",
-  "note": "Media6Degrees, social-graph advertising targeting \u2014 renamed Dstillery in 2014 and still trading. Form D 2011 $19.9M with Mark Siegel. Recorded acquired-by-rename is wrong, so the row reads private under its successor name. | Media6Degrees renamed itself Dstillery in 2014 and still trades independently, so the row is private under its successor name rather than acquired. Form D 2011 $19.9M with Mark Siegel dates the Series A entry. | Media6Degrees, social-graph advertising targeting \u2014 renamed Dstillery in 2014 and still trading. Form D 2011 $19.9M with Mark Siegel. Recorded acquired-by-rename is wrong, so the row reads private under its successor name. | Media6Degrees renamed itself Dstillery in 2014 and still trades independently, so the row is private under its successor name rather than acquired. Form D 2011 $19.9M with Mark Siegel dates the Series A entry. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "Media6Degrees, social-graph advertising targeting \u2014 renamed Dstillery in 2014 and still trading. Form D 2011 $19.9M with Mark Siegel. Recorded acquired-by-rename is wrong, so the row reads private under its successor name. | Media6Degrees renamed itself Dstillery in 2014 and still trades independently, so the row is private under its successor name rather than acquired. Form D 2011 $19.9M with Mark Siegel dates the Series A entry. | Media6Degrees, social-graph advertising targeting \u2014 renamed Dstillery in 2014 and still trading. Form D 2011 $19.9M with Mark Siegel. Recorded acquired-by-rename is wrong, so the row reads private under its successor name. | Media6Degrees renamed itself Dstillery in 2014 and still trades independently, so the row is private under its successor name rather than acquired. Form D 2011 $19.9M with Mark Siegel dates the Series A entry. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | IDENTITY RESOLVED (PRO-136): Dstillery, formerly Media6Degrees - the row carries the old slug and the current name, which is a rendering question rather than an identity one.",
   "slug": "media6degrees",
   "status": "private",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "who": "agent-pro136-menlo"
  },
  "medra": {
   "entry_stage": "Series A",
@@ -7959,7 +7951,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window",
    "pre_window_entry"
   ],
@@ -7971,11 +7962,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "'netedge' is the LOGO FILENAME on the 1998 communications page for NetEdge Systems, the ATM internetworking company Larscom acquired in 1997. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | 'netedge' is the LOGO FILENAME on the 1998 communications page for NetEdge Systems, the ATM internetworking company Larscom acquired in 1997. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 1998 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule",
+  "note": "'netedge' is the LOGO FILENAME on the 1998 communications page for NetEdge Systems, the ATM internetworking company Larscom acquired in 1997. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | 'netedge' is the LOGO FILENAME on the 1998 communications page for NetEdge Systems, the ATM internetworking company Larscom acquired in 1997. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 1998 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule | IDENTITY RESOLVED (PRO-136): NetEdge Systems, the ATM internetworking company Larscom acquired in 1997. The slug is the LOGO FILENAME from the firm's 1998 communications page, which is a rendering artefact rather than an unnameable company.",
   "slug": "netedge",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-prewindow-menlo"
+  "who": "agent-pro136-menlo"
  },
  "neterion": {
   "entry_stage": "Series A",
@@ -8544,12 +8535,11 @@
   "who": "agent-judge-pro91"
  },
  "okthx": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
@@ -8560,11 +8550,13 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Okthx, a REST-only listing with no description, dating or filing. Identification is thin; entry round not established. | Okthx, a REST-only listing with no description, dating or filing. Identification is thin; entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "Okthx, a REST-only listing with no description, dating or filing. Identification is thin; entry round not established. | Okthx, a REST-only listing with no description, dating or filing. Identification is thin; entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | UNRESOLVABLE (PRO-136): a REST-only listing with no description, dating or filing. The Series A was a convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric. The firm's own listing keeps it a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "okthx",
   "status": "defunct",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-menlo"
  },
  "onrequest-images": {
   "entry_stage": "Series A",
@@ -9515,11 +9507,11 @@
   "who": "agent-judge-pro91"
  },
  "presidio": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
+   "identity_unresolved",
    "pre_window",
    "pre_window_entry"
   ],
@@ -9531,11 +9523,13 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "'presidio' is a LOGO FILENAME from the 1998 healthcare page (companies/presidio.gif) \u2014 the Presidio Medical / Presidio Pharmaceuticals class of 1990s Menlo healthcare positions. Identification is not resolved to one company, so the row is kept with the flag rather than asserted. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | 'presidio' is a LOGO FILENAME from the 1998 healthcare page (companies/presidio.gif) \u2014 the Presidio Medical / Presidio Pharmaceuticals class of 1990s Menlo healthcare positions. Identification is not resolved to one company, so the row is kept with the flag rather than asserted. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 1998 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule",
+  "note": "'presidio' is a LOGO FILENAME from the 1998 healthcare page (companies/presidio.gif) \u2014 the Presidio Medical / Presidio Pharmaceuticals class of 1990s Menlo healthcare positions. Identification is not resolved to one company, so the row is kept with the flag rather than asserted. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | 'presidio' is a LOGO FILENAME from the 1998 healthcare page (companies/presidio.gif) \u2014 the Presidio Medical / Presidio Pharmaceuticals class of 1990s Menlo healthcare positions. Identification is not resolved to one company, so the row is kept with the flag rather than asserted. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 1998 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule | UNRESOLVABLE (PRO-136): a LOGO FILENAME from the firm's 1998 healthcare page (companies/presidio.gif), which the run could not resolve to one company among the Presidio Medical / Presidio Pharmaceuticals class of 1990s positions. The Series A was a convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric. The firm's own listing keeps it a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "presidio",
   "status": "acquired",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-prewindow-menlo"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-menlo"
  },
  "prime-intellect": {
   "entry_stage": "Series A",
@@ -9860,12 +9854,11 @@
   "who": "agent-judge-prewindow-menlo"
  },
  "questa": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "Security",
@@ -9876,11 +9869,13 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Questa, a 2024 listing with no description or milestone. Identification is thin \u2014 distinct from Siemens' Questa verification tool. Entry round not established. | Questa, a 2024 listing with no description or milestone. Identification is thin \u2014 distinct from Siemens' Questa verification tool. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "Questa, a 2024 listing with no description or milestone. Identification is thin \u2014 distinct from Siemens' Questa verification tool. Entry round not established. | Questa, a 2024 listing with no description or milestone. Identification is thin \u2014 distinct from Siemens' Questa verification tool. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | UNRESOLVABLE (PRO-136): a 2024 listing with no description or milestone; it is not Siemens' Questa verification tool, but that only rules one candidate out. The Series A was a convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric. The firm's own listing keeps it a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "questa",
   "status": "private",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-menlo"
  },
  "questra-corporation": {
   "entry_stage": "Series A",
@@ -10081,12 +10076,11 @@
   "who": "agent-judge-pro91"
  },
  "regspot": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -10097,11 +10091,13 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Regspot, a 2023 listing with no description or milestone. Entry round not established. | Regspot, a 2023 listing with no description or milestone. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "Regspot, a 2023 listing with no description or milestone. Entry round not established. | Regspot, a 2023 listing with no description or milestone. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | UNRESOLVABLE (PRO-136): a 2023 listing with no description or milestone. The Series A was a convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric. The firm's own listing keeps it a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "regspot",
   "status": "private",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-menlo"
  },
  "relationalai": {
   "entry_stage": "Series A",
@@ -10651,12 +10647,11 @@
   "who": "agent-judge-prewindow-menlo"
  },
  "scan": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
@@ -10664,11 +10659,13 @@
   "hq_city": "San Francisco",
   "hq_city_confidence": "high",
   "hq_city_source": "model_knowledge",
-  "note": "Scan, a REST-only listing with no description, dating or filing. Identification is thin \u2014 several companies trade under the name. Entry round not established. | Scan, a REST-only listing with no description, dating or filing. Identification is thin \u2014 several companies trade under the name. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "Scan, a REST-only listing with no description, dating or filing. Identification is thin \u2014 several companies trade under the name. Entry round not established. | Scan, a REST-only listing with no description, dating or filing. Identification is thin \u2014 several companies trade under the name. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | UNRESOLVABLE (PRO-136): a REST-only listing with no description, dating or filing, under a name several companies trade beneath. The Series A was a convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric. The firm's own listing keeps it a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "scan",
   "status": "private",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-menlo"
  },
  "schooner": {
   "entry_stage": "Series A",
@@ -10879,7 +10876,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "stage_prior",
    "stage_uncited"
   ],
@@ -10891,11 +10887,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Shaker (Shaker Recruitment), job-simulation hiring assessments; the venture-backed business wound down. Listed 2012-2013; entry round not established. | Shaker (Shaker Recruitment), job-simulation hiring assessments; the venture-backed business wound down. Listed 2012-2013; entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "Shaker (Shaker Recruitment), job-simulation hiring assessments; the venture-backed business wound down. Listed 2012-2013; entry round not established. | Shaker (Shaker Recruitment), job-simulation hiring assessments; the venture-backed business wound down. Listed 2012-2013; entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | IDENTITY RESOLVED (PRO-136): Shaker Recruitment, job-simulation hiring assessments, listed 2012-2013; the venture-backed business wound down.",
   "slug": "shaker",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "who": "agent-pro136-menlo"
  },
  "shazam": {
   "entry_stage": "Series A",
@@ -11196,12 +11192,11 @@
   "who": "agent-judge-pro91"
  },
  "skipper": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -11212,11 +11207,13 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Skipper, a 2025 listing with no description or milestone. Entry round not established. | Skipper, a 2025 listing with no description or milestone. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "Skipper, a 2025 listing with no description or milestone. Entry round not established. | Skipper, a 2025 listing with no description or milestone. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | UNRESOLVABLE (PRO-136): a 2025 listing with no description or milestone. The Series A was a convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric. The firm's own listing keeps it a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "skipper",
   "status": "private",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-menlo"
  },
  "slash": {
   "entry_stage": "Series A",
@@ -11364,7 +11361,7 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "identity_uncertain"
+   "identity_homonym"
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
@@ -11374,11 +11371,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Solace Health, Medicare patient advocacy; Menlo partnered at the Series B in 2025 (firm's own page and its own announcement post). Distinct from Solace Systems, the Canadian messaging-middleware company.",
+  "note": "Solace Health, Medicare patient advocacy; Menlo partnered at the Series B in 2025 (firm's own page and its own announcement post). Distinct from Solace Systems, the Canadian messaging-middleware company. | IDENTIFIED, NAMESAKE RECORDED (PRO-136): Solace Health, Medicare patient advocacy, which Menlo partnered at the Series B in 2025 per the firm's own page and announcement post. NEVER to be joined with Solace Systems, the Canadian messaging-middleware company.",
   "slug": "solace",
   "status": "private",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "who": "agent-pro136-menlo"
  },
  "solarant-medical": {
   "entry_stage": "Series A",
@@ -11610,7 +11607,6 @@
   "entry_stage_confidence": "medium",
   "entry_stage_source": "formd_structural",
   "flags": [
-   "identity_uncertain",
    "stage_prior",
    "stage_uncited"
   ],
@@ -11621,12 +11617,12 @@
   "hq_city": "San Francisco",
   "hq_city_confidence": "high",
   "hq_city_source": "model_knowledge",
-  "note": "Sticky Technologies, a 2021-vintage seed position; Form D 2022 $3.6M with Greg Rudin and Shawn Carolan. No live surface and no listing since; recorded defunct at medium confidence. | Sticky Technologies, a 2021-vintage seed position; Form D 2022 $3.6M with Greg Rudin and Shawn Carolan. No live surface and no listing since; recorded defunct at medium confidence. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | C2A cohort row: the entry leg is established but the follow-on leg is not verified against a documented round, so the row carries cohort_unverified and is excluded from the published rate's verified share (COLLECTION.md 6). | Sticky Technologies, a 2021-vintage seed position; Form D 2022 $3.6M with Greg Rudin and Shawn Carolan. No live surface and no listing since; recorded defunct at medium confidence. | Sticky Technologies, a 2021-vintage seed position; Form D 2022 $3.6M with Greg Rudin and Shawn Carolan. No live surface and no listing since; recorded defunct at medium confidence. | Entry stage restored to Seed from the partner-anchored Form D structure: the sweep that filled unjudged rows with the firm's modal prior had overwritten it, and the deterministic C2A leg on this row belongs to the Seed reading. | Form D layer accepted: the $3.6M offering sold 2022-03-11 (Greg Rudin and Shawn Carolan on the filing) is the only filing and the rescan as-of 2026-09-06 is past entry + 24 months; no live surface since (recorded defunct at medium confidence; identity_uncertain stays).",
+  "note": "Sticky Technologies, a 2021-vintage seed position; Form D 2022 $3.6M with Greg Rudin and Shawn Carolan. No live surface and no listing since; recorded defunct at medium confidence. | Sticky Technologies, a 2021-vintage seed position; Form D 2022 $3.6M with Greg Rudin and Shawn Carolan. No live surface and no listing since; recorded defunct at medium confidence. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | C2A cohort row: the entry leg is established but the follow-on leg is not verified against a documented round, so the row carries cohort_unverified and is excluded from the published rate's verified share (COLLECTION.md 6). | Sticky Technologies, a 2021-vintage seed position; Form D 2022 $3.6M with Greg Rudin and Shawn Carolan. No live surface and no listing since; recorded defunct at medium confidence. | Sticky Technologies, a 2021-vintage seed position; Form D 2022 $3.6M with Greg Rudin and Shawn Carolan. No live surface and no listing since; recorded defunct at medium confidence. | Entry stage restored to Seed from the partner-anchored Form D structure: the sweep that filled unjudged rows with the firm's modal prior had overwritten it, and the deterministic C2A leg on this row belongs to the Seed reading. | Form D layer accepted: the $3.6M offering sold 2022-03-11 (Greg Rudin and Shawn Carolan on the filing) is the only filing and the rescan as-of 2026-09-06 is past entry + 24 months; no live surface since (recorded defunct at medium confidence; identity_uncertain stays). | IDENTITY RESOLVED (PRO-136): Sticky Technologies, a 2021-vintage seed position whose own Form D ($3.6M, 2022, with Greg Rudin and Shawn Carolan) carries the entry; the filings name the issuer and date the round even though no listing survives.",
   "seed_to_a_graduation": "not_graduated",
   "slug": "sticky-technologies-inc-de",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-menlo"
+  "who": "agent-pro136-menlo"
  },
  "strata-identity": {
   "entry_stage": "Series A",
@@ -12066,7 +12062,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -12074,11 +12069,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Tentoe, a 2006-2007 listing with no other surface. Entry round not established. | Tentoe, a 2006-2007 listing with no other surface. Entry round not established. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | Nothing on the web names a Tentoe round or Menlo's participation. The firm's archive lists it on the 2006-03-29 capture and not on the 2005-02-19 capture, so the entry falls between Feb 2005 and Mar 2006: not shown pre-window, so pre_window is cleared, but a 2005 entry remains the likelier reading (ten of the thirteen months are 2005). Series A by base rate; the company had an SEC registrant record (CIK 1161700) from about 2001.",
+  "note": "Tentoe, a 2006-2007 listing with no other surface. Entry round not established. | Tentoe, a 2006-2007 listing with no other surface. Entry round not established. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | Nothing on the web names a Tentoe round or Menlo's participation. The firm's archive lists it on the 2006-03-29 capture and not on the 2005-02-19 capture, so the entry falls between Feb 2005 and Mar 2006: not shown pre-window, so pre_window is cleared, but a 2005 entry remains the likelier reading (ten of the thirteen months are 2005). Series A by base rate; the company had an SEC registrant record (CIK 1161700) from about 2001. | IDENTITY RESOLVED (PRO-136): Tentoe, named on the firm's own 2006-2007 listings.",
   "slug": "tentoe",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-prewindow-menlo"
+  "who": "agent-pro136-menlo"
  },
  "tera-systems": {
   "entry_stage": "Series A",
@@ -12146,7 +12141,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window",
    "pre_window_entry"
   ],
@@ -12158,11 +12152,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "The Picture People, in-store portrait studios; owned by Hallmark and later Lifetouch. The Menlo position is the Expressly Portraits business that fed it. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | The Picture People, in-store portrait studios; owned by Hallmark and later Lifetouch. The Menlo position is the Expressly Portraits business that fed it. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 2000 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule",
+  "note": "The Picture People, in-store portrait studios; owned by Hallmark and later Lifetouch. The Menlo position is the Expressly Portraits business that fed it. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | The Picture People, in-store portrait studios; owned by Hallmark and later Lifetouch. The Menlo position is the Expressly Portraits business that fed it. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 2000 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule | IDENTITY RESOLVED (PRO-136): The Picture People, in-store portrait studios later owned by Hallmark and Lifetouch; the Menlo position is the Expressly Portraits business that fed it, which the note records.",
   "slug": "the-picture-people",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-prewindow-menlo"
+  "who": "agent-pro136-menlo"
  },
  "tintri": {
   "entry_stage": "Series A",
@@ -12226,12 +12220,11 @@
   "who": "agent-judge-pro91"
  },
  "trove-ai": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "AI & Applied AI",
@@ -12242,13 +12235,15 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Trove AI, a 2026 REST-only listing with no description or milestone. Entry round not established. | Trove AI, a 2026 REST-only listing with no description or milestone. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | A/B pass 2026-09-06, MOMENTUM SLICE (COLLECTION.md 6): this row is private, first seen within the last five years and in a hot sector, so it takes one mechanical web check even without a trigger. As of 2026-09-06 it carries no priced round, tender or listing at or above $1B on the record \u2014 it is absent from the re-pulled unicorn snapshot, carries no cited figure in any of the ten sibling bases this project has landed, and the round announcements that exist price it below the band. Pinecone is the clearest case: the firm's own post dates its $750M mark. The absence claim carries its date.",
+  "note": "Trove AI, a 2026 REST-only listing with no description or milestone. Entry round not established. | Trove AI, a 2026 REST-only listing with no description or milestone. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | A/B pass 2026-09-06, MOMENTUM SLICE (COLLECTION.md 6): this row is private, first seen within the last five years and in a hot sector, so it takes one mechanical web check even without a trigger. As of 2026-09-06 it carries no priced round, tender or listing at or above $1B on the record \u2014 it is absent from the re-pulled unicorn snapshot, carries no cited figure in any of the ten sibling bases this project has landed, and the round announcements that exist price it below the band. Pinecone is the clearest case: the firm's own post dates its $750M mark. The absence claim carries its date. | UNRESOLVABLE (PRO-136): a 2026 REST-only listing with no description or milestone. The Series A was a convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric. The firm's own listing keeps it a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "trove-ai",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b",
+  "valuation_range": "undetermined",
   "valuation_range_source": "web_verified",
-  "who": "agent-judge-pro91"
+  "valuation_usd": null,
+  "who": "agent-pro136-menlo"
  },
  "true-anomaly": {
   "entry_stage": "Growth",
@@ -12318,7 +12313,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window",
    "pre_window_entry"
   ],
@@ -12327,11 +12321,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "'Tudor' is the 1998 software page's own row 'Tudor Publishing - Curriculum design software', captured without its description. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | 'Tudor' is the 1998 software page's own row 'Tudor Publishing - Curriculum design software', captured without its description. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 1998 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule",
+  "note": "'Tudor' is the 1998 software page's own row 'Tudor Publishing - Curriculum design software', captured without its description. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | 'Tudor' is the 1998 software page's own row 'Tudor Publishing - Curriculum design software', captured without its description. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 1998 in the firm's archive): Series A by the pre-2003 convention, low confidence; graduation null by rule | IDENTITY RESOLVED (PRO-136): Tudor Publishing, curriculum-design software - the firm's own 1998 software page carries the row with that description, captured without it.",
   "slug": "tudor",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-prewindow-menlo"
+  "who": "agent-pro136-menlo"
  },
  "tumblr": {
   "entry_stage": "Growth",
@@ -12946,7 +12940,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window",
    "pre_window_entry"
   ],
@@ -12955,11 +12948,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "VirtualSynaptics, a 2005-2007 listing with no other surface. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | VirtualSynaptics, a 2005-2007 listing with no other surface. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 2005 in the firm's archive): Series A by convention, low confidence (nothing in the note or the site field documents a seed or a Series B-or-later entry); graduation null by rule",
+  "note": "VirtualSynaptics, a 2005-2007 listing with no other surface. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | VirtualSynaptics, a 2005-2007 listing with no other surface. Pre-window position on the firm's own archived listings; entry_stage and graduation are null by the 2006 policy constant. | PRE-WINDOW: the entry predates the 2006 window constant, so entry_stage and seed_to_a_graduation are null by policy rather than by omission. | pre-window entry (first listed 2005 in the firm's archive): Series A by convention, low confidence (nothing in the note or the site field documents a seed or a Series B-or-later entry); graduation null by rule | IDENTITY RESOLVED (PRO-136): VirtualSynaptics, named on the firm's own 2005-2007 listings.",
   "slug": "virtualsynaptics",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-prewindow-menlo"
+  "who": "agent-pro136-menlo"
  },
  "visible-path": {
   "entry_date": "2006",
@@ -13127,12 +13120,11 @@
   "who": "agent-judge-pro91"
  },
  "walden-robotics": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "Industrial & Robotics",
@@ -13143,11 +13135,13 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Walden Robotics, a REST-only listing with no description, dating or filing. Entry round not established. | Walden Robotics, a REST-only listing with no description, dating or filing. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "Walden Robotics, a REST-only listing with no description, dating or filing. Entry round not established. | Walden Robotics, a REST-only listing with no description, dating or filing. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | UNRESOLVABLE (PRO-136): a REST-only listing with no description, dating or filing. The Series A was a convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric. The firm's own listing keeps it a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "walden-robotics",
   "status": "private",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-menlo"
  },
  "warby-parker": {
   "entry_stage": "Series A",
@@ -13333,12 +13327,11 @@
   "who": "agent-judge-prewindow-menlo"
  },
  "workup": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -13349,11 +13342,13 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "WorkUp, a 2023 REST-only listing with no description or milestone. Entry round not established. | WorkUp, a 2023 REST-only listing with no description or milestone. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3).",
+  "note": "WorkUp, a 2023 REST-only listing with no description or milestone. Entry round not established. | WorkUp, a 2023 REST-only listing with no description or milestone. Entry round not established. | STAGE PRIOR: no round is established for this row on any surface \u2014 no site milestone, no announcement, no partner-anchored Form D. The firm's modal entry round on its own Milestones data is Series A (78 of 214 dated rows), so the prior is applied at LOW confidence with the stage_prior flag rather than left empty (COLLECTION.md 3). | UNRESOLVABLE (PRO-136): a 2023 REST-only listing with no description or milestone. The Series A was a convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric. The firm's own listing keeps it a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "workup",
   "status": "private",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-pro91"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-menlo"
  },
  "xaira-therapeutics": {
   "entry_date": "2024-04",
