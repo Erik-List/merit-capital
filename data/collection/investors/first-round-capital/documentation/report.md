@@ -234,3 +234,69 @@ to the same file, so it is left for the tooling session rather than committed
 here.
 
 **Prompt count: 2** — kickoff and the ingest approval, which is the target.
+
+## Addendum 2026-09-19 — identity reclassification (PRO-136)
+
+Eight published rows carried `identity_uncertain` (a ninth, `sofa-labs-inc`,
+is a stale classification key for a row already absorbed). First Round's
+flagged set is almost entirely EDGAR-only: partner-signed issuers the firm's
+own listings never carried, which is a different population from the archive
+strays other books produce.
+
+**One identification, from the filings outward.** `sbot-technologies-inc` is
+the legal entity of **Caper AI**, the New York smart-shopping-cart company
+founded by Lindon Gao and York Yang — which is what the Hayley Barna board
+seat sits on. Instacart acquired it for $350M, announced 2024-10-19, so the
+status moves from private to acquired. The row keeps its legal name because
+the firm never listed it under another; Caper is the trading name.
+
+**Three rows keep their values without a name** under the carried-through
+exception, because their own Form D sequences carry the stage:
+`cloudhelix` ($3.1M sold 2014-09-11, no priors → Seed), `sbot-technologies-inc`
+($10.4M 2019-07-05, one prior → Series A) and, before its merge,
+`project-fair-bid-inc` ($4.6M 2009-07-07 → Seed).
+
+**One merge.** `project-fair-bid-inc` is the registered name of the
+penny-auction company the firm listed as BigDeal, and the Kopelman seat sits
+on its 2009 offering — evidence the listed row lacked. Merged into `bigdeal`.
+
+**Four rows go `undetermined`:** `kakai` (2010 logo wall), `medico`
+(2012-2013, Wikidata's JP match already disputed), `togg` (a 2020-2021 US
+listing whose description was inherited from a neighbouring card, and which
+Wikidata matched to the Turkish carmaker — flagged `identity_homonym` as well,
+so no later pass joins them) and `unshackled`. On `unshackled` the tempting
+reading is Unshackled Ventures, which as a fund would leave membership under
+T5; nothing establishes it, and a membership drop needs evidence rather than a
+plausible reading. `kakai`, `medico` and `togg` also return to status
+`unknown`: "defunct" had been inferred from a row disappearing, not from a
+shutdown anyone reported about a company we cannot name.
+
+`expa` keeps its values and loses the flag: Garrett Camp's startup studio is
+named and described, and whether a studio belongs in a portfolio book is a
+membership question rather than an identity one.
+
+### Two things this pass surfaced that are not identity
+
+**Fourteen rows would have been renamed by the rebuild.** `better_name`
+entered the merge path on 2026-09-17, after this base was built, and now
+prefers the other rendering on merges that landed long ago: Raise.me → Raise
+Labs, Xmarks → Foxmarks, Remind → Remind101, Drop → Massdrop, OpenX →
+Openads, 1-800-FREE411 → JINGLE NETWORKS INC, and eight more. The database
+upserts on (investor, name) and this book is live with 594 members, so every
+one of those would have landed as a second company. All fourteen are pinned
+to the published rendering in `identity-merges.json` with the reason. Which
+rendering *should* publish is a real question and Erik's to answer; it is not
+one an identity pass gets to answer by accident.
+
+**Cross-investor pairs.** `first-round-capital:level` (the New York
+dental-benefits company) against `battery-ventures:level-ai` (Ujwal, Inc. dba
+Level AI) and `first-round-capital:sprig` (formerly UserLeap) against
+`battery-ventures:sprig` (the 2016 meal-delivery company) are both namesakes
+and are now ruled `distinct`. `liveintent` was a genuine disagreement and this
+side was stale: Zeta Global completed the acquisition on 2024-10-21, so the
+row reads acquired.
+
+`verify --in-flight` clean. Full `verify` still fails on this book for a
+reason that predates the pass: its S2A column was never re-judged under the
+status contract, so 504 Seed rows carry no graduation and 34 still carry the
+retired booleans. That is PRO-120's work, not this issue's.

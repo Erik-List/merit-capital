@@ -2004,17 +2004,18 @@
  },
  "cloudhelix": {
   "flags": [
-   "identity_uncertain"
+   "identity_unresolved"
   ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_city": "Santa Clara",
   "hq_city_source": "model_knowledge",
-  "note": "A 2014 Form D issuer under a name the firm's own listings never carried; identity not resolved to a live company. | Duty 7 correction: the earlier note said the firm never listed this row, which its own 2014 capture contradicts. A Howard Morgan Form D seat inside tenure plus a 2014 listing; the issuer's later rounds ($12.1M 2015, $23.0M 2016, $56.3M 2021) show a company that grew well past the seed, but its consumer-facing identity did not resolve, so the row keeps identity_uncertain.",
+  "note": "A 2014 Form D issuer under a name the firm's own listings never carried; identity not resolved to a live company. | Duty 7 correction: the earlier note said the firm never listed this row, which its own 2014 capture contradicts. A Howard Morgan Form D seat inside tenure plus a 2014 listing; the issuer's later rounds ($12.1M 2015, $23.0M 2016, $56.3M 2021) show a company that grew well past the seed, but its consumer-facing identity did not resolve, so the row keeps identity_uncertain. | UNRESOLVABLE, FILINGS KEPT (PRO-136): a 2014 listing and a 2014 Form D with a Howard Morgan seat inside tenure, but no surface names the company behind the issuer - the UK cloud hoster of the same name does not fit a filer whose rounds run $12.1M (2015), $23.0M (2016) and $56.3M (2021). Its own filings decide the row: $3.1M sold 2014-09-11 with no priors, which is where entry_stage Seed (formd_band) comes from, so the values stand under the carried-through exception.",
   "slug": "cloudhelix",
   "status": "private",
   "valuation_confidence": "low",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-pro136-first-round"
  },
  "clover-health": {
   "entry_stage": "Series A",
@@ -3153,9 +3154,7 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [
-   "identity_uncertain"
-  ],
+  "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_city": "San Francisco",
@@ -3163,11 +3162,12 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Expa is Garrett Camp's startup studio rather than an operating company in the usual sense; a single 2014 listing and no round evidence.",
+  "note": "Expa is Garrett Camp's startup studio rather than an operating company in the usual sense; a single 2014 listing and no round evidence. | IDENTITY RESOLVED (PRO-136): Expa is Garrett Camp's startup studio, named and described on the 2014 listing. Whether a studio belongs in a portfolio book is a membership question under T5 rather than an identity one, and the firm's own listing is what carries it; the row is named, so the identity flag goes. Its Seed is model-sourced and stays flagged as uncited.",
   "slug": "expa",
   "status": "private",
   "valuation_confidence": "low",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-pro136-first-round"
  },
  "fab-com-inc": {
   "flags": [],
@@ -4693,12 +4693,12 @@
   "valuation_range": "below_1b"
  },
  "kakai": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
-   "identity_uncertain"
+   "identity_unresolved"
   ],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
@@ -4707,11 +4707,14 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "A 2010 logo-wall row whose identity did not resolve; kept with the flag rather than asserted.",
+  "note": "A 2010 logo-wall row whose identity did not resolve; kept with the flag rather than asserted. | UNRESOLVABLE (PRO-136): a one-word row from the 2010 logo wall with no url, description or filing. A search for the name against this era returns nothing that can be cited, so the model-sourced Seed goes and stage, band and graduation read undetermined. The status also returns to unknown: 'defunct' was inferred from the row's disappearance, not from a shutdown anyone reported about a company we cannot name.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "kakai",
-  "status": "defunct",
+  "status": "unknown",
   "valuation_confidence": "low",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-first-round"
  },
  "kandji": {
   "entry_stage": "Seed",
@@ -5311,11 +5314,13 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Email advertising and identity.",
+  "note": "Email advertising and identity. | ALIGNED (PRO-136, invariant 10): Zeta Global completed its acquisition of LiveIntent on 2024-10-21 (https://www.businesswire.com/news/home/20241020176466/en/Zeta-Global-Completes-Acquisition-of-LiveIntent; stock purchase agreement 2024-10-07, ~$277M in cash and Class A shares), so this row's 'private' was the stale side of the disagreement with battery-ventures:liveintent, which already read acquired.",
   "slug": "liveintent",
-  "status": "private",
+  "status": "acquired",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "valuation_usd": null,
+  "who": "agent-pro136-first-round"
  },
  "lob": {
   "entry_stage": "Series A",
@@ -5614,23 +5619,26 @@
   "valuation_range": "below_1b"
  },
  "medico": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
-   "identity_uncertain",
+   "identity_unresolved",
    "model_disputes_source"
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
   "hq_city": null,
   "hq_city_source": "model_knowledge",
-  "note": "Wikidata read the country as JP on a one-word name; the row is a 2012-2013 US listing whose identity did not resolve.",
+  "note": "Wikidata read the country as JP on a one-word name; the row is a 2012-2013 US listing whose identity did not resolve. | UNRESOLVABLE (PRO-136): a one-word 2012-2013 listing with no url, description or filing; Wikidata's JP country match on the bare name was already disputed. Stage, band and graduation read undetermined, and the status returns to unknown rather than asserting a shutdown for a company nobody could name.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "medico",
-  "status": "defunct",
+  "status": "unknown",
   "valuation_confidence": "low",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-first-round"
  },
  "medicocom": {
   "entry_stage": "Seed",
@@ -7459,8 +7467,7 @@
  },
  "project-fair-bid-inc": {
   "flags": [
-   "duplicate_suspected",
-   "identity_uncertain"
+   "identity_conflated"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
@@ -7469,11 +7476,12 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "A 2009 Josh Kopelman seat inside tenure; the issuer is the penny-auction company the firm listed as BigDeal, which the base also carries. No trace after 2011.",
+  "note": "A 2009 Josh Kopelman seat inside tenure; the issuer is the penny-auction company the firm listed as BigDeal, which the base also carries. No trace after 2011. | SAME COMPANY AS bigdeal (PRO-136): PROJECT FAIR BID, INC. is the registered name of the penny-auction company the firm listed as BigDeal, and the base carries both. The 2009 Josh Kopelman seat inside tenure sits on this issuer's $4.6M offering of 2009-07-07, which is the entry evidence the listed row lacks. Merged into bigdeal at the rebuild.",
   "slug": "project-fair-bid-inc",
   "status": "defunct",
   "valuation_confidence": "low",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-pro136-first-round"
  },
  "project-september": {
   "entry_stage": "Seed",
@@ -8436,18 +8444,18 @@
   "valuation_range": "below_1b"
  },
  "sbot-technologies-inc": {
-  "flags": [
-   "identity_uncertain"
-  ],
+  "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
   "hq_city": "New York",
   "hq_city_source": "model_knowledge",
-  "note": "A Hayley Barna board seat inside tenure; the issuer files as SBOT Technologies and its consumer-facing identity did not resolve.",
+  "note": "A Hayley Barna board seat inside tenure; the issuer files as SBOT Technologies and its consumer-facing identity did not resolve. | IDENTITY RESOLVED (PRO-136): SBOT Technologies Inc. is the legal entity of Caper AI, the smart-shopping-cart company founded in New York by Lindon Gao and York Yang, which is what the Hayley Barna board seat sits on. Instacart acquired it for $350M in cash and stock, announced 2021-10-19 (https://company.instacart.com/pressreleases/instacart-acquires-caper-ai-a-leader-in-smart-cart-and-smart-checkout-technology-creating-a-unified-online-and-in-store-commerce-solution-for-retailers), so the status moves from private to acquired. The row keeps the legal name because the firm never listed it under any other: it is an EDGAR-only row, and Caper is the trading name. Its Series A stage comes from the filings ($10.4M sold 2019-07-05, one prior) and is untouched.",
   "slug": "sbot-technologies-inc",
-  "status": "private",
+  "status": "acquired",
   "valuation_confidence": "low",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "valuation_usd": null,
+  "who": "agent-pro136-first-round"
  },
  "scanscout": {
   "entry_stage": "Seed",
@@ -10158,12 +10166,13 @@
   "valuation_usd": 8300000000
  },
  "togg": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
-   "identity_uncertain",
+   "identity_homonym",
+   "identity_unresolved",
    "model_disputes_source"
   ],
   "focus": "Healthcare & Bio",
@@ -10173,11 +10182,14 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Wikidata read the country as TR on a one-word name, matching the Turkish carmaker; the row is a 2021 US listing whose own description was inherited from a neighbouring card and whose identity did not resolve.",
+  "note": "Wikidata read the country as TR on a one-word name, matching the Turkish carmaker; the row is a 2021 US listing whose own description was inherited from a neighbouring card and whose identity did not resolve. | UNRESOLVABLE (PRO-136): a one-word 2020-2021 US listing whose own description was inherited from a neighbouring card. Wikidata matched Togg the Turkish electric carmaker, which this row certainly is not - the homonym flag records that trap so no later pass joins them - but nothing names what the row IS, so stage, band and graduation read undetermined and the status returns to unknown.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "togg",
-  "status": "defunct",
+  "status": "unknown",
   "valuation_confidence": "low",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-first-round"
  },
  "town": {
   "entry_stage": "Seed",
@@ -10514,12 +10526,12 @@
   "slug": "universal-american-corp"
  },
  "unshackled": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
-   "identity_uncertain"
+   "identity_unresolved"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
@@ -10528,11 +10540,14 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "A single 2014 listing; Unshackled Ventures is a fund rather than an operating company, and the identity did not resolve.",
+  "note": "A single 2014 listing; Unshackled Ventures is a fund rather than an operating company, and the identity did not resolve. | UNRESOLVABLE (PRO-136): a single 2014 listing of a one-word name. If it is Unshackled Ventures the row is a fund rather than an operating company and would leave membership under T5, but nothing on any surface establishes that, and a membership drop needs evidence rather than a plausible reading. The row stays a member on the firm's own listing with stage, band and graduation undetermined.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "unshackled",
   "status": "private",
   "valuation_confidence": "low",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-first-round"
  },
  "unsubscribe": {
   "entry_stage": "Seed",
