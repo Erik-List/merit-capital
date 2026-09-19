@@ -167,15 +167,18 @@ export function validateCompanyFields(row: Record<string, any>): TaxonomyIssues 
     errors.push("valuation_range: expected a range string");
   }
 
-  // The three outcome columns move together: undetermined in all or in none.
-  const undet = [row.entry_stage, row.valuation_range].filter((v) => v === UNDETERMINED).length;
-  if (undet === 1) {
+  // `undetermined` propagates downward from identity: a company we cannot name
+  // has no band either. The converse does not hold — a Form D sequence or a
+  // programme's standard terms give a stage for a company nobody can name, and
+  // that row carries a stage with an undetermined band.
+  if (row.entry_stage === UNDETERMINED && row.valuation_range !== UNDETERMINED) {
     errors.push(
-      "undetermined: entry_stage and valuation_range must both be undetermined or neither"
+      "undetermined: an undetermined entry_stage requires an undetermined valuation_range"
     );
   }
-  if (row.entry_stage === UNDETERMINED && row.valuation_usd != null) {
-    errors.push("undetermined: an unidentified company cannot carry a valuation_usd");
+  if (row.valuation_usd != null
+      && (row.entry_stage === UNDETERMINED || row.valuation_range === UNDETERMINED)) {
+    errors.push("undetermined: a row with an undetermined column cannot carry a valuation_usd");
   }
   if (row.entry_stage === UNDETERMINED && row.seed_to_a_graduation !== UNDETERMINED) {
     errors.push(

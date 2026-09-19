@@ -1314,6 +1314,18 @@ maturity today. 100% fill.
   A publication-visible claim wants class 1 or 2. Citation is attempted for
   every row, priority $1B+ (incl. IPO), then recents, then the tail;
   `stage_uncited` marks attempted failures.
+- **A programme entry on standard small-check terms is `Pre-Seed`** (Erik,
+  2026-09-19). Where a firm runs an accelerator or programme that invests a
+  standard cheque on standard terms — a16z's SPEEDRUN at $500k, YC's batch
+  deal — the stage is the PROGRAMME's, not a round the company negotiated:
+  `Pre-Seed`, source `program_terms`, and the note names the cohort. It is a
+  fact about a documented transaction, so it survives a missing company name
+  the way a Form D sequence does, and `record` accepts it on an
+  `identity_unresolved` row. It also leaves the S2A cohort: a Pre-Seed entry
+  is not a Seed entry, so `seed_to_a_graduation` is null by the ordinary rule.
+  This replaces the older reading that a programme cheque is a Seed by
+  instrument, which put whole accelerator cohorts into a seed-to-A rate they
+  never belonged in.
 - **A company that cannot be identified reads `undetermined`** (Erik,
   2026-09-18). Where the pass cannot say what company the row is — the page
   is gone, the name is one generic word, no filing or publisher matches —

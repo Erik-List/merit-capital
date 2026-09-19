@@ -133,10 +133,12 @@ IDENTITY_FLAGS = (IDENTITY_UNRESOLVED, IDENTITY_CONFLATED, IDENTITY_HOMONYM)
 # it as inferred, and invariant 1 still wants the cell filled. (PRO-135
 # re-sweeps every inferred value and renames both flags.)
 INFERRED_FLAGS = frozenset({"stage_prior"})
-# ... but the filings are evidence even when the name is not: a row whose
-# stage comes out of its own Form D sequence keeps that stage and is judged
-# from the filings, name or no name (PRO-133's carried-through exception).
-FORMD_STAGE_SOURCES = ("formd_structural", "formd_band")
+# ... but a source that describes the TRANSACTION rather than the company is
+# evidence even when the name is not. A row whose stage comes out of its own
+# Form D sequence keeps that stage and is judged from the filings, name or no
+# name (PRO-133's carried-through exception), and so does a row whose stage is
+# the documented terms of the programme it entered on (Erik, 2026-09-19).
+FORMD_STAGE_SOURCES = ("formd_structural", "formd_band", "program_terms")
 
 VALUATION_RANGES = ("below_1b", "1b_plus", "10b_plus", "100b_plus", UNDETERMINED)
 VALID_STAGES = {"Pre-Seed", "Seed", "Series A", "Growth", UNDETERMINED}
@@ -1176,7 +1178,8 @@ def validate_record(rec: dict, slugs: set[str], merged: dict | None = None) -> l
     if rec.get("hq_city_source") is not None and rec["hq_city_source"] not in CITY_SOURCES:
         errs.append(f"{slug}: hq_city_source {rec['hq_city_source']!r}")
     if rec.get("entry_stage_source") is not None and rec["entry_stage_source"] not in (
-            "formd_band", "formd_structural", "model", "web_verified"):
+            "formd_band", "formd_structural", "model", "web_verified",
+            "program_terms"):
         errs.append(f"{slug}: entry_stage_source {rec['entry_stage_source']!r}")
     # web_verified stage claims must carry their citation (COLLECTION.md §6)
     if rec.get("entry_stage_source") == "web_verified" \
@@ -1779,20 +1782,24 @@ def cmd_verify(args) -> None:
         # because the company cannot be named.
         row_flags = set(rec.get("flags") or [])
         unresolved = IDENTITY_UNRESOLVED in row_flags
-        # The identity columns are entry_stage and valuation_range: they move
-        # together, and an undetermined stage takes the graduation with it. A
-        # judged `undetermined` graduation on a real Seed row is the separate
-        # S2A debt, counted in the C2A block rather than failed here.
+        # `undetermined` propagates DOWNWARD from identity: a company we cannot
+        # name has no band, and an undetermined stage takes the graduation with
+        # it. The converse does not hold -- a transaction-level source (a Form D
+        # sequence, a programme's terms) carries a stage on a row whose company
+        # is still unnameable, and that row keeps an undetermined band. A judged
+        # `undetermined` graduation on a real Seed row is the separate S2A debt,
+        # counted in the C2A block rather than failed here.
         undet = {k for k in ("entry_stage", "valuation_range") if rec.get(k) == UNDETERMINED}
         formd_carried = rec.get("entry_stage_source") in FORMD_STAGE_SOURCES
         if undet:
             if not unresolved:
                 problems.append(f"{slug}: {UNDETERMINED!r} in {sorted(undet)} outside an "
                                 f"{IDENTITY_UNRESOLVED} row")
-            missing = sorted({"entry_stage", "valuation_range"} - undet)
-            if missing:
-                problems.append(f"{slug}: {UNDETERMINED!r} row still asserts {missing} "
-                                f"({', '.join(f'{k}={rec.get(k)!r}' for k in missing)})")
+            if rec.get("entry_stage") == UNDETERMINED \
+                    and rec.get("valuation_range") != UNDETERMINED:
+                problems.append(f"{slug}: {UNDETERMINED!r} entry_stage with "
+                                f"valuation_range {rec.get('valuation_range')!r}; a company we "
+                                f"cannot name has no band either")
             # `undetermined` is not a graduation claim but the absence of
             # one, so it is what a pre-window unnameable row carries too --
             # the store and the published surface then say the same thing.
@@ -1959,8 +1966,11 @@ def cmd_verify(args) -> None:
     print(f"$1B+ / $10B+ / $100B+ : {len(one_b)} / {len(ten_b)} / {len(hundred_b)}")
     # Determined rows only: an unresolvable company is not a Seed entry, not a
     # below-$1B outcome and not a graduation denominator (Erik, 2026-09-18).
+    # A row is a data point only where it asserts one: any UNDETERMINED column
+    # takes it out of every distribution, exactly as the database does.
     determined = [r for r in merged.values()
-                  if r.get("entry_stage") != UNDETERMINED]
+                  if r.get("entry_stage") != UNDETERMINED
+                  and r.get("valuation_range") != UNDETERMINED]
     undet_rows = len(merged) - len(determined)
     if undet_rows:
         print(f"identity        : {undet_rows} undetermined rows, excluded from every metric")

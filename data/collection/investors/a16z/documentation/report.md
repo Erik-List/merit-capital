@@ -536,3 +536,36 @@ pass — 1,017 problems, all of them the S2A debt: retired booleans,
 `cohort_unverified` flags and Seed rows with no graduation status. None of the
 reclassified rows appears among them. The seed cohort reads 967 rather than
 1,056.
+
+### Addendum 2026-09-19 (later) — SPEEDRUN is Pre-Seed, by Erik's ruling
+
+Erik ruled that a programme entry on standard small-check terms is a
+**Pre-Seed** entry, and that it applies to every small-cheque programme
+investment rather than to a16z alone. All **250** SPEEDRUN rows — cohorts
+SR001 through SR007 — now read `entry_stage: Pre-Seed`, source
+`program_terms`, confidence high.
+
+This is the better answer to the question the earlier addendum left open. The
+nine unnameable speedrun rows were not losing a Seed, they were losing a
+PRE-SEED, and what carries it is the programme's documented $500k terms rather
+than anything about the company. `program_terms` now ranks with the Form D
+sources as a transaction-level source: it survives a missing company name, so
+ten unnameable rows keep a stage while staying `identity_unresolved`.
+
+Two consequences in the numbers. The seed cohort falls **967 → 727**, because
+a Pre-Seed entry is not a Seed entry and the seed-to-A column does not apply
+to it — 47 of those rows had carried a legacy boolean `False` graduation,
+which is 47 model-sourced "no"s removed from a rate they never belonged in.
+And `verify`'s problem count falls 1,017 → 777, all of the difference being
+speedrun rows that no longer owe a graduation status.
+
+**One rule had to give**, and it gave in the right direction. `undetermined`
+was tied symmetrically across `entry_stage` and `valuation_range`: both or
+neither. The ten unnameable speedrun rows break that — a programme's terms
+give the stage, and a company we cannot name still cannot be valued — so the
+tie now runs one way only. An undetermined stage forces an undetermined band
+and an undetermined graduation; an undetermined band stands on its own. The
+metric basis drops a row with ANY undetermined column, in `verify` and in
+`recompute_investor_metrics` alike, so those ten leave every distribution.
+Migration `20260919120000_undetermined_propagates_downward.sql` carries the
+database half and is NOT pushed.
