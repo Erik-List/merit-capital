@@ -237,3 +237,38 @@ Ventures, from the company's own post of January 2025; the step-up against
 its $4M seed had blocked it. The cohort becomes 38 with 33 graduated, 86.8%
 at 64% coverage, still under the restated 0.90 ceiling. Its `entry_date`
 stays USV's own 2021 site year rather than the January 2022 announcement.
+
+## Addendum 2026-09-19 — `buglabs` published its graduation round as its entry
+
+USV carried no `identity_uncertain` rows, so it was outside PRO-136's sweep.
+One row was corrected anyway, because two sessions measuring a pre-2008
+question kept arriving at different answers about it.
+
+The row published `entry_date: 2010-05-20` and `seed_to_a_graduation:
+graduated`, and the graduation's own citation is the Form D filed 2010-06-18
+reporting that same $5M sale. Entry and graduation were the same round.
+
+The date came from the Form D layer, which anchors the entry on the earliest
+filing it can see. Bug Labs has exactly one filing and EDGAR holds nothing
+from 2006, so the layer's earliest visible round IS the follow-on. The row's
+own entry evidence was right there in `entry_stage_citation` — USV's post
+"Introducing Bug Labs", May 2006 — and the judge's note says so explicitly:
+"a priced round four years after the 2006 seed". `entry_date` now reads
+`2006-05`, which restores the four-year gap the graduation verdict rests on.
+
+**The class is two rows wide, not one**, measured across all twenty published
+bases: a decided row whose `entry_date` comes from the filings while its stage
+came from a citation. `buglabs` is the inverted one; `greylock:fable` has the
+same shape with both dates in 2025, so nothing is contradicted there.
+
+**The general lesson is for PRO-120's sweep**, which will fill the 24 decided
+rows that carry no `entry_date` at all. Recover those dates from
+`entry_stage_citation`, never from the Form D anchor and never from note prose:
+a note carries both the entry and the graduation date, and the later one reads
+as the more prominent. On precisely the rows that matter most — a long gap
+between entry and follow-on — a mechanical pass over either source pulls the
+graduation date into the entry field, which is exactly what had already
+happened here.
+
+One row's `entry_date` changed on a book that is live in the database, so a
+re-ingest of USV takes this correction with it.
