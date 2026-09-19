@@ -939,23 +939,25 @@
   "valuation_usd": null
  },
  "allegro": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
-   "identity_uncertain",
-   "stage_prior"
+   "identity_unresolved"
   ],
   "focus": null,
   "focus_source": "model",
   "hq_city": null,
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
-  "note": "Ambiguous name; Wikidata 'defunct/Germany' identity unverified against era-A row. | Ambiguous era-A row; venture-entry prior. | [stage3] Ambiguous row; prior stands. | [city] identity itself unverified",
+  "note": "Ambiguous name; Wikidata 'defunct/Germany' identity unverified against era-A row. | Ambiguous era-A row; venture-entry prior. | [stage3] Ambiguous row; prior stands. | [city] identity itself unverified | UNRESOLVABLE (PRO-136): an era-A row listed 2006-2012 under a name shared by many companies; the Wikidata 'defunct/Germany' match was never verified against the era. The stage was the desk's convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "allegro",
-  "valuation_range": "below_1b",
-  "valuation_range_source": "model_knowledge"
+  "valuation_range": "undetermined",
+  "valuation_range_source": "model_knowledge",
+  "valuation_usd": null,
+  "who": "agent-pro136-sequoia"
  },
  "alpha-omega-semiconductor": {
   "entry_stage": "Growth",
@@ -1368,20 +1370,19 @@
   "entry_stage_confidence": "medium",
   "entry_stage_source": "model",
   "flags": [
-   "city_country_conflict",
-   "identity_uncertain"
+   "city_country_conflict"
   ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_city": "San Francisco",
   "hq_city_confidence": "medium",
   "hq_city_source": "model_knowledge",
-  "note": "Aquarium Learning (ML data tooling) wound down ~2023; Wikidata 'Germany' identity unverified. | YC-era ML tooling startup; Sequoia seed 2021; the Wikidata Germany match is a collision. | [stage3] Sequoia seed 2021. | [stage3] Wound down ~2023 with no qualifying A. | [city] Aquarium Learning was a San Francisco YC company; the recorded country Germany is the unverified wikidata identity flagged in the note | Wound down around 2023 but no shutdown or acquisition article could be found on FinSMES or TechCrunch, and no page names Sequoia in Aquarium Learning's 2021 seed, so neither the terminal event nor the stage leg could be cited.",
+  "note": "Aquarium Learning (ML data tooling) wound down ~2023; Wikidata 'Germany' identity unverified. | YC-era ML tooling startup; Sequoia seed 2021; the Wikidata Germany match is a collision. | [stage3] Sequoia seed 2021. | [stage3] Wound down ~2023 with no qualifying A. | [city] Aquarium Learning was a San Francisco YC company; the recorded country Germany is the unverified wikidata identity flagged in the note | Wound down around 2023 but no shutdown or acquisition article could be found on FinSMES or TechCrunch, and no page names Sequoia in Aquarium Learning's 2021 seed, so neither the terminal event nor the stage leg could be cited. | IDENTITY RESOLVED (PRO-136): Aquarium Learning, the San Francisco YC company building ML data tooling, which Sequoia seeded in 2021 and which wound down around 2023. Named and described; the Wikidata 'Germany' match behind city_country_conflict is a collision on the one-word name and stays flagged as one.",
   "seed_to_a_graduation": "undetermined",
   "slug": "aquarium",
   "valuation_range": "below_1b",
   "valuation_range_source": "model_knowledge",
-  "who": "agent-judge-s2a-sequoia"
+  "who": "agent-pro136-sequoia"
  },
  "aradigm-corp": {
   "entry_stage": "Series A",
@@ -4365,8 +4366,7 @@
   "entry_stage_source": "model",
   "flags": [
    "boundary",
-   "cite_pending",
-   "identity_uncertain"
+   "cite_pending"
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
@@ -4374,7 +4374,7 @@
   "hq_city_confidence": "medium",
   "hq_city_source": "model_knowledge",
   "is_public": true,
-  "note": "Reads as Clover Health (Sequoia-backed, healthcare-enterprise 2016-2021; SPAC 2021, CLOV). Legal-name row; verify identity + fetch float via assist. | Clover Health; Sequoia led the 2017 $160M Series D. | [stage3] Clover Health; Sequoia led the 2017 $160M Series D. | [cv2] Clover Health market cap $2.3B (2026-08-08). | [city] Clover Health's principal offices are Franklin, Tennessee since the remote-first move; the Menlo Park filing address is counsel/investor-side",
+  "note": "Reads as Clover Health (Sequoia-backed, healthcare-enterprise 2016-2021; SPAC 2021, CLOV). Legal-name row; verify identity + fetch float via assist. | Clover Health; Sequoia led the 2017 $160M Series D. | [stage3] Clover Health; Sequoia led the 2017 $160M Series D. | [cv2] Clover Health market cap $2.3B (2026-08-08). | [city] Clover Health's principal offices are Franklin, Tennessee since the remote-first move; the Menlo Park filing address is counsel/investor-side | IDENTITY RESOLVED (PRO-136): Clover Newco, LLC is Clover Health's legal name - the company Sequoia backed from 2016, whose $160M Series D it led in 2017 and which went public by SPAC in 2021 as CLOV. A legal-name rendering of a named company is not an identity doubt; the cite_pending on its market cap is a separate debt.",
   "public_since": 2021,
   "slug": "clover-newco-llc",
   "status": "public",
@@ -4384,7 +4384,8 @@
   "valuation_range": "1b_plus",
   "valuation_range_source": "web_verified",
   "valuation_source": "web_verified",
-  "valuation_usd": 2330000000
+  "valuation_usd": 2330000000,
+  "who": "agent-pro136-sequoia"
  },
  "clustrix": {
   "entry_stage": "Series A",
@@ -4912,7 +4913,7 @@
   "entry_stage_confidence": "medium",
   "entry_stage_source": "formd_structural",
   "flags": [
-   "identity_uncertain"
+   "identity_unresolved"
   ],
   "focus": null,
   "focus_source": "model",
@@ -4920,14 +4921,15 @@
   "hq_city_confidence": "medium",
   "hq_city_source": "formd_address",
   "is_public": false,
-  "note": "Ambiguous name; rounds 750k/5M/30M 2019-21; no external $1B evidence; small. | [stage3] $5M 2020 filing with one small prior; A-era entry.",
+  "note": "Ambiguous name; rounds 750k/5M/30M 2019-21; no external $1B evidence; small. | [stage3] $5M 2020 filing with one small prior; A-era entry. | UNRESOLVABLE, FILINGS KEPT (PRO-136): nothing names the company behind this row, but its own filings decide it - the $5M filing of 2020 with one small prior, which is where the formd_structural Series A comes from (rounds run 750k/5M/30M across 2019-21). Under the carried-through exception a filings-carried stage survives the missing name; what such a row may never do is publish a stage from model.",
   "slug": "cove",
   "status": "private",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
   "valuation_range_source": "model_knowledge",
   "valuation_source": "model_knowledge",
-  "valuation_usd": null
+  "valuation_usd": null,
+  "who": "agent-pro136-sequoia"
  },
  "cresta": {
   "entry_stage": "Growth",
@@ -5070,9 +5072,7 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "medium",
   "entry_stage_source": "model",
-  "flags": [
-   "identity_uncertain"
-  ],
+  "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "hq_city": "San Francisco",
@@ -5082,14 +5082,15 @@
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
   "is_public": false,
-  "note": "Greplin -> Cue; duplicate of cue-labs; acq. Apple 2013.; [run2] consolidated from greplin | SF; Greplin's $4M 2011 Series A was Sequoia-led. | [stage3] Sequoia led Greplin's $4M Series A 2011.",
+  "note": "Greplin -> Cue; duplicate of cue-labs; acq. Apple 2013.; [run2] consolidated from greplin | SF; Greplin's $4M 2011 Series A was Sequoia-led. | [stage3] Sequoia led Greplin's $4M Series A 2011. | IDENTITY RESOLVED (PRO-136): CUE Labs is Greplin renamed - Sequoia led Greplin's $4M Series A in 2011 and Apple acquired Cue in 2013 - and the firm's own card carries it at sequoiacap.com/companies/cue-labs/. Named, described and already consolidated from the greplin row.",
   "slug": "cue-labs",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_range_source": "model_knowledge",
   "valuation_source": "model_knowledge",
-  "valuation_usd": null
+  "valuation_usd": null,
+  "who": "agent-pro136-sequoia"
  },
  "cumulus-networks": {
   "entry_stage": "Series A",
@@ -7335,14 +7336,13 @@
   "valuation_usd": null
  },
  "fin": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior"
+   "identity_unresolved"
   ],
   "focus": null,
   "focus_source": "model",
@@ -7353,16 +7353,16 @@
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
   "is_public": false,
-  "note": "Ambiguous 'Fin' (era-D crypto/fintech tag); identity unresolved. | Identity unresolved era-D row; desk priors. | [stage3] Identity unresolved; prior stands. | Identity unresolved: the era-D 'Fin' row carries desk priors only, and Accel's sibling Fin (Sam Lessin's 2015 assistant company) is a different listing; no page ties Sequoia to a Fin round.",
+  "note": "Ambiguous 'Fin' (era-D crypto/fintech tag); identity unresolved. | Identity unresolved era-D row; desk priors. | [stage3] Identity unresolved; prior stands. | Identity unresolved: the era-D 'Fin' row carries desk priors only, and Accel's sibling Fin (Sam Lessin's 2015 assistant company) is a different listing; no page ties Sequoia to a Fin round. | UNRESOLVABLE (PRO-136): an era-D row carrying desk priors only. Accel's sibling Fin (Sam Lessin's 2015 assistant company) is a different listing, and no page ties Sequoia to a Fin round. The stage was the desk's convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric.",
   "seed_to_a_graduation": "undetermined",
   "slug": "fin",
   "status": "unknown",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b",
+  "valuation_range": "undetermined",
   "valuation_range_source": "model_knowledge",
   "valuation_source": "model_knowledge",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-sequoia"
+  "who": "agent-pro136-sequoia"
  },
  "finch": {
   "entry_stage": "Seed",
@@ -7604,12 +7604,11 @@
   "valuation_usd": null
  },
  "flex": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "stage_prior"
+   "identity_unresolved"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
@@ -7620,14 +7619,16 @@
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
   "is_public": false,
-  "note": "'Flex' 2019-21 listing, likely rent-flexibility fintech; identity unverified; sub-$1B either way. | Likely the NYC rent-flexibility fintech; identity unverified. | [stage3] Identity unverified; prior stands. | [city] follows the base note's tentative identification as the NYC rent-flexibility fintech; identity itself unverified",
+  "note": "'Flex' 2019-21 listing, likely rent-flexibility fintech; identity unverified; sub-$1B either way. | Likely the NYC rent-flexibility fintech; identity unverified. | [stage3] Identity unverified; prior stands. | [city] follows the base note's tentative identification as the NYC rent-flexibility fintech; identity itself unverified | UNRESOLVABLE (PRO-136): a 2019-21 listing that reads as the NYC rent-flexibility fintech but was never verified; a likely reading is not an identification. The stage was the desk's convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "flex",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b",
+  "valuation_range": "undetermined",
   "valuation_range_source": "model_knowledge",
   "valuation_source": "model_knowledge",
-  "valuation_usd": null
+  "valuation_usd": null,
+  "who": "agent-pro136-sequoia"
  },
  "flextronics": {
   "entry_stage": "Series A",
@@ -8466,13 +8467,12 @@
   "valuation_usd": null
  },
  "glow": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
-   "identity_uncertain",
-   "stage_prior"
+   "identity_unresolved"
   ],
   "focus": null,
   "focus_source": "model",
@@ -8480,16 +8480,16 @@
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
   "is_public": false,
-  "note": "Era-D ai/security 'Glow'; identity unresolved; small either way. | Identity unresolved era-D row; seed-era prior. | [stage3] Identity unresolved; prior stands. | [city] identity itself unresolved | Identity unresolved: the era-D ai/security 'Glow' does not resolve against the sibling Glows (a16z's fertility app, USV's solar protocol, Redpoint's New York endpoint-security company), so no citation can be attached to this row.",
+  "note": "Era-D ai/security 'Glow'; identity unresolved; small either way. | Identity unresolved era-D row; seed-era prior. | [stage3] Identity unresolved; prior stands. | [city] identity itself unresolved | Identity unresolved: the era-D ai/security 'Glow' does not resolve against the sibling Glows (a16z's fertility app, USV's solar protocol, Redpoint's New York endpoint-security company), so no citation can be attached to this row. | UNRESOLVABLE (PRO-136): an era-D ai/security card that resolves against none of the sibling Glows - a16z's fertility app, USV's solar protocol, Redpoint's New York endpoint-security company. The stage was the desk's convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric.",
   "seed_to_a_graduation": "undetermined",
   "slug": "glow",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b",
+  "valuation_range": "undetermined",
   "valuation_range_source": "model_knowledge",
   "valuation_source": "model_knowledge",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-sequoia"
+  "who": "agent-pro136-sequoia"
  },
  "goldterra-inc": {
   "flags": [
@@ -8950,7 +8950,7 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
+   "identity_homonym",
    "stage_prior"
   ],
   "focus": "Crypto & Web3",
@@ -8962,7 +8962,7 @@
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
   "is_public": false,
-  "note": "Crypto naming protocol (token, thin corporate entity); not the recruiting company. | Crypto naming protocol (2018 token sale); SF-centered developer collective; not the recruiting company. | [stage3] 2018 token-sale exposure; seed prior. | [city] protocol with a thin corporate entity; SF is where the developer company sat | The handshake.org naming protocol's 2018 token raise is the only event on record and no page names Sequoia's position in it; the sibling Handshake rows at Lightspeed and Spark are the college-recruiting company, a different entity under the cross-investor ruling.",
+  "note": "Crypto naming protocol (token, thin corporate entity); not the recruiting company. | Crypto naming protocol (2018 token sale); SF-centered developer collective; not the recruiting company. | [stage3] 2018 token-sale exposure; seed prior. | [city] protocol with a thin corporate entity; SF is where the developer company sat | The handshake.org naming protocol's 2018 token raise is the only event on record and no page names Sequoia's position in it; the sibling Handshake rows at Lightspeed and Spark are the college-recruiting company, a different entity under the cross-investor ruling. | IDENTIFIED, NAMESAKE RECORDED (PRO-136): The handshake.org naming protocol, whose 2018 token sale is the only event on the record and which the firm's own card carries at /companies/handshake-coins/. NEVER to be joined with Handshake the university-recruiting company, a different business of the same name that other books carry; the slug difference is not protection enough on its own.",
   "seed_to_a_graduation": "undetermined",
   "slug": "handshake",
   "status": "unknown",
@@ -8971,7 +8971,7 @@
   "valuation_range_source": "model_knowledge",
   "valuation_source": "model_knowledge",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-sequoia"
+  "who": "agent-pro136-sequoia"
  },
  "harmonic": {
   "entry_stage": "Growth",
@@ -9679,7 +9679,7 @@
   "entry_stage_confidence": "medium",
   "entry_stage_source": "formd_structural",
   "flags": [
-   "identity_uncertain"
+   "identity_unresolved"
   ],
   "focus": null,
   "focus_source": "model",
@@ -9687,14 +9687,15 @@
   "hq_city_confidence": "medium",
   "hq_city_source": "formd_address",
   "is_public": false,
-  "note": "$60M 2022 + $46M 2024; identity unresolved; sub-$1B likely. | [stage3] $60M 2022 first filing. | [city] filing address; company identity itself unresolved",
+  "note": "$60M 2022 + $46M 2024; identity unresolved; sub-$1B likely. | [stage3] $60M 2022 first filing. | [city] filing address; company identity itself unresolved | UNRESOLVABLE, FILINGS KEPT (PRO-136): nothing names the company behind this row, but its own filings decide it - $60M in 2022 followed by $46M in 2024, which is where the formd_structural Growth comes from. Under the carried-through exception a filings-carried stage survives the missing name; what such a row may never do is publish a stage from model.",
   "slug": "indie-technologies-inc",
   "status": "private",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
   "valuation_range_source": "model_knowledge",
   "valuation_source": "model_knowledge",
-  "valuation_usd": null
+  "valuation_usd": null,
+  "who": "agent-pro136-sequoia"
  },
  "indigo-fair": {
   "entry_stage": "Growth",
@@ -13076,14 +13077,13 @@
   "valuation_usd": null
  },
  "mithril": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior"
+   "identity_unresolved"
   ],
   "focus": null,
   "focus_source": "model",
@@ -13094,14 +13094,16 @@
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
   "is_public": false,
-  "note": "Era-D ai/infra 'Mithril'; identity unresolved; small either way. | Identity unresolved era-D row; desk priors. | [stage3] Identity unresolved; prior stands. | [city] identity itself unresolved",
+  "note": "Era-D ai/infra 'Mithril'; identity unresolved; small either way. | Identity unresolved era-D row; desk priors. | [stage3] Identity unresolved; prior stands. | [city] identity itself unresolved | UNRESOLVABLE (PRO-136): an era-D ai/infrastructure card and nothing else. Redpoint's Mithril is Mithril.ai, the GPU-orchestration company, but nothing ties this card to it. The stage was the desk's convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "mithril",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b",
+  "valuation_range": "undetermined",
   "valuation_range_source": "model_knowledge",
   "valuation_source": "model_knowledge",
-  "valuation_usd": null
+  "valuation_usd": null,
+  "who": "agent-pro136-sequoia"
  },
  "mitra-rxdx-inc": {
   "entry_stage": "Growth",
@@ -13223,14 +13225,13 @@
   "valuation_usd": null
  },
  "monad": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior"
+   "identity_unresolved"
   ],
   "focus": null,
   "focus_source": "model",
@@ -13241,14 +13242,16 @@
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
   "is_public": false,
-  "note": "'Monad' security-tagged; identity unresolved (not the L1 token project?); small either way. | Identity unresolved security row; desk priors. | [stage3] Identity unresolved; prior stands. | [city] identity itself unresolved",
+  "note": "'Monad' security-tagged; identity unresolved (not the L1 token project?); small either way. | Identity unresolved security row; desk priors. | [stage3] Identity unresolved; prior stands. | [city] identity itself unresolved | UNRESOLVABLE (PRO-136): a security-tagged card that does not resolve; the L1 token project of the same name is a different business and was never confirmed as this row. The stage was the desk's convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "monad",
   "status": "unknown",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b",
+  "valuation_range": "undetermined",
   "valuation_range_source": "model_knowledge",
   "valuation_source": "model_knowledge",
-  "valuation_usd": null
+  "valuation_usd": null,
+  "who": "agent-pro136-sequoia"
  },
  "mongodb": {
   "entry_stage": "Growth",
@@ -13893,14 +13896,13 @@
   "valuation_usd": 9600000000
  },
  "nevis": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
-   "identity_uncertain",
-   "model_disputes_source",
-   "stage_prior"
+   "identity_unresolved",
+   "model_disputes_source"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
@@ -13908,14 +13910,16 @@
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
   "is_public": false,
-  "note": "Era-D fintech 'Nevis'; identity unresolved; Wikidata country RU wrong. Small either way. | Identity unresolved era-D fintech; seed-era prior; the Russia country claim is a Wikidata collision, country left as recorded pending review. | [stage3] Identity unresolved; prior stands. | [city] identity itself unresolved",
+  "note": "Era-D fintech 'Nevis'; identity unresolved; Wikidata country RU wrong. Small either way. | Identity unresolved era-D fintech; seed-era prior; the Russia country claim is a Wikidata collision, country left as recorded pending review. | [stage3] Identity unresolved; prior stands. | [city] identity itself unresolved | UNRESOLVABLE (PRO-136): an era-D fintech card; the Wikidata Russia country is a collision on the name and the company behind the card was never established. The stage was the desk's convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "nevis",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b",
+  "valuation_range": "undetermined",
   "valuation_range_source": "model_knowledge",
   "valuation_source": "model_knowledge",
-  "valuation_usd": null
+  "valuation_usd": null,
+  "who": "agent-pro136-sequoia"
  },
  "new-port-richey-surgery-center-ltd": {
   "flags": [],
@@ -14657,14 +14661,13 @@
   "valuation_usd": null
  },
  "open": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
-   "identity_uncertain",
-   "model_disputes_source",
-   "stage_prior"
+   "identity_unresolved",
+   "model_disputes_source"
   ],
   "focus": null,
   "focus_source": "model",
@@ -14672,14 +14675,16 @@
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
   "is_public": false,
-  "note": "Era-A/B row 'Open', unidentifiable; Wikidata country IN is the Indian neobank, wrong era. No trace; sub-$1B w.h.p. | Identity unresolved era-A/B row; stage is the desk convention prior. | [stage3] Identity unresolved; prior stands. | [city] identity unresolved, no filing address; no prior asserted",
+  "note": "Era-A/B row 'Open', unidentifiable; Wikidata country IN is the Indian neobank, wrong era. No trace; sub-$1B w.h.p. | Identity unresolved era-A/B row; stage is the desk convention prior. | [stage3] Identity unresolved; prior stands. | [city] identity unresolved, no filing address; no prior asserted | UNRESOLVABLE (PRO-136): an era-A/B row listed 2006-2012; Wikidata's India match is the neobank, which is the wrong era entirely, and no trace of the listed company survives. The stage was the desk's convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "open",
   "status": "unknown",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b",
+  "valuation_range": "undetermined",
   "valuation_range_source": "model_knowledge",
   "valuation_source": "model_knowledge",
-  "valuation_usd": null
+  "valuation_usd": null,
+  "who": "agent-pro136-sequoia"
  },
  "openai": {
   "entry_stage": "Growth",
@@ -14854,13 +14859,12 @@
   "who": "cross-investor-align-2026-09-03"
  },
  "origin": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
-   "identity_uncertain",
-   "stage_prior"
+   "identity_unresolved"
   ],
   "focus": null,
   "focus_source": "model",
@@ -14868,14 +14872,16 @@
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
   "is_public": false,
-  "note": "Era-D security 'Origin'; identity unresolved; small either way. | Identity unresolved era-D row; seed-era prior. | [stage3] Identity unresolved; prior stands. | [city] identity itself unresolved",
+  "note": "Era-D security 'Origin'; identity unresolved; small either way. | Identity unresolved era-D row; seed-era prior. | [stage3] Identity unresolved; prior stands. | [city] identity itself unresolved | UNRESOLVABLE (PRO-136): an era-D security card and nothing else. The stage was the desk's convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "origin",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b",
+  "valuation_range": "undetermined",
   "valuation_range_source": "model_knowledge",
   "valuation_source": "model_knowledge",
-  "valuation_usd": null
+  "valuation_usd": null,
+  "who": "agent-pro136-sequoia"
  },
  "oso": {
   "entry_stage": "Series A",
@@ -14901,14 +14907,13 @@
   "valuation_usd": null
  },
  "otter": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
-   "identity_uncertain",
-   "model_disputes_source",
-   "stage_prior"
+   "identity_unresolved",
+   "model_disputes_source"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
@@ -14916,14 +14921,16 @@
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
   "is_public": false,
-  "note": "Era-D consumer 'Otter'; identity unresolved; Wikidata country RO wrong. Small either way. | Identity unresolved era-D row; seed-era prior; Wikidata Romania match noted as a collision. | [stage3] Identity unresolved; prior stands. | [city] identity itself unresolved",
+  "note": "Era-D consumer 'Otter'; identity unresolved; Wikidata country RO wrong. Small either way. | Identity unresolved era-D row; seed-era prior; Wikidata Romania match noted as a collision. | [stage3] Identity unresolved; prior stands. | [city] identity itself unresolved | UNRESOLVABLE (PRO-136): an era-D consumer card; the Wikidata Romania match is a collision. The stage was the desk's convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "otter",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b",
+  "valuation_range": "undetermined",
   "valuation_range_source": "model_knowledge",
   "valuation_source": "model_knowledge",
-  "valuation_usd": null
+  "valuation_usd": null,
+  "who": "agent-pro136-sequoia"
  },
  "otto-finance": {
   "entry_stage": "Seed",
@@ -15052,7 +15059,6 @@
   "entry_stage_source": "model",
   "flags": [
    "city_unknown",
-   "identity_uncertain",
    "model_disputes_source"
   ],
   "focus": "AI & Applied AI",
@@ -15064,14 +15070,15 @@
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
   "is_public": false,
-  "note": "Paid.ai (AI-agent billing, Medina 2024-25) -- the $6.8M float is an OTC shell false join; dispute public status. | Paid.ai agent billing (Manny Medina); Sequoia-adjacent seed 2024-25. | [stage3] Seed 2024-25.",
+  "note": "Paid.ai (AI-agent billing, Medina 2024-25) -- the $6.8M float is an OTC shell false join; dispute public status. | Paid.ai agent billing (Manny Medina); Sequoia-adjacent seed 2024-25. | [stage3] Seed 2024-25. | IDENTITY RESOLVED (PRO-136): Paid.ai, Manny Medina's AI-agent billing company, on the firm's own card at sequoiacap.com/companies/paid/. Named and described; the $6.8M public float the layer attached is an OTC shell false join and stays disputed - a figure question, not an identity one.",
   "slug": "paid",
   "status": "private",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
   "valuation_range_source": "model_knowledge",
   "valuation_source": "model_knowledge",
-  "valuation_usd": null
+  "valuation_usd": null,
+  "who": "agent-pro136-sequoia"
  },
  "pajarito-powder-llc": {
   "entry_stage": "Pre-Seed",
@@ -16356,7 +16363,7 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "formd_structural",
   "flags": [
-   "identity_uncertain"
+   "identity_unresolved"
   ],
   "focus": null,
   "focus_source": "model",
@@ -16364,14 +16371,15 @@
   "hq_city_confidence": "low",
   "hq_city_source": "formd_address",
   "is_public": false,
-  "note": "Unresolvable identity ('Public Stage', wayback 2008/2013 vs 2017-2020 rounds to $65M); review. | [stage3] Identity unresolved era-A/B row; entry at the 2020 $65.5M filing with three priors. | [city] identity unresolved; the filing address is the only locator",
+  "note": "Unresolvable identity ('Public Stage', wayback 2008/2013 vs 2017-2020 rounds to $65M); review. | [stage3] Identity unresolved era-A/B row; entry at the 2020 $65.5M filing with three priors. | [city] identity unresolved; the filing address is the only locator | UNRESOLVABLE, FILINGS KEPT (PRO-136): nothing names the company behind this row, but its own filings decide it - the $65.5M filing of 2020 with three priors, which is where the formd_structural Growth comes from. Under the carried-through exception a filings-carried stage survives the missing name; what such a row may never do is publish a stage from model.",
   "slug": "public-stage",
   "status": "unknown",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
   "valuation_range_source": "model_knowledge",
   "valuation_source": "model_knowledge",
-  "valuation_usd": null
+  "valuation_usd": null,
+  "who": "agent-pro136-sequoia"
  },
  "pure-digital-technologies": {
   "entry_stage": "Series A",
@@ -22224,14 +22232,13 @@
   "valuation_usd": null
  },
  "veil": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior"
+   "identity_unresolved"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
@@ -22242,14 +22249,16 @@
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
   "is_public": false,
-  "note": "2020-21 'Veil' financial; identity unresolved. | Identity unresolved 2020-21 row; desk priors. | [stage3] Identity unresolved; prior stands.",
+  "note": "2020-21 'Veil' financial; identity unresolved. | Identity unresolved 2020-21 row; desk priors. | [stage3] Identity unresolved; prior stands. | UNRESOLVABLE (PRO-136): a 2020-21 financial row with desk priors only. The stage was the desk's convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "veil",
   "status": "unknown",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b",
+  "valuation_range": "undetermined",
   "valuation_range_source": "model_knowledge",
   "valuation_source": "model_knowledge",
-  "valuation_usd": null
+  "valuation_usd": null,
+  "who": "agent-pro136-sequoia"
  },
  "velogix": {
   "entry_stage": "Series A",
@@ -23224,23 +23233,25 @@
   "valuation_usd": null
  },
  "x": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
-   "identity_uncertain",
-   "stage_prior"
+   "identity_unresolved"
   ],
   "focus": null,
   "focus_source": "model",
   "hq_city": null,
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
-  "note": "Single-letter row 'X'; identity unresolvable (artifact or X.com); review. | Unresolvable single-letter row; stage prior; Slovakia country claim is a collision, kept only pending review. | [stage3] Unresolvable row; prior stands. | [city] identity itself unresolvable",
+  "note": "Single-letter row 'X'; identity unresolvable (artifact or X.com); review. | Unresolvable single-letter row; stage prior; Slovakia country claim is a collision, kept only pending review. | [stage3] Unresolvable row; prior stands. | [city] identity itself unresolvable | UNRESOLVABLE (PRO-136): a single-letter row - an artifact or X.com, and nothing decides which. A single letter pins no company. The stage was the desk's convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "x",
-  "valuation_range": "below_1b",
-  "valuation_range_source": "model_knowledge"
+  "valuation_range": "undetermined",
+  "valuation_range_source": "model_knowledge",
+  "valuation_usd": null,
+  "who": "agent-pro136-sequoia"
  },
  "xai": {
   "entry_stage": "Growth",

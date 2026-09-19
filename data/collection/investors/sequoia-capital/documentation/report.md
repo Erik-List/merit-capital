@@ -223,3 +223,41 @@ approval (sample sign-off, zero corrections); the database now derives
 152 / 56 / 16 and 59 public on 873 rows. The Waymo ruling (decisions.md
 6) went in as proposed; a `who: "erik"` correction and a re-ingest
 reverse it if he rules otherwise.
+
+## Addendum 2026-09-19 — identity reclassification (PRO-136)
+
+Twenty published rows carried `identity_uncertain` (fourteen further entries
+in `classification.json` are stale keys). This book's flagged set is the
+opposite of Redpoint's: almost all of it is genuinely unnameable, because the
+era-D cards carry a one-word name and a sector tag and nothing else — no url,
+no description, no founders.
+
+**Four rows are named and lose the flag.** `clover-newco-llc` is Clover
+Health's legal name (Sequoia led the 2017 $160M Series D; CLOV since the 2021
+SPAC), `cue-labs` is Greplin renamed, which Apple bought in 2013, `aquarium`
+is Aquarium Learning, the SF YC company that wound down around 2023, and
+`paid` is Paid.ai, Manny Medina's agent-billing company. Two of them keep a
+separate dispute that is not about identity: Aquarium's Wikidata "Germany"
+and Paid's $6.8M OTC-shell float are both false joins on a short name.
+
+**One row is identified with a namesake.** `handshake` is the handshake.org
+naming protocol, whose 2018 token sale is the only event on the record —
+never to be joined with Handshake the university-recruiting company.
+
+**Three rows keep their values without a name**, because their own filings
+carry the stage: `cove` ($5M in 2020 with one prior), `indie-technologies-inc`
+($60M in 2022, $46M in 2024) and `public-stage` ($65.5M in 2020 with three
+priors). This is the carried-through exception, and it is the difference
+between "we cannot name the company" and "we know nothing about the round".
+
+**Twelve rows read `undetermined`:** `allegro`, `fin`, `flex`, `glow`,
+`mithril`, `monad`, `nevis`, `open`, `origin`, `otter`, `veil` and `x`. Every
+one of them published a stage that was the desk's convention applied to a
+company nobody could name, and four carried a Wikidata country match that the
+judges had already called a collision (Germany, Russia, Romania, India). `x`
+is a single letter. `flex` is the instructive one: the note read "likely the
+NYC rent-flexibility fintech", and a likely reading is not an identification.
+
+`verify --in-flight` clean. Sequoia is mid-S2A-wave with a live in-flight
+marker, so this pass did not close it, did not rebuild the base and did not
+re-export; the wave owns the published surface.
