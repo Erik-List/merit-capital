@@ -1045,7 +1045,11 @@ def validate_record(rec: dict, slugs: set[str], merged: dict | None = None) -> l
             errs.append(f"{slug}: {key} is not a key; use {key.replace('seed_to_a_', '')}")
     on_disk = (merged or {}).get(slug) or {}
     view = {**on_disk, **{k: v for k, v in rec.items() if v is not None}}
-    view_flags = set(on_disk.get("flags") or []) | set(rec.get("flags") or [])
+    # The view is the row as `record` will leave it: flags union, minus what
+    # the line explicitly clears (a pass that retires an inferred value clears
+    # its flag on the same line, and must be validated against the result).
+    view_flags = (set(on_disk.get("flags") or []) | set(rec.get("flags") or [])) \
+        - set(rec.get("clear_flags") or [])
     if rec.get("graduation_source") is not None \
             and rec["graduation_source"] not in GRADUATION_SOURCES:
         errs.append(f"{slug}: graduation_source {rec['graduation_source']!r} (one of "
@@ -1740,7 +1744,8 @@ def cmd_verify(args) -> None:
         # a row the FILINGS decide: a Form D sequence gives a dated round and
         # a band without naming anyone, and that evidence is not thrown away
         # because the company cannot be named.
-        unresolved = IDENTITY_UNRESOLVED in set(rec.get("flags") or [])
+        row_flags = set(rec.get("flags") or [])
+        unresolved = IDENTITY_UNRESOLVED in row_flags
         # The identity columns are entry_stage and valuation_range: they move
         # together, and an undetermined stage takes the graduation with it. A
         # judged `undetermined` graduation on a real Seed row is the separate
@@ -1755,15 +1760,19 @@ def cmd_verify(args) -> None:
             if missing:
                 problems.append(f"{slug}: {UNDETERMINED!r} row still asserts {missing} "
                                 f"({', '.join(f'{k}={rec.get(k)!r}' for k in missing)})")
-            if rec.get("entry_stage") == UNDETERMINED and g != UNDETERMINED:
+            # A pre-window row's graduation is null by rule, and that rule
+            # outranks this one: the column does not apply at all there.
+            want_g = None if (row_flags & PRE_WINDOW_FLAGS) else UNDETERMINED
+            if rec.get("entry_stage") == UNDETERMINED and g != want_g:
                 problems.append(f"{slug}: {UNDETERMINED!r} entry_stage with "
-                                f"seed_to_a_graduation {g!r}; the column cannot be decided "
-                                f"for a company that cannot be named")
+                                f"seed_to_a_graduation {g!r}; expected {want_g!r} "
+                                f"(the column cannot be decided for a company that "
+                                f"cannot be named)")
         elif unresolved and not formd_carried:
             problems.append(f"{slug}: {IDENTITY_UNRESOLVED} row asserts an outcome "
                             f"(entry_stage={rec.get('entry_stage')!r}) with no Form D behind it; "
                             f"write {UNDETERMINED!r} instead")
-        if unresolved and set(rec.get("flags") or []) & INFERRED_FLAGS:
+        if unresolved and row_flags & INFERRED_FLAGS:
             problems.append(f"{slug}: {IDENTITY_UNRESOLVED} row carries an inferred value")
         if undet:
             continue

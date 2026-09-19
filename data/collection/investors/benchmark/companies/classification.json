@@ -61,22 +61,22 @@
   "who": "agent-judge-pro88"
  },
  "abaco-international-group": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
+   "identity_unresolved",
    "pre_window_entry"
   ],
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Listed as 'Abaco' on the 1999-2003 captures with the link pointing at abacoinc.com; the row does not resolve to a company whose outcome is on the record, so status and sector are left unasserted | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
+  "note": "Listed as 'Abaco' on the 1999-2003 captures with the link pointing at abacoinc.com; the row does not resolve to a company whose outcome is on the record, so status and sector are left unasserted | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule | UNRESOLVABLE (PRO-136): listed as 'Abaco' on the 1999-2003 captures with a link to abacoinc.com, a domain that carries nothing tying it to this listing today; no filing, no press, no outcome on the record. Stage and band read undetermined, graduation null as a pre-window row.",
   "slug": "abaco-international-group",
   "status": "unknown",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b",
+  "valuation_range": "undetermined",
   "valuation_usd": null,
-  "who": "agent-s2a-pass"
+  "who": "agent-pro136-benchmark"
  },
  "abrizio": {
   "entry_stage": "Series A",
@@ -352,21 +352,22 @@
   "who": "agent-s2a-pass"
  },
  "arteis": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain"
+   "identity_unresolved"
   ],
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Listed on the 2007-2009 captures only; the row does not resolve to a company whose outcome is on the record",
+  "note": "Listed on the 2007-2009 captures only; the row does not resolve to a company whose outcome is on the record | UNRESOLVABLE (PRO-136): on the 2007-2009 captures only, with no link, no filing and no trace since. The row published a Series A from model alone and carried no inferred-value flag to show it \u2014 exactly the fill the 2026-09-18 rule abolishes. Stage, band and graduation read undetermined.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "arteis",
   "status": "unknown",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b",
+  "valuation_range": "undetermined",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-pro136-benchmark"
  },
  "asana": {
   "flags": [],
@@ -1122,38 +1123,38 @@
   "who": "agent-judge-pro88"
  },
  "compression": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "stage_prior"
+   "identity_unresolved"
   ],
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "On the firm's own listing for 2009 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). The single-word name does not resolve to a specific company.",
+  "note": "On the firm's own listing for 2009 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). The single-word name does not resolve to a specific company. | UNRESOLVABLE (PRO-136): a single-word listing on the firm's 2009 page and dark since, with no acquisition or shutdown on the record. The name pins no company; stage, band and graduation read undetermined and the status stays unknown.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "compression",
   "status": "unknown",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b",
+  "valuation_range": "undetermined",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-pro136-benchmark"
  },
  "conduit": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "stage_prior"
+   "identity_unresolved"
   ],
-  "note": "Listed as 'Conduit' in the 2009 and 2012 captures with no link surviving in the parsed rows; the name is shared by several companies (the Israeli toolbar business among them, which would belong to the partitioned desk) and the row's identity does not resolve \u2014 status and sector left unasserted rather than force-fitted",
+  "note": "Listed as 'Conduit' in the 2009 and 2012 captures with no link surviving in the parsed rows; the name is shared by several companies (the Israeli toolbar business among them, which would belong to the partitioned desk) and the row's identity does not resolve \u2014 status and sector left unasserted rather than force-fitted | UNRESOLVABLE (PRO-136): listed as 'Conduit' in the 2009 and 2012 captures with no surviving link, and the name is shared by several real companies \u2014 the Israeli toolbar business among them, which would belong to the partitioned Israel desk rather than to this book. Real candidates exist but none was ruled in, so the row names no company: the inferred Series A goes and stage, band and graduation read undetermined. If a later pass pins it to the Israeli company, the question becomes a desk question, not a stage question.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "conduit",
   "status": "unknown",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b",
+  "valuation_range": "undetermined",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-pro136-benchmark"
  },
  "confluent-inc": {
   "flags": [],
@@ -1684,22 +1685,22 @@
   "who": "agent-s2a-pass"
  },
  "encompass": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
+   "identity_unresolved",
    "pre_window_entry"
   ],
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Listed as 'Encompass' across the 1999-2012 captures; the name resolves to several companies of the era and the row's identity is not established, so status and sector are left unasserted. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
+  "note": "Listed as 'Encompass' across the 1999-2012 captures; the name resolves to several companies of the era and the row's identity is not established, so status and sector are left unasserted. Pre-2003 entry, Series A by convention | pre-window entry (first_seen 1999 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule | UNRESOLVABLE (PRO-136): listed as 'Encompass' across the 1999-2012 captures; the name resolves to several companies of that era and none was ruled in. The Series A was a convention applied to a company nobody could name, so stage and band read undetermined; the graduation stays null, as it does on every pre-window row.",
   "slug": "encompass",
   "status": "unknown",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b",
+  "valuation_range": "undetermined",
   "valuation_usd": null,
-  "who": "agent-s2a-pass"
+  "who": "agent-pro136-benchmark"
  },
  "engim": {
   "entry_stage": "Series A",
@@ -1735,23 +1736,22 @@
   "who": "agent-judge-pro88"
  },
  "ens": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "pre_window_entry",
-   "stage_prior"
+   "identity_unresolved",
+   "pre_window_entry"
   ],
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "On the firm's own listing for 2000 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). A three-letter name that does not resolve. | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
+  "note": "On the firm's own listing for 2000 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). A three-letter name that does not resolve. | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule | UNRESOLVABLE (PRO-136): a three-letter listing on the firm's 2000 page and dark since. Nothing names the company; stage and band read undetermined and the graduation stays null as a pre-window row.",
   "slug": "ens",
   "status": "unknown",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b",
+  "valuation_range": "undetermined",
   "valuation_usd": null,
-  "who": "agent-s2a-pass"
+  "who": "agent-pro136-benchmark"
  },
  "entrisphere": {
   "entry_stage": "Series A",
@@ -2631,7 +2631,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window_entry"
   ],
   "focus": "Fintech & Payments",
@@ -2640,13 +2639,13 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Juniper Bank, the credit-card bank founded by Richard Vague; acquired by Barclays in 2004 and became Barclaycard US. The base also carries juniper-financial, its holding company \u2014 suspected duplicate, flagged for the identity-merge file. | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
+  "note": "Juniper Bank, the credit-card bank founded by Richard Vague; acquired by Barclays in 2004 and became Barclaycard US. The base also carries juniper-financial, its holding company \u2014 suspected duplicate, flagged for the identity-merge file. | pre-window entry (first_seen 2001 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule | IDENTITY RESOLVED, FLAG RETIRED (PRO-136): juniper-financial -> juniper-bank is in identity-merges.json and landed at the rebuild; the note's 'suspected duplicate' wording predates it. Juniper Bank is Richard Vague's credit-card bank, acquired by Barclays in 2004 and rebranded Barclaycard US \u2014 named and described, so no identity flag. Its values stand.",
   "slug": "juniper-bank",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-s2a-pass"
+  "who": "agent-pro136-benchmark"
  },
  "juniper-financial": {
   "entry_stage": "Series A",
@@ -3430,23 +3429,22 @@
   "who": "agent-s2a-pass"
  },
  "northstar": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "pre_window_entry",
-   "stage_prior"
+   "identity_unresolved",
+   "pre_window_entry"
   ],
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Listed as 'Northstar' on the 2004-2008 captures; the name is shared by many companies and the row does not resolve to a specific operating entity, so status and sector are left unasserted | pre-window entry (first_seen 2004 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
+  "note": "Listed as 'Northstar' on the 2004-2008 captures; the name is shared by many companies and the row does not resolve to a specific operating entity, so status and sector are left unasserted | pre-window entry (first_seen 2004 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule | UNRESOLVABLE (PRO-136): listed as 'Northstar' on the 2004-2012 captures; the name is shared by many companies and the row resolves to no specific operating entity. The inferred Series A goes; stage and band read undetermined and the graduation stays null as a pre-window row.",
   "slug": "northstar",
   "status": "unknown",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b",
+  "valuation_range": "undetermined",
   "valuation_usd": null,
-  "who": "agent-s2a-pass"
+  "who": "agent-pro136-benchmark"
  },
  "numeral-two-inc": {
   "flags": [],
@@ -3514,17 +3512,16 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window_entry"
   ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
-  "note": "Opsware IS the renamed Loudcloud (2002), which the base also carries as its own row \u2014 suspected duplicate, flagged for the identity-merge file. Acquired by Hewlett-Packard 2007 ($1.6B). Pre-2003 entry via Loudcloud, Series A by convention | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule",
+  "note": "Opsware IS the renamed Loudcloud (2002), which the base also carries as its own row \u2014 suspected duplicate, flagged for the identity-merge file. Acquired by Hewlett-Packard 2007 ($1.6B). Pre-2003 entry via Loudcloud, Series A by convention | pre-window entry (first_seen 2000 < 2006, a ceiling on entry recency per R5): label kept at low confidence per the 2026-09-07 constant, graduation null by rule | IDENTITY RESOLVED, FLAG RETIRED (PRO-136): the note's 'suspected duplicate, flagged for the identity-merge file' predates the rebuild that landed the merge \u2014 loudcloud -> opsware is in identity-merges.json and the duplicate is gone. The company is named and described (Loudcloud renamed Opsware in 2002, acquired by Hewlett-Packard in 2007 for $1.6B), so under the 2026-09-18 rule it carries no identity flag. Its values stand.",
   "slug": "opsware",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-s2a-pass"
+  "who": "agent-pro136-benchmark"
  },
  "optimizely-inc": {
   "entry_stage": "Series A",
@@ -4631,24 +4628,24 @@
   "who": "agent-s2a-pass"
  },
  "telecommunications-labs": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
-   "stage_prior"
+   "identity_unresolved"
   ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "On the firm's own listing for 2008 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). A generic name that does not resolve to a specific company.",
+  "note": "On the firm's own listing for 2008 and dark since, with no acquisition and no shutdown notice on the record \u2014 unknown rather than a guessed outcome (COLLECTION.md \u00a73, null over force-fit). A generic name that does not resolve to a specific company. | UNRESOLVABLE (PRO-136): a generic name on the firm's 2008 listing and dark since, resolving to no specific company. Stage, band and graduation read undetermined; the status stays unknown.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "telecommunications-labs",
   "status": "unknown",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b",
+  "valuation_range": "undetermined",
   "valuation_usd": null,
-  "who": "agent-judge-pro88"
+  "who": "agent-pro136-benchmark"
  },
  "tellme": {
   "entry_stage": "Series A",

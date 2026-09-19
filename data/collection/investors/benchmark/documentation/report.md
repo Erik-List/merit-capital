@@ -364,3 +364,39 @@ accessions, 62 entities, own fund filings, FTS 256 registrants, issuer rounds),
 registers (the ADV PDF). `scratch/`: `gate.md`, `derive-desks.py`,
 `build-roster.py`, `own-formd-persons.py`, `enrich-queue.py`, `build-site-list.py`,
 `emit.py`, the queue and out files, the run logs, `collection-writeback.md`.
+
+## Addendum 2026-09-19 — identity reclassification (PRO-136)
+
+Ten published rows carried `identity_uncertain` (the other twelve flagged
+entries in `classification.json` are stale keys for rows the merges already
+absorbed). Two were stale wording, eight were real.
+
+**Two flags retired, values kept.** `opsware` and `juniper-bank` both read
+"suspected duplicate, flagged for the identity-merge file" — wording written
+during the grind and never revisited after the rebuild landed
+`loudcloud → opsware` and `juniper-financial → juniper-bank`. Both companies
+are named and described, so under the 2026-09-18 rule they carry no identity
+flag at all.
+
+**Eight rows publish `undetermined`.** `abaco-international-group`, `arteis`,
+`compression`, `conduit`, `encompass`, `ens`, `northstar` and
+`telecommunications-labs` are single-name rows from the 1999–2012 archived
+listings where the firm's own page is the only surviving trace. Every one of
+them published `entry_stage: Series A` sourced `model` — the inferred fill the
+new rule abolishes — and five of the eight did not even carry `stage_prior` to
+show it, so a sweep keyed on that flag would have missed them. All eight now
+read `undetermined` in `entry_stage` and `valuation_range`; the four
+pre-window rows keep a null graduation (that rule outranks this one), the
+other four read `undetermined` there too.
+
+`conduit`, `encompass` and `northstar` are the sub-case where real namesakes
+exist but none was ruled in — for `conduit` the Israeli toolbar business,
+which would belong to the partitioned Israel desk. Under PRO-136's own rule
+("where the name resolves to nothing, treat as `identity_unresolved`") they
+are unresolved rather than homonyms: `identity_homonym` is for a row we HAVE
+identified that must never be fused with its namesake. The candidates are
+named in each note, so a later pass can pick one up.
+
+`verify` clean; eight rows excluded from every distribution and every metric.
+The S2A block is unchanged (7 seed entries, all graduated), because none of
+the eight was a Seed row.
