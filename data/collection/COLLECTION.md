@@ -1950,9 +1950,20 @@ run before the investor row exists (Thrive, 2026-09-04).
    vocabulary; every Seed row carries a graduation status. `undetermined`
    satisfies the fill: in `valuation_range` only on an `identity_unresolved`
    row, and in `entry_stage` on any row whose round the record does not give
-   (PRO-137). An `identity_unresolved` row reads `undetermined` across all
-   three outcome columns and is excluded from every distribution, every rate
-   and the `c2a_rate_max` ceiling, and `verify` prints how many it excluded.
+   (PRO-137). **A metric excludes a row only in the column the row declines to
+   answer** (PRO-135). An `identity_unresolved` row reads `undetermined` across
+   all three outcome columns and leaves every distribution, every rate and the
+   `c2a_rate_max` ceiling. A NAMEABLE row whose round is unknown leaves the
+   stage distribution and the S2A cohort and **nothing else** — it keeps its
+   band, its status, its country and its place in the track record, because an
+   unknown round is not an unknown company. `verify` prints the two on separate
+   lines (`identity` and `stage unknown`). This was one test while the only
+   undetermined row was an unnameable company; PRO-135's 139 nameable ones
+   would otherwise have deleted seven real $1B+ companies from two published
+   track records (Lux's Cognition, Runway, LangChain, Modal, Physical
+   Intelligence, Erebor; USV's Polygon). `recompute_investor_metrics` carries
+   the same split from migration `20260919180000`, which is **written and not
+   yet applied** — it must land before PRO-121 re-ingests.
 2. Source gate: a dollar figure only from an allowed source; only
    `below_1b` without a figure.
 3. Public $1B+ row → cited market cap, else `cite_pending`.

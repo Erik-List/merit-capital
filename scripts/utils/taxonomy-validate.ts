@@ -173,13 +173,25 @@ export function validateCompanyFields(row: Record<string, any>): TaxonomyIssues 
   // 2026-09-19) has an undetermined stage because no priced round exists, yet
   // it is named and bandable. run.py's verify holds the cascade where the
   // flags are visible.
-  if (row.valuation_usd != null
-      && (row.entry_stage === UNDETERMINED || row.valuation_range === UNDETERMINED)) {
-    errors.push("undetermined: a row with an undetermined column cannot carry a valuation_usd");
+  // The figure belongs to the BAND, so only an undetermined band refuses one
+  // (PRO-135). A nameable company whose entry round the record does not give
+  // keeps its band, and above below_1b a band is required to carry a figure by
+  // invariant 2 -- Lux's Cognition is $10B+ with an unknown entry round, and
+  // this check used to reject it.
+  if (row.valuation_usd != null && row.valuation_range === UNDETERMINED) {
+    errors.push("undetermined: an undetermined valuation_range cannot carry a valuation_usd");
   }
-  if (row.entry_stage === UNDETERMINED && row.seed_to_a_graduation !== UNDETERMINED) {
+  // An undetermined stage means the row is not a Seed entry, so the graduation
+  // column does not apply and reads null -- or `undetermined`, which says a
+  // judge looked and found no priced round to stage (the token-funded ruling,
+  // Erik 2026-09-19). Both are what `public.companies`'s own CHECK accepts and
+  // what run.py's verify accepts; only this validator demanded the second.
+  if (row.entry_stage === UNDETERMINED
+      && row.seed_to_a_graduation != null
+      && row.seed_to_a_graduation !== UNDETERMINED) {
     errors.push(
-      "undetermined: an undetermined entry_stage carries an undetermined seed_to_a_graduation"
+      "undetermined: an undetermined entry_stage takes no graduation (null), or "
+      + "`undetermined` where a judge looked and found no priced round"
     );
   }
 
