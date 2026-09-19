@@ -1331,7 +1331,13 @@ maturity today. 100% fill.
   2026-09-19). Where a firm runs an accelerator or programme that invests a
   standard cheque on standard terms — a16z's SPEEDRUN at $500k, YC's batch
   deal — the stage is the PROGRAMME's, not a round the company negotiated:
-  `Pre-Seed`, source `program_terms`, and the note names the cohort. It is a
+  `Pre-Seed`, source `program_terms`, and the note names the cohort. **The
+  citation is the TERMS document**, not a per-company round page —
+  `speedrun.a16z.com/faq` for a16z's $500k, `ycombinator.com/deal` for YC's
+  batch deal — which is exactly what makes it evidence about a company nobody
+  has written about. A terms page shared by thousands of rows is therefore
+  correct here and must not be swept up with the reused index pages that a
+  `web_verified` claim may never rest on. It is a
   fact about a documented transaction, so it survives a missing company name
   the way a Form D sequence does, and `record` accepts it on an
   `identity_unresolved` row. It also leaves the S2A cohort: a Pre-Seed entry
