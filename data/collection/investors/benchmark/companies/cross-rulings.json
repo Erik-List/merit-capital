@@ -21,6 +21,13 @@
     "union-square-ventures:bolt"
    ],
    "note": "Same collision: USV's 'bolt' is not Benchmark's Bo.lt. Both read below_1b today so the pair does not fail verify, but it is ruled distinct so it never can."
+  },
+  {
+   "rows": [
+    "benchmark:conduit",
+    "yc:conduit"
+   ],
+   "note": "STOPGAP, pending the structural fix. Benchmark's 'Conduit' is a 2009/2012 portfolio listing this run could not identify at all and PRO-136 has now flagged identity_unresolved; it cannot be asserted to be YC's Conduit or anything else. YC's run already ruled benchmark:conduit distinct from yc:conduit-2 and did not rule the sibling row yc:conduit, which is what left verify red. The real fix is for invariant 10 to SKIP identity_unresolved rows \u2014 an unnameable row has no identity to join on, so the pair is unsound by construction rather than a disagreement to adjudicate. Handed to the PRO-136 session 2026-09-18; this ruling can be deleted once that lands."
   }
  ],
  "accepted": [],
