@@ -674,16 +674,43 @@ def main() -> None:
                 w.capitalize() for w in e["slug"].replace("_", "-").split("-"))
             snapshots.setdefault(e.get("snapshot_ts", "?"), set()).add(norm_words(disp))
 
-    def better_name(a: str, b: str) -> str:
-        """Prefer the investor's own current rendering, then Title Case over CAPS."""
+    def last_listed(row: dict) -> int:
+        """The most recent year this rendering was seen on the firm's own site."""
+        years = [int(y) for y in re.findall(r"(?:19|20)\d\d", row.get("wayback_years") or "")]
+        if row.get("first_seen", "").isdigit():
+            years.append(int(row["first_seen"]))
+        return max(years) if years else 0
+
+    def better_name(a: dict, b: dict) -> str:
+        """The company's most RECENT rendering (Erik, 2026-09-19).
+
+        A merge folds two renderings of one company together and has to
+        publish one of them. The right one is the latest, because a rename is
+        news about the company: Blockstack became Hiro, CyPhy Works became
+        Aria Insights. Length is not a proxy for it and points the wrong way
+        as often as not -- it reaches back for "Massdrop" over Drop,
+        "Remind101" over Remind, "Foxmarks" over Xmarks, and for archive
+        spellings like "Trueandco" over True&Co.
+
+        Precedence: the firm's live list, then the rendering seen most
+        recently on its site, then Title Case over CAPS, then the longer.
+        """
         site_names = snapshots.get("site", set())
-        for n in (a, b):
-            if norm_words(n) in site_names:
-                return n
-        a_caps, b_caps = a.isupper(), b.isupper()
+        for row in (a, b):
+            if norm_words(row["name"]) in site_names:
+                return row["name"]
+        # A row the live site still links is current whatever the captures say.
+        a_live, b_live = bool(a.get("site_url")), bool(b.get("site_url"))
+        if a_live != b_live:
+            return a["name"] if a_live else b["name"]
+        a_year, b_year = last_listed(a), last_listed(b)
+        if a_year != b_year:
+            return a["name"] if a_year > b_year else b["name"]
+        na, nb = a["name"], b["name"]
+        a_caps, b_caps = na.isupper(), nb.isupper()
         if a_caps != b_caps:
-            return b if a_caps else a
-        return max((a, b), key=len)
+            return nb if a_caps else na
+        return max((na, nb), key=len)
 
     def union_rows(keep: dict, gone: dict) -> None:
         """Fold gone's evidence into keep; name/slug/status are the caller's call."""
@@ -737,7 +764,7 @@ def main() -> None:
                 distinct += 1
                 continue
             keep, gone = r, r2
-            keep["name"] = better_name(r["name"], r2["name"])
+            keep["name"] = better_name(r, r2)
             keep["slug"] = slug_of(keep["name"])
             union_rows(keep, gone)
             drop.add(id(gone))
@@ -758,6 +785,9 @@ def main() -> None:
             gone = by_slug.pop(ds, None)
             if gone is None or gone is keep:
                 continue
+            # Chosen BEFORE the union, which would merge the two rows'
+            # listing years together and destroy the recency comparison.
+            pinned_name = m.get("name") or better_name(keep, gone)
             union_rows(keep, gone)
             # The site's own rendering owns the name (COLLECTION.md 5). An
             # identity merge can absorb the row that carries the CURRENT name
@@ -769,7 +799,7 @@ def main() -> None:
             # knows which entity the position is (Menlo's Chipcom, absorbed
             # into a CMS row filed under the acquirer 3Com), and the
             # longest-rendering fallback would publish the wrong one.
-            keep["name"] = m.get("name") or better_name(keep["name"], gone["name"])
+            keep["name"] = pinned_name
             keep["notes"] = "; ".join(filter(None, [
                 keep["notes"], f"absorbed {ds} ({m['reason']})"]))
             rows_out.remove(gone)

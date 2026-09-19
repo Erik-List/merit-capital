@@ -833,6 +833,23 @@ def cmd_prepare(args) -> None:
     # The rounds file's own date is the as-of of every absence it asserts.
     formd_asof = date.fromtimestamp(P.formd_rounds.stat().st_mtime).isoformat()
     partner_accs = {r["slug"]: accs_of(r) for r in rows}
+    # The rounds cache is keyed by the slug the row carried when it was pulled,
+    # and a slug follows the published name, so a rename orphans a company's
+    # own filings (Lux's `hometeam-technologies-inc` -> `hometeam`, 2026-09-19).
+    # Re-key on the accessions, which belong to the filings rather than to the
+    # rendering: a row whose accessions match a cache entry IS that entry.
+    live = {r["slug"] for r in rows}
+    by_acc = {}
+    for old_slug, rec in formd.items():
+        for a in {r.get("accession") for r in rec.get("rounds", []) if r.get("accession")}:
+            by_acc.setdefault(a, old_slug)
+    for row in rows:
+        if row["slug"] in formd:
+            continue
+        hit = next((by_acc[a] for a in accs_of(row) if a in by_acc), None)
+        if hit and hit not in live:
+            formd[row["slug"]] = formd.pop(hit)
+            print(f"    formd rounds re-keyed {hit} -> {row['slug']} (renamed row)")
     grad = {slug: graduation_from_formd(rec["rounds"], partner_accs.get(slug, set()), formd_asof)
             for slug, rec in formd.items()}
     write_atomic(P.graduation, json.dumps(grad, indent=1))
