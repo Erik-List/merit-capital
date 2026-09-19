@@ -210,7 +210,6 @@
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
    "stage_prior",
    "stage_uncited"
   ],
@@ -219,12 +218,12 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Adisn, Inc., semantic advertising targeting; wound down around 2010. The trailing '*' on the parsed name is the compliance list's exit marker, not part of the name. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Adisn, Inc. (semantic advertising targeting, wound down around 2010, related on the compliance list to the 2013 CrowdGather transaction). Searches on 2026-09-17 found no funding announcement naming Battery and no shutdown article, so neither leg could be cited.",
+  "note": "Adisn, Inc., semantic advertising targeting; wound down around 2010. The trailing '*' on the parsed name is the compliance list's exit marker, not part of the name. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Adisn, Inc. (semantic advertising targeting, wound down around 2010, related on the compliance list to the 2013 CrowdGather transaction). Searches on 2026-09-17 found no funding announcement naming Battery and no shutdown article, so neither leg could be cited. | IDENTITY RESOLVED (PRO-136): Adisn, Inc., semantic advertising targeting, which wound down around 2010. The trailing '*' on the parsed name is the compliance list's exit marker, not part of the name - a rendering defect rather than a doubt.",
   "seed_to_a_graduation": "undetermined",
   "slug": "adisn-inc",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-pro136-battery"
  },
  "adku": {
   "entry_date": "2011",
@@ -560,14 +559,13 @@
   "valuation_range": "below_1b"
  },
  "alltaster": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
@@ -575,12 +573,13 @@
   "hq_country": "GB",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "AllTaster Limited: compliance-list-only, not marked exited, unrecognized. The 'Limited' suffix is the only country signal and points to the UK; flagged as a prior, not a finding. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (AllTaster Limited) with no identified company; no funding or terminal event could be tied to it, so neither the stage leg nor a later round could be established (checked the live compliance list and the classification note, 2026-09-16).",
+  "note": "AllTaster Limited: compliance-list-only, not marked exited, unrecognized. The 'Limited' suffix is the only country signal and points to the UK; flagged as a prior, not a finding. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (AllTaster Limited) with no identified company; no funding or terminal event could be tied to it, so neither the stage leg nor a later round could be established (checked the live compliance list and the classification note, 2026-09-16). | UNRESOLVABLE (PRO-136): 'AllTaster' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
   "seed_to_a_graduation": "undetermined",
   "slug": "alltaster",
   "status": "unknown",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "alogent": {
   "flags": [],
@@ -932,14 +931,13 @@
   "valuation_range": "below_1b"
  },
  "aptera": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
@@ -947,10 +945,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "'Aptera, Inc.' on the compliance list, marked exited. Not the Aptera Motors EV company, which Battery did not back; identity unresolved, so the row is a prior-filled rule-out rather than a finding. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "'Aptera, Inc.' on the compliance list, marked exited. Not the Aptera Motors EV company, which Battery did not back; identity unresolved, so the row is a prior-filled rule-out rather than a finding. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'Aptera, Inc.' on the compliance list, marked exited. It is NOT Aptera Motors, the EV company Battery did not back, and nothing else identifies it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "aptera",
   "status": "unknown",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "arbor-networks": {
   "entry_stage": "Series A",
@@ -974,14 +975,13 @@
   "valuation_range": "below_1b"
  },
  "archive-technologies": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "Data Infrastructure",
@@ -989,12 +989,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Archive Technologies, Inc.: compliance-list-only, first listed 2023, not marked exited, unrecognized. Recent listing implies an early-stage private position; identity unresolved. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Archive Technologies, Inc., first listed 2023, not marked exited) with no identified company; FinSMEs, Google News and TechCrunch searches on 2026-09-17 returned nothing that ties Battery to any round, so neither the stage leg nor a later round could be cited.",
+  "note": "Archive Technologies, Inc.: compliance-list-only, first listed 2023, not marked exited, unrecognized. Recent listing implies an early-stage private position; identity unresolved. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Archive Technologies, Inc., first listed 2023, not marked exited) with no identified company; FinSMEs, Google News and TechCrunch searches on 2026-09-17 returned nothing that ties Battery to any round, so neither the stage leg nor a later round could be cited. | UNRESOLVABLE (PRO-136): 'Archive Technologies' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
   "seed_to_a_graduation": "undetermined",
   "slug": "archive-technologies",
   "status": "unknown",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "arize-ai": {
   "flags": [],
@@ -1169,15 +1170,14 @@
   "valuation_range": "below_1b"
  },
  "atsoft-inc": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
+   "identity_unresolved",
    "pre_window",
-   "stage_prior",
    "stage_uncited"
   ],
   "focus": "Industrial & Robotics",
@@ -1185,10 +1185,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "ATSoft, Inc., on Battery's 1997 portfolio page under Software; unrecognized beyond that listing. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "ATSoft, Inc., on Battery's 1997 portfolio page under Software; unrecognized beyond that listing. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'ATSoft, Inc.' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "atsoft-inc",
   "status": "acquired",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "auditboard": {
   "entry_stage": "Growth",
@@ -1288,14 +1291,13 @@
   "valuation_range": "below_1b"
  },
  "avs": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -1303,10 +1305,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "'AVS, Inc.' on the compliance list, marked exited. A three-letter name with no era, sector or filing evidence; identity unresolved. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "'AVS, Inc.' on the compliance list, marked exited. A three-letter name with no era, sector or filing evidence; identity unresolved. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'AVS' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "avs",
   "status": "unknown",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "away": {
   "entry_stage": "Growth",
@@ -1427,14 +1432,13 @@
   "valuation_range": "below_1b"
  },
  "bass-associates": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -1442,10 +1446,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "'Bass Associates' on the compliance list, marked exited. Unrecognized, no era or sector evidence. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "'Bass Associates' on the compliance list, marked exited. Unrecognized, no era or sector evidence. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'Bass Associates' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "bass-associates",
   "status": "unknown",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "baz": {
   "entry_stage": "Seed",
@@ -1751,14 +1758,13 @@
   "valuation_range": "below_1b"
  },
  "blue-flame-data": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -1766,10 +1772,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "'Blue Flame Data' on the compliance list, marked exited. Unrecognized; no era, sector or filing evidence. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "'Blue Flame Data' on the compliance list, marked exited. Unrecognized; no era, sector or filing evidence. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'Blue Flame Data' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "blue-flame-data",
   "status": "unknown",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "blue-jeans-networks": {
   "entry_stage": "Growth",
@@ -2057,7 +2066,6 @@
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
    "possible_duplicate",
    "stage_prior",
    "stage_uncited"
@@ -2067,12 +2075,12 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "'Burberry & Hicks' on the compliance list, marked exited; unrecognized. DUPLICATE of burbury-hicks \u2014 the same entry appears under two spellings across compliance-list captures, which is a first-party spelling drift rather than two companies. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Burberry & Hicks, marked exited; spelling drift of burbury-hicks) with no identified company; no round or terminal event can be tied to it, so neither leg could be established (2026-09-16).",
+  "note": "'Burberry & Hicks' on the compliance list, marked exited; unrecognized. DUPLICATE of burbury-hicks \u2014 the same entry appears under two spellings across compliance-list captures, which is a first-party spelling drift rather than two companies. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Burberry & Hicks, marked exited; spelling drift of burbury-hicks) with no identified company; no round or terminal event can be tied to it, so neither leg could be established (2026-09-16). | IDENTITY RESOLVED (PRO-136): The duplicate this note describes was already absorbed at the rebuild: the compliance list carried one entry under two spellings, which is first-party spelling drift. One row, one company, and the note predates the merge.",
   "seed_to_a_graduation": "undetermined",
   "slug": "burberry-hicks",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-pro136-battery"
  },
  "burbury-hicks": {
   "entry_stage": "Seed",
@@ -2095,15 +2103,14 @@
   "valuation_range": "below_1b"
  },
  "business-software-technology": {
-  "entry_stage": "Growth",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
+   "identity_unresolved",
    "pre_window",
-   "stage_prior",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -2111,10 +2118,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Business Software Technology, on the 2007-2012 alphabetical page's prior-holdings column; a generic 1990s name with no other evidence. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "Business Software Technology, on the 2007-2012 alphabetical page's prior-holdings column; a generic 1990s name with no other evidence. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'Business Software Technology' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "business-software-technology",
   "status": "acquired",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "cabletron-systems": {
   "entry_stage": "Growth",
@@ -2137,15 +2147,14 @@
   "valuation_range": "below_1b"
  },
  "cad-solutions": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
+   "identity_unresolved",
    "pre_window",
-   "stage_prior",
    "stage_uncited"
   ],
   "focus": "Industrial & Robotics",
@@ -2153,10 +2162,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "'CAD Solutions, Inc.' on the compliance list, marked exited. A generic 1980s/1990s CAD-services name with no other evidence; identity unresolved. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "'CAD Solutions, Inc.' on the compliance list, marked exited. A generic 1980s/1990s CAD-services name with no other evidence; identity unresolved. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'CAD Solutions' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "cad-solutions",
   "status": "unknown",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "callidus-software": {
   "entry_stage": "Growth",
@@ -3980,15 +3992,14 @@
   "valuation_range": "below_1b"
  },
  "distribution-management-systems": {
-  "entry_stage": "Growth",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
+   "identity_unresolved",
    "pre_window",
-   "stage_prior",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -3996,10 +4007,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Distribution Management Systems, on the 2007-2012 alphabetical page's prior-holdings column; a generic 1990s name with no other evidence. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "Distribution Management Systems, on the 2007-2012 alphabetical page's prior-holdings column; a generic 1990s name with no other evidence. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'Distribution Management Systems' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "distribution-management-systems",
   "status": "acquired",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "dlife": {
   "entry_stage": "Growth",
@@ -4326,14 +4340,13 @@
   "valuation_range": "below_1b"
  },
  "ecovate": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -4341,12 +4354,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Ecovate, Inc.: compliance-list-only, marked exited, unrecognized. Rule-out on absence of any trace. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Ecovate, Inc., marked exited); one search (2026-09-17) returned nothing beyond Battery's own list, so neither the stage leg nor any round could be cited.",
+  "note": "Ecovate, Inc.: compliance-list-only, marked exited, unrecognized. Rule-out on absence of any trace. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Ecovate, Inc., marked exited); one search (2026-09-17) returned nothing beyond Battery's own list, so neither the stage leg nor any round could be cited. | UNRESOLVABLE (PRO-136): 'Ecovate' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
   "seed_to_a_graduation": "undetermined",
   "slug": "ecovate",
   "status": "defunct",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "ecredit-com": {
   "entry_stage": "Growth",
@@ -4604,15 +4618,14 @@
   "valuation_range": "below_1b"
  },
  "epit": {
-  "entry_stage": "Growth",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
+   "identity_unresolved",
    "pre_window",
-   "stage_prior",
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
@@ -4620,10 +4633,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "ePIT, Inc.: compliance-list-only, marked exited, unrecognized; the name pattern places it in the dot-com marketplace era. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "ePIT, Inc.: compliance-list-only, marked exited, unrecognized; the name pattern places it in the dot-com marketplace era. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'ePIT' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "epit",
   "status": "defunct",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "equipe-communications": {
   "entry_stage": "Growth",
@@ -5667,14 +5683,13 @@
   "valuation_range": "below_1b"
  },
  "gone2": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -5682,12 +5697,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Gone2, Inc.: compliance-list-only, marked exited, unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Gone2, Inc., marked exited); one search (2026-09-17) returned nothing beyond Battery's own list, so neither leg could be cited.",
+  "note": "Gone2, Inc.: compliance-list-only, marked exited, unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Gone2, Inc., marked exited); one search (2026-09-17) returned nothing beyond Battery's own list, so neither leg could be cited. | UNRESOLVABLE (PRO-136): 'Gone2' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
   "seed_to_a_graduation": "undetermined",
   "slug": "gone2",
   "status": "defunct",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "gong": {
   "flags": [
@@ -5836,12 +5852,12 @@
   "valuation_usd": 13520000000
  },
  "guild-technologies": {
-  "entry_stage": "Growth",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
-   "identity_uncertain",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -5849,9 +5865,12 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Guild Technologies on the compliance list, marked exited; the deterministic acquired status stands. Not the Denver education-benefits company Guild \u2014 that row is separately held by other investors, and the identity here is not resolved, so no country citation is claimed. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "Guild Technologies on the compliance list, marked exited; the deterministic acquired status stands. Not the Denver education-benefits company Guild \u2014 that row is separately held by other investors, and the identity here is not resolved, so no country citation is claimed. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'Guild Technologies' on the compliance list, marked exited. It is not the Denver education-benefits company Guild, which other investors hold - but ruling that one out leaves the row unnamed. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "guild-technologies",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "h-bloom": {
   "entry_date": "2010-10",
@@ -6404,7 +6423,7 @@
   "entry_stage_source": "model",
   "flags": [
    "city_unknown",
-   "identity_uncertain",
+   "identity_homonym",
    "model_disputes_source",
    "stage_uncited"
   ],
@@ -6413,11 +6432,12 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "'Imara' on the compliance list, marked exited. DISPUTE: the float layer joined this to Imara Inc., the Boston sickle-cell biotech (NASDAQ: IMRA), which is a registrant name-collision \u2014 Battery's Imara is the mid-2000s wireless-chipset company absorbed in the late 2000s. The float is not this row's, and no figure is asserted. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | A/B pass, float name-collision struck (duty 8). Battery's Imara is the mid-2000s wireless-chipset company absorbed in the late 2000s; the $836M float belongs to Imara Inc. (NASDAQ: IMRA), the Boston sickle-cell biotech \u2014 a different registrant. The figure is removed.",
+  "note": "'Imara' on the compliance list, marked exited. DISPUTE: the float layer joined this to Imara Inc., the Boston sickle-cell biotech (NASDAQ: IMRA), which is a registrant name-collision \u2014 Battery's Imara is the mid-2000s wireless-chipset company absorbed in the late 2000s. The float is not this row's, and no figure is asserted. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | A/B pass, float name-collision struck (duty 8). Battery's Imara is the mid-2000s wireless-chipset company absorbed in the late 2000s; the $836M float belongs to Imara Inc. (NASDAQ: IMRA), the Boston sickle-cell biotech \u2014 a different registrant. The figure is removed. | IDENTIFIED, NAMESAKE RECORDED (PRO-136): Battery's Imara is the mid-2000s position on its own compliance list. NEVER to be joined with Imara Inc., the Boston sickle-cell biotech (NASDAQ: IMRA), which is the registrant the float layer matched - a name collision, already disputed on this row.",
   "slug": "imara",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "valuation_usd": null
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "imper-ai": {
   "entry_stage": "Seed",
@@ -6720,15 +6740,14 @@
   "valuation_range": "below_1b"
  },
  "intellitech": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
+   "identity_unresolved",
    "pre_window",
-   "stage_prior",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -6736,20 +6755,22 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "'Intellitech' on the compliance list, marked exited; a common name with no era or sector evidence on any surface. Identity unresolved. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "'Intellitech' on the compliance list, marked exited; a common name with no era or sector evidence on any surface. Identity unresolved. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'Intellitech' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "intellitech",
   "status": "acquired",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "interai": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -6757,12 +6778,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Interai, Inc.: first listed 2022 and marked exited on the compliance list; unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Interai, Inc., first listed 2022, marked exited) with no identified company; FinSMEs, Google News and TechCrunch searches on 2026-09-17 returned nothing, so neither leg could be cited.",
+  "note": "Interai, Inc.: first listed 2022 and marked exited on the compliance list; unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Interai, Inc., first listed 2022, marked exited) with no identified company; FinSMEs, Google News and TechCrunch searches on 2026-09-17 returned nothing, so neither leg could be cited. | UNRESOLVABLE (PRO-136): 'Interai' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
   "seed_to_a_graduation": "undetermined",
   "slug": "interai",
   "status": "acquired",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "interana-inc-dba-scuba": {
   "entry_stage": "Series A",
@@ -7074,14 +7096,13 @@
   "valuation_range": "below_1b"
  },
  "jetcu-p-c-b-ltd": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "Industrial & Robotics",
@@ -7089,10 +7110,13 @@
   "hq_country": "IL",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "JetCu P.C.B. Ltd., printed-circuit-board technology; compliance-list-only and marked exited. The 'Ltd.' plus the naming style suggests an Israeli position, flagged as a prior. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "JetCu P.C.B. Ltd., printed-circuit-board technology; compliance-list-only and marked exited. The 'Ltd.' plus the naming style suggests an Israeli position, flagged as a prior. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'JetCu P.C.B. Ltd.' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "jetcu-p-c-b-ltd",
   "status": "acquired",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "jfrog": {
   "entry_stage": "Growth",
@@ -7200,14 +7224,13 @@
   "valuation_range": "below_1b"
  },
  "kanler": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -7215,12 +7238,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Kanler, Inc.: compliance-list-only, marked exited, unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Kanler, Inc., marked exited) with no identified company; searches on 2026-09-17 returned nothing beyond Battery's own list, so neither leg could be cited.",
+  "note": "Kanler, Inc.: compliance-list-only, marked exited, unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Kanler, Inc., marked exited) with no identified company; searches on 2026-09-17 returned nothing beyond Battery's own list, so neither leg could be cited. | UNRESOLVABLE (PRO-136): 'Kanler' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
   "seed_to_a_graduation": "undetermined",
   "slug": "kanler",
   "status": "acquired",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "kashya": {
   "entry_stage": "Series A",
@@ -7476,15 +7500,14 @@
   "valuation_range": "below_1b"
  },
  "language-technology": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
+   "identity_unresolved",
    "pre_window",
-   "stage_prior",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -7492,10 +7515,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Language Technology, Inc.: compliance-list-only, marked exited; a generic 1980s/1990s machine-translation name with no other evidence. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "Language Technology, Inc.: compliance-list-only, marked exited; a generic 1980s/1990s machine-translation name with no other evidence. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'Language Technology' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "language-technology",
   "status": "acquired",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "lara-networks": {
   "entry_stage": "Series A",
@@ -7519,15 +7545,14 @@
   "valuation_range": "below_1b"
  },
  "laserdata": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
+   "identity_unresolved",
    "pre_window",
-   "stage_prior",
    "stage_uncited"
   ],
   "focus": "Industrial & Robotics",
@@ -7535,10 +7560,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Laserdata, Inc.: compliance-list-only, marked exited; a 1980s optical-storage-era name with no other evidence. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "Laserdata, Inc.: compliance-list-only, marked exited; a 1980s optical-storage-era name with no other evidence. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'Laserdata' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "laserdata",
   "status": "acquired",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "lattice-engines": {
   "entry_stage": "Growth",
@@ -7873,14 +7901,13 @@
   "valuation_range": "below_1b"
  },
  "lion-cells": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "Climate & Energy",
@@ -7888,10 +7915,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Lion Cells, lithium-ion cell technology; unrecognized beyond the listing. A cleantech-era position. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "Lion Cells, lithium-ion cell technology; unrecognized beyond the listing. A cleantech-era position. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'Lion Cells' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "lion-cells",
   "status": "defunct",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "liquidlight": {
   "entry_stage": "Series A",
@@ -7948,14 +7978,13 @@
   "valuation_range": "below_1b"
  },
  "local-bushel": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
@@ -7963,12 +7992,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Local Bushel, Co.: compliance-list-only, marked exited, unrecognized. A local-food marketplace by name; no trace. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Local Bushel, Co., marked exited) with no identified company; FinSMEs, Google News and TechCrunch searches on 2026-09-17 returned nothing, so neither the stage leg nor any round could be cited.",
+  "note": "Local Bushel, Co.: compliance-list-only, marked exited, unrecognized. A local-food marketplace by name; no trace. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Local Bushel, Co., marked exited) with no identified company; FinSMEs, Google News and TechCrunch searches on 2026-09-17 returned nothing, so neither the stage leg nor any round could be cited. | UNRESOLVABLE (PRO-136): 'Local Bushel' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
   "seed_to_a_graduation": "undetermined",
   "slug": "local-bushel",
   "status": "defunct",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "logrocket": {
   "entry_stage": "Series A",
@@ -8475,15 +8505,14 @@
   "valuation_range": "below_1b"
  },
  "michon": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
+   "identity_unresolved",
    "pre_window",
-   "stage_prior",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -8491,20 +8520,22 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "'Michon' on the compliance list, marked exited; unrecognized with no era or sector evidence. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "'Michon' on the compliance list, marked exited; unrecognized with no era or sector evidence. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'Michon' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "michon",
   "status": "acquired",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "milestro": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -8512,12 +8543,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Milestro, Inc.: compliance-list-only, marked exited, unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Milestro, Inc., marked exited) with no identified company; searches on 2026-09-17 returned nothing, so neither leg could be cited.",
+  "note": "Milestro, Inc.: compliance-list-only, marked exited, unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Milestro, Inc., marked exited) with no identified company; searches on 2026-09-17 returned nothing, so neither leg could be cited. | UNRESOLVABLE (PRO-136): 'Milestro' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
   "seed_to_a_graduation": "undetermined",
   "slug": "milestro",
   "status": "acquired",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "mine": {
   "entry_stage": "Growth",
@@ -8987,15 +9019,14 @@
   "valuation_range": "below_1b"
  },
  "netswork": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
+   "identity_unresolved",
    "pre_window",
-   "stage_prior",
    "stage_uncited"
   ],
   "focus": "Data Infrastructure",
@@ -9003,10 +9034,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "NetsWork, Inc.: compliance-list-only, marked exited, unrecognized; a dot-com-era name. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "NetsWork, Inc.: compliance-list-only, marked exited, unrecognized; a dot-com-era name. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'NetsWork' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "netswork",
   "status": "defunct",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "network-equipment-technologies-inc": {
   "entry_stage": "Growth",
@@ -9078,15 +9112,14 @@
   "valuation_range": "below_1b"
  },
  "new-sigma-design": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
+   "identity_unresolved",
    "pre_window",
-   "stage_prior",
    "stage_uncited"
   ],
   "focus": "Data Infrastructure",
@@ -9094,10 +9127,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "New Sigma Design, Inc.: compliance-list-only, marked exited, unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "New Sigma Design, Inc.: compliance-list-only, marked exited, unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'New Sigma Design' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "new-sigma-design",
   "status": "acquired",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "newforma": {
   "flags": [],
@@ -9294,15 +9330,14 @@
   "valuation_range": "below_1b"
  },
  "northstar-technology": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
+   "identity_unresolved",
    "pre_window",
-   "stage_prior",
    "stage_uncited"
   ],
   "focus": "Data Infrastructure",
@@ -9310,10 +9345,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Northstar Technology, Inc.: compliance-list-only, marked exited, unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "Northstar Technology, Inc.: compliance-list-only, marked exited, unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'Northstar Technology, Inc.' on the compliance list, marked exited, and unrecognized. Benchmark's own `northstar` row is a different unnameable row of the same name, which is why that cross-investor pair was ruled distinct. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "northstar-technology",
   "status": "acquired",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "not-just-tickets-ltd-dba-plain": {
   "entry_stage": "Series A",
@@ -9359,12 +9397,12 @@
   "slug": "nova-metrix"
  },
  "nova-technologies": {
-  "entry_stage": "Growth",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
-   "identity_uncertain",
+   "identity_unresolved",
    "pre_window",
    "stage_uncited"
   ],
@@ -9373,19 +9411,22 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Nova Technologies appears in the 2007-2012 alphabetical page's PRIOR-holdings column, which is the 1990s book \u2014 distinct from Nova Instruments and Nova Metrix, the 2009-2010 measurement platforms Battery controls. Kept as a member on that reading, with the identity flagged rather than folded into the platform rows. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "Nova Technologies appears in the 2007-2012 alphabetical page's PRIOR-holdings column, which is the 1990s book \u2014 distinct from Nova Instruments and Nova Metrix, the 2009-2010 measurement platforms Battery controls. Kept as a member on that reading, with the identity flagged rather than folded into the platform rows. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'Nova Technologies' in the 2007-2012 alphabetical page's prior-holdings column, which is the 1990s book. Distinct from Nova Instruments and Nova Metrix, the 2009-2010 measurement platforms Battery controls, and from `novaxess`; none of that names the company behind this row. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "nova-technologies",
   "status": "acquired",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "novaxess": {
-  "entry_stage": "Growth",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "Data Infrastructure",
@@ -9393,10 +9434,13 @@
   "hq_country": "FR",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Novaxess, LLC: compliance-list-only, marked exited. A French telecom-services name of the 2000s; identity not firmly resolved, so the country is a flagged prior. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "Novaxess, LLC: compliance-list-only, marked exited. A French telecom-services name of the 2000s; identity not firmly resolved, so the country is a flagged prior. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'Novaxess' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "novaxess",
   "status": "acquired",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "novidea": {
   "entry_stage": "Growth",
@@ -9714,15 +9758,14 @@
   "valuation_range": "below_1b"
  },
  "open-network": {
-  "entry_stage": "Growth",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
+   "identity_unresolved",
    "pre_window",
-   "stage_prior",
    "stage_uncited"
   ],
   "focus": "Data Infrastructure",
@@ -9730,9 +9773,12 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "'Open Network' on the 2007-2012 alphabetical page's prior-holdings column; a generic 1990s networking name with no other evidence. The deterministic defunct status stands. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "'Open Network' on the 2007-2012 alphabetical page's prior-holdings column; a generic 1990s networking name with no other evidence. The deterministic defunct status stands. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'Open Network' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "open-network",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "open-port-technology": {
   "entry_stage": "Growth",
@@ -9940,7 +9986,6 @@
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
    "possible_duplicate",
    "stage_prior",
    "stage_uncited"
@@ -9950,10 +9995,11 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "OptoAtmospherics, optical atmospheric sensing; compliance-list-only and marked exited. DUPLICATE of the misspelled capture. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "OptoAtmospherics, optical atmospheric sensing; compliance-list-only and marked exited. DUPLICATE of the misspelled capture. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | IDENTITY RESOLVED (PRO-136): OptoAtmospherics, optical atmospheric sensing. The misspelled capture it describes as a duplicate was already absorbed at the rebuild.",
   "slug": "optoatmospherics",
   "status": "defunct",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-pro136-battery"
  },
  "optro": {
   "entry_stage": "Growth",
@@ -10308,14 +10354,13 @@
   "valuation_range": "below_1b"
  },
  "pedestal": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -10323,12 +10368,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Pedestal, Inc.: compliance-list-only, marked exited, unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Pedestal, Inc., marked exited) with no identified company; searches on 2026-09-17 returned nothing, so neither leg could be cited.",
+  "note": "Pedestal, Inc.: compliance-list-only, marked exited, unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Pedestal, Inc., marked exited) with no identified company; searches on 2026-09-17 returned nothing, so neither leg could be cited. | UNRESOLVABLE (PRO-136): 'Pedestal' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
   "seed_to_a_graduation": "undetermined",
   "slug": "pedestal",
   "status": "acquired",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "peerflix-media-network": {
   "entry_stage": "Series A",
@@ -11314,14 +11360,13 @@
   "valuation_range": "below_1b"
  },
  "qm-technologies": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "Data Infrastructure",
@@ -11329,10 +11374,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "QM Technologies, Inc.: compliance-list-only, not marked exited, unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "QM Technologies, Inc.: compliance-list-only, not marked exited, unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'QM Technologies' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "qm-technologies",
   "status": "private",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "qognify": {
   "flags": [],
@@ -11347,15 +11395,14 @@
   "slug": "qognify"
  },
  "qss": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
+   "identity_unresolved",
    "pre_window",
-   "stage_prior",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -11363,10 +11410,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "'QSS, Inc.' on the 2007-2012 alphabetical page's prior-holdings column and the compliance list, marked exited; a three-letter name with no other evidence. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "'QSS, Inc.' on the 2007-2012 alphabetical page's prior-holdings column and the compliance list, marked exited; a three-letter name with no other evidence. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'QSS' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "qss",
   "status": "acquired",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "qtera": {
   "entry_stage": "Growth",
@@ -11535,7 +11585,6 @@
   "flags": [
    "cite_pending",
    "city_unknown",
-   "identity_uncertain",
    "model_disputes_source",
    "pre_window",
    "stage_uncited"
@@ -11545,11 +11594,12 @@
   "hq_country": "IL",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Queued for the adversarial A/B pass: a $1B+ or public row whose stage citation or market-cap citation is still owed. The figure here came from a deterministic layer (unicorn list or SEC float), not from a judged, cited event. | DISPUTE and a float name-collision (COLLECTION.md \u00a78 duty 8). Battery's row is RADNET Ltd., the Israeli data-communications company on its 1997 portfolio page \u2014 NOT RadNet, Inc. (NASDAQ: RDNT), the US diagnostic-imaging operator whose $4.1B float the layer joined here. The figure is not this row's and is not asserted; the row is a 1990s Israeli position, pre-window. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | A/B pass, float name-collision struck (COLLECTION.md 8 duty 8). Battery's row is RADNET Ltd., the Israeli data-communications company on its own 1997 portfolio page; the $4.1B float the layer joined belongs to RadNet, Inc. (NASDAQ: RDNT), the US diagnostic-imaging operator \u2014 a different registrant. The figure is removed and the row reads acquired, its 1990s outcome.",
+  "note": "Queued for the adversarial A/B pass: a $1B+ or public row whose stage citation or market-cap citation is still owed. The figure here came from a deterministic layer (unicorn list or SEC float), not from a judged, cited event. | DISPUTE and a float name-collision (COLLECTION.md \u00a78 duty 8). Battery's row is RADNET Ltd., the Israeli data-communications company on its 1997 portfolio page \u2014 NOT RadNet, Inc. (NASDAQ: RDNT), the US diagnostic-imaging operator whose $4.1B float the layer joined here. The figure is not this row's and is not asserted; the row is a 1990s Israeli position, pre-window. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | A/B pass, float name-collision struck (COLLECTION.md 8 duty 8). Battery's row is RADNET Ltd., the Israeli data-communications company on its own 1997 portfolio page; the $4.1B float the layer joined belongs to RadNet, Inc. (NASDAQ: RDNT), the US diagnostic-imaging operator \u2014 a different registrant. The figure is removed and the row reads acquired, its 1990s outcome. | IDENTITY RESOLVED (PRO-136): RADNET is named on the firm's own surfaces; what this row owes is a citation for its figure, which is the A/B pass's queue and already flagged. A citation debt is not an identity doubt.",
   "slug": "radnet",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "valuation_usd": null
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "rae-systems-inc": {
   "entry_stage": "Growth",
@@ -11609,14 +11659,13 @@
   "who": "agent-judge-s2a-battery"
  },
  "real-gift-services": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -11624,12 +11673,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Real Gift Services: compliance-list-only, marked exited, unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Real Gift Services, marked exited) with no identified company; searches on 2026-09-17 returned nothing, so neither leg could be cited.",
+  "note": "Real Gift Services: compliance-list-only, marked exited, unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Real Gift Services, marked exited) with no identified company; searches on 2026-09-17 returned nothing, so neither leg could be cited. | UNRESOLVABLE (PRO-136): 'Real Gift Services' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
   "seed_to_a_graduation": "undetermined",
   "slug": "real-gift-services",
   "status": "acquired",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "realpage": {
   "entry_stage": "Growth",
@@ -11730,15 +11780,14 @@
   "valuation_range": "below_1b"
  },
  "reflect-software": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
+   "identity_unresolved",
    "pre_window",
-   "stage_prior",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -11746,10 +11795,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Reflect Software, Inc.: compliance-list-only, marked exited, unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "Reflect Software, Inc.: compliance-list-only, marked exited, unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'Reflect Software' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "reflect-software",
   "status": "acquired",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "reflection-ai": {
   "entry_stage": "Growth",
@@ -12061,16 +12113,16 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
+   "identity_homonym",
    "stage_uncited"
   ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
-  "note": "Ruckus Network, campus music and media sharing for universities; shut down in 2009. Not Ruckus Wireless, a different company Battery did not hold \u2014 the deterministic defunct status fits the Ruckus Network reading. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: TechCrunch of 2009-02-06 records Ruckus.com's shutdown and the earlier sale to Total Music, but names no round, no amount and no investor. The compliance list first carries the row in 2007 and the company dates to 2003, so the entry may even be pre-window, but nothing found on 2026-09-17 dates Battery's money, so neither the stage leg nor a graduation could be established.",
+  "note": "Ruckus Network, campus music and media sharing for universities; shut down in 2009. Not Ruckus Wireless, a different company Battery did not hold \u2014 the deterministic defunct status fits the Ruckus Network reading. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: TechCrunch of 2009-02-06 records Ruckus.com's shutdown and the earlier sale to Total Music, but names no round, no amount and no investor. The compliance list first carries the row in 2007 and the company dates to 2003, so the entry may even be pre-window, but nothing found on 2026-09-17 dates Battery's money, so neither the stage leg nor a graduation could be established. | IDENTIFIED, NAMESAKE RECORDED (PRO-136): Ruckus Network, campus music and media sharing for universities, which shut down in 2009. NEVER to be joined with Ruckus Wireless, a different company Battery did not hold.",
   "seed_to_a_graduation": "undetermined",
   "slug": "ruckus-network",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-pro136-battery"
  },
  "rundoo": {
   "entry_stage": "Growth",
@@ -12296,15 +12348,14 @@
   "valuation_range": "below_1b"
  },
  "scsc": {
-  "entry_stage": "Growth",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
+   "identity_unresolved",
    "pre_window",
-   "stage_prior",
    "stage_uncited"
   ],
   "focus": "Industrial & Robotics",
@@ -12312,10 +12363,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "'SCSC' on the 2007-2012 alphabetical page's prior-holdings column; a four-letter name with no other evidence. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "'SCSC' on the 2007-2012 alphabetical page's prior-holdings column; a four-letter name with no other evidence. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'SCSC' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "scsc",
   "status": "acquired",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "scuba": {
   "entry_stage": "Series A",
@@ -12781,14 +12835,13 @@
   "valuation_range": "below_1b"
  },
  "slime-sandwich": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
@@ -12796,12 +12849,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Slime Sandwich, a social-gaming studio of the early 2010s; compliance-list-only and marked exited, with no surviving trace. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Slime Sandwich, a social-gaming studio of the early 2010s, marked exited) with no surviving trace; searches on 2026-09-17 returned nothing, so neither leg could be cited.",
+  "note": "Slime Sandwich, a social-gaming studio of the early 2010s; compliance-list-only and marked exited, with no surviving trace. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Slime Sandwich, a social-gaming studio of the early 2010s, marked exited) with no surviving trace; searches on 2026-09-17 returned nothing, so neither leg could be cited. | UNRESOLVABLE (PRO-136): 'Slime Sandwich' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
   "seed_to_a_graduation": "undetermined",
   "slug": "slime-sandwich",
   "status": "defunct",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "smarterhq": {
   "entry_date": "2014-02",
@@ -12858,14 +12912,13 @@
   "slug": "smartling"
  },
  "smartspark": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -12873,10 +12926,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "SmartSpark, a late-2000s cleantech-era position; unrecognized beyond the listing. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "SmartSpark, a late-2000s cleantech-era position; unrecognized beyond the listing. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'SmartSpark' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "smartspark",
   "status": "defunct",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "smooth-stone-inc": {
   "entry_stage": "Growth",
@@ -13005,14 +13061,13 @@
   "valuation_range": "below_1b"
  },
  "sonia-labs": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -13020,12 +13075,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Sonia Labs, Inc.: compliance-list-only, marked exited, unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Sonia Labs, Inc., marked exited) with no identified company; searches on 2026-09-17 returned nothing, so neither leg could be cited.",
+  "note": "Sonia Labs, Inc.: compliance-list-only, marked exited, unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: compliance-list-only name (Sonia Labs, Inc., marked exited) with no identified company; searches on 2026-09-17 returned nothing, so neither leg could be cited. | UNRESOLVABLE (PRO-136): 'Sonia Labs' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
   "seed_to_a_graduation": "undetermined",
   "slug": "sonia-labs",
   "status": "acquired",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "sosh": {
   "entry_stage": "Seed",
@@ -13165,7 +13221,7 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
+   "identity_homonym",
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
@@ -13176,10 +13232,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Sprig, Inc.: the compliance list's 2016 entry, which fits the on-demand meal-delivery company that shut in 2017 rather than the later UserLeap rename to Sprig. Identity flagged; marked exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "Sprig, Inc.: the compliance list's 2016 entry, which fits the on-demand meal-delivery company that shut in 2017 rather than the later UserLeap rename to Sprig. Identity flagged; marked exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | IDENTIFIED, NAMESAKE RECORDED (PRO-136): The compliance list's 2016 Sprig, Inc., which fits the on-demand meal-delivery company that shut in 2017. NEVER to be joined with the later Sprig that UserLeap renamed itself to - First Round holds that one, and the pair is ruled distinct cross-investor.",
   "slug": "sprig",
   "status": "acquired",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-pro136-battery"
  },
  "spring-street-networks": {
   "entry_stage": "Series A",
@@ -13523,14 +13580,13 @@
   "valuation_range": "below_1b"
  },
  "stuette": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -13538,12 +13594,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "'Stuette' first appears on the 2026 compliance list and is unrecognized; not marked exited, so the position is live. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: 'Stuette' first appears on the 2026 compliance list, is not marked exited and is unrecognized. Searches on 2026-09-17 returned nothing, so neither the stage leg nor any round could be cited, and the entry could not be dated for the censoring clock.",
+  "note": "'Stuette' first appears on the 2026 compliance list and is unrecognized; not marked exited, so the position is live. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: 'Stuette' first appears on the 2026 compliance list, is not marked exited and is unrecognized. Searches on 2026-09-17 returned nothing, so neither the stage leg nor any round could be cited, and the entry could not be dated for the censoring clock. | UNRESOLVABLE (PRO-136): 'Stuette' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
   "seed_to_a_graduation": "undetermined",
   "slug": "stuette",
   "status": "private",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "styra": {
   "entry_stage": "Growth",
@@ -14349,7 +14406,7 @@
  },
  "unify": {
   "flags": [
-   "identity_uncertain",
+   "identity_homonym",
    "possible_duplicate"
   ],
   "focus": "SaaS",
@@ -14361,7 +14418,7 @@
   "hq_country_citation": "https://www.battery.com/company/unify/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | IDENTITY CONFLATION flagged, not silently merged: this row joins two different companies under one name key. first_seen 1997 is Unify Corporation, the 1990s relational-database vendor on Battery's own 1997 portfolio page (later Daegis, acquired 2015); INVESTED 2025 with Dharmesh Thakker's 2025 $40.3M Form D is Unify, the AI go-to-market company founded in 2023. The deterministic acquired status belongs to the former and the Growth entry to the latter. Raised for the identity overlay to split. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Invariant 10 alignment with thrive-capital:unify (private, below_1b). Same company for the live position: Thrive led the Series A of the AI go-to-market company Unify, and Battery's own 2025 entry is Dharmesh Thakker's $40.3M Form D in that same company, whose $40M Series B was announced 2025-07-15. Battery's row was reading the deterministic acquired / 2014-10-31 sec_public_float mark, which belongs to the 1990s database vendor Unify Corporation that the classification note already flags as an identity conflation; both rows now read private and below_1b. The conflation itself still needs the identity overlay to split the row.",
+  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | IDENTITY CONFLATION flagged, not silently merged: this row joins two different companies under one name key. first_seen 1997 is Unify Corporation, the 1990s relational-database vendor on Battery's own 1997 portfolio page (later Daegis, acquired 2015); INVESTED 2025 with Dharmesh Thakker's 2025 $40.3M Form D is Unify, the AI go-to-market company founded in 2023. The deterministic acquired status belongs to the former and the Growth entry to the latter. Raised for the identity overlay to split. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Invariant 10 alignment with thrive-capital:unify (private, below_1b). Same company for the live position: Thrive led the Series A of the AI go-to-market company Unify, and Battery's own 2025 entry is Dharmesh Thakker's $40.3M Form D in that same company, whose $40M Series B was announced 2025-07-15. Battery's row was reading the deterministic acquired / 2014-10-31 sec_public_float mark, which belongs to the 1990s database vendor Unify Corporation that the classification note already flags as an identity conflation; both rows now read private and below_1b. The conflation itself still needs the identity overlay to split the row. | IDENTIFIED, NAMESAKE RECORDED (PRO-136): Battery's Unify is the company on its own page located in San Francisco. NEVER to be joined with Unify Corporation, the 1990s database company whose SEC public float this row once inherited - the failure this flag exists to prevent - nor with `unify-ai-inc`, which is its own row in this base; the never_merge pair now records that second one mechanically.",
   "slug": "unify",
   "status": "private",
   "valuation_asof": "2025-07",
@@ -14369,7 +14426,7 @@
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
   "valuation_source": "web_verified",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-pro136-battery"
  },
  "unify-ai-inc": {
   "entry_stage": "Growth",
@@ -14596,14 +14653,13 @@
   "who": "agent-judge-s2a-battery"
  },
  "vayar-vision": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "Healthcare & Bio",
@@ -14611,12 +14667,13 @@
   "hq_country": "IL",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "'Vayar Vision' on the compliance list, marked exited; unrecognized and distinct in spelling from Vayyar Imaging, which has its own row. Identity unresolved. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: 'Vayar Vision' is a compliance-list-only name marked exited and distinct in spelling from Vayyar Imaging, which has its own row; identity unresolved. Searches on 2026-09-17 returned nothing, so neither leg could be cited.",
+  "note": "'Vayar Vision' on the compliance list, marked exited; unrecognized and distinct in spelling from Vayyar Imaging, which has its own row. Identity unresolved. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: 'Vayar Vision' is a compliance-list-only name marked exited and distinct in spelling from Vayyar Imaging, which has its own row; identity unresolved. Searches on 2026-09-17 returned nothing, so neither leg could be cited. | UNRESOLVABLE (PRO-136): 'Vayar Vision' on the compliance list, marked exited, and unrecognized beyond it. It is distinct in spelling from Vayyar Imaging, which has its own row in this base - a never_merge pair now keeps the builder off them - but knowing which company it is NOT does not name it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
   "seed_to_a_graduation": "undetermined",
   "slug": "vayar-vision",
   "status": "acquired",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "vayyar": {
   "entry_stage": "Series A",
@@ -14798,14 +14855,13 @@
   "valuation_range": "below_1b"
  },
  "vibesec": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "Security",
@@ -14813,22 +14869,22 @@
   "hq_country": "IL",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "'VibeSec' on the compliance list; unrecognized. The naming style suggests an Israeli security position, flagged as a prior. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: 'VibeSec' on the compliance list is unrecognized; the only hit on 2026-09-17 was an OX Security article using vibesec as a category term, not a company. Neither leg could be cited.",
+  "note": "'VibeSec' on the compliance list; unrecognized. The naming style suggests an Israeli security position, flagged as a prior. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: 'VibeSec' on the compliance list is unrecognized; the only hit on 2026-09-17 was an OX Security article using vibesec as a category term, not a company. Neither leg could be cited. | UNRESOLVABLE (PRO-136): 'VibeSec' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
   "seed_to_a_graduation": "undetermined",
   "slug": "vibesec",
   "status": "private",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "vibrant-solutions": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -14836,10 +14892,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Vibrant Solutions: compliance-list-only, marked exited, unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "Vibrant Solutions: compliance-list-only, marked exited, unrecognized. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'Vibrant Solutions' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "vibrant-solutions",
   "status": "acquired",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "viddy": {
   "entry_date": "2012-02-03",
@@ -14926,15 +14985,14 @@
   "valuation_range": "below_1b"
  },
  "vigilance-networks": {
-  "entry_stage": "Growth",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
+   "identity_unresolved",
    "pre_window",
-   "stage_prior",
    "stage_uncited"
   ],
   "focus": "Data Infrastructure",
@@ -14942,10 +15000,13 @@
   "hq_country": "GB",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Vigilance Networks Ltd.: compliance-list-only, marked exited. The 'Ltd.' suffix is the only country signal; flagged as a prior. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "Vigilance Networks Ltd.: compliance-list-only, marked exited. The 'Ltd.' suffix is the only country signal; flagged as a prior. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'Vigilance Networks' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "vigilance-networks",
   "status": "defunct",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "viridity": {
   "flags": [],
@@ -15705,14 +15766,13 @@
   "valuation_range": "below_1b"
  },
  "xurity": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": "Data Infrastructure",
@@ -15720,10 +15780,13 @@
   "hq_country": "IL",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Xurity, Ltd.: on the 2007-2012 alphabetical page (unlinked) and the compliance list, marked exited; unrecognized. The 'Ltd.' plus the era suggests an Israeli position, flagged as a prior. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "Xurity, Ltd.: on the 2007-2012 alphabetical page (unlinked) and the compliance list, marked exited; unrecognized. The 'Ltd.' plus the era suggests an Israeli position, flagged as a prior. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | UNRESOLVABLE (PRO-136): 'Xurity' is on Battery's own compliance list or its archived portfolio pages and unrecognized beyond that listing - no era, sector, filing or press evidence attaches to it. A first-party list NAMES a member but does not identify a company, so the stage the row published was the era's convention: stage, band and graduation read undetermined and the row leaves every metric while staying a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "xurity",
   "status": "defunct",
-  "valuation_range": "below_1b"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-battery"
  },
  "yesware": {
   "flags": [],

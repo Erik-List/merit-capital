@@ -348,3 +348,60 @@ correcting this base and three by correcting the sibling, with two ruled
 distinct; details in D-S2A. A backlog of 32 further pairs against Greylock,
 Menlo and others remains, surfaced as those siblings closed their runs, and
 is a valuation/status job rather than an S2A one.
+
+## Addendum 2026-09-19 — identity reclassification (PRO-136)
+
+Fifty-three published rows carried `identity_uncertain`, and Battery is the
+book where the new rule bites hardest: **forty-five of them now read
+`undetermined`**, more than any other investor in the sweep.
+
+The reason is structural. Battery's membership evidence is its own compliance
+list — a complete first-party list of every company it has held — and that
+list is a column of NAMES. It settles membership beyond doubt and says
+nothing at all about what the company was: "Blue Flame Data", "CAD Solutions",
+"Michon", "QSS", "Laserdata". A first-party list names a MEMBER; it does not
+identify a COMPANY. Every one of those rows had been given a Series A or a
+Seed by era convention, which is exactly the inferred fill the 2026-09-18 rule
+abolishes.
+
+**Four rows are named and lose the flag.** `adisn-inc` (semantic advertising
+targeting), `radnet` (a citation debt, not an identity doubt), and two whose
+notes describe duplicates the rebuild already absorbed: `burberry-hicks` (the
+compliance list carried one entry under two spellings) and `optoatmospherics`.
+
+**Four rows are identified with a namesake** and take `identity_homonym`.
+`unify` is the one this flag exists for: it is the row that once inherited
+Unify Corporation's SEC public float, the 1990s database company. `ruckus-
+network` is not Ruckus Wireless, `sprig` is the meal-delivery company rather
+than UserLeap's rename, and `imara` is not Imara Inc. (NASDAQ: IMRA), the
+biotech the float layer matched.
+
+**Two `never_merge` pairs are now recorded** where a note was the only guard:
+`vayar-vision` / `vayyar` (a near-spelling, not a rendering variant) and
+`unify` / `unify-ai-inc`.
+
+Five of the forty-five name what they are NOT — `aptera` is not Aptera Motors,
+`guild-technologies` is not Denver's Guild, `nova-technologies` is not Nova
+Instruments or Nova Metrix, `northstar-technology` is not Benchmark's
+`northstar`, `vayar-vision` is not Vayyar — and ruling a candidate out is not
+naming the company.
+
+### Cross-investor: seven namesakes ruled, thirteen disagreements left
+
+Making forty-five rows `undetermined` took them out of invariant 10 entirely
+(they have no identity to join on), and the remaining comparison surfaced
+seven pairs that are namesakes rather than disagreements, now ruled `distinct`:
+Amplitude against Menlo's 1998 AMPLITUDE SOFTWARE, Check Technologies against
+Menlo's Pageonce-renamed Check, Inventa against a16z's LatAm marketplace,
+Sprig against a16z's UserLeap, Cruise Technologies against Felicis's
+self-driving Cruise, Jump against Menlo's JUMP Bikes, and Forte against a16z's
+Forte Labs.
+
+Thirteen genuine disagreements remain — Away, Baseten, Chute, Cross River
+Bank, Dooly, InVision, Lucid Lane, Modern Health, Niantic, Privacera, Rally
+and Sprig against Accel — every one of them a status or band that one side has
+kept fresher than the other. They predate this pass, they are not identity
+questions, and settling them means editing the stale side in whichever book
+holds it, which belongs to the wave alignment rather than here.
+
+`verify --skip-cross` clean; 658 rows, 45 excluded from every metric.

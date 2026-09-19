@@ -666,7 +666,22 @@
    }
   ],
   "rejects": [],
-  "never_merge": [],
+  "never_merge": [
+   {
+    "slugs": [
+     "vayar-vision",
+     "vayyar"
+    ],
+    "reason": "Different companies whose names nearly collide (PRO-136): 'Vayar Vision' is an exited compliance-list entry that resolves to no company, and Vayyar is Vayyar Imaging, the 4D-imaging radar company with its own listing. A near-spelling is not a rendering variant."
+   },
+   {
+    "slugs": [
+     "unify",
+     "unify-ai-inc"
+    ],
+    "reason": "Different companies sharing a name (PRO-136): Battery's Unify is the San Francisco company on its own page; Unify AI, Inc. is a separate row. This base is also where Unify Corporation, the 1990s database company, once contaminated the `unify` row with its SEC public float, which is why the pair is recorded mechanically rather than in a note."
+   }
+  ],
   "desk": []
  }
 }
