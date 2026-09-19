@@ -3,6 +3,14 @@
   "_readme": "Durable identity corrections consumed by build-company-base.py on every rebuild (COLLECTION.md \u00a78). Greylock's rows arrive from six renderings of one book: the 1999-2001 frameset tables, the 2001-2003 ASP listing, the 2005-2010 ColdFusion cards, the 2011-2015 Rails logo grid, the 2018-2023 WordPress logo wall and the 2026 Sanity site, plus SEC issuers filing under a registered name no listing used. Most filename variants are fixed upstream in sources/wayback/parsed by scratch/fix-parsed-names.py, which is where the First Round rule puts them; what remains here are the pairs that rule cannot see -- an abbreviation with no unique canonical prefix, and a registered name that differs from the listed one. Canonical = the name the firm's own listings use.",
   "merges": [
    {
+    "canonical": "internet-security-systems-inc",
+    "duplicates": [
+     "iss-group-inc"
+    ],
+    "name": "Internet Security Systems, Inc.",
+    "reason": "one position across two rows (PRO-136): ISS Group is Internet Security Systems' listed holding entity, which reaches the base separately through the funds' 1999 13G. Acquired by IBM in 2006."
+   },
+   {
     "canonical": "arista-networks",
     "duplicates": [
      "arista"
@@ -25,6 +33,8 @@
    },
    {
     "canonical": "coware",
+    "name": "CoWare",
+    "_name_note": "pinned to the published rendering: better_name entered the merge path on 2026-09-17, after this base was built, and now prefers the archive spelling. The database upserts on (investor, name), so an unpinned rename would land as a second company.",
     "duplicates": [
      "co-ware"
     ],

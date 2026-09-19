@@ -53,7 +53,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window_entry"
   ],
   "focus": "Data Infrastructure",
@@ -64,12 +63,12 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "3Com reaches this base only through a fund filing dated 2001 \u2014 the year 3Com's acquisition of Greylock's Sonix Communications (1995) had long since closed, so this is the sale-consideration pattern \u00a71 describes rather than a venture position. The investment row is Sonix. Flagged for the rebuild as a membership correction; acq. by Hewlett-Packard, 2010.",
+  "note": "3Com reaches this base only through a fund filing dated 2001 \u2014 the year 3Com's acquisition of Greylock's Sonix Communications (1995) had long since closed, so this is the sale-consideration pattern \u00a71 describes rather than a venture position. The investment row is Sonix. Flagged for the rebuild as a membership correction; acq. by Hewlett-Packard, 2010. | FLAG MISPLACED (PRO-136): 3Com is not an identity question - it is a named public company, acquired by Hewlett-Packard in 2010. The doubt is MEMBERSHIP: the row reaches this base through a 2001 fund filing, years after 3Com's 1995 acquisition of Greylock's Sonix Communications closed, which is the sale-consideration pattern COLLECTION.md 1 describes rather than a venture position. That question is already raised for Erik alongside intel, conexant-systems-inc and united-healthcare-corporation, and this pass does not pre-empt it.",
   "slug": "3com",
   "status": "acquired",
   "valuation_confidence": "low",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro89"
+  "who": "agent-pro136-greylock"
  },
  "7ai": {
   "entry_date": "2025-02",
@@ -242,21 +241,19 @@
   "entry_stage": "Growth",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [
-   "identity_uncertain"
-  ],
+  "flags": [],
   "hq_city": "Palo Alto",
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Pre-registered TRAP row. AI Fund is Andrew Ng's venture studio and fund, listed with no entry round; fund-shaped and not an operating company the firm holds a venture position in (T5). Raised in the report as a membership question for the rebuild.",
+  "note": "Pre-registered TRAP row. AI Fund is Andrew Ng's venture studio and fund, listed with no entry round; fund-shaped and not an operating company the firm holds a venture position in (T5). Raised in the report as a membership question for the rebuild. | FLAG MISPLACED (PRO-136): AI Fund is named and described - Andrew Ng's venture studio and fund at aifund.ai, on the firm's own cards 2020-2023. The open question is membership under T5 (fund-shaped, no operating business, no entry round), which is already raised for Erik as a pre-registered trap row. Identity is not in doubt.",
   "slug": "ai-fund",
   "status": "private",
   "valuation_confidence": "low",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro89"
+  "who": "agent-pro136-greylock"
  },
  "ailens-inc": {
   "entry_stage": "Seed",
@@ -436,9 +433,7 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [
-   "identity_uncertain"
-  ],
+  "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
   "hq_city": "San Francisco",
@@ -447,13 +442,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Deep-tech seed listed in 2026 with no public round on record; stage taken from the firm's own field at low confidence (R2 refuses a Seed claim as a label, so this is knowledge-limited). | Greylock led Altara's $7M seed announced 2026-05-05 (TechCrunch; the firm's own 'Introducing Altara' post), which also resolves the identity: Altara, agentic AI for the physical sciences, founded 2025 by Eva Tuecke and Catherine Yeo. Under 24 months old as of 2026-09-16, so censored.",
+  "note": "Deep-tech seed listed in 2026 with no public round on record; stage taken from the firm's own field at low confidence (R2 refuses a Seed claim as a label, so this is knowledge-limited). | Greylock led Altara's $7M seed announced 2026-05-05 (TechCrunch; the firm's own 'Introducing Altara' post), which also resolves the identity: Altara, agentic AI for the physical sciences, founded 2025 by Eva Tuecke and Catherine Yeo. Under 24 months old as of 2026-09-16, so censored. | IDENTITY RESOLVED (PRO-136): Altara, agentic AI for the physical sciences, founded 2025 by Eva Tuecke and Catherine Yeo, altara.co. Greylock led the $7M seed announced 2026-05-05 and posted 'Introducing Altara' itself. Named and described, so no identity flag; the censored graduation and the low-confidence stage stand on their own evidence.",
   "seed_to_a_graduation": "censored",
   "slug": "altara",
   "status": "private",
   "valuation_confidence": "low",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-greylock"
+  "who": "agent-pro136-greylock"
  },
  "american-management-systems": {
   "entry_stage": "Series A",
@@ -788,19 +783,18 @@
   "entry_stage_source": "model",
   "flags": [
    "cite_pending",
-   "identity_uncertain",
    "stage_uncited"
   ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
-  "note": "Greylock's own field records the entry as COMMON STOCK, not a round \u2014 Asheem Chandna is described as a founding investor and Arista was funded by Bechtolsheim and Cheriton rather than through priced venture rounds. A purchase of common stock in a private company is a venture entry at scale under T3, so Growth by taxonomy, but no round is nameable and the label is low confidence pending the A/B pass. | A/B pass 2026-09-07: ANET market cap $244,400,000,000 as of 2026-09-04. The entry stage stays cite_pending \u2014 the firm records the entry as common stock, not a round.",
+  "note": "Greylock's own field records the entry as COMMON STOCK, not a round \u2014 Asheem Chandna is described as a founding investor and Arista was funded by Bechtolsheim and Cheriton rather than through priced venture rounds. A purchase of common stock in a private company is a venture entry at scale under T3, so Growth by taxonomy, but no round is nameable and the label is low confidence pending the A/B pass. | A/B pass 2026-09-07: ANET market cap $244,400,000,000 as of 2026-09-04. The entry stage stays cite_pending \u2014 the firm records the entry as common stock, not a round. | FLAG MISPLACED (PRO-136): the company is Arista Networks, named on the firm's own card with url arista.com and public since 2014 - there was never an identity question here. What is open is the ENTRY: Greylock's own field records COMMON STOCK rather than a round, and Asheem Chandna is described as a founding investor, which is why the row keeps cite_pending and stage_uncited. Identity flags are not a place to park an entry question.",
   "slug": "arista-networks",
   "valuation_citation": "https://stockanalysis.com/stocks/anet/market-cap/",
   "valuation_confidence": "high",
   "valuation_range": "100b_plus",
   "valuation_source": "web_verified",
   "valuation_usd": 244400000000,
-  "who": "agent-judge-pro89"
+  "who": "agent-pro136-greylock"
  },
  "arsdigita": {
   "entry_stage": "Series A",
@@ -1091,21 +1085,19 @@
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [
-   "identity_uncertain"
-  ],
+  "flags": [],
   "focus": "Fintech & Payments",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Listed 2025 as a seed with no public round on record; the one-word name defeats identification and no city is asserted (\u00a76: no city priors). | Identity resolves to Ava (meetava.com, consumer credit-health app), the row's own site_url: its $15.5M seed announced 2025-10-27 lists Greylock among the participants with no earlier round mentioned (FinTech Global), matching the firm's first listing in 2025. Under 24 months old as of 2026-09-16, so censored.",
+  "note": "Listed 2025 as a seed with no public round on record; the one-word name defeats identification and no city is asserted (\u00a76: no city priors). | Identity resolves to Ava (meetava.com, consumer credit-health app), the row's own site_url: its $15.5M seed announced 2025-10-27 lists Greylock among the participants with no earlier round mentioned (FinTech Global), matching the firm's first listing in 2025. Under 24 months old as of 2026-09-16, so censored. | IDENTITY RESOLVED (PRO-136): Ava, the consumer credit-health app at meetava.com, which is the row's own site_url; its $15.5M seed announced 2025-10-27 lists Greylock among the participants with no earlier round, matching the firm's first listing in 2025. The one-word name is not a reason to doubt a company the row's own link names.",
   "seed_to_a_graduation": "censored",
   "slug": "ava",
   "status": "private",
   "valuation_confidence": "low",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-greylock"
+  "who": "agent-pro136-greylock"
  },
  "ava-protocol": {
   "entry_stage": "Seed",
@@ -1561,11 +1553,11 @@
   "who": "agent-judge-pro89"
  },
  "bluesky": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain"
+   "identity_unresolved"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
@@ -1575,13 +1567,14 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Identity unresolved, so neither leg can be established. The row is a 2023 entry in Greylock's /portfolio/ namespace carrying the identity_uncertain flag; Bluesky Social's disclosed rounds (the 2024 seed and the $100M Series B of 2026-03) name Blockchain Capital and not Greylock, and no fetched page ties Greylock to any company called Bluesky. Left for the membership pass.",
+  "note": "Identity unresolved, so neither leg can be established. The row is a 2023 entry in Greylock's /portfolio/ namespace carrying the identity_uncertain flag; Bluesky Social's disclosed rounds (the 2024 seed and the $100M Series B of 2026-03) name Blockchain Capital and not Greylock, and no fetched page ties Greylock to any company called Bluesky. Left for the membership pass. | UNRESOLVABLE (PRO-136): a 2023 entry in Greylock's own /portfolio/ namespace and nothing more. Bluesky Social's disclosed rounds name Blockchain Capital rather than Greylock, and no page ties the firm to any company called Bluesky, so the row is not that company and is not anything else we can name. Stage, band and graduation read undetermined and the status returns to unknown.",
   "seed_to_a_graduation": "undetermined",
   "slug": "bluesky",
-  "status": "private",
+  "status": "unknown",
   "valuation_confidence": "low",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-greylock"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-greylock"
  },
  "bmr-financial": {
   "entry_stage": "Series A",
@@ -2117,7 +2110,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window_entry"
   ],
   "focus": "SaaS",
@@ -2125,12 +2117,12 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "A second rendering of the celeritek-inc-ca row's name, recovered from the firm's own IPO or mergers page; merged onto it at the rebuild.",
+  "note": "A second rendering of the celeritek-inc-ca row's name, recovered from the firm's own IPO or mergers page; merged onto it at the rebuild. | FLAG RETIRED (PRO-136): the note's 'merged onto it at the rebuild' describes work that landed - celeritek-inc-ca is gone from the base and the merge is in identity-merges.json. Celeritek is the Santa Clara GaAs semiconductor company on the firm's own IPO roster, named and described, so no identity flag.",
   "slug": "celeritek",
   "status": "acquired",
   "valuation_confidence": "low",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro89"
+  "who": "agent-pro136-greylock"
  },
  "celeritek-inc-ca": {
   "entry_stage": "Growth",
@@ -2881,7 +2873,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window_entry"
   ],
   "focus": "Industrial & Robotics",
@@ -2892,12 +2883,12 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Conexant reaches this base through a 2001 fund 13G, the year after Conexant acquired Greylock's Maker Communications (2000) \u2014 the sale-consideration pattern \u00a71 describes rather than a venture position. Flagged for the rebuild as a membership correction; Conexant was acq. by Synaptics in 2017.",
+  "note": "Conexant reaches this base through a 2001 fund 13G, the year after Conexant acquired Greylock's Maker Communications (2000) \u2014 the sale-consideration pattern \u00a71 describes rather than a venture position. Flagged for the rebuild as a membership correction; Conexant was acq. by Synaptics in 2017. | FLAG MISPLACED (PRO-136): Conexant Systems is a named public company (acquired by Synaptics in 2017). The doubt is MEMBERSHIP - the row reaches this base through a 2001 fund 13G, the year after Conexant acquired Greylock's Maker Communications, the sale-consideration pattern COLLECTION.md 1 describes. Raised for Erik with the 3com, intel and united-healthcare-corporation rows of the same class.",
   "slug": "conexant-systems-inc",
   "status": "acquired",
   "valuation_confidence": "low",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro89"
+  "who": "agent-pro136-greylock"
  },
  "constant-contact": {
   "entry_stage": "Series A",
@@ -3338,11 +3329,11 @@
   "who": "agent-judge-s2a-greylock"
  },
  "dbs": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain",
+   "identity_unresolved",
    "pre_window_entry"
   ],
   "focus": "SaaS",
@@ -3350,12 +3341,14 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "A three-letter row from the firm's own mergers page whose identity does not resolve on the record; recorded unknown rather than guessed (\u00a73).",
+  "note": "A three-letter row from the firm's own mergers page whose identity does not resolve on the record; recorded unknown rather than guessed (\u00a73). | UNRESOLVABLE (PRO-136): a three-letter row from the firm's own mergers page with no url, description or filing. Three letters pin no company, so the Series A convention goes and stage and band read undetermined; the graduation stays undetermined with them. | The graduation reads undetermined with the stage and the band: an unnameable row says nothing in any outcome column, and that holds pre-window too, where the store and the published CSV would otherwise disagree.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "dbs",
   "status": "unknown",
   "valuation_confidence": "low",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-pro89"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-greylock"
  },
  "decision-point": {
   "entry_stage": "Series A",
@@ -3824,7 +3817,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window_entry"
   ],
   "focus": "Media, Gaming & Advertising",
@@ -3835,12 +3827,12 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "eMotion, multimedia asset networking funded 1993, still listed Private in 2007; its later course is not established on the record (\u00a73: unrecognized and dark reads unknown rather than a guess).",
+  "note": "eMotion, multimedia asset networking funded 1993, still listed Private in 2007; its later course is not established on the record (\u00a73: unrecognized and dark reads unknown rather than a guess). | IDENTITY RESOLVED (PRO-136): eMotion, Inc., multimedia asset networking at emotion.com, funded 1993 and carried on the firm's own cards to 2007. Named and described; that its later course is not on the record is a status question and the status stays unknown.",
   "slug": "emotion-inc",
   "status": "unknown",
   "valuation_confidence": "low",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro89"
+  "who": "agent-pro136-greylock"
  },
  "emperative-inc": {
   "entry_stage": "Series A",
@@ -4451,7 +4443,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window_entry"
   ],
   "focus": "Healthcare & Bio",
@@ -4462,12 +4453,12 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Cancer therapeutics funded 2002; last listed Private in 2007 and its later course is not established on the record.",
+  "note": "Cancer therapeutics funded 2002; last listed Private in 2007 and its later course is not established on the record. | IDENTITY RESOLVED (PRO-136): GenPath Pharmaceuticals, cancer therapeutics at genpathpharma.com, funded 2002 on the firm's own card. Named and described; the unestablished later course is a status question, not an identity one.",
   "slug": "genpath-pharmaceuticals",
   "status": "unknown",
   "valuation_confidence": "low",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro89"
+  "who": "agent-pro136-greylock"
  },
  "giantloop-network": {
   "entry_stage": "Series A",
@@ -5164,7 +5155,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window_entry"
   ],
   "focus": "Data Infrastructure",
@@ -5172,12 +5162,12 @@
   "hq_country": "IL",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Application recovery software funded 2004; an Israel-era row whose later course is not established.",
+  "note": "Application recovery software funded 2004; an Israel-era row whose later course is not established. | IDENTITY RESOLVED (PRO-136): Illuminator, application-recovery software at illuminator-sw.com, funded 2004 on the firm's own card from its Israel era. Named and described; what is unestablished is the outcome.",
   "slug": "illuminator",
   "status": "unknown",
   "valuation_confidence": "low",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro89"
+  "who": "agent-pro136-greylock"
  },
  "immulogic": {
   "entry_stage": "Series A",
@@ -5471,8 +5461,7 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "cite_pending",
-   "identity_uncertain"
+   "cite_pending"
   ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
@@ -5482,7 +5471,7 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "FLAGGED FOR THE REBUILD, not a portfolio position. Intel Corporation reaches this base only through Greylock fund Section 16 filings, which is the sale-consideration pattern \u00a71 describes: the funds received Intel stock when Intel bought a portfolio company. The investment row is the acquired company, not Intel. Classified only because the row is still in the base; raised in the report as a membership correction. | A/B pass 2026-09-07: INTC market cap $503,380,000,000 as of 2026-09-04. | Stage citation debt (\u00a77): the entry round is asserted from the firm's own record and knowledge, not from a URL naming the round. Queued for the citation pass.",
+  "note": "FLAGGED FOR THE REBUILD, not a portfolio position. Intel Corporation reaches this base only through Greylock fund Section 16 filings, which is the sale-consideration pattern \u00a71 describes: the funds received Intel stock when Intel bought a portfolio company. The investment row is the acquired company, not Intel. Classified only because the row is still in the base; raised in the report as a membership correction. | A/B pass 2026-09-07: INTC market cap $503,380,000,000 as of 2026-09-04. | Stage citation debt (\u00a77): the entry round is asserted from the firm's own record and knowledge, not from a URL naming the round. Queued for the citation pass. | FLAG MISPLACED (PRO-136): Intel Corporation needs no identification. The doubt is MEMBERSHIP - the row reaches this base only through Greylock fund Section 16 filings, which is what receiving Intel stock for an acquired portfolio company looks like; the position behind it is the acquired company, not Intel. Raised for Erik with the 3com, conexant-systems-inc and united-healthcare-corporation rows.",
   "slug": "intel",
   "status": "public",
   "valuation_citation": "https://stockanalysis.com/stocks/intc/market-cap/",
@@ -5490,7 +5479,7 @@
   "valuation_range": "100b_plus",
   "valuation_source": "web_verified",
   "valuation_usd": 503380000000,
-  "who": "agent-judge-pro89"
+  "who": "agent-pro136-greylock"
  },
  "intellilink-corp": {
   "entry_stage": "Series A",
@@ -5749,7 +5738,7 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
+   "identity_conflated",
    "pre_window_entry"
   ],
   "focus": "Security",
@@ -5760,12 +5749,12 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "ISS Group is Internet Security Systems' listed holding entity \u2014 the same position as the internet-security-systems-inc row, reaching the base separately through the funds' 1999 13G. acq. by IBM, 2006.",
+  "note": "ISS Group is Internet Security Systems' listed holding entity \u2014 the same position as the internet-security-systems-inc row, reaching the base separately through the funds' 1999 13G. acq. by IBM, 2006. | SAME POSITION AS internet-security-systems-inc (PRO-136): ISS Group is Internet Security Systems' listed holding entity, reaching the base separately through the funds' 1999 13G. One company, two renderings; merged at the rebuild. Acquired by IBM in 2006.",
   "slug": "iss-group-inc",
   "status": "acquired",
   "valuation_confidence": "low",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro89"
+  "who": "agent-pro136-greylock"
  },
  "issco": {
   "entry_stage": "Series A",
@@ -6466,7 +6455,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window_entry"
   ],
   "focus": "Healthcare & Bio",
@@ -6474,12 +6462,12 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Managed workers' compensation, funded 1996; last listed Private and its later course is not established on the record.",
+  "note": "Managed workers' compensation, funded 1996; last listed Private and its later course is not established on the record. | IDENTITY RESOLVED (PRO-136): ManagedComp, the managed workers'-compensation company funded in 1996 and carried on the firm's own card. The row names a company and says what it did; the open question is what became of it, which the unknown status already carries.",
   "slug": "managed-comp",
   "status": "unknown",
   "valuation_confidence": "low",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro89"
+  "who": "agent-pro136-greylock"
  },
  "mandolin": {
   "entry_stage": "Series A",
@@ -6590,20 +6578,18 @@
   "entry_stage": "Series A",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [
-   "identity_uncertain"
-  ],
+  "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "A second rendering of the Matrix Software row's name; merged onto it at the rebuild. ",
+  "note": "A second rendering of the Matrix Software row's name; merged onto it at the rebuild.  | FLAG RETIRED (PRO-136): this row IS the canonical Matrix Software, and the second rendering it describes was absorbed at the rebuild. Named company, no identity flag.",
   "slug": "matrix-software",
   "status": "acquired",
   "valuation_confidence": "low",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro89"
+  "who": "agent-pro136-greylock"
  },
  "matrixx-software": {
   "entry_stage": "Series A",
@@ -7227,10 +7213,10 @@
  },
  "mysteries-inc": {
   "entry_stage": "Series A",
-  "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "formd_band",
   "flags": [
-   "identity_uncertain"
+   "identity_unresolved"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
@@ -7240,12 +7226,12 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Mysteries, Inc., a 2021 Seattle issuer whose $18M round Sarah Guo signed as Director of record during her Greylock years. The company is not otherwise on the public record; flagged for the A/B pass.",
+  "note": "Mysteries, Inc., a 2021 Seattle issuer whose $18M round Sarah Guo signed as Director of record during her Greylock years. The company is not otherwise on the public record; flagged for the A/B pass. | UNRESOLVABLE, FILINGS KEPT (PRO-136): 'Mysteries, Inc.' is an issuer name and nothing else - the company is on no listing, no page and no press. Its own filings decide the row: $18.5M sold 2021-12-03 with one prior, Sarah Guo signing as Director of record during her Greylock years, which bands as Series A. The stage moves from model to formd_band because that is what actually carries it; under the carried-through exception the value survives the missing name.",
   "slug": "mysteries-inc",
   "status": "private",
   "valuation_confidence": "low",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro89"
+  "who": "agent-pro136-greylock"
  },
  "mystery": {
   "entry_stage": "Series A",
@@ -7427,7 +7413,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "pre_window_entry"
   ],
   "focus": "Fintech & Payments",
@@ -7438,12 +7423,12 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "NetNumina Solutions, financial-services systems integration funded 2000; last listed Private and its later course is not established.",
+  "note": "NetNumina Solutions, financial-services systems integration funded 2000; last listed Private and its later course is not established. | IDENTITY RESOLVED (PRO-136): NetNumina Solutions, financial-services systems integration funded 2000 on the firm's own card. Named and described; the unestablished later course is a status question.",
   "slug": "netnumina",
   "status": "unknown",
   "valuation_confidence": "low",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro89"
+  "who": "agent-pro136-greylock"
  },
  "netscout-inc": {
   "entry_stage": "Series A",
@@ -7894,11 +7879,11 @@
   "who": "agent-judge-pro89"
  },
  "okamiai-inc": {
-  "entry_stage": "Series A",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
-   "identity_uncertain"
+   "identity_unresolved"
   ],
   "focus": "AI & Applied AI",
   "focus_source": "model",
@@ -7908,12 +7893,14 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "OkamiAI, Inc., a 2023 Boston issuer whose $36.1M round Asheem Chandna signed as Director of record \u2014 an unannounced Greylock deal. Not otherwise on the public record; flagged for the A/B pass.",
+  "note": "OkamiAI, Inc., a 2023 Boston issuer whose $36.1M round Asheem Chandna signed as Director of record \u2014 an unannounced Greylock deal. Not otherwise on the public record; flagged for the A/B pass. | UNRESOLVABLE (PRO-136): 'OkamiAI, Inc.' is an issuer name on no listing, page or press. Its single filing (CIK 1997387, Boston, $36,119,966 offered and sold, 2023q4, Asheem Chandna as Director) carries no date of first sale, so the Form D layer could not date the entry and derived no stage - the published Series A was model knowledge about a company nobody can name. Stage, band and graduation read undetermined; the filing is recorded here so a later pass can band it if the sale date is recovered.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "okamiai-inc",
   "status": "private",
   "valuation_confidence": "low",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-pro89"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-greylock"
  },
  "okta": {
   "entry_stage": "Growth",
@@ -9026,9 +9013,7 @@
   "entry_stage": "Growth",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [
-   "identity_uncertain"
-  ],
+  "flags": [],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
   "hq_city": "Madison",
@@ -9037,12 +9022,12 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Life-science reagents; Promega has been founder-owned since 1978 and the firm's 2012-era listing is the only evidence of a position. Flagged for the A/B pass.",
+  "note": "Life-science reagents; Promega has been founder-owned since 1978 and the firm's 2012-era listing is the only evidence of a position. Flagged for the A/B pass. | FLAG MISPLACED (PRO-136): Promega is named and described - the Madison life-science reagents company, founder-owned since 1978. The doubt on this row is whether a 2012-era listing evidences a Greylock POSITION in a company that has never taken venture money, which is a membership question already raised for Erik, not an identity one.",
   "slug": "promega",
   "status": "private",
   "valuation_confidence": "low",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro89"
+  "who": "agent-pro136-greylock"
  },
  "pryon": {
   "entry_stage": "Series A",
@@ -9694,11 +9679,11 @@
   "who": "agent-judge-pro89"
  },
  "rivington-labs-inc": {
-  "entry_stage": "Series A",
-  "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage": "Growth",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "formd_band",
   "flags": [
-   "identity_uncertain"
+   "identity_unresolved"
   ],
   "focus": "AI & Applied AI",
   "focus_source": "model",
@@ -9708,12 +9693,12 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Rivington Labs Inc., a 2025 San Francisco issuer whose $38M round Mike Duboe signed as Director of record \u2014 an unannounced Greylock deal. Not otherwise on the public record; flagged for the A/B pass.",
+  "note": "Rivington Labs Inc., a 2025 San Francisco issuer whose $38M round Mike Duboe signed as Director of record \u2014 an unannounced Greylock deal. Not otherwise on the public record; flagged for the A/B pass. | UNRESOLVABLE, FILINGS KEPT AND STAGE CORRECTED (PRO-136): 'Rivington Labs Inc.' is an issuer name on no listing or page; the row is an unannounced Greylock deal, Mike Duboe signing as Director of record. The Series A it published came from model knowledge about a company nobody can name, which the 2026-09-18 rule does not allow. Its own filings decide it instead: $40.0M sold 2025-11-07 with one prior bands as Growth.",
   "slug": "rivington-labs-inc",
   "status": "private",
   "valuation_confidence": "low",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro89"
+  "who": "agent-pro136-greylock"
  },
  "roblox": {
   "entry_stage": "Growth",
@@ -11920,7 +11905,6 @@
   "entry_stage_source": "model",
   "flags": [
    "cite_pending",
-   "identity_uncertain",
    "pre_window_entry"
   ],
   "focus": "Healthcare & Bio",
@@ -11931,14 +11915,14 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "UnitedHealth Group reaches this base through the firm's own IPO roster, and the position behind it is Share Development \u2014 the HMO United HealthCare bought in 1985, which is its own row here. That makes this the sale-consideration pattern \u00a71 describes rather than a separate venture position. Flagged for Erik alongside the Intel and 3Com rows of the same class. | Band set to match the float the layer supplied. The row itself is flagged as sale consideration rather than a position \u2014 the investment behind it is Share Development, which United HealthCare bought in 1985 and which is its own row \u2014 so this band is bookkeeping pending Erik's ruling, not a published claim about a Greylock position.",
+  "note": "UnitedHealth Group reaches this base through the firm's own IPO roster, and the position behind it is Share Development \u2014 the HMO United HealthCare bought in 1985, which is its own row here. That makes this the sale-consideration pattern \u00a71 describes rather than a separate venture position. Flagged for Erik alongside the Intel and 3Com rows of the same class. | Band set to match the float the layer supplied. The row itself is flagged as sale consideration rather than a position \u2014 the investment behind it is Share Development, which United HealthCare bought in 1985 and which is its own row \u2014 so this band is bookkeeping pending Erik's ruling, not a published claim about a Greylock position. | FLAG MISPLACED (PRO-136): UnitedHealth Group needs no identification. The doubt is MEMBERSHIP - the row reaches this base through the firm's own IPO roster, and the position behind it is Share Development, the HMO United HealthCare bought in 1985, which is its own row here. Sale consideration rather than a venture position; raised for Erik with the 3com, intel and conexant-systems-inc rows.",
   "slug": "united-healthcare-corporation",
   "status": "public",
   "valuation_confidence": "low",
   "valuation_range": "100b_plus",
   "valuation_source": "sec_public_float",
   "valuation_usd": 281907836350,
-  "who": "agent-judge-pro89"
+  "who": "agent-pro136-greylock"
  },
  "united-publishers": {
   "entry_stage": "Series A",

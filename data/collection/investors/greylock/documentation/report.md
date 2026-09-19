@@ -310,3 +310,62 @@ pre-window) and Wisetack's entry date moved to its 2019 seed; three identity
 questions and two citation traps are written up in D-S2A. `verify` is clean
 apart from the pre-existing `ai-fund` membership trap, which is Erik's to
 rule.
+
+## Addendum 2026-09-19 — identity reclassification (PRO-136)
+
+Twenty-three published rows carried `identity_uncertain` (the other 27 entries
+in `classification.json` are stale keys for rows already absorbed). The
+striking finding is how few of them were identity questions at all.
+
+**Sixteen rows lose the flag and keep everything.** Twelve are named and
+described on the firm's own cards — `altara` (Greylock led the $7M seed it
+announced itself), `ava` (meetava.com, the row's own link), `emotion-inc`,
+`genpath-pharmaceuticals`, `illuminator`, `managed-comp`, `netnumina`,
+`celeritek` and `matrix-software` (both carrying "merged at the rebuild" notes
+for merges that landed long ago), plus `arista-networks`, `promega` and
+`ai-fund`.
+
+Four of the sixteen are famous public companies — `3com`, `intel`,
+`conexant-systems-inc`, `united-healthcare-corporation` — where the flag was
+parked on the wrong question entirely. Nobody doubts Intel's identity; what is
+doubted is MEMBERSHIP, because each reaches this base through a fund filing
+made when the company ACQUIRED a Greylock portfolio company (Sonix, Maker
+Communications, Share Development), which is §1's sale-consideration pattern.
+That question was already raised for Erik and this pass does not pre-empt it;
+it only stops the rows claiming an identity problem they do not have.
+`arista-networks` and `promega` are the same shape: an entry question and a
+membership question wearing an identity flag.
+
+**One pre-registered trap, applied.** `ai-fund` sat in
+`config.verify.not_members` as a T5 fund-shaped entry and was still published
+as a member, which is invariant 11 failing. The verdict now records what the
+config already stated: Andrew Ng's venture studio is not an operating company
+the firm holds a venture position in.
+
+**One row leaves membership under the new filing-entity rule.** `ailens-inc`'s
+single 2019q2 Menlo Park filing is $5,099,988 — exactly the round this base
+already carries on `truera`, with Jerry Chen signing as Director on both, and
+FinSMEs reports that same $5.1M as TruEra's first funding led by Greylock. It
+is TruEra's pre-rebrand issuer, so keeping it double-counts one investment.
+This is the case Erik's 2026-09-18 rule names, and it is distinct from an
+ordinary duplicate: the vehicle is not the company.
+
+**One merge.** `iss-group-inc` is Internet Security Systems' listed holding
+entity, reaching the base separately through the funds' 1999 13G.
+
+**Five rows are genuinely unnameable**, and they split by evidence:
+`mysteries-inc` ($18.5M sold 2021-12-03, one prior, Sarah Guo as Director) and
+`rivington-labs-inc` ($40.0M sold 2025-11-07, one prior, Mike Duboe) keep
+stages, now sourced `formd_band` rather than `model`, because their own
+filings carry them — and Rivington's stage moves Series A → Growth, since the
+Series A was model knowledge about a company nobody can name. `okamiai-inc`
+(CIK 1997387, $36.1M, Asheem Chandna) has a filing with NO date of first sale,
+so the layer could never date or band it; it reads `undetermined`, with the
+filing recorded so a later pass can band it if the sale date is recovered.
+`bluesky` and `dbs` read `undetermined` outright.
+
+Base 561 → 559. `verify --skip-cross` clean. Six cross-investor disagreements
+remain against Accel's and Battery's books (Forte Software, Guru, Inventa,
+Rally Software and Sprig twice); all predate this pass, all are status
+disagreements or namesakes rather than identity, and they belong to the wave
+alignment rather than here.

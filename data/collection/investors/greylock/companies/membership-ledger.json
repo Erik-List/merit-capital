@@ -145,21 +145,22 @@
     "who": "agent-judge-pro89"
    },
    "ai-fund": {
-    "basis": "Listed on the investor's own portfolio site (2020,2021,2022,2023).",
+    "basis": "Pre-registered trap, applied (PRO-136). config.verify.not_members carries 'ai fund' as a T5 fund-shaped list entry: AI Fund is Andrew Ng's venture studio and fund, listed on greylock.com/portfolio with no entry round, not an operating company the firm holds a venture position in. The trap was registered with the run and invariant 11 was failing because the row was still published as a member; this records the verdict the config already states.",
     "confidence": "high",
-    "decided": "2026-09-06",
+    "decided": "2026-09-19",
     "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "slug": "ai-fund",
+    "verdict": "not_member",
+    "who": "agent-pro136-greylock"
    },
    "ailens-inc": {
-    "basis": "A current Greylock partner is the Director OF RECORD on the issuer's own Form D, in tenure and inside the coverage window, and the issuer resolves as an operating company with a priced round \u2014 the adjudicated pattern (COLLECTION.md \u00a71, a16z 2026-08-29). Unannounced deal; medium confidence, flagged for the A/B pass. Jerry Chen as Director; AILens, Inc., Menlo Park, $5,099,988 sold in full, 2019.",
-    "confidence": "medium",
-    "decided": "2026-09-06",
+    "basis": "A filing entity, not a company (PRO-136, Erik 2026-09-18). AILens, Inc.'s single 2019q2 Menlo Park filing is $5,099,988 - exactly the round this base already carries on its truera row - with Jerry Chen signing as Director on both, and FinSMEs (2020-08) reports that same $5.1M as 'TruEra raises $5.1M in first funding, led by Greylock with Wing VC and Conversion Capital'. The row is TruEra's pre-rebrand issuer, so keeping it double-counts one investment.",
+    "confidence": "high",
+    "decided": "2026-09-19",
     "evidence_class": "formd_adjudicated",
     "slug": "ailens-inc",
-    "verdict": "member",
-    "who": "agent-judge-pro89"
+    "verdict": "not_member",
+    "who": "agent-pro136-greylock"
    },
    "airbnb": {
     "basis": "Listed on the investor's own portfolio site (2011,2012,2013,2014,2015,2020,2021,2022,2023,2024,2025).",
