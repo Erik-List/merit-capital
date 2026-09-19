@@ -122,6 +122,10 @@ IDENTITY_HOMONYM = "identity_homonym"         # two real companies sharing a nam
 IDENTITY_FLAGS = (IDENTITY_UNRESOLVED, IDENTITY_CONFLATED, IDENTITY_HOMONYM)
 # Values a judge may not infer onto an unresolvable row.
 INFERRED_FLAGS = frozenset({"stage_prior", "country_prior"})
+# ... but the filings are evidence even when the name is not: a row whose
+# stage comes out of its own Form D sequence keeps that stage and is judged
+# from the filings, name or no name (PRO-133's carried-through exception).
+FORMD_STAGE_SOURCES = ("formd_structural", "formd_band")
 
 VALUATION_RANGES = ("below_1b", "1b_plus", "10b_plus", "100b_plus", UNDETERMINED)
 VALID_STAGES = {"Pre-Seed", "Seed", "Series A", "Growth", UNDETERMINED}
@@ -1062,6 +1066,13 @@ def validate_record(rec: dict, slugs: set[str], merged: dict | None = None) -> l
         if rec.get(key) == UNDETERMINED and not unresolved:
             errs.append(f"{slug}: {key} {UNDETERMINED!r} is only for a row flagged "
                         f"{IDENTITY_UNRESOLVED}")
+    # An unresolvable row either says nothing or is decided by its own filings;
+    # what it may not do is assert a stage nothing supports.
+    if unresolved and view.get("entry_stage") not in (None, UNDETERMINED) \
+            and view.get("entry_stage_source") not in FORMD_STAGE_SOURCES:
+        errs.append(f"{slug}: {IDENTITY_UNRESOLVED} row asserts entry_stage "
+                    f"{view.get('entry_stage')!r} from {view.get('entry_stage_source')!r}; "
+                    f"only a Form D sequence carries a stage without a name")
     if "seed_to_a_graduation" in rec:
         g = rec["seed_to_a_graduation"]
         if isinstance(g, bool):
@@ -1723,20 +1734,39 @@ def cmd_verify(args) -> None:
                             f"run migrate-graduation")
         elif g is not None and g not in GRADUATION_STATUSES:
             problems.append(f"{slug}: seed_to_a_graduation {g!r} not in vocabulary")
+        # An unresolvable company writes UNDETERMINED across the outcome
+        # columns and is excluded from every metric below, so the consistency
+        # rules that relate those columns do not apply to it. The exception is
+        # a row the FILINGS decide: a Form D sequence gives a dated round and
+        # a band without naming anyone, and that evidence is not thrown away
+        # because the company cannot be named.
         unresolved = IDENTITY_UNRESOLVED in set(rec.get("flags") or [])
-        if unresolved:
-            # An unresolvable company writes UNDETERMINED across the outcome
-            # columns and is excluded from every metric below, so the
-            # consistency rules that relate those columns do not apply.
-            for key in ("entry_stage", "valuation_range", "seed_to_a_graduation"):
-                if rec.get(key) != UNDETERMINED:
-                    problems.append(f"{slug}: {IDENTITY_UNRESOLVED} row must carry "
-                                    f"{UNDETERMINED!r} in {key} (got {rec.get(key)!r})")
-            if set(rec.get("flags") or []) & INFERRED_FLAGS:
-                problems.append(f"{slug}: {IDENTITY_UNRESOLVED} row carries an inferred value")
+        # The identity columns are entry_stage and valuation_range: they move
+        # together, and an undetermined stage takes the graduation with it. A
+        # judged `undetermined` graduation on a real Seed row is the separate
+        # S2A debt, counted in the C2A block rather than failed here.
+        undet = {k for k in ("entry_stage", "valuation_range") if rec.get(k) == UNDETERMINED}
+        formd_carried = rec.get("entry_stage_source") in FORMD_STAGE_SOURCES
+        if undet:
+            if not unresolved:
+                problems.append(f"{slug}: {UNDETERMINED!r} in {sorted(undet)} outside an "
+                                f"{IDENTITY_UNRESOLVED} row")
+            missing = sorted({"entry_stage", "valuation_range"} - undet)
+            if missing:
+                problems.append(f"{slug}: {UNDETERMINED!r} row still asserts {missing} "
+                                f"({', '.join(f'{k}={rec.get(k)!r}' for k in missing)})")
+            if rec.get("entry_stage") == UNDETERMINED and g != UNDETERMINED:
+                problems.append(f"{slug}: {UNDETERMINED!r} entry_stage with "
+                                f"seed_to_a_graduation {g!r}; the column cannot be decided "
+                                f"for a company that cannot be named")
+        elif unresolved and not formd_carried:
+            problems.append(f"{slug}: {IDENTITY_UNRESOLVED} row asserts an outcome "
+                            f"(entry_stage={rec.get('entry_stage')!r}) with no Form D behind it; "
+                            f"write {UNDETERMINED!r} instead")
+        if unresolved and set(rec.get("flags") or []) & INFERRED_FLAGS:
+            problems.append(f"{slug}: {IDENTITY_UNRESOLVED} row carries an inferred value")
+        if undet:
             continue
-        if rec.get("entry_stage") == UNDETERMINED or rec.get("valuation_range") == UNDETERMINED:
-            problems.append(f"{slug}: {UNDETERMINED!r} outside an {IDENTITY_UNRESOLVED} row")
         if g is not None and rec.get("entry_stage") != "Seed":
             problems.append(f"{slug}: graduation set but entry_stage={rec.get('entry_stage')!r}")
 
@@ -1889,10 +1919,10 @@ def cmd_verify(args) -> None:
     # Determined rows only: an unresolvable company is not a Seed entry, not a
     # below-$1B outcome and not a graduation denominator (Erik, 2026-09-18).
     determined = [r for r in merged.values()
-                  if IDENTITY_UNRESOLVED not in set(r.get("flags") or [])]
+                  if r.get("entry_stage") != UNDETERMINED]
     undet_rows = len(merged) - len(determined)
     if undet_rows:
-        print(f"identity        : {undet_rows} unresolvable rows, excluded from every metric")
+        print(f"identity        : {undet_rows} undetermined rows, excluded from every metric")
     bad_focus = [s for s, r in merged.items()
                  if r.get("focus") is not None and r["focus"] not in VALID_FOCUS]
     if bad_focus:
