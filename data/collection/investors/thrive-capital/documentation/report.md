@@ -382,3 +382,17 @@ For Erik: Milewise's membership rests on CB Insights' exit list alone
 (the seed's investor list in TechCrunch omits Thrive) — a membership
 question, not a graduation one; and the five re-staged rows are worth a
 glance, since a Seed seat may exist that no page records.
+
+## Addendum 2026-09-19 — identity reclassification (PRO-136)
+
+One flagged row, and it is the exception rather than the rule. `clay-inc` is
+an EDGAR-only row: nothing names the company behind the issuer "Clay, Inc." —
+no Thrive listing, no site card, no press trace since 2021 — so it carries
+`identity_unresolved`. But its own filings decide it (~$3.13M across three
+2021q2 offerings, Hankes as director, no priors), which is where its
+`formd_structural` Seed and its `not_graduated` come from. Under the
+carried-through exception the filings survive the missing name, so the row
+keeps every value and stays in the metrics. What such a row may never do is
+publish a stage sourced `model`.
+
+`verify` clean; the S2A block is unchanged.

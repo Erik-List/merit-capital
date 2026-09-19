@@ -657,7 +657,7 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "formd_structural",
   "flags": [
-   "identity_uncertain"
+   "identity_unresolved"
   ],
   "graduation_confidence": "medium",
   "graduation_source": "formd",
@@ -665,14 +665,14 @@
   "hq_city_source": "formd_address",
   "hq_country": "US",
   "hq_country_source": "formd_address",
-  "note": "Uncertain member (identity open): SF 'Clay, Inc.' incorporated 2021, ~$3.1M across three 2021q2 filings with Hankes as Director; no trace of the company since \u2014 status unknown; kept for sampling | Form D layer accepted: $3.13M across the 2021q2 filings (Hankes Director) with no later filing by the 2026-09-03 rescan, 52 months after entry; identity uncertain and no press trace, so confidence medium rather than the layer's high.",
+  "note": "Uncertain member (identity open): SF 'Clay, Inc.' incorporated 2021, ~$3.1M across three 2021q2 filings with Hankes as Director; no trace of the company since \u2014 status unknown; kept for sampling | Form D layer accepted: $3.13M across the 2021q2 filings (Hankes Director) with no later filing by the 2026-09-03 rescan, 52 months after entry; identity uncertain and no press trace, so confidence medium rather than the layer's high. | UNRESOLVABLE, FILINGS KEPT (PRO-136): nothing names the company behind the issuer 'Clay, Inc.' - no Thrive listing, no site card, no press trace since 2021. Its own filings decide the row: ~$3.13M across three 2021q2 offerings with Hankes as director and no priors, which is where entry_stage Seed (formd_structural) and the not_graduated verdict come from. Under the carried-through exception the filings survive the missing name, so the values stand.",
   "seed_to_a_graduation": "not_graduated",
   "slug": "clay-inc",
   "status": "unknown",
   "valuation_confidence": "low",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-c2a-thrive"
+  "who": "agent-pro136-thrive"
  },
  "clickhouse": {
   "entry_stage": "Growth",
