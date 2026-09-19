@@ -335,3 +335,42 @@ Proposed for COLLECTION.md §5, as new standing lessons:
 - **A recall addition must be exempt from the build's own removal rules.** It
   enters only after a session verified it against a citation; two separate rules
   removed one anyway.
+
+## Addendum 2026-09-19 — identity reclassification (PRO-136)
+
+Thirty-six published rows carried `identity_uncertain`, and unusually for this
+sweep, none of them were stale keys — Khosla's flagged set is live.
+
+**Seventeen rows read `undetermined`.** They are the chart-era entries:
+`ava`, `because`, `brt`, `dragonfly`, `fresh`, `go`, `ikoa`, `nordic`, `pax`,
+`plum`, `psp`, `recapping`, `simpler`, `strut`, `sup`, `supernova`, `vert` —
+a one-word or three-letter label in a single capture, with the firm's own
+invest year and nothing else. Six of them had a Wikidata country attached by a
+join on that bare name (Italy for BRT the parcel courier, Great Britain twice,
+Ireland, Japan), which the run had already disputed; `go` is two letters.
+
+`pax` is the one worth reading twice. The row rests on a single 2010 capture,
+which predates PAX Labs taking that name — it was founded in 2007 as Ploom and
+renamed in 2015 — so the $1.7B mark attached to it is a 2019-era figure for a
+company this row may not be. That is precisely the failure the new rule exists
+to stop, and the row now asserts nothing.
+
+**Fifteen rows are named and lose the flag**, including three where the flag
+was covering a different question entirely: `arista-networks` (a boundary
+question — Arista was funded largely by Bechtolsheim and Cheriton personally,
+so whether there is a venture ENTRY here is open), `himax-display` (a
+membership question — a subsidiary of a listed parent on one capture) and
+`yammer` (a membership question — the firm's own invest year is the year of
+Microsoft's acquisition). `narrative` is the opposite case: its Swedish
+country SURVIVED review because Narrative AB fits the row's own evidence, and
+a confirmed identification has no business carrying a doubt flag.
+
+**Four rows are identified with a namesake** and take `identity_homonym`:
+`miso` (the social TV app, not Miso Robotics), `ori` (Ori Biotech, not the
+robotic-furniture Ori), `vinci` (getvinci.ai, not Vinci SA — and the France
+pre-fill came from exactly that collision, so it must not be read as
+corroboration) and `evolv-on-demand` (not the public Evolv Technologies).
+
+`verify --in-flight` clean. Khosla is mid-S2A-wave with a live in-flight
+marker, so this pass did not rebuild, re-export or close; its 200 Seed rows
+still owe a graduation, which is PRO-120's work.
