@@ -205,3 +205,35 @@ this investor's rate is the one most sensitive to a handful of further
 citations.
 
 `verify` is clean.
+
+## Addendum 2026-09-19 — identity reclassification (PRO-136)
+
+Nine flagged rows, and the firm's own records split them cleanly six-three.
+
+**Six rows are named companies and lose the flag.** `anboto-labs`
+(anboto.xyz), `lucent-data` (lucentdata.io), `profitmind` (Netail, Inc. at
+netail.ai) and `venmark` (venmark.co.uk) each carry a job-board card with a
+url and a product description — that IS the company being named, and under
+the 2026-09-18 rule a named and described company carries no identity flag.
+`teatox` (the Berlin detox-tea brand, 2013-09 entry) and `vicomi` (Tel Aviv
+audience-emotion analytics, 2014-10) are named on the firm's own 2016 listing
+and carried to 2019. What those rows are missing is a round, a status or a
+graduation, and each of those already has its own flag.
+
+**Three rows are one-word labels on the 2016-2019 portfolio grid** with an
+invest year and nothing else: `aloha` (2013), `enfold` (2014), `save` (2015).
+No url, no description, no filing, no later trace; `aloha`'s Wikidata
+Philippines match was already disputed as a homonym. The firm's own grid
+labelled each entry Seed, but the label was applied to a company nobody could
+name, so `entry_stage`, `valuation_range` and `seed_to_a_graduation` all read
+`undetermined` and the rows leave every metric.
+
+`hq_country` on those three stays the Berlin desk inference with
+`country_prior` still on it. An inferred STAGE cannot survive on a row whose
+stage reads `undetermined` — the flag would contradict the value — but an
+inferred country can: it is all such a row has, the flag is what marks it
+inferred, and invariant 1 still wants the cell filled.
+
+`verify` clean. The S2A block moves from 112 to 109 seed entries as the three
+leave the cohort; the rate is unchanged at 92.3%, because all three were
+`undetermined` there already.

@@ -451,24 +451,32 @@ distinction.
   the flag carries the reason. Invariant 1's 100% fill still holds —
   `undetermined` is what satisfies it — and the derived metrics exclude these
   rows rather than counting them, so an unnameable company is not a Seed
-  entry, not a below-$1B outcome and not a graduation denominator. The
-  exclusion keys on the VALUE, not the flag, exactly as the database's
-  `recompute_investor_metrics` does. This replaces the older rule that such a
+  entry, not a below-$1B outcome and not a graduation denominator. The value
+  owns the cell wherever it applies: an unnameable row reads `undetermined`
+  even when it is pre-window, while a nameable pre-window row still takes the
+  policy null. The exclusion keys on the VALUE, not the flag, exactly as the
+  database's `recompute_investor_metrics` does. This replaces the older rule that such a
   row took the firm's modal stage as an inferred fill: that produced 169
   invented Seed entries which then entered the published graduation cohort.
   **Exception: the filings are evidence even when the name is not.** A row
   whose stage comes out of its own Form D sequence (`formd_structural`,
-  `formd_band`) keeps that stage and is judged from the filings, name or no
-  name — an EDGAR-only row is often a partner-signed issuer nobody ever
-  listed, and its dated rounds decide the column. Such a row keeps the
+  `formd_band`) keeps **whatever stage that sequence gives** — `Growth` on a
+  first filing of $36M as readily as `Seed` on a small one — and is judged
+  from the filings, name or no name: an EDGAR-only row is often a
+  partner-signed issuer nobody ever listed, and its dated rounds decide the
+  column. Such a row keeps the
   `identity_unresolved` flag and its values, and it stays in the metrics.
   What an unresolvable row may never do is assert a stage from `model` or an
   inferred fill: `record` and `verify` both refuse it.
-- **Inferred values only ever flagged, and only on a recognised company.**
-  Where an inferred value fills a gap (US for a row on a US desk, the firm's
-  classic entry stage for a stray) it is confidence low and carries its flag
-  (`country_prior`, `stage_prior`). An inferred value never lands silently,
-  and never lands at all on an `identity_unresolved` row.
+- **Inferred values only ever flagged, and an inferred STAGE only on a
+  recognised company.** Where an inferred value fills a gap (US for a row on
+  a US desk, the firm's classic entry stage for a stray) it is confidence low
+  and carries its flag (`country_prior`, `stage_prior`). An inferred value
+  never lands silently. On an `identity_unresolved` row `stage_prior` may not
+  appear at all — that cell reads `undetermined`, so the flag would
+  contradict the value — while `country_prior` may: the desk prior is all
+  such a row has, the flag is what marks it inferred, and invariant 1 still
+  wants a country.
 - **Disputes.** When knowledge contradicts a deterministic layer, record the
   corrected keys + flag `model_disputes_source` + note. Never silently accept
   a value known to be wrong, never silently override either.

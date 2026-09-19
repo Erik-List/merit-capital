@@ -120,8 +120,12 @@ IDENTITY_UNRESOLVED = "identity_unresolved"   # the company cannot be named at a
 IDENTITY_CONFLATED = "identity_conflated"     # one company across two rows
 IDENTITY_HOMONYM = "identity_homonym"         # two real companies sharing a name
 IDENTITY_FLAGS = (IDENTITY_UNRESOLVED, IDENTITY_CONFLATED, IDENTITY_HOMONYM)
-# Values a judge may not infer onto an unresolvable row.
-INFERRED_FLAGS = frozenset({"stage_prior", "country_prior"})
+# An inferred STAGE cannot coexist with an unresolvable row: that cell now
+# reads `undetermined`, so the flag would contradict the value. An inferred
+# COUNTRY can -- the desk prior is all such a row has, the flag is what marks
+# it as inferred, and invariant 1 still wants the cell filled. (PRO-135
+# re-sweeps every inferred value and renames both flags.)
+INFERRED_FLAGS = frozenset({"stage_prior"})
 # ... but the filings are evidence even when the name is not: a row whose
 # stage comes out of its own Form D sequence keeps that stage and is judged
 # from the filings, name or no name (PRO-133's carried-through exception).
