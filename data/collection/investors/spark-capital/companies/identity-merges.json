@@ -3,6 +3,23 @@
   "_readme": "Durable identity corrections consumed by build-company-base.py on every rebuild (COLLECTION.md \u00a78): one company rendered under different names across the listing eras (2006-2008 static, 2008-2012 ExpressionEngine, 2012-2019 WordPress, 2020 B12, 2020+ Webflow) and its rebrands, plus Form D issuers filing under a legal name the listings never used. Canonical = the firm's current rendering where the company is still listed, else the last rendering. never_merge lists pairs the build's word-prefix rule would wrongly fold (a homonym Form D issuer beside a listed company).",
   "merges": [
    {
+    "canonical": "signpost",
+    "duplicates": [
+     "post",
+     "postabon-inc"
+    ],
+    "name": "Signpost",
+    "reason": "one company across three rows (PRO-136): Postabon, Inc. relaunched as Signpost in October 2010 and kept CIK 1484639, whose filings run $1.05M sold 2010-02-22 (Todd Dagres as director), $3.8M in 2012, $10.58M sold 2013-11-12 and $20.5M in 2015. The archived cards behind the 'post' slug are named Signpost in the 2011 and 2012 captures. Merging also retires the row that the SEC float layer had matched to Post Holdings (NYSE: POST)."
+   },
+   {
+    "canonical": "onswipe",
+    "duplicates": [
+     "lulo-ventures-inc"
+    ],
+    "name": "OnSwipe",
+    "reason": "one company across two rows (PRO-136): Lulo Ventures Inc. is OnSwipe's own issuer entity -- its filing (accession 0001510429-11-000004) names Jason Baptiste and Andres Barreto, OnSwipe's founders, beside Spark's Alex Finkelstein. Not the filing-vehicle case that leaves membership: the vehicle IS the company, and the merge carries its filings onto the listed row, which had none."
+   },
+   {
     "canonical": "academia-edu",
     "duplicates": [
      "academia"

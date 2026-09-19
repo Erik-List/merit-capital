@@ -3446,7 +3446,7 @@
  },
  "kepler-software-inc": {
   "flags": [
-   "identity_uncertain"
+   "identity_unresolved"
   ],
   "focus": null,
   "focus_source": null,
@@ -3454,13 +3454,13 @@
   "hq_city_source": "formd_address",
   "hq_country": "US",
   "hq_country_source": "formd_address",
-  "note": "membership uncertain (identity unresolved); a 2026 $36M round with Natalie Vais as director \u2014 operating, below $1B by round size",
+  "note": "membership uncertain (identity unresolved); a 2026 $36M round with Natalie Vais as director \u2014 operating, below $1B by round size | UNRESOLVABLE, FILINGS KEPT (PRO-136): nothing names the company behind the issuer 'Kepler Software, Inc.' \u2014 no listing, no site card, no press. But its own Form D decides the row: $36.2M sold 2026-03-02 with no prior filing and Natalie Vais as director, which is where entry_stage Growth comes from. Under the carried-through exception a stage out of formd_band survives a missing name, so the values stand; what the row may never do is assert a stage from model.",
   "slug": "kepler-software-inc",
   "status": "private",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro85"
+  "who": "agent-pro136-spark"
  },
  "kickapps": {
   "entry_stage": "Series A",
@@ -3952,7 +3952,7 @@
   "entry_stage_confidence": "medium",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain"
+   "identity_conflated"
   ],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
@@ -3960,13 +3960,13 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Ev Williams' publishing platform: Spark Capital Growth led the $50M Series C (Apr 2016) \u2014 the row's 2007-2010 listing years belong to an unrelated early Spark company also named Medium (same name, no separable slug); the row is judged as the 2016 position; ~$600M mark, below $1B",
+  "note": "Ev Williams' publishing platform: Spark Capital Growth led the $50M Series C (Apr 2016) \u2014 the row's 2007-2010 listing years belong to an unrelated early Spark company also named Medium (same name, no separable slug); the row is judged as the 2016 position; ~$600M mark, below $1B | TWO COMPANIES IN ONE ROW (PRO-136): the row's 2007-2010 listing years belong to an early Spark company also called Medium, and its 2016 position is Ev Williams' publishing platform, which Spark Capital Growth led at the $50M Series C in April 2016. The archive gives the older company no separable slug, so the two cannot be split; the row is judged as the 2016 position and the flag records that the early listing years are not this company's. Not a homonym guard: there is no namesake row to keep apart, there is one row doing duty for two investments.",
   "slug": "medium",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro85"
+  "who": "agent-pro136-spark"
  },
  "menara-networks": {
   "entry_stage": "Series A",
@@ -4485,23 +4485,29 @@
   "who": "agent-judge-pro85"
  },
  "onswipe": {
-  "entry_stage": "Series A",
-  "entry_stage_confidence": "medium",
-  "entry_stage_source": "model",
+  "entry_date": "2011-01",
+  "entry_stage": "Seed",
+  "entry_stage_citation": "https://techcrunch.com/2011/01/12/onswipe/",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
   "flags": [],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
+  "graduation_citation": "https://www.businesswire.com/news/home/20110603005832/en/Onswipe-Raises-5-Million-Dollar-Series-Awesome",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
   "hq_city": "New York",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "tablet publishing platform; Spark led the $5M Series A (Aug 2011; firm news 2011 '$1M' seed preceded); acq. by Beanstock Media, 2014",
+  "note": "tablet publishing platform; Spark led the $5M Series A (Aug 2011; firm news 2011 '$1M' seed preceded); acq. by Beanstock Media, 2014 | IDENTITY MERGED, ENTRY CORRECTED (PRO-136): lulo-ventures-inc is this company's own issuer entity and is merged in \u2014 its filing (accession 0001510429-11-000004) names founders Jason Baptiste and Andres Barreto beside Spark's Alex Finkelstein. Spark led the $1M seed announced 2011-01-12, not the $5M round: the Form D layer had anchored the entry on the $5M filing only because that one carries a Spark partner. The $5M 'Series Awesome' sold from 2011-05-31 is the later round and clears max(2x 1, $5M), so the row graduates.",
+  "seed_to_a_graduation": "graduated",
   "slug": "onswipe",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro85"
+  "who": "agent-pro136-spark"
  },
  "optimism": {
   "entry_stage": "Growth",
@@ -5773,26 +5779,29 @@
   "who": "agent-judge-pro85"
  },
  "signpost": {
-  "entry_stage": "Series A",
-  "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
-  "flags": [
-   "stage_disputes_band",
-   "stage_uncited"
-  ],
+  "entry_date": "2010-02-22",
+  "entry_stage": "Seed",
+  "entry_stage_citation": "https://techcrunch.com/2010/10/20/signpost-local-deals/",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
+  "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
+  "graduation_citation": "https://www.sec.gov/Archives/edgar/data/1484639/000114036113043977/0001140361-13-043977-index.htm",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
   "hq_city": "New York",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "SMB marketing software; Spark led the 2012 Series A (Dagres board), the 2013 and 2015 rounds followed; the band's Seed reads the 2010 pre-Spark round",
+  "note": "SMB marketing software; Spark led the 2012 Series A (Dagres board), the 2013 and 2015 rounds followed; the band's Seed reads the 2010 pre-Spark round | IDENTITY MERGED, ENTRY CORRECTED (PRO-136): post and postabon-inc were this company under two other renderings and are merged in. Their evidence overturns this row's 2012 Series A entry: Postabon, Inc. relaunched as Signpost in October 2010 and kept CIK 1484639, whose first filing sold $1.05M on 2010-02-22 with Todd Dagres as director, so Spark was in at the seed and not at the 2012 round. TechCrunch 2010-10-20 names the Spark-led seed. The $10.58M offering sold 2013-11-12 clears max(2x 1.05, $5M), so the row graduates. The band's Seed was right and the stage_disputes_band flag goes with it; status returns to unknown, which is what the absorbed rows carried after the company went dark.",
+  "seed_to_a_graduation": "graduated",
   "slug": "signpost",
-  "status": "private",
+  "status": "unknown",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro85"
+  "who": "agent-pro136-spark"
  },
  "sincerely": {
   "entry_date": "2011-10",
@@ -6308,7 +6317,7 @@
  },
  "sttg-inc": {
   "flags": [
-   "identity_uncertain"
+   "identity_unresolved"
   ],
   "focus": null,
   "focus_source": null,
@@ -6316,13 +6325,13 @@
   "hq_city_source": "formd_address",
   "hq_country": "US",
   "hq_country_source": "formd_address",
-  "note": "membership uncertain (identity unresolved; Dagres directorship); rounds 2009-2010, dark since",
+  "note": "membership uncertain (identity unresolved; Dagres directorship); rounds 2009-2010, dark since | UNRESOLVABLE, FILINGS KEPT (PRO-136): 'STTG INC.' names no company on any surface, and the row has been dark since 2010. Its own filing sequence decides it: $11.2M sold 2010-12-03 with two priors and Todd Dagres as director, which is where entry_stage Series A comes from (formd_band). The stage survives the missing name because the filings, not a model prior, carry it.",
   "slug": "sttg-inc",
   "status": "unknown",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-pro85"
+  "who": "agent-pro136-spark"
  },
  "studs": {
   "entry_stage": "Series A",

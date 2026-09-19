@@ -288,3 +288,51 @@ names a Series A or later now graduates a row whatever the amounts. Panjo
 moves from undetermined to graduated on the $4.6M Series A of November 2015
 led by Spark (FinSMEs), which the $5M floor had blocked against its $1.6M
 seed. The cohort becomes 41 with 30 graduated, 73.2% at 70% coverage.
+
+## Addendum 2026-09-19 — identity reclassification (PRO-136)
+
+Five flagged rows, and none of them was the ordinary case. Spark's flags sat
+on EDGAR-only rows — partner-signed issuers nobody ever listed — rather than
+on archive strays.
+
+**Two merges, and both correct an entry the canonical had wrong.** The S2A
+pass had already done the identity work and left instructions in its notes;
+this pass executed them.
+
+- `post` + `postabon-inc` → `signpost`. Postabon, Inc. relaunched as Signpost
+  in October 2010 and kept CIK 1484639, whose first filing sold $1.05M on
+  2010-02-22 with Todd Dagres as director. So Spark entered at the seed, not
+  at the 2012 Series A the canonical published, and `stage_disputes_band` was
+  disputing a band that had been right all along. The row now reads Seed,
+  2010-02-22, cited, and graduates on the $10.58M offering of 2013-11-12.
+  The merge also retires the row the SEC float layer had matched to Post
+  Holdings (NYSE: POST).
+- `lulo-ventures-inc` → `onswipe`. The filing names OnSwipe's founders beside
+  Spark's Alex Finkelstein, so the issuer IS the company. Entry corrected to
+  the $1M seed of 2011-01 (the Form D layer had anchored on the $5M filing
+  only because that one carries a Spark partner), graduating on the $5M
+  "Series Awesome" of 2011-05-31.
+
+**Where the filing-vehicle rule does and does not apply.** PRO-136 drops a row
+that resolves to a filing entity rather than a company, because keeping it
+double-counts one investment. Neither of these is that case: Lulo Ventures is
+OnSwipe's own issuer entity, and merging carries its filings onto a listed row
+that had none, where a drop would lose them. The rule is for a vehicle that is
+not the operating company (Greylock's `ailens-inc`), and that row is decided
+in Greylock's own pass.
+
+**Two rows keep their values without a name.** `kepler-software-inc` ($36.2M
+sold 2026-03-02, no priors, Natalie Vais director) and `sttg-inc` ($11.2M sold
+2010-12-03, two priors, Todd Dagres director) name no company on any surface,
+but their own Form D sequences carry `formd_band` stages. Under the
+carried-through exception the filings decide the row and the stage stands;
+what such a row may never do is assert a stage from `model`.
+
+**One row is two companies.** `medium` carries 2007-2010 listing years that
+belong to an early Spark company of the same name and a 2016 position in Ev
+Williams' publishing platform. The archive gives the older company no
+separable slug, so `identity_conflated` records it and the row is judged as
+the 2016 position.
+
+Base 325 → 322 rows; `verify` clean; the S2A block moves from 60/41/30 to
+59/40/29 seed entries / cohort / graduated as the merged rows collapse.
