@@ -1459,9 +1459,13 @@ its selection bias in the sentence: "of N seed entries, K were too recent
 to count; of the M whose record could be established (X% coverage), R%
 graduated — the establishable set skews toward visible successes." An
 investor whose evidence cannot establish the column at all declines it in
-`config.json` (`verify.c2a_deterministic: false`, YC): it is never asked
+`config.json` (`verify.c2a_deterministic: false`): it is never asked
 and publishes `undetermined` throughout, so its rate is null with its
-seed count beside it. A classification file from before this rule is
+seed count beside it. A **pre-seed investor** is a different case and
+publishes nothing at all: YC's whole book enters on the batch deal, so
+every row is `Pre-Seed` and the column does not apply — the transition its
+cohort makes is pre-seed to seed, which this dataset does not measure
+(Erik, 2026-09-19). A classification file from before this rule is
 rewritten once by `run.py migrate-graduation`: a cited `web_verified`
 graduation on a cited stage stays, everything else re-enters the queue.
 
