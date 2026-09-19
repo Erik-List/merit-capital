@@ -87,14 +87,14 @@ CENSOR_MONTHS = 24
 STAGE_BANDS = ((1_000_000, "Pre-Seed"), (7_500_000, "Seed"), (30_000_000, "Series A"))
 GRADUATION_MULTIPLE = 2.0
 GRADUATION_FLOOR = 5_000_000
-SAME_ROUND_DAYS = 90
+SAME_ROUND_DAYS = 90                    # closes of one round land within a quarter of each other
 # An absence verdict requires the entry to sit inside the layer's coverage
 # (Erik, 2026-09-19, PRO-137). Electronic Form D filing opens in September
 # 2008, so "no later filing" on an earlier entry is a blind window rather
 # than evidence that no round happened -- the layer cannot see the years it
 # would have to look at. Stated as a coverage start rather than a date
 # exception, so any register with one can carry the same rule.
-FORMD_COVERAGE_START = "2008-09"        # closes of one round land within a quarter of each other
+FORMD_COVERAGE_START = "2008-09"
 
 # seed_to_a_graduation is a status, never a boolean (COLLECTION.md §6,
 # 2026-09-16). An in-window Seed entry carries exactly one of these; null is
