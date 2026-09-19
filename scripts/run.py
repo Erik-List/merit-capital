@@ -1093,7 +1093,7 @@ def validate_record(rec: dict, slugs: set[str], merged: dict | None = None) -> l
         elif g is not None:
             if view.get("entry_stage") != "Seed" and not unresolved:
                 errs.append(f"{slug}: graduation set but entry_stage={view.get('entry_stage')!r}")
-            if view_flags & PRE_WINDOW_FLAGS:
+            if (view_flags & PRE_WINDOW_FLAGS) and g != UNDETERMINED:
                 errs.append(f"{slug}: graduation on a pre-window entry (null by rule)")
             src = view.get("graduation_source")
             if g in COHORT_STATUSES:
@@ -1117,9 +1117,10 @@ def validate_record(rec: dict, slugs: set[str], merged: dict | None = None) -> l
                 elif age >= CENSOR_MONTHS:
                     errs.append(f"{slug}: censored but entry_date {view['entry_date']!r} is "
                                 f"{age} months old (>= {CENSOR_MONTHS}); decide it")
-            elif g == "undetermined" and not (rec.get("note") or "").strip():
-                errs.append(f"{slug}: undetermined needs a note on the line saying "
-                            f"what was tried")
+            elif g == UNDETERMINED and not (view.get("note") or "").strip():
+                # The row says what was tried -- on this line, or already on
+                # disk from the pass that could not name the company.
+                errs.append(f"{slug}: {UNDETERMINED!r} needs a note saying what was tried")
     for key in ("valuation_confidence", "graduation_confidence",
                 "entry_stage_confidence", "hq_country_confidence",
                 "hq_city_confidence"):
@@ -1580,6 +1581,10 @@ def published_rows(investor: str) -> list[dict]:
     try:
         rows = list(csv.DictReader(open(p, newline="")))
         for r in rows:
+            # A row whose company could not be named has no identity to join
+            # on: the name key would match a namesake, not the same company.
+            if r.get("valuation_range") == UNDETERMINED:
+                continue
             out.append({"id": f"{investor}:{r['slug']}", "name": r["name"],
                         "key": cross_key(r["name"]), "ciks": cross_ciks(r),
                         "status": r["status"] or None,
@@ -1620,9 +1625,16 @@ def verify_cross_investor(rows: list[dict], merged: dict, investor: str,
     reason; the fix is to align the stale side (freshest as-of by default) in
     that investor's classification and re-export it, never to loosen the gate."""
     distinct, accepted, ignore, same = load_cross_rulings()
-    mine = []
+    mine, unnameable = [], 0
     for row in rows:
         rec = merged.get(row["slug"], {})
+        # Invariant 10 joins on a name. A row flagged `identity_unresolved`
+        # has no identity behind its name, so every pair it forms is unsound
+        # by construction rather than a disagreement to adjudicate -- ruling
+        # them `distinct` one by one would be treating a class as rows.
+        if rec.get("valuation_range") == UNDETERMINED:
+            unnameable += 1
+            continue
         mine.append({"id": f"{investor}:{row['slug']}", "name": row["name"],
                      "key": cross_key(row["name"]),
                      "ciks": cross_ciks({**row, "flags": ";".join(rec.get("flags") or [])}),
@@ -1679,7 +1691,8 @@ def verify_cross_investor(rows: list[dict], merged: dict, investor: str,
                        f" vs {o['id']} {o['status']}/{o['valuation_range']}{_money(o)}"
                        f" (asof {o['valuation_asof'] or '-'}); freshest {fresh['id']}")
     print(f"cross-investor  : {shared} rows shared with other investors, {agree} agree, "
-          f"{acc} accepted, {len(bad)} disagree")
+          f"{acc} accepted, {len(bad)} disagree"
+          + (f"; {unnameable} unnameable rows not compared" if unnameable else ""))
     problems.extend(sorted(bad))
 
 
@@ -1760,14 +1773,13 @@ def cmd_verify(args) -> None:
             if missing:
                 problems.append(f"{slug}: {UNDETERMINED!r} row still asserts {missing} "
                                 f"({', '.join(f'{k}={rec.get(k)!r}' for k in missing)})")
-            # A pre-window row's graduation is null by rule, and that rule
-            # outranks this one: the column does not apply at all there.
-            want_g = None if (row_flags & PRE_WINDOW_FLAGS) else UNDETERMINED
-            if rec.get("entry_stage") == UNDETERMINED and g != want_g:
+            # `undetermined` is not a graduation claim but the absence of
+            # one, so it is what a pre-window unnameable row carries too --
+            # the store and the published surface then say the same thing.
+            if rec.get("entry_stage") == UNDETERMINED and g != UNDETERMINED:
                 problems.append(f"{slug}: {UNDETERMINED!r} entry_stage with "
-                                f"seed_to_a_graduation {g!r}; expected {want_g!r} "
-                                f"(the column cannot be decided for a company that "
-                                f"cannot be named)")
+                                f"seed_to_a_graduation {g!r}; the column cannot be "
+                                f"decided for a company that cannot be named")
         elif unresolved and not formd_carried:
             problems.append(f"{slug}: {IDENTITY_UNRESOLVED} row asserts an outcome "
                             f"(entry_stage={rec.get('entry_stage')!r}) with no Form D behind it; "

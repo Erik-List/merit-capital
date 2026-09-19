@@ -400,3 +400,22 @@ named in each note, so a later pass can pick one up.
 `verify` clean; eight rows excluded from every distribution and every metric.
 The S2A block is unchanged (7 seed entries, all graduated), because none of
 the eight was a Seed row.
+
+### Follow-up the same day: invariant 10 and an unnameable row
+
+Making the eight rows read `undetermined` turned invariant 10 red on
+`benchmark:conduit`, which the loose name key joins to YC's own `conduit`.
+The Benchmark session put a `distinct` ruling in as a stopgap and handed the
+structural fix over; it is now in `run.py` and the stopgap is deleted.
+
+A row flagged `identity_unresolved` has no identity behind its name, so every
+cross-investor pair it forms is unsound by construction rather than a
+disagreement to adjudicate — ruling each pair `distinct` would be treating a
+class as rows. `verify` now leaves such rows out of the comparison on both
+sides and says how many it left out. Across the twenty published bases three
+pairs were already affected and two had been papered over by hand.
+
+The four pre-window rows also now store `undetermined` rather than null in
+the graduation: `undetermined` is not a graduation claim but the absence of
+one, so the store and the published CSV say the same thing and the database
+takes the same value the base does.
