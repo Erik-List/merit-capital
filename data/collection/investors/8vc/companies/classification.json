@@ -127,14 +127,13 @@
   "who": "agent-judge-s2a-8vc"
  },
  "agentic": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "country_prior",
-   "identity_uncertain",
+   "identity_unresolved",
    "momentum_ruled_out",
-   "stage_prior",
    "stage_uncited"
   ],
   "focus": "AI & Applied AI",
@@ -142,13 +141,14 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Agentic, archive-only row (2023 capture), gone from the live site. A generic name with no filing or press trace. | Momentum slice (\u00a76): a private row first listed in the last five years in a hot sector. Ruled out rather than searched \u2014 the row is an unrecognised company, absent from the unicorn snapshot re-pulled at run start, with no priced round carrying a published figure and no recent trace of a large raise. \u00a73's rule-out: sub-$1B with high probability. The rule-out is recorded on the row so the claim carries its date and the next run starts from it rather than re-deriving it; it is NOT a web_verified absence claim, which \u00a76 says is not citeable at scale. | Archive-only 2023 row with a generic name; a FinSMEs site search for an 8VC-backed company called Agentic returns nothing and the 8VC resources archive carries no post, so neither a dated seed nor a later round could be cited.",
+  "note": "Agentic, archive-only row (2023 capture), gone from the live site. A generic name with no filing or press trace. | Momentum slice (\u00a76): a private row first listed in the last five years in a hot sector. Ruled out rather than searched \u2014 the row is an unrecognised company, absent from the unicorn snapshot re-pulled at run start, with no priced round carrying a published figure and no recent trace of a large raise. \u00a73's rule-out: sub-$1B with high probability. The rule-out is recorded on the row so the claim carries its date and the next run starts from it rather than re-deriving it; it is NOT a web_verified absence claim, which \u00a76 says is not citeable at scale. | Archive-only 2023 row with a generic name; a FinSMEs site search for an 8VC-backed company called Agentic returns nothing and the 8VC resources archive carries no post, so neither a dated seed nor a later round could be cited. | UNRESOLVABLE (PRO-136): an archive-only row from a 2023 capture, gone from the live site, with a generic name and no filing or press trace. The Seed was the firm's era convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric.",
   "seed_to_a_graduation": "undetermined",
   "slug": "agentic",
   "status": "private",
-  "valuation_range": "below_1b",
+  "valuation_range": "undetermined",
   "valuation_range_source": "model",
-  "who": "agent-judge-s2a-8vc"
+  "valuation_usd": null,
+  "who": "agent-pro136-8vc"
  },
  "agvend": {
   "entry_stage": "Series A",
@@ -197,7 +197,6 @@
   "entry_stage_source": "model",
   "flags": [
    "country_prior",
-   "identity_uncertain",
    "stage_prior",
    "stage_uncited"
   ],
@@ -206,12 +205,12 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Aimip, archive-only row (2022 capture), gone from the live site, unrecognised and dark. Status unknown rather than forced. | Archive-only 2022 row with an uncertain identity (amp.tech); no FinSMEs, 8VC-post or newsroom trace naming a round, so neither the entry stage nor a later round could be cited.",
+  "note": "Aimip, archive-only row (2022 capture), gone from the live site, unrecognised and dark. Status unknown rather than forced. | Archive-only 2022 row with an uncertain identity (amp.tech); no FinSMEs, 8VC-post or newsroom trace naming a round, so neither the entry stage nor a later round could be cited. | IDENTITY RESOLVED (PRO-136): 8VC's own card maps this slug to AMP (amp.tech), the Los Angeles energy-management company for e-mobility, with a full description. The archive slug is a rendering, not a doubt about which company the row is.",
   "seed_to_a_graduation": "undetermined",
   "slug": "aimip",
   "status": "unknown",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-8vc"
+  "who": "agent-pro136-8vc"
  },
  "airbyte": {
   "entry_stage": "Series A",
@@ -589,7 +588,6 @@
   "entry_stage_source": "model",
   "flags": [
    "country_conflict",
-   "identity_uncertain",
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
@@ -598,10 +596,11 @@
   "hq_country_citation": "https://www.sec.gov/Archives/edgar/data/2055301/000162828026055463/aura-sx1.htm",
   "hq_country_confidence": "medium",
   "hq_country_source": "web_verified",
-  "note": "Aura Consolidated Group is registering CDIs \u2014 CHESS Depositary Interests, the instrument used for an ASX listing \u2014 which is why the country reads AU on a US-filed S-1; flagged as a conflict rather than forced. 8VC Fund II's vintage puts the entry around 2019. The company is registering but not yet listed, so status is private.",
+  "note": "Aura Consolidated Group is registering CDIs \u2014 CHESS Depositary Interests, the instrument used for an ASX listing \u2014 which is why the country reads AU on a US-filed S-1; flagged as a conflict rather than forced. 8VC Fund II's vintage puts the entry around 2019. The company is registering but not yet listed, so status is private. | IDENTITY RESOLVED (PRO-136): Aura Consolidated Group is named and described; it is registering CHESS Depositary Interests, the instrument for an ASX listing, which is why the country reads AU on a US-filed S-1. That is a country conflict, already flagged, not an identity question.",
   "slug": "aura-consolidated-group",
   "status": "private",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-pro136-8vc"
  },
  "auto-motive-power-inc": {
   "entry_stage": "Seed",
@@ -690,13 +689,12 @@
   "who": "agent-judge-s2a-8vc"
  },
  "beacon": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": null,
@@ -704,12 +702,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Beacon, archive-only row (2022), gone from the live site. A single-token name with several candidates and no filing or press trace; identity genuinely open. | A single-token name with several candidates and no filing or press trace on this archive-only 2022 row, so neither a dated seed nor a later round could be cited without a wrong-entity risk.",
+  "note": "Beacon, archive-only row (2022), gone from the live site. A single-token name with several candidates and no filing or press trace; identity genuinely open. | A single-token name with several candidates and no filing or press trace on this archive-only 2022 row, so neither a dated seed nor a later round could be cited without a wrong-entity risk. | UNRESOLVABLE (PRO-136): an archive-only 2022 row with a single-token name, several candidates and no filing or press trace. The Seed was the firm's era convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric.",
   "seed_to_a_graduation": "undetermined",
   "slug": "beacon",
   "status": "unknown",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-8vc"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-8vc"
  },
  "bedrock-robotics": {
   "entry_date": "2025-07",
@@ -1094,14 +1093,13 @@
   "valuation_range": "below_1b"
  },
  "castle-global": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "country_prior",
-   "identity_uncertain",
+   "identity_unresolved",
    "predecessor_era",
-   "stage_prior",
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
@@ -1109,12 +1107,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Castle Global, on the FIRST 2016 capture and gone from the live site; unrecognised and dark. Delta A class by era. | On the first 2016 capture and dark since; no FinSMEs trace and no 8VC post, so neither a dated seed nor a later round could be cited for this Delta A-era row.",
+  "note": "Castle Global, on the FIRST 2016 capture and gone from the live site; unrecognised and dark. Delta A class by era. | On the first 2016 capture and dark since; no FinSMEs trace and no 8VC post, so neither a dated seed nor a later round could be cited for this Delta A-era row. | UNRESOLVABLE (PRO-136): on the first 2016 capture and dark since, with no FinSMEs trace and no 8VC post. The Seed was the firm's era convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric.",
   "seed_to_a_graduation": "undetermined",
   "slug": "castle-global",
   "status": "unknown",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-8vc"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-8vc"
  },
  "cellanome": {
   "entry_stage": "Growth",
@@ -1720,13 +1719,12 @@
   "who": "agent-judge-s2a-8vc"
  },
  "farcast": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": null,
@@ -1734,12 +1732,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Farcast, archive-only row (2022), gone from the live site, unrecognised and dark. | Archive-only 2022 row, unrecognised and dark; no FinSMEs trace and no 8VC post, so neither leg could be established.",
+  "note": "Farcast, archive-only row (2022), gone from the live site, unrecognised and dark. | Archive-only 2022 row, unrecognised and dark; no FinSMEs trace and no 8VC post, so neither leg could be established. | UNRESOLVABLE (PRO-136): an archive-only 2022 row, unrecognised and dark. The Seed was the firm's era convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric.",
   "seed_to_a_graduation": "undetermined",
   "slug": "farcast",
   "status": "unknown",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-8vc"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-8vc"
  },
  "fieldguide": {
   "entry_stage": "Growth",
@@ -1941,7 +1940,7 @@
   "entry_stage_source": "model",
   "flags": [
    "country_prior",
-   "identity_uncertain",
+   "identity_homonym",
    "stage_prior",
    "stage_uncited"
   ],
@@ -1950,12 +1949,12 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Fractal \u2014 a common name with several candidates (Fractal Analytics in India, Fractal the crypto identity firm, Fractal the US gaming studio) and no filing or press trace on this row. Identity is genuinely open; the country is the US-desk prior. | The row's identity is genuinely open (several companies use the name) and no filing or press trace attaches to it, so neither a dated seed nor a later round could be cited without risking a wrong-entity match.",
+  "note": "Fractal \u2014 a common name with several candidates (Fractal Analytics in India, Fractal the crypto identity firm, Fractal the US gaming studio) and no filing or press trace on this row. Identity is genuinely open; the country is the US-desk prior. | The row's identity is genuinely open (several companies use the name) and no filing or press trace attaches to it, so neither a dated seed nor a later round could be cited without risking a wrong-entity match. | IDENTIFIED, NAMESAKE RECORDED (PRO-136): Fractal Software at fractalsoftware.com, the vertical-SaaS studio on 8VC's own card. NEVER to be joined with Fractal Analytics in India, Fractal the crypto identity firm or Fractal the US gaming studio, all of which share the name.",
   "seed_to_a_graduation": "undetermined",
   "slug": "fractal",
   "status": "private",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-8vc"
+  "who": "agent-pro136-8vc"
  },
  "freight-waves": {
   "flags": [],
@@ -1971,7 +1970,7 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
+   "identity_homonym",
    "stage_uncited"
   ],
   "focus": "Healthcare & Bio",
@@ -1982,10 +1981,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Galileo Health, virtual-first multispecialty medical practice; folded into Included Health in 2024. Not to be confused with Galileo Financial Technologies (acq. SoFi 2020) \u2014 8VC's row is the healthcare one, listed under Healthcare.",
+  "note": "Galileo Health, virtual-first multispecialty medical practice; folded into Included Health in 2024. Not to be confused with Galileo Financial Technologies (acq. SoFi 2020) \u2014 8VC's row is the healthcare one, listed under Healthcare. | IDENTIFIED, NAMESAKE RECORDED (PRO-136): Galileo Health, the virtual-first multispecialty practice at galileohealth.com that folded into Included Health in 2024, listed by 8VC under Healthcare. NEVER to be joined with Galileo Financial Technologies, which SoFi bought in 2020.",
   "slug": "galileo",
   "status": "acquired",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-pro136-8vc"
  },
  "gallatin-ai": {
   "entry_date": "2025-04",
@@ -2471,7 +2471,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "momentum_ruled_out",
    "stage_uncited"
   ],
@@ -2480,13 +2479,13 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Infra \u2014 listed 2022 under IT Infrastructure; the single-word name does not resolve to one company with confidence. Flagged for the identity pass. | Momentum slice (\u00a76): a private row first listed in the last five years in a hot sector. Ruled out rather than searched \u2014 the row is an unrecognised company, absent from the unicorn snapshot re-pulled at run start, with no priced round carrying a published figure and no recent trace of a large raise. \u00a73's rule-out: sub-$1B with high probability. The rule-out is recorded on the row so the claim carries its date and the next run starts from it rather than re-deriving it; it is NOT a web_verified absence claim, which \u00a76 says is not citeable at scale. | The single-word name does not resolve to one company with confidence and no filing or press trace attaches to the row, so neither a dated seed nor a later round could be cited without a wrong-entity risk.",
+  "note": "Infra \u2014 listed 2022 under IT Infrastructure; the single-word name does not resolve to one company with confidence. Flagged for the identity pass. | Momentum slice (\u00a76): a private row first listed in the last five years in a hot sector. Ruled out rather than searched \u2014 the row is an unrecognised company, absent from the unicorn snapshot re-pulled at run start, with no priced round carrying a published figure and no recent trace of a large raise. \u00a73's rule-out: sub-$1B with high probability. The rule-out is recorded on the row so the claim carries its date and the next run starts from it rather than re-deriving it; it is NOT a web_verified absence claim, which \u00a76 says is not citeable at scale. | The single-word name does not resolve to one company with confidence and no filing or press trace attaches to the row, so neither a dated seed nor a later round could be cited without a wrong-entity risk. | IDENTITY RESOLVED (PRO-136): Infra at infrahq.com, modern infrastructure access, on 8VC's own card under IT Infrastructure. The bare word is the firm's rendering; the card names the company.",
   "seed_to_a_graduation": "undetermined",
   "slug": "infra",
   "status": "private",
   "valuation_range": "below_1b",
   "valuation_range_source": "model",
-  "who": "agent-judge-s2a-8vc"
+  "who": "agent-pro136-8vc"
  },
  "invisible-ai": {
   "entry_date": "2020-05",
@@ -2564,7 +2563,7 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
+   "identity_homonym",
    "predecessor_era",
    "stage_uncited"
   ],
@@ -2576,12 +2575,12 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Kiwi, the student-lending company whose founder Kevin Guo appears on 8VC's 2016 ADVISORS page ('Founder & CEO, Kiwi'). On the first 2016 capture and gone since. Delta A class by era, and the advisor seat is not fund evidence. Not the Czech travel site Kiwi.com. | On the first 2016 capture and dark since; the only trace is the founder's seat on 8VC's 2016 advisors page, which D5 says is not fund evidence, so neither a dated seed nor a later round could be cited.",
+  "note": "Kiwi, the student-lending company whose founder Kevin Guo appears on 8VC's 2016 ADVISORS page ('Founder & CEO, Kiwi'). On the first 2016 capture and gone since. Delta A class by era, and the advisor seat is not fund evidence. Not the Czech travel site Kiwi.com. | On the first 2016 capture and dark since; the only trace is the founder's seat on 8VC's 2016 advisors page, which D5 says is not fund evidence, so neither a dated seed nor a later round could be cited. | IDENTIFIED, NAMESAKE RECORDED (PRO-136): Kiwi, the student-lending company whose founder Kevin Guo appears on 8VC's own 2016 advisors page. NEVER to be joined with Kiwi.com, the Czech travel site. The advisor seat is not fund evidence, which is a membership question for the Delta A era rather than an identity one.",
   "seed_to_a_graduation": "undetermined",
   "slug": "kiwi",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-8vc"
+  "who": "agent-pro136-8vc"
  },
  "kojo": {
   "entry_date": "2020-11",
@@ -2634,7 +2633,6 @@
   "entry_stage_source": "model",
   "flags": [
    "country_prior",
-   "identity_uncertain",
    "momentum_ruled_out",
    "stage_prior",
    "stage_uncited"
@@ -2644,13 +2642,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Kos, first listed 2026; a three-letter name with no filing or press trace and several candidates. | Momentum slice (\u00a76): a private row first listed in the last five years in a hot sector. Ruled out rather than searched \u2014 the row is an unrecognised company, absent from the unicorn snapshot re-pulled at run start, with no priced round carrying a published figure and no recent trace of a large raise. \u00a73's rule-out: sub-$1B with high probability. The rule-out is recorded on the row so the claim carries its date and the next run starts from it rather than re-deriving it; it is NOT a web_verified absence claim, which \u00a76 says is not citeable at scale. | 8VC announced its investment in Kos.ai in its own post of 2026-04-20, which names no round; the entry is under 24 months old and no later round exists, so the row is censored.",
+  "note": "Kos, first listed 2026; a three-letter name with no filing or press trace and several candidates. | Momentum slice (\u00a76): a private row first listed in the last five years in a hot sector. Ruled out rather than searched \u2014 the row is an unrecognised company, absent from the unicorn snapshot re-pulled at run start, with no priced round carrying a published figure and no recent trace of a large raise. \u00a73's rule-out: sub-$1B with high probability. The rule-out is recorded on the row so the claim carries its date and the next run starts from it rather than re-deriving it; it is NOT a web_verified absence claim, which \u00a76 says is not citeable at scale. | 8VC announced its investment in Kos.ai in its own post of 2026-04-20, which names no round; the entry is under 24 months old and no later round exists, so the row is censored. | IDENTITY RESOLVED (PRO-136): Kos at kos.ai, 'the world's first virtual finance employee', on 8VC's own card. A three-letter name with a first-party url and description is a named company.",
   "seed_to_a_graduation": "censored",
   "slug": "kos",
   "status": "private",
   "valuation_range": "below_1b",
   "valuation_range_source": "model",
-  "who": "agent-judge-s2a-8vc"
+  "who": "agent-pro136-8vc"
  },
  "latent-labs": {
   "entry_stage": "Seed",
@@ -2847,7 +2845,7 @@
   "entry_stage_source": "model",
   "flags": [
    "country_prior",
-   "identity_uncertain",
+   "identity_homonym",
    "stage_prior",
    "stage_uncited"
   ],
@@ -2856,12 +2854,12 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Luminate, first listed 2026; several companies use the name and no filing or press trace attaches to this row. | Several companies use the name and FinSMEs returns nothing for luminatemed.com, so neither a dated seed nor a later round could be cited without a wrong-entity risk.",
+  "note": "Luminate, first listed 2026; several companies use the name and no filing or press trace attaches to this row. | Several companies use the name and FinSMEs returns nothing for luminatemed.com, so neither a dated seed nor a later round could be cited without a wrong-entity risk. | IDENTIFIED, NAMESAKE RECORDED (PRO-136): Luminate at luminatemed.com, building services for cancer treatment at home, on 8VC's own card. Several companies use the name, which is why the flag stays rather than the doubt.",
   "seed_to_a_graduation": "undetermined",
   "slug": "luminate",
   "status": "private",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-8vc"
+  "who": "agent-pro136-8vc"
  },
  "luna": {
   "entry_stage": "Seed",
@@ -3012,13 +3010,12 @@
   "valuation_range_source": "model"
  },
  "melvi": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": null,
@@ -3026,12 +3023,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Melvi, archive-only row (2024), gone from the live site, unrecognised. | Archive-only 2024 row, unrecognised and dark, with no filing or press trace, so neither a dated seed nor a later round could be cited.",
+  "note": "Melvi, archive-only row (2024), gone from the live site, unrecognised. | Archive-only 2024 row, unrecognised and dark, with no filing or press trace, so neither a dated seed nor a later round could be cited. | UNRESOLVABLE (PRO-136): an archive-only 2024 row, unrecognised, with no filing or press trace. The Seed was the firm's era convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric.",
   "seed_to_a_graduation": "undetermined",
   "slug": "melvi",
   "status": "private",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-8vc"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-8vc"
  },
  "mendra": {
   "entry_stage": "Seed",
@@ -3731,7 +3729,7 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "identity_uncertain",
+   "identity_homonym",
    "momentum_ruled_out"
   ],
   "focus": "AI & Applied AI",
@@ -3739,11 +3737,12 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Outset, AI user and market research. 'When we led Outset's Series A' \u2014 8VC. Not to be confused with Outset Medical (NASDAQ: OM), which is a different company. Golden-set row. | Momentum slice (\u00a76): a private row first listed in the last five years in a hot sector. Ruled out rather than searched \u2014 the row is an unrecognised company, absent from the unicorn snapshot re-pulled at run start, with no priced round carrying a published figure and no recent trace of a large raise. \u00a73's rule-out: sub-$1B with high probability. The rule-out is recorded on the row so the claim carries its date and the next run starts from it rather than re-deriving it; it is NOT a web_verified absence claim, which \u00a76 says is not citeable at scale.",
+  "note": "Outset, AI user and market research. 'When we led Outset's Series A' \u2014 8VC. Not to be confused with Outset Medical (NASDAQ: OM), which is a different company. Golden-set row. | Momentum slice (\u00a76): a private row first listed in the last five years in a hot sector. Ruled out rather than searched \u2014 the row is an unrecognised company, absent from the unicorn snapshot re-pulled at run start, with no priced round carrying a published figure and no recent trace of a large raise. \u00a73's rule-out: sub-$1B with high probability. The rule-out is recorded on the row so the claim carries its date and the next run starts from it rather than re-deriving it; it is NOT a web_verified absence claim, which \u00a76 says is not citeable at scale. | IDENTIFIED, NAMESAKE RECORDED (PRO-136): Outset, the AI-moderated research platform at outset.ai, whose Series A 8VC says it led. NEVER to be joined with Outset Medical (NASDAQ: OM), a different company.",
   "slug": "outset",
   "status": "private",
   "valuation_range": "below_1b",
-  "valuation_range_source": "model"
+  "valuation_range_source": "model",
+  "who": "agent-pro136-8vc"
  },
  "overland-ai": {
   "entry_stage": "Growth",
@@ -3767,7 +3766,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "model_disputes_source",
    "stage_uncited"
   ],
@@ -3779,10 +3777,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Pango, the consumer-privacy group formed in 2019 from AnchorFree, TouchVPN and Betternet; acquired by Aura in 2020. Wikidata put this single-token name in Sweden; the company is US. Almost certainly the same position as the 'anchorfree' row in this batch \u2014 examined at the identity step rather than merged silently.",
+  "note": "Pango, the consumer-privacy group formed in 2019 from AnchorFree, TouchVPN and Betternet; acquired by Aura in 2020. Wikidata put this single-token name in Sweden; the company is US. Almost certainly the same position as the 'anchorfree' row in this batch \u2014 examined at the identity step rather than merged silently. | IDENTITY RESOLVED (PRO-136): Pango, the consumer-privacy group formed in 2019 from AnchorFree, TouchVPN and Betternet, acquired by Aura in 2020. The `anchorfree` row was already merged into it, which is what the note anticipated. Wikidata's Sweden match on the single-token name is a collision; the company is US.",
   "slug": "pango",
   "status": "acquired",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-pro136-8vc"
  },
  "pantheon-ai-inc": {
   "entry_stage": "Seed",
@@ -3865,9 +3864,7 @@
   "entry_stage_citation": "https://www.8vc.com/resources/announcing-our-investment-in-photys-therapeutics",
   "entry_stage_confidence": "medium",
   "entry_stage_source": "web_verified",
-  "flags": [
-   "identity_uncertain"
-  ],
+  "flags": [],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
   "hq_city": "Waltham",
@@ -3876,10 +3873,11 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Photys Therapeutics, induced-proximity phosphorylation drug discovery. The same company as the 'photys-therapeutics' row (the archive carries the short slug, the live site the long one) \u2014 a duplicate to resolve at the identity step.",
+  "note": "Photys Therapeutics, induced-proximity phosphorylation drug discovery. The same company as the 'photys-therapeutics' row (the archive carries the short slug, the live site the long one) \u2014 a duplicate to resolve at the identity step. | IDENTITY RESOLVED (PRO-136): Photys Therapeutics, induced-proximity phosphorylation drug discovery. The `photys-therapeutics` twin was already merged into this row.",
   "slug": "photys",
   "status": "private",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-pro136-8vc"
  },
  "plated": {
   "entry_stage": "Growth",
@@ -4322,13 +4320,12 @@
   "valuation_usd": null
  },
  "rested": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": null,
@@ -4336,12 +4333,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Rested, archive-only row (2017), gone from the live site, unrecognised and dark. | Archive-only 2017 row, unrecognised and dark, with no filing or press trace, so neither a dated seed nor a later round could be cited.",
+  "note": "Rested, archive-only row (2017), gone from the live site, unrecognised and dark. | Archive-only 2017 row, unrecognised and dark, with no filing or press trace, so neither a dated seed nor a later round could be cited. | UNRESOLVABLE (PRO-136): an archive-only 2017 row, unrecognised and dark. The Seed was the firm's era convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric.",
   "seed_to_a_graduation": "undetermined",
   "slug": "rested",
   "status": "unknown",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-8vc"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-8vc"
  },
  "ritten": {
   "entry_stage": "Seed",
@@ -4523,7 +4521,6 @@
   "entry_stage_source": "model",
   "flags": [
    "cite_pending",
-   "identity_uncertain",
    "stage_uncited"
   ],
   "focus": "Healthcare & Bio",
@@ -4534,12 +4531,13 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Senti Biosciences (NASDAQ: SNTI), gene-circuit cell therapies; public since the 2022 Dynamics SPAC merger and trading well under $1B. The archive also carries 'senti-biosciences' from 2017 \u2014 the same company under the long name, resolved at the identity step. | A/B pass. Senti Biosciences (NASDAQ: SNTI) trades as a micro-cap well under $1B. below_1b is safe; the exact cap carries cite_pending.",
+  "note": "Senti Biosciences (NASDAQ: SNTI), gene-circuit cell therapies; public since the 2022 Dynamics SPAC merger and trading well under $1B. The archive also carries 'senti-biosciences' from 2017 \u2014 the same company under the long name, resolved at the identity step. | A/B pass. Senti Biosciences (NASDAQ: SNTI) trades as a micro-cap well under $1B. below_1b is safe; the exact cap carries cite_pending. | IDENTITY RESOLVED (PRO-136): Senti Biosciences (NASDAQ: SNTI), gene-circuit cell therapies, public since the 2022 SPAC merger. The archive's `senti-biosciences` twin was already merged into this row; the note describing it as open predates the rebuild.",
   "slug": "senti-bio",
   "status": "public",
   "valuation_range": "below_1b",
   "valuation_source": null,
-  "valuation_usd": null
+  "valuation_usd": null,
+  "who": "agent-pro136-8vc"
  },
  "senti-biosciences": {
   "flags": [],
@@ -4726,7 +4724,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -4734,12 +4731,12 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Listed as 'Software' (the archive also carries 'software-com'), i.e. Software.com, the developer-analytics company behind WakaTime-style code metrics. The bare-word name does not resolve with confidence and the row is flagged for the identity pass. | The bare-word row name does not resolve to one company with confidence and no filing or press trace attaches to it, so neither a dated seed nor a later round could be cited without a wrong-entity risk.",
+  "note": "Listed as 'Software' (the archive also carries 'software-com'), i.e. Software.com, the developer-analytics company behind WakaTime-style code metrics. The bare-word name does not resolve with confidence and the row is flagged for the identity pass. | The bare-word row name does not resolve to one company with confidence and no filing or press trace attaches to it, so neither a dated seed nor a later round could be cited without a wrong-entity risk. | IDENTITY RESOLVED (PRO-136): Software.com, the developer-analytics company, on 8VC's own card under Smart Enterprise with url software.com and a description. The `software-com` twin was already merged into this row.",
   "seed_to_a_graduation": "undetermined",
   "slug": "software",
   "status": "private",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-8vc"
+  "who": "agent-pro136-8vc"
  },
  "sonoma-biotherapeutics": {
   "entry_stage": "Growth",
@@ -4973,13 +4970,12 @@
   "who": "agent-judge-s2a-8vc"
  },
  "tap": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": null,
@@ -4987,12 +4983,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "TAP, listed 2023; a three-letter name with many candidates and no filing or press trace on this row. | A three-letter name with several candidates and a site URL (tap3d.com) that does not match 8VC's own 'Announcing TAP (Training All People)' post, so the row's identity is unresolved and neither leg could be cited.",
+  "note": "TAP, listed 2023; a three-letter name with many candidates and no filing or press trace on this row. | A three-letter name with several candidates and a site URL (tap3d.com) that does not match 8VC's own 'Announcing TAP (Training All People)' post, so the row's identity is unresolved and neither leg could be cited. | UNRESOLVABLE (PRO-136): a three-letter 2023 row whose site url (tap3d.com) does not match 8VC's own 'Announcing TAP (Training All People)' post, so even the firm's two surfaces disagree about which company this is. The Seed was the firm's era convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric.",
   "seed_to_a_graduation": "undetermined",
   "slug": "tap",
   "status": "private",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-8vc"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-8vc"
  },
  "tasca-therapeutics": {
   "entry_stage": "Growth",
@@ -5056,19 +5053,19 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "identity_uncertain"
+   "identity_homonym"
   ],
   "focus": "SaaS",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Terminal Logistics, listed 2023 under Logistics \u2014 a distinct row from 'terminal' (the 2017 remote-engineering company), though the names collide. Flagged for the identity pass. | Stage leg established \u2014 Terminal Industries' $17M seed of 2023-07-20 names 8VC and Prologis, matching 8VC's own post 'We co-founded Terminal, and co-led their $17 million seed round' \u2014 but no later round could be found and the entry is past the 24-month window, so the graduation leg stays open.",
+  "note": "Terminal Logistics, listed 2023 under Logistics \u2014 a distinct row from 'terminal' (the 2017 remote-engineering company), though the names collide. Flagged for the identity pass. | Stage leg established \u2014 Terminal Industries' $17M seed of 2023-07-20 names 8VC and Prologis, matching 8VC's own post 'We co-founded Terminal, and co-led their $17 million seed round' \u2014 but no later round could be found and the entry is past the 24-month window, so the graduation leg stays open. | IDENTIFIED, NAMESAKE RECORDED (PRO-136): Terminal Industries at terminal-industries.com, listed under Logistics in 2023, whose $17M seed of 2023-07-20 names 8VC and Prologis. The base's own `terminal` row is the 2017 remote-engineering company - a different business - and identity-merges.json already holds the never_merge pair that keeps the builder off them.",
   "seed_to_a_graduation": "undetermined",
   "slug": "terminal-logistics",
   "status": "private",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-8vc"
+  "who": "agent-pro136-8vc"
  },
  "terra-industries": {
   "entry_date": "2025",
@@ -5076,7 +5073,7 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
+   "identity_homonym",
    "stage_uncited"
   ],
   "focus": "Industrial & Robotics",
@@ -5084,12 +5081,12 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Terra Industries, the subject of 8VC's 'Announcing the Terra-8VC Partnership' post of 2026-01-12. NOT the fertilizer producer Terra Industries Inc, which CF Industries bought in 2010 \u2014 a name collision worth recording. | 8VC's own post of 2026-01-12 says it is a lead investor with partner Alex Moore having joined the board 'last year', and the only round on the record is an additional $18M of SEED funding on 2026-08-17, so there is no Series A to graduate to; the entry_date is a bare year because no page dates the round, and even read as 1 January 2025 the entry is 20 months old, inside the censoring window.",
+  "note": "Terra Industries, the subject of 8VC's 'Announcing the Terra-8VC Partnership' post of 2026-01-12. NOT the fertilizer producer Terra Industries Inc, which CF Industries bought in 2010 \u2014 a name collision worth recording. | 8VC's own post of 2026-01-12 says it is a lead investor with partner Alex Moore having joined the board 'last year', and the only round on the record is an additional $18M of SEED funding on 2026-08-17, so there is no Series A to graduate to; the entry_date is a bare year because no page dates the round, and even read as 1 January 2025 the entry is 20 months old, inside the censoring window. | IDENTIFIED, NAMESAKE RECORDED (PRO-136): Terra Industries at terraindustries.co, the subject of 8VC's 'Announcing the Terra-8VC Partnership' post of 2026-01-12, with Alex Moore on the board. NEVER to be joined with Terra Industries Inc, the fertilizer producer CF Industries bought in 2010.",
   "seed_to_a_graduation": "censored",
   "slug": "terra-industries",
   "status": "private",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-8vc"
+  "who": "agent-pro136-8vc"
  },
  "tetrate": {
   "entry_stage": "Growth",
@@ -5208,7 +5205,7 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
+   "identity_homonym",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -5219,12 +5216,12 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Tome, AI presentation and storytelling tool founded by ex-Meta product leaders; it pivoted to sales AI. Archive-only row (2023). Not Tome Biosciences, the gene-editing company, which is a different Tome. | FinSMEs returns no results for Tome the AI presentation company and 8VC's only post about it is a fireside chat naming no round, so neither leg could be established.",
+  "note": "Tome, AI presentation and storytelling tool founded by ex-Meta product leaders; it pivoted to sales AI. Archive-only row (2023). Not Tome Biosciences, the gene-editing company, which is a different Tome. | FinSMEs returns no results for Tome the AI presentation company and 8VC's only post about it is a fireside chat naming no round, so neither leg could be established. | IDENTIFIED, NAMESAKE RECORDED (PRO-136): Tome, the AI presentation and storytelling tool founded by ex-Meta product leaders, which later pivoted to sales AI. NEVER to be joined with Tome Biosciences, the gene-editing company.",
   "seed_to_a_graduation": "undetermined",
   "slug": "tome",
   "status": "private",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-8vc"
+  "who": "agent-pro136-8vc"
  },
  "trackonomy": {
   "flags": [
@@ -5279,7 +5276,6 @@
   "entry_stage_confidence": "medium",
   "entry_stage_source": "formd_structural",
   "flags": [
-   "identity_uncertain",
    "stage_uncited"
   ],
   "focus": "Fintech & Payments",
@@ -5287,10 +5283,11 @@
   "hq_city": "Chattanooga",
   "hq_city_confidence": "high",
   "hq_city_source": "formd_address",
-  "note": "Possibly the same position as FreightWaves (same founder, city and year); examined at the identity step rather than merged silently.",
+  "note": "Possibly the same position as FreightWaves (same founder, city and year); examined at the identity step rather than merged silently. | IDENTITY RESOLVED (PRO-136): Transrisk, Inc. is Craig Fuller's Chattanooga freight-futures startup, reported as such by the Chattanooga Times Free Press in December 2017, which also launched FreightWaves.com. It is NOT a duplicate of the base's `freight-waves` row: identity-merges.json already rules the pair never_merge on the evidence that they are two issuers with separate filings. Named company, separate position; the published name is the legal one because no listing rendered it otherwise.",
   "slug": "transrisk-inc",
   "status": "private",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-pro136-8vc"
  },
  "tul": {
   "entry_stage": "Growth",
@@ -5413,7 +5410,7 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
+   "identity_homonym",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -5424,11 +5421,11 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Vector, freight-document and workflow software listed by 8VC under Logistics from 2019; acquired. A common name \u2014 a sibling run carries a Vector row acquired/below_1b, which is consistent, but the identity is worth confirming at alignment. | FinSMEs returns no results for Vector the freight-document company and the 8VC resources archive carries no post, so neither a dated seed nor a later round could be cited for this acquired 2019 listing.",
+  "note": "Vector, freight-document and workflow software listed by 8VC under Logistics from 2019; acquired. A common name \u2014 a sibling run carries a Vector row acquired/below_1b, which is consistent, but the identity is worth confirming at alignment. | FinSMEs returns no results for Vector the freight-document company and the 8VC resources archive carries no post, so neither a dated seed nor a later round could be cited for this acquired 2019 listing. | IDENTIFIED, NAMESAKE RECORDED (PRO-136): Vector at withvector.com, the mobile-first workflow platform for shippers and carriers, listed by 8VC under Logistics from 2019. A common name, so the flag records it; a sibling run carries a Vector row reading acquired/below_1b, which is consistent and is confirmed at alignment rather than assumed.",
   "seed_to_a_graduation": "undetermined",
   "slug": "vector",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-8vc"
+  "who": "agent-pro136-8vc"
  },
  "vercel": {
   "entry_stage": "Growth",
@@ -5483,7 +5480,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "identity_uncertain",
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
@@ -5494,12 +5490,12 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Vesta Home, furniture rental and home staging. The archive also carries a bare 'vesta' slug from 2019 \u2014 the same company under two spellings, resolved at the identity step. | FinSMEs returns no results for Vesta Home and the 8VC resources archive carries no post, so neither leg could be established for this 2019 row.",
+  "note": "Vesta Home, furniture rental and home staging. The archive also carries a bare 'vesta' slug from 2019 \u2014 the same company under two spellings, resolved at the identity step. | FinSMEs returns no results for Vesta Home and the 8VC resources archive carries no post, so neither leg could be established for this 2019 row. | IDENTITY RESOLVED (PRO-136): Vesta Home, furniture rental and home staging; the bare `vesta` slug from 2019 was already merged into this row.",
   "seed_to_a_graduation": "undetermined",
   "slug": "vesta-home",
   "status": "private",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-8vc"
+  "who": "agent-pro136-8vc"
  },
  "vir": {
   "entry_stage": "Growth",
@@ -5594,8 +5590,7 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "cite_pending",
-   "identity_uncertain"
+   "cite_pending"
   ],
   "focus": "AI & Applied AI",
   "focus_source": "model",
@@ -5608,7 +5603,7 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Wispr Flow, voice-driven text input; the live-site row for the company the archive lists as 'wispr-ai'. Raised a $30M Series A in 2025. | Momentum slice (\u00a76): a private row first listed in the last five years in a hot sector. Ruled out rather than searched \u2014 the row is an unrecognised company, absent from the unicorn snapshot re-pulled at run start, with no priced round carrying a published figure and no recent trace of a large raise. \u00a73's rule-out: sub-$1B with high probability. The rule-out is recorded on the row so the claim carries its date and the next run starts from it rather than re-deriving it; it is NOT a web_verified absence claim, which \u00a76 says is not citeable at scale. | Cross-investor alignment (invariant 10): Menlo Ventures publishes $280M at $2B, August 2026, with a TechCrunch citation. Adopted \u2014 and it corrects this run's momentum-slice rule-out, which is precisely the miss the momentum rule exists to catch (the Augustus case on Creandum). The rule-out was recorded, so the correction is one row rather than a re-derivation. | 8VC's own post of 2022-01-15: 'We were thrilled to co-lead Wispr's $4.6 million seed round'; Wispr then raised a $30M Series A on 2025-06-26, a $25M extension and a $280M Series B on 2026-08-17 at a $2B mark.",
+  "note": "Wispr Flow, voice-driven text input; the live-site row for the company the archive lists as 'wispr-ai'. Raised a $30M Series A in 2025. | Momentum slice (\u00a76): a private row first listed in the last five years in a hot sector. Ruled out rather than searched \u2014 the row is an unrecognised company, absent from the unicorn snapshot re-pulled at run start, with no priced round carrying a published figure and no recent trace of a large raise. \u00a73's rule-out: sub-$1B with high probability. The rule-out is recorded on the row so the claim carries its date and the next run starts from it rather than re-deriving it; it is NOT a web_verified absence claim, which \u00a76 says is not citeable at scale. | Cross-investor alignment (invariant 10): Menlo Ventures publishes $280M at $2B, August 2026, with a TechCrunch citation. Adopted \u2014 and it corrects this run's momentum-slice rule-out, which is precisely the miss the momentum rule exists to catch (the Augustus case on Creandum). The rule-out was recorded, so the correction is one row rather than a re-derivation. | 8VC's own post of 2022-01-15: 'We were thrilled to co-lead Wispr's $4.6 million seed round'; Wispr then raised a $30M Series A on 2025-06-26, a $25M extension and a $280M Series B on 2026-08-17 at a $2B mark. | IDENTITY RESOLVED (PRO-136): Wispr Flow, voice-driven text input at flowvoice.ai, which raised a $30M Series A in 2025; the archive's `wispr-ai` rendering was already merged into this row.",
   "seed_to_a_graduation": "graduated",
   "slug": "wispr-flow",
   "status": "private",
@@ -5619,7 +5614,7 @@
   "valuation_range_source": "model",
   "valuation_source": "web_verified",
   "valuation_usd": 2000000000,
-  "who": "agent-judge-s2a-8vc"
+  "who": "agent-pro136-8vc"
  },
  "withcoverage": {
   "entry_stage": "Seed",
@@ -5714,13 +5709,12 @@
   "valuation_range_source": "model"
  },
  "zeno": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_source": null,
   "flags": [
    "country_prior",
-   "identity_uncertain",
-   "stage_prior",
+   "identity_unresolved",
    "stage_uncited"
   ],
   "focus": null,
@@ -5728,12 +5722,13 @@
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "Zeno, archive-only row (2021), gone from the live site; several companies use the name and none resolves against this row's evidence. | Archive-only 2021 row whose single-token name matches several companies with no filing or press trace, so neither a dated seed nor a later round could be cited without a wrong-entity risk.",
+  "note": "Zeno, archive-only row (2021), gone from the live site; several companies use the name and none resolves against this row's evidence. | Archive-only 2021 row whose single-token name matches several companies with no filing or press trace, so neither a dated seed nor a later round could be cited without a wrong-entity risk. | UNRESOLVABLE (PRO-136): an archive-only 2021 row whose single-token name matches several companies, none of which resolves against its evidence. The Seed was the firm's era convention applied to a company nobody could name, so stage, band and graduation read undetermined and the row leaves every metric.",
   "seed_to_a_graduation": "undetermined",
   "slug": "zeno",
   "status": "unknown",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-8vc"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-pro136-8vc"
  },
  "zenreach": {
   "flags": [

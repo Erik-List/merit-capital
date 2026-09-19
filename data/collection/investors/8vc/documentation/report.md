@@ -318,3 +318,43 @@ the same evidence pack.
   will not invent them. Next run should read them first.
 - **Prompt count: 2 so far** — the kickoff ("please collect 8VC") and one
   continuation. Not final until the ingest decision.
+
+## Addendum 2026-09-19 — identity reclassification (PRO-136)
+
+Twenty-eight published rows carried `identity_uncertain` (fourteen further
+entries in `classification.json` are stale keys). 8VC's set divides almost
+exactly three ways, and the middle group is the interesting one.
+
+**Nine rows are identified AND have a real namesake**, so they take
+`identity_homonym` with both named in the note: `galileo` (Galileo Health, not
+Galileo Financial Technologies — the pair PRO-136 itself cites), `outset`
+(outset.ai, not Outset Medical), `terra-industries` (Africa's defence prime,
+not the fertilizer producer CF bought in 2010), `tome` (the presentation tool,
+not Tome Biosciences), `kiwi` (the student lender, not Kiwi.com),
+`terminal-logistics` (Terminal Industries, against the base's own `terminal`
+row — already guarded by a `never_merge` pair), `vector`, `fractal` (Fractal
+Software, against three other Fractals) and `luminate`.
+
+**Eleven rows are named and lose the flag.** Six of them describe a twin
+"to resolve at the identity step" that the rebuild already resolved:
+`senti-bio`, `photys`, `pango`, `software`, `wispr-flow` and `vesta-home` all
+absorbed their twins long ago and the notes were never retired. `aimip` is the
+clearest case of a flag on a rendering rather than a company: 8VC's own card
+maps that slug to AMP at amp.tech with a full description.
+
+`transrisk-inc` is worth its own line. The note called it "possibly the same
+position as FreightWaves (same founder, city and year)", and the tempting move
+was to merge it — but `identity-merges.json` already rules that pair
+`never_merge` on the evidence that they are two issuers with separate filings.
+The row is Craig Fuller's Chattanooga freight-futures startup, reported as
+such in December 2017, and it stays its own position.
+
+**Eight rows read `undetermined`:** `agentic`, `beacon`, `castle-global`,
+`farcast`, `melvi`, `rested`, `tap` and `zeno` — archive-only rows that are
+gone from the live site with no filing or press trace. `tap` is the sharpest:
+its site url (tap3d.com) does not match 8VC's own "Announcing TAP (Training
+All People)" post, so the firm's two surfaces disagree about which company the
+row is.
+
+`verify --in-flight` clean. 8VC is mid-S2A-wave with a live in-flight marker,
+so this pass did not rebuild, re-export or close.
