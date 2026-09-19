@@ -382,3 +382,59 @@ Candidates for COLLECTION.md, all investor-agnostic:
     investment; where the firm lists a company it is tied to through a person
     or a related non-profit, T2 governs and the row needs fund money. Ratchet
     into COLLECTION.md 1 as a T2 precedent.
+
+## Addendum 2026-09-19 — identity reclassification (PRO-136)
+
+Fifty-six published rows carried `identity_uncertain`. YC's set is unlike any
+other book's, because the flag was applied before the directory pull that
+recovered most of these companies — twenty-seven of the notes still read
+"Unidentified archive row" about rows the directory now carries with a name, a
+website and a batch.
+
+**Twenty-seven rows lose the flag.** Eighteen are directory records that
+resolve outright (`gmelius`, `candor-security`, `freestyle-ai`, `gpt` → Nexus,
+`haystackeditor`, `laminar-com`, `miru-ml`, `orchid-ai`, `rivet-design`,
+`struct-ai`, `aalo`, `assembled`, `blotout`, `convictional`, `convoy`,
+`hyperbrowser`, `parker`, `sync`). Nine are the Imagine K12 cohort the S2A
+pass had already identified from knowledge and description — `remind`,
+`schoolmint`, `socrative`, `sown-to-grow`, `stablegains`, `swing-education`,
+`teachboost`, `tioki`, `trinket`.
+
+**Five rows are identified with a namesake.** `almond-2` (Spring 2025 robotics
+at almond.bot) against the base's own `almond` (Summer 2022 ObGyn telehealth),
+`hyper-4` (Spring 2026) against `hyper` (Summer 2021 Discord memberships) and
+`hyper-online`, plus `snipd` (the 2008 media row, not the 2021 podcast app),
+`benchify` and `bobidi`, whose YC one-liners do not match the companies those
+names are known for.
+
+**Twenty rows read `undetermined`**, among them the seven bare numeric ids
+(`11963`, `13067`, `1924`, `1991`, `21848`, `22278`, `23631`) whose pages are
+gone. Their Seed came from the batch-deal record — which describes what YC
+offers EVERY company rather than a round this one took — so on a row that
+names no company it is exactly the inferred fill the new rule abolishes. This
+is the population PRO-133 counted when it found 33 YC rows citing
+`ycombinator.com/deal` as stage evidence.
+
+### Two findings that are not identity, and one that did not work
+
+**The suffixed twins cannot be merged by the current builder.** `cleartax-2`,
+`sieveai-2` and `usenarrative-2` are archive renderings of `cleartax` (Clear),
+`sieveai` (sieve) and `usenarrative` (Narrative), and `12869`/`12869-2` are
+YC's numeric id for Gmelius. A merge entry naming those published slugs does
+nothing: the builder mints the `-2` suffix AFTER the identity overlay runs, so
+at overlay time both rows carry the same base slug and the duplicate lookup
+misses. The rows are flagged `identity_conflated` with the pairing recorded,
+and the builder's ordering is raised for Erik rather than worked around.
+
+**`never_merge` made it worse here, which is worth knowing.** Adding pairs for
+`almond`/`almond-2` and `hyper`/`hyper-4` did not protect two real companies —
+it resurrected archive rows literally named "Almond 2" and "Hyper 4" that the
+name-prefix rule had been absorbing, adding junk rows to the base. The pairs
+were reverted and the base is byte-identical to before; the namesakes are
+recorded on the rows instead.
+
+`verify --skip-cross` still fails on this book for a reason that predates the
+pass: 4,971 rows carry `cohort_unverified`, a flag retired on 2026-09-16 and
+never swept here. That is PRO-120's work. The twenty new `undetermined` rows
+verify cleanly and leave every metric; the seed cohort reads 6,405 rather than
+6,425.
