@@ -1701,9 +1701,9 @@ Every subcommand takes the investor slug.
   (Menlo, 2026-09-17: Chipcom became "3com" against its own ruling). The
   database upserts on (investor, name) and the name is the whole of a row's
   identity there, so a rename is a new row, not an edit. Since PRO-139
-  `ingest-companies.ts` reconciles: it retires every row of the investor
+  `ingest-companies.ts` reconciles: it removes every row of the investor
   whose name the CSV no longer carries, and refuses when that set is over
-  5% of the book. Run it `--dry-run` first and read the retire list, because
+  5% of the book. Run it `--dry-run` first and read the removal list, because
   from the database a rename, a merge and a real removal look identical;
   only the base's slugs tell them apart. In-run: any suspected duplicate →
   flag + note, never a silent merge. Verdicts key on slugs and merges move
@@ -1825,9 +1825,9 @@ in-flight marker (§12) as the last act before the closing commit; the
 session's closing message carries the results, the open rulings and the
 ingest request, and stops. Corrections
 that land after an approved ingest are re-ingested only with a fresh
-approval. Rows removed from the base after an ingest are retired by the
-next ingest rather than left behind, so the closing message names them and
-the approval covers the retirements too.
+approval. Rows taken out of the base after an ingest are removed from the
+database by the next ingest rather than left behind, so the closing message
+names them and the approval covers the removals too.
 
 Before the closing message, the review surface is verified rendered —
 serve it (`file://` is blocked in the app browser; use a static server)

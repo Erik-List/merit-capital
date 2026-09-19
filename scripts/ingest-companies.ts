@@ -18,10 +18,10 @@
 // recompute_investor_metrics, which scans every row of the investor. Measured
 // on 2026-09-19 that was 25 rows across four books, invisible to a row count
 // because a rename adds and abandons in the same pass. So every run now
-// retires the investor's rows whose name is absent from the CSV, and closes by
+// removes the investor's rows whose name is absent from the CSV, and closes by
 // asserting the live count equals the CSV's. The CSV is the sole author of the
-// investor's row set, which is why absence from it is the retirement signal
-// and why a --columns run retires too: scoping picks the columns a run writes,
+// investor's row set, which is why absence from it is the removal signal
+// and why a --columns run removes too: scoping picks the columns a run writes,
 // never the rows the investor has.
 
 import "dotenv/config";
@@ -42,28 +42,28 @@ type CompanyInsert = TablesInsert<"companies">;
 const UPSERT_BATCH_SIZE = 500;
 
 /**
- * How many rows one run may retire before it stops and asks.
+ * How many rows one run may remove before it stops and asks.
  *
  * checkFreshness already refuses a CSV that disagrees with the live base, so
  * the remaining risk is a base that rebuilt wrong — truncated, or built over a
  * listing the archive served short. A run that would delete a large share of a
  * published book is far more likely to be that than a real re-judgement: the
- * biggest legitimate retirement measured to date is First Round's 18 of 594,
- * 3%. Raise it deliberately with --retire-max=<n> when a book really did shed
+ * biggest legitimate removal measured to date is First Round's 18 of 594,
+ * 3%. Raise it deliberately with --remove-max=<n> when a book really did shed
  * that many, never to get a surprising run through.
  */
-function retireCeiling(liveCount: number): number {
+function removeCeiling(liveCount: number): number {
   return Math.max(10, Math.ceil(liveCount * 0.05));
 }
 
 /** Local flag parsing: parseFlags owns the two shared flags and ignores these. */
-function parseRetireMax(argv: string[]): number | null {
-  const arg = argv.find((a) => a.startsWith("--retire-max"));
+function parseRemoveMax(argv: string[]): number | null {
+  const arg = argv.find((a) => a.startsWith("--remove-max"));
   if (!arg) return null;
   const raw = arg.includes("=") ? arg.split("=")[1] : argv[argv.indexOf(arg) + 1];
   const value = Number(raw);
   if (!raw || !Number.isInteger(value) || value < 0) {
-    throw new Error(`--retire-max expects a non-negative integer, got "${raw}"`);
+    throw new Error(`--remove-max expects a non-negative integer, got "${raw}"`);
   }
   return value;
 }
@@ -145,13 +145,13 @@ function checkFreshness(investor: string, csvRows: Record<string, string>[]): vo
 
 async function main() {
   const flags = parseFlags(process.argv, COMPANY_COLUMNS);
-  const retireMax = parseRetireMax(process.argv);
+  const removeMax = parseRemoveMax(process.argv);
   const dryRun = process.argv.includes("--dry-run");
   const investor = process.argv.slice(2).find((a) => !a.startsWith("--"));
   if (!investor) {
     throw new Error(
       "Usage: npm run ingest:companies -- <investor-slug> " +
-        "[--columns ...] [--retire-max=<n>] [--dry-run]"
+        "[--columns ...] [--remove-max=<n>] [--dry-run]"
     );
   }
 
@@ -267,7 +267,7 @@ async function main() {
   }
 
   // The reconciliation plan, read before anything is written so --dry-run can
-  // print it and stop. A retired name is one the database holds and the CSV
+  // print it and stop. A removed name is one the database holds and the CSV
   // does not: a rename left the old rendering behind, a merge absorbed the
   // row, or a ruling took the company out of the book. The three are
   // indistinguishable from here, because companies carries no slug and the
@@ -275,22 +275,22 @@ async function main() {
   const liveNames = await fetchCompanyNames(supabase, investorId);
   const live = new Set(liveNames);
   const csvNames = new Set(companies.map((r) => r.name));
-  const retire = liveNames.filter((n) => !csvNames.has(n)).sort();
+  const remove = liveNames.filter((n) => !csvNames.has(n)).sort();
   const insert = companies.filter((r) => !live.has(r.name)).length;
 
   console.log(
     `Plan: ${companies.length} row(s) upserted (${insert} new), ` +
-      `${retire.length} retired, from ${liveNames.length} live.`
+      `${remove.length} removed, from ${liveNames.length} live.`
   );
-  retire.forEach((n) => console.log(`    retire ${n}`));
+  remove.forEach((n) => console.log(`    remove ${n}`));
 
-  const ceiling = retireMax ?? retireCeiling(liveNames.length);
-  if (retire.length > ceiling) {
+  const ceiling = removeMax ?? removeCeiling(liveNames.length);
+  if (remove.length > ceiling) {
     console.error(
-      `\n✗ ${retire.length} row(s) would be retired, over the ceiling of ` +
+      `\n✗ ${remove.length} row(s) would be removed, over the ceiling of ` +
         `${ceiling} for a ${liveNames.length}-row book. Nothing written. ` +
         "Confirm the base really shed them, then re-run with " +
-        `--retire-max=${retire.length}.`
+        `--remove-max=${remove.length}.`
     );
     process.exit(1);
   }
@@ -306,12 +306,12 @@ async function main() {
     console.log(`✓ Upserted ${i + batch.length}/${companies.length}`);
   }
 
-  // Retired after the upserts, never before: the upsert leg is the one that
+  // Removed after the upserts, never before: the upsert leg is the one that
   // can fail on a taxonomy or shape violation, and a run that dies there must
   // not have already deleted rows it was going to replace.
-  if (retire.length > 0) {
-    await deleteCompaniesByName(supabase, investorId, retire);
-    console.log(`✓ Retired ${retire.length} row(s)`);
+  if (remove.length > 0) {
+    await deleteCompaniesByName(supabase, investorId, remove);
+    console.log(`✓ Removed ${remove.length} row(s)`);
   }
 
   const { count, error: countError } = await supabase

@@ -95,14 +95,14 @@ export async function fetchCompanyNames(
 }
 
 /**
- * Retire rows: DELETE the named companies of one investor.
+ * Remove rows: DELETE the named companies of one investor.
  *
  * The upsert leg can only add or update, so on its own a renamed, merged or
  * dropped company leaves a row nothing removes. That row keeps whatever
  * classification it carried at its last ingest and still feeds
  * recompute_investor_metrics, which scans every row of the investor.
  *
- * Batched because `in` rides in the query string, and a book can retire more
+ * Batched because `in` rides in the query string, and a book can remove more
  * names than a URL will carry. The caller applies the ceiling; this function
  * deletes exactly the set it is handed.
  */
@@ -120,7 +120,7 @@ export async function deleteCompaniesByName(
       .in("name", names.slice(i, i + BATCH));
 
     if (error) {
-      throw new Error(`Failed to retire companies: ${error.message}`);
+      throw new Error(`Failed to remove companies: ${error.message}`);
     }
   }
 }
