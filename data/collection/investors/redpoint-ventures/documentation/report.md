@@ -576,3 +576,49 @@ a Series B by TechCrunch, later than a Series A, against the $2M seed of
 March 2010. The cohort becomes 28 with 23 graduated, 82.1% at 72% coverage,
 which now sits under the restated 0.85 ceiling rather than over the 0.80
 default.
+
+## Addendum 2026-09-19 — identity reclassification (PRO-136)
+
+Forty-one published rows carried `identity_uncertain`, and forty of them turn
+out not to be identity questions at all. This book is where the flag's
+overload shows most clearly: it was applied to companies that are *obscure*
+— a 2001 optical startup, a Chinese app listed for four years, a logo-era row
+named after its own domain — rather than to companies that could not be named.
+Every one of those rows carries a url and usually a description on Redpoint's
+own card, which is exactly what naming a company means.
+
+**Thirty-four rows lose the flag and keep their values**, among them the whole
+China desk (`117go-com`, `9tong`, `apple-toon`, `bangcle`, `bingdian`,
+`haoqipei`, `linkedsee`, `mint-quantum`, `supertool-network-technology`,
+`wal-fuel-systems`, `xindun-trusfort`, `yunshan`) and the 2000-2006 logo era
+(`allocity`, `cairo`, `confluencenetworks`, `digev`, `globalmediacenters`,
+`kmvtechnologies`, `liquidsys`, `mltc`, `radik`, `sabeus`, `simula-labs`,
+`teraoptic`). What those rows are missing is an OUTCOME — most went dark
+without an exit or a shutdown anyone reported — and the unknown status already
+says so.
+
+Four of the thirty-four carry a different question under the flag, and the
+note now says which: `alltel` is a consideration-reading trap (a $27B TPG/GS
+buyout cannot be a venture position; the likelier reading is that a Redpoint
+company was absorbed and the row inherited the acquirer's name), `ask-com` is
+a decisions.md D5 question (Ask Jeeves is also in the previous-by-partners
+table and in Geoff Yang's IVP bio), `xango` carries D4 and T5 membership
+questions, and `cyngn` carries an entry question (the card's "Series A in
+2013" belongs to Cyanogen, whose successor this is).
+
+**Six rows are identified AND have a namesake**, so they take
+`identity_homonym`: `fable` (fable.co, against the base's own `fable-security`
+row), `topspin-media` (against the base's own `topspin`, Topspin
+Communications) — both already guarded by `never_merge` pairs — plus `mithril`
+(against Mithril Capital Management), `fandom` (the 1999-2001 portal, against
+the modern Fandom/Wikia), `betterworks` (the 2011 Santa Monica employee-perks
+company, against the surviving OKR software company) and `clara` (Clara
+Lending, which shut in 2018, against the Mexican Clara founded in 2020 — the
+namesake the deterministic layer matched when it proposed a $1B mark here).
+
+**One row is genuinely unnameable.** `shasta-software` is a name from the 2000
+capture and nothing else, explicitly not Shasta Networks, so its stage, band
+and graduation read `undetermined`.
+
+`verify --skip-cross` clean; the S2A block is untouched, because the one
+undetermined row was not a Seed entry.
