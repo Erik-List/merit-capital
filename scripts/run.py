@@ -108,8 +108,30 @@ FORMD_GRADUATION_KEYS = ("seed_to_a_graduation", "graduation_source", "graduatio
 FORMD_GRADUATION_EVIDENCE = ("seed_to_a_graduation", "entry_offering_usd", "entry_date",
                              "next_offering_usd", "next_quarter", "formd_asof")
 
-VALUATION_RANGES = ("below_1b", "1b_plus", "10b_plus", "100b_plus")
-VALID_STAGES = {"Pre-Seed", "Seed", "Series A", "Growth"}
+# A company whose identity cannot be established carries UNDETERMINED in every
+# outcome column rather than an inferred value or an empty cell (Erik,
+# 2026-09-18). Invariant 1's 100% fill still holds -- this is what satisfies it
+# -- and the derived metrics exclude these rows instead of counting them.
+UNDETERMINED = "undetermined"
+# The identity flags, replacing the overloaded `identity_uncertain`. A company
+# that IS named and described carries none of them: recognition happened, and
+# confidence already records how firmly.
+IDENTITY_UNRESOLVED = "identity_unresolved"   # the company cannot be named at all
+IDENTITY_CONFLATED = "identity_conflated"     # one company across two rows
+IDENTITY_HOMONYM = "identity_homonym"         # two real companies sharing a name
+IDENTITY_FLAGS = (IDENTITY_UNRESOLVED, IDENTITY_CONFLATED, IDENTITY_HOMONYM)
+# Values a judge may not infer onto an unresolvable row.
+INFERRED_FLAGS = frozenset({"stage_prior", "country_prior"})
+# PRO-133 restricts `seed_to_a_graduation: undetermined` to an unresolvable
+# row, so that a judge who cannot find a round says `not_graduated` instead.
+# That answer does not exist yet -- it is PRO-132's ruling -- and COLLECTION.md
+# 6, `export`'s fill and YC's whole column still produce a judged
+# `undetermined` with a note. Flipping this to False is PRO-132's last step,
+# after the ~300 stored judged-undetermined rows have been re-decided.
+JUDGED_UNDETERMINED_ALLOWED = True
+
+VALUATION_RANGES = ("below_1b", "1b_plus", "10b_plus", "100b_plus", UNDETERMINED)
+VALID_STAGES = {"Pre-Seed", "Seed", "Series A", "Growth", UNDETERMINED}
 VALID_STATUS = {"private", "public", "acquired", "defunct", "unknown"}
 VALID_CONF = {"high", "medium", "low"}
 # Sources allowed to carry a dollar figure. `model_knowledge` is deliberately
@@ -1037,6 +1059,16 @@ def validate_record(rec: dict, slugs: set[str], merged: dict | None = None) -> l
             errs.append(f"{slug}: {key} {v!r} is not a date (YYYY, YYYY-MM or YYYY-MM-DD)")
     if rec.get("graduation_asof") is not None and len(str(rec["graduation_asof"])) != 10:
         errs.append(f"{slug}: graduation_asof must be a full date (YYYY-MM-DD)")
+    # An unresolvable company may not carry an inferred value, and only such a
+    # row may carry `undetermined` in the outcome columns (COLLECTION.md 3).
+    unresolved = IDENTITY_UNRESOLVED in view_flags
+    if unresolved and (view_flags & INFERRED_FLAGS):
+        errs.append(f"{slug}: {IDENTITY_UNRESOLVED} row carries an inferred value "
+                    f"({sorted(view_flags & INFERRED_FLAGS)}); write {UNDETERMINED!r} instead")
+    for key in ("entry_stage", "valuation_range"):
+        if rec.get(key) == UNDETERMINED and not unresolved:
+            errs.append(f"{slug}: {key} {UNDETERMINED!r} is only for a row flagged "
+                        f"{IDENTITY_UNRESOLVED}")
     if "seed_to_a_graduation" in rec:
         g = rec["seed_to_a_graduation"]
         if isinstance(g, bool):
@@ -1044,8 +1076,11 @@ def validate_record(rec: dict, slugs: set[str], merged: dict | None = None) -> l
                         f"emit a status ({', '.join(GRADUATION_STATUSES)})")
         elif g is not None and g not in GRADUATION_STATUSES:
             errs.append(f"{slug}: seed_to_a_graduation {g!r} not in vocabulary")
+        elif g == UNDETERMINED and not unresolved and not JUDGED_UNDETERMINED_ALLOWED:
+            errs.append(f"{slug}: seed_to_a_graduation {UNDETERMINED!r} is only for a row "
+                        f"flagged {IDENTITY_UNRESOLVED}; decide the row instead")
         elif g is not None:
-            if view.get("entry_stage") != "Seed":
+            if view.get("entry_stage") != "Seed" and not unresolved:
                 errs.append(f"{slug}: graduation set but entry_stage={view.get('entry_stage')!r}")
             if view_flags & PRE_WINDOW_FLAGS:
                 errs.append(f"{slug}: graduation on a pre-window entry (null by rule)")
@@ -1082,6 +1117,10 @@ def validate_record(rec: dict, slugs: set[str], merged: dict | None = None) -> l
     if rec.get("valuation_range") is not None:
         if rec["valuation_range"] not in VALUATION_RANGES:
             errs.append(f"{slug}: valuation_range {rec['valuation_range']!r}")
+        elif rec["valuation_range"] == UNDETERMINED:
+            if rec.get("valuation_usd"):
+                errs.append(f"{slug}: valuation_range {UNDETERMINED} with a figure "
+                            f"({rec['valuation_usd']}); an unnamed company has no mark")
         elif rec["valuation_range"] != "below_1b" and not rec.get("valuation_usd"):
             errs.append(f"{slug}: valuation_range {rec['valuation_range']} without a sourced figure")
     if rec.get("entry_stage") is not None and rec["entry_stage"] not in VALID_STAGES:
@@ -1688,6 +1727,20 @@ def cmd_verify(args) -> None:
                             f"run migrate-graduation")
         elif g is not None and g not in GRADUATION_STATUSES:
             problems.append(f"{slug}: seed_to_a_graduation {g!r} not in vocabulary")
+        unresolved = IDENTITY_UNRESOLVED in set(rec.get("flags") or [])
+        if unresolved:
+            # An unresolvable company writes UNDETERMINED across the outcome
+            # columns and is excluded from every metric below, so the
+            # consistency rules that relate those columns do not apply.
+            for key in ("entry_stage", "valuation_range", "seed_to_a_graduation"):
+                if rec.get(key) != UNDETERMINED:
+                    problems.append(f"{slug}: {IDENTITY_UNRESOLVED} row must carry "
+                                    f"{UNDETERMINED!r} in {key} (got {rec.get(key)!r})")
+            if set(rec.get("flags") or []) & INFERRED_FLAGS:
+                problems.append(f"{slug}: {IDENTITY_UNRESOLVED} row carries an inferred value")
+            continue
+        if rec.get("entry_stage") == UNDETERMINED or rec.get("valuation_range") == UNDETERMINED:
+            problems.append(f"{slug}: {UNDETERMINED!r} outside an {IDENTITY_UNRESOLVED} row")
         if g is not None and rec.get("entry_stage") != "Seed":
             problems.append(f"{slug}: graduation set but entry_stage={rec.get('entry_stage')!r}")
 
@@ -1837,30 +1890,37 @@ def cmd_verify(args) -> None:
         problems.append(f"base rows without a classification: {unclassified[:10]}"
                         + (" …" if len(unclassified) > 10 else ""))
     print(f"$1B+ / $10B+ / $100B+ : {len(one_b)} / {len(ten_b)} / {len(hundred_b)}")
+    # Determined rows only: an unresolvable company is not a Seed entry, not a
+    # below-$1B outcome and not a graduation denominator (Erik, 2026-09-18).
+    determined = [r for r in merged.values()
+                  if IDENTITY_UNRESOLVED not in set(r.get("flags") or [])]
+    undet_rows = len(merged) - len(determined)
+    if undet_rows:
+        print(f"identity        : {undet_rows} unresolvable rows, excluded from every metric")
     bad_focus = [s for s, r in merged.items()
                  if r.get("focus") is not None and r["focus"] not in VALID_FOCUS]
     if bad_focus:
         problems.append(f"focus outside taxonomy on {len(bad_focus)} rows: "
                         f"{bad_focus[:3]}")
-    foc = Counter(r.get("focus") or "(outside taxonomy)" for r in merged.values())
+    foc = Counter(r.get("focus") or "(outside taxonomy)" for r in determined)
     print(f"focus           : {dict(foc.most_common())}")
     bad_city = [s for s, r in merged.items()
                 if r.get("hq_city") and CITY_SUFFIX_RE.search(r["hq_city"])]
     if bad_city:
         problems.append(f"hq_city carries a state/country suffix on "
                         f"{len(bad_city)} rows: {bad_city[:3]}")
-    cities = Counter(r["hq_city"] for r in merged.values() if r.get("hq_city"))
+    cities = Counter(r["hq_city"] for r in determined if r.get("hq_city"))
     print(f"hq_city         : {len(cities)} distinct, "
           f"{sum(cities.values())}/{total} filled; top "
           f"{dict(cities.most_common(8))}")
-    tags = Counter(r.get("valuation_range") for r in merged.values())
+    tags = Counter(r.get("valuation_range") for r in determined)
     print(f"valuation_range : {dict(tags.most_common())}")
-    stages = Counter(r.get("entry_stage") for r in merged.values())
+    stages = Counter(r.get("entry_stage") for r in determined)
     print(f"entry_stage     : {dict(stages.most_common())}")
     # The published C2A block, in the shape the report and the database
     # carry: seed entries, the too-young share, the undetermined remainder,
     # and the rate over the decided cohort with its coverage.
-    seed_rows = [r for r in merged.values()
+    seed_rows = [r for r in determined
                  if r.get("entry_stage") == "Seed"
                  and not (set(r.get("flags") or []) & PRE_WINDOW_FLAGS)]
     gc = Counter(r.get("seed_to_a_graduation") or "undetermined" for r in seed_rows)
@@ -1976,7 +2036,11 @@ def cmd_export(args) -> None:
         # stays only where the column does not apply (non-Seed, pre-window).
         if out.get("seed_to_a_graduation") is None and rec.get("entry_stage") == "Seed" \
                 and not (set(rec.get("flags") or []) & PRE_WINDOW_FLAGS):
-            out["seed_to_a_graduation"] = "undetermined"
+            out["seed_to_a_graduation"] = UNDETERMINED
+        # An unresolvable company publishes UNDETERMINED across all three
+        # outcome columns; the database excludes such a row from its metrics.
+        if rec.get("entry_stage") == UNDETERMINED:
+            out["seed_to_a_graduation"] = UNDETERMINED
         out_rows.append({k: "" if out.get(k) is None else out[k]
                          for k in EXPORT_COLUMNS})
 

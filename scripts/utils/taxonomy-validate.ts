@@ -151,6 +151,38 @@ export function validateCompanyFields(row: Record<string, any>): TaxonomyIssues 
     errors.push("hq_country: expected a string or null");
   }
 
+  if (typeof row.entry_stage === "string") {
+    if (!(ENTRY_STAGES as readonly string[]).includes(row.entry_stage)) {
+      errors.push(`entry_stage: "${row.entry_stage}" is not an entry stage (${ENTRY_STAGES.join(", ")})`);
+    }
+  } else if (row.entry_stage != null) {
+    errors.push("entry_stage: expected a stage string");
+  }
+
+  if (typeof row.valuation_range === "string") {
+    if (!(VALUATION_RANGES as readonly string[]).includes(row.valuation_range)) {
+      errors.push(`valuation_range: "${row.valuation_range}" is not a valuation range`);
+    }
+  } else if (row.valuation_range != null) {
+    errors.push("valuation_range: expected a range string");
+  }
+
+  // The three outcome columns move together: undetermined in all or in none.
+  const undet = [row.entry_stage, row.valuation_range].filter((v) => v === UNDETERMINED).length;
+  if (undet === 1) {
+    errors.push(
+      "undetermined: entry_stage and valuation_range must both be undetermined or neither"
+    );
+  }
+  if (row.entry_stage === UNDETERMINED && row.valuation_usd != null) {
+    errors.push("undetermined: an unidentified company cannot carry a valuation_usd");
+  }
+  if (row.entry_stage === UNDETERMINED && row.seed_to_a_graduation !== UNDETERMINED) {
+    errors.push(
+      "undetermined: an undetermined entry_stage carries an undetermined seed_to_a_graduation"
+    );
+  }
+
   // seed_to_a_graduation is a closed status (public.graduation_status); the
   // pipeline's own verify enforces the evidence behind each value, this only
   // keeps a stray spelling or a legacy boolean cell out of the table.
@@ -173,4 +205,23 @@ export const GRADUATION_STATUSES = [
   "not_graduated",
   "censored",
   "undetermined",
+] as const;
+
+// An unresolvable company carries `undetermined` in every outcome column
+// (Erik, 2026-09-18). The three move together, so a row is undetermined in all
+// of them or in none, and the database rejects any other combination.
+const UNDETERMINED = "undetermined";
+export const ENTRY_STAGES = [
+  "Pre-Seed",
+  "Seed",
+  "Series A",
+  "Growth",
+  UNDETERMINED,
+] as const;
+export const VALUATION_RANGES = [
+  "below_1b",
+  "1b_plus",
+  "10b_plus",
+  "100b_plus",
+  UNDETERMINED,
 ] as const;

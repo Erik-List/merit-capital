@@ -423,7 +423,18 @@ distinction.
 - **Recognition check before trust.** Before using knowledge of a name,
   confirm the row's evidence fits it: era (`first_seen`, filing years),
   sector tag, round sizes. A mismatch means a different company with the same
-  name → treat as unrecognized, flag `identity_uncertain`.
+  name → treat as unrecognized, and flag it with the case that fits.
+- **Three identity flags, and none for a recognised company** (Erik,
+  2026-09-18). `identity_unresolved`: the company cannot be named at all.
+  `identity_conflated`: one company split across two rows, a rename or a
+  spelling drift — fix it in `identity-merges.json`, and where the row turns
+  out to be the same investment filed under another legal entity rather than
+  a second company, it is `not_member`, because keeping it double-counts one
+  investment. `identity_homonym`: two real companies sharing a name — record
+  the pair under `never_merge` in `identity-merges.json`, never only as a
+  note, so the builder is stopped rather than a future reader warned. A
+  company that IS named and described carries **no identity flag**:
+  recognition happened, and confidence already records how firmly.
 - **Rule-outs are legitimate.** An unrecognized company, absent from the
   unicorn list, with small old rounds and no recent trace, is sub-$1B with
   high probability. Recognized-dead → defunct; recognized-acquired →
@@ -434,10 +445,23 @@ distinction.
   as the nearest bucket; an unlocatable city is null, not the investor's
   home town; a low-confidence claim must not publish a bucket, prefer status
   unknown.
-- **Priors only ever flagged.** Where a prior fills a gap (US for an
-  unidentifiable row on a US desk, the firm's classic entry stage for an
-  unidentifiable stray) it is confidence low and carries its flag
-  (`country_prior`, `stage_prior`). A prior never lands silently.
+- **An unresolvable company is `undetermined`, never inferred** (Erik,
+  2026-09-18). Where the company cannot be named, `entry_stage`,
+  `valuation_range` and `seed_to_a_graduation` all read `undetermined`, and
+  the flag carries the reason. Invariant 1's 100% fill still holds —
+  `undetermined` is what satisfies it — and the derived metrics exclude these
+  rows rather than counting them, so an unnameable company is not a Seed
+  entry, not a below-$1B outcome and not a graduation denominator. This
+  replaces the older rule that such a row took the firm's modal stage as an
+  inferred fill: that produced 169 invented Seed entries which then entered
+  the published graduation cohort. **Exception:** a Form D giving a dated
+  seed-band round is real evidence even without a name, so that row keeps
+  `Seed` and resolves from the filing sequence.
+- **Inferred values only ever flagged, and only on a recognised company.**
+  Where an inferred value fills a gap (US for a row on a US desk, the firm's
+  classic entry stage for a stray) it is confidence low and carries its flag
+  (`country_prior`, `stage_prior`). An inferred value never lands silently,
+  and never lands at all on an `identity_unresolved` row.
 - **Disputes.** When knowledge contradicts a deterministic layer, record the
   corrected keys + flag `model_disputes_source` + note. Never silently accept
   a value known to be wrong, never silently override either.
@@ -1147,6 +1171,12 @@ be read off it, and the report says so.
   web_verified} AND status private/public. `model_knowledge` never mints a
   figure: a company believed ≥$1B without a source is claimed private,
   figure null, flag `needs_web_value`; the web pass pins it or kills it.
+- **`undetermined` accompanies an undetermined stage, and only that.** A
+  row whose company could not be identified carries no band and no figure:
+  `valuation_range: undetermined`, `valuation_usd` null. The two columns
+  move together — the database rejects one without the other — because the
+  rule-out that would otherwise produce `below_1b` reasons about a company,
+  and here there is no company to reason about.
 - **Public rows: market capitalization is canonical**, web-cited with an
   as-of date. Float is corroboration only; a public $1B+ row without a cited
   cap fails verify.
@@ -1244,7 +1274,7 @@ maturity today. 100% fill.
   null by flagging the row `pre_window`, and `verify` accepts a null
   `entry_stage` — and skips invariant 4's stage-evidence requirement — only for
   a row that carries it. An unflagged empty stage is missing work, not policy.
-- Taxonomy: `Pre-Seed | Seed | Series A | Growth`. Growth = Series B and
+- Taxonomy: `Pre-Seed | Seed | Series A | Growth | undetermined`. Growth = Series B and
   everything later: C/D, crossover, pre-IPO, secondaries and tenders (a
   tender entry is an entry at scale), buyout-scale positions, recaps,
   consortium structures. SAFEs and seed extensions count as Seed; the label
@@ -1261,11 +1291,25 @@ maturity today. 100% fill.
      count; the accessions are the citation.
   3. `model` with a named deal in the note ("led the 2011 Series A") at
      high/medium confidence.
-  4. `model` at low confidence, or `stage_prior` for unidentifiable strays.
+  4. `model` at low confidence on a company the pass could name, or an
+     inferred `stage_prior` on a named company whose round the record does
+     not give. A row whose COMPANY could not be identified takes neither:
+     it reads `undetermined` (below).
 
   A publication-visible claim wants class 1 or 2. Citation is attempted for
   every row, priority $1B+ (incl. IPO), then recents, then the tail;
   `stage_uncited` marks attempted failures.
+- **A company that cannot be identified reads `undetermined`** (Erik,
+  2026-09-18). Where the pass cannot say what company the row is — the page
+  is gone, the name is one generic word, no filing or publisher matches —
+  the stage is not inferred from the firm's modal round. The row is flagged
+  `identity_unresolved` and `entry_stage`, `valuation_range` and
+  `seed_to_a_graduation` all read `undetermined`; the row stays a member
+  (the firm's own listing is the membership evidence), it satisfies
+  invariant 1's 100% fill, and every derived metric excludes it. The older
+  inferred fill put 169 invented Seed entries into the published graduation
+  cohort. A Form D giving a dated seed-band round is evidence even with no
+  name attached, so such a row keeps `Seed` and is judged normally.
 - **Structural rules**: ≥2 prior filings → Growth; 1 prior → Series A or
   Growth by band; 0 prior → band, but only if the company was founded inside
   the Form D coverage window (≥2008) and was ≤4 years old at filing, else
@@ -1354,6 +1398,13 @@ less, so no verified tag exists — the cohort is the verified set):
 - `undetermined`: everything else, with a note naming what was tried. Never
   a silent null: `export` writes `undetermined` on any in-window Seed row
   nobody decided.
+
+Two populations wear this word and only one of them is counted. A judged
+`undetermined` sits on a row that IS a Seed entry: it enters `seed_entries`,
+sits outside the cohort, and is published as the honest remainder. An
+`identity_unresolved` row reads `undetermined` in `entry_stage` too, so it
+is not a Seed entry at all and enters none of the six numbers — an
+unnameable company is not evidence about a graduation rate.
 
 `graduation_source` ∈ `formd | first_party | web_verified` — the model may
 not decide a graduation. `entry_date` (YYYY, YYYY-MM or YYYY-MM-DD) is
@@ -1719,6 +1770,10 @@ run before the investor row exists (Thrive, 2026-09-04).
 1. Coverage: every base slug carries a membership verdict; `status`,
    `valuation_range`, `entry_stage`, `hq_country` at 100% fill with valid
    vocabulary; every in-window Seed row carries a graduation status.
+   `undetermined` satisfies the fill on an `identity_unresolved` row and is
+   rejected on any other; such a row is excluded from every distribution,
+   every rate and the `c2a_rate_max` ceiling, and `verify` prints how many
+   it excluded.
 2. Source gate: a dollar figure only from an allowed source; only
    `below_1b` without a figure.
 3. Public $1B+ row → cited market cap, else `cite_pending`.
