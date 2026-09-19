@@ -1677,10 +1677,14 @@ Every subcommand takes the investor slug.
   with `"name"`; without it the builder takes the better of the two
   renderings (the live site's, then Title Case over CAPS, then the longer),
   which on an old book can publish the acquirer or an archive spelling
-  (Menlo, 2026-09-17: Chipcom became "3com" against its own ruling). Diff
-  the names of a rebuilt base against the published one before any ingest:
-  the database upserts on (investor, name), so a renamed row would land as
-  a second company. In-run: any suspected duplicate →
+  (Menlo, 2026-09-17: Chipcom became "3com" against its own ruling). The
+  database upserts on (investor, name) and the name is the whole of a row's
+  identity there, so a rename is a new row, not an edit. Since PRO-139
+  `ingest-companies.ts` reconciles: it retires every row of the investor
+  whose name the CSV no longer carries, and refuses when that set is over
+  5% of the book. Run it `--dry-run` first and read the retire list, because
+  from the database a rename, a merge and a real removal look identical;
+  only the base's slugs tell them apart. In-run: any suspected duplicate →
   flag + note, never a silent merge. Verdicts key on slugs and merges move
   slugs: after any change to the merge file, re-check that ledger verdicts
   still attach to the intended rows — an un-merge resurrects the twin with
@@ -1800,8 +1804,9 @@ in-flight marker (§12) as the last act before the closing commit; the
 session's closing message carries the results, the open rulings and the
 ingest request, and stops. Corrections
 that land after an approved ingest are re-ingested only with a fresh
-approval, and rows removed from the base after an ingest are called out so
-Erik can decide the database cleanup.
+approval. Rows removed from the base after an ingest are retired by the
+next ingest rather than left behind, so the closing message names them and
+the approval covers the retirements too.
 
 Before the closing message, the review surface is verified rendered —
 serve it (`file://` is blocked in the app browser; use a static server)
