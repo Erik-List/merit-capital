@@ -108,7 +108,6 @@ COHORT_STATUSES = ("graduated", "not_graduated")
 # graduation_citation. The model may not decide a graduation.
 GRADUATION_SOURCES = ("formd", "first_party", "web_verified")
 ENTRY_DATE_RE = re.compile(r"\d{4}(-\d{2}){0,2}")
-PRE_WINDOW_FLAGS = frozenset({"pre_window", "pre_window_entry"})
 # What the Form D layer decided travels to the judge as evidence, under
 # formd_graduation, and never occupies the judged column itself.
 FORMD_GRADUATION_KEYS = ("seed_to_a_graduation", "graduation_source", "graduation_confidence")
@@ -360,7 +359,7 @@ def open_needs(item: dict, verdicts: dict, merged: dict) -> list[str]:
     retires the row outright: its classification needs are moot, and the row
     leaves base.json at the next rebuild. The graduation need also closes
     when the judged entry stage turns out not to be Seed, or the row is
-    pre-window: the column is null by rule there, not missing.
+    non-Seed: the column is null by rule there, not missing.
     """
     verdict = verdicts.get(item["slug"], {}).get("verdict")
     if verdict == "not_member":
@@ -376,8 +375,6 @@ def open_needs(item: dict, verdicts: dict, merged: dict) -> list[str]:
             if rec.get(need) in GRADUATION_STATUSES:
                 continue
             if stage and stage != "Seed":
-                continue
-            if set(rec.get("flags") or []) & PRE_WINDOW_FLAGS:
                 continue
             out.append(need)
         elif rec.get(need) is None:
@@ -965,8 +962,7 @@ def cmd_prepare(args) -> None:
         # evidence, and only a status already judged closes the need.
         prior_g = cls_prev.get(slug, {}).get("seed_to_a_graduation")
         if c2a_on and prior_g not in GRADUATION_STATUSES \
-                and (overlaid.get("entry_stage") == "Seed" or "entry_stage" in need) \
-                and not (flags_now & PRE_WINDOW_FLAGS):
+                and (overlaid.get("entry_stage") == "Seed" or "entry_stage" in need):
             need.append("seed_to_a_graduation")
         item = {
             "slug": slug, "name": row["name"],
@@ -1105,10 +1101,13 @@ def validate_record(rec: dict, slugs: set[str], merged: dict | None = None) -> l
     if unresolved and (view_flags & INFERRED_FLAGS):
         errs.append(f"{slug}: {IDENTITY_UNRESOLVED} row carries an inferred value "
                     f"({sorted(view_flags & INFERRED_FLAGS)}); write {UNDETERMINED!r} instead")
-    for key in ("entry_stage", "valuation_range"):
-        if rec.get(key) == UNDETERMINED and not unresolved:
-            errs.append(f"{slug}: {key} {UNDETERMINED!r} is only for a row flagged "
-                        f"{IDENTITY_UNRESOLVED}")
+    # A band is UNDETERMINED only when the company cannot be named. A STAGE is
+    # UNDETERMINED on any row (PRO-137, Erik 2026-09-19): with no date rule and
+    # no inferred fill left, a nameable company whose round the record does not
+    # give has no other honest value.
+    if rec.get("valuation_range") == UNDETERMINED and not unresolved:
+        errs.append(f"{slug}: valuation_range {UNDETERMINED!r} is only for a row flagged "
+                    f"{IDENTITY_UNRESOLVED}")
     # An unresolvable row either says nothing or is decided by its own filings;
     # what it may not do is assert a stage nothing supports.
     if unresolved and view.get("entry_stage") not in (None, UNDETERMINED) \
@@ -1132,8 +1131,6 @@ def validate_record(rec: dict, slugs: set[str], merged: dict | None = None) -> l
         elif g is not None:
             if view.get("entry_stage") != "Seed" and not unresolved:
                 errs.append(f"{slug}: graduation set but entry_stage={view.get('entry_stage')!r}")
-            if (view_flags & PRE_WINDOW_FLAGS) and g != UNDETERMINED:
-                errs.append(f"{slug}: graduation on a pre-window entry (null by rule)")
             src = view.get("graduation_source")
             if g in COHORT_STATUSES:
                 if src not in GRADUATION_SOURCES:
@@ -1808,29 +1805,43 @@ def cmd_verify(args) -> None:
         # counted in the C2A block rather than failed here.
         undet = {k for k in ("entry_stage", "valuation_range") if rec.get(k) == UNDETERMINED}
         formd_carried = rec.get("entry_stage_source") in FORMD_STAGE_SOURCES
-        if undet:
-            if not unresolved:
-                problems.append(f"{slug}: {UNDETERMINED!r} in {sorted(undet)} outside an "
-                                f"{IDENTITY_UNRESOLVED} row")
+        # A BAND is undetermined only when the company cannot be named. A STAGE
+        # is undetermined on any row (PRO-137): the two say different things,
+        # so only the identity case cascades.
+        if rec.get("valuation_range") == UNDETERMINED and not unresolved:
+            problems.append(f"{slug}: valuation_range {UNDETERMINED!r} outside an "
+                            f"{IDENTITY_UNRESOLVED} row; a band is undetermined only when "
+                            f"the company cannot be named")
+        if unresolved:
             if rec.get("entry_stage") == UNDETERMINED \
                     and rec.get("valuation_range") != UNDETERMINED:
                 problems.append(f"{slug}: {UNDETERMINED!r} entry_stage with "
                                 f"valuation_range {rec.get('valuation_range')!r}; a company we "
                                 f"cannot name has no band either")
-            # `undetermined` is not a graduation claim but the absence of
-            # one, so it is what a pre-window unnameable row carries too --
-            # the store and the published surface then say the same thing.
+            # `undetermined` is not a graduation claim but the absence of one,
+            # so the store and the published surface say the same thing.
             if rec.get("entry_stage") == UNDETERMINED and g != UNDETERMINED:
                 problems.append(f"{slug}: {UNDETERMINED!r} entry_stage with "
                                 f"seed_to_a_graduation {g!r}; the column cannot be "
                                 f"decided for a company that cannot be named")
-        elif unresolved and not formd_carried:
-            problems.append(f"{slug}: {IDENTITY_UNRESOLVED} row asserts an outcome "
-                            f"(entry_stage={rec.get('entry_stage')!r}) with no Form D behind it; "
-                            f"write {UNDETERMINED!r} instead")
-        if unresolved and row_flags & INFERRED_FLAGS:
-            problems.append(f"{slug}: {IDENTITY_UNRESOLVED} row carries an inferred value")
-        if undet:
+            if not undet and not formd_carried:
+                problems.append(f"{slug}: {IDENTITY_UNRESOLVED} row asserts an outcome "
+                                f"(entry_stage={rec.get('entry_stage')!r}) with no Form D "
+                                f"behind it; write {UNDETERMINED!r} instead")
+            if row_flags & INFERRED_FLAGS:
+                problems.append(f"{slug}: {IDENTITY_UNRESOLVED} row carries an inferred value")
+        elif rec.get("entry_stage") == UNDETERMINED and g is not None:
+            # A stage nothing establishes is not a Seed entry, so the
+            # graduation column does not apply and stays null.
+            problems.append(f"{slug}: {UNDETERMINED!r} entry_stage with "
+                            f"seed_to_a_graduation {g!r}; the column applies to a Seed "
+                            f"entry only")
+        # Skip the remaining checks only for the cascade case: an unnameable
+        # row that actually carries UNDETERMINED. An unnameable row whose
+        # stage came from its own filings keeps real values and is judged like
+        # any other (COLLECTION.md 3's Form D exception), and a nameable row
+        # with an undetermined STAGE still owes its valuation checks.
+        if undet and unresolved:
             continue
         if g is not None and rec.get("entry_stage") != "Seed":
             problems.append(f"{slug}: graduation set but entry_stage={rec.get('entry_stage')!r}")
@@ -1853,11 +1864,10 @@ def cmd_verify(args) -> None:
             problems.append(f"{slug}: hq_country {rec['hq_country']!r} is not a known "
                             f"ISO 3166-1 alpha-2 code")
         if not rec.get("entry_stage"):
-            # COLLECTION.md 1 policy constant: the base window opens 2006 and
-            # earlier entries are pre-window, entry_stage and graduation null.
-            # The null is only legitimate when the judge says so on the row —
-            # an unflagged empty stage is missing work, not policy.
-            if not in_flight and "pre_window" not in (rec.get("flags") or []):
+            # No date excuses an empty stage any more (PRO-137, Erik
+            # 2026-09-19): a stage is evidenced or it reads UNDETERMINED, so
+            # an empty cell is missing work.
+            if not in_flight:
                 problems.append(f"{slug}: no entry_stage")
         elif rec["entry_stage"] not in VALID_STAGES:
             problems.append(f"{slug}: entry_stage {rec['entry_stage']!r} not in vocabulary")
@@ -1871,14 +1881,12 @@ def cmd_verify(args) -> None:
         stage_cited = bool((rec.get("entry_stage_citation") or "").strip()) \
             or rec.get("entry_stage_source") in ("formd_structural", "formd_band")
         flags_now = set(rec.get("flags") or [])
-        # A pre-window row has NO entry stage to cite: the 2006 policy constant
-        # nulls the column, so the class 1/2 evidence requirement has nothing to
-        # attach to. The flag is the judge's assertion that this is policy and
-        # not missing work, and it satisfies the invariant the same way
-        # cite_pending does.
+        # Relief rests on evidence, not on a date (PRO-137, Erik 2026-09-19):
+        # an UNDETERMINED stage has nothing to cite, and an uncited label owes a
+        # cite_pending marker like any other row.
         if (rec.get("valuation_range") in ("1b_plus", "10b_plus", "100b_plus")
                 and not stage_cited and "cite_pending" not in flags_now
-                and "pre_window" not in flags_now
+                and rec.get("entry_stage") != UNDETERMINED
                 and (judged or not in_flight)):
             problems.append(f"{slug}: $1B+ row without cited/structural entry stage "
                             f"and no cite_pending marker")
@@ -1895,7 +1903,7 @@ def cmd_verify(args) -> None:
         # censored row's clock is re-read on every verify: once the entry is
         # old enough, the row owes a decision. An in-window Seed row without
         # a status is missing work in full mode and counted in flight.
-        in_window_seed = rec.get("entry_stage") == "Seed" and not (flags_now & PRE_WINDOW_FLAGS)
+        seed_row = rec.get("entry_stage") == "Seed"
         if "cohort_unverified" in flags_now:
             problems.append(f"{slug}: cohort_unverified is retired; decide the row or "
                             f"mark it undetermined")
@@ -1925,7 +1933,7 @@ def cmd_verify(args) -> None:
                        f"{age if age is not None else 'not a date'}"
                        f"{' months old' if age is not None else ''}; decide it")
                 (notes if in_flight else problems).append(msg)
-        elif g is None and in_window_seed and c2a_on:
+        elif g is None and seed_row and c2a_on:
             if in_flight:
                 open_grad += 1
             else:
@@ -2014,9 +2022,7 @@ def cmd_verify(args) -> None:
     # The published C2A block, in the shape the report and the database
     # carry: seed entries, the too-young share, the undetermined remainder,
     # and the rate over the decided cohort with its coverage.
-    seed_rows = [r for r in determined
-                 if r.get("entry_stage") == "Seed"
-                 and not (set(r.get("flags") or []) & PRE_WINDOW_FLAGS)]
+    seed_rows = [r for r in determined if r.get("entry_stage") == "Seed"]
     gc = Counter(r.get("seed_to_a_graduation") or "undetermined" for r in seed_rows)
     cohort_n = gc["graduated"] + gc["not_graduated"]
     c2a_rate = gc["graduated"] / cohort_n if cohort_n else None
@@ -2125,11 +2131,10 @@ def cmd_export(args) -> None:
         out.update({k: row.get(k, "") for k in EVIDENCE_COLUMNS})
         out.update({k: rec.get(k) for k in EXPORT_COLUMNS if k not in out})
         out["flags"] = ";".join(rec.get("flags") or [])
-        # Never a silent null on the graduation column: an in-window Seed row
-        # nobody decided publishes as undetermined, which is what it is. Null
-        # stays only where the column does not apply (non-Seed, pre-window).
-        if out.get("seed_to_a_graduation") is None and rec.get("entry_stage") == "Seed" \
-                and not (set(rec.get("flags") or []) & PRE_WINDOW_FLAGS):
+        # Never a silent null on the graduation column: a Seed row nobody
+        # decided publishes as undetermined, which is what it is. Null stays
+        # only where the column does not apply (non-Seed).
+        if out.get("seed_to_a_graduation") is None and rec.get("entry_stage") == "Seed":
             out["seed_to_a_graduation"] = UNDETERMINED
         # An unresolvable company publishes UNDETERMINED across all three
         # outcome columns; the database excludes such a row from its metrics.

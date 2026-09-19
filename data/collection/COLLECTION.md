@@ -205,11 +205,15 @@ confirmed ruling.
   rules below are this test in full.
 
 **Policy constants**, ruled once and changed only by Erik, never derived:
-the base window opens 2006 (earlier entries are pre-window: **graduation is
-null, and `entry_stage` carries the best-supported label at low confidence
-with a `pre_window_entry` flag rather than a null** — Erik, 2026-09-07,
-resolving the contradiction with §10 invariant 1, which requires the column
-at 100% fill; ruled on Lux's seven pre-2006 rows); secondaries and tenders
+**there is no entry-date window** (Erik, 2026-09-19, PRO-137, retiring the
+2006 constant and its `pre_window` / `pre_window_entry` flags: a 1998 entry is
+judged on the same evidence as a 2024 one, and where the record does not give
+the round the stage reads `undetermined` rather than taking a date-based
+default. The old constant nulled graduation and excused the stage-evidence
+rule on an unaudited hand-set flag, and it sorted on the wrong axis: what
+predicts an unknowable round is whether the source ever carried a description,
+not how old it is. A firm's 1998 page with a sentence per company resolves;
+a modern REST listing with a name and a URL does not); secondaries and tenders
 are Growth entries; a
 private mark is `stale` beyond 24 months; the profile's geo core carries
 at most two labels; a non-USD figure converts to USD at the ECB reference
@@ -451,10 +455,7 @@ distinction.
   the flag carries the reason. Invariant 1's 100% fill still holds —
   `undetermined` is what satisfies it — and the derived metrics exclude these
   rows rather than counting them, so an unnameable company is not a Seed
-  entry, not a below-$1B outcome and not a graduation denominator. The value
-  owns the cell wherever it applies: an unnameable row reads `undetermined`
-  even when it is pre-window, while a nameable pre-window row still takes the
-  policy null. The exclusion keys on the VALUE, not the flag, exactly as the
+  entry, not a below-$1B outcome and not a graduation denominator. The exclusion keys on the VALUE, not the flag, exactly as the
   database's `recompute_investor_metrics` does. This replaces the older rule that such a
   row took the firm's modal stage as an inferred fill: that produced 169
   invented Seed entries which then entered the published graduation cohort.
@@ -1281,22 +1282,23 @@ be read off it, and the report says so.
 the company.** A fact about a named historical deal, not about the company's
 maturity today. 100% fill.
 
-- **A pre-window null carries a flag, or the fill invariant contradicts the
-  policy constant.** The 2006 window constant nulls `entry_stage` and
-  graduation for earlier entries; invariant 1 demands 100% fill. On any old book
-  the two collide — Menlo's 240 legitimately-null rows failed `verify` outright,
-  and Benchmark's base carries 53 rows of the same class. The judge asserts the
-  null by flagging the row `pre_window`, and `verify` accepts a null
-  `entry_stage` — and skips invariant 4's stage-evidence requirement — only for
-  a row that carries it. An unflagged empty stage is missing work, not policy.
+- **No date excuses an empty stage** (PRO-137). The column is filled from the
+  company's own evidence, or it reads `undetermined`; an empty cell is missing
+  work whatever the entry year. `undetermined` here says only that the round
+  could not be established, so unlike an unnameable row it leaves
+  `valuation_range` alone and takes no graduation (the row is not a Seed
+  entry). `verify` rule 4's stage-evidence requirement is waived for it,
+  because there is nothing to cite.
 - Taxonomy: `Pre-Seed | Seed | Series A | Growth | undetermined`. Growth = Series B and
   everything later: C/D, crossover, pre-IPO, secondaries and tenders (a
   tender entry is an entry at scale), buyout-scale positions, recaps,
   consortium structures. SAFEs and seed extensions count as Seed; the label
   follows what the firm and the record call the round, not the check size.
-  Pre-2003 deals: the modern ladder does not map; the first institutional
-  round is `Series A` by convention, low confidence, unless a documented
-  seed exists. Re-entry after a full exit restarts the clock at the new
+  Pre-2003 deals: the modern ladder does not map, and **the old "first
+  institutional round is `Series A` by convention" rule is retired** (Erik,
+  2026-09-19, PRO-137). It labelled 549 rows from their date alone. Where the
+  record names the round, use it; where it does not, the stage is
+  `undetermined`. Re-entry after a full exit restarts the clock at the new
   round.
 - **Evidence order**, strongest first:
 
@@ -1393,9 +1395,9 @@ maturity today. 100% fill.
 2,736 of 3,664 Seed rows carried no answer and the judge had never been
 asked). Every in-window Seed entry carries exactly one of
 `graduated | not_graduated | censored | undetermined`; null is reserved for
-a non-Seed entry and for a pre-window row. The column is **judged, never
-pre-filled**: `prepare` queues the `seed_to_a_graduation` need on every
-in-window Seed row, the Form D layer's verdict rides in the item as
+a non-Seed entry, which now includes a row whose stage is `undetermined`. The
+column is **judged, never pre-filled**: `prepare` queues the
+`seed_to_a_graduation` need on every Seed row, the Form D layer's verdict rides in the item as
 `formd_graduation` evidence, and only a judged status closes the need.
 
 Evidence per status, verified by construction (`record` refuses anything
@@ -1563,7 +1565,7 @@ Every subcommand takes the investor slug.
   item as `formd_graduation` (status, entry and step-up amounts, entry
   date, the rescan's as-of), which the judge confirms with
   `graduation_source: formd` or disputes with a citation. The need closes
-  on a judged status, on a judged non-Seed stage, or on a pre-window flag.
+  on a judged status or on a judged non-Seed stage.
   The item carries `entry_date` and `entry_quarter` from the filings and
   `site_invest_year` from the site as the judge's clock for the censor
   rule; where none exists the date comes from the citation or the
@@ -1811,11 +1813,12 @@ run before the investor row exists (Thrive, 2026-09-04).
 
 1. Coverage: every base slug carries a membership verdict; `status`,
    `valuation_range`, `entry_stage`, `hq_country` at 100% fill with valid
-   vocabulary; every in-window Seed row carries a graduation status.
-   `undetermined` satisfies the fill on an `identity_unresolved` row and is
-   rejected on any other; such a row is excluded from every distribution,
-   every rate and the `c2a_rate_max` ceiling, and `verify` prints how many
-   it excluded.
+   vocabulary; every Seed row carries a graduation status. `undetermined`
+   satisfies the fill: in `valuation_range` only on an `identity_unresolved`
+   row, and in `entry_stage` on any row whose round the record does not give
+   (PRO-137). An `identity_unresolved` row reads `undetermined` across all
+   three outcome columns and is excluded from every distribution, every rate
+   and the `c2a_rate_max` ceiling, and `verify` prints how many it excluded.
 2. Source gate: a dollar figure only from an allowed source; only
    `below_1b` without a figure.
 3. Public $1B+ row → cited market cap, else `cite_pending`.
