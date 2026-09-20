@@ -47,6 +47,12 @@ led = json.loads(P.ledger.read_text()) if P.ledger.exists() else {}
 nm = {s for b in led.values() for s, v in ((b or {}).get("verdicts") or {}).items()
       if (v or {}).get("verdict") == "not_member"}
 
+# The flags whose rules no longer exist (PRO-135's `stage_prior`, PRO-137's two
+# pre-window flags). Kept in step with run.py's RETIRED_FLAGS, which refuses them
+# at `record`. A row carrying one is weak whatever its source says: the rule the
+# flag stood for is gone, so whatever it justified has to be re-read.
+RETIRED = {"stage_prior", "pre_window", "pre_window_entry"}
+
 ROUND = re.compile(r"\b(series\s+[a-h]\b|pre-?seed\b|seed\b)", re.I)
 PINNED = re.compile(r"(\$[\d.]+\s*[MBmb]\b|€[\d.]+\s*[MBmb]\b|\b(?:19|20)\d\d\b)")
 # `Growth` is the one stage a note can establish WITHOUT a round word, because
@@ -63,7 +69,12 @@ LATE = re.compile(
 ABSENT = re.compile(
     r"(no\s+(?:\w+\s+){0,3}round\b|round\s+not\s+documented|not\s+documented"
     r"|could\s+not\s+be\s+(?:retrieved|found|established)|no\s+announcement"
-    r"|null\s+by\s+policy|undocumented|unknown\s+round|no\s+priced\s+round)", re.I)
+    r"|null\s+by\s+policy|undocumented|unknown\s+round|no\s+priced\s+round"
+    # PRO-137's two retired rules, quoted in the notes of the rows that used
+    # them: "the first institutional round is Series A by convention" and
+    # "pre-window position ... entry_stage null by policy". A note whose only
+    # account of the stage is a rule that no longer exists is an absence.
+    r"|by\s+convention|pre-?\s?window)", re.I)
 
 # A row with NO stage at all is not a re-sourcing question: the value has to be
 # read out of the evidence, and a note that mentions two rounds does not say
@@ -89,7 +100,9 @@ for s, r in sorted(cls.items()):
     # classification.json.
     view = {**((_res.get(s)) or {}), **{k: v for k, v in r.items() if v is not None}}
     st = view.get("entry_stage")
-    prior = "stage_prior" in (view.get("flags") or [])
+    # Any retired flag makes the row weak, whatever its source says: the rule
+    # the flag stood for is gone, so whatever it justified has to be re-read.
+    prior = bool(set(view.get("flags") or []) & RETIRED)
     if st == "undetermined":
         if prior:
             stale_flag.append(s)   # the value is already gone; retire the flag
@@ -137,12 +150,13 @@ for s, r in sorted(cls.items()):
 
 print(f"{a.investor}: {len(structural)} -> formd_band (its own filings agree); "
       f"{len(named)} rows whose note names the round -> model; "
-      f"{len(vague)} -> undetermined; {len(stale_flag)} stale stage_prior flags; "
+      f"{len(vague)} -> undetermined; {len(stale_flag)} stale retired flags; "
       f"{len(unstaged) + len(disputed)} rows for the judge "
       f"({len(disputed)} where the note contradicts the stage)")
 lines = []
 for s in stale_flag:
-    lines.append({"slug": s, "clear_flags": ["stage_prior"]})
+    lines.append({"slug": s,
+                  "clear_flags": sorted(set(cls[s].get("flags") or []) & RETIRED)})
 for s in structural:
     r = cls[s]
     out = {"slug": s, "entry_stage": r["entry_stage"], "entry_stage_source": "formd_band",
@@ -150,8 +164,8 @@ for s in structural:
            "note": f"{(r.get('note') or '').strip()} | Sourced `formd_band` (PRO-135): the "
                    f"company's own Form D sequence gives this stage, so the accessions are the "
                    f"citation and the stage never rested on the firm's habits"}
-    if "stage_prior" in (r.get("flags") or []):
-        out["clear_flags"] = ["stage_prior"]
+    if set(r.get("flags") or []) & RETIRED:
+        out["clear_flags"] = sorted(set(r.get("flags") or []) & RETIRED)
     lines.append(out)
 for s in named:
     r = cls[s]
@@ -160,8 +174,8 @@ for s in named:
            "note": f"{(r.get('note') or '').strip()} | Sourced `model`: the note names the "
                    f"company's own round, which is rung 3 of the evidence order (PRO-135); "
                    f"the stage does not rest on the firm's habits"}
-    if "stage_prior" in (r.get("flags") or []):
-        out["clear_flags"] = ["stage_prior"]
+    if set(r.get("flags") or []) & RETIRED:
+        out["clear_flags"] = sorted(set(r.get("flags") or []) & RETIRED)
     lines.append(out)
 for s in vague:
     r = cls[s]
@@ -174,8 +188,8 @@ for s in vague:
     # not apply; where a judge looked and found no round, it says undetermined too.
     if r.get("seed_to_a_graduation") is not None:
         out["seed_to_a_graduation"] = "undetermined"
-    drop = [f for f in ("stage_uncited", "cite_pending", "pre_window_entry", "stage_prior",
-                        "stage_disputes_band", "model_disputes_source")
+    drop = [f for f in ("stage_uncited", "cite_pending", "stage_disputes_band",
+                        "model_disputes_source", *RETIRED)
             if f in (r.get("flags") or [])]
     if drop:
         out["clear_flags"] = drop

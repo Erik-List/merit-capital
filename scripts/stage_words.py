@@ -34,6 +34,8 @@ own cited rows are in COLLECTION.md §5.
 """
 from __future__ import annotations
 
+import re
+
 # Every round word that collapses onto exactly one taxonomy value. Series B and
 # later is `Growth` by the §6 taxonomy, and so is a buyout-scale or late-stage
 # entry.
@@ -48,6 +50,19 @@ _ROUND: dict[str, str] = {
 for _letter in "bcdefghij":
     for _sep in ("-", " ", "_"):
         _ROUND[f"series{_sep}{_letter}"] = "Growth"
+# A numbered tranche of one round is that round ("Series A-1", "Seed-2" on
+# Lightspeed's cards): the company negotiated one A and closed it in pieces.
+for _n in "123456":
+    _ROUND[f"seed-{_n}"] = "Seed"
+    _ROUND[f"seed {_n}"] = "Seed"
+    _ROUND[f"a-{_n}"] = "Series A"      # a card that drops the word "Series"
+    _ROUND[f"a{_n}"] = "Series A"
+    for _sep in ("-", " "):
+        _ROUND[f"series a{_sep}{_n}"] = "Series A"
+        _ROUND[f"series-a{_sep}{_n}"] = "Series A"
+    for _letter in "bcdefgh":
+        _ROUND[f"series {_letter}-{_n}"] = "Growth"
+        _ROUND[f"series-{_letter}-{_n}"] = "Growth"
 _ROUND.update({
     "series b+": "Growth", "series c+": "Growth", "series d+": "Growth",
     "series c or later": "Growth", "series b or later": "Growth",
@@ -63,7 +78,8 @@ _ROUND.update({
 _NOT_A_ROUND = frozenset({
     "", "early", "early stage", "early-stage", "earlystage", "venture",
     "venture stage", "alumni", "seed/early", "multi-stage", "multistage",
-    "common", "common stock", "preferred", "token", "tokens", "grant",
+    "common", "common stock", "ordinary", "ordinary shares", "preferred",
+    "token", "tokens", "grant", "warrant", "convertible note", "note",
     "series unknown", "series_unknown", "unknown", "other", "n/a", "none",
     "ipo", "m&a", "spac", "acquisition", "acquired", "exit", "debt",
 })
@@ -71,6 +87,15 @@ _NOT_A_ROUND = frozenset({
 # Seed before Series A before Growth: where a field carries every round the firm
 # joined, the ENTRY is the earliest of them.
 _ORDER = {"Pre-Seed": 0, "Seed": 1, "Series A": 2, "Growth": 3}
+
+
+# A qualifier that says the value is NOT read off the record. The firm's own CMS
+# carries these beside real round words ("Seed (prior)", "Partnered (round
+# unstated)"), and they mean the opposite of a label.
+_DISCLAIMED = re.compile(r"\b(prior|unstated|unknown|tbd|n/?a|undisclosed)\b", re.I)
+# ...and a role word that trails the round in a CMS milestone line ("Series C
+# Partner", from Menlo's "2018 - Partnered, Series C").
+_ROLE_TAIL = re.compile(r"\s*\b(partner|partnered|investor|round|financing|stage)\b\s*$", re.I)
 
 
 def round_word(value) -> str | None:
@@ -83,10 +108,27 @@ def round_word(value) -> str | None:
     """
     if value is None:
         return None
-    s = " ".join(str(value).strip().lower().split())
+    raw = " ".join(str(value).strip().split())
+    if _DISCLAIMED.search(raw):
+        return None
+    s = raw.lower()
     if s in _NOT_A_ROUND:
         return None
-    return _ROUND.get(s)
+    if s in _ROUND:
+        return _ROUND[s]
+    # Only then peel a trailing role word ("Series C Partner", "Seed Round").
+    # Never before: "Late Stage" is a value in its own right, and stripping
+    # "Stage" from it first turned 71 Accel rows into unrecognised "Late".
+    for _ in range(2):
+        peeled = _ROLE_TAIL.sub("", raw).strip()
+        if peeled == raw:
+            break
+        raw = peeled
+        if raw.lower() in _NOT_A_ROUND:
+            return None
+        if raw.lower() in _ROUND:
+            return _ROUND[raw.lower()]
+    return None
 
 
 def earliest_round(values) -> str | None:
@@ -103,10 +145,14 @@ def unknown_round_words(values) -> list[str]:
     starts publishing "Series A-1" shows up here, not as a silent None."""
     out = []
     for v in _flatten(values):
-        s = " ".join(str(v).strip().lower().split())
-        if s.isdigit():
-            continue  # a year travelling with the round word (USV: "Series A, 2022")
-        if s not in _NOT_A_ROUND and s not in _ROUND:
+        raw = " ".join(str(v).strip().split())
+        if raw.isdigit():
+            continue          # a year travelling with the round word ("Series A, 2022")
+        if round_word(raw):
+            continue          # the vocabulary resolves it
+        if _DISCLAIMED.search(raw):
+            continue          # a deliberate refusal, not an unknown word
+        if raw.lower() not in _NOT_A_ROUND:
             out.append(str(v))
     return out
 
@@ -122,8 +168,12 @@ def _flatten(values):
         items = [values]
     out = []
     for it in items:
-        if isinstance(it, str) and ("|" in it or "," in it):
-            out.extend(p for p in (x.strip() for x in it.replace("|", ",").split(",")) if p)
+        if isinstance(it, str) and any(sep in it for sep in "|,+/"):
+            # "Seed + Series A", "Series A / Series B", "Series A, 2022": one
+            # field holding several rounds, or a round travelling with its year.
+            for sep in "|+/":
+                it = it.replace(sep, ",")
+            out.extend(p for p in (x.strip() for x in it.split(",")) if p)
         else:
             out.append(it)
     return out

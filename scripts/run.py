@@ -133,8 +133,19 @@ IDENTITY_FLAGS = (IDENTITY_UNRESOLVED, IDENTITY_CONFLATED, IDENTITY_HOMONYM)
 # 950 rows publish the firm's modal round as if it were the company's. A line
 # still carrying it is rejected, so the class cannot return. `country_prior` is
 # untouched and still awaits its rename to `country_inferred`.
-RETIRED_FLAGS = {"stage_prior": "the stage is read off the company's round or "
-                                "reads 'undetermined' (PRO-135)"}
+RETIRED_FLAGS = {
+    "stage_prior": "the stage is read off the company's round or reads "
+                   "'undetermined' (PRO-135)",
+    # PRO-137 retired the 2006 window and the pre-2003 "first institutional
+    # round is Series A by convention" rule. The flags outlived the rules they
+    # marked on 847 rows, 650 of them still carrying that `Series A`, and while
+    # they persisted they went on waiving invariant 4 for rows like Menlo's
+    # Gilead ($100B+, stage from the convention, no citation).
+    "pre_window": "the 2006 window is retired (PRO-137); the row is dated "
+                  "evidence like any other",
+    "pre_window_entry": "the 2006 window is retired (PRO-137); the row is dated "
+                        "evidence like any other",
+}
 # A citation shared by this many rows is, by construction, not evidence about
 # any one of them. It is the right citation for `program_terms` (a terms
 # document states what EVERY cohort company got) and for `first_party` (the

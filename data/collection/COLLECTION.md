@@ -474,6 +474,11 @@ distinction.
   desk) it is confidence low and carries its flag (`country_prior`); it never
   lands silently. **`stage_prior` is deleted, not renamed** (Erik, 2026-09-19,
   PRO-135: "just rm stage_prior and use the other possible source options").
+  So are **`pre_window` and `pre_window_entry`**: PRO-137 retired the window and
+  the pre-2003 `Series A` convention, and the flags outlived them on 847 rows —
+  while they persisted they went on waiving invariant 4 for rows like Menlo's
+  Gilead ($100B+, its stage from the retired convention, no citation). `record`
+  refuses all three, so none can return.
   The firm's classic entry round is a fact about the firm, and writing it into
   a company's row said something about that company the record never said — on
   950 rows. There is no honest fill between the evidence and `undetermined`, so
@@ -1378,6 +1383,10 @@ maturity today. 100% fill.
   `stage_uncited` marks attempted failures.
 - **No staged row without a source, and a `web_verified` citation names THAT
   company's round** (PRO-135, both enforced by `record` and by `verify`).
+  Swept across all twenty books 2026-09-19. What the column rests on now:
+  `program_terms` 6,705 · `model` 3,791 · `web_verified` 2,584 ·
+  **`undetermined` 1,887** · `first_party` 780 · `formd_band` 590 ·
+  `formd_structural` 94. Zero rows carry a stage with no source.
   A stage with an empty `entry_stage_source` is a claim with no provenance and
   no rung on the order above; 214 rows carried one. And a citation shared by
   ten rows or more is, by construction, not evidence about any one of them, so
