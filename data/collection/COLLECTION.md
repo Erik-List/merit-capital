@@ -1834,6 +1834,21 @@ Every subcommand takes the investor slug.
      incoherence — 27 pairs fixed plus 32 rows of Bengaluru→Bangalore
      normalization).
 
+- **A measurement reads the MERGED view over the live base, or it is wrong**
+  (PRO-135, twice in one day, by two sessions independently). A row's answer is
+  `resolved.json` overlaid with `classification.json` and filtered to the slugs
+  still in `base.json`, and every shortcut off that reads a real number that
+  means nothing. Counting `classification.json` alone reported 554 rows with no
+  entry stage when the true figure was three, because `prepare` writes the Form
+  D band to `resolved.json`; the same shortcut undercounted the $1B+ rows at
+  risk from an unapplied migration, because those rows carry the stage in the
+  overlay and the band in the deterministic layer. Counting the file instead of
+  the base is the same error one level up and is already lesson 1 below.
+  Two further rules on top of the join, both learned the expensive way:
+  **re-measure after the last pass commits**, not during the sweep (a count of
+  seven taken mid-sweep finished at 28); and where a number will be quoted to
+  anyone, print the rows, not just the total — the discrepancy between two
+  sessions' counts was two named companies, and only the list found them.
 - **Lessons of the first merged run** (Thrive, 2026-09-03):
   1. `verify` counts classification over the base, not over the
      classification file: a rebuild that renames a slug leaves the old key
