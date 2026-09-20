@@ -796,8 +796,21 @@ def main() -> None:
             vals = [v for v in (keep[col].split(sep) + gone[col].split(sep)) if v]
             keep[col] = sep.join(sorted(set(v.strip() for v in vals)))
         for col in ("site_url", "wayback_first_link", "edgar_cik", "edgar_span",
-                    "formd_span", "formd_max_round_usd"):
+                    "formd_span", "formd_max_round_usd",
+                    # The firm's own entry claim travels with the evidence, or a
+                    # merge silently deletes the strongest entry_stage layer the
+                    # run has. Fifteen Felicis rows lost a published round word
+                    # this way -- `Disco Technology` merged into the shorter
+                    # `disco` key and arrived with an empty stage, which then
+                    # read as "the listing says nothing about this company".
+                    "site_entry_stage", "site_entry_round",
+                    "site_entry_stage_citation"):
             keep[col] = keep[col] or gone[col]
+        # ...and the invest year takes the EARLIER of the two, which is what the
+        # site loop's own min() means by it.
+        for col in ("site_invest_year",):
+            a, b = keep.get(col) or "", gone.get(col) or ""
+            keep[col] = min(x for x in (a, b) if x) if (a or b) else ""
         if gone["first_seen"].isdigit() and (not keep["first_seen"].isdigit()
                                              or gone["first_seen"] < keep["first_seen"]):
             keep["first_seen"] = gone["first_seen"]
