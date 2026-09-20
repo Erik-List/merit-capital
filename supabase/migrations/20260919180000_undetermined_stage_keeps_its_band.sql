@@ -10,10 +10,24 @@
 -- bandable company, and PRO-135 writes it wherever the record does not give the
 -- round — 139 rows so far, and the sweep is not finished.
 --
--- Left alone, the first re-ingest would have deleted seven real companies from
--- two published track records for no reason but an unknown entry round: Lux's
--- Cognition ($10B+), Runway, LangChain, Modal, Physical Intelligence and
--- Erebor, and USV's Polygon. COLLECTION.md §6 says the opposite in words —
+-- Left alone, this drops 28 real companies out of the computed track record for
+-- no reason but an unknown entry round. The rows are NOT deleted from
+-- `public.companies` and the companies do not disappear from the portfolio —
+-- what loses them is every derived figure: `track_record`, the four
+-- distributions and the basis count. That is the accurate statement and it is
+-- bad enough.
+--
+-- Measured 2026-09-19 after the full sweep. In books already in the database:
+-- Lux 8 (Cognition $10B+, Runway, LangChain, Modal, Physical Intelligence,
+-- Erebor, Astranis, Together AI), Lightspeed 2 (Meituan $10B+, Plus AI),
+-- Sequoia 1 (Western Digital $100B+) and USV 1 (Polygon). Latent in books
+-- awaiting their first ingest, and live the moment it runs: Greylock 9
+-- (Stryker, UnitedHealthcare and Vertex all $100B+), Menlo 5 (Gilead $100B+),
+-- Benchmark 2 (Equinix $100B+). Every one of them is a NAMEABLE company —
+-- an unnameable row reads `undetermined` in the band too and so cannot be
+-- $1B+ at all, which is why the band is the test this table can make.
+--
+-- COLLECTION.md §6 says the opposite of the old behaviour in words —
 -- "`undetermined` here ... leaves `valuation_range` alone" — because an unknown
 -- ROUND is not an unknown COMPANY.
 --

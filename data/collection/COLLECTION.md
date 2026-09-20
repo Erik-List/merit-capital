@@ -1967,12 +1967,18 @@ run before the investor row exists (Thrive, 2026-09-04).
    band, its status, its country and its place in the track record, because an
    unknown round is not an unknown company. `verify` prints the two on separate
    lines (`identity` and `stage unknown`). This was one test while the only
-   undetermined row was an unnameable company; PRO-135's 139 nameable ones
-   would otherwise have deleted seven real $1B+ companies from two published
-   track records (Lux's Cognition, Runway, LangChain, Modal, Physical
-   Intelligence, Erebor; USV's Polygon). `recompute_investor_metrics` carries
-   the same split from migration `20260919180000`, which is **written and not
-   yet applied** — it must land before PRO-121 re-ingests.
+   undetermined row was an unnameable company. PRO-135's 1,887 nameable ones
+   break it: **28 rows carry an unknown round and a $1B+ band**, and under the
+   old rule every one drops out of the computed track record and all four
+   distributions — not deleted from `public.companies`, but absent from every
+   published figure. Twelve are in books already in the database (Lux 8 incl.
+   Cognition $10B+, Lightspeed 2 incl. Meituan, Sequoia's Western Digital
+   $100B+, USV's Polygon) and sixteen are latent in books awaiting their first
+   ingest (Greylock 9 incl. Stryker, UnitedHealthcare and Vertex; Menlo 5 incl.
+   Gilead; Benchmark 2 incl. Equinix). `recompute_investor_metrics` carries the
+   same per-column split from migration `20260919180000`, which is **written
+   and not yet applied** — it must land before PRO-121 re-ingests and before
+   Greylock, Menlo or Benchmark are ingested for the first time.
 2. Source gate: a dollar figure only from an allowed source; only
    `below_1b` without a figure.
 3. Public $1B+ row → cited market cap, else `cite_pending`.
