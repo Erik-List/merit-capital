@@ -405,3 +405,51 @@ questions, and settling them means editing the stale side in whichever book
 holds it, which belongs to the wave alignment rather than here.
 
 `verify --skip-cross` clean; 658 rows, 45 excluded from every metric.
+
+## Addendum 2026-09-21: S2A with every Seed row decided (PRO-132)
+
+PRO-132 makes the absence of a later round a finding: a Seed row past the
+24-month clock with no evidence of a later round did not graduate, and every
+no records the dated search that found nothing (the firm's archive, the Form D
+sequence for a US company, at least two publisher surfaces; COLLECTION.md §6).
+The 52 open rows were judged in two batches.
+
+| seed entries | censored | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|
+| 44 | 3 | 41 | 17 | 24 | 41.5% | 100% |
+
+Of 44 seed entries, 3 were too recent to count; of the 41 that remain, 41.5%
+raised a later round. Of the 24 that did not, two rest on the filings, 17 on
+a cited end (an acquisition or shutdown with no round between it and the
+seed) and five on a dated search of the named surfaces. The rate barely
+moves from 40.5%: this was already the book where the Form D absence test
+applied, and the 47 rows the old pass left undetermined were mostly not
+Seed entries at all.
+
+What moved:
+
+- Re-staged out of Seed on a press release naming the round: InstaEDU,
+  Repeat, SumAll and Thundra (each a Series A the band had read as Seed from
+  the amount alone), HiGlobe (an unnamed $14M round with no earlier one) and
+  Sensu (a $10M follow-on to Foundry's smaller raise), all Series A; AegisAI
+  to Series A (TechCrunch, July 2026: Battery led the $36M Series A; the
+  company is an email-security platform, not the weapons-detection lookalike
+  the earlier search chased).
+- The Tennis Channel reads `undetermined` in the stage: a network launched in
+  2003 and held by Battery since 2007 is not a 2009 seed, whatever the band
+  says of that year's $6.0M filing.
+- Seventeen further rows read `undetermined` in the stage because nothing
+  dates a Battery entry (among them CrowdGather, Kovr.ai, whose named seed
+  backers exclude Battery, and The Backplane, whose funding history never
+  names Battery).
+- Named rounds the band missed: the four Series A re-stages above repeat a
+  pattern worth a look across the book, since `formd_band` reads Seed from
+  the amount whenever a company files its first Form D at a seed-sized raise.
+
+`c2a_rate_max` stays at the 0.80 default. `verify` is clean.
+
+For Erik: **Rally** is a no on an absence check; the row's older note spoke
+of a "sidechain" shutdown that fits an unrelated crypto project named Rally,
+so the identity is worth a second look. **Panjiva**'s entry is either 2008
+(Battery's listing) or 2012 (its only Form D); both readings are a no before
+the 2018 S&P Global acquisition.

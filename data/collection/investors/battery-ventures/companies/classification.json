@@ -234,27 +234,33 @@
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "graduation_asof": "2026-09-16",
+  "graduation_asof": "2026-09-21",
   "graduation_citation": "https://techcrunch.com/2012/02/06/groupon-buys-ecommerce-data-targeting-startup-adku/",
   "graduation_confidence": "medium",
   "graduation_source": "web_verified",
+  "graduation_surfaces": [
+   "firm: no dedicated company page on record (Battery's own page is the generic list-of-all-companies listing); googlenews_firm \"Adku\" \"Battery Ventures\" -> 0 results",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Adku\" round words -> 3 results, the Feb 2012 Groupon acquisition only",
+   "techcrunch: Adku -> 10 results, coverage ends with a Nov 2012 Groupon retrospective, nothing later"
+  ],
   "hq_city": "San Francisco",
   "hq_city_confidence": "medium",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Adku, e-commerce personalization, San Francisco. Acqui-hired by Groupon in 2013 \u2014 the compliance list names Groupon as the successor entity. Small seed-stage company. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: TechCrunch 2012-02-06 names Greylock, Battery Ventures and True Ventures as the backers of the AngelPad-stage, six-person stealth company and reports Groupon's acquisition about 18 months after demo day. The early-2011 seed was the last round; no later priced round found (searched 2026-09-16). The page names Battery as a backer but not the word seed, so both legs sit at medium.",
+  "note": "Adku, e-commerce personalization, San Francisco. Acqui-hired by Groupon in 2013 \u2014 the compliance list names Groupon as the successor entity. Small seed-stage company. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: TechCrunch 2012-02-06 names Greylock, Battery Ventures and True Ventures as the backers of the AngelPad-stage, six-person stealth company and reports Groupon's acquisition about 18 months after demo day. The early-2011 seed was the last round; no later priced round found (searched 2026-09-16). The page names Battery as a backer but not the word seed, so both legs sit at medium. | TechCrunch's Feb 2012 piece reports Groupon's acquisition of the AngelPad-stage Adku about 18 months after its early-2011 seed from Greylock, Battery and True Ventures; no later round found on any searched surface (re-checked 2026-09-21).",
   "seed_to_a_graduation": "not_graduated",
   "slug": "adku",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "adnectar": {
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage": "undetermined",
+  "entry_stage_confidence": null,
+  "entry_stage_source": null,
   "flags": [
    "stage_uncited"
   ],
@@ -266,11 +272,12 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "AdNectar, social virtual-gifting ad network, acquired in 2011. Compliance list marks it exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: one web search (2026-09-16) returned only vendor profiles naming Battery and Kleiner as backers and an acqui-hire in June 2011; no press page names the seed round with Battery or a later round, so neither leg could be cited.",
+  "note": "AdNectar, social virtual-gifting ad network, acquired in 2011. Compliance list marks it exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: one web search (2026-09-16) returned only vendor profiles naming Battery and Kleiner as backers and an acqui-hire in June 2011; no press page names the seed round with Battery or a later round, so neither leg could be cited. | No seed announcement, Form D entry or dated firm listing found for AdNectar; only vendor profiles (Tracxn/PitchBook-style) date the 2011 acqui-hire and vendor pages aren't citable. Re-searched 2026-09-21 with corrected spacing (\"AdNectar\"): crunchbase_news, googlenews, googlenews_firm and techcrunch all 0 results. Nothing establishes when Battery's money went in, so there is no Seed entry to decide.",
+  "seed_to_a_graduation": null,
   "slug": "adnectar",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "advanced-analogic-tech": {
   "entry_stage": "Growth",
@@ -353,12 +360,12 @@
   "valuation_range": "below_1b"
  },
  "aegis-ai": {
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
-  "entry_stage_source": "model",
-  "flags": [
-   "stage_uncited"
-  ],
+  "entry_date": "2026-07",
+  "entry_stage": "Series A",
+  "entry_stage_citation": "https://techcrunch.com/2026/07/23/aegisai-founded-by-former-google-security-execs-lands-36m-to-stop-ai-driven-spear-phishing/",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
+  "flags": [],
   "focus": "Security",
   "focus_source": "model",
   "hq_city": "San Francisco",
@@ -368,11 +375,12 @@
   "hq_country_citation": "https://www.battery.com/company/aegis-ai/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Aegis AI, computer-vision weapons detection for security cameras. Battery's Early label with INVESTED 2026 \u2014 one of the newest rows, added after the Q1 2026 compliance list. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Aegis AI (computer-vision weapons detection, San Francisco) carries Battery's Early label with INVESTED 2026 and is one of the newest rows. Searches on 2026-09-17 found only same-name companies - the Israeli email-security AegisAI and a 2019 Aegis AI that rebranded as Actuate - so nothing could be cited for this row, and with no dated entry the censoring clock cannot be applied either.",
+  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Aegis AI, computer-vision weapons detection for security cameras. Battery's Early label with INVESTED 2026 \u2014 one of the newest rows, added after the Q1 2026 compliance list. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Aegis AI (computer-vision weapons detection, San Francisco) carries Battery's Early label with INVESTED 2026 and is one of the newest rows. Searches on 2026-09-17 found only same-name companies - the Israeli email-security AegisAI and a 2019 Aegis AI that rebranded as Actuate - so nothing could be cited for this row, and with no dated entry the censoring clock cannot be applied either. | Battery's own page describes this as 'an AI-native email security platform' (not the weapons-detection lookalike the earlier search chased). TechCrunch (2026-07-23) confirms Battery Ventures LED AegisAI's $36M Series A, with Accel and Foundation Capital named as existing (seed-era) backers bringing total funding to $49M - Battery's own money enters at Series A, not Seed, so there is no Seed row to graduate.",
+  "seed_to_a_graduation": null,
   "slug": "aegis-ai",
   "status": "private",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "affirm": {
   "entry_stage": "Growth",
@@ -629,22 +637,27 @@
   "flags": [],
   "focus": "AI & Applied AI",
   "focus_source": "model",
-  "graduation_asof": "2026-09-16",
+  "graduation_asof": "2026-09-21",
   "graduation_citation": "https://www.calcalistech.com/ctechnews/article/b1zxnffv1g",
-  "graduation_confidence": "high",
+  "graduation_confidence": "medium",
   "graduation_source": "web_verified",
+  "graduation_surfaces": [
+   "firm: no dedicated company page on record; googlenews_firm \"Alterya\" \"Battery Ventures\" -> 6 results, all the Jan 2025 Chainalysis acquisition (through a Feb 2026 OKX-integration follow-up), nothing else",
+   "googlenews: \"Alterya\" round words -> 9 results, same acquisition coverage (Business Insider, Ctech, Jerusalem Post, Globes, CoinDesk), nothing later",
+   "techcrunch: Alterya -> 1 result, the acquisition only"
+  ],
   "hq_city": "Tel Aviv",
   "hq_city_confidence": "medium",
   "hq_city_source": "model_knowledge",
   "hq_country": "IL",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Alterya, AI blockchain fraud detection; acquired by Chainalysis in January 2025 \u2014 the compliance list names Chainalysis as the successor. first_seen 2024, a seed-stage Israeli company. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Ctech reports the $9.8M seed led by Battery Ventures (with NFX, Nyca, YC) raised upon founding in 2022 and Chainalysis's ~$150M acquisition in January 2025. The seed was the last round; no later priced round found (searched 2026-09-16).",
+  "note": "Alterya, AI blockchain fraud detection; acquired by Chainalysis in January 2025 \u2014 the compliance list names Chainalysis as the successor. first_seen 2024, a seed-stage Israeli company. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Ctech reports the $9.8M seed led by Battery Ventures (with NFX, Nyca, YC) raised upon founding in 2022 and Chainalysis's ~$150M acquisition in January 2025. The seed was the last round; no later priced round found (searched 2026-09-16). | Ctech's Jan 2025 piece (corroborated by Business Insider, Globes, Jerusalem Post, CoinDesk) reports Chainalysis's ~$150M acquisition of Alterya, whose $9.8M Battery-led seed at founding in 2022 was its only round; no later round found on any searched surface, including the Hebrew/Israeli edition (re-checked 2026-09-21).",
   "seed_to_a_graduation": "not_graduated",
   "slug": "alterya",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "altra-energy-technologies": {
   "entry_stage": "undetermined",
@@ -1089,22 +1102,27 @@
   "flags": [],
   "focus": "Security",
   "focus_source": "model",
-  "graduation_asof": "2026-09-16",
+  "graduation_asof": "2026-09-21",
   "graduation_citation": "https://www.bankinfosecurity.com/check-point-buys-startup-atmosec-to-secure-saas-applications-a-23023",
-  "graduation_confidence": "high",
+  "graduation_confidence": "medium",
   "graduation_source": "web_verified",
+  "graduation_surfaces": [
+   "firm: no dedicated company page on record; googlenews_firm \"AtmoSec\" \"Battery Ventures\" -> 2 results, both the Sept 2023 Check Point acquisition",
+   "googlenews: \"AtmoSec\" round words -> 8 results, the Dec 2021 seed and the Sept 2023 Check Point acquisition; latest is a Nov 2025 note on the ex-CEO's new job elsewhere, nothing on the company itself",
+   "techcrunch: AtmoSec -> 3 results, the Dec 2021 seed round post only"
+  ],
   "hq_city": "Tel Aviv",
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
   "hq_country": "IL",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "AtmoSec Ltd., Israeli SaaS-to-SaaS supply-chain security; acquired by Check Point in 2023. Compliance list marks it exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: $6M seed led by Glilot and Battery Ventures announced 2021-12-15; Check Point bought the 17-person company in September 2023 and the acquisition coverage names that December 2021 seed as its only funding. The seed was the last round (searched 2026-09-16).",
+  "note": "AtmoSec Ltd., Israeli SaaS-to-SaaS supply-chain security; acquired by Check Point in 2023. Compliance list marks it exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: $6M seed led by Glilot and Battery Ventures announced 2021-12-15; Check Point bought the 17-person company in September 2023 and the acquisition coverage names that December 2021 seed as its only funding. The seed was the last round (searched 2026-09-16). | Check Point acquired AtmoSec in Sept 2023 (bankinfosecurity, calcalistech, Check Point's own release), whose coverage names the Dec 2021 $6M Glilot/Battery-led seed as the company's only funding; no later round found on any searched surface, including the Hebrew/Israeli edition (re-checked 2026-09-21).",
   "seed_to_a_graduation": "not_graduated",
   "slug": "atmosec",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "atomicwork": {
   "entry_stage": "Series A",
@@ -1441,14 +1459,24 @@
   "who": "agent-pro136-battery"
  },
  "baz": {
+  "entry_date": "2023",
   "entry_stage": "Seed",
+  "entry_stage_citation": "https://www.finsmes.com/2026/06/baz-technologies-raises-9m-in-extended-seed-funding.html",
   "entry_stage_confidence": "medium",
-  "entry_stage_source": "model",
-  "flags": [
-   "stage_uncited"
-  ],
+  "entry_stage_source": "web_verified",
+  "flags": [],
   "focus": "AI & Applied AI",
   "focus_source": "model",
+  "graduation_asof": "2026-09-21",
+  "graduation_confidence": "medium",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: company page (https://www.battery.com/company/baz/) + googlenews_firm (\"Baz\" \"Battery Ventures\") -> 9 results, all the Jun-2026 seed-extension coverage, no Series A",
+   "googlenews: \"Baz\" round words -> 65 results, dominated by unrelated Baz Luhrmann/Baz Group hits; the only Baz Technologies items are the Jun-2026 extension",
+   "googlenews_local: \"Baz\" round words (local edition) -> 65 results, same Jun-2026 extension only",
+   "techcrunch: Baz -> 5 results, no funding coverage",
+   "crunchbase_news: Baz -> 22 results, no funding coverage"
+  ],
   "hq_city": "Tel Aviv",
   "hq_city_confidence": "high",
   "hq_city_source": "web_verified",
@@ -1456,11 +1484,12 @@
   "hq_country_citation": "https://www.battery.com/company/baz/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Baz Technologies, AI code review and engineering intelligence, Tel Aviv. Battery's Early label with INVESTED 2023. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: FinSMEs of 2026-06-30 names a $9M extended seed for Baz Technologies co-led by existing backers Battery Ventures and boldstart, taking total funding to $17M - an extension of the seed, not a later round, so it is not a graduation. No announcement of the original seed could be found on 2026-09-17, so the entry cannot be dated to month precision and the censoring clock cannot be applied; Battery's own INVESTED year reads 2023 while the company only surfaced publicly in January 2025.",
+  "note": "Baz Technologies, AI code review and engineering intelligence, Tel Aviv. Battery's Early label with INVESTED 2023. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: FinSMEs of 2026-06-30 names a $9M extended seed for Baz Technologies co-led by existing backers Battery Ventures and boldstart, taking total funding to $17M - an extension of the seed, not a later round, so it is not a graduation. No announcement of the original seed could be found on 2026-09-17, so the entry cannot be dated to month precision and the censoring clock cannot be applied; Battery's own INVESTED year reads 2023 while the company only surfaced publicly in January 2025. | Baz Technologies (Tel Aviv, AI code review). Battery's own site lists INVESTED 2023 (no month on record; the company only surfaced publicly Jan-2025). FinSMEs (2026-06-30) names Battery Ventures and boldstart as EXISTING seed backers of a $9M extension that brings total seed funding to $17M ($8M implied original seed) - an extension, not a graduation. No later priced round found across Google News, TechCrunch or Crunchbase News.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "baz",
   "status": "private",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "bazaarvoice": {
   "entry_stage": "Growth",
@@ -1587,22 +1616,28 @@
   "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
-  "graduation_asof": "2026-09-16",
+  "graduation_asof": "2026-09-21",
   "graduation_citation": "https://www.databricks.com/blog/welcoming-bit-io-databricks-investing-developer-experience",
   "graduation_confidence": "medium",
   "graduation_source": "web_verified",
+  "graduation_surfaces": [
+   "firm: no dedicated company page on record; googlenews_firm \"Bit.io\" \"Battery Ventures\" -> 1 result, the Oct 2022 seed announcement",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Bit.io\" round words -> 80 results (the name draws heavy noise), the ranked mentions are the Oct 2022 $7.5M seed and the May 2023 Databricks acquisition, nothing later",
+   "techcrunch: Bit.io -> 4 results, nothing beyond the seed/acquisition coverage"
+  ],
   "hq_city": "San Francisco",
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "bit.io, hosted Postgres data platform; acquired by Databricks in 2023. Compliance list marks it exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: the company's 2022-10-25 release names the $7.5M seed led by Battery Ventures and GreatPoint Ventures; Databricks announced on 2023-05-30 that bit.io was joining it and the product was sunset a month later. The seed was the last round; no later priced round found (searched 2026-09-16).",
+  "note": "bit.io, hosted Postgres data platform; acquired by Databricks in 2023. Compliance list marks it exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: the company's 2022-10-25 release names the $7.5M seed led by Battery Ventures and GreatPoint Ventures; Databricks announced on 2023-05-30 that bit.io was joining it and the product was sunset a month later. The seed was the last round; no later priced round found (searched 2026-09-16). | bit.io's own Oct 2022 release names the $7.5M Battery/GreatPoint-led seed; Databricks announced absorbing bit.io in May 2023 and the product was sunset a month later, with no later priced round found on any searched surface (re-checked 2026-09-21).",
   "seed_to_a_graduation": "not_graduated",
   "slug": "bit-io",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "bitwarden": {
   "entry_stage": "Series A",
@@ -1697,22 +1732,28 @@
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "graduation_asof": "2026-09-16",
+  "graduation_asof": "2026-09-21",
   "graduation_citation": "https://techcrunch.com/2012/02/07/klout-acquires-local-and-mobile-neighborhood-app-blockboard/",
-  "graduation_confidence": "high",
+  "graduation_confidence": "medium",
   "graduation_source": "web_verified",
+  "graduation_surfaces": [
+   "firm: no dedicated company page on record; googlenews_firm \"BlockChalk\" \"Battery Ventures\" -> 0 results",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"BlockChalk\" round words -> 0 results",
+   "techcrunch: BlockChalk -> 8 results, the Jan/Feb 2010 launch posts and the May 2010 $1M seed, nothing after"
+  ],
   "hq_city": "San Francisco",
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "BlockChalk, location-based neighbourhood messaging; folded into Blockboard around 2011. Compliance list marks it exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: $1M seed announced 2010-05-27 from Schachter, Battery Ventures and Founder Collective; renamed Blockboard and acquired by Klout on 2012-02-07, whose coverage names that $1M seed as the company's funding. The seed was the last round (searched 2026-09-16).",
+  "note": "BlockChalk, location-based neighbourhood messaging; folded into Blockboard around 2011. Compliance list marks it exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: $1M seed announced 2010-05-27 from Schachter, Battery Ventures and Founder Collective; renamed Blockboard and acquired by Klout on 2012-02-07, whose coverage names that $1M seed as the company's funding. The seed was the last round (searched 2026-09-16). | TechCrunch's May 2010 post names the $1M seed from Schachter, Battery and Founder Collective; the company (renamed Blockboard) was acquired by Klout in Feb 2012, whose coverage cites that seed as its only funding, and no later round appears on any searched surface (re-checked 2026-09-21).",
   "seed_to_a_graduation": "not_graduated",
   "slug": "blockchalk",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "blockscore-inc-dba-cognito": {
   "entry_stage": "Seed",
@@ -2545,10 +2586,16 @@
   "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
-  "graduation_asof": "2026-09-17",
+  "graduation_asof": "2026-09-21",
   "graduation_citation": "https://venturebeat.com/entrepreneur/linkedin-buys-business-review-site-choicevendor/",
   "graduation_confidence": "medium",
   "graduation_source": "web_verified",
+  "graduation_surfaces": [
+   "firm: listing (https://www.battery.com/company/choicevendor/, Early stage, invested 2008) + googlenews_firm \"ChoiceVendor\" \"Battery Ventures\" -> 0 results",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"ChoiceVendor\" round words -> 1 result, a 2025 retrospective piece on the 2010 LinkedIn acquisition",
+   "techcrunch: ChoiceVendor -> 10 results, the Sept 2010 LinkedIn acquisition and its aftermath only"
+  ],
   "hq_city": "San Francisco",
   "hq_city_confidence": "high",
   "hq_city_source": "web_verified",
@@ -2556,12 +2603,12 @@
   "hq_country_citation": "https://www.battery.com/company/choicevendor/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | ChoiceVendor, B2B ratings for business services; acquired by LinkedIn in 2010. A small seed-stage company on Battery's Early label. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: VentureBeat's 2010-09-23 acquisition piece says ChoiceVendor 'previously raised $4.5 million from Battery Ventures' (its only round; the CEO was a Battery entrepreneur-in-residence, INVESTED 2008 on Battery's page) before LinkedIn bought it. The round is not labelled on the page; Seed follows the playbook's $1M-$7.5M band and the prior judgment, hence medium. No later priced round found (checked 2026-09-17).",
+  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | ChoiceVendor, B2B ratings for business services; acquired by LinkedIn in 2010. A small seed-stage company on Battery's Early label. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: VentureBeat's 2010-09-23 acquisition piece says ChoiceVendor 'previously raised $4.5 million from Battery Ventures' (its only round; the CEO was a Battery entrepreneur-in-residence, INVESTED 2008 on Battery's page) before LinkedIn bought it. The round is not labelled on the page; Seed follows the playbook's $1M-$7.5M band and the prior judgment, hence medium. No later priced round found (checked 2026-09-17). | VentureBeat's Sept 2010 acquisition piece says ChoiceVendor 'previously raised $4.5 million from Battery Ventures' as its only round before LinkedIn bought it; no later round found on any searched surface (re-checked 2026-09-21).",
   "seed_to_a_graduation": "not_graduated",
   "slug": "choicevendor",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "chordiant-software": {
   "entry_stage": "undetermined",
@@ -2860,22 +2907,29 @@
   "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
-  "graduation_asof": "2026-09-17",
-  "graduation_citation": "https://semilshah.com/2022/01/22/reflecting-on-haystacks-investment-in-cognito/",
-  "graduation_confidence": "medium",
+  "graduation_asof": "2026-09-21",
+  "graduation_citation": "https://techcrunch.com/2022/01/20/plaid-buys-cognito-to-bolster-its-feature-set-as-it-moves-beyond-simply-connecting-accounts/",
+  "graduation_confidence": "high",
   "graduation_source": "web_verified",
+  "graduation_surfaces": [
+   "firm: no dedicated company page on record; googlenews_firm \"Cognito\" \"Battery Ventures\" -> 0 results (the name collides heavily with unrelated companies)",
+   "formd: no Form D filings on record for the company",
+   "crunchbase_news: Cognito -> 11 results, all unrelated (Cognito Therapeutics, Cognito Health, other name-collisions), none on this company beyond the acquisition",
+   "googlenews: \"Cognito\" round words -> 50 results, heavy name-collision noise; the only hits naming Plaid + Cognito are the Jan 20 2022 acquisition (TechCrunch, Finovate, Latham & Watkins, Finextra, Biometric Update), nothing later",
+   "techcrunch: Cognito -> 25 results, the Jan 2022 Plaid acquisition is the only one about this company"
+  ],
   "hq_city": "San Francisco",
   "hq_city_confidence": "medium",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Blockscore, Inc. dba Cognito, identity verification APIs; acquired by Plaid in 2020 \u2014 the compliance list carries both the original registered name and the Plaid successor, which is the rename this layer resolves for free. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: CoinDesk 2014-06-26 names the $2M seed led by Boost VC and Battery Ventures (BlockScore, later Cognito). Haystack's Semil Shah, a co-investor, writes on the January 2022 Plaid acquisition that the company never raised more than about $2M in its life, so the seed was the last round; no later priced round found (checked 2026-09-17).",
+  "note": "Blockscore, Inc. dba Cognito, identity verification APIs; acquired by Plaid in 2020 \u2014 the compliance list carries both the original registered name and the Plaid successor, which is the rename this layer resolves for free. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: CoinDesk 2014-06-26 names the $2M seed led by Boost VC and Battery Ventures (BlockScore, later Cognito). Haystack's Semil Shah, a co-investor, writes on the January 2022 Plaid acquisition that the company never raised more than about $2M in its life, so the seed was the last round; no later priced round found (checked 2026-09-17). | TechCrunch's Jan 20 2022 piece (corroborated by Finovate, Finextra, Latham & Watkins, Biometric Update) reports Plaid's acquisition of Cognito (formerly BlockScore) for about $250M; the 2014-06 $2M Boost VC/Battery-led seed was its only round per Haystack's Semil Shah. Recognition-checked against many unrelated 'Cognito'-named companies (Therapeutics, Health, iQ, a German/Dutch marketing shop) that clutter the search; none are this company (re-checked 2026-09-21).",
   "seed_to_a_graduation": "not_graduated",
   "slug": "cognito",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "cohesity": {
   "entry_stage": "Series A",
@@ -3447,7 +3501,7 @@
   "who": "cross-investor-align-2026-09-21"
  },
  "crowdgather": {
-  "entry_stage": "Seed",
+  "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
@@ -3455,10 +3509,11 @@
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
-  "note": "CrowdGather (OTC: CRWG), a network of online forums; the compliance list names Adisn as the related entity, which is the 2013 Adisn/CrowdGather transaction. The deterministic acquired status stands. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: CrowdGather (OTC: CRWG), the online-forum network the compliance list ties to Adisn through the 2013 Adisn/CrowdGather transaction. Searches on 2026-09-17 found no page naming a Battery round in CrowdGather, so neither the stage leg nor a later round could be established.",
+  "note": "CrowdGather (OTC: CRWG), online forum network; the compliance list ties it to the 2013 Adisn/CrowdGather transaction but no page ties Battery to any CrowdGather round. The two TechCrunch hits are CrowdGather itself ACQUIRING Lefora (2010) and Forumer (2011), not a Battery investment. No dated entry evidence exists (no listing year, no seed announcement), so there is no Seed entry to decide.",
+  "seed_to_a_graduation": null,
   "slug": "crowdgather",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "cruise-technologies": {
   "entry_stage": "undetermined",
@@ -4037,22 +4092,28 @@
   "flags": [],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
-  "graduation_asof": "2026-09-17",
+  "graduation_asof": "2026-09-21",
   "graduation_citation": "https://techcrunch.com/2011/05/18/zynga-continues-shopping-spree-buys-social-game-studio-dna-games/",
   "graduation_confidence": "medium",
   "graduation_source": "web_verified",
+  "graduation_surfaces": [
+   "firm: no dedicated company page on record; googlenews_firm \"DNA Games\" \"Battery Ventures\" -> 0 results",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"DNA Games\" round words -> 1 result, unrelated (a Forbes CRM piece), none naming the company",
+   "techcrunch: DNA Games -> 30 results, all unrelated noise (the name is too generic), none naming the company beyond the cited May 2011 Zynga acquisition piece"
+  ],
   "hq_city": "Austin",
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "DNA Games, social gaming; acqui-hired by Zynga, which the compliance list names as the successor. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: TechCrunch 2011-05-18 reports Zynga's acquisition of the 2009-founded studio and that it 'has raised $2 million in new funding from Battery Ventures and Bain Capital Ventures', its only reported round. The page does not label the round; Seed follows the $2M size (playbook band) and the prior judgment, hence medium. No later priced round found (checked 2026-09-17).",
+  "note": "DNA Games, social gaming; acqui-hired by Zynga, which the compliance list names as the successor. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: TechCrunch 2011-05-18 reports Zynga's acquisition of the 2009-founded studio and that it 'has raised $2 million in new funding from Battery Ventures and Bain Capital Ventures', its only reported round. The page does not label the round; Seed follows the $2M size (playbook band) and the prior judgment, hence medium. No later priced round found (checked 2026-09-17). | TechCrunch's May 2011 Zynga-acquisition piece names the $2M seed from Battery Ventures and Bain Capital Ventures as DNA Games' only funding; the automated surfaces return only name-collision noise (the name is too generic), confirming no later round (re-checked 2026-09-21).",
   "seed_to_a_graduation": "not_graduated",
   "slug": "dna-games",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "doelz-networks": {
   "entry_stage": "undetermined",
@@ -4105,9 +4166,9 @@
   "slug": "domaintools"
  },
  "donnerwood-media": {
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage": "undetermined",
+  "entry_stage_confidence": null,
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "stage_uncited"
@@ -4117,11 +4178,12 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Donnerwood Media, casual-gaming publisher; absorbed in the late 2000s. Compliance-list-only, marked exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: one search (2026-09-17) found only vendor profiles (Tracxn/PitchBook) placing Battery in a 2007 $5M Series C of the 2005-founded company and a 2009 merger with Pulse Entertainment; no citable press page ties Battery to any round, so the stage leg could not be established. Lead: the profile suggests a Growth-stage, not a Seed, entry.",
+  "note": "Donnerwood Media, casual-gaming publisher; absorbed in the late 2000s. Compliance-list-only, marked exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: one search (2026-09-17) found only vendor profiles (Tracxn/PitchBook) placing Battery in a 2007 $5M Series C of the 2005-founded company and a 2009 merger with Pulse Entertainment; no citable press page ties Battery to any round, so the stage leg could not be established. Lead: the profile suggests a Growth-stage, not a Seed, entry. | Vendor profiles (Tracxn/PitchBook, not citable per Rule A) place Battery in a 2007 $5M 'Series C' of Donnerwood Media, but no press page corroborates this. CBS News' Jan 2009 piece on the Pulse Entertainment merger names only Anthem Venture Partners leading a small debt financing round (total disclosed funding $9.7M across the company's life); Battery is not mentioned. Nothing citable establishes when, or whether, Battery's money went in (re-checked 2026-09-21).",
+  "seed_to_a_graduation": null,
   "slug": "donnerwood-media",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "dooly": {
   "entry_stage": "Series A",
@@ -4835,22 +4897,28 @@
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "graduation_asof": "2026-09-17",
+  "graduation_asof": "2026-09-21",
   "graduation_citation": "https://techcrunch.com/2012/01/13/fab-com-acquires-indie-fashion-marketplace-fashionstake",
-  "graduation_confidence": "medium",
+  "graduation_confidence": "low",
   "graduation_source": "web_verified",
+  "graduation_surfaces": [
+   "firm: no dedicated company page on record; googlenews_firm \"Fashion\" \"Battery Ventures\" -> 18 results, all noise (the slug is a bare, generic word colliding with the whole fashion-industry news cycle), none about FashionStake/Fab.com",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Fashion\" round words -> 100 results, all noise for the same reason",
+   "techcrunch: Fashion -> 30 results, all noise, none about this company"
+  ],
   "hq_city": "New York",
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Fashion, Inc. is the registered entity behind Fab.com, which the compliance list names as the successor; Fab's assets were sold to PCH International in 2015 and the business ended. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: the row is FashionStake (Battery's 2011 portfolio page lists 'Fashionstake'; the compliance list carries 'Fashion, Inc (Fab.com)'). TechCrunch 2012-01-13 reports Fab.com's acquisition and that the company 'raised an undisclosed amount of financing from Battery Ventures and angel investors from the fashion industry in the Summer of 2010', its only round. Seed by the angel-round character (medium); no later priced round found (checked 2026-09-17).",
+  "note": "Fashion, Inc. is the registered entity behind Fab.com, which the compliance list names as the successor; Fab's assets were sold to PCH International in 2015 and the business ended. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: the row is FashionStake (Battery's 2011 portfolio page lists 'Fashionstake'; the compliance list carries 'Fashion, Inc (Fab.com)'). TechCrunch 2012-01-13 reports Fab.com's acquisition and that the company 'raised an undisclosed amount of financing from Battery Ventures and angel investors from the fashion industry in the Summer of 2010', its only round. Seed by the angel-round character (medium); no later priced round found (checked 2026-09-17). | The row's name ('Fashion') is too generic for the automated surfaces to search (178 raw results, zero about this company); this no rests on the previously found TechCrunch Jan 2012 piece, where Fab.com's acquisition of FashionStake cites an undisclosed Battery/angel round from Summer 2010 as the company's only funding, with no legitimate contrary signal in the noise (re-checked 2026-09-21).",
   "seed_to_a_graduation": "not_graduated",
   "slug": "fashion",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "fastly": {
   "entry_date": "2011-03-25",
@@ -5281,14 +5349,24 @@
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
+  "graduation_asof": "2026-09-21",
+  "graduation_confidence": "medium",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: no dedicated company page on record; googlenews_firm \"FreshDish\" \"Battery Ventures\" -> 0 results",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"FreshDish\" round words -> 0 results",
+   "techcrunch: FreshDish -> 7 results, only the Nov 2012 $500K seed launch post names the company; the rest is unrelated meal-kit-sector noise, nothing later"
+  ],
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "FreshDish, Inc., meal delivery; wound down. Compliance-list-only, marked exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: TechCrunch 2012-11-27 names the $500K seed from Battery Ventures (Science Inc. incubation), which establishes the stage leg. No later round was found, but no shutdown article could be cited either (the compliance list's exit marker and a vendor 'deadpooled' tag are not citations), so the no is not decided (checked 2026-09-17).",
+  "note": "FreshDish, Inc., meal delivery; wound down. Compliance-list-only, marked exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: TechCrunch 2012-11-27 names the $500K seed from Battery Ventures (Science Inc. incubation), which establishes the stage leg. No later round was found, but no shutdown article could be cited either (the compliance list's exit marker and a vendor 'deadpooled' tag are not citations), so the no is not decided (checked 2026-09-17). | No later round found for FreshDish (Battery/Science Inc.'s $500K Nov 2012 seed) on any searched surface; TechCrunch's only hit naming the company is the seed launch piece itself. No citable shutdown article exists (only a compliance-list exit marker), so this rests on the absence test (re-checked 2026-09-21).",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "freshdish",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "freshpoint-quality-assurance-ltd-dba-evigence-sensors": {
   "entry_stage": "Series A",
@@ -5923,9 +6001,9 @@
   "valuation_range": "below_1b"
  },
  "hallo": {
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage": "undetermined",
+  "entry_stage_confidence": null,
+  "entry_stage_source": null,
   "flags": [
    "city_unknown",
    "stage_uncited"
@@ -5935,11 +6013,12 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Hallo, Inc., live language learning; compliance-list-only, marked exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Hallo, Inc. (live language learning), compliance-list-only and marked exited. FinSMEs, Google News and TechCrunch searches on 2026-09-17 found no funding announcement and no acquisition or shutdown article, so neither leg could be established.",
+  "note": "Hallo, Inc., live language learning; compliance-list-only, marked exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Hallo, Inc. (live language learning), compliance-list-only and marked exited. FinSMEs, Google News and TechCrunch searches on 2026-09-17 found no funding announcement and no acquisition or shutdown article, so neither leg could be established. | Every surface for 'Hallo' returns name-collision noise (Domino's 'Hallo Pizza', a Punjab neighbourhood, a Berlin proptech 'hallo theo', a Swiss film, Alaska's Hallo Bay); none is Hallo, Inc., the live-language-learning company. No seed announcement, Form D entry or dated listing found. Re-checked 2026-09-21, same result as the 2026-09-17 pass. Nothing establishes when Battery's money went in.",
+  "seed_to_a_graduation": null,
   "slug": "hallo",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "harness": {
   "entry_stage": "Growth",
@@ -6088,9 +6167,10 @@
  },
  "higlobe": {
   "entry_date": "2022-09",
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage": "Series A",
+  "entry_stage_citation": "https://www.businesswire.com/news/home/20220919005891/en/Higlobe-Inc.-Raises-%2414-Million-to-Eliminate-International-Fund-Transfer-Fees-for-the-Global-Workforce",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "web_verified",
   "flags": [
    "stage_uncited"
   ],
@@ -6103,11 +6183,12 @@
   "hq_country_citation": "https://www.battery.com/company/higlobe/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'New York, New York'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Higlobe, cross-border payments for remote professionals. Battery's Early label with INVESTED 2022. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: FinSMEs of 2022-09-20 reports a $14M round led by Battery Ventures (Scott Tobin joining the board), but the round carries no name and $14M sits well above the seed band, so the stage leg cannot be established as a seed; no later round was found in four years and the company is still private and still listed. Checked 2026-09-17.",
+  "note": "Battery's own Location field on its company page: 'New York, New York'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Higlobe, cross-border payments for remote professionals. Battery's Early label with INVESTED 2022. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: FinSMEs of 2022-09-20 reports a $14M round led by Battery Ventures (Scott Tobin joining the board), but the round carries no name and $14M sits well above the seed band, so the stage leg cannot be established as a seed; no later round was found in four years and the company is still private and still listed. Checked 2026-09-17. | Higlobe's own Sept 2022 release (Business Wire) reports a $14M round led by Battery Ventures (Scott Tobin joining the board); the round carries no name but at $14M sits well above the 2022+ seed-band ceiling ($8M), and no earlier round is on record (the company is still private, still active per 2025 partner releases). Reads as the company's first institutional, Series-A-scale round rather than a seed, so re-staged; the graduation column no longer applies.",
+  "seed_to_a_graduation": null,
   "slug": "higlobe",
   "status": "private",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "hnc": {
   "entry_stage": "undetermined",
@@ -6425,14 +6506,17 @@
   "who": "agent-pro136-battery"
  },
  "imper-ai": {
+  "entry_date": "2025-12",
   "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
-  "entry_stage_source": "model",
+  "entry_stage_citation": "https://siliconangle.com/2025/12/04/imper-ai-launches-28m-stop-ai-powered-impersonation-attacks/",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
   "flags": [
    "stage_uncited"
   ],
   "focus": "Security",
   "focus_source": "model",
+  "graduation_confidence": "high",
   "hq_city": "Tel Aviv",
   "hq_city_confidence": "high",
   "hq_city_source": "web_verified",
@@ -6440,11 +6524,12 @@
   "hq_country_citation": "https://www.battery.com/company/imper-ai/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'Tel Aviv, Israel'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Imper.AI, AI for insurance underwriting and claims, Tel Aviv. Battery's Early label with INVESTED 2025. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Imper.AI (AI for insurance underwriting and claims, Tel Aviv) carries Battery's Early label with INVESTED 2025. FinSMEs and Google News searches on 2026-09-17 returned no funding announcement for it, so neither leg could be cited and the entry could not be dated.",
+  "note": "imper.ai (Tel Aviv; Battery's own sector tag is Security, though its note field mislabels the business as insurance - it is AI defense against impersonation/deepfake attacks). SiliconANGLE (2025-12-04) confirms Battery Ventures LP co-led the $28M debut round with Redpoint Ventures (Battery partner Barak Schoster named as board member); Redpoint's own sibling record treats this as the Seed (same round, same date). A Mar-2026 PR Newswire piece is a product launch, not a raise. Entry is under 24 months old: censored.",
+  "seed_to_a_graduation": "censored",
   "slug": "imper-ai",
   "status": "private",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "in-focus-systems": {
   "entry_stage": "undetermined",
@@ -6581,9 +6666,9 @@
   "valuation_range": "below_1b"
  },
  "input-factory": {
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
-  "entry_stage_source": "model",
+  "entry_stage": "undetermined",
+  "entry_stage_confidence": null,
+  "entry_stage_source": null,
   "flags": [
    "possible_duplicate",
    "stage_uncited"
@@ -6596,11 +6681,12 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Input Factory, Inc. dba Polar, the mobile polling app; acqui-hired by Google in 2016, which the compliance list names as the successor. DUPLICATE of inputfactory-inc-dba-polar. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Input Factory, Inc. dba Polar (the mobile polling app acqui-hired by Google in 2016) is a duplicate of inputfactory-inc-dba-polar. Searches on 2026-09-17 (FinSMEs, Google News, TechCrunch) surfaced no page naming a Polar round with Battery and no acquisition piece giving its funding history, so neither leg could be cited.",
+  "note": "Input Factory, Inc. dba Polar, the mobile polling app; acqui-hired by Google in 2016, which the compliance list names as the successor. DUPLICATE of inputfactory-inc-dba-polar. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Input Factory, Inc. dba Polar (the mobile polling app acqui-hired by Google in 2016) is a duplicate of inputfactory-inc-dba-polar. Searches on 2026-09-17 (FinSMEs, Google News, TechCrunch) surfaced no page naming a Polar round with Battery and no acquisition piece giving its funding history, so neither leg could be cited. | Input Factory, Inc. dba Polar (mobile polling app, acqui-hired by Google 2016) has no seed announcement, Form D entry or dated listing on record; a targeted TechCrunch/Google News search on 'Polar' + 'Battery Ventures' (2026-09-21) returned nothing on this company either. Nothing establishes when Battery's money went in.",
+  "seed_to_a_graduation": null,
   "slug": "input-factory",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "inputfactory-inc-dba-polar": {
   "entry_stage": "Seed",
@@ -6666,17 +6752,21 @@
  },
  "instaedu": {
   "entry_date": "2013-07-02",
+  "entry_stage": "Series A",
+  "entry_stage_citation": "https://techcrunch.com/2013/08/14/instaedu-series-a-battery-ventures/",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "graduation_confidence": "high",
-  "graduation_source": "formd",
-  "note": "InstaEDU, on-demand online tutoring; acquired by Chegg in 2014 for $30M \u2014 the compliance list names Chegg as the successor. Brian O'Malley on the 2013 $4.0M Form D inside his tenure; the Seed entry stands and the graduation=false is correct, since the company was bought before an A. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Form D layer verdict accepted. Entry filing 2013-07-02 for $4.0M (Seed by band) is the company's only filing; Chegg bought InstaEDU in 2014 before an A. Not disputed.",
-  "seed_to_a_graduation": "not_graduated",
+  "graduation_source": null,
+  "note": "InstaEDU, on-demand online tutoring; acquired by Chegg in 2014 for $30M \u2014 the compliance list names Chegg as the successor. Brian O'Malley on the 2013 $4.0M Form D inside his tenure; the Seed entry stands and the graduation=false is correct, since the company was bought before an A. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Form D layer verdict accepted. Entry filing 2013-07-02 for $4.0M (Seed by band) is the company's only filing; Chegg bought InstaEDU in 2014 before an A. Not disputed. | DISPUTING the Form D band call: TechCrunch's own Aug 2013 headline names Battery Ventures leading InstaEDU's $4M round as a 'Series A' (the same round as the July 2013 Form D entry filing); a separate, earlier $1.1M seed from Social+Capital Partnership (TechCrunch, May 2012) preceded it, so Battery's money was not the seed. Re-staged from Seed (formd_band) to Series A; the graduation column no longer applies. Chegg acquired the company for $30M in June 2014, about 10 months later, with no round in between.",
+  "seed_to_a_graduation": null,
   "slug": "instaedu",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "instream": {
   "entry_stage": "undetermined",
@@ -6979,9 +7069,9 @@
   "valuation_range": "below_1b"
  },
  "jack-mobile-dba-ozlo": {
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
-  "entry_stage_source": "model",
+  "entry_stage": "undetermined",
+  "entry_stage_confidence": null,
+  "entry_stage_source": null,
   "flags": [
    "stage_uncited"
   ],
@@ -6993,11 +7083,12 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Jack Mobile dba Ozlo, conversational AI assistant founded by ex-Siri engineers; acqui-hired by Facebook in 2017. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Ozlo (Jack Mobile) was acqui-hired by Facebook on 2017-07-31, but the only funding coverage found on 2026-09-17 is TechCrunch of 2016-10-12 describing it as 'Greylock- and Jerry Yang-backed' without naming Battery or a round, so neither the stage leg nor a terminal-event note naming the seed as the last round could be supported.",
+  "note": "Jack Mobile dba Ozlo, conversational AI assistant founded by ex-Siri engineers; acqui-hired by Facebook in 2017. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Ozlo (Jack Mobile) was acqui-hired by Facebook on 2017-07-31, but the only funding coverage found on 2026-09-17 is TechCrunch of 2016-10-12 describing it as 'Greylock- and Jerry Yang-backed' without naming Battery or a round, so neither the stage leg nor a terminal-event note naming the seed as the last round could be supported. | No page names Battery with a dated round for Jack Mobile dba Ozlo (the 2017 Facebook-acqui-hired AI assistant); GeekWire's June 2016 $14M piece names 'top VCs' without listing them, and TechCrunch Oct 2016 describes it as 'Greylock- and Jerry Yang-backed'. Since 2023 the name also collides with an unrelated company, Ozlo Sleep (Sleepbuds/audio), which dominates recent search results. Nothing establishes when Battery's money went in (re-checked 2026-09-21).",
+  "seed_to_a_graduation": null,
   "slug": "jack-mobile-dba-ozlo",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "jamf": {
   "entry_stage": "Growth",
@@ -7142,25 +7233,31 @@
   "valuation_range": "below_1b"
  },
  "joya-communications": {
+  "entry_date": "2015",
   "entry_stage": "Seed",
-  "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_citation": "https://techcrunch.com/2016/10/19/someone-knows-something-about-this-marco-polo-app-that-we-dont/",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "web_verified",
   "flags": [
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
+  "graduation_citation": "https://www.vox.com/2016/11/18/13670414/marco-polo-benchmark-investment-bill-gurley",
+  "graduation_confidence": "medium",
+  "graduation_source": "web_verified",
   "hq_city": "San Francisco",
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Joya Communications, the video-messaging app Sesame/Glide lineage; absorbed in the 2010s. Compliance-list-only, not marked exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Joya Communications (the Sesame / Marco Polo video-messaging lineage) is compliance-list-only. Searches on 2026-09-17 (FinSMEs, Google News, TechCrunch) found coverage of the Marco Polo app but no page naming a Joya round with Battery, so neither leg could be established.",
+  "note": "Joya Communications, the video-messaging app Sesame/Glide lineage; absorbed in the 2010s. Compliance-list-only, not marked exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Joya Communications (the Sesame / Marco Polo video-messaging lineage) is compliance-list-only. Searches on 2026-09-17 (FinSMEs, Google News, TechCrunch) found coverage of the Marco Polo app but no page naming a Joya round with Battery, so neither leg could be established. | Joya Communications makes the Marco Polo video app (the product name, not the legal entity, is what the press uses, which is why the automated surfaces miss it under 'Joya Communications'). TechCrunch (Oct 2016) reports a $5M round from Battery Ventures and Altos Ventures in 2015, the company's only round to that point. Vox/Recode (Nov 2016) reports Benchmark's Bill Gurley investing in the company about a year later, and TechCrunch's 2020 recap (citing Crunchbase) puts total funding at 'at least $25 million' across Battery, Altos, Benchmark, Matrix Partners, StartX and Evolve Ventures, confirming a later round well beyond the $5M entry (re-checked 2026-09-21).",
+  "seed_to_a_graduation": "graduated",
   "slug": "joya-communications",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "jrsk-inc-dba-away": {
   "entry_stage": "Growth",
@@ -7360,9 +7457,9 @@
   "valuation_range": "below_1b"
  },
  "koru-careers": {
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage": "undetermined",
+  "entry_stage_confidence": null,
+  "entry_stage_source": null,
   "flags": [
    "stage_uncited"
   ],
@@ -7374,15 +7471,16 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Koru Careers, predictive hiring assessment, Seattle; acquired by Cappfinity in 2020. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: GeekWire's 2015-01-29 piece reports an $8M raise for Koru and a 2014 angel round, but geekwire.com refuses both curl and WebFetch (Cloudflare 403) and no other page found on 2026-09-17 names a Koru round with Battery, so neither leg could be cited. Cappfinity acquired the company in 2020.",
+  "note": "Koru Careers, predictive hiring assessment, Seattle; acquired by Cappfinity in 2020. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: GeekWire's 2015-01-29 piece reports an $8M raise for Koru and a 2014 angel round, but geekwire.com refuses both curl and WebFetch (Cloudflare 403) and no other page found on 2026-09-17 names a Koru round with Battery, so neither leg could be cited. Cappfinity acquired the company in 2020. | TechCrunch's Jan 2015 piece ('Koru Raises $8M Series A Round', Maveron-led) names Battery Ventures and First Round as EXISTING investors ahead of that round (total funding then $12.57M, implying roughly $4.5M raised earlier), so Battery's money predates Jan 2015, but no page dates or names that earlier round itself. GeekWire's 2015-01-29 recap of the same round is Cloudflare-blocked to fetch; a GeekWire piece on a $3M raise found by search is a later, unrelated 2017 round. Nothing establishes when Battery entered (re-checked 2026-09-21).",
+  "seed_to_a_graduation": null,
   "slug": "koru-careers",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "kovr-ai": {
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
+  "entry_stage": "undetermined",
+  "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
    "stage_uncited"
@@ -7395,11 +7493,12 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Kovr.ai Corp, AI compliance automation for federal authorisation (FedRAMP/ATO). Compliance-list-only and not marked exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Pulse 2.0 of 2025-05-19 names Kovr.ai's $3.6M stealth-exit seed as led by IronGate and Xfund with Hack Factory, OODA Ventures and McLean Capital - Battery is not in it - and Fortreum acquired the company in April 2026. Since no page ties Battery to that seed or to any Kovr round, the stage leg could not be established and the row is left undetermined rather than decided on an entry that may not be a seed.",
+  "note": "Kovr.ai's Pulse 2.0 seed announcement (2025-05-19, $3.6M) names IronGate, Xfund, Hack Factory, OODA Ventures and McLean Capital as backers - Battery is not among them. No page ties Battery to that seed or to any later Kovr.ai event (a Mar-2026 In-Q-Tel strategic investment, Fortreum's Apr-2026 acquisition). With no dated Battery entry established, there is no Seed entry to decide.",
+  "seed_to_a_graduation": null,
   "slug": "kovr-ai",
   "status": "private",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "ksv-esports-international-ltd-dba-gen-g": {
   "entry_stage": "Growth",
@@ -7567,9 +7666,9 @@
   "valuation_range": "below_1b"
  },
  "launchable": {
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
-  "entry_stage_source": "model",
+  "entry_stage": "undetermined",
+  "entry_stage_confidence": null,
+  "entry_stage_source": null,
   "flags": [
    "stage_uncited"
   ],
@@ -7581,11 +7680,12 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Launchable, Inc., ML-driven test selection founded by Jenkins' Kohsuke Kawaguchi; acquired by CloudBees in 2024, which the compliance list names as the successor. Present on the 2025 list and dropped from the 2026 one. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: FinSMEs of 2024-08-07 records CloudBees' acquisition of Launchable but gives no funding history, and searches on 2026-09-17 found no page naming a Launchable round with Battery, so neither the stage leg nor a later round could be established.",
+  "note": "Launchable, Inc., ML-driven test selection founded by Jenkins' Kohsuke Kawaguchi; acquired by CloudBees in 2024, which the compliance list names as the successor. Present on the 2025 list and dropped from the 2026 one. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: FinSMEs of 2024-08-07 records CloudBees' acquisition of Launchable but gives no funding history, and searches on 2026-09-17 found no page naming a Launchable round with Battery, so neither the stage leg nor a later round could be established. | Business Insider's Jan 2020 piece on Launchable's founding (Jenkins creator Kohsuke Kawaguchi) is the only surface result actually about this company, and it names no round or investor (Business Insider is also unreachable to fetch directly); FinSMEs' Aug 2024 CloudBees-acquisition note gives no funding history either. A direct TechCrunch/Google News search for 'Launchable' + 'Battery Ventures' returns nothing. Nothing establishes when Battery's money went in (re-checked 2026-09-21).",
+  "seed_to_a_graduation": null,
   "slug": "launchable",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "leadspace": {
   "entry_stage": "Series A",
@@ -7840,8 +7940,9 @@
   "valuation_range": "below_1b"
  },
  "lindy": {
+  "entry_date": "2021",
   "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
+  "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
    "city_unknown",
@@ -7849,14 +7950,18 @@
   ],
   "focus": "AI & Applied AI",
   "focus_source": "model",
+  "graduation_citation": "https://ff.co/flo-crivello-lindy/",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Crivello Corp. dba Lindy, AI agent builder. Battery's Early label with INVESTED 2021. The firm's own location field reads 'Remote', which is not a municipality, so the city is null rather than guessed. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Crivello Corp dba Lindy carries Battery's Early label with INVESTED 2021, but searches on 2026-09-17 (FinSMEs, Google News, TechCrunch) surfaced no funding announcement naming Battery and no round name, so neither leg could be cited.",
+  "note": "Crivello Corp. dba Lindy, AI agent builder. Battery's Early label with INVESTED 2021. The firm's own location field reads 'Remote', which is not a municipality, so the city is null rather than guessed. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Crivello Corp dba Lindy carries Battery's Early label with INVESTED 2021, but searches on 2026-09-17 (FinSMEs, Google News, TechCrunch) surfaced no funding announcement naming Battery and no round name, so neither leg could be cited. | Battery's own page lists Lindy (Crivello Corp) Early/INVESTED 2021, uncited beyond the listing itself. ff.co's founder profile of Flo Crivello (reused from Menlo's sibling citation) names Lindy's stage as 'Series A' with $50M total raised and investors including Battery, Menlo, Coatue and Tiger -- a named round, so graduated regardless of amount. Heavy name-collision noise elsewhere (a mouse-pad brand, Lindy Chamberlain, many unrelated people named Lindy) obscures this in the automated surfaces (re-checked 2026-09-21).",
+  "seed_to_a_graduation": "graduated",
   "slug": "lindy",
   "status": "private",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "linearb": {
   "flags": [],
@@ -9568,9 +9673,9 @@
   "valuation_range": "below_1b"
  },
  "octarine-labs": {
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
-  "entry_stage_source": "model",
+  "entry_stage": "undetermined",
+  "entry_stage_confidence": null,
+  "entry_stage_source": null,
   "flags": [
    "stage_uncited"
   ],
@@ -9582,11 +9687,12 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Octarine Labs, Kubernetes runtime security; acquired by VMware in 2020. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: TechCrunch of 2020-05-13 reports VMware's acquisition of Octarine and that the company 'has raised $9 million, according to PitchBook data' - a vendor figure, which Rule A bars as a citation, and the page names no round and no investor. FinSMEs and Google News searches on 2026-09-17 found no Octarine funding announcement, so neither leg could be established.",
+  "note": "Octarine Labs, Kubernetes runtime security; acquired by VMware in 2020. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: TechCrunch of 2020-05-13 reports VMware's acquisition of Octarine and that the company 'has raised $9 million, according to PitchBook data' - a vendor figure, which Rule A bars as a citation, and the page names no round and no investor. FinSMEs and Google News searches on 2026-09-17 found no Octarine funding announcement, so neither leg could be established. | TechCrunch's May 2020 VMware-acquisition piece for Octarine gives only a PitchBook-sourced '$9 million raised' figure (vendor data, barred by Rule A) and names no round or investor; a direct 'Octarine' + 'Battery Ventures' search (2026-09-21) surfaces nothing else. Nothing establishes when Battery's money went in or at what stage.",
+  "seed_to_a_graduation": null,
   "slug": "octarine-labs",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "offline-labs-inc-dba-sosh": {
   "entry_date": "2012-08-13",
@@ -10112,9 +10218,9 @@
   "valuation_range": "below_1b"
  },
  "outlyer": {
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage": "undetermined",
+  "entry_stage_confidence": null,
+  "entry_stage_source": null,
   "flags": [
    "stage_uncited"
   ],
@@ -10126,11 +10232,12 @@
   "hq_country": "GB",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Outlyer (formerly Dataloop.io), infrastructure monitoring, London; wound its assets into an acquisition in 2019. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Outlyer (formerly Dataloop.io), the London infrastructure-monitoring company whose assets were absorbed in 2019. FinSMEs, Google News and TechCrunch searches on 2026-09-17 found no funding announcement naming Battery and no acquisition article, so neither leg could be cited.",
+  "note": "Outlyer (formerly Dataloop.io), infrastructure monitoring, London; wound its assets into an acquisition in 2019. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Outlyer (formerly Dataloop.io), the London infrastructure-monitoring company whose assets were absorbed in 2019. FinSMEs, Google News and TechCrunch searches on 2026-09-17 found no funding announcement naming Battery and no acquisition article, so neither leg could be cited. | Outlyer (formerly Dataloop.io, London infrastructure monitoring) has no seed announcement, Form D entry or dated listing on record; the automated surfaces return only an unrelated 'Outlyer Entertainment' (Emmanuel Kelly) collision, and a direct 'Dataloop.io' search (2026-09-21) returns nothing. Nothing establishes when Battery's money went in.",
+  "seed_to_a_graduation": null,
   "slug": "outlyer",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "ozlo": {
   "entry_stage": "Seed",
@@ -10245,9 +10352,23 @@
   "valuation_range": "below_1b"
  },
  "panjiva": {
-  "flags": [],
+  "entry_date": "2008",
+  "entry_stage_confidence": "low",
+  "flags": [
+   "stage_uncited"
+  ],
   "focus": "SaaS",
   "focus_source": "model",
+  "graduation_asof": "2026-09-21",
+  "graduation_citation": "https://investor.spglobal.com/news-releases/news-details/2018/SP-Global-Finalizes-Acquisition-of-Panjiva-Inc-2018-2-26/default.aspx",
+  "graduation_confidence": "medium",
+  "graduation_source": "web_verified",
+  "graduation_surfaces": [
+   "firm: listing (https://www.battery.com/company/panjiva/, Early, INVESTED 2008) + googlenews_firm \"Panjiva\" \"Battery Ventures\" -> 1 result, the Feb 2018 S&P Global acquisition",
+   "formd: a single $4.14M filing 2012-05-25 on record (four years after Battery's own listed 2008 entry, and formd_graduation returned no verdict); at that size it would fall short of the era's graduation bar even read as a later round, and no filing follows it",
+   "googlenews: \"Panjiva\" round words -> 13 results, the Feb 2018 acquisition and routine product coverage, nothing else",
+   "techcrunch: Panjiva -> 11 results, one Oct 2012 product feature, nothing naming a round"
+  ],
   "hq_city": "New York",
   "hq_city_confidence": "high",
   "hq_city_source": "web_verified",
@@ -10255,11 +10376,12 @@
   "hq_country_citation": "https://www.battery.com/company/panjiva/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'New York, New York'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Panjiva, global trade and supply-chain data, New York; acquired by S&P Global in 2018. Michael Brown on the 2012 $4.1M Form D inside tenure. The deterministic Seed entry with graduation=false is right on the record available; Battery's INVESTED year is 2008, earlier than the first filing, which is the usual Form D coverage gap. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: the only filing on record is the 2012 $4.14M Form D, and the Form D layer returned no verdict; Battery's own page gives INVESTED 2008, four years earlier than that filing. Searches on 2026-09-17 (FinSMEs, Google News, TechCrunch) found no page naming a Panjiva round with Battery and none naming a later round before the 2018 S&P Global acquisition, so the record could not be established either way.",
+  "note": "Battery's own Location field on its company page: 'New York, New York'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Panjiva, global trade and supply-chain data, New York; acquired by S&P Global in 2018. Michael Brown on the 2012 $4.1M Form D inside tenure. The deterministic Seed entry with graduation=false is right on the record available; Battery's INVESTED year is 2008, earlier than the first filing, which is the usual Form D coverage gap. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: the only filing on record is the 2012 $4.14M Form D, and the Form D layer returned no verdict; Battery's own page gives INVESTED 2008, four years earlier than that filing. Searches on 2026-09-17 (FinSMEs, Google News, TechCrunch) found no page naming a Panjiva round with Battery and none naming a later round before the 2018 S&P Global acquisition, so the record could not be established either way. | Panjiva's own Battery listing dates entry to 2008 (Early), four years before the company's only Form D filing (2012-05, $4.14M) -- unresolved which is the true entry, but either reading leaves the company short of a graduation (the 2012 filing itself, or a later round of that size, is below every era's bar). S&P Global's own release (Feb 2018) finalizes its acquisition of Panjiva; no round between 2012 and 2018 appears on any searched surface (re-checked 2026-09-21).",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "panjiva",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "paperspace": {
   "entry_stage": "Series A",
@@ -11068,9 +11190,9 @@
   "who": "cross-investor-align-2026-09-21"
  },
  "prizeo": {
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage": "undetermined",
+  "entry_stage_confidence": null,
+  "entry_stage_source": null,
   "flags": [
    "stage_uncited"
   ],
@@ -11082,11 +11204,12 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Prizeo, celebrity charity sweepstakes; acquired by Charity Network and later Custom Ink, which the compliance list names as the successor. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Prizeo (Y Combinator W13, celebrity charity sweepstakes, later Charity Network and Custom Ink). TechCrunch of 2013-03-24 mentions angel funding including Edgar Bronfman Jr. but names no round and no Battery; no later round or acquisition article naming its funding was found on 2026-09-17, so neither leg could be established.",
+  "note": "Prizeo, celebrity charity sweepstakes; acquired by Charity Network and later Custom Ink, which the compliance list names as the successor. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Prizeo (Y Combinator W13, celebrity charity sweepstakes, later Charity Network and Custom Ink). TechCrunch of 2013-03-24 mentions angel funding including Edgar Bronfman Jr. but names no round and no Battery; no later round or acquisition article naming its funding was found on 2026-09-17, so neither leg could be established. | Prizeo (YC W13, celebrity charity sweepstakes) has TechCrunch's Mar 2013 launch piece naming only 'angel funding including Edgar Bronfman Jr.', no round name and no Battery; a direct 'Prizeo' + 'Battery Ventures' search (2026-09-21) returns nothing. Todd Wagner's 2015 acquisition (Hollywood Reporter) is a real terminal event but doesn't help date Battery's entry. Nothing establishes when Battery's money went in.",
+  "seed_to_a_graduation": null,
   "slug": "prizeo",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "prm-solutions-inc-d-b-a-proton-ai": {
   "entry_stage": "Series A",
@@ -11580,16 +11703,24 @@
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
+  "graduation_asof": "2026-09-21",
   "graduation_confidence": "high",
   "graduation_source": "formd",
-  "note": "Rahein Incorporation dba HeartyFresh, prepared-meal delivery, Newark CA. Dharmesh Thakker on the 2021 $4.0M Form D inside tenure; the Seed entry with graduation=false stands and the company did not raise again. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Form D layer verdict accepted. Entry filing 2021-05-25 for $4.0M (Seed by band) is the company's only filing and the rescan as-of is more than 24 months later. Not disputed.",
+  "graduation_surfaces": [
+   "firm: no dedicated company page on record; googlenews_firm \"HeartyFresh\" \"Battery Ventures\" -> 0 results",
+   "formd: single $4.0M entry filing 2021-05-25, no filing after (rescan as-of 2026-09-06)",
+   "googlenews: \"HeartyFresh\" round words -> 0 results",
+   "techcrunch: HeartyFresh -> 0 results"
+  ],
+  "note": "Rahein Incorporation dba HeartyFresh, prepared-meal delivery, Newark CA. Dharmesh Thakker on the 2021 $4.0M Form D inside tenure; the Seed entry with graduation=false stands and the company did not raise again. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Form D layer verdict accepted. Entry filing 2021-05-25 for $4.0M (Seed by band) is the company's only filing and the rescan as-of is more than 24 months later. Not disputed. | Form D layer verdict accepted unchanged: the single $4.0M entry filing (2021-05-25) is HeartyFresh's only filing on record, no filing follows it through the 2026-09-06 rescan, and no press surface names any round (re-checked 2026-09-21, all four surfaces 0 results).",
   "seed_to_a_graduation": "not_graduated",
   "slug": "rahein-incorporation-dba-heartyfresh",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "rally": {
+  "entry_date": "2018",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
@@ -11598,6 +11729,15 @@
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
+  "graduation_asof": "2026-09-21",
+  "graduation_confidence": "low",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: listing (https://www.battery.com/company/rally/, Early, INVESTED 2018, SF group-buying/social-commerce checkout) + googlenews_firm \"Rally\" \"Battery Ventures\" -> 10 results, all about unrelated 'Rally' companies (the RLY social-token/crypto platform, a NYC collectibles-trading app, a bus-rideshare company), none about this one",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Rally\" round words -> 100 results, overwhelmingly noise (protest rallies, the RLY crypto token, stock-market 'AI rally' headlines), nothing recognizably about this company",
+   "techcrunch: Rally -> 30 results, same noise pattern, nothing about this company"
+  ],
   "hq_city": "San Francisco",
   "hq_city_confidence": "high",
   "hq_city_source": "web_verified",
@@ -11606,7 +11746,8 @@
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
   "is_public": false,
-  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Rally Network, group-buying and social commerce checkout; the firm's own status reads Exited. Battery's Early label with INVESTED 2018. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Rally Network (group-buying and social-commerce checkout), Battery's Early label with INVESTED 2018 and the firm's own status reading Exited. FinSMEs, Google News and TechCrunch searches on 2026-09-17 found no funding announcement naming Battery and no exit article, so neither leg could be cited. | Rally Network sunset its platform and sidechain on 2023-01-31 for lack of funding; no acquirer is reported anywhere (Battery's own label is a bare 'Exited', unlike its 'Acquired by X' labels), so it is a shutdown, not a sale. [cross-investor alignment 2026-09-21, PRO-121]",
+  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Rally Network, group-buying and social commerce checkout; the firm's own status reads Exited. Battery's Early label with INVESTED 2018. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Rally Network (group-buying and social-commerce checkout), Battery's Early label with INVESTED 2018 and the firm's own status reading Exited. FinSMEs, Google News and TechCrunch searches on 2026-09-17 found no funding announcement naming Battery and no exit article, so neither leg could be cited. | Rally Network sunset its platform and sidechain on 2023-01-31 for lack of funding; no acquirer is reported anywhere (Battery's own label is a bare 'Exited', unlike its 'Acquired by X' labels), so it is a shutdown, not a sale. [cross-investor alignment 2026-09-21, PRO-121] | 'Rally' is an extremely common word: a crypto/social-token platform (RLY, with its own blockchain 'sidechain'), a NYC collectibles-trading app that Accel's own book tracks separately (2021 $30M B round, Sportico), a bus-rideshare company, plus routine noise -- none of the searched surfaces name Battery's own SF group-buying/social-commerce 'Rally Network'. FLAG FOR REVIEW: this row's existing note (cross-investor alignment, PRO-121) claims a Jan 2023 shutdown 'of its platform and sidechain', but 'sidechain' describes the crypto RLY protocol, not a group-buying checkout company -- that claim looks misattributed to the wrong 'Rally' and I did not rely on it. No later round found for Battery's actual portfolio company on any searched surface (re-checked 2026-09-21).",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "rally",
   "status": "defunct",
   "status_citation": "https://decrypt.co/120285/social-token-platform-rally-shutting-down",
@@ -11615,7 +11756,7 @@
   "valuation_range": "below_1b",
   "valuation_source": null,
   "valuation_usd": null,
-  "who": "cross-investor-align-2026-09-21"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "real-gift-services": {
   "entry_stage": "undetermined",
@@ -11916,11 +12057,15 @@
  },
  "repeat": {
   "entry_date": "2021-06-03",
+  "entry_stage": "Series A",
+  "entry_stage_citation": "https://www.businesswire.com/news/home/20210707005666/en/Repeat-Raises-%246-Million-in-Series-A-Financing-to-Help-CPG-Brands-Turn-One-Time-Buyers-Into-Repeat-Customers",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
   "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
   "graduation_confidence": "high",
-  "graduation_source": "formd",
+  "graduation_source": null,
   "hq_city": "Venice",
   "hq_city_confidence": "high",
   "hq_city_source": "web_verified",
@@ -11928,12 +12073,12 @@
   "hq_country_citation": "https://www.battery.com/company/repeat/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'Venice, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Repeat, Inc., reordering software for consumer brands; acquired by Tiny Ltd. Neeraj Agrawal on the 2021 $6.0M Form D inside tenure; the Seed entry with graduation=false stands. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Form D layer verdict accepted. Entry filing 2021-06-03 for $6.0M (Seed by band) is the last filing; Repeat, Inc. was sold to Tiny Ltd. without another round. Not disputed.",
-  "seed_to_a_graduation": "not_graduated",
+  "note": "Battery's own Location field on its company page: 'Venice, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Repeat, Inc., reordering software for consumer brands; acquired by Tiny Ltd. Neeraj Agrawal on the 2021 $6.0M Form D inside tenure; the Seed entry with graduation=false stands. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Form D layer verdict accepted. Entry filing 2021-06-03 for $6.0M (Seed by band) is the last filing; Repeat, Inc. was sold to Tiny Ltd. without another round. Not disputed. | DISPUTING the Form D band call: Repeat's own July 2021 release headline is 'Repeat Raises $6 Million in Series A Financing' -- the same $6.0M round as the June 2021 Form D entry filing -- so this is a named Series A, not a Seed by band. No earlier round is on record. Re-staged; the graduation column no longer applies. Repeat, Inc. was later sold to Tiny Ltd. with no round in between.",
+  "seed_to_a_graduation": null,
   "slug": "repeat",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "resourcewise": {
   "flags": [],
@@ -11960,9 +12105,9 @@
   "slug": "retailnext"
  },
  "rewardly": {
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage": "undetermined",
+  "entry_stage_confidence": null,
+  "entry_stage_source": null,
   "flags": [
    "stage_uncited"
   ],
@@ -11974,11 +12119,12 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Rewardly, Inc., small-business loyalty and rewards; acqui-hired in the mid-2010s. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Rewardly, Inc. (small-business loyalty, acqui-hired in the mid-2010s). Searches on 2026-09-17 found no funding announcement naming Battery and no acquisition article, so neither leg could be cited.",
+  "note": "Rewardly, Inc., small-business loyalty and rewards; acqui-hired in the mid-2010s. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Rewardly, Inc. (small-business loyalty, acqui-hired in the mid-2010s). Searches on 2026-09-17 found no funding announcement naming Battery and no acquisition article, so neither leg could be cited. | Rewardly, Inc. (small-business loyalty/rewards, acqui-hired mid-2010s) has no seed announcement, Form D entry or dated listing on record; all four surfaces return 0 results (re-checked 2026-09-21, matching the 2026-09-17 pass). Nothing establishes when Battery's money went in.",
+  "seed_to_a_graduation": null,
   "slug": "rewardly",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "riskiq": {
   "entry_stage": "Growth",
@@ -12076,19 +12222,20 @@
   "slug": "rogue-wave-software"
  },
  "ruckus-network": {
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage": "undetermined",
+  "entry_stage_confidence": null,
+  "entry_stage_source": null,
   "flags": [
    "identity_homonym",
    "stage_uncited"
   ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
-  "note": "Ruckus Network, campus music and media sharing for universities; shut down in 2009. Not Ruckus Wireless, a different company Battery did not hold \u2014 the deterministic defunct status fits the Ruckus Network reading. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: TechCrunch of 2009-02-06 records Ruckus.com's shutdown and the earlier sale to Total Music, but names no round, no amount and no investor. The compliance list first carries the row in 2007 and the company dates to 2003, so the entry may even be pre-window, but nothing found on 2026-09-17 dates Battery's money, so neither the stage leg nor a graduation could be established. | IDENTIFIED, NAMESAKE RECORDED (PRO-136): Ruckus Network, campus music and media sharing for universities, which shut down in 2009. NEVER to be joined with Ruckus Wireless, a different company Battery did not hold.",
+  "note": "Ruckus Network, campus music and media sharing for universities; shut down in 2009. Not Ruckus Wireless, a different company Battery did not hold \u2014 the deterministic defunct status fits the Ruckus Network reading. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: TechCrunch of 2009-02-06 records Ruckus.com's shutdown and the earlier sale to Total Music, but names no round, no amount and no investor. The compliance list first carries the row in 2007 and the company dates to 2003, so the entry may even be pre-window, but nothing found on 2026-09-17 dates Battery's money, so neither the stage leg nor a graduation could be established. | IDENTIFIED, NAMESAKE RECORDED (PRO-136): Ruckus Network, campus music and media sharing for universities, which shut down in 2009. NEVER to be joined with Ruckus Wireless, a different company Battery did not hold. | Ruckus Network (campus music/media sharing, shut down 2009; identity already resolved PRO-136 as distinct from Ruckus Wireless) has one TechCrunch launch piece (2007-01-22) naming no round, amount or investor, and the 2009-02-06 shutdown piece likewise names no funding history. The company may even be pre-window (dates to 2003). Nothing establishes when Battery's money went in (re-checked 2026-09-21).",
+  "seed_to_a_graduation": null,
   "slug": "ruckus-network",
   "valuation_range": "below_1b",
-  "who": "agent-pro136-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "rundoo": {
   "entry_stage": "Growth",
@@ -12113,9 +12260,9 @@
   "valuation_range": "below_1b"
  },
  "rushrez": {
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
-  "entry_stage_source": "model",
+  "entry_stage": "undetermined",
+  "entry_stage_confidence": null,
+  "entry_stage_source": null,
   "flags": [
    "stage_uncited"
   ],
@@ -12127,11 +12274,12 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "RushRez, last-minute hotel booking; became HotelTonight, which the compliance list names as the successor and which has its own row. The rename is the identity this layer resolves for free. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: RushRez is the predecessor name of HotelTonight, which the compliance list names as the successor and which carries its own row and its own answer. No page found on 2026-09-17 names a RushRez round under that name, so this row's own legs cannot be cited; the outcome lives on the hoteltonight row.",
+  "note": "RushRez, last-minute hotel booking; became HotelTonight, which the compliance list names as the successor and which has its own row. The rename is the identity this layer resolves for free. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: RushRez is the predecessor name of HotelTonight, which the compliance list names as the successor and which carries its own row and its own answer. No page found on 2026-09-17 names a RushRez round under that name, so this row's own legs cannot be cited; the outcome lives on the hoteltonight row. | RushRez is the predecessor name of HotelTonight, which carries its own separate row and its own answer in this book. No page names a round under the 'RushRez' name specifically (re-checked 2026-09-21, 0 results on every surface); this row's own legs cannot be cited.",
+  "seed_to_a_graduation": null,
   "slug": "rushrez",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "saasoptics": {
   "entry_stage": "Growth",
@@ -12388,22 +12536,28 @@
   "flags": [],
   "focus": "AI & Applied AI",
   "focus_source": "model",
-  "graduation_asof": "2026-09-17",
+  "graduation_asof": "2026-09-21",
   "graduation_citation": "https://newsroom.ibm.com/2025-06-02-IBM-Unveils-watsonx-AI-Labs-The-Ultimate-Accelerator-for-AI-Builders,-Startups-and-Enterprises-in-New-York-City",
   "graduation_confidence": "medium",
   "graduation_source": "web_verified",
+  "graduation_surfaces": [
+   "firm: no dedicated company page on record; googlenews_firm \"Seek AI\" \"Battery Ventures\" -> 10 results, the Jan 2023 pre-seed/seed round and the June 2025 IBM acquisition, nothing else",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Seek AI\" round words -> 48 results (heavy noise from the generic phrase 'seek AI', e.g. 'faculty unions seek AI guidelines'), the recognizable hits are the Jan 2023 round and the June 2025 IBM acquisition, nothing later",
+   "techcrunch: Seek AI -> 30 results, the Jan 2023 funding piece is the only one about this company"
+  ],
   "hq_city": "New York",
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Seek AI, natural-language querying of enterprise data; compliance list marks it exited. First listed 2024. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: TechCrunch of 2023-01-11 says Seek raised $7.5M 'across pre-seed and seed rounds that had participation from Conviction Partners, Battery Ventures and former Snowflake CEO Bob Muglia'. IBM's own newsroom of 2025-06-02 announces the acquisition of Seek AI as part of watsonx AI Labs. The seed was the last round; no later priced round found (checked 2026-09-17).",
+  "note": "Seek AI, natural-language querying of enterprise data; compliance list marks it exited. First listed 2024. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: TechCrunch of 2023-01-11 says Seek raised $7.5M 'across pre-seed and seed rounds that had participation from Conviction Partners, Battery Ventures and former Snowflake CEO Bob Muglia'. IBM's own newsroom of 2025-06-02 announces the acquisition of Seek AI as part of watsonx AI Labs. The seed was the last round; no later priced round found (checked 2026-09-17). | TechCrunch/Business Insider (Jan 2023) report Seek AI's $7.5M across pre-seed and seed rounds with Conviction Partners, Battery Ventures and Bob Muglia; IBM's own newsroom (June 2025) announces acquiring Seek AI into watsonx AI Labs. No later round found on any recognizably-relevant surface (re-checked 2026-09-21).",
   "seed_to_a_graduation": "not_graduated",
   "slug": "seek-ai",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "send-the-trend": {
   "entry_date": "2011",
@@ -12414,10 +12568,16 @@
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "graduation_asof": "2026-09-17",
+  "graduation_asof": "2026-09-21",
   "graduation_citation": "https://techcrunch.com/2012/02/23/qvc-acquires-personalized-e-commerce-site-for-fashion-accessories-send-the-trend/",
   "graduation_confidence": "medium",
   "graduation_source": "web_verified",
+  "graduation_surfaces": [
+   "firm: listing (https://www.battery.com/company/send-the-trend/, Early, INVESTED 2011) + googlenews_firm \"Send The Trend\" \"Battery Ventures\" -> 0 results",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Send The Trend\" round words -> 10 results, only a Oct 2012 CNBC piece on the post-acquisition QVC relaunch names the company; the rest is noise on the generic phrase 'trend'",
+   "techcrunch: Send The Trend -> 30 results, dominated by noise on 'trend'; the only hit naming this company is the Feb 2012 QVC acquisition piece already cited"
+  ],
   "hq_city": "New York",
   "hq_city_confidence": "high",
   "hq_city_source": "web_verified",
@@ -12425,12 +12585,12 @@
   "hq_country_citation": "https://www.battery.com/company/send-the-trend/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'New York, New York'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Send the Trend, personalised jewellery and accessories subscription; acquired by QVC in 2012. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: TechCrunch of 2012-02-23 reports QVC's acquisition and that Send the Trend 'had previously raised $3 million from Battery Ventures and Founder Collective', its only round. The page does not label the round, so Seed follows the $3M size and Battery's own INVESTED year of 2011, hence medium on both legs. No later priced round found (checked 2026-09-17).",
+  "note": "Battery's own Location field on its company page: 'New York, New York'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Send the Trend, personalised jewellery and accessories subscription; acquired by QVC in 2012. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: TechCrunch of 2012-02-23 reports QVC's acquisition and that Send the Trend 'had previously raised $3 million from Battery Ventures and Founder Collective', its only round. The page does not label the round, so Seed follows the $3M size and Battery's own INVESTED year of 2011, hence medium on both legs. No later priced round found (checked 2026-09-17). | TechCrunch's Feb 2012 piece reports QVC's acquisition and that Send the Trend 'had previously raised $3 million from Battery Ventures and Founder Collective', its only round; the Oct 2012 CNBC follow-up on the QVC relaunch confirms no new funding. No later round found on any recognizably-relevant surface (re-checked 2026-09-21).",
   "seed_to_a_graduation": "not_graduated",
   "slug": "send-the-trend",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "sensage": {
   "entry_stage": "Series A",
@@ -12473,9 +12633,11 @@
   "valuation_range": "below_1b"
  },
  "sensu": {
-  "entry_stage": "Seed",
+  "entry_date": "2018-04",
+  "entry_stage": "Series A",
+  "entry_stage_citation": "https://techcrunch.com/2018/04/13/sensu-raises-10m-to-build-a-robust-monitoring-system-for-all-your-different-operations/",
   "entry_stage_confidence": "medium",
-  "entry_stage_source": "model",
+  "entry_stage_source": "web_verified",
   "flags": [
    "stage_uncited"
   ],
@@ -12488,11 +12650,12 @@
   "hq_country_citation": "https://www.battery.com/company/sensu/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'Portland, Oregon'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Sensu, open-source monitoring; acquired by Sumo Logic in 2021, which the compliance list names as the successor. Battery's Early label with INVESTED 2018. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Sensu (open-source monitoring, Portland; Sumo Logic named as the successor on the compliance list). Battery's Early label gives INVESTED 2018, but FinSMEs, Google News and TechCrunch searches on 2026-09-17 found no funding announcement naming Battery and no acquisition article, so neither leg could be cited.",
+  "note": "Battery's own Location field on its company page: 'Portland, Oregon'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Sensu, open-source monitoring; acquired by Sumo Logic in 2021, which the compliance list names as the successor. Battery's Early label with INVESTED 2018. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Sensu (open-source monitoring, Portland; Sumo Logic named as the successor on the compliance list). Battery's Early label gives INVESTED 2018, but FinSMEs, Google News and TechCrunch searches on 2026-09-17 found no funding announcement naming Battery and no acquisition article, so neither leg could be cited. | TechCrunch's Apr 2018 piece names Battery Ventures as leading Sensu's $10M round (Dharmesh Thakker joining the board), with 'existing investor Foundry Group participating' -- Foundry's own Feb 2017 $2.5M raise (GeekWire) was the actual seed, so Battery's $10M entry (well above the 2015-18 seed-band ceiling) reads as the Series A, not a seed. Re-staged; the graduation column no longer applies. Sumo Logic acquired Sensu in June 2021 with no round in between.",
+  "seed_to_a_graduation": null,
   "slug": "sensu",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "serena-lily": {
   "entry_date": "2010-03-01",
@@ -13589,11 +13752,15 @@
  },
  "sumall": {
   "entry_date": "2012-11-13",
+  "entry_stage": "Series A",
+  "entry_stage_citation": "https://techcrunch.com/2012/11/20/sumall-raises-6m-for-data-visualization-service-including-500k-for-charity-to-better-the-world-through-data/",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
   "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
   "graduation_confidence": "high",
-  "graduation_source": "formd",
+  "graduation_source": null,
   "hq_city": "New York",
   "hq_city_confidence": "high",
   "hq_city_source": "web_verified",
@@ -13601,12 +13768,12 @@
   "hq_country_citation": "https://www.battery.com/company/sumall/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'New York, New York'. First-party and city-bearing, so it outranks the Wikidata join for this book. | SumAll, marketing analytics for small business, New York; the firm's own status reads Exited and the company wound down in the late 2010s. Roger Lee on the 2012-2013 Form Ds inside tenure; the Seed entry with graduation=false stands. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Form D layer verdict accepted. Entry filing 2012-11-13 for $5.5M (Seed by band); the only later filing is a smaller $4.0M in 2013q4 and the company wound down. Not disputed.",
-  "seed_to_a_graduation": "not_graduated",
+  "note": "Battery's own Location field on its company page: 'New York, New York'. First-party and city-bearing, so it outranks the Wikidata join for this book. | SumAll, marketing analytics for small business, New York; the firm's own status reads Exited and the company wound down in the late 2010s. Roger Lee on the 2012-2013 Form Ds inside tenure; the Seed entry with graduation=false stands. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Form D layer verdict accepted. Entry filing 2012-11-13 for $5.5M (Seed by band); the only later filing is a smaller $4.0M in 2013q4 and the company wound down. Not disputed. | DISPUTING the Form D band call: TechCrunch's Nov 2012 piece explicitly calls SumAll's $6M round 'a Series A' led by Battery Ventures (with Wellington Partners), and names no earlier round. Re-staged from Seed (formd_band) to Series A; the graduation column no longer applies. A smaller $4M follow-on in Dec 2013 (TechCrunch) doesn't change this. The company wound down in the late 2010s.",
+  "seed_to_a_graduation": null,
   "slug": "sumall",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "summation": {
   "entry_stage": "undetermined",
@@ -13944,23 +14111,29 @@
  },
  "tennis-channel": {
   "entry_date": "2009-05-06",
-  "flags": [],
+  "entry_stage": "undetermined",
+  "entry_stage_confidence": "low",
+  "flags": [
+   "stage_uncited"
+  ],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
-  "graduation_confidence": "medium",
-  "graduation_source": "formd",
+  "graduation_asof": null,
+  "graduation_confidence": null,
+  "graduation_source": null,
+  "graduation_surfaces": null,
   "hq_city": "Santa Monica",
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "The Tennis Channel, the cable sports network; acquired by Sinclair Broadcast Group in 2016 for $350M. Scott Tobin on the 2009 $6.0M Form D inside tenure. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Form D layer verdict accepted. Entry filing 2009-05-06 for $6.0M (Seed by band) is the network's only filing and the rescan as-of is far past entry plus 24 months; Sinclair bought The Tennis Channel in 2016 for $350M, below the $1B invariant-7 line. Searches on 2026-09-17 found no page naming a Tennis Channel round with Battery, so the band's Seed label could not be corroborated or refuted for a cable network the firm has held since 2007 - hence medium rather than high.",
-  "seed_to_a_graduation": "not_graduated",
+  "note": "The Tennis Channel, the cable sports network; acquired by Sinclair Broadcast Group in 2016 for $350M. Scott Tobin on the 2009 $6.0M Form D inside tenure. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Form D layer verdict accepted. Entry filing 2009-05-06 for $6.0M (Seed by band) is the network's only filing and the rescan as-of is far past entry plus 24 months; Sinclair bought The Tennis Channel in 2016 for $350M, below the $1B invariant-7 line. Searches on 2026-09-17 found no page naming a Tennis Channel round with Battery, so the band's Seed label could not be corroborated or refuted for a cable network the firm has held since 2007 - hence medium rather than high. | FLAGGING THE STAGE, not disputing the no: Battery has held The Tennis Channel since 2007 per the existing note, two years before this 2009 $6.0M Form D filing that formd_band reads as 'Seed' -- a cable sports network already operating and Battery-backed since 2007 is an implausible seed-stage fit, but no press names Battery's actual entry round, so I could not cite a better stage and left it as-is with stage_uncited. The graduation call itself is solid: no filing follows the 2009 entry, and every searched surface shows only Sinclair's Jan 2016 $350M acquisition, well under the $1B invariant-7 line (re-checked 2026-09-21). | PRO-132 review: not a Seed entry. The Tennis Channel launched in 2003 and Battery has held it since 2007; the 2009 $6.0M Form D the band read as Seed is a later financing of an operating network (COLLECTION.md: 0 prior filings reads the band only for a company founded 2008 or later). No page names Battery's entry round, so the stage is undetermined and the row takes no S2A.",
+  "seed_to_a_graduation": null,
   "slug": "tennis-channel",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "orchestrator-pro132"
  },
  "tenzai": {
   "entry_date": "2025-11-11",
@@ -14009,9 +14182,9 @@
   "valuation_range": "below_1b"
  },
  "the-backplane": {
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage": "undetermined",
+  "entry_stage_confidence": null,
+  "entry_stage_source": null,
   "flags": [
    "stage_uncited"
   ],
@@ -14023,11 +14196,12 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "The Backplane, social-influence graph for online communities; wound down in the mid-2010s. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: The Backplane (social-influence graph for online communities, wound down in the mid-2010s). Searches on 2026-09-17 found no funding announcement naming Battery and no shutdown article, so neither leg could be cited.",
+  "note": "The Backplane, social-influence graph for online communities; wound down in the mid-2010s. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: The Backplane (social-influence graph for online communities, wound down in the mid-2010s). Searches on 2026-09-17 found no funding announcement naming Battery and no shutdown article, so neither leg could be cited. | FOUND the likely real company via a direct search (the automated 'The Backplane' query missed it; the actual name is 'Backplane', Lady Gaga/Troy Carter's fan-community platform, later pivoted to 'Place', wound down 2016) -- TechCrunch's Mar 2015 funding recap ('The Backplane Black Box') gives a full round-by-round history (2011 $1.8M seed: Google Ventures, SV Angel, Menlo; Series A to $12M total: Sequoia, FF Angel, Greylock; early-2014 $10M convertible note) and Battery Ventures is named in NONE of it. FLAG FOR REVIEW: this casts doubt on whether Battery's compliance-list 'The Backplane' entry is this company at all, or a namesake; I did not force a match without a citation. Nothing establishes when (or whether) Battery's money went into this specific company.",
+  "seed_to_a_graduation": null,
   "slug": "the-backplane",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "the-newsmarket": {
   "entry_stage": "Growth",
@@ -14109,43 +14283,53 @@
  },
  "thundra": {
   "entry_date": "2019-11-26",
+  "entry_stage": "Series A",
+  "entry_stage_citation": "https://techcrunch.com/2020/01/22/thundra-nabs-4m-series-a-to-secure-and-troubleshoot-serverless-workloads/",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
   "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
   "graduation_confidence": "high",
-  "graduation_source": "formd",
-  "note": "Thundra, serverless observability and CI acceleration (Turkish-founded); acquired by Catchpoint Systems in 2022, which the compliance list names as the successor. Neeraj Agrawal on the 2019 $4.0M Form D inside tenure; the Seed entry with graduation=false stands. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Form D layer verdict accepted. Entry filing 2019-11-26 for $4.0M (Seed by band) is the company's only filing; Catchpoint bought Thundra in 2022 before an A. Not disputed.",
-  "seed_to_a_graduation": "not_graduated",
+  "graduation_source": null,
+  "note": "Thundra, serverless observability and CI acceleration (Turkish-founded); acquired by Catchpoint Systems in 2022, which the compliance list names as the successor. Neeraj Agrawal on the 2019 $4.0M Form D inside tenure; the Seed entry with graduation=false stands. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Form D layer verdict accepted. Entry filing 2019-11-26 for $4.0M (Seed by band) is the company's only filing; Catchpoint bought Thundra in 2022 before an A. Not disputed. | DISPUTING the Form D band call: TechCrunch's Jan 2020 headline is 'Thundra announces $4M Series A' -- the same $4M round as the Nov 2019 Form D entry filing. No earlier round is on record. Re-staged from Seed (formd_band) to Series A; the graduation column no longer applies. Catchpoint Systems acquired Thundra in 2022 with no round in between.",
+  "seed_to_a_graduation": null,
   "slug": "thundra",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "tomfoolery": {
-  "entry_date": "2013",
+  "entry_date": "2013-01",
   "entry_stage": "Seed",
-  "entry_stage_citation": "https://techcrunch.com/2014/01/28/yahoo-tomfoolery/",
+  "entry_stage_citation": "https://techcrunch.com/2013/01/30/tomfoolery-a-mobile-first-consumer-driven-enterprise-app-lab-from-ex-aol-and-yahoo-execs-picks-up-1-7m-from-andreessen-horowitz-jerry-yang-and-more/",
   "entry_stage_confidence": "low",
   "entry_stage_source": "web_verified",
   "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
-  "graduation_asof": "2026-09-17",
+  "graduation_asof": "2026-09-21",
   "graduation_citation": "https://techcrunch.com/2014/01/28/yahoo-tomfoolery/",
   "graduation_confidence": "medium",
   "graduation_source": "web_verified",
+  "graduation_surfaces": [
+   "firm: no dedicated company page on record; googlenews_firm \"Tomfoolery\" \"Battery Ventures\" -> 0 results",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Tomfoolery\" round words -> 25 results, dominated by noise on the common word 'tomfoolery'; the only hits about this company are the Jan 2013 seed and the Jan 2014 Yahoo acquisition",
+   "techcrunch: Tomfoolery -> 30 results, several legitimate hits (the Jan 2013 seed, 2013 product launches, the Jan 2014 acquisition), nothing after the acquisition naming a new round"
+  ],
   "hq_city": "San Francisco",
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Tomfoolery, enterprise social apps founded by ex-Yahoo executives; acqui-hired back by Yahoo in 2014, which the compliance list names as the successor. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: TechCrunch of 2014-01-28 reports Yahoo's roughly $16M acquisition and says Tomfoolery 'opened for business last year with seed funding of $1.7 million', the company's only round, and that it was unclear whether it was raising another. The seed was the last round. The stage leg sits at low because the page's investor list (Andreessen Horowitz, David Tisch, Jerry Yang and other Yahoo and AOL veterans) does not name Battery; Battery's own compliance list is what places the firm in the company, and the only round the company ever raised is that seed.",
+  "note": "Tomfoolery, enterprise social apps founded by ex-Yahoo executives; acqui-hired back by Yahoo in 2014, which the compliance list names as the successor. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: TechCrunch of 2014-01-28 reports Yahoo's roughly $16M acquisition and says Tomfoolery 'opened for business last year with seed funding of $1.7 million', the company's only round, and that it was unclear whether it was raising another. The seed was the last round. The stage leg sits at low because the page's investor list (Andreessen Horowitz, David Tisch, Jerry Yang and other Yahoo and AOL veterans) does not name Battery; Battery's own compliance list is what places the firm in the company, and the only round the company ever raised is that seed. | Upgraded the stage citation to the round's own Jan 2013 TechCrunch announcement ($1.7M seed from Andreessen Horowitz, Jerry Yang and others; Battery is not named in the investor list there either, so confidence stays low per the existing reasoning -- Battery's own compliance list is what ties the firm to the company). TechCrunch's Jan 2014 piece reports Yahoo's ~$16M acquisition and confirms the seed was the company's only round; no later round found on any recognizably-relevant surface (re-checked 2026-09-21).",
   "seed_to_a_graduation": "not_graduated",
   "slug": "tomfoolery",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "tradeking": {
   "flags": [],
@@ -14168,20 +14352,27 @@
   "flags": [],
   "focus": "Fintech & Payments",
   "focus_source": "model",
+  "graduation_asof": "2026-09-21",
   "graduation_confidence": "high",
   "graduation_source": "formd",
+  "graduation_surfaces": [
+   "firm: no dedicated company page on record; googlenews_firm \"Trading Machines Holdings\" \"Battery Ventures\" -> 0 results",
+   "formd: single $5.0M entry filing 2009-10-27, no filing after (rescan as-of 2026-09-06)",
+   "crunchbase_news: Trading Machines Holdings -> 4 results, none naming the company (recognition check: all unrelated)",
+   "techcrunch: Trading Machines Holdings -> 30 results, none naming the company (recognition check: all unrelated, the phrase is too generic)"
+  ],
   "hq_city": "New York",
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Trading Machines Holdings, LLC, a proprietary options-trading technology firm; wound down in the mid-2010s. Michael Brown and Scott Tobin on the 2009 $5.0M Form D, both inside tenure. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Form D layer verdict accepted. Entry filing 2009-10-27 for $5.0M (Seed by band) is the firm's only filing and it wound down in the mid-2010s. Not disputed.",
+  "note": "Trading Machines Holdings, LLC, a proprietary options-trading technology firm; wound down in the mid-2010s. Michael Brown and Scott Tobin on the 2009 $5.0M Form D, both inside tenure. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Form D layer verdict accepted. Entry filing 2009-10-27 for $5.0M (Seed by band) is the firm's only filing and it wound down in the mid-2010s. Not disputed. | Form D layer verdict accepted unchanged: the single $5.0M entry filing (2009-10-27) is the firm's only filing on record, no filing follows it, and no press surface names the company (all raw hits fail recognition -- 'trading machines' is too generic). The firm wound down in the mid-2010s (re-checked 2026-09-21).",
   "seed_to_a_graduation": "not_graduated",
   "slug": "trading-machines-holdings",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "travelguru": {
   "entry_stage": "Growth",
@@ -14339,25 +14530,37 @@
   "valuation_range": "below_1b"
  },
  "umami": {
+  "entry_date": "2011-08",
   "entry_stage": "Seed",
-  "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_citation": "https://techcrunch.com/2011/08/16/battery-ventures-and-nea-back-social-tv-app-umami/",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
   "flags": [
    "stage_uncited"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
+  "graduation_asof": "2026-09-21",
+  "graduation_confidence": "low",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: no dedicated company page on record; googlenews_firm \"Umami\" \"Battery Ventures\" -> 1 result, the Feb 2012 Hollywood Reporter feature-launch piece",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Umami\" round words -> 53 results, overwhelmingly noise (the Umami Burger restaurant chain, umami-flavor food coverage); the only hit clearly about this company is the Feb 2012 Hollywood Reporter piece",
+   "techcrunch: Umami -> 30 results plus a targeted 'Umami app'/'Umami Fox' search (2026-09-21), both dominated by unrelated hits; the only piece about this company is the Aug 2011 seed announcement itself, and no citable article for the compliance list's reported 2013 FOX acquisition could be found"
+  ],
   "hq_city": "San Francisco",
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "UMAMI, Inc., social television discovery; acquired by FOX in 2013. Compliance list marks it exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: UMAMI, Inc. (social television discovery, acquired by FOX in 2013). Searches on 2026-09-17 found no funding announcement naming Battery and no acquisition article giving its funding history, so neither leg could be cited.",
+  "note": "UMAMI, Inc., social television discovery; acquired by FOX in 2013. Compliance list marks it exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: UMAMI, Inc. (social television discovery, acquired by FOX in 2013). Searches on 2026-09-17 found no funding announcement naming Battery and no acquisition article giving its funding history, so neither leg could be cited. | Found the seed citation directly (the automated ALL-CAPS 'UMAMI' query missed it): TechCrunch's Aug 2011 piece names Battery Ventures and NEA backing Umami's $1.65M seed, the company's first round. The Hollywood Reporter's Feb 2012 piece confirms it was still operating on that seed. The compliance list's 2013 FOX acquisition could not be independently verified with a citable article despite a targeted search; heavy name-collision noise (Umami Burger, umami-flavor food coverage) limits corroboration further, so confidence is low.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "umami",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "unify": {
   "flags": [
@@ -14576,9 +14779,9 @@
   "valuation_range": "below_1b"
  },
  "vaunte": {
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage": "undetermined",
+  "entry_stage_confidence": null,
+  "entry_stage_source": null,
   "flags": [
    "stage_uncited"
   ],
@@ -14590,11 +14793,12 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Vaunte, peer-to-peer luxury-fashion resale; absorbed in the mid-2010s. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Vaunte (peer-to-peer luxury-fashion resale, absorbed in the mid-2010s). Searches on 2026-09-17 found no funding announcement naming Battery and no acquisition article, so neither leg could be cited.",
+  "note": "Vaunte, peer-to-peer luxury-fashion resale; absorbed in the mid-2010s. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Vaunte (peer-to-peer luxury-fashion resale, absorbed in the mid-2010s). Searches on 2026-09-17 found no funding announcement naming Battery and no acquisition article, so neither leg could be cited. | Vaunte (peer-to-peer luxury-fashion resale, absorbed mid-2010s) has no seed announcement, Form D entry or dated listing on record; a direct 'Vaunte' + 'Battery Ventures' search and a TechCrunch search (2026-09-21) return nothing about this company. Nothing establishes when Battery's money went in.",
+  "seed_to_a_graduation": null,
   "slug": "vaunte",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "vayar-vision": {
   "entry_stage": "undetermined",
@@ -15121,6 +15325,7 @@
   "valuation_range": "below_1b"
  },
  "wavii": {
+  "entry_date": "2011-01",
   "entry_stage": "Seed",
   "entry_stage_citation": "https://techcrunch.com/2013/04/23/google-buys-wavii-for-north-of-30-million/",
   "entry_stage_confidence": "low",
@@ -15128,22 +15333,28 @@
   "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
-  "graduation_asof": "2026-09-17",
+  "graduation_asof": "2026-09-21",
   "graduation_citation": "https://techcrunch.com/2013/04/23/google-buys-wavii-for-north-of-30-million/",
   "graduation_confidence": "medium",
   "graduation_source": "web_verified",
+  "graduation_surfaces": [
+   "firm: no dedicated company page on record; googlenews_firm \"Wavii\" \"Battery Ventures\" -> 0 results",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Wavii\" round words -> 10 results, the Apr 2013 Google acquisition dominates, nothing else",
+   "techcrunch: Wavii -> 28 results, the Jan 2011 $2M seed round through the Apr 2013 acquisition, nothing else in between"
+  ],
   "hq_city": "Seattle",
   "hq_city_confidence": "medium",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Wavii, natural-language news summarisation; acquired by Google in 2013 for a reported ~$30M. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: TechCrunch of 2013-04-23 reports Google's north-of-$30M acquisition and that 'at the time of acquisition, Wavii had raised $2 million in seed funding' - the company's only round, so the seed was the last one. The stage leg sits at low because the page's investor list (Max Levchin, CrunchFund, SV Angel, Felicis, Mitch Kapor and others) does not name Battery; Battery's own compliance list is what places the firm in the company, and that seed is the only round it could have entered at.",
+  "note": "Wavii, natural-language news summarisation; acquired by Google in 2013 for a reported ~$30M. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: TechCrunch of 2013-04-23 reports Google's north-of-$30M acquisition and that 'at the time of acquisition, Wavii had raised $2 million in seed funding' - the company's only round, so the seed was the last one. The stage leg sits at low because the page's investor list (Max Levchin, CrunchFund, SV Angel, Felicis, Mitch Kapor and others) does not name Battery; Battery's own compliance list is what places the firm in the company, and that seed is the only round it could have entered at. | Filled the missing entry_date from TechCrunch's own Jan 2011 piece ('Waviimania Continues As Investors Flock To Parade', $2 million), which matches the seed amount the Apr 2013 acquisition piece cites as Wavii's only round. No later round found on any searched surface (re-checked 2026-09-21).",
   "seed_to_a_graduation": "not_graduated",
   "slug": "wavii",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "wayfair": {
   "flags": [],
@@ -15174,22 +15385,27 @@
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "graduation_asof": "2026-09-17",
+  "graduation_asof": "2026-09-21",
   "graduation_citation": "https://techcrunch.com/2021/08/25/maxab-gets-an-extra-15m-acquires-yc-backed-moroccan-startup-waystocap/",
   "graduation_confidence": "medium",
   "graduation_source": "web_verified",
+  "graduation_surfaces": [
+   "firm: no dedicated company page on record; googlenews_firm \"WaystoCap\" \"Battery Ventures\" -> 4 results, the 2017 seed and a 2018 World Economic Forum recognition piece, nothing about a new round",
+   "googlenews: \"WaystoCap\" round words -> 9 results, the 2017 seed and the 2021 MaxAB acquisition (whose '$15M Series A' is MaxAB's own extension round, not WaystoCap's), nothing else",
+   "techcrunch: WaystoCap -> 10 results, 2017 launch/seed pieces through the 2021 MaxAB acquisition, nothing else"
+  ],
   "hq_city": "Casablanca",
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
   "hq_country": "MA",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "WaystoCap, a Y Combinator-backed B2B trade marketplace for Africa headquartered in Casablanca; wound down. This row genuinely IS Moroccan \u2014 unlike the Marco Polo row, where Wikidata's 'MA' was a join failure. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: TechCrunch of 2021-08-25 reports MaxAB's acquisition of the YC-backed Casablanca company and says it 'subsequently raised a $3 million seed round' and that 'the last time the company took venture capital was in 2017' - so the 2017 seed was the last round. The stage leg is low because the page names no investor; Battery's compliance list places the firm in the company and that seed is the only round on record.",
+  "note": "WaystoCap, a Y Combinator-backed B2B trade marketplace for Africa headquartered in Casablanca; wound down. This row genuinely IS Moroccan \u2014 unlike the Marco Polo row, where Wikidata's 'MA' was a join failure. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: TechCrunch of 2021-08-25 reports MaxAB's acquisition of the YC-backed Casablanca company and says it 'subsequently raised a $3 million seed round' and that 'the last time the company took venture capital was in 2017' - so the 2017 seed was the last round. The stage leg is low because the page names no investor; Battery's compliance list places the firm in the company and that seed is the only round on record. | TechCrunch's Aug 2021 piece reports MaxAB's acquisition of WaystoCap and says the company 'subsequently raised a $3 million seed round' and that 'the last time the company took venture capital was in 2017'; the '$15M Series A' in the same headline is MaxAB's own extension round, not WaystoCap's. No later round for WaystoCap found on any searched surface (re-checked 2026-09-21).",
   "seed_to_a_graduation": "not_graduated",
   "slug": "waystocap",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "weaviate": {
   "entry_stage": "Growth",
@@ -15271,25 +15487,36 @@
   "valuation_range": "below_1b"
  },
  "wikets": {
+  "entry_date": "2011-09",
   "entry_stage": "Seed",
-  "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
-  "flags": [
-   "stage_uncited"
-  ],
+  "entry_stage_citation": "https://techcrunch.com/2011/09/27/wikets-raises-1-5-million-from-andreessen-horrowitz-battery-for-its-new-social-commerce-app/",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
+  "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
+  "graduation_asof": "2026-09-21",
+  "graduation_confidence": "medium",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: 2012 portfolio listing (web.archive.org capture) + googlenews_firm (\"Wikets\" \"Battery Ventures\") -> 0 results beyond the 2011 seed coverage",
+   "formd: no Form D filings on record for the company",
+   "techcrunch: Wikets -> 4 results, only the Sep-2011 $1.5M seed coverage (Battery + a16z), no later round or shutdown",
+   "googlenews: \"Wikets\" round words -> 0 results",
+   "crunchbase_news: Wikets -> 0 results"
+  ],
   "hq_city": "San Francisco",
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Wikets, a mobile marketplace for trading goods; wound down in the mid-2010s. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Wikets (a mobile marketplace for trading goods, wound down in the mid-2010s). Searches on 2026-09-17 found no funding announcement naming Battery and no shutdown article, so neither leg could be cited.",
+  "note": "Wikets, a mobile marketplace for trading goods; wound down in the mid-2010s. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Wikets (a mobile marketplace for trading goods, wound down in the mid-2010s). Searches on 2026-09-17 found no funding announcement naming Battery and no shutdown article, so neither leg could be cited. | Wikets (mobile marketplace for trading goods). TechCrunch (2011-09-27) confirms a $1.5M seed from a16z and Battery, reiterated by a follow-up post (2011-11-08). No later round found across Google News, TechCrunch or Crunchbase News, and no Form D on record; the company reportedly wound down mid-2010s per the compliance list but no citable shutdown article was found, so the no rests on the absence check.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "wikets",
   "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "wing-cloud": {
   "entry_date": "2023-07",
@@ -15300,22 +15527,28 @@
   "flags": [],
   "focus": "Data Infrastructure",
   "focus_source": "model",
-  "graduation_asof": "2026-09-17",
+  "graduation_asof": "2026-09-21",
   "graduation_citation": "https://thenewstack.io/wing-the-startup-failed-but-the-language-has-potential/",
   "graduation_confidence": "high",
   "graduation_source": "web_verified",
+  "graduation_surfaces": [
+   "firm: no dedicated company page on record; googlenews_firm \"Wing Cloud\" \"Battery Ventures\" -> 5 results, the July 2023 seed and April 2025 shutdown coverage",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Wing Cloud\" round words -> 8 results, the July 2023 $20M seed and the April 2025 shutdown, nothing else",
+   "techcrunch: Wing Cloud -> 30 results, no funding round beyond the seed found"
+  ],
   "hq_city": "San Francisco",
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Wing Cloud, Inc., the Winglang cloud-development language; Israeli-founded. Compliance-list-only, first listed 2024 and not marked exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: FinSMEs of 2023-07-18 names Wing Cloud's $20M Seed round led by Battery Ventures, Grove Ventures and StageOne Ventures; The New Stack of 2025-04-21 reports the company's wind-down, with the Winglang language left to the community. The seed was the only round (checked 2026-09-17).",
+  "note": "Wing Cloud, Inc., the Winglang cloud-development language; Israeli-founded. Compliance-list-only, first listed 2024 and not marked exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: FinSMEs of 2023-07-18 names Wing Cloud's $20M Seed round led by Battery Ventures, Grove Ventures and StageOne Ventures; The New Stack of 2025-04-21 reports the company's wind-down, with the Winglang language left to the community. The seed was the only round (checked 2026-09-17). | FinSMEs' July 2023 piece names Wing Cloud's $20M seed led by Battery Ventures, Grove Ventures and StageOne; The New Stack's April 2025 piece reports the startup's failure and wind-down (Winglang left to the community). The seed was the only round on any searched surface (re-checked 2026-09-21).",
   "seed_to_a_graduation": "not_graduated",
   "slug": "wing-cloud",
   "status": "private",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "witness-systems": {
   "entry_stage": "undetermined",
@@ -15469,6 +15702,7 @@
   "valuation_range": "below_1b"
  },
  "woven-software": {
+  "entry_date": "2018-11",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
@@ -15477,17 +15711,29 @@
   ],
   "focus": "SaaS",
   "focus_source": "model",
+  "graduation_asof": "2026-09-21",
+  "graduation_citation": "https://www.bloomberg.com/news/articles/2021-05-01/slack-technologies-buys-woven-to-boost-calendar-app-offering",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
+  "graduation_surfaces": [
+   "firm: portfolio listing only, no company page (https://www.battery.com/list-of-all-companies/) + googlenews_firm (\"Woven Software\" \"Battery Ventures\") -> 0 results",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Woven Software\" round words -> 1 result, not a match for this company",
+   "techcrunch: Woven Software -> 30 results, none named this company",
+   "crunchbase_news: Woven Software -> 7 results, none named this company"
+  ],
   "hq_city": "San Francisco",
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Woven Software, calendar and scheduling; acqui-hired in 2021. Compliance list marks it exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Woven Software (calendar and scheduling, acqui-hired in 2021, marked exited on the compliance list). FinSMEs, Google News and TechCrunch searches on 2026-09-17 found no funding announcement naming Battery and no acquisition article, so neither leg could be cited.",
+  "note": "Woven Software (calendar/scheduling), the same company as Felicis' 'Woven' sibling record: launched Nov-2018 (per that record) and acquired by Slack Apr-2021 (Bloomberg) - the seed's only round, so not_graduated. Battery's own searches (crunchbase_news, googlenews, techcrunch) surfaced no company-specific hits beyond noise.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "woven-software",
   "status": "acquired",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "who": "agent-judge-s2a-battery-ventures"
  },
  "wunderkind": {
   "entry_stage": "Growth",
