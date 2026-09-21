@@ -231,3 +231,58 @@ leave the cohort by rule.
 
 `verify.shape.c2a_rate_max` is restated 0.80 → 0.90 (D-S2A). `verify` is
 clean.
+
+## Addendum 2026-09-20: S2A with every Seed row decided (PRO-132)
+
+PRO-132 made the absence of a later round a finding. A Seed row past the
+24-month clock with no evidence of a later round did not graduate, and every
+no records the dated search that found nothing: the firm's archive and at
+least two publisher surfaces (COLLECTION.md §6). Creandum files no Form Ds, so
+every decision rests on a citation or on that search.
+
+| seed entries | censored | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|
+| 79 | 8 | 71 | 37 | 34 | 52.1% | 100% |
+
+Of 79 seed entries, 8 were too recent to count (terralayr, Boardy, Maisa, Ares
+Intelligence, Jack & Jill, Vesence, PAVE Space, Hosted·ai); of the 71 that
+remain, 52.1% raised a later round. Of the 34 that did not, 10 rest on a cited
+end (an acquisition or shutdown with the seed as the last round) and 24 on a
+dated search of the named surfaces. 23 decided rows rest on an uncited seed
+and carry `stage_uncited`.
+
+Was (D-S2A, 2026-09-17): 79 seed entries, 8 censored, 34 undetermined, cohort
+37 at 83.8% with 52% coverage. The 34 rows that could not be established were,
+as the issue predicted, mostly the quiet ones: the rate falls by 31 points.
+
+**A local-language re-check backs the nos.** The first pass searched English
+surfaces only, and a Nordic round reported only at home would read as a false
+no. `graduation-surfaces.py` now adds the company's own Google News edition
+(`googlenews_local`: sv-SE, da-DK, fi-FI, de-DE, fr-FR, nl-NL and others, with
+local round words); run over every Creandum no on 2026-09-20, it found no later
+round.
+
+What moved in review:
+
+- **Soundtrack Your Brand** graduates. The judge had recorded a no beside a
+  $22M round three years after the 2014 seed because the seed's amount is
+  not on record. That is never a reason for a no: the era's seed-band ceiling
+  now stands in for an unknown seed (COLLECTION.md §6), which puts the bar
+  for a 2014 entry at $5M.
+- **lemon.markets** graduates, on the bar. The EUR15M round of 2022 is itself
+  called a seed; the unnamed EUR12M round of July 2024 (about $13.0M) clears
+  the $12M stand-in bar for a 2020 entry. Low confidence.
+- **Autobutler** leaves the cohort. Dawn Capital's 2012 round was the seed;
+  Creandum came in with "over USD 5 million" as the second round (the firm's
+  own post), which no page names, so the stage reads `undetermined`.
+
+`verify.shape.c2a_rate_max` returns from 0.90 to the 0.80 default. `verify` is
+clean.
+
+For Erik: **Nanoxis** is the one no before the press surfaces' 2005 coverage
+without a terminal event. It rests instead on the firm's own archive, whose
+captures from 2003 to 2010 span the follow-on window and list only the
+September 2003 seed (the company carried on as a small consultancy). Its
+`graduation_source` reads `first_party` for that reason; it is the class to
+rule on if the 2005 rule should admit a first-party archive that covers the
+window.
