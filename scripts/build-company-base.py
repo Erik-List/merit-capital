@@ -122,6 +122,9 @@ STOP_SUFFIX = re.compile(
     r"\b(inc|corp|corporation|co|company|ltd|limited|llc|l\.l\.c|lp|l\.p|plc|"
     r"gmbh|ag|nv|sa|holdings?|group)\b\.?", re.I)
 
+CMS_DUPLICATE = re.compile(r"^(.+)-([2-9])$")
+
+
 def norm(name: str) -> str:
     """Join key: legal suffixes and all spacing/punctuation removed, so
     'Mark Logic' (Wayback slug) and 'MarkLogic' (Form D) are one company.
@@ -184,6 +187,19 @@ def main() -> None:
     _roster = json.load(open(WB / "partner-roster.json"))
     people_slugs = {r["slug"] for r in _roster}
     people_names = [r["name"] for r in _roster]
+    # A CMS mints "<slug>-2" when a page is created under a slug already in
+    # use, so a NAMELESS "/companies/drum-2" beside "/companies/drum" is a
+    # second page for one company, and its slug-derived display ("Drum 2") is
+    # an artifact, never the company's name (Felicis, 2026-09-21: the rebuild
+    # published "Drum 2" and "January 2"). Keyed on the stem being a listed
+    # slug of the same investor, so a lone "Sand 9" is untouched; and it only
+    # ranks the name (better_name), never merges rows. Opt-in per investor
+    # (config wayback.cms_duplicate_pages): YC's directory uses the same
+    # suffix for different companies that share a name, and its identity
+    # decisions are keyed on those slugs, so ranking there unhooks them.
+    CMS_DUP_PAGES = bool(CFG["wayback"].get("cms_duplicate_pages"))
+    wb_slugs = {r["slug"] for f in (WB / "parsed").glob("*.json")
+                for r in json.load(open(f))}
     for f in sorted((WB / "parsed").glob("*.json")):
         year = int(f.stem)
         for r in json.load(open(f)):
@@ -206,6 +222,10 @@ def main() -> None:
                     row["_name_from_slug"] = False
             elif "_name_from_slug" not in row:
                 row["_name_from_slug"] = True
+            cms = CMS_DUPLICATE.match(slug) if CMS_DUP_PAGES else None
+            if not r.get("name") and cms and cms.group(1) in wb_slugs \
+                    and row["name"] == display:
+                row["_cms_duplicate"] = True
             row["wayback_years"].add(year)
             if row["wayback_first"] is None or year < row["wayback_first"][0]:
                 row["wayback_first"] = (year, r.get("snapshot_ts", ""), r["path"])
@@ -674,6 +694,7 @@ def main() -> None:
 
         rows_out.append({
             "slug": r["slug"], "name": r["name"], "tier": tier, "status": status,
+            "_cms_duplicate": bool(r.get("_cms_duplicate") and r.get("_name_from_slug")),
             "lineage": lineage, "first_seen": first,
             "site_entry_stage": r.get("site_entry_stage") or "",
             "site_invest_year": r.get("site_invest_year") or "",
@@ -777,6 +798,10 @@ def main() -> None:
         a_live, b_live = bool(a.get("site_url")), bool(b.get("site_url"))
         if a_live != b_live:
             return a["name"] if a_live else b["name"]
+        # A CMS duplicate page's slug display loses to any other rendering.
+        a_dup, b_dup = bool(a.get("_cms_duplicate")), bool(b.get("_cms_duplicate"))
+        if a_dup != b_dup:
+            return b["name"] if a_dup else a["name"]
         a_year, b_year = last_listed(a), last_listed(b)
         if a_year != b_year:
             return a["name"] if a_year > b_year else b["name"]
@@ -852,6 +877,7 @@ def main() -> None:
                 continue
             keep, gone = r, r2
             keep["name"] = better_name(r, r2)
+            keep["_cms_duplicate"] = (r if keep["name"] == r["name"] else r2).get("_cms_duplicate", False)
             keep["slug"] = slug_of(keep["name"])
             union_rows(keep, gone)
             drop.add(id(gone))
@@ -875,6 +901,8 @@ def main() -> None:
             # Chosen BEFORE the union, which would merge the two rows'
             # listing years together and destroy the recency comparison.
             pinned_name = m.get("name") or better_name(keep, gone)
+            dup_flag = False if m.get("name") else \
+                (keep if pinned_name == keep["name"] else gone).get("_cms_duplicate", False)
             union_rows(keep, gone)
             # The site's own rendering owns the name (COLLECTION.md 5). An
             # identity merge can absorb the row that carries the CURRENT name
@@ -887,6 +915,7 @@ def main() -> None:
             # into a CMS row filed under the acquirer 3Com), and the
             # longest-rendering fallback would publish the wrong one.
             keep["name"] = pinned_name
+            keep["_cms_duplicate"] = dup_flag
             keep["notes"] = "; ".join(filter(None, [
                 keep["notes"], f"absorbed {ds} ({m['reason']})"]))
             rows_out.remove(gone)
