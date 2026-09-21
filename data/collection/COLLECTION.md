@@ -1599,6 +1599,12 @@ less, so no verified tag exists: the cohort is the verified set):
   no there would delete censoring and turn the column into a point-in-time
   snapshot, which is a different metric. The clock is
   re-read on every `verify`; an entry that has aged past it owes a decision.
+  A coarse date is read at the LATEST day it can mean, for a no and for
+  `censored` alike (PRO-132): a bare `2024` may still be inside the window
+  on 2026-09-20, so it is censored and cannot be a no; a bare `2023` cannot
+  be young, so it is decided. Every coarse date is therefore decidable, and
+  none is decided on a guessed month (Lightspeed's Zo Computer, whose firm
+  card gives only the year).
 - **A paywall is not a reason to abstain** (Erik, 2026-09-19). Where a round
   is known to exist behind a publisher that blocks us, classify on what is
   visible independent of the paywall: a headline, a snippet or an index entry
@@ -1648,7 +1654,10 @@ for a 2006 seed until `fb6fa17`). A bare year reads as its first day for
 `censored` and its last day for a no, so a recent entry needs month precision
 either way. Cross-check (invariant 7): no row ends `not_graduated` +
 (valuation ≥$1B or public); that combination is a Form D blind spot
-(4(a)(2), foreign), and the round that exists is cited instead.
+(4(a)(2), foreign), and the round that exists is cited instead. **Except
+where the entry round set the mark**: a private row whose $1B+ mark dates
+within six months of its entry was valued by its own seed, and implies no
+later round (Yuga Labs' $450M seed at $4B, March 2022, never followed).
 
 The published block carries five numbers: seed entries, censored, cohort
 (`sample_size`), graduated, rate. Coverage, `sample_size / (seed_entries −
@@ -2107,8 +2116,10 @@ run before the investor row exists (Thrive, 2026-09-04).
    failed. `cohort_unverified` is not an allowed end state (retired
    2026-09-16).
 6. Non-US country on a visible row → citation or formd/wikidata provenance.
-7. No row ends `not_graduated` + (≥$1B or public); no `censored` row whose
-   entry is ≥24 months old.
+7. No row ends `not_graduated` + (≥$1B or public), except a private row
+   whose $1B+ mark dates within six months of its entry (the entry round set
+   the mark, so no later round is implied); no `censored` row whose entry,
+   read at the latest day its date can mean, is ≥24 months old.
 8. Drift: overlay keys ⊆ live base slugs (the no-rebuild-mid-run rule).
 9. Debt only where flagged; the flags are counted in the report.
 10. Cross-investor: a company held by another investor reads the same

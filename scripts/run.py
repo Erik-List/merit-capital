@@ -588,8 +588,9 @@ def graduation_open(rec: dict) -> bool:
         return True
     if g == "censored":
         # the clock is re-read every time: an entry that has aged past it
-        # owes a decision
-        age = months_since(rec.get("entry_date"))
+        # owes a decision (read at the latest day the date can mean, so a
+        # bare year that straddles the window stays censored until it cannot)
+        age = months_since(latest_day(rec.get("entry_date")))
         return age is None or age >= CENSOR_MONTHS
     if not rec.get("entry_date"):
         return True
@@ -1392,7 +1393,10 @@ def validate_record(rec: dict, slugs: set[str], merged: dict | None = None,
                                 f"row carries one (the seed's date, from its citation, "
                                 f"the Form D entry or the firm's own listing year)")
             elif g == "censored":
-                age = months_since(view.get("entry_date"))
+                # The latest day the date can mean: a bare year whose last
+                # day is inside the window may be censored, because the clock
+                # wins while the entry could still be young.
+                age = months_since(latest_day(view.get("entry_date")))
                 if age is None:
                     errs.append(f"{slug}: censored needs entry_date (YYYY, YYYY-MM or YYYY-MM-DD)")
                 elif age >= CENSOR_MONTHS:
@@ -2313,8 +2317,19 @@ def cmd_verify(args) -> None:
                         owed_absence += 1
                     else:
                         problems.extend(absence)
-                if rec.get("valuation_range") in ("1b_plus", "10b_plus", "100b_plus") \
-                        or rec.get("is_public"):
+                # Invariant 7 reads a $1B+ mark as proof of a later round the
+                # filings missed. That fails where the ENTRY round set the mark
+                # -- a mega-seed priced above $1B and never followed (Yuga
+                # Labs' $450M seed at $4B, 2022) -- so a private row whose mark
+                # dates within six months of its entry is exempt: there is no
+                # later round the mark implies.
+                mark = str(rec.get("valuation_asof") or "")[:10]
+                mark = mark + "-01" * ((10 - len(mark)) // 3) if ENTRY_DATE_RE.fullmatch(mark) else ""
+                gap = months_since(str(rec.get("entry_date") or ""), mark) \
+                    if rec.get("entry_date") and mark else None
+                mark_is_entry = (not rec.get("is_public") and gap is not None and abs(gap) <= 6)
+                if (rec.get("valuation_range") in ("1b_plus", "10b_plus", "100b_plus")
+                        or rec.get("is_public")) and not mark_is_entry:
                     problems.append(f"{slug}: not_graduated on a $1B+/public row "
                                     f"(invariant 7: a Form D blind spot, not a no)")
             elif not rec.get("entry_date"):
@@ -2324,7 +2339,7 @@ def cmd_verify(args) -> None:
                     problems.append(f"{slug}: graduated without an entry_date; every decided "
                                     f"row carries one")
         elif g == "censored":
-            age = months_since(rec.get("entry_date"))
+            age = months_since(latest_day(rec.get("entry_date")))
             if age is None or age >= CENSOR_MONTHS:
                 msg = (f"{slug}: censored but entry_date {rec.get('entry_date')!r} is "
                        f"{age if age is not None else 'not a date'}"
