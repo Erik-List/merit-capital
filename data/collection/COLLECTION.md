@@ -1528,7 +1528,14 @@ less, so no verified tag exists: the cohort is the verified set):
   still an A (Menlo's Decent, $8M seed → $10M A; Mimic, $27M → $50M; Spark's
   Panjo, $1.6M → $4.6M). The 2× / $5M step-up decides only rounds with no
   name, which in practice means the Form D layer: it reports amounts and
-  never round words, so there the test stands unchanged. **A vendor page never
+  never round words, so there the test stands unchanged. **Where the seed's
+  amount is not on record, the era's seed-band ceiling stands in for it**
+  (the structural rules under entry_stage: $1.5M to 2010, $2.5M 2011-14, $4M
+  2015-18, $6M 2019-21, $8M from 2022), so an unnamed later round graduates
+  the row at $5M for an entry to 2014, $8M for 2015-18, $12M for 2019-21 and
+  $16M from 2022. An unknown seed amount is never a reason for a no: the first
+  PRO-132 pass recorded Creandum's Soundtrack Your Brand as not graduated
+  beside a $22M round three years after its 2014 seed. **A vendor page never
   cites a graduation either** (Rule A): Crunchbase profiles, PitchBook, Tracxn,
   Dealroom, CB Insights and the like transcribe a round, and the round's own
   announcement is the citation; `record` and `verify` refuse one
