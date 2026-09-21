@@ -1214,6 +1214,19 @@ still governs the moment a sale follows: insolvency **followed by an asset
 sale** is `acquired` with a successor note, because there the business
 continues under an acquirer. The note carries the filing date and court.
 
+**An acqui-hire does not decide the status; the company does** (Erik,
+2026-09-20, ruled on Clockwise and Styra). When a buyer hires the team but
+does not buy the company or its business, the row reads what happened to
+the company: `defunct` if it shut down, `private` (or `public`) if it still
+operates. Clockwise (team to Salesforce, which said it was "not acquiring
+Clockwise or its technology"; product shut 2026-03-27) and Styra (founders
+and most of the team to Apple, "did not acquire the company or its assets";
+products open-sourced or shut) are both `defunct`. A buyer that takes the
+business itself, the product or unit as a going concern, is still a sale
+and reads `acquired` under the asset-sale rule above; an announcement that
+calls it an acquisition (Postmates and Sosh) is read the same way. The note
+names the hire and cites the shutdown or the evidence the company operates.
+
 **Whichever surface supplies status covers only its own rows.** A site CMS
 carries status for listed rows and nothing for members that entered
 through filings, captures or recall; the grind authors status for every
@@ -1222,7 +1235,8 @@ found 105 such rows with no status at all). The firm's own status field
 also goes stale, and the base overrides it with the cited event
 (Lightspeed carried Wiz as `acquired` while the site still said Private).
 **`defunct` is undercounted by construction** (Accel 3.3%): quiet
-shutdowns present as `private` or `unknown`, acquihires as `acquired`. The
+shutdowns present as `private` or `unknown`, and an acqui-hire recorded
+before the 2026-09-20 ruling may still read `acquired`. The
 column answers "last known state", not survivorship; no mortality rate may
 be read off it, and the report says so.
 
