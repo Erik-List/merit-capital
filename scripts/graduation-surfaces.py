@@ -13,7 +13,7 @@ record mechanical, so every judge searches the same surfaces the same way and a
     python3 scripts/graduation-surfaces.py <investor> --slugs a,b
     python3 scripts/graduation-surfaces.py decode <google-news-id-or-url>
 
-Per row it queries four surfaces and writes the investor's
+Per row it queries four surfaces (five outside the US) and writes the investor's
 scratch/graduation-surfaces.json:
 
   googlenews       Google News search: the company's name with round and exit
@@ -24,6 +24,12 @@ scratch/graduation-surfaces.json:
   crunchbase_news  Crunchbase News's own search (its WordPress API), 2017 on.
                    The vendor's NEWS arm reporting a round is press (Rule A);
                    its database pages are not, and are never a surface here.
+  googlenews_local For a company outside the US, Google News in the company's
+                   own edition and language (sv-SE, de-DE, fr-FR, ...) with the
+                   round words its home press uses. A round reported only at
+                   home is invisible to the English searches above.
+
+Recorded nos stay targets on every run, so a re-run is also a re-check.
 
 It also carries what sibling investors already established for the same
 company (a decided graduation with its citation, a cited entry stage), because
@@ -95,14 +101,25 @@ SUFFIX_RE = re.compile(r"[,\s]+(inc|inc\.|incorporated|llc|l\.l\.c\.|ltd|ltd\.|l
 ROUND_RE = re.compile(
     r"\b(pre-?seed|seed(?:\s+(?:round|funding|extension))?|series\s+[a-h]\b(?:\+|-\d)?|"
     r"growth round|bridge|ipo|goes public|acqui(?:red|res|sition)|buys|merges?|"
-    r"shut(?:s|ting)? down|shutters|closes? (?:its )?doors|bankrupt\w*|insolven\w*)", re.I)
+    r"shut(?:s|ting)? down|shutters|closes? (?:its )?doors|bankrupt\w*|insolven\w*|"
+    # the home-market press's round words (googlenews_local)
+    r"finanzierungsrunde|finanzierung|finansiering|investering|rahoitus|levée|lève|"
+    r"financiering|financiación|finanziamento|s[ée]rie [a-h]\b|übernahme|übernimmt|"
+    r"förvärv|opkøb|konkurs|insolvenz)", re.I)
 AMOUNT_RE = re.compile(r"(?:US)?\$\s?\d+(?:[.,]\d+)?\s?(?:m|mn|million|b|bn|billion|k)\b"
                        r"|€\s?\d+(?:[.,]\d+)?\s?(?:m|mn|million|b|bn|billion)\b"
-                       r"|\b\d+(?:[.,]\d+)?\s?(?:million|billion)\b", re.I)
+                       r"|\b\d+(?:[.,]\d+)?\s?(?:million|billion|mio\.?|millionen|miljoner|"
+                       r"millioner|miljoonaa|millions|miljoen|millones|milioni|milhões|mrd\.?|"
+                       r"milliarden)\b", re.I)
 
 
 def clean_name(name: str) -> str:
-    n = re.sub(r"\s*\((?:formerly|fka|f/k/a|now)[^)]*\)", "", name or "", flags=re.I)
+    # Typographic quotes and dashes break TechCrunch's search outright (it
+    # answers "It’s Good" with an empty non-JSON body) and match nothing a
+    # headline would spell with the plain ones.
+    n = (name or "").translate(str.maketrans({"’": "'", "‘": "'", "“": '"', "”": '"',
+                                              "–": "-", "—": "-"}))
+    n = re.sub(r"\s*\((?:formerly|fka|f/k/a|now)[^)]*\)", "", n, flags=re.I)
     prev = None
     while prev != n:
         prev, n = n, SUFFIX_RE.sub("", n).strip()
@@ -136,10 +153,11 @@ def names_company(text: str, name: str) -> bool:
     return bool(re.search(r"(?<![\w-])" + re.escape(name) + r"(?![\w-])", text or "", re.I))
 
 
-def googlenews(query: str, name: str) -> dict:
+def googlenews(query: str, name: str, hl: str = "en-US", gl: str = "US") -> dict:
     wait("googlenews", RATES["googlenews"])
+    lang = hl.split("-")[0]
     url = ("https://news.google.com/rss/search?q=" + urllib.parse.quote(query)
-           + "&hl=en-US&gl=US&ceid=US:en")
+           + f"&hl={hl}&gl={gl}&ceid={gl}:{lang}")
     code, body = curl(url)
     if code != 200 or "<rss" not in body[:500]:
         return {"status": "error", "query": query, "http": code}
@@ -189,6 +207,44 @@ def wordpress(service: str, base: str, name: str) -> dict:
                       "rounds": rounds, "amounts": amounts})
     items.sort(key=lambda i: i["date"] or "")
     return {"status": "ok", "query": name, "n": len(items), "items": items}
+
+
+# The company's home-market press, for a company outside the US. Google News
+# searched in English misses a Nordic or German round reported only at home
+# (the first PRO-132 pass on Creandum found a quarter of its nos resting on
+# English surfaces alone), so a non-US row is also searched in its own
+# edition, with the round words its press uses.
+LOCAL_EDITIONS = {
+    "SE": ("sv", "SE", 'finansiering OR investering OR miljoner OR "Series A" OR "Series B"'),
+    "DK": ("da", "DK", 'investering OR kapital OR millioner OR "Series A" OR "Series B"'),
+    "FI": ("fi", "FI", 'rahoitus OR sijoitus OR miljoonaa OR "Series A" OR "Series B"'),
+    "NO": ("no", "NO", 'finansiering OR investering OR millioner OR "Series A" OR "Series B"'),
+    "DE": ("de", "DE", 'Finanzierung OR Finanzierungsrunde OR Millionen OR "Series A" OR "Series B"'),
+    "AT": ("de", "AT", 'Finanzierung OR Finanzierungsrunde OR Millionen OR "Series A" OR "Series B"'),
+    "CH": ("de", "CH", 'Finanzierung OR Finanzierungsrunde OR Millionen OR "Series A" OR "Series B"'),
+    "FR": ("fr", "FR", 'levée OR lève OR millions OR "série A" OR "Series A" OR "série B"'),
+    "NL": ("nl", "NL", 'investering OR financiering OR miljoen OR "Series A" OR "Series B"'),
+    "BE": ("fr", "BE", 'levée OR lève OR millions OR "série A" OR "Series A" OR "série B"'),
+    "ES": ("es", "ES", 'ronda OR financiación OR millones OR "serie A" OR "Series A"'),
+    "IT": ("it", "IT", 'round OR finanziamento OR milioni OR "serie A" OR "Series A"'),
+    "PT": ("pt-PT", "PT", 'ronda OR investimento OR milhões OR "série A" OR "Series A"'),
+    "BR": ("pt-BR", "BR", 'rodada OR investimento OR milhões OR "série A" OR "Series A"'),
+    "GB": ("en", "GB", ROUND_WORDS),
+    "IE": ("en", "IE", ROUND_WORDS),
+    "IN": ("en", "IN", ROUND_WORDS),
+    "IL": ("en", "IL", ROUND_WORDS),
+    "CA": ("en", "CA", ROUND_WORDS),
+    "AU": ("en", "AU", ROUND_WORDS),
+    "SG": ("en", "SG", ROUND_WORDS),
+}
+
+
+def googlenews_local(name: str, country: str | None) -> dict | None:
+    ed = LOCAL_EDITIONS.get((country or "").upper())
+    if not ed:
+        return None
+    hl, gl, words = ed
+    return googlenews(f'"{name}" ({words})', name, hl=hl, gl=gl)
 
 
 SURFACES = {
@@ -279,14 +335,17 @@ def targets_for(investor: str, all_seed: bool, slugs: set[str] | None) -> dict[s
     by_slug = {r["slug"]: r for r in rows}
     out = {}
     for slug, rec in merged.items():
+        row = {**by_slug[slug], "_country": rec.get("hq_country")}
         if slugs is not None:
             if slug in slugs:
-                out[slug] = by_slug[slug]
+                out[slug] = row
             continue
         if rec.get("entry_stage") != "Seed":
             continue
-        if all_seed or R.graduation_open(rec):
-            out[slug] = by_slug[slug]
+        # a recorded no stays a target: its absence record names these
+        # surfaces, and a re-run is how a later round gets caught
+        if all_seed or R.graduation_open(rec) or rec.get("seed_to_a_graduation") == "not_graduated":
+            out[slug] = row
     return out
 
 
@@ -305,9 +364,13 @@ def run(investor: str, all_seed: bool, slugs: set[str] | None, refresh: bool) ->
     for slug, row in targets.items():
         entry = cache.get(slug) or {}
         entry["name"], entry["query_name"] = row["name"], clean_name(row["name"])
+        entry["country"] = row.get("_country")
         entry["siblings"] = sib.get(slug, [])
         cache[slug] = entry
-        for svc in SURFACES:
+        svcs = list(SURFACES)
+        if (row.get("_country") or "").upper() in LOCAL_EDITIONS:
+            svcs.append("googlenews_local")
+        for svc in svcs:
             prior = (entry.get("surfaces") or {}).get(svc) or {}
             if refresh or prior.get("status") != "ok" \
                     or prior.get("query_name") != entry["query_name"]:
@@ -319,7 +382,10 @@ def run(investor: str, all_seed: bool, slugs: set[str] | None, refresh: bool) ->
     def worker(svc: str, jobs: list[str]) -> None:
         for slug in jobs:
             entry = cache[slug]
-            res = SURFACES[svc](entry["query_name"], firm)
+            if svc == "googlenews_local":
+                res = googlenews_local(entry["query_name"], entry.get("country"))
+            else:
+                res = SURFACES[svc](entry["query_name"], firm)
             res["query_name"] = entry["query_name"]
             res["asof"] = date.today().isoformat()
             with lock:

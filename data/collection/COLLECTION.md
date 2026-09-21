@@ -1572,7 +1572,12 @@ less, so no verified tag exists: the cohort is the verified set):
   from a cited terminal event. `scripts/graduation-surfaces.py` runs the
   standard surfaces for every open row (two Google News searches, one with
   round words and one with the firm's name, plus TechCrunch's and Crunchbase
-  News's own search) and records each as found, confirmed empty, or failed. A
+  News's own search) and records each as found, confirmed empty, or failed.
+  **A company outside the US is also searched in its own Google News edition
+  and language** (`googlenews_local`), because a Nordic or German round
+  reported only at home is invisible to the English searches: the first pass
+  on Creandum rested a quarter of its nos on English surfaces alone. Recorded
+  nos stay targets on every run, so a re-run is a re-check. A
   failed lookup is never an absence and is retried on the next run. General
   web engines were measured and refused for bulk use on 2026-09-20:
   DuckDuckGo serves a captcha to scripts, Brave answers about five queries
