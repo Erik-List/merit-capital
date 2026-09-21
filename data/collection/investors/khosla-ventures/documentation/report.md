@@ -374,3 +374,58 @@ corroboration) and `evolv-on-demand` (not the public Evolv Technologies).
 `verify --in-flight` clean. Khosla is mid-S2A-wave with a live in-flight
 marker, so this pass did not rebuild, re-export or close; its 200 Seed rows
 still owe a graduation, which is PRO-120's work.
+
+## Addendum 2026-09-21: S2A with every Seed row decided (PRO-132)
+
+§1 published 52.5% on a 40-row cohort of the seeds whose record could be
+established. PRO-132 makes the absence of a later round a finding: a Seed row
+past the 24-month clock with no evidence of a later round did not graduate,
+and every no records the dated search that found nothing (the firm's archive,
+the Form D sequence for a US company, at least two publisher surfaces;
+COLLECTION.md §6). The 200 open rows were judged in five batches.
+
+| seed entries | censored | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|
+| 167 | 6 | 161 | 77 | 84 | 47.8% | 100% |
+
+Of 167 seed entries, 6 were too recent to count; of the 161 that remain,
+47.8% raised a later round. Of the 84 that did not, 15 rest on the filings,
+22 on a cited end (an acquisition or shutdown with no round between it and
+the seed) and 47 on a dated search of the named surfaces. **The stage leg is
+thin on this book**: 113 of the 161 decided rows carry `stage_uncited`, the
+Seed label resting on the firm's listing year and the model's reading rather
+than a page naming the seed (PRO-131 (b); Erik confirmed on 2026-09-20 that a
+no may rest on an uncited stage). The rate is the full seed book's, but the
+book's edge is soft.
+
+What moved:
+
+- Re-staged out of Seed where a page names Khosla's first money at a later
+  round (about 25 rows), among them Varda, Basis, Credit Genie, Cinemagram and
+  Cellular Intelligence (Series A), BillGuard, Bunkerhill Health and Emergent
+  (Growth), Oratomic, Rhoda, Rubedo, Split, Terra AI and Stylus Medicine
+  (Series A), Factory, Loyal, Mariana Minerals and Monumental (Growth).
+- In review: Shoes of Prey to Growth (Khosla's December 2015 round was the
+  company's third, after a named 2012 Series A), GroupMe to Series A (the
+  seed came from other investors; Khosla's money went in with the $10.6M
+  round of January 2011), and Even overturned to graduated (Keith Rabois led
+  its $1.5M seed for Khosla in January 2015; it raised $40M in July 2018).
+- Form D verdicts overturned by named rounds: MemSQL (a $35M Series B, 2014)
+  and Lumiata (a $14M Series B, 2021).
+- Recognition fixes: Casca is Casca Footwear (Vancouver, acquired 2023) on
+  Khosla's own archived page, not the AI-lending Casca; TrueAccord was missed
+  by the surfaces as "True Accord"; Twenty is the CRM, not the Khosla-backed
+  cyber company of the same name.
+- Rows reading `undetermined` in the stage because nothing dates a Khosla
+  entry: ten, among them Ultima Genomics, Castle, Everyone Medicines, Outsmart
+  College and Pearl Bio.
+
+`c2a_rate_max` stays at the 0.80 default. `verify` is clean.
+
+For Erik: **Everlane** is a no on Shein's 2026 purchase, but no source dates
+a priced round after Khosla's 2012 entry and the company raised little
+before L Catterton; **True Link** is a no although a vendor page lists
+Centana Growth Partners as a later investor (no citable round); **The Hunt**
+and **Overture Life** carry Seed on entries of $10M (2014) and $21.6M (2017),
+above the era's seed band; **Sakti3** graduates on Dyson's $15M strategic
+investment seven months before Dyson bought it.
