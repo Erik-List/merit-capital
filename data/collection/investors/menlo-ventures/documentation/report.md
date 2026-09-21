@@ -478,3 +478,47 @@ this row's stage by policy, we cannot say what company it is.
 `verify --skip-cross` clean. The S2A block moves from 52 to 45 seed entries as
 the undetermined rows leave the cohort; the rate reads 71.9% over 32 decided
 rows.
+
+## Addendum 2026-09-20: S2A with every Seed row decided (PRO-132)
+
+PRO-132 made the absence of a later round a finding. A Seed row past the
+24-month clock with no evidence of a later round did not graduate, and every
+no records the dated search that found nothing: the firm's archive, the Form D
+sequence for a US company, and at least two publisher surfaces (COLLECTION.md
+§6).
+
+| seed entries | censored | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|
+| 44 | 7 | 37 | 24 | 13 | 64.9% | 100% |
+
+Of 44 seed entries, 7 were too recent to count (Ndea, Alta, Westmag, Abacus,
+Phylo, Cheiron, Pangram, all 2025 or later); of the 37 that remain, 64.9%
+raised a later round. Of the 13 that did not, seven rest on the filings
+(Handle, Intermodal Data, Librato, Mr. Number, Skeema, Sticky, Swantide),
+three on a cited end (Fintool to Microsoft 2026, Periscope to Twitter 2015,
+Redfast to Recurly 2025) and three on a dated search of the named surfaces
+(Alcove, Anycart, Brain Jar Games). A cited acquisition decides a row inside
+the 24-month window too (Fintool's 2025 seed). Nine decided rows rest on an
+uncited stage and carry `stage_uncited`.
+
+Was (2026-09-16 addendum): 45 seed entries, cohort 32 at 71.9% with 84%
+coverage; six rows then read `undetermined`.
+
+What moved:
+
+- The nine existing nos now carry their absence records; none flipped.
+- **Lindy** graduates: Founders Forum's profile (2023-09-27, not a vendor)
+  gives Lindy at Series A stage with $50M raised, Menlo among the investors,
+  after Menlo's 2020 seed. The judge had recorded a no because only vendor
+  pages name the round; the non-vendor page settles it.
+- **Xaira Therapeutics** left the cohort: its entry is the ~$1B April 2024
+  launch financing that Menlo's own page records as one partnering, "Seed +
+  Series A". A label spanning two stages is not a label (PRO-135), so the
+  stage reads `undetermined` rather than publishing a no on a $1B launch.
+  Crunchbase News counted Xaira among April 2024's new unicorns; its
+  `below_1b` band still wants a cited figure (`needs_web_value`).
+
+`verify.shape.c2a_rate_max` stays at the 0.80 default. `verify` in flight is
+clean; the full run fails only on `drivecam` and `recourse`, two rows the
+PRO-135 rebuild brought in without a status, which the Menlo session owns and
+classifies next.
