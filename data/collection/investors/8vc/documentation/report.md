@@ -358,3 +358,50 @@ row is.
 
 `verify --in-flight` clean. 8VC is mid-S2A-wave with a live in-flight marker,
 so this pass did not rebuild, re-export or close.
+
+## Addendum 2026-09-21: S2A with every Seed row decided (PRO-132)
+
+The run published S2A on a cohort of ten (20.0%, §1), and the 2026-09-17
+re-judge stopped mid-pass. PRO-132 makes the absence of a later round a
+finding: a Seed row past the 24-month clock with no evidence of a later round
+did not graduate, and every no records the dated search that found nothing
+(the firm's archive, the Form D sequence for a US company, at least two
+publisher surfaces; COLLECTION.md §6). The 73 open rows were judged in two
+batches.
+
+| seed entries | censored | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|
+| 69 | 13 | 56 | 33 | 23 | 58.9% | 100% |
+
+Of 69 seed entries, 13 were too recent to count; of the 56 that remain, 58.9%
+raised a later round. Of the 23 that did not, five rest on the filings, four
+on a cited end and 14 on a dated search of the named surfaces. Twenty-six
+decided rows rest on an uncited stage (the firm's listing gives no round
+word), flagged `stage_uncited` at low confidence.
+
+What moved:
+
+- Re-staged out of Seed on a page naming 8VC in a later round: Nines
+  (the $16.5M Series A of 2019), Rephrase.ai (Series A, 2022), HDVI and
+  Socotra (Series A), Indigov (Growth) and Vector (the $10M Series A of
+  April 2019 "led by Goldcrest Capital and 8VC", FreightWaves).
+- Nineteen rows read `undetermined` in the stage because nothing dates an
+  8VC entry, most of them bare-word names whose search results are all
+  homonyms (Kiwi, Levee, Neighborly, Shogun, Tome and others), plus Commure,
+  Flux, Infra and Software.com, which the batch judges left for review.
+- RealScout: the Form D layer read a 2016 $6M filing as the entry; the seed is
+  the $1.1M of August 2013 from DCM and Formation 8, followed by a named
+  Series A in November 2014, so the row graduates.
+- A search gap: the surfaces query the row's name as written, so "Cellino
+  Bio" found nothing while the press says "Cellino"; the judge found the
+  $80M Series A by hand. Suffix words (Bio, Labs, AI, Health) are worth
+  stripping in `graduation-surfaces.py` before the next sweep.
+
+`c2a_rate_max` stays at the 0.80 default. `verify` is clean.
+
+For Erik: **Training All People** is graduated on a 2026-02 release announcing
+"a new investment" from 8VC and three other funds with no round name and no
+amount, so neither the named-round rule nor the unnamed-round bar decides it;
+the judge chose graduated over an absence claim the release contradicts.
+**Twingate**'s entry date is the company's founding year (2019), since no
+dated seed exists.
