@@ -60,21 +60,32 @@
  },
  "adyn": {
   "confidence": "medium",
+  "entry_date": "2021-04-19",
   "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
-  "entry_stage_source": "model",
+  "entry_stage_citation": "https://www.citybiz.co/article/44409/adyn-raises-2-5m-seed-funding/",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
   "flags": [],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
+  "graduation_confidence": "medium",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: listing (wayback 2021-05-11) + googlenews_firm (\"Adyn\" \"Lux Capital\") -> only the 2021-04-19 $2.5M seed cluster (GeekWire, Business Wire, citybiz), nothing later",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Adyn\" + round words -> 39 results, all noise beyond the seed (Adyn Bucher, Adyn Torres, Taylor Townsend's son Adyn, homecoming king Adyn McGinley)",
+   "crunchbase_news: Adyn -> 6 results, only the 2021-04-19 seed piece"
+  ],
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Seattle women's-health genetics company, seed-stage | S2A: Lux's site dates its Adyn investment to 2021, which under R1 is an entry-year anchor and not a round label. Searched Lux's own news archive and the press for a seed announcement naming Lux and for any later round as of 2026-09-17: nothing found; the job board still reports the company at seed stage with 7 staff (R2: refused as a stage label). Neither leg could be established. | Seattle women's-health genetics company, seed-stage | S2A: Lux's site dates its Adyn investment to 2021, which under R1 is an entry-year anchor and not a round label. Searched Lux's own news archive and the press for a seed announcement naming Lux and for any later round as of 2026-09-17: nothing found; the job board still reports the company at seed stage with 7 staff (R2: refused as a stage label). Neither leg could be established. | Sourced `model`: the note names the company's own round, which is rung 3 of the evidence order (PRO-135 item 3); the empty source field was a recording omission",
-  "seed_to_a_graduation": "undetermined",
+  "note": "S2A: citybiz + GeekWire + Business Wire (2021-04-19/20) confirm Lux in Adyn's $2.5M SEED; searched all 20 named mentions (mostly unrelated people named Adyn) plus formd for a later round as of 2026-09-20 and found nothing, so the absence stands rather than the site-year anchor alone.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "adyn",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-lux"
+  "who": "agent-judge-s2a-lux-capital"
  },
  "aera-therapeutics": {
   "confidence": "medium",
@@ -198,6 +209,7 @@
  },
  "alife-health": {
   "confidence": "high",
+  "entry_date": "2021-05-03",
   "entry_stage": "Seed",
   "entry_stage_citation": "https://www.luxcapital.com/news/investing-in-alife-health",
   "entry_stage_confidence": "high",
@@ -207,15 +219,18 @@
   ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
+  "graduation_citation": "https://www.fiercehealthcare.com/health-tech/alife-health-raises-22m-series-fertility-ai-tools",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "AI for IVF; Lux led the $9.5M seed in 2021. Canonical of the pair with 'alife' | S2A: Lux led Alife Health's $9.5M seed announced 2021-05-03 (the firm's own post, already the stage citation; TechCrunch covered the same round 2021-05-05). A $22M Series A was reported 2022-03-22 by Fierce Healthcare and MobiHealthNews, but both refuse automated fetches and no other page carrying that round could be retrieved, so the graduation has no citable source.",
-  "seed_to_a_graduation": "undetermined",
+  "note": "S2A: Lux led Alife Health's $9.5M seed announced 2021-05-03 (the firm's own post; TechCrunch same week). Fierce Healthcare's 2022-03-22 headline names the $22M SERIES A directly (matched under the Lux-firm query), superseding the earlier pass's note that Fierce Healthcare 'refuses automated fetches' - the headline alone is a valid citation (Erik's paywall ruling).",
+  "seed_to_a_graduation": "graduated",
   "slug": "alife-health",
   "status": "private",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-lux"
+  "who": "agent-judge-s2a-lux-capital"
  },
  "allstripes": {
   "confidence": "high",
@@ -397,7 +412,6 @@
   "focus": "Industrial & Robotics",
   "focus_source": "model",
   "note": "Lux's own 2019 post is titled 'Re-investing in Applied Intuition' for the $40M Series B, so the 2017 site year is the entry and the B is a follow-on; the 2018 post names the angel/Series A it backed | $600M Series F and tender co-led by BlackRock-managed funds and Kleiner Perkins at a $15B valuation, June 2025, per the company's own release; up from $6B at the 2024 Series E | S2A: RE-STAGED out of the cohort. Lux's own post of 2018-09-12 says 'Today they are publicly unveiling their new company, Applied Intuition, and we are proud Lux Capital is an investor and a partner with them in their Series A financing', and its 2024-03-12 Q&A recaps 'In September 2018, I wrote about Applied Intuition's Series A financing, and in October 2020 about their Series C'. Under R1 that dated announcement overrides the site's 2017 anchor: the entry is the Series A, so the graduation column is null.",
-  "seed_to_a_graduation": null,
   "slug": "applied-intuition",
   "valuation_asof": "2025-06-17",
   "valuation_citation": "https://www.appliedintuition.com/press-releases/series-f",
@@ -608,15 +622,22 @@
   "flags": [],
   "focus": "SaaS",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
   "graduation_confidence": "high",
   "graduation_source": "formd",
-  "note": "collaborative scientific-writing platform, acquired by Atypon/Wiley; two small Form D rounds to $1.0M | S2A: Form D verdict accepted. Entry sale 2015-12-22 ($1.5M offering, filed 2016q1) with no later filing clearing max(2x entry, $5M) by the 2026-09-06 rescan; the company was absorbed by Atypon/Wiley rather than raising again. | S2A: stage citation added - FinSMEs (2016-01-26) reports the $1.5M financing LED BY LUX CAPITAL with the Knight Foundation, matching the Form D entry sale of 2015-12-22. Re-checked for a named later round under the new rule: none exists, only the 2016 Winnower acquisition by Authorea, so the not_graduated stands.",
+  "graduation_surfaces": [
+   "firm: listing (wayback 2016-08-21) + googlenews_firm (\"Authorea\" \"Lux Capital\") -> only an Impakter 2016 profile piece, no later round",
+   "formd: no later filing after the 2015-12-22 entry (rescan 2026-09-06)",
+   "techcrunch: Authorea -> 1 result, the 2014-09-22 $610k piece, predates the Lux-cited entry and does not extend it",
+   "googlenews: \"Authorea\" + round words -> 6 results, company-profile pieces and a 2018 logo image only, nothing after 2016"
+  ],
+  "note": "S2A: Form D verdict reaffirmed. Entry sale 2015-12-22 ($1.5M, FinSMEs: LED BY LUX CAPITAL) with no later filing clearing max(2x entry, $5M) by the 2026-09-06 rescan; Authorea was absorbed by Atypon/Wiley rather than raising again. Re-searched as of 2026-09-20: nothing new.",
   "seed_to_a_graduation": "not_graduated",
   "slug": "authorea",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-lux"
+  "who": "agent-judge-s2a-lux-capital"
  },
  "avail": {
   "confidence": "low",
@@ -825,21 +846,27 @@
  },
  "cajal-neuroscience": {
   "confidence": "medium",
+  "entry_date": "2020",
   "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
+  "entry_stage_confidence": "low",
   "entry_stage_source": "model",
-  "flags": [],
+  "flags": [
+   "stage_uncited"
+  ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
+  "graduation_citation": "https://www.businesswire.com/news/home/20221129005156/en/Cajal-Neuroscience-Launches-with-%2496-Million-to-Transform-Target-and-Drug-Discovery-in-Neurodegeneration",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Seattle neurodegeneration drug-discovery company; Lux from 2020, ahead of the 2022 Series A | S2A: Lux CO-LED Cajal's $96M Series A announced 2022-11-29 with The Column Group (FinSMEs; GeekWire and Business Wire the same day), but Lux's site dates its investment to 2020 and no page ties Lux to a seed round. Entry stage unresolved between Seed (site anchor) and Series A (the only cited round) - open ruling for Erik. | Seattle neurodegeneration drug-discovery company; Lux from 2020, ahead of the 2022 Series A | S2A: Lux CO-LED Cajal's $96M Series A announced 2022-11-29 with The Column Group (FinSMEs; GeekWire and Business Wire the same day), but Lux's site dates its investment to 2020 and no page ties Lux to a seed round. Entry stage unresolved between Seed (site anchor) and Series A (the only cited round) - open ruling for Erik. | Sourced `model`: the note names the company's own round, which is rung 3 of the evidence order (PRO-135 item 3); the empty source field was a recording omission",
-  "seed_to_a_graduation": "undetermined",
+  "note": "S2A: resolves the 2026-09-17 open ruling (decisions.md D-S2A #1). No page ties Lux to a seed and the site anchors the investment to 2020 (R1), so the stage stays Seed but uncited; the 2022-11-29 $96M Series A Lux co-led with The Column Group is a NAMED round and graduates the row regardless of the stage-citation gap under the current rule.",
+  "seed_to_a_graduation": "graduated",
   "slug": "cajal-neuroscience",
   "status": "private",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-lux"
+  "who": "agent-judge-s2a-lux-capital"
  },
  "cala-health": {
   "confidence": "medium",
@@ -1488,7 +1515,6 @@
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
   "note": "Kirkland WA metamaterials radar company spun out of Intellectual Ventures; Lux from 2014, at the seed | S2A: RE-STAGED out of the cohort. Echodyne's 2014-12-19 $15M round names Lux Capital alongside Bill Gates, Madrona, Vulcan and Kresge; the May 2017 $29M round is explicitly the SERIES B and TechCrunch puts total raised at $44M, i.e. $15M + $29M, so the 2014 round Lux joined is the Series A and there is no earlier seed. Graduation is null on a Series A entry.",
-  "seed_to_a_graduation": null,
   "slug": "echodyne",
   "status": "private",
   "valuation_confidence": "medium",
@@ -1663,7 +1689,7 @@
  },
  "evolutionary-scale": {
   "confidence": "medium",
-  "entry_date": "2024-06",
+  "entry_date": "2024-06-28",
   "entry_stage": "Seed",
   "entry_stage_citation": "https://www.finsmes.com/2024/06/evolutionaryscale-raises-142m-in-seed-funding.html",
   "entry_stage_confidence": "high",
@@ -1671,17 +1697,27 @@
   "flags": [],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
+  "graduation_confidence": "medium",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: listing (wayback 2024-07-19) + googlenews_firm (\"Evolutionary Scale\" \"Lux Capital\") -> 4 results, none beyond the 2024-06-28 seed already on record",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Evolutionary Scale\" + round words -> 26 results, none surfaced naming a later round",
+   "techcrunch: Evolutionary Scale -> 30 results, none surfaced naming a later round",
+   "crunchbase_news: Evolutionary Scale -> 15 results, none surfaced naming a later round"
+  ],
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "New York protein-language-model company (ESM3) founded 2023 by the ex-Meta FAIR protein team; Lux backed the $142M seed | the $142M seed of June 2024 (Nat Friedman and Daniel Gross with Lux, Amazon and Nvidia's NVentures) disclosed no valuation, and no priced event with a citable figure has been published since. Under Rule A the row reads below_1b with the check recorded rather than taking a vendor estimate | S2A: the stage leg is settled - EvolutionaryScale's $142M SEED of 2024-06-28 was led by Nat Friedman, Daniel Gross and Lux Capital (FinSMEs; TechCrunch 2024-06-25 covers the same round). No later round exists and the firm's own milestone line records an acquisition in 2025, reported in November 2025 as a Chan Zuckerberg Initiative deal, but no citable primary source for that acquisition could be retrieved, so a dated not_graduated is not available.",
-  "seed_to_a_graduation": "undetermined",
+  "note": "S2A: the $142M SEED of 2024-06-28 (Friedman/Gross/Lux/Amazon/NVentures, FinSMEs+TechCrunch) stands; searched all four surfaces as of 2026-09-20 for a later round or the reported 2025 Chan Zuckerberg Initiative acquisition and found nothing citable, so the absence stands rather than the uncited acquisition.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "evolutionary-scale",
   "status": "private",
   "valuation_citation": "https://techcrunch.com/2024/06/25/evolutionaryscale-backed-by-amazon-and-nvidia-raises-142m-for-protein-generating-ai/",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
   "valuation_range_source": "web_verified",
-  "who": "agent-judge-s2a-lux"
+  "who": "agent-judge-s2a-lux-capital"
  },
  "evolv-technology": {
   "confidence": "high",
@@ -1987,8 +2023,11 @@
  },
  "halo-neuroscience": {
   "confidence": "high",
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
+  "entry_date": "2016-02-10",
+  "entry_stage": "Series A",
+  "entry_stage_citation": "https://medcitynews.com/2016/02/365959/",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
   "flags": [
    "suspected_duplicate"
   ],
@@ -1996,13 +2035,13 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "acq. 2021 (the firm's own milestone line); neurostimulation headset for athletic training. Duplicate of the Form D row 'halo-neuro-inc' | S2A: the only retrievable Halo round is the $1.5M raise of 2014-05-01 (TechCrunch), which does not name Lux, and the 2021 acquisition rests on the firm's own milestone line. Lux's 2014 site year is an anchor only (R1). Neither leg established.",
-  "seed_to_a_graduation": "undetermined",
+  "note": "S2A: RE-STAGED out of the cohort. Halo's 2014-05-01 $1.5M SEED was led by Andreessen Horowitz and SoftTech VC with Kima Ventures, Fabrice Grinda and Josh Hannah - confirmed no Lux. MedCity News' 2016-02-10 $9M SERIES A piece matches the Lux-firm query, and the site's own wayback listing first appears 2016-05, three months after that Series A: Lux's entry is the Series A, not the seed.",
+  "seed_to_a_graduation": null,
   "slug": "halo-neuroscience",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-lux"
+  "who": "agent-judge-s2a-lux-capital"
  },
  "hangar-technology": {
   "confidence": "medium",
@@ -2012,15 +2051,22 @@
   "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
   "graduation_confidence": "high",
   "graduation_source": "formd",
-  "note": "Austin drone-data company; one Form D round of $6.3M and no trace after 2019 | S2A: Form D verdict accepted. One $6.5M offering with first sale 2016-09-07 and no later filing by the 2026-09-06 rescan, nine years on; the company left no trace after 2019. | S2A: stage citation added - FinSMEs (2016-10-20) reports Hangar's $6.5M SEED round led by Lux, matching the Form D entry sale of 2016-09-07. Re-checked for a named later round under the new rule: none exists, so the not_graduated stands.",
+  "graduation_surfaces": [
+   "firm: listing (wayback 2017-03-09) + googlenews_firm (\"Hangar Technology\" \"Lux Capital\") -> only the 2016 FinSMEs seed piece, no later round",
+   "formd: no later filing after the 2016-09-07 entry (rescan 2026-09-06)",
+   "googlenews: \"Hangar Technology\" + round words -> 8 results, the 2019-09-23 AirMap acquisition (Los Angeles Business Journal, PR Newswire) and nothing else",
+   "techcrunch: Hangar Technology -> 30 results, none specific to the company"
+  ],
+  "note": "S2A: Form D verdict reaffirmed. One $6.5M offering (first sale 2016-09-07) with no later filing by the 2026-09-06 rescan; AirMap acquired the company in 2019 with no priced round in between, and it left no trace after.",
   "seed_to_a_graduation": "not_graduated",
   "slug": "hangar-technology",
   "status": "defunct",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-lux"
+  "who": "agent-judge-s2a-lux-capital"
  },
  "happiest-baby": {
   "confidence": "medium",
@@ -2265,23 +2311,28 @@
  },
  "kela-technologies": {
   "confidence": "low",
+  "entry_date": "2025-03-17",
   "entry_stage": "Seed",
-  "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage_citation": "https://aviationweek.com/defense/supply-chain/israeli-defense-startup-kela-technologies-raises-39-million",
+  "entry_stage_confidence": "medium",
+  "entry_stage_source": "web_verified",
   "flags": [
    "stage_uncited"
   ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
+  "graduation_citation": "https://www.jpost.com/defense-and-tech/article-895259",
+  "graduation_confidence": "medium",
+  "graduation_source": "web_verified",
   "hq_country": "IL",
   "hq_country_source": "model_knowledge",
-  "note": "Israeli defence-technology company; listed from 2024 | S2A: Kela unveiled itself on 2025-03-17 with $39M and a Sequoia partnership post the same day; no retrievable page names Lux in a Kela seed round, and Lux's 2024 site year is an anchor only (R1). A 2024 entry cannot be called censored without a month, so neither leg is established. | Israeli defence-technology company; listed from 2024 | S2A: Kela unveiled itself on 2025-03-17 with $39M and a Sequoia partnership post the same day; no retrievable page names Lux in a Kela seed round, and Lux's 2024 site year is an anchor only (R1). A 2024 entry cannot be called censored without a month, so neither leg is established. | Sourced `model`: the note names the company's own round, which is rung 3 of the evidence order (PRO-135 item 3); the empty source field was a recording omission",
-  "seed_to_a_graduation": "undetermined",
+  "note": "S2A: Kela unveiled itself 2025-03-17 with $39M (Aviation Week, matched to the Lux-firm query; no 'seed' word used, hence medium stage confidence). A $200M round at a $1.2B valuation followed 2026-05-08 (Jerusalem Post; Lux named among participants) - unnamed but far above max(2x seed, $5M) and 14 months later, so it graduates the row.",
+  "seed_to_a_graduation": "graduated",
   "slug": "kela-technologies",
   "status": "private",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-lux"
+  "who": "agent-judge-s2a-lux-capital"
  },
  "kereos-inc": {
   "confidence": "medium",
@@ -2596,6 +2647,7 @@
  },
  "madaket": {
   "confidence": "low",
+  "entry_date": "2012",
   "entry_stage": "Seed",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
@@ -2604,15 +2656,18 @@
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
+  "graduation_citation": "https://www.finsmes.com/2018/07/madaket-health-closes-10m-in-series-b-funding.html",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Madaket Health, provider-data and payer-enrolment automation; Lux from 2012 | S2A: the only retrievable Madaket Health round is the $10M Series B of 2018-07-24 led by Qiming Venture Partners, which does not name Lux; no seed announcement naming Lux could be found and the site's 2012 year is an anchor only (R1). | Madaket Health, provider-data and payer-enrolment automation; Lux from 2012 | S2A: the only retrievable Madaket Health round is the $10M Series B of 2018-07-24 led by Qiming Venture Partners, which does not name Lux; no seed announcement naming Lux could be found and the site's 2012 year is an anchor only (R1). | Sourced `model`: the note names the company's own round, which is rung 3 of the evidence order (PRO-135 item 3); the empty source field was a recording omission",
-  "seed_to_a_graduation": "undetermined",
+  "note": "S2A: no seed announcement naming Lux could be found; the site's 2012 year is an anchor only (R1), so the stage stays Seed but uncited. Madaket Health's $10M SERIES B, led by Qiming Venture Partners with Salesforce Ventures/PNC/Experian Ventures, closed 2018-07-23 (FinSMEs) - a named later round that graduates the row.",
+  "seed_to_a_graduation": "graduated",
   "slug": "madaket",
   "status": "private",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-lux"
+  "who": "agent-judge-s2a-lux-capital"
  },
  "magen": {
   "confidence": "medium",
@@ -2725,10 +2780,7 @@
   "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "graduation_confidence": "high",
-  "graduation_source": "formd",
   "note": "listed via SPAC in 2021 and acquired by CoStar in 2025, both on the firm's own milestone lines. Acquired retires the standalone figure | S2A: Form D verdict accepted. $7.36M entry (first sale 2013-01-17) followed by the $16.0M offering of 2014q3 and five more filings; Matterport listed by SPAC in 2021 and CoStar acquired it in 2025. | listed via SPAC in 2021 and acquired by CoStar in 2025, both on the firm's own milestone lines. Acquired retires the standalone figure | S2A: Form D verdict accepted. $7.36M entry (first sale 2013-01-17) followed by the $16.0M offering of 2014q3 and five more filings; Matterport listed by SPAC in 2021 and CoStar acquired it in 2025. | Entry stage from the firm's own announcement archive (PRO-135 item 1): \"Lux led Matterport\u2019s Series A financing\"; agrees with the $7.36M Form D entry the graduation verdict already rests on",
-  "seed_to_a_graduation": null,
   "slug": "matterport",
   "status": "acquired",
   "valuation_confidence": "high",
@@ -2921,15 +2973,22 @@
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "graduation_confidence": "medium",
+  "graduation_asof": "2026-09-20",
+  "graduation_confidence": "high",
   "graduation_source": "formd",
-  "note": "Seattle row with one $3M Form D round and Zack Schildhorn as related person; the common name makes the current entity hard to pin | S2A: Form D verdict accepted. Entry sale 2016-05-10 ($3.0M offering) with no later filing clearing max(2x entry, $5M) by the 2026-09-06 rescan, ten years on. Confidence medium because the row still carries identity_uncertain on the common name Moment, though Zack Schildhorn is the related person on the filing. | IDENTITY RESOLVED (PRO-136): Lux's own record gives url shopmoment.com and team slug zack-schildhorn \u2014 the same Zack Schildhorn who signs the 2016 $3.0M Form D on this row. The common name does not make the company doubtful when the filing and the site card agree, so the identity flag goes and the Form D not_graduated stands.",
+  "graduation_surfaces": [
+   "firm: listing (wayback 2016-05-10, matches the Form D entry) + googlenews_firm (\"Moment\" \"Lux Capital\") -> the 2016-05-11 GeekWire $3M piece only, nothing later for shopmoment.com",
+   "formd: no later filing after the 2016-05-10 entry (rescan 2026-09-06)",
+   "googlenews: \"Moment\" + round words -> 100 results, overwhelmingly a battery company (Moment Energy, $40M Series B 2026), an African payments company (Moment, $22M Series A 2026) and an AI wealth-management company (Moment, $78M Series C 2026) of the same name; RECOGNITION CHECK excludes all three (wrong sector, wrong era)",
+   "crunchbase_news: Moment -> 30 results, same three name-clash companies, none for shopmoment.com after 2016"
+  ],
+  "note": "S2A: Form D verdict reaffirmed post identity resolution (PRO-136: shopmoment.com and team slug zack-schildhorn match the Form D related person). Re-searched as of 2026-09-20 across three unrelated same-name companies (Moment Energy, an African fintech, an AI wealth platform); nothing for the real camera-hardware Moment after the 2016-05-10 entry.",
   "seed_to_a_graduation": "not_graduated",
   "slug": "moment",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
-  "who": "agent-pro136-lux"
+  "who": "agent-judge-s2a-lux-capital"
  },
  "mos": {
   "confidence": "medium",
@@ -2946,7 +3005,6 @@
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
   "note": "student financial-aid and banking company; Lux's own post covers the Series A, entered at the 2020 seed. The deterministic layer set hq_country NL on a name-match; Mos is a US company | country corrected: the deterministic Wikidata layer matched the row's short common-word name to a foreign entity of the same name. The company is US-based; recorded as a dispute rather than silently accepting the layer | S2A: RE-STAGED out of the cohort. Lux's own post of 2020-05-13 is titled 'Announcing our Investment in Mos' Series A' and describes it as Lux's investment in the company; under R1 that dated announcement overrides the site's 2020 anchor as a round label. Entry is the Series A, so the graduation column is null.",
-  "seed_to_a_graduation": null,
   "slug": "mos",
   "status": "private",
   "valuation_confidence": "medium",
@@ -3063,7 +3121,6 @@
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
   "note": "job-board row; R&D tax-credit automation | S2A: job-board row with no Lux investment year on the site, no round announcement retrievable under the name, and the job board's own stage field refused as a label (R2). Neither the seed with Lux nor a later round could be established.",
-  "seed_to_a_graduation": "undetermined",
   "slug": "neo-tax",
   "status": "private",
   "valuation_confidence": "medium",
@@ -3372,9 +3429,11 @@
  },
  "paradigm": {
   "confidence": "low",
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_date": "2023-01-27",
+  "entry_stage": "Series A",
+  "entry_stage_citation": "https://www.mobihealthnews.com/news/paradigm-launches-203m-funding-round-expand-clinical-trial-access",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
   "flags": [
    "model_disputes_source",
    "stage_uncited"
@@ -3383,13 +3442,13 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "the deterministic layer set hq_country JP on a name-match; Lux's Paradigm is a US clinical-trial-access company, not the crypto fund of the same name | country corrected: the deterministic Wikidata layer matched the row's short common-word name to a foreign entity of the same name. The company is US-based; recorded as a dispute rather than silently accepting the layer | S2A: the only retrievable Paradigm financing is a $78M Series B for Paradigm Health of Columbus OH (2025-12-04, ARCH Venture), which may not be the same entity as the Lux row founded by Kent Thoelke and Jonathan Hirsch; the row also carries identity flags. No page names Lux in a seed round, so neither leg is established. | the deterministic layer set hq_country JP on a name-match; Lux's Paradigm is a US clinical-trial-access company, not the crypto fund of the same name | country corrected: the deterministic Wikidata layer matched the row's short common-word name to a foreign entity of the same name. The company is US-based; recorded as a dispute rather than silently accepting the layer | S2A: the only retrievable Paradigm financing is a $78M Series B for Paradigm Health of Columbus OH (2025-12-04, ARCH Venture), which may not be the same entity as the Lux row founded by Kent Thoelke and Jonathan Hirsch; the row also carries identity flags. No page names Lux in a seed round, so neither leg is established. | Sourced `model`: the note names the company's own round, which is rung 3 of the evidence order (PRO-135 item 3); the empty source field was a recording omission",
-  "seed_to_a_graduation": "undetermined",
+  "note": "S2A: RE-STAGED out of the cohort, and identity confirmed. Paradigm (CEO Kent Thoelke, clinical-trial patient-recruitment platform) 'launched'/'debuted' 2023-01-27 with a $203M SERIES A led by ARCH and General Catalyst, Lux Capital named among the participants (Fierce Healthcare, Fierce Biotech, MobiHealthNews, Axios) - no earlier round exists, so this is the entry. The Dec 2025 $78M 'Paradigm Health' round (Roche/Flatiron deal) is this same company's follow-on, now moot for S2A.",
+  "seed_to_a_graduation": null,
   "slug": "paradigm",
   "status": "private",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-lux"
+  "who": "agent-judge-s2a-lux-capital"
  },
  "pawp": {
   "confidence": "medium",
@@ -3524,21 +3583,23 @@
  },
  "pivotal-commware": {
   "confidence": "medium",
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
-  "entry_stage_source": "model",
+  "entry_date": "2017-06-15",
+  "entry_stage": "Series A",
+  "entry_stage_citation": "https://www.prnewswire.com/news-releases/pivotal-commware-lands-17m-series-a-from-the-thermo-companies---dig-investments---bill-gates-and-others-300475095.html",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
   "flags": [],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Kirkland WA holographic beam-forming mmWave repeaters, an Intellectual Ventures spin-out; Lux from 2017 | S2A: Pivotal Commware's $17M Series A of 2017-06-18 (The Thermo Companies) does not name Lux and no seed announcement naming Lux could be retrieved; the site's 2017 year is an anchor only (R1). | Kirkland WA holographic beam-forming mmWave repeaters, an Intellectual Ventures spin-out; Lux from 2017 | S2A: Pivotal Commware's $17M Series A of 2017-06-18 (The Thermo Companies) does not name Lux and no seed announcement naming Lux could be retrieved; the site's 2017 year is an anchor only (R1). | Sourced `model`: the note names the company's own round, which is rung 3 of the evidence order (PRO-135 item 3); the empty source field was a recording omission",
-  "seed_to_a_graduation": "undetermined",
+  "note": "S2A: RE-STAGED out of the cohort, correcting the earlier pass. Pivotal Commware's $17M SERIES A (PR Newswire 2017-06-15) was led by The Thermo Companies and DIG Investment, but Microwave Journal's fuller investor list for the same round names Lux Capital and the Sternlicht family office too - the earlier pass checked only a source that omitted Lux. Matches the site's 2017 anchor; the 2019 $10M raise is debt, not a priced round.",
+  "seed_to_a_graduation": null,
   "slug": "pivotal-commware",
   "status": "private",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-lux"
+  "who": "agent-judge-s2a-lux-capital"
  },
  "planet": {
   "confidence": "high",
@@ -3718,28 +3779,43 @@
   ],
   "focus": "DevTools & APIs",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
+  "graduation_confidence": "medium",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: listing (wayback 2023-08-04) + googlenews_firm (\"Reflex\" \"Lux Capital\") -> only the 2023-08-02 TechCrunch open-source-tool piece, nothing later",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Reflex\" + round words -> 78 results, overwhelmingly noise (a UK packaging group's serial acquisitions, Reflex Nutrition, Reflex Vehicle Hire, Reflex Aerospace's 2025 Series A, a retail 'flex economy' Reflex's $4.5M seed); RECOGNITION CHECK excludes all of them (wrong sector)",
+   "techcrunch: Reflex -> 30 results, the 2023-08-02 launch and a 2024-03-13 'Reflex Robotics' piece (a different, humanoid-robot company)"
+  ],
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Reflex, Python web-app framework; Lux's own post announces the $5M seed. The deterministic layer set hq_country CZ on a name-match; Reflex is a US company | country corrected: the deterministic Wikidata layer matched the row's short common-word name to a foreign entity of the same name. The company is US-based; recorded as a dispute rather than silently accepting the layer | S2A: Lux led Reflex's $5M SEED announced in its own post on 2023-08-02 (already the stage citation), so the stage leg is settled. The entry is 37 months old, but no later round could be found and the acquisition the row carries has no citable dated source, so neither a graduation nor a dated no is available.",
-  "seed_to_a_graduation": "undetermined",
+  "is_public": false,
+  "note": "Reflex, Python web-app framework; Lux's own post announces the $5M seed. The deterministic layer set hq_country CZ on a name-match; Reflex is a US company | country corrected: the deterministic Wikidata layer matched the row's short common-word name to a foreign entity of the same name. The company is US-based; recorded as a dispute rather than silently accepting the layer | S2A: Lux led Reflex's $5M SEED announced in its own post on 2023-08-02 (already the stage citation), so the stage leg is settled. The entry is 37 months old, but no later round could be found and the acquisition the row carries has no citable dated source, so neither a graduation nor a dated no is available. | S2A: Lux's own post already cites the $5M SEED of 2023-08-02. Searched all four surfaces as of 2026-09-20 across five unrelated same-name companies; nothing for the Python-framework Reflex since. The acquisition this row carries rests only on the firm's milestone line with no dated source, so absence_check applies rather than a cited terminal event. | DISPUTE: the deterministic layer read this row as a public company (is_public true, public_since 2012, hq CZ) via a name-collision on 'Reflex' (the row already carries cik_weak); Reflex is the Lux-backed Python web-app framework, private, seeded 2023 - the same Wikidata/registrant mismatch already corrected for hq_country. is_public corrected to false so the not_graduated absence verdict is not blocked by invariant 7.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "reflex",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-lux"
+  "who": "agent-judge-s2a-lux-capital"
  },
  "relativity-space": {
+  "entry_date": "2016",
   "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
+  "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "cite_pending"
+   "cite_pending",
+   "stage_uncited"
   ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "note": "Lux backed Relativity at the seed in 2016, before the Playground and Social Capital rounds | S2A: Relativity's named rounds - $35M Series B (2018-03-27), $140M Series C (2019-10-01), $500M Series D (2020-11-23) - name no Lux participation in the retrievable reports, and no page ties Lux to the 2016 seed. Lux's 2016 site year is an anchor only (R1); the row keeps its cite_pending marker. | Lux backed Relativity at the seed in 2016, before the Playground and Social Capital rounds | S2A: Relativity's named rounds - $35M Series B (2018-03-27), $140M Series C (2019-10-01), $500M Series D (2020-11-23) - name no Lux participation in the retrievable reports, and no page ties Lux to the 2016 seed. Lux's 2016 site year is an anchor only (R1); the row keeps its cite_pending marker. | Sourced `model`: the note names the company's own round, which is rung 3 of the evidence order (PRO-135 item 3); the empty source field was a recording omission",
-  "seed_to_a_graduation": "undetermined",
+  "graduation_citation": "https://geospatialworld.net/news/relativity-35-million-series-b-funding/",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
+  "note": "S2A: no page ties Lux to Relativity's informal 2016 seed money (Mark Cuban's $500K-$620K, Social Capital's $10.1M post-YC); the site anchors 2016 (R1) and none of the later rounds ever name Lux either, consistent with a quiet early check, so the stage stays Seed but uncited. The 2018-03-27 $35M SERIES B (Geospatial World) is a named later round and graduates the row; invariant 7 applies regardless given the $4.2B+ valuation.",
+  "seed_to_a_graduation": "graduated",
   "slug": "relativity-space",
-  "who": "agent-judge-s2a-lux"
+  "who": "agent-judge-s2a-lux-capital"
  },
  "resilience": {
   "confidence": "medium",
@@ -4181,21 +4257,26 @@
  },
  "summer-health": {
   "confidence": "medium",
+  "entry_date": "2022-07-25",
   "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
-  "entry_stage_source": "model",
+  "entry_stage_citation": "https://fortune.com/2022/07/25/exclusive-chelsea-clinton-and-sequoias-alfred-lin-back-7-5-million-seed-round-for-pediatric-telehealth-startup-summer-health/",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
   "flags": [],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
+  "graduation_citation": "https://femtechinsider.com/summer-health-series-a/",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "text-based paediatrics service; Lux from 2022 | S2A: Lux CO-LED Summer Health's $11.65M Series A of 2024-04-23 with 7wire Ventures, and the report lists Sequoia, Metrodora, Box Group and Shrug as the RETURNING investors without naming Lux among them - which points at a Series A entry - while Lux's own site dates its investment to 2022. No page ties Lux to a seed, so the entry stage is unresolved - open ruling for Erik. | text-based paediatrics service; Lux from 2022 | S2A: Lux CO-LED Summer Health's $11.65M Series A of 2024-04-23 with 7wire Ventures, and the report lists Sequoia, Metrodora, Box Group and Shrug as the RETURNING investors without naming Lux among them - which points at a Series A entry - while Lux's own site dates its investment to 2022. No page ties Lux to a seed, so the entry stage is unresolved - open ruling for Erik. | Sourced `model`: the note names the company's own round, which is rung 3 of the evidence order (PRO-135 item 3); the empty source field was a recording omission",
-  "seed_to_a_graduation": "undetermined",
+  "note": "S2A: resolves the 2026-09-17 open ruling (decisions.md D-S2A #3). The earlier pass missed Fortune's 2022-07-25 piece: Lux co-led Summer Health's $7.5M SEED with Sequoia (Alfred Lin) and Chelsea Clinton, matched to the Lux-firm query - it names the round, settling Seed over the site's bare 2022 anchor. The 2024-04-23 $11.65M SERIES A (Femtech Insider) is a named later round that graduates it.",
+  "seed_to_a_graduation": "graduated",
   "slug": "summer-health",
   "status": "private",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-lux"
+  "who": "agent-judge-s2a-lux-capital"
  },
  "super": {
   "entry_stage": "undetermined",
@@ -4591,22 +4672,28 @@
  },
  "varda": {
   "confidence": "medium",
+  "entry_date": "2020-12-23",
   "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
+  "entry_stage_citation": "https://techcrunch.com/2021/07/29/varda-space-industries-closes-42m-series-a-for-off-planet-manufacturing/",
+  "entry_stage_confidence": "high",
+  "entry_stage_source": "web_verified",
   "flags": [
    "suspected_duplicate"
   ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
+  "graduation_citation": "https://techcrunch.com/2021/07/29/varda-space-industries-closes-42m-series-a-for-off-planet-manufacturing/",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "in-space manufacturing; duplicate of the Form D row 'varda-space-industries'. Lux co-led the 2021 seed | S2A: Varda's retrievable rounds are the $90M Series B (2024-04-05) and the $187M Series C (2025-07-14); no page carrying the 2021 seed Lux co-led could be retrieved, so the stage leg is uncited. The row is also flagged a suspected duplicate of the Form D row varda-space-industries.",
-  "seed_to_a_graduation": "undetermined",
+  "note": "S2A: resolves the prior pass's uncited stage leg. TechCrunch (2021-07-29) reports that Founders Fund and Lux Capital co-led Varda's $9M SEED in December 2020 (matches the Form D entry 2020-12-23), then that Khosla Ventures and Caffeinated Capital led a $42M SERIES A with Lux returning - a named later round that graduates the row. Flagging for the pipeline: this piece calls the company 'Varda Space Industries', supporting the row's own suspected-duplicate note against the Form D row of that name.",
+  "seed_to_a_graduation": "graduated",
   "slug": "varda",
   "status": "private",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-lux"
+  "who": "agent-judge-s2a-lux-capital"
  },
  "varda-space-industries": {
   "confidence": "medium",

@@ -500,3 +500,49 @@ first. Both are pinned to the published rendering in `identity-merges.json`
 with the reason, and the rename is Erik's to decide.
 
 Base 271 → 270 rows; `verify` clean; three rows excluded from the metrics.
+
+## Addendum 2026-09-20: S2A with every Seed row decided (PRO-132)
+
+PRO-132 made the absence of a later round a finding. A Seed row past the
+24-month clock with no evidence of a later round did not graduate, and every
+no records the dated search that found nothing: the firm's archive, the Form D
+sequence for a US company, and at least two publisher surfaces (COLLECTION.md
+§6).
+
+| seed entries | censored | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|
+| 39 | 3 | 36 | 30 | 6 | 83.3% | 100% |
+
+Of 39 seed entries, 3 were too recent to count (Applied Compute, Phonic,
+Unconventional AI); of the 36 that remain, 83.3% raised a later round. Of the
+6 that did not, three rest on the filings (Authorea, Hangar Technology,
+Moment) and three on a dated search of the named surfaces (Adyn,
+EvolutionaryScale, Reflex).
+
+Was (D-S2A, 2026-09-17): 130 seed entries, 9 censored, 94 undetermined,
+cohort 27 at 88.9% with 22% coverage. The seed book itself shrank before this
+pass: PRO-135 removed the inferred stages, and 137 nameable Lux rows now read
+`undetermined` in the stage. What remains is small and well covered, which is
+why the rate stays high on full coverage.
+
+What moved:
+
+- Seven rows graduated on citations: Alife Health, Cajal Neuroscience, Kela
+  Technologies, Madaket, Relativity Space, Varda and Summer Health (Fortune's
+  July 2022 piece on the $7.5M seed, which the earlier pass missed); Cajal and
+  Summer Health close two of D-S2A's open items.
+- Three rows were re-staged because Lux's first money was a later, named
+  round: Halo Neuroscience (the 2014 seed was a16z and SoftTech; Lux entered
+  at the February 2016 Series A), Paradigm (the $203M January 2023 debut, a
+  Series A) and Pivotal Commware (Lux was in the June 2017 $17M Series A; the
+  2019 raise the earlier pass flagged is debt).
+- Reflex's deterministic layer read it as a public Czech company, a name
+  collision on "Reflex" (the row already carried `cik_weak`); `is_public` is
+  corrected to false. Reflex is the Python framework seeded in 2023.
+
+`verify.shape.c2a_rate_max` stays at 0.90 with its note re-measured. `verify`
+is clean.
+
+For Erik: **Varda** is very likely the same company as the Form D row
+`varda-space-industries` (TechCrunch's own coverage uses that name); a merge
+question, left as two rows here.
