@@ -456,11 +456,11 @@ five batches.
 
 | seed entries | censored | cohort | graduated | not graduated | rate | coverage |
 |---|---|---|---|---|---|---|
-| 203 | 29 | 174 | 84 | 90 | 48.3% | 100% |
+| 203 | 29 | 174 | 85 | 89 | 48.9% | 100% |
 
 Of 203 seed entries, 29 were too recent to count; of the 174 that remain,
-48.3% raised a later round. Of the 90 that did not, two rest on the filings,
-37 on a cited end and 51 on a dated search of the named surfaces. The
+48.9% raised a later round. Of the 89 that did not, two rest on the filings,
+37 on a cited end and 50 on a dated search of the named surfaces. The
 firm's own archived portfolio ladder (2011 to 2019) read Seed then Series A
 for several rows and is cited `first_party` where it does.
 
@@ -504,3 +504,9 @@ documented) against the firm's own "Seed" tag; **TalkIQ**'s Form D entry
 (2017-08-30) sits three weeks before its announced $14M Series A and may be
 the same financing; **RapLeaf** (which became LiveRamp) is a no because no
 non-vendor source names a priced RapLeaf round.
+
+Correction 2026-09-21: **Aloha** graduates. The First Round judge identified
+it as the Bisanz wellness brand refounded in 2017 under Brad Charron, which
+took Semcap's $68M growth investment in April 2024 (Food Dive); the earlier
+no had not identified the company. The table above reads 85 graduated, 89 not,
+48.9%.
