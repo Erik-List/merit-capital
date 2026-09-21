@@ -336,3 +336,52 @@ the 2016 position.
 
 Base 325 → 322 rows; `verify` clean; the S2A block moves from 60/41/30 to
 59/40/29 seed entries / cohort / graduated as the merged rows collapse.
+
+## Addendum 2026-09-20: S2A with every Seed row decided (PRO-132)
+
+PRO-132 made the absence of a later round a finding. A Seed row past the
+24-month clock with no evidence of a later round did not graduate, and every
+no records the dated search that found nothing: the firm's archive, the Form D
+sequence for a US company, and at least two publisher surfaces (COLLECTION.md
+§6).
+
+| seed entries | censored | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|
+| 62 | 1 | 61 | 31 | 30 | 50.8% | 100% |
+
+Of 62 seed entries, one was too recent to count (Wordware, 2024-11); of the 61
+that remain, 50.8% raised a later round. Of the 30 that did not, two rest on
+the filings, fourteen on a cited end and fourteen on a dated search of the
+named surfaces.
+
+Was (2026-09-17): 60 seed entries, cohort 41 at 73.2% with 70% coverage. The
+issue measured 58.8% for this book counting only cited seeds; with every seed
+decided the rate lands at 50.8%. Spark's early book (2005 to 2012) is heavy
+with seeds that were bought before a Series A (5min Media, ConvertMedia,
+Lexity, Triggit and others), which is why the cited ends carry half the nos.
+
+What moved:
+
+- Six rows left the cohort as later-round entries on citations (AdMeld and
+  OneRiot at Series C per Spark's own archived posts; Crowdrise, Nift,
+  Storenvy and Talkspace at the Series A), and five read `undetermined`
+  because nothing dates Spark's entry (Jamiphy, Tashtego, Kumu, Hey,
+  Producer).
+- In review: **KickApps** graduates (TechCrunch names its $14M 2008 round a
+  Series C; the judge had recorded a no on the KIT digital acquisition).
+  **Menara Networks** is a Series A entry on its own $10.1M 2007 filing and
+  **thePlatform** reads `undetermined` (founded 2000, bought by Comcast months
+  after Spark's 2006 round): both had taken `Seed` from Spark's site tag
+  "seed | venture", a multi-tag the PRO-135 harvest reads as its earliest
+  round word.
+
+`verify.shape.c2a_rate_max` stays at the 0.80 default. `verify` passes every
+graduation check; the full run reports three cross-investor disagreements with
+Battery (Baseten, Dooly, Niantic), which the PRO-121 session is aligning.
+
+For Erik: the site tag "seed | venture" carries `Seed` onto rows whose
+earlier notes named a Series A with a source (**5min Media**'s $5M Series A of
+November 2007, **ConvertMedia**'s 2013 Series A). No readable citation for
+those rounds was found, so both stay Seed nos here; if the tag should not
+label a row whose notes name a later round, that is a PRO-135 question for
+the whole field (it scored 34/37 blind).
