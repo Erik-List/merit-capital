@@ -272,3 +272,49 @@ happened here.
 
 One row's `entry_date` changed on a book that is live in the database, so a
 re-ingest of USV takes this correction with it.
+
+## Addendum 2026-09-20: S2A with every Seed row decided (PRO-132)
+
+PRO-132 made the absence of a later round a finding. A Seed row past the
+24-month clock with no evidence of a later round did not graduate, and every
+no records the dated search that found nothing: the firm's archive, the Form D
+sequence for a US company, and at least two publisher surfaces (COLLECTION.md
+§6).
+
+| seed entries | censored | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|
+| 68 | 9 | 59 | 36 | 23 | 61.0% | 100% |
+
+Of 68 seed entries, 9 were too recent to count (Humane Genomics, Miren,
+Presto, Pluralis, Electroflow, General Intelligence, Supper, Glif, Alqem); of
+the 59 that remain, 61.0% raised a later round. Of the 23 that did not, two
+rest on the filings, six on a cited end and fifteen on a dated search of the
+named surfaces. The issue measured 61.1% for this book once its silent seeds
+were counted; the full pass lands at 61.0%.
+
+Was (2026-09-17): 68 seed entries, 9 censored, 21 undetermined, cohort 38 at
+86.8% with 64% coverage.
+
+What moved:
+
+- **Token-funded** (Erik, 2026-09-19): Arweave and Bright Moments DAO read
+  `undetermined` in stage and graduation with `token_funded`. Two of the four
+  instances named in the ruling did not fit it on the evidence, and are for
+  Erik to confirm: **Chamber**, whose September 2023 USV post describes an
+  ordinary investment in a consumer crypto-custody app with no token sale,
+  is judged as a Seed (a no on the absence test); **Stacks** entered through
+  Onename's priced 2014 seed and graduated on the ~$5.3M round of January
+  2017 (PYMNTS, corroborating the Form D).
+- Heyzap and m3ter graduate on rounds the record names ($4.3M Series B for
+  Heyzap per TechCrunch; m3ter's $14M "Series A"), which settles the earlier
+  pass's threshold flags: a named round graduates whatever the amounts.
+- Zemanta's entry was re-anchored from a 2016 filing to the 2008 seed; its
+  intervening rounds stay under the bar and Outbrain's acquisition closes it
+  as a no. SuppCo's note was stale: Function acquired it in May 2026, its
+  cited end.
+- Recognition held on the common names: Daylight (USV's on-chain actions
+  recommender, not the $75M energy network), Revel (Revel.xyz, not the EV or
+  POS companies), Chamber (not the cardiology company's $60M Series A).
+
+`verify.shape.c2a_rate_max` returns from 0.90 to the 0.80 default. `verify` is
+clean.

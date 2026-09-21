@@ -213,12 +213,21 @@
   "flags": [],
   "focus": "DevTools & APIs",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
+  "graduation_confidence": "medium",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: site (usv.com/companies, anon.com) shows no round beyond the $6.5M seed; googlenews_firm (\"Anon\" \"Union Square Ventures\"/USV) -> 3 results, all the 2024-04-24 seed (Business Wire, TechCrunch, Pulse2.0), nothing later",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Anon\" + round words -> 60 raw results; on-topic hits (recognition check excludes the 2017 Netflix film \"Anon\" and unrelated ski/NFT items) cluster only on the 2024-04-24 seed",
+   "techcrunch: Anon -> 30 results; only the 2024-04-24 seed post"
+  ],
   "hq_city": "San Francisco",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Integration platform for sites without APIs; 'Our Investment in Anon' (2024-04-29) names no round; the $6.5M first round of 2024 was reported as a seed; site carries a bare year; follow-on not established; AI/devtools row of the 2024 momentum slice | The $6.5M round of 2024-04-24 was a seed co-led by USV and Abstract Ventures (VC News Daily; Tracxn) and remains the only round \u2014 Seed entry cited, no Series A yet, below_1b (A/B pass 2026-09-05) | S2A: the $6.5M seed co-led by USV and Abstract was announced 2024-04-24 (Business Wire; Abstract's own post), 29 months ago, so the row is past the censoring clock. Searched for a Series A or an exit as of 2026-09-16: none in the press, vendor pages list only the seed. The company operates, so no terminal event supports not_graduated.",
-  "seed_to_a_graduation": "undetermined",
+  "note": "Integration platform for sites without APIs; 'Our Investment in Anon' (2024-04-29) names no round; the $6.5M first round of 2024 was reported as a seed; site carries a bare year; follow-on not established; AI/devtools row of the 2024 momentum slice | The $6.5M round of 2024-04-24 was a seed co-led by USV and Abstract Ventures (VC News Daily; Tracxn) and remains the only round \u2014 Seed entry cited, no Series A yet, below_1b (A/B pass 2026-09-05) | S2A: the $6.5M seed co-led by USV and Abstract was announced 2024-04-24 (Business Wire; Abstract's own post), 29 months ago, so the row is past the censoring clock. Searched for a Series A or an exit as of 2026-09-16: none in the press, vendor pages list only the seed. The company operates, so no terminal event supports not_graduated. | S2A: the $6.5M seed co-led by USV and Abstract Ventures (2024-04-24) is 29 months old. Dated search across press and vendor pages as of 2026-09-20 finds only that seed; the company operates, so no terminal event supports anything but the absence no.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "anon",
   "status": "private",
   "valuation_confidence": "high",
@@ -226,7 +235,7 @@
   "valuation_range_citation": "https://vcnewsdaily.com/anon/venture-capital-funding/bkzwyfwxmm",
   "valuation_range_source": "web_verified",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "anthro-energy": {
   "entry_date": "2022",
@@ -255,25 +264,27 @@
  },
  "arweave": {
   "entry_date": "2019-11",
-  "entry_stage": "Seed",
-  "entry_stage_citation": "https://www.usv.com/writing/2019/11/arweave/",
-  "entry_stage_confidence": "medium",
-  "entry_stage_source": "web_verified",
-  "flags": [],
+  "entry_stage": "undetermined",
+  "entry_stage_citation": null,
+  "entry_stage_confidence": null,
+  "entry_stage_source": null,
+  "flags": [
+   "token_funded"
+  ],
   "focus": "Crypto & Web3",
   "focus_source": "model",
   "hq_city": "Berlin",
   "hq_city_source": "model_knowledge",
   "hq_country": "DE",
   "hq_country_source": "model_knowledge",
-  "note": "Permanent-storage blockchain (Minimum Spanning Technologies, team in Berlin); USV entered the November-2019 $8.3M round led by a16z with Coinbase Ventures (own post 'Welcoming Arweave'; site label Seed, 2019); token-funded since, no Series A | S2A: USV entered the $5M round of November 2019 alongside a16z; the only later financing on record is the $8.3M tokenized round of March 2020 from the same investors plus Coinbase Ventures (The Block; Axios 2020-03-06), which is below 2x the entry and a token purchase rather than a priced equity round. No Series A and no terminal event as of 2026-09-16; the network is token-funded and operating.",
+  "note": "Permanent-storage blockchain (Minimum Spanning Technologies, team in Berlin); USV entered the November-2019 $8.3M round led by a16z with Coinbase Ventures (own post 'Welcoming Arweave'; site label Seed, 2019); token-funded since, no Series A | S2A: USV entered the $5M round of November 2019 alongside a16z; the only later financing on record is the $8.3M tokenized round of March 2020 from the same investors plus Coinbase Ventures (The Block; Axios 2020-03-06), which is below 2x the entry and a token purchase rather than a priced equity round. No Series A and no terminal event as of 2026-09-16; the network is token-funded and operating. | TOKEN-FUNDED: USV's entry is the $5M November 2019 round FinSMEs and CryptoSlate report as \"token funding\" for the Arweave protocol (a16z, Multicoin), and the only later financing (the $8.3M March 2020 round, The Block/Yahoo Finance) is also a token sale, not a priced equity round. No seed to enter, no Series A to graduate to.",
   "seed_to_a_graduation": "undetermined",
   "slug": "arweave",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "assembly": {
   "entry_stage": "Series A",
@@ -479,30 +490,38 @@
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "graduation_asof": "2026-09-16",
+  "graduation_asof": "2026-09-20",
   "graduation_citation": "https://techcrunch.com/2016/03/23/fullcontact-buys-brewsters-technology-after-team-gets-acqui-hired-by-burger-king-owner-rbi",
   "graduation_confidence": "medium",
   "graduation_source": "web_verified",
+  "graduation_surfaces": [
+   "firm: USV's own post (2012-07-12, 'he asked us for the seed capital'; label Seed, 2011) names no later round; googlenews_firm (\"Brewster\" \"Union Square Ventures\"/USV) -> 1 result, the seed post itself",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Brewster\" + round words -> 58 raw results, almost entirely the Cape Cod town/homonyms (fire dept, obituaries, library); no financing for this company beyond the seed",
+   "techcrunch: Brewster -> 30 results; the 2016-03-23 piece confirms FullContact bought the technology after the team's October 2015 acqui-hire by RBI, no other Brewster financing"
+  ],
   "hq_city": "New York",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Contact-management app; 'he asked us for the seed capital' (own post 2012-07-12; site label Seed, 2011); no Series A; the team was acqui-hired by RBI and FullContact bought the technology, March 2016 (TechCrunch 2016-03-23) -> acquired | cohort leg from knowledge, not yet verified | S2A: the seed USV provided (own post 2012-07-12: 'he asked us for the seed capital'; firm's label Seed, 2011) was the last round: TechCrunch (2015-10-23) records only 'an undisclosed amount of money from Union Square Ventures and others in 2012', the team was acqui-hired by RBI in October 2015, and FullContact bought the technology on 2016-03-23 with the app shut down 30 days later (TechCrunch, cited). Record searched 2026-09-16: no later priced round.",
+  "note": "Contact-management app; 'he asked us for the seed capital' (own post 2012-07-12; site label Seed, 2011); no Series A; the team was acqui-hired by RBI and FullContact bought the technology, March 2016 (TechCrunch 2016-03-23) -> acquired | cohort leg from knowledge, not yet verified | S2A: the seed USV provided (own post 2012-07-12: 'he asked us for the seed capital'; firm's label Seed, 2011) was the last round: TechCrunch (2015-10-23) records only 'an undisclosed amount of money from Union Square Ventures and others in 2012', the team was acqui-hired by RBI in October 2015, and FullContact bought the technology on 2016-03-23 with the app shut down 30 days later (TechCrunch, cited). Record searched 2026-09-16: no later priced round. | S2A: the seed USV provided (2012 post, firm's label Seed 2011) was the last round. The team was acqui-hired by RBI in October 2015 and FullContact bought the technology on 2016-03-23 (TechCrunch, cited); no priced round intervened.",
   "seed_to_a_graduation": "not_graduated",
   "slug": "brewster",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "bright-moments-dao": {
   "entry_date": "2021-08",
-  "entry_stage": "Seed",
-  "entry_stage_confidence": "low",
-  "entry_stage_source": "model",
+  "entry_stage": "undetermined",
+  "entry_stage_citation": null,
+  "entry_stage_confidence": null,
+  "entry_stage_source": null,
   "flags": [
-   "stage_uncited"
+   "stage_uncited",
+   "token_funded"
   ],
   "focus": "Crypto & Web3",
   "focus_source": "model",
@@ -510,14 +529,14 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "NFT art DAO (born in Venice, Los Angeles); 'USV sent 500 ETH to the Bright Moments DAO and got back one million BRT tokens' (own post 2021-08-25): a token purchase into a DAO with treasury and governance (decisions.md D7, member); no round name exists, Seed is the taxonomy's nearest reading of a first token sale, low; no Series A can follow a DAO | S2A: the stage leg cannot be established. USV's own post (2021-08-25) describes sending 500 ETH to the DAO for one million BRT tokens, a token purchase into a treasury, and no page ties USV to a seed round; the Seed label is the taxonomy's nearest reading (stage_uncited stays). A DAO has no Series A to raise, and no dissolution notice was found, so neither decided status is citable.",
+  "note": "NFT art DAO (born in Venice, Los Angeles); 'USV sent 500 ETH to the Bright Moments DAO and got back one million BRT tokens' (own post 2021-08-25): a token purchase into a DAO with treasury and governance (decisions.md D7, member); no round name exists, Seed is the taxonomy's nearest reading of a first token sale, low; no Series A can follow a DAO | S2A: the stage leg cannot be established. USV's own post (2021-08-25) describes sending 500 ETH to the DAO for one million BRT tokens, a token purchase into a treasury, and no page ties USV to a seed round; the Seed label is the taxonomy's nearest reading (stage_uncited stays). A DAO has no Series A to raise, and no dissolution notice was found, so neither decided status is citable. | TOKEN-FUNDED: USV's own post (2021-08-25) describes sending 500 ETH to the Bright Moments DAO for one million BRT tokens, a token purchase into a DAO treasury with no priced round. A DAO has no Series A to raise; no dissolution notice found either.",
   "seed_to_a_graduation": "undetermined",
   "slug": "bright-moments-dao",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "brilliant-org": {
   "entry_stage": "Growth",
@@ -672,18 +691,27 @@
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
+  "graduation_confidence": "medium",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: usv.com/companies still lists Caretaker with no round beyond the $2.2M Flip round USV led (2017-06-27, own post + Columbia Entrepreneurship); googlenews_firm (\"Caretaker\" \"Union Square Ventures\"/USV) -> 0 results",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Caretaker\" + round words -> 75 raw results, entirely the generic word (caretaker governments, job postings, obituaries); none on-topic",
+   "techcrunch: Caretaker -> 30 results, none about this company"
+  ],
   "hq_city": "New York",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Caretaker (formerly Flip), lease marketplace; 'We are leading Flip's latest financing round' (own post 2017-06-27), the firm labels the entry Seed, 2017; no priced Series A found; operating 2026 | S2A: USV led Flip's $2.2M round announced 2017-06-27 (own post; Columbia Entrepreneurship), the firm's Seed, 2017. Searched for a later priced round as of 2026-09-16: only vendor totals ($3.4M over two rounds) and no named Series A; the company operates as Caretaker, so no terminal event supports not_graduated. | Caretaker (formerly Flip), lease marketplace; 'We are leading Flip's latest financing round' (own post 2017-06-27), the firm labels the entry Seed, 2017; no priced Series A found; operating 2026 | S2A: USV led Flip's $2.2M round announced 2017-06-27 (own post; Columbia Entrepreneurship), the firm's Seed, 2017. Searched for a later priced round as of 2026-09-16: only vendor totals ($3.4M over two rounds) and no named Series A; the company operates as Caretaker, so no terminal event supports not_graduated. | Entry round from the firm's own listing (Seed); replaces shared citation",
-  "seed_to_a_graduation": "undetermined",
+  "note": "Caretaker (formerly Flip), lease marketplace; 'We are leading Flip's latest financing round' (own post 2017-06-27), the firm labels the entry Seed, 2017; no priced Series A found; operating 2026 | S2A: USV led Flip's $2.2M round announced 2017-06-27 (own post; Columbia Entrepreneurship), the firm's Seed, 2017. Searched for a later priced round as of 2026-09-16: only vendor totals ($3.4M over two rounds) and no named Series A; the company operates as Caretaker, so no terminal event supports not_graduated. | Caretaker (formerly Flip), lease marketplace; 'We are leading Flip's latest financing round' (own post 2017-06-27), the firm labels the entry Seed, 2017; no priced Series A found; operating 2026 | S2A: USV led Flip's $2.2M round announced 2017-06-27 (own post; Columbia Entrepreneurship), the firm's Seed, 2017. Searched for a later priced round as of 2026-09-16: only vendor totals ($3.4M over two rounds) and no named Series A; the company operates as Caretaker, so no terminal event supports not_graduated. | Entry round from the firm's own listing (Seed); replaces shared citation | S2A: USV led Flip's (now Caretaker) $2.2M round announced 2017-06-27. Dated search finds only vendor totals ($3.4M over two rounds, not citable) and no named Series A; the company operates, so the absence no applies.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "caretaker",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "carta": {
   "entry_stage": "Series A",
@@ -750,7 +778,7 @@
  "chamber": {
   "entry_date": "2023-09",
   "entry_stage": "Seed",
-  "entry_stage_confidence": "medium",
+  "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
    "city_unknown",
@@ -758,17 +786,26 @@
   ],
   "focus": "Crypto & Web3",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
+  "graduation_confidence": "low",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: no listing URL on record; USV's own post (Sept 2023, fetched directly) announces the investment in Chamber (consumer crypto custody, ETH/USDC/NFTs, founded by ex-Behance leaders William Allen and Bryan Latten) in ordinary investment language with no token sale, no round name and no amount; googlenews_firm (\"Chamber\" \"Union Square Ventures\"/USV) -> 7 results, all unrelated homonyms (Chamber of Shipping, Chamber Cardio's Series A)",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Chamber\" + round words -> 100 raw results, essentially all Chamber-of-Commerce/Chamber-Cardio/generic-word noise; a targeted search on \"withchamber\" + USV + crypto returns zero results",
+   "techcrunch: Chamber -> 30 results, none on-topic"
+  ],
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Chamber (consumer crypto custody, founded by former Behance leaders); the announcement names no round \u2014 a 2023 first institutional round for a new company, Seed as the prior; no later round found, below_1b | S2A: the stage leg cannot be established. USV's own post of September 2023 announces the investment in Chamber without naming the round, and no press names it either, so stage_uncited stays. Searched as of 2026-09-16: no later round and no terminal event found.",
-  "seed_to_a_graduation": "undetermined",
+  "note": "Chamber (consumer crypto custody, founded by former Behance leaders); the announcement names no round \u2014 a 2023 first institutional round for a new company, Seed as the prior; no later round found, below_1b | S2A: the stage leg cannot be established. USV's own post of September 2023 announces the investment in Chamber without naming the round, and no press names it either, so stage_uncited stays. Searched as of 2026-09-16: no later round and no terminal event found. | S2A: fetched USV's own September 2023 post directly -- it describes an ordinary (if unnamed) investment in a custody app, not a token purchase, so token_funded does NOT apply here despite being flagged as a candidate (see report). No round is named anywhere and the generic name floods every surface with noise, but two independent targeted searches (including the company's own domain) found nothing after the entry.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "chamber",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_range_source": "model",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "circleup": {
   "entry_stage": "Series A",
@@ -875,7 +912,7 @@
   "who": "agent-judge-pro86"
  },
  "code": {
-  "entry_date": "2023",
+  "entry_date": "2024-02",
   "entry_stage": "Seed",
   "entry_stage_citation": "https://www.usv.com/writing/2024/02/code/",
   "entry_stage_confidence": "high",
@@ -883,18 +920,27 @@
   "flags": [],
   "focus": "Crypto & Web3",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
+  "graduation_confidence": "medium",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: own post ('USV participated in a seed financing of Code', 2024-02-06) names no round beyond seed; googlenews_firm (\"Code\" \"Union Square Ventures\"/USV) -> 47 results, all noise (the query's \"USV\" collides with unrelated uncrewed-surface-vehicle and compliance-code stories)",
+   "formd: not applicable, hq_country CA",
+   "googlenews: \"Code\" + round words -> 100 raw results, entirely unrelated companies also named Code/code-something (Thunder Code, Canyon Code, Baz, RWX, CodeRabbit, Code Metal); recognition check excludes all of them",
+   "techcrunch: Code -> 30 results, none on-topic"
+  ],
   "hq_city": "Waterloo",
   "hq_city_source": "model_knowledge",
   "hq_country": "CA",
   "hq_country_source": "model_knowledge",
-  "note": "Global payments app on Solana from the Kik team (Ted Livingston, Waterloo); 'USV participated in a seed financing of Code' (own post 2024-02-06; site label Seed, 2023); follow-on not established | S2A: 'USV participated in a seed financing of Code' (own post 2024-02-06; firm's label Seed, 2023), the $6.5M seed co-led by M13 and USV (BetaKit). Past the censoring clock on either date. Searched for a later round or an exit as of 2026-09-16: none found; the company operates.",
-  "seed_to_a_graduation": "undetermined",
+  "note": "Global payments app on Solana from the Kik team (Ted Livingston, Waterloo); 'USV participated in a seed financing of Code' (own post 2024-02-06; site label Seed, 2023); follow-on not established | S2A: 'USV participated in a seed financing of Code' (own post 2024-02-06; firm's label Seed, 2023), the $6.5M seed co-led by M13 and USV (BetaKit). Past the censoring clock on either date. Searched for a later round or an exit as of 2026-09-16: none found; the company operates. | S2A: USV's own post (2024-02-06) names the $6.5M seed co-led by M13 and USV (BetaKit) for the Kik-team payments app. Despite the generic name flooding every surface with noise, no on-topic later round or exit surfaces anywhere; the company operates.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "code",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "code-climate": {
   "entry_stage": "Series A",
@@ -1115,16 +1161,25 @@
   ],
   "focus": "Crypto & Web3",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
+  "graduation_confidence": "medium",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: own post (2024-09-24, The Block, 'onchain for you actions recommender') names the $6M seed with 1kx, no later round; googlenews_firm (\"Daylight\" \"Union Square Ventures\"/USV) -> 20 results, all the same seed",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Daylight\" + round words -> 97 raw results; recognition check separates at least three unrelated same-named companies (a16z-backed DePIN project Daylight, Daylight Automation, Daylight Security, a digital-banking Daylight) from this one, none of which is our target's Series A",
+   "techcrunch: Daylight -> 30 results, none on-topic"
+  ],
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Onchain transaction recommendation engine; USV led the $6M seed with 1kx, September 2024 (own post); entry at the 24-month boundary, cohort censored; remote team, municipality not established | S2A: USV led the $6M seed with 1kx; The Block reports the round closed in July 2024 and it was announced in September 2024 (own post), so the entry is 24 months old or more and the row can no longer be censored (the prior note's reading). Searched for a Series A or an exit as of 2026-09-16: none found; the company operates.",
-  "seed_to_a_graduation": "undetermined",
+  "note": "Onchain transaction recommendation engine; USV led the $6M seed with 1kx, September 2024 (own post); entry at the 24-month boundary, cohort censored; remote team, municipality not established | S2A: USV led the $6M seed with 1kx; The Block reports the round closed in July 2024 and it was announced in September 2024 (own post), so the entry is 24 months old or more and the row can no longer be censored (the prior note's reading). Searched for a Series A or an exit as of 2026-09-16: none found; the company operates. | S2A: The Block reports the $6M seed with 1kx closed July 2024 and was announced September 2024, so the entry is just over 24 months old and no longer censored. No Series A or exit found for this company specifically among several unrelated same-named startups; it operates.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "daylight",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "delicious": {
   "entry_date": "2005-04",
@@ -1135,22 +1190,28 @@
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "graduation_asof": "2026-09-19",
+  "graduation_asof": "2026-09-20",
   "graduation_citation": "https://www.usv.com/writing/2005/12/a-delicious-eight-months/",
   "graduation_confidence": "high",
   "graduation_source": "first_party",
+  "graduation_surfaces": [
+   "firm: USV's own retrospective post (Dec 2005, 'A Delicious Eight Months') documents the seed-to-acquisition arc directly with no round in between",
+   "formd: pre-EDGAR-Form-D coverage (electronic filing begins September 2008); the company's whole lifecycle (seed to acquisition, 2005) predates the register",
+   "googlenews: \"Delicious\" + round words -> 64 raw results, dominated by the common word (food, recipes); Wikipedia and the firm's own account corroborate the Yahoo acquisition, no Series A",
+   "techcrunch: Delicious -> 30 results; TechCrunch launched June 2005, just before the December 2005 acquisition, nothing later"
+  ],
   "hq_city": "New York",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "del.icio.us social bookmarking; 'On April 14th [2005], we closed an investment in Delicious' (own post) \u2014 the ~$2M first round with Amazon and angels (Wikipedia), labelled Seed by the firm; acquired by Yahoo in December 2005, eight months later, before any Series A -> graduation false | cohort leg from knowledge, not yet verified | S2A: PRE-WINDOW. USV's own post dates the closing to 2005-04-14 ('On April 14th, we closed an investment in Delicious'), before the 2006 base window, so graduation is null by rule and the row leaves the cohort. Seed stays as the best-supported stage (the firm's label and post), low by rule on a pre-window entry. For the record: Yahoo acquired the company in December 2005, before any later round. | del.icio.us social bookmarking; 'On April 14th [2005], we closed an investment in Delicious' (own post) \u2014 the ~$2M first round with Amazon and angels (Wikipedia), labelled Seed by the firm; acquired by Yahoo in December 2005, eight months later, before any Series A -> graduation false | cohort leg from knowledge, not yet verified | S2A: PRE-WINDOW. USV's own post dates the closing to 2005-04-14 ('On April 14th, we closed an investment in Delicious'), before the 2006 base window, so graduation is null by rule and the row leaves the cohort. Seed stays as the best-supported stage (the firm's label and post), low by rule on a pre-window entry. For the record: Yahoo acquired the company in December 2005, before any later round. | Graduation decided not_graduated (PRO-135): the null was the retired pre-window rule, not a finding. Yahoo acquired the company in December 2005, eight months after the April seed the firm's own post announces, which positively excludes a Series A rather than merely failing to find one.",
+  "note": "del.icio.us social bookmarking; 'On April 14th [2005], we closed an investment in Delicious' (own post) \u2014 the ~$2M first round with Amazon and angels (Wikipedia), labelled Seed by the firm; acquired by Yahoo in December 2005, eight months later, before any Series A -> graduation false | cohort leg from knowledge, not yet verified | S2A: PRE-WINDOW. USV's own post dates the closing to 2005-04-14 ('On April 14th, we closed an investment in Delicious'), before the 2006 base window, so graduation is null by rule and the row leaves the cohort. Seed stays as the best-supported stage (the firm's label and post), low by rule on a pre-window entry. For the record: Yahoo acquired the company in December 2005, before any later round. | del.icio.us social bookmarking; 'On April 14th [2005], we closed an investment in Delicious' (own post) \u2014 the ~$2M first round with Amazon and angels (Wikipedia), labelled Seed by the firm; acquired by Yahoo in December 2005, eight months later, before any Series A -> graduation false | cohort leg from knowledge, not yet verified | S2A: PRE-WINDOW. USV's own post dates the closing to 2005-04-14 ('On April 14th, we closed an investment in Delicious'), before the 2006 base window, so graduation is null by rule and the row leaves the cohort. Seed stays as the best-supported stage (the firm's label and post), low by rule on a pre-window entry. For the record: Yahoo acquired the company in December 2005, before any later round. | Graduation decided not_graduated (PRO-135): the null was the retired pre-window rule, not a finding. Yahoo acquired the company in December 2005, eight months after the April seed the firm's own post announces, which positively excludes a Series A rather than merely failing to find one. | S2A: USV's own post dates the seed to 2005-04-14; Yahoo acquired the company in December 2005, eight months later and before any Series A. A cited terminal event, not an absence of search.",
   "seed_to_a_graduation": "not_graduated",
   "slug": "delicious",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "dia": {
   "entry_stage": "Growth",
@@ -1252,16 +1313,25 @@
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
+  "graduation_confidence": "low",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: usv.com/companies lists Dreambound Seed 2019 with no dedicated announcement post found; googlenews_firm (\"Dreambound\" \"Union Square Ventures\"/USV) -> 0 results",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Dreambound\" + round words -> 4 raw results, only one names the company (a 2022 Forbes mention unrelated to funding)",
+   "techcrunch: Dreambound -> 0 results"
+  ],
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Career-training marketplace; site label Seed, 2019, no announcement post; municipality not established; follow-on not established | S2A: seed per the firm's label (Seed, 2019), no announcement post. Searched for a Series A or an exit as of 2026-09-16: only vendor pages, which list a single seed round (USV, Collaborative Fund, 8VC); the company operates, so no terminal event supports not_graduated. | Career-training marketplace; site label Seed, 2019, no announcement post; municipality not established; follow-on not established | S2A: seed per the firm's label (Seed, 2019), no announcement post. Searched for a Series A or an exit as of 2026-09-16: only vendor pages, which list a single seed round (USV, Collaborative Fund, 8VC); the company operates, so no terminal event supports not_graduated. | Entry round from the firm's own listing (Seed); replaces shared citation",
-  "seed_to_a_graduation": "undetermined",
+  "note": "Career-training marketplace; site label Seed, 2019, no announcement post; municipality not established; follow-on not established | S2A: seed per the firm's label (Seed, 2019), no announcement post. Searched for a Series A or an exit as of 2026-09-16: only vendor pages, which list a single seed round (USV, Collaborative Fund, 8VC); the company operates, so no terminal event supports not_graduated. | Career-training marketplace; site label Seed, 2019, no announcement post; municipality not established; follow-on not established | S2A: seed per the firm's label (Seed, 2019), no announcement post. Searched for a Series A or an exit as of 2026-09-16: only vendor pages, which list a single seed round (USV, Collaborative Fund, 8VC); the company operates, so no terminal event supports not_graduated. | Entry round from the firm's own listing (Seed); replaces shared citation | S2A: seed per the firm's label (Seed, 2019), no announcement post found. Coverage of this company is extremely thin on every surface; vendor pages list only the one seed round (USV, Collaborative Fund, 8VC) and the company operates, so the (low-confidence) absence no applies.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "dreambound",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "duckduckgo": {
   "entry_stage": "Series A",
@@ -1547,7 +1617,7 @@
   "who": "agent-judge-pro86"
  },
  "floodmapp": {
-  "entry_date": "2021",
+  "entry_date": "2022-02",
   "entry_stage": "Seed",
   "entry_stage_citation": "https://www.usv.com/companies/",
   "entry_stage_confidence": "high",
@@ -1555,18 +1625,26 @@
   "flags": [],
   "focus": "Climate & Energy",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
+  "graduation_confidence": "medium",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: FloodMapp's own post names the USV-led A$8.5M Seed round (2022-02-10); usv.com/companies label Seed, 2021; googlenews_firm (\"FloodMapp\" \"Union Square Ventures\"/USV) -> 0 results",
+   "googlenews: \"FloodMapp\" + round words -> 9 raw results; on-topic hits (Waze integration 2022, FEMA partnership 2023) name no financing",
+   "techcrunch: FloodMapp -> 5 results, only the August 2021 feature piece, no Series A"
+  ],
   "hq_city": "Brisbane",
   "hq_city_source": "model_knowledge",
   "hq_country": "AU",
   "hq_country_source": "model_knowledge",
-  "note": "Predictive flood mapping (Brisbane, Australia); the firm's 2022-02 post names no round, site label Seed, 2021; follow-on not established | S2A: USV's entry is the A$8.5M seed it led, announced 2022-02-10 (FloodMapp's own post: 'Union Square Ventures leads FloodMapp's $8.5M Seed Round'; firm's label Seed, 2021). A vendor page styles the same round Series A; the company's own word is seed. Searched for a later round or an exit as of 2026-09-16: none found; the company operates. | Predictive flood mapping (Brisbane, Australia); the firm's 2022-02 post names no round, site label Seed, 2021; follow-on not established | S2A: USV's entry is the A$8.5M seed it led, announced 2022-02-10 (FloodMapp's own post: 'Union Square Ventures leads FloodMapp's $8.5M Seed Round'; firm's label Seed, 2021). A vendor page styles the same round Series A; the company's own word is seed. Searched for a later round or an exit as of 2026-09-16: none found; the company operates. | Entry round from the firm's own listing (Seed); replaces shared citation",
-  "seed_to_a_graduation": "undetermined",
+  "note": "Predictive flood mapping (Brisbane, Australia); the firm's 2022-02 post names no round, site label Seed, 2021; follow-on not established | S2A: USV's entry is the A$8.5M seed it led, announced 2022-02-10 (FloodMapp's own post: 'Union Square Ventures leads FloodMapp's $8.5M Seed Round'; firm's label Seed, 2021). A vendor page styles the same round Series A; the company's own word is seed. Searched for a later round or an exit as of 2026-09-16: none found; the company operates. | Predictive flood mapping (Brisbane, Australia); the firm's 2022-02 post names no round, site label Seed, 2021; follow-on not established | S2A: USV's entry is the A$8.5M seed it led, announced 2022-02-10 (FloodMapp's own post: 'Union Square Ventures leads FloodMapp's $8.5M Seed Round'; firm's label Seed, 2021). A vendor page styles the same round Series A; the company's own word is seed. Searched for a later round or an exit as of 2026-09-16: none found; the company operates. | Entry round from the firm's own listing (Seed); replaces shared citation | S2A: USV's entry is the A$8.5M seed it led, announced 2022-02-10 (FloodMapp's own post; a vendor page mislabels the same round Series A, but the company's own word is seed). No later round or exit found; the company (Brisbane, AU) operates.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "floodmapp",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "flurry": {
   "entry_date": "2008-05",
@@ -1925,18 +2003,21 @@
   "flags": [],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
+  "graduation_citation": "https://techcrunch.com/2013/01/04/heyzap-series-b/",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
   "hq_city": "San Francisco",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Casual-games platform turned mobile ad network; USV's $3M first round, May 2009 (own post names no round; site label Seed, 2009); acquired by Fyber, 2016 (site) | S2A: THRESHOLD CASE for review. USV led the roughly $650K seed of May 2009 (own post 2009-05; CBS News), not the $3M the prior note carried. The later rounds are all below the $5M floor: $3M from USV in June 2010 (TechCrunch 2010-06-23) and the $4.3M Series B led by Qualcomm Ventures and USV (TechCrunch 2013-01-04). Fyber/RNTS bought the company for up to $45M in January 2016 (TechCrunch 2016-01-07). With both amounts known the step-up test fails, so graduated is not citable; the seed was not the last round, so the terminal-event no does not apply as written either. | Casual-games platform turned mobile ad network; USV's $3M first round, May 2009 (own post names no round; site label Seed, 2009); acquired by Fyber, 2016 (site) | S2A: THRESHOLD CASE for review. USV led the roughly $650K seed of May 2009 (own post 2009-05; CBS News), not the $3M the prior note carried. The later rounds are all below the $5M floor: $3M from USV in June 2010 (TechCrunch 2010-06-23) and the $4.3M Series B led by Qualcomm Ventures and USV (TechCrunch 2013-01-04). Fyber/RNTS bought the company for up to $45M in January 2016 (TechCrunch 2016-01-07). With both amounts known the step-up test fails, so graduated is not citable; the seed was not the last round, so the terminal-event no does not apply as written either. | Entry round from the firm's own listing (Seed); replaces shared citation",
-  "seed_to_a_graduation": "undetermined",
+  "note": "Casual-games platform turned mobile ad network; USV's $3M first round, May 2009 (own post names no round; site label Seed, 2009); acquired by Fyber, 2016 (site) | S2A: THRESHOLD CASE for review. USV led the roughly $650K seed of May 2009 (own post 2009-05; CBS News), not the $3M the prior note carried. The later rounds are all below the $5M floor: $3M from USV in June 2010 (TechCrunch 2010-06-23) and the $4.3M Series B led by Qualcomm Ventures and USV (TechCrunch 2013-01-04). Fyber/RNTS bought the company for up to $45M in January 2016 (TechCrunch 2016-01-07). With both amounts known the step-up test fails, so graduated is not citable; the seed was not the last round, so the terminal-event no does not apply as written either. | Casual-games platform turned mobile ad network; USV's $3M first round, May 2009 (own post names no round; site label Seed, 2009); acquired by Fyber, 2016 (site) | S2A: THRESHOLD CASE for review. USV led the roughly $650K seed of May 2009 (own post 2009-05; CBS News), not the $3M the prior note carried. The later rounds are all below the $5M floor: $3M from USV in June 2010 (TechCrunch 2010-06-23) and the $4.3M Series B led by Qualcomm Ventures and USV (TechCrunch 2013-01-04). Fyber/RNTS bought the company for up to $45M in January 2016 (TechCrunch 2016-01-07). With both amounts known the step-up test fails, so graduated is not citable; the seed was not the last round, so the terminal-event no does not apply as written either. | Entry round from the firm's own listing (Seed); replaces shared citation | S2A: USV's roughly $650K seed (May 2009) was followed by a $3M round (2010, unnamed, sub-floor) and then TechCrunch's 2013-01-04 piece, whose own URL and framing name the $4.3M round from Union Square and Qualcomm a Series B -- a named round graduates whatever the amount. Fyber/RNTS later acquired the company (2016).",
+  "seed_to_a_graduation": "graduated",
   "slug": "heyzap",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "human-dx": {
   "entry_stage": "Series A",
@@ -2033,22 +2114,28 @@
   ],
   "focus": "SaaS",
   "focus_source": "model",
-  "graduation_asof": "2026-09-19",
+  "graduation_asof": "2026-09-20",
   "graduation_citation": "https://web.archive.org/web/20160101143822/https://www.usv.com/portfolio",
-  "graduation_confidence": "low",
-  "graduation_source": "first_party",
+  "graduation_confidence": "medium",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: the firm's archived listing (web.archive.org portfolio capture) still reads 'Seed, 2005' under Exited Investments with nothing later; googlenews_firm (\"InfoNgen\" \"Union Square Ventures\"/USV) -> 1 result, no on-topic content beyond the seed",
+   "formd: a 2009-2010 filing is linked to this issuer but the join is weak/disputed (this row's own band note); no confirmed Form D graduation evidence",
+   "googlenews: \"InfoNgen\" + round words -> 0 results",
+   "techcrunch: InfoNgen -> 0 results"
+  ],
   "hq_city": "New York",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Instant Information Inc. (USV's second investment, 2005; own post 2005-09-27) became InfoNgen; the firm's archived label 'Seed, 2005'; the band read a 2010 filing as Growth \u2014 disputed; acquired by EPAM Systems in 2010 (Crunchbase / PitchBook), listed by the firm through 2018 | S2A: PRE-WINDOW. Instant Information Inc. was USV's second investment, announced in its own post of 2005-09-27, before the 2006 base window; graduation is null by rule and the row leaves the cohort. Seed stays as the best-supported stage (the firm's archived label 'Seed, 2005'), low by rule. The item's 2009-01-29 Form D anchor is a later filing. | Instant Information Inc. (USV's second investment, 2005; own post 2005-09-27) became InfoNgen; the firm's archived label 'Seed, 2005'; the band read a 2010 filing as Growth \u2014 disputed; acquired by EPAM Systems in 2010 (Crunchbase / PitchBook), listed by the firm through 2018 | S2A: PRE-WINDOW. Instant Information Inc. was USV's second investment, announced in its own post of 2005-09-27, before the 2006 base window; graduation is null by rule and the row leaves the cohort. Seed stays as the best-supported stage (the firm's archived label 'Seed, 2005'), low by rule. The item's 2009-01-29 Form D anchor is a later filing. | Re-sourced to the archived capture that actually carries the label ('Seed, 2005'); the live index it cited no longer lists the company | Instant Information Inc. (USV's second investment, 2005; own post 2005-09-27) became InfoNgen; the firm's archived label 'Seed, 2005'; the band read a 2010 filing as Growth \u2014 disputed; acquired by EPAM Systems in 2010 (Crunchbase / PitchBook), listed by the firm through 2018 | S2A: PRE-WINDOW. Instant Information Inc. was USV's second investment, announced in its own post of 2005-09-27, before the 2006 base window; graduation is null by rule and the row leaves the cohort. Seed stays as the best-supported stage (the firm's archived label 'Seed, 2005'), low by rule. The item's 2009-01-29 Form D anchor is a later filing. | Instant Information Inc. (USV's second investment, 2005; own post 2005-09-27) became InfoNgen; the firm's archived label 'Seed, 2005'; the band read a 2010 filing as Growth \u2014 disputed; acquired by EPAM Systems in 2010 (Crunchbase / PitchBook), listed by the firm through 2018 | S2A: PRE-WINDOW. Instant Information Inc. was USV's second investment, announced in its own post of 2005-09-27, before the 2006 base window; graduation is null by rule and the row leaves the cohort. Seed stays as the best-supported stage (the firm's archived label 'Seed, 2005'), low by rule. The item's 2009-01-29 Form D anchor is a later filing. | Re-sourced to the archived capture that actually carries the label ('Seed, 2005'); the live index it cited no longer lists the company | Not graduated (PRO-135): the null was the retired pre-window rule, and a named company owes a decision (Erik 2026-09-18). Five years separate the 2005 seed from the 2010 EPAM acquisition and no later round appears anywhere on the record -- the firm's own listing still reads 'Seed, 2005' under Exited Investments, and the only Form D in the window is the weak join this row already disputes. Low: this is an absence searched for, not one proved.",
+  "note": "Instant Information Inc. (USV's second investment, 2005; own post 2005-09-27) became InfoNgen; the firm's archived label 'Seed, 2005'; the band read a 2010 filing as Growth \u2014 disputed; acquired by EPAM Systems in 2010 (Crunchbase / PitchBook), listed by the firm through 2018 | S2A: PRE-WINDOW. Instant Information Inc. was USV's second investment, announced in its own post of 2005-09-27, before the 2006 base window; graduation is null by rule and the row leaves the cohort. Seed stays as the best-supported stage (the firm's archived label 'Seed, 2005'), low by rule. The item's 2009-01-29 Form D anchor is a later filing. | Instant Information Inc. (USV's second investment, 2005; own post 2005-09-27) became InfoNgen; the firm's archived label 'Seed, 2005'; the band read a 2010 filing as Growth \u2014 disputed; acquired by EPAM Systems in 2010 (Crunchbase / PitchBook), listed by the firm through 2018 | S2A: PRE-WINDOW. Instant Information Inc. was USV's second investment, announced in its own post of 2005-09-27, before the 2006 base window; graduation is null by rule and the row leaves the cohort. Seed stays as the best-supported stage (the firm's archived label 'Seed, 2005'), low by rule. The item's 2009-01-29 Form D anchor is a later filing. | Re-sourced to the archived capture that actually carries the label ('Seed, 2005'); the live index it cited no longer lists the company | Instant Information Inc. (USV's second investment, 2005; own post 2005-09-27) became InfoNgen; the firm's archived label 'Seed, 2005'; the band read a 2010 filing as Growth \u2014 disputed; acquired by EPAM Systems in 2010 (Crunchbase / PitchBook), listed by the firm through 2018 | S2A: PRE-WINDOW. Instant Information Inc. was USV's second investment, announced in its own post of 2005-09-27, before the 2006 base window; graduation is null by rule and the row leaves the cohort. Seed stays as the best-supported stage (the firm's archived label 'Seed, 2005'), low by rule. The item's 2009-01-29 Form D anchor is a later filing. | Instant Information Inc. (USV's second investment, 2005; own post 2005-09-27) became InfoNgen; the firm's archived label 'Seed, 2005'; the band read a 2010 filing as Growth \u2014 disputed; acquired by EPAM Systems in 2010 (Crunchbase / PitchBook), listed by the firm through 2018 | S2A: PRE-WINDOW. Instant Information Inc. was USV's second investment, announced in its own post of 2005-09-27, before the 2006 base window; graduation is null by rule and the row leaves the cohort. Seed stays as the best-supported stage (the firm's archived label 'Seed, 2005'), low by rule. The item's 2009-01-29 Form D anchor is a later filing. | Re-sourced to the archived capture that actually carries the label ('Seed, 2005'); the live index it cited no longer lists the company | Not graduated (PRO-135): the null was the retired pre-window rule, and a named company owes a decision (Erik 2026-09-18). Five years separate the 2005 seed from the 2010 EPAM acquisition and no later round appears anywhere on the record -- the firm's own listing still reads 'Seed, 2005' under Exited Investments, and the only Form D in the window is the weak join this row already disputes. Low: this is an absence searched for, not one proved. | S2A: Instant Information Inc. (became InfoNgen) was USV's second investment, announced in its own post of 2005-09-27. EPAM's 2010 acquisition is reported only on vendor pages (not citable); the press searches return a clean zero across two decades, so the absence no applies rather than the retired pre-window null.",
   "seed_to_a_graduation": "not_graduated",
   "slug": "infongen",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "isembard": {
   "entry_stage": "Series A",
@@ -2254,10 +2341,19 @@
   ],
   "focus": "Crypto & Web3",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
+  "graduation_confidence": "medium",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: usv.com/companies labels Kiosk Seed 2021 (the Mirror round USV led); googlenews_firm (\"Kiosk\" \"Union Square Ventures\"/USV) -> 3 results, none on-topic beyond noise",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Kiosk\" + round words -> 69 raw results, dominated by the generic retail-kiosk-industry word (acquisitions of unrelated kiosk vendors); none is this company",
+   "techcrunch: Kiosk -> 30 results, none on-topic"
+  ],
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Kiosk, the Farcaster client built by the Mirror team (Denis Nazarov); site label Seed, 2021 (the Mirror round USV led in 2021); Wikidata's defunct-2001 Switzerland match is a homonym, disputed; no Series A established; municipality not established | S2A: the entry is the 2021 Mirror seed financing (The Information: at least $10M across two seed financings from USV and a16z at a $100M valuation; firm's label Seed, 2021). Mirror's publishing product passed to Paragraph in May 2024 (The Block) while the company continued as Kiosk. Searched as of 2026-09-16: no Series A or later priced round named anywhere, and no terminal event for the company itself. | Kiosk, the Farcaster client built by the Mirror team (Denis Nazarov); site label Seed, 2021 (the Mirror round USV led in 2021); Wikidata's defunct-2001 Switzerland match is a homonym, disputed; no Series A established; municipality not established | S2A: the entry is the 2021 Mirror seed financing (The Information: at least $10M across two seed financings from USV and a16z at a $100M valuation; firm's label Seed, 2021). Mirror's publishing product passed to Paragraph in May 2024 (The Block) while the company continued as Kiosk. Searched as of 2026-09-16: no Series A or later priced round named anywhere, and no terminal event for the company itself. | Entry round from the firm's own listing (Seed); replaces shared citation",
-  "seed_to_a_graduation": "undetermined",
+  "note": "Kiosk, the Farcaster client built by the Mirror team (Denis Nazarov); site label Seed, 2021 (the Mirror round USV led in 2021); Wikidata's defunct-2001 Switzerland match is a homonym, disputed; no Series A established; municipality not established | S2A: the entry is the 2021 Mirror seed financing (The Information: at least $10M across two seed financings from USV and a16z at a $100M valuation; firm's label Seed, 2021). Mirror's publishing product passed to Paragraph in May 2024 (The Block) while the company continued as Kiosk. Searched as of 2026-09-16: no Series A or later priced round named anywhere, and no terminal event for the company itself. | Kiosk, the Farcaster client built by the Mirror team (Denis Nazarov); site label Seed, 2021 (the Mirror round USV led in 2021); Wikidata's defunct-2001 Switzerland match is a homonym, disputed; no Series A established; municipality not established | S2A: the entry is the 2021 Mirror seed financing (The Information: at least $10M across two seed financings from USV and a16z at a $100M valuation; firm's label Seed, 2021). Mirror's publishing product passed to Paragraph in May 2024 (The Block) while the company continued as Kiosk. Searched as of 2026-09-16: no Series A or later priced round named anywhere, and no terminal event for the company itself. | Entry round from the firm's own listing (Seed); replaces shared citation | S2A: the entry is the 2021 Mirror seed financing (The Information: at least $10M across two seed financings from USV and a16z at a $100M valuation). Mirror's publishing product passed to Paragraph in May 2024 while the company continued as Kiosk; no Series A or later priced round is named anywhere, and no terminal event for the company itself.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "kiosk",
   "status": "private",
   "valuation_asof": null,
@@ -2266,7 +2362,7 @@
   "valuation_range_source": "model",
   "valuation_source": null,
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "kitchensurfing": {
   "entry_stage": "Series A",
@@ -2299,13 +2395,23 @@
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
+  "graduation_citation": "https://www.businessinsider.com/airbnb-quietly-acquired-an-ai-content-moderation-startup-in-2018-2020-1",
+  "graduation_confidence": "medium",
+  "graduation_source": "web_verified",
+  "graduation_surfaces": [
+   "firm: USV's own December 2015 post names no round beyond Seed 2015; no later USV post on Koko; googlenews_firm (\"Koko\" \"Union Square Ventures\"/USV) -> 2 results, no on-topic financing",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Koko\" + round words -> 52 raw results, dominated by unrelated Koko entities (the gorilla, Koko Networks Kenya, Koko Black); recognition check excludes all of them",
+   "techcrunch: Koko -> 10 results, none about this company"
+  ],
   "hq_city": "New York",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
   "is_public": false,
-  "note": "Koko (Rob Morris), peer-support and moderation AI (New York); USV invested with Joi Ito, December 2015 (own post; site label Seed, 2015); acquired by Airbnb 2018 (site); the public-float pre-fill belongs to another registrant (cik_weak) \u2014 disputed and removed; no Series A before the exit | S2A: USV invested with Joi Ito in December 2015 (own post; firm's label Seed, 2015) and Airbnb acquired the company in 2018 (firm's site; Fast Company 2022-06-22, 'He sold his mental-health startup to Airbnb'). The round history between the seed and the exit could not be verified: the session's web-search cap was reached before a funding search ran, and the acquisition articles reached give no round details. A no needs the seed shown as the last round, so the row stays undetermined.",
-  "seed_to_a_graduation": "undetermined",
+  "note": "Koko (Rob Morris), peer-support and moderation AI (New York); USV invested with Joi Ito, December 2015 (own post; site label Seed, 2015); acquired by Airbnb 2018 (site); the public-float pre-fill belongs to another registrant (cik_weak) \u2014 disputed and removed; no Series A before the exit | S2A: USV invested with Joi Ito in December 2015 (own post; firm's label Seed, 2015) and Airbnb acquired the company in 2018 (firm's site; Fast Company 2022-06-22, 'He sold his mental-health startup to Airbnb'). The round history between the seed and the exit could not be verified: the session's web-search cap was reached before a funding search ran, and the acquisition articles reached give no round details. A no needs the seed shown as the last round, so the row stays undetermined. | S2A: USV invested with Joi Ito in December 2015 (own post, label Seed 2015). Business Insider (2020-01-29) confirms Airbnb's 2018 acqui-hire/purchase of the 'venture-backed startup' with no round named; no Series A appears anywhere in the record.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "koko",
   "status": "acquired",
   "valuation_asof": null,
@@ -2314,7 +2420,7 @@
   "valuation_range_source": "model",
   "valuation_source": null,
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "la-ruche-qui-dit-oui": {
   "entry_stage": "Growth",
@@ -2388,18 +2494,27 @@
   "flags": [],
   "focus": "Climate & Energy",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
+  "graduation_confidence": "medium",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: own post (2022-10-20) names no round, usv.com/companies label Seed 2022; googlenews_firm (\"Lithos Carbon\" \"Union Square Ventures\"/USV) -> 4 results, all about the seed itself",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Lithos Carbon\" + round words -> 9 raw results; on-topic hits are product/partnership coverage (Morin Ag Services, basalt soil study), no financing",
+   "techcrunch: Lithos Carbon -> 5 results, only the 2022-10-20 launch piece"
+  ],
   "hq_city": "Seattle",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Enhanced rock weathering (Seattle); own post 2022-10-20 names no round, site label Seed, 2022; follow-on not established | S2A: USV and Greylock led the $6.29M seed (GeekWire, November 2022; own post 2022-10-20). Searched for a later round as of 2026-09-16: none named; the larger vendor total is the $57.1M Frontier offtake agreement, a purchase contract and not equity. The company operates, so no terminal event supports not_graduated. | Enhanced rock weathering (Seattle); own post 2022-10-20 names no round, site label Seed, 2022; follow-on not established | S2A: USV and Greylock led the $6.29M seed (GeekWire, November 2022; own post 2022-10-20). Searched for a later round as of 2026-09-16: none named; the larger vendor total is the $57.1M Frontier offtake agreement, a purchase contract and not equity. The company operates, so no terminal event supports not_graduated. | Entry round from the firm's own listing (Seed); replaces shared citation",
-  "seed_to_a_graduation": "undetermined",
+  "note": "Enhanced rock weathering (Seattle); own post 2022-10-20 names no round, site label Seed, 2022; follow-on not established | S2A: USV and Greylock led the $6.29M seed (GeekWire, November 2022; own post 2022-10-20). Searched for a later round as of 2026-09-16: none named; the larger vendor total is the $57.1M Frontier offtake agreement, a purchase contract and not equity. The company operates, so no terminal event supports not_graduated. | Enhanced rock weathering (Seattle); own post 2022-10-20 names no round, site label Seed, 2022; follow-on not established | S2A: USV and Greylock led the $6.29M seed (GeekWire, November 2022; own post 2022-10-20). Searched for a later round as of 2026-09-16: none named; the larger vendor total is the $57.1M Frontier offtake agreement, a purchase contract and not equity. The company operates, so no terminal event supports not_graduated. | Entry round from the firm's own listing (Seed); replaces shared citation | S2A: USV and Greylock led the $6.29M seed (GeekWire, November 2022; own post). No later round is named anywhere; the larger vendor figure is the $57.1M Frontier offtake agreement, a purchase contract rather than equity. The company operates.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "lithos-carbon",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "lydian": {
   "entry_date": "2022",
@@ -2427,7 +2542,7 @@
   "who": "agent-judge-s2a-usv"
  },
  "m3ter": {
-  "entry_date": "2021",
+  "entry_date": "2022-02",
   "entry_stage": "Seed",
   "entry_stage_citation": "https://www.usv.com/companies/",
   "entry_stage_confidence": "high",
@@ -2435,18 +2550,21 @@
   "flags": [],
   "focus": "DevTools & APIs",
   "focus_source": "model",
+  "graduation_citation": "https://techcrunch.com/2023/04/27/m3ter-locks-in-14m-to-expand-its-usage-based-pricing-tools-for-saas-businesses/",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
   "hq_city": "London",
   "hq_city_source": "model_knowledge",
   "hq_country": "GB",
   "hq_country_source": "model_knowledge",
-  "note": "Usage-based pricing engine (London); site label Seed, 2021 (own post 2022-02 names no round); $17.5M Series A 2022 = graduation | S2A: THRESHOLD CASE for review. USV's entry is the $17.5M seed with Kindred and Insight, announced at the stealth exit on 2022-02-08 (m3ter's own post; USV's own post; firm's label Seed, 2021), not a Series A as the prior note read it. The later round is the $14M Series A led by Notion Capital in 2023, below 2x the seed, so the step-up test fails with both amounts known. Salesforce announced it would acquire m3ter on 2026-06-09, closing expected by the end of July 2026 and not confirmed here (TNW). Neither decided status is citable under the contract as written. | Usage-based pricing engine (London); site label Seed, 2021 (own post 2022-02 names no round); $17.5M Series A 2022 = graduation | S2A: THRESHOLD CASE for review. USV's entry is the $17.5M seed with Kindred and Insight, announced at the stealth exit on 2022-02-08 (m3ter's own post; USV's own post; firm's label Seed, 2021), not a Series A as the prior note read it. The later round is the $14M Series A led by Notion Capital in 2023, below 2x the seed, so the step-up test fails with both amounts known. Salesforce announced it would acquire m3ter on 2026-06-09, closing expected by the end of July 2026 and not confirmed here (TNW). Neither decided status is citable under the contract as written. | Entry round from the firm's own listing (Seed); replaces shared citation",
-  "seed_to_a_graduation": "undetermined",
+  "note": "Usage-based pricing engine (London); site label Seed, 2021 (own post 2022-02 names no round); $17.5M Series A 2022 = graduation | S2A: THRESHOLD CASE for review. USV's entry is the $17.5M seed with Kindred and Insight, announced at the stealth exit on 2022-02-08 (m3ter's own post; USV's own post; firm's label Seed, 2021), not a Series A as the prior note read it. The later round is the $14M Series A led by Notion Capital in 2023, below 2x the seed, so the step-up test fails with both amounts known. Salesforce announced it would acquire m3ter on 2026-06-09, closing expected by the end of July 2026 and not confirmed here (TNW). Neither decided status is citable under the contract as written. | Usage-based pricing engine (London); site label Seed, 2021 (own post 2022-02 names no round); $17.5M Series A 2022 = graduation | S2A: THRESHOLD CASE for review. USV's entry is the $17.5M seed with Kindred and Insight, announced at the stealth exit on 2022-02-08 (m3ter's own post; USV's own post; firm's label Seed, 2021), not a Series A as the prior note read it. The later round is the $14M Series A led by Notion Capital in 2023, below 2x the seed, so the step-up test fails with both amounts known. Salesforce announced it would acquire m3ter on 2026-06-09, closing expected by the end of July 2026 and not confirmed here (TNW). Neither decided status is citable under the contract as written. | Entry round from the firm's own listing (Seed); replaces shared citation | S2A: USV's entry is the $17.5M seed with Kindred and Insight at the 2022-02-08 stealth exit (TechCrunch confirms 'seed round'). TechCrunch's 2023-04-27 piece names the $14M Notion Capital round explicitly 'a Series A' -- a named round graduates whatever the amount. Salesforce later agreed to acquire the company (2026-06).",
+  "seed_to_a_graduation": "graduated",
   "slug": "m3ter",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "matter-labs-zksync": {
   "entry_stage": "Series A",
@@ -2479,22 +2597,28 @@
   "flags": [],
   "focus": "Crypto & Web3",
   "focus_source": "model",
-  "graduation_asof": "2026-09-16",
-  "graduation_citation": "https://techcrunch.com/2017/04/26/spotify-acquires-blockchain-startup-mediachain-to-solve-musics-attribution-problem/",
+  "graduation_asof": "2026-09-20",
+  "graduation_citation": "https://techcrunch.com/2016/06/01/mediachain-enivisions-a-blockchain-based-tool-for-identifying-artists-work-across-the-internet/",
   "graduation_confidence": "high",
   "graduation_source": "web_verified",
+  "graduation_surfaces": [
+   "firm: the firm's archived label reads 'Seed, 2015' (own post 2016-06-01); no later USV post",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Mediachain\" + round words -> 8 raw results, all about the seed and the Spotify acquisition",
+   "techcrunch: Mediachain -> 9 results, same coverage"
+  ],
   "hq_city": "New York",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Decentralized media metadata protocol; the firm's archived label 'Seed, 2015' (listed 2016-2019; own post 2016-06-01); acquired by Spotify in April 2017 before any Series A -> graduation false | S2A: the seed was the last round. USV and a16z's $1.5M seed was announced in USV's own post of 2016-06-01 (the archived label reads 'Seed, 2015'), and TechCrunch's report of the Spotify acquisition on 2017-04-26 gives $1.5M as everything Mediachain had raised. Record searched 2026-09-16: no later priced round before the exit. | Decentralized media metadata protocol; the firm's archived label 'Seed, 2015' (listed 2016-2019; own post 2016-06-01); acquired by Spotify in April 2017 before any Series A -> graduation false | S2A: the seed was the last round. USV and a16z's $1.5M seed was announced in USV's own post of 2016-06-01 (the archived label reads 'Seed, 2015'), and TechCrunch's report of the Spotify acquisition on 2017-04-26 gives $1.5M as everything Mediachain had raised. Record searched 2026-09-16: no later priced round before the exit. | Re-sourced to the archived capture that actually carries the label ('Seed, 2015'); the live index it cited no longer lists the company",
+  "note": "Decentralized media metadata protocol; the firm's archived label 'Seed, 2015' (listed 2016-2019; own post 2016-06-01); acquired by Spotify in April 2017 before any Series A -> graduation false | S2A: the seed was the last round. USV and a16z's $1.5M seed was announced in USV's own post of 2016-06-01 (the archived label reads 'Seed, 2015'), and TechCrunch's report of the Spotify acquisition on 2017-04-26 gives $1.5M as everything Mediachain had raised. Record searched 2026-09-16: no later priced round before the exit. | Decentralized media metadata protocol; the firm's archived label 'Seed, 2015' (listed 2016-2019; own post 2016-06-01); acquired by Spotify in April 2017 before any Series A -> graduation false | S2A: the seed was the last round. USV and a16z's $1.5M seed was announced in USV's own post of 2016-06-01 (the archived label reads 'Seed, 2015'), and TechCrunch's report of the Spotify acquisition on 2017-04-26 gives $1.5M as everything Mediachain had raised. Record searched 2026-09-16: no later priced round before the exit. | Re-sourced to the archived capture that actually carries the label ('Seed, 2015'); the live index it cited no longer lists the company | S2A: USV and a16z's $1.5M seed (own post 2016-06-01) was the last round; TechCrunch's report of the Spotify acquisition (2017-04-26) gives $1.5M as everything Mediachain had raised. A clean, cited terminal event.",
   "seed_to_a_graduation": "not_graduated",
   "slug": "mediachain",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "meet-cute": {
   "entry_date": "2020-11-12",
@@ -2505,18 +2629,25 @@
   "flags": [],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
   "graduation_confidence": "high",
   "graduation_source": "formd",
+  "graduation_surfaces": [
+   "firm: usv.com/companies label Seed 2019, no round beyond the raise below; googlenews_firm (\"Meet Cute\" \"Union Square Ventures\"/USV) -> 10 results, the seed and the 2025 Fox sale only",
+   "formd: the $6.25M seed offering (first sale 2020-11-12) is the only filing in the sequence; rescan as-of 2026-09-05 is more than 24 months past entry, no next offering on file",
+   "googlenews: \"Meet Cute\" + round words -> 52 raw results; no financing after the seed",
+   "techcrunch: Meet Cute -> 30 results, none add a later round"
+  ],
   "hq_city": "New York",
   "hq_city_source": "model_knowledge",
-  "note": "Short-form audio rom-coms (Naomi Shah, ex-USV analyst); seed 2019-2020 ($6.25M Form D Q4 2020; site label Seed, 2019); no Series A established | S2A: Form D verdict accepted. The $6.25M seed offering (first sale 2020-11-12; firm's label Seed, 2019) is the only filing in the sequence, the rescan as-of 2026-09-05 is more than 24 months past the entry, and no later round was found in the press. | Short-form audio rom-coms (Naomi Shah, ex-USV analyst); seed 2019-2020 ($6.25M Form D Q4 2020; site label Seed, 2019); no Series A established | S2A: Form D verdict accepted. The $6.25M seed offering (first sale 2020-11-12; firm's label Seed, 2019) is the only filing in the sequence, the rescan as-of 2026-09-05 is more than 24 months past the entry, and no later round was found in the press. | Entry round from the firm's own listing (Seed); replaces shared citation",
+  "note": "Short-form audio rom-coms (Naomi Shah, ex-USV analyst); seed 2019-2020 ($6.25M Form D Q4 2020; site label Seed, 2019); no Series A established | S2A: Form D verdict accepted. The $6.25M seed offering (first sale 2020-11-12; firm's label Seed, 2019) is the only filing in the sequence, the rescan as-of 2026-09-05 is more than 24 months past the entry, and no later round was found in the press. | Short-form audio rom-coms (Naomi Shah, ex-USV analyst); seed 2019-2020 ($6.25M Form D Q4 2020; site label Seed, 2019); no Series A established | S2A: Form D verdict accepted. The $6.25M seed offering (first sale 2020-11-12; firm's label Seed, 2019) is the only filing in the sequence, the rescan as-of 2026-09-05 is more than 24 months past the entry, and no later round was found in the press. | Entry round from the firm's own listing (Seed); replaces shared citation | S2A: Form D verdict accepted; the $6.25M seed is the only filing on record. Fox Entertainment acquired Meet Cute in November 2025 (Variety, Deadline, multiple outlets) with no Series A ever named, which corroborates the filings' silence.",
   "seed_to_a_graduation": "not_graduated",
   "slug": "meet-cute",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "meetup": {
   "entry_stage": "Growth",
@@ -3034,16 +3165,25 @@
   ],
   "focus": "Crypto & Web3",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
+  "graduation_confidence": "medium",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: own post ('our investment in Paragraph', 2024-05-02) names no round, label Seed 2023; googlenews_firm (\"Paragraph\" \"Union Square Ventures\"/USV) -> 7 results, all about the same May 2024 raise",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Paragraph\" + round words -> 59 raw results, mostly the generic word (publishing/print/legal); on-topic hits are the $5M May 2024 raise only",
+   "techcrunch: Paragraph -> 30 results, none on-topic beyond noise"
+  ],
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Onchain publishing; 'our investment in Paragraph' (own post 2024-05-02, round unnamed; site label Seed, 2023); remote team, municipality not established | S2A: seed per the firm's label (Seed, 2023). The $5M round from USV and Coinbase Ventures of May 2024 (The Block; USV's own 'Doubling Down' post) follows a $1.7M pre-seed of 2022 and is not named a Series A anywhere, so it reads as further seed-stage money. Searched as of 2026-09-16: no Series A and no terminal event; the company operates and took over Mirror. | Onchain publishing; 'our investment in Paragraph' (own post 2024-05-02, round unnamed; site label Seed, 2023); remote team, municipality not established | S2A: seed per the firm's label (Seed, 2023). The $5M round from USV and Coinbase Ventures of May 2024 (The Block; USV's own 'Doubling Down' post) follows a $1.7M pre-seed of 2022 and is not named a Series A anywhere, so it reads as further seed-stage money. Searched as of 2026-09-16: no Series A and no terminal event; the company operates and took over Mirror. | Entry round from the firm's own listing (Seed); replaces shared citation",
-  "seed_to_a_graduation": "undetermined",
+  "note": "Onchain publishing; 'our investment in Paragraph' (own post 2024-05-02, round unnamed; site label Seed, 2023); remote team, municipality not established | S2A: seed per the firm's label (Seed, 2023). The $5M round from USV and Coinbase Ventures of May 2024 (The Block; USV's own 'Doubling Down' post) follows a $1.7M pre-seed of 2022 and is not named a Series A anywhere, so it reads as further seed-stage money. Searched as of 2026-09-16: no Series A and no terminal event; the company operates and took over Mirror. | Onchain publishing; 'our investment in Paragraph' (own post 2024-05-02, round unnamed; site label Seed, 2023); remote team, municipality not established | S2A: seed per the firm's label (Seed, 2023). The $5M round from USV and Coinbase Ventures of May 2024 (The Block; USV's own 'Doubling Down' post) follows a $1.7M pre-seed of 2022 and is not named a Series A anywhere, so it reads as further seed-stage money. Searched as of 2026-09-16: no Series A and no terminal event; the company operates and took over Mirror. | Entry round from the firm's own listing (Seed); replaces shared citation | S2A: seed per the firm's label (Seed, 2023). The $5M round from USV and Coinbase Ventures (May 2024, The Block; USV's own 'Doubling Down' post) follows a $1.7M pre-seed (2022) and is not named a Series A anywhere, so it reads as further seed money. No Series A and no terminal event; the company operates, having taken over Mirror.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "paragraph",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "parallel-markets": {
   "entry_stage": "Series A",
@@ -3459,16 +3599,25 @@
   ],
   "focus": "Crypto & Web3",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
+  "graduation_confidence": "low",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: usv.com/companies label Seed 2022, no dedicated announcement post; googlenews_firm (\"Revel\" \"Union Square Ventures\"/USV) -> 3 results, all the Dec 2022 seed",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Revel\" + round words -> 69 raw results, dominated by at least five unrelated Revel companies (EV mopeds/charging, Revel Systems POS, Revel Bikes, Revel Consulting, a hardware-testing Revel that raised a $150M Series B in 2026); recognition check confirms none is Revel.xyz",
+   "techcrunch: Revel -> 30 results, dominated by the unrelated EV-charging Revel; no on-topic hit for Revel.xyz beyond the seed"
+  ],
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Web3 personal-media collecting app; site label Seed, 2022, no announcement post and no website on the live list; no trace of the product since 2023 -> unknown | S2A: identified as Revel.xyz: the $7.8M seed led by Dragonfly with participation from USV, announced 2022-12-19 (Revel's own post; TechCrunch), which also supplies a seed citation the row lacked. Searched for a later round or an exit as of 2026-09-16: none found, and no shutdown notice either, though the product has been quiet since 2023. | Web3 personal-media collecting app; site label Seed, 2022, no announcement post and no website on the live list; no trace of the product since 2023 -> unknown | S2A: identified as Revel.xyz: the $7.8M seed led by Dragonfly with participation from USV, announced 2022-12-19 (Revel's own post; TechCrunch), which also supplies a seed citation the row lacked. Searched for a later round or an exit as of 2026-09-16: none found, and no shutdown notice either, though the product has been quiet since 2023. | Entry round from the firm's own listing (Seed); replaces shared citation",
-  "seed_to_a_graduation": "undetermined",
+  "note": "Web3 personal-media collecting app; site label Seed, 2022, no announcement post and no website on the live list; no trace of the product since 2023 -> unknown | S2A: identified as Revel.xyz: the $7.8M seed led by Dragonfly with participation from USV, announced 2022-12-19 (Revel's own post; TechCrunch), which also supplies a seed citation the row lacked. Searched for a later round or an exit as of 2026-09-16: none found, and no shutdown notice either, though the product has been quiet since 2023. | Web3 personal-media collecting app; site label Seed, 2022, no announcement post and no website on the live list; no trace of the product since 2023 -> unknown | S2A: identified as Revel.xyz: the $7.8M seed led by Dragonfly with participation from USV, announced 2022-12-19 (Revel's own post; TechCrunch), which also supplies a seed citation the row lacked. Searched for a later round or an exit as of 2026-09-16: none found, and no shutdown notice either, though the product has been quiet since 2023. | Entry round from the firm's own listing (Seed); replaces shared citation | S2A: identified as Revel.xyz, the $7.8M seed led by Dragonfly with USV participating (2022-12-19, own post; TechCrunch). No later round or shutdown notice found, though the product has been quiet since 2023; low confidence given how thin genuine coverage of this specific company is.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "revel",
   "status": "unknown",
   "valuation_confidence": "low",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "rupa-health": {
   "entry_stage": "Series A",
@@ -3648,7 +3797,6 @@
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
   "note": "AI email client (Andrew Lee, ex-Firebase); 'Shortwave launches to the public today' (own post 2022-02-15); site label Seed, 2022; follow-on not established | S2A: RE-STAGED Seed -> Series A. Shortwave's own launch post of 2022-02-15 says it 'raised a Series A round of $9 million led by Union Square Ventures and Lightspeed Venture Partners'; USV's post the same day names no round, and no earlier seed with USV is on the record. Lightspeed's own card dates that Series A to 2020, which moves the entry from the site's 'Seed, 2022' label (R4). Medium because the firm's label disagrees. The row leaves the seed cohort.",
-  "seed_to_a_graduation": null,
   "slug": "shortwave",
   "status": "private",
   "valuation_confidence": "high",
@@ -3756,7 +3904,6 @@
   "hq_city": "New York",
   "hq_city_source": "model_knowledge",
   "note": "Data-driven TV advertising (Dave Morgan); USV's 2009 seed at inception (own post 2009-03-05; site label Seed, 2009); the band read a $60K 2012 filing as Pre-Seed \u2014 disputed; $8M 2010 round = graduation; USV led the Series E in 2019 | S2A: RE-STAGED Seed -> Series A. The company's own release of 2010-04-21 states 'In March 2009, Simulmedia, founded by Dave Morgan, raised $4 million in a Series A round from Avalon Ventures and Union Square Ventures' (the $4M Form D of 2009q1), and names the $8M round that followed a Series B. USV's own post of 2009-03-05 names no round, so the record stands against the site's 'Seed, 2009' label (R4). Medium because the firm's label disagrees. The row leaves the seed cohort.",
-  "seed_to_a_graduation": null,
   "slug": "simulmedia",
   "status": "private",
   "valuation_confidence": "high",
@@ -4000,16 +4147,19 @@
   "flags": [],
   "focus": "Crypto & Web3",
   "focus_source": "model",
+  "graduation_citation": "https://www.pymnts.com/news/investment-tracker/2017/blockchain-startup-blockstack-venture-capital-union-square-ventures/",
+  "graduation_confidence": "medium",
+  "graduation_source": "web_verified",
   "hq_city": "New York",
   "hq_city_source": "model_knowledge",
-  "note": "Onename (2014 seed; own post 2014-11-12) became Blockstack and then the Stacks ecosystem (Hiro Systems PBC; Reg A token offering 2019); site label Seed, 2014; USV led Blockstack's $4M Series A in 2016 = graduation; the company continues as Hiro, private | S2A: THRESHOLD CASE, and the Form D verdict is disputed. The layer's not_graduated anchors on the 2016-12-16 filing, but USV's entry is the 2014 Onename seed ($1.33M with SV Angel and others; own post 2014-11-12), and that filing is the next round, which USV led (own post 2017-01-06, round unnamed). TechCrunch (2017-01-05) sizes it at $4M, under the $5M floor; the Form D shows $5.27M sold, which would clear it, and the gap matches the seed notes converting. Which figure governs decides the row. Later money was token sales (2017, Reg A+ 2019), not priced equity; the company operates as Hiro.",
-  "seed_to_a_graduation": "undetermined",
+  "note": "Onename (2014 seed; own post 2014-11-12) became Blockstack and then the Stacks ecosystem (Hiro Systems PBC; Reg A token offering 2019); site label Seed, 2014; USV led Blockstack's $4M Series A in 2016 = graduation; the company continues as Hiro, private | S2A: THRESHOLD CASE, and the Form D verdict is disputed. The layer's not_graduated anchors on the 2016-12-16 filing, but USV's entry is the 2014 Onename seed ($1.33M with SV Angel and others; own post 2014-11-12), and that filing is the next round, which USV led (own post 2017-01-06, round unnamed). TechCrunch (2017-01-05) sizes it at $4M, under the $5M floor; the Form D shows $5.27M sold, which would clear it, and the gap matches the seed notes converting. Which figure governs decides the row. Later money was token sales (2017, Reg A+ 2019), not priced equity; the company operates as Hiro. | S2A: USV's entry is the 2014 Onename seed ($1.33M with SV Angel; own post 2014-11-12). PYMNTS (2017-01-06, independently corroborating the Form D's $5.27-5.52M) reports Blockstack raised $5.3M in a round of venture funding in January 2017 -- unnamed, but $5.3M clears max(2x $1.33M, $5M). The step-up test resolves the prior TechCrunch-vs-Form-D dispute in favor of graduation; later money (2017 token sale, 2019 Reg A+) is separate and does not change this.",
+  "seed_to_a_graduation": "graduated",
   "slug": "stacks",
   "status": "private",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "stash": {
   "entry_stage": "Growth",
@@ -4094,21 +4244,29 @@
   "flags": [],
   "focus": "Fintech & Payments",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
+  "graduation_confidence": "medium",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: usv.com/companies label Seed 2023 (superseded by the cited 2022-08 round); googlenews_firm (\"Super Payments\" \"Union Square Ventures\"/USV) -> 6 results, all the same GBP22.5M round",
+   "googlenews: \"Super Payments\" + round words -> 32 raw results, all cluster on the single August 2022 round (TechCrunch, Sky News, Crowdfund Insider, Osborne Clarke)",
+   "techcrunch: Super Payments -> 30 results; the 2022-08-17 piece is the only financing coverage"
+  ],
   "hq_city": "London",
   "hq_city_source": "model_knowledge",
   "hq_country": "GB",
   "hq_country_source": "model_knowledge",
-  "note": "Zero-fee payments network (Samir Desai, London); site label Seed, 2023, no announcement post; follow-on not established | S2A: USV participated in the GBP 22.5M first round led by Accel, announced 2022-08-17 (TechCrunch), a year before the firm's label year (Seed, 2023). Searched for a later round or an exit as of 2026-09-16: none found; the company operates. | Zero-fee payments network (Samir Desai, London); site label Seed, 2023, no announcement post; follow-on not established | S2A: USV participated in the GBP 22.5M first round led by Accel, announced 2022-08-17 (TechCrunch), a year before the firm's label year (Seed, 2023). Searched for a later round or an exit as of 2026-09-16: none found; the company operates. | Entry round from the firm's own listing (Seed); replaces shared citation",
-  "seed_to_a_graduation": "undetermined",
+  "note": "Zero-fee payments network (Samir Desai, London); site label Seed, 2023, no announcement post; follow-on not established | S2A: USV participated in the GBP 22.5M first round led by Accel, announced 2022-08-17 (TechCrunch), a year before the firm's label year (Seed, 2023). Searched for a later round or an exit as of 2026-09-16: none found; the company operates. | Zero-fee payments network (Samir Desai, London); site label Seed, 2023, no announcement post; follow-on not established | S2A: USV participated in the GBP 22.5M first round led by Accel, announced 2022-08-17 (TechCrunch), a year before the firm's label year (Seed, 2023). Searched for a later round or an exit as of 2026-09-16: none found; the company operates. | Entry round from the firm's own listing (Seed); replaces shared citation | S2A: USV participated in the GBP22.5M (~$27-30M) first round led by Accel, announced 2022-08-17 (TechCrunch), a year before the firm's Seed-2023 label. Multiple independent outlets confirm only this one round; no later financing or exit found; the company (London) operates.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "super-payments",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "suppco": {
-  "entry_date": "2023",
+  "entry_date": "2024-10",
   "entry_stage": "Seed",
   "entry_stage_citation": "https://www.usv.com/companies/",
   "entry_stage_confidence": "high",
@@ -4116,18 +4274,28 @@
   "flags": [],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
+  "graduation_citation": "https://www.prnewswire.com/news-releases/function-acquires-suppco-to-bring-trust-and-clarity-to-supplements-302769718.html",
+  "graduation_confidence": "high",
+  "graduation_source": "web_verified",
+  "graduation_surfaces": [
+   "firm: own post ('Our investment in SuppCo', 2024-10-17) names the $5.5M seed, no round after it",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"SuppCo\" + round words -> 11 raw results, all either the October 2024 seed or the 2026 Function acquisition",
+   "techcrunch: SuppCo -> 0 results"
+  ],
   "hq_city": "New York",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Supplement tracker (Steve Martocci); 'Our investment in SuppCo' (own post 2024-10-17, round unnamed; site label Seed, 2023); follow-on not established | S2A: the $5.5M seed led by USV and True Ventures was announced at the launch in October 2024 (own post 2024-10-17; FinSMEs), while the firm's label reads Seed, 2023; the label year is kept as the entry, which puts the row past the censoring clock. Searched for a later round as of 2026-09-16: none found; the company operates. | Supplement tracker (Steve Martocci); 'Our investment in SuppCo' (own post 2024-10-17, round unnamed; site label Seed, 2023); follow-on not established | S2A: the $5.5M seed led by USV and True Ventures was announced at the launch in October 2024 (own post 2024-10-17; FinSMEs), while the firm's label reads Seed, 2023; the label year is kept as the entry, which puts the row past the censoring clock. Searched for a later round as of 2026-09-16: none found; the company operates. | Entry round from the firm's own listing (Seed); replaces shared citation",
-  "seed_to_a_graduation": "undetermined",
+  "note": "Supplement tracker (Steve Martocci); 'Our investment in SuppCo' (own post 2024-10-17, round unnamed; site label Seed, 2023); follow-on not established | S2A: the $5.5M seed led by USV and True Ventures was announced at the launch in October 2024 (own post 2024-10-17; FinSMEs), while the firm's label reads Seed, 2023; the label year is kept as the entry, which puts the row past the censoring clock. Searched for a later round as of 2026-09-16: none found; the company operates. | Supplement tracker (Steve Martocci); 'Our investment in SuppCo' (own post 2024-10-17, round unnamed; site label Seed, 2023); follow-on not established | S2A: the $5.5M seed led by USV and True Ventures was announced at the launch in October 2024 (own post 2024-10-17; FinSMEs), while the firm's label reads Seed, 2023; the label year is kept as the entry, which puts the row past the censoring clock. Searched for a later round as of 2026-09-16: none found; the company operates. | Entry round from the firm's own listing (Seed); replaces shared citation | S2A: the $5.5M seed led by USV and True Ventures launched October 2024 (own post; FinSMEs). Function acquired SuppCo in May 2026 (PR Newswire, corroborated by six independent outlets) with no Series A ever named -- a cited terminal event, which also means the row is not censored despite the entry sitting inside 24 months.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "suppco",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "supper": {
   "entry_date": "2025-12",
@@ -4258,18 +4426,25 @@
   "flags": [],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
   "graduation_confidence": "high",
   "graduation_source": "formd",
+  "graduation_surfaces": [
+   "firm: own post (2010-11) names the $3M seed, no later round; usv.com listing shows nothing further",
+   "formd: the $3M seed offering (first sale 2010-11-12) is the only filing in the sequence; rescan as-of 2026-09-05 is far more than 24 months past entry",
+   "googlenews: \"Tasty Labs\" + round words -> 5 raw results, none add a later round",
+   "techcrunch: Tasty Labs -> 30 results, none on-topic beyond the original coverage"
+  ],
   "hq_city": "San Francisco",
   "hq_city_source": "model_knowledge",
-  "note": "Joshua Schachter's social-software company (Jig); USV and a16z's $3M seed, November 2010 (own post; Form D Q4 2010); no Series A; wound down 2013 (site: inactive) | S2A: Form D verdict accepted. USV and a16z's $3M seed (first sale 2010-11-12; own post 2010-11) is the only filing in the sequence, the rescan as-of 2026-09-05 is far more than 24 months past the entry, and the company wound down in 2013 with no later round in the press.",
+  "note": "Joshua Schachter's social-software company (Jig); USV and a16z's $3M seed, November 2010 (own post; Form D Q4 2010); no Series A; wound down 2013 (site: inactive) | S2A: Form D verdict accepted. USV and a16z's $3M seed (first sale 2010-11-12; own post 2010-11) is the only filing in the sequence, the rescan as-of 2026-09-05 is far more than 24 months past the entry, and the company wound down in 2013 with no later round in the press. | S2A: Form D verdict accepted. USV and a16z's $3M seed (Joshua Schachter's Jig) is the only filing; the company wound down in 2013 (site: inactive) with no later round anywhere.",
   "seed_to_a_graduation": "not_graduated",
   "slug": "tasty-labs",
   "status": "defunct",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "teamshares": {
   "entry_stage": "Series A",
@@ -4326,16 +4501,25 @@
   ],
   "focus": "Data Infrastructure",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
+  "graduation_confidence": "low",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: USV's own post 'Introducing Tracked.com' (2009-10-21) is the only first-party trace, one year on the archived listing (2010); googlenews_firm (\"Tracked\" \"Union Square Ventures\"/USV) -> 33 results, none on-topic",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Tracked\" + round words -> 81 raw results, entirely the generic verb (radar, wildlife, funding-roundup newsletters, license-plate tracking); none is this company",
+   "techcrunch: Tracked -> 30 results, none on-topic"
+  ],
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Tracked.com, business and people data service; listed by the firm in 2010 only ('Introducing Tracked.com', own post 2009-10-21); dark since 2011 \u2014 an archive-only survivorship row | S2A: the stage leg cannot be established. The only first-party trace is USV's 'Introducing Tracked.com' post of 2009-10-21 and one year on the archived listing (2010); no page names the round, so stage_uncited stays. The service has been dark since 2011 with no shutdown or acquisition article found, so neither decided status is citable.",
-  "seed_to_a_graduation": "undetermined",
+  "note": "Tracked.com, business and people data service; listed by the firm in 2010 only ('Introducing Tracked.com', own post 2009-10-21); dark since 2011 \u2014 an archive-only survivorship row | S2A: the stage leg cannot be established. The only first-party trace is USV's 'Introducing Tracked.com' post of 2009-10-21 and one year on the archived listing (2010); no page names the round, so stage_uncited stays. The service has been dark since 2011 with no shutdown or acquisition article found, so neither decided status is citable. | S2A: no page names the round for this 2009 seed, so the stage stays uncited. The service has been dark since 2011 with no shutdown or acquisition article found anywhere; given the entry is 17 years old and every surface is clean, the (low-confidence) absence no applies rather than leaving the row undecided.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "tracked",
   "status": "defunct",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "transmutex": {
   "entry_stage": "Series A",
@@ -4551,7 +4735,6 @@
   "hq_city": "Mountain View",
   "hq_city_source": "model_knowledge",
   "note": "Vehicular mesh networking (Porto / Mountain View); 'Introducing Veniam' 2014 (own post names no round; site label Seed, 2014); 'a significant new round of funding led by Verizon Ventures', February 2016 (own post) = graduation; the site marks it acquired \u2014 acquirer to be confirmed in the A/B pass | Acquired by Nexar (Israel), announced 2022-08-03 (PR Newswire; CMU Portugal), terms undisclosed \u2014 below_1b (A/B pass 2026-09-05) | S2A: RE-STAGED Seed -> Series A. Veniam's release of 2014-12-02 announces '$4.9 million Series A funding' led by True Ventures with participation from Union Square Ventures and Cane Investments, the same week as USV's 'Introducing Veniam' post, which names no round; no earlier seed with USV is on the record. The record stands against the site's 'Seed, 2014' label (R4); medium because the firm's label disagrees. The row leaves the seed cohort. For the record, the $22M Series B led by Verizon Ventures followed in February 2016.",
-  "seed_to_a_graduation": null,
   "slug": "veniam",
   "status": "acquired",
   "status_asof": "2022-08-03",
@@ -4715,7 +4898,7 @@
   "who": "agent-judge-pro86"
  },
  "wren": {
-  "entry_date": "2019",
+  "entry_date": "2020-01",
   "entry_stage": "Seed",
   "entry_stage_citation": "https://www.usv.com/companies/",
   "entry_stage_confidence": "high",
@@ -4723,18 +4906,27 @@
   "flags": [],
   "focus": "Climate & Energy",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
+  "graduation_confidence": "medium",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: USV's own post ('welcoming Wren to the USV portfolio', 2020-01-16) names no round beyond the seed; googlenews_firm (\"Wren\" \"Union Square Ventures\"/USV) -> 2 results, both the same seed",
+   "formd: no Form D filings on record for the company",
+   "googlenews: \"Wren\" + round words -> 78 raw results, dominated by unrelated Wren entities (Wren Sterling advisers, Wren's Collision Group, Wren Kitchens); recognition check excludes all of them",
+   "techcrunch: Wren -> 18 results, only the 2019 YC-demo-day mention, nothing later"
+  ],
   "hq_city": "San Francisco",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Carbon-offset subscription (Project Wren); 'welcoming Wren to the USV portfolio' (own post 2020-01-16, round unnamed; site label Seed, 2019); follow-on not established | S2A: USV led the $1.5M seed announced 2020-01-16 (Forbes; own post; firm's label Seed, 2019). Vendor pages list a $6.6M round of February 2022 styled as further seed money, which cannot carry a verdict; the session's web-search cap was reached before a primary source for it could be looked for. No Series A is named anywhere and the company operates, so no terminal event supports not_graduated. | Carbon-offset subscription (Project Wren); 'welcoming Wren to the USV portfolio' (own post 2020-01-16, round unnamed; site label Seed, 2019); follow-on not established | S2A: USV led the $1.5M seed announced 2020-01-16 (Forbes; own post; firm's label Seed, 2019). Vendor pages list a $6.6M round of February 2022 styled as further seed money, which cannot carry a verdict; the session's web-search cap was reached before a primary source for it could be looked for. No Series A is named anywhere and the company operates, so no terminal event supports not_graduated. | Entry round from the firm's own listing (Seed); replaces shared citation",
-  "seed_to_a_graduation": "undetermined",
+  "note": "Carbon-offset subscription (Project Wren); 'welcoming Wren to the USV portfolio' (own post 2020-01-16, round unnamed; site label Seed, 2019); follow-on not established | S2A: USV led the $1.5M seed announced 2020-01-16 (Forbes; own post; firm's label Seed, 2019). Vendor pages list a $6.6M round of February 2022 styled as further seed money, which cannot carry a verdict; the session's web-search cap was reached before a primary source for it could be looked for. No Series A is named anywhere and the company operates, so no terminal event supports not_graduated. | Carbon-offset subscription (Project Wren); 'welcoming Wren to the USV portfolio' (own post 2020-01-16, round unnamed; site label Seed, 2019); follow-on not established | S2A: USV led the $1.5M seed announced 2020-01-16 (Forbes; own post; firm's label Seed, 2019). Vendor pages list a $6.6M round of February 2022 styled as further seed money, which cannot carry a verdict; the session's web-search cap was reached before a primary source for it could be looked for. No Series A is named anywhere and the company operates, so no terminal event supports not_graduated. | Entry round from the firm's own listing (Seed); replaces shared citation | S2A: USV led the $1.5M seed announced 2020-01-16 (Forbes; own post). A vendor page lists a further ~$6.6M seed-styled round in 2022 that cannot be corroborated in press and is not a named Series A; no Series A is named anywhere and the company operates.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "wren",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "xfuel": {
   "entry_stage": "Series A",
@@ -4832,18 +5024,26 @@
   ],
   "focus": "Media, Gaming & Advertising",
   "focus_source": "model",
+  "graduation_asof": "2026-09-20",
+  "graduation_citation": "https://www.adexchanger.com/native-advertising-2/outbrain-acquires-native-dsp-zemanta/",
   "graduation_confidence": "medium",
-  "graduation_source": "formd",
+  "graduation_source": "web_verified",
+  "graduation_surfaces": [
+   "firm: TechCrunch (2008-09-15) and USV's own post frame the $650K as seed investors; the firm's site 'Series A, 2008' label is disputed by this record",
+   "formd: the layer's filing (2016-01-08, $3.7M) mis-anchors on a later round as if it were the entry; re-read from the true 2008 entry it is a sub-floor round, not a verdict-bearing one",
+   "googlenews: \"Zemanta\" + round words -> 11 raw results; AdExchanger, Adgully, Globes and NoCamels all confirm only the Outbrain acquisition, no Series A",
+   "techcrunch: Zemanta -> 13 results; the $3M round of 2010 (Union Square + Eden, unnamed, sub-floor) is the largest named financing besides the acquisition"
+  ],
   "hq_city": "New York",
   "hq_city_source": "model_knowledge",
-  "note": "Content recommendation / DSP (Ljubljana and New York); USV's $650K seed, September 2008 ('Union Square Puts Seed Round Into Zemanta', TechCrunch; the firm's own post: 'as seed investors') \u2014 the site's 'Series A, 2008' label is disputed by the record; $3M round from USV and Eden 2010 (TechCrunch) = graduation; acquired by Outbrain, 2017 (site) | S2A: Form D verdict accepted on the status, entry date corrected. The layer anchors on the $3.7M filing of 2016-01-08; USV's entry is the $650K seed of September 2008 (TechCrunch 2008-09-15). Re-read from the true entry the verdict holds: the later rounds on record, $3M from USV and Eden in 2010 (TechCrunch) and the $3.7M of 2016, are both under the $5M floor, and Outbrain acquired the company on 2017-07-25 (Outbrain's own announcement), so no qualifying round can follow. Medium because sub-threshold later rounds exist; flagged with the threshold cases.",
+  "note": "Content recommendation / DSP (Ljubljana and New York); USV's $650K seed, September 2008 ('Union Square Puts Seed Round Into Zemanta', TechCrunch; the firm's own post: 'as seed investors') \u2014 the site's 'Series A, 2008' label is disputed by the record; $3M round from USV and Eden 2010 (TechCrunch) = graduation; acquired by Outbrain, 2017 (site) | S2A: Form D verdict accepted on the status, entry date corrected. The layer anchors on the $3.7M filing of 2016-01-08; USV's entry is the $650K seed of September 2008 (TechCrunch 2008-09-15). Re-read from the true entry the verdict holds: the later rounds on record, $3M from USV and Eden in 2010 (TechCrunch) and the $3.7M of 2016, are both under the $5M floor, and Outbrain acquired the company on 2017-07-25 (Outbrain's own announcement), so no qualifying round can follow. Medium because sub-threshold later rounds exist; flagged with the threshold cases. | S2A: USV's true entry is the ~$650K seed of September 2008, not the Form D layer's 2016 anchor. The later rounds on record ($3M in 2010, $3.7M in 2016) are both unnamed and under the $5M floor, and Outbrain acquired the company on 2017-07-25 (cited), so no qualifying round intervenes.",
   "seed_to_a_graduation": "not_graduated",
   "slug": "zemanta",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-judge-s2a-usv"
+  "who": "agent-judge-s2a-union-square-ventures"
  },
  "zynga": {
   "entry_stage": "Series A",
