@@ -300,3 +300,59 @@ row reads acquired.
 reason that predates the pass: its S2A column was never re-judged under the
 status contract, so 504 Seed rows carry no graduation and 34 still carry the
 retired booleans. That is PRO-120's work, not this issue's.
+
+## Addendum 2026-09-21: S2A with every Seed row decided (PRO-132)
+
+The run published 57.1% on a 35-company verified cohort. PRO-132 makes the
+absence of a later round a finding: a Seed row past the 24-month clock with no
+evidence of a later round did not graduate, and every no records the dated
+search that found nothing (the firm's archive, the Form D sequence for a US
+company, at least two publisher surfaces; COLLECTION.md §6). The 503 open
+rows were judged in twelve batches and a second pass.
+
+| seed entries | censored | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|
+| 322 | 13 | 309 | 186 | 123 | 60.2% | 100% |
+
+Of 322 seed entries, 13 were too recent to count; of the 309 that remain,
+60.2% raised a later round. Of the 123 that did not, 12 rest on the filings,
+43 on a cited end (an acquisition or shutdown with no round between it and
+the seed) and 68 on a dated search of the named surfaces. 137 decided rows
+rest on an uncited stage (`stage_uncited`, PRO-131 (b)).
+
+**142 nameable rows read `undetermined` in the stage**, most because nothing
+dates First Round's entry: the book has no `site_invest_year` (the wayback
+gap config.json documents) and no Form D for most of its early portfolio, and
+the judge contract refuses an archive capture as an entry date. Several are
+well-funded companies (Flexport, Clay, Roblox, Refinery29, Rover, RockYou,
+Urban Airship). Some batches did date an entry from the firm's listing
+capture where nothing else existed, as the Felicis pass did; see the note to
+Erik below.
+
+What moved:
+
+- Re-staged out of Seed where a page names First Round's first money at a
+  later round (about 30 rows), among them 64x Bio, Arbor, Kentik, Airware,
+  Zefr, Aviso, BillFloat, BloomThat, David AI, FanBridge, FlightCar,
+  GiveForward, Powerset, SaveWave, Scotch, Thalmic Labs, House Rx and
+  Limitless; in review, Amino (a second round above its era's seed band).
+- Overturned nos: SmartThings (a $12.5M Series A in late 2013, Wikipedia)
+  and Turntable.fm (First Round's seed was in Stickybits, its first product,
+  so the $7M round Union Square led in 2011 graduates it); Form D verdicts
+  overturned by named rounds: GumGum, KiwiCo, XClaim and SingleStore.
+- A second pass dated six seeds the first pass could not (The Rounds, Town,
+  Wake, Whisper, Zodiac, Turntable.fm).
+- Castle and Cluster carried public flags from wrong-registrant float
+  matches; `is_public` is now false on both. Cascade is a no on its own
+  postmortem, aligned with the Redpoint row.
+- Iru is Kandji renamed (October 2025): the same investment appears under
+  two slugs, a duplicate for the identity pass.
+
+`c2a_rate_max` stays at the 0.80 default. `verify` is clean.
+
+For Erik: **Corner Health** announced a combined $32.5M seed and Series A in
+July 2026 with First Round as an existing seed investor, but nothing dates
+the seed, so it reads `undetermined`; it probably graduated. **Liftopia**
+and **Numerai** graduate on a Seed label that may be late (First Round's
+filings post-date the companies' early rounds). **Human Dx** carries a Seed
+entry four years after USV's record of its Series A.
