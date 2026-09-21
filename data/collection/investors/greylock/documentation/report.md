@@ -369,3 +369,53 @@ remain against Accel's and Battery's books (Forte Software, Guru, Inventa,
 Rally Software and Sprig twice); all predate this pass, all are status
 disagreements or namesakes rather than identity, and they belong to the wave
 alignment rather than here.
+
+## Addendum 2026-09-21: S2A with every Seed row decided (PRO-132)
+
+The 2026-09-17 pass left 22 Seed rows `undetermined` and read 94.9% on a
+39-row cohort. PRO-132 makes the absence of a later round a finding: a Seed
+row past the 24-month clock with no evidence of a later round did not
+graduate, and every no records the dated search that found nothing (the
+firm's archive, the Form D sequence for a US company, at least two publisher
+surfaces; COLLECTION.md §6). The 30 open rows were judged in one batch.
+
+| seed entries | censored | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|
+| 61 | 10 | 51 | 43 | 8 | 84.3% | 100% |
+
+Of 61 seed entries, 10 were too recent to count; of the 51 that remain,
+84.3% raised a later round. Of the eight that did not, three rest on a cited
+end (1000memories to Ancestry in 2012, Treat to Typeface in 2024, Natoma to
+Snowflake in 2026) and five on a dated search of the named surfaces (Lithos,
+Portals, Reduct, Airspeed, Headrace). The old note's claim that "no row could
+be decided as a no" was a property of the abstaining instrument, not of the
+book.
+
+What moved:
+
+- Entry dates corrected: Gretel's recorded 2020-10-07 was the Series A's own
+  Form D date; the seed is TechCrunch's $3.5M of 2020-02-20. Reduct's entry
+  was found under "Reduct.Video" (TechCrunch, 2021-02-11, $4M led by
+  Greylock).
+- Name traps checked and set aside: the June 2026 $20M Series A of a London
+  "Airspeed" (DN Capital) is a different company from Greylock's San
+  Francisco Airspeed; Lithos Carbon's $57.1M of December 2023 is Frontier's
+  carbon-removal offtake, not equity.
+- Re-staged out of Seed: Scenery to Series A (Greylock's partner appears only
+  on the 2022 filing, not the 2020 one) and Vori to Growth (the only page
+  naming Greylock is the May 2026 $22M Series B, FinSMEs).
+- Eight rows read `undetermined` in the stage because nothing dates a
+  Greylock entry: Optic, Ava Protocol, Coffee, Hoist, Latent Space,
+  RabbitHole, Tydo, Zed (Zed's funding history names Redpoint, Root,
+  Matchstick, V1.VC and Sequoia, never Greylock).
+
+`c2a_rate_max` is restated from 0.98 to 0.90: the rate sits just above the
+0.80 default once the non-graduations count. `verify` passes every graduation
+check. One problem remains and is not S2A's: `united-healthcare-corporation`
+is a public $1B+ row without a cited market cap, held pending Erik's
+membership ruling on the sale-consideration rows (with 3Com, Intel and
+Conexant).
+
+For Erik: **Scenery** (Series A entry read from which filing names the
+partner) and **Vori** (Growth entry although Greylock's listing predates the
+Series B announcement) are judgment calls on thin evidence.
