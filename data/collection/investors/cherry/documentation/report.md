@@ -268,13 +268,14 @@ the Mexican neobank, Hadrian the US defence manufacturer) or non-rounds
 
 What moved:
 
-- 19 rows left the Seed cohort. Two were re-staged because the only citable
-  Cherry money is a later round (Formel Skin at the Series A, Numa at Growth);
-  sixteen now read `undetermined` in the stage because nothing on record dates
-  Cherry's entry (among them AdvaSolutions, Anboto Labs, ProfitMind, Uify,
-  Buycycle, Ninetailed, Orkestro and Together); Radicle is token-funded
-  (Radworks financed through token rounds, no priced ladder), `undetermined`
-  in stage and graduation with `token_funded`.
+- 16 rows left the Seed cohort in this pass (the other 3 of the fall from 112
+  came from PRO-135's stage sweep). Two were re-staged because the only
+  citable Cherry money is a later round (Formel Skin at the Series A, Numa at
+  Growth); thirteen now read `undetermined` in the stage because nothing on
+  record dates Cherry's entry (among them AdvaSolutions, Anboto Labs,
+  ProfitMind, Uify, Buycycle, Ninetailed, Orkestro and Together); Radicle is
+  token-funded (Radworks financed through token rounds, no priced ladder),
+  `undetermined` in stage and graduation with `token_funded`.
 - The four nos from the 2026-09-17 pass (Kitchen Stories, Qura, Shift,
   Speechly) now carry their absence records; Julienne Bruno's pre-pack
   administration into Compleat Food Group (The Grocer, November 2025) is its
