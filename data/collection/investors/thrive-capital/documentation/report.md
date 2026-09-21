@@ -396,3 +396,52 @@ keeps every value and stays in the metrics. What such a row may never do is
 publish a stage sourced `model`.
 
 `verify` clean; the S2A block is unchanged.
+
+## Addendum 2026-09-20: S2A with every Seed row decided (PRO-132)
+
+PRO-132 made the absence of a later round a finding. A Seed row past the
+24-month clock with no evidence of a later round did not graduate, and every
+no records the dated search that found nothing: the firm's archive, the Form D
+sequence for a US company, and at least two publisher surfaces (COLLECTION.md
+§6).
+
+| seed entries | censored | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|
+| 36 | 3 | 33 | 27 | 6 | 81.8% | 100% |
+
+Of 36 seed entries, 3 were too recent to count (Doji 2025-05, Neon 2024-11,
+Ellis 2026-07); of the 33 that remain, 81.8% raised a later round. Of the 6
+that did not, one rests on the filings (Clay, Form D silent since 2021), one on
+a cited end (Tutorspree, shut down 2013) and four on a dated search of the
+named surfaces (Advocate, Formal, Rent App, Geneva). Two decided rows rest on
+an uncited seed (Fortell, Rent App) and carry `stage_uncited`.
+
+Was (§15): 42 seed entries, 3 censored, 11 undetermined, cohort 28 at 92.9%
+with 72% coverage.
+
+What moved:
+
+- Six rows left the Seed cohort. Forus, Specter, Vetcove, GroupMe and MileWise
+  now read `undetermined` in the stage, because nothing on record dates or
+  evidences Thrive's entry: GroupMe's August 2010 seed predates Thrive's first
+  fund and its January 2011 round does not name Thrive, and MileWise's own
+  exit coverage lists five seed investors without Thrive. Kickstarter reads
+  Growth: Thrive's stake is a Fund I holding after USV's 2009 Series A, which
+  the firm's own secondary ruling (decisions.md 6) stages as Growth.
+- Two citations fixed. Neverware's graduation cited a Tracxn page, a vendor
+  (Rule A); it now cites the PR Newswire Series B release. Blend Labs cited an
+  SEC accession that does not exist; it now cites the S-1 and its investors'
+  rights agreement, which lists Thrive Capital Partners II among the 2012
+  seed investors.
+- Two Form D verdicts overturned with citations stay overturned (Grailed's
+  2018 Series A, Index's own post; Zola's 2016 Series C, Business Wire).
+
+`verify.shape.c2a_rate_max` is restated from 1.0 to 0.90 against the new
+rate. `verify` is clean.
+
+For Erik: **Geneva** has two later Form Ds (2021 $12.3M, 2022 $21.0M), neither
+reaching twice the $14.2M entry, and no press names a lettered round; Bumble
+bought it in 2024. It is recorded not_graduated on the step-up test, and a
+reader could argue the 2022 round graduates it. **GroupMe** and **MileWise**
+are membership questions: their seed rounds' own investor lists omit Thrive.
+The stage now says so; membership is unchanged.
