@@ -237,3 +237,55 @@ inferred, and invariant 1 still wants the cell filled.
 `verify` clean. The S2A block moves from 112 to 109 seed entries as the three
 leave the cohort; the rate is unchanged at 92.3%, because all three were
 `undetermined` there already.
+
+## Addendum 2026-09-20: S2A with every Seed row decided (PRO-132)
+
+PRO-132 made the absence of a later round a finding. A Seed row past the
+24-month clock with no evidence of a later round did not graduate, and every
+no records the dated search that found nothing: the firm's archive and at
+least two publisher surfaces (COLLECTION.md §6). Cherry files no Form Ds, so
+every decision rests on a citation or on that search.
+
+| seed entries | censored | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|
+| 93 | 10 | 83 | 52 | 31 | 62.7% | 100% |
+
+Of 93 seed entries, 10 were too recent to count (Flinn.ai, Bardo, Trace.Space,
+Cortea, Alice.Tech, BEO, Kiku, Sphinx, Alta Ares, INXM); of the 83 that
+remain, 62.7% raised a later round. Of the 31 that did not, 7 rest on a cited
+end and 24 on a dated search of the named surfaces. 20 decided rows rest on an
+uncited seed and carry `stage_uncited`.
+
+Was (D-S2A, 2026-09-17): 112 seed entries, 10 censored, 50 undetermined,
+cohort 52 at 92.3% with 51% coverage.
+
+**A German-language re-check backs the nos.** `graduation-surfaces.py` now
+adds the company's own Google News edition and language (`googlenews_local`,
+de-DE for a German company). Run over every Cherry no on 2026-09-20, it found
+no later round; the hits were namesakes (Eastnine the Baltic landlord, Klar
+the Mexican neobank, Hadrian the US defence manufacturer) or non-rounds
+(Amorelie's 2014 ProSieben media-for-equity stake before its sale).
+
+What moved:
+
+- 19 rows left the Seed cohort. Two were re-staged because the only citable
+  Cherry money is a later round (Formel Skin at the Series A, Numa at Growth);
+  sixteen now read `undetermined` in the stage because nothing on record dates
+  Cherry's entry (among them AdvaSolutions, Anboto Labs, ProfitMind, Uify,
+  Buycycle, Ninetailed, Orkestro and Together); Radicle is token-funded
+  (Radworks financed through token rounds, no priced ladder), `undetermined`
+  in stage and graduation with `token_funded`.
+- The four nos from the 2026-09-17 pass (Kitchen Stories, Qura, Shift,
+  Speechly) now carry their absence records; Julienne Bruno's pre-pack
+  administration into Compleat Food Group (The Grocer, November 2025) is its
+  cited end.
+- Pemo stays a no: its only later round, $7M in November 2024, is styled
+  "pre-Series A" by every outlet, and a round named below a Series A does not
+  graduate the row.
+
+`verify.shape.c2a_rate_max` returns from 0.95 to the 0.80 default. `verify` is
+clean.
+
+For Erik: **Fizz** and **Mine** are very likely one company (Fizz rebranded as
+Mine / MoneyGPT, per Pulse 2.0); an identity question for the merge file, left
+as two rows here.
