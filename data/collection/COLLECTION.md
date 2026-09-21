@@ -1991,9 +1991,10 @@ run before the investor row exists (Thrive, 2026-09-04).
    $100B+, USV's Polygon) and sixteen are latent in books awaiting their first
    ingest (Greylock 9 incl. Stryker, UnitedHealthcare and Vertex; Menlo 5 incl.
    Gilead; Benchmark 2 incl. Equinix). `recompute_investor_metrics` carries the
-   same per-column split from migration `20260919180000`, which is **written
-   and not yet applied** — it must land before PRO-121 re-ingests and before
-   Greylock, Menlo or Benchmark are ingested for the first time.
+   same per-column split from migration `20260919180000`, **applied to
+   production 2026-09-21** together with `20260919120000`, which it depends on:
+   without that one the schema forced an `undetermined` stage to drag the band
+   with it and would have rejected every one of these rows on ingest.
 2. Source gate: a dollar figure only from an allowed source; only
    `below_1b` without a figure.
 3. Public $1B+ row → cited market cap, else `cite_pending`.
