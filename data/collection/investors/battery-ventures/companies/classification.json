@@ -1295,12 +1295,21 @@
   "entry_stage_source": "model",
   "flags": [
    "cite_pending",
-   "stage_uncited"
+   "stage_uncited",
+   "stale"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
-  "note": "Queued for the adversarial A/B pass: a $1B+ or public row whose stage citation or market-cap citation is still owed. The figure here came from a deterministic layer (unicorn list or SEC float), not from a judged, cited event. | JRSK, Inc. dba Away, direct-to-consumer luggage, New York. The compliance list preserves the registered name. The $1.4B mark is the 2019 Series D; the company has since shrunk considerably, and the figure is carried from the deterministic layer pending the A/B pass. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
-  "slug": "away"
+  "note": "Queued for the adversarial A/B pass: a $1B+ or public row whose stage citation or market-cap citation is still owed. The figure here came from a deterministic layer (unicorn list or SEC float), not from a judged, cited event. | JRSK, Inc. dba Away, direct-to-consumer luggage, New York. The compliance list preserves the registered name. The $1.4B mark is the 2019 Series D; the company has since shrunk considerably, and the figure is carried from the deterministic layer pending the A/B pass. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Band is right but the figure needs a citation and a dated as-of: the $100M Series D led by Wellington at $1.4B, reported 2019-05-15. [cross-investor alignment 2026-09-21, PRO-121]",
+  "slug": "away",
+  "status": "private",
+  "valuation_asof": "2019-05-15",
+  "valuation_citation": "https://www.retaildive.com/news/aways-runway-for-growth-expands-with-14b-valuation/554853/",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1400000000,
+  "who": "cross-investor-align-2026-09-21"
  },
  "axiometrix-solutions": {
   "entry_stage": "Growth",
@@ -1386,7 +1395,6 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "first_party",
   "flags": [
-   "needs_web_value",
    "stage_uncited"
   ],
   "focus": "Data Infrastructure",
@@ -1398,10 +1406,16 @@
   "hq_country_citation": "https://www.battery.com/company/baseten/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Baseten, inference infrastructure for AI models, San Francisco. Battery's Growth label with INVESTED 2025. Recent AI-infrastructure rounds have been reported at multi-billion marks; queued for the momentum slice in the A/B pass rather than banded on report. | Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Baseten, inference infrastructure for AI models, San Francisco. Battery's Growth label with INVESTED 2025. Recent AI-infrastructure rounds have been reported at multi-billion marks; queued for the momentum slice in the A/B pass rather than banded on report. | Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Entry round from the firm's own listing (Growth); replaces model",
+  "note": "Baseten, inference infrastructure for AI models, San Francisco. Battery's Growth label with INVESTED 2025. Recent AI-infrastructure rounds have been reported at multi-billion marks; queued for the momentum slice in the A/B pass rather than banded on report. | Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Baseten, inference infrastructure for AI models, San Francisco. Battery's Growth label with INVESTED 2025. Recent AI-infrastructure rounds have been reported at multi-billion marks; queued for the momentum slice in the A/B pass rather than banded on report. | Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Entry round from the firm's own listing (Growth); replaces model | Series F of 2026-06-22 priced at $13B (upper tranche) and $11B (lower tranche); 10b_plus under either figure. [cross-investor alignment 2026-09-21, PRO-121]",
   "slug": "baseten",
   "status": "private",
-  "valuation_range": "below_1b"
+  "valuation_asof": "2026-06-22",
+  "valuation_citation": "https://www.baseten.co/blog/announcing-our-series-f/",
+  "valuation_confidence": "high",
+  "valuation_range": "10b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 13000000000,
+  "who": "cross-investor-align-2026-09-21"
  },
  "bass-associates": {
   "entry_stage": "undetermined",
@@ -1512,7 +1526,9 @@
   "who": "agent-judge-s2a-battery"
  },
  "bigpanda": {
-  "flags": [],
+  "flags": [
+   "stale"
+  ],
   "focus": "DevTools & APIs",
   "focus_source": "model",
   "hq_city": "Mountain View",
@@ -1522,10 +1538,16 @@
   "hq_country_citation": "https://www.battery.com/company/bigpanda/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "BigPanda, AIOps event correlation, Mountain View. Scott Tobin on the 2016 $16M Form D inside his tenure; Battery's INVESTED year 2015 with a Series A entry already resolved. No priced $1B event. | Battery's own Location field on its company page: 'Mountain View, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "BigPanda, AIOps event correlation, Mountain View. Scott Tobin on the 2016 $16M Form D inside his tenure; Battery's INVESTED year 2015 with a Series A entry already resolved. No priced $1B event. | Battery's own Location field on its company page: 'Mountain View, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | The company's own release (2022-01-12) states 'BigPanda Raises $190 Million in Funding at $1.2 Billion Valuation', a priced primary round; the mark is stale but there is no collapse evidence (BigPanda was itself acquiring Velocity in 2025-11), so it stands. Battery's 'No priced $1B event' is wrong. [cross-investor alignment 2026-09-21, PRO-121]",
   "slug": "bigpanda",
   "status": "private",
-  "valuation_range": "below_1b"
+  "valuation_asof": "2022-01-12",
+  "valuation_citation": "https://www.bigpanda.io/press-release/190million-funding-leader-of-aiops/",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1200000000,
+  "who": "cross-investor-align-2026-09-21"
  },
  "bionic": {
   "entry_date": "2020-12",
@@ -1716,8 +1738,9 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "needs_web_value",
-   "stage_uncited"
+   "cite_pending",
+   "stage_uncited",
+   "stale"
   ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
@@ -1727,10 +1750,16 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "BloomReach, commerce experience and personalisation. Raised at a reported $2.2B in 2022; that mark needs a priced-event citation before it may band the row (Rule A), so it is queued for the A/B pass. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "BloomReach, commerce experience and personalisation. Raised at a reported $2.2B in 2022; that mark needs a priced-event citation before it may band the row (Rule A), so it is queued for the A/B pass. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | The priced-event citation the row was waiting for exists: company release of 2022-02-23, $175M led by Goldman Sachs Asset Management at a $2.2B valuation; no later priced round and no collapse evidence, so the stale mark stands. [cross-investor alignment 2026-09-21, PRO-121]",
   "slug": "bloomreach",
   "status": "private",
-  "valuation_range": "below_1b"
+  "valuation_asof": "2022-02-23",
+  "valuation_citation": "https://www.prnewswire.com/news-releases/bloomreach-valuation-soars-to-2-2-billion-following-175-million-investment-led-by-goldman-sachs-asset-management-301488094.html",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 2200000000,
+  "who": "cross-investor-align-2026-09-21"
  },
  "blue-flame-data": {
   "entry_stage": "undetermined",
@@ -3320,10 +3349,17 @@
   "flags": [],
   "focus": "Fintech & Payments",
   "focus_source": "model",
-  "note": "Creisoft, Inc. dba Obie, insurance for rental-property owners, Chicago. Michael Brown on the 2023 $13.6M Form D inside tenure; the Series A entry is already resolved. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "is_public": false,
+  "note": "Creisoft, Inc. dba Obie, insurance for rental-property owners, Chicago. Michael Brown on the 2023 $13.6M Form D inside tenure; the Series A entry is already resolved. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | The Baldwin Group (NASDAQ: BWIN) announced on 2026-01-13 that it 'has completed the acquisition of Creisoft, Inc. and its subsidiaries (collectively, \"Obie\")'; terms undisclosed. [cross-investor alignment 2026-09-21, PRO-121]",
   "slug": "creisoft-inc-dba-obie",
-  "status": "private",
-  "valuation_range": "below_1b"
+  "status": "acquired",
+  "status_citation": "https://baldwin.com/news/the-baldwin-group-completes-acquisition-of-obie-a-leading-investment-property-insurance-platform/",
+  "valuation_asof": null,
+  "valuation_citation": null,
+  "valuation_range": "below_1b",
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "cross-investor-align-2026-09-21"
  },
  "crivello-corp-dba-lindy": {
   "entry_stage": "Seed",
@@ -3386,9 +3422,9 @@
   "entry_stage_source": "first_party",
   "flags": [
    "model_disputes_source",
-   "needs_web_value",
    "possible_duplicate",
-   "stage_uncited"
+   "stage_uncited",
+   "stale"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
@@ -3399,10 +3435,16 @@
   "hq_country_citation": "https://www.battery.com/company/cross-river-bank/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'Fort Lee, New Jersey'. First-party and city-bearing, so it outranks the Wikidata join for this book; overrides wikidata value 'IL'. | Cross River Bank, the Fort Lee NJ banking-as-a-service lender. Battery's Growth label with INVESTED 2016. The Wikidata IL country was corrected to US from the firm's own location. Reported above $3B in 2022; the mark needs a priced-event citation (Rule A). Duplicate of the crb-group row (its holding company). | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Battery's own Location field on its company page: 'Fort Lee, New Jersey'. First-party and city-bearing, so it outranks the Wikidata join for this book; overrides wikidata value 'IL'. | Cross River Bank, the Fort Lee NJ banking-as-a-service lender. Battery's Growth label with INVESTED 2016. The Wikidata IL country was corrected to US from the firm's own location. Reported above $3B in 2022; the mark needs a priced-event citation (Rule A). Duplicate of the crb-group row (its holding company). | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Entry round from the firm's own listing (Growth); replaces model",
+  "note": "Battery's own Location field on its company page: 'Fort Lee, New Jersey'. First-party and city-bearing, so it outranks the Wikidata join for this book; overrides wikidata value 'IL'. | Cross River Bank, the Fort Lee NJ banking-as-a-service lender. Battery's Growth label with INVESTED 2016. The Wikidata IL country was corrected to US from the firm's own location. Reported above $3B in 2022; the mark needs a priced-event citation (Rule A). Duplicate of the crb-group row (its holding company). | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Battery's own Location field on its company page: 'Fort Lee, New Jersey'. First-party and city-bearing, so it outranks the Wikidata join for this book; overrides wikidata value 'IL'. | Cross River Bank, the Fort Lee NJ banking-as-a-service lender. Battery's Growth label with INVESTED 2016. The Wikidata IL country was corrected to US from the firm's own location. Reported above $3B in 2022; the mark needs a priced-event citation (Rule A). Duplicate of the crb-group row (its holding company). | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Entry round from the firm's own listing (Growth); replaces model | CRB Group raised $620M at 'a valuation of more than $3 billion' (2022-03-30, co-led by Eldridge and a16z); the Mar-2026 $50M T. Rowe Price raise was reported at 'a bit more than that' with the exact valuation not learned (Bloomberg Law 2026-03-31), so the 2022 round is the last citable figure. Replaces a Sacra (vendor) mark / an unsupported below_1b. [cross-investor alignment 2026-09-21, PRO-121]",
   "slug": "cross-river-bank",
   "status": "private",
-  "valuation_range": "below_1b"
+  "valuation_asof": "2022-03-30",
+  "valuation_citation": "https://www.roi-nj.com/2022/03/30/finance/cross-river-raises-620m-3b-in-valuation-to-fund-its-technology-focused-growth-strategy/",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 3000000000,
+  "who": "cross-investor-align-2026-09-21"
  },
  "crowdgather": {
   "entry_stage": "Seed",
@@ -5142,8 +5184,9 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "needs_web_value",
-   "stage_uncited"
+   "cite_pending",
+   "stage_uncited",
+   "stale"
   ],
   "focus": "Crypto & Web3",
   "focus_source": "model",
@@ -5154,10 +5197,16 @@
   "hq_country_citation": "https://www.battery.com/company/forte/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Forte Labs, blockchain infrastructure for games. Battery's Early label with INVESTED 2019; the company raised $725M in 2021 at a reported multi-billion mark, which needs a priced-event citation before it may band the row (Rule A). | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Forte Labs, blockchain infrastructure for games. Battery's Early label with INVESTED 2019; the company raised $725M in 2021 at a reported multi-billion mark, which needs a priced-event citation before it may band the row (Rule A). | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Press reports Forte's May 2021 $185M Series A (led by Griffin Gaming Partners, per CoinDesk) was priced at a $1 billion valuation. The Nov 2021 $725M Series B did not disclose one, so $1B is the only citable priced figure. The stale mark stands: Forte still operates (it bought Sealance in Feb 2025), and closing its Rumble Games and Phoenix Labs studios does not show the core business collapsed. [cross-investor alignment 2026-09-21, PRO-121]",
   "slug": "forte",
   "status": "private",
-  "valuation_range": "below_1b"
+  "valuation_asof": "2021-05",
+  "valuation_citation": "https://venturebeat.com/games/forte-raises-185m-at-1b-valuation-for-blockchain-game-platform/",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1000000000,
+  "who": "cross-investor-align-2026-09-21"
  },
  "forterro": {
   "flags": [],
@@ -5279,7 +5328,8 @@
   "entry_stage_source": "first_party",
   "flags": [
    "model_disputes_source",
-   "stage_uncited"
+   "stage_uncited",
+   "stale"
   ],
   "focus": "AI & Applied AI",
   "focus_source": "model",
@@ -5290,10 +5340,16 @@
   "hq_country_citation": "https://www.battery.com/company/front/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book; overrides wikidata value 'JP'. | Front, shared-inbox and customer communication, San Francisco. Battery's Growth label with INVESTED 2022, the year of the $65M Series D. The Wikidata JP country was corrected to US from the firm's own location field \u2014 a one-word-name join failure (R6). | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book; overrides wikidata value 'JP'. | Front, shared-inbox and customer communication, San Francisco. Battery's Growth label with INVESTED 2022, the year of the $65M Series D. The Wikidata JP country was corrected to US from the firm's own location field \u2014 a one-word-name join failure (R6). | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Entry round from the firm's own listing (Growth); replaces model",
+  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book; overrides wikidata value 'JP'. | Front, shared-inbox and customer communication, San Francisco. Battery's Growth label with INVESTED 2022, the year of the $65M Series D. The Wikidata JP country was corrected to US from the firm's own location field \u2014 a one-word-name join failure (R6). | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book; overrides wikidata value 'JP'. | Front, shared-inbox and customer communication, San Francisco. Battery's Growth label with INVESTED 2022, the year of the $65M Series D. The Wikidata JP country was corrected to US from the firm's own location field \u2014 a one-word-name join failure (R6). | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Entry round from the firm's own listing (Growth); replaces model | Battery co-led (with Salesforce Ventures) the $65M Series D at $1.7B on 2022-06-28, per Front's own blog; no later priced event, sale or wind-down, so the stale mark stands and below_1b is wrong. [cross-investor alignment 2026-09-21, PRO-121]",
   "slug": "front",
   "status": "private",
-  "valuation_range": "below_1b"
+  "valuation_asof": "2022-06-28",
+  "valuation_citation": "https://front.com/blog/front-raises-series-d-financing",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1700000000,
+  "who": "cross-investor-align-2026-09-21"
  },
  "frontapp": {
   "entry_stage": "Growth",
@@ -6813,10 +6869,17 @@
   "hq_country_citation": "https://www.battery.com/company/invision/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'New York, New York'. First-party and city-bearing, so it outranks the Wikidata join for this book. | InVision, the design collaboration platform; wound its business down in 2024 with Miro taking on customers. Battery's Growth label with INVESTED 2017, the year of the $100M Series F. DUPLICATE of the invisionapp compliance-list row. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Battery's own Location field on its company page: 'New York, New York'. First-party and city-bearing, so it outranks the Wikidata join for this book. | InVision, the design collaboration platform; wound its business down in 2024 with Miro taking on customers. Battery's Growth label with INVESTED 2017, the year of the $100M Series F. DUPLICATE of the invisionapp compliance-list row. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Entry round from the firm's own listing (Growth); replaces model",
+  "is_public": false,
+  "note": "Battery's own Location field on its company page: 'New York, New York'. First-party and city-bearing, so it outranks the Wikidata join for this book. | InVision, the design collaboration platform; wound its business down in 2024 with Miro taking on customers. Battery's Growth label with INVESTED 2017, the year of the $100M Series F. DUPLICATE of the invisionapp compliance-list row. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Battery's own Location field on its company page: 'New York, New York'. First-party and city-bearing, so it outranks the Wikidata join for this book. | InVision, the design collaboration platform; wound its business down in 2024 with Miro taking on customers. Battery's Growth label with INVESTED 2017, the year of the $100M Series F. DUPLICATE of the invisionapp compliance-list row. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Entry round from the firm's own listing (Growth); replaces model | The company was not acquired: Miro bought only the Freehand product in late 2023 (https://miro.com/blog/future-miro-freehand/), and InVision then shut down its remaining products (Prototype, DSM) at the end of 2024, which is a wind-down, so defunct (Battery's own note already describes a wind-down). [cross-investor alignment 2026-09-21, PRO-121]",
   "slug": "invision",
-  "status": "acquired",
-  "valuation_range": "below_1b"
+  "status": "defunct",
+  "status_citation": "https://www.siliconrepublic.com/business/invision-shutting-down-ux-design-figma",
+  "valuation_asof": null,
+  "valuation_citation": null,
+  "valuation_range": "below_1b",
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "cross-investor-align-2026-09-21"
  },
  "invisionapp": {
   "entry_stage": "Growth",
@@ -8025,11 +8088,17 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Lucid Lane, Inc., medication-dependency telehealth; wound down in the 2020s. Compliance list marks it exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A re-stage: FinSMEs of 2021-08-09 names the $16M Series A led by Accel 'with participation from Battery Ventures, AME Cloud Ventures, Morado Ventures', and Battery is not described as an existing investor; the compliance list first carries the row in 2021, the Series A year. Medium because no page was found for an earlier Lucid Lane round to rule Battery out of it.",
+  "is_public": false,
+  "note": "Lucid Lane, Inc., medication-dependency telehealth; wound down in the 2020s. Compliance list marks it exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A re-stage: FinSMEs of 2021-08-09 names the $16M Series A led by Accel 'with participation from Battery Ventures, AME Cloud Ventures, Morado Ventures', and Battery is not described as an existing investor; the compliance list first carries the row in 2021, the Series A year. Medium because no page was found for an earlier Lucid Lane round to rule Battery out of it. | Not wound down: lucidlane.com (live on Wayback 2023-11) now 301-redirects to skylerhealth.com, whose operator Skyler Health, Inc. sits in Los Altos (221 Main St #148) and runs the same telehealth therapy / opioid-reduction service; the company's old Lucid Lane Medium account is now 'Skyler Health', so this is a rename, and Battery's 'exited' compliance mark describes its own position, not the company. [cross-investor alignment 2026-09-21, PRO-121]",
   "slug": "lucid-lane",
-  "status": "defunct",
+  "status": "private",
+  "status_citation": "https://www.skylerhealth.com/privacy-policy",
+  "valuation_asof": null,
+  "valuation_citation": null,
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "cross-investor-align-2026-09-21"
  },
  "luminus-devices": {
   "entry_stage": "Growth",
@@ -8561,8 +8630,8 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "first_party",
   "flags": [
-   "needs_web_value",
-   "stage_uncited"
+   "stage_uncited",
+   "stale"
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
@@ -8573,10 +8642,16 @@
   "hq_country_citation": "https://www.battery.com/company/modern-health/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Modern Health, workplace mental-health benefits. Battery's Growth label with INVESTED 2020; the 2021 Series D was reported at $1.17B, a mark that needs a priced-event citation before it may band the row (Rule A). | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Modern Health, workplace mental-health benefits. Battery's Growth label with INVESTED 2020; the 2021 Series D was reported at $1.17B, a mark that needs a priced-event citation before it may band the row (Rule A). | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Entry round from the firm's own listing (Growth); replaces model",
+  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Modern Health, workplace mental-health benefits. Battery's Growth label with INVESTED 2020; the 2021 Series D was reported at $1.17B, a mark that needs a priced-event citation before it may band the row (Rule A). | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Modern Health, workplace mental-health benefits. Battery's Growth label with INVESTED 2020; the 2021 Series D was reported at $1.17B, a mark that needs a priced-event citation before it may band the row (Rule A). | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Entry round from the firm's own listing (Growth); replaces model | The priced-event citation exists: company release of 2021-02-11, $74M Series D led by Founders Fund at $1.17B; no later priced round or collapse evidence, so the stale mark stands. [cross-investor alignment 2026-09-21, PRO-121]",
   "slug": "modern-health",
   "status": "private",
-  "valuation_range": "below_1b"
+  "valuation_asof": "2021-02-11",
+  "valuation_citation": "https://www.globenewswire.com/news-release/2021/02/11/2174026/0/en/Modern-Health-Gains-Unicorn-Status-After-74-Million-Series-D-at-1-17-Billion-Valuation.html",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1170000000,
+  "who": "cross-investor-align-2026-09-21"
  },
  "modria-com": {
   "entry_stage": "Series A",
@@ -9147,8 +9222,17 @@
   "hq_country_citation": "https://www.battery.com/company/niantic-inc/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Queued for the adversarial A/B pass: a $1B+ or public row whose stage citation or market-cap citation is still owed. The figure here came from a deterministic layer (unicorn list or SEC float), not from a judged, cited event. | Niantic, the Pok\u00e9mon GO developer. Battery's Growth label with INVESTED 2019, the year of the $245M round \u2014 an entry at scale. Scopely bought the games business in 2025 for $3.5B and the remainder became Niantic Spatial, which the compliance list names as the successor. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Queued for the adversarial A/B pass: a $1B+ or public row whose stage citation or market-cap citation is still owed. The figure here came from a deterministic layer (unicorn list or SEC float), not from a judged, cited event. | Niantic, the Pok\u00e9mon GO developer. Battery's Growth label with INVESTED 2019, the year of the $245M round \u2014 an entry at scale. Scopely bought the games business in 2025 for $3.5B and the remainder became Niantic Spatial, which the compliance list names as the successor. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Entry round from the firm's own listing (Growth); replaces model",
-  "slug": "niantic-inc"
+  "is_public": false,
+  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Queued for the adversarial A/B pass: a $1B+ or public row whose stage citation or market-cap citation is still owed. The figure here came from a deterministic layer (unicorn list or SEC float), not from a judged, cited event. | Niantic, the Pok\u00e9mon GO developer. Battery's Growth label with INVESTED 2019, the year of the $245M round \u2014 an entry at scale. Scopely bought the games business in 2025 for $3.5B and the remainder became Niantic Spatial, which the compliance list names as the successor. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Queued for the adversarial A/B pass: a $1B+ or public row whose stage citation or market-cap citation is still owed. The figure here came from a deterministic layer (unicorn list or SEC float), not from a judged, cited event. | Niantic, the Pok\u00e9mon GO developer. Battery's Growth label with INVESTED 2019, the year of the $245M round \u2014 an entry at scale. Scopely bought the games business in 2025 for $3.5B and the remainder became Niantic Spatial, which the compliance list names as the successor. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Entry round from the firm's own listing (Growth); replaces model | Scopely bought Niantic's games business (Pokemon GO, Pikmin Bloom, Monster Hunter Now, 400+ staff) for $3.5B, closed 2025-05-29; nianticlabs.com now 301-redirects to explore.scopely.com and Battery's own page reads 'Acquired by Scopely'. Selling the core business also removes the stale uncited $3.95B 2019 mark. [cross-investor alignment 2026-09-21, PRO-121]",
+  "slug": "niantic-inc",
+  "status": "acquired",
+  "status_citation": "https://www.scopely.com/en/news/scopely-to-acquire-niantic-games-business-which-includes-pokemon-go-one-of-the-most-successful-mobile-games-of-all-time",
+  "valuation_asof": null,
+  "valuation_citation": null,
+  "valuation_range": "below_1b",
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "cross-investor-align-2026-09-21"
  },
  "nitro-software": {
   "entry_stage": "Growth",
@@ -9512,12 +9596,18 @@
   "graduation_citation": "https://www.finsmes.com/2013/08/so%C2%8Dsh-raises-10-1m-series-financing.html",
   "graduation_confidence": "high",
   "graduation_source": "web_verified",
-  "note": "Offline Labs dba Sosh, city-activity discovery, San Francisco; wound down in 2016. Brian O'Malley on the 2012-2013 Form Ds inside tenure; the Seed entry with graduation=false stands, since no Series A followed before the shutdown. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A, disputing the Form D layer's not_graduated: FinSMEs of 2013-08-15 names Sosh's $10.1M Series B led by Khosla Ventures 'with participation from prior investors Battery Ventures', which is a named later round after the 2012 entry and graduates the row under the 2026-09-17 rule; the Form D layer only refused it because $10.06M fell short of 2x the $5.73M entry. The Series B naming does suggest the 2012 round may itself have been the Series A rather than a seed, but no page found names that round, so the Seed entry stands as recorded.",
+  "is_public": false,
+  "note": "Offline Labs dba Sosh, city-activity discovery, San Francisco; wound down in 2016. Brian O'Malley on the 2012-2013 Form Ds inside tenure; the Seed entry with graduation=false stands, since no Series A followed before the shutdown. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A, disputing the Form D layer's not_graduated: FinSMEs of 2013-08-15 names Sosh's $10.1M Series B led by Khosla Ventures 'with participation from prior investors Battery Ventures', which is a named later round after the 2012 entry and graduates the row under the 2026-09-17 rule; the Form D layer only refused it because $10.06M fell short of 2x the $5.73M entry. The Series B naming does suggest the 2012 round may itself have been the Series A rather than a seed, but no page found names that round, so the Seed entry stands as recorded. | Postmates acqui-hired Sosh's 18-person team including both founders in Nov 2015 (the service then closed); Battery's own company page lists Sosh as Acquired by Postmates, and COLLECTION.md reads acquihires as acquired, so defunct (and the 2016 date) is wrong. [cross-investor alignment 2026-09-21, PRO-121]",
   "seed_to_a_graduation": "graduated",
   "slug": "offline-labs-inc-dba-sosh",
-  "status": "defunct",
+  "status": "acquired",
+  "status_citation": "https://www.pymnts.com/news/acquiring/2015/postmates-acquires-social-platform-team/",
+  "valuation_asof": null,
+  "valuation_citation": null,
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "cross-investor-align-2026-09-21"
  },
  "olo": {
   "entry_stage": "Growth",
@@ -10965,10 +11055,17 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Privacera, data access governance spun out of the Apache Ranger team; the business was absorbed in 2025. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "is_public": false,
+  "note": "Privacera, data access governance spun out of the Apache Ranger team; the business was absorbed in 2025. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Privacera was not absorbed: on 2026-03-09 it rebranded itself as Trust3 AI, same CEO (Balaji Ganesan) and HQ (Fremont), and privacera.com now 301-redirects to trust3.ai, its own new domain; Battery's 'exited' flag is Battery leaving the position, not a sale of the company. [cross-investor alignment 2026-09-21, PRO-121]",
   "slug": "privacera",
-  "status": "acquired",
-  "valuation_range": "below_1b"
+  "status": "private",
+  "status_citation": "https://www.prnewswire.com/news-releases/meet-trust3-ai-the-next-chapter-for-privacera-in-data-and-ai-governance-302707659.html",
+  "valuation_asof": null,
+  "valuation_citation": null,
+  "valuation_range": "below_1b",
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "cross-investor-align-2026-09-21"
  },
  "prizeo": {
   "entry_stage": "Seed",
@@ -11508,11 +11605,17 @@
   "hq_country_citation": "https://www.battery.com/company/rally/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Rally Network, group-buying and social commerce checkout; the firm's own status reads Exited. Battery's Early label with INVESTED 2018. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Rally Network (group-buying and social-commerce checkout), Battery's Early label with INVESTED 2018 and the firm's own status reading Exited. FinSMEs, Google News and TechCrunch searches on 2026-09-17 found no funding announcement naming Battery and no exit article, so neither leg could be cited.",
+  "is_public": false,
+  "note": "Battery's own Location field on its company page: 'San Francisco, California'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Rally Network, group-buying and social commerce checkout; the firm's own status reads Exited. Battery's Early label with INVESTED 2018. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | S2A: Rally Network (group-buying and social-commerce checkout), Battery's Early label with INVESTED 2018 and the firm's own status reading Exited. FinSMEs, Google News and TechCrunch searches on 2026-09-17 found no funding announcement naming Battery and no exit article, so neither leg could be cited. | Rally Network sunset its platform and sidechain on 2023-01-31 for lack of funding; no acquirer is reported anywhere (Battery's own label is a bare 'Exited', unlike its 'Acquired by X' labels), so it is a shutdown, not a sale. [cross-investor alignment 2026-09-21, PRO-121]",
   "slug": "rally",
-  "status": "acquired",
+  "status": "defunct",
+  "status_citation": "https://decrypt.co/120285/social-token-platform-rally-shutting-down",
+  "valuation_asof": null,
+  "valuation_citation": null,
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-battery"
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "cross-investor-align-2026-09-21"
  },
  "real-gift-services": {
   "entry_stage": "undetermined",
@@ -11664,7 +11767,7 @@
   "entry_stage_confidence": "medium",
   "entry_stage_source": "model",
   "flags": [
-   "needs_web_value",
+   "cite_pending",
    "stage_uncited"
   ],
   "focus": "AI & Applied AI",
@@ -11676,10 +11779,16 @@
   "hq_country_citation": "https://www.battery.com/company/reflection-ai/",
   "hq_country_confidence": "high",
   "hq_country_source": "web_verified",
-  "note": "Battery's own Location field on its company page: 'New York, New York'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Reflection AI, autonomous coding and frontier models founded by ex-DeepMind researchers. Battery's Early label with INVESTED 2025; the 2025 round was reported at $8B, a mark needing a priced-event citation (Rule A) \u2014 queued for the A/B pass. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve.",
+  "note": "Battery's own Location field on its company page: 'New York, New York'. First-party and city-bearing, so it outranks the Wikidata join for this book. | Reflection AI, autonomous coding and frontier models founded by ex-DeepMind researchers. Battery's Early label with INVESTED 2025; the 2025 round was reported at $8B, a mark needing a priced-event citation (Rule A) \u2014 queued for the A/B pass. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | Same closed round as the Lightspeed pair: $25B pre-money confirmed by the CEO on CNBC 2026-04-23 and listed on the company's own news page; Sequoia's row is already correct. [cross-investor alignment 2026-09-21, PRO-121]",
   "slug": "reflection-ai",
   "status": "private",
-  "valuation_range": "below_1b"
+  "valuation_asof": "2026-04",
+  "valuation_citation": "https://reflection.ai/news",
+  "valuation_confidence": "high",
+  "valuation_range": "10b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 25000000000,
+  "who": "cross-investor-align-2026-09-21"
  },
  "reflektion": {
   "flags": [],
@@ -13085,11 +13194,17 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Sprig, Inc.: the compliance list's 2016 entry, which fits the on-demand meal-delivery company that shut in 2017 rather than the later UserLeap rename to Sprig. Identity flagged; marked exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | IDENTIFIED, NAMESAKE RECORDED (PRO-136): The compliance list's 2016 Sprig, Inc., which fits the on-demand meal-delivery company that shut in 2017. NEVER to be joined with the later Sprig that UserLeap renamed itself to - First Round holds that one, and the pair is ruled distinct cross-investor.",
+  "is_public": false,
+  "note": "Sprig, Inc.: the compliance list's 2016 entry, which fits the on-demand meal-delivery company that shut in 2017 rather than the later UserLeap rename to Sprig. Identity flagged; marked exited. | Focus assigned in the dedicated focus pass (scratch/focus-pass.py): Battery's own sector tags crosswalked under COLLECTION.md 6's precedence rules where the firm publishes them, otherwise a read of the company's name and business. A single primary value from the closed twelve. | IDENTIFIED, NAMESAKE RECORDED (PRO-136): The compliance list's 2016 Sprig, Inc., which fits the on-demand meal-delivery company that shut in 2017. NEVER to be joined with the later Sprig that UserLeap renamed itself to - First Round holds that one, and the pair is ruled distinct cross-investor. | CEO Gagan Biyani announced the shutdown on 2017-05-26; no buyer was found (Bloomberg: 'shuts down as it fails to find buyer'), so the state is defunct, not acquired. [cross-investor alignment 2026-09-21, PRO-121]",
   "slug": "sprig",
-  "status": "acquired",
+  "status": "defunct",
+  "status_citation": "https://techcrunch.com/2017/05/26/on-demand-food-startup-sprig-is-shutting-down-today/",
+  "valuation_asof": null,
+  "valuation_citation": null,
   "valuation_range": "below_1b",
-  "who": "agent-pro136-battery"
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "cross-investor-align-2026-09-21"
  },
  "spring-street-networks": {
   "entry_stage": "undetermined",
