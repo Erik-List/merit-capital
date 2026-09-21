@@ -568,3 +568,61 @@ re-ingested. Derived metrics read back from the database afterwards:
 Lightspeed 121 / 34 / 4 (34 public), Sequoia 152 / 56 / 16 (59 public),
 a16z 165 / 42 / 7 (49 public), Accel 105 / 22 / 5 (32 public), every
 row count equal to the base.
+
+## Addendum 2026-09-20: S2A judged for the first time, every Seed row decided (PRO-132)
+
+Lightspeed's graduation pass was stopped on 2026-09-17 before any row was
+judged (the coverage redesign). PRO-132 then made the absence of a later
+round a finding: a Seed row past the 24-month clock with no evidence of a
+later round did not graduate, and every no records the dated search that
+found nothing (the firm's archive, the Form D sequence for a US company, at
+least two publisher surfaces; COLLECTION.md §6). The whole seed book was
+judged in five batches.
+
+| seed entries | censored | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|
+| 187 | 31 | 156 | 89 | 67 | 57.1% | 100% |
+
+Of 187 seed entries, 31 were too recent to count; of the 156 that remain,
+57.1% raised a later round. Of the 67 that did not, four rest on the filings,
+22 on a cited end (an acquisition or shutdown with the seed as the last
+round) and 41 on a dated search of the named surfaces. Seven decided rows
+rest on an uncited seed and carry `stage_uncited`.
+
+What the pass settled beyond the column:
+
+- **Rows that were not Seed entries** left the cohort: Inworld AI and Razorpay
+  at Growth (Lightspeed's first money was a later round, for Razorpay a 2022
+  ESOP secondary), Reactor, Terminal, Zebec and Zerion at the Series A (the
+  firm's own "Our Series A in Reactor" post; Lightspeed's Zebec post; press
+  for the others), Meilele at the Series A (it led the April 2011 first
+  institutional round, before the China spin-out, so a member under ruling
+  5), and HQ Trivia, Unsloth and 4Interactive/AskLaila with an `undetermined`
+  stage (nothing dates or names the round Lightspeed entered).
+- **Entry dates that were a later round's date** were fixed (the buglabs
+  class): Navan, Orca Bio, Nuance Labs and Patronus.
+- **Form D verdicts overturned with citations**: At-Bay (a $34M Series B,
+  2020) and Clark (the €69M Tencent-led Series C, 2021; the filings were a
+  different, New York "Clark").
+- **In review**: Blameless graduates. Its 2019 reveal splits a $3.6M seed of
+  April 2018 with Lightspeed from a named $16.5M Series A of January 2019
+  (TechCrunch); the judge had read the whole $20M as the entry.
+- **Yuga Labs** is a no under the new invariant-7 exemption: its $450M seed
+  at $4B (March 2022) set the $1B+ mark itself and no round followed. **Xaira**
+  is the same shape (Lightspeed's card labels the $1B launch a Seed; April
+  2024; nothing since). **Zo Computer**, **Treex Robotics** and **Reindeer AI**
+  carry only a card year of 2024, and a bare year that may still be inside
+  the window is censored.
+- The three unclassified rows PRO-135 handed over are classified:
+  4Interactive is AskLaila (Bangalore, $12M from Matrix, Lightspeed and SVB
+  India by September 2007, status unknown); Meilele (China, status unknown
+  after 2019).
+
+`verify` passes every graduation check. The full run reports three
+cross-investor pairs outside this column: BloomReach and Reflection against
+Battery, and OverOps against Menlo's Takipi, which the PRO-121 session is
+aligning.
+
+For Erik: **Eagle** is censored on the firm's current card because every
+surface is name-collision noise and an upstream note suspects two companies
+conflated; it wants an identity pass.
