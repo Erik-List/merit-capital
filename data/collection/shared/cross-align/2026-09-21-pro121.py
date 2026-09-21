@@ -12,9 +12,10 @@ single-token name that left an unrelated entity's date (1919, 1927, 1945,
 1949, 1966, 2003) or status on the row; those rows are corrected too.
 
 The judged values, citations and reasons live in the sibling
-2026-09-21-pro121.json. Three rows are HELD there for Erik's ruling (a team
-hire the buyer says is not an acquisition: Clockwise, Styra) and are not
-emitted.
+2026-09-21-pro121.json. Clockwise and Styra were held for Erik's ruling on a
+team hire the buyer says is not an acquisition; he ruled 2026-09-21 that an
+acqui-hire says nothing about status (defunct if the company shut down,
+operating if not), and both shut down.
 
 Usage:
   python3 2026-09-21-pro121.py rulings            append the distinct rulings (idempotent)
@@ -69,8 +70,8 @@ def record_for(f: dict, cur: dict) -> dict:
     return rec
 
 
-def emit(investor: str) -> None:
-    fixes = DATA["fixes"].get(investor, [])
+def emit(investor: str, only: set[str] | None = None, tag: str = "") -> None:
+    fixes = [f for f in DATA["fixes"].get(investor, []) if not only or f["slug"] in only]
     if not fixes:
         print(f"{investor}: no records")
         return
@@ -84,7 +85,7 @@ def emit(investor: str) -> None:
     for f in fixes:
         assert f["slug"] in slugs, f"{investor}: {f['slug']} not in base"
         out.append(record_for(f, merged.get(f["slug"], {})))
-    dest = INV / investor / "scratch" / "queue" / "cross-align-2026-09-21.jsonl"
+    dest = INV / investor / "scratch" / "queue" / f"cross-align-2026-09-21{tag}.jsonl"
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in out) + "\n")
     print(f"{investor}: {len(out)} records -> {dest.relative_to(ROOT)}")
@@ -106,7 +107,18 @@ if __name__ == "__main__":
     if sys.argv[1:2] == ["rulings"]:
         add_rulings()
     elif sys.argv[1:2] == ["emit"] and sys.argv[2:]:
-        for inv in sys.argv[2:]:
-            emit(inv)
+        # `--only a,b --tag -x` emits just those slugs to a separate batch file,
+        # so a later ruling never rewrites a batch already recorded.
+        argv, only, tag = sys.argv[2:], None, ""
+        if "--only" in argv:
+            i = argv.index("--only")
+            only = set(argv[i + 1].split(","))
+            del argv[i:i + 2]
+        if "--tag" in argv:
+            i = argv.index("--tag")
+            tag = argv[i + 1]
+            del argv[i:i + 2]
+        for inv in argv:
+            emit(inv, only, tag)
     else:
         sys.exit(__doc__)
