@@ -1614,7 +1614,14 @@ def cmd_migrate_graduation(args) -> None:
     row whose merged stage is not Seed is dropped (the column does not apply
     there), and with `--reopen` every judged `undetermined` on a row that has
     a stage is re-opened for the judge, because a Seed row is always decided.
+    It holds `record`'s per-investor lock: it rewrites the same file.
     """
+    from shared_throttle import exclusive
+    with exclusive(f"record-{args.investor}"):
+        _migrate_graduation(args)
+
+
+def _migrate_graduation(args) -> None:
     cls = load(P.classification, {})
     legacy = ("seed_to_a_graduation", "graduation_source", "graduation_confidence",
               "graduation_citation", "graduation_asof", "graduation_surfaces",
@@ -1639,8 +1646,7 @@ def cmd_migrate_graduation(args) -> None:
             for k in legacy:
                 rec.pop(k, None)
             n["dropped_off_seed"] += 1
-            continue
-        if args.reopen and g == UNDETERMINED and stage != UNDETERMINED \
+        elif args.reopen and g == UNDETERMINED and stage != UNDETERMINED \
                 and rec.get("who") != "erik":
             # PRO-132: a Seed row is always decided. A judged `undetermined`
             # from before the rule goes back to the judge; its note stays,
@@ -1648,8 +1654,7 @@ def cmd_migrate_graduation(args) -> None:
             for k in legacy:
                 rec.pop(k, None)
             n["reopened_undetermined"] += 1
-            continue
-        if g in GRADUATION_VALUES:
+        elif g in GRADUATION_VALUES:
             n["already_status"] += 1
         elif touched and rec.get("who") == "erik":
             # A human ruling is not re-judged, but its value must speak the
