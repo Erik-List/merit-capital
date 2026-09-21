@@ -213,6 +213,24 @@
     "reason": "The 1966-06-01 Wikidata as-of is a single-token join, clear it; status stays private (the team pivoted to Off/Script on the same Accel/BlockTower/White Star $7M, founder now lists Dimes; no shutdown documented). Its hq_country GB is also wrong: Montreal is CA."
    },
    {
+    "slug": "mason",
+    "status": "private",
+    "valuation_range": "below_1b",
+    "valuation_usd": null,
+    "valuation_asof": null,
+    "citation": "https://getmason.io/",
+    "reason": "Accel's own card is Mason (getmason.io, Creative Sparks Inc.; founders Barada Sahu and Kausambi Manjit; HQ Sunnyvale, CA), the commerce-content platform whose $7.5M seed Accel co-led in October 2022 with Ideaspring (press release, Nasdaq/Forbes). Its site is live (Shopify app, pricing, AI agents), so private. The 2026-09-04 alignment had copied defunct and Thailand from Creandum's Stockholm Mason (mason.app), a different company. Flagged by PRO-132's judge."
+   },
+   {
+    "slug": "strattic",
+    "status": "acquired",
+    "valuation_range": "below_1b",
+    "valuation_usd": null,
+    "valuation_asof": null,
+    "citation": "https://elementor.com/blog/elementor-acquires-strattic/",
+    "reason": "Elementor acquired Strattic on 2022-06-08 (Elementor's own announcement; it runs on as 'Strattic by Elementor'), so the row reads acquired, not private. Flagged by PRO-132's judge."
+   },
+   {
     "slug": "styra",
     "status": "defunct",
     "valuation_range": "below_1b",
@@ -422,6 +440,15 @@
     "valuation_asof": null,
     "citation": "https://getclockwise.com/",
     "reason": "Clockwise's own site: the product ended on 2026-03-27 and the team joined Salesforce, which said it is 'not acquiring Clockwise or its technology'. The company shut down, so defunct. Erik 2026-09-21: an acqui-hire says nothing about status on its own; the row reads defunct if the company shut down and operating if it did not. Rule: COLLECTION.md, status (3da7f1d)."
+   },
+   {
+    "slug": "gem",
+    "status": "private",
+    "valuation_range": "1b_plus",
+    "valuation_usd": 1200000000,
+    "valuation_asof": "2021-09-28",
+    "citation": "https://www.gem.com/blog/series-c",
+    "reason": "Same company as accel:gem (gem.com, recruiting CRM); its below_1b rested on a Wikidata single-token join (as-of 1919-01-01). Gem's own blog gives the $100M Series C led by ICONIQ Growth at $1.2B (2021-09-28). Surfaced when Accel's Gem was aligned."
    }
   ],
   "8vc": [
@@ -841,6 +868,41 @@
     "greylock:rally-software"
    ],
    "note": "Battery's Rally is rally.io (SF creator-coin network, shut down 2023-01); Greylock's is Rally Software (Boulder agile tooling, acquired by CA Technologies 2015)"
+  },
+  {
+   "rows": [
+    "accel:mason",
+    "creandum:mason"
+   ],
+   "note": "Accel's Mason is getmason.io (Sunnyvale commerce-content platform, Accel-co-led $7.5M seed Oct 2022, operating); Creandum's is mason.app (Stockholm data-analytics app, Creandum-led pre-seed Oct 2022, closed 2023). The 2026-09-04 alignment had joined them"
+  },
+  {
+   "rows": [
+    "accel:mason",
+    "yc:mason"
+   ],
+   "note": "Accel's Mason is getmason.io (Sunnyvale commerce-content platform, 2022 seed); YC's is bymason.com (Seattle, YC W16)"
+  },
+  {
+   "rows": [
+    "creandum:mason",
+    "yc:mason"
+   ],
+   "note": "Creandum's Mason is mason.app (Stockholm, 2022 pre-seed, closed 2023); YC's is bymason.com (Seattle, YC W16), whose status was copied from the other books"
+  },
+  {
+   "rows": [
+    "accel:fuse",
+    "yc:fuse-2"
+   ],
+   "note": "Accel's Fuse is Fuse Energy (fuseenergy.com, London energy supplier, $5B Dec 2025); YC's fuse-2 is fuseinsight.com (London, YC S24)"
+  },
+  {
+   "rows": [
+    "accel:fuse",
+    "yc:fuse-ai"
+   ],
+   "note": "Accel's Fuse is Fuse Energy (fuseenergy.com, London energy supplier); YC's fuse-ai is fuseai.com (San Francisco SaaS, YC W25)"
   }
  ],
  "held": []
