@@ -634,3 +634,58 @@ whose entry stage rests on a model reading, now flagged `cite_pending`).
 `verify` clean. Re-exported, profile rebuilt, review.html regenerated,
 re-ingested with Erik's approval.
 
+
+## Addendum 2026-09-21: S2A with every Seed row decided (PRO-132)
+
+§4 published 79.1% on a 91-row cohort, every row flagged
+`cohort_unverified`. PRO-132 makes the absence of a later round a finding: a
+Seed row past the 24-month clock with no evidence of a later round did not
+graduate, and every no records the dated search that found nothing (the
+firm's archive, the Form D sequence for a US company, at least two publisher
+surfaces; COLLECTION.md §6). The 291 open rows were judged in six batches
+(37 rows had been recorded by the first wave before its judges stalled).
+
+| seed entries | censored | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|
+| 276 | 34 | 242 | 141 | 101 | 58.3% | 100% |
+
+Of 276 seed entries, 34 were too recent to count; of the 242 that remain,
+58.3% raised a later round. Of the 101 that did not, four rest on the
+filings, 25 on a cited end (an acquisition or shutdown with no round between
+it and the seed) and 72 on a dated search of the named surfaces. §4's caveat
+is answered: the old cohort held only the rows whose record could be
+established, and those skewed toward visible successes.
+
+What moved:
+
+- Re-staged out of Seed where Accel's own post or the press names Accel's
+  first money at a later round: CyCognito, Forus, Fractile, Wiom and Wonder
+  (Growth), Cloudera (Series A, from its own 2009 release), and Effectiv,
+  Fibr and, in review, Popup (Pre-Seed, each called a pre-seed by the press).
+- Six rows read `undetermined` in the stage because nothing dates an Accel
+  entry (AskSpoke, Casual, Kubric, Youshd, DevicePlane, Stoqo).
+- Overturned nos: CapriCoast (a Series A in December 2015), CardSpring
+  (TechCrunch calls its January 2012 $10M round a Series A), Zarget (a $6M
+  Series A in November 2016) and MoPub (the $6.5M Series A of July 2011, on
+  MoPub's own blog). Anchor's claimed $10M Series A could not be found, so it
+  is a no before Spotify's 2019 acquisition.
+- Entry dates corrected where the recorded date was a later round's filing:
+  Frame.io (2015-10, not 2016-08-30), Xendit (2015).
+- Name traps checked and set aside: Cartwheel (Accel's is the 3D-animation
+  company; its $10M 2025 round is unnamed and under 2x the $5.6M seed), Leap
+  (the Cosmos wallet, shut down 2026, not the study-abroad platform),
+  Lighthouse, Hubble, Axio, Atrato (whose $15M of 2021 was debt).
+- Beam carried a public-company flag from a weak-CIK collision with Beam Inc.;
+  `is_public` is now false, matching the note that already quarantined it.
+
+`c2a_rate_max` stays at the 0.80 default. `verify` passes every graduation
+check. Six cross-investor problems remain and are PRO-121's (Away, Checkr and
+Gem valued $1B+ in a sibling; Clockwise, InVision and Styra defunct in a
+sibling): that session queued the Accel side while this book was in flight.
+
+For Erik: **Mason**'s status (defunct) and country were copied from the
+Stockholm mason.app during the 2026-09-04 alignment; Accel's Mason is a
+different company (Oakville, Ontario; $7.5M seed, October 2022) and looks
+alive. **Strattic** reads private although Elementor bought it in 2022.
+**Taxi For Sure** is graduated on its investor syndicate rather than a cited
+Series A announcement.
