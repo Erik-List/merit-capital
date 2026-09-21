@@ -622,3 +622,44 @@ and graduation read `undetermined`.
 
 `verify --skip-cross` clean; the S2A block is untouched, because the one
 undetermined row was not a Seed entry.
+
+## Addendum 2026-09-20: S2A with every Seed row decided (PRO-132)
+
+PRO-132 made the absence of a later round a finding. A Seed row past the
+24-month clock with no evidence of a later round did not graduate, and every
+no records the dated search that found nothing: the firm's archive, the Form D
+sequence for a US company, and at least two publisher surfaces (COLLECTION.md
+§6).
+
+| seed entries | censored | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|
+| 46 | 7 | 39 | 25 | 14 | 64.1% | 100% |
+
+Of 46 seed entries, 7 were too recent to count (Anam, Dux, imper.ai,
+Inferact, JetStream, Dome Systems, Champ AI); of the 39 that remain, 64.1%
+raised a later round. Of the 14 that did not, one rests on the filings
+(Sparkplay Media), three on a cited end (Proper, Simpo, Cascade) and ten on a
+dated search of the named surfaces (Atmosfy, Fimio, Fixie, Onplan, Scale3,
+Signadot, Silk & Sonder, AutoGPT, Restate, Voyce.me).
+
+Was (D-S2A, 2026-09-16): 46 seed entries, 7 censored, 12 undetermined, cohort
+27 at 81.5% with 69% coverage. The issue measured 60.5% for this book once its
+silent seeds were counted; the full pass lands at 64.1%.
+
+What moved:
+
+- Three rows graduated on citations the earlier pass lacked: Coder ($30M,
+  2020, Crunchbase News), Fable ($15M Series A led by Redpoint, December 2021)
+  and Wander ($20M Series A led by QED, February 2022, PR Newswire).
+- Two entry dates were a later round's Form D anchor (the buglabs class):
+  Fable's read 2021-09-27, the Series A itself, and is now 2020 (the firm's
+  own card year); Wander's read "12-APR-2023", an unparseable string from a
+  2023 tranche, and is now 2021-10-20 from a citation naming Redpoint.
+- TBH left the cohort: nothing on record dates Redpoint's entry, so the stage
+  reads `undetermined`.
+- Three earlier readings were checked and did not hold: Fixie was not
+  absorbed (a May 2025 Hexaware partnership shows it operating), and neither
+  Scale3's acquisition nor Signadot's 2024 Series A appears anywhere.
+
+`verify.shape.c2a_rate_max` returns from 0.85 to the 0.80 default. `verify` is
+clean.
