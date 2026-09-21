@@ -261,3 +261,52 @@ NYC rent-flexibility fintech", and a likely reading is not an identification.
 `verify --in-flight` clean. Sequoia is mid-S2A-wave with a live in-flight
 marker, so this pass did not close it, did not rebuild the base and did not
 re-export; the wave owns the published surface.
+
+## Addendum 2026-09-21: S2A with every Seed row decided (PRO-132)
+
+The last published figure was 71.7% on a 46-row cohort, every row of it
+flagged `cohort_unverified`; the 2026-09-17 re-judge stopped with 90 of 152
+seed rows judged. PRO-132 makes the absence of a later round a finding: a
+Seed row past the 24-month clock with no evidence of a later round did not
+graduate, and every no records the dated search that found nothing (the
+firm's archive, the Form D sequence for a US company, at least two publisher
+surfaces; COLLECTION.md §6). The 120 open rows were judged in three batches.
+
+| seed entries | censored | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|
+| 78 | 11 | 67 | 40 | 27 | 59.7% | 100% |
+
+Of 78 seed entries, 11 were too recent to count; of the 67 that remain, 59.7%
+raised a later round. Of the 27 that did not, seven rest on a cited end (an
+acquisition or acqui-hire with no round between it and the seed: Apex
+Security to Tenable, Firetiger's team to Cursor, Okay to Stripe, Mira to
+Apple and others) and 20 on a dated search of the named surfaces. Sequoia's
+Arc cohort companies stay Seed entries (decisions.md: Arc deploys fund money
+at the seed), so they are judged like any other seed.
+
+What moved:
+
+- Re-staged out of Seed where Sequoia's own page or a primary article names
+  Sequoia only at a later round (25 rows): among them Etched, Magic,
+  Profound and Parallel Web Systems (Growth), Sierra (its seed was
+  Benchmark-only), JITX, Nuvo, nxyz, Scanner and Zefir (Series A), and Lemni,
+  Paid and Telda (Pre-Seed).
+- Twenty-nine rows read `undetermined` in the stage because nothing dates a
+  Sequoia entry, most of them common words whose results are all homonyms
+  (Rift, Telescope, Titus, Twain, Parallel, re:Store). Handshake (the naming
+  protocol's 2018 raise) and Orchid Labs (the 2018 SAFT) are `token_funded`,
+  which cascades `undetermined` to the graduation column.
+- Overturned nos: Catch (a $12M Series A in July 2021, PR Newswire) and, in
+  review, Claim (a $12M Series A led by VMG Technology in October 2024,
+  Business Wire, before Grubhub's parent bought it in January 2026). Mira's
+  2020 $10M round is a seed extension by TechCrunch's own words, so it stays a
+  no.
+
+`c2a_rate_max` stays at the 0.80 default. `verify` is clean.
+
+For Erik: **Sunday**'s row text describes the Paris restaurant-payments app,
+but Sequoia's own `sunday` page is getsunday.com, the US lawn-care company
+whose $19M Series B Sequoia led in December 2020; the stage now follows
+Sequoia's page (Growth) and the rest of the row needs the identity pass.
+**Zefir** reads `defunct`, but Tech.eu reported a Series B in September 2025,
+so the status looks wrong (a status job, not S2A's).
