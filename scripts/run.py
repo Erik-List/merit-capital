@@ -130,6 +130,14 @@ VENDOR_SURFACES = {"crunchbase", "pitchbook", "tracxn", "dealroom", "cbinsights"
                    "cb-insights", "getlatka", "latka", "owler", "zoominfo", "sacra",
                    "contrary", "forge", "caplight", "premieralts", "upmarket",
                    "seedtable", "golden", "craft", "growjo", "privco", "raising.fi"}
+# The same databases' pages never cite a graduation either: they transcribe a
+# round, and the round's own announcement is the citation (Rule A). The
+# vendor's NEWS arm reporting a round is press, so news.crunchbase.com passes.
+VENDOR_CITATION_RE = re.compile(
+    r"https?://(?!news\.crunchbase\.com/)(?:[\w-]+\.)*(?:crunchbase\.com|pitchbook\.com|tracxn\.com|dealroom\.co|"
+    r"cbinsights\.com|getlatka\.com|owler\.com|zoominfo\.com|craft\.co|growjo\.com|"
+    r"privco\.com|seedtable\.com|golden\.com|raising\.fi|sacra\.com|contrary\.com|"
+    r"forgeglobal\.com|caplight\.com)/", re.I)
 # An absence verdict needs the follow-on window inside its register's
 # coverage (PRO-137's rule, generalised). Form D opens in 2008-09; the press
 # surfaces a web search reaches cover startup financings systematically from
@@ -1364,6 +1372,10 @@ def validate_record(rec: dict, slugs: set[str], merged: dict | None = None,
                                     f"says {fd!r}; cite the round that decides it")
                 elif not str(view.get("graduation_citation") or "").startswith("http"):
                     errs.append(f"{slug}: {g} from {src} without graduation_citation")
+                if VENDOR_CITATION_RE.match(str(view.get("graduation_citation") or "")):
+                    errs.append(f"{slug}: graduation_citation is a vendor page "
+                                f"({view['graduation_citation']}); cite the event it "
+                                f"transcribes (Rule A)")
                 # Every "no" records its dated search, whatever it rests on;
                 # every decided row carries the entry date its clock reads.
                 if g == "not_graduated":
@@ -1475,7 +1487,18 @@ def cmd_record(args) -> None:
     anything else is a classification row bound for classification.json. All
     lines validate before anything is written, so a bad batch never lands
     half-recorded.
+
+    The step is a read-modify-write on the investor's ledger and
+    classification files, so it holds a machine-wide lock per investor: two
+    judges recording into one book at once would otherwise each write back
+    the file they read and silently drop the other's answers.
     """
+    from shared_throttle import exclusive
+    with exclusive(f"record-{args.investor}"):
+        _record(args)
+
+
+def _record(args) -> None:
     src = Path(args.jsonl)
     rows = load_base(args.investor)
     slugs = {r["slug"] for r in rows}
@@ -2271,6 +2294,9 @@ def cmd_verify(args) -> None:
                     problems.append(f"{slug}: {g} cites Form D but the layer says {fd!r}")
             elif not str(rec.get("graduation_citation") or "").startswith("http"):
                 problems.append(f"{slug}: {g} from {src} without graduation_citation")
+            if VENDOR_CITATION_RE.match(str(rec.get("graduation_citation") or "")):
+                problems.append(f"{slug}: graduation_citation is a vendor page "
+                                f"({rec['graduation_citation']}); cite the event it transcribes")
             if g == "not_graduated":
                 # Every "no" records the search that found nothing (PRO-132).
                 # The ones decided before the rule owe it: counted in flight,
