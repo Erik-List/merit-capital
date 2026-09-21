@@ -419,3 +419,21 @@ The four pre-window rows also now store `undetermined` rather than null in
 the graduation: `undetermined` is not a graduation claim but the absence of
 one, so the store and the published CSV say the same thing and the database
 takes the same value the base does.
+
+## Addendum 2026-09-20: S2A under PRO-132 (no change to the book)
+
+PRO-132 made every Seed row decided and made the absence of a later round a
+finding (COLLECTION.md §6). Benchmark's seed book already met the new
+contract: its 7 Seed entries are all graduated, each with both legs cited and
+an entry date, so no row was re-opened and no value changed.
+
+| seed entries | censored | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|
+| 7 | 0 | 7 | 7 | 0 | 100% | 100% |
+
+The rows whose round the record does not give (178 nameable, 8 unnameable)
+read `undetermined` in the stage and are not Seed entries; the export now
+publishes the value each row stores in the graduation column (null on the
+178, `undetermined` on the 8) rather than forcing `undetermined` onto all of
+them. `verify.shape.c2a_rate_max` stays at 1.0: a 7-row cohort, too small to
+rank.
