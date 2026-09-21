@@ -208,9 +208,23 @@ export function validateCompanyFields(row: Record<string, any>): TaxonomyIssues 
   } else if (row.seed_to_a_graduation != null) {
     errors.push("seed_to_a_graduation: expected a status string or null");
   }
+  // A Seed entry is always decided (PRO-132): a company past the censoring
+  // window with no evidence of a later round did not graduate (Erik,
+  // 2026-09-17), so a Seed row carries graduated, not_graduated or censored.
+  // `undetermined` stays legal only on an undetermined stage (above), and the
+  // database's own CHECK says the same from migration 20260920120000 on.
+  if (row.entry_stage === "Seed"
+      && !(DECIDED_GRADUATIONS as readonly unknown[]).includes(row.seed_to_a_graduation)) {
+    errors.push(
+      `seed_to_a_graduation: a Seed row must be decided (${DECIDED_GRADUATIONS.join(", ")}); `
+      + `got ${JSON.stringify(row.seed_to_a_graduation ?? null)}`
+    );
+  }
 
   return { errors, warnings };
 }
+
+export const DECIDED_GRADUATIONS = ["graduated", "not_graduated", "censored"] as const;
 
 export const GRADUATION_STATUSES = [
   "graduated",

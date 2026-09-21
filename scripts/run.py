@@ -97,16 +97,45 @@ SAME_ROUND_DAYS = 90                    # closes of one round land within a quar
 FORMD_COVERAGE_START = "2008-09"
 
 # seed_to_a_graduation is a status, never a boolean (COLLECTION.md §6,
-# 2026-09-16). An in-window Seed entry carries exactly one of these; null is
-# reserved for a non-Seed or pre-window entry. The published rate divides
-# over the two decided states; censored and undetermined are counted beside
-# it as coverage, never hidden in a null.
-GRADUATION_STATUSES = ("graduated", "not_graduated", "censored", "undetermined")
+# 2026-09-16), and a Seed entry is always DECIDED (PRO-132): a company past
+# the censoring window with no evidence of a later round did not graduate
+# (Erik, 2026-09-17), so absence is a finding and `undetermined` is no longer
+# an answer about a Seed row. Coverage is 100% by construction and the rate
+# divides over every Seed entry old enough to have had the chance. Null is
+# reserved for a non-Seed entry.
+GRADUATION_STATUSES = ("graduated", "not_graduated", "censored")
 COHORT_STATUSES = ("graduated", "not_graduated")
+# `undetermined` survives in the column only as the cascade of an undetermined
+# STAGE -- the company that cannot be named (Erik, 2026-09-18) and the
+# token-funded position (2026-09-19) -- where no seed exists to graduate from.
+# It is what such a row holds, not a status a judge gives.
+GRADUATION_VALUES = GRADUATION_STATUSES + ("undetermined",)
 # A decided status is verified by construction: `formd` cites its accessions
-# (the layer's own verdict, confirmed by the judge), the other two must carry
-# graduation_citation. The model may not decide a graduation.
-GRADUATION_SOURCES = ("formd", "first_party", "web_verified")
+# (the layer's own verdict, confirmed by the judge), `first_party` and
+# `web_verified` cite the round or the terminal event, and `absence_check` is
+# a "no" whose evidence is the dated search itself (below). The model may not
+# decide a graduation.
+GRADUATION_SOURCES = ("formd", "first_party", "web_verified", "absence_check")
+# The absence test (PRO-132 item 1). Every `not_graduated`, whatever its
+# source, records the search that found no later round: `graduation_asof`,
+# the date it ran, and `graduation_surfaces`, one line per surface in the form
+# "<surface>: <what was searched> -> <what it showed>". It names the firm's own
+# archive (`firm:`), the company's Form D sequence where the company files in
+# the US (`formd:`), and at least ABSENCE_MIN_SURFACES publisher surfaces --
+# a press search, a publication's own archive, the company's own site.
+# A vendor's database is never one (Rule A: vendor pages never carry a no).
+ABSENCE_MIN_SURFACES = 2
+ABSENCE_OWN_SURFACES = ("firm", "formd")
+VENDOR_SURFACES = {"crunchbase", "pitchbook", "tracxn", "dealroom", "cbinsights",
+                   "cb-insights", "getlatka", "latka", "owler", "zoominfo", "sacra",
+                   "contrary", "forge", "caplight", "premieralts", "upmarket",
+                   "seedtable", "golden", "craft", "growjo", "privco", "raising.fi"}
+# An absence verdict needs the follow-on window inside its register's
+# coverage (PRO-137's rule, generalised). Form D opens in 2008-09; the press
+# surfaces a web search reaches cover startup financings systematically from
+# 2005 on (TechCrunch launched June 2005), so an older entry takes a "no" only
+# from a cited terminal event, never from silence.
+WEB_COVERAGE_START = "2005"
 ENTRY_DATE_RE = re.compile(r"\d{4}(-\d{2}){0,2}")
 # What the Form D layer decided travels to the judge as evidence, under
 # formd_graduation, and never occupies the judged column itself.
@@ -392,9 +421,9 @@ def open_needs(item: dict, verdicts: dict, merged: dict) -> list[str]:
                 out.append(need)
         elif need == "seed_to_a_graduation":
             stage = rec.get("entry_stage")
-            if rec.get(need) in GRADUATION_STATUSES:
-                continue
             if stage and stage != "Seed":
+                continue
+            if not graduation_open(rec):
                 continue
             out.append(need)
         elif rec.get(need) is None:
@@ -464,6 +493,94 @@ def months_since(iso: str | None, asof: str | None = None) -> int | None:
     return months - 1 if now.day < then.day else months
 
 
+def latest_day(iso: str | None) -> str | None:
+    """The LATEST day an entry_date of this precision can mean: 2024 reads as
+    2024-12-31 and 2024-06 as 2024-06-30. A "no" must be past the window even
+    on that reading, so a bare year cannot carry a no whose clock it straddles
+    (months_since reads the same date as its earliest day, which is the right
+    reading for `censored`)."""
+    s = str(iso or "")
+    if not ENTRY_DATE_RE.fullmatch(s):
+        return None
+    if len(s) == 4:
+        return f"{s}-12-31"
+    if len(s) == 7:
+        y, m = int(s[:4]), int(s[5:7])
+        nxt = date(y + (m == 12), m % 12 + 1, 1)
+        return date.fromordinal(nxt.toordinal() - 1).isoformat()
+    return s
+
+
+def surface_kind(line: str) -> str:
+    return str(line).split(":", 1)[0].strip().lower()
+
+
+def absence_problems(rec: dict, prefix: str) -> list[str]:
+    """What a `not_graduated` still owes of the absence test (COLLECTION.md §6,
+    PRO-132 item 1): the dated search, the surfaces it covered, the entry
+    inside their coverage and past the censoring window. Empty when complete."""
+    errs = []
+    asof = rec.get("graduation_asof")
+    if not asof or len(str(asof)) != 10 or months_since(str(asof)) is None:
+        errs.append(f"{prefix}: not_graduated without graduation_asof (YYYY-MM-DD, the day "
+                    f"the absence was checked)")
+    surfaces = rec.get("graduation_surfaces")
+    if not isinstance(surfaces, list) or not all(isinstance(s, str) and ":" in s
+                                                  for s in surfaces):
+        errs.append(f"{prefix}: not_graduated without graduation_surfaces (a list of "
+                    f"'<surface>: <searched> -> <showed>' lines)")
+        surfaces = []
+    kinds = [surface_kind(s) for s in surfaces]
+    vendor = sorted({k for k in kinds if k in VENDOR_SURFACES})
+    if vendor:
+        errs.append(f"{prefix}: {', '.join(vendor)} is a vendor database and never carries "
+                    f"a no (Rule A)")
+    publishers = {k for k in kinds if k not in ABSENCE_OWN_SURFACES and k not in VENDOR_SURFACES}
+    if surfaces and len(publishers) < ABSENCE_MIN_SURFACES:
+        errs.append(f"{prefix}: absence checked on {len(publishers)} publisher surface(s); "
+                    f"at least {ABSENCE_MIN_SURFACES} (a press search, a publication's "
+                    f"archive, the company's own site)")
+    if surfaces and "firm" not in kinds:
+        errs.append(f"{prefix}: absence check never names the firm's own archive (firm:)")
+    if surfaces and rec.get("hq_country") == "US" and "formd" not in kinds:
+        errs.append(f"{prefix}: a US company's absence check names no Form D sequence (formd:)")
+    entry = rec.get("entry_date")
+    last = latest_day(entry)
+    if not last:
+        errs.append(f"{prefix}: not_graduated without an entry_date; an absence claim rests "
+                    f"on knowing when the entry was")
+    else:
+        age = months_since(last, str(asof) if asof else None)
+        if age is not None and age < CENSOR_MONTHS:
+            errs.append(f"{prefix}: not_graduated but entry_date {entry!r} may be under "
+                        f"{CENSOR_MONTHS} months old at the check; the clock wins inside its "
+                        f"window (give the month, or the row is censored)")
+        src = rec.get("graduation_source")
+        if src == "absence_check" and str(entry)[:4] < WEB_COVERAGE_START:
+            errs.append(f"{prefix}: an absence_check no on a {str(entry)[:4]} entry, before the "
+                        f"press surfaces' coverage ({WEB_COVERAGE_START}); cite the terminal "
+                        f"event instead")
+    return errs
+
+
+def graduation_open(rec: dict) -> bool:
+    """Does this Seed row still owe the graduation column something? A row with
+    no decided status does; so does a `not_graduated` whose absence test is
+    incomplete (the rows decided under the pre-PRO-132 contract) and a decided
+    row with no entry_date (every decided row carries one)."""
+    g = rec.get("seed_to_a_graduation")
+    if g not in GRADUATION_STATUSES:
+        return True
+    if g == "censored":
+        # the clock is re-read every time: an entry that has aged past it
+        # owes a decision
+        age = months_since(rec.get("entry_date"))
+        return age is None or age >= CENSOR_MONTHS
+    if not rec.get("entry_date"):
+        return True
+    return g == "not_graduated" and bool(absence_problems(rec, "_"))
+
+
 def graduation_from_formd(rounds: list[dict], partner_accs: frozenset | set = frozenset(),
                           formd_asof: str | None = None) -> dict:
     """Entry stage and graduation from a company's own Form D sequence.
@@ -492,8 +609,10 @@ def graduation_from_formd(rounds: list[dict], partner_accs: frozenset | set = fr
     # and the Form D layer resolves 13, a 0.26% share, because YC companies
     # raise on SAFEs under 4(a)(2) and overwhelmingly file no Form D — so the
     # seed-to-A transition has no filing record and no judge could establish
-    # it at that scale. Such an investor publishes `undetermined` throughout
-    # (export) and is never asked (prepare). Absent the key nothing changes.
+    # it at that scale. Such an investor is never asked (prepare) and publishes
+    # an empty column (export). Since 2026-09-19 YC reads Pre-Seed on programme
+    # terms and holds no Seed row at all, so the key is moot there; absent the
+    # key nothing changes.
     if not P.config().get("verify", {}).get("c2a_deterministic", True):
         return {"entry_stage": None, "seed_to_a_graduation": None, "flags": []}
     priced = [r for r in rounds if r.get("offering_usd")]
@@ -898,6 +1017,7 @@ def cmd_prepare(args) -> None:
     # ---- Consolidate and emit the queue
     resolved, queue, retired = {}, [], 0
     cls_prev = load(P.classification, {})
+    surfaces = load(P.scratch / "graduation-surfaces.json", {})
     for row in rows:
         slug = row["slug"]
         a, b, g = layer_a.get(slug, {}), layer_b.get(slug, {}), grad.get(slug, {})
@@ -980,9 +1100,10 @@ def cmd_prepare(args) -> None:
         # asked (also a row whose stage is itself open — the need closes if
         # the judge rules it non-Seed), the Form D verdict rides along as
         # evidence, and only a status already judged closes the need.
-        prior_g = cls_prev.get(slug, {}).get("seed_to_a_graduation")
-        if c2a_on and prior_g not in GRADUATION_STATUSES \
-                and (overlaid.get("entry_stage") == "Seed" or "entry_stage" in need):
+        # A decided row can still owe the column (PRO-132): a `not_graduated`
+        # without its absence test, a decided row without its entry_date.
+        if c2a_on and ((overlaid.get("entry_stage") == "Seed" and graduation_open(overlaid))
+                       or "entry_stage" in need):
             need.append("seed_to_a_graduation")
         item = {
             "slug": slug, "name": row["name"],
@@ -1022,6 +1143,11 @@ def cmd_prepare(args) -> None:
                 "former_unicorn": uni["former"].get(S.norm(row["name"])),
                 "known": {k: overlaid.get(k) for k in
                           ("status", "valuation_usd", "entry_stage",
+                           "entry_stage_source", "entry_stage_citation",
+                           "entry_stage_confidence", "entry_date",
+                           "seed_to_a_graduation", "graduation_source",
+                           "graduation_citation", "graduation_asof",
+                           "graduation_surfaces",
                            "hq_country", "valuation_range", "note")
                           if overlaid.get(k) is not None},
                 # the filings' own graduation verdict with its step-up
@@ -1030,6 +1156,41 @@ def cmd_prepare(args) -> None:
                 "formd_graduation": rec.get("formd_graduation"),
                 "need": need,
             })
+            if "seed_to_a_graduation" in need and slug in surfaces:
+                # The publisher surfaces already searched for this row
+                # (graduation-surfaces.py): the headlines that name the
+                # company, what sibling books established, and per surface
+                # whether it answered. The judge decides from these, and a
+                # "no" names them.
+                sv = surfaces[slug]
+                qn = (sv.get("query_name") or "").lower()
+
+                def weight(k: str, i: dict) -> int:
+                    # A headline ABOUT the company leads with its name; a
+                    # common-word name ("Formal", "Specter") otherwise buries
+                    # the few that matter under the many that merely use it.
+                    return (3 * (k == "googlenews_firm") + 2 * bool(i.get("rounds"))
+                            + bool(i.get("amounts")) + (k in ("techcrunch", "crunchbase_news"))
+                            + 2 * (i.get("title") or "").lower().startswith(qn))
+
+                named = [(weight(k, i), k, i) for k, v in (sv.get("surfaces") or {}).items()
+                         for i in v.get("items", []) if i.get("names")]
+                named.sort(key=lambda t: -t[0])
+                item["graduation_evidence"] = {
+                    "asof": sv.get("asof"),
+                    "query_name": sv.get("query_name"),
+                    "surfaces": {k: {"status": v.get("status"), "query": v.get("query"),
+                                     "n": v.get("n")}
+                                 for k, v in (sv.get("surfaces") or {}).items()},
+                    "mentions": sorted(
+                        ({"surface": k, **{f: i.get(f) for f in
+                                           ("date", "title", "source", "link", "gid",
+                                            "rounds", "amounts") if i.get(f)}}
+                         for _, k, i in named[:30]),
+                        key=lambda m: m.get("date") or ""),
+                    "mentions_total": len(named),
+                    "siblings": sv.get("siblings") or [],
+                }
             queue.append(item)
         resolved[slug] = rec
 
@@ -1153,30 +1314,38 @@ def validate_record(rec: dict, slugs: set[str], merged: dict | None = None,
         errs.append(f"{slug}: {IDENTITY_UNRESOLVED} row asserts entry_stage "
                     f"{view.get('entry_stage')!r} from {view.get('entry_stage_source')!r}; "
                     f"only a Form D sequence carries a stage without a name")
-    if "seed_to_a_graduation" in rec:
-        g = rec["seed_to_a_graduation"]
+    if "graduation_surfaces" in rec and rec["graduation_surfaces"] is not None \
+            and not (isinstance(rec["graduation_surfaces"], list)
+                     and all(isinstance(s, str) for s in rec["graduation_surfaces"])):
+        errs.append(f"{slug}: graduation_surfaces must be a list of strings")
+    # Checked whenever a line touches the column at all, so a line that only
+    # completes an old "no"'s absence record is held to the whole contract.
+    if any(k in rec for k in ("seed_to_a_graduation", "graduation_source",
+                              "graduation_citation", "graduation_asof",
+                              "graduation_surfaces")):
+        g = view.get("seed_to_a_graduation") if "seed_to_a_graduation" not in rec \
+            else rec["seed_to_a_graduation"]
         if isinstance(g, bool):
             errs.append(f"{slug}: seed_to_a_graduation {g!r} is the retired boolean; "
                         f"emit a status ({', '.join(GRADUATION_STATUSES)})")
-        elif g is not None and g not in GRADUATION_STATUSES:
+        elif g is not None and g not in GRADUATION_VALUES:
             errs.append(f"{slug}: seed_to_a_graduation {g!r} not in vocabulary")
-        elif g == UNDETERMINED and not unresolved \
-                and view.get("entry_stage") != UNDETERMINED:
-            # A judge may not answer `undetermined` about a company it can
-            # name (Erik, 2026-09-18), unless the STAGE is undetermined too --
-            # a row with no stage has no seed-to-A transition to decide. That
-            # covers the unnameable row and the token-funded one alike (Erik,
-            # 2026-09-19): where the money went in as a token purchase, no
-            # priced round exists to stage, so both columns read undetermined
-            # while the company stays named and bandable.
+        elif g == UNDETERMINED and view.get("entry_stage") != UNDETERMINED:
+            # A Seed row is always decided (PRO-132; Erik 2026-09-17, a row
+            # past the window with no evidence of a later round did not
+            # graduate). `undetermined` is only the cascade of an undetermined
+            # STAGE -- a row with no stage has no seed-to-A transition to
+            # decide: the unnameable row (2026-09-18) and the token-funded one
+            # (2026-09-19), where no priced round exists to stage.
             errs.append(f"{slug}: seed_to_a_graduation {UNDETERMINED!r} on a row with a "
-                        f"stage ({view.get('entry_stage')!r}); decide the row, or write "
-                        f"{UNDETERMINED!r} in entry_stage too if no priced round exists")
+                        f"stage ({view.get('entry_stage')!r}); decide it (graduated, "
+                        f"not_graduated or censored), or write {UNDETERMINED!r} in "
+                        f"entry_stage too if no priced round exists")
         elif g is not None:
             # The column belongs to a Seed entry. `undetermined` on an
             # undetermined stage is not a claim about one, so it passes: it is
             # what an unnameable row and a token-funded row both carry.
-            if view.get("entry_stage") != "Seed" and not unresolved \
+            if view.get("entry_stage") != "Seed" \
                     and not (g == UNDETERMINED
                              and view.get("entry_stage") == UNDETERMINED):
                 errs.append(f"{slug}: graduation set but entry_stage={view.get('entry_stage')!r}")
@@ -1184,17 +1353,25 @@ def validate_record(rec: dict, slugs: set[str], merged: dict | None = None,
             if g in COHORT_STATUSES:
                 if src not in GRADUATION_SOURCES:
                     errs.append(f"{slug}: {g} needs graduation_source (got {src!r})")
+                elif src == "absence_check":
+                    if g != "not_graduated":
+                        errs.append(f"{slug}: absence_check is the source of a no, never "
+                                    f"of a graduation")
                 elif src == "formd":
                     fd = (on_disk.get("formd_graduation") or {}).get("seed_to_a_graduation")
                     if fd != g:
                         errs.append(f"{slug}: {g} with source formd but the Form D layer "
                                     f"says {fd!r}; cite the round that decides it")
-                else:
-                    if not str(view.get("graduation_citation") or "").startswith("http"):
-                        errs.append(f"{slug}: {g} from {src} without graduation_citation")
-                    if g == "not_graduated" and not view.get("graduation_asof"):
-                        errs.append(f"{slug}: not_graduated from {src} without "
-                                    f"graduation_asof (the date the absence was checked)")
+                elif not str(view.get("graduation_citation") or "").startswith("http"):
+                    errs.append(f"{slug}: {g} from {src} without graduation_citation")
+                # Every "no" records its dated search, whatever it rests on;
+                # every decided row carries the entry date its clock reads.
+                if g == "not_graduated":
+                    errs.extend(absence_problems(view, slug))
+                elif not view.get("entry_date"):
+                    errs.append(f"{slug}: graduated without an entry_date; every decided "
+                                f"row carries one (the seed's date, from its citation, "
+                                f"the Form D entry or the firm's own listing year)")
             elif g == "censored":
                 age = months_since(view.get("entry_date"))
                 if age is None:
@@ -1398,16 +1575,47 @@ def cmd_migrate_graduation(args) -> None:
     retired `cohort_unverified` flag, so the next `prepare` asks the judge.
     Idempotent: a status value passes through untouched. A human row (who:
     erik) is never rewritten; it is reported instead.
+
+    Two more rewrites since PRO-132, both idempotent: a graduation value on a
+    row whose merged stage is not Seed is dropped (the column does not apply
+    there), and with `--reopen` every judged `undetermined` on a row that has
+    a stage is re-opened for the judge, because a Seed row is always decided.
     """
     cls = load(P.classification, {})
     legacy = ("seed_to_a_graduation", "graduation_source", "graduation_confidence",
-              "graduation_citation", "graduation_asof",
+              "graduation_citation", "graduation_asof", "graduation_surfaces",
               "seed_to_a_graduation_source", "seed_to_a_graduation_confidence")
+    # The stage a row will read once merged: the Form D band lives in
+    # resolved.json, so classification.json alone would call a band-staged
+    # Seed row stageless (COLLECTION.md §8, the merged-view rule).
+    rows = load_base(args.investor)
+    stage_of = {s: r.get("entry_stage") for s, r in
+                merge_rows(rows, load(P.resolved, {}), cls).items()}
     n: Counter = Counter()
     for slug, rec in cls.items():
         g = rec.get("seed_to_a_graduation")
         touched = any(k in rec for k in legacy)
-        if g in GRADUATION_STATUSES:
+        stage = stage_of.get(slug, rec.get("entry_stage"))
+        if touched and rec.get("who") != "erik" and slug in stage_of \
+                and g is not None and stage != "Seed" \
+                and not (g == UNDETERMINED and stage == UNDETERMINED):
+            # The column belongs to a Seed entry; a value left on a row the
+            # stage sweeps moved elsewhere (legacy booleans on Growth and
+            # Series A rows) is not a graduation of anything.
+            for k in legacy:
+                rec.pop(k, None)
+            n["dropped_off_seed"] += 1
+            continue
+        if args.reopen and g == UNDETERMINED and stage != UNDETERMINED \
+                and rec.get("who") != "erik":
+            # PRO-132: a Seed row is always decided. A judged `undetermined`
+            # from before the rule goes back to the judge; its note stays,
+            # because it records what was already tried.
+            for k in legacy:
+                rec.pop(k, None)
+            n["reopened_undetermined"] += 1
+            continue
+        if g in GRADUATION_VALUES:
             n["already_status"] += 1
         elif touched and rec.get("who") == "erik":
             # A human ruling is not re-judged, but its value must speak the
@@ -1842,6 +2050,8 @@ def cmd_verify(args) -> None:
     unanswered = 0
     open_grad = 0                    # in-window Seed rows the judge has not answered
     cohort_uncited_stage = 0         # decided rows resting on an uncited stage (PRO-131 b)
+    owed_absence = 0                 # nos decided before PRO-132 without their absence test
+    owed_date = 0                    # decided rows without the entry_date their clock reads
     notes: list[str] = []            # in-flight observations that are not defects
     c2a_on = bool((CFG.get("verify") or {}).get("c2a_deterministic", True))
     merged = merge_rows(rows, resolved, cls)
@@ -1866,8 +2076,20 @@ def cmd_verify(args) -> None:
         if isinstance(g, bool):
             problems.append(f"{slug}: seed_to_a_graduation {g!r} is the retired boolean; "
                             f"run migrate-graduation")
-        elif g is not None and g not in GRADUATION_STATUSES:
+        elif g is not None and g not in GRADUATION_VALUES:
             problems.append(f"{slug}: seed_to_a_graduation {g!r} not in vocabulary")
+        elif g == UNDETERMINED and rec.get("entry_stage") not in (None, UNDETERMINED):
+            # PRO-132: a Seed row is always decided; `undetermined` survives only
+            # as the cascade of an undetermined stage. The judged `undetermined`
+            # rows from before the rule are debt, re-opened by
+            # `migrate-graduation --reopen` and judged again: open in flight,
+            # a failure at the end.
+            if in_flight and rec.get("entry_stage") == "Seed":
+                open_grad += 1
+            else:
+                problems.append(f"{slug}: seed_to_a_graduation {UNDETERMINED!r} on a "
+                                f"{rec.get('entry_stage')!r} row; run migrate-graduation "
+                                f"--reopen and decide it")
         # An unresolvable company writes UNDETERMINED across the outcome
         # columns and is excluded from every metric below, so the consistency
         # rules that relate those columns do not apply to it. The exception is
@@ -2014,24 +2236,35 @@ def cmd_verify(args) -> None:
                             f"mark it undetermined")
         if g in COHORT_STATUSES:
             src = rec.get("graduation_source")
+            absence = absence_problems(rec, slug) if g == "not_graduated" else []
             # Erik, 2026-09-19 (PRO-131 b): a CITED graduation is a published
             # fact and is not thrown away because the firm never announced its
             # seed. The row stays in the cohort with the stage marked
             # `stage_uncited` at low confidence -- the graduation is the claim,
             # the stage is context -- and the report counts how many rest on it.
+            # PRO-132 gives a "no" the same standing when its own evidence is
+            # complete (the filings, a cited end, or the full absence test with
+            # the entry date known): with (b) alone, only the GRADUATIONS on an
+            # uncited seed survived, and the non-graduations fell out of the
+            # cohort -- the upward bias this issue exists to remove.
             if not stage_cited:
-                grad_cited = (src == "formd"
-                              or str(rec.get("graduation_citation") or "").startswith("http"))
-                if (grad_cited and "stage_uncited" in flags_now
+                grad_evidenced = (src == "formd"
+                                  or str(rec.get("graduation_citation") or "").startswith("http")
+                                  or (src == "absence_check" and not absence))
+                if (grad_evidenced and "stage_uncited" in flags_now
                         and rec.get("entry_stage_confidence") == "low"):
                     cohort_uncited_stage += 1
                 else:
                     problems.append(
-                        f"{slug}: {g} on an uncited entry stage; a cited graduation may "
-                        f"carry one only with flag stage_uncited and entry_stage_confidence "
-                        f"low (PRO-131 b)")
+                        f"{slug}: {g} on an uncited entry stage; a decided row may carry one "
+                        f"only on its own evidence, with flag stage_uncited and "
+                        f"entry_stage_confidence low (PRO-131 b, PRO-132)")
             if src not in GRADUATION_SOURCES:
                 problems.append(f"{slug}: {g} from {src!r} is not a verified source")
+            elif src == "absence_check":
+                if g != "not_graduated":
+                    problems.append(f"{slug}: absence_check is the source of a no, never of "
+                                    f"a graduation")
             elif src == "formd":
                 fd = (rec.get("formd_graduation") or {}).get("seed_to_a_graduation")
                 if fd != g:
@@ -2039,12 +2272,24 @@ def cmd_verify(args) -> None:
             elif not str(rec.get("graduation_citation") or "").startswith("http"):
                 problems.append(f"{slug}: {g} from {src} without graduation_citation")
             if g == "not_graduated":
-                if src != "formd" and not rec.get("graduation_asof"):
-                    problems.append(f"{slug}: not_graduated from {src} without graduation_asof")
+                # Every "no" records the search that found nothing (PRO-132).
+                # The ones decided before the rule owe it: counted in flight,
+                # failed at the end.
+                if absence:
+                    if in_flight:
+                        owed_absence += 1
+                    else:
+                        problems.extend(absence)
                 if rec.get("valuation_range") in ("1b_plus", "10b_plus", "100b_plus") \
                         or rec.get("is_public"):
                     problems.append(f"{slug}: not_graduated on a $1B+/public row "
                                     f"(invariant 7: a Form D blind spot, not a no)")
+            elif not rec.get("entry_date"):
+                if in_flight:
+                    owed_date += 1
+                else:
+                    problems.append(f"{slug}: graduated without an entry_date; every decided "
+                                    f"row carries one")
         elif g == "censored":
             age = months_since(rec.get("entry_date"))
             if age is None or age >= CENSOR_MONTHS:
@@ -2151,17 +2396,27 @@ def cmd_verify(args) -> None:
     # carry: seed entries, the too-young share, the undetermined remainder,
     # and the rate over the decided cohort with its coverage.
     seed_rows = [r for r in staged if r.get("entry_stage") == "Seed"]
-    gc = Counter(r.get("seed_to_a_graduation") or "undetermined" for r in seed_rows)
+    gc = Counter(r.get("seed_to_a_graduation")
+                 if r.get("seed_to_a_graduation") in GRADUATION_STATUSES else "open"
+                 for r in seed_rows)
     cohort_n = gc["graduated"] + gc["not_graduated"]
     c2a_rate = gc["graduated"] / cohort_n if cohort_n else None
     establishable = len(seed_rows) - gc["censored"]
     coverage = cohort_n / establishable if establishable else None
     if cohort_uncited_stage:
         print(f"stage leg       : {cohort_uncited_stage} decided rows rest on an uncited "
-              f"entry stage (cited graduation, stage low)")
-    print(f"C2A             : {len(seed_rows)} seed entries, {gc['censored']} censored, "
-          f"{gc['undetermined']} undetermined; cohort {cohort_n}, graduated {gc['graduated']}"
-          + (f", rate {c2a_rate:.1%}, coverage {coverage:.1%}" if cohort_n else ""))
+              f"entry stage (their own evidence decides them, stage low)")
+    print(f"S2A             : {len(seed_rows)} seed entries, {gc['censored']} censored; "
+          f"cohort {cohort_n}, graduated {gc['graduated']}, not graduated "
+          f"{gc['not_graduated']}"
+          + (f", rate {c2a_rate:.1%}, coverage {coverage:.1%}" if cohort_n else "")
+          + (f"; {gc['open']} still open" if gc["open"] else ""))
+    if gc["not_graduated"]:
+        basis = Counter(r.get("graduation_source") for r in seed_rows
+                        if r.get("seed_to_a_graduation") == "not_graduated")
+        print(f"  the nos rest on: Form D absence {basis['formd']}, a cited end "
+              f"{basis['web_verified'] + basis['first_party']}, the absence test "
+              f"{basis['absence_check']}")
 
     # Sanity guard, not an invariant. Raised from 15% once the initial-only
     # person-match defect was fixed: dropping ~50 misattributed near-worthless
@@ -2214,7 +2469,9 @@ def cmd_verify(args) -> None:
     if in_flight:
         print(f"\nverify (in-flight): clean — {unjudged} rows unjudged, "
               f"{unanswered} unanswered on status, {open_grad} Seed rows without a "
-              f"graduation status, {awaiting} not_member awaiting rebuild")
+              f"graduation status, {owed_absence} nos owing the absence test, "
+              f"{owed_date} decided rows owing an entry_date, {awaiting} not_member "
+              f"awaiting rebuild")
     else:
         print("\nverify: clean")
 
@@ -2235,6 +2492,7 @@ EXPORT_COLUMNS = [
     "entry_stage", "entry_stage_source", "entry_stage_citation",
     "hq_city", "hq_country", "focus",
     "seed_to_a_graduation", "graduation_source", "graduation_citation", "entry_date",
+    "graduation_asof", "graduation_surfaces",
     "flags", "note",
 ]
 
@@ -2251,7 +2509,8 @@ def cmd_export(args) -> None:
     merged = merge_rows(rows, load(P.resolved, {}),
                         load(P.classification, {}))
 
-    out_rows = []
+    c2a_on = bool((CFG.get("verify") or {}).get("c2a_deterministic", True))
+    out_rows, undecided = [], []
     for row in rows:
         slug = row["slug"]
         rec = merged.get(slug, {})
@@ -2262,17 +2521,24 @@ def cmd_export(args) -> None:
         out.update({k: row.get(k, "") for k in EVIDENCE_COLUMNS})
         out.update({k: rec.get(k) for k in EXPORT_COLUMNS if k not in out})
         out["flags"] = ";".join(rec.get("flags") or [])
-        # Never a silent null on the graduation column: a Seed row nobody
-        # decided publishes as undetermined, which is what it is. Null stays
-        # only where the column does not apply (non-Seed).
-        if out.get("seed_to_a_graduation") is None and rec.get("entry_stage") == "Seed":
-            out["seed_to_a_graduation"] = UNDETERMINED
-        # An unresolvable company publishes UNDETERMINED across all three
-        # outcome columns; the database excludes such a row from its metrics.
-        if rec.get("entry_stage") == UNDETERMINED:
-            out["seed_to_a_graduation"] = UNDETERMINED
+        out["graduation_surfaces"] = " | ".join(rec.get("graduation_surfaces") or [])
+        # The graduation column publishes what the row STORES (PRO-132). A
+        # Seed row is always decided, so one without a decided status is not
+        # published under a stand-in: export refuses, and the row goes back to
+        # the judge. `undetermined` publishes where it is stored -- the
+        # unnameable row and the token-funded one -- and a named row whose
+        # round is unknown publishes the null it holds, so the CSV and the
+        # store agree (the split PRO-136 closed for the pre-window rows).
+        if c2a_on and rec.get("entry_stage") == "Seed" \
+                and rec.get("seed_to_a_graduation") not in GRADUATION_STATUSES:
+            undecided.append(slug)
         out_rows.append({k: "" if out.get(k) is None else out[k]
                          for k in EXPORT_COLUMNS})
+    if undecided:
+        sys.exit(f"export refused: {len(undecided)} Seed row(s) without a decided graduation "
+                 f"status ({', '.join(undecided[:12])}{' …' if len(undecided) > 12 else ''}); "
+                 f"a Seed row is graduated, not_graduated or censored (PRO-132). Judge them "
+                 f"(prepare queues them), then export.")
 
     dest = P.base_csv
     buf = io.StringIO()
@@ -2342,6 +2608,7 @@ REVIEW_FIELDS = [
     "entry_stage_citation", "valuation_citation", "entry_offering_usd",
     "round_count", "seed_to_a_graduation", "graduation_source",
     "graduation_citation", "graduation_confidence", "entry_date",
+    "graduation_asof", "graduation_surfaces",
     "hq_city", "hq_country", "focus", "flags", "tier", "first_seen", "sector",
     "site_url", "formd_links", "edgar_links", "wayback_first_link", "note",
 ]
@@ -2627,6 +2894,7 @@ function openDrawer(slug) {
     ['Value citation', link(r.valuation_citation)],
     ['Graduation', r.seed_to_a_graduation ? `${r.seed_to_a_graduation}${r.graduation_source ? ` (${r.graduation_source})` : ''}${r.entry_date ? ` · entry ${r.entry_date}` : ''}` : ''],
     ['Graduation citation', link(r.graduation_citation)],
+    ['Absence check', r.graduation_asof ? esc(`${r.graduation_asof}: ${(r.graduation_surfaces||[]).join(' | ')}`) : ''],
     ['Sources', [r.site_url && link(r.site_url), r.wayback_first_link && link(r.wayback_first_link),
                   (r.formd_links||'').split('; ')[0] && link((r.formd_links||'').split('; ')[0]),
                   (r.edgar_links||'').split('; ')[0] && link((r.edgar_links||'').split('; ')[0])]
@@ -2741,6 +3009,9 @@ def main() -> None:
     p = sub.add_parser("review"); p.set_defaults(fn=cmd_review)
     p = sub.add_parser("close"); p.set_defaults(fn=cmd_close)
     p = sub.add_parser("migrate-graduation"); p.set_defaults(fn=cmd_migrate_graduation)
+    p.add_argument("--reopen", action="store_true",
+                   help="also re-open every judged `undetermined` on a row that has a stage "
+                        "(PRO-132: a Seed row is always decided), so prepare re-queues it")
 
     for name, sp in sub.choices.items():
         if name not in ("collect", "prepare"):

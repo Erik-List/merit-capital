@@ -25,14 +25,14 @@ type TrackRecord = {
 // The shape recompute_investor_metrics writes: the decided cohort
 // (sample_size) with its rate, and the seed entries it was drawn from, so the
 // coverage of the rate is visible next to it. rate_percent is null when the
-// cohort is empty.
+// cohort is empty. Since PRO-132 every seed entry is decided, so the cohort is
+// the seed entries minus the censored and the coverage reads 100%.
 type GraduationBucket = {
   rate_percent?: number | null;
   graduated?: number | null;
   sample_size?: number | null;
   seed_entries?: number | null;
   censored?: number | null;
-  undetermined?: number | null;
 } | null;
 
 type GraduationRate = {

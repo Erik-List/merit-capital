@@ -1478,19 +1478,41 @@ maturity today. 100% fill.
   row is cited, and the firm's own dated company or relationship pages
   are the first place to look.
 
-### seed_to_a_graduation (C2A)
+### seed_to_a_graduation (S2A)
 
-**A status, never a boolean** (Erik, 2026-09-16, after the coverage audit:
-2,736 of 3,664 Seed rows carried no answer and the judge had never been
-asked). Every in-window Seed entry carries exactly one of
-`graduated | not_graduated | censored | undetermined`; null is reserved for
-a non-Seed entry, which now includes a row whose stage is `undetermined`. The
-column is **judged, never pre-filled**: `prepare` queues the
-`seed_to_a_graduation` need on every Seed row, the Form D layer's verdict rides in the item as
-`formd_graduation` evidence, and only a judged status closes the need.
+**A status, never a boolean, and on a Seed entry always decided** (Erik,
+2026-09-16 and 2026-09-17; PRO-132). Every Seed entry carries exactly one of
+`graduated | not_graduated | censored`, and null is reserved for a non-Seed
+entry. **A company past the censoring window with no evidence of a later round
+did not graduate**, and the column says so rather than abstaining. The old
+fourth value, `undetermined`, left the denominator, so every row we failed to
+establish inflated the published rate, and the bias was not random: a company
+that raised a big Series A gets written about, one that quietly stalled does
+not, so what fell out of the cohort was disproportionately the
+non-graduations. Measured before the rework on five books, counting only rows
+with a cited seed, an entry past the clock and a dated search that found
+nothing: USV 86.8% became 61.1%, Redpoint 82.1% became 60.5%, Spark 73.2%
+became 58.8%. Coverage is now 100% of the Seed entries old enough to count,
+by construction.
+
+The column is **judged, never pre-filled**: `prepare` queues the
+`seed_to_a_graduation` need on every Seed row that still owes it (no decided
+status; a `not_graduated` without its absence test; a decided row without its
+`entry_date`), the Form D layer's verdict rides in the item as
+`formd_graduation`, the publisher surfaces ride as `graduation_evidence`
+(below), and only a judged status closes the need.
+
+`undetermined` survives in the column in one place only, **as the cascade of
+an undetermined STAGE**, where there is no seed to graduate from: the company
+that cannot be named (`identity_unresolved`, Erik 2026-09-18) and the
+token-funded position (Erik 2026-09-19, below) read `undetermined` in
+`entry_stage` and here. `record` refuses it on any row that has a stage, and
+`export` publishes what the row stores: `undetermined` where it is stored,
+null on a named row whose round the record does not give, and it refuses to
+publish a Seed row with no decided status at all.
 
 Evidence per status, verified by construction (`record` refuses anything
-less, so no verified tag exists — the cohort is the verified set):
+less, so no verified tag exists: the cohort is the verified set):
 
 - `graduated`: a later priced round ≥ max(2× entry, $5M) in the company's
   own Form D sequence (`graduation_source: formd`, the accessions are the
@@ -1507,17 +1529,49 @@ less, so no verified tag exists — the cohort is the verified set):
   Panjo, $1.6M → $4.6M). The 2× / $5M step-up decides only rounds with no
   name, which in practice means the Form D layer: it reports amounts and
   never round words, so there the test stands unchanged.
-- `not_graduated`: Form D absence with the rescan as-of ≥ entry + 24 months
-  (`formd`) **and the entry inside the layer's coverage** — electronic Form D
-  filing opens in September 2008, so on an earlier entry the follow-on window
-  sits in years the filings do not cover and their silence says nothing. The
-  layer declines such a row (`formd_before_coverage`) and the judge decides it
-  from evidence outside the filings. An absence verdict requires the entry to
-  sit inside the register's coverage; stated that way, any register with a
-  start date carries the same rule (Erik, 2026-09-19) — or a cited
-  acquisition/shutdown plus a dated absence check
-  (`graduation_asof`, the date the record was searched) whose note names
-  the seed as the last round. Vendor pages never carry a no (Rule A).
+- `not_graduated`: **the absence test, a positive finding** (PRO-132). Every
+  no records the search that found no later round, whatever it rests on, and
+  `record` refuses one that is incomplete:
+  1. the entry is past the censoring window on the day of the check, read at
+     the LATEST day its `entry_date` can mean (a bare `2024` is 2024-12-31),
+     because the clock wins inside its window;
+  2. `graduation_asof`, the day the search ran;
+  3. `graduation_surfaces`, one line per surface in the form
+     `<surface>: <what was searched> -> <what it showed>`, naming the firm's
+     own archive (`firm:`), the company's Form D sequence where the company
+     files in the US (`formd:`), and **at least two publisher surfaces**:
+     places that would have reported a later round had there been one, such
+     as a press search (`googlenews:`), a publication's own archive
+     (`techcrunch:`, `crunchbase_news:`), the company's own site or newsroom
+     (`company:`), its Wikipedia article. A vendor's database (Crunchbase
+     profiles, PitchBook, Tracxn, Dealroom and the like) is never one:
+     vendor pages never carry a no (Rule A);
+  4. the entry inside the coverage of what the no rests on.
+
+  What the no rests on is its `graduation_source`. `formd` is the Form D
+  absence: the rescan as-of ≥ entry + 24 months **and the entry inside the
+  layer's coverage**. Electronic Form D filing opens in September 2008, so on
+  an earlier entry the follow-on window sits in years the filings do not cover
+  and their silence says nothing; the layer declines such a row
+  (`formd_before_coverage`) and the judge decides it from evidence outside the
+  filings. An absence verdict requires the entry to sit inside the register's
+  coverage; stated that way, any register with a start date carries the same
+  rule (Erik, 2026-09-19). `web_verified` or `first_party` is a cited
+  terminal event: the acquisition or shutdown in `graduation_citation`, the
+  note naming the seed as the last round. `absence_check` is a no whose
+  evidence is the search itself. The press surfaces cover startup financings
+  systematically from 2005 (TechCrunch launched in June 2005), so an
+  `absence_check` needs an entry from 2005 on; an older entry takes a no only
+  from a cited terminal event. `scripts/graduation-surfaces.py` runs the
+  standard surfaces for every open row (two Google News searches, one with
+  round words and one with the firm's name, plus TechCrunch's and Crunchbase
+  News's own search) and records each as found, confirmed empty, or failed. A
+  failed lookup is never an absence and is retried on the next run. General
+  web engines were measured and refused for bulk use on 2026-09-20:
+  DuckDuckGo serves a captcha to scripts, Brave answers about five queries
+  and then refuses for minutes, and Bing serves a scripted client unrelated
+  results. The judge's own web search is kept for the rows the surfaces leave
+  open.
 - `censored`: `entry_date` less than 24 months before today. **The clock
   wins inside the window** (Erik, 2026-09-19): a dated search that finds
   nothing on a row younger than 24 months leaves it `censored`, not
@@ -1541,58 +1595,59 @@ less, so no verified tag exists — the cohort is the verified set):
   knowable, which is why this is not the unnameable case and why the
   stage-to-band cascade does not apply. Flag it `token_funded` so the class
   can be counted rather than inferred from prose.
-- `undetermined`: **not an answer a judge may give about a company it can
-  name** (Erik, 2026-09-18). The word belongs to the unresolvable row: a row
-  flagged `identity_unresolved` reads `undetermined` in `entry_stage`,
-  `valuation_range` and here, and `record` rejects the value anywhere else.
-  A named company owes a decision, and a Seed row still carrying none fails
-  invariant 1 in full mode rather than publishing a shrug. `export` writes
-  `undetermined` on an in-window Seed row nobody decided, which is how the
-  remainder stays visible in the report and the API while it is still debt.
 
-**A cited graduation rests on an uncited stage** (Erik, 2026-09-19, PRO-131
-b). Where the later round is cited but no page ties the firm to the seed, the
-row is DECIDED rather than left undetermined: the graduation keeps its source
-and citation, `entry_stage_confidence` reads `low`, and the row carries
-`stage_uncited`. The graduation is the published fact and the stage is
-context; discarding the row threw away something the record gives for want of
-something it does not. `verify` accepts that combination under rule 5 and
-counts it on its `stage leg` line, so the softening is visible rather than
-silent. It licenses nothing else: a graduation still needs its citation, and
-`not_graduated` still needs its own evidence, because an absence claim rests
-on the entry date being known. The firm's own listing (evidence class 1b
+**A decided row may rest on an uncited stage when its own evidence decides
+it** (Erik, 2026-09-19, PRO-131 b; extended to the no by PRO-132). Where the
+later round is cited but no page ties the firm to the seed, the row is
+DECIDED: the graduation keeps its source and citation, `entry_stage_confidence`
+reads `low`, and the row carries `stage_uncited`. The graduation is the
+published fact and the stage is context; discarding the row threw away
+something the record gives for want of something it does not. A
+`not_graduated` has the same standing when ITS evidence is complete (the
+filings, a cited end, or the full absence test with the entry date known).
+With (b) alone only the graduations on an uncited seed kept their place, and
+the non-graduations fell out of the cohort for want of the same citation,
+which is the upward bias this column's rework exists to remove. `verify`
+counts both on its `stage leg` line, so the softening is visible rather than
+silent. It licenses nothing else: a graduation still needs its citation, a no
+still needs its absence test, and **a row with no evidence of its entry at
+all** (no seed announcement, no Form D, no dated listing, nothing that dates
+it) has no Seed entry to decide: its stage reads `undetermined`, because the
+record does not give the round. The firm's own listing (evidence class 1b
 above) is the cheaper fix and is tried first.
 
-An `identity_unresolved` row is not a Seed entry at all, so it enters none
-of the six numbers — an unnameable company is not evidence about a
-graduation rate. The rows carrying a judged `undetermined` from before this
-rule are debt: each owes a decision, and until it is made `export` keeps
-publishing the word.
+`graduation_source` ∈ `formd | first_party | web_verified | absence_check`;
+the model may not decide a graduation. **`entry_date` is required on every
+decided row and every censored one** (YYYY, YYYY-MM or YYYY-MM-DD), and it is
+read off, in order, the seed's own citation, the Form D entry filing where the
+stage comes from the filings, or the firm's own listing year. Never off note
+prose, never off the Form D anchor of a later round, and never off
+`first_seen`, which dates a capture of the listing rather than the entry: all
+three carry a later date more prominently than the entry, and all three fail
+on exactly the long-gap rows that matter (USV's buglabs published a 2010 entry
+for a 2006 seed until `fb6fa17`). A bare year reads as its first day for
+`censored` and its last day for a no, so a recent entry needs month precision
+either way. Cross-check (invariant 7): no row ends `not_graduated` +
+(valuation ≥$1B or public); that combination is a Form D blind spot
+(4(a)(2), foreign), and the round that exists is cited instead.
 
-`graduation_source` ∈ `formd | first_party | web_verified` — the model may
-not decide a graduation. `entry_date` (YYYY, YYYY-MM or YYYY-MM-DD) is
-expected on every judged Seed row and required on a `censored` one; a bare
-year reads as 1 January, so a recent entry needs month precision. Cross-
-check (invariant 7): no row ends `not_graduated` + (valuation ≥$1B or
-public) — that combination is a Form D blind spot (4(a)(2), foreign), and
-the round that exists is cited instead.
-
-The published block carries six numbers — seed entries, censored,
-undetermined, cohort (`sample_size`), graduated, rate — and coverage is
-their ratio, `sample_size / (seed_entries − censored)`. The rate carries
-its selection bias in the sentence: "of N seed entries, K were too recent
-to count; of the M whose record could be established (X% coverage), R%
-graduated — the establishable set skews toward visible successes." An
-investor whose evidence cannot establish the column at all declines it in
-`config.json` (`verify.c2a_deterministic: false`): it is never asked
-and publishes `undetermined` throughout, so its rate is null with its
-seed count beside it. A **pre-seed investor** is a different case and
-publishes nothing at all: YC's whole book enters on the batch deal, so
-every row is `Pre-Seed` and the column does not apply — the transition its
-cohort makes is pre-seed to seed, which this dataset does not measure
-(Erik, 2026-09-19). A classification file from before this rule is
-rewritten once by `run.py migrate-graduation`: a cited `web_verified`
-graduation on a cited stage stays, everything else re-enters the queue.
+The published block carries five numbers: seed entries, censored, cohort
+(`sample_size`), graduated, rate. Coverage, `sample_size / (seed_entries −
+censored)`, is 100% on every judged book, so the sentence now carries what the
+nos rest on rather than a selection bias: "of N seed entries, K were too
+recent to count; of the M that remain, R% raised a later round. Of the Q that
+did not, A rest on the filings, B on a cited end and C on a dated search of
+the named surfaces." An investor whose evidence cannot establish the column
+at all may decline it in `config.json` (`verify.c2a_deterministic: false`): it
+is never asked and its column publishes empty. A **pre-seed investor** is a
+different case and publishes nothing at all: YC's whole book enters on the
+batch deal, so every row is `Pre-Seed` and the column does not apply (the
+transition its cohort makes is pre-seed to seed, which this dataset does not
+measure; Erik, 2026-09-19). A classification file from before these rules is
+rewritten by `run.py migrate-graduation`: a cited `web_verified` graduation on
+a cited stage stays, everything else re-enters the queue, a value left on a
+non-Seed row is dropped, and `--reopen` sends every judged `undetermined` on a
+row that has a stage back to the judge.
 
 ### hq_country
 
@@ -1656,8 +1711,9 @@ to the sampling sheet. Elsewhere: one rigorous cited pass, blind sampling as
 the review element.
 
 Debt is explicit, never hidden: `cite_pending` is the resumable citation
-queue; on the C2A column the only debt is the published value
-`undetermined`, counted in the report (`cohort_unverified` retired
+queue. The S2A column has no debt value any more (PRO-132): a Seed row is
+decided or it is open, `verify --in-flight` counts the open ones, and `export`
+refuses to publish a book that still holds one (`cohort_unverified` retired
 2026-09-16: an unverified yes or no is not recorded at all). `verify`
 tolerates only flagged debt.
 
@@ -1682,17 +1738,25 @@ Every subcommand takes the investor slug.
   Labs class: a band-labeled entry stage that was never queued for
   judgment. A `formd_band`-sourced stage on a $1B+ or post-2020 row goes
   back through the judge (with the §6 announcement check), never past it.
-- **Graduation is judged, never pre-filled** (2026-09-16). Every in-window
-  Seed row, and every row whose stage is itself open, carries the
-  `seed_to_a_graduation` need; the Form D layer's verdict rides in the
-  item as `formd_graduation` (status, entry and step-up amounts, entry
-  date, the rescan's as-of), which the judge confirms with
-  `graduation_source: formd` or disputes with a citation. The need closes
-  on a judged status or on a judged non-Seed stage.
+- **Graduation is judged, never pre-filled** (2026-09-16). Every Seed row
+  that still owes the column (no decided status, a `not_graduated` without
+  its absence test, a decided row without its `entry_date`; PRO-132), and
+  every row whose stage is itself open, carries the `seed_to_a_graduation`
+  need; the Form D layer's verdict rides in the item as `formd_graduation`
+  (status, entry and step-up amounts, entry date, the rescan's as-of), which
+  the judge confirms with `graduation_source: formd` or disputes with a
+  citation. The need closes on a decided status with its evidence complete,
+  or on a judged non-Seed stage.
   The item carries `entry_date` and `entry_quarter` from the filings and
   `site_invest_year` from the site as the judge's clock for the censor
   rule; where none exists the date comes from the citation or the
-  program's cohort table in `decisions.md`.
+  program's cohort table in `decisions.md`. **Run
+  `scripts/graduation-surfaces.py <slug>` before `prepare`** on a book with
+  open graduations: the next `prepare` carries its result into each item as
+  `graduation_evidence` (the headlines that name the company, ranked, with
+  per-surface status and what sibling books established for the same
+  company), so the judge decides from the item and a no can name its
+  surfaces. It exits 3 while any lookup failed; re-run it until clean.
 - **One queue, one pass per row.** `prepare` emits every open need for a
   row in one item — `membership` first when the row is unjudged, then
   whichever of `status`, `hq_country`, `entry_stage`, `valuation_range`,
@@ -1938,8 +2002,8 @@ surface is actually reviewable. It is an exit-criterion artifact, not a
 byproduct.
 
 Every run ends in the investor's `report.md`: method deltas, results
-(the C2A block in its six numbers — seed entries, censored, undetermined,
-cohort, graduated, rate — with coverage in the sentence, §6),
+(the S2A block in its five numbers — seed entries, censored, cohort,
+graduated, rate — with what the nos rest on in the sentence, §6),
 corrections taken, the flag and debt counts behind `verify`, the open
 rulings raised, the usage line (§12), and the session's prompt count — the number this pipeline
 exists to drive down. **The target is two prompts: kickoff and the ingest
@@ -1971,7 +2035,8 @@ run before the investor row exists (Thrive, 2026-09-04).
 
 1. Coverage: every base slug carries a membership verdict; `status`,
    `valuation_range`, `entry_stage`, `hq_country` at 100% fill with valid
-   vocabulary; every Seed row carries a graduation status. `undetermined`
+   vocabulary; every Seed row carries a DECIDED graduation status
+   (`graduated`, `not_graduated`, `censored`; PRO-132). `undetermined`
    satisfies the fill: in `valuation_range` only on an `identity_unresolved`
    row, and in `entry_stage` on any row whose round the record does not give
    (PRO-137). **A metric excludes a row only in the column the row declines to
@@ -2008,11 +2073,20 @@ run before the investor row exists (Thrive, 2026-09-04).
 5. Cohort row (`graduated` / `not_graduated`) → both legs verified: a cited
    or structural entry stage, and a graduation source carrying its evidence
    (`formd` agreeing with the layer; `first_party` / `web_verified` with
-   `graduation_citation`; a no outside Form D also with `graduation_asof`).
-   **Exception (PRO-131 b): a CITED graduation may carry an uncited stage**
-   when the row is flagged `stage_uncited` at `entry_stage_confidence: low`;
-   those rows are counted on the `stage leg` line rather than failed.
-   `cohort_unverified` is not an allowed end state (retired 2026-09-16).
+   `graduation_citation`; `absence_check` only on a no). **Every no carries
+   the complete absence test** (§6, PRO-132): `graduation_asof`,
+   `graduation_surfaces` naming the firm's archive, the Form D sequence of a
+   US company and at least two publisher surfaces, the entry past the window
+   at the check and inside the coverage of what the no rests on. **Every
+   decided row carries an `entry_date`.** **Exception (PRO-131 b, extended by
+   PRO-132): a decided row may carry an uncited stage when its own evidence
+   decides it** (a cited graduation; the filings, a cited end or the complete
+   absence test for a no), flagged `stage_uncited` at
+   `entry_stage_confidence: low`; those rows are counted on the `stage leg`
+   line rather than failed. In flight, a no decided before PRO-132 without its
+   absence test and a decided row without its date are counted as owed, not
+   failed. `cohort_unverified` is not an allowed end state (retired
+   2026-09-16).
 6. Non-US country on a visible row → citation or formd/wikidata provenance.
 7. No row ends `not_graduated` + (≥$1B or public); no `censored` row whose
    entry is ≥24 months old.
