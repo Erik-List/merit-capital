@@ -1528,13 +1528,20 @@ less, so no verified tag exists: the cohort is the verified set):
   still an A (Menlo's Decent, $8M seed → $10M A; Mimic, $27M → $50M; Spark's
   Panjo, $1.6M → $4.6M). The 2× / $5M step-up decides only rounds with no
   name, which in practice means the Form D layer: it reports amounts and
-  never round words, so there the test stands unchanged.
+  never round words, so there the test stands unchanged. **A vendor page never
+  cites a graduation either** (Rule A): Crunchbase profiles, PitchBook, Tracxn,
+  Dealroom, CB Insights and the like transcribe a round, and the round's own
+  announcement is the citation; `record` and `verify` refuse one
+  (Crunchbase News, the vendor's press arm, is press and passes).
 - `not_graduated`: **the absence test, a positive finding** (PRO-132). Every
   no records the search that found no later round, whatever it rests on, and
   `record` refuses one that is incomplete:
   1. the entry is past the censoring window on the day of the check, read at
      the LATEST day its `entry_date` can mean (a bare `2024` is 2024-12-31),
-     because the clock wins inside its window;
+     because the clock wins inside its window. The clock guards an ABSENCE
+     only: a cited acquisition or shutdown ends the chance to raise at all, so
+     it decides the row inside the window too (Menlo's fintool, a 2025 seed
+     bought by Microsoft in April 2026);
   2. `graduation_asof`, the day the search ran;
   3. `graduation_surfaces`, one line per surface in the form
      `<surface>: <what was searched> -> <what it showed>`, naming the firm's

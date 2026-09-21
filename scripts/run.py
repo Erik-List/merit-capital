@@ -558,12 +558,19 @@ def absence_problems(rec: dict, prefix: str) -> list[str]:
         errs.append(f"{prefix}: not_graduated without an entry_date; an absence claim rests "
                     f"on knowing when the entry was")
     else:
+        src = rec.get("graduation_source")
         age = months_since(last, str(asof) if asof else None)
-        if age is not None and age < CENSOR_MONTHS:
+        # The clock guards an ABSENCE: inside the window a search that finds
+        # nothing leaves the row censored (Erik, 2026-09-19). A cited terminal
+        # event is not absence -- an acquisition or shutdown ends the chance to
+        # raise at all -- so it decides the row inside the window too (Menlo's
+        # fintool, a 2025 seed bought by Microsoft in April 2026).
+        cited_end = src in ("web_verified", "first_party") \
+            and str(rec.get("graduation_citation") or "").startswith("http")
+        if age is not None and age < CENSOR_MONTHS and not cited_end:
             errs.append(f"{prefix}: not_graduated but entry_date {entry!r} may be under "
                         f"{CENSOR_MONTHS} months old at the check; the clock wins inside its "
                         f"window (give the month, or the row is censored)")
-        src = rec.get("graduation_source")
         if src == "absence_check" and str(entry)[:4] < WEB_COVERAGE_START:
             errs.append(f"{prefix}: an absence_check no on a {str(entry)[:4]} entry, before the "
                         f"press surfaces' coverage ({WEB_COVERAGE_START}); cite the terminal "
