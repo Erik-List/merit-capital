@@ -442,3 +442,65 @@ The three fixes PRO-95 proposed remain unmade. #1 is the cheap one — the
 the silently-ignored positional argument are wrong.
 
 **Prompt count: 2** — kickoff and the ingest approval, which is §9's target.
+
+## Addendum 2026-09-20: S2A with every Seed row decided (PRO-132)
+
+Felicis' graduation column had never been judged under the status contract:
+it held the retired booleans and 169 `cohort_unverified` flags until
+`migrate-graduation` cleared them. PRO-132 then made the absence of a later
+round a finding: a Seed row past the 24-month clock with no evidence of a
+later round did not graduate, and every no records the dated search that
+found nothing (the firm's archive, the Form D sequence for a US company, at
+least two publisher surfaces; COLLECTION.md §6). The seed book was judged in
+five batches.
+
+| seed entries | censored | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|
+| 203 | 29 | 174 | 84 | 90 | 48.3% | 100% |
+
+Of 203 seed entries, 29 were too recent to count; of the 174 that remain,
+48.3% raised a later round. Of the 90 that did not, two rest on the filings,
+37 on a cited end and 51 on a dated search of the named surfaces. The
+firm's own archived portfolio ladder (2011 to 2019) read Seed then Series A
+for several rows and is cited `first_party` where it does.
+
+What moved:
+
+- Rows found by fetching what the surfaces missed: Bump Technologies and
+  Granular (real Series A/B rounds before their acquisitions, invisible to
+  the short-name searches) and Freewebs (renamed Webs in 2008 before
+  Vistaprint bought it in 2011).
+- The unknown-seed bar (COLLECTION.md §6) graduates CarWoo ($6M, 2011),
+  DriveTime ($11M, 2019) and Gamalon ($20M, 2018); it keeps Meili's ~$8.8M
+  raise under the $16M bar for a 2023 entry, and in review it reverses
+  Covalent, whose only later round is an unnamed $5M (2024) under the $12M
+  bar for a 2021 entry.
+- Knox graduates against the Form D layer (a $25M Series A in March 2026 the
+  rescan had not caught); LMArena graduates on the $150M Series A Felicis
+  led in January 2026.
+- In review: Nimble (NimbleRx; the $28M 2017 round led by Sequoia, CNBC) and
+  Operant (the $10M Series A of September 2024 co-led by Felicis,
+  GlobeNewswire) graduate; both had been left open. Everalbum, a PRO-135
+  handoff, is classified: a Series A entry on the firm's own listing,
+  continuing as Paravision after its 2020 consumer shutdown.
+- Mon Ami and Alma Campus read `undetermined` in the stage (nothing dates the
+  entry).
+- A local-language re-check of the non-US nos (`googlenews_local`) found no
+  later round.
+
+Several entry dates are approximations and are named in their notes: where
+no seed announcement exists, the judge used the firm's earliest listing
+capture or the company's founding era. For a no that only errs on the safe
+side of the clock (a capture date can only be later than the entry), and for
+a graduation the date does not decide the verdict.
+
+`verify` passes every graduation check. Two base problems remain,
+`everalbum`/`optrip` present while their merge canonicals are absent; the
+PRO-121 session folds them with a rebuild after this commit.
+
+For Erik: **Credit Karma** was re-staged to Series A (Wikipedia names Felicis
+in the November 2009 $2.5M round it calls a Series A, with no earlier seed
+documented) against the firm's own "Seed" tag; **TalkIQ**'s Form D entry
+(2017-08-30) sits three weeks before its announced $14M Series A and may be
+the same financing; **RapLeaf** (which became LiveRamp) is a no because no
+non-vendor source names a priced RapLeaf round.
