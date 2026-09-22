@@ -385,6 +385,19 @@ Creandum-seeded Opbeat, held through the IPO) — a site listing suffices
 for membership, but a site-listed acquirer of a portfolio company is
 checked for consideration before it seeds member (agent, flagged).
 
+**Sale consideration is not membership, and the acquirer leaves the base**
+(Erik, 2026-09-22, ruled on Greylock's Intel, UnitedHealth, 3Com and
+Conexant): where the only route into a base is stock the funds received
+because that company BOUGHT a portfolio company, the row is `not_member`
+with the acquired company named, whatever the size of the holding and
+whichever surface carries it — a fund filing, or the firm's own site or
+IPO roster. The investment is the company that was bought (Sonix, Maker
+Communications, Share Development, all rows of their own), and the
+acquirer's own scale is not the firm's track record. This settles the
+"agent, flagged" reading above: the consideration check now decides
+membership rather than only raising it. A firm that later backs the
+acquirer on its own money is a separate, citable entry.
+
 **Person-level attribution locates a person, never a firm position.** Forms
 3/4/5 are filed by a natural person about their own holdings; partners file
 them from personal board seats, from ex-partner years, and from their next
