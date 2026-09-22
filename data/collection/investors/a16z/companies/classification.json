@@ -5696,13 +5696,19 @@
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "media API (2011-era); quietly gone | No dateable a16z-specific seed citation found; all 31 surface mentions are unrelated homonyms (Grand Chute WI, Chute Gerdeman, obituaries, laundry chutes). No Form D, no site_invest_year.",
+  "is_public": false,
+  "note": "media API (2011-era); quietly gone | No dateable a16z-specific seed citation found; all 31 surface mentions are unrelated homonyms (Grand Chute WI, Chute Gerdeman, obituaries, laundry chutes). No Form D, no site_invest_year. | Chute was acquired by ESW Capital (folded into Ignite Technologies) in June 2018; YC's directory (ycombinator.com/companies/chute) also lists it as Acquired. It did not quietly shut. [cross-investor alignment 2026-09-21, PRO-121]",
   "seed_to_a_graduation": null,
   "slug": "chute",
-  "status": "defunct",
+  "status": "acquired",
+  "status_citation": "https://thelettertwo.com/2018/06/26/user-generated-marketing-service-chute-acquired-by-private-equity-firm-esw-capital/",
+  "valuation_asof": null,
+  "valuation_citation": null,
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-a16z"
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "cross-investor-align-2026-09-21"
  },
  "cider": {
   "entry_stage": "Series A",
@@ -7058,7 +7064,8 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
   "flags": [
-   "model_disputes_source"
+   "model_disputes_source",
+   "stale"
   ],
   "focus": "Fintech & Payments",
   "focus_source": "model",
@@ -7067,15 +7074,16 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "fintech bank; a16z led the $28M 2016 round; NJ not Israel (wikidata IL disputed); ~$3B Mar 2022 round - pin at web pass | Sacra (updated Jul 2026): secondary price $55/share implies $1.57B, ~48% below the $3B+ Mar 2022 a16z/Eldridge round; $50M Series D Jan 2026, valuation undisclosed | TechCrunch: Battery led the $28M round (Nov 2016) with a16z and Ribbit participating (a16z joined, did not lead); trackers label it Series A",
+  "note": "fintech bank; a16z led the $28M 2016 round; NJ not Israel (wikidata IL disputed); ~$3B Mar 2022 round - pin at web pass | Sacra (updated Jul 2026): secondary price $55/share implies $1.57B, ~48% below the $3B+ Mar 2022 a16z/Eldridge round; $50M Series D Jan 2026, valuation undisclosed | TechCrunch: Battery led the $28M round (Nov 2016) with a16z and Ribbit participating (a16z joined, did not lead); trackers label it Series A | CRB Group raised $620M at 'a valuation of more than $3 billion' (2022-03-30, co-led by Eldridge and a16z); the Mar-2026 $50M T. Rowe Price raise was reported at 'a bit more than that' with the exact valuation not learned (Bloomberg Law 2026-03-31), so the 2022 round is the last citable figure. Replaces a Sacra (vendor) mark / an unsupported below_1b. [cross-investor alignment 2026-09-21, PRO-121]",
   "slug": "cross-river-bank",
   "status": "private",
-  "valuation_asof": "2026-07",
-  "valuation_citation": "https://sacra.com/c/cross-river-bank/",
+  "valuation_asof": "2022-03-30",
+  "valuation_citation": "https://www.roi-nj.com/2022/03/30/finance/cross-river-raises-620m-3b-in-valuation-to-fund-its-technology-focused-growth-strategy/",
   "valuation_confidence": "high",
   "valuation_range": "1b_plus",
   "valuation_source": "web_verified",
-  "valuation_usd": 1570000000
+  "valuation_usd": 3000000000,
+  "who": "cross-investor-align-2026-09-21"
  },
  "crossbeam": {
   "entry_stage": "Growth",
@@ -11127,7 +11135,9 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "stage_uncited"
+   "cite_pending",
+   "stage_uncited",
+   "stale"
   ],
   "focus": "Crypto & Web3",
   "focus_source": "model",
@@ -11136,11 +11146,16 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "blockchain gaming infrastructure; a16z round undocumented",
+  "note": "blockchain gaming infrastructure; a16z round undocumented | Same company as battery-ventures:forte (forte.io, Forte Labs, SF blockchain-gaming infrastructure). Its May 2021 $185M round led by Griffin Gaming Partners was priced at a $1B valuation (VentureBeat/GamesBeat, Axios); the Nov 2021 $725M round disclosed none, so $1B is the last citable figure. Surfaced when the Battery row was aligned. [cross-investor alignment 2026-09-21, PRO-121]",
   "slug": "forte",
   "status": "private",
-  "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_asof": "2021-05",
+  "valuation_citation": "https://venturebeat.com/games/forte-raises-185m-at-1b-valuation-for-blockchain-game-platform/",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1000000000,
+  "who": "cross-investor-align-2026-09-21"
  },
  "forte-labs-inc": {
   "entry_stage": "Series A",
@@ -13678,6 +13693,7 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "stale"
   ],
   "focus": "Healthcare & Bio",
@@ -13688,7 +13704,7 @@
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
   "is_public": false,
-  "note": "home care; a16z led the $20M Series A (2015); US company - wikidata CN is Huawei's phone brand, disputed; note Honor itself ACQUIRED Home Instead (2021) - verify the site's exit mark at A/B | [cross-investor 2026-09-03, Thrive run] Honor is private: it was the ACQUIRER of Home Instead (Aug 2021) and no sale of Honor is on record as of Sep 2026; last primary $1.25B Series E (Oct 2021, honorcare.com), stale. Corrected from acquired/below_1b (a Wikidata parent glitch); re-ingest needed.",
+  "note": "home care; a16z led the $20M Series A (2015); US company - wikidata CN is Huawei's phone brand, disputed; note Honor itself ACQUIRED Home Instead (2021) - verify the site's exit mark at A/B | [cross-investor 2026-09-03, Thrive run] Honor is private: it was the ACQUIRER of Home Instead (Aug 2021) and no sale of Honor is on record as of Sep 2026; last primary $1.25B Series E (Oct 2021, honorcare.com), stale. Corrected from acquired/below_1b (a Wikidata parent glitch); re-ingest needed. | Entry stage (Series A, 2015) is not citable: a16z led the $20M round (TechCrunch, Recode, 2015-04-02) but no first-party or press source names it a Series A, so the $1B+ row carries the debt marker. [PRO-121 pre-wave, 2026-09-22]",
   "slug": "honor",
   "status": "private",
   "valuation_asof": "2021-10",
@@ -13697,7 +13713,7 @@
   "valuation_range": "1b_plus",
   "valuation_source": "web_verified",
   "valuation_usd": 1250000000,
-  "who": "cross-investor-align-2026-09-03-thrive"
+  "who": "pro121-prewave-2026-09-22"
  },
  "hooper": {
   "entry_stage": "Pre-Seed",
@@ -17025,8 +17041,9 @@
  },
  "loft": {
   "entry_stage": "Series A",
+  "entry_stage_citation": "https://a16z.com/announcement/why-we-are-investing-in-loft/",
   "entry_stage_confidence": "high",
-  "entry_stage_source": "model",
+  "entry_stage_source": "first_party",
   "flags": [
    "stale"
   ],
@@ -17038,7 +17055,7 @@
   "hq_country": "BR",
   "hq_country_source": "model_knowledge",
   "is_public": false,
-  "note": "Brazilian real-estate marketplace; a16z led the $18M Series A (2018); Sao Paulo - wikidata JP is the Japanese retailer, disputed; verify the site's exit mark at A/B | [cross-investor 2026-09-03, Thrive run] Loft Brasil Tecnologia is private and independent (1.2M transactions 2025, IPO mooted 2026-27; no acquisition on record) \u2014 the 'acquired' came from the Wikidata glitch on the Japanese retailer; last primary $2.9B (Apr 2021 Series D extension, per PitchBook; $2.2B Mar 2021 Forbes), stale; re-ingest needed.",
+  "note": "Brazilian real-estate marketplace; a16z led the $18M Series A (2018); Sao Paulo - wikidata JP is the Japanese retailer, disputed; verify the site's exit mark at A/B | [cross-investor 2026-09-03, Thrive run] Loft Brasil Tecnologia is private and independent (1.2M transactions 2025, IPO mooted 2026-27; no acquisition on record) \u2014 the 'acquired' came from the Wikidata glitch on the Japanese retailer; last primary $2.9B (Apr 2021 Series D extension, per PitchBook; $2.2B Mar 2021 Forbes), stale; re-ingest needed. | Entry round cited to a16z's own post: 'We were excited to lead their Series A in July of 2018'. [PRO-121 pre-wave, 2026-09-22]",
   "slug": "loft",
   "status": "private",
   "valuation_asof": "2021-04",
@@ -17047,7 +17064,7 @@
   "valuation_range": "1b_plus",
   "valuation_source": "web_verified",
   "valuation_usd": 2900000000,
-  "who": "cross-investor-align-2026-09-03-thrive"
+  "who": "pro121-prewave-2026-09-22"
  },
  "loftia": {
   "entry_date": "2024-03-10",
@@ -21103,14 +21120,19 @@
   "hq_city_source": "web_verified",
   "hq_country": "US",
   "hq_country_source": "web_verified",
-  "note": "a16z American Dynamism led the $4.75M seed (Oct 2022, already cited in known via PR Newswire); Odyssey (K-12 ESA platform, Joseph Connor) raised a named $10M Series A led by Tusk Venture Partners (PR Newswire, 2024-05-29) -> graduated. Distinct from Odyssey Interactive (gaming), Odyssey Therapeutics (biotech) and Odyssey Energy Solutions (USV) homonyms dominating the raw search noise.",
+  "is_public": false,
+  "note": "a16z American Dynamism led the $4.75M seed (Oct 2022, already cited in known via PR Newswire); Odyssey (K-12 ESA platform, Joseph Connor) raised a named $10M Series A led by Tusk Venture Partners (PR Newswire, 2024-05-29) -> graduated. Distinct from Odyssey Interactive (gaming), Odyssey Therapeutics (biotech) and Odyssey Energy Solutions (USV) homonyms dominating the raw search noise. | The $1.45B figure is a unicorn-list name match (Rule A: an aggregator never bands a row), and the judge banded this row below_1b on its own evidence, a $10M Series A in 2024. The figure is cleared so it cannot leak back from the deterministic layer. [PRO-121 pre-wave, 2026-09-22]",
   "seed_to_a_graduation": "graduated",
   "slug": "odyssey",
   "status": "private",
   "status_source": "web_verified",
+  "valuation_asof": null,
+  "valuation_citation": null,
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-a16z"
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "pro121-prewave-2026-09-22"
  },
  "odyssey-interactive": {
   "entry_date": "2020-08-19",
@@ -24079,13 +24101,19 @@
   "hq_city": "San Mateo",
   "hq_city_confidence": "high",
   "hq_city_source": "formd_address",
-  "note": "2010 seed-era entry ($2.1M filing); identity thin beyond the filing | PRO-132 review: Proferi (renamed Tidemark in October 2011) raised its first round, $6.3M from Andreessen Horowitz, Duffield and Greylock, in October 2010 (TechCrunch); the next round, $4M in October 2011, is called its Series B, so a16z entered at the Series A. The Form D band read the 2011 filing as a Seed. Same company as the duplicate row; both carry the same values. No S2A.",
+  "is_public": false,
+  "note": "2010 seed-era entry ($2.1M filing); identity thin beyond the filing | PRO-132 review: Proferi (renamed Tidemark in October 2011) raised its first round, $6.3M from Andreessen Horowitz, Duffield and Greylock, in October 2010 (TechCrunch); the next round, $4M in October 2011, is called its Series B, so a16z entered at the Series A. The Form D band read the 2011 filing as a Seed. Same company as the duplicate row; both carry the same values. No S2A. | Proferi is Tidemark's stealth-era name (renamed 2011-10, Gigaom); it reads what a16z:tidemark reads (acquired by Marlin Equity Partners, 2017, per a16z's own portfolio page). Duplicate of tidemark, fold deferred to the next a16z rebuild: identity-merges keys the pair on the pre-rename slug proferi-inc, and a rebuild today would also rename 42 unrelated rows. [cross-investor alignment 2026-09-21, PRO-121]",
   "seed_to_a_graduation": null,
   "slug": "proferi",
-  "status": "unknown",
+  "status": "acquired",
+  "status_citation": "https://gigaom.com/2011/10/17/proferi-morphs-into-tidemark-launches-cloud-based-epm/",
+  "valuation_asof": null,
+  "valuation_citation": null,
   "valuation_confidence": "low",
   "valuation_range": "below_1b",
-  "who": "orchestrator-pro132"
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "cross-investor-align-2026-09-21"
  },
  "prologue": {
   "entry_stage": "undetermined",
@@ -30015,11 +30043,17 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "premium email client; a16z led the $33M Series B (Jun 2019); acq. by Grammarly, 2025 | A/B: Grammarly acquisition confirmed (Jul 1, 2025)",
+  "is_public": false,
+  "note": "premium email client; a16z led the $33M Series B (Jun 2019); acq. by Grammarly, 2025 | A/B: Grammarly acquisition confirmed (Jul 1, 2025) | Acquired by Grammarly on 2025-07-01, so the row carries no standalone value; the $13B unicorn-list figure is a name match and is cleared. [PRO-121 pre-wave, 2026-09-22]",
   "slug": "superhuman",
   "status": "acquired",
+  "valuation_asof": null,
+  "valuation_citation": null,
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "pro121-prewave-2026-09-22"
  },
  "supermove": {
   "entry_date": "2022-01-26",
@@ -35180,11 +35214,17 @@
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
   "is_public": false,
-  "note": "identity unresolved (several Yellow-named startups); site marks acquired | A/B resolved identity: Yellow, the genAI 3D-character studio (yellow3d.com); a16z Games led the $5M seed; the site's acquired marker is uncorroborated on the web - kept per site authority | Entry date is a16z's own 'Investing in Yellow' post (2024-05-09, already the row's stage citation). 'Yellow' is an extremely common name; every one of the 30 sampled mentions was recognition-checked and belongs to a different company (crypto media site, African fintech, PE firm, publisher, DC metro line). No later round found for yellow3d.com specifically, and the entry is well past the 24-month clock. | PRO-132 review: is_public false; the resolved public flag (public_since 2011, sec_public_float) is a weak-CIK name match to an unrelated registrant, not yellow3d.com, the a16z Games seed this row identifies.",
+  "note": "identity unresolved (several Yellow-named startups); site marks acquired | A/B resolved identity: Yellow, the genAI 3D-character studio (yellow3d.com); a16z Games led the $5M seed; the site's acquired marker is uncorroborated on the web - kept per site authority | Entry date is a16z's own 'Investing in Yellow' post (2024-05-09, already the row's stage citation). 'Yellow' is an extremely common name; every one of the 30 sampled mentions was recognition-checked and belongs to a different company (crypto media site, African fintech, PE firm, publisher, DC metro line). No later round found for yellow3d.com specifically, and the entry is well past the 24-month clock. | PRO-132 review: is_public false; the resolved public flag (public_since 2011, sec_public_float) is a weak-CIK name match to an unrelated registrant, not yellow3d.com, the a16z Games seed this row identifies. | a16z's own post identifies the company: Yellow, generative-AI 3D characters (yellowsignal.ai / yellow3d.com), Mandeep Waraich, $5M seed led by a16z, May 2024. It is operating (YellowSculpt live) and no acquisition is reported anywhere; the earlier 'acquired' came from the wrong registrant, the same cik_weak match whose public flag PRO-132 cleared. [PRO-121 pre-wave, 2026-09-22]",
   "seed_to_a_graduation": "not_graduated",
   "slug": "yellow",
+  "status": "private",
+  "status_citation": "https://yellow3d.com/",
+  "status_confidence": "medium",
+  "valuation_asof": null,
   "valuation_range": "below_1b",
-  "who": "orchestrator-pro132"
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "pro121-prewave-2026-09-22"
  },
  "yesgraph": {
   "entry_date": "2013",
