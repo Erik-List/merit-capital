@@ -49,8 +49,20 @@ rows are preserved in `excluded.json`, never deleted.
    (`who: agent`; an evidence table, not an Erik ruling): the seed-to-A
    graduation rule censors entries younger than 24 months, so a
    program-entry row needs the month its cohort started, failing that
-   the month the cohort was announced. Instruments, all treated as Seed
-   entries by instrument: speedrun invests "$500K for 10% upfront in a
+   the month the cohort was announced.
+
+   **Stage superseded (Erik, 2026-09-22): speedrun, TxO and CSX rows are
+   `Pre-Seed`, not Seed.** The table below reads the instruments and
+   treated every programme row as a Seed entry by instrument; Erik's
+   programme rule (2026-09-19, COLLECTION.md: a small-check entry on a
+   programme's standard terms is Pre-Seed) governs instead, and this
+   note's reading does not survive as an investor-specific exception.
+   Applied by PRO-132's a16z pass to 250 speedrun and 26 TxO rows; Erik
+   confirmed it on 2026-09-22 ("keep them pre-seed, update a16z's note")
+   against this paragraph. Pre-Seed rows leave the seed-to-A cohort, so
+   the cohort dates below matter only for rows that are NOT programme
+   entries. The instruments stay recorded because they are the evidence
+   the programme rule is read against: speedrun invests "$500K for 10% upfront in a
    SAFE and another $500K in your next round within 18 months"
    (speedrun.a16z.com/faq); TxO's first cohort took a "$100K investment
    from the Tides Foundation" via "a SAFE note that converts into a 7%
