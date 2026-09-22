@@ -1,19 +1,21 @@
 # Greylock Partners — collection run (PRO-89)
 
-One session, one run, 2026-09-07. **561 members, `verify` clean in full mode**,
-107 rows in `excluded.json`, profile built, review surface rendered.
+One session, one run, 2026-09-07. Figures below are **current as of
+2026-09-22**, after the sale-consideration ruling and the PRO-132, PRO-135 and
+PRO-136 passes; the run's own closing numbers are in the addenda at the foot.
+`verify` clean, profile built, review surface rendered.
 
 | | |
 |---|---|
-| Members | **561** — Tier A 457, B 96, C 8 |
-| Excluded | 107 (`not_member`), preserved in `excluded.json` |
-| Entry years | 1967–2026; **309 of 548 dated rows are pre-window** (56%) |
-| Status | acquired 330 · private 126 · defunct 65 · public 34 · unknown 6 |
-| Visible slice | 43 rows at $1B+, 26 at $10B+, 11 at $100B+ |
-| Entry stage | Series A 421 · Seed 79 · Growth 60 · Pre-Seed 1 |
-| C2A | 34 in cohort, 33 graduated, 97.1% |
-| AUM | $10,469,154,000 — ADV Section 7.B composite, 13 funds, filed 2026-03-31 |
-| Prompt count | **1** so far (kickoff). The ingest decision is the second. |
+| Members | **554** — Tier A 455, B 94, C 5 |
+| Excluded | 113 (`not_member`), preserved in `excluded.json` |
+| Entry years | 1967–2026; **304 of 541 dated rows entered before 2006** (56%) |
+| Status | acquired 327 · private 123 · defunct 65 · public 32 · unknown 7 |
+| Visible slice | 42 rows at $1B+, 25 at $10B+, 9 at $100B+ |
+| Entry stage | Series A 136 · Seed 61 · Growth 51 · Pre-Seed 1; **302 nameable rows say the round is unknown** |
+| S2A | cohort 51, graduated 43, **84.3%**, coverage 100% |
+| AUM | $10,469,154,000, the ADV Section 7.B composite, 13 funds, filed 2026-03-31 |
+| Prompt count | **1** (kickoff). The ingest decision is the second. |
 
 ## Phase 0: no delta reached Erik
 
@@ -234,14 +236,15 @@ visible successes, and more than half the seed book is too young to be in it.*
    sold** with Reid Hoffman as Director of record. The issuer does not resolve
    and no Greylock announcement carries it, so the narrowing of the
    director-of-record pattern makes it `not_member`. Flagged because of the size.
-4. **Intel, 3Com, Conexant and UnitedHealth** reach the base only through fund
-   filings dated after those companies bought a Greylock portfolio company —
-   the sale-consideration pattern (§1). Each is flagged `identity_uncertain`
-   with the acquired company named; they should probably leave the base.
+4. ~~**Intel, 3Com, Conexant and UnitedHealth** reach the base only through fund
+   filings dated after those companies bought a Greylock portfolio company,
+   the sale-consideration pattern (§1).~~ **RULED 2026-09-22, see the addendum
+   at the foot.** Erik: all four out. The rule is in COLLECTION.md §1 as
+   commit dafa302 and now binds every investor.
 5. **Four ISO codes are missing from `run.py`'s table**: BM, GI, KY, VG. Mutual
    Risk Management (Hamilton, Bermuda) and Xapo (Gibraltar) carry
    `country_conflict` and their true domicile in the note rather than a null
-   that would fail invariant 1.
+   that would fail the full-fill rule.
 
 ## Method deltas proposed for COLLECTION.md
 
@@ -419,3 +422,47 @@ Conexant).
 For Erik: **Scenery** (Series A entry read from which filing names the
 partner) and **Vori** (Growth entry although Greylock's listing predates the
 Series B announcement) are judgment calls on thin evidence.
+
+## Addendum 2026-09-22: sale consideration ruled out, four rows leave
+
+**Erik ruled open question 4: Intel, UnitedHealth, 3Com and Conexant are not
+members.** The rule is now in COLLECTION.md §1 as commit **dafa302**, "Sale
+consideration is not membership, and the acquirer leaves the base", and it binds
+every investor rather than only this one.
+
+Where the only route into a base is stock the funds received *because that
+company bought a portfolio company*, the row is `not_member` with the acquired
+company named, whatever the size of the holding and whichever surface carries
+it. That last clause is what decided UnitedHealth: it came in on Greylock's own
+IPO roster, not on a filing, and a first-party surface carrying the acquirer
+still does not make the acquirer a member.
+
+| Row removed | Route in | The investment is |
+|---|---|---|
+| Intel | fund Section 16 filings | **Shiva Corporation** (bought 1998) and **Xircom** (2001) |
+| UnitedHealth Group | the firm's own IPO roster | **Share Development** (bought 1985) |
+| 3Com | a 2001 fund filing | **Sonix Communications** (bought 1995) |
+| Conexant Systems | a 2001 fund 13G | **Maker Communications** (bought 2000) |
+
+Every company in the right-hand column is a row of its own and stays a member.
+Shiva in particular is worth naming: Intel leaves, Shiva stays, and that pair is
+the whole rule in one line.
+
+**What changed.** A dry build was diffed against the live base before the real
+one ran, because a rebuild in this window can carry unrelated churn from the
+2026-09-19 "most recent rendering" name rule. Greylock's dry build moved exactly
+these four rows, nothing added and nothing renamed, so the rebuild was safe.
+
+- Members **558 → 554**; excluded 109 → 113.
+- Visible slice **$100B+ 11 → 9**, $10B+ 27 → 25, $1B+ 44 → 42. Removing Intel
+  ($503B) and UnitedHealth ($282B) is most of that.
+- `verify` was failing on one row before this, `united-healthcare-corporation`
+  as a public $1B+ row without a cited market cap. The ruling resolved it rather
+  than a citation: **`verify` is clean**.
+- The S2A cohort is untouched at 51 rows and 84.3%; none of the four was a seed
+  entry.
+
+The headline table at the top of this report was restated to these figures and
+to the current shape of the stage column, which PRO-135 changed: the pre-window
+flags are gone and 302 nameable rows now say the round is unknown rather than
+carrying an inferred label.

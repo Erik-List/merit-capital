@@ -120,6 +120,22 @@ delta:
   site does not list is `not_member`, reason external desk. A row those
   partners share with a home-desk partner, or that a Greylock (not Greylock
   Israel) fund vehicle filed on, stays.
+- **R6 (2026-09-22, Erik) — sale consideration is not membership, and the
+  acquirer leaves the base.** Ruled on this investor's four rows and written
+  into COLLECTION.md §1 as commit **dafa302**, so it binds every investor.
+  Where the only route into a base is stock the funds received *because that
+  company bought a portfolio company*, the row is `not_member` with the
+  acquired company named, whatever the size of the holding and whichever
+  surface carries it. Applied here to **Intel** (its Section 16 filings follow
+  its purchases of Shiva Corporation in 1998 and Xircom in 2001),
+  **UnitedHealth Group** (on the firm's own IPO roster, behind Share
+  Development, bought 1985), **3Com** (a 2001 filing, behind Sonix
+  Communications, bought 1995) and **Conexant Systems** (a 2001 13G, behind
+  Maker Communications, bought 2000). Each acquired company is a row of its own
+  and stays a member. The clause that decided UnitedHealth is "whichever
+  surface carries it": a first-party listing of the acquirer is still not
+  membership. This supersedes the older reading in §1, where the consideration
+  check only raised the question instead of deciding it.
 
 ### D-S2A — Seed-to-A graduation re-judged under the status contract (2026-09-17, agent, class-wide)
 
