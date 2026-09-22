@@ -569,3 +569,71 @@ metric basis drops a row with ANY undetermined column, in `verify` and in
 `recompute_investor_metrics` alike, so those ten leave every distribution.
 Migration `20260919120000_undetermined_propagates_downward.sql` carries the
 database half and is NOT pushed.
+
+## Addendum 2026-09-22: S2A with every Seed row decided (PRO-132)
+
+The run published 18.3% on a 60-row cohort. PRO-132 makes the absence of a
+later round a finding: a Seed row past the 24-month clock with no evidence of
+a later round did not graduate, and every no records the dated search that
+found nothing (the firm's archive, the Form D sequence for a US company, at
+least two publisher surfaces; COLLECTION.md §6). The 546 open rows were
+judged in thirteen batches.
+
+| seed entries | censored | cohort | graduated | not graduated | rate | coverage |
+|---|---|---|---|---|---|---|
+| 246 | 34 | 212 | 88 | 124 | 41.5% | 100% |
+
+Of 246 seed entries, 34 were too recent to count; of the 212 that remain,
+41.5% raised a later round. Of the 124 that did not, 37 rest on a cited end
+(an acquisition or shutdown with no round between it and the seed) and 87 on
+a dated search of the named surfaces. No no rests on the filings: a16z's seed
+book barely files, which is why the Form D layer decides one row in the whole
+book.
+
+**413 nameable rows read `undetermined` in the stage.** a16z publishes no
+round word and no year on its portfolio page, most of its seeds never file a
+Form D, and the judge contract refuses an archive capture as an entry date,
+so on those rows nothing dates a16z's entry. They leave the S2A cohort, which
+is why 212 rows carry the rate for a 1,719-row book. Several are companies
+whose later rounds are well documented (Flexport-scale names such as Clay,
+Roblox, Refinery29 in the First Round book have their a16z counterparts here:
+AppNexus, Homejoy, Aviate, Balanced, FundersClub, Panorama Education).
+
+What moved:
+
+- **The TxO and CSX programme rows are Pre-Seed.** Erik's rule of 2026-09-19
+  (COLLECTION.md §6) makes a standard-terms programme cheque a Pre-Seed entry
+  citing the terms document; a16z's own first-cohort post gives TxO's standard
+  terms ($100K on a SAFE converting to 7%), and the CSX posts give $500K. 25
+  rows moved out of the Seed cohort on that rule, most of them nos, which is
+  the largest single correction in this book. `documentation/decisions.md` §8
+  still carries the older reading (programme cheques as Seed by instrument)
+  and should be restated.
+- Re-staged out of Seed where a16z's own post or the press names its first
+  money at a later round (about 30 rows), among them Product Hunt, Optimizely,
+  Canvas Networks, Daylight, Dynamic, Oboe, Octant Bio, Mind Robotics, Netris,
+  NextHop, Ollin Bio and Mentari Therapeutics; in review, Tidemark and its
+  duplicate Proferi (a16z joined Proferi's first round in October 2010 and the
+  next round is called its Series B, so the entry is a Series A) and Rezo
+  Therapeutics (FinSMEs names its $78M a Series A).
+- Form D verdicts overturned: Optimizely (a16z led the 2014 Series B, three
+  years before the filing the layer read), Orbit (a named $15M Series A in May
+  2021), Capriza (a $23M re-raise in 2016), App.net (a16z's own money went in
+  2013, not at the 2010 filing).
+- Erik's Black Forest Labs row now carries the August 2024 seed as its entry
+  date and cites the Series B for the graduation; his other values stand.
+- Post and Yellow carried public-company flags from weak-CIK matches
+  (Post Holdings, and an unrelated registrant); `is_public` is false on both.
+- Yuga Labs is a no under the invariant-7 exemption: its $4B mark is the
+  seed's own, not evidence of a later round.
+
+`c2a_rate_max` stays at the 0.80 default. `verify` reports no graduation
+problem. Four pre-existing rows (honor, loft, odyssey, superhuman) and two
+cross-investor pairs (Chute, Forte) are valuation and stage debt for PRO-121,
+not S2A's.
+
+For Erik: the **413 undetermined stages** are the number to look at before
+publishing this book's rate; the choice that produced them is the one in the
+PRO-132 wrap-up comment (whether a firm-listing archive capture may date an
+entry). **TxO and CSX** moving to Pre-Seed follows your programme rule, but it
+contradicts a16z's own decisions.md §8, so say which one governs.
