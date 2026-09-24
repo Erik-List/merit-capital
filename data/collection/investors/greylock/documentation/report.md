@@ -1,21 +1,21 @@
 # Greylock Partners — collection run (PRO-89)
 
-One session, one run, 2026-09-07. Figures below are **current as of
-2026-09-22**, after the sale-consideration ruling and the PRO-132, PRO-135 and
-PRO-136 passes; the run's own closing numbers are in the addenda at the foot.
-`verify` clean, profile built, review surface rendered.
+One session, one run, 2026-09-07. **Ingested 2026-09-24: 553 companies live.**
+Figures below are current as of that date, after the sale-consideration ruling,
+the 7AI merge and the PRO-132, PRO-135 and PRO-136 passes; the run's own closing
+numbers are in the addenda at the foot. `verify` clean.
 
 | | |
 |---|---|
-| Members | **554** — Tier A 455, B 94, C 5 |
+| Members | **553** — Tier A 455, B 94, C 4 |
 | Excluded | 113 (`not_member`), preserved in `excluded.json` |
 | Entry years | 1967–2026; **304 of 541 dated rows entered before 2006** (56%) |
-| Status | acquired 327 · private 123 · defunct 65 · public 32 · unknown 7 |
+| Status | acquired 327 · private 122 · defunct 65 · public 32 · unknown 7 |
 | Visible slice | 42 rows at $1B+, 25 at $10B+, 9 at $100B+ |
 | Entry stage | Series A 136 · Seed 61 · Growth 51 · Pre-Seed 1; **302 nameable rows say the round is unknown** |
 | S2A | cohort 51, graduated 43, **84.3%**, coverage 100% |
 | AUM | $10,469,154,000, the ADV Section 7.B composite, 13 funds, filed 2026-03-31 |
-| Prompt count | **1** (kickoff). The ingest decision is the second. |
+| Prompt count | **2**: kickoff and the ingest approval. |
 
 ## Phase 0: no delta reached Erik
 
@@ -469,8 +469,11 @@ carrying an inferred label.
 
 ## Addendum 2026-09-24: ingested
 
-Erik approved the ingest. **553 companies live**, the investor row updated and
-the icon published. The readback matches `base.csv` row for row.
+Erik approved the ingest. **553 companies live** and the readback matches `base.csv` row for row.
+The icon was already published by an earlier session: re-running the fetch
+produced the identical file and therefore the identical URL
+(`greylock-441dcb7c09.png`), so that step confirmed rather than changed
+anything.
 
 One duplicate was caught in the pre-ingest check and fixed before anything was
 written: **OkamiAI, Inc. renamed to 7AI, Inc.** EDGAR carries both under CIK
@@ -490,7 +493,7 @@ it. A shared CIK is the check that catches it.
 | | |
 |---|---|
 | Companies live | **553**, equal to `base.csv` |
-| Icon | published to the bucket, measured clean (contrast 12.0:1, ramp 0.96px, no override) |
+| Icon | already live, re-measured clean (contrast 12.0:1, ramp 0.96px, no override) |
 | Graduation rate on the investor row | 84.3%, cohort 51, matching `verify` |
 | Status | acquired 327 · private 122 · defunct 65 · public 32 · unknown 7 |
 | Entry stage | Series A 136 · Seed 61 · Growth 51 · Pre-Seed 1 · undetermined 304 |
