@@ -1,357 +1,354 @@
 {
- "slug": "benchmark",
- "run": "PRO-88",
- "generated_at": "2026-09-06T17:06:17+00:00",
- "fields": {
-  "name": {
-   "value": "Benchmark",
-   "source": "https://www.benchmark.com",
-   "basis": "The firm dropped 'Capital' from its own branding; the live site's only text is the wordmark 'Benchmark'. Its legal adviser name is Benchmark Capital Holdings Co. LLC (ADV Item 1.A). Note that Wikipedia calls the firm 'Benchmark Capital Advisors LLC', which the sworn record contradicts \u2014 that name belongs to an unrelated New York 13F filer, CIK 1352859 (decisions.md D5)."
-  },
-  "website": {
-   "value": "https://www.benchmark.com",
-   "source": "https://reports.adviserinfo.sec.gov/reports/ADV/160352/PDF/160352.pdf",
-   "basis": "ADV Section 1.I."
-  },
-  "hq_location": {
-   "value": "Woodside, CA",
-   "source": "sources/edgar/formd-sweep.json",
-   "basis": "PUBLISHED VALUE IS THE SWORN ONE. build-firm-profile.py recomputes hq from the firm's own Form D filings and returned Woodside, CA (20 of 23 filings; 2965 Woodside Road since 2019, 2480 Sand Hill Road, Menlo Park before that), which matches ADV Item 1.F. Recorded because it is not the only candidate: the firm's own one-page site lists 140 New Montgomery Street, San Francisco FIRST and Woodside second, and Wikipedia's infobox carries the San Francisco address. The filing-grade address is published and the discrepancy is stated here rather than hidden."
-  },
-  "founding_year": {
-   "value": 1995,
-   "source": "https://en.wikipedia.org/wiki/Benchmark_(venture_capital_firm)",
-   "basis": "Founded 1995 by Bob Kagle, Bruce Dunlevie, Andy Rachleff, Kevin Harvey and Val Vaden. Corroborated by the fund ladder: Benchmark Capital Partners L.P. (CIK 1031285) filed its first 13G in February 1998."
-  },
-  "aum": {
-   "value": {
-    "bottom": 7582538663,
-    "top": 7582538663
-   },
-   "source": "https://reports.adviserinfo.sec.gov/reports/ADV/160352/PDF/160352.pdf",
-   "basis": "Benchmark Capital Holdings Co. LLC is an EXEMPT REPORTING ADVISER (SEC 802-75842, CRD 160352, ERA since 2012-03-30), not a registered investment adviser, so no Item 5.F regulatory AUM exists. The sworn substitute is Schedule D Section 7.B.(1): 34 private funds whose current gross asset values sum to $7,582,538,663 on the annual amendment filed 2026-03-24 (parsed at run time by scratch/own-formd-persons.py's sibling ADV pass). Both range ends are the same sworn number because no credible press figure sits above it. ONE CAVEAT WORTH RECORDING: Benchmark names its funds in Section 7.B by NUMERIC CODE ('1094', '2165', '2645' \u2026) under rule 204-2(d), which permits an adviser to preserve a fund client's anonymity, so the gross asset values cannot be mapped to named funds \u2014 the composite is sound, the per-fund attribution is not available, and the fund table below is built from Form D instead."
-  },
-  "funds": {
-   "value": [
-    {
-     "name": "Benchmark Capital Partners L.P.",
-     "size": null,
-     "vintage": 1995,
-     "sources": [
-      {
-       "source": "sources/edgar/own-fund-filings.json",
-       "note": "Predates electronic Form D (1995-2008 vintages filed on paper); the vehicle exists on EDGAR through its 13G/Section 16 filings and the Management Co. numbering, and no sworn size is available."
-      }
-     ]
+  "slug": "benchmark",
+  "run": "PRO-88",
+  "generated_at": "2026-09-06T17:06:17+00:00",
+  "fields": {
+    "name": {
+      "value": "Benchmark",
+      "source": "https://www.benchmark.com",
+      "basis": "The firm dropped 'Capital' from its own branding; the live site's only text is the wordmark 'Benchmark'. Its legal adviser name is Benchmark Capital Holdings Co. LLC (ADV Item 1.A). Note that Wikipedia calls the firm 'Benchmark Capital Advisors LLC', which the sworn record contradicts — that name belongs to an unrelated New York 13F filer, CIK 1352859 (decisions.md D5)."
     },
-    {
-     "name": "Benchmark Capital Partners II, L.P.",
-     "size": null,
-     "vintage": 1997,
-     "sources": [
-      {
-       "source": "sources/edgar/own-fund-filings.json",
-       "note": "Predates electronic Form D (1995-2008 vintages filed on paper); the vehicle exists on EDGAR through its 13G/Section 16 filings and the Management Co. numbering, and no sworn size is available."
-      }
-     ]
+    "website": {
+      "value": "https://www.benchmark.com",
+      "source": "https://reports.adviserinfo.sec.gov/reports/ADV/160352/PDF/160352.pdf",
+      "basis": "ADV Section 1.I."
     },
-    {
-     "name": "Benchmark Capital Partners IV, L.P.",
-     "size": null,
-     "vintage": 1999,
-     "sources": [
-      {
-       "source": "sources/edgar/own-fund-filings.json",
-       "note": "Predates electronic Form D (1995-2008 vintages filed on paper); the vehicle exists on EDGAR through its 13G/Section 16 filings and the Management Co. numbering, and no sworn size is available."
-      }
-     ]
+    "hq_location": {
+      "value": "Woodside, CA",
+      "source": "sources/edgar/formd-sweep.json",
+      "basis": "PUBLISHED VALUE IS THE SWORN ONE. build-firm-profile.py recomputes hq from the firm's own Form D filings and returned Woodside, CA (20 of 23 filings; 2965 Woodside Road since 2019, 2480 Sand Hill Road, Menlo Park before that), which matches ADV Item 1.F. Recorded because it is not the only candidate: the firm's own one-page site lists 140 New Montgomery Street, San Francisco FIRST and Woodside second, and Wikipedia's infobox carries the San Francisco address. The filing-grade address is published and the discrepancy is stated here rather than hidden."
     },
-    {
-     "name": "Benchmark Capital Partners V, L.P.",
-     "size": null,
-     "vintage": 2004,
-     "sources": [
-      {
-       "source": "sources/edgar/own-fund-filings.json",
-       "note": "Predates electronic Form D (1995-2008 vintages filed on paper); the vehicle exists on EDGAR through its 13G/Section 16 filings and the Management Co. numbering, and no sworn size is available."
-      }
-     ]
+    "founding_year": {
+      "value": 1995,
+      "source": "https://en.wikipedia.org/wiki/Benchmark_(venture_capital_firm)",
+      "basis": "Founded 1995 by Bob Kagle, Bruce Dunlevie, Andy Rachleff, Kevin Harvey and Val Vaden. Corroborated by the fund ladder: Benchmark Capital Partners L.P. (CIK 1031285) filed its first 13G in February 1998."
     },
-    {
-     "name": "Benchmark Capital Partners VI, L.P.",
-     "size": null,
-     "vintage": 2008,
-     "sources": [
-      {
-       "source": "sources/edgar/own-fund-filings.json",
-       "note": "Predates electronic Form D (1995-2008 vintages filed on paper); the vehicle exists on EDGAR through its 13G/Section 16 filings and the Management Co. numbering, and no sworn size is available."
-      }
-     ]
-    },
-    {
-     "name": "Benchmark Capital Partners VII, L.P.",
-     "size": 425000000,
-     "vintage": 2011,
-     "sources": [
-      {
-       "source": "sources/edgar/own-fund-filings.json",
-       "note": "Form D 0001507669-11-000001 (2011-01-13): total offering $425,000,000, $5,000,000 sold at filing. Benchmark files the FULL fund size as the offering amount and files at or before first close, so the offering is the fund size and the sold amount is the close state on the filing date \u2014 the $0-sold cross-check of COLLECTION.md \u00a711 read the other way round for this filer style."
-      }
-     ]
-    },
-    {
-     "name": "Benchmark Capital Partners VIII, L.P.",
-     "size": 425000000,
-     "vintage": 2013,
-     "sources": [
-      {
-       "source": "sources/edgar/own-fund-filings.json",
-       "note": "Form D 0001593052-13-000001 (2013-12-06): $425,000,000 offering, $425,000,000 sold."
-      }
-     ]
-    },
-    {
-     "name": "Benchmark Capital Partners IX, L.P.",
-     "size": 425000000,
-     "vintage": 2018,
-     "sources": [
-      {
-       "source": "sources/edgar/own-fund-filings.json",
-       "note": "Form D 0001754447-18-000001 (2018-10-01): $425,000,000 offering, $0 sold."
-      }
-     ]
-    },
-    {
-     "name": "Benchmark Capital Partners X, L.P.",
-     "size": 425000000,
-     "vintage": 2020,
-     "sources": [
-      {
-       "source": "sources/edgar/own-fund-filings.json",
-       "note": "Form D 0001808559-20-000001 (2020-05-19): $425,000,000 offering, $425,000,000 sold."
-      }
-     ]
-    },
-    {
-     "name": "Benchmark Partners 1, L.P.",
-     "size": 425000000,
-     "vintage": 2024,
-     "sources": [
-      {
-       "source": "sources/edgar/own-fund-filings.json",
-       "note": "Form D 0002028211-24-000001 (2024-07-09): $425,000,000 offering, $425,000,000 sold."
-      }
-     ]
-    },
-    {
-     "name": "Benchmark Partners 2, L.P.",
-     "size": 750000000,
-     "vintage": 2026,
-     "sources": [
-      {
-       "source": "sources/edgar/own-fund-filings.json",
-       "note": "Form D 0002138630-26-000001 (2026-06-30): $750,000,000 offering, $0 sold."
-      }
-     ]
-    },
-    {
-     "name": "Benchmark Partners T1, L.P.",
-     "size": 1250000000,
-     "vintage": 2026,
-     "sources": [
-      {
-       "source": "sources/edgar/own-fund-filings.json",
-       "note": "Form D 0002138636-26-000001 (2026-06-30): $1,250,000,000 offering, $0 sold."
-      }
-     ]
-    },
-    {
-     "name": "Benchmark AI Infrastructure Fund, L.P. (with Fund B)",
-     "size": 223940000,
-     "vintage": 2026,
-     "sources": [
-      {
-       "source": "sources/edgar/own-fund-filings.json",
-       "note": "Two co-raised vehicles filed the same day, 2026-02-06: Fund L.P. $127,250,000 sold (accession 0002105287-26-000001-class) and Fund B, L.P. $96,690,000 \u2014 $223,940,000 together, which is the ~$225M TechCrunch reported the firm raised specifically to fund one Cerebras round. Listed as one entry because it is one raise; the two filings are in own-fund-filings.json."
+    "aum": {
+      "value": {
+        "bottom": 7582538663,
+        "top": 7582538663
       },
-      {
-       "source": "https://techcrunch.com/2026/02/06/benchmark-raises-225m-in-special-funds-to-double-down-on-cerebras/",
-       "note": "the vehicles 'were created specifically to fund the Cerebras investment'"
+      "source": "https://reports.adviserinfo.sec.gov/reports/ADV/160352/PDF/160352.pdf",
+      "basis": "Benchmark Capital Holdings Co. LLC is an EXEMPT REPORTING ADVISER (SEC 802-75842, CRD 160352, ERA since 2012-03-30), not a registered investment adviser, so no Item 5.F regulatory AUM exists. The sworn substitute is Schedule D Section 7.B.(1): 34 private funds whose current gross asset values sum to $7,582,538,663 on the annual amendment filed 2026-03-24 (parsed at run time by scratch/own-formd-persons.py's sibling ADV pass). Both range ends are the same sworn number because no credible press figure sits above it. ONE CAVEAT WORTH RECORDING: Benchmark names its funds in Section 7.B by NUMERIC CODE ('1094', '2165', '2645' …) under rule 204-2(d), which permits an adviser to preserve a fund client's anonymity, so the gross asset values cannot be mapped to named funds — the composite is sound, the per-fund attribution is not available, and the fund table below is built from Form D instead."
+    },
+    "funds": {
+      "value": [
+        {
+          "name": "Benchmark Capital Partners L.P.",
+          "size": null,
+          "vintage": 1995,
+          "sources": [
+            {
+              "source": "sources/edgar/own-fund-filings.json",
+              "note": "Predates electronic Form D (1995-2008 vintages filed on paper); the vehicle exists on EDGAR through its 13G/Section 16 filings and the Management Co. numbering, and no sworn size is available."
+            }
+          ]
+        },
+        {
+          "name": "Benchmark Capital Partners II, L.P.",
+          "size": null,
+          "vintage": 1997,
+          "sources": [
+            {
+              "source": "sources/edgar/own-fund-filings.json",
+              "note": "Predates electronic Form D (1995-2008 vintages filed on paper); the vehicle exists on EDGAR through its 13G/Section 16 filings and the Management Co. numbering, and no sworn size is available."
+            }
+          ]
+        },
+        {
+          "name": "Benchmark Capital Partners IV, L.P.",
+          "size": null,
+          "vintage": 1999,
+          "sources": [
+            {
+              "source": "sources/edgar/own-fund-filings.json",
+              "note": "Predates electronic Form D (1995-2008 vintages filed on paper); the vehicle exists on EDGAR through its 13G/Section 16 filings and the Management Co. numbering, and no sworn size is available."
+            }
+          ]
+        },
+        {
+          "name": "Benchmark Capital Partners V, L.P.",
+          "size": null,
+          "vintage": 2004,
+          "sources": [
+            {
+              "source": "sources/edgar/own-fund-filings.json",
+              "note": "Predates electronic Form D (1995-2008 vintages filed on paper); the vehicle exists on EDGAR through its 13G/Section 16 filings and the Management Co. numbering, and no sworn size is available."
+            }
+          ]
+        },
+        {
+          "name": "Benchmark Capital Partners VI, L.P.",
+          "size": null,
+          "vintage": 2008,
+          "sources": [
+            {
+              "source": "sources/edgar/own-fund-filings.json",
+              "note": "Predates electronic Form D (1995-2008 vintages filed on paper); the vehicle exists on EDGAR through its 13G/Section 16 filings and the Management Co. numbering, and no sworn size is available."
+            }
+          ]
+        },
+        {
+          "name": "Benchmark Capital Partners VII, L.P.",
+          "size": 425000000,
+          "vintage": 2011,
+          "sources": [
+            {
+              "source": "sources/edgar/own-fund-filings.json",
+              "note": "Form D 0001507669-11-000001 (2011-01-13): total offering $425,000,000, $5,000,000 sold at filing. Benchmark files the FULL fund size as the offering amount and files at or before first close, so the offering is the fund size and the sold amount is the close state on the filing date — the $0-sold cross-check of COLLECTION.md §11 read the other way round for this filer style."
+            }
+          ]
+        },
+        {
+          "name": "Benchmark Capital Partners VIII, L.P.",
+          "size": 425000000,
+          "vintage": 2013,
+          "sources": [
+            {
+              "source": "sources/edgar/own-fund-filings.json",
+              "note": "Form D 0001593052-13-000001 (2013-12-06): $425,000,000 offering, $425,000,000 sold."
+            }
+          ]
+        },
+        {
+          "name": "Benchmark Capital Partners IX, L.P.",
+          "size": 425000000,
+          "vintage": 2018,
+          "sources": [
+            {
+              "source": "sources/edgar/own-fund-filings.json",
+              "note": "Form D 0001754447-18-000001 (2018-10-01): $425,000,000 offering, $0 sold."
+            }
+          ]
+        },
+        {
+          "name": "Benchmark Capital Partners X, L.P.",
+          "size": 425000000,
+          "vintage": 2020,
+          "sources": [
+            {
+              "source": "sources/edgar/own-fund-filings.json",
+              "note": "Form D 0001808559-20-000001 (2020-05-19): $425,000,000 offering, $425,000,000 sold."
+            }
+          ]
+        },
+        {
+          "name": "Benchmark Partners 1, L.P.",
+          "size": 425000000,
+          "vintage": 2024,
+          "sources": [
+            {
+              "source": "sources/edgar/own-fund-filings.json",
+              "note": "Form D 0002028211-24-000001 (2024-07-09): $425,000,000 offering, $425,000,000 sold."
+            }
+          ]
+        },
+        {
+          "name": "Benchmark Partners 2, L.P.",
+          "size": 750000000,
+          "vintage": 2026,
+          "sources": [
+            {
+              "source": "sources/edgar/own-fund-filings.json",
+              "note": "Form D 0002138630-26-000001 (2026-06-30): $750,000,000 offering, $0 sold."
+            }
+          ]
+        },
+        {
+          "name": "Benchmark Partners T1, L.P.",
+          "size": 1250000000,
+          "vintage": 2026,
+          "sources": [
+            {
+              "source": "sources/edgar/own-fund-filings.json",
+              "note": "Form D 0002138636-26-000001 (2026-06-30): $1,250,000,000 offering, $0 sold."
+            }
+          ]
+        },
+        {
+          "name": "Benchmark AI Infrastructure Fund, L.P. (with Fund B)",
+          "size": 223940000,
+          "vintage": 2026,
+          "sources": [
+            {
+              "source": "sources/edgar/own-fund-filings.json",
+              "note": "Two co-raised vehicles filed the same day, 2026-02-06: Fund L.P. $127,250,000 sold (accession 0002105287-26-000001-class) and Fund B, L.P. $96,690,000 — $223,940,000 together, which is the ~$225M TechCrunch reported the firm raised specifically to fund one Cerebras round. Listed as one entry because it is one raise; the two filings are in own-fund-filings.json."
+            },
+            {
+              "source": "https://techcrunch.com/2026/02/06/benchmark-raises-225m-in-special-funds-to-double-down-on-cerebras/",
+              "note": "the vehicles 'were created specifically to fund the Cerebras investment'"
+            }
+          ]
+        }
+      ],
+      "source": "sources/edgar/own-fund-filings.json",
+      "basis": "The flagship ladder plus the two 2026 vehicles and the Cerebras pair. FILING STYLE MATTERS HERE and it is the opposite of Lightspeed's: Benchmark files the FULL fund size as the Form D total-offering amount at or before first close, so the offering is the fund size and the sold amount is the close state on the filing date — Fund VII shows $5M sold against a $425M offering, Fund IX $0 against $425M. Sizes are therefore the offering amounts, asserted against the accessions. Funds I, II, IV, V and VI (1995-2008) predate electronic Form D and carry no sworn size; the firm held every flagship at roughly $425M from 2011 to 2024. The 18 Founders' Fund co-invest vehicles, the Management Co. GPs and the WS SPV are counted in the base's evidence but not listed as funds — they are employee co-invest and GP plumbing, not capital raised from LPs."
+    },
+    "individuals": {
+      "value": [
+        {
+          "name": "Bruce Dunlevie",
+          "position": "Co-founder, General Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Chetan Puttagunta",
+          "position": "General Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://x.com/chetanp"
+          }
+        },
+        {
+          "name": "Eric Vishria",
+          "position": "General Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://x.com/ericvishria"
+          }
+        },
+        {
+          "name": "Everett Randle",
+          "position": "General Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://x.com/everettrandle"
+          }
+        },
+        {
+          "name": "Jack Altman",
+          "position": "General Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://x.com/jaltma"
+          }
+        },
+        {
+          "name": "Peter Fenton",
+          "position": "General Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/peter-fenton-0b117/",
+            "x_url": "https://x.com/peterfenton"
+          }
+        },
+        {
+          "name": "Sarah Tavel",
+          "position": "Venture Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://x.com/sarahtavel"
+          }
+        },
+        {
+          "name": "An-Yen Hu",
+          "position": "Chief Financial Officer",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        }
+      ],
+      "source": "sources/site/team-members.json",
+      "basis": "Live team CMS: 8 members. Positions are CMS titles (8 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 1 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 1 LinkedIn, 6 X."
+    },
+    "investment_stage": {
+      "value": [
+        "Seed",
+        "Series A",
+        "Growth"
+      ],
+      "source": "sources/edgar/own-fund-filings.json",
+      "basis": "DERIVED, not taken from a site — the firm publishes no positioning. Series A is the core: 243 of 284 base rows. Seed is real but small (11 rows, including the LangChain and Legora seeds). Growth became a declared strategy in June 2026 with Benchmark Partners T1 ($1.25B, the firm's first dedicated late-stage fund, five to six large positions) and was already visible in the base as 29 Growth entries, mostly Series B or later entries at scale."
+    },
+    "investment_geo": {
+      "value": {
+        "core": [
+          "US"
+        ],
+        "other": [
+          "Europe",
+          "Israel"
+        ]
+      },
+      "source": "data/collection/investors/benchmark/base.csv",
+      "basis": "260 of 284 base rows are US. The two 'other' labels are the firm's own historical desks rather than a current mandate: the taxonomy caps the core at two labels and there is only one core here. Non-US rows outside those desks are single companies (Germany 4, UK 4, Israel 3, China 2, Netherlands 2, Singapore 2, and one each in Malaysia, Sweden, Brazil, Japan, France, Finland, Italy)."
+    },
+    "investment_scope": {
+      "value": {
+        "type": "Generalist",
+        "focus": [
+          "Consumer & Marketplaces",
+          "Data Infrastructure",
+          "SaaS",
+          "Media, Gaming & Advertising",
+          "Industrial & Robotics",
+          "Security",
+          "AI & Applied AI",
+          "DevTools & APIs",
+          "Healthcare & Bio",
+          "Fintech & Payments"
+        ]
+      },
+      "source": "data/collection/investors/benchmark/base.csv",
+      "basis": "DERIVED from the grind's own focus column, not from any site vocabulary (the firm's 2001-2009 sector pages describe a book that ended fifteen years ago). Ten values clear the 10-company floor (~4.5% of 284); Climate & Energy (4) and Crypto & Web3 (1) fall below it and are not published. 19 rows sit outside the taxonomy and are reported as such rather than force-fitted."
+    },
+    "investment_range": {
+      "value": {
+        "lower_limit": 3500000,
+        "median": 13500000,
+        "upper_limit": 225000000
+      },
+      "source": "data/collection/investors/benchmark/golden.json",
+      "basis": "Built from the 25 CITED entry rounds of the pre-registered stage key rather than from Form D bands, which this run demoted (R4, 7/16 on the gate). Lower limit $3.5M: New Relic's 2008 first round, the smallest documented entry. Median $13.5M: the midpoint of the cited entry rounds (Snapchat's $13.5M Series A sits on it; Uber $11M, Elasticsearch $10M, Instagram $7M, Amplitude $9M, Confluent $6.9M below; Optimizely $28M, Cerebras $27M, Airbyte $26M, Hipcamp $25M above). Upper limit $225M: the two AI Infrastructure vehicles Benchmark raised in February 2026 to put ~$225M into one Cerebras round — the largest single position the firm has ever taken, and now the visible ceiling given the $1.25B growth fund. A round size is a proxy for check size and is fair here because Benchmark leads and takes a board seat in nearly every entry."
+    },
+    "notable_investments": {
+      "value": [
+        "eBay",
+        "Uber",
+        "Twitter",
+        "Snap Inc",
+        "Instagram (Burbn)",
+        "Discord Inc.",
+        "Cerebras Systems Inc.",
+        "Elastic N.V.",
+        "Yelp",
+        "Zillow.com"
+      ],
+      "source": "data/collection/investors/benchmark/base.csv",
+      "basis": "Recognition over the confirmed base only, capped at ten. Every one is a member with a ledger verdict; eBay, Uber, Instagram, Snap, Elastic and Cerebras carry cited entry rounds in golden.json."
+    },
+    "icon_url": {
+      "value": "https://lsohkkmdlrlixukuncjl.supabase.co/storage/v1/object/public/Icon%20Images/investors/benchmark-f84c959689.png",
+      "source": "/Users/erik/Developer/merit-capital/data/collection/investors/benchmark/sources/site/benchmark-mark.svg",
+      "basis": "fetched 2026-09-24 by scripts/fetch-investor-icon.ts from /Users/erik/Developer/merit-capital/data/collection/investors/benchmark/sources/site/benchmark-mark.svg: svg 512x512 (vector, rendered at 2x), 189px in the 256px master (1.00x); plate: source is self-backing (opaque-plate), kept; safe area: artwork scaled 0.740 (box 100%→74%, radius 101%→75%); master 256x256 opaque-plate rgb(28,52,76) opaque=100% box=74% radius=75% contrast=6.2:1 ramp=0.36px",
+      "provenance": {
+        "source_url": "/Users/erik/Developer/merit-capital/data/collection/investors/benchmark/sources/site/benchmark-mark.svg",
+        "format": "svg",
+        "width": 512,
+        "height": 512,
+        "vector": true,
+        "artwork_source_px": null,
+        "artwork_master_px": 189,
+        "upscale": 1,
+        "ramp_px": 0.36,
+        "master_size": 256,
+        "fetched": "2026-09-24",
+        "allow_upscale": false,
+        "allow_low_contrast": false
       }
-     ]
+    },
+    "history": {
+      "value": "Benchmark was founded in Menlo Park in 1995 by Bob Kagle, Bruce Dunlevie, Andy Rachleff, Kevin Harvey and Val Vaden, and built its reputation on an equal partnership with no junior or senior partners, no CEO and no name on the door. Bob Kagle's $6.7 million Series A into eBay in 1997 for about 22% became the best-performing venture investment in Silicon Valley history, and the same first-institutional-round pattern produced Juniper Networks, Red Hat, Equinix and Handspring before 2000, then Yelp, Zillow, OpenTable, Zuora, New Relic and Asana, then Bill Gurley's $11 million Series A into Uber in 2011, Matt Cohler's $7 million into Instagram the same year, Mitch Lasky's $13.5 million into Snapchat in 2013 and Peter Fenton's $10 million into Elasticsearch in 2012. The firm ran a London desk from 2000 and an Israeli desk from 2001; both became separate firms, Balderton Capital in 2007 and Benchmark Israel VC 2007 Ltd, and their portfolios are not counted here. Benchmark held its funds at roughly $425 million for two decades, and broke that discipline in 2026: two vehicles raised in February to put about $225 million into a single Cerebras round, and $2 billion in June across a $750 million early-stage fund and Benchmark Partners T1, at $1.25 billion the firm's first dedicated growth fund. It manages 34 private funds holding $7.58 billion, and publishes no portfolio list at all; its website has been a single page with two addresses since 2013. The 284 companies recorded here run from 1995 to 2026 and are overwhelmingly Series A entries, with 24 at $1 billion or more.",
+      "source": "multiple",
+      "basis": "Assembled from the sources cited across this sidecar plus the run's own evidence: the fund ladder from Form D, the desk history from the archived site and the 2007 Balderton and Benchmark Israel VC 2007 separations, the 2026 fund raises from TechCrunch (2026-02-06 and 2026-06-03), and the base's own shape."
+    },
+    "investment_concept": {
+      "value": "Benchmark backs founders at the first institutional round and takes a board seat, one equal partnership, one fund at a time.",
+      "source": "https://en.wikipedia.org/wiki/Benchmark_(venture_capital_firm)",
+      "basis": "DERIVED — the firm publishes no thesis, no positioning statement and no marketing copy of any kind; its entire website is a wordmark and two addresses. The sentence is assembled from what the record actually establishes: the equal-partnership structure the firm has described in interviews (no junior or senior partners, no CEO, profits driven by investment performance rather than management fees), the first-institutional-round-plus-board-seat pattern that 243 of 284 base rows are Series A entries evidences directly, and the one-fund-at-a-time discipline visible in the fund ladder (roughly $425M per flagship from 2011 to 2024). It is a description, not a quotation."
     }
-   ],
-   "source": "sources/edgar/own-fund-filings.json",
-   "basis": "The flagship ladder plus the two 2026 vehicles and the Cerebras pair. FILING STYLE MATTERS HERE and it is the opposite of Lightspeed's: Benchmark files the FULL fund size as the Form D total-offering amount at or before first close, so the offering is the fund size and the sold amount is the close state on the filing date \u2014 Fund VII shows $5M sold against a $425M offering, Fund IX $0 against $425M. Sizes are therefore the offering amounts, asserted against the accessions. Funds I, II, IV, V and VI (1995-2008) predate electronic Form D and carry no sworn size; the firm held every flagship at roughly $425M from 2011 to 2024. The 18 Founders' Fund co-invest vehicles, the Management Co. GPs and the WS SPV are counted in the base's evidence but not listed as funds \u2014 they are employee co-invest and GP plumbing, not capital raised from LPs."
-  },
-  "individuals": {
-   "value": [
-    {
-     "name": "Bruce Dunlevie",
-     "position": "Co-founder, General Partner",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Chetan Puttagunta",
-     "position": "General Partner",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": "https://x.com/chetanp"
-     }
-    },
-    {
-     "name": "Eric Vishria",
-     "position": "General Partner",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": "https://x.com/ericvishria"
-     }
-    },
-    {
-     "name": "Everett Randle",
-     "position": "General Partner",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": "https://x.com/everettrandle"
-     }
-    },
-    {
-     "name": "Jack Altman",
-     "position": "General Partner",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": "https://x.com/jaltma"
-     }
-    },
-    {
-     "name": "Peter Fenton",
-     "position": "General Partner",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/peter-fenton-0b117/",
-      "x_url": "https://x.com/peterfenton"
-     }
-    },
-    {
-     "name": "Sarah Tavel",
-     "position": "Venture Partner",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": "https://x.com/sarahtavel"
-     }
-    },
-    {
-     "name": "An-Yen Hu",
-     "position": "Chief Financial Officer",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    }
-   ],
-   "source": "sources/site/team-members.json",
-   "basis": "Live team CMS: 8 members. Positions are CMS titles (8 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 1 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 1 LinkedIn, 6 X."
-  },
-  "investment_stage": {
-   "value": [
-    "Seed",
-    "Series A",
-    "Growth"
-   ],
-   "source": "sources/edgar/own-fund-filings.json",
-   "basis": "DERIVED, not taken from a site \u2014 the firm publishes no positioning. Series A is the core: 243 of 284 base rows. Seed is real but small (11 rows, including the LangChain and Legora seeds). Growth became a declared strategy in June 2026 with Benchmark Partners T1 ($1.25B, the firm's first dedicated late-stage fund, five to six large positions) and was already visible in the base as 29 Growth entries, mostly Series B or later entries at scale."
-  },
-  "investment_geo": {
-   "value": {
-    "core": [
-     "US"
-    ],
-    "other": [
-     "Europe",
-     "Israel"
-    ]
-   },
-   "source": "data/collection/investors/benchmark/base.csv",
-   "basis": "260 of 284 base rows are US. The two 'other' labels are the firm's own historical desks rather than a current mandate: the taxonomy caps the core at two labels and there is only one core here. Non-US rows outside those desks are single companies (Germany 4, UK 4, Israel 3, China 2, Netherlands 2, Singapore 2, and one each in Malaysia, Sweden, Brazil, Japan, France, Finland, Italy)."
-  },
-  "investment_scope": {
-   "value": {
-    "type": "Generalist",
-    "focus": [
-     "Consumer & Marketplaces",
-     "Data Infrastructure",
-     "SaaS",
-     "Media, Gaming & Advertising",
-     "Industrial & Robotics",
-     "Security",
-     "AI & Applied AI",
-     "DevTools & APIs",
-     "Healthcare & Bio",
-     "Fintech & Payments"
-    ]
-   },
-   "source": "data/collection/investors/benchmark/base.csv",
-   "basis": "DERIVED from the grind's own focus column, not from any site vocabulary (the firm's 2001-2009 sector pages describe a book that ended fifteen years ago). Ten values clear the 10-company floor (~4.5% of 284); Climate & Energy (4) and Crypto & Web3 (1) fall below it and are not published. 19 rows sit outside the taxonomy and are reported as such rather than force-fitted."
-  },
-  "investment_range": {
-   "value": {
-    "lower_limit": 3500000,
-    "median": 13500000,
-    "upper_limit": 225000000
-   },
-   "source": "data/collection/investors/benchmark/golden.json",
-   "basis": "Built from the 25 CITED entry rounds of the pre-registered stage key rather than from Form D bands, which this run demoted (R4, 7/16 on the gate). Lower limit $3.5M: New Relic's 2008 first round, the smallest documented entry. Median $13.5M: the midpoint of the cited entry rounds (Snapchat's $13.5M Series A sits on it; Uber $11M, Elasticsearch $10M, Instagram $7M, Amplitude $9M, Confluent $6.9M below; Optimizely $28M, Cerebras $27M, Airbyte $26M, Hipcamp $25M above). Upper limit $225M: the two AI Infrastructure vehicles Benchmark raised in February 2026 to put ~$225M into one Cerebras round \u2014 the largest single position the firm has ever taken, and now the visible ceiling given the $1.25B growth fund. A round size is a proxy for check size and is fair here because Benchmark leads and takes a board seat in nearly every entry."
-  },
-  "notable_investments": {
-   "value": [
-    "eBay",
-    "Uber",
-    "Twitter",
-    "Snap Inc",
-    "Instagram (Burbn)",
-    "Discord Inc.",
-    "Cerebras Systems Inc.",
-    "Elastic N.V.",
-    "Yelp",
-    "Zillow.com"
-   ],
-   "source": "data/collection/investors/benchmark/base.csv",
-   "basis": "Recognition over the confirmed base only, capped at ten. Every one is a member with a ledger verdict; eBay, Uber, Instagram, Snap, Elastic and Cerebras carry cited entry rounds in golden.json."
-  },
-  "icon_url": {
-   "value": "https://www.benchmark.com/fonts/benchmark.svg#glyph-B",
-   "source": "https://www.benchmark.com/fonts/benchmark.svg",
-   "basis": "PLACEHOLDER pointing at the source until the gated upload (the bucket write runs with the ingest, after Erik's approval). Benchmark declares NO favicon, apple-touch-icon, manifest icon or og:image \u2014 `--discover` has nothing to measure \u2014 because the site renders its wordmark as an ICON FONT: css/benchmark.css declares @font-face 'benchmark' and .benchmark-icon-benchmark:before {content:\"B\"} at 500px in #080f16. The mark is therefore a VECTOR, which is what the icon rules prefer: glyph U+0042 was extracted from fonts/benchmark.svg into sources/site/benchmark-mark.svg on the site's own palette (cream #f6e3c9 on the body navy #1c364e, rather than the near-black #080f16 the site uses on navy, which would not clear the 3:1 floor). The dry run passes every rule with no override: vector source rendered at 2x, artwork inset to a 74% box and 75% radius, contrast 6.2:1 against the 3:1 floor, edge ramp 1.50px against the 2px limit, upscale 1.00.",
-   "provenance": {
-    "source_url": "https://www.benchmark.com/fonts/benchmark.svg#glyph-B",
-    "derived_file": "sources/site/benchmark-mark.svg",
-    "format": "svg",
-    "width": 512,
-    "height": 512,
-    "vector": true,
-    "artwork_master_px": 189,
-    "upscale": 1.0,
-    "ramp_px": 1.5,
-    "contrast": "6.2:1",
-    "master_size": 256,
-    "plate": "rgb(28,52,76)",
-    "glyph_fill": "#f6e3c9",
-    "fetched": "2026-09-06",
-    "allow_upscale": false,
-    "allow_low_contrast": false
-   }
-  },
-  "history": {
-   "value": "Benchmark was founded in Menlo Park in 1995 by Bob Kagle, Bruce Dunlevie, Andy Rachleff, Kevin Harvey and Val Vaden, and built its reputation on an equal partnership with no junior or senior partners, no CEO and no name on the door. Bob Kagle's $6.7 million Series A into eBay in 1997 for about 22% became the best-performing venture investment in Silicon Valley history, and the same first-institutional-round pattern produced Juniper Networks, Red Hat, Equinix and Handspring before 2000, then Yelp, Zillow, OpenTable, Zuora, New Relic and Asana, then Bill Gurley's $11 million Series A into Uber in 2011, Matt Cohler's $7 million into Instagram the same year, Mitch Lasky's $13.5 million into Snapchat in 2013 and Peter Fenton's $10 million into Elasticsearch in 2012. The firm ran a London desk from 2000 and an Israeli desk from 2001; both became separate firms, Balderton Capital in 2007 and Benchmark Israel VC 2007 Ltd, and their portfolios are not counted here. Benchmark held its funds at roughly $425 million for two decades, and broke that discipline in 2026: two vehicles raised in February to put about $225 million into a single Cerebras round, and $2 billion in June across a $750 million early-stage fund and Benchmark Partners T1, at $1.25 billion the firm's first dedicated growth fund. It manages 34 private funds holding $7.58 billion, and publishes no portfolio list at all; its website has been a single page with two addresses since 2013. The 284 companies recorded here run from 1995 to 2026 and are overwhelmingly Series A entries, with 24 at $1 billion or more.",
-   "source": "multiple",
-   "basis": "Assembled from the sources cited across this sidecar plus the run's own evidence: the fund ladder from Form D, the desk history from the archived site and the 2007 Balderton and Benchmark Israel VC 2007 separations, the 2026 fund raises from TechCrunch (2026-02-06 and 2026-06-03), and the base's own shape."
-  },
-  "investment_concept": {
-   "value": "Benchmark backs founders at the first institutional round and takes a board seat, one equal partnership, one fund at a time.",
-   "source": "https://en.wikipedia.org/wiki/Benchmark_(venture_capital_firm)",
-   "basis": "DERIVED \u2014 the firm publishes no thesis, no positioning statement and no marketing copy of any kind; its entire website is a wordmark and two addresses. The sentence is assembled from what the record actually establishes: the equal-partnership structure the firm has described in interviews (no junior or senior partners, no CEO, profits driven by investment performance rather than management fees), the first-institutional-round-plus-board-seat pattern that 243 of 284 base rows are Series A entries evidences directly, and the one-fund-at-a-time discipline visible in the fund ladder (roughly $425M per flagship from 2011 to 2024). It is a description, not a quotation."
   }
- }
 }
