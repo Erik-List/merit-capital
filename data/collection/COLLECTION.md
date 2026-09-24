@@ -1408,6 +1408,38 @@ maturity today. 100% fill.
   A publication-visible claim wants class 1 or 2. Citation is attempted for
   every row, priority $1B+ (incl. IPO), then recents, then the tail;
   `stage_uncited` marks attempted failures.
+- **Research the funding history, and persist it** (Erik, 2026-09-23,
+  PRO-143). Whenever a run looks for a row's entry round beyond what the
+  deterministic layers give, it records the company's rounds as it found them,
+  not only the verdict, under `funding_rounds` on the classification line:
+  one entry per round, `{"date", "round", "amount_usd", "lead",
+  "firm_in_round", "source", "source_type"}`, with `date` as precise as the
+  source gives, `round` as the record names it, and `source_type` one of
+  `firm | company | press | filing | vendor`. The stage and `entry_date` are
+  then read off the round the firm entered, cited to a non-vendor source that
+  names that round and ties the firm to it. Where no round can be tied to the
+  firm, the stage stays `undetermined` and the list is kept anyway, with an
+  empty list meaning the search ran and found none, so the next run starts
+  from it instead of repeating the search. Until 2026-09-23 a run kept only a
+  verdict, one citation and note prose; PRO-135 then had nothing to read but
+  the prose, and 2,032 of the 2,187 rows it wrote `undetermined` had no round
+  on disk at all. The best source depends on the era: for a company that went
+  public, its IPO prospectus on EDGAR ("Principal Stockholders", "Certain
+  Transactions", "Description of Capital Stock") lists every preferred series
+  with dates and holders; for a modern company, the firm's own post, the
+  company's release, then press. A vendor profile may guide the search and
+  may be listed with `source_type: vendor`, but it never cites (Rule A). A
+  history visible only in part is not a single round: a row whose citable
+  record shows one round while a vendor shows three stays `undetermined`
+  (the iCracked case).
+- **An archive capture of the firm's listing never names or dates an entry**
+  (Erik, 2026-09-23, PRO-143). The capture proves only that the firm held the
+  company by that day. Reading "exactly one round closed before the capture"
+  as the entry was measured and refused: on a sample of 20 undetermined rows
+  it named a correct stage on 2, misfired wherever the history was only partly
+  citable, and admitted companies that stalled while excluding those that
+  raised their Series A before the page was first archived, which biases S2A
+  downward. Direct research found the real entry round on 12 of the same 20.
 - **No staged row without a source, and a `web_verified` citation names THAT
   company's round** (PRO-135, both enforced by `record` and by `verify`).
   Swept across all twenty books 2026-09-19. What the column rests on now:
@@ -1869,9 +1901,11 @@ Every subcommand takes the investor slug.
   citation URLs, the §6 graduation contract against the record on disk,
   city shape, country codes) and rejects violations; answers
   merge per key into existing records; flags union; only `clear_flags`
-  removes. **Emit only the keys for the needs asked** (plus `flags`, `note`)
+  removes. **Emit only the keys for the needs asked** (plus `flags`, `note`,
+  and `funding_rounds` wherever the entry round was researched, §6)
   — extra keys clobber filing-grade facts at merge time; the one exception
-  is a deliberate dispute.
+  is a deliberate dispute. `record` stores `funding_rounds` as written and
+  does not yet check its shape, so the judge keeps to the §6 form.
 - **A person under two spellings is two people to the tenure filter** (First
   Round, 2026-09-06). `partner-roster.py` unions its sources by slug, so
   "Josh Kopelman" from the site and "Joshua Kopelman" from the Form D related
