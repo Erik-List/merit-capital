@@ -546,3 +546,37 @@ is clean.
 For Erik: **Varda** is very likely the same company as the Form D row
 `varda-space-industries` (TechCrunch's own coverage uses that name); a merge
 question, left as two rows here.
+
+## Addendum 2026-09-24: the city pass
+
+Every nameable row now carries a city or a recorded `city_unknown` (the rule
+Erik approved today, COLLECTION.md §6 `hq_city`). Was: 0 of 270 filled, so the
+live page drew the whole geography bar as "Other".
+
+Now: 247 of 270 filled, 20 recorded unknown, 3 unnameable (not asked). 78
+distinct cities; top San Francisco 61, New York 45, Palo Alto 11. Sources: 185
+`web_verified` (180 from the company's own office list on Lux's job board,
+cited per row as `hq_city_citation`; five from a dated web search), 21
+`formd_address` (each matches the filed issuer city) and 41 `model_knowledge`,
+mostly dead or acquired companies with no board page. Where a Form D address
+and the board disagree, the board wins as the current office (Aeva, Desktop
+Metal, Matterport, Varda), and boroughs and neighbourhoods fold into the
+municipality (Brooklyn to New York, La Jolla to San Diego).
+
+For Erik, from this pass:
+
+- **Four countries are wrong.** Each row carries `city_country_conflict`; the
+  country is left as filed because correcting it is Erik's call (§6).
+  Amca is El Segundo, US (filed CZ, a Wikidata name collision); Buf is
+  Toronto, CA (filed US); Nomic is Montreal, CA (filed US); Tenzai is
+  Herzliya, IL (filed US).
+- **Nomic is Nomic Bio**, the Montreal bioengineering company (nomic.bio), not
+  Nomic AI. Focus corrected to Healthcare & Bio; the name and every other
+  field stand.
+- **Two board links point at other companies.** Lux's job board links
+  Cerulean to a UK tobacco-equipment maker and Timber to a wood-products
+  maker; neither office list was used. Cerulean Pharma reads Waltham from
+  knowledge, Timber.io is `city_unknown`. The `site_url` values the base
+  carries for these two are the wrong companies' sites.
+
+`verify` is clean with no city debt (Lux is not in `shared/city-debt.json`).
