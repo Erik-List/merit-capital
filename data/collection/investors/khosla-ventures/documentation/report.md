@@ -1,5 +1,9 @@
 # Khosla Ventures — collection run report
 
+**INGESTED 2026-09-24 with Erik's approval.** 506 companies and the investor
+row are live; the icon is published to the Icon Images bucket. One correction
+was made at ingest time, below.
+
 **Run:** PRO-98, one session, 2026-09-07. Merged shape (base + outcome
 classification + firm profile in one run), `data/collection/COLLECTION.md`.
 
@@ -429,3 +433,42 @@ Centana Growth Partners as a later investor (no citable round); **The Hunt**
 and **Overture Life** carry Seed on entries of $10M (2014) and $21.6M (2017),
 above the era's seed band; **Sakti3** graduates on Dyson's $15M strategic
 investment seven months before Dyson bought it.
+
+
+---
+
+## 10. Ingest, 2026-09-24
+
+Approved and run. Order per §9: icon upload → `ingest-investor.ts` →
+`ingest-companies.ts`.
+
+- **Icon published**: the 256px apple-touch-icon master uploaded to the Icon
+  Images bucket and the investor row re-ingested so it carries the bucket URL.
+  It had been sitting on Khosla's own CDN because a whole-table investor sync
+  on 2026-09-08 wrote the row before the icon was ever uploaded.
+- **506 companies live**, readback clean against the export: private 251,
+  acquired 123, defunct 106, public 25, unknown 1; bands 438 / 35 / 13 / 3 with
+  17 undetermined; stage 232 / 166 / 78 / 3 with 27 undetermined; S2A 47.8% on a
+  cohort of 161 at 100% coverage.
+
+### The one correction made at ingest
+
+**TraceVector and Vectra Networks were the same company, counted twice.** The
+PRO-121 pre-wave (2026-09-20) identified TraceVector as Vectra AI's earlier name
+on the same Form D filer and explicitly left the duplicate "for Khosla's owner".
+Both rows carried the same $1.2B 2021 mark, so the first ingest published
+**52** companies at $1B+ when the true figure is **51**. The merge is now
+recorded in `identity-merges.json`, TraceVector's 2013 listing year and its
+2012–2013 accessions were folded into the surviving Vectra row, and the
+reconciling ingest removed the orphan. Base 507 → 506.
+
+**A full rebuild was deliberately NOT used to apply it.** Rebuilding this book
+today renames nine slugs — `academia-inc` → `academia-edu`,
+`big-switch-networks-inc` → `big-switch`, `coda-project-inc` → `coda`,
+`ghost-locomotion-inc` → `ghost-autonomy-inc`, `neurotrack-technologies-inc` →
+`neurotrack`, `touchstone-semiconductor` → `touchstone`, `viome-inc` →
+`viome-life-sciences-inc`, and two more — because the sources have moved since
+the run closed. Slug renames orphan database rows
+(`rename-disarms-merge`), and re-curating names is not what an ingest is for.
+The merge file carries the decision so any future rebuild applies it the proper
+way; the nine name differences are raised for Erik rather than acted on.
