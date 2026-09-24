@@ -36,7 +36,7 @@ async function main() {
   const rows: any[] = [];
   for (let from = 0; ; from += 1000) {
     const { data } = await db.from("companies")
-      .select("name,status,valuation_range,entry_stage,seed_to_a_graduation")
+      .select("*")
       .eq("investor_id", id).range(from, from + 999);
     if (!data || !data.length) break;
     rows.push(...data);
@@ -50,7 +50,11 @@ async function main() {
   console.log(`\nIn the DB but no longer in the base (${orphans.length}):`);
   for (const o of orphans) console.log(`   ${o.name}  status=${o.status} range=${o.valuation_range} stage=${o.entry_stage}`);
 
-  const cols = ["status", "valuation_range", "entry_stage", "seed_to_a_graduation"];
+  // every column the CSV and the table share, not just the four headline ones
+  const csvCols = Object.keys(base[0]);
+  const dbCols = new Set(Object.keys(rows[0] || {}));
+  const cols = csvCols.filter(c => dbCols.has(c) && c !== "name");
+  console.log(`comparing ${cols.length} shared columns: ${cols.join(", ")}`);
   const drift: string[] = [];
   for (const r of rows) {
     const b = byName.get(r.name);
