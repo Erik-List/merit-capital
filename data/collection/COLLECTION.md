@@ -1942,8 +1942,10 @@ Every subcommand takes the investor slug.
   database upserts on (investor, name) and the name is the whole of a row's
   identity there, so a rename is a new row, not an edit. Since PRO-139
   `ingest-companies.ts` reconciles: it removes every row of the investor
-  whose name the CSV no longer carries, and refuses when that set is over
-  5% of the book. Run it `--dry-run` first and read the removal list, because
+  whose name the CSV no longer carries, however many that is (the 5% refusal
+  was removed 2026-09-24 by Erik: a deliberate rebuild under a name rule
+  renames more than that, and the reviewed list is the guard). Run it
+  `--dry-run` first and read the removal list, because
   from the database a rename, a merge and a real removal look identical;
   only the base's slugs tell them apart. In-run: any suspected duplicate →
   flag + note, never a silent merge. Verdicts key on slugs and merges move

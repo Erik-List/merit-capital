@@ -103,8 +103,8 @@ export async function fetchCompanyNames(
  * recompute_investor_metrics, which scans every row of the investor.
  *
  * Batched because `in` rides in the query string, and a book can remove more
- * names than a URL will carry. The caller applies the ceiling; this function
- * deletes exactly the set it is handed.
+ * names than a URL will carry. This function deletes exactly the set it is
+ * handed; the caller prints that set in its plan first.
  */
 export async function deleteCompaniesByName(
   supabase: SupabaseClient<Database>,

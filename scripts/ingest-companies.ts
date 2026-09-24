@@ -41,32 +41,11 @@ type CompanyInsert = TablesInsert<"companies">;
 
 const UPSERT_BATCH_SIZE = 500;
 
-/**
- * How many rows one run may remove before it stops and asks.
- *
- * checkFreshness already refuses a CSV that disagrees with the live base, so
- * the remaining risk is a base that rebuilt wrong — truncated, or built over a
- * listing the archive served short. A run that would delete a large share of a
- * published book is far more likely to be that than a real re-judgement: the
- * biggest legitimate removal measured to date is First Round's 18 of 594,
- * 3%. Raise it deliberately with --remove-max=<n> when a book really did shed
- * that many, never to get a surprising run through.
- */
-function removeCeiling(liveCount: number): number {
-  return Math.max(10, Math.ceil(liveCount * 0.05));
-}
-
-/** Local flag parsing: parseFlags owns the two shared flags and ignores these. */
-function parseRemoveMax(argv: string[]): number | null {
-  const arg = argv.find((a) => a.startsWith("--remove-max"));
-  if (!arg) return null;
-  const raw = arg.includes("=") ? arg.split("=")[1] : argv[argv.indexOf(arg) + 1];
-  const value = Number(raw);
-  if (!raw || !Number.isInteger(value) || value < 0) {
-    throw new Error(`--remove-max expects a non-negative integer, got "${raw}"`);
-  }
-  return value;
-}
+// There is no removal ceiling (Erik, 2026-09-24). The 5% refusal it replaced
+// guarded against a base that rebuilt wrong, but a deliberate rebuild under a
+// name rule renames far more than 5% of a book (Sequoia: 93 of 873), and each
+// rename reads as one removal here. The guard is the plan itself: --dry-run
+// prints every removal, and the approval is given on that list.
 
 /**
  * The pipeline records valuation_asof at the precision the source gave it:
@@ -145,13 +124,12 @@ function checkFreshness(investor: string, csvRows: Record<string, string>[]): vo
 
 async function main() {
   const flags = parseFlags(process.argv, COMPANY_COLUMNS);
-  const removeMax = parseRemoveMax(process.argv);
   const dryRun = process.argv.includes("--dry-run");
   const investor = process.argv.slice(2).find((a) => !a.startsWith("--"));
   if (!investor) {
     throw new Error(
       "Usage: npm run ingest:companies -- <investor-slug> " +
-        "[--columns ...] [--remove-max=<n>] [--dry-run]"
+        "[--columns ...] [--dry-run]"
     );
   }
 
@@ -283,17 +261,6 @@ async function main() {
       `${remove.length} removed, from ${liveNames.length} live.`
   );
   remove.forEach((n) => console.log(`    remove ${n}`));
-
-  const ceiling = removeMax ?? removeCeiling(liveNames.length);
-  if (remove.length > ceiling) {
-    console.error(
-      `\n✗ ${remove.length} row(s) would be removed, over the ceiling of ` +
-        `${ceiling} for a ${liveNames.length}-row book. Nothing written. ` +
-        "Confirm the base really shed them, then re-run with " +
-        `--remove-max=${remove.length}.`
-    );
-    process.exit(1);
-  }
 
   if (dryRun) {
     console.log("\n--dry-run: nothing written.");
