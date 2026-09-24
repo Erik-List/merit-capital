@@ -1955,6 +1955,25 @@ Every subcommand takes the investor slug.
   resurface as their own unjudged rows on the next rebuild (Accel:
   2tor-inc, after 2u-inc was excluded). Every slug of a merge group needs
   its own verdict when the canonical's verdict is `not_member`.
+- **A published name is the brand, in normal capitalization, with no legal
+  suffix** (Erik, 2026-09-24). Per word, one test: a word read letter by
+  letter keeps its capitals (IFTTT, DJI, LTSE, VSCO, AI, U.S.); every other
+  word takes normal case, including a brand that styles itself in capitals
+  (GOAT → Goat, DFINITY → Dfinity, AKASA → Akasa) and a word the source
+  shouted (OPOWER → Opower, JAMF → Jamf). A mixed-case spelling the company
+  uses stays as it is (eBay, AdMob, LeetCode). Legal suffixes go (Inc., Corp.,
+  Corporation, LLC, Ltd., L.P., PBC, GmbH, AB, AG, S.A., plc): "AIRBYTE, INC."
+  publishes as Airbyte, "PROGRESS SOFTWARE CORPORATION" as Progress Software.
+  A misspelling carried from the source is corrected in the same edit
+  (Menlo's "MAVEN LABOATORIES, INC." is Maven Laboratories). The string alone
+  cannot tell `OPOWER` from `IFTTT`, so every single-word capitals name is a
+  judgment per row, not a script. Measured 2026-09-24: 400 names publish in
+  capitals (legal names from filings and 1990s portfolio pages 120, single
+  words 280; 239 of them in books already live), and 501 mixed-case names
+  still carry a suffix. Every change is a rename in `public.companies`, so a
+  book applies the rule in ONE pass together with its next deliberate
+  rebuild, and the ingest's removal list is read against it, never as a
+  separate sweep that renames the same row twice.
 - **Standing verification duties**, after the grind, before verify-clean:
   1. Web-verify every $1B+ claim regardless of source: identity and current
      status; update or downgrade.
