@@ -510,3 +510,42 @@ it as the Bisanz wellness brand refounded in 2017 under Brad Charron, which
 took Semcap's $68M growth investment in April 2024 (Food Dive); the earlier
 no had not identified the company. The table above reads 85 graduated, 89 not,
 48.9%.
+
+## Addendum 2026-09-24: the city pass
+
+Every row now carries a city or a recorded `city_unknown` (the rule Erik
+approved today, COLLECTION.md §6 `hq_city`). Was: 0 of 493 filled, so the live
+page drew the whole geography bar as "Other".
+
+Now: 396 of 493 filled, 97 recorded unknown. 74 distinct cities; top San
+Francisco 166, New York 45, Palo Alto 19. Sources: 195 `web_verified` (the
+company's own office list on Felicis's job board, Felicis's own company
+headquarters field, or a dated search, each cited per row as
+`hq_city_citation`), 10 `formd_address` (each matches the filed issuer city)
+and 191 `model_knowledge`. The unknowns are almost all dead or acquired
+2006-2014 companies no source places, plus three rows whose name is not a
+company (`go-2-ec105164…`, `pf-logo`, `rr-logo`). The board pull is kept as
+`sources/site/job-board.json`.
+
+Where the board lists several offices it does not say which is the HQ, so
+those rows were decided by knowledge or a search (Evertune: New York, not the
+Seattle the board lists first; PicnicHealth: San Francisco, not Oakland,
+matching Lux's book; TrueAccord: Lenexa, matching Khosla's).
+
+For Erik, from this pass:
+
+- **Six countries are wrong.** Each row carries `city_country_conflict`; the
+  country is left as filed because correcting it is Erik's call (§6).
+  Blume is Vancouver, CA; Culture Amp is Melbourne, AU; Dig Security is Tel
+  Aviv, IL; Fellow is Ottawa, CA (these four filed US); Sona is London, GB
+  (filed CA); Edia is San Francisco, US (filed JP).
+- **Iru is Kandji.** Kandji renamed itself Iru in 2025; the two rows look
+  like one company (both San Diego).
+- **The board links Bright to thinkbright.mx**, a Mexican company; this row is
+  Bright Money, so the listing was not used.
+- **Deeptrace is two companies**: the Amsterdam deepfake-detection company the
+  country reflects and the San Francisco company at the `site_url`. Left
+  `city_unknown` until the identity is settled.
+
+`verify` is clean with no city debt (Felicis is not in
+`shared/city-debt.json`).
