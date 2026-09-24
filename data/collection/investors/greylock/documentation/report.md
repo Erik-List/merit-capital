@@ -466,3 +466,44 @@ The headline table at the top of this report was restated to these figures and
 to the current shape of the stage column, which PRO-135 changed: the pre-window
 flags are gone and 302 nameable rows now say the round is unknown rather than
 carrying an inferred label.
+
+## Addendum 2026-09-24: ingested
+
+Erik approved the ingest. **553 companies live**, the investor row updated and
+the icon published. The readback matches `base.csv` row for row.
+
+One duplicate was caught in the pre-ingest check and fixed before anything was
+written: **OkamiAI, Inc. renamed to 7AI, Inc.** EDGAR carries both under CIK
+1997387, filing from 200 Clarendon Street, Boston, with `OkamiAI` in
+`formerNames`. This base had them as two rows, because they arrived by different
+routes: `7ai` from the site listing for the $36M seed the firm announced in
+February 2025, and `okamiai-inc` from the 2023 Form D that Asheem Chandna signed
+as director of record, which the run had recorded as an unannounced deal. It was
+one deal in one company under two names. Merged onto `7ai`, the current
+rendering and the one greylock.com uses, and members went 554 to 553.
+
+The fix is worth keeping in mind for the shape rather than the row. The
+director-of-record pattern finds real unannounced companies, and the company it
+finds can surface again years later under a new name once the firm does announce
+it. A shared CIK is the check that catches it.
+
+| | |
+|---|---|
+| Companies live | **553**, equal to `base.csv` |
+| Icon | published to the bucket, measured clean (contrast 12.0:1, ramp 0.96px, no override) |
+| Graduation rate on the investor row | 84.3%, cohort 51, matching `verify` |
+| Status | acquired 327 · private 122 · defunct 65 · public 32 · unknown 7 |
+| Entry stage | Series A 136 · Seed 61 · Growth 51 · Pre-Seed 1 · undetermined 304 |
+| Valuation | below_1b 509 · 1b_plus 17 · 10b_plus 16 · 100b_plus 9 · undetermined 2 |
+
+Checked by name in the live table: Intel, UnitedHealth Group, 3Com, Conexant
+Systems and OkamiAI are all absent, and Shiva, Xircom, Share Development, Sonix,
+Maker Communications, 7AI and Continental Cablevision are all present. That is
+R6 and the 7AI merge both readable in the database.
+
+**One thing for the taxonomy, not for this book.** `ingest-investor.ts` warned
+that `investment_geo.other: "Canada"` is not a known geography label and added
+it as new. Greylock, USV and YC all carry it, and Accel has the same warning for
+"Oceania". Either the label belongs in the geography taxonomy or those four
+profiles should use an existing one; four books writing an unknown label is a
+taxonomy gap rather than four separate mistakes.
