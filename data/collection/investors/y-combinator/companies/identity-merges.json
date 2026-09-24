@@ -1,5 +1,9 @@
 {
- "yc": {
+ "y-combinator": {
+  "_notes": [
+   "2026-09-07: 7 merge groups whose canonical slug was absent from the base were DROPPED rather than re-resolved. An attempt to re-resolve them by company name produced merges between unrelated companies (eden-2 absorbing eva-center; fithub-2 absorbing a numeric-id row) because the absent canonicals are exactly the collided names where a name lookup is unreliable — the same failure this base exists to avoid. Dropping is safe: the duplicates simply remain as their own rows, which for numeric-id and unnamed archive rows is the honest outcome. Listed in report.md as residual identity debt.",
+   "2026-09-07 cleanup: merge groups whose canonical is no longer a base slug were dropped, and duplicate entries that are still present in the base were trimmed. Both are artifacts of re-slugging during the run rather than identity claims, and leaving them would make verify report drift that does not exist."
+  ],
   "merges": [
    {
     "canonical": "10-by-10",
@@ -11276,29 +11280,25 @@
   ],
   "rejects": [
    {
-    "slug": "y-combinator",
-    "reason": "Y Combinator itself. The firm is not a portfolio company; the row exists because /companies/ captures include the site's own namespace."
+    "reason": "Y Combinator itself. The firm is not a portfolio company; the row exists because /companies/ captures include the site's own namespace.",
+    "slug": "y-combinator"
    },
    {
-    "slug": "black-founders",
-    "reason": "A YC founder-community page (/companies/black-founders), not a company. T5: not a venture-outcome operating company."
+    "reason": "A YC founder-community page (/companies/black-founders), not a company. T5: not a venture-outcome operating company.",
+    "slug": "black-founders"
    },
    {
-    "slug": "latinx-founders",
-    "reason": "A YC founder-community page, not a company. T5."
+    "reason": "A YC founder-community page, not a company. T5.",
+    "slug": "latinx-founders"
    },
    {
-    "slug": "hispanic-latino-founders",
-    "reason": "A YC founder-community page, not a company. T5."
+    "reason": "A YC founder-community page, not a company. T5.",
+    "slug": "hispanic-latino-founders"
    },
    {
-    "slug": "women-founders",
-    "reason": "A YC founder-community page, not a company. T5."
+    "reason": "A YC founder-community page, not a company. T5.",
+    "slug": "women-founders"
    }
-  ],
-  "_notes": [
-   "2026-09-07: 7 merge groups whose canonical slug was absent from the base were DROPPED rather than re-resolved. An attempt to re-resolve them by company name produced merges between unrelated companies (eden-2 absorbing eva-center; fithub-2 absorbing a numeric-id row) because the absent canonicals are exactly the collided names where a name lookup is unreliable — the same failure this base exists to avoid. Dropping is safe: the duplicates simply remain as their own rows, which for numeric-id and unnamed archive rows is the honest outcome. Listed in report.md as residual identity debt.",
-   "2026-09-07 cleanup: merge groups whose canonical is no longer a base slug were dropped, and duplicate entries that are still present in the base were trimmed. Both are artifacts of re-slugging during the run rather than identity claims, and leaving them would make verify report drift that does not exist."
   ]
  }
 }
