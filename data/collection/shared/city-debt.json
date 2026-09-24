@@ -1,0 +1,19 @@
+{
+  "_readme": "Books held at the number of rows with no hq_city and no city_unknown flag that they carried when the city rule landed (2026-09-24, Erik: 'go ahead with 1 & 2'). `run.py verify` prints each book's debt and fails only if the count GROWS, so no book that was green went red and no new row can arrive without a city. A book not listed here, and every new book, is held strictly. A city pass (re-run `prepare`, which now asks for the city, then judge it) clears a book: lower its number or remove it. Lux and Felicis are deliberately absent; their city pass ran the day the rule landed. Counts measured with `verify --skip-links --skip-cross` on 2026-09-24.",
+  "measured": "2026-09-24",
+  "books": {
+    "8vc": 72,
+    "a16z": 204,
+    "accel": 138,
+    "battery-ventures": 45,
+    "benchmark": 136,
+    "first-round-capital": 18,
+    "greylock": 18,
+    "khosla-ventures": 92,
+    "lightspeed": 1,
+    "menlo-ventures": 43,
+    "redpoint-ventures": 170,
+    "union-square-ventures": 1,
+    "y-combinator": 389
+  }
+}

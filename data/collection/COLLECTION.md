@@ -1766,6 +1766,24 @@ null + `city_unknown`. Where city and country cannot both be true, flag
 `city_country_conflict` + note and record the city truthfully; the country
 correction stays Erik's call.
 
+**The city is asked and required, like the country** (Erik, 2026-09-24).
+The investor page draws its whole Investment Geography bar from `hq_city`
+alone, and a company with no city lands in "Other". Until this date
+`prepare` never asked for it and `verify` only printed the fill, so a book
+could close "clean" with the column empty: Lux (0 of 270) and Felicis (0 of
+493) published **100% "Other"**. Now `prepare` asks `hq_city` for every
+nameable row that has neither a city nor `city_unknown`, and `verify` fails a
+row with neither. `city_unknown` is a claim that the judge LOOKED and could
+not place the company; it is never a way to skip the question. A row whose
+company cannot be named at all (`identity_unresolved`) is not asked. When a
+city lands, `record` drops a leftover `city_unknown` from the row.
+
+Books closed before the rule are held at the count they carried when it
+landed (`data/collection/shared/city-debt.json`): `verify` prints the debt
+and fails only if it grows, so no book went red and no new row arrives
+without a city. A city pass clears a book (re-run `prepare`, judge the
+queued cities, then lower or remove its entry). Every new book is strict.
+
 ### focus
 
 A **single primary value from the closed twelve** in
@@ -2145,7 +2163,9 @@ run before the investor row exists (Thrive, 2026-09-04).
 
 1. Coverage: every base slug carries a membership verdict; `status`,
    `valuation_range`, `entry_stage`, `hq_country` at 100% fill with valid
-   vocabulary; every Seed row carries a DECIDED graduation status
+   vocabulary; every nameable row carries an `hq_city` or `city_unknown`
+   (books closed before 2026-09-24 are held at their recorded count, §6
+   `hq_city`); every Seed row carries a DECIDED graduation status
    (`graduated`, `not_graduated`, `censored`; PRO-132). `undetermined`
    satisfies the fill: in `valuation_range` only on an `identity_unresolved`
    row, and in `entry_stage` on any row whose round the record does not give

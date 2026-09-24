@@ -160,6 +160,7 @@ UNDETERMINED = "undetermined"
 # that IS named and described carries none of them: recognition happened, and
 # confidence already records how firmly.
 IDENTITY_UNRESOLVED = "identity_unresolved"   # the company cannot be named at all
+CITY_UNKNOWN = "city_unknown"   # the judge looked and could not place the company's city
 IDENTITY_CONFLATED = "identity_conflated"     # one company across two rows
 IDENTITY_HOMONYM = "identity_homonym"         # two real companies sharing a name
 IDENTITY_FLAGS = (IDENTITY_UNRESOLVED, IDENTITY_CONFLATED, IDENTITY_HOMONYM)
@@ -1108,6 +1109,16 @@ def cmd_prepare(args) -> None:
                          if v is not None})
         flags_now = set(overlaid.get("flags") or []) | set(rec.get("flags") or [])
         need = [f for f in ("status", "hq_country", "entry_stage") if not overlaid.get(f)]
+        # The city is published: the investor page draws its whole geography
+        # bar from it, and a company with no city lands in "Other". It was
+        # never asked, so books closed "clean" with the column empty and Lux
+        # and Felicis published 100% "Other" (Erik, 2026-09-24). Ask it like the
+        # country; the judge answers a city or records `city_unknown` after
+        # looking. A company nobody can name has no city to find.
+        if not overlaid.get("hq_city") and CITY_UNKNOWN not in flags_now \
+                and IDENTITY_UNRESOLVED not in flags_now:
+            need.insert(need.index("entry_stage") if "entry_stage" in need else len(need),
+                        "hq_city")
         # Rows awaiting web evidence keep valuation_range open for the web pass; the
         # batch judge may only ever rule DOWN to below_1b, never mint a figure.
         if not overlaid.get("valuation_range") and "needs_web_value" not in flags_now:
@@ -1580,6 +1591,11 @@ def _record(args) -> None:
                 print(f"  kept human classification keys on {slug}: {sorted(kept)}")
         fl = set(prev.get("flags") or []) | set(rec.get("flags") or [])
         fl -= set(rec.get("clear_flags") or [])
+        if rec.get("hq_city"):
+            # a city that lands supersedes "the judge could not place it"; the
+            # flag left behind is how a16z:extra and battery:bonfire/jask came
+            # to carry both (found when the city rule landed, 2026-09-24)
+            fl.discard(CITY_UNKNOWN)
         old_note = prev.get("note")
         prev.update({k: v for k, v in rec.items()
                      if k not in ("flags", "clear_flags")})
@@ -1884,6 +1900,9 @@ def verify_membership(rows: list[dict], investor: str, problems: list[str],
 # Rides vs Accel's MessageBird), `accepted` lists pairs whose difference Erik
 # accepted with a reason. Nothing else may silence a disagreement.
 CROSS_RULINGS = COLLECTION / "cross-investor.json"
+# Books held at the city count they carried when the city rule landed
+# (2026-09-24); see the city rule in cmd_verify.
+CITY_DEBT_FILE = COLLECTION / "shared" / "city-debt.json"
 CROSS_CIK_RE = re.compile(r"/edgar/data/(\d+)/")
 CROSS_STRIP_RE = re.compile(
     r"\b(inc|corp|corporation|co|ltd|llc|plc|labs|technologies|technology|"
@@ -2092,6 +2111,8 @@ def cmd_verify(args) -> None:
     owed_absence = 0                 # nos decided before PRO-132 without their absence test
     owed_date = 0                    # decided rows without the entry_date their clock reads
     notes: list[str] = []            # in-flight observations that are not defects
+    no_city: list[str] = []          # rows with no hq_city and no city_unknown flag
+    stale_city_flag: list[str] = []  # rows with a city AND a leftover city_unknown flag
     c2a_on = bool((CFG.get("verify") or {}).get("c2a_deterministic", True))
     merged = merge_rows(rows, resolved, cls)
     shared_cites = shared_stage_citations(merged)
@@ -2211,6 +2232,18 @@ def cmd_verify(args) -> None:
         elif rec["hq_country"] not in ISO_CODES:
             problems.append(f"{slug}: hq_country {rec['hq_country']!r} is not a known "
                             f"ISO 3166-1 alpha-2 code")
+        # The city is a filled column like the country: a city, or the
+        # `city_unknown` flag saying the judge looked and could not place the
+        # company. An empty cell with no flag is work nobody did, and it
+        # publishes as "Other" on the geography bar (Lux and Felicis closed
+        # clean at 0 cities and read 100% "Other"; Erik, 2026-09-24).
+        if not rec.get("hq_city"):
+            if CITY_UNKNOWN not in row_flags and not in_flight:
+                no_city.append(slug)     # judged per book after the loop (the ratchet)
+        elif CITY_UNKNOWN in row_flags:
+            # the city stands and the page is right; the flag is a leftover
+            # from before the city landed. `record` now drops it on write.
+            stale_city_flag.append(slug)
         if not rec.get("entry_stage"):
             # No date excuses an empty stage any more (PRO-137, Erik
             # 2026-09-19): a stage is evidenced or it reads UNDETERMINED, so
@@ -2395,6 +2428,29 @@ def cmd_verify(args) -> None:
             r for r in rows if merged.get(r["slug"], {}).get("status")]
         verify_cross_investor(cross_rows, merged, args.investor, problems)
 
+    # ---- the city rule, per book. Every row carries a city or `city_unknown`.
+    # Books that closed before the rule existed are held at the count they
+    # carried when it landed (data/collection/shared/city-debt.json): the debt
+    # is printed on every verify and may shrink but never grow, so no book that
+    # was green goes red and no new row can arrive without a city. A book not
+    # on that list, and every new book, is strict. A city pass clears a book;
+    # then take it off the list.
+    if no_city:
+        debt = load(CITY_DEBT_FILE, {}).get("books", {}).get(args.investor)
+        if debt is not None and len(no_city) <= debt:
+            print(f"city debt       : {len(no_city)} rows with no hq_city and no "
+                  f"{CITY_UNKNOWN} flag, within the {debt} carried when the rule "
+                  f"landed; a city pass clears it")
+        else:
+            if debt is not None:
+                problems.append(f"city debt grew: {len(no_city)} rows with no hq_city "
+                                f"against the {debt} this book is held at; the new "
+                                f"rows need a city or {CITY_UNKNOWN}")
+            problems.extend(f"{s}: no hq_city and no {CITY_UNKNOWN} flag" for s in no_city)
+    if stale_city_flag:
+        print(f"note: {len(stale_city_flag)} rows carry a city and a leftover "
+              f"{CITY_UNKNOWN} flag (the city stands): {stale_city_flag[:5]}")
+
     total = len(rows)
     print(f"rows            : {total}")
     # Count over the base, not over the classification file: a rebuild that
@@ -2438,8 +2494,10 @@ def cmd_verify(args) -> None:
         problems.append(f"hq_city carries a state/country suffix on "
                         f"{len(bad_city)} rows: {bad_city[:3]}")
     cities = Counter(r["hq_city"] for r in determined if r.get("hq_city"))
+    city_unknown = sum(1 for r in determined
+                       if not r.get("hq_city") and CITY_UNKNOWN in (r.get("flags") or []))
     print(f"hq_city         : {len(cities)} distinct, "
-          f"{sum(cities.values())}/{total} filled; top "
+          f"{sum(cities.values())}/{total} filled, {city_unknown} recorded unknown; top "
           f"{dict(cities.most_common(8))}")
     tags = Counter(r.get("valuation_range") for r in determined)
     print(f"valuation_range : {dict(tags.most_common())}")
