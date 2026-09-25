@@ -549,3 +549,27 @@ For Erik, from this pass:
 
 `verify` is clean with no city debt (Felicis is not in
 `shared/city-debt.json`).
+
+### Corrections applied (Erik, 2026-09-24)
+
+- **Countries fixed**: Blume CA, Culture Amp AU, Dig Security IL, Fellow CA
+  (were US), Sona GB (was CA), Edia US (was JP). Edia's move to US made its
+  "not graduated" need a Form D line: EDGAR has no entity and no Form D
+  naming Edia (searched 2026-09-24), so it stays not graduated.
+- **Kandji merged into Iru** (`identity-merges.json`): the 2025 rename. Iru
+  now carries Kandji's two 2021 Form Ds and San Diego address; 493 → 491 rows
+  with the next item.
+- **Bright is the Mexican solar financier** (thinkbright.mx, YC W15), not
+  Bright Money: Felicis was in its $4M seed in 2015, the firm listed "Bright"
+  from 2017 (before Bright Money existed), its 2022 page was
+  /companies/thinkbright-mx and its job board links thinkbright.mx. The
+  separate "Thinkbright Mx" row merged in. Re-judged: Mexico City, MX, Climate
+  & Energy, and graduated on its named $31.5M Series C (July 2023). The
+  current CMS link to brightmoney.co is the firm's error.
+- **Deeptrace is the San Francisco AI SRE company** (deeptrace.com, YC F25),
+  whose $5M seed Felicis and Matrix co-led around March 2026, not the
+  Amsterdam deepfake company. Re-judged: San Francisco, US, entry 2026-03,
+  S2A censored (inside the 24-month window).
+
+S2A moves from 48.9% on 174 to 49.7% on 173 (Bright graduates, Deeptrace
+leaves the cohort as censored). `verify` is clean.
