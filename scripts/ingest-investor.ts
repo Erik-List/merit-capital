@@ -76,6 +76,38 @@ function validateInvestorShape(
   return errors;
 }
 
+// An icon_url must be null or point at our own Icon Images bucket. Anything
+// else is a pre-ingest placeholder: the collection run records the firm's own
+// site URL until scripts/fetch-investor-icon.ts uploads the icon and rewrites
+// the field. Written to the database, a placeholder on a host next.config does
+// not allow crashes the leaderboard for every visitor (Benchmark in the Lux
+// run, 8VC and Battery on 2026-09-24). Refused rather than repaired, like the
+// shape gate: the fix is to upload the icon first.
+function validateIconUrl(iconUrl: unknown, bucket: string, writes: boolean): string[] {
+  if (!writes || iconUrl == null) return [];
+  if (typeof iconUrl === "string" && iconUrl.startsWith(bucket)) return [];
+  return [
+    `icon_url ${JSON.stringify(iconUrl)} is not in the Icon Images bucket. ` +
+      `Upload it first with scripts/fetch-investor-icon.ts, which rewrites icon_url.`,
+  ];
+}
+
+// Arguments that are neither flags nor a flag's value: the slugs the caller
+// named. `--investors name=x` and `--columns a,b` may put their value in the
+// next argument, so that argument is not a slug.
+function positionalArgs(argv: string[]): string[] {
+  const out: string[] = [];
+  for (let i = 2; i < argv.length; i++) {
+    const arg = argv[i];
+    if (arg === "--investors" || arg === "--columns") {
+      i++;
+      continue;
+    }
+    if (!arg.startsWith("--")) out.push(arg);
+  }
+  return out;
+}
+
 function determineTargetSlugs(
   filter: ReturnType<typeof parseFlags>["investors"],
   investorType: "Institutional" | "Individual"
@@ -102,6 +134,29 @@ function determineTargetSlugs(
 
 async function main() {
   const flags = parseFlags(process.argv);
+
+  // Which investors this run writes has to be said, never defaulted. The
+  // default used to be every investor on disk, and a slug given without
+  // --investors was silently ignored, so "ingest one investor" wrote all of
+  // them: rows for runs still waiting on approval, placeholder icons included
+  // (the Lux run, and again 2026-09-24).
+  const named = positionalArgs(process.argv);
+  const hasFilter = process.argv
+    .slice(2)
+    .some((a) => a === "--investors" || a.startsWith("--investors="));
+  if (named.length > 0 && hasFilter) {
+    throw new Error("Name the investors either as arguments or with --investors, not both.");
+  }
+  if (named.length > 0) {
+    flags.investors = { type: "name", names: named };
+  } else if (!hasFilter) {
+    throw new Error(
+      "Say which investors to write: `npm run ingest:investor -- <slug>` " +
+        "(or --investors name=<a,b>). To write every investor on disk on purpose, " +
+        "pass --investors all."
+    );
+  }
+
   const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
@@ -112,6 +167,8 @@ async function main() {
   }
 
   const supabase = createClient<Database>(url, serviceKey);
+  const iconBucket = `${url.replace(/\/$/, "")}/storage/v1/object/public/Icon%20Images/`;
+  const seen = new Set<string>();
   let taxonomyRejects = 0;
   let shapeRejects = 0;
 
@@ -152,6 +209,7 @@ async function main() {
         console.warn(`⚠ Skipping investor with missing slug`);
         continue;
       }
+      seen.add(slug);
 
       // Strip fields older aggregated JSON files may still carry: the retired
       // approval-workflow "status" and the legacy "individual" key for the
@@ -183,7 +241,14 @@ async function main() {
       const writes = (column: string) =>
         investorType === "Institutional" &&
         (!flags.columns || flags.columns.includes(column));
-      const shapeErrors = validateInvestorShape(investorData, writes);
+      const shapeErrors = [
+        ...validateInvestorShape(investorData, writes),
+        ...validateIconUrl(
+          investorData.icon_url,
+          iconBucket,
+          !flags.columns || flags.columns.includes("icon_url")
+        ),
+      ];
       if (shapeErrors.length > 0) {
         console.error(`✗ Skipping ${slug}: ${shapeErrors.length} shape violation(s)`);
         shapeErrors.forEach((error) => console.error(`    ${error}`));
@@ -308,6 +373,16 @@ async function main() {
         `Fix the investor.json file; the ingest does not repair shapes.`
     );
     process.exitCode = 1;
+  }
+
+  // A named slug with no investor.json used to be dropped without a word, so
+  // a typo ran "successfully" and wrote nothing.
+  if (flags.investors.type === "name") {
+    const missing = flags.investors.names.filter((name) => !seen.has(name));
+    if (missing.length > 0) {
+      console.error(`\n✗ No investor.json on disk for: ${missing.join(", ")}`);
+      process.exitCode = 1;
+    }
   }
 
   console.log("\n✓ Ingestion complete!");
