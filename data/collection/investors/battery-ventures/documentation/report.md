@@ -10,7 +10,7 @@ the merged shape of `data/collection/COLLECTION.md`.
 
 | | |
 |---|---|
-| **Published base** | **658 companies** |
+| **Published base** | **655 companies**, ingested 2026-09-24 (658 at close; three renamed companies merged before the ingest, see the last addendum) |
 | Tiers | A 599 (91%) · B 56 · C 3 |
 | Excluded, preserved in `excluded.json` | **336** |
 | Membership verdicts on the ledger | 1,081 · 0 uncertain |
@@ -317,8 +317,10 @@ session in the wave takes it.
 
 ## Prompt count
 
-**2** at close — the kickoff and one "continue". The ingest approval will make
-it 3.
+**2** at close — the kickoff and one "continue". **5 final** (2026-09-24): two
+more on profile prose (Erik's request to keep filing and pipeline vocabulary and
+em-dashes out of the rendered fields, which covered every book, Battery first)
+and the ingest approval.
 
 ## Addendum 2026-09-17 — S2A re-judged under the status contract
 
@@ -453,3 +455,57 @@ of a "sidechain" shutdown that fits an unrelated crypto project named Rally,
 so the identity is worth a second look. **Panjiva**'s entry is either 2008
 (Battery's listing) or 2012 (its only Form D); both readings are a no before
 the 2018 S&P Global acquisition.
+
+## Addendum 2026-09-24: ingested (Erik approved)
+
+Erik approved the ingest in this session ("please ingest battery now").
+**655 companies are live**, the investor row is written, the icon is in the
+Icon Images bucket, and the readback is clean.
+
+**One correction before the write: three renamed companies merged,
+658 to 655** (b1ce5ce). `verify` reported three pairs of rows on one SEC
+registrant, the check that caught OkamiAI and 7AI on Greylock the same day.
+EDGAR's former names confirm each pair is one company under two names:
+eCredit.com became Cortera in 2008, Parallan Computer became Meridian Data
+in 1995, and SynQuest took the Viewlocity name after the two merged in 2002.
+SynQuest's only Battery trace is a 2002 ownership filing from the merger
+year, which reads as merger consideration, so the sale-consideration rule
+would have removed it anyway; either reading ends at one row. The current
+name is canonical in each. Applied surgically, as Khosla did for
+TraceVector: the merges are recorded in `identity-merges.json` with the
+name pinned, for the next real rebuild, and the duplicates' listing years
+and filings are folded into the survivors. All six rows were acquired and
+below $1B, so no band, rate or $1B+ count moved.
+
+**Order, as §9 sets it for a first ingest.**
+
+1. Icon: the wordmark SVG chosen at profile time, re-measured under the
+   current rules before upload (box 74%, radius 76%, contrast 10.8:1,
+   ramp 1.25px, vector so exempt from the upscale rule, no override flag),
+   published as `investors/battery-ventures-03d27f0f4a.png`.
+2. `ingest-investor.ts --investors name=battery-ventures`, filtered, so no
+   other investor's row was touched.
+3. `ingest-companies.ts battery-ventures`: the dry run planned 655 new,
+   0 removed, from 0 live, and the write matched it.
+
+**Readback** (`scratch/battery-readback.ts`, read-only): 655 live against
+655 in `base.csv`, none missing either way, zero differing cells across the
+nine shared columns (`valuation_asof` compared as the date column it is).
+The investor row matches `investor.json`; `investment_range`, `aum` and
+`funds` differ only in key order. The computed figures match `verify`:
+45 at $1B+, 12 at $10B+, 1 at $100B+; S2A 41.5% on a cohort of 41
+(17 graduated, 3 censored, 44 seed entries); 610 nameable companies in the
+track record, 45 unnameable rows excluded from every metric.
+
+**Not measured: rule 10 against Khosla.** Khosla's
+`scratch/in-flight.json` (written 15:56, a minute before its ingest commit,
+and committed with it) is still present, so `verify` skips Khosla as in
+flight. Battery agrees with every other book: 220 shared rows, 206 agree,
+14 accepted, 0 disagree. The Battery-Khosla pairs are unmeasured until that
+marker is closed.
+
+**Carried, none blocking:** 45 rows of city debt within the recorded count;
+about 25 names that the 2026-09-24 name rule will change (12 in capitals,
+16 with a legal suffix, INTERWORLD CORP in both; a few such as AMSC are
+letter-read and stay), left for PRO-146 because each is a rename in the
+database and belongs in one deliberate pass; and the open rulings above.
