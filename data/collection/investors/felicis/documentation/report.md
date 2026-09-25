@@ -573,3 +573,26 @@ For Erik, from this pass:
 
 S2A moves from 48.9% on 174 to 49.7% on 173 (Bright graduates, Deeptrace
 leaves the cohort as censored). `verify` is clean.
+
+### Fourteen more duplicates merged (Erik, 2026-09-24)
+
+Each pair was one company under an old and a new name (or a product and its
+company), listed twice. Merged in `identity-merges.json`, keeping the name
+the live row already carried, so the database only loses the duplicate:
+Arena ← LM Arena, humans& ← Humansand, Planet ← Planet Labs, Recursion ←
+Recursion Pharmaceuticals, Guild ← Guild Education, Greenhouse Software ←
+Greenhouse, Nimble ← NimbleRx, Atspoke ← Spoke, VoiceStar ← Marchex
+(Voicestar), Mark One ← Vessyl, Webs ← Freewebs, KiwiCo ← KiwiCrate, The
+Climate Corporation ← Weatherbill, Komodo Health ← Komodo. 491 → 477 rows.
+
+Where the two rows disagreed, the merged row takes the evidenced value:
+
+- **Arena** now reads $1.7B (1b_plus), from the January 2026 Series A Felicis
+  led; the Arena row had missed it. a16z's and Lightspeed's books agree.
+- **Guild** now reads private, $4.4B (June 2022). Its "acquired" came from
+  being aligned with YC's GUILD (guildai.co), a different company; the pair is
+  now under `distinct` in `cross-investor.json`. Redpoint's book agrees.
+- **Webs** takes Freewebs's 2007 entry date, the firm's earliest listing.
+
+`config.json`'s known-position guard now names "webs" for "freewebs". S2A
+reads 50.0% on 168 (was 49.7% on 173). `verify` is clean.
