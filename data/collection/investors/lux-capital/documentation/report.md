@@ -595,3 +595,37 @@ For Erik, from this pass:
   tobacco-equipment firm. The `site_url` column for both rows still records
   the link Lux publishes, because it is evidence of what the firm lists, the
   builder has no override for it, and it never reaches the database.
+
+## Addendum 2026-09-24: the §14 incident happened again, and is now fixed at the source
+
+The three fixes §14 proposed were never made, so the incident repeated. At
+19:26:51 UTC an ingest of Greylock or Khosla ran `ingest-investor.ts` without
+a filter. The script wrote every investor on disk, which created database rows
+for **8VC and Battery**: both still waiting on Erik's ingest approval, both
+with zero companies, both carrying the placeholder `icon_url` their sessions
+had left on disk. 8VC's (`cdn.prod.website-files.com`) is a host `next.config`
+does not allow, so the leaderboard threw for every visitor until it was
+cleared.
+
+Repaired the same way as in §14: `icon_url` cleared on rows with a non-bucket
+icon **and** zero companies (8VC and Battery), prior values kept. Battery's
+session then uploaded its real icon to the bucket minutes later. The two
+unapproved rows still exist; deleting them, or leaving them for their own
+ingests to fill, is Erik's call.
+
+Fixes 1 and 2 from §14 are now applied (`53e6b6d`):
+
+1. A bare slug means that investor, running with no target refuses, and a
+   whole-table write needs an explicit `--investors all`.
+2. An `icon_url` outside the Icon Images bucket is refused (the investor is
+   skipped and the run exits 1), so a placeholder can no longer reach the
+   database even on a deliberate whole-table write.
+
+Fix 3 (the app should not crash on a bad icon host) is not done: the ingest
+gate now stops the bad value at the source, which is where Erik fixes this
+class.
+
+Separately, PRO-149 ("AUM 10.5B - 10.5B for Lux"): the page printed a
+single sworn AUM as a range of itself. That is a display fix, not a Lux data
+error (`ea180a3`); Lux now reads "~$11.2B". The 10.5B in the issue title is
+Greylock's figure; the same defect showed on 16 of the 20 investors.
