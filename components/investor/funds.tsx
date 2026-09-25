@@ -50,7 +50,10 @@ function formatAum(range: AumRange | null): string {
   const bottom = isNumber(range.bottom) ? `$${formatCurrencyShort(range.bottom)}` : null;
   const top = isNumber(range.top) ? `$${formatCurrencyShort(range.top)}` : null;
 
-  if (bottom && top) {
+  // A single sworn figure is stored with both ends equal (an exempt reporting
+  // adviser's Form ADV gives one number, not a range), and two different ends
+  // can also round to the same label. Either way it reads as one number.
+  if (bottom && top && bottom !== top) {
     return `~${bottom} - ${top}`;
   }
 
