@@ -21,30 +21,23 @@
    "value": "https://www.ycombinator.com"
   },
   "icon_url": {
-   "basis": "Null until the icon upload that runs with YC's approved ingest (Erik, 2026-09-24, PRO-148). It was the placeholder 'pending-upload', which a whole-table ingest pushed to the live row and the leaderboard rendered as a broken image. The normalised master is ready at sources/icon/yc-256.png (provenance below); the upload writes the real URL here. Note: build-firm-profile.py refuses to run while this is null, which is the intended loud failure until then.",
-   "sources": [
-    {
-     "source": "YC favicon, 256x256 PNG inside an .ico",
-     "url": "https://bookface-static.ycombinator.com/assets/ycdc/favicon-c8a914eeeba9fe6f7a863b35608b55aeedd7c1ff409c97b9ecb96b7a6c278d70.ico"
-    }
-   ],
-   "value": null,
+   "value": "https://lsohkkmdlrlixukuncjl.supabase.co/storage/v1/object/public/Icon%20Images/investors/y-combinator-a0ee7f5c5d.png",
+   "source": "data/collection/investors/y-combinator/sources/icon/yc-source-256.png",
+   "basis": "fetched 2026-09-25 by scripts/fetch-investor-icon.ts from data/collection/investors/y-combinator/sources/icon/yc-source-256.png: png 256x256, artwork 136px in the source → 136px in the 256px master (1.00x); plate: source is self-backing (opaque-plate), kept; safe area: already within the keyline (box 53%, radius 65%); WARNING: artwork contrast against its background is 2.87:1, below the 3:1 minimum. Published with --allow-low-contrast.; master 256x256 opaque-plate rgb(252,100,4) opaque=100% box=53% radius=65% contrast=2.9:1 ramp=0.74px; published with --allow-low-contrast (brand plate accepted by Erik)",
    "provenance": {
     "source_url": "data/collection/investors/y-combinator/sources/icon/yc-source-256.png",
-    "origin_url": "https://bookface-static.ycombinator.com/assets/ycdc/favicon-c8a914eeeba9fe6f7a863b35608b55aeedd7c1ff409c97b9ecb96b7a6c278d70.ico",
-    "format": "png (largest member of the site's .ico)",
+    "format": "png",
     "width": 256,
     "height": 256,
     "vector": false,
     "artwork_source_px": 136,
     "artwork_master_px": 136,
-    "upscale": 1.0,
+    "upscale": 1,
     "ramp_px": 0.74,
     "master_size": 256,
-    "fetched": "2026-09-15",
+    "fetched": "2026-09-25",
     "allow_upscale": false,
-    "allow_low_contrast": true,
-    "note": "YC's own mark: a white Y on the brand's orange plate rgb(252,100,4). Measured 2.87:1 against the 3:1 floor and published with --allow-low-contrast, as USV was: the plate is the brand's own colour and a substitute plate would misrepresent the mark. Not enlarged (1.00x), ramp 0.74 px."
+    "allow_low_contrast": true
    }
   },
   "founding_year": {
