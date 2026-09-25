@@ -23,6 +23,59 @@ const DERIVED_COLUMNS = [
   "company_focus_distribution",
 ] as const;
 
+// Shape gate for the two columns the investor page's Funds section reads.
+// components/investor/funds.tsx and normalizeFundSizes both expect `funds` as
+// {funds: [...]} and `aum` as {bottom, top}. Both are jsonb, so the database
+// accepts any shape, and a wrong one renders as "Fund details coming soon"
+// beside a real AUM: that is how Menlo's 24 funds and Battery's 17 went
+// unseen. The row is refused rather than repaired, so the source file is what
+// gets corrected. A column is checked only when this run writes it.
+function validateInvestorShape(
+  row: Record<string, any>,
+  writes: (column: string) => boolean
+): string[] {
+  const errors: string[] = [];
+  const kind = (value: unknown) => (Array.isArray(value) ? "an array" : typeof value);
+
+  if (writes("funds") && row.funds != null) {
+    const funds = row.funds;
+    if (typeof funds !== "object" || Array.isArray(funds)) {
+      errors.push(`funds: expected an object {funds: [...]}, got ${kind(funds)}`);
+    } else if (!Array.isArray(funds.funds)) {
+      errors.push(`funds.funds: expected an array of funds, got ${kind(funds.funds)}`);
+    } else {
+      funds.funds.forEach((fund: unknown, i: number) => {
+        if (!fund || typeof fund !== "object" || Array.isArray(fund)) {
+          errors.push(`funds.funds[${i}]: expected an object, got ${kind(fund)}`);
+          return;
+        }
+        const entry = fund as Record<string, unknown>;
+        if (typeof entry.name !== "string" || !entry.name.trim()) {
+          errors.push(`funds.funds[${i}]: missing name`);
+        }
+        if (entry.vintage != null && !Number.isInteger(entry.vintage)) {
+          errors.push(`funds.funds[${i}]: vintage ${JSON.stringify(entry.vintage)} is not a year`);
+        }
+      });
+    }
+  }
+
+  if (writes("aum") && row.aum != null) {
+    const aum = row.aum;
+    if (typeof aum !== "object" || Array.isArray(aum)) {
+      errors.push(`aum: expected an object {bottom, top}, got ${kind(aum)}`);
+    } else {
+      for (const bound of ["bottom", "top"] as const) {
+        if (aum[bound] != null && typeof aum[bound] !== "number") {
+          errors.push(`aum.${bound}: expected a number or null, got ${JSON.stringify(aum[bound])}`);
+        }
+      }
+    }
+  }
+
+  return errors;
+}
+
 function determineTargetSlugs(
   filter: ReturnType<typeof parseFlags>["investors"],
   investorType: "Institutional" | "Individual"
@@ -60,6 +113,7 @@ async function main() {
 
   const supabase = createClient<Database>(url, serviceKey);
   let taxonomyRejects = 0;
+  let shapeRejects = 0;
 
   // Process both investor types
   for (const investorType of ["Institutional", "Individual"] as const) {
@@ -122,6 +176,19 @@ async function main() {
             `These are machine-owned (recompute_investor_metrics derives them from ` +
             `public.companies); remove them from the investor.json file.`
         );
+      }
+
+      // Only institutional rows publish funds and AUM (the individual side is
+      // forced null below), so only they are held to the shape.
+      const writes = (column: string) =>
+        investorType === "Institutional" &&
+        (!flags.columns || flags.columns.includes(column));
+      const shapeErrors = validateInvestorShape(investorData, writes);
+      if (shapeErrors.length > 0) {
+        console.error(`✗ Skipping ${slug}: ${shapeErrors.length} shape violation(s)`);
+        shapeErrors.forEach((error) => console.error(`    ${error}`));
+        shapeRejects += 1;
+        continue;
       }
 
       if (!investorData.updated_at) {
@@ -231,6 +298,14 @@ async function main() {
     console.error(
       `\n✗ ${taxonomyRejects} investor(s) rejected on taxonomy violations. ` +
         `Valid values live in data/taxonomy/.`
+    );
+    process.exitCode = 1;
+  }
+
+  if (shapeRejects > 0) {
+    console.error(
+      `\n✗ ${shapeRejects} investor(s) rejected on shape violations. ` +
+        `Fix the investor.json file; the ingest does not repair shapes.`
     );
     process.exitCode = 1;
   }
