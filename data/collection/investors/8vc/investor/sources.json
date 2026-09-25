@@ -1,619 +1,617 @@
 {
- "fields": {
-  "name": {
-   "source": "https://www.8vc.com",
-   "value": "8VC",
-   "basis": "the firm's trading name; its Form ADV primary business name is EIGHT PARTNERS VC, LLC (CRD 283031, SEC 801-134666) with '8VC' filed as an other business name on Schedule D Section 1.B in all 50 states"
-  },
-  "website": {
-   "source": "https://www.8vc.com",
-   "value": "https://www.8vc.com",
-   "basis": "live site"
-  },
-  "icon_url": {
-   "source": "https://cdn.prod.website-files.com/622f20536085ed0c3c604069/62503a64f26d50803f4aedce_8VC-Webclip.png",
-   "value": "https://cdn.prod.website-files.com/622f20536085ed0c3c604069/62503a64f26d50803f4aedce_8VC-Webclip.png",
-   "basis": "PLACEHOLDER pointing at the measured source until the gated upload \u2014 the bucket write runs with the ingest, after Erik's approval (\u00a79). Source chosen by MEASUREMENT with --discover, not by taking the first favicon: the site's shortcut icon is 32x32 and would be upscaled 8x (the Thrive trap), so the apple-touch webclip at 256x256 is the only publishable declared asset. Dry-run normalisation passes every rule with room: the source is self-backing (opaque plate rgb(12,12,12), 100% opaque), artwork goes 224px -> 189px in the 256px master (0.84x, no enlargement), the safe area scales the box from 88% to 74% and the radius from 90% to 76%, glyph-to-plate contrast is 10.1:1 against the 3:1 floor, and the master's edge ramp measures 0.97px against the 2px limit.",
-   "provenance": {
-    "source_url": "https://cdn.prod.website-files.com/622f20536085ed0c3c604069/62503a64f26d50803f4aedce_8VC-Webclip.png",
-    "format": "png",
-    "width": 256,
-    "height": 256,
-    "vector": false,
-    "artwork_source_px": 224,
-    "artwork_master_px": 189,
-    "upscale": 0.844,
-    "ramp_px": 0.97,
-    "master_size": 256,
-    "fetched": "2026-09-07",
-    "allow_upscale": false,
-    "allow_low_contrast": false,
-    "dry_run": true,
-    "uploaded": false
-   }
-  },
-  "founding_year": {
-   "source": "https://www.8vc.com/about-us",
-   "value": 2015,
-   "basis": "8VC was formed in the 2015 Formation 8 breakup; its adviser Eight Partners VC, LLC and its first fund vehicles (Eight Partners Fund 1, L.P., Form D 2015-11-17) both date from that year"
-  },
-  "history": {
-   "source": "https://www.8vc.com/about-us",
-   "value": "8VC was founded in 2015 when Formation 8, the firm Joe Lonsdale had co-founded in 2011 with Jim Kim and Brian Koo, broke up; Lonsdale left with about fifteen of Formation 8's twenty-five people and the new firm registered as Eight Partners VC, LLC, filing its first fund under that legal name (Eight Partners VC Fund I, L.P., 2016) before the 8VC brand appeared on the vehicles. The breakup produced three firms: 8VC, Brian Koo's Formation Group in Asia, and Lior Susan's Eclipse Ventures out of the hardware fund. Formation8 Partners, LLC survives all three as a separate management company still jointly controlled by the original founders. 8VC moved from San Francisco to Austin around 2020 and keeps an office at Pier 5. The firm's own practice is as much company formation as investment: 8VC Build has co-founded companies whose names it puts on the vehicles themselves (8VC Build Saronic SPV, 8VC Build NRI), and Lonsdale's own record with Palantir in 2003, Addepar in 2009 and OpenGov in 2012 is founder track record rather than fund positions. The venture book runs through defence and government (Anduril, Saronic, Epirus, Oklo, Chaos), healthcare and life sciences (Orca Bio, Commure, Cityblock, Resilience), logistics and supply chain (Flexport, project44, Deliverr, Trackonomy) and enterprise software and AI (Vercel, Cognition, Airbyte, Yugabyte, Ramp). Fund V closed at $880M in 2023, Fund VI at $998M in 2025 and Fund VII in 2026.",
-   "basis": "the firm's own about page and 2016 team page (which calls Formation 8 'the precursor fund to 8VC'), its fund announcement posts, the Form ADVs of Eight Partners VC, LLC and Formation8 Partners, LLC, and this run's own base"
-  },
-  "investment_concept": {
-   "source": "https://www.8vc.com/our-thesis",
-   "value": "Backs and co-founds companies that rebuild the operating systems of large, slow industries: defence and government, healthcare, logistics and financial services. It writes first checks at seed and follows into later rounds through Entrepreneurs, Opportunities and single-deal vehicles. The firm's Build practice starts companies itself rather than only funding them, which is why a third of its own vehicles are named for one company and one round.",
-   "basis": "the firm's own thesis page, whose six cornerstones are Infrastructure, IT, Biology, Healthcare, Government & Defense and Logistics, reconciled against the landed focus distribution"
-  },
-  "investment_stage": {
-   "source": "data/collection/investors/8vc/base.csv",
-   "value": [
-    "Pre-Seed",
-    "Seed",
-    "Series A",
-    "Growth"
-   ],
-   "basis": "the landed entry_stage distribution over 254 members \u2014 Seed 140, Growth 81, Series A 31, Pre-Seed 2 \u2014 plus the fund architecture (flagship, Entrepreneurs, Opportunities and single-deal SPV vehicles). DERIVED, not taken from a site filter: 8vc.com publishes no stage filter."
-  },
-  "investment_geo": {
-   "source": "data/collection/investors/8vc/base.csv",
-   "value": {
-    "core": [
-     "US"
-    ],
-    "other": [
-     "Israel"
-    ]
-   },
-   "basis": "hq_country over the landed base: US 242, Israel 3, UK 2, Canada 2, India 2, Brazil 1, Colombia 1, Australia 1. A single core label, well inside the two-label cap. DERIVED: the site publishes no geography filter."
-  },
-  "investment_scope": {
-   "source": "data/collection/investors/8vc/base.csv",
-   "value": {
-    "type": "Generalist",
-    "focus": [
-     "Healthcare & Bio",
-     "SaaS",
-     "Fintech & Payments",
-     "AI & Applied AI",
-     "Consumer & Marketplaces",
-     "Industrial & Robotics"
-    ]
-   },
-   "basis": "recomputed from the grind's focus column over the landed base (Healthcare & Bio 78, SaaS 38, Fintech & Payments 28, AI & Applied AI 26, Consumer & Marketplaces 24, Industrial & Robotics 19), which covers 98% of member rows \u2014 far above \u00a711's 25% representativeness bar. RECONCILIATION FLAG: the firm's own thesis names Government & Defense as a cornerstone and the site tags 13 companies with it, but the taxonomy has no defence value, so those rows land under Industrial & Robotics (hardware: Anduril, Saronic, Epirus, Chaos, CX2, Overland AI) and SaaS (govtech: OpenGov, Indigov, Promise). The gap is the taxonomy's, not the firm's, and is reported rather than papered over."
-  },
-  "investment_range": {
-   "source": "data/collection/investors/8vc/sources/edgar/formd-issuer-rounds.json",
-   "value": {
-    "lower_limit": 500000,
-    "median": 16000000,
-    "upper_limit": 250000000
-   },
-   "basis": "Three legs per \u00a711. MEDIAN: the Form D entry-round distribution over the 51 members whose entry round is on a filing \u2014 median $15.8M, quartiles $8.2M and $32.2M \u2014 rounded to $16M. This is a ROUND-SIZE proxy for check size and is fair only for a high-ownership lead investor; 8VC leads or co-leads most of its seeds, which is the condition, but the flag says so. LOWER LIMIT: the smallest partner-anchored round in the same set, Motherly's $500K. UPPER LIMIT: the largest round 8VC is documented to have co-led, Epirus's $250M Series D (TechCrunch, 2025-03-04), which is consistent with a 10-15% single-position concentration of a ~$1.5B flagship."
-  },
-  "notable_investments": {
-   "source": "data/collection/investors/8vc/base.csv",
-   "value": [
-    "Anduril",
-    "Saronic",
-    "Addepar",
-    "Oklo",
-    "Ramp",
-    "Vercel",
-    "Cognition",
-    "Epirus",
-    "Flexport",
-    "Joby",
-    "Orca Bio",
-    "Commure",
-    "project44",
-    "Deliverr",
-    "Airbyte",
-    "Yugabyte",
-    "Twingate",
-    "Resilience",
-    "Erebor",
-    "Hims"
-   ],
-   "basis": "recognition over the ledger-confirmed base only. Every name is a member on this run's ledger; the Formation 8-era names a reader might expect (Palantir, Oscar, Wish, Illumio, OpenGov, Guardant Health) are deliberately absent because Delta A rules them out."
-  },
-  "aum": {
-   "source": "https://reports.adviserinfo.sec.gov/reports/ADV/283031/PDF/283031.pdf",
-   "value": {
-    "bottom": 13379484700,
-    "top": 13379484700
-   },
-   "basis": "Form ADV of 2026-04-16, Item 5.F.(2): $13,379,484,700 of regulatory assets under management across 65 discretionary accounts, all of it discretionary and none attributable to non-US persons. Both ends are the same sworn number: Eight Partners VC, LLC is an SEC-REGISTERED adviser with one relying adviser (Kodiak Holdings Capital Management, LP) inside the same umbrella, so there is no in-boundary ERA to add and no second sworn figure \u2014 the Lightspeed shape, not the Accel one. FLAG: the firm's own site says it manages 'over $6 billion in capital' (Joe Lonsdale's team-page bio), which sits FAR BELOW the sworn RAUM; RAUM is gross and includes uncalled commitments while the site figure reads like called capital, so \u00a711 puts the press figure in this flag rather than in the range."
-  },
-  "funds": {
-   "source": "data/collection/investors/8vc/sources/edgar/fund-formds.json",
-   "value": [
-    {
-     "name": "8VC Fund VII, L.P.",
-     "size": 1500000000,
-     "vintage": 2026
+  "fields": {
+    "name": {
+      "source": "https://www.8vc.com",
+      "value": "8VC",
+      "basis": "the firm's trading name; its Form ADV primary business name is EIGHT PARTNERS VC, LLC (CRD 283031, SEC 801-134666) with '8VC' filed as an other business name on Schedule D Section 1.B in all 50 states"
     },
-    {
-     "name": "8VC Fund VI, L.P.",
-     "size": 998000000,
-     "vintage": 2025
+    "website": {
+      "source": "https://www.8vc.com",
+      "value": "https://www.8vc.com",
+      "basis": "live site"
     },
-    {
-     "name": "8VC Fund V, L.P.",
-     "size": 880000000,
-     "vintage": 2023
+    "icon_url": {
+      "value": "https://lsohkkmdlrlixukuncjl.supabase.co/storage/v1/object/public/Icon%20Images/investors/8vc-800a6c305d.png",
+      "source": "https://cdn.prod.website-files.com/622f20536085ed0c3c604069/62503a64f26d50803f4aedce_8VC-Webclip.png",
+      "basis": "fetched 2026-09-25 by scripts/fetch-investor-icon.ts from https://cdn.prod.website-files.com/622f20536085ed0c3c604069/62503a64f26d50803f4aedce_8VC-Webclip.png: png 256x256, artwork 224px in the source → 189px in the 256px master (0.84x); plate: source is self-backing (opaque-plate), kept; safe area: artwork scaled 0.846 (box 88%→74%, radius 90%→76%); master 256x256 opaque-plate rgb(12,12,12) opaque=100% box=74% radius=76% contrast=10.1:1 ramp=0.97px",
+      "provenance": {
+        "source_url": "https://cdn.prod.website-files.com/622f20536085ed0c3c604069/62503a64f26d50803f4aedce_8VC-Webclip.png",
+        "format": "png",
+        "width": 256,
+        "height": 256,
+        "vector": false,
+        "artwork_source_px": 224,
+        "artwork_master_px": 189,
+        "upscale": 0.844,
+        "ramp_px": 0.97,
+        "master_size": 256,
+        "fetched": "2026-09-25",
+        "allow_upscale": false,
+        "allow_low_contrast": false
+      }
     },
-    {
-     "name": "8VC Fund IV, L.P.",
-     "size": 880000000,
-     "vintage": 2021
+    "founding_year": {
+      "source": "https://www.8vc.com/about-us",
+      "value": 2015,
+      "basis": "8VC was formed in the 2015 Formation 8 breakup; its adviser Eight Partners VC, LLC and its first fund vehicles (Eight Partners Fund 1, L.P., Form D 2015-11-17) both date from that year"
     },
-    {
-     "name": "8VC Fund III, L.P.",
-     "size": 640000000,
-     "vintage": 2020
+    "history": {
+      "source": "https://www.8vc.com/about-us",
+      "value": "8VC was founded in 2015 when Formation 8, the firm Joe Lonsdale had co-founded in 2011 with Jim Kim and Brian Koo, broke up; Lonsdale left with about fifteen of Formation 8's twenty-five people and the new firm registered as Eight Partners VC, LLC, filing its first fund under that legal name (Eight Partners VC Fund I, L.P., 2016) before the 8VC brand appeared on the vehicles. The breakup produced three firms: 8VC, Brian Koo's Formation Group in Asia, and Lior Susan's Eclipse Ventures out of the hardware fund. Formation8 Partners, LLC survives all three as a separate management company still jointly controlled by the original founders. 8VC moved from San Francisco to Austin around 2020 and keeps an office at Pier 5. The firm's own practice is as much company formation as investment: 8VC Build has co-founded companies whose names it puts on the vehicles themselves (8VC Build Saronic SPV, 8VC Build NRI), and Lonsdale's own record with Palantir in 2003, Addepar in 2009 and OpenGov in 2012 is founder track record rather than fund positions. The venture book runs through defence and government (Anduril, Saronic, Epirus, Oklo, Chaos), healthcare and life sciences (Orca Bio, Commure, Cityblock, Resilience), logistics and supply chain (Flexport, project44, Deliverr, Trackonomy) and enterprise software and AI (Vercel, Cognition, Airbyte, Yugabyte, Ramp). Fund V closed at $880M in 2023, Fund VI at $998M in 2025 and Fund VII in 2026.",
+      "basis": "the firm's own about page and 2016 team page (which calls Formation 8 'the precursor fund to 8VC'), its fund announcement posts, the Form ADVs of Eight Partners VC, LLC and Formation8 Partners, LLC, and this run's own base"
     },
-    {
-     "name": "8VC Fund II, L.P.",
-     "size": 640000000,
-     "vintage": 2018
+    "investment_concept": {
+      "source": "https://www.8vc.com/our-thesis",
+      "value": "Backs and co-founds companies that rebuild the operating systems of large, slow industries: defence and government, healthcare, logistics and financial services. It writes first checks at seed and follows into later rounds through Entrepreneurs, Opportunities and single-deal vehicles. The firm's Build practice starts companies itself rather than only funding them, which is why a third of its own vehicles are named for one company and one round.",
+      "basis": "the firm's own thesis page, whose six cornerstones are Infrastructure, IT, Biology, Healthcare, Government & Defense and Logistics, reconciled against the landed focus distribution"
     },
-    {
-     "name": "Eight Partners VC Fund I, L.P.",
-     "size": 425000000,
-     "vintage": 2016
+    "investment_stage": {
+      "source": "data/collection/investors/8vc/base.csv",
+      "value": [
+        "Pre-Seed",
+        "Seed",
+        "Series A",
+        "Growth"
+      ],
+      "basis": "the landed entry_stage distribution over 254 members — Seed 140, Growth 81, Series A 31, Pre-Seed 2 — plus the fund architecture (flagship, Entrepreneurs, Opportunities and single-deal SPV vehicles). DERIVED, not taken from a site filter: 8vc.com publishes no stage filter."
     },
-    {
-     "name": "8VC Opportunities Fund II, L.P.",
-     "size": 300000000,
-     "vintage": 2021
+    "investment_geo": {
+      "source": "data/collection/investors/8vc/base.csv",
+      "value": {
+        "core": [
+          "US"
+        ],
+        "other": [
+          "Israel"
+        ]
+      },
+      "basis": "hq_country over the landed base: US 242, Israel 3, UK 2, Canada 2, India 2, Brazil 1, Colombia 1, Australia 1. A single core label, well inside the two-label cap. DERIVED: the site publishes no geography filter."
     },
-    {
-     "name": "8VC Entrepreneurs Fund VII, L.P.",
-     "size": null,
-     "vintage": 2026
+    "investment_scope": {
+      "source": "data/collection/investors/8vc/base.csv",
+      "value": {
+        "type": "Generalist",
+        "focus": [
+          "Healthcare & Bio",
+          "SaaS",
+          "Fintech & Payments",
+          "AI & Applied AI",
+          "Consumer & Marketplaces",
+          "Industrial & Robotics"
+        ]
+      },
+      "basis": "recomputed from the grind's focus column over the landed base (Healthcare & Bio 78, SaaS 38, Fintech & Payments 28, AI & Applied AI 26, Consumer & Marketplaces 24, Industrial & Robotics 19), which covers 98% of member rows — far above §11's 25% representativeness bar. RECONCILIATION FLAG: the firm's own thesis names Government & Defense as a cornerstone and the site tags 13 companies with it, but the taxonomy has no defence value, so those rows land under Industrial & Robotics (hardware: Anduril, Saronic, Epirus, Chaos, CX2, Overland AI) and SaaS (govtech: OpenGov, Indigov, Promise). The gap is the taxonomy's, not the firm's, and is reported rather than papered over."
     },
-    {
-     "name": "Kodiak Fund I, L.P.",
-     "size": null,
-     "vintage": 2026
+    "investment_range": {
+      "source": "data/collection/investors/8vc/sources/edgar/formd-issuer-rounds.json",
+      "value": {
+        "lower_limit": 500000,
+        "median": 16000000,
+        "upper_limit": 250000000
+      },
+      "basis": "Three legs per §11. MEDIAN: the Form D entry-round distribution over the 51 members whose entry round is on a filing — median $15.8M, quartiles $8.2M and $32.2M — rounded to $16M. This is a ROUND-SIZE proxy for check size and is fair only for a high-ownership lead investor; 8VC leads or co-leads most of its seeds, which is the condition, but the flag says so. LOWER LIMIT: the smallest partner-anchored round in the same set, Motherly's $500K. UPPER LIMIT: the largest round 8VC is documented to have co-led, Epirus's $250M Series D (TechCrunch, 2025-03-04), which is consistent with a 10-15% single-position concentration of a ~$1.5B flagship."
+    },
+    "notable_investments": {
+      "source": "data/collection/investors/8vc/base.csv",
+      "value": [
+        "Anduril",
+        "Saronic",
+        "Addepar",
+        "Oklo",
+        "Ramp",
+        "Vercel",
+        "Cognition",
+        "Epirus",
+        "Flexport",
+        "Joby",
+        "Orca Bio",
+        "Commure",
+        "project44",
+        "Deliverr",
+        "Airbyte",
+        "Yugabyte",
+        "Twingate",
+        "Resilience",
+        "Erebor",
+        "Hims"
+      ],
+      "basis": "recognition over the ledger-confirmed base only. Every name is a member on this run's ledger; the Formation 8-era names a reader might expect (Palantir, Oscar, Wish, Illumio, OpenGov, Guardant Health) are deliberately absent because Delta A rules them out."
+    },
+    "aum": {
+      "source": "https://reports.adviserinfo.sec.gov/reports/ADV/283031/PDF/283031.pdf",
+      "value": {
+        "bottom": 13379484700,
+        "top": 13379484700
+      },
+      "basis": "Form ADV of 2026-04-16, Item 5.F.(2): $13,379,484,700 of regulatory assets under management across 65 discretionary accounts, all of it discretionary and none attributable to non-US persons. Both ends are the same sworn number: Eight Partners VC, LLC is an SEC-REGISTERED adviser with one relying adviser (Kodiak Holdings Capital Management, LP) inside the same umbrella, so there is no in-boundary ERA to add and no second sworn figure — the Lightspeed shape, not the Accel one. FLAG: the firm's own site says it manages 'over $6 billion in capital' (Joe Lonsdale's team-page bio), which sits FAR BELOW the sworn RAUM; RAUM is gross and includes uncalled commitments while the site figure reads like called capital, so §11 puts the press figure in this flag rather than in the range."
+    },
+    "funds": {
+      "source": "data/collection/investors/8vc/sources/edgar/fund-formds.json",
+      "value": [
+        {
+          "name": "8VC Fund VII, L.P.",
+          "size": 1500000000,
+          "vintage": 2026
+        },
+        {
+          "name": "8VC Fund VI, L.P.",
+          "size": 998000000,
+          "vintage": 2025
+        },
+        {
+          "name": "8VC Fund V, L.P.",
+          "size": 880000000,
+          "vintage": 2023
+        },
+        {
+          "name": "8VC Fund IV, L.P.",
+          "size": 880000000,
+          "vintage": 2021
+        },
+        {
+          "name": "8VC Fund III, L.P.",
+          "size": 640000000,
+          "vintage": 2020
+        },
+        {
+          "name": "8VC Fund II, L.P.",
+          "size": 640000000,
+          "vintage": 2018
+        },
+        {
+          "name": "Eight Partners VC Fund I, L.P.",
+          "size": 425000000,
+          "vintage": 2016
+        },
+        {
+          "name": "8VC Opportunities Fund II, L.P.",
+          "size": 300000000,
+          "vintage": 2021
+        },
+        {
+          "name": "8VC Entrepreneurs Fund VII, L.P.",
+          "size": null,
+          "vintage": 2026
+        },
+        {
+          "name": "Kodiak Fund I, L.P.",
+          "size": null,
+          "vintage": 2026
+        }
+      ],
+      "basis": "Section 7.B of the 2026-04-16 ADV lists 65 private funds plus Kodiak Fund I under the relying adviser; the table here lists the flagship and Opportunities vehicles and DESCRIBES the rest rather than listing them, per §11's rule for lettered and SPV vehicles. Sizes: Fund V $880M and Fund VI $998M from the firm's own announcement posts (2023-03-01 and 2025-03-04); Fund VII $1.5B from press; earlier funds from press. NO ACCESSION IS ASSERTED against a filed amount at all, because 8VC's L.P.s file 'Indefinite' offerings at $0 sold — the Lightspeed filing style, not the Accel one, so §11's $0-sold cross-check does not apply here and the sizes rest on the firm's own words with the filings as existence corroboration. Not listed, but counted: seven Entrepreneurs Funds, an eight-strong 8VC AI Fund LLC series, Angel Fund I, Co-Invest Fund I, the Access and Allocate Access feeders, and roughly thirty single-deal SPVs whose names encode the company and the round (see sources/edgar/spv-decode.json). Kodiak Fund I carried an accession in the first draft and the build refused it: its Form D declares a $50,000,000 offering with $0 SOLD, and §11's assertion is against TOTALAMOUNTSOLD, not against the offering. The accession and the size were both removed rather than the assertion weakened — an announced-but-unfunded first close has no size yet."
+    },
+    "hq_location": {
+      "value": "Austin, TX",
+      "source": "sources/offices.json",
+      "basis": "Principal office on the newest Form ADV: 907 South Congress Avenue, Austin, TX (EIGHT PARTNERS VC, LLC, CRD 283031, Other-Than-Annual Amendment filed 2026-04-16). The firm's site lists Austin, TX; San Francisco, CA; the principal office is among them, so the site agrees. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+      "sources": [
+        {
+          "source": "Form ADV Item 1.F and Schedule D 1.F, EIGHT PARTNERS VC, LLC (Other-Than-Annual Amendment filed 2026-04-16)",
+          "url": "https://reports.adviserinfo.sec.gov/reports/ADV/283031/PDF/283031.pdf"
+        },
+        {
+          "source": "the firm's own site, office list",
+          "url": "https://www.8vc.com/"
+        }
+      ]
+    },
+    "individuals": {
+      "value": [
+        {
+          "name": "Alex Kolicich",
+          "position": "Investment Team",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/alex-kolicich-b71732a",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Alex McLane",
+          "position": "Investment Team",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/alexander-mclane-58726122a/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Alex Moore",
+          "position": "Investment Team",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/alex-moore-4639b91/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Asanka Jayasuriya",
+          "position": "Investment Team",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/ajayasuriya/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Bela Becerra",
+          "position": "Investment Team",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/isabela-becerra-732939aa/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Drew Oetting",
+          "position": "Investment Team",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/drew-oetting-52463337",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Faith Zehfuss",
+          "position": "Investment Team",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/faith-zehfuss/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Francisco Gimenez",
+          "position": "Investment Team",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/franciscojosegimenez",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Jack Moshkovich",
+          "position": "Investment Team",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jack-moshkovich-b623ab149/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Jake Medwell",
+          "position": "Investment Team",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jakemedwellaustin/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Jin-Young Kim",
+          "position": "Investment Team",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jinyoungsarah/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Joe Lonsdale",
+          "position": "Investment Team",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/joe-lonsdale-6695a2",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Justin Rose",
+          "position": "Investment Team",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Karen White",
+          "position": "Investment Team",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/karen-white-65244755/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Kevin Niechen",
+          "position": "Investment Team",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/kevchn/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Nick Dolik",
+          "position": "Investment Team",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/ndolik/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Nick Penske",
+          "position": "Investment Team",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/nicholas-penske-846419120/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Sebastian Caliri",
+          "position": "Investment Team",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/sebastiancaliri/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Seth Lieblich",
+          "position": "Investment Team",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/seth-8vc/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Susan Liu",
+          "position": "Investment Team",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/susan-liu-52498817b",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Vivek Gopalan",
+          "position": "Investment Team",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/vivek-gopalan-697063104/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Zach White",
+          "position": "Investment Team",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/zachary-white-584807120/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Adrienne Alexander",
+          "position": "Operations",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/adrienne-alexander-797a6157/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Audrey Abbott",
+          "position": "Operations",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/audrey-abbott/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Ava Eitzen",
+          "position": "Portfolio Support",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/ava-eitzen-35865673/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Caroline Haun",
+          "position": "Operations",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/caroline-haun-65aab233/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Damon Lim",
+          "position": "Operations",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/damon-lim/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Denise Mendez",
+          "position": "Operations",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Deny Khoung",
+          "position": "Portfolio Support",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/denyk",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Erica Sun",
+          "position": null,
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/erica-sun-2138a031",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Evan Pun",
+          "position": "Portfolio Support",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Gabe Rosen",
+          "position": "Portfolio Support",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/gaberosen/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Ian Shannon",
+          "position": "Finance/Legal/IR",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/ianshannon/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Jack Roberson",
+          "position": "Finance/Legal/IR",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jack-roberson-cpa-0ab6671a2/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "James Piercy",
+          "position": "Portfolio Support",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jepiercy/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Jane Commerford",
+          "position": "Operations",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jane-commerford-b90244127/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Joel Hemmert",
+          "position": "Finance/Legal/IR",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Katherine Cahill",
+          "position": null,
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Luke Bugbee",
+          "position": "Portfolio Support",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/lukebugbee/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Luke Zane",
+          "position": "Portfolio Support",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Macenzie Walford",
+          "position": "Operations",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Madison McDonald",
+          "position": "Finance/Legal/IR",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Nichole Horton",
+          "position": "Finance/Legal/IR",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/nichole-horton/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Robin Kaufman",
+          "position": "Operations",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/robin-kaufman-4a7826/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Rohan Bhargava",
+          "position": "Finance/Legal/IR",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/rohanbhargava3/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Sallie Kim",
+          "position": "Finance/Legal/IR",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/salliekim/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Stephanie Watkins",
+          "position": "Operations",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Stephen Condon",
+          "position": "Finance/Legal/IR",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/condons/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Tyler Bates-Collier",
+          "position": "Operations",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/tylerbatescollier/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Vero St Germain",
+          "position": "Portfolio Support",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/veroniques/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        },
+        {
+          "name": "Yurie Lee",
+          "position": "Operations",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/yurielee/",
+            "x_url": "https://twitter.com/@8vc"
+          }
+        }
+      ],
+      "source": "sources/site/team-members.json",
+      "basis": "Live team CMS: 51 members. Positions are CMS titles (0 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 10 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 42 LinkedIn, 51 X. CORRECTION applied after the build: build-firm-profile.py mapped the investing role_bucket to the title 'Partner' for all 22 Investment Team members and left the other 29 null. 8vc.com publishes NO title for anyone — only the group — so 'Partner' is an inference the source does not support (the group holds principals and associates too). Positions are set to the site's own group label, per the Creandum rule that no title is inferred from LinkedIn or memory."
     }
-   ],
-   "basis": "Section 7.B of the 2026-04-16 ADV lists 65 private funds plus Kodiak Fund I under the relying adviser; the table here lists the flagship and Opportunities vehicles and DESCRIBES the rest rather than listing them, per \u00a711's rule for lettered and SPV vehicles. Sizes: Fund V $880M and Fund VI $998M from the firm's own announcement posts (2023-03-01 and 2025-03-04); Fund VII $1.5B from press; earlier funds from press. NO ACCESSION IS ASSERTED against a filed amount at all, because 8VC's L.P.s file 'Indefinite' offerings at $0 sold \u2014 the Lightspeed filing style, not the Accel one, so \u00a711's $0-sold cross-check does not apply here and the sizes rest on the firm's own words with the filings as existence corroboration. Not listed, but counted: seven Entrepreneurs Funds, an eight-strong 8VC AI Fund LLC series, Angel Fund I, Co-Invest Fund I, the Access and Allocate Access feeders, and roughly thirty single-deal SPVs whose names encode the company and the round (see sources/edgar/spv-decode.json). Kodiak Fund I carried an accession in the first draft and the build refused it: its Form D declares a $50,000,000 offering with $0 SOLD, and \u00a711's assertion is against TOTALAMOUNTSOLD, not against the offering. The accession and the size were both removed rather than the assertion weakened \u2014 an announced-but-unfunded first close has no size yet."
   },
-  "hq_location": {
-   "value": "Austin, TX",
-   "source": "sources/offices.json",
-   "basis": "Principal office on the newest Form ADV: 907 South Congress Avenue, Austin, TX (EIGHT PARTNERS VC, LLC, CRD 283031, Other-Than-Annual Amendment filed 2026-04-16). The firm's site lists Austin, TX; San Francisco, CA; the principal office is among them, so the site agrees. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
-   "sources": [
-    {
-     "source": "Form ADV Item 1.F and Schedule D 1.F, EIGHT PARTNERS VC, LLC (Other-Than-Annual Amendment filed 2026-04-16)",
-     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/283031/PDF/283031.pdf"
-    },
-    {
-     "source": "the firm's own site, office list",
-     "url": "https://www.8vc.com/"
-    }
-   ]
-  },
-  "individuals": {
-   "value": [
-    {
-     "name": "Alex Kolicich",
-     "position": "Investment Team",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/alex-kolicich-b71732a",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Alex McLane",
-     "position": "Investment Team",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/alexander-mclane-58726122a/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Alex Moore",
-     "position": "Investment Team",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/alex-moore-4639b91/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Asanka Jayasuriya",
-     "position": "Investment Team",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/ajayasuriya/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Bela Becerra",
-     "position": "Investment Team",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/isabela-becerra-732939aa/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Drew Oetting",
-     "position": "Investment Team",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/drew-oetting-52463337",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Faith Zehfuss",
-     "position": "Investment Team",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/faith-zehfuss/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Francisco Gimenez",
-     "position": "Investment Team",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/franciscojosegimenez",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Jack Moshkovich",
-     "position": "Investment Team",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/jack-moshkovich-b623ab149/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Jake Medwell",
-     "position": "Investment Team",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/jakemedwellaustin/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Jin-Young Kim",
-     "position": "Investment Team",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/jinyoungsarah/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Joe Lonsdale",
-     "position": "Investment Team",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/joe-lonsdale-6695a2",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Justin Rose",
-     "position": "Investment Team",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Karen White",
-     "position": "Investment Team",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/karen-white-65244755/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Kevin Niechen",
-     "position": "Investment Team",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/kevchn/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Nick Dolik",
-     "position": "Investment Team",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/ndolik/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Nick Penske",
-     "position": "Investment Team",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/nicholas-penske-846419120/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Sebastian Caliri",
-     "position": "Investment Team",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/sebastiancaliri/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Seth Lieblich",
-     "position": "Investment Team",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/seth-8vc/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Susan Liu",
-     "position": "Investment Team",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/susan-liu-52498817b",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Vivek Gopalan",
-     "position": "Investment Team",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/vivek-gopalan-697063104/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Zach White",
-     "position": "Investment Team",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/zachary-white-584807120/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Adrienne Alexander",
-     "position": "Operations",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/adrienne-alexander-797a6157/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Audrey Abbott",
-     "position": "Operations",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/audrey-abbott/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Ava Eitzen",
-     "position": "Portfolio Support",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/ava-eitzen-35865673/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Caroline Haun",
-     "position": "Operations",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/caroline-haun-65aab233/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Damon Lim",
-     "position": "Operations",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/damon-lim/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Denise Mendez",
-     "position": "Operations",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Deny Khoung",
-     "position": "Portfolio Support",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/denyk",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Erica Sun",
-     "position": null,
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/erica-sun-2138a031",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Evan Pun",
-     "position": "Portfolio Support",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Gabe Rosen",
-     "position": "Portfolio Support",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/gaberosen/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Ian Shannon",
-     "position": "Finance/Legal/IR",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/ianshannon/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Jack Roberson",
-     "position": "Finance/Legal/IR",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/jack-roberson-cpa-0ab6671a2/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "James Piercy",
-     "position": "Portfolio Support",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/jepiercy/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Jane Commerford",
-     "position": "Operations",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/jane-commerford-b90244127/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Joel Hemmert",
-     "position": "Finance/Legal/IR",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Katherine Cahill",
-     "position": null,
-     "socials": {
-      "linkedin_url": null,
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Luke Bugbee",
-     "position": "Portfolio Support",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/lukebugbee/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Luke Zane",
-     "position": "Portfolio Support",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Macenzie Walford",
-     "position": "Operations",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Madison McDonald",
-     "position": "Finance/Legal/IR",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Nichole Horton",
-     "position": "Finance/Legal/IR",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/nichole-horton/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Robin Kaufman",
-     "position": "Operations",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/robin-kaufman-4a7826/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Rohan Bhargava",
-     "position": "Finance/Legal/IR",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/rohanbhargava3/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Sallie Kim",
-     "position": "Finance/Legal/IR",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/salliekim/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Stephanie Watkins",
-     "position": "Operations",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Stephen Condon",
-     "position": "Finance/Legal/IR",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/condons/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Tyler Bates-Collier",
-     "position": "Operations",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/tylerbatescollier/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Vero St Germain",
-     "position": "Portfolio Support",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/veroniques/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    },
-    {
-     "name": "Yurie Lee",
-     "position": "Operations",
-     "socials": {
-      "linkedin_url": "https://www.linkedin.com/in/yurielee/",
-      "x_url": "https://twitter.com/@8vc"
-     }
-    }
-   ],
-   "source": "sources/site/team-members.json",
-   "basis": "Live team CMS: 51 members. Positions are CMS titles (0 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 10 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 42 LinkedIn, 51 X. CORRECTION applied after the build: build-firm-profile.py mapped the investing role_bucket to the title 'Partner' for all 22 Investment Team members and left the other 29 null. 8vc.com publishes NO title for anyone \u2014 only the group \u2014 so 'Partner' is an inference the source does not support (the group holds principals and associates too). Positions are set to the site's own group label, per the Creandum rule that no title is inferred from LinkedIn or memory."
-  }
- },
- "slug": "8vc",
- "generated_at": "2026-09-07T03:45:53+00:00",
- "run": "PRO-96"
+  "slug": "8vc",
+  "generated_at": "2026-09-07T03:45:53+00:00",
+  "run": "PRO-96"
 }

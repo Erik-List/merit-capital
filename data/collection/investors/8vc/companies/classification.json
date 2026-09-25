@@ -1097,13 +1097,21 @@
   "valuation_range": "below_1b"
  },
  "cambium": {
-  "flags": [],
+  "flags": [
+   "model_disputes_source"
+  ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
   "hq_city": "Berkeley",
   "hq_city_confidence": "medium",
   "hq_city_source": "formd_address",
-  "slug": "cambium"
+  "note": "Standing duty 3 and 8, caught in the post-ingest readback (2026-09-24): the float layer joined this row to CAMBIUM NETWORKS CORP (CIK 1738177, NASDAQ: CMBM) on a join it had itself marked cik_weak, and published it as a public company with a $5.4M float. 8VC's Cambium is the private Berkeley materials company (cambiumglobal.com) whose 2021-2025 Form Ds carry Francisco Gimenez. Status private; the wrong-entity figure is nulled.",
+  "slug": "cambium",
+  "status": "private",
+  "valuation_asof": null,
+  "valuation_range": "below_1b",
+  "valuation_source": null,
+  "valuation_usd": null
  },
  "candid-health": {
   "entry_date": "2022",
@@ -5900,6 +5908,7 @@
   "entry_stage_source": "web_verified",
   "flags": [
    "identity_homonym",
+   "model_disputes_source",
    "stage_disputes_band"
   ],
   "focus": "SaaS",
@@ -5910,10 +5919,14 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "Vector, freight-document and workflow software listed by 8VC under Logistics from 2019; acquired. A common name \u2014 a sibling run carries a Vector row acquired/below_1b, which is consistent, but the identity is worth confirming at alignment. | FinSMEs returns no results for Vector the freight-document company and the 8VC resources archive carries no post, so neither a dated seed nor a later round could be cited for this acquired 2019 listing. | IDENTIFIED, NAMESAKE RECORDED (PRO-136): Vector at withvector.com, the mobile-first workflow platform for shippers and carriers, listed by 8VC under Logistics from 2019. A common name, so the flag records it; a sibling run carries a Vector row reading acquired/below_1b, which is consistent and is confirmed at alignment rather than assumed. | PRO-132 review: FreightWaves (2019-04-08) reports Vector's $10M Series A 'led by Goldcrest Capital and 8VC', matching 8VC's 2019 listing; no seed names 8VC, so the entry is the Series A and the row takes no S2A.",
+  "note": "Vector, freight-document and workflow software listed by 8VC under Logistics from 2019; acquired. A common name \u2014 a sibling run carries a Vector row acquired/below_1b, which is consistent, but the identity is worth confirming at alignment. | FinSMEs returns no results for Vector the freight-document company and the 8VC resources archive carries no post, so neither a dated seed nor a later round could be cited for this acquired 2019 listing. | IDENTIFIED, NAMESAKE RECORDED (PRO-136): Vector at withvector.com, the mobile-first workflow platform for shippers and carriers, listed by 8VC under Logistics from 2019. A common name, so the flag records it; a sibling run carries a Vector row reading acquired/below_1b, which is consistent and is confirmed at alignment rather than assumed. | PRO-132 review: FreightWaves (2019-04-08) reports Vector's $10M Series A 'led by Goldcrest Capital and 8VC', matching 8VC's 2019 listing; no seed names 8VC, so the entry is the Series A and the row takes no S2A. | Standing duty 3, same audit: the 'acquired' status came pre-filled from VECTOR GROUP LTD (CIK 59440), the tobacco holding company, on a weak join. 8VC's Vector (withvector.com), freight-document and yard software, is private and operating: it ACQUIRED YardView in January 2026 (PR Newswire).",
   "seed_to_a_graduation": null,
   "slug": "vector",
+  "status": "private",
+  "valuation_asof": null,
   "valuation_range": "below_1b",
+  "valuation_source": null,
+  "valuation_usd": null,
   "who": "orchestrator-pro132"
  },
  "vercel": {

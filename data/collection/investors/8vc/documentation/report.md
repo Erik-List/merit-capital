@@ -392,3 +392,50 @@ amount, so neither the named-round rule nor the unnamed-round bar decides it;
 the judge chose graduated over an absence claim the release contradicts.
 **Twingate**'s entry date is the company's founding year (2019), since no
 dated seed exists.
+
+## Ingest 2026-09-24 (Erik's approval, this session)
+
+**250 companies live, investor row and icon published, readback exact.**
+
+Before the write, the book was brought up to the rulings made after the close
+(commit 41780a8, details in `decisions.md` R1 to R4):
+
+- **Delta A closed** by Erik's partner-carried ruling of 2026-09-17; three more
+  Formation 8 rows out on their round evidence (Radius, BuildZoom, Nyansa).
+- **Asana stays in**, on `fund_filing`: 8VC Fund I and Entrepreneurs Fund I signed
+  its pre-IPO investors' rights agreement (January-2020 DRS), so the T3 post-IPO
+  ruling does not reach it.
+- **Myeloid Therapeutics = CREATE Medicines** (rebranded 2025-10-06): folded, with
+  its decided entry and graduation carried onto `create`.
+- **City pass** under the city rule that landed today: 206 of 250 placed, 36
+  recorded unknown, 8VC taken off the city-debt ratchet. Two country conflicts
+  flagged, not corrected (Terra Industries, Abuja; Luminate Medical, Galway).
+- Four merge groups pin their names so the rebuild cannot publish legal-suffix
+  forms (Nest Health, Adentro, Pango, AMP).
+
+**Order, as §9 sets it for a first ingest:** icon upload
+(`investors/8vc-800a6c305d.png`; box 74%, radius 76%, contrast 10.1:1, ramp
+0.97px, no enlargement), `ingest-investor.ts 8vc` (the row an earlier Greylock/
+Khosla ingest had created by accident at 19:26 UTC, with a placeholder icon, was
+overwritten with the real profile), then `ingest-companies.ts 8vc`: dry run 250
+new, 0 removed, from 0 live; written to match.
+
+**Readback** (`scratch/8vc-readback.ts`, read-only): 250 live = 250 in
+`base.csv`, 0 differing cells across the nine shared columns; the investor row
+matches `investor.json` up to JSON key order. Computed figures match `verify`:
+23 / 3 / 0 at $1B+ / $10B+ / $100B+, 10 IPOs, S2A **58.9%** on a cohort of 56
+(69 seed entries, 13 censored).
+
+**A correction the readback forced, and a second write.** The first readback's
+IPO list carried **Cambium**: the float layer had joined 8VC's Cambium (the
+private Berkeley materials company) to Cambium Networks Corp, on a join it had
+itself marked `cik_weak`, and my close never ran standing duty 3 over it. Auditing
+all 110 weak joins found one more that had put a value on a published row:
+**Vector**, whose `acquired` status came from Vector Group Ltd, the tobacco
+holding company; 8VC's Vector (withvector.com) is private and bought YardView in
+January 2026. Both corrected and re-ingested (0 new, 0 removed); the second
+readback is the one quoted above. The same Vector Group float sits on
+`lightspeed:vector` and `y-combinator:vector` (as-of 2023-06-30); recorded in
+8VC's `distinct` rulings as a note for those books' owners, not fixed from here.
+
+**Prompt count: 3, final** (kickoff, continuation, ingest approval).
