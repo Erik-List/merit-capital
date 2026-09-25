@@ -626,3 +626,14 @@ aligning.
 For Erik: **Eagle** is censored on the firm's current card because every
 surface is name-collision noise and an upstream note suspects two companies
 conflated; it wants an identity pass.
+
+## Addendum 2026-09-24: Arena and Lmarena merged (Erik)
+
+The book carried LMArena twice: `arena` (the firm's current page,
+lsvp.com/company/arena) and `lmarena` (the 2025 archive). LMArena renamed
+itself Arena in January 2026, so it is one investment. Merged in
+`identity-merges.json`, keeping the name Arena. The merged row enters at
+Seed, since Lightspeed joined the $100M seed of May 2025 (the PR Newswire
+release names it), not the Series A the firm's card shows. It graduates on the
+$150M Series A at $1.7B (TechCrunch, 2026-01-06), and its country is US, not
+GB. 876 → 875 rows; S2A 57.1% on 156. `verify` is clean.
