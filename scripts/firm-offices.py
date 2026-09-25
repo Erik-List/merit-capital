@@ -419,7 +419,7 @@ def dump_like(path: Path, obj, like: str | None = None) -> None:
     """Rewrite a JSON file in the style it already has (indent, escaping,
     final newline), so the diff shows the content that changed and nothing else."""
     text = path.read_text() if like is None else like
-    m = re.search(r"\n( +)\"", text[:400])
+    m = re.search(r"\n( +)\S", text[:400])     # first indented line, list or object root
     out = json.dumps(obj, indent=len(m.group(1)) if m else 2, ensure_ascii=text.isascii())
     write_atomic(path, out + ("\n" if text.endswith("\n") else ""))
 

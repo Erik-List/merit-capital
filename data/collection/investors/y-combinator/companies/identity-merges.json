@@ -11276,6 +11276,13 @@
      "13502"
     ],
     "reason": "YC's numeric company-id URL for Zynq (Winter 2020); the live site 301s /companies/13502 to /companies/zynq, published slug zynq. The 2020-21 directory captures enumerate ids, not slugs, so the CDX layer built an id-named row beside the directory's own (decisions.md R3)."
+   },
+   {
+    "canonical": "gmelius",
+    "duplicates": [
+     "12869-2"
+    ],
+    "reason": "YC's numeric company-id page for Gmelius: site id 12869 carries https://www.ycombinator.com/companies/gmelius as its URL, the same page as the gmelius row, published slug gmelius (decisions.md R3). Found 2026-09-24 when the two rows collided on the published name before the first ingest; applied to base.json by hand then, because a rebuild under the current shared scripts drifts (see report.md)."
    }
   ],
   "rejects": [

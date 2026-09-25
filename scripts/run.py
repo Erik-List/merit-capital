@@ -64,7 +64,7 @@ import os
 import time
 import subprocess
 import sys
-from collections import Counter
+from collections import Counter, defaultdict
 from datetime import date, datetime
 from pathlib import Path
 
@@ -2595,6 +2595,13 @@ def cmd_verify(args) -> None:
         if csv_slugs != base_slugs:
             surface.append(f"{csv_p.name} stale relative to the base "
                            f"({len(csv_slugs ^ base_slugs)} slugs differ); re-run export")
+        # public.companies is unique on (investor_id, name): two rows under one
+        # published name would overwrite each other at ingest (export qualifies
+        # shared names with their domain, Erik 2026-09-24)
+        pub = Counter(r["name"].casefold() for r in csv.DictReader(open(csv_p)))
+        if shared := [n for n, k in pub.items() if k > 1]:
+            surface.append(f"{csv_p.name}: {len(shared)} published names are shared by more "
+                           f"than one row ({', '.join(shared[:8])}); re-run export")
     if not P.review_html.exists():
         surface.append("review.html missing; run review")
     elif rows and rows[0]["name"] not in P.review_html.read_text(
@@ -2647,6 +2654,59 @@ EVIDENCE_COLUMNS = ("first_seen", "sector", "partners_site", "partners_formd",
                     "site_url", "wayback_first_link", "formd_links", "edgar_links")
 
 
+def row_domain(url: str, firm_host: str) -> str:
+    """A company's own web domain, from its site_url: the host without
+    "www.". A page on the firm's own site (YC's /companies/<slug>) is not the
+    company's domain, so it yields nothing."""
+    m = re.match(r"https?://([^/?#]+)", (url or "").strip(), re.I)
+    host = m.group(1).lower() if m else ""
+    host = host[4:] if host.startswith("www.") else host
+    return "" if not host or host == firm_host else host
+
+
+def qualify_shared_names(out_rows: list[dict]) -> None:
+    """Different companies that share a published name each publish with
+    their domain in brackets: "Scout (scout.ml)", "Scout (scouthealth.com)"
+    (Erik, 2026-09-24). public.companies is unique on (investor_id, name), so
+    two rows under one name would overwrite each other at ingest; and a reader
+    cannot tell two identical names apart anyway. Names are compared ignoring
+    case (YC's "HENRY" and "Henry" are two companies). A row with no domain of
+    its own, or one whose domain another row in the group also carries, takes
+    its qualifier from config.json names.qualifiers {slug: text}; without one
+    the export refuses. The same company listed twice is a merge, not a
+    qualifier (identity-merges.json)."""
+    firm = json.loads(P.investor.read_text()).get("website", "") if P.investor.exists() else ""
+    firm_host = row_domain(firm, "")
+    overrides = (CFG.get("names") or {}).get("qualifiers", {})
+    groups: dict[str, list[dict]] = defaultdict(list)
+    for r in out_rows:
+        groups[r["name"].casefold()].append(r)
+    unresolved: list[str] = []
+    qualified = 0
+    for rows in groups.values():
+        if len(rows) < 2:
+            continue
+        quals = {r["slug"]: overrides.get(r["slug"]) or row_domain(r.get("site_url", ""), firm_host)
+                 for r in rows}
+        seen = Counter(q for q in quals.values() if q)
+        for r in rows:
+            q = quals[r["slug"]]
+            if not q or (seen[q] > 1 and r["slug"] not in overrides):
+                unresolved.append(f"{r['slug']} ({r['name']}, {r.get('site_url') or 'no site_url'})")
+                continue
+            r["name"] = f"{r['name']} ({q})"
+            qualified += 1
+    if unresolved:
+        sys.exit(f"export refused: {len(unresolved)} row(s) share a published name and have no "
+                 f"domain of their own to tell them apart: {'; '.join(unresolved[:10])}. Add "
+                 f"config.json names.qualifiers {{slug: text}}, or merge them if they are one "
+                 f"company.")
+    if qualified:
+        print(f"shared names    : {qualified} rows in "
+              f"{sum(1 for g in groups.values() if len(g) > 1)} groups publish with their "
+              f"domain in brackets")
+
+
 def cmd_export(args) -> None:
     """Write the merged per-investor CSV in one merge step: base evidence +
     membership verdict + classification overlays. A base without a
@@ -2686,6 +2746,7 @@ def cmd_export(args) -> None:
                  f"status ({', '.join(undecided[:12])}{' …' if len(undecided) > 12 else ''}); "
                  f"a Seed row is graduated, not_graduated or censored (PRO-132). Judge them "
                  f"(prepare queues them), then export.")
+    qualify_shared_names(out_rows)
 
     dest = P.base_csv
     buf = io.StringIO()
