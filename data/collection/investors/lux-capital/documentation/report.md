@@ -580,3 +580,18 @@ For Erik, from this pass:
   carries for these two are the wrong companies' sites.
 
 `verify` is clean with no city debt (Lux is not in `shared/city-debt.json`).
+
+### Corrections applied (Erik, 2026-09-24)
+
+- **Countries fixed** as the city pass found them: Amca US (was CZ), Buf CA,
+  Nomic CA, Tenzai IL (were US). Each cites the company's own office listing
+  on Lux's job board; the `city_country_conflict` flags are cleared.
+- **Timber.io is placed**: its legal name was Timber Technologies, Inc.
+  (Datadog's 2021 acquisition release), which is why Lux's site links
+  timber-technologies.com. That domain now belongs to Titan Timbers, a
+  Wisconsin wood-products maker. Timber was a New York company; the row
+  reads New York, no longer `city_unknown`.
+- **Cerulean** keeps Waltham; its note now says the linked cerulean.com is a
+  tobacco-equipment firm. The `site_url` column for both rows still records
+  the link Lux publishes, because it is evidence of what the firm lists, the
+  builder has no override for it, and it never reaches the database.
