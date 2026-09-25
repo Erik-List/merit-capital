@@ -6,13 +6,32 @@
 on by Erik at kickoff** on the measured directory size. The other deferred
 items (model mix, extra credits, second machine) stayed off.
 
-**Usage line:** _to be filled at close._ Note for the record: the usage lines in
-the USV, Spark and Benchmark reports were never filled in, so the deferred-item
-call this issue specified — "made on the measured usage lines … never invented
-by the session" — had no measured basis available. It was made on the row count
-instead, and that substitution is recorded rather than hidden.
+**Ingested 2026-09-24 with Erik's approval** ("when done correctly, ingest yc"):
+icon published, investor row (hq San Francisco, CA; stage Pre-Seed), then 6,426
+companies (6,426 new, 0 removed on the dry-run plan). Readback: 6,426 rows, every
+status, band, stage and location matches `base.csv`; the derived stage
+distribution is Pre-Seed 6,404 and Growth 2, and the graduation rate is empty, as
+the pre-seed ruling requires. Before the ingest: the profile's stage moved from
+Seed to Pre-Seed, Monzo's stage citation was corrected, the HQ follows the new
+rule (the newest Form ADV principal office, unless the firm's own site
+disagrees), 87 shared names publish with their domain in brackets (Erik's choice;
+the table is unique on investor and name), Gmelius's numeric-id row was merged,
+and the `pickle` row was re-identified as Pickle W21 (pickleai.com). A rebuild
+under today's shared scripts drifts (ten slug-named archive rows, two worse
+names), so the committed base stands and that rebuild is its own task.
 
-**Prompt count:** 5 before the ingest decision (kickoff; the grind-mode answer; "keep going"; two "continue" resumes across a session restart and a week's pause). Target was 2. The ingest approval will be the 6th.
+**Usage line:** measured at the ingest from the app's usage card, account-wide:
+5-hour window 9%, weekly all models 13%, weekly Fable 3%, extra usage EUR 9.29 of
+EUR 50; this session's context 43% of 1M. These are window readings, not this
+run's total: the run spanned sessions from 2026-09-06 and no per-run total
+exists. The earlier note stands: the USV, Spark and Benchmark usage lines were
+never filled in, so the deferred-item call was made on the row count instead.
+
+**Prompt count:** 11. Five before the ingest decision (kickoff; the grind-mode
+answer; "keep going"; two "continue" resumes), then the OpenAI ruling, the slug
+rename and its three approvals, the stage and HQ question, the HQ rule, and the
+ingest approval; the shared-name question was answered in the ingest turn.
+Target was 2.
 
 ---
 
