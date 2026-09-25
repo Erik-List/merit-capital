@@ -223,7 +223,7 @@ the same evidence pack.
 
 ## 7. Open rulings for Erik
 
-Settled since the close: **Delta A** (by the 2026-09-17 partner-carried ruling, see
+Settled since the close: the **two country conflicts** from the city pass, corrected on Erik's instruction 2026-09-24 (Terra Industries → NG, Abuja; Luminate Medical → IE, Galway) and re-ingested; **Delta A** (by the 2026-09-17 partner-carried ruling, see
 §2) and **Asana**, which is not the arista class after all: 8VC Fund I and
 Entrepreneurs Fund I signed its pre-IPO investors' rights agreement, filed with the
 January-2020 DRS (`decisions.md` R2). The stale-marker item is gone too.
@@ -237,10 +237,7 @@ Still open:
 2. **The industry filter is over-broad.** `build-company-base.py` drops Form D
    issuers in "Other Banking and Financial Services"; Erebor is a chartered bank and
    an operating company, recovered here by a recall addition.
-3. **Two country conflicts from the city pass** (2026-09-24): Terra Industries is in
-   Abuja, Nigeria, and 8VC's "Luminate" is Luminate Medical of Galway, Ireland; both
-   rows read `US`. Flagged `city_country_conflict`, not corrected, per the city rule.
-4. **The team's X links** all point at the firm's own handle (51 of 51), a fallback
+3. **The team's X links** all point at the firm's own handle (51 of 51), a fallback
    Lux already publishes. Left as it is.
 
 ---
@@ -409,7 +406,8 @@ Before the write, the book was brought up to the rulings made after the close
   its decided entry and graduation carried onto `create`.
 - **City pass** under the city rule that landed today: 206 of 250 placed, 36
   recorded unknown, 8VC taken off the city-debt ratchet. Two country conflicts
-  flagged, not corrected (Terra Industries, Abuja; Luminate Medical, Galway).
+  flagged (Terra Industries, Abuja; Luminate Medical, Galway), then corrected on
+  Erik's instruction the same evening: US → NG and US → IE, re-ingested, readback exact.
 - Four merge groups pin their names so the rebuild cannot publish legal-suffix
   forms (Nest Health, Adentro, Pango, AMP).
 
