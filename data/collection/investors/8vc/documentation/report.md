@@ -33,38 +33,25 @@ says so rather than dressing it up.
 
 ---
 
-## 2. The delta — Erik's ruling still open
+## 2. The delta — settled by Erik's standing ruling
 
-**Delta A: the Formation 8 legacy book.** Argued in full in `decisions.md` Part 2.
-The run proceeded on the recommended reading and flagged every affected row, so a
-reversal re-judges one ledger class rather than re-collecting.
+**Delta A, the Formation 8 legacy book, is closed.** Erik's partner-carried ruling
+of 2026-09-17 (a listing that exists because a partner backed the company at a
+previous firm is not a member) binds every investor and is Delta A's recommended
+reading. `decisions.md` R1 applies it row by row, on evidence, never by era.
 
-*What was decided.* Eleven rows with **positive predecessor evidence** are
-`not_member`: **Palantir** (Lonsdale co-founded it in 2003; no 8VC vehicle has ever
-held it — 8VC GP I's 13F-HRs report one holding, Joby), **RelateIQ** and
-**SalesforceIQ** (Salesforce bought it in July 2014, a year before 8VC existed),
-**Oculus** (Facebook, March 2014), **Wish** (8VC's own post: "we co-led the angel
-round in 2010"), **Oscar** and its legal entity **Mulberry Health** (2015q2 Form D,
-Lonsdale, outside tenure), **Guardant Health** (press puts Formation 8 at the
-Feb-2015 Series C), **Illumio**, **OpenGov**, **Color** and **Color Genomics**.
-Plus **Hyperloop Technologies** and **Revinate**, ruled the same way on the same
-evidence in the grind.
+*Out:* Palantir, Wish, Oscar (+ Mulberry Health), Guardant Health, Illumio, OpenGov,
+Color (+ Color Genomics), RelateIQ (+ SalesforceIQ), Oculus, Hyperloop, Revinate,
+and three the close had wrongly kept for lack of evidence: **Radius**, **BuildZoom**
+and **Nyansa**, each with a Formation 8-led round on the record (found at ingest
+prep, 2026-09-24).
 
-*What was NOT decided that way.* A legacy row where an 8VC vehicle demonstrably
-took a position stays a member: **Addepar** (8VC ADSF SPV filed 2021-05-06 and ADSG
-SPV 2024-12-31), **Zenreach/Adentro** (Lonsdale on the 2017 and 2018 filings),
-**Joby** (the 13F holding), **Blend**, and every 2016-era row with no positive
-Formation 8 evidence (Affinity, Qualia, BuildZoom, Blink Health, Nyansa, Kiwi,
-Progressly, Radius, Castle Global). The test applied is **fund money, not era**.
+*In:* where an 8VC vehicle demonstrably took a position (Addepar via the ADSF/ADSG
+SPVs, Zenreach/Adentro, Joby, Blend), and where nothing shows the position was the
+predecessor's (Affinity, Qualia, Blink Health, Kiwi, Progressly, Castle Global).
 
-*The fact that decides it, found mid-run.* 8VC's own 2016 team page calls Formation
-8 "**the precursor fund to 8VC**" and lists Addepar, OpenGov, Oscar, Illumio,
-Radius, Hyperloop-One and Wish as **Joe Lonsdale's** board seats — T4's question
-answered by the firm itself. That is the Redpoint D5 shape after all, reached
-through a different page than the one listing the rows.
-
-**If Erik reverses it**, the class goes back in together and their entry rounds
-become the predecessor's; the stages are already recorded on the rows for that case.
+*The fact behind it:* 8VC's own 2016 team page calls Formation 8 "**the precursor
+fund to 8VC**" and lists Lonsdale's board seats as his.
 
 ---
 
@@ -236,25 +223,25 @@ the same evidence pack.
 
 ## 7. Open rulings for Erik
 
-1. **Delta A — the Formation 8 legacy book.** §2 above. The one ruling the run needs.
-2. **Asana is the `arista` class.** 8VC first lists it in 2022, after the September
-   2020 direct listing, and no venture entry is documented. T3 says a position first
-   appearing post-IPO is out; the site listing says in. Shipped as a member, raised
-   as a boundary ruling — the same shape as Accel's arista, still open.
-3. **Rule A publishes Altos Labs at `below_1b`.** The company launched in 2022 with
-   **$3 billion** of committed capital and has never published a post-money. Rule A
-   needs a priced round with a citable figure; a commitment is not one. The rule is
-   applied as written, and the result is visibly odd. Same shape, smaller: Boom
-   Supersonic, Resilience, Cityblock, Sila Nanotechnologies, BlueVoyant, Hive,
-   Quince, Trackonomy, Qualia, Flexport, Airbyte, Erebor (before alignment).
-4. **`8VC ERSA/ERSB` and the industry filter.** `build-company-base.py` drops Form D
+Settled since the close: **Delta A** (by the 2026-09-17 partner-carried ruling, see
+§2) and **Asana**, which is not the arista class after all: 8VC Fund I and
+Entrepreneurs Fund I signed its pre-IPO investors' rights agreement, filed with the
+January-2020 DRS (`decisions.md` R2). The stale-marker item is gone too.
+
+Still open:
+
+1. **Rule A publishes Altos Labs at `below_1b`.** $3 billion of committed capital
+   and no published post-money. The rule as written; the result is visibly odd.
+   Same shape, smaller: Boom Supersonic, Resilience, Cityblock, Sila, BlueVoyant,
+   Hive, Quince, Trackonomy, Qualia.
+2. **The industry filter is over-broad.** `build-company-base.py` drops Form D
    issuers in "Other Banking and Financial Services"; Erebor is a chartered bank and
-   an operating company. Recovered by hand here — the filter is over-broad.
-5. **Three siblings carry stale in-flight markers** (`accel`, `redpoint-ventures`,
-   `yc`, plus `battery-ventures`, `felicis` and `greylock` which are genuinely
-   running). Accel and Redpoint are closed per your notes, so those two are
-   forgotten `close` calls, and this run's cross-investor pass skipped two large
-   published bases because of them. Not touched (§12).
+   an operating company, recovered here by a recall addition.
+3. **Two country conflicts from the city pass** (2026-09-24): Terra Industries is in
+   Abuja, Nigeria, and 8VC's "Luminate" is Luminate Medical of Galway, Ireland; both
+   rows read `US`. Flagged `city_country_conflict`, not corrected, per the city rule.
+4. **The team's X links** all point at the firm's own handle (51 of 51), a fallback
+   Lux already publishes. Left as it is.
 
 ---
 

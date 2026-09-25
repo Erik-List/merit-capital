@@ -238,4 +238,56 @@ before any ingest.
 
 Dated, class-wide, flagged for review. Raised once at the end with the results (§9).
 
-*(none yet)*
+### R1 (2026-09-24) — Delta A is settled by Erik's standing partner-carried ruling
+
+Erik ruled on Menlo on 2026-09-17, binding every investor: a listing that exists
+because a partner backed the company at a PREVIOUS firm is not a member. That is
+Delta A's recommended reading (fund money, not era), so the delta is closed without
+a separate 8VC ruling. It is applied row by row on the evidence, never by era:
+
+- Out, with the predecessor's round documented: Palantir, Wish, Oscar (+ Mulberry
+  Health), Guardant Health, Illumio, OpenGov, Color (+ Color Genomics), RelateIQ
+  (+ SalesforceIQ), Oculus, Hyperloop, Revinate, and three the close had kept in
+  for lack of evidence, found at ingest prep: **Radius** (Formation8 Partners led
+  the $13M Series B in January 2014 and Lonsdale took the board seat), **BuildZoom**
+  (Formation 8 led the 2013 seed, the 2014 round and the October-2015 $10.6M round)
+  and **Nyansa** (even its January-2018 Series B came from Intel Capital and
+  "previous investor Formation 8", i.e. Formation8 Partners' own funds were still
+  following on independently of 8VC).
+- In, because an 8VC vehicle demonstrably took a position: Addepar (8VC ADSF and
+  ADSG SPVs), Zenreach/Adentro, Joby, Blend.
+- In, because nothing shows the position was the predecessor's: Affinity, Qualia,
+  Blink Health, Kiwi, Progressly, Castle Global. The site listing stands for them
+  (§1 evidence sufficiency).
+
+Verdicts stay `who: agent`, citing the standing ruling and the round evidence;
+Erik did not rule on these rows individually.
+
+### R2 (2026-09-24) — Asana is a pre-IPO fund position, not the arista class
+
+The close raised Asana as a T3 boundary question: first listed in 2022, after the
+September-2020 direct listing. The run's own exit-side sweep already held the
+answer: **8VC Fund I, L.P. and 8VC Entrepreneurs Fund I, L.P. signed Asana's
+Amended and Restated Investors' Rights Agreement**, filed with the January-2020 DRS.
+Erik's T3 post-IPO ruling (2026-09-06) needs the partnering to postdate the IPO; it
+does not here. Member on `fund_filing`; the entry round is not in the exhibit and
+carries `cite_pending`.
+
+### R3 (2026-09-24) — Myeloid Therapeutics is CREATE Medicines
+
+Myeloid Therapeutics rebranded as CREATE Medicines on 2025-10-06, so the 2022
+archive row `myeloid` and the live row `create` were one company counted twice.
+Folded into `create`, the live rendering; Myeloid's decided entry (the 2021 launch
+financing naming 8VC) and graduation (CREATE's named $122M Series B, 2026-05-14)
+were recorded on `create` before the fold, so nothing the S2A pass decided is lost.
+The rename class Greylock's OkamiAI/7AI case named; this one shared no CIK, so the
+pair was found by reading the S2A note, not by grouping on filers.
+
+### R4 (2026-09-24) — Names pinned where the rebuild would regress them
+
+The 2026-09-19 most-recent-rendering rule would have published "Nest Healthcare,
+Inc.", "Adentro, Inc." and "Anchorfree" on the next rebuild, against Erik's
+2026-09-24 name rule (brand, normal case, no legal suffix). The four affected merge
+groups carry a pinned `name`: Nest Health, Adentro, Pango, and AMP (the live slug
+`aimip` had been publishing as "Aimip"). The other legal-suffix names in the book
+are left for PRO-146, as Greylock and Khosla shipped theirs today.
