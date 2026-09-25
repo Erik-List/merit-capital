@@ -196,9 +196,18 @@
     },
     "hq_location": {
       "value": "San Francisco, CA",
-      "source": "sources/edgar/formd-sweep.json",
-      "basis": "issuer address on 1 of 1 of the firm's own Form D filings; unanimous. Filing-grade.",
-      "flag": "build-firm-profile.py derived 'Burlington, MA' from the one Form D in fund-formds.json that carries an address — the IAI-1 series vehicle, whose 1600 District Avenue address is a fund ADMINISTRATOR's, not the firm's. Overridden to the ADV Item 1.F principal office and flagged rather than silently accepted (§11). Greylock's own site gives San Francisco and Menlo Park as its offices."
+      "source": "sources/offices.json",
+      "basis": "Principal office on the newest Form ADV: 140 New Montgomery Street Suite 2600, San Francisco, CA (GREYLOCK PARTNERS, CRD 161537, Annual Amendment filed 2026-03-31). The firm's site lists San Francisco, CA; Menlo Park, CA; the principal office is among them, so the site agrees. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+      "sources": [
+        {
+          "source": "Form ADV Item 1.F and Schedule D 1.F, GREYLOCK PARTNERS (Annual Amendment filed 2026-03-31)",
+          "url": "https://reports.adviserinfo.sec.gov/reports/ADV/161537/PDF/161537.pdf"
+        },
+        {
+          "source": "the firm's own site, office list",
+          "url": "https://greylock.com/contact-us"
+        }
+      ]
     },
     "individuals": {
       "value": [

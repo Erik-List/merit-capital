@@ -187,8 +187,14 @@
   },
   "hq_location": {
    "value": "Menlo Park, CA",
-   "source": "sources/edgar/formd-sweep.json",
-   "basis": "issuer address on 10 of 18 of the firm's own Form D filings. Filing-grade."
+   "source": "sources/offices.json",
+   "basis": "Principal office on the newest Form ADV: 2460 Sand Hill Road Suite 100, Menlo Park, CA (FELICIS VENTURES, CRD 162301, Annual Amendment filed 2026-03-30). The firm's site names no office in its served pages (3 checked), so the Form ADV stands. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+   "sources": [
+    {
+     "source": "Form ADV Item 1.F and Schedule D 1.F, FELICIS VENTURES (Annual Amendment filed 2026-03-30)",
+     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/162301/PDF/162301.pdf"
+    }
+   ]
   },
   "investment_scope": {
    "value": {

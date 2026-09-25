@@ -103,6 +103,9 @@ class Paths:
         self.edgar = self.sources / "edgar"
         self.web = self.sources / "web"                    # fts / wikipedia sweeps
         self.formd_rounds = self.edgar / "formd-issuer-rounds.json"
+        # the newest Form ADV offices and the site's own, with the HQ decision
+        # (scripts/firm-offices.py; Erik 2026-09-24)
+        self.offices = self.sources / "offices.json"
 
     def config(self) -> dict:
         if not self.config_file.exists():

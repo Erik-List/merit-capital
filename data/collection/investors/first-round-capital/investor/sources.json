@@ -470,8 +470,18 @@
   },
   "hq_location": {
    "value": "Philadelphia, PA",
-   "source": "sources/edgar/formd-sweep.json",
-   "basis": "issuer address on 18 of 23 of the firm's own Form D filings. Filing-grade."
+   "source": "sources/offices.json",
+   "basis": "Principal office on the newest Form ADV: 2400 Market St, Suite 237, Philadelphia, PA (FR CAPITAL HOLDINGS, LP, CRD 160848, Annual Amendment filed 2026-03-31). The firm's site lists San Francisco, CA; New York, NY; Philadelphia, PA; the principal office is among them, so the site agrees. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+   "sources": [
+    {
+     "source": "Form ADV Item 1.F and Schedule D 1.F, FR CAPITAL HOLDINGS, LP (Annual Amendment filed 2026-03-31)",
+     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/160848/PDF/160848.pdf"
+    },
+    {
+     "source": "the firm's own site, office list",
+     "url": "https://firstround.com/"
+    }
+   ]
   }
  }
 }

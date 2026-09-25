@@ -2321,6 +2321,38 @@ whose latest Form D reports `$0 sold` must carry no accession; and the
 `fields` of `investor/sources.json` each need a `value` mirroring
 `investor.json`, which is what the verifier actually reads.
 
+**`hq_location` is where the firm operates, not where it files** (ruled by
+Erik, 2026-09-24, after YC's profile read Mountain View while YC runs its
+batches from San Francisco). The value is the principal office on the firm's
+newest Form ADV (Item 1.F), unless the firm's own site disagrees with that
+office; then the site wins. The site disagrees in three cases:
+
+- it labels a different office its headquarters;
+- it lists its offices and the principal office is not among them;
+- it says in its own words that the firm operates from another city. No scan
+  can read that, so it is recorded by hand in `config.json`
+  `profile.site_office` (`place`, `url`, `quote`, `basis`). YC's site calls
+  Mountain View "the original YC office" and says each batch moves to San
+  Francisco.
+
+A site that lists several offices including the principal office agrees with
+it, whatever the order: Creandum lists San Francisco first, and its ADV shows
+two advisory staff there. A site that names no office leaves the ADV
+standing. `scripts/firm-offices.py <slug>` reads both sources into
+`sources/offices.json`: the newest ADV's principal and other offices, with
+advisory staff per office, and the site's offices in page order with the
+quoted text. It then writes the decision into both profile files.
+`build-firm-profile.py` runs the same step, and `verify` re-applies the rule
+offline to the stored record and fails when the published value differs. A
+site that cannot be fetched is recorded as unchecked, never as naming no
+office, and the decision refuses. The adviser is `profile.adv_crd`, else the
+first CRD the `aum` provenance cites. The Form D address vote this replaces
+was wrong three ways: 8VC moved to Austin in 2021 and the vote still said San
+Francisco; Greylock's only address on file was a fund administrator's in
+Burlington, MA; and YC's filing address outlived the office.
+`python3 scripts/firm-offices.py --all --check` compares every published HQ
+with a fresh read and writes nothing; it is how a firm that moved is caught.
+
 Built after the base, `build-firm-profile.py` runs its base-bound checks
 once, for real: notable_investments asserted against ledger member
 verdicts, the entry-round median over the verified members' Form D
@@ -2495,9 +2527,11 @@ Field recipes, learned on Sequoia and a16z:
   published icon's ramp identical, and a deliberately blurred master plus a
   32 px master enlarged 8× must both still refuse.
 
-- **A German issuer's Form D city carries its district** ("BERLIN - MITTE"):
-  the builder strips the " - <district>" suffix so `hq_location` reads
-  "Berlin, Germany" (Cherry, 2026-09-04).
+- **A non-US office publishes as "City, Country"** ("Berlin, Germany",
+  "Stockholm, Sweden"): `firm-offices.py` takes the country from the Form ADV
+  address and strips a " - <district>" suffix from the city. This replaces
+  the Form D state-slot codes (V7 for Sweden) the old address vote had to
+  map (Cherry, Creandum).
 - **An ERA whose ADV lags the fund ladder anchors only the bottom.** Cherry's
   2024 Section 7.B ($905.7M across Funds III, IV and the web3 sleeve)
   predates Cherry V ($500M, 2025); the top took the only credible press
@@ -2515,10 +2549,6 @@ Field recipes, learned on Sequoia and a16z:
   enumeration stands until coverage clears the bar
   (`build-firm-profile.py` enforces this).
 
-- **EDGAR files a non-US issuer's country in the state slot** as a
-  two-character code from its "State or Country" list (Sweden = V7);
-  `build-firm-profile.py` maps the codes to country names so an EU firm's
-  hq_location reads "Stockholm, Sweden" rather than "Stockholm, V7".
 - **People without CMS titles.** Where the team CMS publishes a group
   label but no titles (Creandum: "Investment Team"), titles come from the
   firm's own promotion and welcome posts where stated, and the group label

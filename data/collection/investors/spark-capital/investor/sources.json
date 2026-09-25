@@ -193,8 +193,14 @@
   },
   "hq_location": {
    "value": "Boston, MA",
-   "source": "sources/edgar/formd-sweep.json",
-   "basis": "issuer address on 30 of 30 of the firm's own Form D filings; unanimous. Filing-grade."
+   "source": "sources/offices.json",
+   "basis": "Principal office on the newest Form ADV: 200 Clarendon Street 59th Floor, Boston, MA (SPARK CAPITAL, CRD 161231, Annual Amendment filed 2026-03-27). The firm's site names no office in its served pages (3 checked), so the Form ADV stands. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+   "sources": [
+    {
+     "source": "Form ADV Item 1.F and Schedule D 1.F, SPARK CAPITAL (Annual Amendment filed 2026-03-27)",
+     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/161231/PDF/161231.pdf"
+    }
+   ]
   },
   "investment_scope": {
    "value": {

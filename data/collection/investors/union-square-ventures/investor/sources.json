@@ -439,8 +439,18 @@
   },
   "hq_location": {
    "value": "New York, NY",
-   "source": "sources/edgar/formd-sweep.json",
-   "basis": "issuer address on 25 of 25 of the firm's own Form D filings; unanimous. Filing-grade."
+   "source": "sources/offices.json",
+   "basis": "Principal office on the newest Form ADV: 817 Broadway 14th Floor, New York, NY (UNION SQUARE VENTURES, CRD 162375, Annual Amendment filed 2026-03-27). The firm's site lists New York, NY; the principal office is among them, so the site agrees. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+   "sources": [
+    {
+     "source": "Form ADV Item 1.F and Schedule D 1.F, UNION SQUARE VENTURES (Annual Amendment filed 2026-03-27)",
+     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/162375/PDF/162375.pdf"
+    },
+    {
+     "source": "the firm's own site, office list",
+     "url": "https://www.usv.com/"
+    }
+   ]
   },
   "individuals": {
    "value": [

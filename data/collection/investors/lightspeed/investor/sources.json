@@ -346,8 +346,14 @@
     },
     "hq_location": {
       "value": "Menlo Park, CA",
-      "source": "sources/edgar/formd-sweep.json",
-      "basis": "issuer address on 34 of 35 of the firm's own Form D filings. Filing-grade."
+      "source": "sources/offices.json",
+      "basis": "Principal office on the newest Form ADV: 2200 Sand Hill Road Suite 100, Menlo Park, CA (LIGHTSPEED VENTURE PARTNERS, CRD 160187, Other-Than-Annual Amendment filed 2026-05-06). The firm's site names no office in its served pages (4 checked), so the Form ADV stands. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+      "sources": [
+        {
+          "source": "Form ADV Item 1.F and Schedule D 1.F, LIGHTSPEED VENTURE PARTNERS (Other-Than-Annual Amendment filed 2026-05-06)",
+          "url": "https://reports.adviserinfo.sec.gov/reports/ADV/160187/PDF/160187.pdf"
+        }
+      ]
     },
     "individuals": {
       "value": [

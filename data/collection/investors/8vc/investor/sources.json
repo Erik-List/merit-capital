@@ -184,10 +184,19 @@
    "basis": "Section 7.B of the 2026-04-16 ADV lists 65 private funds plus Kodiak Fund I under the relying adviser; the table here lists the flagship and Opportunities vehicles and DESCRIBES the rest rather than listing them, per \u00a711's rule for lettered and SPV vehicles. Sizes: Fund V $880M and Fund VI $998M from the firm's own announcement posts (2023-03-01 and 2025-03-04); Fund VII $1.5B from press; earlier funds from press. NO ACCESSION IS ASSERTED against a filed amount at all, because 8VC's L.P.s file 'Indefinite' offerings at $0 sold \u2014 the Lightspeed filing style, not the Accel one, so \u00a711's $0-sold cross-check does not apply here and the sizes rest on the firm's own words with the filings as existence corroboration. Not listed, but counted: seven Entrepreneurs Funds, an eight-strong 8VC AI Fund LLC series, Angel Fund I, Co-Invest Fund I, the Access and Allocate Access feeders, and roughly thirty single-deal SPVs whose names encode the company and the round (see sources/edgar/spv-decode.json). Kodiak Fund I carried an accession in the first draft and the build refused it: its Form D declares a $50,000,000 offering with $0 SOLD, and \u00a711's assertion is against TOTALAMOUNTSOLD, not against the offering. The accession and the size were both removed rather than the assertion weakened \u2014 an announced-but-unfunded first close has no size yet."
   },
   "hq_location": {
-   "source": "https://reports.adviserinfo.sec.gov/reports/ADV/283031/PDF/283031.pdf",
    "value": "Austin, TX",
-   "basis": "CURATED OVERRIDE of the evidence recompute, with the disagreement recorded rather than hidden. build-firm-profile.py derives hq_location from the modal issuer address across the firm's own Form D filings and returned 'San Francisco, CA' on 10 of 19 \u2014 because 8VC MOVED. The 2015-2020 vehicles filed from 501 Second Street and later Pier 5 in San Francisco; every vehicle since 2021 files from 907 South Congress Avenue, Austin, which is also Item 1.F of the 2026-04-16 Form ADV, i.e. the firm's sworn CURRENT principal office. A modal count over a decade of filings answers 'where has this firm filed from', not 'where is it'. San Francisco remains a real office: Schedule D Section 1.F lists Pier 5, Suite 101 with 16 people performing advisory functions. Proposed script fix at close: prefer the ADV Item 1.F where an ADV exists, or weight the most recent filing year.",
-   "flag": "recompute disagreed: modal Form D address is San Francisco, CA (10/19 filings, all pre-2021)"
+   "source": "sources/offices.json",
+   "basis": "Principal office on the newest Form ADV: 907 South Congress Avenue, Austin, TX (EIGHT PARTNERS VC, LLC, CRD 283031, Other-Than-Annual Amendment filed 2026-04-16). The firm's site lists Austin, TX; San Francisco, CA; the principal office is among them, so the site agrees. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+   "sources": [
+    {
+     "source": "Form ADV Item 1.F and Schedule D 1.F, EIGHT PARTNERS VC, LLC (Other-Than-Annual Amendment filed 2026-04-16)",
+     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/283031/PDF/283031.pdf"
+    },
+    {
+     "source": "the firm's own site, office list",
+     "url": "https://www.8vc.com/"
+    }
+   ]
   },
   "individuals": {
    "value": [

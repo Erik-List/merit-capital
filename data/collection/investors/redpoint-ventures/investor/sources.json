@@ -35,8 +35,14 @@
   },
   "hq_location": {
    "value": "Woodside, CA",
-   "source": "sources/edgar/formd-sweep.json",
-   "basis": "issuer address on 17 of 25 of the firm's own Form D filings. Filing-grade."
+   "source": "sources/offices.json",
+   "basis": "Principal office on the newest Form ADV: 2969 Woodside Road, Woodside, CA (REDPOINT VENTURES, CRD 161680, Annual Amendment filed 2026-04-01). The firm's site names no office in its served pages (2 checked), so the Form ADV stands. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+   "sources": [
+    {
+     "source": "Form ADV Item 1.F and Schedule D 1.F, REDPOINT VENTURES (Annual Amendment filed 2026-04-01)",
+     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/161680/PDF/161680.pdf"
+    }
+   ]
   },
   "founding_year": {
    "value": 1999,

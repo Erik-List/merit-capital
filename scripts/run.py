@@ -2077,6 +2077,40 @@ def verify_cross_investor(rows: list[dict], merged: dict, investor: str,
     problems.extend(sorted(bad))
 
 
+def verify_profile_hq(investor: str, problems: list[str], surface: list[str]) -> None:
+    """The published HQ follows the rule (Erik 2026-09-24): the newest Form ADV
+    principal office, unless the firm's own site disagrees. The rule is re-run
+    offline on the stored record (sources/offices.json), so a hand edit, a
+    stale build or a rule change shows up here. A missing or old record is a
+    surface item: a note in flight, a problem at the end."""
+    if not P.investor.exists():
+        return                                   # no profile built yet
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "firm_offices", ROOT / "scripts" / "firm-offices.py")
+    offices = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(offices)
+    if not P.offices.exists():
+        surface.append(f"profile: no {P.rel(P.offices)}; run "
+                       f"`python3 scripts/firm-offices.py {investor}`")
+        return
+    record = json.loads(P.offices.read_text())
+    try:
+        want = offices.decide(record, offices.statement_of(P))["value"]
+    except SystemExit as e:
+        problems.append(f"profile hq: {e}")
+        return
+    have = json.loads(P.investor.read_text()).get("hq_location")
+    if have != want:
+        problems.append(f"profile hq_location {have!r} is not what the HQ rule gives "
+                        f"({want!r}); run `python3 scripts/firm-offices.py {investor}`")
+    checked = (record.get("site") or {}).get("checked")
+    if checked and (date.today() - date.fromisoformat(checked)).days > 400:
+        surface.append(f"profile: offices record checked {checked}, over a year ago; "
+                       f"re-run `python3 scripts/firm-offices.py {investor}` (a newer "
+                       f"Form ADV or site may move the HQ)")
+
+
 def cmd_verify(args) -> None:
     rows = load_base(args.investor)
     resolved = load(P.resolved, {})
@@ -2566,6 +2600,8 @@ def cmd_verify(args) -> None:
     elif rows and rows[0]["name"] not in P.review_html.read_text(
             encoding="utf-8", errors="replace"):
         surface.append("review.html stale relative to the base; re-run review")
+    verify_profile_hq(args.investor, problems, surface)
+
     if in_flight:
         for s in surface + notes:
             print(f"  note: {s}")

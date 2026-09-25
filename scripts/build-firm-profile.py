@@ -8,7 +8,8 @@ the investor's `investor/investor.json` (the ingest row) and `investor/sources.j
 carries none of them. What it does, keyed only by the slug:
 
   recompute  the evidence-derived fields from the evidence layers:
-             hq_location (issuer address on the firm's own Form D filings),
+             hq_location (the newest Form ADV principal office, unless the
+             firm's own site disagrees; scripts/firm-offices.py),
              individuals (live team CMS + Wayback roster cross-check),
              investment_scope.focus (site sector tags crosswalked to the
              closed taxonomy, thresholds and crosswalk in config.json)
@@ -28,7 +29,7 @@ import importlib.util
 import json
 import re
 import sys
-from collections import Counter, defaultdict
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -40,6 +41,11 @@ _spec = importlib.util.spec_from_file_location(
 formd_rounds = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(formd_rounds)
 
+_spec = importlib.util.spec_from_file_location(
+    "firm_offices", Path(__file__).resolve().parent / "firm-offices.py")
+offices = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(offices)
+
 # Researched fields that must already be present in investor.json, each with a
 # provenance entry in investor/sources.json. Field semantics, not values.
 RESEARCHED_FIELDS = [
@@ -47,34 +53,6 @@ RESEARCHED_FIELDS = [
     "investment_concept", "investment_stage", "investment_geo",
     "investment_range", "notable_investments", "aum", "funds",
 ]
-
-
-def own_formd_filings(sweep: dict, own_re: re.Pattern) -> dict:
-    """The firm's own fund filings, split from the portfolio companies."""
-    out = defaultdict(list)
-    for accession, rec in sweep.items():
-        # The caller unions two shapes: formd-sweep.json is keyed by accession
-        # and carries "issuer"; the derived own-fund dict is keyed by the
-        # issuer NAME and carries only {cik, filings}, so the key is the name.
-        issuer = rec.get("issuer") or accession
-        if own_re.search(issuer):
-            out[issuer].append((accession, rec))
-    return out
-
-
-# EDGAR files a non-US issuer's country in the "state" slot, as a two-character
-# code from its "State or Country" list (a US fund reads "CA", a Swedish AB
-# fund reads "V7"); a German issuer files its city with the district ("BERLIN - MITTE"),
-# which is stripped to the municipality (Cherry, 2026-09-04). The profile publishes the country name for those, so an EU
-# fund's hq_location reads "Stockholm, Sweden" rather than "Stockholm, V7"
-# (Creandum, PRO-72). Codes outside the table fall through unchanged.
-EDGAR_COUNTRY_CODES = {
-    "2M": "Germany", "C4": "Austria", "C9": "Belgium", "E9": "Cayman Islands",
-    "G7": "Denmark", "H9": "Finland", "I0": "France", "L2": "Ireland",
-    "L3": "Israel", "L6": "Italy", "N4": "Luxembourg", "P7": "Netherlands",
-    "Q8": "Norway", "U3": "Spain", "V7": "Sweden", "V8": "Switzerland",
-    "X0": "United Kingdom", "Y7": "Guernsey", "Y9": "Jersey", "1J": "Estonia",
-}
 
 
 def indent_of(path: Path, default: int = 2) -> int:
@@ -111,17 +89,6 @@ def own_fund_filings(p: Paths) -> dict:
     print(f"own fund filings: {sum(len(v['filings']) for v in out.values())} "
           f"on {len(out)} vehicles ({len(own)} own-desk CIKs scanned)")
     return out
-
-
-def hq_from_filings(own: dict):
-    """Issuer address on the firm's own filings. Filing-grade."""
-    # Only sweep-shaped records carry an address; the own-fund entries carry
-    # {cik, filings} and no place, so they do not vote.
-    places = Counter(
-        f'{re.sub(r"\s+-\s+.*$", "", r["city"]).title()}, {EDGAR_COUNTRY_CODES.get(r["state"], r["state"])}'
-        for items in own.values() for _, r in items if r.get("city")
-    )
-    return places.most_common(1)[0], places
 
 
 def current_people(roster: list, team: list):
@@ -197,7 +164,6 @@ def main():
 
     p = Paths(args.investor)
     cfg = p.config()["profile"]
-    own_re = re.compile(cfg["own_vehicle_pattern"], re.I)
 
     if not p.investor.exists() or not p.investor_sources.exists():
         raise SystemExit(
@@ -217,7 +183,6 @@ def main():
         raise SystemExit(f"Refusing to write: investor/sources.json missing "
                          f"provenance for: {unsourced}")
 
-    sweep = json.loads((p.edgar / "formd-sweep.json").read_text())
     fund_formds = own_fund_filings(p)
     roster = json.loads((p.wayback / "partner-roster.json").read_text())
     # Only rows the site pull bucketed publish: an unmapped group is how a
@@ -267,23 +232,17 @@ def main():
                              f"of the base: {not_member}")
 
     # ---- recompute the evidence-derived fields
-    # The roster sweep finds a firm's own vehicles only when a ROSTER HUMAN is
-    # named on the filing. That holds for a venture firm, whose fund Form Ds
-    # list partners as related persons, and fails for an accelerator: every YC
-    # vehicle names a management LLC ("YC Continuity Management I, LLC")
-    # instead, so none of its 31 own filings appear in the roster sweep at all.
-    # The dedicated fund-filer sweep already has them, so union the two before
-    # splitting. Additive: where a filing is in both, it is the same record
-    # under the same accession, so this is a no-op for every landed investor.
-    own = own_formd_filings(
-        {**sweep, **fund_formds},
-        own_re)
-    (hq, hq_count), hq_places = hq_from_filings(own)
+    # HQ: the newest Form ADV principal office, unless the firm's own site
+    # disagrees (Erik 2026-09-24; scripts/firm-offices.py has the rule and
+    # why the Form D address vote it replaces was wrong for 8VC, Greylock, YC).
+    office_record = offices.refresh(p)
+    statement = offices.statement_of(p)
+    hq = offices.decide(office_record, statement)
     latest_year, people, departed = current_people(roster, team)
 
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
     row.update({
-        "hq_location": hq,
+        "hq_location": hq["value"],
         "individuals": people,
         "updated_at": now,
     })
@@ -314,11 +273,7 @@ def main():
     def field(value, source, basis):
         return {"value": value, "source": source, "basis": basis}
 
-    total = sum(hq_places.values())
-    fields["hq_location"] = field(
-        hq, "sources/edgar/formd-sweep.json",
-        f"issuer address on {hq_count} of {total} of the firm's own Form D "
-        f"filings{'; unanimous' if hq_count == total else ''}. Filing-grade.")
+    fields["hq_location"] = offices.hq_field(office_record, hq, statement)
     if focus_representative:
         fields["investment_scope"] = field(
             scope, "companies/base.json",
@@ -344,7 +299,7 @@ def main():
     write_atomic(p.investor_sources,
                  json.dumps(sources, indent=indent_of(p.investor_sources)) + "\n")
 
-    print(f"hq            {hq}  ({hq_count}/{total} filings)")
+    print(f"hq            {hq['value']}  ({hq['won_by']})")
     print(f"funds         {len(fields['funds']['value'])}  aum {row['aum']}")
     print(f"individuals   {len(people)}  (current cohort {latest_year}, "
           f"{len(departed)} departed)")

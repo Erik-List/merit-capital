@@ -204,8 +204,14 @@
   },
   "hq_location": {
    "value": "New York, NY",
-   "source": "sources/edgar/formd-sweep.json",
-   "basis": "issuer address on 21 of 21 of the firm's own Form D filings; unanimous. Filing-grade."
+   "source": "sources/offices.json",
+   "basis": "Principal office on the newest Form ADV: 920 Broadway 11th Floor, New York, NY (LUX CAPITAL MANAGEMENT, LLC, CRD 163026, Annual Amendment filed 2026-03-31). The firm's site names no office in its served pages (3 checked), so the Form ADV stands. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+   "sources": [
+    {
+     "source": "Form ADV Item 1.F and Schedule D 1.F, LUX CAPITAL MANAGEMENT, LLC (Annual Amendment filed 2026-03-31)",
+     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/163026/PDF/163026.pdf"
+    }
+   ]
   },
   "individuals": {
    "value": [

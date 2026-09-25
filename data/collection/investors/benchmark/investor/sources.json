@@ -15,8 +15,18 @@
     },
     "hq_location": {
       "value": "Woodside, CA",
-      "source": "sources/edgar/formd-sweep.json",
-      "basis": "PUBLISHED VALUE IS THE SWORN ONE. build-firm-profile.py recomputes hq from the firm's own Form D filings and returned Woodside, CA (20 of 23 filings; 2965 Woodside Road since 2019, 2480 Sand Hill Road, Menlo Park before that), which matches ADV Item 1.F. Recorded because it is not the only candidate: the firm's own one-page site lists 140 New Montgomery Street, San Francisco FIRST and Woodside second, and Wikipedia's infobox carries the San Francisco address. The filing-grade address is published and the discrepancy is stated here rather than hidden."
+      "source": "sources/offices.json",
+      "basis": "Principal office on the newest Form ADV: 2965 Woodside Road, Woodside, CA (BENCHMARK CAPITAL HOLDINGS, CRD 160352, Annual Amendment filed 2026-03-24). The firm's site lists San Francisco, CA; Woodside, CA; the principal office is among them, so the site agrees. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+      "sources": [
+        {
+          "source": "Form ADV Item 1.F and Schedule D 1.F, BENCHMARK CAPITAL HOLDINGS (Annual Amendment filed 2026-03-24)",
+          "url": "https://reports.adviserinfo.sec.gov/reports/ADV/160352/PDF/160352.pdf"
+        },
+        {
+          "source": "the firm's own site, office list",
+          "url": "https://www.benchmark.com/"
+        }
+      ]
     },
     "founding_year": {
       "value": 1995,

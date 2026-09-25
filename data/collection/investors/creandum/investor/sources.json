@@ -253,8 +253,18 @@
     },
     "hq_location": {
       "value": "Stockholm, Sweden",
-      "source": "sources/edgar/formd-sweep.json",
-      "basis": "issuer address on 4 of 4 of the firm's own Form D filings; unanimous. Filing-grade."
+      "source": "sources/offices.json",
+      "basis": "Principal office on the newest Form ADV: Jakobsbergsgatan 18, Stockholm, Sweden (CREANDUM V ADVISOR AB, CRD 306543, Annual Amendment filed 2026-03-26). The firm's site lists San Francisco, CA; London, United Kingdom; Berlin, Germany; Stockholm, Sweden; the principal office is among them, so the site agrees. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+      "sources": [
+        {
+          "source": "Form ADV Item 1.F and Schedule D 1.F, CREANDUM V ADVISOR AB (Annual Amendment filed 2026-03-26)",
+          "url": "https://reports.adviserinfo.sec.gov/reports/ADV/306543/PDF/306543.pdf"
+        },
+        {
+          "source": "the firm's own site, office list",
+          "url": "https://creandum.com/"
+        }
+      ]
     },
     "individuals": {
       "value": [

@@ -168,8 +168,18 @@
     },
     "hq_location": {
       "value": "Berlin, Germany",
-      "source": "sources/edgar/formd-sweep.json",
-      "basis": "issuer address on 3 of 3 of the firm's own Form D filings; unanimous. Filing-grade."
+      "source": "sources/offices.json",
+      "basis": "Principal office on the newest Form ADV: Linienstrabe 214, Berlin, Germany (CHERRY VENTURES MANAGEMENT GMBH (AIFM), CRD 301494, Annual Amendment filed 2024-03-14). The firm's site lists Berlin, Germany; London, United Kingdom; Stockholm, Sweden; the principal office is among them, so the site agrees. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+      "sources": [
+        {
+          "source": "Form ADV Item 1.F and Schedule D 1.F, CHERRY VENTURES MANAGEMENT GMBH (AIFM) (Annual Amendment filed 2024-03-14)",
+          "url": "https://reports.adviserinfo.sec.gov/reports/ADV/301494/PDF/301494.pdf"
+        },
+        {
+          "source": "the firm's own site, office list",
+          "url": "https://cherry.vc/contact"
+        }
+      ]
     },
     "individuals": {
       "value": [

@@ -510,8 +510,18 @@
     },
     "hq_location": {
       "value": "Menlo Park, CA",
-      "source": "sources/edgar/formd-sweep.json",
-      "basis": "issuer address on 106 of 106 of the firm's own Form D filings; unanimous. Filing-grade."
+      "source": "sources/offices.json",
+      "basis": "Principal office on the newest Form ADV: 2865 Sand Hill Road, Menlo Park, CA (ANDREESSEN HOROWITZ, CRD 160489, Annual Amendment filed 2026-03-30). The firm's site lists Menlo Park, CA; San Francisco, CA; New York, NY; Washington, DC; Santa Monica, CA; Seoul, South Korea; the principal office is among them, so the site agrees. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+      "sources": [
+        {
+          "source": "Form ADV Item 1.F and Schedule D 1.F, ANDREESSEN HOROWITZ (Annual Amendment filed 2026-03-30)",
+          "url": "https://reports.adviserinfo.sec.gov/reports/ADV/160489/PDF/160489.pdf"
+        },
+        {
+          "source": "the firm's own site, office list",
+          "url": "https://a16z.com/offices"
+        }
+      ]
     },
     "individuals": {
       "value": [

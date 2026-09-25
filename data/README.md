@@ -45,6 +45,7 @@ trustworthy host than this repo, so they are gitignored:
 
 - `filings/form-d/` — quarterly Form D bulk ZIPs, 2008q1 onward (~190MB)
 - `filings/edgar-headers/` — per-filing header cache, filled on demand by `scripts/edgar_common.py`
+- `filings/adv/` — Form ADV reports per adviser CRD, fetched on demand by `scripts/firm-offices.py` (re-fetched after a day; the offices read from them are tracked in each investor's `sources/offices.json`)
 - `collection/shared/sec/cik-lookup-data.txt` — SEC CIK lookup table (~38MB)
 
 After cloning, hydrate them with:

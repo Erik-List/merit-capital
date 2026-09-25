@@ -15,8 +15,18 @@
   },
   "hq_location": {
    "value": "Boston, MA",
-   "source": "sources/edgar/formd-sweep.json",
-   "basis": "issuer address on 21 of 25 of the firm's own Form D filings. Filing-grade."
+   "source": "sources/offices.json",
+   "basis": "Principal office on the newest Form ADV: One Marina Park Drive Suite 1100, Boston, MA (BATTERY MANAGEMENT CORP., CRD 160921, Annual Amendment filed 2026-03-30). The firm's site lists Boston, MA; San Francisco, CA; Menlo Park, CA; Tel Aviv, Israel; London, United Kingdom; New York, NY; the principal office is among them, so the site agrees. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+   "sources": [
+    {
+     "source": "Form ADV Item 1.F and Schedule D 1.F, BATTERY MANAGEMENT CORP. (Annual Amendment filed 2026-03-30)",
+     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/160921/PDF/160921.pdf"
+    },
+    {
+     "source": "the firm's own site, office list",
+     "url": "https://www.battery.com/contact"
+    }
+   ]
   },
   "founding_year": {
    "value": 1983,
