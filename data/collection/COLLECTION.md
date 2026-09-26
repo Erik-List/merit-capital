@@ -937,7 +937,13 @@ naming sentences, company articles separated from people and lists; the
 judge cites the article and its underlying reference (`web`). Both need
 the noise read once per investor (place names, leases, namesake typos)
 and a `not_member` verdict for every candidate ruled out, so the layer's
-next run is a delta.
+next run is a delta. **Full-text search fails deep, not empty**: past about
+2,000 hits the index can refuse a page on every retry (IVP, 2026-09-26:
+`{"message": "Internal server error"}` from offset 2,100 of 2,196) and it
+never serves an offset past 10,000. The sweep retries, then re-reads the
+phrase in five-year date windows (halved where one still fails), and
+records any window it still cannot read under `coverage` in
+`fts-hits.json` as "partial: N of M", never as the absence of those hits.
 
 **When the investor sits outside the SEC** (measured on Creandum,
 2026-09-04, the EU thin-data test): the SEC layer is fund-side only, not

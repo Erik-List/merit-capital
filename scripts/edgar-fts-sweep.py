@@ -42,9 +42,95 @@ def get(url, tries=3, sleep=0.35):
     raise err
 
 
-def fts(phrase, frm):
+FTS_FIRST_YEAR = 2001      # full-text search covers 2001 onward
+FTS_MAX_FROM = 9900        # the index refuses offsets past 10,000
+MIN_WINDOW_DAYS = 90       # a window is not split below a quarter
+
+
+def fts(phrase, frm, start=None, end=None):
     q = urllib.parse.quote(f'"{phrase}"')
-    return json.loads(get(f"https://efts.sec.gov/LATEST/search-index?q={q}&dateRange=all&from={frm}"))
+    dates = f"dateRange=custom&startdt={start}&enddt={end}" if start else "dateRange=all"
+    return json.loads(get(f"https://efts.sec.gov/LATEST/search-index?q={q}&{dates}&from={frm}"))
+
+
+def fts_page(phrase, frm, start=None, end=None, tries=3):
+    """One results page, or None when the index keeps failing it. A deep
+    offset can answer {"message": "Internal server error"} on every retry
+    (IVP: from=2100 of 2,196 hits, 2026-09-26), so a page without "hits" is a
+    failure to report, never an empty page."""
+    for i in range(tries):
+        try:
+            j = fts(phrase, frm, start, end)
+        except (RuntimeError, ValueError):
+            j = None
+        if isinstance(j, dict) and "hits" in j:
+            return j
+        time.sleep(3 + 4 * i)
+    return None
+
+
+def sweep_window(phrase, start=None, end=None):
+    """Page through one query: (hits by id, total, complete, rows read).
+    Incomplete when a page kept failing or the total runs past the index's
+    offset limit. Rows can exceed distinct ids: the index counts a few
+    documents twice (IVP: 2,196 rows, 2,194 distinct)."""
+    got, frm, total = {}, 0, None
+    while True:
+        j = fts_page(phrase, frm, start, end)
+        if j is None:
+            return got, total, False, frm
+        total = j["hits"]["total"]["value"] if total is None else total
+        page = j["hits"]["hits"]
+        if not page:
+            return got, total, True, frm
+        for h in page:
+            got[h["_id"]] = h
+        frm += len(page)
+        if frm >= total:
+            return got, total, True, frm
+        if frm >= FTS_MAX_FROM:
+            return got, total, False, frm
+
+
+def sweep_phrase(phrase):
+    """Every hit for a phrase: (hits by id, coverage record). A query that
+    cannot be read to the end is re-run in date windows (five years, halved
+    again where a window still fails, down to a quarter), so no window needs
+    a deep offset; whatever still cannot be read is reported as partial."""
+    from datetime import date, timedelta
+    got, total, complete, rows = sweep_window(phrase)
+    coverage = {"phrase": phrase, "total": total, "complete": complete, "failed_windows": []}
+    if complete or total is None:
+        # read to the end, or the index would not serve even the first page:
+        # an outage, which splitting would only multiply
+        coverage.update(read=rows, distinct=len(got))
+        if total is None:
+            coverage["failed_windows"].append(["all dates", "first page refused"])
+        return got, coverage
+    coverage["read"] = 0
+
+    def run(start, end):
+        hits, wtotal, ok, n = sweep_window(phrase, start.isoformat(), end.isoformat())
+        got.update(hits)
+        coverage["read"] += n
+        if ok:
+            return
+        # only a deep page is helped by a narrower window; a refused first
+        # page is recorded as it is
+        if wtotal is None or (end - start).days <= MIN_WINDOW_DAYS:
+            coverage["failed_windows"].append([start.isoformat(), end.isoformat()])
+            return
+        mid = start + (end - start) / 2
+        run(start, mid)
+        run(mid + timedelta(days=1), end)
+
+    today = date.today()
+    for y in range(FTS_FIRST_YEAR, today.year + 1, 5):
+        run(date(y, 1, 1), min(date(y + 4, 12, 31), today))
+    coverage["complete"] = not coverage["failed_windows"]
+    coverage["distinct"] = len(got)
+    coverage["split_by_date"] = True
+    return got, coverage
 
 
 def strip_html(b):
@@ -69,21 +155,18 @@ def main():
     own_re = re.compile(own_pat, re.I)
     phrase_re = re.compile("|".join(re.escape(p) for p in phrases), re.I)
 
-    hits = {}
+    hits, coverage = {}, []
     for phrase in phrases:
-        frm, total = 0, None
-        while True:
-            j = fts(phrase, frm)
-            total = j["hits"]["total"]["value"] if total is None else total
-            page = j["hits"]["hits"]
-            if not page:
-                break
-            for h in page:
-                hits[h["_id"]] = h["_source"] | {"_id": h["_id"], "_phrase": phrase}
-            frm += len(page)
-            if frm >= total or frm >= 9900:
-                break
-        print(f"{phrase!r}: {total} hits")
+        got, cov = sweep_phrase(phrase)
+        for _id, h in got.items():
+            hits.setdefault(_id, h["_source"] | {"_id": _id, "_phrase": phrase})
+        coverage.append(cov)
+        if cov["complete"]:
+            print(f"{phrase!r}: {cov['total']} hits ({cov['distinct']} distinct"
+                  f"{', read in date windows' if cov.get('split_by_date') else ''})")
+        else:
+            print(f"{phrase!r}: partial: {cov['read']} of {cov['total']} hits read; "
+                  f"unreadable windows {cov['failed_windows']}")
 
     by = {}
     for h in hits.values():
@@ -148,6 +231,10 @@ def main():
                           "the investor's vehicles, ownership_forms = 13D/G, 3/4 or D filings handled by the "
                           "entities/ownership layers.",
                "phrases": phrases, "own_pattern": own_pat, "swept_at": time.strftime("%Y-%m-%d"),
+               # Per phrase: total hits, how many were read, and any date window
+               # the index would not serve. A partial sweep is recorded as one,
+               # never as the absence of the unread hits.
+               "coverage": coverage,
                "registrants": sorted(by.values(), key=lambda r: (r["bucket"], r["first_date"]))},
               open(out, "w"), indent=2, ensure_ascii=False)
     print("wrote", P.rel(out))
