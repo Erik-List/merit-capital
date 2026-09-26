@@ -1,0 +1,307 @@
+{
+ "slug": "point-nine",
+ "generated_at": "2026-09-26T21:31:52+00:00",
+ "run": "PRO-101 merged run (base, classification, profile in one session)",
+ "fields": {
+  "name": {
+   "value": "Point Nine",
+   "source": "https://www.pointnine.com/",
+   "basis": "the firm's site; branded Point Nine since the 2020 rebrand, Point Nine Capital 2011-2020, Team Europe Ventures before June 2011 (TechCrunch 2011-06-09; decisions.md D1). Management companies Point Nine Management GmbH (CRD 306640) and Point Nine Management II GmbH (CRD 319531)."
+  },
+  "website": {
+   "value": "https://www.pointnine.com",
+   "source": "https://www.pointnine.com/",
+   "basis": "firm site (Webflow; portfolio at /companies, blog at writing.pointnine.com, jobs at jobs.pointnine.com)"
+  },
+  "icon_url": {
+   "value": "https://cdn.prod.website-files.com/692822ddaad59f0a12948b97/69aab00f11542e7f951213b9_point-nine-logo.svg",
+   "source": "https://cdn.prod.website-files.com/692822ddaad59f0a12948b97/69aab00f11542e7f951213b9_point-nine-logo.svg",
+   "basis": "PLACEHOLDER pointing at the source until the gated upload (the bucket write runs with the ingest, after Erik's approval; Benchmark precedent). Source chosen by `--discover` on https://www.pointnine.com (2026-09-26): the firm's own vector mark point-nine-logo.svg, the only P9 vector (the 256x256 webclip and the 32x32 favicon are rasters; the favicon would be upscaled). Dry run passed 2026-09-26 (see the fetch log in the run notes)."
+  },
+  "founding_year": {
+   "value": 2011,
+   "source": "https://techcrunch.com/2011/06/09/team-europes-early-stage-fund-becomes-point-nine-capital-christoph-janz-joins/",
+   "basis": "Team Europe Ventures, the investment arm of the Team Europe incubator, was rebranded Point Nine Capital in June 2011 with Pawel Chudzinski and Christoph Janz as managing directors (TechCrunch 2011-06-09); TechCrunch 2015-06-03: 'established back in 2011'. Fund I (Team Europe Ventures Fund) invested from 2009-2010 (decisions.md D1)."
+  },
+  "history": {
+   "value": "Point Nine was founded in Berlin in 2011 by Christoph Janz and Pawel Chudzinski, when Team Europe's venture arm became an independent seed fund. It became known for early bets on software and marketplaces, among them Delivery Hero, Revolut, Algolia, Contentful and Loom. It raised its seventh fund in 2025 and now also backs AI companies and software for the physical world.",
+   "source": "https://techcrunch.com/2011/06/09/team-europes-early-stage-fund-becomes-point-nine-capital-christoph-janz-joins/",
+   "basis": "founding and founders: TechCrunch 2011-06-09 and the firm's own posts ('Pawel and Christoph's first investments in Clio and Jobber'); the named bets are portfolio members (the firm's 2020 post: 'As a seed investor in companies like Algolia, Brainly, Chainalysis, Clio, Contentful, Delivery Hero, DocPlanner, Front, Loom, Mambu ... Revolut ... Typeform'); Fund VII: Form D 2025-05-02 and the 2026 ADV; the physical-world and AI turn: the firm's own post 2026-05-15 ('software and AI for the world outside of offices'). Fund ladder (moved to the funds field): I about $6.7M, II EUR 40M (2013), III $60M (2015), IV EUR 75M (2017), V EUR 99,999,999 (2020), VI EUR 180M (2022), VII (2025), Annex I (2016) and Annex II (2022). Zendesk, the Janz angel investment the firm often cites, is outside the portfolio (decisions.md D2)."
+  },
+  "investment_concept": {
+   "value": "\u201cPoint Nine is a thesis-driven early-stage venture capital firm.\u201d",
+   "source": "https://www.pointnine.com/",
+   "basis": "The firm's own statement, verbatim from its homepage headline (h1, set on two lines), read 2026-09-26; a closing period and straight quotes are the only edits. The title tag carries 'Point Nine \u2014 Early-Stage VC for SaaS, AI & B2B Software' (competing line, not used). Published inside quotation marks, as the firm's own words (Erik, 2026-09-26)."
+  },
+  "investment_stage": {
+   "value": [
+    "Pre-Seed",
+    "Seed",
+    "Series A",
+    "Growth"
+   ],
+   "source": "https://www.pointnine.com/companies",
+   "basis": "the site's own 'P9 INVESTMENT' filter (Pre-seed, Seed, Series A, Later-stage); Later-stage maps to Growth (Anthropic's Series G, Odyssey's Series B, both 2026); the landed base: Seed 153 / Pre-Seed 20 / Series A 18 / Growth 2 / undetermined 6 of 199",
+   "flags": [
+    "growth_later_stage_2026"
+   ]
+  },
+  "investment_geo": {
+   "value": {
+    "core": [
+     "Europe"
+    ],
+    "other": [
+     "US"
+    ]
+   },
+   "source": "https://www.pointnine.com/companies",
+   "basis": "the site's own country filter and the base: 143 European rows (DE 56, FR 21, GB 16, NL 9, ES 7, PL 7, SE 4, NO 4, ...), 42 US, 7 Canada, one each in Nigeria, Japan, Peru, UAE, Australia, Singapore and New Zealand, of 199 -> core Europe, other US (two-label cap)"
+  },
+  "investment_scope": {
+   "value": {
+    "type": "Specialist",
+    "focus": [
+     "SaaS",
+     "Consumer & Marketplaces",
+     "AI & Applied AI",
+     "Industrial & Robotics",
+     "DevTools & APIs",
+     "Fintech & Payments"
+    ]
+   },
+   "source": "companies/base.json",
+   "basis": "focus from the firm's own site sector tags on 395 base rows, crosswalked to data/taxonomy/focus.json (crosswalk in config.json), published above 10 companies. Scope type is the curated judgement carried in investor.json."
+  },
+  "investment_range": {
+   "value": {
+    "lower_limit": 500000,
+    "median": 2800000,
+    "upper_limit": 17000000
+   },
+   "source": "companies/classification.json",
+   "basis": "median: press-based, the median of 83 documented entry rounds of portfolio members (Pre-Seed, Seed and Series A entries with a stated amount in funding_rounds, the firm in the round, 2011-2026), $2.8M (quartiles $1.5M / $5.3M); Form D covers few members (an EU book), so no filing-grade distribution. lower: documented entries of $0.3M to $0.75M (Positionly, Brainly, ChartMogul, Typeform, Juro) and today's pre-seed checks; upper: the largest led or co-led entry rounds (Qlub $17M seed co-led with Cherry, 2022; Findable EUR 9M Series A, 2024), below a 10-15% single-position cap on Fund VII (7.B gross assets $246.7M -> $25-37M). Rejected: Poolside's $126M seed and Anthropic's Series G, rounds the firm joined without leading.",
+   "flags": [
+    "press_based_median",
+    "no_formd_distribution"
+   ]
+  },
+  "notable_investments": {
+   "value": [
+    "Revolut",
+    "Anthropic",
+    "Delivery Hero",
+    "Loom",
+    "Typeform"
+   ],
+   "source": "companies/base.csv",
+   "basis": "The five best known of the firm's own companies, most recognised first: the names a general reader would recognise first (PRO-152, Erik 2026-09-24). Each is tied to its portfolio row by `slugs`; names read as a reader knows them (COLLECTION.md s8). Considered next: Algolia, Contentful, Chainalysis, Clio, Front, Mambu.",
+   "slugs": [
+    "revolut",
+    "anthropic",
+    "delivery-hero",
+    "loom",
+    "typeform"
+   ]
+  },
+  "aum": {
+   "value": {
+    "bottom": 2092009841,
+    "top": 2092009841
+   },
+   "source": "https://adviserinfo.sec.gov/firm/summary/306640",
+   "basis": "both ends: the sworn Form ADV Section 7.B(1) gross asset values of the firm's two exempt reporting advisers, annual amendments of 2026-03-26 (IAPD PDFs parsed with pypdf): Point Nine Management GmbH, CRD 306640 (Fund I $1,257,266; Fund II $417,390,961; Fund III $540,521,332; Fund IV $287,170,418; Fund V $217,076,134; Annex $36,247,234 = $1,499,663,345) and Point Nine Management II GmbH, CRD 319531 (Fund VI $202,325,389; Fund VII $246,708,000; Annex II $143,313,107 = $592,346,496); total $2,092,009,841. An ERA-only firm files no Item 5.F RAUM, so the 7.B composite is the sworn figure for both ends (Creandum precedent); the firm publishes no AUM figure.",
+   "flags": [
+    "adv_7b_gav_substitute",
+    "era_no_raum",
+    "two_era_composite"
+   ]
+  },
+  "funds": {
+   "value": [
+    {
+     "name": "Point Nine Capital Fund VII",
+     "size": null,
+     "vintage": 2025
+    },
+    {
+     "name": "Point Nine Annex II",
+     "size": null,
+     "vintage": 2022
+    },
+    {
+     "name": "Point Nine Capital Fund VI",
+     "size": 173628000,
+     "vintage": 2022
+    },
+    {
+     "name": "Point Nine Capital Fund V",
+     "size": 117399999,
+     "vintage": 2020
+    },
+    {
+     "name": "Point Nine Capital Fund IV",
+     "size": 84127500,
+     "vintage": 2017
+    },
+    {
+     "name": "Point Nine Annex GmbH & Co. KG",
+     "size": 13328000,
+     "vintage": 2016,
+     "accession": "0001677337-16-000001"
+    },
+    {
+     "name": "Point Nine Capital Fund III GmbH & Co. KG",
+     "size": 57657000,
+     "vintage": 2015,
+     "accession": "0001650344-15-000001"
+    },
+    {
+     "name": "Point Nine Capital Fund II",
+     "size": 53920000,
+     "vintage": 2013
+    },
+    {
+     "name": "Point Nine Capital Fund I",
+     "size": 6700000,
+     "vintage": 2011
+    }
+   ],
+   "source": "https://www.pointnine.com/",
+   "basis": "sizes: Fund I 'around $6.7 million to invest' (TechCrunch 2015-06-03, of the 2011 fund); Fund II EUR 40M (TechCrunch 2013-02-13) @ ECB 2013-02-13 (EUR/USD 1.348) = $53.9M; Fund III from its Form D (0001650344-15-000001, $57,657,000 sold; press 'closes $60M third fund', TechCrunch 2015-06-03); Fund IV EUR 75M (the firm's own post 'Good morning! We've raised a new fund', 2017-06-13) @ ECB 2017-06-13 (1.1217) = $84.1M; Fund V EUR 99,999,999 (TechCrunch 2020-09-22) @ ECB 2020-09-22 (1.174) = $117.4M; Fund VI EUR 180M (TechCrunch 2022-09-26) @ ECB 2022-09-26 (0.9646) = $173.6M; Annex (opportunity fund) from its Form D (0001677337-16-000001, $13,328,000 sold). Fund VII and Annex II have no announced size: Fund VII's Form D (2025-05-02) offers $165,016,500 to US investors with $0 sold, Annex II's (2022-01-24) $68,691,553 with $0 sold; their 2026 ADV gross assets are $246.7M and $143.3M (sizes left null). Later Form Ds of Funds II, IV and V are partial US tranches, not sizes.",
+   "flags": [
+    "fund_vii_size_undisclosed",
+    "annex_ii_size_undisclosed"
+   ]
+  },
+  "hq_location": {
+   "value": "Berlin, Germany",
+   "source": "sources/offices.json",
+   "basis": "Principal office on the newest Form ADV: Torstr. 19, Berlin, Germany (POINT NINE MANAGEMENT GMBH, CRD 306640, Annual Amendment filed 2026-03-26). The firm's site names no office in its served pages (1 checked), so the Form ADV stands. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+   "sources": [
+    {
+     "source": "Form ADV Item 1.F and Schedule D 1.F, POINT NINE MANAGEMENT GMBH (Annual Amendment filed 2026-03-26)",
+     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/306640/PDF/306640.pdf"
+    }
+   ]
+  },
+  "individuals": {
+   "value": [
+    {
+     "name": "Christoph Janz",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/christophjanz",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Florian Seemann",
+     "position": "Research Analyst",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/florian-seemann/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Kolja Hebenstreit",
+     "position": "Venture Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/koljahebenstreit/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Louis Coppey",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/louiscoppey",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Michael Wolfe",
+     "position": "Venture Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/wolfemichael/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Pawel Chudzinski",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/pchudzinski/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Ricardo Sequerra Amram",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/ricardosequerra",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Aleksandra Zorylo",
+     "position": "Operating Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/aleksandra-zorylo-4942302b",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Bethany D'Sylva",
+     "position": "Senior Fund Operations Manager",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/bethanydsylva",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Caitlin Watson",
+     "position": "Office Manager and TA",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/caitlin-watson-200407136/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Chaitali Sheth",
+     "position": "Senior Legal Associate",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/chaitali-sheth-nijdam/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Laura Weritz",
+     "position": "Director of Platform & Community",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/laura-weritz-671940a5/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Marco D\u00f6ring",
+     "position": "Head of Finance",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/marcodoeringcva/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Tilman Langer",
+     "position": "General Counsel",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/tilman-langer-3622511/",
+      "x_url": null
+     }
+    }
+   ],
+   "source": "sources/site/team.json",
+   "basis": "Live team CMS: 14 members. Positions are CMS titles (10 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 0 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 14 LinkedIn, 0 X."
+  }
+ }
+}

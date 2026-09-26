@@ -1,0 +1,430 @@
+{
+ "slug": "point-nine",
+ "name": "Point Nine",
+ "wayback": {
+  "cdx_domain": "pointnine.com",
+  "site_url_base": "https://www.pointnine.com",
+  "eras": [],
+  "non_company_slugs": [
+   "index",
+   "home",
+   "page",
+   "feed",
+   "search",
+   "tag",
+   "category",
+   "author",
+   "all",
+   "see-all",
+   "companies",
+   "portfolio",
+   "team",
+   "people",
+   "news",
+   "blog",
+   "about",
+   "about-us",
+   "contact",
+   "imprint",
+   "privacy-policy",
+   "library",
+   "love",
+   "jobs",
+   "careers",
+   "faq",
+   "wp-content",
+   "wp-json",
+   "wp-admin",
+   "wp-includes",
+   "xmlrpc",
+   "cdn-cgi",
+   "assets",
+   "images",
+   "media",
+   "css",
+   "sitemap",
+   "robots",
+   "favicon",
+   "en",
+   "de"
+  ],
+  "_note": "Eras filled after the CDX enumeration of pointninecap.com (the 2011-2019 domain, dead today) and pointnine.com (2019 on; the live Webflow build dates from 2025-11). The live 2026 list is read through site_api, not an era."
+ },
+ "roster": {
+  "cdx_patterns": [],
+  "site_team_groups": [
+   "Investment",
+   "Platform & Community"
+  ],
+  "slug_re": "/team/([a-z][a-z0-9-]*[a-z0-9])/?$",
+  "listing_href_re": "/team/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+  "not_a_person": [
+   "index",
+   "team",
+   "people",
+   "partners",
+   "about",
+   "companies",
+   "portfolio",
+   "news",
+   "contact",
+   "jobs",
+   "careers",
+   "all",
+   "page",
+   "point-nine",
+   "pointnine"
+  ],
+  "_note": "The live Webflow site has no per-person pages (team cards link to LinkedIn), so the current year is the site's team list and earlier years come from the archived team pages plus the firm's own welcome posts and the ADV Schedule A owners, curated with basis per person."
+ },
+ "site_api": {
+  "type": "scrape",
+  "entry_stage_fields": [
+   "p9_investment"
+  ],
+  "entry_stage_confidence": "medium",
+  "_entry_stage_score": "Scored blind 2026-09-26 against 40 rows whose entry round the record names (TechCrunch articles and the firm's own posts naming the round Point Nine's fund entered): 36/40 = 90.0%, so promoted at medium (COLLECTION.md s5: high needs >=95% over >=30). All four misses are one class: 2011-2013 rounds of $1-2M the press named 'Series A' that the site now calls 'Seed' (Couchsurfing, DocPlanner, ShiftPlanning/Humanity, Mambu); every scored row after 2013 agrees. The site's year is an anchor, not an entry date (Brainly and inFakt are misdated; decisions.md D13).",
+  "entry_stage_listing_url": "https://www.pointnine.com/companies",
+  "sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/point-nine/sources/site/webflow-companies.json",
+    "list": "companies-2026",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "sectors": "tags",
+    "extras": [
+     "website",
+     "p9_investment",
+     "invest_year",
+     "city",
+     "country_site",
+     "status_site",
+     "unicorn_site",
+     "description"
+    ]
+   },
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/point-nine/sources/site/jobs-board-companies.json",
+    "list": "jobs-board",
+    "fields": {
+     "name": "name",
+     "url": "website"
+    },
+    "extras": [
+     "board_slug",
+     "domain",
+     "description",
+     "industry_tags",
+     "locations",
+     "stage",
+     "founded",
+     "head_count",
+     "org_type",
+     "active_jobs"
+    ]
+   },
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/point-nine/sources/site/portfolio-2012-2015.json",
+    "list": "pointninecap-2012-2015",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "sectors": "sectors",
+    "extras": [
+     "years_listed",
+     "current_flags",
+     "sold_flags",
+     "country_site",
+     "description",
+     "old_permalink",
+     "site_added"
+    ]
+   },
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/point-nine/sources/site/cms-2018-2020.json",
+    "list": "cms-2018-2020",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "cms_fund",
+     "cms_investment",
+     "cms_entry_round",
+     "cms_status",
+     "city",
+     "country_site",
+     "founded",
+     "description",
+     "cms_id"
+    ]
+   },
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/point-nine/sources/site/p9-family-2021-2023.json",
+    "list": "p9-family-2021-2023",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "years_listed",
+     "stage_family",
+     "badges"
+    ]
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/point-nine/sources/site/team-webflow.json",
+    "list": "team",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "title",
+     "group",
+     "linkedin_url"
+    ]
+   }
+  ],
+  "team_buckets": {
+   "Investment": "investing",
+   "Operations": "operations",
+   "Platform & Community": "platform"
+  },
+  "team_bucket_overrides": {
+   "Kolja Hebenstreit": [
+    "investing"
+   ],
+   "Michael Wolfe": [
+    "investing"
+   ]
+  },
+  "_note": "pointnine.com is a Webflow site with no public CMS API (escalation ladder step 5): the /companies collection is server-rendered over 8 pages and read card by card into webflow-companies.json; each card carries the firm's own 'P9 INVESTMENT' round (Pre-seed / Seed / Series A / Later-stage) and year. jobs.pointnine.com is a Getro job board (Thrive precedent). The blog (writing.pointnine.com, a Substack carrying the Medium 'Point Nine Land' archive from 2014) is the fourth surface. Venture partners (Hebenstreit, Wolfe) sit under Platform & Community on the site and are bucketed investing by name.",
+  "_archive_note": "The archive eras arrived through Common Crawl and the old Contentful CMS because the Internet Archive refused this machine twice on 2026-09-26 (cooldown doubled to 120 minutes): pointninecap.com/portfolio 2012-2015 (the 'current' / 'previous' array), the 2018-2020 Contentful space (fund per company), pointnine.com/p9-family 2021-2023. They land at the one scheduled rebuild (COLLECTION.md s5 outage rule: continue on the live surfaces, the archive lands after recovery). cms_entry_round scored 22/26 and stage_family 29/37 against the blind readings: evidence for the judge, not labels (stage_family's 'Pre-Series A' straddles two stages)."
+ },
+ "edgar": {
+  "seed_queries": [
+   "point+nine+capital",
+   "point+nine+annex",
+   "point+nine+management",
+   "point+nine+co-invest",
+   "team+europe+ventures"
+  ],
+  "fts_phrases": [
+   "Point Nine Capital",
+   "Point Nine Annex",
+   "Point Nine Management",
+   "Team Europe Ventures"
+  ],
+  "fts_own_pattern": "point nine capital fund|point nine annex|point nine management|point nine co-invest|team europe ventures",
+  "_note": "Entity-qualified phrases only: the bare 'point nine' is a number in prose ('increased by zero point nine percent'). Measured 2026-09-26: EDGAR full-text search for \"Point Nine Capital\" over all years returns 34 documents: the funds' own Form Ds (Fund II-VII, Annex, Annex II), one Regulation CF offering (Lift Aircraft, 2024), SAP SE annual reports and 6-Ks 2014-2026 (to read: a board member's other mandates or a namesake), and one 2017 S-4 exhibit (GP Investments Acquisition Corp / Rimini Street)."
+ },
+ "wikipedia": {
+  "phrases": [
+   "Point Nine Capital",
+   "Team Europe Ventures"
+  ]
+ },
+ "desks": {
+  "home": "eu",
+  "partition": [],
+  "rank": [
+   "eu",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "one point nine",
+     "point nine data trust",
+     "point nine clothing",
+     "point nine recruitment",
+     "pointnine capital ltd",
+     "(two|five|eight|fiftyeight) ?point ?nine",
+     "breakpoint nine"
+    ]
+   },
+   {
+    "desk": "eu",
+    "patterns": [
+     "^point nine capital",
+     "^point nine annex",
+     "^point nine management",
+     "^point nine co-invest",
+     "^point nine verwaltungs",
+     "^point nine holding",
+     "^team europe ventures"
+    ]
+   }
+  ],
+  "_note": "Namesakes verified by entity and address (the firm is Torstr. 19, 10119 Berlin), never by name. POINT NINE INC. appears twice: the Illinois adviser at 55 Shuman Blvd, Naperville (CRD 333690, inactive) is unrelated, while the ADV of Point Nine Management II lists a POINT NINE INC. with no CRD or CIK as a related person (the firm's own US entity), so the name alone decides nothing and neither is patterned here. One Point Nine Management, LLC (Philadelphia, CRD 309145, inactive) is unrelated. The firm's own SEC entities: Point Nine Management GmbH (ERA, CRD 306640, SEC 802-) and Point Nine Management II GmbH (ERA, CRD 319531, SEC 802-126152); Form D filers Point Nine Capital Fund II (CIK 1795226), III (1650344), IV (1795228), V (1790315), VI (1904258), VII (2066605), Point Nine Annex (1677337), Point Nine Annex II (1904244)."
+ },
+ "profile": {
+  "own_vehicle_pattern": "^(point nine (capital|annex|management|co-invest|verwaltungs|holding)|team europe ventures)",
+  "adv_crd": 306640,
+  "focus_min_companies": 10,
+  "focus_crosswalk": {
+   "Enterprise": "SaaS",
+   "Vertical Software": "SaaS",
+   "PLG": "SaaS",
+   "SMB SaaS": "SaaS",
+   "CRM": "SaaS",
+   "Legal": "SaaS",
+   "Consumer": "Consumer & Marketplaces",
+   "B2B Marketplace": "Consumer & Marketplaces",
+   "Education": "Consumer & Marketplaces",
+   "Food": "Consumer & Marketplaces",
+   "AI": "AI & Applied AI",
+   "Computer Vision": "AI & Applied AI",
+   "Foundation Model": "AI & Applied AI",
+   "Dev Tools & Infra": "DevTools & APIs",
+   "Open Source": "DevTools & APIs",
+   "Fintech": "Fintech & Payments",
+   "Healthcare": "Healthcare & Bio",
+   "Climate & Energy": "Climate & Energy",
+   "Crypto": "Crypto & Web3",
+   "Logistics": "Industrial & Robotics",
+   "Manufacturing": "Industrial & Robotics",
+   "Physical AI": "Industrial & Robotics",
+   "Hardware": "Industrial & Robotics",
+   "Deep Tech": "Industrial & Robotics",
+   "AR/VR": "Media, Gaming & Advertising",
+   "SaaS": "SaaS",
+   "eCommerce": "Consumer & Marketplaces",
+   "Consumer Internet": "Consumer & Marketplaces",
+   "Lead Generation": "Consumer & Marketplaces"
+  },
+  "_note": "Two exempt reporting advisers under common control: Point Nine Management GmbH (Fund I-V, Annex) and Point Nine Management II GmbH (Fund VI, VII, Annex II). focus_min_companies ~4.5% of the expected ~220-row base.",
+  "_crosswalk_note": "The 2026 site's 25 sector tags (filter 'SECTORS') crosswalked to the closed twelve. Several tags describe a business model rather than a sector (Enterprise, PLG, SMB SaaS, Vertical Software, B2B Marketplace); they map to SaaS and Consumer & Marketplaces as the taxonomy's aliases do. Education, Food and AR/VR have no alias and take the nearest value for the firm-level recompute only; each company's own focus is judged in the grind. The 2012-2015 list's tags (SaaS, eCommerce, Consumer Internet, Lead Generation) map as their names say; its 'Platform' and 'Mobile' name a channel, not a sector, and stay unmapped."
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "delivery hero",
+   "algolia",
+   "contentful",
+   "typeform",
+   "front",
+   "revolut",
+   "loom",
+   "factorial",
+   "docplanner",
+   "mambu",
+   "brainly",
+   "attio",
+   "incident.io",
+   "superannotate",
+   "cargo.one",
+   "vercept",
+   "anthropic",
+   "clio",
+   "westwing",
+   "unbounce",
+   "fyber",
+   "misterspex",
+   "chainalysis",
+   "nexhealth",
+   "poolside"
+  ],
+  "unicorn_bands": false,
+  "_unicorn_bands_note": "Rule A (Erik 2026-09-06): the unicorn snapshot is an aggregator, a coverage floor to verify, never a mark. prepare keeps the name-match as a flag for the web pass and writes no figure or band; every $1B+ figure on this book is pinned from a cited priced event (sources/web/visible-slice.json).",
+  "sample_slugs": [],
+  "shape": {
+   "one_b_share_max": 0.12,
+   "c2a_rate_max": 0.8,
+   "_note": "Set to Point Nine's properties before the first milestone (PRO-101): a seed firm with a ~220-row book since 2009 has perhaps fifteen to twenty $1B+ rows (the site flags 15 'seed-to-unicorn' companies, Anthropic joins as a 2026 Series G entry), so the $1B+ share guard sits at 12%, above Cherry's 10% because Point Nine's book is older and its SaaS winners have had longer to compound; a genuine seed book keeps the 80% S2A ceiling."
+  },
+  "not_members": [
+   {
+    "name": "zendesk",
+    "slug": "zendesk",
+    "why": "Christoph Janz's personal $500K angel check of June 2008, a year before the fund existed; the firm's blog calls it 'one of Christoph's first angel investments' and his involvement ended with the 2009 Series A (decisions.md D2)"
+   },
+   {
+    "name": "freeagent",
+    "slug": "freeagent",
+    "why": "the firm's own card: 'FreeAgent was one of Christoph's first angel investments'; no fund round (D2)"
+   },
+   {
+    "name": "geckoboard",
+    "slug": "geckoboard",
+    "why": "the firm's own card: 'a private angel investment by Christoph prior to the formation of Point Nine'; the 2012 round names Janz among the individuals (D2)"
+   },
+   {
+    "name": "momox",
+    "slug": "momox",
+    "why": "the firm's own card: 'one of Christoph's angel investments before starting P9'; Janz and Mark Gazecki's EUR 250k (TechCrunch 2010-02-03) (D2)"
+   },
+   {
+    "name": "propertybase",
+    "slug": "propertybase",
+    "why": "the firm's own card: 'One of Christoph's angel investments before P9' (D2)"
+   },
+   {
+    "name": "samedi",
+    "slug": "samedi",
+    "why": "the firm's own card: 'one of Christoph's angel investments prior to Point Nine'; Janz's 2% beside Lars Hinrichs, a non-institutional investment (TechCrunch 2010-08-26) (D2)"
+   },
+   {
+    "name": "server density",
+    "slug": "server-density",
+    "why": "the firm's own card: 'one of Christoph's angel investments prior to Point Nine'; the GBP 135k angel round of 2011 (TechCrunch 2011-05-24) (D2)"
+   },
+   {
+    "name": "project europe",
+    "slug": "project-europe",
+    "why": "a EUR 10M fund Point Nine backs through Point Nine VI Project Europe GmbH, not a company (D7)"
+   },
+   {
+    "name": "personio",
+    "slug": "personio",
+    "why": "Personio Group SE shares in Fund IV's accounts are consideration for Back, which Personio acquired in 2022; Back is the member (COLLECTION.md s1 sale consideration)"
+   },
+   {
+    "name": "team europe",
+    "slug": "team-europe",
+    "why": "the company builder that sponsored the 2009 fund; its own positions are external (D3)"
+   },
+   {
+    "name": "trivago",
+    "slug": "trivago",
+    "why": "Team Europe Ventures Limited sold trivago shares to Expedia in 2012 (Expedia 8-K 2012-12-21): the incubator's vehicle, not the fund KG; on no Point Nine list (D3)"
+   },
+   {
+    "name": "sap",
+    "slug": "sap",
+    "why": "SAP's 20-Fs list Point Nine Capital Fund II and III among SAP's holdings: SAP is a limited partner of the funds (D8)"
+   },
+   {
+    "name": "adjacent",
+    "slug": "adjacent",
+    "why": "Nicolas Wittenborn's own fund family (Adjacent V1-V4, 2019 on), his next firm after Point Nine: another firm's vehicles (D10)"
+   },
+   {
+    "name": "point nine inc",
+    "slug": "point-nine-inc",
+    "why": "the Naperville IL adviser (CRD 333690, inactive), an unrelated namesake (D8)"
+   },
+   {
+    "name": "one point nine management",
+    "slug": "one-point-nine-management",
+    "why": "Philadelphia adviser (CRD 309145, inactive), unrelated namesake (D8)"
+   }
+  ],
+  "_not_members_note": "Membership traps (COLLECTION.md s10 invariant 11), written at kickoff from decisions.md D2, D3, D7, D8 and D10 before any verdict writes."
+ },
+ "sample_slugs": []
+}

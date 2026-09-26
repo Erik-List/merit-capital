@@ -1,0 +1,503 @@
+{
+  "_readme": "EDGAR full-text sweep (scripts/edgar-fts-sweep.py): hits for the configured phrases aggregated by registrant; bucket third_party = exit-side disclosure candidates for the judge (S-1 IRA signatories and holder tables, 424B selling stockholders, acquirer S-3/S-4/8-K), own = the investor's entities/people, lp_side = registered funds holding the investor's vehicles, ownership_forms = 13D/G, 3/4 or D filings handled by the entities/ownership layers.",
+  "phrases": [
+    "Point Nine Capital",
+    "Point Nine Annex",
+    "Point Nine Management",
+    "Team Europe Ventures"
+  ],
+  "own_pattern": "point nine capital fund|point nine annex|point nine management|point nine co-invest|team europe ventures",
+  "swept_at": "2026-09-26",
+  "registrants": [
+    {
+      "registrant": "Point Nine Capital Fund III GmbH & Co. KG",
+      "cik": "0001650344",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2015-09-24",
+      "last_date": "2015-09-24",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2015-09-24",
+          "adsh": "0001650344-15-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1650344/000165034415000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1650344/000165034415000001/0001650344-15-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Point Nine Annex GmbH & Co. KG",
+      "cik": "0001677337",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2016-07-06",
+      "last_date": "2016-07-06",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2016-07-06",
+          "adsh": "0001677337-16-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1677337/000167733716000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1677337/000167733716000001/0001677337-16-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Point Nine Capital Fund V GmbH & Co. KG",
+      "cik": "0001790315",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2019-10-07",
+      "last_date": "2019-10-07",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2019-10-07",
+          "adsh": "0001012975-19-000625",
+          "url": "https://www.sec.gov/Archives/edgar/data/1790315/000101297519000625/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1790315/000101297519000625/0001012975-19-000625-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Point Nine Capital Fund II GmbH & Co. KG",
+      "cik": "0001795226",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2019-12-03",
+      "last_date": "2019-12-03",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2019-12-03",
+          "adsh": "0001209191-19-058629",
+          "url": "https://www.sec.gov/Archives/edgar/data/1795226/000120919119058629/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1795226/000120919119058629/0001209191-19-058629-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Point Nine Capital Fund IV GmbH & Co. KG",
+      "cik": "0001795228",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2019-12-03",
+      "last_date": "2019-12-03",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2019-12-03",
+          "adsh": "0001209191-19-058632",
+          "url": "https://www.sec.gov/Archives/edgar/data/1795228/000120919119058632/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1795228/000120919119058632/0001209191-19-058632-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Point Nine Capital Fund VI GmbH & Co. KG",
+      "cik": "0001904258",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2022-01-24",
+      "last_date": "2022-01-24",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2022-01-24",
+          "adsh": "0001904258-22-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1904258/000190425822000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1904258/000190425822000001/0001904258-22-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Point Nine Annex II GmbH & Co. KG",
+      "cik": "0001904244",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2022-01-24",
+      "last_date": "2022-01-24",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2022-01-24",
+          "adsh": "0001904244-22-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1904244/000190424422000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1904244/000190424422000001/0001904244-22-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Point Nine Capital Fund VII GmbH & Co. KG",
+      "cik": "0002066605",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2025-05-02",
+      "last_date": "2025-05-02",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2025-05-02",
+          "adsh": "0002066605-25-000002",
+          "url": "https://www.sec.gov/Archives/edgar/data/2066605/000206660525000002/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/2066605/000206660525000002/0002066605-25-000002-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Expedia, Inc.  (EXPE)",
+      "cik": "0001324424",
+      "forms": {
+        "8-K": 1
+      },
+      "first_date": "2012-12-21",
+      "last_date": "2012-12-21",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "2012-12-21",
+          "adsh": "0001193125-12-511867",
+          "url": "https://www.sec.gov/Archives/edgar/data/1324424/000119312512511867/d455840dex21.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1324424/000119312512511867/0001193125-12-511867-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1324424/000119312512511867/d455840dex21.htm",
+          "form": "8-K",
+          "date": "2012-12-21",
+          "mentions": 2,
+          "context": [
+            " EX-2.1 2 d455840dex21.htm SHARE PURCHASE AGREEMENT Share Purchase Agreement Exhibit 2.1 Rolf Schrömgens Peter Vinnemeier Malte Siewert Dr. Stephan Stubner European Founders Fund GmbH Florian Heinemann Christian Vollmann Cyril Jaugey Team Europe Ventures Limited Tiburon Unternehmensaufbau GmbH HOWZAT media LLP Stellant Ventures Limited I.T. Holding GmbH & Co. Beteiligungs KG Tron Newco GmbH trivago GmbH Expedia, Inc. Expedia, Inc. TVG Representative LLC A GREEMENT For the Sale and Purchase of 23,751 Shares in",
+            "435 Berlin, Germany (the Seller 6 ); (7) Christian Vollmann , born 10 November 1977, residing at Almstadtstraße 16, 10119 Berlin, Germany (the Seller 7 ); (8) Cyril Jaugey , born 20 June 1975, residing at Kringsweg 16, 50931 Köln, Germany (the Seller 8 ); (9) Team Europe Ventures Limited , a limited liability company incorporated under the laws of England and Wales, registered with Companies House in Cardiff under registration no. 05831082 and with registered office at 69 Great Hampton Street, Birmingham, B18 6EW, Great Britain, with "
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "SAP AG  (SAP, SAPGF)",
+      "cik": "0001000184",
+      "forms": {
+        "20-F": 1,
+        "6-K": 1
+      },
+      "first_date": "2014-03-21",
+      "last_date": "2014-04-04",
+      "filings": [
+        {
+          "form": "20-F",
+          "date": "2014-03-21",
+          "adsh": "0001193125-14-109290",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000119312514109290/d679397d20f.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000119312514109290/0001193125-14-109290-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2014-04-04",
+          "adsh": "0001193125-14-130630",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000119312514130630/d697959dex991.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000119312514130630/0001193125-14-130630-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000119312514109290/d679397d20f.htm",
+          "form": "20-F",
+          "date": "2014-03-21",
+          "mentions": 1,
+          "context": [
+            "hip Fund GmbH & Co. KG, Grünwald, Germany Narrative Science, Inc., Chicago, Illinois, USA On Deck Capital, Inc., New York, New York, USA Onventis GmbH, Stuttgart, Germany Patent Quality, Inc., Bellevue, Washington, USA PayScale, Inc., Seattle, Washington, USA Point Nine Capital Fund II GmbH & Co. KG, Berlin, Germany Post for Systems, Cairo, Egypt Realize Corporation, Tokyo, Japan Retail Solutions, Inc. (legal name: T3C, Inc.), Mountain View, California, USA Return Path, Inc., New York, New York, USA RIB Software AG, Stuttgart, Germa"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000119312514130630/d697959dex991.htm",
+          "form": "6-K",
+          "date": "2014-04-04",
+          "mentions": 1,
+          "context": [
+            "hip Fund GmbH & Co. KG, Grünwald, Germany Narrative Science, Inc., Chicago, Illinois, USA On Deck Capital, Inc., New York, New York, USA Onventis GmbH, Stuttgart, Germany Patent Quality, Inc., Bellevue, Washington, USA PayScale, Inc., Seattle, Washington, USA Point Nine Capital Fund II GmbH & Co. KG, Berlin, Germany Post for Systems, Cairo, Egypt Realize Corporation, Tokyo, Japan Retail Solutions, Inc. (legal name: T3C, Inc.), Mountain View, California, USA Return Path, Inc., New York, New York, USA RIB Software AG, Stuttgart, Germa"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "SAP SE  (SAP, SAPGF)",
+      "cik": "0001000184",
+      "forms": {
+        "20-F": 12,
+        "6-K": 12
+      },
+      "first_date": "2015-03-20",
+      "last_date": "2026-03-06",
+      "filings": [
+        {
+          "form": "20-F",
+          "date": "2015-03-20",
+          "adsh": "0001193125-15-099258",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000119312515099258/d875102d20f.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000119312515099258/0001193125-15-099258-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2015-04-02",
+          "adsh": "0001193125-15-116801",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000119312515116801/d896611dex991.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000119312515116801/0001193125-15-116801-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2016-03-29",
+          "adsh": "0001193125-16-520379",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000119312516520379/d138619d20f.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000119312516520379/0001193125-16-520379-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2016-04-06",
+          "adsh": "0001193125-16-531477",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000119312516531477/d162243dex991.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000119312516531477/0001193125-16-531477-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2017-02-28",
+          "adsh": "0001193125-17-060157",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000119312517060157/d344005d20f.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000119312517060157/0001193125-17-060157-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2017-03-02",
+          "adsh": "0001193125-17-067542",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000119312517067542/d345376dex991.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000119312517067542/0001193125-17-067542-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2018-02-28",
+          "adsh": "0001104659-18-013050",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465918013050/a17-27645_420f.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000110465918013050/0001104659-18-013050-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2018-03-06",
+          "adsh": "0001104659-18-015111",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465918015111/a17-27645_7ex99d1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000110465918015111/0001104659-18-015111-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2019-02-28",
+          "adsh": "0001104659-19-011304",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465919011304/a18-38214_120f.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000110465919011304/0001104659-19-011304-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2019-03-08",
+          "adsh": "0001104659-19-013502",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465919013502/a18-38214_4ex99d1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000110465919013502/0001104659-19-013502-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2020-02-27",
+          "adsh": "0001104659-20-025681",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465920025681/sap-20191231x20f6ea59a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000110465920025681/0001104659-20-025681-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2020-03-05",
+          "adsh": "0001104659-20-029454",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465920029454/a19-18843_4ex99d1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000110465920029454/0001104659-20-029454-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2021-03-04",
+          "adsh": "0001104659-21-031847",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465921031847/sap-20201231x20f.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000110465921031847/0001104659-21-031847-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2021-03-11",
+          "adsh": "0001104659-21-034734",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465921034734/tm218829d1_ex99-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000110465921034734/0001104659-21-034734-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2022-03-03",
+          "adsh": "0001104659-22-029675",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465922029675/sap-20211231x20f.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000110465922029675/0001104659-22-029675-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2022-03-11",
+          "adsh": "0001104659-22-032674",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465922032674/tm33773d3_ex99-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000110465922032674/0001104659-22-032674-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2023-03-02",
+          "adsh": "0001104659-23-027626",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465923027626/sap-20221231x20f.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000110465923027626/0001104659-23-027626-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2023-03-10",
+          "adsh": "0001104659-23-030841",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465923030841/tm2231129d2_ex99-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000110465923030841/0001104659-23-030841-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2024-02-29",
+          "adsh": "0001104659-24-029038",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465924029038/sap-20231231x20f.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000110465924029038/0001104659-24-029038-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2024-03-08",
+          "adsh": "0001104659-24-032038",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465924032038/tm2331168d2_ex99-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000110465924032038/0001104659-24-032038-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2025-02-27",
+          "adsh": "0001104659-25-017815",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465925017815/sap-20241224x20f.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000110465925017815/0001104659-25-017815-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2025-03-07",
+          "adsh": "0001104659-25-021471",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465925021471/tm251055d2_ex99-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000110465925021471/0001104659-25-021471-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2026-02-26",
+          "adsh": "0001104659-26-020058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465926020058/sap-20251231x20f.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000110465926020058/0001104659-26-020058-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2026-03-06",
+          "adsh": "0001104659-26-024381",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465926024381/tm2529416d2_ex99-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000110465926024381/0001104659-26-024381-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000119312515099258/d875102d20f.htm",
+          "form": "20-F",
+          "date": "2015-03-20",
+          "mentions": 1,
+          "context": [
+            "e Science, Inc., Chicago, Illinois, USA Nor1, Inc., Santa Clara, California, USA On Deck Capital, Inc., New York, New York, USA Onventis GmbH, Stuttgart, Germany OpenX Software Limited, Pasadena, California, USA Patent Quality, Inc., Bellevue, Washington, USA Point Nine Capital Fund II GmbH & Co. KG, Berlin, Germany Post for Systems, Cairo, Egypt Realize Corporation, Tokyo, Japan Retail Solutions, Inc. (legal name: T3C, Inc.), Mountain View, California, USA Return Path, Inc., New York, New York, USA RideCharge, Inc., Alexandria, Vir"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000119312515116801/d896611dex991.htm",
+          "form": "6-K",
+          "date": "2015-04-02",
+          "mentions": 1,
+          "context": [
+            "e Science, Inc., Chicago, Illinois, USA Nor1, Inc., Santa Clara, California, USA On Deck Capital, Inc., New York, New York, USA Onventis GmbH, Stuttgart, Germany OpenX Software Limited, Pasadena, California, USA Patent Quality, Inc., Bellevue, Washington, USA Point Nine Capital Fund II GmbH & Co. KG, Berlin, Germany Post for Systems, Cairo, Egypt Realize Corporation, Tokyo, Japan Retail Solutions, Inc. (legal name: T3C, Inc.), Mountain View, California, USA Return Path, Inc., New York, New York, USA RideCharge, Inc., Alexandria, Vir"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "GP Investments Acquisition Corp.  (RMNI)",
+      "cik": "0001635282",
+      "forms": {
+        "S-4": 1
+      },
+      "first_date": "2017-06-30",
+      "last_date": "2017-06-30",
+      "filings": [
+        {
+          "form": "S-4",
+          "date": "2017-06-30",
+          "adsh": "0001567619-17-001357",
+          "url": "https://www.sec.gov/Archives/edgar/data/1635282/000156761917001357/s001739x1_ex10-26.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1635282/000156761917001357/0001567619-17-001357-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1635282/000156761917001357/s001739x1_ex10-26.htm",
+          "form": "S-4",
+          "date": "2017-06-30",
+          "mentions": 2,
+          "context": [
+            "ny Narrative Science, Inc., Chicago, IL, United States Notation Capital, L.P., Brooklyn, NY, United States On Deck Capital, Inc., New York, NY, United States OpenX Software Limited, Pasadena, CA, United States Patent Quality, Inc., Bellevue, WA, United States Point Nine Capital Fund II GmbH & Co. KG, Berlin, Germany Point Nine Capital Fund III GmbH & Co. KG, Berlin, Germany Post for Systems, Cairo, Egypt PubNub, Inc., San Francisco, CA, United States Realize Corporation, Tokyo, Japan Return Path, Inc., New York, NY, United States Ro",
+            "ation Capital, L.P., Brooklyn, NY, United States On Deck Capital, Inc., New York, NY, United States OpenX Software Limited, Pasadena, CA, United States Patent Quality, Inc., Bellevue, WA, United States Point Nine Capital Fund II GmbH & Co. KG, Berlin, Germany Point Nine Capital Fund III GmbH & Co. KG, Berlin, Germany Post for Systems, Cairo, Egypt PubNub, Inc., San Francisco, CA, United States Realize Corporation, Tokyo, Japan Return Path, Inc., New York, NY, United States Rome2rio Pty. Ltd., Albert Park, Australia Scytl, S.A., Barc"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "Lift Aircraft Inc.",
+      "cik": "0001889418",
+      "forms": {
+        "C": 1
+      },
+      "first_date": "2024-02-22",
+      "last_date": "2024-02-22",
+      "filings": [
+        {
+          "form": "C",
+          "date": "2024-02-22",
+          "adsh": "0001644600-24-000004",
+          "url": "https://www.sec.gov/Archives/edgar/data/1889418/000164460024000004/lift_websitetest.pdf",
+          "index": "https://www.sec.gov/Archives/edgar/data/1889418/000164460024000004/0001644600-24-000004-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1889418/000164460024000004/lift_websitetest.pdf",
+          "form": "C",
+          "date": "2024-02-22",
+          "mentions": 0,
+          "context": []
+        }
+      ]
+    }
+  ]
+}
