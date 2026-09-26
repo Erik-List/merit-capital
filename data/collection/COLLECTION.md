@@ -2286,11 +2286,14 @@ something people want." (beside the logo), Thrive's "Thrive Capital builds and
 invests in internet, software, and technology-enabled companies." (its meta
 description; the homepage has no headline). The only edits allowed are
 sentence case (Felicis sets "Fortune Favors The Brave", Cherry sets capitals by
-CSS), straight quotes and one closing period. The sidecar's `source` is the
+CSS), straight quotes and one closing period, and the line is published
+inside quotation marks (“…”) so the reader sees it is the firm speaking
+(Erik, 2026-09-26). The sidecar's `source` is the
 page it was read from and its `basis` says where on the page, the date read,
 and any competing line the site also carries. A firm that publishes no
 statement at all (Benchmark: a wordmark and two addresses) carries a derived
-line, marked `derived: true` on the sidecar field and flagged in its basis.
+line, marked `derived: true` on the sidecar field and flagged in its basis,
+and never in quotation marks: it is our sentence, not the firm's.
 
 The history is written, and the model is Thrive's: founder and first fund,
 the bets that made it (Instagram, GitHub, Oscar Health, Stripe, OpenAI), and
@@ -2320,7 +2323,8 @@ Israeli desks, Greylock IL, Dorm Room Fund, Thrive Holdings) live in the basis.
 
 **The rule is checked, not remembered.** `scripts/profile_copy.py` holds it
 (sentence and word limits, the banned words, dashes, first person in the
-history, the thesis sourced from the firm's own site unless marked derived,
+history, the thesis sourced from the firm's own site and in quotation marks
+unless marked derived,
 the sidecar mirror); `build-firm-profile.py`
 refuses to write a profile that breaks it and `run.py verify` fails one.
 `python3 scripts/profile_copy.py` with no slug checks all investors.

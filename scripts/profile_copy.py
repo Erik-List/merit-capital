@@ -5,9 +5,9 @@
 thesis) and `history`, and a reader who has never heard of Merit Capital must
 understand every word of both (Erik, 2026-09-24, PRO-147; COLLECTION.md §11):
 
-  thesis   the firm's own crisp statement, in its own words, 1-2 sentences
-           and at most 25 words, sourced from the firm's own site (Erik,
-           2026-09-26). A firm that publishes none (Benchmark) carries a
+  thesis   the firm's own crisp statement, in its own words and inside
+           quotation marks, 1-2 sentences and at most 25 words, sourced from
+           the firm's own site (Erik, 2026-09-26). A firm that publishes none (Benchmark) carries a
            derived line, marked `derived: true` on the sidecar field.
   history  at most 3 sentences, 40-80 words, third person: founded (year,
            city, founders), the bets that made the firm, where it stands today.
@@ -91,8 +91,16 @@ def problems(row: dict, fields: dict | None = None) -> list[str]:
                        f"write it in the third person")
         if fields is not None and (fields.get(key) or {}).get("value") != row.get(key):
             out.append(f"{label}: investor/sources.json value differs from investor.json")
-    # The thesis is self-given: its source is a page on the firm's own site.
+    # The thesis is self-given: its source is a page on the firm's own site,
+    # and the page shows it inside quotation marks as the firm's own words. A
+    # derived line is ours, so it is never dressed as a quote (Erik 2026-09-26).
     field = (fields or {}).get("investment_concept") or {}
+    thesis = (row.get("investment_concept") or "").strip()
+    quoted = thesis.startswith("\u201c") and thesis.endswith("\u201d")
+    if fields is not None and thesis and quoted == bool(field.get("derived")):
+        out.append("thesis: a derived line must not be in quotation marks"
+                   if field.get("derived") else
+                   "thesis: the firm's own words go inside quotation marks \u201c\u2026\u201d")
     if fields is not None and not field.get("derived"):
         site, src = host(row.get("website")), host(field.get("source"))
         if not site or src != site:
