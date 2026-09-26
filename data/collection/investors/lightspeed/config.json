@@ -224,7 +224,9 @@
  },
  "site_api": {
   "entry_stage_confidence": "high",
-  "entry_stage_fields": ["stage_invested"],
+  "entry_stage_fields": [
+   "stage_invested"
+  ],
   "entry_stage_listing_url": "https://lsvp.com/companies/",
   "type": "scrape",
   "sources": [
@@ -394,18 +396,66 @@
    "riverbed"
   ],
   "not_members": [
-   {"name": "apna", "slug": "apna", "why": "LSIP-only (ruling 2): the main companies page attributes it data-investor='lsip' and links lsip.com/company/apna; no LSVP vehicle or partner evidence — a Lightspeed India Partners deal, a distinct adviser (CRD 310954)"},
-   {"name": "zolve", "slug": "zolve", "why": "LSIP-only (ruling 2): data-investor='lsip', lsip.com link; LSIP's own deal, out absent LSVP participation evidence"},
-   {"name": "ppdai", "slug": "ppdai", "why": "China (ruling 3): PPDai/FinVolution is a Lightspeed China Partners portfolio company (LCP's own IPO-pair 2017, NYSE) — LCP is an independent partnership since 2011 with Cayman filers (China I-IV); note LSVP's own blog hosts the PPDai story,"},
-   {"name": "rong360", "slug": "rong360", "why": "China (ruling 3): Rong360/Jianpu, the other LCP 2017 NYSE IPO; LCP fund evidence only (forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/)"},
-   {"name": "flock io", "slug": "flock-io", "why": "Faction (ruling 4): FLock.io's $6M Mar-2024 seed was led by Lightspeed Faction (with Tagus) — Faction Ventures LLC is its own RIA (CRD 318821), its deals are not LSVP rows (uktechnews.info/2026/03/28/flock-io-secures-4-76-million-seed-inves"},
-   {"name": "pharos", "slug": "pharos", "why": "Faction (ruling 4): Pharos' $8M Nov-2024 seed co-led by Lightspeed Faction and Hack VC (finance.yahoo.com/news/pharos-closes-8-million-seed-201900807.html)"},
-   {"name": "lightspeed technologies", "slug": "lightspeed-technologies", "why": "Namesake Form D filer: LIGHTSPEED TECHNOLOGIES INC, Tualatin OR classroom-audio company, $2.5M offering 2009q4 (accession 0000915824-09-000004) — no relation to the Menlo Park firm; must never build a base row"},
-   {"name": "lightspeed microscopy", "slug": "lightspeed-microscopy", "why": "Namesake Form D filer: LIGHTSPEED MICROSCOPY, INC., Redmond WA (3 filings 2019q1-2021q2), renamed Alpenglow Biosciences — registry external, never a base row"},
-   {"name": "oyster travel", "slug": "oyster-travel", "why": "Pre-tenure officer seat: OYSTER TRAVEL Corp's 2009q3 Form D (0001432009-09-000005) names Justin Caldbeck Director — his Bain Capital Ventures era; he joined Lightspeed only in 2011; no Lightspeed listing or vehicle on any Oyster filing"},
-   {"name": "arrikto", "slug": "arrikto", "why": "Ex-partner next-firm deal: Arrikto's 2020q3 Form D (0001663618-20-000002) names John Vrionis Director — Unusual Ventures led it; Vrionis left Lightspeed in 2017 to co-found Unusual (en.wikipedia.org/wiki/Unusual_Ventures); whose money was b"},
-   {"name": "popupbagels", "slug": "popupbagels", "why": "Founder homonym: PopUpBagels Inc.'s 2024q1 Form D (0002007083-24-000001) names its own founder Adam Goldberg, Executive Officer, Westport CT — a different person from Lightspeed's 2013-2018 Adam Goldberg, who by then ran Standard Crypto (hi"},
-   {"name": "lightspeed venture partners select iv", "slug": "lightspeed-venture-partners-select-iv", "why": "Own pooled vehicle: Select IV's 2020q1 Form D is a Pooled Investment Fund filing with roster Directors (Liew, 0001805207-20-000003) — the build's pooled filter must drop it; an own vehicle appearing as a company row fails verify outright"}
+   {
+    "name": "apna",
+    "slug": "apna",
+    "why": "LSIP-only (ruling 2): the main companies page attributes it data-investor='lsip' and links lsip.com/company/apna; no LSVP vehicle or partner evidence — a Lightspeed India Partners deal, a distinct adviser (CRD 310954)"
+   },
+   {
+    "name": "zolve",
+    "slug": "zolve",
+    "why": "LSIP-only (ruling 2): data-investor='lsip', lsip.com link; LSIP's own deal, out absent LSVP participation evidence"
+   },
+   {
+    "name": "ppdai",
+    "slug": "ppdai",
+    "why": "China (ruling 3): PPDai/FinVolution is a Lightspeed China Partners portfolio company (LCP's own IPO-pair 2017, NYSE) — LCP is an independent partnership since 2011 with Cayman filers (China I-IV); note LSVP's own blog hosts the PPDai story,"
+   },
+   {
+    "name": "rong360",
+    "slug": "rong360",
+    "why": "China (ruling 3): Rong360/Jianpu, the other LCP 2017 NYSE IPO; LCP fund evidence only (forbes.com/sites/rebeccafannin/2019/01/07/lightspeed-chinas-2-new-funds-totaling-560-million-cap-a-surge-in-chinese-venture-ipos/)"
+   },
+   {
+    "name": "flock io",
+    "slug": "flock-io",
+    "why": "Faction (ruling 4): FLock.io's $6M Mar-2024 seed was led by Lightspeed Faction (with Tagus) — Faction Ventures LLC is its own RIA (CRD 318821), its deals are not LSVP rows (uktechnews.info/2026/03/28/flock-io-secures-4-76-million-seed-inves"
+   },
+   {
+    "name": "pharos",
+    "slug": "pharos",
+    "why": "Faction (ruling 4): Pharos' $8M Nov-2024 seed co-led by Lightspeed Faction and Hack VC (finance.yahoo.com/news/pharos-closes-8-million-seed-201900807.html)"
+   },
+   {
+    "name": "lightspeed technologies",
+    "slug": "lightspeed-technologies",
+    "why": "Namesake Form D filer: LIGHTSPEED TECHNOLOGIES INC, Tualatin OR classroom-audio company, $2.5M offering 2009q4 (accession 0000915824-09-000004) — no relation to the Menlo Park firm; must never build a base row"
+   },
+   {
+    "name": "lightspeed microscopy",
+    "slug": "lightspeed-microscopy",
+    "why": "Namesake Form D filer: LIGHTSPEED MICROSCOPY, INC., Redmond WA (3 filings 2019q1-2021q2), renamed Alpenglow Biosciences — registry external, never a base row"
+   },
+   {
+    "name": "oyster travel",
+    "slug": "oyster-travel",
+    "why": "Pre-tenure officer seat: OYSTER TRAVEL Corp's 2009q3 Form D (0001432009-09-000005) names Justin Caldbeck Director — his Bain Capital Ventures era; he joined Lightspeed only in 2011; no Lightspeed listing or vehicle on any Oyster filing"
+   },
+   {
+    "name": "arrikto",
+    "slug": "arrikto",
+    "why": "Ex-partner next-firm deal: Arrikto's 2020q3 Form D (0001663618-20-000002) names John Vrionis Director — Unusual Ventures led it; Vrionis left Lightspeed in 2017 to co-found Unusual (en.wikipedia.org/wiki/Unusual_Ventures); whose money was b"
+   },
+   {
+    "name": "popupbagels",
+    "slug": "popupbagels",
+    "why": "Founder homonym: PopUpBagels Inc.'s 2024q1 Form D (0002007083-24-000001) names its own founder Adam Goldberg, Executive Officer, Westport CT — a different person from Lightspeed's 2013-2018 Adam Goldberg, who by then ran Standard Crypto (hi"
+   },
+   {
+    "name": "lightspeed venture partners select iv",
+    "slug": "lightspeed-venture-partners-select-iv",
+    "why": "Own pooled vehicle: Select IV's 2020q1 Form D is a Pooled Investment Fund filing with roster Directors (Liew, 0001805207-20-000003) — the build's pooled filter must drop it; an own vehicle appearing as a company row fails verify outright"
+   }
   ]
  },
  "sample_slugs": [
@@ -521,5 +571,44 @@
   "yellow-ai",
   "zipstack",
   "zscaler"
- ]
+ ],
+ "names": {
+  "_published_note": "Published names (PRO-146; COLLECTION.md s8, Erik 2026-09-24): the brand in normal capitalization, letter-read acronyms kept, no legal suffix. {slug: name}, applied by run.py export; the slug and every overlay keep the source rendering. Decided 2026-09-26.",
+  "published": {
+   "arenaclub-com-inc": "Arenaclub.com",
+   "aril-inc": "Aril",
+   "artists-writers-artisans-inc": "Artists Writers & Artisans",
+   "avi-networks": "Avi Networks",
+   "beta-data": "Beta Data",
+   "blackfish": "Blackfish",
+   "epropulsion": "ePropulsion",
+   "fal-features-labels-inc": "fal",
+   "focus-ip-inc": "Focus IP",
+   "glo-pharma": "Glo Pharma",
+   "harmonic-inc": "Harmonic",
+   "heighten-software-inc": "Heighten Software",
+   "hesai": "Hesai",
+   "kamelian-ltd": "Kamelian",
+   "monosphere-inc": "MonoSphere",
+   "ns8-inc": "NS8",
+   "nte-inc": "NTE",
+   "nym": "Nym",
+   "optier-inc": "OpTier",
+   "oyo": "Oyo",
+   "people-home-finance-ltd": "People Home Finance",
+   "pietech-inc": "PieTech",
+   "pivot-3-inc": "Pivot3",
+   "revvsales-inc": "Revvsales",
+   "shapes-inc": "Shapes",
+   "starco-brands-inc": "Starco Brands",
+   "stion-corporation": "Stion",
+   "terayon-corporation": "Terayon",
+   "triana-biomedicines": "Triana Biomedicines",
+   "tzero-technologies-inc": "TZero Technologies",
+   "unity-semiconductor-corp": "Unity Semiconductor",
+   "wayz": "Wayz",
+   "worktrans": "Worktrans",
+   "zocks-communications-inc": "Zocks Communications"
+  }
+ }
 }

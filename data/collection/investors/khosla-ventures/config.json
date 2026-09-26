@@ -266,7 +266,7 @@
     ]
    }
   ],
-  "_note": "www.khoslaventures.com is Webflow with no public CMS API (escalation ladder step 5). The sitemap has NO per-company pages: the whole portfolio is one server-rendered /portfolio page of 114 cards grouped into eight category sections. Each card carries the company URL, the firm's own fund label (Seed / Early / Growth) on 88 of them, an exchange ticker on 17, a one-line thesis and a milestone. scratch/site-pull.py parses them into the file_list source above. The fund label is a candidate class-1 entry_stage layer and is SCORED on the golden set before it is allowed to label (COLLECTION.md \u00a74).",
+  "_note": "www.khoslaventures.com is Webflow with no public CMS API (escalation ladder step 5). The sitemap has NO per-company pages: the whole portfolio is one server-rendered /portfolio page of 114 cards grouped into eight category sections. Each card carries the company URL, the firm's own fund label (Seed / Early / Growth) on 88 of them, an exchange ticker on 17, a one-line thesis and a milestone. scratch/site-pull.py parses them into the file_list source above. The fund label is a candidate class-1 entry_stage layer and is SCORED on the golden set before it is allowed to label (COLLECTION.md §4).",
   "team_buckets": {},
   "team_bucket_overrides": {
    "Amy Kalokerinos": "investing",
@@ -350,7 +350,7 @@
     ]
    }
   ],
-  "_note": "One desk: Khosla Ventures is a single Menlo Park adviser (2128 Sand Hill Road) with no geographic or strategy partition -- seed, main and opportunity funds are all venture strategies of the one ERA, so T1 keeps them together and the 2026-09-04 strategy-desk rule does not bite. Namesakes are verified by CIK and address, never by name: five natural persons named Khosla hold their own CIKs and Victor Khosla (Strategic Value Partners) is an unrelated distressed-debt investor. The external rule runs first per COLLECTION.md \u00a75.3. Two cofiler-closure entities were re-desked home on their filing address, the Lightspeed rule (COLLECTION.md \u00a75.3): VK Services, LLC (CIK 1501927) and SK SPAC Services, LLC (1848897) both file from 2128 Sand Hill Road. VK Services is the firm's management company and its 13F filer -- 31 13F-HRs, 70 Form 4s and 23 Form 3s across 2010-2026 -- so it carries fund-side ownership filings from four years before the CDX roster window opens, which is the pre-2014 recall the roster structurally misses."
+  "_note": "One desk: Khosla Ventures is a single Menlo Park adviser (2128 Sand Hill Road) with no geographic or strategy partition -- seed, main and opportunity funds are all venture strategies of the one ERA, so T1 keeps them together and the 2026-09-04 strategy-desk rule does not bite. Namesakes are verified by CIK and address, never by name: five natural persons named Khosla hold their own CIKs and Victor Khosla (Strategic Value Partners) is an unrelated distressed-debt investor. The external rule runs first per COLLECTION.md §5.3. Two cofiler-closure entities were re-desked home on their filing address, the Lightspeed rule (COLLECTION.md §5.3): VK Services, LLC (CIK 1501927) and SK SPAC Services, LLC (1848897) both file from 2128 Sand Hill Road. VK Services is the firm's management company and its 13F filer -- 31 13F-HRs, 70 Form 4s and 23 Form 3s across 2010-2026 -- so it carries fund-side ownership filings from four years before the CDX roster window opens, which is the pre-2014 recall the roster structurally misses."
  },
  "profile": {
   "own_vehicle_pattern": "^khosla ventures",
@@ -460,18 +460,145 @@
   },
   "_known_positions_note": "Confirmed present in the landed base, by the name the base actually carries. The kickoff list was model priors and four of them were name-shape misses on rows that were present (Oscar, Climate Corp., Varda, Opendoor Technologies Inc.) while six were priors that the evidence did not support (rappi, replit, cohere, bloom energy) or are open questions (nextdoor under delta X1, dusty robotics dropped by the industry filter). Those moved to scratch/recall-candidates.md for the recall probe rather than staying here as a false alarm.",
   "not_members": [
-   {"name": "BOX INC", "slug": "box-inc", "why": "operator job, not a firm position: Dan Levin was Box's COO and later President, and is a related person on Box's own Form Ds. Khosla's roster carries a 'Dan Levin' / 'Daniel Levin' pair whose Form D sweep pulled 24 issuers including Box, Bo"},
-   {"name": "Capital Real Estate - Alturas, LLC", "slug": "capital-real-estate-alturas-llc", "why": "homonym: a real-estate syndicator's LLC series sharing the name key 'Daniel Levin'. Khosla makes no real-estate investments; T5 operating-company test and T4 person attribution both fail."},
-   {"name": "Adaptive Flight, Inc.", "slug": "adaptive-flight-inc", "why": "homonym: 'Eric Johnson' returned 23 unrelated issuers (Adaptive Flight, Allegiance Software, Arenal Energy, BlankMetal.ai) across sectors and decades with no Khosla listing on any. The name is one of the commonest in the sweep. COLLECTION.m"},
-   {"name": "Pluralsight, LLC", "slug": "pluralsight-llc", "why": "homonym: 'Bryan Gartner' pulled Pluralsight, Udemy, Wizeline and Trendy Entertainment — an edtech/media cluster on no Khosla list in any era."},
-   {"name": "PACIFIC OAK RESIDENTIAL TRUST, INC.", "slug": "pacific-oak-residential-trust-inc", "why": "homonym: 'Michael Gough' pulled REIT and trust registrants (Battery Point Trust, Pacific Oak Residential). Khosla's Michael Gough is a design lead, not an investing partner, and REITs fail T5."},
-   {"name": "Remitly Global, Inc.", "slug": "remitly-global-inc", "why": "operator job on the other side of tenure: Ryno Blignaut was CFO/COO at Xoom and Remitly before joining Khosla. A seat is dated against the person's firm at filing time (COLLECTION.md §1, T4). No Khosla fund on Remitly's cap table and no lis"},
-   {"name": "ARUBA NETWORKS, INC.", "slug": "aruba-networks-inc", "why": "personal directorship: Michael Kourey (Polycom CFO, later a Khosla operating partner) sat on Aruba's board in his own name. Director-of-record alone is the personal-seat class unless the issuer resolves to a documented Khosla deal (Erik's a"},
-   {"name": "Juniper Networks", "slug": "juniper-networks", "why": "prior firm: Vinod Khosla's Juniper investment was made at Kleiner Perkins in 1996, eight years before Khosla Ventures existed. decisions.md D3 — the KPCB record is a prior firm's, dated against the person's firm at filing time. The same rul"},
-   {"name": "Khosla Ventures 2023 Allocate Access Fund, L.P.", "slug": "khosla-ventures-2023-allocate-access-fund-lp", "why": "third-party feeder, and fund-shaped: files from 1300 El Camino Real Suite 100 (Allocate Inc), not the firm's own address. decisions.md D1b; precedent Thrive IX Access."},
-   {"name": "Strategic Value Special Situations Fund IV, L.P.", "slug": "strategic-value-special-situations-fund-iv-lp", "why": "namesake firm: Victor Khosla's Strategic Value Partners is an unrelated distressed-debt manager whose 20+ entities entered the registry through cofiler closure. Fund-shaped and external by desk rule. decisions.md D2."},
-   {"name": "Khosla Ventures Acquisition Co. III", "slug": "khosla-ventures-acquisition-co-iii", "why": "blank-check shell with no operating business; wound up with no deal (last filing SC 13G/A, Feb 2024). T5 — not a venture-outcome operating company. decisions.md D7."}
+   {
+    "name": "BOX INC",
+    "slug": "box-inc",
+    "why": "operator job, not a firm position: Dan Levin was Box's COO and later President, and is a related person on Box's own Form Ds. Khosla's roster carries a 'Dan Levin' / 'Daniel Levin' pair whose Form D sweep pulled 24 issuers including Box, Bo"
+   },
+   {
+    "name": "Capital Real Estate - Alturas, LLC",
+    "slug": "capital-real-estate-alturas-llc",
+    "why": "homonym: a real-estate syndicator's LLC series sharing the name key 'Daniel Levin'. Khosla makes no real-estate investments; T5 operating-company test and T4 person attribution both fail."
+   },
+   {
+    "name": "Adaptive Flight, Inc.",
+    "slug": "adaptive-flight-inc",
+    "why": "homonym: 'Eric Johnson' returned 23 unrelated issuers (Adaptive Flight, Allegiance Software, Arenal Energy, BlankMetal.ai) across sectors and decades with no Khosla listing on any. The name is one of the commonest in the sweep. COLLECTION.m"
+   },
+   {
+    "name": "Pluralsight, LLC",
+    "slug": "pluralsight-llc",
+    "why": "homonym: 'Bryan Gartner' pulled Pluralsight, Udemy, Wizeline and Trendy Entertainment — an edtech/media cluster on no Khosla list in any era."
+   },
+   {
+    "name": "PACIFIC OAK RESIDENTIAL TRUST, INC.",
+    "slug": "pacific-oak-residential-trust-inc",
+    "why": "homonym: 'Michael Gough' pulled REIT and trust registrants (Battery Point Trust, Pacific Oak Residential). Khosla's Michael Gough is a design lead, not an investing partner, and REITs fail T5."
+   },
+   {
+    "name": "Remitly Global, Inc.",
+    "slug": "remitly-global-inc",
+    "why": "operator job on the other side of tenure: Ryno Blignaut was CFO/COO at Xoom and Remitly before joining Khosla. A seat is dated against the person's firm at filing time (COLLECTION.md §1, T4). No Khosla fund on Remitly's cap table and no lis"
+   },
+   {
+    "name": "ARUBA NETWORKS, INC.",
+    "slug": "aruba-networks-inc",
+    "why": "personal directorship: Michael Kourey (Polycom CFO, later a Khosla operating partner) sat on Aruba's board in his own name. Director-of-record alone is the personal-seat class unless the issuer resolves to a documented Khosla deal (Erik's a"
+   },
+   {
+    "name": "Juniper Networks",
+    "slug": "juniper-networks",
+    "why": "prior firm: Vinod Khosla's Juniper investment was made at Kleiner Perkins in 1996, eight years before Khosla Ventures existed. decisions.md D3 — the KPCB record is a prior firm's, dated against the person's firm at filing time. The same rul"
+   },
+   {
+    "name": "Khosla Ventures 2023 Allocate Access Fund, L.P.",
+    "slug": "khosla-ventures-2023-allocate-access-fund-lp",
+    "why": "third-party feeder, and fund-shaped: files from 1300 El Camino Real Suite 100 (Allocate Inc), not the firm's own address. decisions.md D1b; precedent Thrive IX Access."
+   },
+   {
+    "name": "Strategic Value Special Situations Fund IV, L.P.",
+    "slug": "strategic-value-special-situations-fund-iv-lp",
+    "why": "namesake firm: Victor Khosla's Strategic Value Partners is an unrelated distressed-debt manager whose 20+ entities entered the registry through cofiler closure. Fund-shaped and external by desk rule. decisions.md D2."
+   },
+   {
+    "name": "Khosla Ventures Acquisition Co. III",
+    "slug": "khosla-ventures-acquisition-co-iii",
+    "why": "blank-check shell with no operating business; wound up with no deal (last filing SC 13G/A, Feb 2024). T5 — not a venture-outcome operating company. decisions.md D7."
+   }
   ]
  },
- "sample_slugs": []
+ "sample_slugs": [],
+ "names": {
+  "_published_note": "Published names (PRO-146; COLLECTION.md s8, Erik 2026-09-24): the brand in normal capitalization, letter-read acronyms kept, no legal suffix. {slug: name}, applied by run.py export; the slug and every overlay keep the source rendering. Decided 2026-09-26.",
+  "published": {
+   "academia-inc": "Academia",
+   "adyton-pbc": "Adyton",
+   "aleph-labs-inc": "Aleph Labs",
+   "aloha": "Aloha",
+   "alpine-oral-tech-inc": "Alpine Oral Tech",
+   "anrok-inc": "Anrok",
+   "apton-biosystems-inc": "Apton Biosystems",
+   "azibo-inc": "Azibo",
+   "big-switch-networks-inc": "Big Switch Networks",
+   "bioage-labs-inc": "BioAge Labs",
+   "blade-network-technologies-inc": "Blade Network Technologies",
+   "broccoli-intelligence-inc": "Broccoli Intelligence",
+   "caelux-corporation": "Caelux",
+   "canary-connect-inc": "Canary Connect",
+   "circulate-health-inc": "Circulate Health",
+   "climate-corp": "The Climate Corporation",
+   "clustrix-inc": "Clustrix",
+   "coda-project-inc": "Coda",
+   "deep-genomics-inc": "Deep Genomics",
+   "delfi-diagnostics-inc": "Delfi Diagnostics",
+   "docusmart-inc": "DocuSmart",
+   "dwellconnect-inc": "DwellConnect",
+   "earli-inc": "Earli",
+   "faeth-therapeutics-inc": "Faeth Therapeutics",
+   "faire-wholesale-inc": "Faire",
+   "focal-medical-inc": "Focal Medical",
+   "fountain-therapeutics-inc": "Fountain Therapeutics",
+   "gather-health-primary-care-inc": "Gather Health Primary Care",
+   "genecis-bioindustries-inc": "Genecis Bioindustries",
+   "ghost-locomotion-inc": "Ghost Locomotion",
+   "greyscaleai-inc": "GreyscaleAI",
+   "hello-heart-inc": "Hello Heart",
+   "juno-residential-inc": "Juno Residential",
+   "kaai-inc": "Kaai",
+   "katerra-inc": "Katerra",
+   "keep-truckin-inc": "KeepTruckin",
+   "kognitos-inc": "Kognitos",
+   "krnl-inc": "KRNL",
+   "learning-health-inc": "Learning Health",
+   "lightship-inc": "Lightship",
+   "linus-biotechnology-inc": "Linus Biotechnology",
+   "loft-labs-inc": "Loft Labs",
+   "mdalgorithms-inc": "MDalgorithms",
+   "mindless-dribble-inc": "Mindless Dribble",
+   "mirvie-inc": "Mirvie",
+   "moonvalley-ai-inc": "Moonvalley AI",
+   "ness-computing": "Ness Computing",
+   "neurotrack-technologies-inc": "NeuroTrack Technologies",
+   "nomos-ai-inc": "Nomos AI",
+   "opendoor-technologies-inc": "Opendoor",
+   "outsmart-education-inc": "Outsmart Education",
+   "owl-cameras-inc": "Owl Cameras",
+   "pardes-biosciences-inc": "Pardes Biosciences",
+   "pax": "Pax",
+   "permiso-security-inc": "Permiso Security",
+   "point-source-power-inc": "Point Source Power",
+   "prellis-biologics-inc": "Prellis Biologics",
+   "pvt-solar-inc": "PVT Solar",
+   "runsybil-corp": "RunSybil",
+   "scipher-medicine-corp": "Scipher Medicine",
+   "shoptap-inc": "ShopTap",
+   "siren-care-inc": "Siren Care",
+   "skillit-inc": "Skillit",
+   "skywatch-energy-inc": "SkyWatch Energy",
+   "spiritus-technologies-pbc": "Spiritus Technologies",
+   "spyce-inc": "Spyce",
+   "state-space-labs-inc": "State Space Labs",
+   "teamshares-inc": "Teamshares",
+   "two-pore-guys-inc": "Two Pore Guys",
+   "unreal-brands": "Unreal Brands",
+   "viome-inc": "Viome",
+   "vox-media": "Vox Media",
+   "voyage-auto-inc": "Voyage Auto",
+   "vulcan-elements-holdings-corp": "Vulcan Elements",
+   "wayfarer-inc": "Wayfarer",
+   "wine-plum-inc": "Wine Plum",
+   "zendar-inc": "Zendar",
+   "zycada-networks-inc": "Zycada Networks"
+  }
+ }
 }

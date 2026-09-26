@@ -12,7 +12,7 @@
     "to": 2001,
     "pattern": "(?i)<a href=\"[^\"]*\"\\s+target=\"_blank\"[^>]*>\\s*(?P<name>[^<]+)",
     "raw": true,
-    "_note": "Era 1 (1997-2001), the firm's first site. /about/portfolio.html is a hub of sector pages (p-application, p-infrastructure, p-ir, p-isb, p-isc, p-mobile_internet, p-network, p-semiconductor, p-software) plus /about/p-alpha.html, the ALPHABETICAL list of the whole portfolio \u2014 one <a target=_blank> per company, the href pointing at the company's own site (an acquirer's site for exits, marked with a trailing '*'). Some rows close the anchor with <BR> instead of </A>, so the pattern stops at the next tag. Measured 2026-09-06: 46 names (May 1999), 76 (Aug 2001). Undifferentiated by desk: Benchmark Europe opened 2000 and Israel 2001, so late captures of this list can carry a handful of their rows (see decisions.md D2 and the desk overlay)."
+    "_note": "Era 1 (1997-2001), the firm's first site. /about/portfolio.html is a hub of sector pages (p-application, p-infrastructure, p-ir, p-isb, p-isc, p-mobile_internet, p-network, p-semiconductor, p-software) plus /about/p-alpha.html, the ALPHABETICAL list of the whole portfolio — one <a target=_blank> per company, the href pointing at the company's own site (an acquirer's site for exits, marked with a trailing '*'). Some rows close the anchor with <BR> instead of </A>, so the pattern stops at the next tag. Measured 2026-09-06: 46 names (May 1999), 76 (Aug 2001). Undifferentiated by desk: Benchmark Europe opened 2000 and Israel 2001, so late captures of this list can carry a handful of their rows (see decisions.md D2 and the desk overlay)."
    },
    {
     "parser": "listing_regex",
@@ -30,7 +30,7 @@
     "to": 2005,
     "pattern": "(?i)<a href=\"[^\"]*\"\\s+target=\"_blank\"[^>]*>\\s*(?P<name>[^<]+)",
     "raw": true,
-    "_note": "Era 2, Silicon Valley (home) desk page \u2014 the positive US attribution for 2001-2005, the window in which /Portfolio/Portfolio_By_Location.html renders all three desks in one undifferentiated alphabetical list despite its name (verified on the 2004 capture). Found while resolving the desk split (decisions.md D4)."
+    "_note": "Era 2, Silicon Valley (home) desk page — the positive US attribution for 2001-2005, the window in which /Portfolio/Portfolio_By_Location.html renders all three desks in one undifferentiated alphabetical list despite its name (verified on the 2004 capture). Found while resolving the desk split (decisions.md D4)."
    },
    {
     "parser": "listing_regex",
@@ -66,7 +66,7 @@
     "to": 2009,
     "pattern": "(?i)<a href=\"[^\"]*\"\\s+target=\"_blank\"[^>]*>\\s*(?P<name>[^<]+)",
     "raw": true,
-    "_note": "Era 3, Silicon Valley (home) desk page \u2014 the positive US attribution for the 2005-2009 window."
+    "_note": "Era 3, Silicon Valley (home) desk page — the positive US attribution for the 2005-2009 window."
    },
    {
     "parser": "listing_regex",
@@ -93,7 +93,7 @@
     "to": 2013,
     "pattern": "href=\"[^\"]*/company/(?P<slug>[^\"/]+)/?\"\\s*>\\s*<img[^>]*alt=\"(?P<name>[^\"]*)\"",
     "raw": true,
-    "_note": "Era 4 (2010-2013), the WordPress site. /companies/ ('All Investments') renders one logo card per company: the link carries the CMS slug and the <img alt> carries the firm's own rendering of the name. THE POST-SPLIT LIST: captured after Balderton (2007) and Benchmark Israel VC 2007 became separate firms, so it is the firm's own claim on its book \u2014 Wix and MySQL are on it, Betfair/Bebo/Yoox/Lovefilm are not. Measured: 146 companies (Apr 2011). From 2013 the site is a one-page address card and publishes no list at all."
+    "_note": "Era 4 (2010-2013), the WordPress site. /companies/ ('All Investments') renders one logo card per company: the link carries the CMS slug and the <img alt> carries the firm's own rendering of the name. THE POST-SPLIT LIST: captured after Balderton (2007) and Benchmark Israel VC 2007 became separate firms, so it is the firm's own claim on its book — Wix and MySQL are on it, Betfair/Bebo/Yoox/Lovefilm are not. Measured: 146 companies (Apr 2011). From 2013 the site is a one-page address card and publishes no list at all."
    }
   ],
   "non_company_slugs": [
@@ -203,7 +203,7 @@
    "companies",
    "people"
   ],
-  "_note": "Four people namespaces across eras: /about/<first-name>.html (1997-2001: bill, bob, bruce, andy, kevin, dave, alex, steve, reed, ...), /Silicon_Valley|Europe|Israel/<First_Last>.html (2001-2005), /sv|europe|israel/<slug> (2005-2009) and the 2010-2013 WordPress team pages. /about/vpartners.html lists venture partners and /about/eir.html the EIRs \u2014 neither is a general partner and both are filtered. Benchmark publishes no team page at all from 2013, so the current roster is curated from press, the firm's own Form D related persons and the fund vehicles' Section 16 filings, with press-dated tenure windows (decisions.md)."
+  "_note": "Four people namespaces across eras: /about/<first-name>.html (1997-2001: bill, bob, bruce, andy, kevin, dave, alex, steve, reed, ...), /Silicon_Valley|Europe|Israel/<First_Last>.html (2001-2005), /sv|europe|israel/<slug> (2005-2009) and the 2010-2013 WordPress team pages. /about/vpartners.html lists venture partners and /about/eir.html the EIRs — neither is a general partner and both are filtered. Benchmark publishes no team page at all from 2013, so the current roster is curated from press, the firm's own Form D related persons and the fund vehicles' Section 16 filings, with press-dated tenure windows (decisions.md)."
  },
  "site_api": {
   "type": "scrape",
@@ -225,7 +225,7 @@
    }
   ],
   "team_sources": [],
-  "_note": "benchmark.com has published no portfolio list since 2013 \u2014 the live site is one page carrying two office addresses and a Twitter link (verified 2026-09-06: /portfolio, /companies/, /sitemap.xml, /index.xml and jobs.benchmark.com all 404 or do not resolve). There is no live surface to escalate against, so the 'site listing' evidence class is entirely archival: the file_list source is the last era the firm published (the 2010-2013 /companies/ cards, built by scratch/build-site-list.py out of the wayback parsed years) and carries the firm's own post-split attribution.",
+  "_note": "benchmark.com has published no portfolio list since 2013 — the live site is one page carrying two office addresses and a Twitter link (verified 2026-09-06: /portfolio, /companies/, /sitemap.xml, /index.xml and jobs.benchmark.com all 404 or do not resolve). There is no live surface to escalate against, so the 'site listing' evidence class is entirely archival: the file_list source is the last era the firm published (the 2010-2013 /companies/ cards, built by scratch/build-site-list.py out of the wayback parsed years) and carries the firm's own post-split attribution.",
   "team_buckets": {},
   "team_bucket_overrides": {
    "An-Yen Hu": "operations"
@@ -348,7 +348,7 @@
   "own_vehicle_pattern": "^benchmark (capital (partners|management)|founders|partners|ai infrastructure|ws spv)",
   "focus_min_companies": 10,
   "focus_crosswalk": {},
-  "_note": "Benchmark publishes no sector vocabulary of its own since 2013; the 2001-2009 site's own six segments (Enterprise Software & Services, Communications & Security, Semiconductor, Mobile Computing, Consumer Services, Financial Services) describe the 1997-2009 book and not the firm today, so the focus distribution is recomputed off the grind's own tags (\u00a711 'profile without a site'). focus_min_companies ~4.5% of the expected ~230-row base."
+  "_note": "Benchmark publishes no sector vocabulary of its own since 2013; the 2001-2009 site's own six segments (Enterprise Software & Services, Communications & Security, Semiconductor, Mobile Computing, Consumer Services, Financial Services) describe the 1997-2009 book and not the firm today, so the focus distribution is recomputed off the grind's own tags (§11 'profile without a site'). focus_min_companies ~4.5% of the expected ~230-row base."
  },
  "verify": {
   "text_mention_leaks": [],
@@ -404,28 +404,154 @@
   "shape": {
    "one_b_share_max": 0.2,
    "c2a_rate_max": 1.0,
-   "_note": "Defaults kept at kickoff. Benchmark is the most concentrated book any run has met \u2014 a five-to-six-partner equal partnership that leads first institutional rounds and has raised roughly one fund every two to three years since 1995 \u2014 so the $1B+ share is expected near the guard rather than far below it. A guard that fires is restated in decisions.md against the evidence, not waived. S2A ceiling restated 2026-09-16 under the status contract (R10): Benchmark leads Series As and rarely seeds; after re-judging, 7 seed entries remain, all 7 graduated with both legs cited, coverage 100%, so the 80% ceiling would fire on a cohort too small to rank (the app ranks only cohorts of 30+). The rate publishes with its seed count; the guard still fires above 1.0."
+   "_note": "Defaults kept at kickoff. Benchmark is the most concentrated book any run has met — a five-to-six-partner equal partnership that leads first institutional rounds and has raised roughly one fund every two to three years since 1995 — so the $1B+ share is expected near the guard rather than far below it. A guard that fires is restated in decisions.md against the evidence, not waived. S2A ceiling restated 2026-09-16 under the status contract (R10): Benchmark leads Series As and rarely seeds; after re-judging, 7 seed entries remain, all 7 graduated with both legs cited, coverage 100%, so the 80% ceiling would fire on a cohort too small to rank (the app ranks only cohorts of 30+). The rate publishes with its seed count; the guard still fires above 1.0."
   },
   "not_members": [
-   {"name": "camrose-investors-llc", "slug": "camrose-investors-llc", "why": "Kevin Harvey, 2013q3, $600,000 offering, fund-shaped name, no operating company identifiable — the fund-shaped standing rule plus a partner's personal vehicle."},
-   {"name": "cardston-investors-llc", "slug": "cardston-investors-llc", "why": "Kevin Harvey, 2013q3, $600,000, same class as camrose."},
-   {"name": "fronterra-partners-llc", "slug": "fronterra-partners-llc", "why": "Kevin Harvey, 2013q3, $500,000, same class."},
-   {"name": "wealthfront-corp", "slug": "wealthfront-corp", "why": "Andy Rachleff FOUNDED Wealthfront after leaving Benchmark (site pages end 2001); his 2014 Form D seats are the founder's own, not a Benchmark position."},
-   {"name": "placester-inc", "slug": "placester-inc", "why": "Chetan Puttagunta, 2015q4 and 2017q1 — NEA-era seats. He joined Benchmark in 2018 (first on the Fund IX Form D, 2018-10-01)."},
-   {"name": "reltio-inc", "slug": "reltio-inc", "why": "Puttagunta 2016q4-2018q2, NEA-era."},
-   {"name": "scoutrfp-inc", "slug": "scoutrfp-inc", "why": "Puttagunta 2017q2, NEA-era."},
-   {"name": "sitetraker-inc", "slug": "sitetraker-inc", "why": "Puttagunta 2017q3, NEA-era."},
-   {"name": "folloze-inc", "slug": "folloze-inc", "why": "Puttagunta 2016q3, NEA-era."},
-   {"name": "canopy-tax-inc", "slug": "canopy-tax-inc", "why": "Puttagunta 2015q2-2018q2, NEA-era; the 2018q2 filing still predates his Benchmark start."},
-   {"name": "logik-systems-inc", "slug": "logik-systems-inc", "why": "Puttagunta 2018q1 — the hardest of the NEA cluster, one quarter before the Benchmark start; the seat is dated against NEA."},
-   {"name": "huntress-labs-inc", "slug": "huntress-labs-inc", "why": "Everett Randle, 2024q2 — two years before he joined Benchmark (first on the AI Infrastructure Form D, 2026-02-06). The seat belongs to his firm at filing time."},
-   {"name": "antares-nuclear-inc", "slug": "antares-nuclear-inc", "why": "Jack Altman, 2024q4 and 2025q3 — an Alt Capital position; he joined Benchmark in 2026 (Partners 2 / T1, 2026-06-30)."},
-   {"name": "verifiable-inc", "slug": "verifiable-inc", "why": "Jack Altman, 2021q3 and 2023q2 — Alt Capital / personal, pre-Benchmark."},
-   {"name": "copilot-labs-inc-de", "slug": "copilot-labs-inc-de", "why": "Jack Altman, 2026q1 — the closest call in the set: one quarter before his first Benchmark fund filing (2026-06-30), so the seat still dates to Alt Capital. A Benchmark fund position would have to be shown independently."},
-   {"name": "degree-inc", "slug": "degree-inc", "why": "Degree, Inc. is Lattice, Jack Altman's OWN company (he co-founded it); Miles Grimshaw's 2019-2022 seats on it are Thrive's. Two roster names, neither of them a Benchmark position."},
-   {"name": "doji-labs-inc", "slug": "doji-labs-inc", "why": "Miles Grimshaw, 2025q3 — after he left Benchmark (2021-2024)."},
-   {"name": "fantex-holdings-inc", "slug": "fantex-holdings-inc", "why": "David Beirne, 2013-2016 — Beirne's site pages end 2001 and he is absent from every 2005-2010 general_partners page; Fantex is his own post-Benchmark venture. Bruce Dunlevie also appears, which is what makes it a trap rather than a gimme."}
+   {
+    "name": "camrose-investors-llc",
+    "slug": "camrose-investors-llc",
+    "why": "Kevin Harvey, 2013q3, $600,000 offering, fund-shaped name, no operating company identifiable — the fund-shaped standing rule plus a partner's personal vehicle."
+   },
+   {
+    "name": "cardston-investors-llc",
+    "slug": "cardston-investors-llc",
+    "why": "Kevin Harvey, 2013q3, $600,000, same class as camrose."
+   },
+   {
+    "name": "fronterra-partners-llc",
+    "slug": "fronterra-partners-llc",
+    "why": "Kevin Harvey, 2013q3, $500,000, same class."
+   },
+   {
+    "name": "wealthfront-corp",
+    "slug": "wealthfront-corp",
+    "why": "Andy Rachleff FOUNDED Wealthfront after leaving Benchmark (site pages end 2001); his 2014 Form D seats are the founder's own, not a Benchmark position."
+   },
+   {
+    "name": "placester-inc",
+    "slug": "placester-inc",
+    "why": "Chetan Puttagunta, 2015q4 and 2017q1 — NEA-era seats. He joined Benchmark in 2018 (first on the Fund IX Form D, 2018-10-01)."
+   },
+   {
+    "name": "reltio-inc",
+    "slug": "reltio-inc",
+    "why": "Puttagunta 2016q4-2018q2, NEA-era."
+   },
+   {
+    "name": "scoutrfp-inc",
+    "slug": "scoutrfp-inc",
+    "why": "Puttagunta 2017q2, NEA-era."
+   },
+   {
+    "name": "sitetraker-inc",
+    "slug": "sitetraker-inc",
+    "why": "Puttagunta 2017q3, NEA-era."
+   },
+   {
+    "name": "folloze-inc",
+    "slug": "folloze-inc",
+    "why": "Puttagunta 2016q3, NEA-era."
+   },
+   {
+    "name": "canopy-tax-inc",
+    "slug": "canopy-tax-inc",
+    "why": "Puttagunta 2015q2-2018q2, NEA-era; the 2018q2 filing still predates his Benchmark start."
+   },
+   {
+    "name": "logik-systems-inc",
+    "slug": "logik-systems-inc",
+    "why": "Puttagunta 2018q1 — the hardest of the NEA cluster, one quarter before the Benchmark start; the seat is dated against NEA."
+   },
+   {
+    "name": "huntress-labs-inc",
+    "slug": "huntress-labs-inc",
+    "why": "Everett Randle, 2024q2 — two years before he joined Benchmark (first on the AI Infrastructure Form D, 2026-02-06). The seat belongs to his firm at filing time."
+   },
+   {
+    "name": "antares-nuclear-inc",
+    "slug": "antares-nuclear-inc",
+    "why": "Jack Altman, 2024q4 and 2025q3 — an Alt Capital position; he joined Benchmark in 2026 (Partners 2 / T1, 2026-06-30)."
+   },
+   {
+    "name": "verifiable-inc",
+    "slug": "verifiable-inc",
+    "why": "Jack Altman, 2021q3 and 2023q2 — Alt Capital / personal, pre-Benchmark."
+   },
+   {
+    "name": "copilot-labs-inc-de",
+    "slug": "copilot-labs-inc-de",
+    "why": "Jack Altman, 2026q1 — the closest call in the set: one quarter before his first Benchmark fund filing (2026-06-30), so the seat still dates to Alt Capital. A Benchmark fund position would have to be shown independently."
+   },
+   {
+    "name": "degree-inc",
+    "slug": "degree-inc",
+    "why": "Degree, Inc. is Lattice, Jack Altman's OWN company (he co-founded it); Miles Grimshaw's 2019-2022 seats on it are Thrive's. Two roster names, neither of them a Benchmark position."
+   },
+   {
+    "name": "doji-labs-inc",
+    "slug": "doji-labs-inc",
+    "why": "Miles Grimshaw, 2025q3 — after he left Benchmark (2021-2024)."
+   },
+   {
+    "name": "fantex-holdings-inc",
+    "slug": "fantex-holdings-inc",
+    "why": "David Beirne, 2013-2016 — Beirne's site pages end 2001 and he is absent from every 2005-2010 general_partners page; Fantex is his own post-Benchmark venture. Bruce Dunlevie also appears, which is what makes it a trap rather than a gimme."
+   }
   ]
  },
- "sample_slugs": []
+ "sample_slugs": [],
+ "names": {
+  "_published_note": "Published names (PRO-146; COLLECTION.md s8, Erik 2026-09-24): the brand in normal capitalization, letter-read acronyms kept, no legal suffix. {slug: name}, applied by run.py export; the slug and every overlay keep the source rendering. Decided 2026-09-26.",
+  "published": {
+   "acuitymd-inc": "AcuityMD",
+   "agentio-inc": "Agentio",
+   "airbyte-inc": "Airbyte",
+   "amplitude-inc": "Amplitude",
+   "aquifi-inc": "Aquifi",
+   "bezi-inc": "Bezi",
+   "blue-hexagon-inc": "Blue Hexagon",
+   "carbondrop-inc": "CarbonDrop",
+   "cellectivity-ltd": "Cellectivity",
+   "cerebras-systems-inc": "Cerebras Systems",
+   "chainalysis-inc": "Chainalysis",
+   "commerce-layer-inc": "Commerce Layer",
+   "confluent-inc": "Confluent",
+   "contentful-global-inc": "Contentful",
+   "coretet-ltd": "Coretet",
+   "cyngn-inc": "Cyngn",
+   "deep-cogito-inc": "Deep Cogito",
+   "discord-inc": "Discord",
+   "docker-inc": "Docker",
+   "elastic-n-v": "Elastic",
+   "exa-labs-inc": "Exa Labs",
+   "fomo-labs-inc": "Fomo Labs",
+   "here-not-there-inc": "Here Not There",
+   "hipcamp-inc": "Hipcamp",
+   "hound-labs-inc": "Hound Labs",
+   "jamdat": "Jamdat",
+   "legora-inc": "Legora",
+   "manticore-games-inc": "Manticore Games",
+   "mercor-io-corp": "Mercor",
+   "minerva-project-inc": "Minerva Project",
+   "numeral-two-inc": "Numeral Two",
+   "optimizely-inc": "Optimizely",
+   "playfab-inc": "PlayFab",
+   "quip-inc": "Quip",
+   "revinate-inc": "Revinate",
+   "rmi-corporation": "RMI",
+   "robocorp-technologies-inc": "RoboCorp Technologies",
+   "sailthru-inc": "Sailthru",
+   "snap-inc": "Snap",
+   "stitch-fix-inc": "Stitch Fix",
+   "supergreat-inc": "Supergreat",
+   "tabnam-inc": "Tabnam",
+   "timescale-inc": "Timescale",
+   "twin-health-inc": "Twin Health",
+   "ubiquity6-inc": "Ubiquity6",
+   "upwork-inc": "Upwork",
+   "vudu": "Vudu",
+   "wework-companies-inc": "WeWork",
+   "xignal-ag": "Xignal"
+  }
+ }
 }
