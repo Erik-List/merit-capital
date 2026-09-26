@@ -443,7 +443,7 @@ def from_public_float(series: list[dict], today: str) -> dict:
 # ---------------------------------------------------------------------------
 
 SPARQL = """
-SELECT ?item ?itemLabel ?cap ?capTime ?countryLabel ?dissolved ?parentLabel WHERE {
+SELECT ?item ?itemLabel ?cap ?capTime ?countryLabel ?dissolved ?parentLabel ?ownerLabel ?successorLabel WHERE {
   VALUES ?name { %s }
   ?item rdfs:label ?name .
   ?item wdt:P31/wdt:P279* wd:Q4830453 .
@@ -451,6 +451,8 @@ SELECT ?item ?itemLabel ?cap ?capTime ?countryLabel ?dissolved ?parentLabel WHER
   OPTIONAL { ?item wdt:P17 ?country }
   OPTIONAL { ?item wdt:P576 ?dissolved }
   OPTIONAL { ?item wdt:P749 ?parent }
+  OPTIONAL { ?item wdt:P127 ?owner }
+  OPTIONAL { ?item wdt:P1366 ?successor }
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en" }
 }
 """
@@ -504,4 +506,12 @@ def wikidata_batch(names: list[str]) -> dict[str, dict]:
             rec["dissolved"] = r["dissolved"]["value"][:10]
         if "parentLabel" in r:
             rec["parent"] = r["parentLabel"]["value"]
+        # Owned-by and replaced-by name the acquirer of a DISSOLVED company
+        # (Datalogix: owned by Oracle; PRO-157). On a live company owned-by
+        # often lists a shareholder, so run.py reads them only with a
+        # dissolution date.
+        if "ownerLabel" in r:
+            rec.setdefault("owner", r["ownerLabel"]["value"])
+        if "successorLabel" in r:
+            rec.setdefault("successor", r["successorLabel"]["value"])
     return out

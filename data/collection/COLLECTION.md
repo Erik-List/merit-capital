@@ -506,7 +506,19 @@ distinction.
   first filing of $36M as readily as `Seed` on a small one — and is judged
   from the filings, name or no name: an EDGAR-only row is often a
   partner-signed issuer nobody ever listed, and its dated rounds decide the
-  column. Such a row keeps the
+  column. **Except for an older company** (Erik, 2026-09-26, PRO-157): the
+  band reads the first electronically filed Form D naming a partner, and a
+  company incorporated (the filing's year of incorporation) or first listed
+  three or more years before that round had raised earlier, so the band fills
+  no Pre-Seed, Seed or Series A. `prepare` withholds it, keeps it as evidence
+  (`formd_band_withheld`: the band, the entry year, the year of
+  incorporation or first sighting) and sends the row to the judge. On IVP 7
+  of 10 such labels were wrong (Oportun read Pre-Seed; Buddy Media, General
+  Assembly and Wikia read Series A for Series C rounds IVP led). Measured
+  2026-09-26: 478 rows in 21 books carry an early band on an older company,
+  147 of them on the band alone (Khosla 53, Battery 19, a16z 18); those go
+  back to the judge on each book's next `prepare`, the rest already carry
+  the judge's stage. Such a row keeps the
   `identity_unresolved` flag and its values, and it stays in the metrics.
   What an unresolvable row may never do is assert a stage from `model` or an
   inferred fill: `record` and `verify` both refuse it.
@@ -1223,6 +1235,19 @@ Four rules make an invented layer usable, and they are not optional:
 `private | public | acquired | defunct | unknown`, current-state only.
 IPO'd-then-acquired → acquired; successor-entity ambiguity → acquired +
 note. Acquired / defunct / unknown → `valuation_usd` null.
+
+**A Wikidata dissolution with an acquirer reads `acquired`, not `defunct`**
+(Erik, 2026-09-26, PRO-157, on IVP's Datalogix, owned by Oracle, and
+Sequent, bought by IBM). `prepare` pre-fills `acquired` when the dissolved
+company names a parent organisation (P749), an owner (P127) or a successor
+(P1366), and passes the name to the judge as `acquirer`; owner and successor
+are read only with a dissolution date, since on a live company "owned by"
+often names a shareholder. Measured on the cached answers: 58 dissolved rows
+carry a parent (Krux, Playfish, Handspring, IronPort and SeaMicro had
+pre-filled `defunct` and been corrected by hand); one-word names still match
+the wrong company (Apollo, Aurora, Tempo), so the judge's reading stands over
+the pre-fill either way. Sequent has no acquirer in Wikidata and still
+pre-fills `defunct`.
 
 A merger that folds the company into an acquirer is `acquired` from the
 closing even when its last primary mark is fresher than the deal (xAI's

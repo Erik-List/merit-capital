@@ -482,6 +482,32 @@ def write_queue(prefix: str, items: list, size: int, jsonl: bool = False) -> int
 # graduation, layer 1: deterministic Form D
 # ---------------------------------------------------------------------------
 
+EARLY_BAND_STAGES = ("Pre-Seed", "Seed", "Series A")
+OLDER_THAN_BAND_YEARS = 3
+
+
+def older_than_band(row: dict, formd_rec: dict, issuer_ev: dict,
+                    entry_date: str | None) -> dict | None:
+    """The evidence that a company predates its first e-filed round by
+    OLDER_THAN_BAND_YEARS or more (PRO-157): the Form D year of incorporation
+    across its filings, or the year the firm first listed it. None when
+    neither is that old, or the entry date is unknown."""
+    entry = str(entry_date or "")[:4]
+    if not entry.isdigit():
+        return None
+    accs = {a for r in formd_rec.get("rounds") or []
+            for a in (r.get("accessions") or [r.get("accession")]) if a}
+    incs = [int(str(issuer_ev[a].get("year_inc"))[:4]) for a in accs
+            if a in issuer_ev and str(issuer_ev[a].get("year_inc") or "")[:4].isdigit()]
+    seen = str(row.get("first_seen") or "")[:4]
+    evidence = {"entry_year": int(entry)}
+    if incs and min(incs) <= int(entry) - OLDER_THAN_BAND_YEARS:
+        evidence["year_inc"] = min(incs)
+    if seen.isdigit() and int(seen) <= int(entry) - OLDER_THAN_BAND_YEARS:
+        evidence["first_seen"] = int(seen)
+    return evidence if len(evidence) > 1 else None
+
+
 def band_stage(offering: int | None) -> str | None:
     if not offering:
         return None
@@ -1072,6 +1098,17 @@ def cmd_prepare(args) -> None:
                     if v is not None and k not in FORMD_GRADUATION_KEYS})
         if g.get("seed_to_a_graduation"):
             rec["formd_graduation"] = {k: g.get(k) for k in FORMD_GRADUATION_EVIDENCE}
+        # An older company's first electronic Form D is not its entry: the
+        # band reads the first e-filed round naming a partner, and a company
+        # incorporated or first seen 3+ years before it had raised earlier
+        # (Erik 2026-09-26, PRO-157; 7 of IVP's 10 such labels were wrong:
+        # Oportun as Pre-Seed, Buddy Media and General Assembly as Series A
+        # for Series C rounds). The band then fills no early stage; the row
+        # goes to the judge with the withheld band as evidence.
+        if rec.get("entry_stage") in EARLY_BAND_STAGES:
+            older = older_than_band(row, formd.get(slug, {}), issuer_ev, g.get("entry_date"))
+            if older:
+                rec["formd_band_withheld"] = {"band": rec.pop("entry_stage"), **older}
         if rec.get("entry_stage"):
             rec["entry_stage_source"] = "formd_band"
         # Country precedence: entry-time Form D business address beats a
@@ -1095,10 +1132,17 @@ def cmd_prepare(args) -> None:
             # truncated URI, not a date); only a date-shaped value may travel.
             dissolved = b["dissolved"] if re.fullmatch(
                 r"\d{4}(-\d{2}){0,2}", str(b["dissolved"])) else None
-            rec.update({"status": "defunct", "valuation_usd": None,
+            # A dissolution with an acquirer is an acquisition, not a shutdown
+            # (Erik 2026-09-26, PRO-157: Datalogix, bought by Oracle, and
+            # Krux, Playfish, IronPort and Handspring had read defunct).
+            acquirer = b.get("parent") or b.get("owner") or b.get("successor")
+            rec.update({"status": "acquired" if acquirer else "defunct",
+                        "valuation_usd": None,
                         "valuation_source": "wikidata",
                         "valuation_asof": dissolved,
                         "valuation_confidence": "medium"})
+            if acquirer:
+                rec["acquirer"] = acquirer
         elif b.get("parent"):
             rec.update({"status": "acquired", "valuation_usd": None,
                         "valuation_source": "wikidata", "valuation_confidence": "medium"})
@@ -1207,6 +1251,12 @@ def cmd_prepare(args) -> None:
                 # evidence, for the judge to confirm (source formd) or
                 # dispute with a citation; null when the filings say nothing
                 "formd_graduation": rec.get("formd_graduation"),
+                # the early Form D band this row did not get, and why: the
+                # company predates its first e-filed round (PRO-157); the
+                # judge sets the entry stage from the record instead
+                "formd_band_withheld": rec.get("formd_band_withheld"),
+                # the acquirer Wikidata names for a dissolved company
+                "acquirer": rec.get("acquirer"),
                 "need": need,
             })
             if "seed_to_a_graduation" in need and slug in surfaces:
