@@ -171,6 +171,18 @@ anything marked *provisional* is re-derived from verified facts during the run.
 
 ---
 
+**Erik's rulings at close (2026-09-26):**
+
+- **X1 confirmed.** The $1B+ ceiling stays at 0.45; the measured share is
+  about 23.5%, above the 20% default.
+- **Omniture is OUT** (T3). IVP's listing dates the position 2009, after the
+  2006 IPO; no IVP fund filing exists and no round is named. The row leaves the
+  base at the rebuild and is a membership trap in `config.json`.
+- **Dream Games: the company's own status decides.** It operates privately,
+  so it reads private; the venture holders' 2025 exit to CVC does not change it.
+
+---
+
 ## Run-time standing rulings
 
 ### R1 — A Common Crawl capture of ivp.com is a site listing and cites itself (2026-09-26)
