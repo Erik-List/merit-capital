@@ -69,7 +69,7 @@
     "to": 2001,
     "pattern": "(?is)<TD[^>]*>\\s*(?:<a\\b[^>]*>)?\\s*(?P<name>[^<>]{2,70}?)\\s*(?:</a>)?\\s*</TD>\\s*<TD[^>]*>\\s*(?:<a\\b[^>]*>)?\\s*[A-Z]{2,6}\\s*(?:</a>)?\\s*</TD>\\s*<TD[^>]*>\\s*\\d{1,2}/\\d{1,2}/\\d{2,4}\\s*</TD>",
     "raw": true,
-    "_note": "Era 1's PUBLIC page is the firm's own IPO roster and it needs its own pattern: the row is company | TICKER | IPO DATE | IPO SIZE, so there is no four-digit year cell for the era pattern to anchor on and the page parsed to zero. Anchoring on the ticker-then-date pair recovers 155 rows with the firm's own IPO dates and sizes \u2014 the survivorship surface for everything that reached the public market before 2001."
+    "_note": "Era 1's PUBLIC page is the firm's own IPO roster and it needs its own pattern: the row is company | TICKER | IPO DATE | IPO SIZE, so there is no four-digit year cell for the era pattern to anchor on and the page parsed to zero. Anchoring on the ticker-then-date pair recovers 155 rows with the firm's own IPO dates and sizes — the survivorship surface for everything that reached the public market before 2001."
    },
    {
     "parser": "listing_regex",
@@ -86,7 +86,7 @@
     "to": 2001,
     "pattern": "(?is)<TD[^>]*>\\s*(?:<a\\b[^>]*>)?\\s*(?P<name>[^<>]{2,70}?)\\s*(?:</a>)?\\s*</TD>\\s*<TD[^>]*>\\s*(?:19|20)\\d{2}\\s*</TD>",
     "raw": true,
-    "_note": "Era 1's MERGERS page inverts the column order of every other page in its era, and that inversion is an acquirer-mark trap. The stage and sector pages run logo | YEAR | company | product | status, so the era pattern takes the cell AFTER the year; this page runs logo | company | YEAR | ACQUIRER, so the same pattern harvested 45 acquirers as portfolio rows -- ADP, Cisco, IBM, Lotus, Lucent, Pfizer, Siemens, Sun Microsystems, Westinghouse. That is COLLECTION.md \u00a75's First Round acquirer-mark class arriving through a column order rather than a logo wall. This pattern takes the cell BEFORE the year instead."
+    "_note": "Era 1's MERGERS page inverts the column order of every other page in its era, and that inversion is an acquirer-mark trap. The stage and sector pages run logo | YEAR | company | product | status, so the era pattern takes the cell AFTER the year; this page runs logo | company | YEAR | ACQUIRER, so the same pattern harvested 45 acquirers as portfolio rows -- ADP, Cisco, IBM, Lotus, Lucent, Pfizer, Siemens, Sun Microsystems, Westinghouse. That is COLLECTION.md §5's First Round acquirer-mark class arriving through a column order rather than a logo wall. This pattern takes the cell BEFORE the year instead."
    },
    {
     "parser": "listing_regex",
@@ -468,7 +468,7 @@
     ]
    }
   ],
-  "_note": "greylock.com is Next.js on Vercel over a PUBLIC Sanity dataset (project uz672vkd, dataset production), so the ladder stops at step 2. portfolioCompany carries the firm's own ENTRY ROUND (firstPartnered), a status, the headquarters string, the deal partners as references and a category; teamMember carries the roster with a departed flag. The live surface is only 158 rows for a firm founded in 1965 -- the archive eras are where the book is, and the site also serves a markdown alternate (/portfolio.md) that renders the same table. A second source, archive-cards.json, is the SAME first-party listings read for their other columns: scratch/build-archive-cards.py parses the firm's own YEAR FUNDED, status line, deal partner and region out of the 1999-2001, 2001-2003, 2005-2010 and 2011-2014 captures (456 companies, investment years 1967-2007). wayback-pull's listing_regex keeps slug and name only, so without this the firm's own dated record of its pre-window book would be discarded by the layer best placed to supply it. Membership is unchanged -- these rows ARE listings on the investor's own site under COLLECTION.md \u00a71's evidence sufficiency, any era -- and the status wording is evidence for the judge, never a label.",
+  "_note": "greylock.com is Next.js on Vercel over a PUBLIC Sanity dataset (project uz672vkd, dataset production), so the ladder stops at step 2. portfolioCompany carries the firm's own ENTRY ROUND (firstPartnered), a status, the headquarters string, the deal partners as references and a category; teamMember carries the roster with a departed flag. The live surface is only 158 rows for a firm founded in 1965 -- the archive eras are where the book is, and the site also serves a markdown alternate (/portfolio.md) that renders the same table. A second source, archive-cards.json, is the SAME first-party listings read for their other columns: scratch/build-archive-cards.py parses the firm's own YEAR FUNDED, status line, deal partner and region out of the 1999-2001, 2001-2003, 2005-2010 and 2011-2014 captures (456 companies, investment years 1967-2007). wayback-pull's listing_regex keeps slug and name only, so without this the firm's own dated record of its pre-window book would be discarded by the layer best placed to supply it. Membership is unchanged -- these rows ARE listings on the investor's own site under COLLECTION.md §1's evidence sufficiency, any era -- and the status wording is evidence for the judge, never a label.",
   "team_buckets": {
    "Operations": "operations",
    "Investors": "investing",
@@ -617,22 +617,180 @@
   "shape": {
    "one_b_share_max": 0.2,
    "c2a_rate_max": 0.9,
-   "_note": "c2a_rate_max raised from the 0.80 default to 0.98 for this investor, restated against the evidence rather than waived (\u00a78, the Thrive rule). Greylock's base carries 79 Seed entries and only 34 of them are in the C2A cohort: the rest are censored, under 24 months from entry with no resolution. What survives that filter is the establishable set, and on a firm whose seed book is dominated by 2020-2025 AI companies that all raised an A within a year, the establishable set is almost entirely graduations \u2014 33 of 34. The published rate carries that bias in its own sentence (\u00a76): 'of the seed entries where the record could be established, ~97% graduated; the establishable set skews toward visible successes, and half the seed book is too young to be in it at all.' one_b_share_max is left at the 0.20 default and the base passes it. Re-derived 2026-09-17 under the status contract (D-S2A in decisions.md), since the reasoning above counted a cohort of unverified rows: the re-judged book is 71 seed entries, 10 censored, 22 undetermined, cohort 39 at 94.9% with 64% coverage. The shape the old note described survives the harder instrument -- a seed book dominated by 2020-2025 AI companies that raised an A within a year, where what can be established is almost entirely graduations -- so the 0.98 ceiling stands unchanged and the published sentence now carries the coverage as well as the bias. S2A ceiling restated 2026-09-21 under PRO-132, where every Seed row is decided (coverage 100% by construction): 61 seed entries, 10 censored, cohort 51 at 84.3% (43 graduated, 8 not). The 0.98 ceiling was set against a cohort that held only the establishable seeds; with the non-graduations counted the rate sits just above the 0.80 default, so the guard is restated to 0.90 rather than left where it cannot fire."
+   "_note": "c2a_rate_max raised from the 0.80 default to 0.98 for this investor, restated against the evidence rather than waived (§8, the Thrive rule). Greylock's base carries 79 Seed entries and only 34 of them are in the C2A cohort: the rest are censored, under 24 months from entry with no resolution. What survives that filter is the establishable set, and on a firm whose seed book is dominated by 2020-2025 AI companies that all raised an A within a year, the establishable set is almost entirely graduations — 33 of 34. The published rate carries that bias in its own sentence (§6): 'of the seed entries where the record could be established, ~97% graduated; the establishable set skews toward visible successes, and half the seed book is too young to be in it at all.' one_b_share_max is left at the 0.20 default and the base passes it. Re-derived 2026-09-17 under the status contract (D-S2A in decisions.md), since the reasoning above counted a cohort of unverified rows: the re-judged book is 71 seed entries, 10 censored, 22 undetermined, cohort 39 at 94.9% with 64% coverage. The shape the old note described survives the harder instrument -- a seed book dominated by 2020-2025 AI companies that raised an A within a year, where what can be established is almost entirely graduations -- so the 0.98 ceiling stands unchanged and the published sentence now carries the coverage as well as the bias. S2A ceiling restated 2026-09-21 under PRO-132, where every Seed row is decided (coverage 100% by construction): 61 seed entries, 10 censored, cohort 51 at 84.3% (43 graduated, 8 not). The 0.98 ceiling was set against a cohort that held only the establishable seeds; with the non-graduations counted the rate sits just above the 0.80 default, so the guard is restated to 0.90 rather than left where it cannot fire."
   },
   "not_members": [
-   {"name": "ai fund", "slug": "ai-fund", "why": "TRAP, fund-shaped list entry (T5). Listed on greylock.com/portfolio with no entry round; AI Fund is Andrew Ng's venture studio and fund, not an operating company Greylock holds equity in as a venture position. The standing rule: a fund-shap"},
-   {"name": "gofundme", "slug": "gofundme", "why": "TRAP, control position (T3, Erik 2026-09-04). June 2015: an investor group led by Accel and TCV, INCLUDING GREYLOCK, took a controlling stake by buying founders' shares at a ~$600M valuation (techcrunch.com/2015/06/24/gofundmes-investors-ta"},
-   {"name": "greylock xiv limited partnership", "slug": "greylock-xiv-limited-partnership", "why": "TRAP, the firm's own fund vehicle (T5). Appears in the EDGAR entity registry and must never become a portfolio row"},
-   {"name": "83north ii limited partnership", "slug": "83north-ii-limited-partnership", "why": "TRAP, separately advised affiliate (T1, decisions.md D3). 83North holds its own registrations (CRD 283471, 294729); its funds are not Greylock vehicles and its companies are not Greylock rows"},
-   {"name": "greylock israel l p", "slug": "greylock-israel-l-p", "why": "TRAP, own ERA (T1, decisions.md D2). GREYLOCK ISRAEL GLOBAL MANAGEMENT LTD. reports under CRD 162176 / SEC file 802-75092, separate from the home adviser's CRD 161537"},
-   {"name": "siemens", "slug": "siemens", "why": "TRAP, ACQUIRER MARK (the First Round lesson). Greylock's 2001-2003 and 2005-2010 listings carry outcome text such as 'Acquired by Siemens in 1999' beside the company; a name-matching layer reads the acquirer as a listed company"},
-   {"name": "greylock capital management", "slug": "greylock-capital-management", "why": "TRAP, namesake firm (decisions.md D4/R1). Hans Humes' New York distressed-debt manager, CRD 137825, shares the word and nothing else; its Global / Emerging Markets / Distressed Debt funds are not Greylock Partners vehicles"},
-   {"name": "conviction", "slug": "conviction", "why": "TRAP, ex-partner next-firm deal (T4). Sarah Guo was a Greylock partner and left in 2022 to found Conviction; deals she has led since are Conviction's, and her name on a post-2022 Form D locates her at Conviction, not Greylock"},
-   {"name": "robinhood", "slug": "robinhood", "why": "TRAP, personal and next-firm seat (T4). Josh Elman was a Greylock partner and later a Robinhood product VP; a Section 16 filing by him is a person-level filing and never a Greylock fund position. No Greylock fund is on Robinhood's cap table"},
-   {"name": "check point software", "slug": "check-point-software", "why": "TRAP, operator history not a position (T2/T4). Asheem Chandna was a Check Point executive before joining Greylock in 2003; the employer of a partner before their tenure is not a portfolio company"},
-   {"name": "camp greylock", "slug": "camp-greylock", "why": "TRAP, name collision (T5). A Massachusetts summer camp that shares the word and appears in web and job-board search results for the firm"},
-   {"name": "workday inc 401k", "slug": "workday-inc-401k", "why": "TRAP, scrape artifact (T5). Benefit-plan and filer-agent entities that carry a portfolio company's name are not rows"}
+   {
+    "name": "ai fund",
+    "slug": "ai-fund",
+    "why": "TRAP, fund-shaped list entry (T5). Listed on greylock.com/portfolio with no entry round; AI Fund is Andrew Ng's venture studio and fund, not an operating company Greylock holds equity in as a venture position. The standing rule: a fund-shap"
+   },
+   {
+    "name": "gofundme",
+    "slug": "gofundme",
+    "why": "TRAP, control position (T3, Erik 2026-09-04). June 2015: an investor group led by Accel and TCV, INCLUDING GREYLOCK, took a controlling stake by buying founders' shares at a ~$600M valuation (techcrunch.com/2015/06/24/gofundmes-investors-ta"
+   },
+   {
+    "name": "greylock xiv limited partnership",
+    "slug": "greylock-xiv-limited-partnership",
+    "why": "TRAP, the firm's own fund vehicle (T5). Appears in the EDGAR entity registry and must never become a portfolio row"
+   },
+   {
+    "name": "83north ii limited partnership",
+    "slug": "83north-ii-limited-partnership",
+    "why": "TRAP, separately advised affiliate (T1, decisions.md D3). 83North holds its own registrations (CRD 283471, 294729); its funds are not Greylock vehicles and its companies are not Greylock rows"
+   },
+   {
+    "name": "greylock israel l p",
+    "slug": "greylock-israel-l-p",
+    "why": "TRAP, own ERA (T1, decisions.md D2). GREYLOCK ISRAEL GLOBAL MANAGEMENT LTD. reports under CRD 162176 / SEC file 802-75092, separate from the home adviser's CRD 161537"
+   },
+   {
+    "name": "siemens",
+    "slug": "siemens",
+    "why": "TRAP, ACQUIRER MARK (the First Round lesson). Greylock's 2001-2003 and 2005-2010 listings carry outcome text such as 'Acquired by Siemens in 1999' beside the company; a name-matching layer reads the acquirer as a listed company"
+   },
+   {
+    "name": "greylock capital management",
+    "slug": "greylock-capital-management",
+    "why": "TRAP, namesake firm (decisions.md D4/R1). Hans Humes' New York distressed-debt manager, CRD 137825, shares the word and nothing else; its Global / Emerging Markets / Distressed Debt funds are not Greylock Partners vehicles"
+   },
+   {
+    "name": "conviction",
+    "slug": "conviction",
+    "why": "TRAP, ex-partner next-firm deal (T4). Sarah Guo was a Greylock partner and left in 2022 to found Conviction; deals she has led since are Conviction's, and her name on a post-2022 Form D locates her at Conviction, not Greylock"
+   },
+   {
+    "name": "robinhood",
+    "slug": "robinhood",
+    "why": "TRAP, personal and next-firm seat (T4). Josh Elman was a Greylock partner and later a Robinhood product VP; a Section 16 filing by him is a person-level filing and never a Greylock fund position. No Greylock fund is on Robinhood's cap table"
+   },
+   {
+    "name": "check point software",
+    "slug": "check-point-software",
+    "why": "TRAP, operator history not a position (T2/T4). Asheem Chandna was a Check Point executive before joining Greylock in 2003; the employer of a partner before their tenure is not a portfolio company"
+   },
+   {
+    "name": "camp greylock",
+    "slug": "camp-greylock",
+    "why": "TRAP, name collision (T5). A Massachusetts summer camp that shares the word and appears in web and job-board search results for the firm"
+   },
+   {
+    "name": "workday inc 401k",
+    "slug": "workday-inc-401k",
+    "why": "TRAP, scrape artifact (T5). Benefit-plan and filer-agent entities that carry a portfolio company's name are not rows"
+   }
   ]
  },
- "sample_slugs": []
+ "sample_slugs": [],
+ "names": {
+  "_published_note": "Published names (PRO-146; COLLECTION.md s8, Erik 2026-09-24): the brand in normal capitalization, letter-read acronyms kept, no legal suffix. {slug: name}, applied by run.py export; the slug and every overlay keep the source rendering. Decided 2026-09-26.",
+  "published": {
+   "abt-corporation": "ABT",
+   "airsoft-inc": "Airsoft",
+   "alias-research-inc": "Alias Research",
+   "amisys-managed-care-inc": "Amisys Managed Care",
+   "argon-networks-inc": "Argon Networks",
+   "ascend-communications-inc": "Ascend Communications",
+   "ast-research-inc": "AST Research",
+   "athoc-inc": "AtHoc",
+   "austin-hayne-corporation": "Austin-Hayne",
+   "authentica-inc": "Authentica",
+   "aveo-pharmaceuticals": "Aveo Pharmaceuticals",
+   "avi-networks": "Avi Networks",
+   "banyan-systems-incorporated": "Banyan Systems",
+   "beyond-inc": "Beyond",
+   "btu-international-inc": "BTU International",
+   "c-ats-software-inc": "C-ATS Software",
+   "cc-mail-inc": "cc:Mail",
+   "centene-inc": "Centene",
+   "checkfree-corporation": "CheckFree",
+   "chrysalis-international-corporation": "Chrysalis International",
+   "cimaron-communications-corporation": "Cimaron Communications",
+   "clarus-corporation": "Clarus",
+   "copper-mountain-communications-inc": "Copper Mountain Communications",
+   "course-technology-inc": "Course Technology",
+   "crosscomm-corporation": "CrossComm",
+   "dwnld-inc": "DWNLD",
+   "edial-inc": "eDial",
+   "edify-corporation": "Edify",
+   "emotion-inc": "Emotion",
+   "emperative-inc": "Emperative",
+   "forte-software-inc": "Forte Software",
+   "futuretense-inc": "FutureTense",
+   "gateway-design-automation-inc": "Gateway Design Automation",
+   "gradient-technologies-inc": "Gradient Technologies",
+   "hnc-software-inc": "HNC Software",
+   "hpr-inc": "HPR",
+   "hyperion-software-inc": "Hyperion Software",
+   "icsa-inc": "ICSA",
+   "idiom-inc": "Idiom",
+   "index-technology-corporation": "Index Technology",
+   "information-resources-inc": "Information Resources",
+   "intellilink-corp": "IntelliLink",
+   "internet-business-advantages-inc": "Internet Business Advantages",
+   "internet-security-systems-inc": "Internet Security Systems",
+   "ipsilon-networks-inc": "Ipsilon Networks",
+   "itron-inc": "Itron",
+   "kiva-software-inc": "Kiva Software",
+   "legato-systems-inc": "Legato Systems",
+   "littleinc-labs-inc": "LittleInc Labs",
+   "mainspring-communications-inc": "Mainspring Communications",
+   "mainspring-inc": "Mainspring",
+   "manugistics-inc": "Manugistics",
+   "mapinfo-corporation": "MapInfo",
+   "matrixx-software": "Matrixx Software",
+   "mccormack-and-dodge-corp": "McCormack and Dodge",
+   "mentor-graphics-corporation": "Mentor Graphics",
+   "microcom-inc": "Microcom",
+   "molecular-design-ltd-inc": "Molecular Design",
+   "molecular-dynamics-inc": "Molecular Dynamics",
+   "mysteries-inc": "Mysteries",
+   "narrative-communications-inc": "Narrative Communications",
+   "netscout-inc": "NetScout",
+   "new-england-business-service-inc": "New England Business Service",
+   "ntru-inc": "NTRU",
+   "octane-software-inc": "Octane Software",
+   "ontogeny-inc": "Ontogeny",
+   "open-market-inc": "Open Market",
+   "optimal-networks-corporation": "Optimal Networks",
+   "peritus-software-services-inc": "Peritus Software Services",
+   "pharmacopeia-inc": "Pharmacopeia",
+   "phycor-management-corporation": "Phycor Management",
+   "pivotpoint-software-inc": "PivotPoint Software",
+   "praecis-pharmaceuticals-inc": "Praecis Pharmaceuticals",
+   "prairiecomm-inc": "PrairieComm",
+   "puma-technology-inc": "Puma Technology",
+   "raptor-systems-inc": "Raptor Systems",
+   "rivington-labs-inc": "Rivington Labs",
+   "rolm-corporation": "Rolm",
+   "sage-systems-inc": "Sage Systems",
+   "sagent-technology-inc": "Sagent Technology",
+   "sahara-networks-inc": "Sahara Networks",
+   "sandburst-corporation": "Sandburst",
+   "saros-corporation": "Saros",
+   "shiva-corporation": "Shiva",
+   "soft-switch-inc": "Soft-Switch",
+   "sonix-communications-limited": "Sonix Communications",
+   "spyglass-inc": "Spyglass",
+   "starburst-communications-corporation": "Starburst Communications",
+   "storage-networks-inc": "Storage Networks",
+   "structural-dynamics-research-corp": "Structural Dynamics Research",
+   "student-advantage-inc": "Student Advantage",
+   "successfactors-inc": "SuccessFactors",
+   "sungard-data-systems-inc": "Sungard Data Systems",
+   "tenor-networks-inc": "Tenor Networks",
+   "tessera-inc": "Tessera",
+   "vertex-pharmaceuticals-inc": "Vertex Pharmaceuticals",
+   "vm-software-inc": "VM Software",
+   "vudu": "Vudu",
+   "wang-laboratories-inc": "Wang Laboratories",
+   "whitetree-network-technologies-inc": "Whitetree Network Technologies",
+   "wildfire-communications-inc": "Wildfire Communications",
+   "xa-systems-corporation": "XA Systems",
+   "xcellenet-inc": "Xcellenet",
+   "xircom-inc": "Xircom",
+   "zeitnet-data-systems-inc": "Zeitnet Data Systems"
+  }
+ }
 }
