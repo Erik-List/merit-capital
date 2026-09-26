@@ -232,13 +232,16 @@ function useUrlState() {
   // view param encodes which parts are visible
   const view: ViewState = (() => {
     if (!viewParam) return { ...defaultView };
-    const allowed = new Set(parseDelimitedList(viewParam));
+    // "investment-geography" contains the delimiter itself, so splitting the
+    // param would never find it. Match each whole name between delimiters.
+    const padded = `${QUERY_DELIMITER}${viewParam}${QUERY_DELIMITER}`;
+    const has = (param: string) => padded.includes(`${QUERY_DELIMITER}${param}${QUERY_DELIMITER}`);
     return {
-      geography: allowed.has("investment-geography"),
-      stage: allowed.has("stages"),
-      investmentSize: allowed.has("size"),
-      scope: allowed.has("scope"),
-      trackRecord: allowed.has("track"),
+      geography: has("investment-geography"),
+      stage: has("stages"),
+      investmentSize: has("size"),
+      scope: has("scope"),
+      trackRecord: has("track"),
     };
   })();
 
