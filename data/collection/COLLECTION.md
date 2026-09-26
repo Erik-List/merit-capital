@@ -130,17 +130,17 @@ confirmed ruling.
   follow-on (ruled on Sequoia, a16z, Accel and Lightspeed); Lightspeed's
   Extreme Entrepreneurs (no funding); partners' personal angel books
   (Kushner; Cherry's founder-angel positions, Erik 2026-09-04);
-  **but a founder's angel check that the firm itself lists as its own is
-  ruled per investor, and the two rulings so far point opposite ways**:
-  Cherry's D2 (2026-09-04) keeps them out unless a Cherry vehicle held them;
-  Point Nine's E1 (Erik, 2026-09-26, reversing its D2) keeps them IN, flagged
-  `pre_fund_angel`, the entry at the angel check (Zendesk 2008, Clio 2009),
-  while companies the founder founded and a predecessor firm's own positions
-  stay out. **The firm's own "previous" or "Pre <firm>" label is the
-  evidence** that a listed position began before the fund (Point Nine's
-  2018–2020 CMS filed JoinR under "Pre Point Nine"); read it for every row it
-  touches before applying either ruling. One rule for every investor is
-  Erik's open call (PRO-157);
+  **a founder's angel check stays out even where the firm lists it as its
+  own**, unless a fund of the firm held the position (Erik, 2026-09-26,
+  binding every investor: "exclude as we did for Cherry"). This is Cherry's
+  D2 generalised, and it reverses Point Nine's E1 of the same day, which had
+  kept such rows flagged `pre_fund_angel`. Where a fund later came into a
+  company the founder had backed personally, the row stays a member and its
+  entry is the fund's first check, never the angel check (Point Nine: Clio,
+  Westwing, Humanity). **The firm's own "previous" or "Pre <firm>" label is
+  the evidence** that a listed position began before the fund (Point Nine's
+  2018–2020 CMS filed JoinR under "Pre Point Nine"): read it for every row it
+  touches;
   Erasmic-era India deals with no Accel listing (agent, flagged);
   companies founded by the firm's alumni that no fund backed
   (generalized here from the definition, unruled).
