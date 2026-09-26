@@ -12,7 +12,7 @@ Outputs:
   base.csv       (via run.py export: the merged published surface — base +
                   membership verdict + classification)
   excluded.json  (every partitioned row, with a reason field:
-                  build_filter | other_desk | not_member)
+                  build_filter | other_desk | not_member | control_position)
 
 Usage: python3 scripts/build-company-base.py <investor-slug>
 """
@@ -114,6 +114,10 @@ NON_PORTFOLIO_INDUSTRIES = {
     "Other Banking and Financial Services", "Other Real Estate",
 }
 AMBIGUOUS_INDUSTRIES: set[str] = set()
+
+# What a not_member verdict's optional `exclusion` key may say (COLLECTION.md
+# §1, T3): the reason the row carries into excluded.json in place of not_member.
+LEDGER_EXCLUSIONS = {"control_position"}
 
 # Legal-entity suffixes only. Descriptor words like "Technology", "Systems",
 # "Networks" and "Labs" are part of the company name, not boilerplate: stripping
@@ -737,27 +741,46 @@ def main() -> None:
     # adversarial review passes and by human sampling.
     # not_member rows leave the published base (preserved in
     # excluded.json, reason not_member); uncertain rows stay, marked for sampling.
+    #
+    # A not_member verdict may name WHY the row leaves, in `exclusion`. The one
+    # value so far is `control_position` (COLLECTION.md §1, T3 control
+    # positions; Erik 2026-09-04): the firm did invest, but by acquiring
+    # control, which is not a venture entry. Those rows leave under their own
+    # reason so the report can count them apart from rows the firm never held.
+    # An unknown value stops the build: read as not_member it would hide a typo.
     verification_excluded: list[dict] = []
+    control_excluded: list[dict] = []
     bv_path = P.ledger
     if bv_path.exists():
         bv_verdicts = json.load(open(bv_path)).get(
             SLUG, {}).get("verdicts", {})
+        bad = sorted((s, r.get("exclusion"), r.get("verdict"))
+                     for s, r in bv_verdicts.items()
+                     if r.get("exclusion") and (
+                         r["exclusion"] not in LEDGER_EXCLUSIONS
+                         or r.get("verdict") != "not_member"))
+        if bad:
+            sys.exit(f"membership ledger: `exclusion` must be one of "
+                     f"{sorted(LEDGER_EXCLUSIONS)} on a not_member verdict: {bad[:5]}")
         unc = 0
         for row in list(rows_out):
             rec = bv_verdicts.get(row["slug"])
             if not rec:
                 continue
             if rec["verdict"] == "not_member":
+                reason = rec.get("exclusion") or "not_member"
                 row["status"] = "rejected"
                 row["notes"] = "; ".join(filter(None, [
-                    row["notes"], f"not_member ({rec['who']}): {rec['basis']}"]))
+                    row["notes"], f"{reason} ({rec['who']}): {rec['basis']}"]))
                 rows_out.remove(row)
-                verification_excluded.append(row)
+                (control_excluded if reason == "control_position"
+                 else verification_excluded).append(row)
             elif rec["verdict"] == "uncertain":
                 row["notes"] = "; ".join(filter(None, [
                     row["notes"], f"membership uncertain: {rec['basis']}"]))
                 unc += 1
         print(f"verification ledger: {len(verification_excluded)} excluded, "
+              f"{len(control_excluded)} control positions excluded, "
               f"{unc} uncertain kept")
 
     # Now that normalization no longer strips descriptor words, the opposite
@@ -987,6 +1010,7 @@ def main() -> None:
         [("build_filter", r) for r in sorted(rejected, key=lambda x: x["slug"])]
         + [("other_desk", r) for r in sorted(other, key=lambda x: x["slug"])]
         + [("not_member", r) for r in verification_excluded]
+        + [("control_position", r) for r in control_excluded]
     )
     write_atomic(P.excluded, "[" + ",\n".join(          # one row per line
         json.dumps({"reason": reason, **{k: r[k] for k in COLUMN_ORDER}})

@@ -76,7 +76,7 @@ class Paths:
         self.identity_merges = self.companies_dir / "identity-merges.json"
         self.resolved = self.companies_dir / "resolved.json"
         self.classification = self.companies_dir / "classification.json"
-        self.excluded = self.companies_dir / "excluded.json"       # reason: build_filter | other_desk | not_member
+        self.excluded = self.companies_dir / "excluded.json"       # reason: build_filter | other_desk | not_member | control_position
         self.cross_rulings = self.companies_dir / "cross-rulings.json"  # this investor's invariant-10 rulings
 
         # documentation/: the decisions file and the run report
