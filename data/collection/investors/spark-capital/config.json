@@ -237,7 +237,10 @@
   "_note": "Four people namespaces over twenty years: /team/<first>_<last>.html (2006-07 static, underscores), /team/bio/<firstlast> and /index.php/team/bio/<firstlast> (2008-2011 ExpressionEngine, no separator), /team/<first>-<last>/ (2012-2019 WordPress), /team-profiles/<first>-<last> (2020-2023 Webflow) and /team-members/<first>-<last> (2024+ Webflow). partner-roster.py enumerates the dash-separated namespaces; the 2006-2011 people (Dagres, Politi, Conway, Sabet, Finkelstein, Miller, Borenstein, Koyfman, Go, Parker, Huang, Haber) are CURATED into sources/wayback/partner-roster.json by scratch/roster-curate.py from the CDX capture years of their bio pages (decisions.md D8). The live team.json carries the Webflow tab as group; Operations (finance, platform, marketing) is excluded from the Form D sweep because those people never sit issuer boards for the firm."
  },
  "site_api": {
-  "entry_stage_fields": ["stage_site_first", "stage_site_all"],
+  "entry_stage_fields": [
+   "stage_site_first",
+   "stage_site_all"
+  ],
   "entry_stage_listing_url": "https://www.sparkcapital.com/companies",
   "type": "scrape",
   "sources": [
@@ -488,22 +491,94 @@
    "_note": "decisions.md D12: a 2005-vintage early-stage firm with a growth strategy since 2014 whose live site is a selected winners list (45 rows, 10 exits marked) and whose fund vehicles file 13G/13D on the public winners; the archive and Form D layers add the long tail, but the $1B+ share is expected above the 20% megafund default (Twitter, Slack, Snap, Coinbase, Affirm, Wayfair, Anthropic, Discord, Scale AI, Deel, Ramp, Plaid, Kalshi, Niantic, Marqeta, Carta, ...). The guard still fires above 30%; a genuine seed/A book keeps the 80% C2A ceiling."
   },
   "not_members": [
-   {"name": "conduit labs inc", "slug": "conduit-labs-inc", "why": "Nabeel Hyatt's own company (Executive Officer, 2009 Form D) before he joined Spark in 2012: founder-era paper, no Spark vehicle (D8 seat dating); acquired by Zynga 2010"},
-   {"name": "skky inc", "slug": "skky-inc", "why": "'Andrew Parker' Executive Officer 2013-2015 at SKKY Inc / SKKY, LLC: a homonym founder, no Spark listing"},
-   {"name": "imperfect foods inc", "slug": "imperfect-foods-inc", "why": "Benjamin Simon (Executive Officer 2015-2017) is Imperfect Foods' co-founder, not the Spark 2022 team member of the same name; never Spark-listed"},
-   {"name": "williamson surgery center llc", "slug": "williamson-surgery-center-llc", "why": "'Dennis Miller' director 2009: homonym of Spark's 2005-2011 general partner on a surgery-center LLC"},
-   {"name": "blaze bioscience inc", "slug": "blaze-bioscience-inc", "why": "'Dennis Miller' Executive Officer 2014-2020 (a biotech CFO) — Spark's Dennis Miller left in 2011 and the firm never listed Blaze"},
-   {"name": "medallion resources ltd", "slug": "medallion-resources-ltd", "why": "'David Haber' director 2010-2020 on a Canadian mining issuer: homonym"},
-   {"name": "shareaholic inc", "slug": "shareaholic-inc", "why": "Rob Go's 2012-2014 seat is a NextView Ventures seat (he co-founded NextView after leaving Spark in 2010); never Spark-listed"},
-   {"name": "printeco inc", "slug": "printeco-inc", "why": "Arpan Shah as Executive Officer 2010-2011, a decade before he joined Spark (2025): his own company"},
-   {"name": "searchmedia holdings ltd", "slug": "searchmedia-holdings-ltd", "why": "'Paul Conway' director 2012 on a Chinese advertising issuer: homonym"},
-   {"name": "meadow bay capital corp", "slug": "meadow-bay-capital-corp", "why": "'Bill Reed' director 2011 on a Canadian shell: homonym; Spark's Will Reed joined in 2015"},
-   {"name": "tradiv inc", "slug": "tradiv-inc", "why": "'Geoff Doran' 2015-2016: homonym of Spark CFO Jeff Doran; an operations officer never sits issuer boards for the firm"},
-   {"name": "mandalay digital group inc", "slug": "mandalay-digital-group-inc", "why": "Spark's 13D on Mandalay Media (2008) is sale consideration from Mandalay's acquisition of Spark-backed Twistbox; the investment row is Twistbox (§1 consideration rule)"},
-   {"name": "papa technologies llc", "slug": "papa-technologies-llc", "why": "'Andrew Parker' as Executive Officer 2017-2021 is Papa's founder Andrew Parker, a homonym of Spark's partner (who left in 2019/2020); Papa was never Spark-listed"},
-   {"name": "wei chuan u s a inc", "slug": "wei-chuan-u-s-a-inc", "why": "'Charles Huang' director 2011 on a Taiwanese food importer: homonym of Spark's 2010-2011 associate"},
-   {"name": "cnet", "slug": "cnet", "why": "CNET (founded 1992, public 1996, acquired by CBS 2008) predates the 2005 firm; the 2008 Forms 3/4 and the 2021-2025 Webflow card are a partner's prior-firm track record shown on the site, not a Spark fund position (T2, D6)"}
+   {
+    "name": "conduit labs inc",
+    "slug": "conduit-labs-inc",
+    "why": "Nabeel Hyatt's own company (Executive Officer, 2009 Form D) before he joined Spark in 2012: founder-era paper, no Spark vehicle (D8 seat dating); acquired by Zynga 2010"
+   },
+   {
+    "name": "skky inc",
+    "slug": "skky-inc",
+    "why": "'Andrew Parker' Executive Officer 2013-2015 at SKKY Inc / SKKY, LLC: a homonym founder, no Spark listing"
+   },
+   {
+    "name": "imperfect foods inc",
+    "slug": "imperfect-foods-inc",
+    "why": "Benjamin Simon (Executive Officer 2015-2017) is Imperfect Foods' co-founder, not the Spark 2022 team member of the same name; never Spark-listed"
+   },
+   {
+    "name": "williamson surgery center llc",
+    "slug": "williamson-surgery-center-llc",
+    "why": "'Dennis Miller' director 2009: homonym of Spark's 2005-2011 general partner on a surgery-center LLC"
+   },
+   {
+    "name": "blaze bioscience inc",
+    "slug": "blaze-bioscience-inc",
+    "why": "'Dennis Miller' Executive Officer 2014-2020 (a biotech CFO) — Spark's Dennis Miller left in 2011 and the firm never listed Blaze"
+   },
+   {
+    "name": "medallion resources ltd",
+    "slug": "medallion-resources-ltd",
+    "why": "'David Haber' director 2010-2020 on a Canadian mining issuer: homonym"
+   },
+   {
+    "name": "shareaholic inc",
+    "slug": "shareaholic-inc",
+    "why": "Rob Go's 2012-2014 seat is a NextView Ventures seat (he co-founded NextView after leaving Spark in 2010); never Spark-listed"
+   },
+   {
+    "name": "printeco inc",
+    "slug": "printeco-inc",
+    "why": "Arpan Shah as Executive Officer 2010-2011, a decade before he joined Spark (2025): his own company"
+   },
+   {
+    "name": "searchmedia holdings ltd",
+    "slug": "searchmedia-holdings-ltd",
+    "why": "'Paul Conway' director 2012 on a Chinese advertising issuer: homonym"
+   },
+   {
+    "name": "meadow bay capital corp",
+    "slug": "meadow-bay-capital-corp",
+    "why": "'Bill Reed' director 2011 on a Canadian shell: homonym; Spark's Will Reed joined in 2015"
+   },
+   {
+    "name": "tradiv inc",
+    "slug": "tradiv-inc",
+    "why": "'Geoff Doran' 2015-2016: homonym of Spark CFO Jeff Doran; an operations officer never sits issuer boards for the firm"
+   },
+   {
+    "name": "mandalay digital group inc",
+    "slug": "mandalay-digital-group-inc",
+    "why": "Spark's 13D on Mandalay Media (2008) is sale consideration from Mandalay's acquisition of Spark-backed Twistbox; the investment row is Twistbox (§1 consideration rule)"
+   },
+   {
+    "name": "papa technologies llc",
+    "slug": "papa-technologies-llc",
+    "why": "'Andrew Parker' as Executive Officer 2017-2021 is Papa's founder Andrew Parker, a homonym of Spark's partner (who left in 2019/2020); Papa was never Spark-listed"
+   },
+   {
+    "name": "wei chuan u s a inc",
+    "slug": "wei-chuan-u-s-a-inc",
+    "why": "'Charles Huang' director 2011 on a Taiwanese food importer: homonym of Spark's 2010-2011 associate"
+   },
+   {
+    "name": "cnet",
+    "slug": "cnet",
+    "why": "CNET (founded 1992, public 1996, acquired by CBS 2008) predates the 2005 firm; the 2008 Forms 3/4 and the 2021-2025 Webflow card are a partner's prior-firm track record shown on the site, not a Spark fund position (T2, D6)"
+   }
   ]
  },
- "sample_slugs": []
+ "sample_slugs": [],
+ "names": {
+  "_published_note": "Published names (PRO-146; COLLECTION.md s8, Erik 2026-09-24): the brand in normal capitalization, letter-read acronyms kept, no legal suffix. {slug: name}, applied by run.py export; the slug and every overlay keep the source rendering. Decided 2026-09-26.",
+  "published": {
+   "eqal": "Eqal",
+   "jfrog": "JFrog",
+   "kepler-software-inc": "Kepler Software",
+   "lola": "Lola",
+   "piston-technologies-inc": "Piston Technologies",
+   "sttg-inc": "STTG",
+   "workshop-for-emotional-spiritual-technology-corp": "Workshop for Emotional & Spiritual Technology"
+  }
+ }
 }

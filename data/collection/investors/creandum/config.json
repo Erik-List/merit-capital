@@ -363,21 +363,86 @@
    "_note": "Defaults kept: an early-stage, site-listed base is the shape the defaults describe (PRO-72 expects Seed/Series A heavy, Nordic-concentrated, a real C2A cohort). S2A ceiling restated 2026-09-17 under the status contract (D-S2A in decisions.md): 79 seed entries, 8 censored, 34 undetermined, cohort 37 at 83.8% with 52% coverage. Creandum files no Form Ds, so every decision rests on a citation, and on a Nordic book about half the seeds have a reachable published record; the half that does skews to the companies the press followed. Restated to 0.90 with the coverage published beside the rate; the guard still fires above that. S2A ceiling restated 2026-09-20 under PRO-132, where every Seed row is decided (coverage 100% by construction): 79 seed entries, 8 censored, cohort 71 at 52.1%. The 0.90 was set against a cohort holding only the establishable half of the seed book, the half the press covered; with the non-graduations counted the rate sits far under the 0.80 default, so the default is back."
   },
   "not_members": [
-   {"name": "orgio inc", "slug": "orgio-inc", "why": "Ex-partner seats after departure: Martin Hauge (left 2015) is Director on Orgio, Inc. (New York) Form Ds 2019q3 and 2024q3, Christian Wylonis (left 2015) on 2020q1 and 2021q3 - both outside their tenure windows, no listing, no announcement,"},
-   {"name": "aerones inc", "slug": "aerones-inc", "why": "Ex-partner next-firm seat: Andris Berzins (Creandum investment advisor 2012-2015, then Change Ventures) is Director on Aerones Inc. 2022q4 and Aerones Holdings Inc. 2025q3 - Change Ventures' Latvian robotics deal, no Creandum listing or ann"},
-   {"name": "creades ab", "slug": "creades-ab", "why": "Namesake string trap: Creades AB is the Nasdaq Stockholm-listed investment company (Hagstromer), the early Klarna holder via Oresund and the backer of Tink, Acne Studios, Apotea - never Creandum; no row may build from a 'Creades' mention"},
-   {"name": "tink", "slug": "tink", "why": "String trap instance: Tink was backed by Creades AB (and Sunstone, SEB), not Creandum; a Nordic press clause or Wikipedia sentence naming 'Creades' must not become a Creandum row"},
-   {"name": "tio tech a", "slug": "tio-tech-a", "why": "A SPAC (Tio Tech A, S-1 2021) whose text names Jonathan Teklu as 'Venture Partner at Creandum' - a person mention in a director biography, not a holding; EDGAR full-text hit, no row"},
-   {"name": "amorelie", "slug": "amorelie", "why": "Personal positions of firm people: Amorelie is Jonathan Teklu's personal angel investment (Tio Tech A S-1 biography) and Felix Haas's (Designer in Residence) co-founded company - no fund money, no listing; no row"},
-   {"name": "delivery hero", "slug": "delivery-hero", "why": "Jonathan Teklu's personal angel position per the Tio Tech A S-1 ('invested in ... Delivery Hero, One Football and Trade Republic'); Trade Republic is a fund holding on its own evidence, Delivery Hero is not - a person's angel book is not th"},
-   {"name": "goviral", "slug": "goviral", "why": "Blog subject, not a holding: the firm's 2009 post 'Danish GoViral raises EUR 6.5M' reports Kennet Partners' investment (techcrunch.com/2009/03/24/kennet-puts-e65-million-into-govirals-branded-video-network); the stories layer carries third-"},
-   {"name": "eniram", "slug": "eniram", "why": "Blog subject, not a holding: 'Finnish Eniram raises EUR 5M' (2009) with Ferd Venture - no Creandum participation, no related-company link"},
-   {"name": "sap se", "slug": "sap-se", "why": "EDGAR full-text registrant, not a holding: SAP's 20-F lists 'Creandum SPV TR (D) AB' among SAP's own investments (SAP is an LP in the Trade Republic SPV); the vehicle is the firm's, SAP is not a portfolio company"},
-   {"name": "uber technologies", "slug": "uber-technologies", "why": "Acquirer, not a holding: Uber's 424B7 resale prospectuses (2020-2021) list 'Creandum III LP' as a selling stockholder - consideration shares from Uber's acquisition of Cornershop; the investment row is Cornershop (COLLECTION.md §1 considera"},
-   {"name": "zynga", "slug": "zynga", "why": "Acquirer, not a holding: Zynga's 8-K (2018-12) files the Small Giant Games share purchase agreement with Creandum III, L.P. among the sellers; the row is Small Giant Games"},
-   {"name": "grab holdings", "slug": "grab-holdings", "why": "Registrant whose 6-K (2025-11) reproduces Vay's press release naming Creandum among Vay's investors; Grab is Vay's partner, not a Creandum holding - the row is Vay"},
-   {"name": "bokus", "slug": "bokus", "why": "Founder-era company of a partner: Johan Brenner co-founded Bokus (1997) and Jobline before joining Creandum in 2010 - pre-firm, personal; no row"}
+   {
+    "name": "orgio inc",
+    "slug": "orgio-inc",
+    "why": "Ex-partner seats after departure: Martin Hauge (left 2015) is Director on Orgio, Inc. (New York) Form Ds 2019q3 and 2024q3, Christian Wylonis (left 2015) on 2020q1 and 2021q3 - both outside their tenure windows, no listing, no announcement,"
+   },
+   {
+    "name": "aerones inc",
+    "slug": "aerones-inc",
+    "why": "Ex-partner next-firm seat: Andris Berzins (Creandum investment advisor 2012-2015, then Change Ventures) is Director on Aerones Inc. 2022q4 and Aerones Holdings Inc. 2025q3 - Change Ventures' Latvian robotics deal, no Creandum listing or ann"
+   },
+   {
+    "name": "creades ab",
+    "slug": "creades-ab",
+    "why": "Namesake string trap: Creades AB is the Nasdaq Stockholm-listed investment company (Hagstromer), the early Klarna holder via Oresund and the backer of Tink, Acne Studios, Apotea - never Creandum; no row may build from a 'Creades' mention"
+   },
+   {
+    "name": "tink",
+    "slug": "tink",
+    "why": "String trap instance: Tink was backed by Creades AB (and Sunstone, SEB), not Creandum; a Nordic press clause or Wikipedia sentence naming 'Creades' must not become a Creandum row"
+   },
+   {
+    "name": "tio tech a",
+    "slug": "tio-tech-a",
+    "why": "A SPAC (Tio Tech A, S-1 2021) whose text names Jonathan Teklu as 'Venture Partner at Creandum' - a person mention in a director biography, not a holding; EDGAR full-text hit, no row"
+   },
+   {
+    "name": "amorelie",
+    "slug": "amorelie",
+    "why": "Personal positions of firm people: Amorelie is Jonathan Teklu's personal angel investment (Tio Tech A S-1 biography) and Felix Haas's (Designer in Residence) co-founded company - no fund money, no listing; no row"
+   },
+   {
+    "name": "delivery hero",
+    "slug": "delivery-hero",
+    "why": "Jonathan Teklu's personal angel position per the Tio Tech A S-1 ('invested in ... Delivery Hero, One Football and Trade Republic'); Trade Republic is a fund holding on its own evidence, Delivery Hero is not - a person's angel book is not th"
+   },
+   {
+    "name": "goviral",
+    "slug": "goviral",
+    "why": "Blog subject, not a holding: the firm's 2009 post 'Danish GoViral raises EUR 6.5M' reports Kennet Partners' investment (techcrunch.com/2009/03/24/kennet-puts-e65-million-into-govirals-branded-video-network); the stories layer carries third-"
+   },
+   {
+    "name": "eniram",
+    "slug": "eniram",
+    "why": "Blog subject, not a holding: 'Finnish Eniram raises EUR 5M' (2009) with Ferd Venture - no Creandum participation, no related-company link"
+   },
+   {
+    "name": "sap se",
+    "slug": "sap-se",
+    "why": "EDGAR full-text registrant, not a holding: SAP's 20-F lists 'Creandum SPV TR (D) AB' among SAP's own investments (SAP is an LP in the Trade Republic SPV); the vehicle is the firm's, SAP is not a portfolio company"
+   },
+   {
+    "name": "uber technologies",
+    "slug": "uber-technologies",
+    "why": "Acquirer, not a holding: Uber's 424B7 resale prospectuses (2020-2021) list 'Creandum III LP' as a selling stockholder - consideration shares from Uber's acquisition of Cornershop; the investment row is Cornershop (COLLECTION.md §1 considera"
+   },
+   {
+    "name": "zynga",
+    "slug": "zynga",
+    "why": "Acquirer, not a holding: Zynga's 8-K (2018-12) files the Small Giant Games share purchase agreement with Creandum III, L.P. among the sellers; the row is Small Giant Games"
+   },
+   {
+    "name": "grab holdings",
+    "slug": "grab-holdings",
+    "why": "Registrant whose 6-K (2025-11) reproduces Vay's press release naming Creandum among Vay's investors; Grab is Vay's partner, not a Creandum holding - the row is Vay"
+   },
+   {
+    "name": "bokus",
+    "slug": "bokus",
+    "why": "Founder-era company of a partner: Johan Brenner co-founded Bokus (1997) and Jobline before joining Creandum in 2010 - pre-firm, personal; no row"
+   }
   ]
  },
- "sample_slugs": []
+ "sample_slugs": [],
+ "names": {
+  "_published_note": "Published names (PRO-146; COLLECTION.md s8, Erik 2026-09-24): the brand in normal capitalization, letter-read acronyms kept, no legal suffix. {slug: name}, applied by run.py export; the slug and every overlay keep the source rendering. Decided 2026-09-26.",
+  "published": {
+   "blast": "Blast",
+   "pave-space": "Pave Space",
+   "rekki": "Rekki",
+   "seon": "Seon"
+  }
+ }
 }

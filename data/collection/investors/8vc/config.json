@@ -315,23 +315,107 @@
   },
   "_known_positions_note": "Verified against the landed base rather than asserted from memory. The kickoff list carried eight names the base does not have — oscar health (the row is 'oscar'), radiology partners, base power, element biosciences, oura, chef robotics, vast and atlan — and `verify` was right to flag them. Only 'oscar' was a naming slip; the other seven were model priors about 8VC's book that its own surfaces do not support, and each is a recall-probe candidate rather than a known position. Five more were removed after the grind: oscar, wish, illumio, opengov and guardant health are the Delta A predecessor class and are ruled not_member on this run, so listing them as known positions would make `verify` demand rows the ruling deliberately excludes. Palantir and Color left for the same reason (D7 and Delta A). If Erik reverses Delta A the whole class goes back in together: palantir, color, oscar, wish, illumio, opengov, guardant health, relateiq, salesforceiq, oculus and the Formation 8-era archive rows.",
   "not_members": [
-   {"name": "Advanced Technology Select Fund XII LLC", "slug": "advanced-technology-select-fund-xii", "why": "A different KEVIN CHEN. One person explains 34 issuers in the sweep, almost all of them 'Advanced Technology Select Fund IX-XX' and 'ATSF XIX/XX Series B-F' — an SPV factory, not 8VC deals. Also fund-shaped (T5)."},
-   {"name": "ATSF XIX Series E", "slug": "atsf-xix-series-e", "why": "Same KEVIN CHEN cluster; fund-shaped series vehicle."},
-   {"name": "Bain Capital Partnership Strategies Fund, L.P.", "slug": "bain-capital-partnership-strategies-fund", "why": "A different COLIN CAMPBELL; 15 issuers, ten of them Bain Capital vehicles. Fund-shaped and another firm's."},
-   {"name": "Indus Emerging Markets Fund, Ltd.", "slug": "indus-emerging-markets-fund", "why": "A different BRIAN GUZMAN (Indus Capital hedge funds). 8VC's person is Brian de Guzman — the sweep's normalisation drops the particle."},
-   {"name": "TCA Flagler, LLC", "slug": "tca-flagler", "why": "A different PETER CONWAY; 13 issuers, all TCA/Trinity real-estate LLCs. 8VC's is Peterson Conway."},
-   {"name": "SG DAN Holdings LLC", "slug": "sg-dan-holdings", "why": "A different JIN KIM; SG *Holdings/Investment* LLC pairs and Haven Capital. Note Formation 8's Jim Kim is a THIRD person (D1)."},
-   {"name": "Golden Gate Ventures K9, L.P.", "slug": "golden-gate-ventures-k9", "why": "A different JUSTIN HALL (Golden Gate Ventures, Singapore). Fund-shaped as well."},
-   {"name": "NovaBay Pharmaceuticals, Inc.", "slug": "novabay-pharmaceuticals", "why": "Same JUSTIN HALL cluster; a public company with no 8VC round."},
-   {"name": "Intuit Inc.", "slug": "intuit", "why": "Scott Cook is an 8VC ADVISOR whose profile lived at /team/scott-cook in the WordPress era. His own company is not an 8VC position (T2)."},
-   {"name": "Box, Inc.", "slug": "box", "why": "Aaron Levie is an 8VC advisor; CEO of Box. Same class."},
-   {"name": "OpenGov (via advisor Zachary Bookman)", "slug": "opengov-advisor-seat", "why": "Two traps at once: Bookman is OpenGov's CEO AND an 8VC advisor, and OpenGov is a Lonsdale-founded, Formation 8-backed company (Delta A). Membership must rest on an 8VC vehicle's position, never on the advisor seat."},
-   {"name": "Haven Capital Partners I, L.P.", "slug": "haven-capital-partners-i", "why": "Fund-shaped name, unidentifiable as an operating company -> not_member until identification lands."},
-   {"name": "Trinity Capital Value Fund IV, L.P.", "slug": "trinity-capital-value-fund-iv", "why": "Fund-shaped; PETER CONWAY cluster."},
-   {"name": "8VC Entrepreneurs Fund III, L.P.", "slug": "8vc-entrepreneurs-fund-iii", "why": "8VC's own vehicle, not a portfolio company (T5). Must never enter the base as a row."},
-   {"name": "RelateIQ", "slug": "relateiq", "why": "Acquired by Salesforce in July 2014, a year before 8VC existed; on 8vc.com/companies in the 2016 capture only. Formation 8 / Lonsdale-era. Under Delta A's recommended ruling this is not_member absent an 8VC vehicle position."},
-   {"name": "Wish (ContextLogic)", "slug": "wish", "why": "8VC's own post says 'we co-led the angel round in 2010, led the Series A in 2012' -- 2010 predates Formation 8 (2011) and 8VC (2015). Delta A decides it; 8VC GP I's 13F does not list ContextLogic."}
+   {
+    "name": "Advanced Technology Select Fund XII LLC",
+    "slug": "advanced-technology-select-fund-xii",
+    "why": "A different KEVIN CHEN. One person explains 34 issuers in the sweep, almost all of them 'Advanced Technology Select Fund IX-XX' and 'ATSF XIX/XX Series B-F' — an SPV factory, not 8VC deals. Also fund-shaped (T5)."
+   },
+   {
+    "name": "ATSF XIX Series E",
+    "slug": "atsf-xix-series-e",
+    "why": "Same KEVIN CHEN cluster; fund-shaped series vehicle."
+   },
+   {
+    "name": "Bain Capital Partnership Strategies Fund, L.P.",
+    "slug": "bain-capital-partnership-strategies-fund",
+    "why": "A different COLIN CAMPBELL; 15 issuers, ten of them Bain Capital vehicles. Fund-shaped and another firm's."
+   },
+   {
+    "name": "Indus Emerging Markets Fund, Ltd.",
+    "slug": "indus-emerging-markets-fund",
+    "why": "A different BRIAN GUZMAN (Indus Capital hedge funds). 8VC's person is Brian de Guzman — the sweep's normalisation drops the particle."
+   },
+   {
+    "name": "TCA Flagler, LLC",
+    "slug": "tca-flagler",
+    "why": "A different PETER CONWAY; 13 issuers, all TCA/Trinity real-estate LLCs. 8VC's is Peterson Conway."
+   },
+   {
+    "name": "SG DAN Holdings LLC",
+    "slug": "sg-dan-holdings",
+    "why": "A different JIN KIM; SG *Holdings/Investment* LLC pairs and Haven Capital. Note Formation 8's Jim Kim is a THIRD person (D1)."
+   },
+   {
+    "name": "Golden Gate Ventures K9, L.P.",
+    "slug": "golden-gate-ventures-k9",
+    "why": "A different JUSTIN HALL (Golden Gate Ventures, Singapore). Fund-shaped as well."
+   },
+   {
+    "name": "NovaBay Pharmaceuticals, Inc.",
+    "slug": "novabay-pharmaceuticals",
+    "why": "Same JUSTIN HALL cluster; a public company with no 8VC round."
+   },
+   {
+    "name": "Intuit Inc.",
+    "slug": "intuit",
+    "why": "Scott Cook is an 8VC ADVISOR whose profile lived at /team/scott-cook in the WordPress era. His own company is not an 8VC position (T2)."
+   },
+   {
+    "name": "Box, Inc.",
+    "slug": "box",
+    "why": "Aaron Levie is an 8VC advisor; CEO of Box. Same class."
+   },
+   {
+    "name": "OpenGov (via advisor Zachary Bookman)",
+    "slug": "opengov-advisor-seat",
+    "why": "Two traps at once: Bookman is OpenGov's CEO AND an 8VC advisor, and OpenGov is a Lonsdale-founded, Formation 8-backed company (Delta A). Membership must rest on an 8VC vehicle's position, never on the advisor seat."
+   },
+   {
+    "name": "Haven Capital Partners I, L.P.",
+    "slug": "haven-capital-partners-i",
+    "why": "Fund-shaped name, unidentifiable as an operating company -> not_member until identification lands."
+   },
+   {
+    "name": "Trinity Capital Value Fund IV, L.P.",
+    "slug": "trinity-capital-value-fund-iv",
+    "why": "Fund-shaped; PETER CONWAY cluster."
+   },
+   {
+    "name": "8VC Entrepreneurs Fund III, L.P.",
+    "slug": "8vc-entrepreneurs-fund-iii",
+    "why": "8VC's own vehicle, not a portfolio company (T5). Must never enter the base as a row."
+   },
+   {
+    "name": "RelateIQ",
+    "slug": "relateiq",
+    "why": "Acquired by Salesforce in July 2014, a year before 8VC existed; on 8vc.com/companies in the 2016 capture only. Formation 8 / Lonsdale-era. Under Delta A's recommended ruling this is not_member absent an 8VC vehicle position."
+   },
+   {
+    "name": "Wish (ContextLogic)",
+    "slug": "wish",
+    "why": "8VC's own post says 'we co-led the angel round in 2010, led the Series A in 2012' -- 2010 predates Formation 8 (2011) and 8VC (2015). Delta A decides it; 8VC GP I's 13F does not list ContextLogic."
+   }
   ]
  },
- "sample_slugs": []
+ "sample_slugs": [],
+ "names": {
+  "_published_note": "Published names (PRO-146; COLLECTION.md s8, Erik 2026-09-24): the brand in normal capitalization, letter-read acronyms kept, no legal suffix. {slug: name}, applied by run.py export; the slug and every overlay keep the source rendering. Decided 2026-09-26.",
+  "published": {
+   "bloomz-inc": "Bloomz",
+   "empassion-health-holdings-llc": "Empassion Health Holdings",
+   "gridmatrix-inc": "GridMatrix",
+   "hometown-medical-holdings-llc": "Hometown Medical Holdings",
+   "onehope-inc": "OneHope",
+   "pantheon-ai-inc": "Pantheon AI",
+   "parnassus-labs-inc": "Parnassus Labs",
+   "realscout-inc": "RealScout",
+   "sevenfifty-technologies-inc": "SevenFifty Technologies",
+   "sila-nanotechnologies": "Sila Nanotechnologies",
+   "tap": "Tap",
+   "tempero-bio-inc": "Tempero Bio",
+   "training-all-people-inc": "Training All People",
+   "transrisk-inc": "Transrisk",
+   "tul": "Tul"
+  }
+ }
 }

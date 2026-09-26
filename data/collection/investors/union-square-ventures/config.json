@@ -59,7 +59,74 @@
    }
   ],
   "non_company_slugs": [
-   "index", "home", "companies", "company", "portfolio", "investments", "people", "team", "pages", "writing", "blog", "posts", "post", "about", "contact", "jobs", "careers", "focus", "thesis", "sessions", "sessions-events", "public-policy", "network", "usv-network", "portfolio-network", "feed", "page", "tag", "category", "author", "search", "wp-content", "wp-json", "wp-admin", "wp-includes", "xmlrpc", "cdn-cgi", "images", "css", "js", "static", "favicon", "robots", "sitemap", "wp-sitemap", "privacy", "privacy-policy", "terms", "disclosures", "legal", "climate", "crypto", "fintech", "health", "learning", "ai", "current", "past", "exited", "all", "see-all", "2", "3", "4", "5", "gtm", "email-protection", "www"
+   "index",
+   "home",
+   "companies",
+   "company",
+   "portfolio",
+   "investments",
+   "people",
+   "team",
+   "pages",
+   "writing",
+   "blog",
+   "posts",
+   "post",
+   "about",
+   "contact",
+   "jobs",
+   "careers",
+   "focus",
+   "thesis",
+   "sessions",
+   "sessions-events",
+   "public-policy",
+   "network",
+   "usv-network",
+   "portfolio-network",
+   "feed",
+   "page",
+   "tag",
+   "category",
+   "author",
+   "search",
+   "wp-content",
+   "wp-json",
+   "wp-admin",
+   "wp-includes",
+   "xmlrpc",
+   "cdn-cgi",
+   "images",
+   "css",
+   "js",
+   "static",
+   "favicon",
+   "robots",
+   "sitemap",
+   "wp-sitemap",
+   "privacy",
+   "privacy-policy",
+   "terms",
+   "disclosures",
+   "legal",
+   "climate",
+   "crypto",
+   "fintech",
+   "health",
+   "learning",
+   "ai",
+   "current",
+   "past",
+   "exited",
+   "all",
+   "see-all",
+   "2",
+   "3",
+   "4",
+   "5",
+   "gtm",
+   "email-protection",
+   "www"
   ]
  },
  "roster": {
@@ -73,13 +140,40 @@
   "slug_re": "/(?:people|team|pages)/([a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9])(?:\\.html)?/?$",
   "listing_href_re": "/people/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
   "not_a_person": [
-   "index", "people", "team", "pages", "partner", "staff", "the-librarian", "page", "feed", "all", "filter", "category", "tag", "author", "search", "jobs", "careers", "about", "contact", "companies", "writing", "www", "email-protection", "you-are-here", "gtm"
+   "index",
+   "people",
+   "team",
+   "pages",
+   "partner",
+   "staff",
+   "the-librarian",
+   "page",
+   "feed",
+   "all",
+   "filter",
+   "category",
+   "tag",
+   "author",
+   "search",
+   "jobs",
+   "careers",
+   "about",
+   "contact",
+   "companies",
+   "writing",
+   "www",
+   "email-protection",
+   "you-are-here",
+   "gtm"
   ],
   "_note": "Four people namespaces across eras: unionsquareventures.com/team/ (2005-2009), usv.com/team/<first-name>.html and /team/partner|staff (2010-2012), content.usv.com/pages/<slug> (the 2011-2012 Tumblr-based profiles) and usv.com/people/<slug>/ (2013-2026, 14 live cards incl. 'the-librarian', an AI assistant page, not a person). The 2010-2012 pages are first-name slugs ('fred', 'brad', 'albert') that no Form D sweep can use, and the Internet Archive was in a partial outage at kickoff (2026-09-05), so sources/wayback/partner-roster.json is CURATED: the live people page, the archived team pages, the firm's own hiring/welcome/farewell posts (sources/site/wp-posts.json) and the related persons on the firm's own fund Form Ds, with press-dated tenure windows (decisions.md)."
  },
  "site_api": {
   "entry_stage_confidence": "high",
-  "entry_stage_fields": ["round_site", "first_investment"],
+  "entry_stage_fields": [
+   "round_site",
+   "first_investment"
+  ],
   "entry_stage_listing_url": "https://www.usv.com/companies/",
   "type": "scrape",
   "sources": [
@@ -87,9 +181,22 @@
     "parser": "file_list",
     "path": "data/collection/investors/union-square-ventures/sources/site/live-companies.json",
     "list": "companies-page",
-    "fields": {"name": "name", "url": "url"},
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
     "sectors": "sectors",
-    "extras": ["first_investment", "round_site", "invest_year", "exit_detail", "excerpt", "post", "status_site", "entry_point_site", "logo"]
+    "extras": [
+     "first_investment",
+     "round_site",
+     "invest_year",
+     "exit_detail",
+     "excerpt",
+     "post",
+     "status_site",
+     "entry_point_site",
+     "logo"
+    ]
    }
   ],
   "team_sources": [
@@ -97,8 +204,15 @@
     "parser": "file_list",
     "path": "data/collection/investors/union-square-ventures/sources/site/team-live.json",
     "list": "team",
-    "fields": {"name": "name", "url": "url"},
-    "extras": ["slug", "title", "socials"]
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "slug",
+     "title",
+     "socials"
+    ]
    }
   ],
   "_note": "usv.com is WordPress with an open REST API, but the `company` post type has no REST route (wp-json/wp/v2/types lists posts, pages and media only; the 15-term `Company` taxonomy is a writing tag). Escalation ladder step 5: /companies/ is server-rendered as one table, read by scratch/pull-live-list.py into live-companies.json together with the firm's own Sector (32 terms), Status (acquired/current/exited/inactive/public) and Entry Point taxonomy terms per company, read off the filtered list pages. The posts archive (3,807 posts since 2004) is pulled by scratch/pull-wp-posts.py into wp-posts.json: the firm's own announcement layer for entry-round citations.",
@@ -130,12 +244,17 @@
   "_note": "The firm's own vehicles all carry either the full name (Union Square Ventures 2004/2008/2012 Fund/Opportunity Fund, L.P.; Union Square GP 2004/2008, Union Square 2012 GP, Union Square Opportunity (Fund) GP, Union Square Principals 2004) or the USV prefix with a vintage or sleeve (USV 2014/2016/2019/2021/2022/2024, LP; USV Opportunity 2014/2019/2022/2026; USV Climate 2021/2022; USV Bundled 2021/2022; USV Investors 2012 Fund/2014/2016/2019/2021/2024; USV Opportunity Investors 2014/2019/2026; USV Bundled Investors 2022; USV Climate Investors 2021). Full-text phrases are entity-qualified; 'Union Square' alone drowns in the hospitality group, the CDOs and Manhattan real estate."
  },
  "wikipedia": {
-  "phrases": ["Union Square Ventures"]
+  "phrases": [
+   "Union Square Ventures"
+  ]
  },
  "desks": {
   "home": "us",
   "partition": [],
-  "rank": ["us", "unknown"],
+  "rank": [
+   "us",
+   "unknown"
+  ],
   "classify": [
    {
     "desk": "external",
@@ -213,7 +332,28 @@
   "text_mention_leaks": [],
   "cofiler_leaks": [],
   "known_positions": [
-   "twitter", "etsy", "tumblr", "zynga", "kickstarter", "foursquare", "twilio", "stack overflow", "duolingo", "coinbase", "cloudflare", "mongodb", "indeed", "soundcloud", "lending club", "carta", "codecademy", "kik", "meetup", "stash", "dune", "suno"
+   "twitter",
+   "etsy",
+   "tumblr",
+   "zynga",
+   "kickstarter",
+   "foursquare",
+   "twilio",
+   "stack overflow",
+   "duolingo",
+   "coinbase",
+   "cloudflare",
+   "mongodb",
+   "indeed",
+   "soundcloud",
+   "lending club",
+   "carta",
+   "codecademy",
+   "kik",
+   "meetup",
+   "stash",
+   "dune",
+   "suno"
   ],
   "sample_slugs": [],
   "shape": {
@@ -222,23 +362,96 @@
    "_note": "Defaults kept at kickoff: a ~220-row seed-and-A book with a couple of dozen $1B+ rows sits under the 20% guard; the seed cohort is the largest so far relative to base size and its graduation rate is measured before any ceiling is restated (decisions.md records a restatement if the guard fires on the shape of the evidence). S2A ceiling restated 2026-09-17 under the status contract (D-S2A in decisions.md): 68 seed entries, 9 censored, 22 undetermined, cohort 37 at 86.5% with 63% coverage. A third of the establishable seeds could not be decided (token and DAO positions with no priced Series A, seeds whose record is silent), so the decided set skews to visible successes; the 80% default describes a 900-row megafund base. Restated to 0.90, the guard still fires above that, and the published sentence carries the coverage. S2A ceiling restated 2026-09-20 under PRO-132, where every Seed row is decided (coverage 100% by construction): 68 seed entries, 9 censored, cohort 59 at 61.0%. The 0.90 was set against a cohort that left out a third of the establishable seeds; counted, they bring the rate well under the 0.80 default, so the default is back."
   },
   "not_members": [
-   {"name": "autonomous partners", "slug": "autonomous-partners", "why": "Site-listed with a bare year (2018) and the excerpt 'a crypto-focused investment fund'; the firm's own post 'Investing in Token-Focused Funds' (2018-06) describes LP commitments to crypto funds. T5: a fund vehicle is not a venture-outcome o"},
-   {"name": "multicoin capital", "slug": "multicoin-capital", "why": "Site-listed 2017, 'a thesis-driven investment firm'; LP stake per the 2018 token-funds post. T5 fund vehicle"},
-   {"name": "blocktower capital", "slug": "blocktower-capital", "why": "Site-listed 2017, 'a leading cryptoasset investment firm'; LP stake. T5 fund vehicle"},
-   {"name": "metastable capital", "slug": "metastable-capital", "why": "Site-listed 2017, 'an investment fund'; LP stake. T5 fund vehicle"},
-   {"name": "polychain capital", "slug": "polychain-capital", "why": "Site-listed 2016, 'blockchain asset hedge fund'; the firm's 2016-12 post 'Numerai and Polychain' describes the LP commitment. T5 fund vehicle"},
-   {"name": "placeholder", "slug": "placeholder", "why": "Site-listed 2018, 'a venture capital partnership' co-founded by USV alumnus Joel Monegro; LP stake. T5 fund vehicle"},
-   {"name": "tucows", "slug": "tucows", "why": "Site-listed 'Common, 2017': Tucows has been NASDAQ-listed since the 1990s; the 2017 position is a purchase of a listed company's common stock with no venture entry -> standing post-RIA public-purchase rule (§1), flagged for Erik because the"},
-   {"name": "marley spoon", "slug": "marley-spoon", "why": "Site-listed 'Common, 2019': Marley Spoon listed on the ASX in 2018; the 2019 position is a placement in a listed company with no venture entry -> standing public-purchase rule, flagged for Erik"},
-   {"name": "anchor", "slug": "anchor", "why": "Michael Mignano's company (Anchor, sold to Spotify 2019); the firm's own 2026-04-14 welcome post says 'We didn't invest'. A Form D naming Mignano is a founder filing (T4)"},
-   {"name": "vanta", "slug": "vanta", "why": "Christina Cacioppo's company (founded 2018, six years after she left the USV analyst program); USV is not an investor. Founder filing, not a firm position (T4)"},
-   {"name": "fundera", "slug": "fundera", "why": "Jared Hecht's company (founder-CEO 2013-2020, sold to NerdWallet); he joined USV as Venture Partner only in 2024-01. Founder filing (T4)"},
-   {"name": "groupme", "slug": "groupme", "why": "Jared Hecht's first company (2010, sold to Skype 2011); no USV fund invested. Founder filing (T4)"},
-   {"name": "union square advisors", "slug": "union-square-advisors", "why": "CIK 1368453, an M&A advisory boutique; namesake, external desk (D3)"},
-   {"name": "union square park partners", "slug": "union-square-park-partners", "why": "Union Square Park Partners LP (CIK 1636137), a hedge fund; namesake (D3)"},
-   {"name": "union square partners", "slug": "union-square-partners", "why": "Union Square Partners L P (CIK 1394193), the PE firm formerly Capital Z Partners III; namesake (D3)"},
-   {"name": "union square hospitality group", "slug": "union-square-hospitality-group", "why": "Danny Meyer's restaurant group (Union Square Cafe Corp CIK 1634044); namesake (D3)"}
+   {
+    "name": "autonomous partners",
+    "slug": "autonomous-partners",
+    "why": "Site-listed with a bare year (2018) and the excerpt 'a crypto-focused investment fund'; the firm's own post 'Investing in Token-Focused Funds' (2018-06) describes LP commitments to crypto funds. T5: a fund vehicle is not a venture-outcome o"
+   },
+   {
+    "name": "multicoin capital",
+    "slug": "multicoin-capital",
+    "why": "Site-listed 2017, 'a thesis-driven investment firm'; LP stake per the 2018 token-funds post. T5 fund vehicle"
+   },
+   {
+    "name": "blocktower capital",
+    "slug": "blocktower-capital",
+    "why": "Site-listed 2017, 'a leading cryptoasset investment firm'; LP stake. T5 fund vehicle"
+   },
+   {
+    "name": "metastable capital",
+    "slug": "metastable-capital",
+    "why": "Site-listed 2017, 'an investment fund'; LP stake. T5 fund vehicle"
+   },
+   {
+    "name": "polychain capital",
+    "slug": "polychain-capital",
+    "why": "Site-listed 2016, 'blockchain asset hedge fund'; the firm's 2016-12 post 'Numerai and Polychain' describes the LP commitment. T5 fund vehicle"
+   },
+   {
+    "name": "placeholder",
+    "slug": "placeholder",
+    "why": "Site-listed 2018, 'a venture capital partnership' co-founded by USV alumnus Joel Monegro; LP stake. T5 fund vehicle"
+   },
+   {
+    "name": "tucows",
+    "slug": "tucows",
+    "why": "Site-listed 'Common, 2017': Tucows has been NASDAQ-listed since the 1990s; the 2017 position is a purchase of a listed company's common stock with no venture entry -> standing post-RIA public-purchase rule (§1), flagged for Erik because the"
+   },
+   {
+    "name": "marley spoon",
+    "slug": "marley-spoon",
+    "why": "Site-listed 'Common, 2019': Marley Spoon listed on the ASX in 2018; the 2019 position is a placement in a listed company with no venture entry -> standing public-purchase rule, flagged for Erik"
+   },
+   {
+    "name": "anchor",
+    "slug": "anchor",
+    "why": "Michael Mignano's company (Anchor, sold to Spotify 2019); the firm's own 2026-04-14 welcome post says 'We didn't invest'. A Form D naming Mignano is a founder filing (T4)"
+   },
+   {
+    "name": "vanta",
+    "slug": "vanta",
+    "why": "Christina Cacioppo's company (founded 2018, six years after she left the USV analyst program); USV is not an investor. Founder filing, not a firm position (T4)"
+   },
+   {
+    "name": "fundera",
+    "slug": "fundera",
+    "why": "Jared Hecht's company (founder-CEO 2013-2020, sold to NerdWallet); he joined USV as Venture Partner only in 2024-01. Founder filing (T4)"
+   },
+   {
+    "name": "groupme",
+    "slug": "groupme",
+    "why": "Jared Hecht's first company (2010, sold to Skype 2011); no USV fund invested. Founder filing (T4)"
+   },
+   {
+    "name": "union square advisors",
+    "slug": "union-square-advisors",
+    "why": "CIK 1368453, an M&A advisory boutique; namesake, external desk (D3)"
+   },
+   {
+    "name": "union square park partners",
+    "slug": "union-square-park-partners",
+    "why": "Union Square Park Partners LP (CIK 1636137), a hedge fund; namesake (D3)"
+   },
+   {
+    "name": "union square partners",
+    "slug": "union-square-partners",
+    "why": "Union Square Partners L P (CIK 1394193), the PE firm formerly Capital Z Partners III; namesake (D3)"
+   },
+   {
+    "name": "union square hospitality group",
+    "slug": "union-square-hospitality-group",
+    "why": "Danny Meyer's restaurant group (Union Square Cafe Corp CIK 1634044); namesake (D3)"
+   }
   ]
  },
- "sample_slugs": []
+ "sample_slugs": [],
+ "names": {
+  "_published_note": "Published names (PRO-146; COLLECTION.md s8, Erik 2026-09-24): the brand in normal capitalization, letter-read acronyms kept, no legal suffix. {slug: name}, applied by run.py export; the slug and every overlay keep the source rendering. Decided 2026-09-26.",
+  "published": {
+   "addi": "Addi",
+   "amee": "Amee",
+   "bolt": "Bolt",
+   "free-now": "Free Now"
+  }
+ }
 }

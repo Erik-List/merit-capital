@@ -12,7 +12,7 @@
     "to": 2012,
     "pattern": "(?i)<img[^>]+src=\"[^\"]*(?:customer_logos|uploads)[^\"]*\"[^>]*alt=\"(?P<name>[^\"]+)\"",
     "raw": true,
-    "_note": "Era 3 (2007-2012), the 'Current Investments' table: one row per company with the firm's own name in the logo's alt attribute, plus description, location and status columns (the richer read is sources/site/companies-2007-2012.json, built by scratch/build-era-sources.py). /portfolio/ is the same union under a different path. Measured: 69 rows (2007) rising to 96 (2012). The list is undifferentiated by desk \u2014 the Chinese rows (AMEC, 51.com, Innofidei, iDreamSky) sit in it, which is the positive evidence that the China desk was the firm's own before the 2015 spin-out (decisions.md D1)."
+    "_note": "Era 3 (2007-2012), the 'Current Investments' table: one row per company with the firm's own name in the logo's alt attribute, plus description, location and status columns (the richer read is sources/site/companies-2007-2012.json, built by scratch/build-era-sources.py). /portfolio/ is the same union under a different path. Measured: 69 rows (2007) rising to 96 (2012). The list is undifferentiated by desk — the Chinese rows (AMEC, 51.com, Innofidei, iDreamSky) sit in it, which is the positive evidence that the China desk was the firm's own before the 2015 spin-out (decisions.md D1)."
    },
    {
     "parser": "listing_regex",
@@ -79,7 +79,7 @@
    "redpoint-ventures",
    "redpoint"
   ],
-  "_note": "Three generic eras here (2007-2012, 2015-2020, 2021-2024). The two earliest site eras are parsed by scratch/build-early-eras.py straight into sources/wayback/parsed/, because both of their listing pages render TWO labelled sections \u2014 the firm's own current investments and 'Previous Investments by Redpoint Partners', the founding partners' Brentwood and IVP book carried as a track record \u2014 and one regex cannot separate them (decisions.md D5). Era 1 (2000-2002) is /portfolio/default.shtml; era 2 (2002-2006) is index.htm?action=view&oid=152 (current) and oid=157 (previous), a logo-only CMS whose rows still carry the company's own URL, a description, a location and a status."
+  "_note": "Three generic eras here (2007-2012, 2015-2020, 2021-2024). The two earliest site eras are parsed by scratch/build-early-eras.py straight into sources/wayback/parsed/, because both of their listing pages render TWO labelled sections — the firm's own current investments and 'Previous Investments by Redpoint Partners', the founding partners' Brentwood and IVP book carried as a track record — and one regex cannot separate them (decisions.md D5). Era 1 (2000-2002) is /portfolio/default.shtml; era 2 (2002-2006) is index.htm?action=view&oid=152 (current) and oid=157 (previous), a logo-only CMS whose rows still carry the company's own URL, a description, a location and a status."
  },
  "roster": {
   "cdx_patterns": [
@@ -122,7 +122,9 @@
  },
  "site_api": {
   "entry_stage_confidence": "high",
-  "entry_stage_fields": ["site_stage"],
+  "entry_stage_fields": [
+   "site_stage"
+  ],
   "entry_stage_row_url": "https://www.redpoint.com/companies/{slug}/",
   "type": "scrape",
   "sources": [
@@ -243,7 +245,7 @@
     "_note": "The live Sanity person docs. `team` is the site's own group taxonomy (investors / founders / founder-experience / operations) and roster.site_team_groups keeps the first two; `relatedCompanies` is the firm's own per-partner deal attribution map, 20 partners deep, which the judge uses to resolve Form D name-match clusters (COLLECTION.md 5)."
    }
   ],
-  "_note": "Five company surfaces, one per site era, unioned. The live Sanity CMS is the current book; the four file_list sources are the archived eras, each built by scratch/build-era-sources.py out of the wayback raw captures, carrying the columns that era published (2002-2006: company URL, description, location, status, logo file \u2014 a LOGO-ONLY era whose names are derived from the company's own domain and corrected against the bracketing text lists; 2007-2012: alt-text name, description, location, status; 2015-2020: sector, stage, active_state and deal partner from the card classes; 2021-2026: data-filter name, sectors and stage plus the archived page-data JSON). Each file's _readme records how it was made so the union stays reproducible.",
+  "_note": "Five company surfaces, one per site era, unioned. The live Sanity CMS is the current book; the four file_list sources are the archived eras, each built by scratch/build-era-sources.py out of the wayback raw captures, carrying the columns that era published (2002-2006: company URL, description, location, status, logo file — a LOGO-ONLY era whose names are derived from the company's own domain and corrected against the bracketing text lists; 2007-2012: alt-text name, description, location, status; 2015-2020: sector, stage, active_state and deal partner from the card classes; 2021-2026: data-filter name, sectors and stage plus the archived page-data JSON). Each file's _readme records how it was made so the union stays reproducible.",
   "team_buckets": {
    "investors": "investing",
    "founders": "investing"
@@ -410,22 +412,102 @@
   },
   "_note_known_positions": "netflix and tivo were removed after the grind ruled them not_member under decisions.md D5 (the firm's own 'Previous Investments by Redpoint Partners' table). They were pre-registered as trap rows in golden.json expecting exactly that verdict, so their absence from the base is the intended outcome, not a recall failure. arista networks and concur were removed 2026-09-06 after ERIK'S T3 RULING (no round named + partnered after IPO) took them out of the base, alongside juniper and internet-brands. Their absence is the intended outcome.",
   "not_members": [
-   {"name": "oro-mining-ltd", "slug": "oro-mining-ltd", "why": "A Form D name match on 'Greg Martin' only; a Canadian mining issuer with no Redpoint listing in any era, no fund filing and no announcement. Redpoint has never invested in mining."},
-   {"name": "energy-developments-ltd", "slug": "energy-developments-ltd", "why": "'Greg Martin' name match only; an energy issuer outside every sector the firm has ever listed."},
-   {"name": "stable-imaging-solutions-llc", "slug": "stable-imaging-solutions-llc", "why": "'Greg Martin' name match only, LLC, no site listing in any era."},
-   {"name": "data-driven-holdings-llc", "slug": "data-driven-holdings-llc", "why": "'Jeff Miller' name match on a fund-shaped LLC name that cannot be identified as an operating company — the LP-stake class of COLLECTION.md 1."},
-   {"name": "agents-reinsurance-co", "slug": "agents-reinsurance-co", "why": "Name match only; a reinsurance carrier, not a venture-outcome operating company on any Redpoint surface."},
-   {"name": "ash-improvement-technology-inc", "slug": "ash-improvement-technology-inc", "why": "Name match only, 2014-2015, no listing, no announcement, no fund filing."},
-   {"name": "ananda-scientific-inc", "slug": "ananda-scientific-inc", "why": "Name match only, 2019; a cannabinoid pharma issuer with no Redpoint trace."},
-   {"name": "appnexus-inc", "slug": "appnexus-inc", "why": "Form D name match only. AppNexus's rounds were led by Khosla, First Round, Microsoft and TCV; the company appears on no Redpoint listing in any of the five eras and in no announcement."},
-   {"name": "associated-content-inc", "slug": "associated-content-inc", "why": "Form D name match only, 2009; backed by Softbank and Canaan, absent from every Redpoint surface."},
-   {"name": "act-on-software-inc", "slug": "act-on-software-inc", "why": "Form D name match only, 2014; US Venture Partners / Trinity / Voyager, absent from every Redpoint surface."},
-   {"name": "campaign-monitor-holdings-pty-ltd", "slug": "campaign-monitor-holdings-pty-ltd", "why": "Form D name match only, 2014; Insight Venture Partners' Australian deal, absent from every Redpoint surface."},
-   {"name": "archetype-media-inc", "slug": "archetype-media-inc", "why": "'Greg Martin' name match only, 2009; absent from every Redpoint listing era."},
-   {"name": "netflix", "slug": "netflix", "why": "decisions.md D5. The firm's own 2000-2006 site lists Netflix under 'Previous Investments by Redpoint Partners', and the live site's own excerpt dates the partnership to 'their Series B in 1998' — a year before Redpoint Ventures existed. The"},
-   {"name": "tivo", "slug": "tivo", "why": "decisions.md D5. In 'Previous Investments by Redpoint Partners' on the firm's own 2000-2006 pages; TiVo IPO'd in September 1999, before Redpoint's first fund closed, so no Redpoint fund could have taken a venture entry. On the live site tod"},
-   {"name": "juniper-networks", "slug": "juniper-networks", "why": "decisions.md D5. Listed under 'Previous Investments by Redpoint Partners'; Geoff Yang's own bio names Juniper among 'the firm's investments' at IVP, before founding Redpoint. Not in the base as a separate row is also acceptable; if present "}
+   {
+    "name": "oro-mining-ltd",
+    "slug": "oro-mining-ltd",
+    "why": "A Form D name match on 'Greg Martin' only; a Canadian mining issuer with no Redpoint listing in any era, no fund filing and no announcement. Redpoint has never invested in mining."
+   },
+   {
+    "name": "energy-developments-ltd",
+    "slug": "energy-developments-ltd",
+    "why": "'Greg Martin' name match only; an energy issuer outside every sector the firm has ever listed."
+   },
+   {
+    "name": "stable-imaging-solutions-llc",
+    "slug": "stable-imaging-solutions-llc",
+    "why": "'Greg Martin' name match only, LLC, no site listing in any era."
+   },
+   {
+    "name": "data-driven-holdings-llc",
+    "slug": "data-driven-holdings-llc",
+    "why": "'Jeff Miller' name match on a fund-shaped LLC name that cannot be identified as an operating company — the LP-stake class of COLLECTION.md 1."
+   },
+   {
+    "name": "agents-reinsurance-co",
+    "slug": "agents-reinsurance-co",
+    "why": "Name match only; a reinsurance carrier, not a venture-outcome operating company on any Redpoint surface."
+   },
+   {
+    "name": "ash-improvement-technology-inc",
+    "slug": "ash-improvement-technology-inc",
+    "why": "Name match only, 2014-2015, no listing, no announcement, no fund filing."
+   },
+   {
+    "name": "ananda-scientific-inc",
+    "slug": "ananda-scientific-inc",
+    "why": "Name match only, 2019; a cannabinoid pharma issuer with no Redpoint trace."
+   },
+   {
+    "name": "appnexus-inc",
+    "slug": "appnexus-inc",
+    "why": "Form D name match only. AppNexus's rounds were led by Khosla, First Round, Microsoft and TCV; the company appears on no Redpoint listing in any of the five eras and in no announcement."
+   },
+   {
+    "name": "associated-content-inc",
+    "slug": "associated-content-inc",
+    "why": "Form D name match only, 2009; backed by Softbank and Canaan, absent from every Redpoint surface."
+   },
+   {
+    "name": "act-on-software-inc",
+    "slug": "act-on-software-inc",
+    "why": "Form D name match only, 2014; US Venture Partners / Trinity / Voyager, absent from every Redpoint surface."
+   },
+   {
+    "name": "campaign-monitor-holdings-pty-ltd",
+    "slug": "campaign-monitor-holdings-pty-ltd",
+    "why": "Form D name match only, 2014; Insight Venture Partners' Australian deal, absent from every Redpoint surface."
+   },
+   {
+    "name": "archetype-media-inc",
+    "slug": "archetype-media-inc",
+    "why": "'Greg Martin' name match only, 2009; absent from every Redpoint listing era."
+   },
+   {
+    "name": "netflix",
+    "slug": "netflix",
+    "why": "decisions.md D5. The firm's own 2000-2006 site lists Netflix under 'Previous Investments by Redpoint Partners', and the live site's own excerpt dates the partnership to 'their Series B in 1998' — a year before Redpoint Ventures existed. The"
+   },
+   {
+    "name": "tivo",
+    "slug": "tivo",
+    "why": "decisions.md D5. In 'Previous Investments by Redpoint Partners' on the firm's own 2000-2006 pages; TiVo IPO'd in September 1999, before Redpoint's first fund closed, so no Redpoint fund could have taken a venture entry. On the live site tod"
+   },
+   {
+    "name": "juniper-networks",
+    "slug": "juniper-networks",
+    "why": "decisions.md D5. Listed under 'Previous Investments by Redpoint Partners'; Geoff Yang's own bio names Juniper among 'the firm's investments' at IVP, before founding Redpoint. Not in the base as a separate row is also acceptable; if present "
+   }
   ]
  },
- "sample_slugs": []
+ "sample_slugs": [],
+ "names": {
+  "_published_note": "Published names (PRO-146; COLLECTION.md s8, Erik 2026-09-24): the brand in normal capitalization, letter-read acronyms kept, no legal suffix. {slug: name}, applied by run.py export; the slug and every overlay keep the source rendering. Decided 2026-09-26.",
+  "published": {
+   "apus": "Apus",
+   "avnera-inc": "Avnera",
+   "beepi-inc": "Beepi",
+   "button-inc": "Button",
+   "buzznet-inc": "Buzznet",
+   "caspida-inc": "Caspida",
+   "cyngn": "Cyngn",
+   "datagrid-systems-inc": "Datagrid Systems",
+   "erply": "Erply",
+   "internet-machines-corporation": "Internet Machines",
+   "just-eat-inc": "Just Eat",
+   "laserlike-inc": "Laserlike",
+   "lastline-inc": "Lastline",
+   "maybern-solutions-inc": "MayBern Solutions",
+   "psi-quantum": "PsiQuantum"
+  }
+ }
 }

@@ -157,7 +157,9 @@
   "_note": "Two people namespaces: /team_member/<slug> (WordPress 2020-2023, 22-25 pages in the archived wp-sitemap) and /team/<slug> (Webflow 2026). The Webflow namespace also carries the 'glimpse into our network' profiles (Pausder, Kuusi, Paananen, Engert, Goetze, Koc, Nothacker, Koehler: founders and operators in Cherry's LP and advisor network, never staff); they are dropped here so their names cannot attribute Form D seats. The 2016-2019 team listing pages had no per-person URLs, so those years are CURATED into sources/wayback/partner-roster.json from the archived /team/ captures and the firm's own hiring posts (decisions.md D10)."
  },
  "site_api": {
-  "entry_stage_fields": ["stage_site"],
+  "entry_stage_fields": [
+   "stage_site"
+  ],
   "type": "scrape",
   "sources": [
    {
@@ -425,25 +427,109 @@
    "_note": "Set to Cherry's own properties before the first milestone (PRO-73): a 2012-founded pre-seed/seed firm with a ~150-row book has a handful of $1B+ rows (Flix, Forto, Black Forest Labs, AUTO1 public, at most a few more), so the $1B+ share guard is halved from the 20% megafund default; a genuine seed book keeps the 80% C2A ceiling. S2A ceiling restated 2026-09-17 under the status contract (D-S2A in decisions.md): 112 seed entries, 9 censored, 51 undetermined, cohort 52 at 92.3% with 50.5% coverage. Cherry files no Form Ds, so every decision rests on a citation, and on a young European pre-seed book only about half the seeds have a reachable published record; the half that does is the half the press covered, which is the winners. The 80% ceiling was set expecting a genuine seed book to fall under it, but it was written against a cohort that included unverified rows. Restated to 0.95 with the coverage published beside the rate; the guard still fires above that. S2A ceiling restated 2026-09-20 under PRO-132, where every Seed row is decided (coverage 100% by construction): the rate on the full seed book falls well under the 0.80 default, so the 0.95 restatement, made against a cohort holding only the half of the seeds the press covered, is withdrawn."
   },
   "not_members": [
-   {"name": "zalando", "slug": "zalando", "why": "the founders' operator past and a network founder (Robert Gentz) on the site's network list; no Cherry vehicle ever held Zalando (D2/D3)"},
-   {"name": "wolt", "slug": "wolt", "why": "network profile (Miki Kuusi, co-founder & CEO) on the team page; a founder in Cherry's LP/advisor network, not a holding (D3)"},
-   {"name": "supercell", "slug": "supercell", "why": "network profile (Ilkka Paananen); not a holding (D3)"},
-   {"name": "personio", "slug": "personio", "why": "network founder (Hanno Renner) and angel co-investor in Cherry deals (Tacto, Luminovo); Cherry never held Personio (D3); Accel/Lightspeed row, not Cherry's"},
-   {"name": "klarna", "slug": "klarna", "why": "network founder (Niklas Adalberth); not a holding (D3)"},
-   {"name": "cherry ab", "slug": "cherry-ab", "why": "the Swedish listed gaming group: string trap, external pattern (desks.classify[0])"},
-   {"name": "cherry tree ventures iv", "slug": "cherry-tree-ventures-iv", "why": "Cherry Tree Ventures IV, LP (Minnetonka MN, CIK 1380609): unrelated namesake filer, external desk (D5)"},
-   {"name": "cherry ventures ltd", "slug": "cherry-ventures-ltd", "why": "Cherry Ventures Ltd. (Companies House 06327834, London, incorporated 2007-07-30): a 2007 UK company unrelated to the 2012 Berlin firm (D5)"},
-   {"name": "cazoo", "slug": "cazoo", "why": "listed on the site as the acquirer of portfolio company Drover (2020): sale consideration, not an entry (D8, COLLECTION.md §1 consideration rule); the row exists and must be judged not_member"},
-   {"name": "xometry", "slug": "xometry", "why": "listed on the site as the acquirer of portfolio company Shift (2019): consideration, not an entry (D8); judged not_member"},
-   {"name": "titanbay focused master fund", "slug": "titanbay-focused-master-fund", "why": "the Titanbay feeders for Fund V / Select V (CIKs 2043309, 2040642) and the Lux blocker: a third-party access platform's vehicles, external (D5)"},
-   {"name": "kfw capital", "slug": "kfw-capital", "why": "limited partner of Cherry Ventures Fund IV GmbH & Co. KG on the register: an investor in Cherry, never portfolio (D5)"},
-   {"name": "flixfounders 2", "slug": "flixfounders-2", "why": "Flixfounders 2 GmbH & Co. KG, a limited partner of Cherry Ventures Opportunities IV KG on the register: an LP vehicle, not a portfolio company (D5)"},
-   {"name": "citydeal", "slug": "citydeal", "why": "Daniel Glasner's founder-era company (acquired by Groupon 2010), pre-Cherry; a founder's own company is not a fund position (D2)"},
-   {"name": "stealth 1", "slug": "stealth-1", "why": "the 2018 listing's unnamed placeholder: no identity, not a row (D12; config non_company_slugs)"},
-   {"name": "spirit bird ab", "slug": "spirit-bird-ab", "why": "Sophia Bendz's holding company, a limited partner of the III Carry / Opportunities / Select V KGs: LP-side, never portfolio (D2/D5)"},
-   {"name": "morango gmbh", "slug": "morango-gmbh", "why": "Christian Meermann's holding company, ADV Schedule A owner of the AIFM and LP of the Entrepreneurs KGs: the manager's owner, not a company (D5)"},
-   {"name": "auxxo female catalyst fund", "slug": "auxxo-female-catalyst-fund", "why": "Auxxo Female Catalyst Fund I, a limited partner of Cherry Ventures III Sub-holding UG on the register: a co-investing fund, not portfolio (D5)"}
+   {
+    "name": "zalando",
+    "slug": "zalando",
+    "why": "the founders' operator past and a network founder (Robert Gentz) on the site's network list; no Cherry vehicle ever held Zalando (D2/D3)"
+   },
+   {
+    "name": "wolt",
+    "slug": "wolt",
+    "why": "network profile (Miki Kuusi, co-founder & CEO) on the team page; a founder in Cherry's LP/advisor network, not a holding (D3)"
+   },
+   {
+    "name": "supercell",
+    "slug": "supercell",
+    "why": "network profile (Ilkka Paananen); not a holding (D3)"
+   },
+   {
+    "name": "personio",
+    "slug": "personio",
+    "why": "network founder (Hanno Renner) and angel co-investor in Cherry deals (Tacto, Luminovo); Cherry never held Personio (D3); Accel/Lightspeed row, not Cherry's"
+   },
+   {
+    "name": "klarna",
+    "slug": "klarna",
+    "why": "network founder (Niklas Adalberth); not a holding (D3)"
+   },
+   {
+    "name": "cherry ab",
+    "slug": "cherry-ab",
+    "why": "the Swedish listed gaming group: string trap, external pattern (desks.classify[0])"
+   },
+   {
+    "name": "cherry tree ventures iv",
+    "slug": "cherry-tree-ventures-iv",
+    "why": "Cherry Tree Ventures IV, LP (Minnetonka MN, CIK 1380609): unrelated namesake filer, external desk (D5)"
+   },
+   {
+    "name": "cherry ventures ltd",
+    "slug": "cherry-ventures-ltd",
+    "why": "Cherry Ventures Ltd. (Companies House 06327834, London, incorporated 2007-07-30): a 2007 UK company unrelated to the 2012 Berlin firm (D5)"
+   },
+   {
+    "name": "cazoo",
+    "slug": "cazoo",
+    "why": "listed on the site as the acquirer of portfolio company Drover (2020): sale consideration, not an entry (D8, COLLECTION.md §1 consideration rule); the row exists and must be judged not_member"
+   },
+   {
+    "name": "xometry",
+    "slug": "xometry",
+    "why": "listed on the site as the acquirer of portfolio company Shift (2019): consideration, not an entry (D8); judged not_member"
+   },
+   {
+    "name": "titanbay focused master fund",
+    "slug": "titanbay-focused-master-fund",
+    "why": "the Titanbay feeders for Fund V / Select V (CIKs 2043309, 2040642) and the Lux blocker: a third-party access platform's vehicles, external (D5)"
+   },
+   {
+    "name": "kfw capital",
+    "slug": "kfw-capital",
+    "why": "limited partner of Cherry Ventures Fund IV GmbH & Co. KG on the register: an investor in Cherry, never portfolio (D5)"
+   },
+   {
+    "name": "flixfounders 2",
+    "slug": "flixfounders-2",
+    "why": "Flixfounders 2 GmbH & Co. KG, a limited partner of Cherry Ventures Opportunities IV KG on the register: an LP vehicle, not a portfolio company (D5)"
+   },
+   {
+    "name": "citydeal",
+    "slug": "citydeal",
+    "why": "Daniel Glasner's founder-era company (acquired by Groupon 2010), pre-Cherry; a founder's own company is not a fund position (D2)"
+   },
+   {
+    "name": "stealth 1",
+    "slug": "stealth-1",
+    "why": "the 2018 listing's unnamed placeholder: no identity, not a row (D12; config non_company_slugs)"
+   },
+   {
+    "name": "spirit bird ab",
+    "slug": "spirit-bird-ab",
+    "why": "Sophia Bendz's holding company, a limited partner of the III Carry / Opportunities / Select V KGs: LP-side, never portfolio (D2/D5)"
+   },
+   {
+    "name": "morango gmbh",
+    "slug": "morango-gmbh",
+    "why": "Christian Meermann's holding company, ADV Schedule A owner of the AIFM and LP of the Entrepreneurs KGs: the manager's owner, not a company (D5)"
+   },
+   {
+    "name": "auxxo female catalyst fund",
+    "slug": "auxxo-female-catalyst-fund",
+    "why": "Auxxo Female Catalyst Fund I, a limited partner of Cherry Ventures III Sub-holding UG on the register: a co-investing fund, not portfolio (D5)"
+   }
   ]
  },
- "sample_slugs": []
+ "sample_slugs": [],
+ "names": {
+  "_published_note": "Published names (PRO-146; COLLECTION.md s8, Erik 2026-09-24): the brand in normal capitalization, letter-read acronyms kept, no legal suffix. {slug: name}, applied by run.py export; the slug and every overlay keep the source rendering. Decided 2026-09-26.",
+  "published": {
+   "amboss": "Amboss",
+   "automation-hero-inc": "Automation Hero",
+   "beo": "Beo",
+   "formel-skin": "Formel Skin",
+   "goals": "Goals",
+   "hologate": "Hologate",
+   "styla": "Styla"
+  }
+ }
 }
