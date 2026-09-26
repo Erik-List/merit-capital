@@ -304,6 +304,12 @@ Details in `decisions.md`, "Deltas (Erik's)".
   nothing else. `public.companies` has no column for the mark, so it lives in
   the dataset only. The profile's history now opens the angel era (2008), and
   Zendesk replaces Typeform among the notables.
+- **E1 reversed the same day** (Erik: "actually exclude as we did for
+  cherry"; E1R in `decisions.md`). The eight rows leave again, Clio, Westwing
+  and Humanity return to the fund's entry, and the book is back to **199
+  companies**, the pre-E1 base exactly; S2A 80 of 145 (55.2%). Re-ingested:
+  8 removed, 0 new. Notables return to Revolut, Anthropic, Delivery Hero, Loom
+  and Typeform.
 - **E3**: merXu stays `defunct`, now on the register (MERXU Sp. z o.o. in
   liquidation since 2025-04-03; merxu.com parked). Purmeo (bought by
   SanaExpert, 2013, still selling) and GreenBlender (continued as Blix) move

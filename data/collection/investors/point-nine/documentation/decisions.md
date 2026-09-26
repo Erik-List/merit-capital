@@ -72,9 +72,10 @@ portfolio is mixed EU and US, so Form D visibility is per row, not absent.
   Precedent: Cherry D1 (Opportunities, Select and Growth sleeves under one
   team), Creandum's Select funds and SPV.
 
-- **D2 — The founders' angel books (T2 fund money, T4 person or firm).** *Reversed by Erik on
-  2026-09-26 (delta E1 below): the angel investments stay, marked as beginning
-  before the fund. The derivation below is kept as the record of what it said.*
+- **D2 — The founders' angel books (T2 fund money, T4 person or firm).** *Stands. Erik
+  reversed it on 2026-09-26 (delta E1 below) and then reinstated it the same
+  day for every investor ("actually exclude as we did for cherry", delta E1R):
+  the founders' angel checks are out, as on Cherry.*
   Christoph Janz invested as a business angel with his own money from 2008
   until Point Nine formed in 2011, and the firm's own posts say so: "When I did
   my angel investments in 2008–2011 I typically invested $50–150k per company.
@@ -289,6 +290,15 @@ Erik's rulings on the run's open items, 2026-09-26:
   fund's. The profile's history now says Janz invested as an angel from 2008,
   and Zendesk replaces Typeform among the notables. The mark lives in the
   dataset (flag and note); `public.companies` has no column for it.
+- **E1R — E1 reversed: exclude, as on Cherry** (Erik, 2026-09-26, later the
+  same day, typed in the tooling session: "actually exclude as we did for
+  cherry"; binds every investor, COLLECTION.md §1 T2). The eight rows E1
+  brought in leave again (the seven angel checks to `not_member` with Erik's
+  verdict, JoinR back to a build reject), and Clio, Westwing and Humanity keep
+  their membership with the fund's entry restored (Seed 2011, Pre-Seed 2011,
+  Series A 2012). The rebuilt base is the pre-E1 base exactly (199 rows);
+  S2A 80 of 145 (55.2%). Zendesk leaves the notables (Typeform returns) and
+  the history drops its angel-era clause. E2 and E3 stand.
 - **E2 — Keep the six members with no round that ties Point Nine** (R2
   confirmed).
 - **E3 — A company still operating reads `private`, whatever the firm's list
