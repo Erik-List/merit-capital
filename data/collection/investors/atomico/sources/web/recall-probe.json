@@ -1,0 +1,107 @@
+{
+ "_readme": "Recall probe (COLLECTION.md §3), run 2026-09-26 after the grind. Sources independent of the base: the Wikipedia insource sweep (144 articles naming the firm, 28 already base rows, 15 company candidates), a Google News press sweep by year (2006-2026, four framings) and a denser sweep over Oct 2025-Sep 2026 (nine framings, 178 headlines), the UK register's officer graph (109 people, 139 seats; 76 seats at companies outside the base) with shareholder backtraces of the leads, the exit-side EDGAR full-text sweep (fts-hits.json), and a parametric enumeration of the firm's best-known positions by era. Every candidate lands as a base row with its evidence or as a recorded rejection with its reason.",
+ "probed_at": "2026-09-26",
+ "additions": [
+  {
+   "name": "The Exploration Company",
+   "source": "press layer + the firm's own post (2026-09-08)",
+   "note": "Series C co-led with Bessemer and the Scaleup Europe Fund, after every site capture: the recent-deal blind spot"
+  },
+  {
+   "name": "CodeRabbit",
+   "source": "press layer (the company's release, 2026-08-12)",
+   "note": "Series C co-led with Smash Capital, Luca Eisenstecken to the board; not on the job board yet"
+  },
+  {
+   "name": "VisualDNA",
+   "source": "UK register layer",
+   "note": "Imagini Holdings Ltd's 2008 and 2009 annual returns list Atomico Investment Holdings Ltd as a shareholder; on no era of the firm's site"
+  }
+ ],
+ "rejected": [
+  {
+   "names": [
+    "Globis Capital Partners",
+    "Impact X",
+    "Invest Europe",
+    "Seedcamp",
+    "Rhine Group"
+   ],
+   "reason": "Wikipedia candidates that are investors, funds Atomico is an LP in, trade bodies or associations (D5), not portfolio companies"
+  },
+  {
+   "names": [
+    "Lingvist"
+   ],
+   "reason": "Wikipedia: 'former Atomico partner Geoff Prentice' invested personally (ex-partner, D2)"
+  },
+  {
+   "names": [
+    "Lucha Libre AAA Worldwide",
+    "Mexicana Universal Quintana Roo"
+   ],
+   "reason": "namesakes ('Atómico' in wrestling and pageant articles)"
+  },
+  {
+   "names": [
+    "Dex"
+   ],
+   "reason": "founded by a former Atomico talent adviser; its rounds were led by a16z speedrun, Concept Ventures and Notion Capital, never the firm"
+  },
+  {
+   "names": [
+    "Openlaw"
+   ],
+   "reason": "backed by Moonfire Ventures, Mattias Ljungman's firm after Atomico (Tech.eu 2026-04-16)"
+  },
+  {
+   "names": [
+    "Pixie Chess"
+   ],
+   "reason": "a Paradigm-led round; the page names Atomico elsewhere, not in this round"
+  },
+  {
+   "names": [
+    "The Lazada founder's AI wealth startup (Tech in Asia, 2026-07-21)"
+   ],
+   "reason": "the headline matched the Atomico query but the article cannot be read here and no other outlet names the firm; a name-match never suffices"
+  },
+  {
+   "names": [
+    "Patchy Ltd",
+    "London House Exchange",
+    "Living Central",
+    "StreetHub",
+    "Circle Topco",
+    "V Topco"
+   ],
+   "reason": "officer-graph seats of Atomico people whose shareholder returns name no Atomico vehicle: personal or later positions"
+  },
+  {
+   "names": [
+    "OVO Energy group",
+    "Moonpig Group",
+    "Wonga Group",
+    "Vinted",
+    "Many Group",
+    "Moonfire",
+    "Neuphonic",
+    "Bound Rates",
+    "Starship Technologies"
+   ],
+   "reason": "personal board seats, seats held before or after the person's Atomico tenure, or founders' own companies (D2, D4)"
+  },
+  {
+   "names": [
+    "Rabbit Hole Labs"
+   ],
+   "reason": "not yet: Ben Blume became a director on 2026-01-07 and shares were allotted in February 2026, but no Atomico vehicle appears on a return yet and no press or post names the round; re-check the October 2026 confirmation statement"
+  }
+ ],
+ "structural_blind_spots_probed": {
+  "deals_with_no_us_filing": "most of this European book; the site, board and register layers carry it (Form D-only candidates: 28, all ruled out)",
+  "recent_deals_not_on_the_site_snapshot": "the CMS captures stop at 2026-01-18 and the post archive at 2025-10-13; the job board (read 2026-09-26) and the press sweep recovered the rest: 2 additions, and five 2026 CMS pages missing from the captures were already board rows",
+  "exits_older_than_the_archive_window": "the 2008-2012 listing eras (Flash XML, PHP, fund pages) are parsed; pre-2008 positions the 2008 listing already shows",
+  "stealth_rounds": "the register's director seats and allotments (Rabbit Hole Labs pending)"
+ }
+}

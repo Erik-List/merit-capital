@@ -1,0 +1,5357 @@
+{
+ "_readme": "Companies House officer graph (scratch/ch_officer_graph.py): per roster person, the officer identities anchored to the firm (an appointment at a firm entity or a firm office as service address, then same name + birth month) and every appointment of those identities, flagged firm_address / firm_entity. Seats are dated; judge them against the person's tenure (COLLECTION.md §1 T4).",
+ "swept_at": "2026-09-26",
+ "firm_entities": [
+  "06570634",
+  "07266688",
+  "12488333",
+  "15015365",
+  "OC342228"
+ ],
+ "firm_addresses": [
+  "atomico",
+  "\\b7,? savoy court",
+  "hanover house,? 14|14,? hanover square",
+  "\\b50,? new bond street",
+  "\\b29(?:-35)?,? rathbone street"
+ ],
+ "people": {
+  "niklas-zennstrom": {
+   "name": "Niklas Zennstrom",
+   "group": "",
+   "ids": [
+    {
+     "officer_id": "WhwdyKR47adp6EDk2S6eTs7Bu0E",
+     "name": "Niklas ZENNSTROM",
+     "born": "1966-02",
+     "total": 1,
+     "anchor": true
+    },
+    {
+     "officer_id": "T-fl9UW0Uu4na39dGiXy4QyJMrA",
+     "name": "Niklas Marten ZENNSTROM",
+     "born": "1966-02",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "krZIHa94wtFh8w-38ysYKBez3PU",
+     "name": "Niklas Marten ZENNSTROM",
+     "born": "1966-02",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "NnInVEhLoAErip2cXCiXZ9DhMKU",
+     "name": "Niklas Marten ZENNSTROM",
+     "born": "1966-02",
+     "total": 16,
+     "anchor": true
+    },
+    {
+     "officer_id": "0-hRmqfSMPCf1d9mQU9dJqqw7F8",
+     "name": "Niklas Mårten ZENNSTRÖM",
+     "born": "1966-02",
+     "total": 1,
+     "anchor": true
+    }
+   ],
+   "rejected_ids": [],
+   "seats": [
+    {
+     "company_number": "13104396",
+     "company_name": "SCARLET GLOBAL HOLDINGS LTD",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2025-10-16",
+     "resigned": "",
+     "address": "29 Rathbone Street, London, United Kingdom, W1T 1NJ",
+     "officer_id": "WhwdyKR47adp6EDk2S6eTs7Bu0E",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "11708505",
+     "company_name": "J CLASS ASSOCIATION",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2024-11-05",
+     "resigned": "",
+     "address": "Aston House, Cornwall Avenue, London, United Kingdom, N3 1LF",
+     "officer_id": "T-fl9UW0Uu4na39dGiXy4QyJMrA",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "11708505",
+     "company_name": "J CLASS ASSOCIATION",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2024-05-22",
+     "resigned": "2024-06-10",
+     "address": "Aston House, Cornwall Avenue, London, United Kingdom, N3 1LF",
+     "officer_id": "krZIHa94wtFh8w-38ysYKBez3PU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "15015365",
+     "company_name": "ATOMICO VI COINVEST LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2023-07-20",
+     "resigned": "",
+     "address": "29 Rathbone Street, London, United Kingdom, W1T 1NJ",
+     "officer_id": "NnInVEhLoAErip2cXCiXZ9DhMKU",
+     "firm_entity": true,
+     "firm_address": true
+    },
+    {
+     "company_number": "12488333",
+     "company_name": "ATOMICO V COINVEST LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2020-02-27",
+     "resigned": "",
+     "address": "29 Rathbone Street, London, United Kingdom, W1T 1NJ",
+     "officer_id": "NnInVEhLoAErip2cXCiXZ9DhMKU",
+     "firm_entity": true,
+     "firm_address": true
+    },
+    {
+     "company_number": "07849223",
+     "company_name": "REKKI LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2018-12-16",
+     "resigned": "",
+     "address": "50 New Bond Street, London, England, W1S 1BJ",
+     "officer_id": "NnInVEhLoAErip2cXCiXZ9DhMKU",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "10963475",
+     "company_name": "RAN YACHTING LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2017-09-14",
+     "resigned": "",
+     "address": "Aston House, Cornwall Avenue, London, United Kingdom, N3 1LF",
+     "officer_id": "NnInVEhLoAErip2cXCiXZ9DhMKU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "FC031393",
+     "company_name": "ROVIO ENTERTAINMENT OY",
+     "company_status": "Converted / Closed",
+     "role": "Director",
+     "appointed": "2013-06-13",
+     "resigned": "",
+     "address": "17c, Keilaranta, Espoo, 02150, Finland",
+     "officer_id": "NnInVEhLoAErip2cXCiXZ9DhMKU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "07850645",
+     "company_name": "WRAPP UK LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2012-01-01",
+     "resigned": "",
+     "address": "1st, Floor Buckhurst House, 42/44 Buckhurst Avenue, Sevenoaks, Kent, United Kingdom, TN13 1LZ",
+     "officer_id": "NnInVEhLoAErip2cXCiXZ9DhMKU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "07266688",
+     "company_name": "ATOMICO 2010 (UK) LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2010-05-27",
+     "resigned": "",
+     "address": "7 Savoy Court, London, United Kingdom, WC2R 0EX",
+     "officer_id": "NnInVEhLoAErip2cXCiXZ9DhMKU",
+     "firm_entity": true,
+     "firm_address": true
+    },
+    {
+     "company_number": "OC342228",
+     "company_name": "ATOMICO (UK) PARTNERS LLP",
+     "company_status": "Active",
+     "role": "LLP Designated Member",
+     "appointed": "2008-12-19",
+     "resigned": "",
+     "address": "7 Savoy Court, London, United Kingdom, WC2R 0EX",
+     "officer_id": "NnInVEhLoAErip2cXCiXZ9DhMKU",
+     "firm_entity": true,
+     "firm_address": true
+    },
+    {
+     "company_number": "06390404",
+     "company_name": "RAN RACING (UK) LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2008-10-01",
+     "resigned": "",
+     "address": "Aston House, Cornwall Avenue, London, N3 1LF",
+     "officer_id": "NnInVEhLoAErip2cXCiXZ9DhMKU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "06570634",
+     "company_name": "ATOMICO (UK) LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2008-09-30",
+     "resigned": "",
+     "address": "7 Savoy Court, London, United Kingdom, WC2R 0EX",
+     "officer_id": "NnInVEhLoAErip2cXCiXZ9DhMKU",
+     "firm_entity": true,
+     "firm_address": true
+    },
+    {
+     "company_number": "05846342",
+     "company_name": "HANOVER LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2008-06-30",
+     "resigned": "",
+     "address": "Aston House, Cornwall Avenue, London, N3 1LF",
+     "officer_id": "NnInVEhLoAErip2cXCiXZ9DhMKU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "06144964",
+     "company_name": "ZENNSTROM PHILANTHROPIES LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2007-03-07",
+     "resigned": "",
+     "address": "Aston House, Corwall Avenue, London, N3 1LF",
+     "officer_id": "NnInVEhLoAErip2cXCiXZ9DhMKU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "09212364",
+     "company_name": "ODEN TECHNOLOGIES LTD.",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2018-05-25",
+     "resigned": "2022-10-05",
+     "address": "Atomico, 50 New Bond Street, London, United Kingdom, W1S 1BJ",
+     "officer_id": "NnInVEhLoAErip2cXCiXZ9DhMKU",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "05661131",
+     "company_name": "FON WIRELESS LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2006-02-08",
+     "resigned": "2018-06-20",
+     "address": "25 Farringdon Street, London, EC4A 4AB",
+     "officer_id": "NnInVEhLoAErip2cXCiXZ9DhMKU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "04964424",
+     "company_name": "THE CLIMATE CHANGE ORGANISATION",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2011-12-16",
+     "resigned": "2014-06-16",
+     "address": "The Climate Group, Second Floor, Riverside Building, Belvedere Road, County Hall, London, United Kingdom, SE1 7PB",
+     "officer_id": "NnInVEhLoAErip2cXCiXZ9DhMKU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "05012699",
+     "company_name": "S TECHNOLOGIES LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2004-05-14",
+     "resigned": "2007-09-28",
+     "address": "Flat 177, 28 Old Brompton Road, London, SW7 3SS",
+     "officer_id": "NnInVEhLoAErip2cXCiXZ9DhMKU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "08111929",
+     "company_name": "FARMDROP LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2015-01-15",
+     "resigned": "2020-02-04",
+     "address": "Atomico, 50 New Bond Street, London, England, W1S 1BJ",
+     "officer_id": "0-hRmqfSMPCf1d9mQU9dJqqw7F8",
+     "firm_entity": false,
+     "firm_address": true
+    }
+   ],
+   "status": "done",
+   "born": [
+    "1966-02"
+   ]
+  },
+  "mattias-ljungman": {
+   "name": "Mattias Ljungman",
+   "group": "",
+   "ids": [
+    {
+     "officer_id": "B8xusz2opNFVM3WzJ7HVM2KADEs",
+     "name": "Mattias Lennart Seve LJUNGMAN",
+     "born": "1973-02",
+     "total": 5,
+     "anchor": false
+    },
+    {
+     "officer_id": "NnHuCmZ5crqKVY2yilIOF1dpz3w",
+     "name": "Mattias Lennart Seve LJUNGMAN",
+     "born": "1973-02",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "rQHSmxf8ePPmhf2J_0MPdC9a6uU",
+     "name": "Mattias Lennart Seve LJUNGMAN",
+     "born": "1973-02",
+     "total": 17,
+     "anchor": true
+    },
+    {
+     "officer_id": "1MqiqmpW7AqSuNPsMRs_A215qLU",
+     "name": "Mattias Lennart Seve LJUNGMAN",
+     "born": "1973-02",
+     "total": 4,
+     "anchor": true
+    },
+    {
+     "officer_id": "cIvg5yyoP8LT1j3BcvdjnQm5mB8",
+     "name": "Mattias Lennart Seve LJUNGMAN",
+     "born": "1973-02",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "x8r2N1wnxUYdl8Pjed8dAWgABGo",
+     "name": "Mattias LENNART SEVE LJUNGMAN",
+     "born": "1973-02",
+     "total": 2,
+     "anchor": false
+    }
+   ],
+   "rejected_ids": [],
+   "seats": [
+    {
+     "company_number": "OC461090",
+     "company_name": "ASHLEY MARSH FARM LLP",
+     "company_status": "Active",
+     "role": "LLP Designated Member",
+     "appointed": "2026-07-07",
+     "resigned": "",
+     "address": "The Old Stables, Sutton Manor Farm, Bishop's Sutton, Alresford, Hampshire, United Kingdom, SO24 0AA",
+     "officer_id": "B8xusz2opNFVM3WzJ7HVM2KADEs",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "15612532",
+     "company_name": "NEUPHONIC LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2025-11-30",
+     "resigned": "",
+     "address": "Office 3 Cottam House, 36 - 40 York Way, London, England, N1 9AB",
+     "officer_id": "B8xusz2opNFVM3WzJ7HVM2KADEs",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "FC042916",
+     "company_name": "BOUND RATES, INC.",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2025-11-07",
+     "resigned": "",
+     "address": "37-41, Mortimer Street, London, United Kingdom, W1T 3JH",
+     "officer_id": "B8xusz2opNFVM3WzJ7HVM2KADEs",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "14075281",
+     "company_name": "MOONFIRE INVESTMENTS (UK) LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2022-04-28",
+     "resigned": "",
+     "address": "40 Queen Anne Street, London, United Kingdom, W1G 9EL",
+     "officer_id": "B8xusz2opNFVM3WzJ7HVM2KADEs",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "OC429321",
+     "company_name": "MOONFIRE VENTURES LLP",
+     "company_status": "Active",
+     "role": "LLP Designated Member",
+     "appointed": "2019-10-18",
+     "resigned": "",
+     "address": "40 Queen Anne Street, London, United Kingdom, W1G 9EL",
+     "officer_id": "B8xusz2opNFVM3WzJ7HVM2KADEs",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "03620659",
+     "company_name": "153 CAMBRIDGE STREET LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2011-02-02",
+     "resigned": "",
+     "address": "The Old Stables, Sutton Manor Farm, Bishop's Sutton, Alresford, Hampshire, United Kingdom, SO24 0AA",
+     "officer_id": "NnHuCmZ5crqKVY2yilIOF1dpz3w",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "08496407",
+     "company_name": "NEWCO TRADING LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2013-04-19",
+     "resigned": "",
+     "address": "Hanover House, 14 Hanover Square, London, United Kingdom, W1S 1HP",
+     "officer_id": "rQHSmxf8ePPmhf2J_0MPdC9a6uU",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "05601412",
+     "company_name": "APOLLO CAPITAL LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2005-10-24",
+     "resigned": "",
+     "address": "Aston House, Cornwall Avenue, London, N3 1LF",
+     "officer_id": "rQHSmxf8ePPmhf2J_0MPdC9a6uU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "07477716",
+     "company_name": "HNH GROUP LTD",
+     "company_status": "Liquidation",
+     "role": "Director",
+     "appointed": "2013-11-12",
+     "resigned": "2020-02-10",
+     "address": "Hanover House, 14 Hanover Square, London, United Kingdom, W1S 1HP",
+     "officer_id": "rQHSmxf8ePPmhf2J_0MPdC9a6uU",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "OC342228",
+     "company_name": "ATOMICO (UK) PARTNERS LLP",
+     "company_status": "Active",
+     "role": "LLP Member",
+     "appointed": "2010-06-28",
+     "resigned": "2019-12-31",
+     "address": "50 New Bond Street, London, United Kingdom, W1S 1BJ",
+     "officer_id": "rQHSmxf8ePPmhf2J_0MPdC9a6uU",
+     "firm_entity": true,
+     "firm_address": true
+    },
+    {
+     "company_number": "08146929",
+     "company_name": "LENDINVEST PLC",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2016-03-31",
+     "resigned": "2019-11-07",
+     "address": "8 Mortimer Street, London, England, W1T 3JJ",
+     "officer_id": "rQHSmxf8ePPmhf2J_0MPdC9a6uU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "08530409",
+     "company_name": "CHEMD HOLDINGS LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2013-05-15",
+     "resigned": "2016-07-02",
+     "address": "50 New Bond Street, London, United Kingdom, W1S 1BJ",
+     "officer_id": "rQHSmxf8ePPmhf2J_0MPdC9a6uU",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "06349417",
+     "company_name": "DIRECT HEALTHCARE LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2009-02-23",
+     "resigned": "2016-07-02",
+     "address": "50 New Bond Street, London, United Kingdom, W1S 1BJ",
+     "officer_id": "rQHSmxf8ePPmhf2J_0MPdC9a6uU",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "05730835",
+     "company_name": "IMAGINI HOLDINGS LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2007-05-30",
+     "resigned": "2010-03-17",
+     "address": "Flat 6, 56 Belgrave Road, London, SW1V 2DA",
+     "officer_id": "rQHSmxf8ePPmhf2J_0MPdC9a6uU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "03901841",
+     "company_name": "ARC INTERNATIONAL CAMBRIDGE LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2006-01-12",
+     "resigned": "2006-05-25",
+     "address": "Flat 6, 56 Belgrave Road, London, SW1V 2DA",
+     "officer_id": "rQHSmxf8ePPmhf2J_0MPdC9a6uU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "05591799",
+     "company_name": "LUNARSTORM UK LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2006-02-03",
+     "resigned": "2006-05-24",
+     "address": "Flat 6, 56 Belgrave Road, London, SW1V 2DA",
+     "officer_id": "rQHSmxf8ePPmhf2J_0MPdC9a6uU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "05251597",
+     "company_name": "CLS CAPITAL PARTNERS LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2005-01-29",
+     "resigned": "2006-05-24",
+     "address": "Flat 6, 56 Belgrave Road, London, SW1V 2DA",
+     "officer_id": "rQHSmxf8ePPmhf2J_0MPdC9a6uU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "03775645",
+     "company_name": "TWEEDWIND (THREE) LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2004-09-08",
+     "resigned": "2006-05-24",
+     "address": "Flat 6, 56 Belgrave Road, London, SW1V 2DA",
+     "officer_id": "rQHSmxf8ePPmhf2J_0MPdC9a6uU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "04392360",
+     "company_name": "TWEEDWIND (TWO) LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2003-08-15",
+     "resigned": "2006-05-24",
+     "address": "Flat 6, 56 Belgrave Road, London, SW1V 2DA",
+     "officer_id": "rQHSmxf8ePPmhf2J_0MPdC9a6uU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "03946660",
+     "company_name": "KERONITE INTERNATIONAL LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2002-07-10",
+     "resigned": "2005-01-26",
+     "address": "Flat 6, 56 Belgrave Road, London, SW1V 2DA",
+     "officer_id": "rQHSmxf8ePPmhf2J_0MPdC9a6uU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "03876382",
+     "company_name": "PENSEL SPORT LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2001-09-06",
+     "resigned": "2002-11-13",
+     "address": "Flat 6, 56 Belgrave Road, London, SW1V 2DA",
+     "officer_id": "rQHSmxf8ePPmhf2J_0MPdC9a6uU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "03889580",
+     "company_name": "ROKO PORTSMOUTH LTD",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2001-12-20",
+     "resigned": "2002-11-11",
+     "address": "Flat 6, 56 Belgrave Road, London, SW1V 2DA",
+     "officer_id": "rQHSmxf8ePPmhf2J_0MPdC9a6uU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "04059485",
+     "company_name": "THE SPORTS & LEISURE GROUP LTD",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2001-12-20",
+     "resigned": "2002-11-11",
+     "address": "Flat 6, 56 Belgrave Road, London, SW1V 2DA",
+     "officer_id": "rQHSmxf8ePPmhf2J_0MPdC9a6uU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "07599342",
+     "company_name": "BOSSACO LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2017-08-24",
+     "resigned": "2019-12-01",
+     "address": "50 New Bond Street, London, England, W1S 1BJ",
+     "officer_id": "1MqiqmpW7AqSuNPsMRs_A215qLU",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "08674633",
+     "company_name": "UNIPLACES LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2015-11-17",
+     "resigned": "2019-11-27",
+     "address": "107-111, Fleet Street, London, England, EC4A 2AB",
+     "officer_id": "1MqiqmpW7AqSuNPsMRs_A215qLU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "05661131",
+     "company_name": "FON WIRELESS LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2018-06-20",
+     "resigned": "2019-05-27",
+     "address": "50 New Bond Street, London, United Kingdom, W1S 1BJ",
+     "officer_id": "1MqiqmpW7AqSuNPsMRs_A215qLU",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "07494980",
+     "company_name": "EVRYTHNG LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2015-03-26",
+     "resigned": "2016-12-21",
+     "address": "50 New Bond Street, London, England, W1S 1BJ",
+     "officer_id": "1MqiqmpW7AqSuNPsMRs_A215qLU",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "06359658",
+     "company_name": "PLAYFIRE LTD",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2009-09-30",
+     "resigned": "2012-07-15",
+     "address": "1-4, Langley Court, London, United Kingdom, WC2E 9JY",
+     "officer_id": "cIvg5yyoP8LT1j3BcvdjnQm5mB8",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "03775645",
+     "company_name": "TWEEDWIND (THREE) LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2003-01-30",
+     "resigned": "2004-08-09",
+     "address": "Flat 6 56 Belgrave Road, London, SW1V 2DA",
+     "officer_id": "x8r2N1wnxUYdl8Pjed8dAWgABGo",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "03951288",
+     "company_name": "OMNE TELECOMMUNICATIONS LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2003-01-30",
+     "resigned": "2004-08-09",
+     "address": "Flat 6 56 Belgrave Road, London, SW1V 2DA",
+     "officer_id": "x8r2N1wnxUYdl8Pjed8dAWgABGo",
+     "firm_entity": false,
+     "firm_address": false
+    }
+   ],
+   "status": "done",
+   "born": [
+    "1973-02"
+   ]
+  },
+  "geoffrey-prentice": {
+   "name": "Geoffrey Prentice",
+   "group": "",
+   "ids": [
+    {
+     "officer_id": "4uCGqXQPxfwgOzv02qpmL8iN1Hk",
+     "name": "Geoffrey PRENTICE",
+     "born": "1974-04",
+     "total": 1,
+     "anchor": true
+    },
+    {
+     "officer_id": "CF2rKJqvIUnDizKb2U9-aKgJg8M",
+     "name": "Geoffrey PRENTICE",
+     "born": "1974-04",
+     "total": 1,
+     "anchor": true
+    },
+    {
+     "officer_id": "WGmD8KJrQ-LUt8wA8WNSGR39sEQ",
+     "name": "Geoffrey Scott PRENTICE",
+     "born": "1974-04",
+     "total": 1,
+     "anchor": true
+    }
+   ],
+   "rejected_ids": [
+    {
+     "officer_id": "SjNh8xABTDTVe8BAdINhvYvlYOg",
+     "name": "Geoffrey PRENTICE",
+     "born": "1947-08",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "27EJdFkMPw9JgIkVt26Yx4UX2HY",
+     "name": "Geoffrey John PRENTICE",
+     "born": "1948-10",
+     "total": 3,
+     "anchor": false
+    },
+    {
+     "officer_id": "WmzXHCVwmBwgiWV2ZFBTlpaH5Fc",
+     "name": "Geoffrey Peter PRENTICE",
+     "born": "1954-02",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "27H_qrWgQ8J0VhUIoZjMcA7LDYE",
+     "name": "Geoffrey William PRENTICE",
+     "born": "",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "yMM21WXAY5vBFw7ARJcVwgTAsGA",
+     "name": "Geoffrey Howard PRENTICE",
+     "born": "1948-01",
+     "total": 2,
+     "anchor": false
+    }
+   ],
+   "seats": [
+    {
+     "company_number": "08518990",
+     "company_name": "PATCHY LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2013-05-07",
+     "resigned": "",
+     "address": "Hanover House, 14 Hanover Square, London, United Kingdom, W1S 1HP",
+     "officer_id": "4uCGqXQPxfwgOzv02qpmL8iN1Hk",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "OC342228",
+     "company_name": "ATOMICO (UK) PARTNERS LLP",
+     "company_status": "Active",
+     "role": "LLP Member",
+     "appointed": "2010-06-28",
+     "resigned": "2014-02-24",
+     "address": "Hanover House 14, Hanover Square, London, W1S 1HP",
+     "officer_id": "CF2rKJqvIUnDizKb2U9-aKgJg8M",
+     "firm_entity": true,
+     "firm_address": true
+    },
+    {
+     "company_number": "14733645",
+     "company_name": "PROJECT B VENTURES LTD",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2023-03-16",
+     "resigned": "",
+     "address": "7 Savoy Court, London, United Kingdom, WC2R 0EX",
+     "officer_id": "WGmD8KJrQ-LUt8wA8WNSGR39sEQ",
+     "firm_entity": false,
+     "firm_address": true
+    }
+   ],
+   "status": "done",
+   "born": [
+    "1974-04"
+   ]
+  },
+  "hiroyuki-tamura": {
+   "name": "Hiroyuki Tamura",
+   "group": "",
+   "ids": [
+    {
+     "officer_id": "2_LKPRz27fvKojkPrmTuk_WbBIQ",
+     "name": "Hiroyuki TAMURA",
+     "born": "1974-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "DdM_3QscjTQiLQC7XRs0Uyn3jeY",
+     "name": "Hiroyuki TAMURA",
+     "born": "1974-06",
+     "total": 1,
+     "anchor": true
+    },
+    {
+     "officer_id": "F9D4R7ZBT6nIv2YdUehQOtKc8-E",
+     "name": "Hiroyuki TAMURA",
+     "born": "1974-06",
+     "total": 7,
+     "anchor": true
+    }
+   ],
+   "rejected_ids": [
+    {
+     "officer_id": "oiQN4qM5WcEw-7mskGIvj4htKNY",
+     "name": "Hiroyuki TAMURA",
+     "born": "1959-07",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "keD9PIfoFebabHWrnrdtoSpCcsI",
+     "name": "Hiroyuki TAMURA",
+     "born": "",
+     "total": 4,
+     "anchor": false
+    }
+   ],
+   "seats": [
+    {
+     "company_number": "16793350",
+     "company_name": "YUMA ACCORD LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2025-10-17",
+     "resigned": "",
+     "address": "Aston House, Cornwall Avenue, London, United Kingdom, N3 1LF",
+     "officer_id": "2_LKPRz27fvKojkPrmTuk_WbBIQ",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "09177215",
+     "company_name": "STREETBEES.COM LIMITED",
+     "company_status": "In Administration",
+     "role": "Director",
+     "appointed": "2018-12-31",
+     "resigned": "2022-02-25",
+     "address": "14 Hanover Square, London, England, W1S 1HP",
+     "officer_id": "DdM_3QscjTQiLQC7XRs0Uyn3jeY",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "OC449544",
+     "company_name": "YUMA CROSSING CAPITAL ADVISORS LLP",
+     "company_status": "Active",
+     "role": "LLP Designated Member",
+     "appointed": "2023-10-16",
+     "resigned": "",
+     "address": "Aston House, Cornwall Avenue, London, United Kingdom, N3 1LF",
+     "officer_id": "F9D4R7ZBT6nIv2YdUehQOtKc8-E",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "08232207",
+     "company_name": "WATHOS LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2015-07-17",
+     "resigned": "",
+     "address": "Aston House, Cornwall Avenue, London, United Kingdom, N3 1LF",
+     "officer_id": "F9D4R7ZBT6nIv2YdUehQOtKc8-E",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "08332546",
+     "company_name": "SUNRISE PARTNERS LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2012-12-17",
+     "resigned": "",
+     "address": "Aston House, Cornwall Avenue, London, United Kingdom, N3 1LF",
+     "officer_id": "F9D4R7ZBT6nIv2YdUehQOtKc8-E",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "OC342228",
+     "company_name": "ATOMICO (UK) PARTNERS LLP",
+     "company_status": "Active",
+     "role": "LLP Member",
+     "appointed": "2011-05-07",
+     "resigned": "2022-02-16",
+     "address": "7 Savoy Court, London, United Kingdom, WC2R 0EX",
+     "officer_id": "F9D4R7ZBT6nIv2YdUehQOtKc8-E",
+     "firm_entity": true,
+     "firm_address": true
+    },
+    {
+     "company_number": "08530409",
+     "company_name": "CHEMD HOLDINGS LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2013-06-21",
+     "resigned": "2015-04-01",
+     "address": "Hanover House, 14 Hanover Square, London, United Kingdom, W1S 1HP",
+     "officer_id": "F9D4R7ZBT6nIv2YdUehQOtKc8-E",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "07472875",
+     "company_name": "QUIPPER LIMITED",
+     "company_status": "Liquidation",
+     "role": "Director",
+     "appointed": "2012-05-18",
+     "resigned": "2015-04-01",
+     "address": "50 New Bond Street, London, United Kingdom, W1S 1BJ",
+     "officer_id": "F9D4R7ZBT6nIv2YdUehQOtKc8-E",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "08232207",
+     "company_name": "WATHOS LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2012-12-14",
+     "resigned": "2013-08-26",
+     "address": "14 Hanover House, Hanover Square, London, United Kingdom, W1S 1HP",
+     "officer_id": "F9D4R7ZBT6nIv2YdUehQOtKc8-E",
+     "firm_entity": false,
+     "firm_address": false
+    }
+   ],
+   "status": "done",
+   "born": [
+    "1974-06"
+   ]
+  },
+  "christopher-barnes": {
+   "name": "Christopher Barnes",
+   "group": "",
+   "ids": [
+    {
+     "officer_id": "lV4-FMWSxd5fLY1Zbg3_8eRXt10",
+     "name": "Christopher James BARNES",
+     "born": "1968-05",
+     "total": 7,
+     "anchor": true
+    }
+   ],
+   "rejected_ids": [
+    {
+     "officer_id": "bS4OVNuf3Iy4wEDtkWkXPpw8rzU",
+     "name": "Christopher BARNES",
+     "born": "1987-11",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "LNVMCBYRJHhOWj1dKaIkfCnOqiw",
+     "name": "Christopher BARNES",
+     "born": "1985-09",
+     "total": 3,
+     "anchor": false
+    },
+    {
+     "officer_id": "d96zRkXmD5hNQzyaqbV4ToQWFV0",
+     "name": "Christopher BARNES",
+     "born": "1958-12",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "E8lJA1EdmfBvdA-A3APsUpT1Hy4",
+     "name": "Christopher BARNES",
+     "born": "1988-01",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "scATG77kjkrAegb0iCkeEc2BmM4",
+     "name": "Christopher BARNES",
+     "born": "1981-09",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "SqsQn1oz8YifQm3WKhdK01DphUk",
+     "name": "Christopher BARNES",
+     "born": "1989-03",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "v7x4AzbiEpUGOnKfUpkMpuCBdA4",
+     "name": "Christopher BARNES",
+     "born": "1965-01",
+     "total": 3,
+     "anchor": false
+    },
+    {
+     "officer_id": "sUE8yTQlhR0KG8gevPODw4F6wwc",
+     "name": "Christopher BARNES",
+     "born": "2000-04",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "cORKuMZO8IL8u2iAx4bglBn5DMo",
+     "name": "Christopher BARNES",
+     "born": "1982-05",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "WIE5Pu9CJk4yKTkD90-icILWWK4",
+     "name": "Christopher BARNES",
+     "born": "1978-07",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "eYA-HB7KBHJkU5yNwpF_VqvgrCE",
+     "name": "Christopher BARNES",
+     "born": "1984-12",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "A_SJi4vKY3kxadmFhcnqqGiUfCA",
+     "name": "Christopher BARNES",
+     "born": "1974-04",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [
+    {
+     "company_number": "15015365",
+     "company_name": "ATOMICO VI COINVEST LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2023-07-20",
+     "resigned": "",
+     "address": "29 Rathbone Street, London, United Kingdom, W1T 1NJ",
+     "officer_id": "lV4-FMWSxd5fLY1Zbg3_8eRXt10",
+     "firm_entity": true,
+     "firm_address": true
+    },
+    {
+     "company_number": "09177215",
+     "company_name": "STREETBEES.COM LIMITED",
+     "company_status": "In Administration",
+     "role": "Director",
+     "appointed": "2022-02-25",
+     "resigned": "",
+     "address": "29 Rathbone Street, London, England, W1T 1NJ",
+     "officer_id": "lV4-FMWSxd5fLY1Zbg3_8eRXt10",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "01697461",
+     "company_name": "UK PRIVATE CAPITAL TRADE ASSOCIATION",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2021-07-15",
+     "resigned": "",
+     "address": "29 Rathbone Street, London, England, W1T 1NJ",
+     "officer_id": "lV4-FMWSxd5fLY1Zbg3_8eRXt10",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "12488333",
+     "company_name": "ATOMICO V COINVEST LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2020-02-27",
+     "resigned": "",
+     "address": "29 Rathbone Street, London, United Kingdom, W1T 1NJ",
+     "officer_id": "lV4-FMWSxd5fLY1Zbg3_8eRXt10",
+     "firm_entity": true,
+     "firm_address": true
+    },
+    {
+     "company_number": "07477716",
+     "company_name": "HNH GROUP LTD",
+     "company_status": "Liquidation",
+     "role": "Director",
+     "appointed": "2020-02-10",
+     "resigned": "",
+     "address": "Ground Floor Seneca House, Links Point, Amy Johnson Way, Blackpool, Lancashire, FY4 2FF",
+     "officer_id": "lV4-FMWSxd5fLY1Zbg3_8eRXt10",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "OC342228",
+     "company_name": "ATOMICO (UK) PARTNERS LLP",
+     "company_status": "Active",
+     "role": "LLP Member",
+     "appointed": "2015-02-23",
+     "resigned": "",
+     "address": "29 Rathbone Street, London, United Kingdom, W1T 1NJ",
+     "officer_id": "lV4-FMWSxd5fLY1Zbg3_8eRXt10",
+     "firm_entity": true,
+     "firm_address": true
+    },
+    {
+     "company_number": "08146929",
+     "company_name": "LENDINVEST PLC",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2019-11-07",
+     "resigned": "2021-07-08",
+     "address": "8 Mortimer Street, London, England, W1T 3JJ",
+     "officer_id": "lV4-FMWSxd5fLY1Zbg3_8eRXt10",
+     "firm_entity": false,
+     "firm_address": false
+    }
+   ],
+   "status": "done",
+   "born": [
+    "1968-05"
+   ]
+  },
+  "janus-friis": {
+   "name": "Janus Friis",
+   "group": "",
+   "ids": [
+    {
+     "officer_id": "cKWRgOdRl651V9S5DjZyWi6gPcU",
+     "name": "Janus FRIIS",
+     "born": "1976-06",
+     "total": 5,
+     "anchor": true
+    }
+   ],
+   "rejected_ids": [],
+   "seats": [
+    {
+     "company_number": "08076454",
+     "company_name": "DOLLIS PROPERTIES LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2012-05-21",
+     "resigned": "",
+     "address": "Aston House, Cornwall Avenue, London, United Kingdom, N3 1LF",
+     "officer_id": "cKWRgOdRl651V9S5DjZyWi6gPcU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "06359291",
+     "company_name": "DERING LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2007-09-03",
+     "resigned": "",
+     "address": "Aston House, Cornwall Avenue, London, N3 1LF",
+     "officer_id": "cKWRgOdRl651V9S5DjZyWi6gPcU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "OC342228",
+     "company_name": "ATOMICO (UK) PARTNERS LLP",
+     "company_status": "Active",
+     "role": "LLP Designated Member",
+     "appointed": "2008-12-19",
+     "resigned": "2009-09-08",
+     "address": "Flat 170, 22 Notting Hill Gate, London, W11 3JE",
+     "officer_id": "cKWRgOdRl651V9S5DjZyWi6gPcU",
+     "firm_entity": true,
+     "firm_address": false
+    },
+    {
+     "company_number": "06570634",
+     "company_name": "ATOMICO (UK) LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2008-09-30",
+     "resigned": "2009-09-08",
+     "address": "Flat 170, 22 Notting Hill Gate, London, W11 3JE",
+     "officer_id": "cKWRgOdRl651V9S5DjZyWi6gPcU",
+     "firm_entity": true,
+     "firm_address": false
+    },
+    {
+     "company_number": "05821718",
+     "company_name": "J805 REALISATIONS LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2007-06-19",
+     "resigned": "2008-09-18",
+     "address": "Flat 170, 22 Notting Hill Gate, London, W11 3JE",
+     "officer_id": "cKWRgOdRl651V9S5DjZyWi6gPcU",
+     "firm_entity": false,
+     "firm_address": false
+    }
+   ],
+   "status": "done",
+   "born": [
+    "1976-06"
+   ]
+  },
+  "abigail-daniels": {
+   "name": "Abigail Daniels",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "kXn-ZTfvE5-FK67ij6iXU6YViec",
+     "name": "Abigail Grace DANIELS",
+     "born": "2003-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "cCN23_5g8MeX84yBI_ep4fPlvs8",
+     "name": "Abigail May DANIELS",
+     "born": "1995-03",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "nYp-wIfJdHZ_BdUcnZY9ltn6rAY",
+     "name": "Abigail Oluwatimilehin DANIELS",
+     "born": "1996-05",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "adam-lasri": {
+   "name": "Adam Lasri",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "alex-spain": {
+   "name": "Alex Spain",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "lwKRhxwz_TJaFZGxnqg9mkdfXjo",
+     "name": "Bjorn Alexander SPAIN",
+     "born": "1997-01",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "ZK_3Po43aX_qIDtEnn9DPxj9SD8",
+     "name": "Alexander Dominic SPAIN",
+     "born": "1959-08",
+     "total": 5,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "alexander-asseily": {
+   "name": "Alexander Asseily",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "AV4_2iYstc1KQAJ6BIZx0ldbVOk",
+     "name": "Alexander ASSEILY",
+     "born": "1975-07",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "vTsW2k6yzT9Q6dA4SjuZc9WWuSw",
+     "name": "Alexander Makram ASSEILY",
+     "born": "1975-07",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "XMJBGtRn34H2yEMUNXereHzO4Tg",
+     "name": "Alexander Makram George ASSEILY",
+     "born": "1975-07",
+     "total": 8,
+     "anchor": false
+    },
+    {
+     "officer_id": "QpBA6N6Mht4NCF5dHUqvASmeJRo",
+     "name": "Alexander Makram George ASSEILY",
+     "born": "1975-07",
+     "total": 2,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "alexander-vidiborskiy": {
+   "name": "Alexander Vidiborskiy",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "alexis-bonte": {
+   "name": "Alexis Bonte",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "lhSsAh6j8WrTNNQ0NB_vToIJu90",
+     "name": "Alexis BONTE",
+     "born": "",
+     "total": 2,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "alexis-dormandy": {
+   "name": "Alexis Dormandy",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "ViMu0ol_6TrylJozmoRUoXFUm0c",
+     "name": "Alexis Paul Momtchiloff DORMANDY",
+     "born": "1969-12",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "K6tF6BfeQk6k0pC-is8VevoABw4",
+     "name": "Alexis Paul Momtchiloff DORMANDY",
+     "born": "1969-12",
+     "total": 8,
+     "anchor": false
+    },
+    {
+     "officer_id": "2vlomuog65MeDpWqw8e-eaC3csY",
+     "name": "Alexis Paul Momtchiloff DORMANDY",
+     "born": "1969-12",
+     "total": 7,
+     "anchor": false
+    },
+    {
+     "officer_id": "VZJZVivckDqbyuBes-1i3po1OBM",
+     "name": "Alexis Paul Momtchiloff DORMANDY",
+     "born": "1969-12",
+     "total": 20,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "alon-kuperman": {
+   "name": "Alon Kuperman",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "FzltkaQmiSNW7YLYUseciRXDeGQ",
+     "name": "Alon KUPERMAN",
+     "born": "1985-06",
+     "total": 3,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "alvaro-campos": {
+   "name": "Alvaro Campos",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "MfNKl4wRyvn7FhKTTdeK-kg9fUg",
+     "name": "Alvaro Tiago DE CAMPOS DE CARVALHO SALDANHA",
+     "born": "1988-08",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "kqOuuQGv99p0kQtcgfyyRuH_tX0",
+     "name": "Alvaro HESLE CAMPOS",
+     "born": "2004-02",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "jVwjbugwWjHpWLZRAxtDTI7Eayw",
+     "name": "Alvaro Tiago CAMPOS DE CARVALHO SALDANHA",
+     "born": "1988-08",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "amanda-hultman": {
+   "name": "Amanda Hultman",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "andrea-anzola-verano": {
+   "name": "Andrea Anzola Verano",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "andreas-helbig": {
+   "name": "Andreas Helbig",
+   "group": "team",
+   "ids": [
+    {
+     "officer_id": "kMXuEO1QAqu-WvBOUC7Oc8Yf02c",
+     "name": "Andreas Christian Maximilian HELBIG",
+     "born": "1991-06",
+     "total": 2,
+     "anchor": true
+    }
+   ],
+   "rejected_ids": [
+    {
+     "officer_id": "dWs-GhW4kk2OfuTOC9U589CeJnk",
+     "name": "Andreas HELBIG",
+     "born": "1953-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "iw0RJgdW5yFS-paqSl99fI_prnI",
+     "name": "Andreas HELBIG",
+     "born": "1971-03",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [
+    {
+     "company_number": "15801722",
+     "company_name": "FRONTIER AI LTD",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2026-03-31",
+     "resigned": "",
+     "address": "29 Rathbone Street, London, United Kingdom, W1T 1NJ",
+     "officer_id": "kMXuEO1QAqu-WvBOUC7Oc8Yf02c",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "15213676",
+     "company_name": "ANKAR.AI LTD",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2025-11-21",
+     "resigned": "",
+     "address": "29 Rathbone Street, London, United Kingdom, W1T 1NJ",
+     "officer_id": "kMXuEO1QAqu-WvBOUC7Oc8Yf02c",
+     "firm_entity": false,
+     "firm_address": true
+    }
+   ],
+   "status": "done",
+   "born": [
+    "1991-06"
+   ]
+  },
+  "andrew-crankshaw": {
+   "name": "Andrew Crankshaw",
+   "group": "about/investment-team,people,team",
+   "ids": [
+    {
+     "officer_id": "W3eagCL8gb2tfAk_hgQV2t3bm7k",
+     "name": "Andrew CRANKSHAW",
+     "born": "1970-05",
+     "total": 4,
+     "anchor": true
+    },
+    {
+     "officer_id": "HAjIpWQWfJHp_eN0y7jGmy1acPw",
+     "name": "Andrew CRANKSHAW",
+     "born": "1970-05",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "rejected_ids": [
+    {
+     "officer_id": "RrG8n4xPihh2ayOFKhlYbtgYXi4",
+     "name": "Andrew CRANKSHAW",
+     "born": "1964-05",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "ijX8vf9MU78zN6ySqiFAURF-pjs",
+     "name": "Andrew Ernest CRANKSHAW",
+     "born": "1953-12",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "2SGs2C8VnFVuLSwUsW77M3NsYJw",
+     "name": "Andrew John CRANKSHAW",
+     "born": "1960-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "-U9NyH0QoFTpLWhe7J_bdMMAkwk",
+     "name": "Andrew John CRANKSHAW",
+     "born": "1960-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "OGtVOQUIkraIFUGxhXZLbqssyp0",
+     "name": "Andrew Ernest CRANKSHAW",
+     "born": "1953-12",
+     "total": 23,
+     "anchor": false
+    },
+    {
+     "officer_id": "x2Z0seRsUdtfeslVPHGe55PfRr8",
+     "name": "Andrew Ernest CRANKSHAW",
+     "born": "1953-12",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [
+    {
+     "company_number": "13364828",
+     "company_name": "ARC CONSULT LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2021-04-28",
+     "resigned": "",
+     "address": "20-22, Wenlock Road, London, England, N1 7GU",
+     "officer_id": "W3eagCL8gb2tfAk_hgQV2t3bm7k",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "12946135",
+     "company_name": "SECUREPRO GLOBAL LTD",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2020-10-13",
+     "resigned": "",
+     "address": "Arundel Business Centre, 49 Station Road, Romford, England, RM3 0BS",
+     "officer_id": "W3eagCL8gb2tfAk_hgQV2t3bm7k",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "OC449544",
+     "company_name": "YUMA CROSSING CAPITAL ADVISORS LLP",
+     "company_status": "Active",
+     "role": "LLP Designated Member",
+     "appointed": "2023-10-16",
+     "resigned": "2024-10-31",
+     "address": "Aston House, Cornwall Avenue, London, United Kingdom, N3 1LF",
+     "officer_id": "W3eagCL8gb2tfAk_hgQV2t3bm7k",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "07266688",
+     "company_name": "ATOMICO 2010 (UK) LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2019-05-07",
+     "resigned": "2020-03-31",
+     "address": "7 Savoy Court, London, United Kingdom, WC2R 0EX",
+     "officer_id": "W3eagCL8gb2tfAk_hgQV2t3bm7k",
+     "firm_entity": true,
+     "firm_address": true
+    },
+    {
+     "company_number": "08232207",
+     "company_name": "WATHOS LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2023-10-13",
+     "resigned": "2024-10-24",
+     "address": "Aston House, Cornwall Avenue, London, United Kingdom, N3 1LF",
+     "officer_id": "HAjIpWQWfJHp_eN0y7jGmy1acPw",
+     "firm_entity": false,
+     "firm_address": false
+    }
+   ],
+   "status": "done",
+   "born": [
+    "1970-05"
+   ]
+  },
+  "andrew-duncan": {
+   "name": "Andrew Duncan",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "m2SyGZiLBsTZ7PNrRvLj1II1ZPw",
+     "name": "ANDREW DUNCAN & CO (SCOTLAND) LIMITED",
+     "born": "",
+     "total": 3,
+     "anchor": false
+    },
+    {
+     "officer_id": "xPqs_VG1oKwk34etXMUIrr5xk0E",
+     "name": "ANDREW DUNCAN & CO",
+     "born": "",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "tCZ3KSka5mva6lkheiM0CTVia7Y",
+     "name": "ANDREW DUNCAN & CO",
+     "born": "",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "AcNpVYvMWzZV1T8pstI0VggXbdI",
+     "name": "Andrew DUNCAN",
+     "born": "1974-01",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "BRxfHlWcehg2k2IkFXGHhBedg6c",
+     "name": "Andrew DUNCAN",
+     "born": "",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "0T444a2utnCEBdHEpNPZ1sJAkqo",
+     "name": "Andrew DUNCAN",
+     "born": "2000-02",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "MWpJKTCYTWDXMnxf9-XRVVwwNzw",
+     "name": "Andrew DUNCAN",
+     "born": "1965-03",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "g_NlutyR2IwV2iYFmhQ-kHNBNzU",
+     "name": "Andrew DUNCAN",
+     "born": "1975-08",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "GTFElQdvLDItvMtBULUkX0oeBNM",
+     "name": "Andrew DUNCAN",
+     "born": "",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "HNzWn_6BEa5KtOX7NrMXkqRbQxw",
+     "name": "Andrew DUNCAN",
+     "born": "1984-02",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "y5_icAShajm_Lglm7-OwAT65hsI",
+     "name": "Andrew DUNCAN",
+     "born": "1971-01",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "pEf42snN7sSkxkOut-qiJ0j2SgE",
+     "name": "Andrew DUNCAN",
+     "born": "1968-04",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "anna-linderum-thomsen": {
+   "name": "Anna Linderum Thomsen",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "XSp7sRynPPz8RaoLzCLNfoRWmZw",
+     "name": "Anna LINDERUM THOMSEN",
+     "born": "1980-04",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "annalise-dragic": {
+   "name": "Annalise Dragic",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "OsxBvADXndV74FkbOs6vAxoHrVY",
+     "name": "Annalise Marie DRAGIC",
+     "born": "1992-03",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "OwSJLhvfJH9K3dCVECS2iyoyjbk",
+     "name": "Annalise Marie DRAGIC",
+     "born": "1992-03",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "arabella-reeves": {
+   "name": "Arabella Reeves",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "ashleigh-brown": {
+   "name": "Ashleigh Brown",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "f0E_l2kYy9u0pBxOM2KlduFQmbE",
+     "name": "Ashleigh BROWN",
+     "born": "1986-05",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "R8w6NFo68yS4pu8QQ9N-J-ZRwSU",
+     "name": "Ashleigh BROWN",
+     "born": "1989-09",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "R1KBNQBluGdxNGn9BizjEuMw3Vs",
+     "name": "Ashleigh BROWN",
+     "born": "1993-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "9aMcTDAnZfxusEjVZWu6Y90RHbg",
+     "name": "Ashleigh BROWN",
+     "born": "1981-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "XjkaVvI7AQDPWlpGwG_oRKXp3rM",
+     "name": "Ashleigh BROWN",
+     "born": "",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "YtvXBhJS4f_a6UGb7LyKhzyt0AQ",
+     "name": "Ashleigh BROWN",
+     "born": "1989-09",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "dzOd3huYlaLHeqW5kTTdzW_8JzE",
+     "name": "Ashleigh BROWN",
+     "born": "1995-05",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "rvi8uizydHNyViniesk3Y2RyJqw",
+     "name": "Ashleigh BROWN",
+     "born": "",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "ZDIbD0uOPtJLl3qlZGF7Lx-NEDI",
+     "name": "Ashleigh BROWN",
+     "born": "1994-09",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "yTbNADsiCNjSriphthYh1dvWeHI",
+     "name": "Ashleigh BROWN",
+     "born": "1981-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "D5GBMNNKh8fFlQ08pphAbjDGSuE",
+     "name": "Ashleigh Anne BROWN",
+     "born": "1992-07",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "Zic7-fm_EqZoL-_PuMqipBkzUHI",
+     "name": "Ashleigh Anne BROWN",
+     "born": "1984-03",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "ashleigh-fawcett": {
+   "name": "Ashleigh Fawcett",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "ben-blume": {
+   "name": "Ben Blume",
+   "group": "",
+   "ids": [
+    {
+     "officer_id": "5arzOYdJcwWF41hOe16O9sEmxZA",
+     "name": "Benjamin Adam BLUME",
+     "born": "1990-07",
+     "total": 1,
+     "anchor": true
+    },
+    {
+     "officer_id": "9uNgdVlr80BjvpnwQ2dbC-RmXNg",
+     "name": "Benjamin Adam BLUME",
+     "born": "1990-07",
+     "total": 4,
+     "anchor": true
+    },
+    {
+     "officer_id": "rsCU480l0QmIDAcklwmc15H6Kjk",
+     "name": "Benjamin Adam BLUME",
+     "born": "1990-07",
+     "total": 1,
+     "anchor": true
+    }
+   ],
+   "rejected_ids": [],
+   "seats": [
+    {
+     "company_number": "10184077",
+     "company_name": "ACCURX LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2025-03-31",
+     "resigned": "",
+     "address": "29 Rathbone Street, Rathbone Street, London, England, W1T 1NJ",
+     "officer_id": "5arzOYdJcwWF41hOe16O9sEmxZA",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "16002564",
+     "company_name": "RABBIT HOLE LABS LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2026-01-07",
+     "resigned": "",
+     "address": "29 Rathbone Street, Rathbone Street, London, England, W1T 1NJ",
+     "officer_id": "9uNgdVlr80BjvpnwQ2dbC-RmXNg",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "15173006",
+     "company_name": "ELECTRIC TWIN LTD",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2025-09-12",
+     "resigned": "",
+     "address": "29 Rathbone Street, London, United Kingdom, W1T 1NJ",
+     "officer_id": "9uNgdVlr80BjvpnwQ2dbC-RmXNg",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "09448674",
+     "company_name": "DEXORY LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2023-05-30",
+     "resigned": "",
+     "address": "29 Rathbone Street, London, United Kingdom, W1T 1NJ",
+     "officer_id": "9uNgdVlr80BjvpnwQ2dbC-RmXNg",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "09212364",
+     "company_name": "ODEN TECHNOLOGIES LTD.",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2022-10-05",
+     "resigned": "2024-01-18",
+     "address": "29 Rathbone Street, London, United Kingdom, W1T 1NJ",
+     "officer_id": "9uNgdVlr80BjvpnwQ2dbC-RmXNg",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "08674633",
+     "company_name": "UNIPLACES LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2019-11-27",
+     "resigned": "2020-06-08",
+     "address": "50 New Bond Street, Atomico, London, England, W1S 1BJ",
+     "officer_id": "rsCU480l0QmIDAcklwmc15H6Kjk",
+     "firm_entity": false,
+     "firm_address": true
+    }
+   ],
+   "status": "done",
+   "born": [
+    "1990-07"
+   ]
+  },
+  "benjamin-grol": {
+   "name": "Benjamin Grol",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "brent-hoberman": {
+   "name": "Brent Hoberman",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "NtGauz6MDJxwheKW5-R6WLLJsz8",
+     "name": "Brent HOBERMAN",
+     "born": "1968-11",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "4nM1vX466b3kEuZxojRk_rvjdkY",
+     "name": "Brent Shawzin HOBERMAN",
+     "born": "1968-11",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "0NZN0-rtBWxFjcI4ImiNWifViNI",
+     "name": "Brent Shawzin HOBERMAN",
+     "born": "1968-11",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "uDOPb2AhpAuDw1UlT6hOXVVvbwg",
+     "name": "Brent Shawzin HOBERMAN",
+     "born": "1968-11",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "WcHN_p3h7CvbqVBFwETcB0fNdLo",
+     "name": "Brent Shawzin HOBERMAN",
+     "born": "1968-11",
+     "total": 8,
+     "anchor": false
+    },
+    {
+     "officer_id": "vhx-pCjfphAGgGnS-5OmaKlE8oc",
+     "name": "Brent Shawzin HOBERMAN",
+     "born": "1968-11",
+     "total": 56,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "bryce-keane": {
+   "name": "Bryce Keane",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "wyI9eIW9cFUOBifmm93-6DIenoE",
+     "name": "Bryce KEANE",
+     "born": "1984-05",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "aAmitpEksJMMS2TDzdxWymwpry8",
+     "name": "Bryce Clifton KEANE",
+     "born": "1984-05",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "byungki-kim": {
+   "name": "Byungki Kim",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "camilla-richards": {
+   "name": "Camilla Richards",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "soC-01ctVHIEj5ab07fD6VSivJY",
+     "name": "Camilla RICHARDS",
+     "born": "1970-11",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "9F3qtE4sJYgkVDo9DJS-MY10aRc",
+     "name": "Helen Camilla RICHARDS",
+     "born": "1971-04",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "3joBDb2ixGy3ZJ0adRir1jRs6g4",
+     "name": "Camilla Jansdotter RICHARDS",
+     "born": "1965-07",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "gzHiqTR0nzk4yHjQNxQLivLRCWg",
+     "name": "Camilla Helena Roper RICHARDS",
+     "born": "1970-11",
+     "total": 3,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "carlos-pires": {
+   "name": "Carlos Pires",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "kKpSMss7hphvU3TsL9Py_JoMLeo",
+     "name": "Carlos PIRES",
+     "born": "1970-02",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "PMJmAzRJBk2Nsd9SJ3yTNScBREQ",
+     "name": "Carlos PIRES",
+     "born": "1983-09",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "fmvc86eeaCxs6opUwU-6yHKpghk",
+     "name": "Carlos Eduardo ANDRADE PIRES",
+     "born": "1986-04",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "vgu3WX2fKLdD3V6V2VIfmOpY574",
+     "name": "Carlos Augusto PIRES",
+     "born": "1967-09",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "aqoS0lJKdUYrIr_POHz9vGtCFQ8",
+     "name": "Carlos Manuel Goncalves PIRES",
+     "born": "1983-09",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "GOjtCCoe-h7X82X9Iu8seeLQG8A",
+     "name": "Carlos Alberto PIRES DA CRUZ",
+     "born": "1977-08",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "0k2pq7W_Lfzddj4xQUYz_Qpcw8w",
+     "name": "Carlos Manuel PIRES DOS SANTOS",
+     "born": "1965-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "6kvaj8YTEuYEAsrrOXi0nolYZzo",
+     "name": "Jose Carlos PIRES",
+     "born": "1986-04",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "PC5Nl6mfTuIFlI_LFz46Qz73kHU",
+     "name": "Carlos Alberto PIRES",
+     "born": "1952-10",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "OW0hsbYv0vpt7tS4mlvk6fztZiM",
+     "name": "Carlos Jorge Nogueira PIRES",
+     "born": "1970-02",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "mBVNTMo2xdBz80ZSw7ek_zCC6Rw",
+     "name": "Alberto Carlos LIMA PIRES",
+     "born": "1991-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "B1arq3DjdvUkxQ_Sm2IOiNJpkjM",
+     "name": "Joao Carlos PIRES DE ALMEIDA",
+     "born": "1966-06",
+     "total": 2,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "carolina-brochado": {
+   "name": "Carolina Brochado",
+   "group": "people,team",
+   "ids": [
+    {
+     "officer_id": "cRzsuUq9R0wjd_Vibs9rCS24-qg",
+     "name": "Carolina BROCHADO",
+     "born": "1985-02",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "rBij_h7ET9r58jeIj2vbRJL7z4M",
+     "name": "Carolina BROCHADO",
+     "born": "1985-02",
+     "total": 2,
+     "anchor": true
+    },
+    {
+     "officer_id": "lY_ypy5whF9cbRIes45YoZmILms",
+     "name": "Carolina Teixeira BROCHADO",
+     "born": "1985-02",
+     "total": 2,
+     "anchor": true
+    }
+   ],
+   "rejected_ids": [],
+   "seats": [
+    {
+     "company_number": "07874344",
+     "company_name": "VINTED LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2021-05-11",
+     "resigned": "",
+     "address": "3rd Floor, 30 Broadwick Street, London, United Kingdom, W1F 8JB",
+     "officer_id": "cRzsuUq9R0wjd_Vibs9rCS24-qg",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "12807934",
+     "company_name": "MANY GROUP LTD",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2021-05-28",
+     "resigned": "2025-10-01",
+     "address": "3rd Floor, 30 Broadwick Street, London, United Kingdom, W1F 8JB",
+     "officer_id": "cRzsuUq9R0wjd_Vibs9rCS24-qg",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "03802593",
+     "company_name": "PHARMACY2U LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2016-07-02",
+     "resigned": "2018-03-29",
+     "address": "1 Hawthorn Park, Coal Road, Leeds, United Kingdom, LS14 1PQ",
+     "officer_id": "rBij_h7ET9r58jeIj2vbRJL7z4M",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "08530409",
+     "company_name": "CHEMD HOLDINGS LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2015-04-01",
+     "resigned": "2016-07-02",
+     "address": "Hanover House, 14 Hanover Square, London, United Kingdom, W1S 1HP",
+     "officer_id": "rBij_h7ET9r58jeIj2vbRJL7z4M",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "09177215",
+     "company_name": "STREETBEES.COM LIMITED",
+     "company_status": "In Administration",
+     "role": "Director",
+     "appointed": "2017-12-18",
+     "resigned": "2018-12-31",
+     "address": "50 New Bond Street, London, United Kingdom, W1S 1BJ",
+     "officer_id": "lY_ypy5whF9cbRIes45YoZmILms",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "07849223",
+     "company_name": "REKKI LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2017-09-12",
+     "resigned": "2018-12-16",
+     "address": "50 New Bond Street, London, England, W1S 1BJ",
+     "officer_id": "lY_ypy5whF9cbRIes45YoZmILms",
+     "firm_entity": false,
+     "firm_address": true
+    }
+   ],
+   "status": "done",
+   "born": [
+    "1985-02"
+   ]
+  },
+  "caroline-chayot": {
+   "name": "Caroline Chayot",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "carter-adamson": {
+   "name": "Carter Adamson",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "charlotte-clune": {
+   "name": "Charlotte Clune",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "chirag-modi": {
+   "name": "Chirag Modi",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "5C9V1BgghBlmx7jL3oyPG2mJoME",
+     "name": "Chirag MODI",
+     "born": "1998-07",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "u5PLDqwx2xZ3CTg6RRyWGaJBI1A",
+     "name": "Chirag MODI",
+     "born": "1991-07",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "vfRWkc_jo-JCga_eqPSfPl7-6XQ",
+     "name": "Chirag MODI",
+     "born": "1998-07",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "61Do4QOfql19tdbvpyRLLtQzM_M",
+     "name": "Chirag MODI",
+     "born": "1982-06",
+     "total": 4,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "chris-dark": {
+   "name": "Chris Dark",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "XCxfkH38qewAwYJWu6kW0Hp9NeU",
+     "name": "Christian DARK",
+     "born": "1996-10",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "r8G4FL9_2rtFbmgu5ue0g2YANoE",
+     "name": "Christopher DARK",
+     "born": "1964-09",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "rVhIaD1mHvn8LswA80WrPxOwSME",
+     "name": "Christopher DARK",
+     "born": "1964-09",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "8Vuon0CbXI-jfcMQa_oay8mqhvQ",
+     "name": "Phillip Christopher DARK",
+     "born": "1989-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "ZEq4eZl4NfbIdzpcnjYeDZO9cGc",
+     "name": "Christina Ann DARK",
+     "born": "1944-11",
+     "total": 4,
+     "anchor": false
+    },
+    {
+     "officer_id": "XQ197gXOOnpOYqHFNR1Ts2ICVvE",
+     "name": "Daniel Christian DARK",
+     "born": "1964-04",
+     "total": 7,
+     "anchor": false
+    },
+    {
+     "officer_id": "0EGCr8VZNjnie71gxFRTC53JQiw",
+     "name": "Christopher James DARK",
+     "born": "1980-10",
+     "total": 4,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "chris-savvopoulos": {
+   "name": "Chris Savvopoulos",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "christina-fa": {
+   "name": "Christina Fa",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "dan-hynes": {
+   "name": "Dan Hynes",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "jQm19QwnpFeFH014tdMRKUX-xe8",
+     "name": "Daniel Alexander HYNES",
+     "born": "1997-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "UGX0gFJ0gdr_4WYpbfywQnilrog",
+     "name": "Daniel James HYNES",
+     "born": "1997-03",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "mCDSyMQZQO0V2hUsfoIoWc_DryQ",
+     "name": "Daniel Joseph HYNES",
+     "born": "1979-10",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "N7QcrlH5SdyR_kIlFk42i2Oez28",
+     "name": "Daniel Martin HYNES",
+     "born": "1969-09",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "j6RkYc7KF-8A0d9xAn3NFjwtzVA",
+     "name": "Daniel Paul HYNES",
+     "born": "1977-12",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "yxM27xMmAt84V0M5-asBrSeStHg",
+     "name": "Daniel Thomas HYNES",
+     "born": "1982-09",
+     "total": 3,
+     "anchor": false
+    },
+    {
+     "officer_id": "qYwa9VXsZyqaNt40ynnomP56-w8",
+     "name": "Daniel HYNES",
+     "born": "1981-02",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "es35xcSr3y3DdxSMTinufCNMUjc",
+     "name": "Danielle Marie HYNES",
+     "born": "1993-03",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "zKy1hrYgZgCx675dsG_3edzvNiE",
+     "name": "Daniel Martin HYNES",
+     "born": "1969-09",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "foSXxeYiPQSOry5A3hD11Xd5bXk",
+     "name": "Daniel HYNES",
+     "born": "1988-08",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "5hYjBI3f57ElAag-uuXjE1Km4vI",
+     "name": "Daniel Martin HYNES",
+     "born": "1969-09",
+     "total": 3,
+     "anchor": false
+    },
+    {
+     "officer_id": "sLFCvi3WzZq4gRSy7W2LfpOwVOQ",
+     "name": "Daniel HYNES",
+     "born": "1969-09",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "daphne-dovermann": {
+   "name": "Daphne Dovermann",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "0_uB0lqWzsqrXnozTchzBgU6bcw",
+     "name": "Daphne DOVERMANN",
+     "born": "1993-04",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "YP0efLfEu4U2vnHtl893ZprzSdE",
+     "name": "Daphne Maud Arnoldine DOVERMANN",
+     "born": "1993-04",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "uKNi23iO_HTQxnar-6MkCr0AZLk",
+     "name": "Daphne Maud Arnoldine DOVERMANN",
+     "born": "1993-04",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "OSEIDkIjKJW0uNPmyZzottq9Rc8",
+     "name": "Daphne Maud Arnoldine DOVERMANN",
+     "born": "1993-04",
+     "total": 5,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "don-hoang": {
+   "name": "Don Hoang",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "yyXG6NSi_je2d9Xje5IXO6_RP9Q",
+     "name": "Don HOANG",
+     "born": "1980-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "8Je8K5mS3iAWmKIurgvFet2chYc",
+     "name": "Dong Linh HOANG",
+     "born": "1975-11",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "7lhaNagYgX6kGJqoVRIx-koaS6w",
+     "name": "Dong Thi Thu HOANG",
+     "born": "1974-03",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "8UQxmD-Rphf2MWv6VVH3CxgcyNw",
+     "name": "Dong Tien HOANG",
+     "born": "1998-03",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "jd2IL4yRmtTnexlxMp9OtdlJE4k",
+     "name": "Donnie HOANG",
+     "born": "2000-08",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "bwp-y18EWCFOTfg4FBddSzkuEg0",
+     "name": "Thu Dong Thi HOANG",
+     "born": "1992-07",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "hVwl0Xq9YK-XmjMWnXUKJ2C6KUg",
+     "name": "Dong HOANG TIEN",
+     "born": "1998-03",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "eleanor-warnock": {
+   "name": "Eleanor Warnock",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "vDSgi-re8Pid-EBDGgOQIRkDxmQ",
+     "name": "Eleanor Sarah WARNOCK",
+     "born": "1988-11",
+     "total": 3,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "elena-mustatea": {
+   "name": "Elena Mustatea",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "X3aORd6BxVV-5PcFBIKmyUvGuvA",
+     "name": "Elena MUSTATEA",
+     "born": "1988-06",
+     "total": 2,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "elias-ngombwa": {
+   "name": "Elias Ngombwa",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "erica-young": {
+   "name": "Erica Young",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "iCzIBsv3y2m5_3ywnxq6Qz3ILOs",
+     "name": "Erica YOUNG",
+     "born": "1979-12",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "ouBa5LIB1q41VrekVxT1NvKeoOY",
+     "name": "Erica YOUNG",
+     "born": "1991-02",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "zVt7stu5XJf2Qh3Zv1mh_IgvgQk",
+     "name": "Erica YOUNG",
+     "born": "1979-12",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "6QpK9mmCAa4yot8qk4eDn5PqyNM",
+     "name": "Erica Pamela May YOUNG",
+     "born": "1989-05",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "GLWWRRdtk9vHZiDXmy4yoWUpWVg",
+     "name": "Erica Elizabeth YOUNG",
+     "born": "1979-12",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "pTyBrHc8ZaDgcSmQY4lXWPZsGW8",
+     "name": "Erica Jane YOUNG",
+     "born": "1962-11",
+     "total": 7,
+     "anchor": false
+    },
+    {
+     "officer_id": "CknK6gxje9sLU7l0XRKOkYAkS40",
+     "name": "Leslie Erica Margaret YOUNG",
+     "born": "1957-01",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "ppQWWZQT0NMnhYi9DjQ9Dj7cv0Q",
+     "name": "Peri Erica YOUNG",
+     "born": "1948-03",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "t-sD0b4nQLw1q5Z0ETdwTQu3iI4",
+     "name": "Sheila Ericayoung YOUNG",
+     "born": "1955-07",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "ernesto-schmitt": {
+   "name": "Ernesto Schmitt",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "zxht7eWqykaBZWUwNBxHs7MNiJo",
+     "name": "Ernesto Gottfried SCHMITT",
+     "born": "1971-08",
+     "total": 17,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "evgenia-plotnikova": {
+   "name": "Evgenia Plotnikova",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "cDWGm8kh3waLRTaAkDw9SkGhrX0",
+     "name": "Evgenia PLOTNIKOVA",
+     "born": "1987-10",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "5YTeDktpHCAIr4pQfKdQW5yMm24",
+     "name": "Evgenia PLOTNIKOVA",
+     "born": "1987-10",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "JPHWsHTT3LFiJ1TPUqj7yJH1c8I",
+     "name": "Evgenia PLOTNIKOVA",
+     "born": "1987-10",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "federico-ruosi": {
+   "name": "Federico Ruosi",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "foucault-de-fraguier": {
+   "name": "Foucault De Fraguier",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "georgia-forbes": {
+   "name": "Georgia Forbes",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "gernot-zacke": {
+   "name": "Gernot Zacke",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "4UWxLrfeZDAFEp2Z9Yosjh9YpFo",
+     "name": "Gernot ZACKE",
+     "born": "1983-08",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "gunita-bhasin": {
+   "name": "Gunita Bhasin",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "m11-EsebCfHxgvfWsfBv-fENSng",
+     "name": "Gunita BHASIN",
+     "born": "1992-11",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "guy-dennis": {
+   "name": "Guy Dennis",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "A1XG7n1fIpdi7WiKZw-5BN4y4Y4",
+     "name": "Guy William Pollard DENNIS",
+     "born": "1976-01",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "ICJRgVT-9mXjGfg4LFrS60WXplM",
+     "name": "Guy DENNIS",
+     "born": "1961-04",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "pP6d05q8rp9170JdniWvcrYCuhA",
+     "name": "Guy Dennis BAILEY",
+     "born": "1985-04",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "qwIypuTpB43leNnAm_gOcaUXJ6k",
+     "name": "Guy Dennis BARR",
+     "born": "1964-08",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "H5D8UQUwlaPyhFfYECagn9492Ck",
+     "name": "Guy Dennis BEGGS",
+     "born": "1947-01",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "cX-II9lkEpfDwyemX-S7e3WXyik",
+     "name": "Guy Dennis BUCKLEY",
+     "born": "1965-02",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "FYTjfBqOP4hTJqj82XZPjMAtDtM",
+     "name": "Guy Dennis EVANS",
+     "born": "1971-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "5XcNzmaZz8mjYstkGKnxs5RQIAw",
+     "name": "Guy Dennis ROBSON",
+     "born": "1967-11",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "zEyWftiolWeZ5-LDLpvn6xDiQvw",
+     "name": "Guy Dennis SPELMAN",
+     "born": "1958-10",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "YKeW5n8cqbGn0HQSQQh3lS58b2w",
+     "name": "Guy Dennis SPELMAN",
+     "born": "",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "p86BS9FcpPQaooJQeGKHANuixio",
+     "name": "Guy Dennis SPELMAN",
+     "born": "1958-10",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "oBTIl6K04DIU4meMtd-BOoVpjX4",
+     "name": "Guy Dennis SPELMAN",
+     "born": "1958-10",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "haroldo-korte": {
+   "name": "Haroldo Korte",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "hillary-ball": {
+   "name": "Hillary Ball",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "ilkka-paananen": {
+   "name": "Ilkka Paananen",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "YJqp7dKTddPkematMmPMRYzXnGA",
+     "name": "Ilkka Matias PAANANEN",
+     "born": "1978-06",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "irina-haivas": {
+   "name": "Irina Haivas",
+   "group": "team",
+   "ids": [
+    {
+     "officer_id": "wWpFsm6TSHidSCgVkmAAXEBFzmU",
+     "name": "Irina HAIVAS",
+     "born": "1981-05",
+     "total": 1,
+     "anchor": true
+    },
+    {
+     "officer_id": "oURivxYuXm-3cJiOOU208PWpXzM",
+     "name": "Irina Elena HAIVAS",
+     "born": "1981-05",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "VHXMb8tT1lD-CwLvZwQqF9GtHzw",
+     "name": "Irina Elena HAIVAS",
+     "born": "1981-05",
+     "total": 3,
+     "anchor": true
+    },
+    {
+     "officer_id": "pMfsW5s03ceSLcGeucm1P6HKw0w",
+     "name": "Irina Elena HAIVAS",
+     "born": "1981-05",
+     "total": 2,
+     "anchor": true
+    }
+   ],
+   "rejected_ids": [
+    {
+     "officer_id": "EUukvSVLqZfbIEnAc6t7R37yOhM",
+     "name": "Irina Elena HAIVAS",
+     "born": "",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [
+    {
+     "company_number": "13104396",
+     "company_name": "SCARLET GLOBAL HOLDINGS LTD",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2024-06-13",
+     "resigned": "2025-04-29",
+     "address": "29 Rathbone Street, London, England, W1T 1NJ",
+     "officer_id": "wWpFsm6TSHidSCgVkmAAXEBFzmU",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "07771908",
+     "company_name": "INTELLIGENT HEALTH STRATEGIES (IHS) LTD",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2011-09-13",
+     "resigned": "",
+     "address": "Flat 15, 8 Collosseum Terrace, London, United Kingdom, NW1 3EB",
+     "officer_id": "oURivxYuXm-3cJiOOU208PWpXzM",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "09018507",
+     "company_name": "HEALX LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2019-07-30",
+     "resigned": "2025-04-04",
+     "address": "50 Bond Street, London, United Kingdom, W1S 1BJ",
+     "officer_id": "VHXMb8tT1lD-CwLvZwQqF9GtHzw",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "08183505",
+     "company_name": "LABGENIUS LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2020-10-19",
+     "resigned": "2025-03-26",
+     "address": "Atomico, 29-35, Rathbone Street, London, England, W1T 1NH",
+     "officer_id": "VHXMb8tT1lD-CwLvZwQqF9GtHzw",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "12078467",
+     "company_name": "QATALOG LTD",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2020-08-17",
+     "resigned": "2025-03-25",
+     "address": "7 Savoy Court, London, United Kingdom, WC2R 0EX",
+     "officer_id": "VHXMb8tT1lD-CwLvZwQqF9GtHzw",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "10184077",
+     "company_name": "ACCURX LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2019-03-07",
+     "resigned": "2025-03-31",
+     "address": "50 New Bond Street, London, England, W1S 1BJ",
+     "officer_id": "pMfsW5s03ceSLcGeucm1P6HKw0w",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "10184103",
+     "company_name": "DEEPHEALTH UK LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2019-06-07",
+     "resigned": "2024-10-14",
+     "address": "Atomico, 50 New Bond Street, London, England, W1S 1BJ",
+     "officer_id": "pMfsW5s03ceSLcGeucm1P6HKw0w",
+     "firm_entity": false,
+     "firm_address": true
+    }
+   ],
+   "status": "done",
+   "born": [
+    "1981-05"
+   ]
+  },
+  "jambu-palaniappan": {
+   "name": "Jambu Palaniappan",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "X99JsWkvOyu02BBSelidms2RHUw",
+     "name": "Jambu PALANIAPPAN",
+     "born": "1987-10",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "-ar0puDGPti-QnJanU_TJVgF4sQ",
+     "name": "Jambu PALANIAPPAN",
+     "born": "1987-10",
+     "total": 7,
+     "anchor": false
+    },
+    {
+     "officer_id": "HNMCFRC6FLDxXgnimY2Nlkgwvhk",
+     "name": "Jambu PALANIAPPAN",
+     "born": "1987-10",
+     "total": 2,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "jamie-murray-wells": {
+   "name": "Jamie Murray Wells",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "IkNplt1OHXdCCHrSPPXU5IrkyqQ",
+     "name": "Jamie MURRAY WELLS",
+     "born": "1983-03",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "T_ZYfILqgqmUX87r03_JBxnYdHU",
+     "name": "Jamie Murray WELLS",
+     "born": "1983-03",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "WnXO4m16uiktpCN-5PEMiDnjkDU",
+     "name": "Jamie Nicholas MURRAY WELLS",
+     "born": "1983-03",
+     "total": 5,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "jason-goodman": {
+   "name": "Jason Goodman",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "-nWHNKblUZs5cPwz_PISOWhmrYA",
+     "name": "Jason GOODMAN",
+     "born": "",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "6kIMVKd50sNdeqii1kV_Ca2rLpQ",
+     "name": "Jason GOODMAN",
+     "born": "1981-12",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "DWRx7ylJOAkLDNtVg59DoCnYCvw",
+     "name": "Jason GOODMAN",
+     "born": "1992-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "j9ACmKAevtnpvtByx5ZKWpwK7lg",
+     "name": "Jason GOODMAN",
+     "born": "1970-11",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "0MBGo7d7wEovzswHE_pITxWrCcg",
+     "name": "Jason GOODMAN",
+     "born": "1968-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "L41yvQ7rO5L1V62Z6JeFq3Vl5eA",
+     "name": "Jason Lee GOODMAN",
+     "born": "1979-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "bUAxdSp1ttQtEHbEMtJKG-nIGsM",
+     "name": "Jason Lycett GOODMAN",
+     "born": "1970-10",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "9FtYn3bP0bmAvuZm8maN1p5K-0g",
+     "name": "Jason Morriss GOODMAN",
+     "born": "1970-07",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "nTaUQYvDWCmhf10RymbEJFRQ11s",
+     "name": "Jason Paul GOODMAN",
+     "born": "1968-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "IbrKb2-ZfkDyoEhbJ1qHE1Xgs1E",
+     "name": "Jason Frank GOODMAN",
+     "born": "1970-04",
+     "total": 8,
+     "anchor": false
+    },
+    {
+     "officer_id": "55VtLvhJlMEnGIwteW4OlKYubLM",
+     "name": "Jason Lee GOODMAN",
+     "born": "1989-06",
+     "total": 4,
+     "anchor": false
+    },
+    {
+     "officer_id": "VQJUtn5abuNq6kT5Byhe4pVY0Ak",
+     "name": "Daniel Jason GOODMAN",
+     "born": "1984-05",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "joen-bonnier": {
+   "name": "Joen Bonnier",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "jonathan-woolley": {
+   "name": "Jonathan Woolley",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "LZQ-uKHFSDuf1UGJNQytltaCNwE",
+     "name": "Jonathan WOOLLEY",
+     "born": "1987-08",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "NKlisNtZdF6XuUdAvfmpqLfdEvI",
+     "name": "Jonathan WOOLLEY",
+     "born": "1954-05",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "Uqy7hkyh_6aqOZ3PSZhn0RoWD-4",
+     "name": "Jonathan WOOLLEY",
+     "born": "1985-06",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "Ov7JkRokozU89M4JvRG2QfpF65A",
+     "name": "Jonathan WOOLLEY",
+     "born": "1974-07",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "oeWTHzljuGgXTKRENw3h5GBSYWw",
+     "name": "Jonathan WOOLLEY",
+     "born": "1969-04",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "hOos4Bor8dWyQtpFL1yE3dtY3M8",
+     "name": "Jonathan WOOLLEY",
+     "born": "1985-06",
+     "total": 3,
+     "anchor": false
+    },
+    {
+     "officer_id": "4XB4ONGshla4oVM7gsAOfd3uhyE",
+     "name": "Jonathan WOOLLEY",
+     "born": "1985-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "TnLYnMmQ3YNQO8LhvkHp4WzYnxQ",
+     "name": "Jonathan WOOLLEY",
+     "born": "1954-09",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "O4UXO4oo5SRFi1OCVA2L2X2ZOgM",
+     "name": "Jonathan David WOOLLEY",
+     "born": "",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "4GY9UpTxUTBrbAO2v2tSnWU6dnM",
+     "name": "Jonathan David WOOLLEY",
+     "born": "1974-03",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "QCZEkD54_9AyDIfAoQVBCtnmCJI",
+     "name": "Jonathan Michael WOOLLEY",
+     "born": "1991-05",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "VyFAH-rdUMjZnFBaCOS7APwWzeQ",
+     "name": "Jonathan Michael WOOLLEY",
+     "born": "1991-05",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "julia-prada": {
+   "name": "Julia Prada",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "Ep90MHP0sxs1R-dy2Tl7XoJZeGk",
+     "name": "Julia PRADA",
+     "born": "1992-05",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "kasit-rochanakorn": {
+   "name": "Kasit Rochanakorn",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "katharine-mccallum": {
+   "name": "Katharine Mccallum",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "kelly-poon": {
+   "name": "Kelly Poon",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "cFow48LMLflCceCt8rTCmkRKQ_U",
+     "name": "Kelly POON",
+     "born": "1986-05",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "O3y5O98su7ED0KC0jcrqjPslMUE",
+     "name": "Kelly POON",
+     "born": "1986-05",
+     "total": 4,
+     "anchor": false
+    },
+    {
+     "officer_id": "YzdIVagCTVNXMeQTo-nhK2CBKc4",
+     "name": "Kelly POON",
+     "born": "",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "konstantin-zedelius": {
+   "name": "Konstantin Zedelius",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "kristina-raggl": {
+   "name": "Kristina Raggl",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "laura-ashforth": {
+   "name": "Laura Ashforth",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "Cbrj5UoC0tDKRPzoanRyN0XQuAY",
+     "name": "Laura May ASHFORTH",
+     "born": "1992-07",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "laura-connell": {
+   "name": "Laura Connell",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "_hw0GHkEvWvAHc9egRLza-WW2qo",
+     "name": "Laura CONNELL",
+     "born": "1993-05",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "idbPAYT4YQww7d6WyHOIde21cZc",
+     "name": "Laura CONNELL",
+     "born": "1988-03",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "EGo0D53W3NZTxrcpy-VavH8CuXA",
+     "name": "Laura CONNELL",
+     "born": "1984-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "y-OD4qxl-Wx63muwAGiJL5hQoZA",
+     "name": "Laura Anne Anne CONNELL",
+     "born": "1985-08",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "bpmPFe744YFZfE546oP--CWi208",
+     "name": "Laura Elizabeth CONNELL",
+     "born": "1988-03",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "XwQD-ppQMQiIJrYLX0CGrG5fgbE",
+     "name": "Laura Therese CONNELL",
+     "born": "1988-08",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "lisa-sorg": {
+   "name": "Lisa Sorg",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "qAxN43wwzSDIUZZbm2U9W3_vr-0",
+     "name": "Lisa Ute SORG-UNTERHARNSCHEIDT",
+     "born": "1994-01",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "luca-eisenstecken": {
+   "name": "Luca Eisenstecken",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "marcus-foster": {
+   "name": "Marcus Foster",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "L1aCzlpJPryLwyAjtmkBrqMrp28",
+     "name": "Marcus FOSTER",
+     "born": "1981-07",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "0ghKUYfdyv9z-aZhyuCSh5IAotA",
+     "name": "Marcus FOSTER",
+     "born": "1961-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "LZfIVUYZt-zMrCjFareiL5B8DpE",
+     "name": "Marcus FOSTER",
+     "born": "1993-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "-DsHRp_rTxezPqdXpF-Kay9gtzE",
+     "name": "Marcus FOSTER",
+     "born": "1974-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "JT7F1NdXEA73c5TxHjuCdb6kXsE",
+     "name": "Marcus A FOSTER",
+     "born": "1972-03",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "l8EdynjxzgIV_phpu65WD8PbXXU",
+     "name": "Marcus Alexander FOSTER",
+     "born": "1971-08",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "dAam3JOiSCiz6wxFiVaeiyu7uqo",
+     "name": "Marcus Andrew FOSTER",
+     "born": "1963-02",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "x7nXRT_rxr0g67CSDxupab-pc4g",
+     "name": "Marcus Edward FOSTER",
+     "born": "1978-07",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "mC8XxdM1ON1kUTOp4I4bukue6Ec",
+     "name": "Marcus James Bradley FOSTER",
+     "born": "1996-02",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "FRxIscCugvG3H-QvxNfNPGTT6fA",
+     "name": "Marcus James Bradley FOSTER",
+     "born": "1996-02",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "kAC7cUhakVsY092c78Fj_ryBSeI",
+     "name": "Marcus Spencer FOSTER",
+     "born": "1974-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "HAITcCGEBHElzrhKYG-e_Ob_JZc",
+     "name": "William Marcus John FOSTER",
+     "born": "1979-10",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "maria-orphanides": {
+   "name": "Maria Orphanides",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "gWwCJ-7XAsNDUx5HFowyDBbXw5U",
+     "name": "Maria ORPHANIDES",
+     "born": "1984-08",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "hK17mnsIhtahTVErrrDpnal3Btg",
+     "name": "Maria ORPHANIDES",
+     "born": "1988-12",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "cyhtTMED4dcKTfOWShTrJWu5KqI",
+     "name": "Maria ORPHANIDES",
+     "born": "1935-04",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "marta-naidenova": {
+   "name": "Marta Naidenova",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "mathieu-marc": {
+   "name": "Mathieu Marc",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "C_8IG76kdi7z8YeW6qYu4s3BNho",
+     "name": "Mathieu MARC",
+     "born": "1997-02",
+     "total": 5,
+     "anchor": false
+    },
+    {
+     "officer_id": "1IXq9vQn4zCzGRu7UaNIy1WKbnA",
+     "name": "Mathieu MARC",
+     "born": "1997-02",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "fakv3q25dwSyEky_bz4OKxFDz5I",
+     "name": "Mathieu Marc HIMPE",
+     "born": "1989-07",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "lQAgfO6X9qAetUwK7Nfhsf8DdLc",
+     "name": "Mathieu Marc HIMPE",
+     "born": "1989-07",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "R1MX4CeMsuxBr-ZSVmBlPGGgP4k",
+     "name": "Mathieu Marc POUCHAN",
+     "born": "1982-12",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "FDiJxeT0KeYi1sR3r_1YVZ7lSG0",
+     "name": "Gilles Marcel Marc MATHIEU",
+     "born": "1961-01",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "3c65g3-GWqgRhuTbcB9tAIg4p7k",
+     "name": "Marc Arnaud, Mathieu BOVIS",
+     "born": "1999-10",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "6nklo8v5eyx5IGGn8icxDAvixJE",
+     "name": "Marc MATHIEU",
+     "born": "1959-07",
+     "total": 2,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "maxine-smith": {
+   "name": "Maxine Smith",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "bUvoTSgFr3jovNyioVakGrPQ2k4",
+     "name": "Maxine SMITH",
+     "born": "1966-02",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "rqAH9ho5L4nySmJgMpqvb99eihY",
+     "name": "Maxine SMITH",
+     "born": "",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "tlLQv_iIiKSKbxVZeFk0C1m2q0U",
+     "name": "Maxine SMITH",
+     "born": "1960-01",
+     "total": 3,
+     "anchor": false
+    },
+    {
+     "officer_id": "yuWMWILfB5hvOjmAO46m68YyDQI",
+     "name": "Maxine SMITH",
+     "born": "",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "0DkpGuu0GClnyB7TjkC45W00JOA",
+     "name": "Maxine SMITH",
+     "born": "1962-09",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "KX2fwLTa13FdM4cBKWkWzqQ2jTw",
+     "name": "Maxine SMITH",
+     "born": "1965-09",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "Vs4-LoVfBqqm-Sv_XyZiwG_2gjM",
+     "name": "Maxine SMITH",
+     "born": "",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "N4bNfySI661Tr5KVq_LuipbEGXY",
+     "name": "Maxine SMITH",
+     "born": "1959-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "nVCzXIcOLsqp-MCxE-BZnBn__JA",
+     "name": "Maxine SMITH",
+     "born": "1968-09",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "NtOTtrCSASQBjK2SVVwPY6XRn4U",
+     "name": "Maxine SMITH",
+     "born": "1970-08",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "PN9yMZZg36lWE2GHtIXjMUGKtbo",
+     "name": "Maxine SMITH",
+     "born": "1978-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "eSVy3mnbnfA2hEBVRmRldARO6ug",
+     "name": "Maxine SMITH",
+     "born": "",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "miguel-rodrigo-perez": {
+   "name": "Miguel Rodrigo Perez",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "EZk2syK--_RAwz2LGPfoWYxtOLY",
+     "name": "Miguel Angel CAMACHO PEREZ",
+     "born": "1998-04",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "AQ3yW7DbBc6B2bwR3qwRNSonFIc",
+     "name": "Miguel CARDOSO PEREZ PEREIRA",
+     "born": "1993-02",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "wGve8Hi7rcjK8BAEQxbrSn8t5DQ",
+     "name": "Miguel Angel CHAPARRO PÉREZ",
+     "born": "1970-11",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "kHy8k84asR5K4Lp8CMRFmWP3Yfw",
+     "name": "Miguel COBACHO PEREZ",
+     "born": "1992-03",
+     "total": 3,
+     "anchor": false
+    },
+    {
+     "officer_id": "IuvKgTiU0bs0VcMQtrAlk08Fv-Y",
+     "name": "Miguel FOSTER PEREZ",
+     "born": "",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "2l4hU0i8J_7TC3ZcTwIDJmjq-dQ",
+     "name": "Miguel FOSTER PEREZ",
+     "born": "1959-01",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "d1OIa-oSs569EUXYNIsX_GJxse4",
+     "name": "Miguel Francisco LORCA PEREZ",
+     "born": "1970-03",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "uJBjKZPoOi1caKsRW74tPlnVDjo",
+     "name": "Miguel Francisco LORCA PEREZ",
+     "born": "1970-03",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "nCRqY9yNzKx6PpOPssdD2PanASg",
+     "name": "Miguel Angel MUNOZ PEREZ",
+     "born": "1958-02",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "0UPL0STxKrT6Wl2cQzxbEfN_WuU",
+     "name": "Miguel OCHOA PÉREZ",
+     "born": "1974-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "HIw8uB4PXzgwCP3rX0z4hBFlWTw",
+     "name": "Miguel Manuel PAREJA PEREZ",
+     "born": "1961-05",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "iN-cIP-CWUosVXNf8FaKWed01dE",
+     "name": "Miguel Angel PEREZ ANTON",
+     "born": "1982-05",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "mikko-kodisoja": {
+   "name": "Mikko Kodisoja",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "5UC1LoCIxWSUvLq9D1m6Zlfft38",
+     "name": "Mikko KODISOJA",
+     "born": "1976-07",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "naz-ozertugrul": {
+   "name": "Naz Ozertugrul",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "Y6IJXssB031XCLdvGGOiQhfe_NY",
+     "name": "Naz Ozertugrul OZERTUGRUL",
+     "born": "1986-06",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "niall-wass": {
+   "name": "Niall Wass",
+   "group": "people,team",
+   "ids": [
+    {
+     "officer_id": "AblI1xDOBKRKfTCZp6ufEwp23qs",
+     "name": "Niall WASS",
+     "born": "1969-07",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "CzVAdivw0-AsxgJnaacVTxAeS18",
+     "name": "Niall Fraser WASS",
+     "born": "1969-07",
+     "total": 3,
+     "anchor": false
+    },
+    {
+     "officer_id": "UwIYK3XLcsw_DeY4R0sBIyv8a2c",
+     "name": "Niall Fraser WASS",
+     "born": "1969-07",
+     "total": 5,
+     "anchor": true
+    },
+    {
+     "officer_id": "91uECVc3oHorOdsngGGe1YJsrMU",
+     "name": "Niall Fraser WASS",
+     "born": "1969-07",
+     "total": 10,
+     "anchor": false
+    },
+    {
+     "officer_id": "cv6Vud70V-rj5tIslb5cbS-OGxw",
+     "name": "Niall Fraser WASS",
+     "born": "1969-07",
+     "total": 3,
+     "anchor": false
+    },
+    {
+     "officer_id": "tKiBfWMzBvrbtQKAqQZGPc1tHEU",
+     "name": "Niall Fraser WASS",
+     "born": "1969-07",
+     "total": 1,
+     "anchor": true
+    },
+    {
+     "officer_id": "QwQwxBDBs9dHtz0DW6CUxq4rHPI",
+     "name": "Niall Fraser WASS",
+     "born": "1969-07",
+     "total": 2,
+     "anchor": false
+    }
+   ],
+   "rejected_ids": [],
+   "seats": [
+    {
+     "company_number": "10084917",
+     "company_name": "JOB AND TALENT HOLDING LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2016-05-28",
+     "resigned": "2025-08-25",
+     "address": "12 New Fetter Lane, London, United Kingdom, EC4A 1JP",
+     "officer_id": "AblI1xDOBKRKfTCZp6ufEwp23qs",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "13444650",
+     "company_name": "CIRCLE MIDCO 2 LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2023-06-20",
+     "resigned": "",
+     "address": "3rd Floor, 2 Glass Wharf, Bristol, United Kingdom, BS2 0EL",
+     "officer_id": "CzVAdivw0-AsxgJnaacVTxAeS18",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "13449024",
+     "company_name": "CIRCLE BIDCO LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2023-06-20",
+     "resigned": "",
+     "address": "3rd Floor, 2 Glass Wharf, Bristol, United Kingdom, BS2 0EL",
+     "officer_id": "CzVAdivw0-AsxgJnaacVTxAeS18",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "13438485",
+     "company_name": "CIRCLE MIDCO 1 LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2023-06-20",
+     "resigned": "",
+     "address": "3rd Floor, 2 Glass Wharf, Bristol, United Kingdom, BS2 0EL",
+     "officer_id": "CzVAdivw0-AsxgJnaacVTxAeS18",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "06916506",
+     "company_name": "GENTIANES SOLUTIONS LTD",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2025-03-11",
+     "resigned": "",
+     "address": "Nucleus House, 2nd Floor, 2 Lower Mortlake Road, Richmond, England, TW9 2JA",
+     "officer_id": "UwIYK3XLcsw_DeY4R0sBIyv8a2c",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "15894153",
+     "company_name": "V TOPCO LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2024-10-17",
+     "resigned": "",
+     "address": "Third Floor, Hodge House, 114-116, St. Mary Street, Cardiff, South Glamorgan, Wales, CF10 1DY",
+     "officer_id": "UwIYK3XLcsw_DeY4R0sBIyv8a2c",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "10047637",
+     "company_name": "KORU KIDS LTD",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2019-08-12",
+     "resigned": "2024-12-19",
+     "address": "Atomico, 50 New Bond Street, London, United Kingdom, W15 1BJ",
+     "officer_id": "UwIYK3XLcsw_DeY4R0sBIyv8a2c",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "09384953",
+     "company_name": "HEY HABITO LTD",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2017-11-08",
+     "resigned": "2022-09-01",
+     "address": "Atomico, 50 New Bond Street, Mayfair, London, England, W1S 1BJ",
+     "officer_id": "UwIYK3XLcsw_DeY4R0sBIyv8a2c",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "08346380",
+     "company_name": "STREETHUB LTD",
+     "company_status": "Liquidation",
+     "role": "Director",
+     "appointed": "2018-08-28",
+     "resigned": "2022-05-06",
+     "address": "Flat 15, 12 Lawn Lane, London, United Kingdom, SW8 1UD",
+     "officer_id": "UwIYK3XLcsw_DeY4R0sBIyv8a2c",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "NI604036",
+     "company_name": "ONI GAS LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2015-12-09",
+     "resigned": "",
+     "address": "1 Rivergate, Temple Quay, Bristol, United Kingdom, BS1 6ED",
+     "officer_id": "91uECVc3oHorOdsngGGe1YJsrMU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "NI604034",
+     "company_name": "ONI ENERGY LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2015-12-09",
+     "resigned": "",
+     "address": "1 Rivergate, Temple Quay, Bristol, United Kingdom, BS1 6ED",
+     "officer_id": "91uECVc3oHorOdsngGGe1YJsrMU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "NI604035",
+     "company_name": "ONI ELECTRICITY LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2015-12-09",
+     "resigned": "",
+     "address": "1 Rivergate, Temple Quay, Bristol, United Kingdom, BS1 6ED",
+     "officer_id": "91uECVc3oHorOdsngGGe1YJsrMU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "08441878",
+     "company_name": "SMART METER FINANCE LTD",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2015-12-09",
+     "resigned": "",
+     "address": "1 Rivergate, Temple Quay, Bristol, United Kingdom, BS1 6ED",
+     "officer_id": "91uECVc3oHorOdsngGGe1YJsrMU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "08862063",
+     "company_name": "ENERGY TRANSITION GROUP LTD",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2015-12-09",
+     "resigned": "2021-01-12",
+     "address": "1 Rivergate, Temple Quay, Bristol, United Kingdom, BS1 6ED",
+     "officer_id": "91uECVc3oHorOdsngGGe1YJsrMU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "06858121",
+     "company_name": "OVO ELECTRICITY LTD",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2015-12-09",
+     "resigned": "2021-01-12",
+     "address": "1 Rivergate, Temple Quay, Bristol, United Kingdom, BS1 6ED",
+     "officer_id": "91uECVc3oHorOdsngGGe1YJsrMU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "08785057",
+     "company_name": "OVO FIELD FORCE LTD",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2015-12-09",
+     "resigned": "2021-01-12",
+     "address": "1 Rivergate, Temple Quay, Bristol, United Kingdom, BS1 6ED",
+     "officer_id": "91uECVc3oHorOdsngGGe1YJsrMU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "06890795",
+     "company_name": "OVO ENERGY LTD",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2015-12-09",
+     "resigned": "2021-01-12",
+     "address": "1 Rivergate, Temple Quay, Bristol, United Kingdom, BS1 6ED",
+     "officer_id": "91uECVc3oHorOdsngGGe1YJsrMU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "06752915",
+     "company_name": "OVO GAS LTD",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2015-12-09",
+     "resigned": "2021-01-12",
+     "address": "1 Rivergate, Temple Quay, Bristol, United Kingdom, BS1 6ED",
+     "officer_id": "91uECVc3oHorOdsngGGe1YJsrMU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "08330989",
+     "company_name": "INTELLIGENT ENERGY TECHNOLOGY LTD",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2015-12-09",
+     "resigned": "2021-01-12",
+     "address": "1 Rivergate, Temple Quay, Bristol, United Kingdom, BS1 6ED",
+     "officer_id": "91uECVc3oHorOdsngGGe1YJsrMU",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "13435798",
+     "company_name": "CIRCLE TOPCO LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2022-09-29",
+     "resigned": "",
+     "address": "3rd Floor, 2 Glass Wharf, Bristol, United Kingdom, BS2 0EL",
+     "officer_id": "cv6Vud70V-rj5tIslb5cbS-OGxw",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "13096622",
+     "company_name": "MOONPIG GROUP PLC",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2021-01-10",
+     "resigned": "",
+     "address": "10 Back Hill, London, United Kingdom, EC1R 5EN",
+     "officer_id": "cv6Vud70V-rj5tIslb5cbS-OGxw",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "08820870",
+     "company_name": "LONDON HOUSE EXCHANGE LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2016-12-07",
+     "resigned": "2019-10-21",
+     "address": "55 Baker Street, London, England, W1U 7EU",
+     "officer_id": "cv6Vud70V-rj5tIslb5cbS-OGxw",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "08674633",
+     "company_name": "UNIPLACES LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2017-01-09",
+     "resigned": "2018-02-21",
+     "address": "Atomico, 50 New Bond Street, London, Uk, W1S 1BJ",
+     "officer_id": "tKiBfWMzBvrbtQKAqQZGPc1tHEU",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "05897177",
+     "company_name": "WONGA GROUP LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2013-11-12",
+     "resigned": "2014-05-22",
+     "address": "3-4, Prince Albert Road, London, NW1 7SN",
+     "officer_id": "QwQwxBDBs9dHtz0DW6CUxq4rHPI",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "06374235",
+     "company_name": "WDFC UK LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2012-12-12",
+     "resigned": "2014-05-22",
+     "address": "88 Crawford Street, London, W1H 2EJ",
+     "officer_id": "QwQwxBDBs9dHtz0DW6CUxq4rHPI",
+     "firm_entity": false,
+     "firm_address": false
+    }
+   ],
+   "status": "done",
+   "born": [
+    "1969-07"
+   ]
+  },
+  "nicole-lai": {
+   "name": "Nicole Lai",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "FXQtX4LuP_djszvxEPVHnXi0pvA",
+     "name": "Nicole LAI",
+     "born": "1993-08",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "qvJd6FS_p3WWnubpmHZmDdomYn8",
+     "name": "Nicole Cristal LAI",
+     "born": "1998-05",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "o_zYeA0tqoO8EWpdQ9DEF8EW7tI",
+     "name": "Nicole Kah Lai CHONG",
+     "born": "2002-12",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "olga-ayers": {
+   "name": "Olga Ayers",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "7uchjEz9hPAl4Eu-IT04Rf2eg9U",
+     "name": "Olga AYERS",
+     "born": "",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "MUXoAONoJ0zlWkvjBal4XHDR_2E",
+     "name": "Olga AYERS",
+     "born": "1990-07",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "paddy-lambros": {
+   "name": "Paddy Lambros",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "pogos-saiadian": {
+   "name": "Pogos Saiadian",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "R1MzZFUGOYOaxk70uRtZLCBLBTY",
+     "name": "Pogos SAIADIAN",
+     "born": "1983-08",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "lTt6kBEgdKZrKRcSmKJDbLTPPwQ",
+     "name": "Pogos SAIADIAN",
+     "born": "1983-08",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "pranav-vangala": {
+   "name": "Pranav Vangala",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "ux9ETfQ7lfC907Q9Y-WCaQ6JpYk",
+     "name": "Pranav VANGALA",
+     "born": "1995-03",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "YPB43rDnnk2ZXcumMScQsO0G6IE",
+     "name": "Pranav VANGALA",
+     "born": "1995-03",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "rowen-pham": {
+   "name": "Rowen Pham",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "67AtRU1pvRHf6Cp3GJFJm3XgHgw",
+     "name": "Rowen Thai PHAM",
+     "born": "1993-01",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "sarah-guemouri": {
+   "name": "Sarah Guemouri",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "l754fMe76J_CiXdqm9q6ET4eOV8",
+     "name": "Sarah GUEMOURI",
+     "born": "1989-10",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "f1KexzCg3TUzVbNywBZQYWOpa6A",
+     "name": "Sarah GUEMOURI",
+     "born": "1989-10",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "sasha-astafyeva": {
+   "name": "Sasha Astafyeva",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "shamal-thakar": {
+   "name": "Shamal Thakar",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "shari-doherty": {
+   "name": "Shari Doherty",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "WZUAUlC2FR1nx4z15ZL82ZdI_ug",
+     "name": "Shari Lee DOHERTY",
+     "born": "",
+     "total": 2,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "shin-iwata": {
+   "name": "Shin Iwata",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "siraj-khaliq": {
+   "name": "Siraj Khaliq",
+   "group": "people,team",
+   "ids": [
+    {
+     "officer_id": "QI9modMnhJftAMXuQidVvwz4JzM",
+     "name": "Siraj KHALIQ",
+     "born": "1978-04",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "2T3s6BV8FkkGobuq5yoYtHuMuGw",
+     "name": "Siraj Rashid KHALIQ",
+     "born": "1978-04",
+     "total": 2,
+     "anchor": true
+    },
+    {
+     "officer_id": "hwL-AZAbcGfQ7KAIyrXDAQU768g",
+     "name": "Siraj Rashid KHALIQ",
+     "born": "1978-04",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "rejected_ids": [
+    {
+     "officer_id": "zCH3UCaqlaFqBRhBDvwoe1iMKT8",
+     "name": "Siraj Naveed KHALIQ",
+     "born": "1997-05",
+     "total": 2,
+     "anchor": false
+    }
+   ],
+   "seats": [
+    {
+     "company_number": "09440266",
+     "company_name": "LIVING CENTRAL LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2018-05-05",
+     "resigned": "2023-02-27",
+     "address": "International House, Holborn Viaduct, London, England, EC1A 2BN",
+     "officer_id": "QI9modMnhJftAMXuQidVvwz4JzM",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "10185006",
+     "company_name": "GRAPHCORE LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2017-06-23",
+     "resigned": "2024-07-11",
+     "address": "29 Rathbone St, London, United Kingdom, W1T 1NJ",
+     "officer_id": "2T3s6BV8FkkGobuq5yoYtHuMuGw",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "09821257",
+     "company_name": "CLOUDNC LTD",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2018-05-24",
+     "resigned": "2023-02-02",
+     "address": "50 New Bond Street, London, United Kingdom, W1S 1BJ",
+     "officer_id": "2T3s6BV8FkkGobuq5yoYtHuMuGw",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "09440266",
+     "company_name": "LIVING CENTRAL LIMITED",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2023-03-22",
+     "resigned": "2023-06-23",
+     "address": "International House, Holborn Viaduct, London, England, EC1A 2BN",
+     "officer_id": "hwL-AZAbcGfQ7KAIyrXDAQU768g",
+     "firm_entity": false,
+     "firm_address": false
+    }
+   ],
+   "status": "done",
+   "born": [
+    "1978-04"
+   ]
+  },
+  "soline-kauffmann-tourkestansky": {
+   "name": "Soline Kauffmann-Tourkestansky",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "sophia-bendz": {
+   "name": "Sophia Bendz",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "OAiMAEazI_QaoSaD-n5wOpAEj9k",
+     "name": "Sophia Evelina BENDZ",
+     "born": "1980-04",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "stephen-thorne": {
+   "name": "Stephen Thorne",
+   "group": "people,team",
+   "ids": [
+    {
+     "officer_id": "stAXCJ1KLXS8pQEBBl7harKeZ8U",
+     "name": "Stephen THORNE",
+     "born": "1989-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "ad8nQItjqoqD6zeHT6805v5T6c0",
+     "name": "Stephen THORNE",
+     "born": "1989-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "bJMcZkKBleDO8nxz6dbDDBAnvrw",
+     "name": "Stephen THORNE",
+     "born": "1989-06",
+     "total": 1,
+     "anchor": true
+    }
+   ],
+   "rejected_ids": [
+    {
+     "officer_id": "1S5GxpJtCfjTeGEY-DdTxe5HL1U",
+     "name": "Stephen THORNE",
+     "born": "1975-03",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "L-SWmb92drg7lbh6YGxvu-nrcNs",
+     "name": "Stephen THORNE",
+     "born": "1976-09",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "24JM28ng5rSR1dt8q0hLUX6C3fE",
+     "name": "Stephen THORNE",
+     "born": "1959-07",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "OR1Vbe8hG8sMGoRFCH0CNb8kPgM",
+     "name": "Stephen THORNE",
+     "born": "1970-01",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "zojy7Ax2GLcLmYq6LlndL1qQ6c8",
+     "name": "Stephen THORNE",
+     "born": "1971-04",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "GRS5FaY7BKIPnRIzR3-s_uSGaT4",
+     "name": "Stephen THORNE",
+     "born": "1972-07",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "eHZA6DCcdHXhs5AwcAKkWQUceoc",
+     "name": "Stephen THORNE",
+     "born": "1959-07",
+     "total": 5,
+     "anchor": false
+    },
+    {
+     "officer_id": "6425pteBw5DTBHayYU8FSCWIwTs",
+     "name": "Stephen Arthur James THORNE",
+     "born": "1955-11",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "bykAJkn5F4e6NhUrC0klV45p2a0",
+     "name": "Stephen David THORNE",
+     "born": "1992-10",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [
+    {
+     "company_number": "OC455270",
+     "company_name": "INTREPID GROWTH PARTNERS (UK) LLP",
+     "company_status": "Active",
+     "role": "LLP Designated Member",
+     "appointed": "2025-09-09",
+     "resigned": "",
+     "address": "Intrepid Growth Partners, 30 Newman Street, London, England, W1T 1PT",
+     "officer_id": "stAXCJ1KLXS8pQEBBl7harKeZ8U",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "OC425618",
+     "company_name": "TRIANGLE M (UK) LLP",
+     "company_status": "Dissolved",
+     "role": "LLP Member",
+     "appointed": "2019-09-27",
+     "resigned": "2020-12-22",
+     "address": "69 Grosvenor Street, Mayfair, London, United Kingdom, W1K 3JW",
+     "officer_id": "ad8nQItjqoqD6zeHT6805v5T6c0",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "10084917",
+     "company_name": "JOB AND TALENT HOLDING LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2018-09-24",
+     "resigned": "2019-05-15",
+     "address": "50 New Bond Street, London, England, W1S 1BJ",
+     "officer_id": "bJMcZkKBleDO8nxz6dbDDBAnvrw",
+     "firm_entity": false,
+     "firm_address": true
+    }
+   ],
+   "status": "done",
+   "born": [
+    "1989-06"
+   ]
+  },
+  "steve-crossan": {
+   "name": "Steve Crossan",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "-WGXRkZuwq1wXYr090oIIwBYedo",
+     "name": "Steve CROSSAN",
+     "born": "1970-05",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "LFujwreyrBbXstNIlYGo2J56YuE",
+     "name": "Steven Charles CROSSAN",
+     "born": "1986-08",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "PzrJxh5K0ypK4DQH2lQ684W5Gyg",
+     "name": "Steven CROSSAN",
+     "born": "1989-12",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "6s1gChfFaaL6sa9A15bgY6davWM",
+     "name": "Steven CROSSAN",
+     "born": "1970-12",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "wQbOYFQq28LgTYazzyl9gq3E6io",
+     "name": "Steven CROSSAN",
+     "born": "1971-03",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "NCikBfmEnyAwiFO8XtsLPsIpJu0",
+     "name": "Steven Robert CROSSAN",
+     "born": "1971-03",
+     "total": 2,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "teddie-wardi": {
+   "name": "Teddie Wardi",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "pC_KdhJsqC0J4ZW7nUe2iUbzxlE",
+     "name": "Teddie WARDI",
+     "born": "1984-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "My7AIDyYnP3JgvD0dFqq3LQsdCo",
+     "name": "Teddie WARDI",
+     "born": "1984-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "LW4Ye58E8xUPVUI6_hPXDj-BiZM",
+     "name": "Teddie Benjamin WARDI",
+     "born": "1984-06",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "terese-hougaard": {
+   "name": "Terese Hougaard",
+   "group": "team",
+   "ids": [
+    {
+     "officer_id": "q1xGYLhGK7xBgZgYRcq82VsSH5M",
+     "name": "Terese HOUGAARD",
+     "born": "1986-04",
+     "total": 4,
+     "anchor": true
+    }
+   ],
+   "rejected_ids": [],
+   "seats": [
+    {
+     "company_number": "13104396",
+     "company_name": "SCARLET GLOBAL HOLDINGS LTD",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2025-04-29",
+     "resigned": "2025-10-16",
+     "address": "29 Rathbone Street, London, United Kingdom, W1T 1NJ",
+     "officer_id": "q1xGYLhGK7xBgZgYRcq82VsSH5M",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "13499591",
+     "company_name": "TEM-ENERGY LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2024-05-22",
+     "resigned": "2025-09-29",
+     "address": "29 Rathbone Street, London, United Kingdom, W1T 1NJ",
+     "officer_id": "q1xGYLhGK7xBgZgYRcq82VsSH5M",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "13944072",
+     "company_name": "SALT GLOBAL TECH LTD",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2023-08-24",
+     "resigned": "2025-09-26",
+     "address": "29 Rathbone Street, London, England, W1T 1NJ",
+     "officer_id": "q1xGYLhGK7xBgZgYRcq82VsSH5M",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "12009812",
+     "company_name": "GAIA FERTILITY LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2023-11-02",
+     "resigned": "2025-06-02",
+     "address": "29 Rathbone Street, London, England, W1T 1NJ",
+     "officer_id": "q1xGYLhGK7xBgZgYRcq82VsSH5M",
+     "firm_entity": false,
+     "firm_address": true
+    }
+   ],
+   "status": "done",
+   "born": [
+    "1986-04"
+   ]
+  },
+  "thibaut-ceyrolle": {
+   "name": "Thibaut Ceyrolle",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "ygpxIhGyLseT18QgXNPf_-SsIfk",
+     "name": "Thibaut CEYROLLE",
+     "born": "1976-10",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "tom-wehmeier": {
+   "name": "Tom Wehmeier",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "victor-jolly": {
+   "name": "Victor Jolly",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "cxC0V-TnShslzh5Mt0ji60Sj6Z4",
+     "name": "Victor JOLLY",
+     "born": "1949-01",
+     "total": 4,
+     "anchor": false
+    },
+    {
+     "officer_id": "wPjZF57EPSzA3cPug-WaKt2kzl8",
+     "name": "Derek Victor JOLLY",
+     "born": "1955-04",
+     "total": 3,
+     "anchor": false
+    },
+    {
+     "officer_id": "KKYKot8UZVV6ACTmwHH5Hn1jZmQ",
+     "name": "Camilla Victoria Hamilton JOLLY",
+     "born": "",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "fMvAcUAEgF2yKoztymCFIaLrPkI",
+     "name": "Emma Victoria JOLLY",
+     "born": "1980-05",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "nCsZyEiwuE5h4CsdXmNNVSSaWys",
+     "name": "Emma Victoria JOLLY",
+     "born": "1980-05",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "DRc-Wb_DrprnwP9EV3-BbX0oXqQ",
+     "name": "Victoria Louise JOLLY",
+     "born": "1972-03",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "oOv5hoQZceMKVT72bhwc1C3vQL8",
+     "name": "Victoria JOLLY",
+     "born": "1990-06",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "U86qgsCEBkblumHAVRz18QIU0GY",
+     "name": "Victoria JOLLY",
+     "born": "1982-05",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "vishal-malik": {
+   "name": "Vishal Malik",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "CSWH8XT6tN7C62vdUnf0BRrB_gQ",
+     "name": "Vishal MALIK",
+     "born": "1982-06",
+     "total": 2,
+     "anchor": false
+    },
+    {
+     "officer_id": "L4WkBDtyLHsAezP1snCRQN6NfzI",
+     "name": "Vishal MALIK",
+     "born": "1981-05",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "V34ryBEbT3q7PwAopffyfrKdPwI",
+     "name": "Vishal MALIK",
+     "born": "1981-05",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "FopmnbH1rMRrHHjnJdY2aUBZbT4",
+     "name": "Vishal MALIK",
+     "born": "1983-04",
+     "total": 2,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "will-dufton": {
+   "name": "Will Dufton",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "-WD3YZd2CLq_AM9rtU2hSJp_ctE",
+     "name": "Ernest William DUFTON",
+     "born": "1948-04",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "ND7rGN4eIU3VVgPRu7FN0X_MOEs",
+     "name": "Martin William DUFTON",
+     "born": "1979-02",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "nbtExkMF7oDIkJ9Ra0AERvFYEcY",
+     "name": "William John DUFTON",
+     "born": "1994-03",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "ODaXsTBHU6Plls91NlKllFRXcwA",
+     "name": "William Thomas DUFTON",
+     "born": "1995-07",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "hL-oGDGBLO3PCt5WB0NmuYROHDI",
+     "name": "William DUFTON",
+     "born": "1939-05",
+     "total": 3,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "wouter-gort": {
+   "name": "Wouter Gort",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "xF7Z67cEGnp2Z5XCPwI-ur-xGfQ",
+     "name": "Wouter Adrianus GORT",
+     "born": "1974-08",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  },
+  "yann-de-vries": {
+   "name": "Yann De Vries",
+   "group": "people,team",
+   "ids": [
+    {
+     "officer_id": "3k2UhjFoz6LdgvHZ5SZfelpx3Q0",
+     "name": "Yann DE VRIES",
+     "born": "1970-01",
+     "total": 1,
+     "anchor": true
+    },
+    {
+     "officer_id": "aRx1QTpZHsbEYiKxRJ4rnHuMQ8w",
+     "name": "Yann Jean-Paul Ghislaine DE VRIES",
+     "born": "1970-01",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "D2O7gazv2n6hCaqrmDNqluw_HPc",
+     "name": "Yann Jean-Paul Ghislaine DE VRIES",
+     "born": "1970-01",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "rejected_ids": [],
+   "seats": [
+    {
+     "company_number": "10084917",
+     "company_name": "JOB AND TALENT HOLDING LIMITED",
+     "company_status": "Active",
+     "role": "Director",
+     "appointed": "2016-05-28",
+     "resigned": "2018-09-24",
+     "address": "Atomico, 50 New Bond Street, London, United Kingdom, W2S 1BJ",
+     "officer_id": "3k2UhjFoz6LdgvHZ5SZfelpx3Q0",
+     "firm_entity": false,
+     "firm_address": true
+    },
+    {
+     "company_number": "14304417",
+     "company_name": "D5S LTD",
+     "company_status": "Dissolved",
+     "role": "Director",
+     "appointed": "2023-03-31",
+     "resigned": "",
+     "address": "12 Bridewell Place, Third Floor East, London, England, EC4V 6AP",
+     "officer_id": "aRx1QTpZHsbEYiKxRJ4rnHuMQ8w",
+     "firm_entity": false,
+     "firm_address": false
+    },
+    {
+     "company_number": "11118713",
+     "company_name": "LILIUM AVIATION UK LTD",
+     "company_status": "Liquidation",
+     "role": "Director",
+     "appointed": "2019-03-25",
+     "resigned": "2020-09-04",
+     "address": "2nd Floor, Waverley House, 7-12 Noel Street, London, United Kingdom, W1F 8GQ",
+     "officer_id": "D2O7gazv2n6hCaqrmDNqluw_HPc",
+     "firm_entity": false,
+     "firm_address": false
+    }
+   ],
+   "status": "done",
+   "born": [
+    "1970-01"
+   ]
+  },
+  "yuan-chen": {
+   "name": "Yuan Chen",
+   "group": "",
+   "ids": [],
+   "rejected_ids": [
+    {
+     "officer_id": "zurUdIzuvlf59szrJj_fV_0tFdE",
+     "name": "Yuan CHEN",
+     "born": "1992-01",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "oxU3DBISoikVEddsZ8TsY0mcDeI",
+     "name": "Yuan CHEN",
+     "born": "",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "dJxtc03sKOgjfJRUu9DES9Mhz_s",
+     "name": "Yuan CHEN",
+     "born": "1992-04",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "2Vq3Gvy9Fky-WFUcxon-B14nZ90",
+     "name": "Yuan CHEN",
+     "born": "1985-08",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "67sGufyXqZIs4scdHseekIIv2OE",
+     "name": "Yuan CHEN",
+     "born": "",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "GYPB8MbhMa0_5CfNcWwsRKO4EeQ",
+     "name": "Yuan CHEN",
+     "born": "1969-09",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "GhC_QnL73OwfL8afieFFQMWY1gQ",
+     "name": "Yuan CHEN",
+     "born": "1976-01",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "wjvRmFJipFDazbP9DENpFNMRnAs",
+     "name": "Yuan CHEN",
+     "born": "1972-09",
+     "total": 5,
+     "anchor": false
+    },
+    {
+     "officer_id": "zs_kM0kFjNmiK76oidE22aFhchY",
+     "name": "Yuan CHEN",
+     "born": "1985-04",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "j6ssfYnBHQD1zjnpckgq7bH4t20",
+     "name": "Yuan CHEN",
+     "born": "",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "e6lTr7y-fACuHC2BEAp5vBQIIRQ",
+     "name": "Yuan CHEN",
+     "born": "1971-11",
+     "total": 1,
+     "anchor": false
+    },
+    {
+     "officer_id": "eR3AUKQgudf1AQzzy-eDw3dth3E",
+     "name": "Yuan CHEN",
+     "born": "1983-04",
+     "total": 1,
+     "anchor": false
+    }
+   ],
+   "seats": [],
+   "status": "done",
+   "born": []
+  }
+ }
+}

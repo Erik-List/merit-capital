@@ -1,0 +1,480 @@
+{
+ "slug": "atomico",
+ "name": "Atomico",
+ "wayback": {
+  "cdx_domain": "atomico.com",
+  "site_url_base": "https://atomico.com",
+  "eras": [
+   {
+    "parser": "cdx_company_pages",
+    "path": "/portfolios/atomico-ventures-i/",
+    "from": 2011,
+    "to": 2012,
+    "per_company_pages": true,
+    "_note": "2011-2012 WordPress site: every company page sits under the FUND that held it. /portfolios/atomico-ventures-i/<slug> is the founders'-capital first fund (2006-2009 deals)."
+   },
+   {
+    "parser": "cdx_company_pages",
+    "path": "/portfolios/atomico-ii/",
+    "from": 2011,
+    "to": 2012,
+    "per_company_pages": true,
+    "_note": "2011-2012: /portfolios/atomico-ii/<slug>, Atomico Ventures II (2009-2012 deals)."
+   },
+   {
+    "parser": "cdx_company_pages",
+    "path": "/portfolio/",
+    "from": 2012,
+    "to": 2019,
+    "per_company_pages": true,
+    "_note": "2012-2017 site: /portfolio/<slug> per company (redirects linger into 2019)."
+   },
+   {
+    "parser": "cdx_company_pages",
+    "path": "/partnerships/",
+    "from": 2018,
+    "to": 2021,
+    "per_company_pages": true,
+    "_note": "2018-2019 WordPress site: /partnerships/<slug>."
+   },
+   {
+    "parser": "cdx_company_pages",
+    "path": "/investments/",
+    "from": 2019,
+    "to": 2021,
+    "per_company_pages": true,
+    "_note": "2019-2021 WordPress site: /investments/<slug>; the region pages (asia, europe, north-america, south-america, most-recent) are filters, not companies."
+   },
+   {
+    "parser": "cdx_company_pages",
+    "path": "/partners/",
+    "from": 2021,
+    "to": 2026,
+    "per_company_pages": true,
+    "_note": "2021-2026 Next.js site over the Hygraph CMS: /partners/<slug>; the page data (investment year, lead, Venture/Growth, Current/Exited) is read into sources/site/cms-partners.json by scratch/cms-pull.py."
+   }
+  ],
+  "non_company_slugs": [
+   "index",
+   "feed",
+   "page",
+   "all",
+   "asia",
+   "europe",
+   "north-america",
+   "south-america",
+   "most-recent",
+   "[slug]",
+   "--navy",
+   "--navy80",
+   "--section-padding",
+   "--text-color",
+   "search",
+   "tag",
+   "category",
+   "author",
+   "wp-content",
+   "wp-json",
+   "partners",
+   "partnerships",
+   "investments",
+   "portfolio",
+   "portfolios",
+   "atomico-ii",
+   "atomico-ventures-i",
+   "team",
+   "people",
+   "insights",
+   "news",
+   "about",
+   "contact",
+   "0.2.3",
+   "collapsarch.php",
+   "pedidosya.com",
+   "madbid%20%20"
+  ]
+ },
+ "edgar": {
+  "seed_queries": [
+   "atomico"
+  ],
+  "fts_phrases": [
+   "Atomico"
+  ],
+  "fts_own_pattern": "^atomico\\b",
+  "_note": "Kickoff 2026-09-26: EDGAR full-text search for \"Atomico\" over all years returns 225 documents; entity-qualified phrases measured the same day (\"Atomico Ventures\" 49, \"Atomico IV\" 74, \"Atomico Advisors\" 59, \"Atomico (UK)\" 24, \"Atomico V\" 31, \"Atomico III\" 5). The bare word is distinctive enough to sweep whole; AtomicO8 Inc. (CIK 1814779, a Canoga Park crowdfunding issuer) is a namesake."
+ },
+ "wikipedia": {
+  "phrases": [
+   "Atomico"
+  ]
+ },
+ "desks": {
+  "home": "eu",
+  "partition": [],
+  "rank": [
+   "eu",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "atomico ?8",
+     "atomico electrical",
+     "atomicom",
+     "atomicoach",
+     "hombre atomico",
+     "atomic oil"
+    ]
+   },
+   {
+    "desk": "eu",
+    "patterns": [
+     "^atomico"
+    ]
+   }
+  ]
+ },
+ "registers": {
+  "uk": {
+   "firm_entities": [
+    "OC342228",
+    "06570634",
+    "07266688",
+    "12488333",
+    "15015365"
+   ],
+   "firm_addresses": [
+    "atomico",
+    "\\b7,? savoy court",
+    "hanover house,? 14|14,? hanover square",
+    "\\b50,? new bond street",
+    "\\b29(?:-35)?,? rathbone street"
+   ],
+   "_note": "Companies House (read through the public register website, scratch/companies_house.py). The firm's UK entities: Atomico (UK) Partners LLP OC342228 (2008-12-19, the FCA-authorised manager and SEC ERA CRD 301113), Atomico (UK) Limited 06570634 (2008-04-18), Atomico 2010 (UK) Limited 07266688 (2010-05-27, LLP designated member), Atomico V Coinvest Limited 12488333 (2020-02-27) and Atomico VI Coinvest Limited 15015365 (2023-07-20). The firm's London offices as they appear as officer service addresses: Hanover House, 14 Hanover Square W1S 1HP (2008-2010), 7 Savoy Court WC2R 0EX (2008-2013), 50 New Bond Street W1S 1BJ (2014-2019), 29(-35) Rathbone Street W1T 1NJ (2019-). Namesakes on the register: Atomico Electrical LLP OC426649, Atomicom Limited, Atomicoach Ltd, El Hombre Atomico Ltd, Atomico 3 Lithium Holdings Ltd 14278558 (checked at kickoff, see decisions.md).",
+   "holder_pattern": "(?i)\\batomico\\b"
+  }
+ },
+ "roster": {
+  "cdx_patterns": [
+   "atomico.com/team/*",
+   "atomico.com/people/*",
+   "atomico.com/about/investment-team/*",
+   "atomico.com/about/market-expansion/*",
+   "atomico.com/about/international-network/*",
+   "atomico.com/about/operational-skills/*",
+   "atomico.com/about/a-team/*"
+  ],
+  "slug_re": "/(?:team|people|about/(?:investment-team|market-expansion|international-network|operational-skills|a-team))/([a-z][a-z0-9-]*[a-z0-9])/?$",
+  "listing_href_re": "/(?:team|people)/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+  "site_team_groups": [],
+  "not_a_person": [
+   "index",
+   "team",
+   "people",
+   "all",
+   "feed",
+   "page",
+   "investments",
+   "investment-team",
+   "value-creation",
+   "extended-team",
+   "list-manage-com",
+   "list-manage",
+   "communications",
+   "consumer",
+   "enterprise",
+   "frontier",
+   "geographies",
+   "growth-acceleration-team",
+   "hr",
+   "research",
+   "talent",
+   "uk",
+   "hillary",
+   "joen",
+   "vmarlin",
+   "about",
+   "a-team",
+   "international-network",
+   "market-expansion",
+   "operational-skills"
+  ],
+  "_note": "Seven people namespaces across the site's eras (2011-2012 /about/<group>/<slug>, 2012-2015 and 2019-2026 /team/<slug>, 2016-2017 /people/<slug>); the 2008 /ourteam/<name>.xml and 2008-2010 aboutatomico2.php?person_id=N pages carry no slug and are curated into the roster from the captures (decisions.md D8). Group labels that share the namespace (/team/communications, /team/uk, /people/value-creation ...) are not people. The Companies House LLP member register gives exact tenure for the partners who were members; the current team comes from the archived /api/teammembers JSON (sources/site/team-api.json)."
+ },
+ "verify": {
+  "not_members": [
+   {
+    "name": "skype",
+    "slug": "skype",
+    "why": "the founders' own company; Skype's S-1 (2010) records Skype committing $10M INTO Atomico Ventures II as a limited partner and the founders holding through Joltid Limited; no Atomico vehicle held Skype (decisions.md D2)"
+   },
+   {
+    "name": "joltid",
+    "slug": "joltid",
+    "why": "the founders' own company (Zennstrom/Friis), holder of their Skype stake; not a fund position (D2)"
+   },
+   {
+    "name": "kazaa",
+    "slug": "kazaa",
+    "why": "the founders' pre-Atomico company (D2)"
+   },
+   {
+    "name": "digimarc",
+    "slug": "digimarc",
+    "why": "acquirer of EVRYTHNG (2022); Atomico Ventures II's Digimarc shares are sale consideration, EVRYTHNG is the member (D6)"
+   },
+   {
+    "name": "coincheck",
+    "slug": "coincheck",
+    "why": "Coincheck Group acquired Aplo (2025); Atomico V SCSp's shares are consideration, Aplo is the member (D6)"
+   },
+   {
+    "name": "velti",
+    "slug": "velti",
+    "why": "Velti plc's 2012 F-3 names Atomico Investment Holdings Limited only as a member of Seedcamp Investments LLP (an LP position), not a Velti holder (D5)"
+   },
+   {
+    "name": "seedcamp",
+    "slug": "seedcamp",
+    "why": "Atomico Investment Holdings Limited was a member of Seedcamp Investments LLP: an LP position in Seedcamp's first fund, not a portfolio company (D5)"
+   },
+   {
+    "name": "ferrovial",
+    "slug": "ferrovial",
+    "why": "an investor IN an Atomico fund (its 2023 registration); LP-side (D5)"
+   },
+   {
+    "name": "partners group growth",
+    "slug": "partners-group-growth",
+    "why": "a registered fund holding Atomico fund interests; LP-side (D5)"
+   },
+   {
+    "name": "fs mvp private markets fund",
+    "slug": "fs-mvp-private-markets-fund",
+    "why": "a registered fund holding Atomico fund interests; LP-side (D5)"
+   },
+   {
+    "name": "atomico8",
+    "slug": "atomico8",
+    "why": "AtomicO8 Inc. (CIK 1814779, Canoga Park CA crowdfunding issuer): namesake (D5)"
+   },
+   {
+    "name": "atomico electrical",
+    "slug": "atomico-electrical",
+    "why": "Atomico Electrical LLP (OC426649): namesake (D5)"
+   },
+   {
+    "name": "atomico 3 lithium holdings",
+    "slug": "atomico-3-lithium-holdings",
+    "why": "Atomico 3 Lithium Holdings Ltd (14278558): an Argentine lithium project vehicle, namesake (D5)"
+   },
+   {
+    "name": "zennstrom philanthropies",
+    "slug": "zennstrom-philanthropies",
+    "why": "the founder's philanthropy (06144964): not a company position (D2)"
+   },
+   {
+    "name": "hanover",
+    "slug": "hanover",
+    "why": "Hanover Limited (05846342): the founder's family office (D2)"
+   },
+   {
+    "name": "ran racing",
+    "slug": "ran-racing",
+    "why": "the founder's sailing team company (D2)"
+   },
+   {
+    "name": "moonfire ventures",
+    "slug": "moonfire-ventures",
+    "why": "Mattias Ljungman's next firm (2019-10); a partner's later firm is never portfolio (D8)"
+   },
+   {
+    "name": "uk private capital trade association",
+    "slug": "uk-private-capital-trade-association",
+    "why": "the BVCA; Christopher Barnes's council seat from Atomico's office is a trade body, not a position (D9)"
+   },
+   {
+    "name": "free now",
+    "slug": "free-now",
+    "why": "Free Now (the mytaxi joint venture) acquired portfolio company Hailo in 2016; the CMS dates the Free Now page to Hailo's 2011 investment year: sale consideration, Hailo is the member (D6; COLLECTION.md §1, Erik 2026-09-22)"
+   }
+  ],
+  "known_positions": [
+   "klarna",
+   "supercell",
+   "rovio",
+   "stripe",
+   "graphcore",
+   "lilium",
+   "truecaller",
+   "hinge health",
+   "masterclass",
+   "compass",
+   "lime",
+   "bird",
+   "jobandtalent",
+   "omio",
+   "peakon",
+   "pipedrive",
+   "mapillary",
+   "the climate corporation",
+   "jawbone",
+   "last.fm",
+   "xobni",
+   "viagogo",
+   "fon",
+   "knewton",
+   "psiquantum",
+   "deepl",
+   "aiven",
+   "framer",
+   "factorial",
+   "mews",
+   "neko health",
+   "hailo",
+   "rdio",
+   "evrythng",
+   "farmdrop",
+   "chemist direct",
+   "accurx",
+   "healx",
+   "labgenius",
+   "cloudnc",
+   "kheiron medical",
+   "koru kids",
+   "rekki",
+   "uniplaces",
+   "lendinvest",
+   "oden technologies",
+   "streetbees",
+   "playfire",
+   "quipper",
+   "aplo"
+  ],
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "sample_slugs": [],
+  "shape": {
+   "one_b_share_max": 0.3,
+   "c2a_rate_max": 0.8,
+   "_note": "Set before the first milestone (PRO-79): Atomico enters mostly at Series A and later with a growth sleeve and a concentrated book of famous names (Stripe, Klarna, Supercell, Graphcore, PsiQuantum, StarkWare ...), so the $1B+ share on a ~180-row book can exceed the 20% megafund default; restated to 30% with the guard still firing above it. S2A ceiling kept at the 80% default."
+  }
+ },
+ "site_api": {
+  "type": "scrape",
+  "entry_stage_fields": [
+   "stage_site"
+  ],
+  "sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/atomico/sources/site/cms-partners.json",
+    "list": "cms-partners",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "sectors": "themes",
+    "extras": [
+     "slug",
+     "invest_year",
+     "partners",
+     "lead",
+     "stage_site",
+     "status_site",
+     "location_site",
+     "website",
+     "pretitle",
+     "subtitle",
+     "capture",
+     "capture_ts",
+     "years_listed"
+    ]
+   },
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/atomico/sources/site/jobboard-companies.json",
+    "list": "jobs-board",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "slug",
+     "description",
+     "stage_board",
+     "founded_board",
+     "org_type_board",
+     "topics_board",
+     "approx_employees"
+    ]
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/atomico/sources/site/team-pages.json",
+    "list": "team",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "slug",
+     "title",
+     "group",
+     "linkedin_url",
+     "x_url",
+     "partnerships",
+     "capture",
+     "capture_ts"
+    ]
+   }
+  ],
+  "team_buckets": {
+   "Venture": "investing",
+   "Growth": "investing",
+   "Investment": "investing",
+   "Investment ": "investing",
+   "Advisers": "advisor",
+   "Acceleration": "platform",
+   "Platform": "platform"
+  },
+  "_note": "atomico.com is a Next.js site over the Hygraph CMS behind a Vercel bot checkpoint (a direct fetch returns the 429 checkpoint page), so the site layer is read from the Internet Archive's captures of the firm's own pages (escalation ladder step 3, __NEXT_DATA__): scratch/cms-pull.py -> cms-partners.json (every /partners/<slug> page 2021-2026, newest capture: investment year, lead, Venture/Growth, Current/Exited, location, themes). careers.atomico.com is a Getro job board (Thrive/Cherry precedent), live-readable. entry_stage_fields stays empty until the Venture/Growth field is scored against documented rounds (decisions.md D10).",
+  "entry_stage_confidence": "medium",
+  "entry_stage_fields_basis": "The CMS 'Stage' field is the sleeve that made the partnership (Venture or Growth). Scored 2026-09-26 against the book's own cited entry rounds: 'Growth' 25/26 (the miss is Bird, a Series A under a Growth label), below the 30-row bar, so medium; 'Venture' 52/61 and straddles Seed, Series A and Series B-C entries, so it is an anchor that mints no stage (stage_words.py)."
+ },
+ "profile": {
+  "adv_crd": 301113,
+  "site_office": {
+   "place": "London, United Kingdom",
+   "url": "https://index.commoncrawl.org/CC-MAIN-2022-40-index?url=atomico.com/partners/jawbone&output=json",
+   "quote": "Address: 29 Rathbone St London, W1T 1NJ, United Kingdom",
+   "basis": "The firm's own site footer, read from the Common Crawl capture of atomico.com/partners/jawbone (2022-09-30, local copy scratch/cms-raw/jawbone-cc20220930125557.html); the live site sits behind a Vercel bot checkpoint and did not load on 2026-09-26, and the 2026 captures carry no address block"
+  },
+  "own_vehicle_pattern": "^atomico",
+  "focus_min_companies": 8,
+  "focus_crosswalk": {
+   "Digital Work": "SaaS",
+   "Enterprise AI & Automation": "AI & Applied AI",
+   "Improving Health": "Healthcare & Bio",
+   "Digital Life & Play": "Media, Gaming & Advertising",
+   "Empowered Individuals": "Consumer & Marketplaces",
+   "Planet Positive": "Climate & Energy",
+   "Mobility": "Consumer & Marketplaces",
+   "Industrial Automation": "Industrial & Robotics",
+   "Future Finance": "Fintech & Payments",
+   "Engaged Consumer": "Consumer & Marketplaces",
+   "Internet Infrastructure & Security": "Data Infrastructure",
+   "Internet Infrastructure": "Data Infrastructure",
+   "Enterprise Data & Automation": "Data Infrastructure",
+   "Frontier Tech": "Industrial & Robotics",
+   "devtools": "DevTools & APIs",
+   "adtech": "Media, Gaming & Advertising",
+   "space": "Industrial & Robotics"
+  },
+  "_note": "The CMS theme vocabulary (areas of interest) crosswalks to the closed focus taxonomy; 'Future of Food' stays unmapped (vertical farming, cultivated meat and grocery split across taxonomy values). focus_min_companies ~5% of the 165-row base."
+ }
+}

@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:request="http://exist-db.org/xquery/request" lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="en-gb" http-equiv="Content-Language">
+<meta content="all" name="robots">
+<meta content="false" http-equiv="imagetoolbar">
+<meta content="true" name="MSSmartTagsPreventParsing">
+<link type="image/gif" href="/design/favicon.gif" rel="Shortcut Icon">
+<meta content="General" name="rating">
+<meta content="7 Days" name="revisit-after">
+<meta content="Living Document" name="doc-class">
+<meta content="Atomico" name="author">
+<meta content="Atomico" name="company">
+<meta content="Copyright &copy; 2008-05-02+01:00 Atomico" name="copyright">
+<meta content="" name="description">
+<meta content="" name="keywords">
+<script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"> </script><script type="text/javascript" src="/design/jquery.js"> </script><script src="/resources/js/jquery-1.1.2.pack.js" type="text/javascript"></script><script src="/resources/js/interface.js" type="text/javascript"></script><script type="text/javascript" src="/design/features.js"> </script><script charset="utf-8" type="text/javascript">
+                
+                var headline_count;
+                var headline_interval;
+                var old_headline = 0;
+                var current_headline=0;
+
+                $(document).ready(function(){
+                  headline_count = $("div.headline").size();
+                  $("div.headline:eq("+current_headline+")").css('top','5px');
+                  
+                  headline_interval = setInterval(headline_rotate,5000); //time in milliseconds
+                  $('#scrollup').hover(function() {
+                    clearInterval(headline_interval);
+                  }, function() {
+                  headline_interval = setInterval(headline_rotate,5000); //time in milliseconds
+                  headline_rotate();        
+                  });
+                });
+
+                
+                function headline_rotate() {
+                  current_headline = (old_headline + 1) % headline_count; //remainder will always equal old_headline until it reaches headline_count - at which point it becomes zero. clock arithmetic
+                  $("div.headline:eq(" + old_headline + ")").animate({top: -205},"slow", function() {
+                    $(this).css('top','210px');
+                    });
+                  $("div.headline:eq(" + current_headline + ")").show().animate({top: 5},"slow");  
+                  old_headline = current_headline;
+                }
+                
+                </script>
+<link href="/design/main.css" type="text/css" rel="stylesheet">
+<link title="Tahoma" href="/design/alt.css" type="text/css" rel="alternate stylesheet">
+<link title="Lucida" href="/design/alt2.css" type="text/css" rel="alternate stylesheet">
+<link title="Lucida2" href="/design/lucida.css" type="text/css" rel="alternate stylesheet">
+<title>Atomico&trade; - An Investment Group</title>
+</head>
+<body class="OurPortfolio" id="atomico-OurPortfolio-Deca">
+<div id="wrapper">
+<div id="header">
+<h1>
+<a title="" href="/">Atomico&trade; - An Investment Group</a>
+</h1>
+<p class="accessibility">
+<a href="#maincontent">Skip navigation</a>
+</p>
+</div>
+<div id="navigation">
+<ul class="menu">
+<li id="nav_home">
+<a title="Back to the Home Page" href="/">Home</a>
+</li>
+<li id="nav_team">
+<a title="More information on our team" href="/OurTeam">Our team</a>
+</li>
+<li id="nav_portfolio">
+<a title="More information on our portfolio" href="/OurPortfolio">Our portfolio</a>
+</li>
+<li id="nav_contact">
+<a title="More information on how to contact us" href="/ContactUs">Contact us</a>
+</li>
+</ul>
+</div>
+<div id="maincontent">
+<script type="text/javascript">
+		$(document).ready(
+      function(){
+
+		setTimeout(initScroller, 1000);
+ 
+      }
+      );
+ 
+		function initScroller(){
+       initCompanyInfo();
+        scrollArrowWidth = $('.scrollArrow').width();
+		paneWidth = $('#pane').css('width');
+        paneWidth = paneWidth.substring(0,paneWidth.length-2);
+		//alert(paneWidth - (scrollArrowWidth*2)+'px');
+		//$('#sliderTrack').css('width', paneWidth - (scrollArrowWidth*2)+'px');
+
+        cordx = 0;
+        areaWidth = $("#slidearea").css("width");
+        areaWidth = areaWidth.substring(0,areaWidth.length-2);
+		
+        maxX = paneWidth - areaWidth;
+
+             $('#sliderTrack').Slider(
+          {
+          accept : '#slider',
+          fractions : 100,
+          onSlide : function( cordx, cordy, x , y)
+            {
+            /*
+                curLeft = $("#slidearea").css("left");
+                curLeft = curLeft.substring(0, (curLeft.length-2));
+                */
+              //alert((maxX * (cordx/100))+"px");
+              $("#slidearea").css("left", (maxX * (cordx/100))+"px");
+              
+              cordx = (1024/100)*cordx;
+            },
+            values: [
+              [0,0]
+            ]
+          }
+        );  
+        $('#go-right').click(function(){
+          $('#sliderTrack').SliderSetValues(
+            [
+            [100,100]
+            ]
+          );
+        });
+        $('#go-left').click(function(){
+          $('#sliderTrack').SliderSetValues(
+            [
+            [-100,-100]
+            ]
+          );
+        });
+		}
+     
+      function initSlider(){
+           $('#sliderTrack').Slider(
+          {
+          accept : '#slider',
+          fractions : 50,
+          onSlide : function( cordx, cordy, x , y)
+            {
+              
+              $("#slidearea").css("left", (maxX * (cordx/100))+"px");
+              
+              cordx = (1024/100)*cordx;
+            },
+            values: [
+              [0,0]
+            ]
+          }
+        );
+      }
+      function initCompanyInfo(){
+           $('.companyLogo').click(function()
+          {
+
+            $('#secondarycolumn').find("div").html('<img src="/resources/images/ajax-loader.gif" style="margin:2em auto"/>');
+
+            var name = $(this).attr("title");
+            name = name.substring(0, (name.length));
+//alert("/direct/OurPortfolio/?_query=for%20$portfolio%20in%20//entry[@name='" + name + "']%20return%20$portfolio");
+            $.ajax({
+              type: "GET",
+              url: "/direct/OurPortfolio/",
+              data: "_query=for%20$portfolio%20in%20//entry[@name='" + name + "']%20return%20$portfolio//content",
+              success: function(xmlData){
+              var content = $(xmlData);
+                $('#portfolio-company-overview').html($(content).text());
+              }
+            });
+          }
+        );
+      }</script>
+<h2 class="maintitle">Deca</h2>
+<div id="maincolumn">
+<h2 class="portfolio_header">Scroll through our portfolio:</h2>
+<div class="portfolio_list">
+<div id="pane">
+<div id="slidearea">
+<ul>
+<li>
+<img class="companyLogo" title="Deca" alt="Deca" src="/resources/images/deca_logo.gif"></li>
+<li>
+<img class="companyLogo" title="Fon" alt="Fon" src="/resources/images/fon.gif"></li>
+<li>
+<img class="companyLogo" title="Heysan" alt="Heysan" src="/resources/images/logo_heysan.gif"></li>
+<li>
+<img class="companyLogo" title="IQube" alt="IQube" src="/resources/images/iqube_logo.gif"></li>
+<li>
+<img class="companyLogo" title="Jawbone" alt="Jawbone" src="/resources/images/jawbone.gif"></li>
+<li>
+<img class="companyLogo" title="Joost" alt="Joost" src="/resources/images/joost_logo.gif"></li>
+<li>
+<img class="companyLogo" title="Jott" alt="Jott" src="/resources/images/jott_logo.gif"></li>
+<li>
+<img class="companyLogo" title="LastFM" alt="LastFM" src="/resources/images/lastfm_white_small.gif"></li>
+<li>
+<img class="companyLogo" title="Powerreviews" alt="Powerreviews" src="/resources/images/powerreviews_logo.gif"></li>
+<li>
+<img class="companyLogo" title="Seesmic" alt="Seesmic" src="/resources/images/logo_seesmic.gif"></li>
+<li>
+<img class="companyLogo" title="Technorati" alt="Technorati" src="/resources/images/technorati_logo.gif"></li>
+<li>
+<img class="companyLogo" title="Trialplay" alt="Trialplay" src="/resources/images/trialpay_logo.gif"></li>
+<li>
+<img class="companyLogo" title="Viagogo" alt="Viagogo" src="/resources/images/viagogo_logo.gif"></li>
+<li>
+<img class="companyLogo" title="Weatherbill" alt="Weatherbill" src="/resources/images/weatherbill.gif"></li>
+<li>
+<img class="companyLogo" title="Woome" alt="Woome" src="/resources/images/woo_logo.gif"></li>
+<li>
+<img class="companyLogo" title="Xobni" alt="Xobni" src="/resources/images/xobni_logo.gif"></li>
+<li>
+<img class="companyLogo" title="wunderLOOP" alt="wunderLOOP" src="/resources/images/wunderloop.gif"></li>
+</ul>
+</div>
+</div>
+<div id="scroller">
+<div class="scrollArrow" id="go-left"></div>
+<div id="sliderTrack">
+<div id="slider"></div>
+</div>
+<div class="scrollArrow" id="go-right"></div>
+</div>
+</div>
+</div>
+<div id="secondarycolumn">
+<div id="portfolio-company-overview"><h4>Deca</h4>
+<p> DECA is a new type of digital entertainment studio that brings together the best of Hollywood, Madison Avenue, and Silicon Valley. </p>
+<p>DECA is committed to creating the highest-quality entertainment for online audiences by combining premium video, social media, interactivity and community. DECA has evolved the traditional studio model through the creation of the first hybrid production and commercial model: DECA actively identifies, develops, finances, markets, and distributes interactive entertainment concepts and properties across the Internet, as well as other emerging digital technologies and platforms. </p>
+<p>Deca was founded in 2007 by experienced entertainment and Internet executives, Michael Wayne and Chris Kimble, and is based in Santa Monica. </p>
+<p><a href="http://www.deca.tv/" target="_blank">www.deca.tv</a></p></div>
+</div>
+</div>
+<div id="footer">
+<p>&copy; 2008 Atomico Investment Holdings Limited<br>
+<a title="Legal information regarding this website and its contents" href="/Legal">Legal</a>
+</p>
+</div>
+</div>
+<script charset="utf-8" type="text/javascript">
+					var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+					document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+				</script><script charset="utf-8" type="text/javascript">
+					var pageTracker = _gat._getTracker("UA-4121005-2");
+					pageTracker._initData();
+					pageTracker._trackPageview();
+				</script>
+</body>
+<!--
+Current Date: 20080502
+Publish Date: 20080121
+Expiry Date: NaN
+Collection: OurPortfolio
+ThisDoc: Deca.xml
+Path: /OurPortfolio/Deca.xml-->
+</html>

@@ -1,0 +1,85 @@
+{
+ "_readme": "Atomico's cross-investor rulings for COLLECTION.md rule 10 (same schema as data/collection/cross-investor.json; merged by verify at read time). `distinct`: name-key collisions that are different companies. `accepted`: real disagreements whose fix belongs to the wave alignment, because the stale side is another investor's file and §12 forbids editing it from this session. Accepted entries are written as pairs.",
+ "same": [],
+ "distinct": [
+  {
+   "rows": [
+    "atomico:bird",
+    "sequoia-capital:bird"
+   ],
+   "note": "different companies: Atomico's Bird is the Amsterdam messaging platform formerly MessageBird (bird.com; Atomico joined its Accel-led 2017 Series A), Sequoia's is Bird Global, the Miami scooter company that went through Chapter 11 in 2023"
+  },
+  {
+   "rows": [
+    "atomico:hailo",
+    "felicis:hailo"
+   ],
+   "note": "different companies: Atomico's Hailo is the London taxi-hailing app (Atomico's 2011 seed; merged into mytaxi, now Free Now, in 2016), Felicis's is Hailo Technologies, the Tel Aviv AI-chip company"
+  },
+  {
+   "rows": [
+    "atomico:quid",
+    "y-combinator:quid"
+   ],
+   "note": "different companies: Atomico's Quid is the San Francisco text-analytics company (2011 Series C, merged into NetBase Quid in 2020); YC's is a Mexico City company from the Summer 2021 batch"
+  }
+ ],
+ "accepted": [
+  {
+   "rows": [
+    "atomico:framer",
+    "accel:framer"
+   ],
+   "note": "Atomico's side is fresher and cited: Framer's $100M Series D at $2B, Aug 2025 (Business Wire), co-led by Meritech and Atomico; Accel's below_1b predates it. Accel's row aligns at the wave alignment"
+  },
+  {
+   "rows": [
+    "atomico:nourish",
+    "menlo-ventures:nourish"
+   ],
+   "note": "Atomico's side is fresher and cited: Nourish's $100M Series C at $1.75B, May 2026 (Reuters/Bloomberg); the sibling's below_1b predates it"
+  },
+  {
+   "rows": [
+    "atomico:nourish",
+    "thrive-capital:nourish"
+   ],
+   "note": "Atomico's side is fresher and cited: Nourish's $100M Series C at $1.75B, May 2026 (Reuters/Bloomberg); the sibling's below_1b predates it"
+  },
+  {
+   "rows": [
+    "atomico:nourish",
+    "y-combinator:nourish"
+   ],
+   "note": "Atomico's side is fresher and cited: Nourish's $100M Series C at $1.75B, May 2026 (Reuters/Bloomberg); the sibling's below_1b predates it"
+  },
+  {
+   "rows": [
+    "atomico:pomelo-care",
+    "a16z:pomelo-care"
+   ],
+   "note": "Atomico's side is fresher and cited: Pomelo Care's $92M Series C at $1.7B, Jan 2026 (MobiHealthNews); the sibling's below_1b predates it"
+  },
+  {
+   "rows": [
+    "atomico:pomelo-care",
+    "first-round-capital:pomelo-care"
+   ],
+   "note": "Atomico's side is fresher and cited: Pomelo Care's $92M Series C at $1.7B, Jan 2026 (MobiHealthNews); the sibling's below_1b predates it"
+  },
+  {
+   "rows": [
+    "atomico:sorare",
+    "accel:sorare"
+   ],
+   "note": "Atomico reads the Sep 2021 $4.3B Series B as the last priced mark, stale, as IVP does: COLLECTION.md 6 lets a stale primary yield only to documented collapse evidence, and Accel's below_1b rests on the Nov 2025 layoffs, which are not; the Sep 2026 round disclosed no price. For Erik at the wave alignment"
+  },
+  {
+   "rows": [
+    "atomico:the-exploration-company",
+    "cherry:the-exploration-company"
+   ],
+   "note": "Atomico's side is fresher: the Series C Atomico co-led (Sep 2026, $450M) was reported in talks at a $2B valuation (FT via The Next Web, Jul 2026); Cherry's row predates the round"
+  }
+ ]
+}
