@@ -2476,8 +2476,45 @@ Field recipes, learned on Sequoia and a16z:
   Post-restructure caveat: where LP capital enters through an evergreen
   vehicle, sub-funds' own Form Ds show only principals' money.
 - **People.** The live site CMS (team post type) over the archived roster
-  for current people; roles as the site presents them; socials where
-  extractable from the profiles.
+  for current people; roles as the site presents them.
+- **People's social links: the person's own, from the firm's own site, or
+  none** (PRO-154, 2026-09-26). A wrong link is worse than a missing one, and
+  the old read, the first X link anywhere on the member's page, put the site
+  footer's firm account on 116 people (8VC 51, Lux 35, Khosla 22, Menlo 8) and
+  a portfolio company's account on seven Menlo partners. `site-portfolio.py`
+  (`read_socials`) now decides each link by four rules:
+  - **An account named for the firm is nobody's** (`khoslaventures`,
+    `Lux_Capital`, `GreylockVC`, `a16z`: `people_common.firm_handles`, plus
+    `site_api.team_social_exclude`).
+  - **A link the CMS row itself carries is the person's** (First Round's
+    `iconLinks`, Creandum's `websiteLink` and `twitterLink`), unless the CMS
+    gives the same account to two or more people (8VC filled `@8vc` for all).
+  - **A link read off the member's page must name them**
+    (`people_common.handle_score`: 3 first and last name or an initial of one,
+    2 the last name, 1 the first name, 0 none), **and goes to nobody when a
+    colleague's name matches it better**: a16z's author pages link every
+    co-author, Creandum's LinkedIn pages list "people also viewed". A
+    hyphenated id is read token by token and scores 0 when its first token is
+    someone else's name ("anders-brenner" is not Johan Brenner).
+  - A LinkedIn or X address in the row's page slot is the person's link, never
+    a page to read.
+  Links are cleaned to the profile address (no query string, `@`, trailing
+  backslash or LinkedIn sub-path); anything that is not a profile
+  (`linkedin.com/profile/view`, `/company/`) is dropped.
+  A genuine account that does not match the name (Khosla's Alex Morgan is
+  @genomicsdoc) goes into `site_api.team_social_overrides` by name, after a
+  look; `null` there forces none. No link is guessed from a search.
+  Three traps: the CMS query must ask for the link field (First Round's did
+  not, so 19 people had none); a site-relative page path must be resolved
+  against the site (YC's `/people/...`, never read); and a page that 404s is
+  one request, not four retries. `python3 scripts/site-portfolio.py <slug>
+  --socials-only` re-reads the links of the people already recorded, writes
+  the per-person candidates to `sources/site/team-socials.json`, and carries
+  the links onto `investor.json` and its sidecar without adding or dropping
+  anyone. `run.py verify` fails a link that is not a clean profile address,
+  the firm's own account, one account on two people, and a page-read link
+  that does not name the person (or names a colleague better) and is not an
+  override.
 - **investment_range.** Three legs: the Form D entry-round distribution
   gives the median (a round-size proxy for check size — fair only for
   high-ownership lead investors, and the flag says so); program floors

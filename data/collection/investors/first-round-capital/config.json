@@ -147,7 +147,7 @@
   "team_sources": [
    {
     "parser": "json_list",
-    "url": "https://m6i10uln.apicdn.sanity.io/v2023-05-03/data/query/production?query=%2A%5B_type%3D%3D%22profile%22%5D%7B%22name%22%3Atitle%2C%22slug%22%3Aslug.current%2C%22group%22%3Adepartment-%3Etitle%7D",
+    "url": "https://m6i10uln.apicdn.sanity.io/v2023-05-03/data/query/production?query=%2A%5B_type%3D%3D%22profile%22%5D%7B%22name%22%3Atitle%2C%22slug%22%3Aslug.current%2C%22group%22%3Adepartment-%3Etitle%2C%22socials%22%3AiconLinks%5B%5D.url%7D",
     "list_path": "result",
     "list": "sanity-profiles",
     "fields": {
@@ -155,7 +155,8 @@
     },
     "row_url": "https://firstround.com/team/{slug}",
     "extras": [
-     "group"
+     "group",
+     "socials"
     ]
    }
   ],

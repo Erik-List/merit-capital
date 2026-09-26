@@ -71,6 +71,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import outcome_sources as S                                    # noqa: E402
 import profile_copy                                            # noqa: E402
+from people_common import clean_social, firm_handles, handle_score, social_handle  # noqa: E402
 from paths import COLLECTION, INVESTORS, ROOT, Paths, write_atomic           # noqa: E402
 
 # Set in main() from the parsed investor slug; every path derives from them.
@@ -2131,6 +2132,59 @@ def verify_profile_copy(problems: list[str]) -> None:
                         profile_copy.notable_problems(row, fields, members))
 
 
+def verify_profile_people(problems: list[str]) -> None:
+    """Every published social link is a clean profile address, is not the
+    firm's own account, belongs to one person only, and, when it was read off
+    a page rather than given by the site's CMS, names that person or is a
+    reviewed override (PRO-154). The old first-link-on-the-page read put the
+    firm's own account on 116 people."""
+    if not P.investor.exists() or not P.team.exists():
+        return
+    profile = json.loads(P.investor.read_text())
+    people = profile.get("individuals") or []
+    team = {re.sub(r"[^a-z]", "", t["name"].lower()): t
+            for t in json.loads(P.team.read_text())}
+    api = load(P.config_file, {}).get("site_api") or {}
+    overrides = {re.sub(r"[^a-z]", "", k.lower()) for k in api.get("team_social_overrides") or {}}
+    firm = firm_handles(profile.get("name", ""), P.root.name) | \
+        {h.lower().lstrip("@") for h in api.get("team_social_exclude") or []}
+    holders: dict[tuple, list[str]] = defaultdict(list)
+    unread = 0
+    for person in people:
+        key = re.sub(r"[^a-z]", "", person["name"].lower())
+        row = team.get(key) or {}
+        for kind in ("linkedin", "x"):
+            url = (person.get("socials") or {}).get(f"{kind}_url")
+            if not url:
+                continue
+            if clean_social(kind, url) != url:
+                problems.append(f"profile people: {person['name']}'s {kind} link {url!r} "
+                                f"is not a clean profile address")
+                continue
+            handle = social_handle(kind, url)
+            holders[(kind, handle)].append(person["name"])
+            if re.sub(r"[^a-z0-9]", "", handle) in firm:
+                problems.append(f"profile people: {person['name']}'s {kind} link is the "
+                                f"firm's own account ({handle})")
+            source = (row.get("socials_source") or {}).get(kind)
+            if "socials_source" not in row:
+                unread += 1
+            elif source in ("page", "legacy") and key not in overrides \
+                    and not handle_score(handle, person["name"]):
+                # Whether a colleague's name fits it better is decided at read
+                # time, among the members whose pages carry the link.
+                problems.append(f"profile people: {person['name']}'s {kind} link {url!r} "
+                                f"was read off a page and does not name them; add a "
+                                f"reviewed site_api.team_social_overrides entry or drop it")
+    for (kind, handle), names in holders.items():
+        if len(names) > 1:
+            problems.append(f"profile people: one {kind} account ({handle}) on "
+                            f"{len(names)} people ({', '.join(names[:3])})")
+    if unread:
+        problems.append(f"profile people: {unread} links predate the PRO-154 read; run "
+                        f"`python3 scripts/site-portfolio.py {P.root.name} --socials-only`")
+
+
 def cmd_verify(args) -> None:
     rows = load_base(args.investor)
     resolved = load(P.resolved, {})
@@ -2629,6 +2683,7 @@ def cmd_verify(args) -> None:
         surface.append("review.html stale relative to the base; re-run review")
     verify_profile_hq(args.investor, problems, surface)
     verify_profile_copy(problems)
+    verify_profile_people(problems)
 
     if in_flight:
         for s in surface + notes:

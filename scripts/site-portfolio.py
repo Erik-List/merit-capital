@@ -34,9 +34,13 @@ same named-strategy-in-code, constants-in-config pattern wayback-pull.py uses:
                   decoded through node, entries flattened to their fields
 
 Output: <investor>/sources/site/companies.json, team.json (every team row carries
-        cms_title, role_bucket, linkedin_url, x_url: the profile builder's fields)
+        cms_title, role_bucket, linkedin_url, x_url, socials_source: the profile
+        builder's fields)
 
 Usage: python3 scripts/site-portfolio.py <investor-slug>
+       python3 scripts/site-portfolio.py <investor-slug> --socials-only
+         re-read the people's social links only (PRO-154): team.json keeps its
+         rows, the links land on investor.json, the audit in team-socials.json
 """
 import argparse
 import json
@@ -45,11 +49,13 @@ import subprocess
 import sys
 import time
 from html import unescape
-from urllib.parse import quote
+from collections import Counter
+from urllib.parse import quote, urljoin
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from paths import Paths, write_atomic  # noqa: E402
+from people_common import clean_social, firm_handles, handle_score, social_handle  # noqa: E402
 
 UA = "MeritCapitalResearch/1.0 (erik@meritcapit.al)"
 PER_PAGE = 100
@@ -75,6 +81,23 @@ def get_text(url: str) -> str:
                 capture_output=True, check=True).stdout.decode("utf-8", errors="replace")
         except subprocess.CalledProcessError:
             time.sleep(1.5 * (attempt + 1))
+    return ""
+
+
+def get_page(url: str) -> str:
+    """A member's profile page: "" at once on a 4xx (First Round's /team/
+    links all 404, and get_text's four retries cost 15s each), one retry on a
+    network error or 5xx."""
+    for attempt in range(2):
+        out = subprocess.run(
+            ["curl", "-sL", "--max-time", "60", "-H", f"User-Agent: {UA}",
+             "-w", "\n%{http_code}", url], capture_output=True)
+        body, _, code = out.stdout.decode("utf-8", errors="replace").rpartition("\n")
+        if code.startswith("2"):
+            return body
+        if code.startswith("4"):
+            return ""
+        time.sleep(2 * (attempt + 1))
     return ""
 
 
@@ -444,9 +467,16 @@ TITLE_RULES = [
      r"principal|associate|analyst|investor|venture|scout|fellow|\bvp\b|"
      r"vice president|director|president|founder|ceo|chairman", "investing"),
 ]
-LINKEDIN_RE = re.compile(r"https?://(?:[a-z]{2,3}\.)?linkedin\.com/(?:in|pub)/[^\"'\s<>?#]+", re.I)
-X_RE = re.compile(r"https?://(?:www\.)?(?:twitter|x)\.com/"
-                  r"(?!intent|share|home|search|hashtag|login|i/)([A-Za-z0-9_]{1,15})\b", re.I)
+# Every LinkedIn or X profile link on a page, escaped JSON included (Greylock's
+# pages carry them as "https:\/\/www.linkedin.com\/in\/chandna\").
+PAGE_LINKS = re.compile(
+    r"https?://(?:[a-z]{2,3}\.)?linkedin\.com/(?:in|pub)/[^\"'\s<>?#\\]+"
+    r"|https?://(?:www\.|mobile\.)?(?:twitter|x)\.com/@?[A-Za-z0-9_]{1,15}(?![A-Za-z0-9_])",
+    re.I)
+# Keys a CMS row may carry a person's links under.
+# Creandum keeps the LinkedIn address in `websiteLink`.
+SOCIAL_KEYS = ("linkedin_url", "linkedin", "x_url", "twitter", "twitterLink", "websiteLink",
+               "socials")
 
 
 def norm_name(name: str) -> str:
@@ -479,36 +509,150 @@ def bucket_of(row: dict, api: dict) -> list[str]:
     return [x for x in ([b] if isinstance(b, str) else (b or [])) if x in BUCKETS]
 
 
-def socials_of(row: dict, fetch: bool, exclude: set[str]) -> tuple[str, str]:
-    """LinkedIn and X URLs: the CMS list's own keys first, the member's profile
-    page second (the same href regexes every per-investor pull used)."""
-    li = row.get("linkedin_url") or row.get("linkedin") or ""
-    x = row.get("x_url") or row.get("twitter") or row.get("twitterLink") or ""
-    for u in row.get("socials") or []:
-        if not li and "linkedin.com" in str(u):
-            li = str(u)
-        elif not x and re.search(r"(twitter|x)\.com", str(u)):
-            x = str(u)
-    if (not li or not x) and fetch and row.get("url"):
-        html = get_text(row["url"])
-        time.sleep(0.5)
-        if not li:
-            m = LINKEDIN_RE.search(html)
-            li = m.group(0) if m else ""
-        if not x:
-            x = next((m.group(0) for m in X_RE.finditer(html)
-                      if m.group(1).lower() not in exclude), "")
-    return li or "", x or ""
+SOCIAL_HOST = re.compile(r"^https?://([a-z]{2,3}\.|www\.|mobile\.)?(linkedin|twitter|x)\.com/", re.I)
 
 
-def shape_team(rows: list[dict], api: dict, fetch: bool) -> list[dict]:
-    """Every team row gains cms_title, role_bucket, linkedin_url, x_url."""
-    exclude = {h.lower() for h in api.get("team_social_exclude") or []}
+def page_url(row: dict, site_base: str) -> str:
+    """The member's own profile page: absolute as given, or a site-relative
+    path resolved against the site (YC's "/people/garry-tan"). A LinkedIn or
+    X address in the url slot is the person's link, not a page to read: a
+    LinkedIn page lists other people (Creandum). Anything else there
+    (Benchmark keeps a note) is not a page."""
+    u = (row.get("url") or "").strip()
+    if SOCIAL_HOST.match(u):
+        return ""
+    if u.startswith("http"):
+        return u
+    if u.startswith("/") and site_base:
+        return urljoin(site_base, u)
+    return ""
+
+
+def read_socials(rows: list[dict], api: dict, fetch: bool, site_base: str = "",
+                 firm: tuple[str, str] = ("", "")) -> dict:
+    """Set linkedin_url, x_url and socials_source on every row; return the
+    audit (each person's candidates and the one chosen), PRO-154.
+
+    Candidates come from the CMS row's own fields, from the member's own page,
+    and, for a row carried over from an earlier pull (`_legacy`), from the
+    links it already had. The rules (COLLECTION.md §11, People's social links):
+      - an account named for the firm (`firm_handles`, plus
+        `site_api.team_social_exclude`) is nobody's;
+      - a CMS field is the person's, unless the CMS gives the same account to
+        two or more people (8VC filled @8vc for everyone);
+      - a link read off a page, or carried over, must name the person
+        (`handle_score` > 0) and goes to nobody when another member of the
+        firm matches it as well or better (a colleague quoted on the page);
+      - `site_api.team_social_overrides` ({name: {linkedin_url, x_url}}, null
+        for none) records a reviewed answer and wins."""
+    exclude = {h.lower().lstrip("@") for h in api.get("team_social_exclude") or []}
+    exclude |= firm_handles(*firm)
+    overrides = {norm_name(k): v for k, v in (api.get("team_social_overrides") or {}).items()}
+    cands = []
+    for r in rows:
+        c: dict[str, list[tuple[str, str]]] = {"linkedin": [], "x": []}
+
+        def add(url, source):
+            """One candidate per account: the first spelling seen is kept (the
+            published one is added first, so a page's "www.twitter.com" does
+            not churn it), and a CMS sighting makes it a CMS link."""
+            u = str(url or "")
+            kind = ("linkedin" if "linkedin.com" in u.lower() else
+                    "x" if re.search(r"(twitter|x)\.com", u, re.I) else None)
+            clean = clean_social(kind, u) if kind else ""
+            if not clean:
+                return
+            h = social_handle(kind, clean)
+            for i, (x, s) in enumerate(c[kind]):
+                if social_handle(kind, x) == h:
+                    if source == "cms":
+                        c[kind][i] = (x, "cms")
+                    return
+            c[kind].append((clean, source))
+
+        legacy = r.pop("_legacy", False)
+        for v in r.pop("_legacy_links", None) or []:
+            add(v, "legacy")
+        for key in SOCIAL_KEYS + ("url",):
+            vals = r.get(key)
+            vals = list(vals.values()) if isinstance(vals, dict) else \
+                vals if isinstance(vals, list) else [vals]
+            for v in vals:
+                if key == "url" and not SOCIAL_HOST.match(str(v or "")):
+                    continue
+                add(v, "legacy" if legacy and key in ("linkedin_url", "x_url") else "cms")
+        page = page_url(r, site_base) if r.get("role_bucket") else ""
+        if fetch and page:                   # unpublished rows need no page read
+            html = get_page(page).replace("\\/", "/")
+            time.sleep(0.5)
+            for m in PAGE_LINKS.finditer(html):
+                add(m.group(0), "page")
+        cands.append(c)
+
+    def flat(h):
+        return re.sub(r"[^a-z0-9]", "", h)
+
+    cms_seen = {k: Counter(h for c in cands for h in {social_handle(k, u) for u, s in c[k]
+                                                      if s == "cms"})
+                for k in ("linkedin", "x")}
+    # (kind, handle) -> [best score among the members whose candidates carry it,
+    # how many members reach it]: a link goes to its one best match, or nobody.
+    best: dict[tuple, list[int]] = {}
+    for r, c in zip(rows, cands):
+        for kind in ("linkedin", "x"):
+            for u, _ in c[kind]:
+                h = social_handle(kind, u)
+                sc = handle_score(h, r["name"])
+                b = best.setdefault((kind, h), [0, 0])
+                if sc > b[0]:
+                    best[kind, h] = [sc, 1]
+                elif sc == b[0] and sc:
+                    b[1] += 1
+
+    audit = {}
+    for r, c in zip(rows, cands):
+        over = overrides.get(norm_name(r["name"]), {})
+        sources, entry = {}, {}
+        for kind in ("linkedin", "x"):
+            key = f"{kind}_url"
+            if key in over:
+                value = clean_social(kind, over[key]) if over[key] else ""
+                source = "override" if value else None
+            else:
+                scored = []
+                for u, s in c[kind]:
+                    h = social_handle(kind, u)
+                    if flat(h) in exclude:
+                        continue
+                    if s == "cms":
+                        if cms_seen[kind][h] < 2:
+                            scored.append((0, 9, u, s))
+                        continue
+                    score = handle_score(h, r["name"])
+                    if score and best[kind, h] == [score, 1]:
+                        # at equal strength the published link stays (Sequoia's
+                        # Shaun Maguire has two LinkedIn addresses)
+                        scored.append((1, -score if s == "legacy" else -score + 0.5, u, s))
+                pick = min(scored) if scored else None
+                value, source = (pick[2], pick[3]) if pick else ("", None)
+            r[key] = value
+            sources[kind] = source
+            entry[kind] = {"chosen": value or None, "source": source,
+                           "candidates": [f"{s}: {u}" for u, s in c[kind]]}
+        r["socials_source"] = sources
+        audit[r["name"]] = entry
+    return audit
+
+
+def shape_team(rows: list[dict], api: dict, fetch: bool, site_base: str = "",
+               firm: tuple[str, str] = ("", "")) -> list[dict]:
+    """Every team row gains cms_title, role_bucket, linkedin_url, x_url and
+    socials_source."""
     for r in rows:
         r["cms_title"] = next((str(r[k]).strip() for k in
                                api.get("team_title_keys") or TITLE_KEYS if r.get(k)), "")
         r["role_bucket"] = bucket_of(r, api)
-        r["linkedin_url"], r["x_url"] = socials_of(r, fetch, exclude)
+    read_socials(rows, api, fetch, site_base, firm)
     return rows
 
 
@@ -622,17 +766,102 @@ def categories_from(class_list) -> list[str]:
                    if c.startswith("category-")})
 
 
+def firm_of(p: Paths) -> tuple[str, str]:
+    """(published firm name, slug), for telling the firm's own account apart."""
+    name = json.loads(p.investor.read_text()).get("name", "") if p.investor.exists() else ""
+    return name, p.root.name
+
+
+def dump_like(path: Path, data) -> None:
+    """Write JSON in the file's existing style (indent, escaped or raw
+    non-ASCII), so a change of a few values does not rewrite every line."""
+    old = path.read_text() if path.exists() else ""
+    indent = next((len(l) - len(l.lstrip(" ")) for l in old.splitlines()[1:]
+                   if l.startswith(" ")), 2)
+    raw = any(ord(ch) > 127 for ch in old)
+    write_atomic(path, json.dumps(data, indent=indent, ensure_ascii=not raw)
+                 + ("\n" if old.endswith("\n") or not old else ""))
+
+
+def socials_only(p: Paths, api: dict, fetch: bool, site_base: str) -> None:
+    """Re-read the links of the people already in team.json, without adding or
+    dropping anyone (PRO-154), then carry them onto the published people in
+    investor.json and its sidecar, matched by name. Where the site's CMS lists
+    the team, its rows are re-fetched for their own link fields; a row the CMS
+    no longer lists, or a team built without a CMS, keeps its old links as
+    `legacy` candidates, which must match the name like a page read."""
+    team = json.loads(p.team.read_text())
+    fresh = {}
+    if api.get("team_sources"):
+        fresh = {norm_name(t["name"]): t
+                 for t in scrape_companies({"sources": api["team_sources"]})}
+    for r in team:
+        f = fresh.get(norm_name(r["name"]))
+        if f is None:
+            r["_legacy"] = True
+            continue
+        # The links this row carried stay in play as `legacy` candidates, so a
+        # page that moved (Khosla's /team/ pages now 404) loses nothing that
+        # still names the person.
+        r["_legacy_links"] = [r.get("linkedin_url"), r.get("x_url")]
+        for k in SOCIAL_KEYS:
+            r.pop(k, None)
+            if k in f:
+                r[k] = f[k]
+        if f.get("url"):
+            r["url"] = f["url"]                # the page as the CMS lists it today
+    audit = read_socials(team, api, fetch, site_base, firm_of(p))
+    write_atomic(p.team, json.dumps(team, indent=1) + "\n")
+    write_atomic(p.site / "team-socials.json", json.dumps(audit, indent=1) + "\n")
+
+    by_name = {norm_name(t["name"]): t for t in team}
+    row = json.loads(p.investor.read_text())
+    src = json.loads(p.investor_sources.read_text())
+    changed = 0
+    for person in row.get("individuals") or []:
+        t = by_name.get(norm_name(person["name"]))
+        if t is None:
+            continue
+        new = {"linkedin_url": t.get("linkedin_url") or None, "x_url": t.get("x_url") or None}
+        changed += (person.get("socials") or {}) != new
+        person["socials"] = new
+    field = src.get("fields", {}).get("individuals")
+    if field is not None:
+        field["value"] = row.get("individuals")
+        people = row.get("individuals") or []
+        note = (f"Social links re-read under PRO-154 ({time.strftime('%Y-%m-%d')}): "
+                f"{sum(1 for q in people if q['socials']['linkedin_url'])} LinkedIn, "
+                f"{sum(1 for q in people if q['socials']['x_url'])} X; a link read off a "
+                f"page counts only when its account matches the person's name, and an "
+                f"account on two or more people's pages is the firm's.")
+        basis = re.sub(r"\s*Social links re-read under PRO-154 .*$", "", field.get("basis") or "")
+        field["basis"] = (basis + " " + note).strip()
+    dump_like(p.investor, row)
+    dump_like(p.investor_sources, src)
+    have = sum(1 for t in team if t.get("role_bucket") and (t.get("linkedin_url") or t.get("x_url")))
+    print(f"socials: {have} of {sum(1 for t in team if t.get('role_bucket'))} published "
+          f"members carry a link; {changed} published people changed")
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("investor")
     ap.add_argument("--no-fetch-profiles", action="store_true",
                     help="skip the per-member profile-page fetch for socials")
+    ap.add_argument("--socials-only", action="store_true",
+                    help="re-read the links of the people already recorded, and "
+                         "carry them onto investor.json; nobody is added or dropped")
     args = ap.parse_args()
     fetch = not args.no_fetch_profiles
 
     p = Paths(args.investor)
-    api = p.config()["site_api"]
+    cfg = p.config()
+    api = cfg["site_api"]
+    site_base = api.get("base") or (cfg.get("wayback") or {}).get("site_url_base") or ""
     p.site.mkdir(parents=True, exist_ok=True)
+    if args.socials_only:
+        socials_only(p, api, fetch, site_base)
+        return
 
     if api.get("type") == "scrape":
         companies = scrape_companies(api)
@@ -644,7 +873,8 @@ def main() -> None:
         # Team through the same machinery, when the CMS carries people too
         # (roster.site_team_groups then filters on each row's "group" extra).
         if api.get("team_sources"):
-            team = shape_team(scrape_companies({"sources": api["team_sources"]}), api, fetch)
+            team = shape_team(scrape_companies({"sources": api["team_sources"]}), api, fetch,
+                              site_base, firm_of(p))
             write_atomic(p.team, json.dumps(team, indent=1) + "\n")
             groups = Counter(t.get("group") or "?" for t in team)
             print(f"team members: {len(team)}   groups: {dict(groups)}")
@@ -673,7 +903,8 @@ def main() -> None:
         "url": t.get("link"),
     } for t in team if t.get("title", {}).get("rendered")]
     people.sort(key=lambda p_: p_["name"].lower())
-    write_atomic(p.team, json.dumps(shape_team(people, api, fetch), indent=1) + "\n")
+    write_atomic(p.team, json.dumps(shape_team(people, api, fetch, site_base, firm_of(p)),
+                                        indent=1) + "\n")
 
     from collections import Counter
     sect = Counter(s for c in companies for s in c["sectors"])
