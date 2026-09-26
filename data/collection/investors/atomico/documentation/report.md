@@ -189,3 +189,7 @@ per company.
 - PRO-146: `config.names.published` sets one override, FarmDrop → Farmdrop; iBoxChain, Oh BiBi and OpenFX are the companies' own stylings, The Climate Corporation is kept on purpose.
 - PRO-157 rulings 1-2 re-applied by `prepare`: no row returned (the two early Form D bands sit within two years of the company's first sighting).
 - `verify` shows 9 rule-10 pairs against Balderton, a sibling book in flight without its marker (None/None rows); its session was asked to write the marker.
+
+## Ingest 2026-09-26 (Erik's approval, second prompt)
+
+Icon uploaded (`investors/atomico-483b57de8b.png`), investor row upserted, 164 companies upserted (164 new, 0 removed). Readback exact: 164 live, 0 differing cells (`scratch/readback.ts`). Prompt count 2, final.

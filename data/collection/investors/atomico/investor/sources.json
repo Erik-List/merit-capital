@@ -14,9 +14,24 @@
    "basis": "firm site (Next.js over a Hygraph CMS; portfolio at /partners). Behind a Vercel bot checkpoint on 2026-09-26, so every page was read from Common Crawl or Internet Archive captures"
   },
   "icon_url": {
-   "value": "https://index.commoncrawl.org/CC-MAIN-2026-04-index?url=atomico.com/&output=json",
+   "value": "https://lsohkkmdlrlixukuncjl.supabase.co/storage/v1/object/public/Icon%20Images/investors/atomico-483b57de8b.png",
    "source": "https://index.commoncrawl.org/CC-MAIN-2026-04-index?url=atomico.com/&output=json",
-   "basis": "NOT YET PUBLISHED: the upload waits for Erik's ingest approval, and until then the field names the source. The source is the compact vector mark the homepage renders inline (svg class Logo_small, viewBox 0 0 32 32: a black 'a' with the mint #99DBCF dot), read from the Common Crawl capture of atomico.com of 2026-01-18 and extracted to sources/site/logo-small.svg (the live site sits behind a bot checkpoint; the page declares no favicon link and no icon asset is in the index). Dry run 2026-09-26 (scripts/fetch-investor-icon.ts --dry-run, no upload): white plate synthesized behind the bare glyph (67% transparent), vector rendered at 2x, keyline met after a 0.629 scale (box 63%, radius 80%), contrast 11.4:1, ramp 0.61 px. At approval: npx tsx scripts/fetch-investor-icon.ts atomico data/collection/investors/atomico/sources/site/logo-small.svg"
+   "basis": "The homepage's compact vector mark (svg class Logo_small, viewBox 0 0 32 32: a black 'a' with the mint #99DBCF dot), read from the Common Crawl capture of atomico.com of 2026-01-18 and kept at sources/site/logo-small.svg (the live site sits behind a bot checkpoint; the page declares no favicon link). Normalised and uploaded by scripts/fetch-investor-icon.ts on 2026-09-26 with Erik's ingest approval: white plate synthesized behind the bare glyph (67% transparent), vector rendered at 2x, keyline met after a 0.629 scale (box 63%, radius 80%), contrast 11.4:1, ramp 0.61 px",
+   "provenance": {
+    "source_url": "data/collection/investors/atomico/sources/site/logo-small.svg",
+    "format": "svg",
+    "width": 32,
+    "height": 32,
+    "vector": true,
+    "artwork_source_px": null,
+    "artwork_master_px": 161,
+    "upscale": 1,
+    "ramp_px": 0.61,
+    "master_size": 256,
+    "fetched": "2026-09-26",
+    "allow_upscale": false,
+    "allow_low_contrast": false
+   }
   },
   "founding_year": {
    "value": 2006,
@@ -24,12 +39,12 @@
    "basis": "the firm's own posts: 'We founded Atomico in 2006' (2013 Atomico III post); 'Since Atomico was founded in 2006' (2024 fund post)"
   },
   "history": {
-   "value": "Atomico was founded in London in 2006 by Skype co-founder Niklas Zennstr\u00f6m. Its early bets included Rovio, Supercell, Klarna and Truecaller, and it later backed Stripe, Hinge Health and DeepL, investing mostly from Series A onward. In 2024 it closed $1.24 billion across two funds, Atomico Venture VI and Atomico Growth VI.",
+   "value": "Atomico was founded in London in 2006 by Skype co-founder Niklas Zennström. Its early bets included Rovio, Supercell, Klarna and Truecaller, and it later backed Stripe, Hinge Health and DeepL, investing mostly from Series A onward. In 2024 it closed $1.24 billion across two funds, Atomico Venture VI and Atomico Growth VI.",
    "source": "https://atomico.com/insights/dollar124-billion-as-european-technology-comes-of-age",
-   "basis": "Founded in London in 2006 by Niklas Zennstr\u00f6m (the firm's own posts; Skype co-founder). Early bets per the firm's own 2017 fund post ('we've partnered with ... Klarna, Rovio, Supercell, The Climate Corporation, GoEuro and Skype') and the portfolio rows: Rovio Series A 2011, Klarna 2012, Supercell 2013 secondary, Truecaller Series C 2014; later Stripe (CMS 2015), Hinge Health Series A 2017 (IPO 2025), DeepL (CMS 2023). 'Investing mostly from Series A onward': 'Since inception we've partnered with founders from series A, expanding to include growth investments in 2011' (2024 fund post). Fund VI: $754M Growth VI and $485M Venture VI, $1.24B (2024-09-09). Dropped to fit: the fund ladder ($165M 2010, $476M 2013, $765M 2017, $820M 2020, see funds), the State of European Tech report, offices"
+   "basis": "Founded in London in 2006 by Niklas Zennström (the firm's own posts; Skype co-founder). Early bets per the firm's own 2017 fund post ('we've partnered with ... Klarna, Rovio, Supercell, The Climate Corporation, GoEuro and Skype') and the portfolio rows: Rovio Series A 2011, Klarna 2012, Supercell 2013 secondary, Truecaller Series C 2014; later Stripe (CMS 2015), Hinge Health Series A 2017 (IPO 2025), DeepL (CMS 2023). 'Investing mostly from Series A onward': 'Since inception we've partnered with founders from series A, expanding to include growth investments in 2011' (2024 fund post). Fund VI: $754M Growth VI and $485M Venture VI, $1.24B (2024-09-09). Dropped to fit: the fund ladder ($165M 2010, $476M 2013, $765M 2017, $820M 2020, see funds), the State of European Tech report, offices"
   },
   "investment_concept": {
-   "value": "\u201cCapital is a commodity. Experience is not.\u201d",
+   "value": "“Capital is a commodity. Experience is not.”",
    "source": "https://atomico.com",
    "basis": "The firm's own statement, verbatim from the homepage's lead heading (h2), read from the Common Crawl capture of atomico.com of 2026-01-18 (https://index.commoncrawl.org/CC-MAIN-2026-04-index?url=atomico.com/&output=json) (local copy scratch/site-raw/home-cc20260118051330.html) because the live site sits behind a bot checkpoint; published inside quotation marks as the firm's words. Competing lines on the same page: the h1 is a banner for the firm's '2025 State of European Tech' report, and the meta description reads 'Atomico invests in innovative technology companies around the world.'"
   },
@@ -93,7 +108,7 @@
     "DeepL"
    ],
    "source": "companies/base.csv",
-   "basis": "The five best known of the firm's own companies, most recognised first: the names a general reader would recognise first (PRO-152, Erik 2026-09-24); names as a reader knows them (COLLECTION.md \u00a78). Also considered: Rovio (Angry Birds), MasterClass, Truecaller, Hinge Health, Zocdoc.",
+   "basis": "The five best known of the firm's own companies, most recognised first: the names a general reader would recognise first (PRO-152, Erik 2026-09-24); names as a reader knows them (COLLECTION.md §8). Also considered: Rovio (Angry Birds), MasterClass, Truecaller, Hinge Health, Zocdoc.",
    "slugs": [
     "klarna",
     "stripe",
@@ -429,7 +444,7 @@
      }
     },
     {
-     "name": "Niklas Zennstr\u00f6m",
+     "name": "Niklas Zennström",
      "position": "CEO",
      "socials": {
       "linkedin_url": "https://www.linkedin.com/in/niklaszennstrom/",
