@@ -173,7 +173,7 @@ def main() -> None:
         return base.setdefault(key, {
             "name": display, "slug": slug_of(display),
             "wayback_years": set(), "sectors": set(), "partners_site": set(),
-            "wayback_first": None,  # (year, snapshot_ts, path)
+            "wayback_first": None,  # (year, snapshot_ts, path, capture_url)
             "site_listed": False, "site_url": "",
             "edgar_forms": set(), "edgar_first": None, "edgar_last": None,
             "edgar_cik": None, "edgar_accessions": [], "edgar_desk": None,
@@ -228,7 +228,8 @@ def main() -> None:
                 row["_cms_duplicate"] = True
             row["wayback_years"].add(year)
             if row["wayback_first"] is None or year < row["wayback_first"][0]:
-                row["wayback_first"] = (year, r.get("snapshot_ts", ""), r["path"])
+                row["wayback_first"] = (year, r.get("snapshot_ts", ""), r["path"],
+                                        r.get("capture_url") or "")
             # An archived per-company page can state the firm's own investment
             # year even where the live site does not (Khosla's 2017-2023 pages
             # carry <table class=dates> with Founded and Invested). That is the
@@ -658,8 +659,14 @@ def main() -> None:
         # wayback evidence link: the company's own page for eras with
         # per-company pages, the era's listing page otherwise (config-driven)
         wb_link = ""
-        if r["wayback_first"]:
-            _, ts, path = r["wayback_first"]
+        if r["wayback_first"] and r["wayback_first"][3]:
+            # A parsed row may cite its own capture: where the Internet Archive
+            # excludes the site (IVP, 403 on every ivp.com capture), the archive
+            # layer is Common Crawl and its index URL is the citation. No row
+            # carried the key before IVP, so every earlier book builds as before.
+            wb_link = r["wayback_first"][3]
+        elif r["wayback_first"]:
+            _, ts, path, _ = r["wayback_first"]
             site_base = CFG["wayback"]["site_url_base"]
             target = f"{site_base}{path}/"
             for era in CFG["wayback"]["eras"]:

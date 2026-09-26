@@ -334,7 +334,12 @@ a site migration has since 404'd (Cherry's pre-migration `cherry.vc/2021/...`
 announcement posts, four S2A rows). Common Crawl was retired as a sweep layer
 in 2026-09 because it surfaced no company the Internet Archive did not already
 hold; **that retirement is about where we look, not about what counts, and it
-does not invalidate a Common Crawl citation already recorded.**
+does not invalidate a Common Crawl citation already recorded.** Where the
+Internet Archive excludes a site outright (IVP, 2026-09-26: 403 on every
+ivp.com capture), Common Crawl is that book's archive layer: its captures
+parse into `sources/wayback/parsed/<year>.json` like any other, and a parsed
+row's `capture_url` (the `index.commoncrawl.org` form) is used verbatim as
+the row's `wayback_first_link`.
 
 **A site listing suffices unless the firm itself disclaims the position**
 (Erik, 2026-09-17, on Menlo). A company a firm lists because a partner backed
