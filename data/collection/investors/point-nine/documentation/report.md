@@ -268,10 +268,12 @@ Built by `build-firm-profile.py`, checked by `profile_copy.py` and `verify`:
     rows were searched in English only until the hand pass; the merXu Series A
     was found that way.
 
-**Two shared-script edits made during this run are uncommitted** and left for
-the tooling session: `scripts/stage_words.py` maps "later stage" and
-"later-stage" to Growth (the card's "Later-stage" label), and
-`scripts/graduation-surfaces.py` gains the `point-nine` entry in FIRM_TERMS.
+**Two shared-script edits made during this run were committed by the tooling
+session as 085f9b9**: `scripts/stage_words.py` maps "later stage" and
+"later-stage" to Growth (the card's "Later-stage" label; only this book uses
+it as a stage label), and `scripts/graduation-surfaces.py` gains the
+`point-nine` entry in FIRM_TERMS. The eleven proposals above went to Erik
+from that session, merged with IVP's (this #7 is IVP's #2).
 
 ## Usage line
 
