@@ -9,7 +9,7 @@ const FORCE_DARK_MODE = true;
 
 export const metadata: Metadata = {
   title: 'Merit Capital',
-  description: '$1B, $10B and $100B investment outcomes, IPOs, and seed to Series A graduation rates for the most well-known venture investors, built from public filings and human-reviewed.',
+  description: '$1B, $10B and $100B investment outcomes, IPOs, and seed to Series A graduation rates for the most well-known venture investors. Data from all publicly available information.',
 };
 
 export default function RootLayout({

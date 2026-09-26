@@ -745,7 +745,7 @@ export default function Leaderboard() {
           <h1 className="text-xl font-medium sm:text-2xl">The venture capital performance index</h1>
           <p className="mt-1 max-w-3xl text-sm text-foreground/85">
             $1B, $10B and $100B investment outcomes, IPOs, and seed to Series A graduation rates for{" "}
-            {investors.length > 0 ? `${investors.length} of the most well-known investors` : "the most well-known investors"}, built from public filings and human-reviewed.
+            {investors.length > 0 ? `${investors.length} of the most well-known venture investors` : "the most well-known venture investors"}. Data from all publicly available information.
           </p>
         </header>
         <div className="grid gap-6 md:min-h-0 md:flex-1 lg:grid-cols-[320px_1fr]">
