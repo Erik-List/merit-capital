@@ -1821,6 +1821,14 @@ def verify_base(rows: list[dict], investor: str, problems: list[str],
     names = {r["name"].lower() for r in rows}
     slugs = {r["slug"] for r in rows}
 
+    # A published-name decision (PRO-146) keys on the slug; one whose slug left
+    # the base would silently stop applying, so the row would publish its
+    # source rendering again.
+    orphans = sorted(s for s in ((CFG.get("names") or {}).get("published") or {})
+                     if s not in slugs)
+    if orphans:
+        problems.append(f"names.published names a slug not in the base: {orphans[:8]}")
+
     vcfg = CFG.get("verify", {})
     if vcfg:
         # text-mention and co-filer leaks that motivated the evidence rules,
@@ -2827,6 +2835,17 @@ def row_domain(url: str, firm_host: str) -> str:
     return "" if not host or host == firm_host else host
 
 
+def published_name(row: dict) -> str:
+    """The name a row publishes under: the brand in normal capitalization with
+    no legal suffix (COLLECTION.md s8, Erik 2026-09-24; PRO-146). The builder
+    keeps the source's rendering, which also derives the slug; a per-row
+    decision in config.json names.published {slug: name} replaces it at export
+    and on the review page, so the slug, and with it every overlay keyed on
+    it, never moves, and a rebuild cannot revert the decision. verify refuses
+    an override whose slug left the base."""
+    return ((CFG.get("names") or {}).get("published") or {}).get(row["slug"]) or row["name"]
+
+
 def qualify_shared_names(out_rows: list[dict]) -> None:
     """Different companies that share a published name each publish with
     their domain in brackets: "Scout (scout.ml)", "Scout (scouthealth.com)"
@@ -2885,7 +2904,7 @@ def cmd_export(args) -> None:
         slug = row["slug"]
         rec = merged.get(slug, {})
         v = verdicts.get(slug, {})
-        out = {"slug": slug, "name": row["name"],
+        out = {"slug": slug, "name": published_name(row),
                "membership_verdict": v.get("verdict", ""),
                "membership_evidence": v.get("evidence_class", "")}
         out.update({k: row.get(k, "") for k in EVIDENCE_COLUMNS})
@@ -3334,6 +3353,7 @@ def cmd_review(args) -> None:
                                    "site_url", "formd_links", "edgar_links",
                                    "wayback_first_link")}
         r.update(merged[b["slug"]])
+        r["name"] = published_name(b)
         v = verdicts.get(b["slug"], {})
         r.update({"membership_verdict": v.get("verdict"),
                   "membership_evidence": v.get("evidence_class"),
