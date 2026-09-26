@@ -109,7 +109,10 @@
  },
  "site_api": {
   "entry_stage_confidence": "high",
-  "entry_stage_fields": ["initial_type", "initial_stage"],
+  "entry_stage_fields": [
+   "initial_type",
+   "initial_stage"
+  ],
   "entry_stage_listing_url": "https://www.accel.com/companies",
   "type": "scrape",
   "sources": [
@@ -318,18 +321,66 @@
    "freshworks"
   ],
   "not_members": [
-   {"name": "maplebear inc", "slug": "maplebear-inc", "why": "Pre-tenure officer: the 2020 Form D names Sagar Sanghvi as Instacart's own CFO (2015-2021); he joined Accel only Sep 2021; no Accel listing, no Accel vehicle on any Instacart filing (techcrunch.com/2021/09/17/former-instacart-cfo-sagar-sang"},
-   {"name": "postera inc", "slug": "postera-inc", "why": "Founder homonym: PostEra's own co-founder/CTO is Matthew Robinson (with Alpha Lee, Aaron Morris; YC-backed 2019) — not Accel London's Matt Robinson (postera.ai/team/)"},
-   {"name": "gopivotal inc", "slug": "gopivotal-inc", "why": "Pre-tenure officer: Adrian Colyer was Pivotal's own CTO (SpringSource/VMware lineage) on the 2013 Form D; he joined Accel as venture partner only in 2014; Pivotal was EMC/VMware/GE-funded (crunchbase.com/person/adrian-colyer)"},
-   {"name": "2u inc", "slug": "2u-inc", "why": "Homonym: 2tor/2U Form Ds 2009-2019 name John M. Larson, Career Education Corp founder, original 2U investor/board member (also explains the Triumph Higher Education row) — not Accel's Jack Larson; Accel never a 2U investor (people.equilar.c"},
-   {"name": "prairie view assisted living llc", "slug": "prairie-view-assisted-living-llc", "why": "Homonym noise: a different John Larson (senior-living/property operator; same cluster as the Belize LLCs, Mile High Bioscience); no listing, no Accel entity, sector far outside any Accel desk"},
-   {"name": "aeolus pharmaceuticals inc", "slug": "aeolus-pharmaceuticals-inc", "why": "Homonym noise: Dr. Amit Kumar, the biotech executive (CombiMatrix/Actym/NGX Bio/BioCeryx cluster), not Accel's Amit Kumar; no listing, no Accel entity"},
-   {"name": "loftware", "slug": "loftware", "why": "Designed false (absent from base — correct): Accel-KKR platform investment; decisions #2: independently operated software-PE firm, own RIA CRD 156498 (accel-kkr.com/portfolio/)"},
-   {"name": "liulishuo laix", "slug": "liulishuo-laix", "why": "Designed false (absent — correct): IDG-Accel China Growth Fund portfolio (the JV fund files its own 13F holding LAIX); decisions #3: IDG-Accel attribution alone is never membership (crunchbase.com/organization/idg-accel)"},
-   {"name": "twitter", "slug": "twitter", "why": "Designed false (absent — correct): Peter Fenton (Accel 1999-2006) sat Twitter's board 2009-2017 for BENCHMARK; ex-partner next-firm class (en.wikipedia.org/wiki/Peter_Fenton_(venture_capitalist))"},
-   {"name": "walmart", "slug": "walmart", "why": "Designed false (absent — correct): Jim Breyer's Walmart board seat (2001-) is personal; Section 16 stream is his person CIK, no Accel vehicle on any Walmart filing; registry holds Breyer entities as external (sec.gov DEF 14A 2009, CIK 82608"},
-   {"name": "accel growth fund strategic partners l p", "slug": "accel-growth-fund-strategic-partners-l-p", "why": "Designed false (absent — correct): the firm's own parallel vehicle, a Form D issuer in the sweep; pooled-fund filter must drop it (fund, not portfolio company)"},
-   {"name": "accel entertainment", "slug": "accel-entertainment", "why": "Designed false (absent — correct): NYSE:ACEL gaming-terminals operator, name namesake; registry classifies desk external (sec.gov company search: Accel Entertainment 10-K filer)"}
+   {
+    "name": "maplebear inc",
+    "slug": "maplebear-inc",
+    "why": "Pre-tenure officer: the 2020 Form D names Sagar Sanghvi as Instacart's own CFO (2015-2021); he joined Accel only Sep 2021; no Accel listing, no Accel vehicle on any Instacart filing (techcrunch.com/2021/09/17/former-instacart-cfo-sagar-sang"
+   },
+   {
+    "name": "postera inc",
+    "slug": "postera-inc",
+    "why": "Founder homonym: PostEra's own co-founder/CTO is Matthew Robinson (with Alpha Lee, Aaron Morris; YC-backed 2019) — not Accel London's Matt Robinson (postera.ai/team/)"
+   },
+   {
+    "name": "gopivotal inc",
+    "slug": "gopivotal-inc",
+    "why": "Pre-tenure officer: Adrian Colyer was Pivotal's own CTO (SpringSource/VMware lineage) on the 2013 Form D; he joined Accel as venture partner only in 2014; Pivotal was EMC/VMware/GE-funded (crunchbase.com/person/adrian-colyer)"
+   },
+   {
+    "name": "2u inc",
+    "slug": "2u-inc",
+    "why": "Homonym: 2tor/2U Form Ds 2009-2019 name John M. Larson, Career Education Corp founder, original 2U investor/board member (also explains the Triumph Higher Education row) — not Accel's Jack Larson; Accel never a 2U investor (people.equilar.c"
+   },
+   {
+    "name": "prairie view assisted living llc",
+    "slug": "prairie-view-assisted-living-llc",
+    "why": "Homonym noise: a different John Larson (senior-living/property operator; same cluster as the Belize LLCs, Mile High Bioscience); no listing, no Accel entity, sector far outside any Accel desk"
+   },
+   {
+    "name": "aeolus pharmaceuticals inc",
+    "slug": "aeolus-pharmaceuticals-inc",
+    "why": "Homonym noise: Dr. Amit Kumar, the biotech executive (CombiMatrix/Actym/NGX Bio/BioCeryx cluster), not Accel's Amit Kumar; no listing, no Accel entity"
+   },
+   {
+    "name": "loftware",
+    "slug": "loftware",
+    "why": "Designed false (absent from base — correct): Accel-KKR platform investment; decisions #2: independently operated software-PE firm, own RIA CRD 156498 (accel-kkr.com/portfolio/)"
+   },
+   {
+    "name": "liulishuo laix",
+    "slug": "liulishuo-laix",
+    "why": "Designed false (absent — correct): IDG-Accel China Growth Fund portfolio (the JV fund files its own 13F holding LAIX); decisions #3: IDG-Accel attribution alone is never membership (crunchbase.com/organization/idg-accel)"
+   },
+   {
+    "name": "twitter",
+    "slug": "twitter",
+    "why": "Designed false (absent — correct): Peter Fenton (Accel 1999-2006) sat Twitter's board 2009-2017 for BENCHMARK; ex-partner next-firm class (en.wikipedia.org/wiki/Peter_Fenton_(venture_capitalist))"
+   },
+   {
+    "name": "walmart",
+    "slug": "walmart",
+    "why": "Designed false (absent — correct): Jim Breyer's Walmart board seat (2001-) is personal; Section 16 stream is his person CIK, no Accel vehicle on any Walmart filing; registry holds Breyer entities as external (sec.gov DEF 14A 2009, CIK 82608"
+   },
+   {
+    "name": "accel growth fund strategic partners l p",
+    "slug": "accel-growth-fund-strategic-partners-l-p",
+    "why": "Designed false (absent — correct): the firm's own parallel vehicle, a Form D issuer in the sweep; pooled-fund filter must drop it (fund, not portfolio company)"
+   },
+   {
+    "name": "accel entertainment",
+    "slug": "accel-entertainment",
+    "why": "Designed false (absent — correct): NYSE:ACEL gaming-terminals operator, name namesake; registry classifies desk external (sec.gov company search: Accel Entertainment 10-K filer)"
+   }
   ]
  },
  "sample_slugs": [
@@ -372,5 +423,78 @@
   "nymble",
   "casual",
   "tesseract"
- ]
+ ],
+ "names": {
+  "_published_note": "Published names (PRO-146; COLLECTION.md s8, Erik 2026-09-24): the brand in normal capitalization, letter-read acronyms kept, no legal suffix. {slug: name}, applied by run.py export; the slug and every overlay keep the source rendering. Decided 2026-09-26.",
+  "published": {
+   "alfresco-software-inc": "Alfresco Software",
+   "amcc-applied-micro-circuits-corporation": "AMCC",
+   "amerigroup-corp": "Amerigroup",
+   "ansr": "Ansr",
+   "aptana-inc": "Aptana",
+   "atomist-inc": "Atomist",
+   "autonymy-inc": "Autonymy",
+   "avici-systems-inc": "Avici Systems",
+   "aviron": "Aviron",
+   "booyah-inc": "Booyah",
+   "branchout-inc": "BranchOut",
+   "brightcove-inc": "Brightcove",
+   "brnd-me": "Brnd.me",
+   "broadbase-software-inc": "Broadbase Software",
+   "clusterhq-inc": "ClusterHQ",
+   "collective-inc": "Collective",
+   "complex-media-inc": "Complex Media",
+   "datagravity-inc": "DataGravity",
+   "elo-7-ltd": "Elo7",
+   "endorse-corp": "Endorse",
+   "epix-medical-inc": "Epix Medical",
+   "exclusively-in-inc": "Exclusively.in",
+   "farallon-communications-inc": "Farallon Communications",
+   "first-virtual-communications-inc": "First Virtual Communications",
+   "gentle-dental-service-corp": "Gentle Dental Service",
+   "goat": "Goat",
+   "grovo-learning-inc": "Grovo Learning",
+   "hearme": "HearMe",
+   "high-gear-media-inc": "High Gear Media",
+   "hybrid-networks-inc": "Hybrid Networks",
+   "ibeam-broadcasting-corp": "iBeam Broadcasting",
+   "icera-inc": "Icera",
+   "ingenuity-systems-inc": "Ingenuity Systems",
+   "ipass-inc": "iPass",
+   "kekanto-ltd": "Kekanto",
+   "knewton-inc": "Knewton",
+   "kry": "Kry",
+   "l18-holdings-inc": "L18 Holdings",
+   "lightspan-inc": "Lightspan",
+   "loyaltypoint-inc": "LoyaltyPoint",
+   "lyst": "Lyst",
+   "metacafe-inc": "Metacafe",
+   "metratech-corp": "MetraTech",
+   "mitra-rxdx-inc": "Mitra RxDx",
+   "motive-inc": "Motive",
+   "nakad": "Nakad",
+   "neumob-inc": "Neumob",
+   "openx-software-ltd": "OpenX Software",
+   "opower": "Opower",
+   "paxata-inc": "Paxata",
+   "peoplesupport-inc": "PeopleSupport",
+   "point-wild-holdings-inc": "Point Wild Holdings",
+   "primarydata-inc": "PrimaryData",
+   "qosmic": "Qosmic",
+   "rcw-inc": "RCW",
+   "remedy-corporation": "Remedy",
+   "rgb-networks-inc": "RGB Networks",
+   "sonic-innovations-inc": "Sonic Innovations",
+   "supportsoft-inc": "SupportSoft",
+   "telelogic-configuration-management-inc": "Telelogic Configuration Management",
+   "terracotta-inc": "Terracotta",
+   "transera-communications-inc": "Transera Communications",
+   "true-ultimate-standards-everywhere-inc": "TRUSTe",
+   "tune-inc": "Tune",
+   "viso": "Viso",
+   "wibmo": "Wibmo",
+   "yume-inc": "YuMe",
+   "zoomdata-inc": "Zoomdata"
+  }
+ }
 }
