@@ -1,0 +1,27 @@
+{
+ "balderton-capital": {
+  "_readme": "Durable identity corrections consumed by build-company-base.py on every rebuild (COLLECTION.md s8): one company rendered under different names across Balderton's surfaces (the 2026 list, the benchmark.com Europe desk pages 2001-2009, Form D issuer names) and its renames. Canonical = the firm's current rendering where the company is still listed. Written during the grind (PRO-106, 2026-09-26) and applied at the one scheduled rebuild.",
+  "merges": [
+   {"canonical": "displaylink", "duplicates": ["newnham-research"], "name": "DisplayLink",
+    "reason": "one company: Newnham Research (Cambridge) was renamed DisplayLink in 2006; the 2005-06 benchmark.com list carries the old name, the 2007-08 list and the live card the new one"},
+   {"canonical": "weeworld", "duplicates": ["saw-you"], "name": "WeeWorld",
+    "reason": "one company: the 2005-06 benchmark.com entry 'Saw-You' links to weeworld.com; Saw-You.com was renamed WeeWorld in 2006"},
+   {"canonical": "lovefilm", "duplicates": ["video-island", "lovefilm-international-limited"], "name": "Lovefilm",
+    "reason": "one investment: the desk backed Video Island (Coelho director of Video Island Entertainment 2004-07), which merged into Lovefilm in 2006; the desk page lists Video Island 2004-06 and Lovefilm International from 2007"},
+   {"canonical": "workhuman", "duplicates": ["globoforce"], "name": "Workhuman",
+    "reason": "one company: Globoforce was renamed Workhuman in 2019; the benchmark.com lists carry the old name, the live card the new one"},
+   {"canonical": "hubs", "duplicates": ["3d-hubs-inc", "3d-hubs"], "name": "Hubs",
+    "reason": "one company: 3D Hubs, Inc. is the Form D issuer name of the company the live card calls Hubs (renamed 2021)"},
+   {"canonical": "voize", "duplicates": ["anyvoice-inc"], "name": "Voize",
+    "reason": "one company: anyvoice Inc. is the Form D issuer of the $50M round of 2025-Q4 (Waterhouse director), the Series A the firm announced for voize on 2025-11-17"},
+   {"canonical": "simple-feast", "duplicates": ["feast-kitchen-inc"], "name": "Simple Feast",
+    "reason": "one company: Feast Kitchen Inc. (San Francisco) filed the Form Ds of 2019-Q4 ($21M) and 2021-Q1 with Waterhouse as director, the US entity of Simple Feast, whose $33M Series B the firm announced on 2019-09-18; medium confidence, flagged in report.md"},
+   {"canonical": "gocardless", "duplicates": ["groupay-inc"], "name": "GoCardless",
+    "reason": "one company: GoCardless was founded as GroupPay; Groupay, Inc. (London) files its Form Ds with Bunting as director (GoCardless director 2014-23), and the 2022-Q2 filing of $321.6M is the round the firm announced on 2022-02-08"},
+   {"canonical": "levelup", "duplicates": ["scvngr-inc"], "name": "LevelUp",
+    "reason": "one company: SCVNGR, Inc. renamed itself LevelUp; Maloney signs its Form Ds 2011-17 and the live card is LevelUp"}
+  ],
+  "never_merge": [],
+  "rejects": []
+ }
+}
