@@ -236,7 +236,8 @@ Atomico, not the other way).
     presale was unwound after the SEC's 2020 injunction (Telegram returned most
     of the money), which no standing rule addresses; a reader may reasonably
     ask whether a refunded presale is a position at all.
-15. **Wolt stays a member on the firm's own listing, flagged as possibly a
+15. **SUPERSEDED 2026-09-26 by Erik's T2 rule (6a7165e): Wolt is `not_member`,
+    a founder's angel check with no fund shown.** Original reading: **Wolt stays a member on the firm's own listing, flagged as possibly a
     personal position** (agent, 2026-09-26; COLLECTION.md §1 evidence
     sufficiency against D2's personal-position line). The CMS files Wolt at
     2016 with Niklas Zennström as investment lead (Exited), and a 2023 firm

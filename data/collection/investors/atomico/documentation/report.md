@@ -48,11 +48,11 @@ captures missed), the register (1) and the press (2).
 
 | Surface | Count |
 |---|---|
-| Base rows | 165 |
-| Excluded | 30 `not_member` (27 Form D candidates; Skype, Free Now, Joost) |
+| Base rows | 164 (Wolt out after close, see §7) |
+| Excluded | 31 `not_member` (27 Form D candidates; Skype, Free Now, Joost, Wolt) |
 | Identity merges | 22 duplicate rows, 6 found this run: IMA←Fashiolista, Pelago←Quit Genius + Digital Therapeutics Inc, Aplo←SheeldMarket, Fab←Hem, Vay←Ree Technology |
 | Membership ledger | 201 verdicts, 0 uncertain |
-| Classification | 165/165 |
+| Classification | 164/164 |
 | Status | private 86, acquired 48, defunct 16, unknown 8, public 7 |
 | Valuation range | below_1b 131, 1b_plus 30, 10b_plus 1 (Telegram), 100b_plus 1 (Stripe) |
 | Entry stage | Series A 56, Growth 48, Seed 18, undetermined 43 (2 unnameable) |
@@ -138,8 +138,9 @@ read before the Archive refused).
    founding story is absent from its track record.
 2. **Telegram** (ruling 14): a refunded 2018 token presale kept as a member.
 3. **Free Now and Pharmacy2U** (ruling 13): sale consideration, out.
-4. **Wolt** (ruling 15): member on the firm's listing, possibly Zennström's own
-   cheque.
+4. **Wolt** (ruling 15): **applied after close**: Erik's T2 rule of the same day
+   (a founder's angel check stays out unless a fund held it) puts Wolt out; the
+   only round press names Zennström personally. Final rebuild run, 164 rows.
 5. **Ashby** (ruling 16): board-only and uncorroborated, kept a member.
 6. **Joost** (D2): out, no Atomico vehicle ever shown.
 7. **Sorare vs Accel** (accepted pair): IVP and this book keep the 2021 $4.3B
@@ -181,3 +182,10 @@ data/collection/investors/atomico/sources/site/logo-small.svg`), then
 **Usage line.** Kickoff: weekly 21%, Fable 4% (5-hour 18%). Close: weekly 34%,
 Fable 6% (5-hour 47%, after one reset). 165 base rows: about 0.08 weekly points
 per company.
+
+## Addendum 2026-09-26: after the close
+
+- Erik's T2 rule of 2026-09-26 (6a7165e) applied: Wolt `not_member`; one final rebuild (164 rows), `verify` clean for this book.
+- PRO-146: `config.names.published` sets one override, FarmDrop → Farmdrop; iBoxChain, Oh BiBi and OpenFX are the companies' own stylings, The Climate Corporation is kept on purpose.
+- PRO-157 rulings 1-2 re-applied by `prepare`: no row returned (the two early Form D bands sit within two years of the company's first sighting).
+- `verify` shows 9 rule-10 pairs against Balderton, a sibling book in flight without its marker (None/None rows); its session was asked to write the marker.
