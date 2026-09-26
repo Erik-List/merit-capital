@@ -35,6 +35,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from paths import ROOT, Paths, write_atomic  # noqa: E402
+import profile_copy  # noqa: E402
 
 _spec = importlib.util.spec_from_file_location(
     "formd_issuer_rounds", Path(__file__).resolve().parent / "formd-issuer-rounds.py")
@@ -208,6 +209,10 @@ def main():
             base = None
 
     # ---- validate the curated claims against the evidence layers
+    # The two paragraphs a reader sees keep one short shape (PRO-147).
+    if copy := profile_copy.problems(row, fields):
+        raise SystemExit("Refusing to write: the thesis or history breaks the "
+                         "shape rule (COLLECTION.md §11): " + "; ".join(copy))
     verify_funds_against_filings(fields["funds"]["value"], fund_formds,
                                  "the firm's own Form D filings (bulk zips)")
 

@@ -2264,34 +2264,66 @@ investor's `investor.json` plus `investor/sources.json`, one source entry
 per field; every field populated or explicitly null, through the taxonomy
 gate, onto the review surface.
 
-**Two of these fields are READER-FACING COPY, and they are written differently
-from the rest** (ruled by Erik, 2026-09-07, after ten of the first eleven
-profiles were found carrying provenance into the page). `components/investor/
-overview.tsx` renders exactly `investment_concept` and `history`; every other
-string is either a short label (`name`, `hq_location`) or, like
-`funds[].sources[].note`, not rendered at all, since `funds.tsx` shows only a
-fund's name, size and vintage. So the accession trail belongs in the fund notes
-and the sidecar bases, and three things must stay out of the two paragraphs a
-reader sees:
+**Two of these fields are READER-FACING COPY, and they keep one short shape**
+(ruled by Erik, 2026-09-07, after ten of the first eleven profiles carried
+provenance into the page; the shape ruled 2026-09-24, PRO-147, after the twenty
+profiles ranged from a 16-word to a 301-word history; the thesis became the
+firm's own statement on 2026-09-26).
+`components/investor/overview.tsx` renders exactly `investment_concept` (the
+thesis) and `history`; every other string is a short label or not rendered at
+all. The test for both: **a reader who has never heard of Merit Capital
+understands every word.**
 
-- **Adviser-registration and filing vocabulary.** CRD numbers, "exempt
-  reporting adviser", "relying adviser", Form ADV, Form D, Item 5.F, Schedule
-  D, CIK, EDGAR. These establish the firm boundary and they are load-bearing,
-  but they belong in `investor/sources.json`, under the `aum` and boundary
-  bases, where the next session and Erik can check them. A reader wants to know
-  the firm is one partnership, not its CRD.
-- **This pipeline's own vocabulary.** "base", "this project's book", "the
-  confirmed base", "excluded here". The reader has no idea what a base is. Say
-  "the companies recorded here", "the portfolio", "not counted here".
-- **Em-dashes.** Use commas, semicolons, colons, parentheses, or restructure
-  the sentence.
+|  | Thesis | History |
+| -- | -- | -- |
+| Length | 1–2 sentences, at most 25 words | at most 3 sentences, 40–80 words |
+| Says | the firm's own crisp statement, in its own words | founded (year, city, founders), then the bets that made the firm, then where it stands today (latest fund or assets managed) |
+| Source | the firm's own site: the homepage headline, else the title-tag tagline, else the meta description's first sentence that says what the firm does | cited facts, third person |
 
-The substance is never dropped to satisfy this, and the boundary statement that
-§1 requires of a control-position base is **restated**, not removed: Battery's
-reads "the venture track record shown here covers the firm's minority
-investments rather than the whole of what it does", with the registration facts
-behind it in the sidecar. The test is simple. If a sentence would only make
-sense to someone who has read this playbook, it belongs in the sidecar.
+**The thesis is quoted, not written.** Take the line the firm itself leads
+with: Sequoia's "We help the daring build legendary companies.", YC's "Make
+something people want." (beside the logo), Thrive's "Thrive Capital builds and
+invests in internet, software, and technology-enabled companies." (its meta
+description; the homepage has no headline). The only edits allowed are
+sentence case (Felicis sets "Fortune Favors The Brave", Cherry sets capitals by
+CSS), straight quotes and one closing period. The sidecar's `source` is the
+page it was read from and its `basis` says where on the page, the date read,
+and any competing line the site also carries. A firm that publishes no
+statement at all (Benchmark: a wordmark and two addresses) carries a derived
+line, marked `derived: true` on the sidecar field and flagged in its basis.
+
+The history is written, and the model is Thrive's: founder and first fund,
+the bets that made it (Instagram, GitHub, Oscar Health, Stripe, OpenAI), and
+Fund X, in 56 words. The two ways to fail were Sequoia (a 16-word history) and
+Khosla (four sentences and 138 words, "its book shows it", em-dashes).
+
+Never in either paragraph:
+
+- **This pipeline's vocabulary:** base, book, filings, member, ledger, verdict,
+  "recorded / counted / shown here". Say "the portfolio" or "on this page".
+- **Filing vocabulary:** CRD, CIK, EDGAR, Form ADV, Form D, "registered",
+  "exempt reporting adviser", "relying adviser". These establish the firm
+  boundary and are load-bearing, so they live in `investor/sources.json`
+  under the `aum` and boundary bases, where the next session can check them.
+- **A dash as punctuation** (em-dash, spaced en-dash or hyphen). Use commas,
+  colons, parentheses or a new sentence.
+- **The firm's own voice in the history** (we, our). The thesis is the firm's
+  voice by design; the history is ours.
+
+**Nothing true is dropped to fit; it moves to the sidecar.** What the page no
+longer says (a fund ladder, a desk that became its own firm, entry-round
+shares) is appended to the field's `basis`, so the next session can put it
+back. A portfolio boundary stays readable where the reader needs it: Battery's
+history says "the track record on this page covers its minority stakes only";
+boundaries a reader does not need to read the numbers (Benchmark's London and
+Israeli desks, Greylock IL, Dorm Room Fund, Thrive Holdings) live in the basis.
+
+**The rule is checked, not remembered.** `scripts/profile_copy.py` holds it
+(sentence and word limits, the banned words, dashes, first person in the
+history, the thesis sourced from the firm's own site unless marked derived,
+the sidecar mirror); `build-firm-profile.py`
+refuses to write a profile that breaks it and `run.py verify` fails one.
+`python3 scripts/profile_copy.py` with no slug checks all investors.
 
 **The sidecar's `value` must mirror `investor.json`, and a placeholder is a
 defect.** `"see investor.json"` in a `fields.<name>.value` breaks the field

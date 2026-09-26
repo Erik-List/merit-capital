@@ -1,4 +1,5 @@
 import type { Database } from '@/types/supabase';
+import { ExpandableText } from './expandable-text';
 
 type Investor = Database['public']['Tables']['investors']['Row'];
 
@@ -21,16 +22,17 @@ export function InvestorOverview({ investor }: InvestorOverviewProps) {
   }
 
   // Two paragraphs, not one bullet-joined line: the thesis is the firm's
-  // one-liner and reads in foreground; the history is a long paragraph and
-  // reads as muted detail beneath it. Joining them inline with a bullet left
-  // the bullet floating vertically centred beside a wrapped paragraph.
+  // one-liner and reads in foreground; the history reads as muted detail
+  // beneath it, clamped to two lines behind "Show more" (PRO-147). Joining them
+  // inline with a bullet left the bullet floating vertically centred beside a
+  // wrapped paragraph.
   return (
     <div className="space-y-3 text-sm leading-relaxed">
       {hasInvestmentConcept ? (
         <p className="text-foreground">{investor.investment_concept}</p>
       ) : null}
-      {hasHistory ? (
-        <p className="text-muted-foreground">{investor.history}</p>
+      {investor.history ? (
+        <ExpandableText text={investor.history} className="text-muted-foreground" />
       ) : null}
     </div>
   );

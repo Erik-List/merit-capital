@@ -70,6 +70,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import outcome_sources as S                                    # noqa: E402
+import profile_copy                                            # noqa: E402
 from paths import COLLECTION, INVESTORS, ROOT, Paths, write_atomic           # noqa: E402
 
 # Set in main() from the parsed investor slug; every path derives from them.
@@ -2111,6 +2112,19 @@ def verify_profile_hq(investor: str, problems: list[str], surface: list[str]) ->
                        f"Form ADV or site may move the HQ)")
 
 
+def verify_profile_copy(problems: list[str]) -> None:
+    """The thesis and history keep the reader-facing shape (PRO-147,
+    COLLECTION.md §11): sentence and word limits, no internal words, no dash
+    as punctuation, the thesis quoted from the firm's own site, and a sidecar
+    value that mirrors investor.json."""
+    if not P.investor.exists():
+        return                                   # no profile built yet
+    row = json.loads(P.investor.read_text())
+    fields = json.loads(P.investor_sources.read_text()).get("fields", {}) \
+        if P.investor_sources.exists() else None
+    problems.extend(f"profile {x}" for x in profile_copy.problems(row, fields))
+
+
 def cmd_verify(args) -> None:
     rows = load_base(args.investor)
     resolved = load(P.resolved, {})
@@ -2608,6 +2622,7 @@ def cmd_verify(args) -> None:
             encoding="utf-8", errors="replace"):
         surface.append("review.html stale relative to the base; re-run review")
     verify_profile_hq(args.investor, problems, surface)
+    verify_profile_copy(problems)
 
     if in_flight:
         for s in surface + notes:
