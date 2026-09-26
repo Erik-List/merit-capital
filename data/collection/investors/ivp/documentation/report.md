@@ -220,3 +220,30 @@ About 110 web searches of the 200 budget.
 
 **1** at close: the kickoff ("please collect IVP"). The ingest approval will
 make it 2.
+
+## Addendum 2026-09-26: Erik's rulings and the ingest
+
+**Rulings (Erik, 2026-09-26):**
+
+- **X1 confirmed.** The $1B+ ceiling stays at 0.45.
+- **Omniture is out** (T3). It is `not_member` on the ledger (who: erik), a membership trap in `config.json`, and in `excluded.json` after the rebuild. The rebuild changed nothing else (diffed row by row). The base is now **297 rows** (tiers A 174, B 97, C 26). Acquired is 155, undetermined stages 129, US 271.
+- **Dream Games reads private.** The company's own status decides, whatever its investors' exits.
+
+Still open: Exclusive Resorts and Surf Air (director of record only), Sorare vs Accel, R3, and the gap to 400.
+
+**Ingest, in the first-time order:**
+
+1. Icon uploaded as `investors/ivp-f484859811.png`, the same content hash as the dry run.
+2. `ingest:investor -- --investors name=ivp` wrote the investor row.
+3. `ingest:companies -- ivp` dry run planned 297 new, 0 removed, from 0 live, and the real run upserted 297 of 297.
+
+**Readback** (`scratch/ingest/readback.ts`, read-only):
+
+- 297 of 297 companies live, 0 missing, **0 differing cells** against `base.csv`.
+- The investor row carries the icon, Menlo Park, AUM $9,945,403,983, 12 funds and 31 people.
+- The database's derived metrics match the book: 36 IPOs, 70 / 22 / 6 at $1B+ / $10B+ / $100B+, stage distribution Growth 156 and Series A 12.
+- `graduation_rate` is null, as expected: no Seed cohort.
+
+**Left for PRO-146:** 27 published names break the 2026-09-24 names rule. Most are all-caps legal names from the 1990s fund filings ("ONYX PHARMACEUTICALS INC"); the rest are brand stylings (DOMO, WHOOP, SEON, ZEFR, POPSUGAR) and "Surf Air Global Ltd". Each fix is a rename in the live table, so it rides the book's next deliberate rebuild, as that rule plans.
+
+**Prompt count 2, final:** the kickoff and this ruling-plus-ingest message.
