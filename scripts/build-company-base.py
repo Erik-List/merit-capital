@@ -22,6 +22,7 @@ import json
 import re
 import subprocess
 import sys
+import unicodedata
 from collections import Counter
 from pathlib import Path
 from urllib.parse import urlparse
@@ -148,6 +149,11 @@ def norm_words(name: str) -> str:
 
 def slug_of(name: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+
+
+def ascii_fold(name: str) -> str:
+    """KäuferPortal -> KauferPortal: the spelling a reject is usually written in."""
+    return unicodedata.normalize("NFKD", name or "").encode("ascii", "ignore").decode()
 
 
 def load_sector_taxonomy() -> set[str]:
@@ -927,9 +933,20 @@ def main() -> None:
                 keep["notes"], f"absorbed {ds} ({m['reason']})"]))
             rows_out.remove(gone)
             idm_merged += 1
+    # A reject names the row by its slug, and the builder slugs a non-ASCII
+    # name by dropping the letter: KäuferPortal is `k-uferportal`, so a reject
+    # written `kauferportal` matched nothing and did nothing, silently
+    # (Point Nine, PRO-156). The ASCII-folded slug of the row's name matches
+    # too, and a reject that still matches no row is said out loud.
+    folded = {}
+    for r in rows_out:
+        folded.setdefault(slug_of(ascii_fold(r["name"])), r["slug"])
     for rj in overlay.get("rejects", []):
-        gone = by_slug.pop(rj["slug"], None)
+        key = rj["slug"] if rj["slug"] in by_slug else folded.get(rj["slug"])
+        gone = by_slug.pop(key, None) if key else None
         if gone is None:
+            if not any(r["slug"] == rj["slug"] for r in rejected):
+                print(f"  overlay: reject '{rj['slug']}' matches no row in the base")
             continue
         gone["status"] = "rejected"
         gone["notes"] = "; ".join(filter(None, [gone["notes"], f"rejected: {rj['reason']}"]))

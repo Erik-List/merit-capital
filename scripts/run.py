@@ -324,21 +324,45 @@ def load_base(investor: str) -> list[dict]:
     return json.loads(P.base_json.read_text())
 
 
+# Flags that mark work still to do. The pass that does the work clears them
+# with an explicit `clear_flags`, which `record` keeps on the row as
+# `cleared_flags`, so the prepared layer cannot put them back: a pinned
+# figure's `needs_web_value` survived on 8 Point Nine rows and 32 YC rows that
+# way (PRO-156). Flags that record a fact (duplicate, boundary, cik_weak, ...)
+# are not in this set and stay unclearable.
+CLEARABLE_FLAGS = {"needs_web_value", "model_disputes_source", "unicorn_name_match"}
+
+
 def merge_rows(rows: list[dict], resolved: dict, cls: dict) -> dict[str, dict]:
     """slug -> deterministic record overlaid with the batch classification.
 
     Flags are additive across layers: a batch answer must not be able to clear
     a deterministic flag (duplicate, boundary, ...) by emitting its own list.
-    Everything else is a per-key override.
+    The one way a flag leaves is an explicit clear of a work flag, recorded as
+    `cleared_flags`. Everything else is a per-key override.
     """
     merged = {}
     for row in rows:
         det, overlay = resolved.get(row["slug"], {}), cls.get(row["slug"], {})
+        cleared = set(overlay.get("cleared_flags") or []) & CLEARABLE_FLAGS
         rec = {**det, **overlay,
-               "flags": sorted(set(det.get("flags") or [])
-                               | set(overlay.get("flags") or []))}
+               "flags": sorted((set(det.get("flags") or [])
+                                | set(overlay.get("flags") or [])) - cleared)}
+        rec.pop("cleared_flags", None)
         merged[row["slug"]] = rec
     return merged
+
+
+def keep_clears(target: dict, rec: dict) -> None:
+    """Carry a line's explicit clear of work flags onto the stored row, and
+    drop a remembered clear when a later line raises the flag again."""
+    raised = set(rec.get("flags") or [])
+    kept = (set(target.get("cleared_flags") or [])
+            | (set(rec.get("clear_flags") or []) & CLEARABLE_FLAGS)) - raised
+    if kept:
+        target["cleared_flags"] = sorted(kept)
+    else:
+        target.pop("cleared_flags", None)
 
 
 def load_ledger(investor: str) -> tuple[dict, dict]:
@@ -1504,6 +1528,24 @@ def validate_record(rec: dict, slugs: set[str], merged: dict | None = None,
     return errs
 
 
+def fold_line(into: dict, rec: dict, n: int) -> list[str]:
+    """Fold a second line for the same company into the first: flag lists
+    union, notes join, a new key is added, and a key the lines give different
+    values is an error naming both (PRO-156)."""
+    errs = []
+    for k, v in rec.items():
+        if k in ("flags", "clear_flags"):
+            into[k] = sorted(set(into.get(k) or []) | set(v or []))
+        elif k == "note" and into.get("note") and v and v != into["note"]:
+            into["note"] = f"{into['note']} | {v}"
+        elif k in into and into[k] != v:
+            errs.append(f"line {n}: {rec.get('slug')}: a second line gives {k} "
+                        f"{v!r}, an earlier one {into[k]!r}; one answer per key")
+        else:
+            into[k] = v
+    return errs
+
+
 def cmd_record(args) -> None:
     """One validating record step for both judgment kinds.
 
@@ -1530,9 +1572,11 @@ def _record(args) -> None:
     merged = merge_rows(rows, load(P.resolved, {}), cls)
     led, verdicts = load_ledger(args.investor)
     cls_in, verd_in, errors = {}, {}, []
-    incoming = [r for r in (json.loads(l) for l in src.read_text().splitlines() if l.strip())
-                if isinstance(r, dict) and "verdict" not in r]
-    shared = shared_stage_citations(merged, incoming)
+    # Two lines for one company in one file are one answer: they fold key by
+    # key before anything validates, and a key the two lines give different
+    # values refuses the file. Keyed by slug alone, the second line used to
+    # replace the first silently (IVP lost Suno's stage citation, Point Nine an
+    # Upciti line; PRO-156).
     for n, line in enumerate(src.read_text().splitlines(), 1):
         line = line.strip()
         if not line:
@@ -1542,16 +1586,24 @@ def _record(args) -> None:
         except json.JSONDecodeError as e:
             errors.append(f"line {n}: {e}")
             continue
-        if "verdict" in rec:
-            errors.extend(validate_verdict(rec, slugs))
-            verd_in[rec["slug"]] = rec
+        if not isinstance(rec, dict):
+            errors.append(f"line {n}: not a JSON object")
             continue
-        # Answers may name the country in prose form; collapse to the alpha-2
-        # code before validation so only genuinely unknown names bounce.
-        if isinstance(rec, dict) and rec.get("hq_country"):
+        into = verd_in if "verdict" in rec else cls_in
+        if rec.get("slug") in into:
+            errors.extend(fold_line(into[rec["slug"]], rec, n))
+        else:
+            into[rec.get("slug")] = rec
+    for rec in verd_in.values():
+        errors.extend(validate_verdict(rec, slugs))
+    # Answers may name the country in prose form; collapse to the alpha-2
+    # code before validation so only genuinely unknown names bounce.
+    for rec in cls_in.values():
+        if rec.get("hq_country"):
             rec["hq_country"] = canon_country(rec["hq_country"]) or rec["hq_country"]
+    shared = shared_stage_citations(merged, list(cls_in.values()))
+    for rec in cls_in.values():
         errors.extend(validate_record(rec, slugs, merged, shared))
-        cls_in[rec["slug"]] = rec
     if errors:
         print(f"REJECTED — {len(errors)} problem(s), nothing recorded:")
         for e in errors[:25]:
@@ -1576,6 +1628,7 @@ def _record(args) -> None:
     for slug, rec in cls_in.items():
         prev = cls.get(slug)
         if prev is None:
+            keep_clears(rec, rec)
             rec["flags"] = sorted(set(rec.get("flags") or [])
                                   - set(rec.pop("clear_flags", [])))
             cls[slug] = rec
@@ -1593,6 +1646,7 @@ def _record(args) -> None:
                 print(f"  kept human classification keys on {slug}: {sorted(kept)}")
         fl = set(prev.get("flags") or []) | set(rec.get("flags") or [])
         fl -= set(rec.get("clear_flags") or [])
+        keep_clears(prev, rec)
         if rec.get("hq_city"):
             # a city that lands supersedes "the judge could not place it"; the
             # flag left behind is how a16z:extra and battery:bonfire/jask came
@@ -1905,6 +1959,10 @@ CROSS_RULINGS = COLLECTION / "cross-investor.json"
 # Books held at the city count they carried when the city rule landed
 # (2026-09-24); see the city rule in cmd_verify.
 CITY_DEBT_FILE = COLLECTION / "shared" / "city-debt.json"
+# Books held at the rule-6 count they carried when verify began enforcing it
+# (2026-09-26, PRO-156); same ratchet as the city rule.
+COUNTRY_DEBT_FILE = COLLECTION / "shared" / "country-debt.json"
+COUNTRY_PROVENANCE = ("formd_address", "wikidata", "web_verified")
 CROSS_CIK_RE = re.compile(r"/edgar/data/(\d+)/")
 CROSS_STRIP_RE = re.compile(
     r"\b(inc|corp|corporation|co|ltd|llc|plc|labs|technologies|technology|"
@@ -2220,6 +2278,7 @@ def cmd_verify(args) -> None:
     owed_date = 0                    # decided rows without the entry_date their clock reads
     notes: list[str] = []            # in-flight observations that are not defects
     no_city: list[str] = []          # rows with no hq_city and no city_unknown flag
+    uncited_country: list[str] = []  # rule 6: $1B+ non-US row on model knowledge alone
     stale_city_flag: list[str] = []  # rows with a city AND a leftover city_unknown flag
     c2a_on = bool((CFG.get("verify") or {}).get("c2a_deterministic", True))
     merged = merge_rows(rows, resolved, cls)
@@ -2340,6 +2399,15 @@ def cmd_verify(args) -> None:
         elif rec["hq_country"] not in ISO_CODES:
             problems.append(f"{slug}: hq_country {rec['hq_country']!r} is not a known "
                             f"ISO 3166-1 alpha-2 code")
+        # Rule 6: a non-US country on a visible ($1B+) row needs a citation or
+        # filing/Wikidata/web provenance; model knowledge alone does not place
+        # a headquarters (IVP: DeepL, Papaya, Pigment and Wonderful passed on
+        # it; PRO-156). Judged per book after the loop (the ratchet).
+        if (rec.get("hq_country") and rec["hq_country"] != "US"
+                and rec.get("valuation_range") in ("1b_plus", "10b_plus", "100b_plus")
+                and rec.get("hq_country_source") not in COUNTRY_PROVENANCE
+                and not (rec.get("hq_country_citation") or "").strip()):
+            uncited_country.append(slug)
         # The city is a filled column like the country: a city, or the
         # `city_unknown` flag saying the judge looked and could not place the
         # company. An empty cell with no flag is work nobody did, and it
@@ -2555,6 +2623,25 @@ def cmd_verify(args) -> None:
                                 f"against the {debt} this book is held at; the new "
                                 f"rows need a city or {CITY_UNKNOWN}")
             problems.extend(f"{s}: no hq_city and no {CITY_UNKNOWN} flag" for s in no_city)
+    # ---- rule 6, per book, held to the count each book carried when the check
+    # landed (data/collection/shared/country-debt.json, 2026-09-26), exactly as
+    # the city rule is: printed on every verify, may shrink, never grow. A book
+    # not on the list, and every new book, is strict. A country pass (cite the
+    # row, or take the Form D / Wikidata value) clears it.
+    if uncited_country:
+        debt = load(COUNTRY_DEBT_FILE, {}).get("books", {}).get(args.investor)
+        if debt is not None and len(uncited_country) <= debt:
+            print(f"country debt    : {len(uncited_country)} $1B+ non-US rows placed on "
+                  f"model knowledge alone, within the {debt} carried when rule 6 "
+                  f"was enforced; a country pass clears it")
+        else:
+            if debt is not None:
+                problems.append(f"country debt grew: {len(uncited_country)} uncited "
+                                f"non-US $1B+ rows against the {debt} this book is "
+                                f"held at")
+            problems.extend(f"{s}: non-US hq_country on a $1B+ row with no citation and "
+                            f"no formd/wikidata/web provenance (rule 6)"
+                            for s in uncited_country)
     if stale_city_flag:
         print(f"note: {len(stale_city_flag)} rows carry a city and a leftover "
               f"{CITY_UNKNOWN} flag (the city stands): {stale_city_flag[:5]}")

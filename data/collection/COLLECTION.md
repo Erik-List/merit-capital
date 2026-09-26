@@ -426,6 +426,14 @@ mechanically so on the ledger: `record` refuses to overwrite them.
 Classification keys carry the same guard in `record`: an agent record may
 add keys to a `who: "erik"` row but never overwrite or unflag the keys the
 human set. Belt and braces: never re-emit a key Erik has set.
+Two lines for one company in one file are one answer (PRO-156, after IVP
+lost Suno's stage citation and Point Nine an Upciti line to the second line
+silently replacing the first): `record` folds them key by key before it
+validates, and refuses the file when the lines give one key different
+values. An explicit `clear_flags` of a work flag (`needs_web_value`,
+`model_disputes_source`, `unicorn_name_match`) is kept on the row as
+`cleared_flags`, so the prepared layer cannot put the flag back; flags that
+record a fact (`duplicate`, `boundary`, `cik_weak`) stay unclearable.
 `not_member` rows leave the published base into `excluded.json` (reason
 `not_member`), preserved, never deleted; `uncertain` rows stay in the base,
 marked for sampling.
@@ -576,7 +584,9 @@ results; those results stand as history.
    exits**: Google, Microsoft, Intuit, Adobe, eBay and Facebook all appeared on
    First Round's wall next to the companies they had bought, and a
    name-matching layer will confidently label them. Those are `rejects`, not
-   members.
+   members. A reject may name a row by its ASCII spelling: the builder slugs
+   KäuferPortal as `k-uferportal`, so rejects also match the folded slug, and
+   a reject that matches no row is printed rather than skipped (PRO-156).
 
    **A `listing_regex` era whose name window is a bounded `.{0,N}?` can take
    the NEXT row's name.** Measured on the same run: rows whose per-row JS
@@ -2232,6 +2242,10 @@ run before the investor row exists (Thrive, 2026-09-04).
    failed. `cohort_unverified` is not an allowed end state (retired
    2026-09-16).
 6. Non-US country on a visible row → citation or formd/wikidata provenance.
+   Enforced by `verify` since 2026-09-26 (PRO-156): model knowledge alone
+   fails. The 125 rows in 19 books that carried it then are held in
+   `shared/country-debt.json`, the city rule's ratchet: printed on every
+   verify, allowed to shrink, never to grow.
 7. No row ends `not_graduated` + (≥$1B or public), except a private row
    whose $1B+ mark dates within six months of its entry (the entry round set
    the mark, so no later round is implied); no `censored` row whose entry,
