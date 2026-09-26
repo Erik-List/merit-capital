@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { createClient } from "@/utils/supabase/client";
 import type { Database } from "@/types/supabase";
@@ -748,7 +749,10 @@ export default function Leaderboard() {
           <h1 className="text-xl font-medium sm:text-2xl">The venture capital performance index</h1>
           <p className="mt-1 max-w-3xl text-sm text-foreground/85">
             $1B, $10B and $100B investment outcomes, IPOs, and seed to Series A graduation rates for{" "}
-            {investors.length > 0 ? `${investors.length} of the most well-known venture investors` : "the most well-known venture investors"}. Data from all publicly available information.
+            {investors.length > 0 ? `${investors.length} of the most well-known venture investors` : "the most well-known venture investors"}. Data from all publicly available information.{" "}
+            <Link href="/about" className="underline underline-offset-2 hover:text-foreground">
+              About
+            </Link>
           </p>
         </header>
         <div className="grid gap-6 md:min-h-0 md:flex-1 lg:grid-cols-[320px_1fr]">
