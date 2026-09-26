@@ -85,6 +85,7 @@ FIRM_TERMS = {
     "lightspeed": '"Lightspeed"',
     "lux-capital": '"Lux Capital"',
     "menlo-ventures": '"Menlo Ventures"',
+    "point-nine": '("Point Nine Capital" OR "Point Nine")',
     "redpoint-ventures": '"Redpoint"',
     "sequoia-capital": '"Sequoia"',
     "spark-capital": '"Spark Capital"',

@@ -67,7 +67,8 @@ _ROUND.update({
     "series b+": "Growth", "series c+": "Growth", "series d+": "Growth",
     "series c or later": "Growth", "series b or later": "Growth",
     "growth": "Growth", "growth stage": "Growth", "late stage": "Growth",
-    "late-stage": "Growth", "buyout": "Growth", "pre-ipo": "Growth",
+    "late-stage": "Growth", "later stage": "Growth", "later-stage": "Growth",
+    "buyout": "Growth", "pre-ipo": "Growth",
     "pre ipo": "Growth", "crossover": "Growth", "secondary": "Growth",
 })
 
