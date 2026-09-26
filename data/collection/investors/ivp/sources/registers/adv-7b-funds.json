@@ -1,0 +1,305 @@
+{
+ "_readme": "Parse Form ADV Schedule D Section 7.B.(1) private-fund rosters from the\nIVP per-fund ERA PDFs (sources/registers/adv-<CRD>.pdf) into\nsources/registers/adv-7b-funds.json. Per-page extraction (pypdf's whole-document\ntext repeats pages), one record per fund: name, 805- ID, GAV, filing adviser.\nDeduped by private fund ID across advisers (COLLECTION.md 11: co-advisers of\none desk report identical rosters). Section 7.B.(2) (sub-advised funds reported\nby another adviser) carries no GAV and is recorded as a reference list.",
+ "advisers": {
+  "165005": {
+   "crd": "165005",
+   "adviser": "INSTITUTIONAL VENTURE MANAGEMENT XIV, LLC",
+   "filed": "3/28/2026",
+   "funds_7b1": [
+    {
+     "name": "INSTITUTIONAL VENTURE PARTNERS XIV, L.P.",
+     "id": "805-8394805758",
+     "gav": 305991959
+    }
+   ],
+   "funds_7b2": []
+  },
+  "236786": {
+   "crd": "236786",
+   "adviser": "INSTITUTIONAL VENTURE MANAGEMENT XV, LLC",
+   "filed": "3/28/2026",
+   "funds_7b1": [
+    {
+     "name": "INSTITUTIONAL VENTURE PARTNERS XV EXECUTIVE FUND, L.P.",
+     "id": "805-4737748805",
+     "gav": 9861135
+    },
+    {
+     "name": "INSTITUTIONAL VENTURE PARTNERS XV, L.P.",
+     "id": "805-1752948752",
+     "gav": 1674577113
+    }
+   ],
+   "funds_7b2": []
+  },
+  "290647": {
+   "crd": "290647",
+   "adviser": "INSTITUTIONAL VENTURE MANAGEMENT XVI, LLC",
+   "filed": "3/28/2026",
+   "funds_7b1": [
+    {
+     "name": "INSTITUTIONAL VENTURE PARTNERS XVI, L.P.",
+     "id": "805-3551708016",
+     "gav": 2213447319
+    },
+    {
+     "name": "IVP EXECUTIVE FUND XVI, LLC",
+     "id": "805-5598344159",
+     "gav": 33638283
+    }
+   ],
+   "funds_7b2": []
+  },
+  "310356": {
+   "crd": "310356",
+   "adviser": "INSTITUTIONAL VENTURE MANAGEMENT XVII, LLC",
+   "filed": "3/28/2026",
+   "funds_7b1": [
+    {
+     "name": "BOW TIE ANGELS - A, L.P.",
+     "id": "805-5155609038",
+     "gav": 5024438
+    },
+    {
+     "name": "INSTITUTIONAL VENTURE PARTNERS XVII, L.P.",
+     "id": "805-3262795117",
+     "gav": 3575847693
+    },
+    {
+     "name": "IVP EXECUTIVE FUND XVII, LLC",
+     "id": "805-4016273721",
+     "gav": 88068281
+    },
+    {
+     "name": "IVP XVII-A, L.P.",
+     "id": "805-4767008161",
+     "gav": 2941577
+    },
+    {
+     "name": "IVP XVII-B, L.P.",
+     "id": "805-6159508465",
+     "gav": 2735503
+    },
+    {
+     "name": "IVP XVII-C, L.P",
+     "id": "805-8752061110",
+     "gav": 18237053
+    },
+    {
+     "name": "IVP XVII-D, L.P.",
+     "id": "805-6231654237",
+     "gav": 12472861
+    },
+    {
+     "name": "IVP XVII-E, L.P.",
+     "id": "805-5215264583",
+     "gav": 51179840,
+     "note": "value read at the top of the next page"
+    },
+    {
+     "name": "IVP XVII-F, L.P.",
+     "id": "805-7829720866",
+     "gav": 51179840,
+     "note": "value read at the top of the next page"
+    }
+   ],
+   "funds_7b2": []
+  },
+  "324257": {
+   "crd": "324257",
+   "adviser": "INSTITUTIONAL VENTURE MANAGEMENT XVIII, LLC",
+   "filed": "3/28/2026",
+   "funds_7b1": [
+    {
+     "name": "INSTITUTIONAL VENTURE PARTNERS XVIII, L.P.",
+     "id": "805-9388501121",
+     "gav": 1877218908
+    },
+    {
+     "name": "INSTITUTIONAL VENTURE PARTNERS XVIII-P, L.P.",
+     "id": "805-6036731638",
+     "gav": 6788888
+    },
+    {
+     "name": "IVP EXECUTIVE FUND XVIII, LLC",
+     "id": "805-4831416473",
+     "gav": 16193292
+    }
+   ],
+   "funds_7b2": []
+  },
+  "329558": {
+   "crd": "329558",
+   "adviser": "INSTITUTIONAL VENTURE PARTNERS UK LLP",
+   "filed": "3/28/2026",
+   "funds_7b1": [],
+   "funds_7b2": [
+    {
+     "name": "INSTITUTIONAL VENTURE PARTNERS XIV, L.P.",
+     "id": "805-8394805758"
+    },
+    {
+     "name": "INSTITUTIONAL VENTURE PARTNERS XV EXECUTIVE FUND, L.P.",
+     "id": "805-4737748805"
+    },
+    {
+     "name": "INSTITUTIONAL VENTURE PARTNERS XV, L.P.",
+     "id": "805-1752948752"
+    },
+    {
+     "name": "INSTITUTIONAL VENTURE PARTNERS XVI, L.P.",
+     "id": "805-3551708016"
+    },
+    {
+     "name": "INSTITUTIONAL VENTURE PARTNERS XVII, L.P.",
+     "id": "805-3262795117"
+    },
+    {
+     "name": "INSTITUTIONAL VENTURE PARTNERS XVIII, L.P.",
+     "id": "805-9388501121"
+    },
+    {
+     "name": "INSTITUTIONAL VENTURE PARTNERS XVIII-P, L.P.",
+     "id": "805-6036731638"
+    },
+    {
+     "name": "IVP EXECUTIVE FUND XVI, LLC",
+     "id": "805-5598344159"
+    },
+    {
+     "name": "IVP EXECUTIVE FUND XVII, LLC",
+     "id": "805-4016273721"
+    },
+    {
+     "name": "IVP EXECUTIVE FUND XVIII, LLC",
+     "id": "805-4831416473"
+    }
+   ]
+  }
+ },
+ "funds": [
+  {
+   "name": "INSTITUTIONAL VENTURE PARTNERS XIV, L.P.",
+   "id": "805-8394805758",
+   "gav": 305991959,
+   "reported_by": "165005",
+   "also_reported_by": []
+  },
+  {
+   "name": "INSTITUTIONAL VENTURE PARTNERS XV EXECUTIVE FUND, L.P.",
+   "id": "805-4737748805",
+   "gav": 9861135,
+   "reported_by": "236786",
+   "also_reported_by": []
+  },
+  {
+   "name": "INSTITUTIONAL VENTURE PARTNERS XV, L.P.",
+   "id": "805-1752948752",
+   "gav": 1674577113,
+   "reported_by": "236786",
+   "also_reported_by": []
+  },
+  {
+   "name": "INSTITUTIONAL VENTURE PARTNERS XVI, L.P.",
+   "id": "805-3551708016",
+   "gav": 2213447319,
+   "reported_by": "290647",
+   "also_reported_by": []
+  },
+  {
+   "name": "IVP EXECUTIVE FUND XVI, LLC",
+   "id": "805-5598344159",
+   "gav": 33638283,
+   "reported_by": "290647",
+   "also_reported_by": []
+  },
+  {
+   "name": "BOW TIE ANGELS - A, L.P.",
+   "id": "805-5155609038",
+   "gav": 5024438,
+   "reported_by": "310356",
+   "also_reported_by": []
+  },
+  {
+   "name": "INSTITUTIONAL VENTURE PARTNERS XVII, L.P.",
+   "id": "805-3262795117",
+   "gav": 3575847693,
+   "reported_by": "310356",
+   "also_reported_by": []
+  },
+  {
+   "name": "IVP EXECUTIVE FUND XVII, LLC",
+   "id": "805-4016273721",
+   "gav": 88068281,
+   "reported_by": "310356",
+   "also_reported_by": []
+  },
+  {
+   "name": "IVP XVII-A, L.P.",
+   "id": "805-4767008161",
+   "gav": 2941577,
+   "reported_by": "310356",
+   "also_reported_by": []
+  },
+  {
+   "name": "IVP XVII-B, L.P.",
+   "id": "805-6159508465",
+   "gav": 2735503,
+   "reported_by": "310356",
+   "also_reported_by": []
+  },
+  {
+   "name": "IVP XVII-C, L.P",
+   "id": "805-8752061110",
+   "gav": 18237053,
+   "reported_by": "310356",
+   "also_reported_by": []
+  },
+  {
+   "name": "IVP XVII-D, L.P.",
+   "id": "805-6231654237",
+   "gav": 12472861,
+   "reported_by": "310356",
+   "also_reported_by": []
+  },
+  {
+   "name": "IVP XVII-E, L.P.",
+   "id": "805-5215264583",
+   "gav": 51179840,
+   "note": "value read at the top of the next page",
+   "reported_by": "310356",
+   "also_reported_by": []
+  },
+  {
+   "name": "IVP XVII-F, L.P.",
+   "id": "805-7829720866",
+   "gav": 51179840,
+   "note": "value read at the top of the next page",
+   "reported_by": "310356",
+   "also_reported_by": []
+  },
+  {
+   "name": "INSTITUTIONAL VENTURE PARTNERS XVIII, L.P.",
+   "id": "805-9388501121",
+   "gav": 1877218908,
+   "reported_by": "324257",
+   "also_reported_by": []
+  },
+  {
+   "name": "INSTITUTIONAL VENTURE PARTNERS XVIII-P, L.P.",
+   "id": "805-6036731638",
+   "gav": 6788888,
+   "reported_by": "324257",
+   "also_reported_by": []
+  },
+  {
+   "name": "IVP EXECUTIVE FUND XVIII, LLC",
+   "id": "805-4831416473",
+   "gav": 16193292,
+   "reported_by": "324257",
+   "also_reported_by": []
+  }
+ ],
+ "count": 17,
+ "sum_gross_asset_value_usd": 9945403983
+}

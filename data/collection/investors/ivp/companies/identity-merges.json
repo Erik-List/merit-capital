@@ -1,0 +1,154 @@
+{
+ "ivp": {
+  "_readme": "Identity merges for IVP. Two sources of duplication: the EDGAR layer names a company by its registered name while the firm's pages use the brand ('Honest Company, Inc.' / 'The Honest Company', 'On Deck' / 'OnDeck Capital'), and IVP's own pages carry a company across its renames (Snapchat to Snap, Wikia to Fandom, Whip Networks to Whipclip to Whip Media Group). Canonical is the rendering on the firm's live portfolio page where one exists, else the current brand. Written before the first prepare (2026-09-26), so no verdict had yet keyed on any merged slug.",
+  "merges": [
+   {
+    "canonical": "the-honest-company",
+    "duplicates": [
+     "honest-company-inc"
+    ],
+    "reason": "The Honest Company, Inc. is the registered name of the company the firm lists as The Honest Company (EDGAR ownership filings 2021-2024)"
+   },
+   {
+    "canonical": "ondeck-capital",
+    "duplicates": [
+     "on-deck"
+    ],
+    "name": "OnDeck",
+    "reason": "On Deck Capital, Inc. (NYSE: ONDK, 2014-2020) is the company IVP's pages call OnDeck; the brand is OnDeck"
+   },
+   {
+    "canonical": "snap",
+    "duplicates": [
+     "snapchat"
+    ],
+    "reason": "Snapchat, Inc. renamed itself Snap Inc. in 2016; IVP's 2016 page lists Snapchat, the live page Snap"
+   },
+   {
+    "canonical": "fandom-wikia",
+    "duplicates": [
+     "wikia"
+    ],
+    "name": "Fandom",
+    "reason": "Wikia, Inc. rebranded as Fandom (2016, fully by 2018); IVP's pages carry Wikia to 2023 and 'Fandom (Wikia)' from 2024"
+   },
+   {
+    "canonical": "whip-media-group",
+    "duplicates": [
+     "whip-networks",
+     "whipclip"
+    ],
+    "reason": "Whip Networks (IVP's 2014 investment) launched Whipclip and became Whip Media Group; one company across three renderings"
+   },
+   {
+    "canonical": "groundtruth",
+    "duplicates": [
+     "xad"
+    ],
+    "reason": "xAd renamed itself GroundTruth in 2017; IVP's 2014-2016 pages list xAd, the live page GroundTruth. Added in flight (2026-09-26); applies at the scheduled rebuild."
+   },
+   {
+    "canonical": "motive",
+    "duplicates": [
+     "keeptruckin"
+    ],
+    "reason": "KeepTruckin renamed itself Motive in 2022; IVP's 2018-2023 pages list KeepTruckin, the live page Motive. Added in flight (2026-09-26); applies at the scheduled rebuild."
+   },
+   {
+    "canonical": "oportun",
+    "duplicates": [
+     "progreso-financiero"
+    ],
+    "reason": "Progreso Financiero renamed itself Oportun in 2015; one CIK (the prepare layer flagged both as duplicates). Added in flight (2026-09-26); applies at the scheduled rebuild."
+   },
+   {
+    "canonical": "nextroll",
+    "duplicates": [
+     "adroll"
+    ],
+    "reason": "AdRoll became NextRoll in 2018 (AdRoll is now a NextRoll brand); IVP's 2014-2018 pages list AdRoll, the live page NextRoll. Added in flight; applies at the rebuild."
+   },
+   {
+    "canonical": "data-ai",
+    "duplicates": [
+     "app-annie"
+    ],
+    "reason": "App Annie renamed itself data.ai in 2022; IVP's 2015-2022 pages list App Annie, the live page data.ai. Added in flight; applies at the rebuild."
+   },
+   {
+    "canonical": "wise",
+    "duplicates": [
+     "transferwise"
+    ],
+    "reason": "TransferWise renamed itself Wise in 2021; IVP's 2017-2021 pages list TransferWise, the live page Wise. Added in flight; applies at the rebuild."
+   },
+   {
+    "canonical": "anomali",
+    "duplicates": [
+     "threatstream"
+    ],
+    "reason": "ThreatStream renamed itself Anomali in 2016; IVP's 2014-2016 pages list ThreatStream. Added in flight; applies at the rebuild."
+   },
+   {
+    "canonical": "whip-media-group",
+    "duplicates": [
+     "tv-time"
+    ],
+    "reason": "IVP's 2018-2020 pages list Whip Media under its TV Time app (same leader, Richard Rosenblatt; same Santa Monica address; the Whipclip description). Added in flight; applies at the rebuild."
+   },
+   {
+    "canonical": "expanse",
+    "duplicates": [
+     "qadium"
+    ],
+    "reason": "Qadium renamed itself Expanse in 2019; IVP's 2017-2018 pages list Qadium. Added in flight; applies at the rebuild."
+   },
+   {
+    "canonical": "sage",
+    "duplicates": [
+     "elder-technologies-inc"
+    ],
+    "reason": "Elder Technologies, Inc. (New York) is the legal name of Sage (hellosage.com): Eric Liaw's Form D seats 2024 and 2026 date IVP's Series B lead of December 2024. Added in flight; applies at the rebuild."
+   },
+   {
+    "canonical": "personal-capital",
+    "duplicates": [
+     "safecorp-financial-corp"
+    ],
+    "reason": "SafeCorp Financial Corporation (Redwood City, incorporated 2009) was Personal Capital's original legal name; Steve Harrick's 2010 Form D seat is IVP's Personal Capital position. Added in flight; applies at the rebuild."
+   },
+   {
+    "canonical": "uproxx",
+    "duplicates": [
+     "woven"
+    ],
+    "reason": "Woven Digital rebranded as Uproxx Media Group in 2017 (same leaders Scott Grimes and Colin Digiaro, same Culver City office) and was acquired by Warner Music Group in 2018. Added in flight; applies at the rebuild."
+   },
+   {
+    "canonical": "retailmenot",
+    "duplicates": [
+     "whaleshark-media-inc"
+    ],
+    "reason": "WhaleShark Media, Inc. (Austin) renamed itself RetailMeNot, Inc. in 2013; Jules Maltz's 2011 Form D seat is IVP's RetailMeNot position. Added in flight; applies at the rebuild."
+   }
+  ],
+  "rejects": [],
+  "never_merge": [
+   {
+    "slugs": [
+     "grammarly",
+     "superhuman"
+    ],
+    "reason": "Two IVP investments (Grammarly 2017, Superhuman 2021). Grammarly bought Superhuman in 2025 and later took the Superhuman name, but the positions were separate rounds in separate companies, so each keeps its own row: Superhuman (the email company) reads acquired, Grammarly carries the combined company."
+   },
+   {
+    "slugs": [
+     "lime",
+     "limelight-networks"
+    ],
+    "reason": "Different companies whose names share a prefix: Lime (micromobility, 2018 on) and Limelight Networks (CDN, 1990s-2000s)."
+   }
+  ],
+  "desk": []
+ }
+}

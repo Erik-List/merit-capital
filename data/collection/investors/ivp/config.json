@@ -1,0 +1,271 @@
+{
+  "slug": "ivp",
+  "name": "IVP",
+  "wayback": {
+    "cdx_domain": "ivp.com",
+    "site_url_base": "https://www.ivp.com",
+    "eras": [],
+    "_note": "No Wayback eras: web.archive.org answers 403 for every ivp.com and www.ivp.com capture (2000-2021 probed 2026-09-26) while battery.com answers 200 in the same minute, the signature of a site-owner exclusion. The archive layer for this investor is Common Crawl instead (scratch/pull-cc-ivp.py, parsed into sources/site/cc-*.json and carried through site_api as file_list sources whose rows cite their CC capture), see decisions.md D8.",
+    "non_company_slugs": [
+      "portfolio",
+      "all",
+      "category",
+      "consumer",
+      "enterprise",
+      "recent-investments",
+      "enterprise-it",
+      "internet-digital-media",
+      "mobile-communications",
+      "portfolio-videos",
+      "team",
+      "news",
+      "about",
+      "contact",
+      "content",
+      "topic",
+      "ivp"
+    ]
+  },
+  "roster": {
+    "cdx_patterns": [
+      "ivp.com/team/*"
+    ],
+    "site_team_groups": [
+      "Investors",
+      "Investors; Operators"
+    ],
+    "slug_re": "/team/(?:investment-professionals/|partners/)?([a-z][a-z0-9-]*[a-z0-9])/?$",
+    "listing_href_re": "/team/(?:investment-professionals/|partners/)?([a-z][a-z0-9-]*[a-z0-9])[\"'/]",
+    "not_a_person": [
+      "team",
+      "investment-professionals",
+      "partners",
+      "operations-team",
+      "all",
+      "investors",
+      "operators"
+    ],
+    "_note": "The roster is curated (the Thrive shape), because the archive that would date it is excluded: the live team (62 people, 26 in the Investors group), the managing directors named on IVP's own fund Form Ds 2010-2024 (XIII: Phelps, Miller, Fogelsong, Harrick, Chaffee; XIV adds Maltz; XV adds Liaw and Dash; XVII adds Loverro, drops Fogelsong; XVIII adds Vashee and Wilhelm, drops Chaffee), the Common Crawl team captures from 2014 on, and press-dated windows for partners before 2010 (decisions.md D9)."
+  },
+  "site_api": {
+    "type": "scrape",
+    "sources": [
+      {
+        "parser": "file_list",
+        "list": "company-pages",
+        "path": "data/collection/investors/ivp/sources/site/company-pages.json",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "key_field": "slug",
+        "sectors": "sectors",
+        "extras": [
+          "slug",
+          "invest_year",
+          "invest_date",
+          "moments",
+          "site_status",
+          "partners",
+          "company_site",
+          "headline",
+          "description",
+          "leadership",
+          "announcement_url",
+          "linkedin"
+        ],
+        "_note": "The live portfolio: every /portfolio/<slug> in the sitemap, 156 companies read off the prerendered Nuxt payloads (scratch/pull-site-ivp.py). investmentDate is the firm's own year (stored YYYY-01-01) and 'moments' carries 'Partnered YYYY': a bare year, an anchor for first_seen and never a stage label (COLLECTION.md 6, class 1b). No round word is published anywhere on the page, so there is no entry_stage_fields entry."
+      }
+    ],
+    "team_sources": [
+      {
+        "parser": "file_list",
+        "list": "team-pages",
+        "path": "data/collection/investors/ivp/sources/site/team-pages.json",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "key_field": "slug",
+        "extras": [
+          "slug",
+          "title",
+          "group",
+          "subgroups",
+          "focus_areas",
+          "linkedin_url",
+          "x_url",
+          "companies"
+        ]
+      }
+    ],
+    "team_buckets": {
+      "Investors": "investing",
+      "Investors; Operators": "investing"
+    },
+    "team_bucket_overrides": {
+      "Blair Shane": [
+        "operations"
+      ],
+      "Davey Nickels": [
+        "platform"
+      ],
+      "David Jaffe": [
+        "platform"
+      ],
+      "Helen Clement": [
+        "finance"
+      ],
+      "Kelly O'Kane": [
+        "finance"
+      ]
+    },
+    "_note": "ivp.com is a prerendered Nuxt 3 site whose routes ship static _payload.json files (devalue form) without auth, so every surface reads without the CMS API behind it. Surfaces: the portfolio (156), the content archive (163 posts, 132 announcements, 85 of them naming a round), the team (62). Archived listings come from Common Crawl, see wayback._note.",
+    "team_bucket_overrides_note": "Operators publish only at partner level (the five 'Partner' titles among the Operators group: CMO, head of HR and platform, portfolio GM, head of capital formation, CFO); EAs, IT, events and talent staff stay out, as on Accel and Creandum. Ruled at the profile step, 2026-09-26."
+  },
+  "edgar": {
+    "seed_queries": [
+      "institutional+venture+partners",
+      "institutional+venture+management",
+      "ivp+executive+fund",
+      "ivp+xvii",
+      "bow+tie+angels",
+      "ivm+management"
+    ],
+    "fts_phrases": [
+      "Institutional Venture Partners",
+      "Institutional Venture Management",
+      "IVP Executive Fund"
+    ],
+    "fts_own_pattern": "institutional venture (partners|management)|ivp executive fund|ivp xvii|bow tie angels",
+    "_note": "Entity-qualified phrases only. Bare 'IVP' names at least eleven unrelated EDGAR filers: Insight Venture Partners' own vehicles abbreviate to IVP (IVP (Venice), L.P., IVP GP (Venice), LLC and IVP CIF II (AIP A/B, PS Splitter), all at 1114 Avenue of the Americas); Four Springs Capital's single-deal LLCs (IVP Calient, IVP eASIC, IVP CipherOptics, IVP NextIO; Lake Como / Avon NJ); a New York SPV family at 122 E. 42nd St (IVP Perc Systems, IVP New Media, IVP Secondary Opportunity Fund); Innovation Valley Partners (IVP GP, LLC, Princeton / Ewing NJ); International Venture Partners' broker-dealer IVP Capital / IVP Securities (Water Mill NY); PGIM's IVP Fund REIT and the IVP MHC / Milwaukee Multifamily real-estate LLCs; IVP Technology Corp; and IVP Advisory Co. Ltd (Tokyo, CRD 170944)."
+  },
+  "wikipedia": {
+    "phrases": [
+      "Institutional Venture Partners"
+    ]
+  },
+  "desks": {
+    "home": "us",
+    "partition": [],
+    "rank": [
+      "us",
+      "unknown"
+    ],
+    "classify": [
+      {
+        "desk": "external",
+        "patterns": [
+          "ivp \\(venice\\)",
+          "ivp gp \\(venice\\)",
+          "ivp cif",
+          "ivp calient",
+          "ivp easic",
+          "ivp cipheroptics",
+          "ivp nextio",
+          "ivp perc",
+          "ivp new media",
+          "ivp secondary opportunity",
+          "^ivp gp, llc",
+          "ivp capital",
+          "ivp securities",
+          "ivp fund reit",
+          "ivp mhc",
+          "ivp milwaukee",
+          "ivp technology",
+          "ivp advisory",
+          "innovation valley",
+          "institutional venture partners x[ivx]+ access"
+        ]
+      },
+      {
+        "desk": "us",
+        "patterns": [
+          "^institutional venture (partners|management)",
+          "^ivp executive fund",
+          "^ivp x[vix]+-[a-z]",
+          "^bow tie angels",
+          "^ivm management"
+        ]
+      }
+    ],
+    "_note": "One fund family, no partition (decisions.md D1). Each fund's general partner, Institutional Venture Management X-XVIII, LLC, is its own exempt reporting adviser (CRDs 160037/160038/160084/160039 inactive, 165005, 236786, 290647, 310356, 324257 active), all at 3000 Sand Hill Road, Building 2, Suite 250, Menlo Park; Institutional Venture Partners UK LLP (CRD 329558, London) reports the same funds under Section 7.B.(2) as a sub-adviser and has no fund of its own. External: every IVP-abbreviated filer at another address (edgar._note), and the Access LLCs for Funds XVIII and XIX (CIKs 1968380, 2146088), which file from 200 West Street, New York (Goldman Sachs): third-party feeders (the Thrive IX Access / Battery Opportunities Access precedent). IVP XVIII-A, L.P. (CIK 2151160, first Form D 2026-09-18) is the Fund XVIII GP's first lettered vehicle, at the home address. Desks resolve by CIK and filing address, never by the name pattern alone."
+  },
+  "profile": {
+    "own_vehicle_pattern": "^(institutional venture (partners|management)|ivp executive fund|ivp x[vix]+-[a-z]|bow tie angels)",
+    "focus_min_companies": 13,
+    "focus_crosswalk": {
+      "AI": "AI & Applied AI",
+      "Consumer": "Consumer & Marketplaces",
+      "Health": "Healthcare & Bio",
+      "Fintech & Crypto": "Fintech & Payments",
+      "Infrastructure": "Data Infrastructure",
+      "Apps": "SaaS"
+    },
+    "_note": "IVP's own sector filter has six values (AI, Consumer, Health, Fintech & Crypto, Infrastructure, Apps). focus_min_companies is provisional at kickoff (~4.5% of the expected base) and restated once the base lands.",
+    "focus_min_companies_note": "About 4.5% of the 298-row base (COLLECTION.md 11: 25 was the 900-row megafund value); replaces the provisional 20.",
+    "adv_crd": "324257"
+  },
+  "verify": {
+    "text_mention_leaks": [],
+    "cofiler_leaks": [],
+    "known_positions": [],
+    "sample_slugs": [],
+    "shape": {
+      "one_b_share_max": 0.45,
+      "c2a_rate_max": 0.8,
+      "_note": "Restated before the grind (decisions.md X1, pre-registered 2026-09-26, flagged for Erik). one_b_share_max 0.45, not the 0.20 default: IVP enters at growth rounds by design (the firm's own words: it partners 'at critical stages of inflection'), so a large $1B+ share is the expected shape of a correct base, not a defect; Thrive, the nearest growth-heavy precedent, closed near 39%. The ceiling still fires above 45%, where the share would say the base holds the curated winners and has lost the rest (the archive that carries IVP's quieter companies is Common Crawl, since the Internet Archive excludes ivp.com). c2a_rate_max keeps the 0.80 default: the Seed cohort is expected to be a handful of rows, and a breach on a cohort that small is ruled at close with the measured cohort, never widened in advance."
+    },
+    "not_members": [
+      {
+        "name": "228 Labs, Inc.",
+        "why": "Roseanne Wincek left IVP in 2019 to co-found Renegade Partners; this 2025 Form D is a Renegade-era seat (T4 seat dating)."
+      },
+      {
+        "name": "Auxilus Inc.",
+        "why": "Roseanne Wincek, 2024 filing, a Renegade Partners seat five years after she left IVP (T4)."
+      },
+      {
+        "name": "Spekit Inc.",
+        "why": "Roseanne Wincek, 2022 filing, a Renegade Partners seat after she left IVP (T4)."
+      },
+      {
+        "name": "Kaskada Inc.",
+        "why": "A 'James Newell' Form D name-match: the Seattle investor of Voyager Capital (Voyager Capital Fund VI names him), not IVP's James Newell, who left IVP in 2016. Homonym."
+      },
+      {
+        "name": "WELLSAID LABS, INC.",
+        "why": "'James Newell' of Voyager Capital (Seattle), 2021 filing. Homonym; IVP's James Newell left in 2016."
+      },
+      {
+        "name": "Oseberg, Inc.",
+        "why": "'James Newell' of the Houston Ventures / SMH Private Equity funds (Houston). Homonym."
+      },
+      {
+        "name": "LiquidFrameworks, Inc.",
+        "why": "'James Newell' of Houston Ventures (Houston), 2013 filing. Homonym."
+      },
+      {
+        "name": "RENAISSANCE LIGHTING INC",
+        "why": "'James / Jim Newell', 2009 energy-sector filings, the Houston investor, four years before IVP's James Newell appears on IVP's site. Homonym."
+      },
+      {
+        "name": "ENERGY & POWER SOLUTIONS, INC.",
+        "why": "'Jim Newell', 2009 energy filing, the Houston investor. Homonym."
+      },
+      {
+        "name": "SOUTHWEST WINDPOWER INC",
+        "why": "'Jim Newell', 2009 wind-energy filing, the Houston investor. Homonym."
+      },
+      {
+        "name": "Fieldlevel, Inc.",
+        "why": "Reid Dennis on FieldLevel's 2017 Form Ds: a founder's personal seat decades into his emeritus years, with no IVP fund, listing or announcement behind it (T2, T4)."
+      },
+      {
+        "name": "Creative Market Labs, Inc.",
+        "why": "Cack Wilhelm's 2018 seat, before she joined IVP (first on IVP's site 2020, on IVP's fund Form Ds from 2022): a prior-firm deal (T4)."
+      }
+    ]
+  },
+  "sample_slugs": []
+}

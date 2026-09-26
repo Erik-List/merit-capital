@@ -1,0 +1,8 @@
+# Re-fetchable bulk, kept on disk only (PRO-92): the raw Common Crawl captures
+# (582 MB) and index answers are immutable WARC records that
+# scratch/pull-cc-ivp.py fetches again; their parsed evidence is tracked in
+# sources/wayback/parsed/ and sources/site/cc-*.json. siblings.json is derived
+# from the other investors' published base.csv files.
+scratch/cc-raw/
+scratch/cc-index/
+scratch/siblings.json
