@@ -2042,10 +2042,14 @@ Every subcommand takes the investor slug.
   judgment per row, not a script. Measured 2026-09-24: 400 names publish in
   capitals (legal names from filings and 1990s portfolio pages 120, single
   words 280; 239 of them in books already live), and 501 mixed-case names
-  still carry a suffix. Every change is a rename in `public.companies`, so a
-  book applies the rule in ONE pass together with its next deliberate
-  rebuild, and the ingest's removal list is read against it, never as a
-  separate sweep that renames the same row twice.
+  still carry a suffix. **The decision lives in the investor's `config.json`
+  as `names.published {slug: "Name"}`, applied at export** (PRO-146,
+  e4820d5), before same-name rows are qualified. The slug keeps the source
+  rendering, so a rename needs no rebuild and no overlay rekey; `verify`
+  fails an override whose slug has left the base. Every change is still a
+  rename in `public.companies`, so read the ingest's removal list against the
+  overrides. Applied 2026-09-26 to 20 books (765 renames, readback exact);
+  a16z and Sequoia ride PRO-142's rebuild.
 - **Standing verification duties**, after the grind, before verify-clean:
   1. Web-verify every $1B+ claim regardless of source: identity and current
      status; update or downgrade.
