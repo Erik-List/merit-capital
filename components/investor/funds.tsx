@@ -42,18 +42,40 @@ function formatCurrencyShort(value: number): string {
   return value.toString();
 }
 
+// A range whose top is at most this far above its bottom reads as one rough
+// number: "~$100B - $106.5B" says nothing "~$100B" does not.
+const AUM_CLOSE_RANGE = 0.15;
+
+function roundToSignificant(value: number, digits: number): number {
+  if (value === 0) {
+    return 0;
+  }
+  const magnitude = 10 ** (Math.floor(Math.log10(Math.abs(value))) - digits + 1);
+  return Math.round(value / magnitude) * magnitude;
+}
+
 function formatAum(range: AumRange | null): string {
   if (!range) {
     return '~Not disclosed';
   }
 
+  // Both ends equal means one sworn Form ADV figure (Item 5.F RAUM, or an
+  // exempt reporting adviser's 7.B total), so it shows without "~".
+  if (isNumber(range.bottom) && isNumber(range.top)) {
+    if (range.bottom === range.top) {
+      return `$${formatCurrencyShort(range.bottom)}`;
+    }
+    const low = Math.min(range.bottom, range.top);
+    const high = Math.max(range.bottom, range.top);
+    if (low > 0 && high / low - 1 <= AUM_CLOSE_RANGE) {
+      return `~$${formatCurrencyShort(roundToSignificant((low + high) / 2, 2))}`;
+    }
+  }
+
   const bottom = isNumber(range.bottom) ? `$${formatCurrencyShort(range.bottom)}` : null;
   const top = isNumber(range.top) ? `$${formatCurrencyShort(range.top)}` : null;
 
-  // A single sworn figure is stored with both ends equal (an exempt reporting
-  // adviser's Form ADV gives one number, not a range), and two different ends
-  // can also round to the same label. Either way it reads as one number.
-  if (bottom && top && bottom !== top) {
+  if (bottom && top) {
     return `~${bottom} - ${top}`;
   }
 
