@@ -96,7 +96,7 @@ export default async function InvestorProfilePage({ params }: InvestorPageParams
       <div className="container mx-auto px-4 py-8 md:flex md:h-full md:flex-col">
         <div className="mb-8">
           <Link href="/" className="text-muted-foreground hover:text-foreground">
-            ← Back to Leaderboard
+            ← Back to Investor List
           </Link>
         </div>
 
