@@ -287,3 +287,31 @@ searches of the 200 budget, and 28 page fetches.
 
 **1** at close: the kickoff ("Now please collect Point Nine"). The ingest
 approval will make it 2.
+
+## Addendum 2026-09-26: Erik's rulings applied
+
+**The book is now 207 companies; `verify` is clean in plain mode.** Erik ruled
+on the open items: angel investments stay, marked as beginning before the fund
+(E1); the six members with no round tying Point Nine stay (E2); a company
+still operating reads as operating, whatever the firm's list says (E3).
+Details in `decisions.md`, "Deltas (Erik's)".
+
+- **E1**: eight rows enter (Zendesk, FreeAgent, Geckoboard, Momox,
+  Propertybase, samedi, Server Density, and JoinR from the firm's "Pre Point
+  Nine" CMS entry). Clio, Westwing and Humanity keep their membership and move
+  their entry to Janz's earlier personal check. All eleven carry the flag
+  `pre_fund_angel`. The base rebuild added exactly the eight rows and changed
+  nothing else. `public.companies` has no column for the mark, so it lives in
+  the dataset only. The profile's history now opens the angel era (2008), and
+  Zendesk replaces Typeform among the notables.
+- **E3**: merXu stays `defunct`, now on the register (MERXU Sp. z o.o. in
+  liquidation since 2025-04-03; merxu.com parked). Purmeo (bought by
+  SanaExpert, 2013, still selling) and GreenBlender (continued as Blix) move
+  from `defunct` to `acquired`. The other RIP rows show no operation.
+
+| | before | after |
+|---|---|---|
+| Base rows | 199 | 207 |
+| private / acquired / defunct / public / unknown | 121 / 53 / 20 / 3 / 2 | 122 / 61 / 19 / 3 / 2 |
+| Seed entries, cohort, graduated, rate | 153, 145, 80, 55.2% | 162, 154, 84, 54.5% |
+| $1B+ | 14 | 14 |

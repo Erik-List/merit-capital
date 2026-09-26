@@ -72,7 +72,9 @@ portfolio is mixed EU and US, so Form D visibility is per row, not absent.
   Precedent: Cherry D1 (Opportunities, Select and Growth sleeves under one
   team), Creandum's Select funds and SPV.
 
-- **D2 — The founders' angel books (T2 fund money, T4 person or firm).**
+- **D2 — The founders' angel books (T2 fund money, T4 person or firm).** *Reversed by Erik on
+  2026-09-26 (delta E1 below): the angel investments stay, marked as beginning
+  before the fund. The derivation below is kept as the record of what it said.*
   Christoph Janz invested as a business angel with his own money from 2008
   until Point Nine formed in 2011, and the firm's own posts say so: "When I did
   my angel investments in 2008–2011 I typically invested $50–150k per company.
@@ -267,6 +269,38 @@ than an adjudicated filing, so it is flagged for Erik with the run's results
 as the first open ruling, per the Cherry D2 precedent rather than as a new
 test.
 
+Erik's rulings on the run's open items, 2026-09-26:
+
+- **E1 — Angel investments stay; mark the beginning before the fund**
+  (reverses D2). A position the firm lists that began as a founder's personal
+  angel check is a member, flagged `pre_fund_angel`, and its entry is that
+  check. Applied: the seven rows the firm's own cards call Christoph's angel
+  investments (Zendesk, FreeAgent, Geckoboard, Momox, Propertybase, samedi,
+  Server Density) and JoinR, which the firm's 2018-2020 CMS files under "Pre
+  Point Nine", enter the book; three members whose first check was Janz's
+  own before the fund came in carry the mark and move their entry to that
+  check: Clio (2009), Westwing (the first round, 2011) and Humanity
+  (ShiftPlanning, 2011, now a Seed entry that graduated on the 2012 Series
+  A). Out of scope, still excluded, because they are not the founders' angel
+  investments: DealPilot and Pageflakes (companies Janz founded), Spreadshirt,
+  studiVZ, brands4friends and trivago (Team Europe's own, D3), and the rest of
+  the old list's "previous" rows, which the firm stopped listing after 2015.
+  Vend is not marked: the record does not show Janz's 2011 check before the
+  fund's. The profile's history now says Janz invested as an angel from 2008,
+  and Zendesk replaces Typeform among the notables. The mark lives in the
+  dataset (flag and note); `public.companies` has no column for it.
+- **E2 — Keep the six members with no round that ties Point Nine** (R2
+  confirmed).
+- **E3 — A company still operating reads `private`, whatever the firm's list
+  says: operation is a better signal than the site.** Applied to every row
+  whose `defunct` rested on the firm's RIP mark: merXu is not operating
+  (MERXU Sp. z o.o., KRS 0000835832, in liquidation since 2025-04-03;
+  merxu.com parked), so it stays `defunct`, now on the register; Purmeo was
+  bought by SanaExpert in 2013 and still sells, and GreenBlender's business
+  continued as Blix, so both read `acquired` (COLLECTION.md s6, a sale out of
+  insolvency is `acquired`). The rest show no operation (dead or parked
+  domains, a bankruptcy) and stay `defunct`.
+
 **String and namesake traps:** "Point Nine" as a number ("zero point nine
 percent"); the namesakes in D8; SAP's list of its fund holdings; "Team Europe"
 positions that were the incubator's (D3); "backed by Point Nine" on a
@@ -301,10 +335,10 @@ backer (D7).
   calls Active that were sold (Calldesk to Future Look ITC 2022, Typeform to
   Bending Spoons 2025), a row it calls Acquired that was liquidated
   (Kreditech, as Monedo, 2020) or closed (Zenaton, its founder's own post
-  "Zenaton is dead, long live Infinitic"), and merXu, which it calls RIP while
-  merxu.com still resolves and no shutdown notice was found (kept defunct on
-  the card; Accel's row reads private). Each override cites its event; the
-  card stands where nothing contradicts it.
+  "Zenaton is dead, long live Infinitic"), and merXu, which it calls RIP (at close this rested on the card alone; the
+  register now confirms it, E3; Accel's row reads private). Each override
+  cites its event; the card stands where nothing contradicts it, except that
+  a company shown to be operating reads as operating (E3).
 
 - **R4 — Before the record overrides the card, search for the card's own
   round** (2026-09-26, agent, extends D13). After scoring, three live cards
