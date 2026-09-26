@@ -88,17 +88,19 @@
       "value": [
         "Spotify",
         "Klarna",
-        "iZettle",
-        "Trade Republic",
-        "Lovable",
-        "Depop",
-        "Vivino",
-        "Kahoot!",
         "Bolt",
-        "Pleo"
+        "Trade Republic",
+        "Lovable"
       ],
-      "source": "base.json",
-      "basis": "all ten are ledger-verified members of the 177-row base (asserted by build-firm-profile.py); selection is recognition judgement: Spotify and iZettle (first VC investor, own 2019 post), Klarna (2016 secondary, ruling 5), Trade Republic (SPV TR), Lovable, Depop (Etsy $1.6B), Vivino, Kahoot! (Oslo listing, take-private), Bolt, Pleo"
+      "source": "companies/base.csv",
+      "basis": "The five best known of the firm's own companies, most recognised first: the names a general reader would recognise first (PRO-152, Erik 2026-09-24). Each is tied to its portfolio row by `slugs`; names read as a reader knows them, without legal suffixes (COLLECTION.md §8). Previously listed (10): Spotify, Klarna, iZettle, Trade Republic, Lovable, Depop, Vivino, Kahoot!, Bolt, Pleo.",
+      "slugs": [
+        "spotify",
+        "klarna",
+        "bolt",
+        "trade-republic",
+        "lovable"
+      ]
     },
     "aum": {
       "value": {

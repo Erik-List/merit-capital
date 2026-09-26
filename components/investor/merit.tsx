@@ -123,10 +123,10 @@ export function InvestorMerit({
 
   const notableInvestments = useMemo(() => {
     if (!investor.notable_investments || !Array.isArray(investor.notable_investments)) return null;
+    // Stored best known first (PRO-152), so the order is kept, not sorted.
     const investments = investor.notable_investments
       .filter((x): x is string => typeof x === 'string' && x.trim().length > 0)
-      .map((x) => x.trim())
-      .sort((a, b) => a.localeCompare(b));
+      .map((x) => x.trim());
     return investments.length > 0 ? investments : null;
   }, [investor.notable_investments]);
 

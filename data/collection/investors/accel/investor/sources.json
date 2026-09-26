@@ -89,17 +89,21 @@
     },
     "notable_investments": {
       "value": [
-        "Atlassian",
-        "CrowdStrike",
-        "Dropbox",
         "Facebook",
-        "Flipkart",
-        "Slack",
         "Spotify",
-        "Supercell"
+        "Anthropic",
+        "Dropbox",
+        "Slack"
       ],
-      "source": "https://www.accel.com/companies",
-      "basis": "Membership asserted two ways: against the firm's own live portfolio dataset (804 rows, sources/site/companies.json) during the base-less phase, and against ledger member verdicts on the membership-complete base (871 members, 2026-08-31) by build-firm-profile.py at every build since. Selection among members is recognition judgement per PRO-7 (UiPath, Qualtrics, Deliveroo, Freshworks, Etsy, Miro also qualify on evidence)"
+      "source": "companies/base.csv",
+      "basis": "The five best known of the firm's own companies, most recognised first: the names a general reader would recognise first (PRO-152, Erik 2026-09-24). Each is tied to its portfolio row by `slugs`; names read as a reader knows them, without legal suffixes (COLLECTION.md \u00a78). Previously listed (8): Atlassian, CrowdStrike, Dropbox, Facebook, Flipkart, Slack, Spotify, Supercell.",
+      "slugs": [
+        "facebook",
+        "spotify",
+        "anthropic",
+        "dropbox",
+        "slack"
+      ]
     },
     "aum": {
       "value": {

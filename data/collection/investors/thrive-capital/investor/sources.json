@@ -98,16 +98,20 @@
     "notable_investments": {
       "value": [
         "OpenAI",
-        "Stripe",
         "Instagram",
-        "GitHub",
-        "Oscar Health",
-        "Databricks",
-        "Anysphere",
-        "Spotify"
+        "SpaceX",
+        "Spotify",
+        "Stripe"
       ],
-      "source": "base.csv",
-      "basis": "Recognition over the confirmed base only: all eight are ledger members (OpenAI, Stripe, Databricks, Anysphere and Oscar Health via the firm's own job board plus press/filings; Instagram, GitHub and Spotify as cited recall rows) — asserted by build-firm-profile.py against ledger verdicts on the 170-row base"
+      "source": "companies/base.csv",
+      "basis": "The five best known of the firm's own companies, most recognised first: the names a general reader would recognise first (PRO-152, Erik 2026-09-24). Each is tied to its portfolio row by `slugs`; names read as a reader knows them, without legal suffixes (COLLECTION.md §8). Previously listed (8): OpenAI, Stripe, Instagram, GitHub, Oscar Health, Databricks, Anysphere, Spotify.",
+      "slugs": [
+        "openai",
+        "instagram",
+        "spacex",
+        "spotify",
+        "stripe"
+      ]
     },
     "aum": {
       "value": {

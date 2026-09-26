@@ -110,6 +110,47 @@ def problems(row: dict, fields: dict | None = None) -> list[str]:
     return out
 
 
+NOTABLE_MAX = 5
+# A legal suffix or a parenthetical aside is not how a reader knows the name
+# (COLLECTION.md §8): "Snap Inc", "Instagram (Burbn)".
+NAME_NOISE = re.compile(
+    r"(,?\s+(Inc\.?|Incorporated|Corp\.?|Corporation|LLC|Ltd\.?|Limited|PLC|"
+    r"N\.V\.|S\.A\.|GmbH|AG|B\.V\.|Co\.))+$|\s*\([^)]*\)$", re.I)
+
+
+def brand(name: str) -> str:
+    return NAME_NOISE.sub("", name or "").strip()
+
+
+def notable_problems(row: dict, fields: dict, members: dict[str, str]) -> list[str]:
+    """notable_investments (PRO-152, Erik 2026-09-24): at most five, the
+    best known first, each one of the firm's own companies. The sidecar's
+    `slugs` ties each published name to its portfolio row, so the name can
+    read as a reader knows it ("Snap", not "Snap Inc") and still be checked.
+    `members` maps the slug of every member row to its name."""
+    out = []
+    names = row.get("notable_investments") or []
+    field = fields.get("notable_investments") or {}
+    slugs = field.get("slugs") or []
+    if len(names) > NOTABLE_MAX:
+        out.append(f"notable_investments: {len(names)} entries (at most {NOTABLE_MAX})")
+    if field.get("value") != names:
+        out.append("notable_investments: investor/sources.json value differs from investor.json")
+    if len(slugs) != len(names):
+        out.append(f"notable_investments: {len(names)} names but {len(slugs)} slugs "
+                   f"in investor/sources.json")
+    for name, slug in zip(names, slugs):
+        if slug not in members:
+            out.append(f"notable_investments: {name!r} ({slug}) is not one of the "
+                       f"firm's companies")
+        elif brand(members[slug]).casefold() != name.casefold():
+            out.append(f"notable_investments: {name!r} does not name {slug} "
+                       f"({members[slug]!r})")
+        if brand(name) != name:
+            out.append(f"notable_investments: {name!r} carries a legal suffix or aside")
+    return out
+
+
 def host(url: str | None) -> str:
     netloc = urlparse(url or "").netloc.lower()
     return netloc[4:] if netloc.startswith("www.") else netloc

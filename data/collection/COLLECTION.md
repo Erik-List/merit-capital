@@ -2486,9 +2486,19 @@ Field recipes, learned on Sequoia and a16z:
   concentration of the largest fund, gives the ceiling. Strategy
   allocations and unconfirmed aggregator claims are rejected and the
   rejections recorded in the flag.
-- **notable_investments.** Recognition over the confirmed base only: the
-  base decides membership, the model decides fame, the frontend cap decides
-  count. The one licensed use of model memory as a source.
+- **notable_investments: at most five, the best known first** (Erik,
+  2026-09-24, PRO-152). The base decides membership; the model decides fame,
+  the one licensed use of model memory as a source: the names a general
+  reader (not a VC insider) would recognise first among the firm's
+  companies, in that order. The page keeps the stored order. Each name reads
+  as a reader knows it, with no legal suffix or aside (§8: "Snap", not "Snap
+  Inc"; "Instagram", not "Instagram (Burbn)"), and the sidecar's `slugs`
+  list ties each one to its portfolio row, so the check matches on the
+  company, not the spelling. `profile_copy.notable_problems` refuses more than
+  five, a slug that is not a member, a name that does not name its slug, and
+  a suffix; `build-firm-profile.py` and `verify` both run it. There was never
+  a frontend cap: until 2026-09-26 the page showed every entry, A to Z, up to
+  Redpoint's 33.
 - **Firm-level stage, geo, scope.** From the firm's own listing filters,
   crosswalked into the taxonomies. When the portfolio distribution lands,
   reconcile: flag disagreements, never silently overwrite — a gap between

@@ -228,13 +228,12 @@ def main():
         # Flipkart/Spotify/Supercell at needs_review-but-member).
         # Case-insensitive: the base carries the site's own casing ("Paypal",
         # "Youtube"), which is not how the names should be published.
-        member_names = {r["name"].lower() for r in base
-                        if verdicts.get(r["slug"], {}).get("verdict") == "member"}
-        not_member = [n for n in row["notable_investments"]
-                      if n.lower() not in member_names]
-        if not_member:
-            raise SystemExit(f"Refusing to write: not ledger-verified members "
-                             f"of the base: {not_member}")
+        # Matched by slug through the sidecar, so a published name can drop a
+        # legal suffix ("Snap", not "Snap Inc") and still be checked (PRO-152).
+        members = {r["slug"]: r["name"] for r in base
+                   if verdicts.get(r["slug"], {}).get("verdict") == "member"}
+        if notable := profile_copy.notable_problems(row, fields, members):
+            raise SystemExit("Refusing to write: " + "; ".join(notable))
 
     # ---- recompute the evidence-derived fields
     # HQ: the newest Form ADV principal office, unless the firm's own site

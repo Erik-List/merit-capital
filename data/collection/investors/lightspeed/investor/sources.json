@@ -86,17 +86,21 @@
     },
     "notable_investments": {
       "value": [
-        "Affirm",
-        "Anthropic",
-        "Epic Games",
-        "Mistral AI",
-        "MuleSoft",
-        "Rubrik",
         "Snap",
-        "Wiz"
+        "Epic Games",
+        "OpenAI",
+        "Anthropic",
+        "Telegram"
       ],
-      "source": "https://lsvp.com/companies/",
-      "basis": "Membership asserted two ways: against the firm's own live companies dataset during the base-less phase (all eight LSVP-attributed with first-party Stage Invested / Backed Since fields: Snap Seed 2012, Anthropic Series D 2024, Mistral AI Seed 2023, Wiz Series D 2023, Affirm Series B 2013, MuleSoft Series B 2007, Rubrik Series A 2014, Epic Games Common 2020), and against ledger member verdicts on the membership-complete base (931 rows, 2026-09-02) by build-firm-profile.py at every build since. Selection among members is recognition judgement per PRO-7; Nutanix (Series A 2010, IPO) also qualifies on evidence and was dropped on household recognition"
+      "source": "companies/base.csv",
+      "basis": "The five best known of the firm's own companies, most recognised first: the names a general reader would recognise first (PRO-152, Erik 2026-09-24). Each is tied to its portfolio row by `slugs`; names read as a reader knows them, without legal suffixes (COLLECTION.md \u00a78). Previously listed (8): Affirm, Anthropic, Epic Games, Mistral AI, MuleSoft, Rubrik, Snap, Wiz.",
+      "slugs": [
+        "snap",
+        "epic-games",
+        "openai",
+        "anthropic",
+        "telegram"
+      ]
     },
     "aum": {
       "value": {

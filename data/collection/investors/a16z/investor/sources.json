@@ -88,17 +88,21 @@
     },
     "notable_investments": {
       "value": [
-        "Airbnb",
-        "Coinbase",
         "Facebook",
-        "GitHub",
         "Instagram",
         "OpenAI",
-        "Slack",
-        "Stripe"
+        "Airbnb",
+        "SpaceX"
       ],
-      "source": "https://a16z.com/portfolio/",
-      "basis": "Membership asserted against the firm's own live portfolio page and investment list (sources/site/companies.json), because the confirmed base does not exist yet (PRO-30 in flight); every name verified present with its exit state (Facebook IPO, Instagram/GitHub/Slack M&A/IPO, Coinbase COIN, Airbnb ABNB). Selection among them is recognition judgement, per PRO-7. Re-assert against auto_confirmed base rows at the first build after the base lands"
+      "source": "companies/base.csv",
+      "basis": "The five best known of the firm's own companies, most recognised first: the names a general reader would recognise first (PRO-152, Erik 2026-09-24). Each is tied to its portfolio row by `slugs`; names read as a reader knows them, without legal suffixes (COLLECTION.md \u00a78). Previously listed (8): Airbnb, Coinbase, Facebook, GitHub, Instagram, OpenAI, Slack, Stripe.",
+      "slugs": [
+        "facebook",
+        "instagram",
+        "openai",
+        "airbnb",
+        "spacex"
+      ]
     },
     "aum": {
       "value": {

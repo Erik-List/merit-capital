@@ -106,16 +106,18 @@
     "Twitter",
     "Etsy",
     "Tumblr",
-    "Coinbase",
-    "Twilio",
     "Duolingo",
-    "Cloudflare",
-    "Kickstarter",
-    "Zynga",
-    "MongoDB"
+    "Coinbase"
    ],
-   "source": "base.csv",
-   "basis": "recognition over the confirmed base only: all ten are ledger members entered at Seed or Series A from the firm's own announcement posts (Twitter, Etsy, Tumblr, Zynga, Kickstarter, Twilio, Duolingo, Coinbase, 10gen/MongoDB) or the Opportunity Fund (Cloudflare) \u2014 asserted by build-firm-profile.py against ledger verdicts on the 220-row base. Stripe ($159B, a 2014 common-stock purchase) is left out because the position is a secondary entry"
+   "source": "companies/base.csv",
+   "basis": "The five best known of the firm's own companies, most recognised first: the names a general reader would recognise first (PRO-152, Erik 2026-09-24). Each is tied to its portfolio row by `slugs`; names read as a reader knows them, without legal suffixes (COLLECTION.md \u00a78). Previously listed (10): Twitter, Etsy, Tumblr, Coinbase, Twilio, Duolingo, Cloudflare, Kickstarter, Zynga, MongoDB.",
+   "slugs": [
+    "twitter",
+    "etsy",
+    "tumblr",
+    "duolingo",
+    "coinbase"
+   ]
   },
   "aum": {
    "value": {
