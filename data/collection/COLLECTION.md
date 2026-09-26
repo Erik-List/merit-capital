@@ -130,6 +130,17 @@ confirmed ruling.
   follow-on (ruled on Sequoia, a16z, Accel and Lightspeed); Lightspeed's
   Extreme Entrepreneurs (no funding); partners' personal angel books
   (Kushner; Cherry's founder-angel positions, Erik 2026-09-04);
+  **but a founder's angel check that the firm itself lists as its own is
+  ruled per investor, and the two rulings so far point opposite ways**:
+  Cherry's D2 (2026-09-04) keeps them out unless a Cherry vehicle held them;
+  Point Nine's E1 (Erik, 2026-09-26, reversing its D2) keeps them IN, flagged
+  `pre_fund_angel`, the entry at the angel check (Zendesk 2008, Clio 2009),
+  while companies the founder founded and a predecessor firm's own positions
+  stay out. **The firm's own "previous" or "Pre <firm>" label is the
+  evidence** that a listed position began before the fund (Point Nine's
+  2018–2020 CMS filed JoinR under "Pre Point Nine"); read it for every row it
+  touches before applying either ruling. One rule for every investor is
+  Erik's open call (PRO-157);
   Erasmic-era India deals with no Accel listing (agent, flagged);
   companies founded by the firm's alumni that no fund backed
   (generalized here from the definition, unruled).
@@ -401,7 +412,11 @@ Communications, Share Development, all rows of their own), and the
 acquirer's own scale is not the firm's track record. This settles the
 "agent, flagged" reading above: the consideration check now decides
 membership rather than only raising it. A firm that later backs the
-acquirer on its own money is a separate, citable entry.
+acquirer on its own money is a separate, citable entry. **A share swap at a
+sale is sale consideration too** (Point Nine, ruled 2026-09-26, PRO-157):
+Point Nine received shares in Mobilike, madvertise's Turkish subsidiary, in
+exchange for its madvertise shares when Mobile Network Group bought madvertise
+in 2014, so `mobilike` is `not_member` and madvertise stays the member.
 
 **Person-level attribution locates a person, never a firm position.** Forms
 3/4/5 are filed by a natural person about their own holdings; partners file
@@ -1391,6 +1406,12 @@ maturity today. 100% fill.
   tender entry is an entry at scale), buyout-scale positions, recaps,
   consortium structures. SAFEs and seed extensions count as Seed; the label
   follows what the firm and the record call the round, not the check size.
+  **Search for the firm's own round label before a named round in the press
+  overrides it** (Point Nine, ruled 2026-09-26, PRO-157): Heygo's Series A
+  coverage left out the seed Point Nine had led a year earlier, so the press
+  name described a later round, not the firm's entry. A press-named round
+  replaces the firm's label only once the firm's own posts, listing and
+  archive have been read for the entry and show nothing earlier.
   Pre-2003 deals: the modern ladder does not map, and **the old "first
   institutional round is `Series A` by convention" rule is retired** (Erik,
   2026-09-19, PRO-137). It labelled 549 rows from their date alone. Where the
@@ -1642,7 +1663,14 @@ less, so no verified tag exists: the cohort is the verified set):
      (`techcrunch:`, `crunchbase_news:`), the company's own site or newsroom
      (`company:`), its Wikipedia article. A vendor's database (Crunchbase
      profiles, PitchBook, Tracxn, Dealroom and the like) is never one:
-     vendor pages never carry a no (Rule A);
+     vendor pages never carry a no (Rule A). **A sibling investor's row for
+     the same company is a surface too** (`sibling:<slug>`; Point Nine,
+     ruled 2026-09-26, PRO-157): its note and citations may already hold the
+     later round. Accel's merXu note had the November 2021 Prosus-led round
+     that the Point Nine run's English searches missed; a Polish-language
+     pass then found it named a Series A (EMEA Startups, 2021-11-16). Read the
+     sibling's row before recording a no; where it names a round, that round
+     decides the row and the two books are aligned in the same pass;
   4. the entry inside the coverage of what the no rests on.
 
   What the no rests on is its `graduation_source`. `formd` is the Form D
