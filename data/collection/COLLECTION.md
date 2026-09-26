@@ -843,7 +843,10 @@ results; those results stand as history.
    one table serving role resolution, fund exclusion and lineage), issuer
    filings via the submissions API (`scripts/edgar-companies.py`), the
    Form D sweep on the roster (`scripts/formd-query.py <slug>`, targets
-   derived from the roster) and issuer round histories
+   derived from the roster; a partner who files as an initial and a middle
+   name is matched on the middle name, IVP's Sandy Miller as "J. SANFORD
+   MILLER", and when both sides lead with an initial the initials must agree)
+   and issuer round histories
    (`scripts/formd-issuer-rounds.py`). One entry point runs the whole chain
    in dependency order: `python3 scripts/run.py collect <slug>` (sweep →
    entities → companies, plus the round rescan once a base exists). Layers

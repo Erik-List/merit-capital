@@ -33,19 +33,58 @@ def norm(s: str) -> str:
     return " ".join(s.upper().replace(".", " ").split())
 
 
-def roster_targets(p: Paths) -> list[tuple[str, str]]:
-    """(surname, given) per roster person; single-token names carry no
-    surname+given pair and cannot be swept."""
+def split_initial(first: str) -> tuple[str, str]:
+    """(leading initial, given name) of a normalised first-name field. A
+    partner who files as an initial and a middle name goes by the middle
+    name: Sandy Miller files as "J. SANFORD MILLER", so the name compared is
+    SANFORD, not "J SANFORD" (IVP; also R. Thomas Dyal, T. Peter Thomas,
+    L. James Strand). Anything else is compared whole, as before."""
+    toks = first.split()
+    if len(toks) >= 2 and len(toks[0]) == 1:
+        return toks[0], " ".join(toks[1:])
+    return "", first
+
+
+def roster_targets(p: Paths) -> list[tuple[str, str, str]]:
+    """(surname, given, leading initial) per roster person; single-token
+    names carry no surname+given pair and cannot be swept. A roster name that
+    leads with an initial ("J. Sanford Miller") is keyed on the name after it."""
     roster_path = p.wayback / "partner-roster.json"
     if not roster_path.exists():
         sys.exit(f"no roster at {roster_path.relative_to(ROOT)} — run "
                  f"scripts/partner-roster.py first")
     targets = []
     for r in json.load(open(roster_path)):
-        toks = r["name"].split()
-        if len(toks) >= 2:
-            targets.append((norm(toks[-1]), norm(toks[0])))
+        toks = [norm(t) for t in r["name"].split()]
+        toks = [t for t in toks if t]
+        if len(toks) >= 3 and len(toks[0]) == 1:
+            targets.append((toks[-1], toks[1], toks[0]))
+        elif len(toks) >= 2:
+            targets.append((toks[-1], toks[0], ""))
     return targets
+
+
+def is_match(first: str, last: str, target: tuple[str, str, str]) -> bool:
+    """Surname equality plus a >=3-char given-name prefix, on the given names
+    actually compared.
+
+    An unbounded prefix test made a single filed initial match any partner
+    sharing the letter: Intuit's CFO "R. Neil Williams" matched partner
+    "Reggie Williams" and pulled Intuit into the base as a portfolio company.
+    One initial is not an attribution. The feminine-variant guard mirrors
+    people_common: the prefix rule matched Axcient founder "Justin Moore" to
+    partner "Justine Moore" (Sequoia's Joseph/Josephine class). When both
+    sides lead with an initial, the initials must agree."""
+    tl, tf, ti = target
+    if last != tl:
+        return False
+    fi, given = split_initial(first)
+    if fi and ti and fi != ti:
+        return False
+    fa, fb = canon_first(given.lower()), canon_first(tf.lower())
+    pair = tuple(sorted((fa, fb), key=len))
+    return (len(given) >= 3 and len(tf) >= 3 and (fa.startswith(fb) or fb.startswith(fa))
+            and pair not in DISTINCT_DESPITE_PREFIX)
 
 
 def main() -> None:
@@ -69,22 +108,8 @@ def main() -> None:
                 for row in reader:
                     last = norm(row.get("LASTNAME") or "")
                     first = norm(row.get("FIRSTNAME") or "")
-                    for tl, tf in targets:
-                        # Surname equality plus a >=3-char given-name prefix.
-                        # An unbounded prefix test made a single filed initial
-                        # match any partner sharing the letter: Intuit's CFO
-                        # "R. Neil Williams" matched partner "Reggie Williams"
-                        # and pulled Intuit into the base as a portfolio
-                        # company. One initial is not an attribution. The
-                        # feminine-variant guard mirrors people_common: the
-                        # prefix rule matched Axcient founder "Justin Moore"
-                        # to partner "Justine Moore" (Sequoia's
-                        # Joseph/Josephine class).
-                        fa, fb = canon_first(first.lower()), canon_first(tf.lower())
-                        pair = tuple(sorted((fa, fb), key=len))
-                        if last == tl and len(first) >= 3 and len(tf) >= 3 and (
-                                fa.startswith(fb) or fb.startswith(fa)) and (
-                                pair not in DISTINCT_DESPITE_PREFIX):
+                    for target in targets:
+                        if is_match(first, last, target):
                             acc = row.get("ACCESSIONNUMBER")
                             matches.setdefault(acc, []).append({
                                 "person": f"{first} {last}",
