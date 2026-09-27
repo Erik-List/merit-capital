@@ -1,0 +1,322 @@
+{
+  "slug": "general-catalyst",
+  "name": "General Catalyst",
+  "wayback": {
+    "cdx_domain": "generalcatalyst.com",
+    "site_url_base": "https://www.generalcatalyst.com",
+    "eras": [
+      {
+        "parser": "cdx_company_pages",
+        "path": "/portfolio/",
+        "from": 2000,
+        "to": 2025,
+        "cdx_limit": 4000,
+        "_note": "One page per company at /portfolio/<slug>, 2000 to 2025 (CDX 2026-09-27: about 700 slugs). The slug is the capture's key only; the site's own rendering names the row (COLLECTION.md 5)."
+      },
+      {
+        "parser": "cdx_company_pages",
+        "path": "/companies/",
+        "from": 2010,
+        "to": 2026,
+        "cdx_limit": 4000,
+        "_note": "One page per company at /companies/<slug>, 2010 to 2026 (the current Webflow site uses the same namespace; about 850 slugs)."
+      }
+    ],
+    "_note": "Eras written 2026-09-27 from the CDX exploration once the archive answered (scratch/cdx/*-prefix.json). The /portfolio listing page (2007 to 2026, about 50 captures) and /portfolio.html (2003) are the listing surfaces; the per-company namespaces carry the roster by year.",
+    "non_company_slugs": [
+      "portfolio",
+      "all",
+      "companies",
+      "team",
+      "stories",
+      "about",
+      "contact",
+      "news",
+      "page",
+      "feed",
+      "list",
+      "portfolio-tab",
+      ":article",
+      "article",
+      "favicon-16x16.png",
+      "favicon-32x32.png"
+    ]
+  },
+  "roster": {
+    "cdx_patterns": [
+      "generalcatalyst.com/team/*"
+    ],
+    "site_team_groups": [],
+    "slug_re": "/team/([a-z][a-z0-9-]*[a-z0-9])/?$",
+    "listing_href_re": "/team/([a-z][a-z0-9-]*[a-z0-9])[\"'/]",
+    "not_a_person": [
+      "all",
+      "all-team",
+      "investment-team",
+      "page",
+      "team",
+      "team-data"
+    ],
+    "_note": "The live team is 189 /team/<slug> pages. The roster for the Form D sweep is the investing team at seat-holding titles plus every deal investor the portfolio cards name (the firm's own attribution map), built by scratch/build-roster.py; archived people pages are unioned in when the archive answers."
+  },
+  "site_api": {
+    "type": "scrape",
+    "sources": [
+      {
+        "parser": "file_list",
+        "list": "company-pages",
+        "path": "data/collection/investors/general-catalyst/sources/site/company-pages.json",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "key_field": "slug",
+        "sectors": "sectors",
+        "extras": [
+          "slug",
+          "invest_year",
+          "backed_since",
+          "region",
+          "partners",
+          "flag_active",
+          "flag_ipo",
+          "flag_acquired",
+          "flag_creation",
+          "flag_cvf",
+          "flag_seed",
+          "company_site",
+          "linkedin",
+          "description",
+          "stories"
+        ],
+        "_note": "The live portfolio grid joined to each /companies/<slug> page (scratch/pull-site-gc.py). 'backed_since' is the firm's own year of first backing: an anchor, never a round word. flag_* are the card's own flags; flag_seed is the firm's claim that it backed the company at seed and is scored against documented rounds before it may label (COLLECTION.md 5), so no entry_stage_fields entry until it is."
+      },
+      {
+        "parser": "file_list",
+        "list": "compliance-list",
+        "path": "data/collection/investors/general-catalyst/sources/site/compliance-list.json",
+        "fields": {
+          "name": "name"
+        },
+        "key_field": "slug",
+        "extras": [
+          "legal_name",
+          "registered_name",
+          "former_name",
+          "alias",
+          "ticker",
+          "exchange",
+          "token",
+          "vehicle_tag",
+          "held_via",
+          "grid_slug",
+          "slug"
+        ],
+        "row_url": "https://www.generalcatalyst.com/list",
+        "_note": "The firm's marketing-rule list, 'a list of investments made by General Catalyst ... as of June 30th, 2026', about 1,900 legal names, with a declared exclusion for confidentiality provisions (so absence from it is strong evidence, not proof). `name` is the grid's rendering where the two surfaces name one company."
+      }
+    ],
+    "team_sources": [
+      {
+        "parser": "file_list",
+        "list": "team-pages",
+        "path": "data/collection/investors/general-catalyst/sources/site/team-pages.json",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "key_field": "slug",
+        "extras": [
+          "slug",
+          "title",
+          "group",
+          "linkedin_url",
+          "x_url",
+          "companies"
+        ]
+      }
+    ],
+    "team_buckets": {
+      "Investment Team": "investing"
+    },
+    "_note": "generalcatalyst.com is Webflow. The portfolio grid is a Finsweet list over server pagination (?f75a35e2_page=N), and direct fetches of the page parameter work; /companies/<slug>, /stories/<slug> and /team/<slug> are listed in the sitemap. /list is the marketing-rule list.",
+    "_team_note": "Only the Investment Team department publishes on the profile. Wealth Management (40), GC Institute, HATCo, Percepta, Impact Initiatives, Advisors and the operating departments are left unmapped, so they stay off the profile."
+  },
+  "edgar": {
+    "seed_queries": [
+      "general+catalyst",
+      "gc+entrepreneurs",
+      "gc+creation",
+      "gc+customer+value",
+      "gc+venture",
+      "gc+partners",
+      "gc+group+xi",
+      "gc+aggregator",
+      "gc+health+assurance",
+      "bear+coast",
+      "la+famiglia",
+      "venture+highway",
+      "gc+structured",
+      "gcgm+investment",
+      "cat+sponsor",
+      "healthcare+assurance+acquisition",
+      "revolution+healthcare+acquisition",
+      "catalyst+partners+acquisition"
+    ],
+    "fts_phrases": [
+      "General Catalyst Group",
+      "General Catalyst Partners",
+      "GC Entrepreneurs Fund",
+      "General Catalyst Group Management",
+      "GC Creation Fund",
+      "GC Customer Value Fund"
+    ],
+    "fts_own_pattern": "general catalyst (group|partners|gp|master gp|group management|excelsior|guadalupe|aggregator)|gc entrepreneurs fund|gc venture|gc creation|gc customer value|gc aggregator|gc group xi|gc health assurance|bear coast",
+    "_note": "Entity-qualified phrases only: 'GC' alone is shared by Golub Capital (GC Advisors), GCM Grosvenor and a dozen others."
+  },
+  "wikipedia": {
+    "phrases": [
+      "General Catalyst"
+    ]
+  },
+  "desks": {
+    "home": "us",
+    "partition": [
+      "wealth",
+      "spac"
+    ],
+    "rank": [
+      "us",
+      "europe",
+      "india",
+      "wealth",
+      "spac",
+      "unknown"
+    ],
+    "classify": [
+      {
+        "desk": "external",
+        "patterns": [
+          "general catalyst (xi|xii|xiii) access",
+          "gc creation iii\\s*-?\\s*(allocate )?access",
+          "gc creation iii access",
+          "^gc advisors",
+          "golub",
+          "gcm grosvenor",
+          "^gcw ",
+          "^gcb ",
+          "\\(icapital\\)"
+        ]
+      },
+      {
+        "desk": "spac",
+        "patterns": [
+          "global resilience merger corp",
+          "^cat sponsor",
+          "healthcare assurance acquisition corp",
+          "revolution healthcare acquisition corp",
+          "^catalyst partners acquisition corp"
+        ]
+      },
+      {
+        "desk": "wealth",
+        "patterns": [
+          "gc wealth"
+        ]
+      },
+      {
+        "desk": "europe",
+        "patterns": [
+          "^la famiglia"
+        ]
+      },
+      {
+        "desk": "india",
+        "patterns": [
+          "^venture highway"
+        ]
+      },
+      {
+        "desk": "us",
+        "patterns": [
+          "^general catalyst",
+          "^gc entrepreneurs fund",
+          "^gc venture",
+          "^gc creation",
+          "^gc customer value",
+          "^gc cd customer value",
+          "^gc partners",
+          "^gc group xi",
+          "^gc aggregator",
+          "^gc health assurance",
+          "^gc vg ventures",
+          "^bear coast",
+          "^global growth capital opportunities fund",
+          "^gc structured opportunities",
+          "^gcgm investment holdings"
+        ]
+      }
+    ],
+    "_note": "One registered adviser, General Catalyst Group Management, LLC (CRD 162548, SEC 801-115155, SEC-registered since 2019-04-26, an ERA before), 20 University Road, Cambridge, MA; 48 private funds on the 2026-07-21 ADV. Related-person advisers in its Section 7.A: La Famiglia GmbH (CRD 318343, Berlin; the European desk since the 2023 combination) and GC Wealth Management RIA, LLC (CRD 327269, a wealth-management adviser: a non-venture strategy, partitioned). Venture Highway (CRD 307427, inactive) merged in 2024 and is the India desk. The SPAC General Catalyst Global Resilience Merger Corp. makes no venture rounds (T3 sponsor promote, T5 shell) and is partitioned. External: the Access feeders (third-party feeders, the Thrive IX Access precedent) and the GC-initial namesakes (Golub's GC Advisors, GCM Grosvenor). Added 2026-09-27 from the full-text sweep: the firm's other blank-check companies (Healthcare Assurance Acquisition Corp., 2020; Revolution Healthcare Acquisition Corp., 2021, with Revolution; Catalyst Partners Acquisition Corp. and its CAT Sponsor LLC, 2021) partition as `spac`; GC Structured Opportunities Fund I (Form D 2021) and GCGM Investment Holdings, LP (the Section 16 filer) are home-desk vehicles."
+  },
+  "profile": {
+    "own_vehicle_pattern": "^(general catalyst (group|partners|gp)|gc entrepreneurs fund|gc venture|gc creation fund|gc customer value fund|bear coast)",
+    "adv_crd": "162548",
+    "focus_min_companies": 90,
+    "focus_crosswalk": {},
+    "_note": "focus_min_companies is about 4.5% of an expected base near 2,000 rows; restated after the rebuild."
+  },
+  "verify": {
+    "text_mention_leaks": [],
+    "cofiler_leaks": [],
+    "known_positions": [],
+    "not_members": [],
+    "shape": {
+      "c2a_rate_max": 0.8,
+      "_note": "The 0.80 default stands. There is no ceiling on the $1B+ share (Erik, 2026-09-26)."
+    }
+  },
+  "sample_slugs": [],
+  "names": {
+    "published": {
+      "30secondstofly": "30SecondsToFly",
+      "81cents": "81cents",
+      "akko": "Akko",
+      "athletic-greens": "AG1",
+      "beacon": "Beacon Biosignals",
+      "brdg": "Brdg",
+      "content-square": "Contentsquare",
+      "continuum-analytics": "Anaconda",
+      "cred": "Cred",
+      "digital-entertainment-corporation-of-america": "Kin Community",
+      "dyli": "Dyli",
+      "ethos-ai": "Ethos AI",
+      "goodstack": "Goodstack",
+      "gtess": "Gtess",
+      "healing-humanity-productions-inc": "Healing Humanity Productions",
+      "hi-bob": "HiBob",
+      "iceye": "Iceye",
+      "kraken-technologies-global-group": "Kraken",
+      "krnl": "Krnl",
+      "launch": "Launch",
+      "lrned": "Lrned",
+      "mascoma": "Mascoma",
+      "mica-ai": "Mica AI",
+      "oasys-now-b-v": "Oasys Now",
+      "prypco": "Prypco",
+      "rcw": "M.Gemi",
+      "skim-ai": "Skim AI",
+      "somethings": "Somethings",
+      "stan": "Stan",
+      "superhuman-platform": "Superhuman",
+      "superpedestrian": "Superpedestrian",
+      "sushi": "Sushi",
+      "tempus-ex": "Infinite Athlete",
+      "think-fish": "Think Fish",
+      "ujet": "Ujet",
+      "viacycle": "Viacycle",
+      "visanow-com-inc": "VisaNow",
+      "xclaim": "Xclaim"
+    }
+  }
+}

@@ -1,0 +1,87 @@
+base: data/collection/investors/general-catalyst/companies/base.json
+target companies: 146  distinct issuer CIKs: 144
+scanning 74 quarterly datasets (offline)...
+filings collected: 509
+evidence: 342/342 base accessions found
+wrote data/collection/investors/general-catalyst/scratch/issuer-evidence.json (151 CIKs, 70 with a name history)
+
+wrote data/collection/investors/general-catalyst/sources/edgar/formd-issuer-rounds.json
+  companies with Form D history : 142
+  rounds after amendment merge  : 461 (48 amendments folded in)
+  companies with 2+ rounds      : 107
+  filings the partner sweep never saw: 167
+  companies gaining >=1 such filing  : 76
+  rounds carrying a sale date   : 458/461
+in flight: wrote data/collection/investors/general-catalyst/scratch/in-flight.json
+rows: 2054
+membership seed: 2010 site_listing, 4 fund_filing; left for the judge: 40
+layer A (SEC public float): 2054 rows to resolve
+    fetched 100/392
+    fetched 200/392
+    fetched 300/392
+    Wikidata unavailable for a batch of 60 (SPARQL POST failed (curl rc=56)); deferred
+    Wikidata unavailable for a batch of 60 (SPARQL POST failed (curl rc=56)); deferred
+    Wikidata unavailable for a batch of 60 (SPARQL POST failed (curl rc=56)); deferred
+    Wikidata unavailable for a batch of 60 (SPARQL POST failed (curl rc=56)); deferred
+
+DEFERRED: 0 row(s) without a public-float answer (SEC unavailable), 240 row(s) without a Wikidata answer; nothing cached for them. Re-run prepare to retry.
+    100/2054
+    200/2054
+    300/2054
+    400/2054
+    500/2054
+    600/2054
+    700/2054
+    800/2054
+    900/2054
+    1000/2054
+    1100/2054
+    1200/2054
+    1300/2054
+    1400/2054
+    1500/2054
+    1600/2054
+    1700/2054
+    1800/2054
+    1900/2054
+    2000/2054
+    resolved a CIK: 787   with public float: 67
+layer B (Wikidata): 2054 rows in batches of 60
+    60/2054
+    120/2054
+    180/2054
+    300/2054
+    360/2054
+    420/2054
+    480/2054
+    540/2054
+    600/2054
+    660/2054
+    720/2054
+    780/2054
+    840/2054
+    900/2054
+    960/2054
+    1020/2054
+    1080/2054
+    1140/2054
+    1200/2054
+    1260/2054
+    1320/2054
+    1380/2054
+    1440/2054
+    1500/2054
+    1560/2054
+    1800/2054
+    1860/2054
+    1920/2054
+    1980/2054
+    2040/2054
+    2054/2054
+    matched: 210
+layer C (unicorn list): 629 current, 209 former
+graduation layer 1: 142 companies, 27 entered at Seed, 27 decided by the filings as of 2026-09-27 (the judge confirms each), 67 entries moved past pre-investor rounds
+
+deterministically resolved: 0/2054
+retired (not_member, awaiting rebuild): 0
+queued for judgment       : 2054 rows in 46 batches

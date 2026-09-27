@@ -1,0 +1,78 @@
+export refused: 20 Seed row(s) without a decided graduation status (accrual, cartwheel-care, chloe-isabel, cloaked, commure, corvia, freebird, handy, kuvee, locu, mark43, newdays …); a Seed row is graduated, not_graduated or censored (PRO-132). Judge them (prepare queues them), then export.
+site API portfolio: 2020 companies
+recall additions injected: 7
+pooled fund vehicles dropped: 168 issuers (291 filings)
+initial-only person matches ignored: 0 issuers (0 attributions)
+limited partnerships dropped (not operating companies): 2
+    - DF Distressed Equity Property Fund I, L.P.
+    - Sunday Press, LP
+non-portfolio industry, Form D-only (14 dropped):
+    - Azure Source Capital, LLC [Other Banking and Financial Services]
+    - BFR Investor Inc. [Investing]
+    - Betterment Holdings, Inc. [Other Banking and Financial Services]
+    - CRB Group, Inc. [Commercial Banking]
+    - DF Lexington Villas Holdings, LLC [Residential]
+    - INNVESTMENT CAPITAL, LLC [Commercial]
+    - Monzo Bank Ltd [Commercial Banking]
+    - Pinnacle Properties-Everett, LLC [Other Real Estate]
+    - Remitly Global, Inc. [Other Banking and Financial Services]
+    - Sindeo, Inc. [Other Banking and Financial Services]
+    - Storage at Anthem, LLC [Other Real Estate]
+    - TOTAL IMPACT NOTES PUBLIC BENEFIT LLC [Other Banking and Financial Services]
+    - Yorktown Investments, LLC [Commercial]
+    - peerTransfer Corp [Other Banking and Financial Services]
+    - AMERICAN EXPRESS CO (personal Section 16 filing only)
+    - BERKSHIRE HATHAWAY INC (personal Section 16 filing only)
+    - BOSTON BEER CO INC (personal Section 16 filing only)
+    - Facebook Inc (personal Section 16 filing only)
+    - INTERNATIONAL BUSINESS MACHINES CORP (personal Section 16 filing only)
+    - PROCTER & GAMBLE Co (personal Section 16 filing only)
+    - Revolution Healthcare Acquisition Corp. (personal Section 16 filing only)
+    - UROMED CORP (personal Section 16 filing only)
+removed (partner's personal board seat, no fund position): 8
+tenure mismatch flagged: 31 rows
+removed (ex-partner is the only evidence): 29
+    - 685 Manzanita Court Chino Acquisition Co LLC — Deepak Kumar last on site 2016, filing 2021 (5y after)
+    - Actio Analytics Inc. — John Simon last on site 2013, filing 2019 (6y after)
+    - Adept ID, Inc. — William Skarinka last on site 2015, filing 2025 (10y after)
+    - AmbyTech Inc. — Neil Sequeira last on site 2016, filing 2024 (8y after)
+    - Copia Automation, Inc. — Bilal Zuberi last on site 2013, filing 2026 (13y after)
+    - Fiddler Labs, Inc. — Bilal Zuberi last on site 2013, filing 2019 (6y after)
+    - Formant, Inc. — Christopher Farmer last on site 2013, filing 2022 (9y after)
+    - Frontera Health, Inc. — Bilal Zuberi last on site 2013, filing 2025 (12y after)
+    - GIADZY, INC. — Neil Sequeira last on site 2016, filing 2023 (7y after)
+    - GRAD, Inc. — Christopher Farmer last on site 2013, filing 2018 (5y after)
+    - Genemod Corp — Neil Sequeira last on site 2016, filing 2020 (4y after)
+    - GreenPark Sports, Inc. — Chris Farmer last on site 2013, filing 2021 (8y after)
+    … and 17 more
+verification ledger: 92 excluded, 20 control positions excluded, 1 uncertain kept
+duplicate name-variants merged: 106; kept separate (co-listed or differing CIK): 42
+identity overlay: 27 duplicate rows merged, 0 rejected, 0 desk reassignments
+excluded.json: 112 rows ({'not_member': 92, 'control_position': 20})
+rows renamed by the rebuild: 15
+    advanced-electron-beams-inc -> advanced-electron-beams
+    beacon -> beacon-biosignals-inc
+    dc-devices-inc -> dc-devices
+    grammarly-inc -> grammarly
+    handybook-inc -> handybook
+    juliahub-inc -> juliahub
+    mascoma-corp -> mascoma
+    parelastic-corp -> parelastic
+    section4-inc -> section4
+    tagomi-holdings-inc -> tagomi-systems-inc
+    travelperk-inc -> travelperk
+    tremor-video-inc -> tremor-video
+    virtual-instruments-corp -> virtual-instruments
+    visanow-com-inc -> visanow
+    zenpayroll-inc -> zenpayroll
+    classification.json: 2 re-keyed
+    resolved.json: 15 re-keyed
+    membership-ledger.json: 5 re-keyed
+Traceback (most recent call last):
+  File "/Users/erik/Developer/merit-capital/scripts/build-company-base.py", line 1089, in <module>
+    main()
+  File "/Users/erik/Developer/merit-capital/scripts/build-company-base.py", line 1076, in main
+    subprocess.run([sys.executable, str(Path(__file__).parent / "run.py"),
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/usr/local/bin/python3', '/Users/erik/Developer/merit-capital/scripts/run.py', 'export', '--investor', 'general-catalyst']' returned non-zero exit status 1.

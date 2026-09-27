@@ -1,0 +1,57 @@
+targets: 68 roster names
+wrote /Users/erik/Developer/merit-capital/data/collection/investors/general-catalyst/sources/edgar/formd-sweep.json
+# accessions matched: 440
+# distinct issuers: 227
+== seeding from EDGAR company search
+   102 entities
+== folding in own pooled Form D vehicles
+   +4 (total 106)
+== co-filer closure (sampling filings of seed entities)
+   119 entities
+   unclassified resolved: 6 partners (people), 7 external co-filers excluded from crawling
+
+wrote data/collection/investors/general-catalyst/entities.json — 119 entities
+  by desk: {'europe': 2, 'external': 12, 'india': 2, 'spac': 1, 'us': 102}
+  crawlable (desk != external): 107
+registry: 119 entities · {'europe': 2, 'external': 12, 'india': 2, 'spac': 1, 'us': 102}
+crawling 107 (external excluded)
+  25/107 entities · 315 unique accessions
+  50/107 entities · 330 unique accessions
+  75/107 entities · 386 unique accessions
+  100/107 entities · 388 unique accessions
+unique ownership filings: 412
+  headers 250/412 · 15 companies
+Traceback (most recent call last):
+  File "/Users/erik/Developer/merit-capital/scripts/edgar-companies.py", line 132, in <module>
+    main()
+  File "/Users/erik/Developer/merit-capital/scripts/edgar-companies.py", line 84, in main
+    hdr = fetch_header(cik, acc)
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/erik/Developer/merit-capital/scripts/edgar_common.py", line 50, in fetch_header
+    write_atomic(dest, head)
+  File "/Users/erik/Developer/merit-capital/scripts/paths.py", line 40, in write_atomic
+    fd, tmp = tempfile.mkstemp(dir=path.parent, prefix=f".{path.name}.", suffix=".tmp")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/tempfile.py", line 357, in mkstemp
+    return _mkstemp_inner(dir, prefix, suffix, flags, output_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/tempfile.py", line 256, in _mkstemp_inner
+    fd = _os.open(file, flags, 0o600)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 28] No space left on device: '/Users/erik/Developer/merit-capital/data/filings/edgar-headers/.0001062993-21-002839.txt.9by8v1ri.tmp'
+
+==== formd-query.py
+
+==== edgar-entities.py
+
+==== edgar-companies.py
+Traceback (most recent call last):
+  File "/Users/erik/Developer/merit-capital/scripts/run.py", line 3464, in <module>
+    main()
+  File "/Users/erik/Developer/merit-capital/scripts/run.py", line 3460, in main
+    args.fn(args)
+  File "/Users/erik/Developer/merit-capital/scripts/run.py", line 916, in cmd_collect
+    subprocess.run([sys.executable, str(ROOT / "scripts" / script),
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/usr/local/bin/python3', '/Users/erik/Developer/merit-capital/scripts/edgar-companies.py', 'general-catalyst']' returned non-zero exit status 1.

@@ -1,0 +1,48 @@
+targets: 97 roster names
+wrote /Users/erik/Developer/merit-capital/data/collection/investors/general-catalyst/sources/edgar/formd-sweep.json
+# accessions matched: 916
+# distinct issuers: 445
+== seeding from EDGAR company search
+   102 entities
+== folding in own pooled Form D vehicles
+   +5 (total 107)
+== co-filer closure (sampling filings of seed entities)
+   120 entities
+   unclassified resolved: 8 partners (people), 3 external co-filers excluded from crawling
+
+wrote data/collection/investors/general-catalyst/entities.json — 120 entities
+  by desk: {'europe': 2, 'external': 8, 'india': 2, 'spac': 2, 'us': 106}
+  crawlable (desk != external): 112
+registry: 120 entities · {'europe': 2, 'external': 8, 'india': 2, 'spac': 2, 'us': 106}
+crawling 112 (external excluded)
+  25/112 entities · 318 unique accessions
+  50/112 entities · 333 unique accessions
+  75/112 entities · 388 unique accessions
+  100/112 entities · 390 unique accessions
+unique ownership filings: 436
+  headers 250/436 · 15 companies
+
+wrote edgar-companies.json — 33 companies
+  by desk: {'us': 33}
+base: data/collection/investors/general-catalyst/companies/base.json
+target companies: 146  distinct issuer CIKs: 144
+scanning 74 quarterly datasets (offline)...
+filings collected: 509
+evidence: 342/342 base accessions found
+wrote data/collection/investors/general-catalyst/scratch/issuer-evidence.json (151 CIKs, 70 with a name history)
+
+wrote data/collection/investors/general-catalyst/sources/edgar/formd-issuer-rounds.json
+  companies with Form D history : 142
+  rounds after amendment merge  : 461 (48 amendments folded in)
+  companies with 2+ rounds      : 107
+  filings the partner sweep never saw: 160
+  companies gaining >=1 such filing  : 73
+  rounds carrying a sale date   : 458/461
+
+==== formd-query.py
+
+==== edgar-entities.py
+
+==== edgar-companies.py
+
+==== formd-issuer-rounds.py

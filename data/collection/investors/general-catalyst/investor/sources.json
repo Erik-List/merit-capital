@@ -1,0 +1,678 @@
+{
+  "slug": "general-catalyst",
+  "generated_at": "2026-09-27T23:00:58+00:00",
+  "run": "PRO-166",
+  "fields": {
+    "name": {
+      "value": "General Catalyst",
+      "source": "https://www.generalcatalyst.com/",
+      "basis": "The firm's site. Manager: GC Group Management LLC, a registered investment adviser (CRD 162548, SEC 801-115155, Cambridge MA), Form ADV amendment of 2026-07-21; decisions.md D1 sets the firm boundary (the venture, growth, Creation and Customer Value strategies; GC Wealth is another desk, D5)."
+    },
+    "website": {
+      "value": "https://www.generalcatalyst.com",
+      "source": "https://www.generalcatalyst.com/",
+      "basis": "The firm's site (Webflow: portfolio grid at /portfolio, company pages at /companies/<slug>, the marketing-rule list at /list, posts at /stories, team at /team)."
+    },
+    "icon_url": {
+      "value": "https://cdn.prod.website-files.com/69df4e62ff62d7b5568fc58b/6a16ee532ff7f5b53d83064a_GC.svg",
+      "source": "https://cdn.prod.website-files.com/69df4e62ff62d7b5568fc58b/6a16ee532ff7f5b53d83064a_GC.svg",
+      "basis": "source chosen by measurement (fetch-investor-icon.ts --discover, 2026-09-27): the site's own GC symbol, a vector (179x180 intrinsic), found as a logo <img>; the favicons are 32 to 512 px rasters of the same symbol (the 512 px usable, the rest marginal or would be enlarged) and the wordmark is 312x40. Dry run 2026-09-27: 256 px master on a synthesized white plate (the source is 60% transparent), artwork box 64%, radius 80%, contrast 19.0:1, ramp 0.81 px; preview at sources/site/icon-256.png. The bucket URL replaces this at ingest, after Erik's approval."
+    },
+    "founding_year": {
+      "value": 2000,
+      "source": "https://en.wikipedia.org/wiki/General_Catalyst",
+      "basis": "Wikipedia: founded in 2000 in Cambridge, Massachusetts, by Joel Cutler and David Fialkow; the firm's own site names both as co-founders (team pages)."
+    },
+    "history": {
+      "value": "General Catalyst was founded in Cambridge, Massachusetts, in 2000 by Joel Cutler and David Fialkow. It became known for early bets on Kayak and HubSpot and later for Airbnb, Stripe, Snap and Anduril, and in 2024 it raised $8 billion for its twelfth fund. The track record on this page covers its venture investments; its buyouts and its revenue-sharing growth financing are left out.",
+      "source": "https://en.wikipedia.org/wiki/General_Catalyst",
+      "basis": "Founding (2000, Cambridge, Joel Cutler and David Fialkow): Wikipedia and the firm's team pages. Bets: Kayak, hatched with the founders in 2004 (the firm's post 'Hatching Success'; 30.0% before the 2012 IPO, S-1); HubSpot's 2007 Series A; Airbnb's 2011 round; Stripe's 2012 Series B, which it led (TechCrunch 2012-07-09); Snap from 2013; Anduril from 2017 (the firm's grid). Fund XII: 'raises $8 bn' (VCCircle and Fortune, 2024-10-24/25). BOUNDARY (decisions.md D3, D4, D6): buyouts, AI-enabled roll-ups and HATCo's hospital purchase are control positions and are left out; money from the Customer Value Fund, which takes a share of revenue instead of shares, is not a venture entry and is left out; La Famiglia (combined 2023) and Venture Highway (combined 2024) count from their combination dates (D8). Nothing true dropped: the fund ladder, the Creation and Customer Value strategies and GC Wealth live in the funds and aum bases."
+    },
+    "investment_concept": {
+      "value": "\u201cGeneral Catalyst is a global investment and transformation company that partners with the world's most ambitious entrepreneurs to drive resilience and applied AI.\u201d",
+      "source": "https://www.generalcatalyst.com/",
+      "basis": "The firm's own statement, read off the homepage on 2026-09-27: the meta description, 'General Catalyst is a global investment and transformation company that partners with the world's most ambitious entrepreneurs to drive resilience and applied AI.' The title tag reads only 'General Catalyst' and the headlines rotate stories ('Quadrupling down on Anthropic', 'A Blueprint for Healthcare Transformation', 'Rethinking Venture in an Era of Concentration'), so the meta description is the first line that says what the firm does; set with straight quotes and one closing period."
+    },
+    "investment_stage": {
+      "value": [
+        "Seed",
+        "Series A",
+        "Growth"
+      ],
+      "source": "https://www.generalcatalyst.com/",
+      "basis": "The firm invests from seed (the grid's Seed flag; 'Seeding the Future' posts) through growth (Fund XII's Endurance and growth vehicles on the Form ADV); the landed entry distribution over the members is restated in report.md.",
+      "flags": [
+        "derived"
+      ]
+    },
+    "investment_geo": {
+      "value": {
+        "core": [
+          "US"
+        ],
+        "other": [
+          "Europe",
+          "India"
+        ]
+      },
+      "source": "companies/base.json",
+      "basis": "From the members' headquarters at the grind's close (2026-09-27): US 1,636, Europe about 160 (UK 64, Germany 36, France 14, Netherlands 10, Sweden 7 and more), India 55, Israel 9, Mexico 8 and others. The firm's offices include San Francisco, New York, Cambridge, London, Berlin and Bengaluru (Form ADV Section 1.F lists 85 other offices). Core US, other Europe and India (two-label cap).",
+      "flags": [
+        "derived"
+      ]
+    },
+    "investment_scope": {
+      "value": {
+        "type": "Generalist",
+        "focus": []
+      },
+      "source": "companies/base.json",
+      "basis": "focus is recomputed by build-firm-profile.py from the firm's own grid sector tags, crosswalked to data/taxonomy/focus.json (crosswalk in config.json), published above config.profile.focus_min_companies. Scope type is the curated judgement."
+    },
+    "investment_range": {
+      "value": {
+        "lower_limit": 5000000,
+        "median": 22000000,
+        "upper_limit": 900000000
+      },
+      "source": "sources/edgar/formd-issuer-rounds.json",
+      "basis": "MEDIAN: $22.0M, the median entry round over the 121 members whose first Form D filing naming one of the firm's people is on EDGAR (the round that filing belongs to; scratch/entry-round-sizes.json; p10 $5.1M, p25 $11.9M, p75 $54.2M, p90 $120.1M), published as $22M. It is a round size, not a cheque size, Form D coverage starts in 2009, and a first filing can post-date the entry (Transcarent's is the 2025 Accolade financing). LOWER: the firm publishes no programme floor; the p10 entry round, $5M, stands in, flagged. UPPER: the largest round the firm led, Pacific Fusion's Series A of about $900M (2024, 'led by General Catalyst', Wikipedia), inside a 10-15% single-position share of the $8B Fund XII family ($0.8B to $1.2B). The $1B Grammarly financing (2025) was Customer Value money, not equity, and is not used.",
+      "flags": [
+        "derived"
+      ]
+    },
+    "notable_investments": {
+      "value": [
+        "Airbnb",
+        "Snap",
+        "Stripe",
+        "Anthropic",
+        "Discord"
+      ],
+      "source": "companies/base.csv",
+      "basis": "The five best known of the firm's own companies, most recognised first (PRO-152, Erik 2026-09-24). Considered next: Kayak, Warby Parker, HubSpot, Anduril, Grammarly.",
+      "slugs": [
+        "airbnb",
+        "snap",
+        "stripe",
+        "anthropic",
+        "discord"
+      ]
+    },
+    "aum": {
+      "value": {
+        "bottom": 45502659880,
+        "top": 45588459880
+      },
+      "source": "https://adviserinfo.sec.gov/firm/summary/162548",
+      "basis": "BOTTOM: the sworn regulatory assets under management of GC Group Management LLC (CRD 162548), Item 5.F of the Form ADV amendment of 2026-07-21: $45,502,659,880 discretionary across 49 accounts (sources/registers/adv-162548.json); its Section 7.B(1) lists 48 private funds with $49,050,627,592 of gross assets. TOP: adds La Famiglia GmbH (CRD 318343), an exempt reporting adviser for the European seed desk ruled inside the firm (D8), whose Section 7.B lists two funds of $79.0M and $6.8M gross assets ($85.8M). Venture Highway's adviser (CRD 307427, Mauritius) parsed no fund roster and adds nothing. GC Wealth Management RIA (CRD 327269) is another desk (D5) and is excluded from both ends."
+    },
+    "funds": {
+      "value": [
+        {
+          "name": "General Catalyst Group XII and related funds",
+          "size": 8000000000,
+          "vintage": 2024
+        },
+        {
+          "name": "General Catalyst Group XI and related funds",
+          "size": 4600000000,
+          "vintage": 2022
+        },
+        {
+          "name": "General Catalyst Group X and related funds",
+          "size": 2300000000,
+          "vintage": 2020
+        },
+        {
+          "name": "General Catalyst Group IX",
+          "size": 1375000000,
+          "vintage": 2018
+        }
+      ],
+      "source": "https://www.vccircle.com/credzepto-backer-general-catalyst-raises-8-bn-for-early-stage-bets-globally-",
+      "basis": "Sizes from the press on each close; every GC fund family files several Form Ds under different vehicle names, so no entry carries an accession (COLLECTION.md 11). XII and related funds $8B (VCCircle 2024-10-24; Fortune 2024-10-25, https://fortune.com/2024/10/25/general-catalysts-hemant-taneja-on-ai-lps-and-raising-around-8-billion/). XI and related funds $4.6B (WSJ 2022-02-18 headline, https://www.wsj.com/articles/venture-fundraising-momentum-grows-with-general-catalysts-4-6-billion-haul-11645182001). X and related funds $2.3B (Forbes 2020-03-30, https://www.forbes.com/sites/stevenbertoni/2020/03/30/venture-capital-firm-general-catalyst-raises-23-billion-amid-coronavirus-crisis/). IX $1.375B (Crunchbase News 2018-03-26, https://news.crunchbase.com/venture/general-catalyst-raises-1-375-billion-ninth-fund-largest-date/). Older funds (Group III to VIII) are on the Form ADV roster with no press size read in this run. The Customer Value Fund, Creation funds and GC Wealth vehicles are strategies of the families above or another desk."
+    },
+    "hq_location": {
+      "value": "Cambridge, MA",
+      "source": "sources/offices.json",
+      "basis": "Principal office on the newest Form ADV: 20 University Road 4th Floor, Cambridge, MA (GENERAL CATALYST, CRD 162548, Other-Than-Annual Amendment filed 2026-07-21). The firm's site lists San Francisco, CA; New York, NY; Cambridge, MA; Floor Washington, DC; Floor Jackson, WY; Ave Ne Bellevue, WA; London, United Kingdom; Berlin, Germany; the principal office is among them, so the site agrees. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+      "sources": [
+        {
+          "source": "Form ADV Item 1.F and Schedule D 1.F, GENERAL CATALYST (Other-Than-Annual Amendment filed 2026-07-21)",
+          "url": "https://reports.adviserinfo.sec.gov/reports/ADV/162548/PDF/162548.pdf"
+        },
+        {
+          "source": "the firm's own site, office list",
+          "url": "https://www.generalcatalyst.com/contact"
+        }
+      ]
+    },
+    "individuals": {
+      "value": [
+        {
+          "name": "Aakanksha Sharma",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/aakanksha-sharma-19156b23/",
+            "x_url": "https://x.com/sharma_ak"
+          }
+        },
+        {
+          "name": "Abishek Chopra",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/abishek-chopra/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Adit Swarup",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/aditswarup/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Ahmad Nasir",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/ahmad-i-nasir/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Ahmed Alveed",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "http://www.linkedin.com/in/ahmed-alveed/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Akarsh Shrivastava",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/akarsh-shrivastava-8527659b/",
+            "x_url": "https://x.com/akarshs27"
+          }
+        },
+        {
+          "name": "Alex Mackenzie",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/alex-mackenzie-6aa80ab4/",
+            "x_url": "https://x.com/alex__mackenzie"
+          }
+        },
+        {
+          "name": "Alex Tran",
+          "position": "Managing Director",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/alex-tran-17a2656/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Alexa Liautaud",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/alexaliautaud/",
+            "x_url": "https://twitter.com/AlexaLiautaud"
+          }
+        },
+        {
+          "name": "Alexandre Momeni",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/alexandre-momeni/",
+            "x_url": "https://twitter.com/AlexandreMomeni"
+          }
+        },
+        {
+          "name": "Anant Pai",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/anant-pai-394a88bb/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Ashley Paston",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/ashleypaston/",
+            "x_url": "https://x.com/ashleypaston"
+          }
+        },
+        {
+          "name": "Caitlin Donovan",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/caitlin-donovan-aa55916b/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Candace Richardson",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/candace-richardson-30237b85/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Chris Bischoff",
+          "position": "COO GC Capital & Managing Director",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/chris-bischoff-65394828/",
+            "x_url": "https://www.twitter.com/chriswbischoff"
+          }
+        },
+        {
+          "name": "Christopher Kauffman",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/christopher-kauffman-119b0722/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Daisy Zhao",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/daisyzhao2310/",
+            "x_url": "https://x.com/Daisy4ai"
+          }
+        },
+        {
+          "name": "David Fialkow",
+          "position": "Co-Founder & Managing Director",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/pub/david-fialkow/52/858/200",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Dhruv Medarametla",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/dhruv-medarametla/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Dylan Spector",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/dylan-spector/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Elena Viboch",
+          "position": "Managing Director",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/viboch/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Emma Lu",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/emlu/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Gosia Majczak",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/malgorzatamajczak/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Harry Elliott",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Hemant Taneja",
+          "position": "CEO",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/pub/hemant-taneja/0/15/a44",
+            "x_url": "https://twitter.com/htaneja"
+          }
+        },
+        {
+          "name": "Henry Kline",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/henry-kline",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Holly Maloney",
+          "position": "Head of Health Assurance & Managing Director",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/holly-maloney-7365847/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jeannette zu F\u00fcrstenberg",
+          "position": "President & Managing Director",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jeannette-zu-f%C3%BCrstenberg-a4227a17a/",
+            "x_url": "https://twitter.com/jcfurstenberg"
+          }
+        },
+        {
+          "name": "Joel Cutler",
+          "position": "Co-Founder & Managing Director",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/joel-cutler-317743/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jonny Zhang",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jonathanzhang23/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "KV Mohan",
+          "position": "Managing Director",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/karanveerm/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Kate Bender",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/katemoslebender/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Katie Keller",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/katherinekeller1997/",
+            "x_url": "https://twitter.com/ktempestkeller"
+          }
+        },
+        {
+          "name": "Ken Chenault",
+          "position": "Chairman & Managing Director",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/ken-chenault/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Larry Bohn",
+          "position": "Managing Director",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Madhu Namburi",
+          "position": "Managing Director",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/madhu-namburi-9218321/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Marc Bhargava",
+          "position": "Managing Director",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/marc-bhargava-55030311",
+            "x_url": "https://twitter.com/marcbhargava"
+          }
+        },
+        {
+          "name": "Mark Crane",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/mark-crane-18921815/",
+            "x_url": "https://twitter.com/CraneMcrane"
+          }
+        },
+        {
+          "name": "Max Rimpel",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/maxrimpel/",
+            "x_url": "https://twitter.com/max_rimpel"
+          }
+        },
+        {
+          "name": "Nat Levy-Westhead",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/nathaniel-levy-westhead-48807655/",
+            "x_url": "https://x.com/Natlevywesthead"
+          }
+        },
+        {
+          "name": "Neeraj Arora",
+          "position": "CEO India, MENA & Managing Director",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/neerajarora/",
+            "x_url": "https://x.com/neerajarora"
+          }
+        },
+        {
+          "name": "Otto Salmi",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/ottosalmi/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Paul Kwan",
+          "position": "Managing Director",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/paulkwan/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Pranav Singhvi",
+          "position": "Managing Director",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/pranavsinghvi/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Quentin Clark",
+          "position": "Managing Director",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/quentin-clark/",
+            "x_url": "https://www.twitter.com/quentinclark"
+          }
+        },
+        {
+          "name": "Rachit Neupane",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/rachitneupane/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Rahul Garg",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/grahul/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Rahul Humayun",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/rahulhumayun/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Reva Nohria",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/reva-nohria-87897791/",
+            "x_url": "https://twitter.com/revaflava"
+          }
+        },
+        {
+          "name": "Robin Dechant",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/robindechant",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Roy Mabrey",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/roy-mabrey-395ab63/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Samuel Beyer",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/samuel-beyer/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Sarah Ascherman",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/sarah-ascherman-186b94145/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Sho Sho Leigha Ho",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/shosho/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Siddhant Dubey",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/siddhant-dubey-a68025206/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Siddhi Kasliwal",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/siddhi-kasliwal/",
+            "x_url": "https://x.com/SiddhiKasliwal"
+          }
+        },
+        {
+          "name": "Tony Ho",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Tracy Fong",
+          "position": "Partner, Fund-Partnerships",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/tracyfong714/",
+            "x_url": "http://twitter.com/tracyfong"
+          }
+        },
+        {
+          "name": "Tyler Olkowski",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/tyler-olkowski/",
+            "x_url": "http://twitter.com/t_olkowski"
+          }
+        },
+        {
+          "name": "Utkarsh Bajpai",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/utkarshbajpai/",
+            "x_url": "https://x.com/utkbajpai"
+          }
+        },
+        {
+          "name": "Vedant Suri",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/vedantsuri",
+            "x_url": "https://twitter.com/vedantsuri"
+          }
+        },
+        {
+          "name": "Yuri Sagalov",
+          "position": "Managing Director",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/yurisagalov/",
+            "x_url": "https://x.com/yuris"
+          }
+        },
+        {
+          "name": "Zeynep Yavuz-Willson",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/zeynep-yavuz-72362379/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Biz Peabody",
+          "position": "Operating Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/biz-peabody-6431a377/",
+            "x_url": "https://x.com/BizPeabody"
+          }
+        },
+        {
+          "name": "Jay Kang",
+          "position": "Chief Investment Officer",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jay-kang-b870b011/",
+            "x_url": null
+          }
+        }
+      ],
+      "source": "sources/site/team.json",
+      "basis": "Live team CMS: 65 members. Positions are CMS titles (21 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 5 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 62 LinkedIn, 25 X."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+ "_readme": "Parse an adviser Form ADV for General Catalyst (CRD given as argv[1];\nsources/registers/adv-<crd>.pdf) into sources/registers/adv-<crd>.json:\nItem 1.F principal office and Section 1.F other offices, Item 5.F RAUM,\nSchedule A / B owners, and the Section 7.B.(1) private-fund roster (name, 805-\nID, domicile, general partner, gross asset value, minimum investment, number\nof beneficial owners, master/feeder). The fund-type checkboxes of question 10\ndo not survive text extraction; the type is joined from each vehicle's own\nForm D (sources/edgar/formd-own-issuers.json) by name. pypdf's per-page text is\ncumulative within a run of pages, so each fund is kept at its first complete\nreading per ID (the IVP parser's rule).",
+ "crd": 307427,
+ "adviser": null,
+ "filing": null,
+ "principal_office_raw": "Number and Street 1: C/O APEX FUND & CORPORATE SERVICES (MAURITIUS) LTD Number and Street 2: LOT 15 A3, 1ST FLOOR City: CYBERCITY, EBENE State: Country: Mauritius ZIP+4/Postal Code: 72201",
+ "raum": null,
+ "raum_non_us": null,
+ "other_offices": [],
+ "schedule_a_raw": null,
+ "schedule_b_raw": null,
+ "pages": {
+  "total": 4,
+  "first_7b": 5,
+  "last_7b": 5
+ },
+ "funds_7b1": [],
+ "funds_7b1_total_gav": 0
+}

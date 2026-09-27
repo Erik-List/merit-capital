@@ -1,0 +1,41 @@
+membership      : 2142 verdicts, 3 uncertain
+stale classification keys: 3 (earlier base versions)
+duplicate companies (same SEC registrant): 9 groups
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling headline in flight; not compared
+cross-investor  : 1057 rows shared with other investors, 1005 agree, 36 accepted, 16 disagree
+rows            : 1939
+classified      : 1939
+$1B+ / $10B+ / $100B+ : 143 / 34 / 4
+stage unknown   : 1541 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'(outside taxonomy)': 488, 'Consumer & Marketplaces': 254, 'Healthcare & Bio': 248, 'AI & Applied AI': 194, 'SaaS': 175, 'Fintech & Payments': 148, 'Media, Gaming & Advertising': 108, 'Industrial & Robotics': 87, 'DevTools & APIs': 65, 'Data Infrastructure': 64, 'Security': 43, 'Climate & Energy': 40, 'Crypto & Web3': 25}
+hq_city         : 149 distinct, 956/1939 filled, 983 recorded unknown; top {'San Francisco': 303, 'New York': 163, 'Boston': 67, 'London': 35, 'Cambridge': 25, 'Austin': 17, 'Los Angeles': 17, 'Palo Alto': 16}
+valuation_range : {'below_1b': 1796, '1b_plus': 109, '10b_plus': 30, '100b_plus': 4}
+entry_stage     : {'Seed': 184, 'Growth': 129, 'Series A': 82, 'Pre-Seed': 3}
+stage leg       : 3 decided rows rest on an uncited entry stage (their own evidence decides them, stage low)
+S2A             : 184 seed entries, 62 censored; cohort 122, graduated 81, not graduated 41, rate 66.4%, coverage 100.0%
+  the nos rest on: Form D absence 0, a cited end 4, the absence test 37
+
+20 problem(s):
+  - names.published names a slug not in the base: ['mascoma-corp', 'point-wild-holdings', 'visanow']
+  - stripe: acquired carries a current valuation
+  - wildcard: graduated on an uncited entry stage; a decided row may carry one only on its own evidence, with flag stage_uncited and entry_stage_confidence low (PRO-131 b, PRO-132)
+  - cadre: acquired carries a current valuation
+  - cross-investor Flok: general-catalyst:flok unknown/below_1b (asof -) vs y-combinator:flok acquired/below_1b (asof -); freshest general-catalyst:flok
+  - cross-investor Kiwi: general-catalyst:kiwi unknown/below_1b (asof -) vs 8vc:kiwi defunct/below_1b (asof -); freshest general-catalyst:kiwi
+  - cross-investor Merlin: general-catalyst:merlin unknown/below_1b (asof -) vs first-round-capital:merlin public/below_1b $0.26B (asof 2025-06-30); freshest first-round-capital:merlin
+  - cross-investor Merlin: general-catalyst:merlin unknown/below_1b (asof -) vs y-combinator:merlin-ai private/below_1b (asof -); freshest general-catalyst:merlin
+  - cross-investor PatientBank: general-catalyst:patientbank defunct/below_1b (asof -) vs y-combinator:patientbank unknown/below_1b (asof -); freshest general-catalyst:patientbank
+  - cross-investor Quill: general-catalyst:quill-messaging acquired/below_1b (asof -) vs y-combinator:quill private/below_1b (asof -); freshest general-catalyst:quill-messaging
+  - cross-investor Stripe: general-catalyst:stripe acquired/100b_plus $159.00B (asof 2026-02-24) vs a16z:stripe private/100b_plus $159.00B (asof 2026-02); freshest general-catalyst:stripe
+  - cross-investor Stripe: general-catalyst:stripe acquired/100b_plus $159.00B (asof 2026-02-24) vs coatue:stripe private/100b_plus $159.00B (asof 2026-02-24); freshest general-catalyst:stripe
+  - cross-investor Stripe: general-catalyst:stripe acquired/100b_plus $159.00B (asof 2026-02-24) vs khosla-ventures:stripe private/100b_plus $159.00B (asof 2026-02-24); freshest general-catalyst:stripe
+  - cross-investor Stripe: general-catalyst:stripe acquired/100b_plus $159.00B (asof 2026-02-24) vs lightspeed:stripe private/100b_plus $159.00B (asof 2026-02-24); freshest general-catalyst:stripe
+  - cross-investor Stripe: general-catalyst:stripe acquired/100b_plus $159.00B (asof 2026-02-24) vs redpoint-ventures:stripe private/100b_plus $106.50B (asof -); freshest general-catalyst:stripe
+  - cross-investor Stripe: general-catalyst:stripe acquired/100b_plus $159.00B (asof 2026-02-24) vs sequoia-capital:stripe private/100b_plus $159.00B (asof 2026-02); freshest general-catalyst:stripe
+  - cross-investor Stripe: general-catalyst:stripe acquired/100b_plus $159.00B (asof 2026-02-24) vs thrive-capital:stripe private/100b_plus $159.00B (asof 2026-02); freshest general-catalyst:stripe
+  - cross-investor Stripe: general-catalyst:stripe acquired/100b_plus $159.00B (asof 2026-02-24) vs union-square-ventures:stripe private/100b_plus $159.00B (asof 2026-02-24); freshest general-catalyst:stripe
+  - cross-investor Stripe: general-catalyst:stripe acquired/100b_plus $159.00B (asof 2026-02-24) vs y-combinator:stripe private/100b_plus $159.00B (asof 2026-02-24); freshest general-catalyst:stripe
+  - cross-investor Summon: general-catalyst:summon acquired/below_1b (asof -) vs y-combinator:summon private/below_1b (asof -); freshest general-catalyst:summon
