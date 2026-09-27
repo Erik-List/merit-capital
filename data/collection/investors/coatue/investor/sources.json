@@ -1,0 +1,490 @@
+{
+ "slug": "coatue",
+ "run": "PRO-78",
+ "generated_at": "2026-09-27T14:14:05+00:00",
+ "fields": {
+  "name": {
+   "value": "Coatue",
+   "source": "https://www.coatue.com",
+   "basis": "The firm's own brand; the adviser's legal name is Coatue Management, L.L.C."
+  },
+  "website": {
+   "value": "https://www.coatue.com",
+   "source": "https://www.coatue.com",
+   "basis": "Live site, read 2026-09-26."
+  },
+  "icon_url": {
+   "value": "data/collection/investors/coatue/sources/site/logo-wordmark.svg",
+   "source": "https://www.coatue.com/ (the wordmark drawn inline in the page header, saved as sources/site/logo-wordmark.svg)",
+   "basis": "Source chosen by measurement (fetch-investor-icon.ts --discover, 2026-09-27): the site declares one 192 px favicon, which the script refuses (178 px of artwork, 1.06x enlargement), and one vector that is the registered fund's logo, not the firm's. The firm's own wordmark is drawn inline in the page header as a vector (114x21), so it was saved from the markup and used as the source. Dry run 2026-09-27: 256 px master on a synthesized white plate, artwork 189 px, contrast 9.3:1, ramp 0.91 px; preview at investor/icon-preview.png. Nothing is uploaded before the ingest approval; the upload replaces this value with the bucket address.",
+   "provenance": {
+    "source_url": "data/collection/investors/coatue/sources/site/logo-wordmark.svg",
+    "format": "svg",
+    "width": 114,
+    "height": 21,
+    "vector": true,
+    "artwork_source_px": null,
+    "artwork_master_px": 189,
+    "upscale": 1,
+    "ramp_px": 0.91,
+    "master_size": 256,
+    "fetched": "2026-09-27",
+    "allow_upscale": false,
+    "allow_low_contrast": false,
+    "dry_run": true
+   }
+  },
+  "founding_year": {
+   "value": 1999,
+   "source": "https://reports.adviserinfo.sec.gov/reports/ADV/157910/PDF/157910.pdf",
+   "basis": "Schedule A: Philippe Laffont, founder, title acquired 12/1999; the CTEK fund's prospectus says the adviser was founded in 1999."
+  },
+  "history": {
+   "value": "Philippe Laffont founded Coatue in New York in 1999 as a technology hedge fund after working at Tiger Management, and his brother Thomas built its private investing. Since 2013 its venture and growth funds have backed Snap, Uber, Spotify, DoorDash, Anthropic and OpenAI. Its private funds hold about $40 billion of the $93 billion the firm manages, and the track record on this page covers the private investments only.",
+   "source": "https://en.wikipedia.org/wiki/Coatue_Management",
+   "basis": "Founding year, city and founder from the ADV and the CTEK prospectus; Tiger Management from Wikipedia; the bets are portfolio rows on this page; the asset figures are the ADV's (2026-07-29): RAUM $92,705,722,582 and $40,532,176,864 of gross assets in the 111 private-markets master funds. Moved off the page: the public-markets funds (flagship long/short, long only, quant) are the other strategy desk and are not part of the portfolio shown (decisions.md D2, D3); offices in Menlo Park, San Francisco, Hong Kong and London; the registered CTEK fund launched in May 2025."
+  },
+  "investment_concept": {
+   "value": "\u201cInvesting in innovation through public and private markets with responsible risk management.\u201d",
+   "source": "https://www.coatue.com",
+   "basis": "The firm's own statement, verbatim from the homepage (the h1 line above the footer, read 2026-09-26); a closing period is the only edit. Competing line on the same site, the meta description: 'Coatue is a lifecycle investment platform focused on turning big ideas into world-shaping technology companies.' The homepage hero itself is an animated typewriter with no fixed headline."
+  },
+  "investment_stage": {
+   "value": [
+    "Seed",
+    "Series A",
+    "Growth"
+   ],
+   "source": "https://www.coatue.com/privates-portfolio",
+   "basis": "The firm's own words on its privates page, 'From seed to late stage', crosswalked to the taxonomy; reconciled against the landed entry-stage distribution at the profile build.",
+   "derived": true
+  },
+  "investment_geo": {
+   "value": {
+    "core": [
+     "US"
+    ],
+    "other": [
+     "China",
+     "Europe"
+    ]
+   },
+   "source": "companies/base.csv",
+   "basis": "Derived from hq_country on the landed base (the firm publishes no geography filter); restated at the profile build.",
+   "derived": true
+  },
+  "investment_range": {
+   "value": {
+    "lower_limit": 3000000,
+    "median": 100000000,
+    "upper_limit": 500000000
+   },
+   "source": "companies/classification.json (the cited entry rounds of 177 members); sources/edgar/formd-sweep.json; the fund table",
+   "basis": "MEDIAN: press-based. 177 member rows state the size of the round in which Coatue is first named; their median is $100M (25th percentile $34M, 75th $250M; Seed rows $11M, Series A rows $25M, Growth rows $150M), published as $100M. It is a ROUND-SIZE PROXY for check size, not the firm's cheque: Coatue leads many of these rounds but shares the large ones. The Form D layer was refused as the base for the median because it covers only 25 members (median $37M) and misses the growth rounds that never name a Coatue person. LOWER LIMIT: $3M, the smallest documented entry rounds (Fero's seed of November 2023, Lutra's $3.8M seed). UPPER LIMIT: $500M, which is 13% of the largest fund with a sworn size (Coatue Growth Fund V, $3.87B) and matches the largest rounds the firm led on the record (Firmus $505M, April 2026; Scala $500M with IMCO, September 2024). Rounds above that size in which Coatue took part (Anthropic, OpenAI) are shared rounds and were not read as its cheque.",
+   "flags": [
+    "press_based_median",
+    "round_size_proxy"
+   ]
+  },
+  "notable_investments": {
+   "value": [
+    "OpenAI",
+    "SpaceX",
+    "Uber",
+    "Spotify",
+    "Snap"
+   ],
+   "source": "companies/base.csv",
+   "basis": "The five best known of the firm's companies, most recognised first (PRO-152). Also considered: Anthropic, Stripe, DoorDash, ByteDance, Databricks, Instacart, Reddit.",
+   "slugs": [
+    "openai",
+    "spacex",
+    "uber",
+    "spotify",
+    "snap"
+   ]
+  },
+  "aum": {
+   "value": {
+    "bottom": 40532176864,
+    "top": 40532176864
+   },
+   "source": "sources/registers/adv-157910.json",
+   "basis": "The venture desk's floor, both ends (COLLECTION.md 1, strategy desks): the sum of Section 7.B.(1) gross asset values of the 111 private-markets MASTER funds on Coatue Management, L.L.C.'s Form ADV (CRD 157910, other-than-annual amendment of 2026-07-29), feeders excluded because their assets sit in their masters. The adviser's Item 5.F regulatory assets, $92,705,722,582, cover the public-markets funds as well and never fill this field. Of the floor, $8,197,006,313 sits in 85 single-deal co-investment vehicles."
+  },
+  "funds": {
+   "value": [
+    {
+     "name": "Coatue Hybrid Fund I LP",
+     "size": 208096000,
+     "vintage": 2013,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D D filed 2013-02-14 reports $208,096,000 sold to 71 investors; feeders and private-investor vehicles file separately and are not added."
+      }
+     ],
+     "accession": "0000919574-13-001776"
+    },
+    {
+     "name": "Coatue Private Fund II LP",
+     "size": 406617600,
+     "vintage": 2015,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D D/A filed 2016-05-09 reports $406,617,600 sold to 175 investors; feeders and private-investor vehicles file separately and are not added."
+      }
+     ],
+     "accession": "0000919574-16-012781"
+    },
+    {
+     "name": "Coatue Kona III LP",
+     "size": null,
+     "vintage": 2017,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D of 2017-03-31 reports $0 sold (filed before the first close, offering 'Indefinite') and no amendment gives an amount; no sworn size."
+      }
+     ]
+    },
+    {
+     "name": "Coatue Early Stage Fund LP",
+     "size": 706500000,
+     "vintage": 2018,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D D/A filed 2019-11-20 reports $706,500,000 sold to 156 investors; feeders and private-investor vehicles file separately and are not added."
+      }
+     ],
+     "accession": "0000919574-19-007390"
+    },
+    {
+     "name": "Coatue Growth Fund IV LP",
+     "size": 2332556454,
+     "vintage": 2019,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D D/A filed 2020-11-13 reports $2,332,556,454 sold to 272 investors; feeders and private-investor vehicles file separately and are not added."
+      }
+     ],
+     "accession": "0000919574-20-006885"
+    },
+    {
+     "name": "Coatue Opportunity Fund I LP",
+     "size": null,
+     "vintage": 2020,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D of 2020-03-25 reports $0 sold (filed before the first close, offering 'Indefinite') and no amendment gives an amount; no sworn size."
+      }
+     ]
+    },
+    {
+     "name": "Coatue Smart Transportation Fund I LP",
+     "size": null,
+     "vintage": 2020,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D of 2020-08-07 reports $0 sold (filed before the first close, offering 'Indefinite') and no amendment gives an amount; no sworn size."
+      }
+     ]
+    },
+    {
+     "name": "Coatue FinTech Fund I LP",
+     "size": null,
+     "vintage": 2020,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D of 2020-11-23 reports $0 sold (filed before the first close, offering 'Indefinite') and no amendment gives an amount; no sworn size."
+      }
+     ]
+    },
+    {
+     "name": "Coatue Growth Fund V LP",
+     "size": 3868847500,
+     "vintage": 2021,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D D/A filed 2022-03-11 reports $3,868,847,500 sold to 501 investors; feeders and private-investor vehicles file separately and are not added."
+      }
+     ],
+     "accession": "0000919574-22-002173"
+    },
+    {
+     "name": "Coatue Ventures II LP",
+     "size": null,
+     "vintage": 2021,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D of 2021-03-05 reports $0 sold (filed before the first close, offering 'Indefinite') and no amendment gives an amount; no sworn size."
+      }
+     ]
+    },
+    {
+     "name": "Coatue Asia Fund LP",
+     "size": 477700000,
+     "vintage": 2021,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D D/A filed 2022-08-11 reports $477,700,000 sold to 80 investors; feeders and private-investor vehicles file separately and are not added."
+      }
+     ],
+     "accession": "0000919574-22-004709"
+    },
+    {
+     "name": "Coatue Climate Tech Fund II LP",
+     "size": 248825000,
+     "vintage": 2022,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D D/A filed 2026-02-06 reports $248,825,000 sold to 216 investors; feeders and private-investor vehicles file separately and are not added."
+      }
+     ],
+     "accession": "0000919574-26-000640"
+    },
+    {
+     "name": "Coatue Structured Fund LP",
+     "size": 700767000,
+     "vintage": 2022,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D D/A filed 2023-05-19 reports $700,767,000 sold to 87 investors; feeders and private-investor vehicles file separately and are not added."
+      }
+     ],
+     "accession": "0000919574-23-003412"
+    },
+    {
+     "name": "Coatue Tactical Solutions CT Fund B LP",
+     "size": 81175000,
+     "vintage": 2022,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D D/A filed 2023-07-14 reports $81,175,000 sold to 17 investors; feeders and private-investor vehicles file separately and are not added."
+      }
+     ],
+     "accession": "0000919574-23-004113"
+    },
+    {
+     "name": "Coatue Ventures III LP",
+     "size": 330914000,
+     "vintage": 2022,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D D/A filed 2023-07-31 reports $330,914,000 sold to 177 investors; feeders and private-investor vehicles file separately and are not added."
+      }
+     ],
+     "accession": "0000919574-23-004244"
+    },
+    {
+     "name": "Coatue Growth Fund V-B LP",
+     "size": 845428932,
+     "vintage": 2023,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D D/A filed 2024-06-28 reports $845,428,932 sold to 190 investors; feeders and private-investor vehicles file separately and are not added."
+      }
+     ],
+     "accession": "0000919574-24-003833"
+    },
+    {
+     "name": "Coatue Opportunity Fund II LP",
+     "size": 869418144,
+     "vintage": 2024,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D D/A filed 2025-04-10 reports $869,418,144 sold to 1209 investors; feeders and private-investor vehicles file separately and are not added."
+      }
+     ],
+     "accession": "0000919574-25-002379"
+    }
+   ],
+   "source": "sources/edgar/formd-own-issuers.json",
+   "basis": "The private-markets funds that file Form D under their own names, 2013 to 2024, sizes as sworn on each fund's own filing. Counted here, not listed: offshore feeders and the 'Private Investors' vehicles administered by J.P. Morgan (they feed the funds above), about 130 single-deal co-investment vehicles (Coatue CT / US / (Cayman) nn), Coatue Growth Fund VI (2026; only its private-investor feeders have filed so far), and the public-markets funds, which are the other strategy desk."
+  },
+  "hq_location": {
+   "value": "New York, NY",
+   "source": "sources/offices.json",
+   "basis": "Principal office on the newest Form ADV: 9 West 57th Street 25th Floor, New York, NY (COATUE MANAGEMENT, L.L.C., CRD 157910, Other-Than-Annual Amendment filed 2026-07-29). The firm's site lists New York, NY; Menlo Park, CA; San Francisco, CA; Hong Kong, Hong Kong; London, United Kingdom; the principal office is among them, so the site agrees. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+   "sources": [
+    {
+     "source": "Form ADV Item 1.F and Schedule D 1.F, COATUE MANAGEMENT, L.L.C. (Other-Than-Annual Amendment filed 2026-07-29)",
+     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/157910/PDF/157910.pdf"
+    },
+    {
+     "source": "the firm's own site, office list",
+     "url": "https://www.coatue.com/"
+    }
+   ]
+  },
+  "investment_scope": {
+   "value": {
+    "type": "Generalist",
+    "focus": [
+     "Consumer & Marketplaces",
+     "Fintech & Payments",
+     "SaaS",
+     "AI & Applied AI",
+     "Healthcare & Bio",
+     "DevTools & APIs",
+     "Industrial & Robotics",
+     "Data Infrastructure"
+    ]
+   },
+   "source": "companies/classification.json (the focus column of the 381 members)",
+   "basis": "Derived: the firm's page carries no sector filter, so the scope is read from the portfolio. The eight sectors listed each hold at least 20 of the 381 members (profile.focus_min_companies): Consumer & Marketplaces 74, Fintech & Payments 56, SaaS 53, AI & Applied AI 31, Healthcare & Bio 25, DevTools & APIs 25, Industrial & Robotics 25, Data Infrastructure 24. Below the floor: Media, Gaming & Advertising 19, Crypto & Web3 16, Security 16, Climate & Energy 15. The firm describes itself as a technology investor; across eight sectors that reads Generalist in this taxonomy.",
+   "flags": [
+    "derived"
+   ]
+  },
+  "individuals": {
+   "value": [
+    {
+     "name": "Ben Schwerin",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Caryn Marooney",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Colin Bryant",
+     "position": "COO for Private Investments and General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Dan Rose",
+     "position": "Chairman, Coatue Ventures",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "David Schneider",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Jade Lai",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Jaimin Rangwalla",
+     "position": "Chief Investment Officer, Public Equities",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Lucas Swisher",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Michael Gilroy",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Peter Wallace",
+     "position": "Co-President and Head of Private Investments",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Philippe Laffont",
+     "position": "Founder and Portfolio Manager",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Thomas Laffont",
+     "position": "Co-Founder and Chief Investment Officer, Privates",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Brent Duddie",
+     "position": "General Counsel",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Eric Sacks",
+     "position": "Chief Financial Officer and Co-Chief Operating Officer",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Joanna Albright",
+     "position": "Co-Chief Operating Officer",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Nathan Urquhart",
+     "position": "President and Head of Strategy",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    }
+   ],
+   "source": "sources/site/team.json",
+   "basis": "Live team CMS: 16 members. Positions are CMS titles (15 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 9 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 0 LinkedIn, 0 X."
+  }
+ }
+}

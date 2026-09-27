@@ -1,0 +1,2737 @@
+{
+ "_readme": "Parse Coatue Management's Form ADV (CRD 157910; data/filings/adv/157910.pdf,\nuntracked bulk, 35 MB / 790 pages) into sources/registers/adv-157910.json:\nItem 1.F principal office and Section 1.F other offices, Item 5.F RAUM,\nSchedule A / B owners, and the Section 7.B.(1) private-fund roster (name, 805-\nID, domicile, general partner, gross asset value, minimum investment, number\nof beneficial owners, master/feeder). The fund-type checkboxes of question 10\ndo not survive text extraction; the type is joined from each vehicle's own\nForm D (sources/edgar/formd-own-issuers.json) by name. pypdf's per-page text is\ncumulative within a run of pages, so each fund is kept at its first complete\nreading per ID (the IVP parser's rule).",
+ "crd": 157910,
+ "adviser": "COATUE MANAGEMENT, L.L.C.",
+ "filing": {
+  "kind": "Other-Than-Annual Amendment",
+  "date": "7/29/2026"
+ },
+ "principal_office_raw": "Number and Street 1: 9 WEST 57TH STREET Number and Street 2: 25TH FLOOR City: NEW YORK State: New York Country: United States ZIP+4/Postal Code: 10019",
+ "raum": {
+  "discretionary": 92705722582,
+  "accounts": 127,
+  "total": 92705722582
+ },
+ "raum_non_us": 44678505418,
+ "other_offices": [
+  {
+   "street": "9 WEST 57TH STREET 25TH FLOOR",
+   "city": "NEW YORK",
+   "state": "New York",
+   "country": "United States",
+   "postal": "10019",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 13
+  },
+  {
+   "street": "21 SOUTH PARK STREET 2ND FLOOR",
+   "city": "SAN FRANCISCO",
+   "state": "California",
+   "country": "United States",
+   "postal": "94107",
+   "advisory_staff": 13
+  },
+  {
+   "street": "9 WEST 57TH STREET 25TH FLOOR",
+   "city": "NEW YORK",
+   "state": "New York",
+   "country": "United States",
+   "postal": "10019",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 13
+  },
+  {
+   "street": "21 SOUTH PARK STREET 2ND FLOOR",
+   "city": "SAN FRANCISCO",
+   "state": "California",
+   "country": "United States",
+   "postal": "94107",
+   "advisory_staff": 13
+  },
+  {
+   "street": "9 WEST 57TH STREET 25TH FLOOR",
+   "city": "NEW YORK",
+   "state": "New York",
+   "country": "United States",
+   "postal": "10019",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 13
+  },
+  {
+   "street": "21 SOUTH PARK STREET 2ND FLOOR",
+   "city": "SAN FRANCISCO",
+   "state": "California",
+   "country": "United States",
+   "postal": "94107",
+   "advisory_staff": 13
+  },
+  {
+   "street": "9 WEST 57TH STREET 25TH FLOOR",
+   "city": "NEW YORK",
+   "state": "New York",
+   "country": "United States",
+   "postal": "10019",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 13
+  },
+  {
+   "street": "21 SOUTH PARK STREET 2ND FLOOR",
+   "city": "SAN FRANCISCO",
+   "state": "California",
+   "country": "United States",
+   "postal": "94107",
+   "advisory_staff": 13
+  },
+  {
+   "street": "9 WEST 57TH STREET 25TH FLOOR",
+   "city": "NEW YORK",
+   "state": "New York",
+   "country": "United States",
+   "postal": "10019",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 13
+  },
+  {
+   "street": "21 SOUTH PARK STREET 2ND FLOOR",
+   "city": "SAN FRANCISCO",
+   "state": "California",
+   "country": "United States",
+   "postal": "94107",
+   "advisory_staff": 13
+  },
+  {
+   "street": "9 WEST 57TH STREET 25TH FLOOR",
+   "city": "NEW YORK",
+   "state": "New York",
+   "country": "United States",
+   "postal": "10019",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 13
+  },
+  {
+   "street": "21 SOUTH PARK STREET 2ND FLOOR",
+   "city": "SAN FRANCISCO",
+   "state": "California",
+   "country": "United States",
+   "postal": "94107",
+   "advisory_staff": 13
+  },
+  {
+   "street": "9 WEST 57TH STREET 25TH FLOOR",
+   "city": "NEW YORK",
+   "state": "New York",
+   "country": "United States",
+   "postal": "10019",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 13
+  },
+  {
+   "street": "21 SOUTH PARK STREET 2ND FLOOR",
+   "city": "SAN FRANCISCO",
+   "state": "California",
+   "country": "United States",
+   "postal": "94107",
+   "advisory_staff": 13
+  },
+  {
+   "street": "9 WEST 57TH STREET 25TH FLOOR",
+   "city": "NEW YORK",
+   "state": "New York",
+   "country": "United States",
+   "postal": "10019",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 13
+  },
+  {
+   "street": "21 SOUTH PARK STREET 2ND FLOOR",
+   "city": "SAN FRANCISCO",
+   "state": "California",
+   "country": "United States",
+   "postal": "94107",
+   "advisory_staff": 13
+  },
+  {
+   "street": "9 WEST 57TH STREET 25TH FLOOR",
+   "city": "NEW YORK",
+   "state": "New York",
+   "country": "United States",
+   "postal": "10019",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 13
+  },
+  {
+   "street": "21 SOUTH PARK STREET 2ND FLOOR",
+   "city": "SAN FRANCISCO",
+   "state": "California",
+   "country": "United States",
+   "postal": "94107",
+   "advisory_staff": 13
+  },
+  {
+   "street": "9 WEST 57TH STREET 25TH FLOOR",
+   "city": "NEW YORK",
+   "state": "New York",
+   "country": "United States",
+   "postal": "10019",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 13
+  },
+  {
+   "street": "21 SOUTH PARK STREET 2ND FLOOR",
+   "city": "SAN FRANCISCO",
+   "state": "California",
+   "country": "United States",
+   "postal": "94107",
+   "advisory_staff": 13
+  },
+  {
+   "street": "9 WEST 57TH STREET 25TH FLOOR",
+   "city": "NEW YORK",
+   "state": "New York",
+   "country": "United States",
+   "postal": "10019",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 13
+  },
+  {
+   "street": "21 SOUTH PARK STREET 2ND FLOOR",
+   "city": "SAN FRANCISCO",
+   "state": "California",
+   "country": "United States",
+   "postal": "94107",
+   "advisory_staff": 13
+  },
+  {
+   "street": "9 WEST 57TH STREET 25TH FLOOR",
+   "city": "NEW YORK",
+   "state": "New York",
+   "country": "United States",
+   "postal": "10019",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 13
+  },
+  {
+   "street": "21 SOUTH PARK STREET 2ND FLOOR",
+   "city": "SAN FRANCISCO",
+   "state": "California",
+   "country": "United States",
+   "postal": "94107",
+   "advisory_staff": 13
+  },
+  {
+   "street": "9 WEST 57TH STREET 25TH FLOOR",
+   "city": "NEW YORK",
+   "state": "New York",
+   "country": "United States",
+   "postal": "10019",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 13
+  },
+  {
+   "street": "21 SOUTH PARK STREET 2ND FLOOR",
+   "city": "SAN FRANCISCO",
+   "state": "California",
+   "country": "United States",
+   "postal": "94107",
+   "advisory_staff": 13
+  },
+  {
+   "street": "9 WEST 57TH STREET 25TH FLOOR",
+   "city": "NEW YORK",
+   "state": "New York",
+   "country": "United States",
+   "postal": "10019",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 13
+  },
+  {
+   "street": "21 SOUTH PARK STREET 2ND FLOOR",
+   "city": "SAN FRANCISCO",
+   "state": "California",
+   "country": "United States",
+   "postal": "94107",
+   "advisory_staff": 13
+  },
+  {
+   "street": "9 WEST 57TH STREET 25TH FLOOR",
+   "city": "NEW YORK",
+   "state": "New York",
+   "country": "United States",
+   "postal": "10019",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 13
+  },
+  {
+   "street": "21 SOUTH PARK STREET 2ND FLOOR",
+   "city": "SAN FRANCISCO",
+   "state": "California",
+   "country": "United States",
+   "postal": "94107",
+   "advisory_staff": 13
+  },
+  {
+   "street": "9 WEST 57TH STREET 25TH FLOOR",
+   "city": "NEW YORK",
+   "state": "New York",
+   "country": "United States",
+   "postal": "10019",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 13
+  },
+  {
+   "street": "21 SOUTH PARK STREET 2ND FLOOR",
+   "city": "SAN FRANCISCO",
+   "state": "California",
+   "country": "United States",
+   "postal": "94107",
+   "advisory_staff": 13
+  },
+  {
+   "street": "9 WEST 57TH STREET 25TH FLOOR",
+   "city": "NEW YORK",
+   "state": "New York",
+   "country": "United States",
+   "postal": "10019",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 13
+  },
+  {
+   "street": "21 SOUTH PARK STREET 2ND FLOOR",
+   "city": "SAN FRANCISCO",
+   "state": "California",
+   "country": "United States",
+   "postal": "94107",
+   "advisory_staff": 13
+  },
+  {
+   "street": "9 WEST 57TH STREET 25TH FLOOR",
+   "city": "NEW YORK",
+   "state": "New York",
+   "country": "United States",
+   "postal": "10019",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 13
+  },
+  {
+   "street": "21 SOUTH PARK STREET 2ND FLOOR",
+   "city": "SAN FRANCISCO",
+   "state": "California",
+   "country": "United States",
+   "postal": "94107",
+   "advisory_staff": 13
+  },
+  {
+   "street": "9 WEST 57TH STREET 25TH FLOOR",
+   "city": "NEW YORK",
+   "state": "New York",
+   "country": "United States",
+   "postal": "10019",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 13
+  },
+  {
+   "street": "21 SOUTH PARK STREET 2ND FLOOR",
+   "city": "SAN FRANCISCO",
+   "state": "California",
+   "country": "United States",
+   "postal": "94107",
+   "advisory_staff": 13
+  },
+  {
+   "street": "9 WEST 57TH STREET 25TH FLOOR",
+   "city": "NEW YORK",
+   "state": "New York",
+   "country": "United States",
+   "postal": "10019",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 13
+  },
+  {
+   "street": "21 SOUTH PARK STREET 2ND FLOOR",
+   "city": "SAN FRANCISCO",
+   "state": "California",
+   "country": "United States",
+   "postal": "94107",
+   "advisory_staff": 13
+  },
+  {
+   "street": "9 WEST 57TH STREET 25TH FLOOR",
+   "city": "NEW YORK",
+   "state": "New York",
+   "country": "United States",
+   "postal": "10019",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 13
+  },
+  {
+   "street": "21 SOUTH PARK STREET 2ND FLOOR",
+   "city": "SAN FRANCISCO",
+   "state": "California",
+   "country": "United States",
+   "postal": "94107",
+   "advisory_staff": 13
+  },
+  {
+   "street": "9 WEST 57TH STREET 25TH FLOOR",
+   "city": "NEW YORK",
+   "state": "New York",
+   "country": "United States",
+   "postal": "10019",
+   "advisory_staff": 3
+  },
+  {
+   "street": "2885 SAND HILL RD 2ND FLOOR",
+   "city": "MENLO PARK",
+   "state": "California",
+   "country": "United States",
+   "postal": "94025",
+   "advisory_staff": 13
+  },
+  {
+   "street": "21 SOUTH PARK STREET 2ND FLOOR",
+   "city": "SAN FRANCISCO",
+   "state": "California",
+   "country": "United States",
+   "postal": "94107",
+   "advisory_staff": 13
+  }
+ ],
+ "schedule_a_raw": "Schedule A and ",
+ "schedule_b_raw": "Schedule B. Schedule A asks for information about your direct owners\nand executive officers. Schedule B asks for information about your indirect owners. If this is an amendment and you are updating information you reported\non either Schedule A or Schedule B (or both) that you filed with your initial application or report, you must complete ",
+ "funds_7b1": [
+  {
+   "name": "CK LIQUIDATING VEHICLE LP",
+   "id": "805-8484625316",
+   "gp": "CK LIQUIDATING VEHICLE GP LLC",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 0,
+   "min_investment": 0,
+   "beneficial_owners": 0,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 51,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE (CAYMAN) 116 LLC",
+   "id": "805-3106541026",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 159004893,
+   "min_investment": 0,
+   "beneficial_owners": 1,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 55,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE ASIA FUND LP",
+   "id": "805-8176515912",
+   "gp": "COATUE ASIA FUND GP LLC",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 569590222,
+   "min_investment": 0,
+   "beneficial_owners": 133,
+   "pct_related": 14,
+   "master_fund": "Private fund identification number:",
+   "page": 59,
+   "formd_type": [
+    "Hedge Fund"
+   ]
+  },
+  {
+   "name": "COATUE ASIA OFFSHORE FEEDER FUND LP",
+   "id": "805-4221866953",
+   "gp": "COATUE ASIA FUND GP LLC",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 250707097,
+   "min_investment": 100000,
+   "beneficial_owners": 60,
+   "pct_related": null,
+   "master_fund": "COATUE ASIA FUND LP",
+   "page": 68,
+   "formd_type": [
+    "Hedge Fund"
+   ]
+  },
+  {
+   "name": "COATUE CARDINAL MAIN FUND LP",
+   "id": "805-9091202923",
+   "gp": "COATUE CARDINAL MAIN FUND GP LLC",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 882016470,
+   "min_investment": 0,
+   "beneficial_owners": 2,
+   "pct_related": 2,
+   "master_fund": "Private fund identification number:",
+   "page": 73,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CLIMATE TECH FUND II LP",
+   "id": "805-2383700062",
+   "gp": "COATUE CLIMATE TECH GP II LLC",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 607621495,
+   "min_investment": 5000000,
+   "beneficial_owners": 336,
+   "pct_related": 24,
+   "master_fund": "Private fund identification number:",
+   "page": 84,
+   "formd_type": [
+    "Hedge Fund"
+   ]
+  },
+  {
+   "name": "COATUE CLIMATE TECH OFFSHORE FEEDER FUND II LP",
+   "id": "805-2217936911",
+   "gp": "COATUE CLIMATE TECH GP II LLC",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 181765677,
+   "min_investment": 5000000,
+   "beneficial_owners": null,
+   "pct_related": null,
+   "master_fund": "COATUE CLIMATE TECH FUND II LP",
+   "page": 91,
+   "formd_type": [
+    "Hedge Fund"
+   ]
+  },
+  {
+   "name": "COATUE CROWN FUND LP",
+   "id": "805-1214661306",
+   "gp": "COATUE CROWN FUND GP LLC",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 173340302,
+   "min_investment": 100000,
+   "beneficial_owners": 3,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 96,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CROWN OFFSHORE FUND LTD.",
+   "id": "805-8781800391",
+   "gp": "CHRIS BOWRING",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 1374218323,
+   "min_investment": 100000,
+   "beneficial_owners": 3,
+   "pct_related": 0,
+   "master_fund": "COATUE CROWN FUND LP",
+   "page": 105,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 100 LLC",
+   "id": "805-7427515708",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 5397070,
+   "min_investment": 0,
+   "beneficial_owners": 22,
+   "pct_related": 22,
+   "master_fund": "Private fund identification number:",
+   "page": 109,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 101 LLC",
+   "id": "805-1135669041",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 4611346,
+   "min_investment": 0,
+   "beneficial_owners": 11,
+   "pct_related": 19,
+   "master_fund": "Private fund identification number:",
+   "page": 114,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 102 LLC",
+   "id": "805-1808399746",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 37383357,
+   "min_investment": 0,
+   "beneficial_owners": 24,
+   "pct_related": 11,
+   "master_fund": "Private fund identification number:",
+   "page": 118,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 105 LLC",
+   "id": "805-7548605873",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 10412741,
+   "min_investment": 0,
+   "beneficial_owners": 29,
+   "pct_related": 19,
+   "master_fund": "Private fund identification number:",
+   "page": 123,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 106 LLC",
+   "id": "805-8233116992",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 10376757,
+   "min_investment": 0,
+   "beneficial_owners": 14,
+   "pct_related": 36,
+   "master_fund": "Private fund identification number:",
+   "page": 127,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 107 LLC",
+   "id": "805-1000469815",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 203066506,
+   "min_investment": null,
+   "beneficial_owners": null,
+   "pct_related": null,
+   "master_fund": "Private fund identification number:",
+   "page": 131,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 108 LLC",
+   "id": "805-9414808114",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 6869128,
+   "min_investment": 0,
+   "beneficial_owners": 16,
+   "pct_related": 74,
+   "master_fund": "Private fund identification number:",
+   "page": 137,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 109 LLC",
+   "id": "805-8977230001",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 45104568,
+   "min_investment": 0,
+   "beneficial_owners": 19,
+   "pct_related": 20,
+   "master_fund": "Private fund identification number:",
+   "page": 141,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 110 LLC",
+   "id": "805-5834505308",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 4304994,
+   "min_investment": 0,
+   "beneficial_owners": 9,
+   "pct_related": 13,
+   "master_fund": "Private fund identification number:",
+   "page": 146,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 111 LLC",
+   "id": "805-2131512340",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 1432798,
+   "min_investment": 0,
+   "beneficial_owners": 39,
+   "pct_related": 9,
+   "master_fund": "Private fund identification number:",
+   "page": 150,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 112 LLC",
+   "id": "805-6602120229",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 27922798,
+   "min_investment": 0,
+   "beneficial_owners": 18,
+   "pct_related": 1,
+   "master_fund": "Private fund identification number:",
+   "page": 154,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 114 LLC",
+   "id": "805-7783929143",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 492273,
+   "min_investment": 0,
+   "beneficial_owners": 2,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 159,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 115 LLC",
+   "id": "805-2246426714",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 13431936,
+   "min_investment": 0,
+   "beneficial_owners": 15,
+   "pct_related": 14,
+   "master_fund": "Private fund identification number:",
+   "page": 163,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 116 LLC",
+   "id": "805-8120646734",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 236005,
+   "min_investment": null,
+   "beneficial_owners": null,
+   "pct_related": null,
+   "master_fund": "Private fund identification number:",
+   "page": 167,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 118 LLC",
+   "id": "805-7910952529",
+   "gp": "PHILIPPE LAFFONT",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 860524,
+   "min_investment": 0,
+   "beneficial_owners": 1,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 172,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 120 LLC",
+   "id": "805-7770878952",
+   "gp": "DANIEL ROSE",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 0,
+   "min_investment": 0,
+   "beneficial_owners": 2,
+   "pct_related": 100,
+   "master_fund": "Private fund identification number:",
+   "page": 176,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 122 LLC",
+   "id": "805-5194722831",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 77542378,
+   "min_investment": 0,
+   "beneficial_owners": 1,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 180,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 123 LLC",
+   "id": "805-3807694987",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 7589215,
+   "min_investment": 0,
+   "beneficial_owners": 39,
+   "pct_related": 15,
+   "master_fund": "Private fund identification number:",
+   "page": 184,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 124 LLC",
+   "id": "805-5627646175",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 232248252,
+   "min_investment": 0,
+   "beneficial_owners": 66,
+   "pct_related": 4,
+   "master_fund": "Private fund identification number:",
+   "page": 189,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 126 LLC",
+   "id": "805-3328738785",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 618483,
+   "min_investment": 0,
+   "beneficial_owners": 2,
+   "pct_related": 1,
+   "master_fund": "Private fund identification number:",
+   "page": 193,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 127 LLC",
+   "id": "805-7481757124",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 16361997,
+   "min_investment": 0,
+   "beneficial_owners": 9,
+   "pct_related": 18,
+   "master_fund": "Private fund identification number:",
+   "page": 197,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 128 LLC",
+   "id": "805-5398640637",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 52709094,
+   "min_investment": 0,
+   "beneficial_owners": 1,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 202,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 130 LLC",
+   "id": "805-1675142132",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 15353117,
+   "min_investment": 0,
+   "beneficial_owners": 27,
+   "pct_related": 33,
+   "master_fund": "Private fund identification number:",
+   "page": 206,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 131 LLC",
+   "id": "805-3485937549",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 20781914,
+   "min_investment": 0,
+   "beneficial_owners": 1,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 210,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 132 LLC",
+   "id": "805-8899080115",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 1072946,
+   "min_investment": 0,
+   "beneficial_owners": 35,
+   "pct_related": 66,
+   "master_fund": "Private fund identification number:",
+   "page": 214,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 133 LLC",
+   "id": "805-1881346906",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 21186906,
+   "min_investment": 0,
+   "beneficial_owners": 7,
+   "pct_related": 73,
+   "master_fund": "Private fund identification number:",
+   "page": 219,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 134 LLC",
+   "id": "805-8632462277",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 21360704,
+   "min_investment": 0,
+   "beneficial_owners": 12,
+   "pct_related": 79,
+   "master_fund": "Private fund identification number:",
+   "page": 223,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 135 LLC",
+   "id": "805-6856834986",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 2345153,
+   "min_investment": 0,
+   "beneficial_owners": 21,
+   "pct_related": 8,
+   "master_fund": "Private fund identification number:",
+   "page": 227,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 136 LLC",
+   "id": "805-7584208941",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 20203855,
+   "min_investment": 0,
+   "beneficial_owners": 13,
+   "pct_related": 60,
+   "master_fund": "Private fund identification number:",
+   "page": 232,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 138 LLC",
+   "id": "805-6942083813",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 4499974,
+   "min_investment": 0,
+   "beneficial_owners": 3,
+   "pct_related": 100,
+   "master_fund": "Private fund identification number:",
+   "page": 236,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 139 LLC",
+   "id": "805-5402210867",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 7465027,
+   "min_investment": 0,
+   "beneficial_owners": 8,
+   "pct_related": 100,
+   "master_fund": "Private fund identification number:",
+   "page": 240,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 140 LLC",
+   "id": "805-9769581126",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 557356,
+   "min_investment": 0,
+   "beneficial_owners": 3,
+   "pct_related": 2,
+   "master_fund": "Private fund identification number:",
+   "page": 244,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 143 LLC",
+   "id": "805-5659325164",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 7248931,
+   "min_investment": 0,
+   "beneficial_owners": 2,
+   "pct_related": 1,
+   "master_fund": "Private fund identification number:",
+   "page": 249,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 146 LLC",
+   "id": "805-4812108996",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 110195505,
+   "min_investment": 0,
+   "beneficial_owners": 4,
+   "pct_related": 16,
+   "master_fund": "Private fund identification number:",
+   "page": 254,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 147 LLC",
+   "id": "805-6191975939",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 2227156,
+   "min_investment": 0,
+   "beneficial_owners": 1,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 258,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 151 LLC",
+   "id": "805-3710120580",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 128998757,
+   "min_investment": 0,
+   "beneficial_owners": 11,
+   "pct_related": 100,
+   "master_fund": "Private fund identification number:",
+   "page": 262,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 152 LLC",
+   "id": "805-6070082325",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 10000004,
+   "min_investment": 0,
+   "beneficial_owners": 6,
+   "pct_related": 100,
+   "master_fund": "Private fund identification number:",
+   "page": 267,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 153 LLC",
+   "id": "805-3146503254",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 4765227,
+   "min_investment": 0,
+   "beneficial_owners": 7,
+   "pct_related": 90,
+   "master_fund": "Private fund identification number:",
+   "page": 271,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 156 LLC",
+   "id": "805-1773927102",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 320376937,
+   "min_investment": 0,
+   "beneficial_owners": 21,
+   "pct_related": 28,
+   "master_fund": "Private fund identification number:",
+   "page": 275,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 157 LLC",
+   "id": "805-2300774425",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 5050000,
+   "min_investment": 0,
+   "beneficial_owners": 1,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 279,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 159 LP",
+   "id": "805-1646756788",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 206532010,
+   "min_investment": 0,
+   "beneficial_owners": 4,
+   "pct_related": null,
+   "master_fund": "Private fund identification number:",
+   "page": 283,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 160 LP",
+   "id": "805-7458709758",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 29509644,
+   "min_investment": 0,
+   "beneficial_owners": null,
+   "pct_related": null,
+   "master_fund": "Private fund identification number:",
+   "page": 287,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 161 LP",
+   "id": "805-4332469333",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 287650409,
+   "min_investment": 0,
+   "beneficial_owners": null,
+   "pct_related": null,
+   "master_fund": "Private fund identification number:",
+   "page": 291,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 162 LP",
+   "id": "805-7024108887",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 412050001,
+   "min_investment": null,
+   "beneficial_owners": null,
+   "pct_related": null,
+   "master_fund": "Private fund identification number:",
+   "page": 295,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 163 LLC",
+   "id": "805-5236538072",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 10000000,
+   "min_investment": 0,
+   "beneficial_owners": 4,
+   "pct_related": 100,
+   "master_fund": "Private fund identification number:",
+   "page": 299,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 164 LP",
+   "id": "805-5222299455",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 34142312,
+   "min_investment": 1,
+   "beneficial_owners": 0,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 303,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 43 LLC",
+   "id": "805-4695630291",
+   "gp": "PHILIPPE LAFFONT",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 54846532,
+   "min_investment": 0,
+   "beneficial_owners": 11,
+   "pct_related": 73,
+   "master_fund": "Private fund identification number:",
+   "page": 307,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 46 LLC",
+   "id": "805-6286663136",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 1758973305,
+   "min_investment": 0,
+   "beneficial_owners": 71,
+   "pct_related": 31,
+   "master_fund": "Private fund identification number:",
+   "page": 311,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 60 LLC",
+   "id": "805-9462698240",
+   "gp": "PHILIPPE LAFFONT",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 20073970,
+   "min_investment": null,
+   "beneficial_owners": null,
+   "pct_related": null,
+   "master_fund": "Private fund identification number:",
+   "page": 319,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 61 LLC",
+   "id": "805-6156787299",
+   "gp": "PHILIPPE LAFFONT",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 21859276,
+   "min_investment": 0,
+   "beneficial_owners": 9,
+   "pct_related": 93,
+   "master_fund": "Private fund identification number:",
+   "page": 324,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 63 LLC",
+   "id": "805-2427650410",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 403821085,
+   "min_investment": 0,
+   "beneficial_owners": 15,
+   "pct_related": 18,
+   "master_fund": "Private fund identification number:",
+   "page": 329,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 64 LLC",
+   "id": "805-5417377767",
+   "gp": "PHILIPPE LAFFONT",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 22295049,
+   "min_investment": 0,
+   "beneficial_owners": 3,
+   "pct_related": 75,
+   "master_fund": "Private fund identification number:",
+   "page": 333,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 66 LLC",
+   "id": "805-7707254153",
+   "gp": "PHILIPPE LAFFONT",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 1732188,
+   "min_investment": 0,
+   "beneficial_owners": 4,
+   "pct_related": 99,
+   "master_fund": "Private fund identification number:",
+   "page": 338,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 67 LLC",
+   "id": "805-9294211012",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 14838458,
+   "min_investment": 0,
+   "beneficial_owners": 13,
+   "pct_related": 34,
+   "master_fund": "Private fund identification number:",
+   "page": 342,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 74 LLC",
+   "id": "805-6543387862",
+   "gp": "PHILIPPE LAFFONT",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 57552048,
+   "min_investment": 0,
+   "beneficial_owners": 25,
+   "pct_related": 69,
+   "master_fund": "Private fund identification number:",
+   "page": 347,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 76 LLC",
+   "id": "805-6374358248",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 721599431,
+   "min_investment": 0,
+   "beneficial_owners": 188,
+   "pct_related": 14,
+   "master_fund": "Private fund identification number:",
+   "page": 351,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 78 LLC",
+   "id": "805-1583583237",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 9064468,
+   "min_investment": 0,
+   "beneficial_owners": 2,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 356,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 80 LLC",
+   "id": "805-7021520367",
+   "gp": "PHILIPPE LAFFONT",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 15519159,
+   "min_investment": 0,
+   "beneficial_owners": 7,
+   "pct_related": 74,
+   "master_fund": "Private fund identification number:",
+   "page": 360,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 88 LLC",
+   "id": "805-8313037117",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 126834494,
+   "min_investment": 0,
+   "beneficial_owners": 85,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 365,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 89 LLC",
+   "id": "805-1940117999",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 30441471,
+   "min_investment": 0,
+   "beneficial_owners": 2,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 370,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 91 LLC",
+   "id": "805-4834563514",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 381462531,
+   "min_investment": 0,
+   "beneficial_owners": 29,
+   "pct_related": 84,
+   "master_fund": "Private fund identification number:",
+   "page": 375,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 92 LLC",
+   "id": "805-3951335332",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 22333946,
+   "min_investment": 0,
+   "beneficial_owners": 139,
+   "pct_related": 16,
+   "master_fund": "Private fund identification number:",
+   "page": 379,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 94 LLC",
+   "id": "805-6267548163",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 23600921,
+   "min_investment": 0,
+   "beneficial_owners": 11,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 384,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 95 LLC",
+   "id": "805-8638402880",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 64619009,
+   "min_investment": 0,
+   "beneficial_owners": 27,
+   "pct_related": 19,
+   "master_fund": "Private fund identification number:",
+   "page": 388,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 97 LLC",
+   "id": "805-5722480024",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 1087973,
+   "min_investment": 0,
+   "beneficial_owners": 103,
+   "pct_related": 7,
+   "master_fund": "Private fund identification number:",
+   "page": 393,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT 98 LLC",
+   "id": "805-9079199196",
+   "gp": "PHILIPPE LAFFONT",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 96899,
+   "min_investment": 0,
+   "beneficial_owners": 9,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 398,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT 99 LLC",
+   "id": "805-8178591849",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 387666,
+   "min_investment": 0,
+   "beneficial_owners": 18,
+   "pct_related": 93,
+   "master_fund": "Private fund identification number:",
+   "page": 402,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT IX LLC",
+   "id": "805-5422059821",
+   "gp": "PHILIPPE LAFFONT",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 1622990,
+   "min_investment": 0,
+   "beneficial_owners": 3,
+   "pct_related": 95,
+   "master_fund": "Private fund identification number:",
+   "page": 406,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT VI LLC",
+   "id": "805-9128732163",
+   "gp": "PHILIPPE LAFFONT",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 10767199,
+   "min_investment": 0,
+   "beneficial_owners": null,
+   "pct_related": null,
+   "master_fund": "Private fund identification number:",
+   "page": 411,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT VIII LLC",
+   "id": "805-4087432512",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 13986014,
+   "min_investment": 0,
+   "beneficial_owners": 28,
+   "pct_related": 58,
+   "master_fund": "Private fund identification number:",
+   "page": 416,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT X LLC",
+   "id": "805-2262476778",
+   "gp": "PHILIPPE LAFFONT",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 1407293,
+   "min_investment": 0,
+   "beneficial_owners": 3,
+   "pct_related": 80,
+   "master_fund": "Private fund identification number:",
+   "page": 421,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT XIII LLC",
+   "id": "805-2072687295",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 8695769,
+   "min_investment": 0,
+   "beneficial_owners": 84,
+   "pct_related": 24,
+   "master_fund": "Private fund identification number:",
+   "page": 426,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT XXIII LLC",
+   "id": "805-8550214287",
+   "gp": "PHILIPPE LAFFONT",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 215178440,
+   "min_investment": 0,
+   "beneficial_owners": 9,
+   "pct_related": 78,
+   "master_fund": "Private fund identification number:",
+   "page": 431,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT XXIX LLC",
+   "id": "805-6733694313",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 4622211,
+   "min_investment": 0,
+   "beneficial_owners": 16,
+   "pct_related": 46,
+   "master_fund": "Private fund identification number:",
+   "page": 436,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT XXV LLC",
+   "id": "805-3335243600",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 1232920,
+   "min_investment": 0,
+   "beneficial_owners": 16,
+   "pct_related": 32,
+   "master_fund": "Private fund identification number:",
+   "page": 441,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT XXVII LLC",
+   "id": "805-1928720522",
+   "gp": "MAINFRAME HOLDINGS MANAGEMENT LLC",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 3348493,
+   "min_investment": 0,
+   "beneficial_owners": 16,
+   "pct_related": 56,
+   "master_fund": "Private fund identification number:",
+   "page": 445,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT XXX LLC",
+   "id": "805-4872713896",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 735649243,
+   "min_investment": 0,
+   "beneficial_owners": 20,
+   "pct_related": 6,
+   "master_fund": "Private fund identification number:",
+   "page": 451,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT XXXV LLC",
+   "id": "805-9962397098",
+   "gp": "THOMAS LAFFONT",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 0,
+   "min_investment": 0,
+   "beneficial_owners": 4,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 456,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE CT XXXVI LLC",
+   "id": "805-9414874506",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 518064934,
+   "min_investment": 0,
+   "beneficial_owners": 44,
+   "pct_related": 16,
+   "master_fund": "Private fund identification number:",
+   "page": 460,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE CT XXXVII LLC",
+   "id": "805-7457152873",
+   "gp": "PHILIPPE LAFFONT",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 3216263,
+   "min_investment": 0,
+   "beneficial_owners": 7,
+   "pct_related": 95,
+   "master_fund": "Private fund identification number:",
+   "page": 465,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE EARLY STAGE FUND LP",
+   "id": "805-9592437636",
+   "gp": "COATUE EARLY STAGE GP LLC",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 1747221058,
+   "min_investment": 5000000,
+   "beneficial_owners": 157,
+   "pct_related": 24,
+   "master_fund": "Private fund identification number:",
+   "page": 470,
+   "formd_type": [
+    "Venture Capital Fund"
+   ]
+  },
+  {
+   "name": "COATUE F1 LP",
+   "id": "805-2387146637",
+   "gp": "COATUE F1 GP LLC",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 1562368052,
+   "min_investment": 0,
+   "beneficial_owners": 2,
+   "pct_related": 2,
+   "master_fund": "Private fund identification number:",
+   "page": 477,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE FINTECH FUND I LP",
+   "id": "805-7975871319",
+   "gp": "COATUE FINTECH GP I LLC",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 408079065,
+   "min_investment": 0,
+   "beneficial_owners": 628,
+   "pct_related": 1,
+   "master_fund": "Private fund identification number:",
+   "page": 488,
+   "formd_type": [
+    "Hedge Fund"
+   ]
+  },
+  {
+   "name": "COATUE FINTECH OFFSHORE FEEDER FUND I LP",
+   "id": "805-5792022998",
+   "gp": "COATUE FINTECH GP I LLC",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 139961546,
+   "min_investment": 100000,
+   "beneficial_owners": 211,
+   "pct_related": 0,
+   "master_fund": "COATUE FINTECH FUND I LP",
+   "page": 496,
+   "formd_type": [
+    "Hedge Fund"
+   ]
+  },
+  {
+   "name": "COATUE GROWTH FUND IV LP",
+   "id": "805-1356351172",
+   "gp": "COATUE GROWTH FUND IV GP LLC",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 3474050384,
+   "min_investment": 5000000,
+   "beneficial_owners": 496,
+   "pct_related": 15,
+   "master_fund": "Private fund identification number:",
+   "page": 500,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE GROWTH FUND V LP",
+   "id": "805-8290621455",
+   "gp": "COATUE GROWTH FUND V GP LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 7549574875,
+   "min_investment": 5000000,
+   "beneficial_owners": 791,
+   "pct_related": 5,
+   "master_fund": "Private fund identification number:",
+   "page": 506,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE GROWTH FUND V-B LP",
+   "id": "805-3643432668",
+   "gp": "COATUE GROWTH FUND V-B GP LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 2628500459,
+   "min_investment": 5000000,
+   "beneficial_owners": 323,
+   "pct_related": 9,
+   "master_fund": "Private fund identification number:",
+   "page": 512,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE GROWTH V OFFSHORE FEEDER FUND LP",
+   "id": "805-2995122561",
+   "gp": "COATUE GROWTH FUND V GP LP",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 3662568018,
+   "min_investment": 5000000,
+   "beneficial_owners": 271,
+   "pct_related": 1,
+   "master_fund": "COATUE GROWTH FUND V LP",
+   "page": 523,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE GROWTH V-B OFFSHORE FEEDER FUND LP",
+   "id": "805-4319777057",
+   "gp": "COATUE GROWTH FUND V-B GP LP",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 1151495071,
+   "min_investment": 5000000,
+   "beneficial_owners": 113,
+   "pct_related": 3,
+   "master_fund": "COATUE GROWTH FUND V-B LP",
+   "page": 527,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE HYBRID FUND I LP",
+   "id": "805-5850384188",
+   "gp": "COATUE HYBRID GP I LLC",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 6409883,
+   "min_investment": 5000000,
+   "beneficial_owners": 113,
+   "pct_related": 31,
+   "master_fund": "Private fund identification number:",
+   "page": 532,
+   "formd_type": [
+    "Hedge Fund"
+   ]
+  },
+  {
+   "name": "COATUE HYBRID OFFSHORE FEEDER FUND I LP",
+   "id": "805-2405164926",
+   "gp": "COATUE HYBRID OFFSHORE GP I LLC",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 1134099,
+   "min_investment": 5000000,
+   "beneficial_owners": 31,
+   "pct_related": 0,
+   "master_fund": "COATUE HYBRID FUND I LP",
+   "page": 539,
+   "formd_type": [
+    "Hedge Fund"
+   ]
+  },
+  {
+   "name": "COATUE INSTITUTIONAL FUND I LP",
+   "id": "805-3539746957",
+   "gp": "COATUE INSTITUTIONAL FUND I GP LLC",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 37528296,
+   "min_investment": 0,
+   "beneficial_owners": null,
+   "pct_related": null,
+   "master_fund": "Private fund identification number:",
+   "page": 543,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE KC I LLC",
+   "id": "805-6832829282",
+   "gp": "COATUE MANAGEMENT, L.L.C.",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 43513127,
+   "min_investment": null,
+   "beneficial_owners": null,
+   "pct_related": null,
+   "master_fund": "Private fund identification number:",
+   "page": 548,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE KONA III LP",
+   "id": "805-8164307677",
+   "gp": "COATUE KONA III GP LLC",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 4064177032,
+   "min_investment": 5000000,
+   "beneficial_owners": 192,
+   "pct_related": 21,
+   "master_fund": "Private fund identification number:",
+   "page": 553,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE KONA III OFFSHORE FEEDER FUND LP",
+   "id": "805-5756363640",
+   "gp": "COATUE KONA III GP LLC",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 2021326716,
+   "min_investment": 5000000,
+   "beneficial_owners": 72,
+   "pct_related": 0,
+   "master_fund": "COATUE KONA III LP",
+   "page": 560,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE LONG ONLY OFFSHORE FUND, LTD.",
+   "id": "805-1936746955",
+   "gp": "CHRIS BOWRING",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 3551977840,
+   "min_investment": 5000000,
+   "beneficial_owners": 263,
+   "pct_related": 2,
+   "master_fund": "COATUE LONG ONLY OFFSHORE MASTER FUND LTD",
+   "page": 565,
+   "formd_type": [
+    "Hedge Fund"
+   ]
+  },
+  {
+   "name": "COATUE LONG ONLY OFFSHORE MASTER FUND LTD",
+   "id": "805-3595241358",
+   "gp": "CHRIS BOWRING",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 11067401993,
+   "min_investment": 5000000,
+   "beneficial_owners": 542,
+   "pct_related": 4,
+   "master_fund": "Private fund identification number:",
+   "page": 569,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE LONG ONLY PARTNERS LP",
+   "id": "805-8767794776",
+   "gp": "COATUE LONG ONLY GP LLC",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 4236496097,
+   "min_investment": 5000000,
+   "beneficial_owners": 278,
+   "pct_related": 6,
+   "master_fund": "COATUE LONG ONLY OFFSHORE MASTER FUND LTD",
+   "page": 580,
+   "formd_type": [
+    "Hedge Fund"
+   ]
+  },
+  {
+   "name": "COATUE LONG-ONLY ICAV SUB-FUND",
+   "id": "805-4341445828",
+   "gp": "CLAIRE JEN",
+   "state": "",
+   "country": "Ireland",
+   "gav": 265554981,
+   "min_investment": 5000000,
+   "beneficial_owners": 7,
+   "pct_related": 0,
+   "master_fund": "COATUE LONG ONLY OFFSHORE MASTER FUND LTD",
+   "page": 584,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE OFFSHORE FUND II, LTD.",
+   "id": "805-6460022234",
+   "gp": "CHRIS BOWRING",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 33190035,
+   "min_investment": 250000,
+   "beneficial_owners": 68,
+   "pct_related": 0,
+   "master_fund": "COATUE OFFSHORE MASTER FUND LP",
+   "page": 588,
+   "formd_type": [
+    "Hedge Fund"
+   ]
+  },
+  {
+   "name": "COATUE OFFSHORE FUND, LTD.",
+   "id": "805-3637694675",
+   "gp": "CHRIS BOWRING",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 8856006373,
+   "min_investment": 5000000,
+   "beneficial_owners": 1444,
+   "pct_related": 3,
+   "master_fund": "COATUE OFFSHORE MASTER FUND LP",
+   "page": 595,
+   "formd_type": [
+    "Hedge Fund"
+   ]
+  },
+  {
+   "name": "COATUE OFFSHORE MASTER FUND LLC",
+   "id": "805-9052259287",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 226222927,
+   "min_investment": 0,
+   "beneficial_owners": 3,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 600,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE OFFSHORE MASTER FUND LP",
+   "id": "805-4689761685",
+   "gp": "COATUE CAPITAL, L.L.C.",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 30957241488,
+   "min_investment": 5000000,
+   "beneficial_owners": 2987,
+   "pct_related": 14,
+   "master_fund": "Private fund identification number:",
+   "page": 604,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE OPPORTUNITY FUND II LP",
+   "id": "805-6375717953",
+   "gp": "COATUE OPPORTUNITY GP II LLC",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 3682764549,
+   "min_investment": 2000000,
+   "beneficial_owners": 2367,
+   "pct_related": null,
+   "master_fund": "Private fund identification number:",
+   "page": 618,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE OPPORTUNITY OFFSHORE FUND II LP",
+   "id": "805-2487141746",
+   "gp": "COATUE OPPORTUNITY GP II LLC",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 1508052553,
+   "min_investment": 2000000,
+   "beneficial_owners": null,
+   "pct_related": null,
+   "master_fund": "COATUE OPPORTUNITY FUND II LP",
+   "page": 629,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE PRIVATE FUND II LP",
+   "id": "805-1764710287",
+   "gp": "COATUE PRIVATE II GP LLC",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 620168039,
+   "min_investment": 5000000,
+   "beneficial_owners": 356,
+   "pct_related": 17,
+   "master_fund": "Private fund identification number:",
+   "page": 634,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE PRIVATE OFFSHORE FEEDER FUND II LP",
+   "id": "805-9706790516",
+   "gp": "COATUE PRIVATE II GP LLC",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 329405876,
+   "min_investment": 5000000,
+   "beneficial_owners": 183,
+   "pct_related": 0,
+   "master_fund": "COATUE PRIVATE FUND II LP",
+   "page": 640,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE QUALIFIED PARTNERS II, LP",
+   "id": "805-4115666233",
+   "gp": "COATUE CAPITAL, L.L.C.",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 60888747,
+   "min_investment": 250000,
+   "beneficial_owners": 125,
+   "pct_related": 0,
+   "master_fund": "COATUE OFFSHORE MASTER FUND LP",
+   "page": 645,
+   "formd_type": [
+    "Hedge Fund"
+   ]
+  },
+  {
+   "name": "COATUE QUALIFIED PARTNERS, L.P.",
+   "id": "805-4284249750",
+   "gp": "COATUE CAPITAL, L.L.C.",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 7913327185,
+   "min_investment": 5000000,
+   "beneficial_owners": 1540,
+   "pct_related": 29,
+   "master_fund": "COATUE OFFSHORE MASTER FUND LP",
+   "page": 651,
+   "formd_type": [
+    "Hedge Fund"
+   ]
+  },
+  {
+   "name": "COATUE SC V LP",
+   "id": "805-7901196642",
+   "gp": "COATUE SC V GP LLC",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 15318835,
+   "min_investment": 0,
+   "beneficial_owners": 2,
+   "pct_related": 1,
+   "master_fund": "Private fund identification number:",
+   "page": 656,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE SMART TRANSPORTATION FUND I LP",
+   "id": "805-4898264181",
+   "gp": "COATUE SMART TRANSPORTATION GP I LLC",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 1994352423,
+   "min_investment": 0,
+   "beneficial_owners": 431,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 660,
+   "formd_type": [
+    "Hedge Fund"
+   ]
+  },
+  {
+   "name": "COATUE SMART TRANSPORTATION OFFSHORE FEEDER FUND I LP",
+   "id": "805-2781563143",
+   "gp": "COATUE SMART TRANSPORTATION GP I LLC",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 514497874,
+   "min_investment": 0,
+   "beneficial_owners": 135,
+   "pct_related": 0,
+   "master_fund": "COATUE SMART TRANSPORTATION FUND I LP",
+   "page": 668,
+   "formd_type": [
+    "Hedge Fund"
+   ]
+  },
+  {
+   "name": "COATUE STRATEGIC MAPLE LONG ONLY FUND LP",
+   "id": "805-9606196449",
+   "gp": "COATUE STRATEGIC MAPLE LONG ONLY FUND GP LLC",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 1571987347,
+   "min_investment": 0,
+   "beneficial_owners": 2,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 673,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE STRUCTURED CO-INVESTMENT OFFSHORE FUND A LP",
+   "id": "805-6059303482",
+   "gp": "COATUE STRUCTURED OFFSHORE FUND SC A GP LLC",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 962799574,
+   "min_investment": 0,
+   "beneficial_owners": 5,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 680,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE STRUCTURED FUND LP",
+   "id": "805-8196410116",
+   "gp": "COATUE STRUCTURED FUND GP LLC",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 2757624584,
+   "min_investment": 5000000,
+   "beneficial_owners": 130,
+   "pct_related": 16,
+   "master_fund": "Private fund identification number:",
+   "page": 685,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE STRUCTURED OFFSHORE FEEDER FUND LP",
+   "id": "805-5382359711",
+   "gp": "COATUE STRUCTURED FUND GP LLC",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 2429640584,
+   "min_investment": 5000000,
+   "beneficial_owners": 40,
+   "pct_related": 13,
+   "master_fund": "COATUE STRUCTURED FUND LP",
+   "page": 692,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE TACTICAL SOLUTIONS CT FUND B LP",
+   "id": "805-5364445514",
+   "gp": "COATUE TACTICAL SOLUTIONS CT FUND B GP LLC",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 286565693,
+   "min_investment": 0,
+   "beneficial_owners": 21,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 697,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE TACTICAL SOLUTIONS CT FUND C-1 LP",
+   "id": "805-7907194439",
+   "gp": "COATUE CAPITAL CI, LLC",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 24110203,
+   "min_investment": 0,
+   "beneficial_owners": 2,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 702,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE TACTICAL SOLUTIONS CT OFFSHORE FEEDER FUND B LP",
+   "id": "805-9812792960",
+   "gp": "COATUE TACTICAL SOLUTIONS CT FUND B GP LLC",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 190283831,
+   "min_investment": 0,
+   "beneficial_owners": null,
+   "pct_related": null,
+   "master_fund": "COATUE TACTICAL SOLUTIONS CT FUND B LP",
+   "page": 707,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE TACTICAL SOLUTIONS CT OFFSHORE FUND D LP",
+   "id": "805-7642957125",
+   "gp": "COATUE TACTICAL SOLUTIONS CT OFFSHORE FUND D GP LLC",
+   "state": "",
+   "country": "Cayman Islands",
+   "gav": 37576706,
+   "min_investment": null,
+   "beneficial_owners": null,
+   "pct_related": null,
+   "master_fund": "Private fund identification number:",
+   "page": 712,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE TCC STRATEGIC FUND LP",
+   "id": "805-5557294733",
+   "gp": "COATUE TCC STRATEGIC GP LLC",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 29617307,
+   "min_investment": 0,
+   "beneficial_owners": 1,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 717,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE US 44 LLC",
+   "id": "805-9408562788",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 143063715,
+   "min_investment": 0,
+   "beneficial_owners": 21,
+   "pct_related": 6,
+   "master_fund": "Private fund identification number:",
+   "page": 722,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE US 46 LLC",
+   "id": "805-7275738696",
+   "gp": "KRISTIAN FREDRICKSON",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 2085615,
+   "min_investment": 0,
+   "beneficial_owners": 5,
+   "pct_related": 50,
+   "master_fund": "Private fund identification number:",
+   "page": 727,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE US 48 LLC",
+   "id": "805-1582116435",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 10111363,
+   "min_investment": 0,
+   "beneficial_owners": 22,
+   "pct_related": 92,
+   "master_fund": "Private fund identification number:",
+   "page": 731,
+   "formd_type": [
+    "Private Equity Fund"
+   ]
+  },
+  {
+   "name": "COATUE US 50 LLC SERIES 1",
+   "id": "805-4874638061",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 169363014,
+   "min_investment": 0,
+   "beneficial_owners": 26,
+   "pct_related": 0,
+   "master_fund": "Private fund identification number:",
+   "page": 736,
+   "formd_type": null
+  },
+  {
+   "name": "COATUE VENTURES II LP",
+   "id": "805-6991338199",
+   "gp": "COATUE VENTURES GP II LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 1018074101,
+   "min_investment": 5000000,
+   "beneficial_owners": 248,
+   "pct_related": 25,
+   "master_fund": "Private fund identification number:",
+   "page": 740,
+   "formd_type": [
+    "Venture Capital Fund"
+   ]
+  },
+  {
+   "name": "COATUE VENTURES III LP",
+   "id": "805-1970931067",
+   "gp": "COATUE VENTURES GP III LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 720114811,
+   "min_investment": 5000000,
+   "beneficial_owners": 181,
+   "pct_related": 27,
+   "master_fund": "Private fund identification number:",
+   "page": 745,
+   "formd_type": [
+    "Venture Capital Fund"
+   ]
+  },
+  {
+   "name": "DRAGON AUTO LLC",
+   "id": "805-9200434520",
+   "gp": "PHILIPPE LAFFONT",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 5224592,
+   "min_investment": 0,
+   "beneficial_owners": 23,
+   "pct_related": 59,
+   "master_fund": "Private fund identification number:",
+   "page": 749,
+   "formd_type": null
+  },
+  {
+   "name": "GREEN OX FARM HOLDINGS LLC",
+   "id": "805-1876345959",
+   "gp": "PHILIPPE LAFFONT",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 137894626,
+   "min_investment": 0,
+   "beneficial_owners": 1,
+   "pct_related": 100,
+   "master_fund": "Private fund identification number:",
+   "page": 754,
+   "formd_type": null
+  },
+  {
+   "name": "GREEN OX HOLDINGS II LLC",
+   "id": "805-9832853215",
+   "gp": "COATUE CAPITAL CI, LP",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 103210226,
+   "min_investment": 0,
+   "beneficial_owners": 3,
+   "pct_related": 96,
+   "master_fund": "Private fund identification number:",
+   "page": 758,
+   "formd_type": null
+  },
+  {
+   "name": "HERON CAR LLC",
+   "id": "805-9965205477",
+   "gp": "HERON CAR MANAGEMENT LLC",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 11089858,
+   "min_investment": 0,
+   "beneficial_owners": 4,
+   "pct_related": 1,
+   "master_fund": "Private fund identification number:",
+   "page": 762,
+   "formd_type": null
+  },
+  {
+   "name": "PRAIRIE JUNIPER HOLDINGS LLC",
+   "id": "805-2470186244",
+   "gp": "JAIMIN RANGWALLA",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 350216,
+   "min_investment": 0,
+   "beneficial_owners": 8,
+   "pct_related": 27,
+   "master_fund": "Private fund identification number:",
+   "page": 766,
+   "formd_type": null
+  },
+  {
+   "name": "PV INTERNET HOLDINGS LLC",
+   "id": "805-9991577118",
+   "gp": "PV INTERNET HOLDINGS GP LLC",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 43232357,
+   "min_investment": 0,
+   "beneficial_owners": 29,
+   "pct_related": 12,
+   "master_fund": "Private fund identification number:",
+   "page": 770,
+   "formd_type": null
+  },
+  {
+   "name": "RED FILLY HOLDINGS LLC",
+   "id": "805-3768757838",
+   "gp": "PHILIPPE LAFFONT",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 5281635,
+   "min_investment": 0,
+   "beneficial_owners": 12,
+   "pct_related": 66,
+   "master_fund": "Private fund identification number:",
+   "page": 774,
+   "formd_type": null
+  },
+  {
+   "name": "TDRM2 LLC",
+   "id": "805-8990400751",
+   "gp": "THOMAS LAFFONT",
+   "state": "Delaware",
+   "country": "United States",
+   "gav": 334287,
+   "min_investment": 0,
+   "beneficial_owners": 15,
+   "pct_related": 32,
+   "master_fund": "Private fund identification number:",
+   "page": 778,
+   "formd_type": null
+  }
+ ],
+ "funds_7b1_total_gav": 126902053933
+}

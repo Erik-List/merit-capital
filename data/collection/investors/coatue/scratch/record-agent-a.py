@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+"""Record research agent A's findings (2026-09-27): valuations, statuses, identities, Seed entries.
+Every URL is one the agent opened or a search returned; none is typed from memory."""
+import csv, glob, io, json, re, subprocess, sys, zipfile
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[5]; INV = ROOT / "data/collection/investors/coatue"
+S = json.load(open(INV / "scratch/graduation-surfaces.json"))
+def band(v): return "100b_plus" if v >= 1e11 else "10b_plus" if v >= 1e10 else "1b_plus" if v >= 1e9 else "below_1b"
+out = []
+def val(s, v, asof, url, note, conf="high", flags=()):
+    fl = list(flags) + (["stale"] if asof[:7] < "2024-09" else [])
+    out.append({"slug": s, "valuation_usd": float(v), "valuation_source": "web_verified", "valuation_citation": url, "valuation_asof": asof, "valuation_range": band(v),
+                "valuation_range_source": "web_verified", "valuation_confidence": conf, "clear_flags": ["needs_web_value"], "flags": sorted(set(fl)), "note": "Web pass: " + note})
+fx = json.loads(subprocess.run([sys.executable, str(ROOT / "scripts/fx-convert.py"), "19e9", "CNY", "2021-11-29", "--json"], capture_output=True, text=True).stdout)
+val("bytedance", 330e9, "2025-10", "https://www.scmp.com/tech/big-tech/article/3328825/bytedances-higher-valuation-reflects-resilience-amid-upcoming-us-divestment-tiktok", "employee share buyback priced at about $330B (autumn 2025). A further buyback in April 2026 raised the price per share by about 14.5% without a stated valuation, and a stake sale at $550B was reported as in progress in Feb 2026, not confirmed.")
+val("ant-group", 78.54e9, "2023-07", "https://www.caixinglobal.com/2023-07-10/ant-group-proposes-share-buyback-at-roughly-30-of-ipo-valuation-102074192.html", "the company's share buyback of July 2023 at about RMB 567B ($78.54B); no later priced event found.")
+val("alchemy-insights", 10.2e9, "2022-02", "https://siliconangle.com/2022/02/08/web3-developer-platform-alchemy-raises-200m-10-2b-valuation/", "$200M round at $10.2B (Feb 2022); no later priced event found.")
+val("zuoyebang", 9.6e9, "2020-12", "https://equalocean.com/news/2020122815324", "Series E+ of $1.6B at a reported $9.6B post-money (Dec 2020); the figure is press-reported and unattributed, and it predates China's 2021 tutoring rules. No later priced event found.", conf="medium", flags=["needs_review"])
+val("rapyd", 4.5e9, "2025-03", "https://www.calcalistech.com/ctechnews/article/rjjmeyl3jl", "$500M raise at about $4.5B (Mar 2025), down from $10B in 2021. Spark's book carries $15B, a pair for the alignment.")
+val("retool", 3.2e9, "2022-07", "https://siliconangle.com/2022/07/28/retool-raises-45m-3-2b-valuation-low-code-app-development/", "$45M Series C2 at $3.2B (Jul 2022); no later priced event found.")
+val("sila", 2.0e9, "2024-06", "https://finance.yahoo.com/news/sila-nanotechnologies-takes-1-billion-110030258.html", "$375M Series G reported at just under $2B (Jun 2024, one unnamed source), a third below the $3.3B of 2021; a $300M round in Jul 2026 gave no valuation.", conf="medium")
+val("tamara", 1.0e9, "2023-12", "https://techcrunch.com/2023/12/18/saudi-shopping-and-bnpl-platform-tamara-tops-1b-valuation-in-340m-series-c-funding", "$340M Series C at $1B (Dec 2023). Exactly on the $1B band edge. Later financings are debt facilities.")
+val("persona-identities", 2.0e9, "2025-04", "https://www.prnewswire.com/news-releases/persona-raises-200m-at-2b-valuation-to-build-the-verified-identity-layer-for-an-agentic-ai-world-302442649.html", "$200M Series D at $2B (Apr 2025).")
+val("cloudwalk", 2.15e9, "2021-11", "https://www.euronews.com/next/2021/11/17/cloudwalk-funding", "$150M Series C at $2.15B (Nov 2021); later raises are credit funds.")
+val("form-energy", 2.5e9, "2026-08", "https://www.latitudemedia.com/news/whats-behind-form-energys-downgraded-valuation/", "$750M Series G at a $1.75B pre-money valuation (Aug 2026), so $2.5B post-money; the Series F of Oct 2024 was priced at $3B pre-money.")
+val("dayone", 4.5e9, "2026-06", "https://www.mingtiandi.com/real-estate/data-centres/dayone-data-centres-closes-4-5b-series-c-on-way-to-20b-ipo/", "a floor, not a valuation: the company closed $4.5B of Series C equity (Jun 2026) and gave no valuation, and a company is worth at least the equity it has just sold. The press computes more than $11B from GDS's disclosed stake. Raised for Erik as a rule.", conf="medium", flags=["needs_review"])
+val("vantage-data-centers", 9.2e9, "2024-06", "https://vantage-dc.com/news/vantage-data-centers-completes-9-2-billion-equity-investment-led-by-digitalbridge-and-silver-lake/", "a floor, not a valuation: the company's own release reports a $9.2B equity investment (Jun 2024) with no valuation. An IPO at about $100B was reported as explored in Aug 2026. Raised for Erik as a rule.", conf="medium", flags=["needs_review"])
+val("manner-coffee", 2.0e9, "2021-05", "https://kr-asia.com/with-1000-stores-established-can-manner-coffee-fend-off-the-likes-of-starbucks-luckin-and-cotti-to-keep-growing", "the round of May 2021 at above $2B, as reported in retrospect; a higher figure for June 2021 is hedged in its source.", conf="medium", flags=["needs_review"])
+val("abogenbio", fx["usd"], "2021-11", "https://hub.baai.ac.cn/view/30860", "Series C+ of $300M (Nov 2021), reported in retrospect at close to RMB 19B post-money. " + fx["note"] + ".", conf="medium", flags=["needs_review"])
+val("fiture", 1.5e9, "2021-04", "https://finance.sina.cn/tech/2022-07-25/detail-imizirav5349533.d.html", "$300M Series B (Apr 2021), reported in 2022 at $1.5B. The company still operates: its app was updated in Sep 2026.", conf="medium", flags=["needs_review"])
+val("kuaikan-comics", 1.25e9, "2021-08", "https://www.caixinglobal.com/2021-08-24/tencent-backed-comics-app-kuaikan-raises-240-million-101758964.html", "$240M round at $1.25B (Aug 2021); no later priced round found.")
+val("mafengwo", 2.0e9, "2019-05", "https://finance.sina.com.cn/stock/observe/2023-03-17/doc-imymenkv0626926.shtml", "$250M round led by Tencent at $2B (May 2019); a 2023 round from state funds disclosed no price.", conf="medium")
+val("pingpong", 1.0e9, "2021-01", "https://www.cebnet.com.cn/20210115/102719351.html", "the company states its own valuation as $1B (Jan 2021) after the 2019 Series D. Exactly on the $1B band edge. A $5B figure was reported only while an IPO was weighed in 2022.", conf="medium", flags=["needs_review"])
+val("weidan", 1.45e9, "2014-10", "https://technode.com/2014/10/23/koudai-gouwu-raises-series-c-funding-led-tencent/", "Series C of $350M (Oct 2014), in which Tencent's $145M bought 10%, which prices the company at about $1.45B; no priced round since, so the mark is twelve years old.", conf="medium", flags=["needs_review"])
+out.append({"slug": "classin", "valuation_range": "below_1b", "valuation_range_source": "web_verified", "valuation_citation": "https://www.sohu.com/a/434662005_361784", "valuation_asof": "2026-09-26", "clear_flags": ["needs_web_value"], "flags": [],
+            "note": "Web pass: the $265M Series C (Nov 2020) was announced without a valuation and no priced figure exists in any press source; a $1.3B figure appears only on a directory page. Read below $1B with the check recorded."})
+out.append({"slug": "scala", "flags": ["needs_web_value"], "note": "Web pass: Coatue Tactical Solutions and IMCO provided $500M of structured financing (Sep 2024, https://www.prnewswire.com/news-releases/scala-data-centers-secures-500-million-from-coatue-and-imco-to-accelerate-growth-and-innovation-in-latin-america-302255757.html); no valuation was published. A sale at $2B or more was reported as sought."})
+# statuses
+def st(s, status, note, **kw): out.append(dict({"slug": s, "status": status, "flags": [], "note": "Web pass: " + note}, **kw))
+st("mech-mind", "public", "listed on the Hong Kong Stock Exchange on 2026-09-01 (stock code 9615), https://www.prnewswire.com/news-releases/global-leading-robobrain-firm-mech-mind-robotics-lists-on-hong-kong-stock-exchange-302866076.html. Market cap pinned in the cap pass.")
+st("kujiale", "public", "Manycore Tech listed on the Hong Kong Stock Exchange on 2026-04-17 (stock code 0068), https://www.prnewswire.com/news-releases/manycore-tech-debuts-on-hkex-as-the-worlds-first-spatial-intelligence-company-302745593.html. Market cap pinned in the cap pass.")
+st("stytch", "acquired", "acq. by Twilio, agreed 2025-10-30 and closed 2025-11-14 (https://www.twilio.com/en-us/blog/company/news/twilio-to-acquire-stytch). Thrive's book still reads the company private, a pair for the alignment.", valuation_usd=None, valuation_range="below_1b")
+st("step", "acquired", "acq. by Beast Industries, announced 2026-02-09 (https://step.com/press/beast-industries-acquires-step-expanding-its-platform-to-include-financial).")
+st("stash", "acquired", "acq. by Grab, announced 2026-02-12 at a $425M enterprise value and closed 2026-07-01 (https://www.tipranks.com/news/company-announcements/grab-completes-100-acquisition-of-u-s-fintech-firm-stash).")
+st("gantry", "defunct", "no acquisition was ever announced; the founder returned to OpenAI and the company's site stopped answering in 2025, so the row reads defunct and not acquired. The firm's page marks it an exit.")
+st("voltron-data", "defunct", "shut down around the turn of 2026 (https://www.cs.cmu.edu/~pavlo/blog/2026/01/2025-databases-retrospective.html); no acquirer.")
+st("dingdong-maicai", "public", "Meituan's purchase had not closed at the company's Q2 release of 2026-08-20, pending antitrust clearance (https://www.sec.gov/Archives/edgar/data/0001854545/000119312526359862/ddl_2026q2_er.htm); still listed.")
+(INV / "scratch/queue/agent-a-1.out.jsonl").write_text("".join(json.dumps(x, ensure_ascii=False) + "\n" for x in out))
+print(len(out), "lines -> agent-a-1.out.jsonl")

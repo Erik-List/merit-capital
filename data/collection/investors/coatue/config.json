@@ -1,0 +1,409 @@
+{
+ "slug": "coatue",
+ "name": "Coatue",
+ "wayback": {
+  "cdx_domain": "coatue.com",
+  "site_url_base": "https://www.coatue.com",
+  "eras": [
+   {
+    "parser": "listing_regex",
+    "path": "/portfolio",
+    "from": 2023,
+    "to": 2026,
+    "pattern": "\"status\":\"(?:Active|Exit)\",\"name\":\"(?P<name>[^\"]+)\"",
+    "raw": true,
+    "_note": "The Next.js grid ships its first page (48 rows, alphabetical) inside __NEXT_DATA__; every capture carries exactly those 48 names (measured on 17 Common Crawl captures 2024-2026). The archive therefore dates the A-B head of the list and nothing else; the rest of the book rests on the live pull."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/privates-portfolio",
+    "from": 2025,
+    "to": 2026,
+    "pattern": "\"status\":\"(?:Active|Exit)\",\"name\":\"(?P<name>[^\"]+)\"",
+    "raw": true,
+    "_note": "The 'Featured Companies' grid (24 to 29 names) on the privates page, 2025-08 on."
+   },
+   {
+    "parser": "listing_regex",
+    "path": "/",
+    "from": 2026,
+    "to": 2026,
+    "pattern": "\"status\":\"(?:Active|Exit)\",\"name\":\"(?P<name>[^\"]+)\"",
+    "raw": true,
+    "_note": "The homepage's featured strip (9 names) from the 2026-08 redesign."
+   }
+  ],
+  "non_company_slugs": [
+   "index",
+   "home",
+   "page",
+   "feed",
+   "search",
+   "tag",
+   "category",
+   "author",
+   "all",
+   "see-all",
+   "companies",
+   "portfolio",
+   "privates-portfolio",
+   "team",
+   "people",
+   "news",
+   "blog",
+   "about",
+   "contact",
+   "privacy",
+   "privacy-notice",
+   "terms-of-use",
+   "accessibility",
+   "regulatory-disclosures",
+   "insights",
+   "takes",
+   "c",
+   "ctek",
+   "east-meets-west",
+   "fantastic-40",
+   "assets",
+   "images",
+   "media",
+   "css",
+   "sitemap",
+   "robots",
+   "favicon",
+   "_next",
+   "api"
+  ],
+  "_note": "Eras are filled once the Internet Archive answers again: at kickoff (2026-09-26 22:00 UTC) the machine was in a four-hour shared_throttle cooldown after two blocks earlier that day (Point Nine's run), so the archive layer starts on Common Crawl (scratch/pull-cc-coatue.py) and the Wayback pull lands after recovery (COLLECTION.md 5, outage rule). What the archive can hold: coatue.com was a one-page site until 2023 (Common Crawl 2014-2021 captures only / and /privacy.html); /portfolio exists from 2023 (CC-MAIN-2023-40 first captured it). Eras written 2026-09-26 from the Common Crawl captures' shape; the Wayback pull runs after the cooldown (about 02:05 UTC 2026-09-27) and merges with the CC-parsed years (scratch/parse-cc-coatue.py)."
+ },
+ "roster": {
+  "cdx_patterns": [],
+  "site_team_groups": [],
+  "slug_re": "/(?:team|people)/([a-z][a-z0-9-]*[a-z0-9])/?$",
+  "listing_href_re": "/team/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+  "not_a_person": [
+   "index",
+   "team",
+   "people",
+   "partners",
+   "about",
+   "companies",
+   "portfolio",
+   "news",
+   "contact",
+   "jobs",
+   "careers",
+   "all",
+   "page",
+   "coatue"
+  ],
+  "_note": "coatue.com publishes no team page (no /team or /people route in the sitemap, none in any Common Crawl capture), so partner-roster.py has nothing to enumerate. sources/wayback/partner-roster.json is CURATED (the Thrive shape): the natural persons on the firm's own fund Form Ds 2009-2026 (sources/edgar/formd-own-issuers.json), the ADV Schedule A owners and the CTEK prospectus's named personnel, the firm's own welcome and leadership posts (sources/site/posts.json, 2022 on), and press-dated tenures for the investing partners, one basis line per person. Rebuilding it means editing that file, not running the script."
+ },
+ "site_api": {
+  "type": "scrape",
+  "entry_stage_fields": [
+   "initial_investment"
+  ],
+  "entry_stage_confidence": "medium",
+  "entry_stage_listing_url": "https://www.coatue.com/portfolio",
+  "_entry_stage_note": "The /portfolio grid's own filter is headed 'Initial investment' with two values, Venture and Growth: eligible under COLLECTION.md 5 (it is the firm's claim about the round IT entered, not the company's current stage). Only 'Growth' collapses onto one taxonomy stage; 'Venture' straddles Seed and Series A and is an anchor (stage_words.py). Confidence medium until scored blind against documented rounds (the score is recorded here at close).",
+  "sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/coatue/sources/site/portfolio-2026.json",
+    "list": "portfolio-2026",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "key_field": "cms_id",
+    "extras": [
+     "cms_id",
+     "company_site",
+     "initial_investment",
+     "status_site",
+     "logo",
+     "site_name"
+    ],
+    "_note": "Every row of coatue.com/portfolio through the site's /api/portfolio route (scratch/pull-site-coatue.py): 372 rows on 2026-09-26, 237 Growth / 135 Venture, 336 Active / 36 Exit. url is the listing page (the citation; the site has no per-company pages); company_site is the company's own domain."
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/coatue/sources/site/team-curated.json",
+    "list": "team",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "title",
+     "group"
+    ]
+   }
+  ],
+  "team_buckets": {
+   "Leadership": "investing",
+   "Investing": "investing",
+   "Public": "investing",
+   "Operations": "operations"
+  },
+  "team_bucket_overrides": {
+   "Nathan Urquhart": [
+    "operations"
+   ],
+   "Brent Duddie": [
+    "operations"
+   ]
+  },
+  "_note": "coatue.com is Next.js 13 on Contentful (space iqem6dz8q0mk) rendering every page server-side; the portfolio grid pages through GET /api/portfolio?id=<grid id>&skip=N (escalation ladder step 3, the site's own route read from its JS chunk). No per-company pages, no year, no sector, no partner attribution. Other surfaces, read into sources/site/ as evidence rather than list sources: /blog (65 posts, 2021 on; the partnership announcements name rounds) and /c/takes (64 quick takes). The team is not published anywhere on the site; see roster._note."
+ },
+ "edgar": {
+  "seed_queries": [
+   "coatue"
+  ],
+  "fts_phrases": [
+   "Coatue"
+  ],
+  "fts_own_pattern": "^coatue|ck liquidating|green ox farm|bbh wealth strategies|^pb coatue|^epq llc",
+  "thirteenf_ciks": [
+   "1135730"
+  ],
+  "registered_fund_ciks": [
+   "2044519"
+  ],
+  "_note": "'Coatue' is distinctive on EDGAR (a Nantucket place name; no unrelated filer carries it: all 160 CIKs in the lookup table are the firm's vehicles or third-party feeders into them). The adviser itself, Coatue Management LLC (CIK 1135730), files the 13F-HRs (quarterly since 2001) and the Schedule 13Gs; the fund vehicles file Form D and 13F-NT. CIK 2044519 is Coatue Innovative Strategies Fund (formerly Coatue Innovation Fund / Coatue CTEK Fund), the registered closed-end tender-offer fund launched 2025-05-12, whose N-PORT and N-CSR filings disclose its private positions (PRO-78's third layer; scripts/edgar-registered-fund.py). thirteenf_ciks feeds scripts/edgar-13f.py (PRO-78's first layer)."
+ },
+ "wikipedia": {
+  "phrases": [
+   "Coatue"
+  ]
+ },
+ "desks": {
+  "home": "us",
+  "partition": [],
+  "rank": [
+   "us",
+   "public",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "bbh wealth strategies",
+     "^pb coatue",
+     "^epq llc",
+     "icapital",
+     "green ox farm",
+     "j\\.?p\\.? morgan",
+     "intertrust",
+     "dms investment",
+     "brown brothers",
+     "pbna private fund"
+    ]
+   },
+   {
+    "desk": "public",
+    "patterns": [
+     "coatue qualified partners",
+     "coatue offshore (master )?fund",
+     "coatue long.?only",
+     "coatue quant",
+     "coatue flagship",
+     "coatue strategic maple",
+     "coatue select fund",
+     "coatue crown",
+     "coatue cardinal",
+     "^coatue f1\\b",
+     "^coatue sc v\\b",
+     "ck liquidating",
+     "^coatue capital,? l\\.?l\\.?c\\.?$",
+     "^coatue capital llc$"
+    ]
+   },
+   {
+    "desk": "us",
+    "patterns": [
+     "^coatue"
+    ]
+   }
+  ],
+  "_note": "One adviser, two strategy families (COLLECTION.md 1, T1 strategy desks): the public-markets funds (flagship long/short: Qualified Partners, Offshore Fund and Master; Long Only; Quant; Strategic Maple; Select; Crown; Cardinal; F1; SC V; the old Coatue Capital LLC adviser entity) are the `public` desk, and every private-markets vehicle is the home desk `us` (Private I/II, Kona III, Growth IV/V/V-B/VI, Early Stage, Ventures II/III, Opportunity I/II, Structured, Tactical Solutions, the thematic Climate Tech II, FinTech I, Smart Transportation I and Asia funds, the numbered CT / US / (Cayman) / PE Asia co-investment LLCs under Coatue Capital CI, and the registered CTEK fund). Vehicles resolve by CIK and name; the thematic funds file Form D typed 'Hedge Fund' but invest in private companies, so they sit on the home desk and their public buys are ruled out row by row under T3 (decisions.md D2). `partition` is EMPTY on purpose: the 13Gs are filed by the adviser for every fund at once, so a row's lineage cannot tell a public-desk position from a private fund's post-IPO holding; the row-level test is T3 (a venture entry) and 13F/13G-only rows leave the base as not_member, never as other_desk (decisions.md D3). External: third-party feeders (BBH Wealth Strategies' Coatue sub-trust and series, PB Coatue Private Fund Feeders, EPQ LLC's Coatue V PS, the iCapital access fund), their administrators, and Green Ox Farm Holdings (Philippe Laffont's personal vehicle on the ADV)."
+ },
+ "profile": {
+  "own_vehicle_pattern": "^(coatue|ck liquidating)",
+  "adv_crd": 157910,
+  "focus_min_companies": 20,
+  "focus_crosswalk": {},
+  "_note": "Coatue Management, L.L.C. (CRD 157910, SEC 801-73669) is the one registered adviser; RAUM $92,705,722,582 on the 2026-07-29 amendment (sources/registers/adv-157910.json). The venture-desk AUM is the private-markets vehicles' Section 7.B gross asset values, master funds only (feeders resolve to their master), published as a floor and never the umbrella RAUM (COLLECTION.md 1, strategy desks). The site publishes no sector vocabulary, so scope is derived from the grind's focus column (the Thrive precedent); focus_min_companies is about 4.5% of the expected base."
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "anthropic",
+   "openai",
+   "stripe",
+   "databricks",
+   "bytedance",
+   "ant group",
+   "anduril industries",
+   "snowflake",
+   "doordash",
+   "spotify",
+   "snap",
+   "uber",
+   "lyft",
+   "instacart",
+   "meituan",
+   "chime",
+   "airtable",
+   "anaplan",
+   "uipath",
+   "box",
+   "confluent",
+   "reddit",
+   "peloton",
+   "slack",
+   "oscar",
+   "grab",
+   "didi",
+   "nextdoor",
+   "marqeta",
+   "root",
+   "lendingclub",
+   "deliverr",
+   "hoteltonight",
+   "lacework",
+   "hopin",
+   "gorillas",
+   "revolut",
+   "kalshi",
+   "harvey",
+   "supabase",
+   "clickhouse",
+   "openevidence",
+   "decagon",
+   "norm ai",
+   "island",
+   "legion",
+   "wisdomai",
+   "notion",
+   "rivian",
+   "scale ai",
+   "hugging face",
+   "figma",
+   "cerebras"
+  ],
+  "unicorn_bands": false,
+  "_unicorn_bands_note": "Rule A (Erik 2026-09-06): the unicorn snapshot is an aggregator, a coverage floor to verify, never a mark. prepare keeps the name-match as a flag and writes no figure or band; every $1B+ figure on this book is pinned from a cited priced event.",
+  "sample_slugs": [],
+  "shape": {
+   "c2a_rate_max": 0.8,
+   "_note": "The $1B+ share has no ceiling (COLLECTION.md 8, Erik 2026-09-26): a crossover book can sit at any share, so the share is stated in the report and not gated. c2a_rate_max restates the 80% default."
+  },
+  "not_members": [
+   {
+    "name": "Taiwan Semiconductor Manufacturing",
+    "why": "13F position only (the largest in the 2026-06-30 13F-HR); no venture round (T3, decisions.md D3)."
+   },
+   {
+    "name": "Lam Research",
+    "why": "13F position only; no venture round (T3)."
+   },
+   {
+    "name": "Micron Technology",
+    "why": "13F position only; no venture round (T3)."
+   },
+   {
+    "name": "Applied Materials",
+    "why": "13F position only; no venture round (T3)."
+   },
+   {
+    "name": "GE Vernova",
+    "why": "13F position only; no venture round (T3)."
+   },
+   {
+    "name": "Amazon",
+    "why": "13F position only; no venture round (T3)."
+   },
+   {
+    "name": "Broadcom",
+    "why": "13F position only; no venture round (T3)."
+   },
+   {
+    "name": "Eaton",
+    "why": "13F position only; no venture round (T3)."
+   },
+   {
+    "name": "Alphabet",
+    "why": "13F position only; no venture round (T3)."
+   },
+   {
+    "name": "Intel",
+    "why": "13F position only; no venture round (T3)."
+   },
+   {
+    "name": "Meta Platforms",
+    "why": "13F position only; no venture round (T3)."
+   },
+   {
+    "name": "Equinix",
+    "why": "13F position only; no venture round (T3)."
+   },
+   {
+    "name": "Nvidia",
+    "why": "13F position only; no venture round (T3)."
+   },
+   {
+    "name": "Constellation Energy",
+    "why": "13F position only; no venture round (T3)."
+   },
+   {
+    "name": "Microsoft",
+    "why": "13F position only; no venture round (T3)."
+   },
+   {
+    "name": "ASML",
+    "why": "13F position only; no venture round (T3)."
+   },
+   {
+    "name": "Netflix",
+    "why": "13F position only; Coatue's Netflix position is a public-market purchase (T3)."
+   },
+   {
+    "name": "Qualcomm",
+    "why": "13F position only; no venture round (T3)."
+   },
+   {
+    "name": "Advanced Micro Devices",
+    "why": "13F position only; no venture round (T3)."
+   },
+   {
+    "name": "Intuitive Surgical",
+    "why": "13F position only; no venture round (T3)."
+   },
+   {
+    "name": "Kioxia",
+    "why": "held by the CTEK fund as a listed equity (N-PORT 2026-06-30); no venture round (T3)."
+   },
+   {
+    "name": "Samsung Electronics",
+    "why": "held by the CTEK fund as a listed equity; no venture round (T3)."
+   }
+  ],
+  "_not_members_note": "Membership traps (COLLECTION.md 10 invariant 11), written at kickoff from decisions.md D3 before any verdict writes: the largest positions of the 2026-06-30 13F-HR and the CTEK N-PORT that have no venture entry. Any of them re-enters only on a cited pre-IPO round."
+ },
+ "sample_slugs": [],
+ "names": {
+  "published": {
+   "fire-pit-collective-inc": "Fire Pit Collective",
+   "pill-club-holdings-inc": "Pill Club",
+   "scalefactor-inc": "ScaleFactor",
+   "sungage-financial-llc": "Sungage Financial"
+  },
+  "_note": "COLLECTION.md 8 (names rule, 2026-09-24): brand in normal capitals, no legal suffix. These four rows come from Form D filings, which carry the registered name. CRED keeps its capitals: it is the company's own styling (cred.club)."
+ }
+}

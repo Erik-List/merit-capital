@@ -1,0 +1,39 @@
+base: data/collection/investors/coatue/companies/base.json
+target companies: 66  distinct issuer CIKs: 65
+scanning 74 quarterly datasets (offline)...
+filings collected: 223
+evidence: 131/131 base accessions found
+wrote data/collection/investors/coatue/scratch/issuer-evidence.json (78 CIKs, 22 with a name history)
+
+wrote data/collection/investors/coatue/sources/edgar/formd-issuer-rounds.json
+  companies with Form D history : 64
+  rounds after amendment merge  : 185 (38 amendments folded in)
+  companies with 2+ rounds      : 39
+  filings the partner sweep never saw: 92
+  companies gaining >=1 such filing  : 35
+  rounds carrying a sale date   : 176/185
+in flight: wrote data/collection/investors/coatue/scratch/in-flight.json
+rows: 442
+membership seed: 373 site_listing, 21 fund_filing; left for the judge: 48
+layer A (SEC public float): 442 rows to resolve
+    100/442
+    200/442
+    300/442
+    400/442
+    resolved a CIK: 237   with public float: 46
+layer B (Wikidata): 442 rows in batches of 60
+    60/442
+    120/442
+    180/442
+    240/442
+    300/442
+    360/442
+    420/442
+    442/442
+    matched: 121
+layer C (unicorn list): 629 current, 209 former
+graduation layer 1: 64 companies, 12 entered at Seed, 11 decided by the filings as of 2026-09-26 (the judge confirms each), 32 entries moved past pre-investor rounds
+
+deterministically resolved: 0/442
+retired (not_member, awaiting rebuild): 0
+queued for judgment       : 442 rows in 10 batches

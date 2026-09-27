@@ -1,0 +1,93 @@
+{
+ "coatue": {
+  "_readme": "Identity merges for Coatue. One source of duplication: the filing layers name a company by its registered name while the firm's portfolio page uses the brand (Neutron Holdings / Lime, Raintank / Grafana Labs, Tendril Holdings / Uplight, Kanzhun / BOSS Zhipin, Magical Tome / Tome). Canonical is the rendering on the firm's live portfolio page. Written 2026-09-26 after the first build and before any judged verdict; the base was rebuilt and re-prepared on it the same hour.",
+  "merges": [
+   {
+    "canonical": "lime",
+    "duplicates": [
+     "neutron-holdings-inc"
+    ],
+    "reason": "Neutron Holdings, Inc. is the registered name of Lime (Form D 2017q4 naming Thomas Laffont; Coatue led Lime's 2017 Series B)"
+   },
+   {
+    "canonical": "grafana-labs",
+    "duplicates": [
+     "raintank-inc"
+    ],
+    "reason": "Raintank, Inc. is the registered name of Grafana Labs (Form D 2021q3 naming David Schneider; Coatue led the 2021 Series C)"
+   },
+   {
+    "canonical": "uplight",
+    "duplicates": [
+     "tendril-holdings-llc"
+    ],
+    "reason": "Tendril Holdings, LLC is the holding company of Uplight (formed from Tendril and Simple Energy in 2019; Form D 2021q4 naming Jaimin Rangwalla)"
+   },
+   {
+    "canonical": "boss-zhipin",
+    "duplicates": [
+     "kanzhun-ltd"
+    ],
+    "reason": "Kanzhun Limited (Nasdaq: BZ) is the listed company behind BOSS Zhipin, which the firm's page lists by its brand (Schedule 13G 2022-2023)"
+   },
+   {
+    "canonical": "tome",
+    "duplicates": [
+     "magical-tome-inc"
+    ],
+    "name": "Tome",
+    "reason": "Magical Tome, Inc. (San Francisco, incorporated 2020) is the registered name of Tome (Form D 2021q3 naming Dan Rose); the builder's name-variant rule folded it into the unrelated Magical"
+   },
+   {
+    "canonical": "jetify",
+    "duplicates": [
+     "jetpack-io"
+    ],
+    "name": "Jetify",
+    "reason": "Jetpack.io renamed itself Jetify in 2023; the firm's page lists the company under both names"
+   },
+   {
+    "canonical": "mason",
+    "duplicates": [
+     "by-mason"
+    ],
+    "name": "Mason",
+    "reason": "The firm's page renders the company as 'By Mason' (its domain is bymason.com); the brand is Mason. The archive captures carry the page's rendering, the live list the brand, so the builder made two rows of one company"
+   },
+   {
+    "canonical": "norm-ai",
+    "duplicates": [
+     "nomos-ai-inc"
+    ],
+    "name": "Norm Ai",
+    "reason": "Nomos Ai Inc. is the registered name of Norm Ai (SiliconANGLE, 2026-07-07: 'Nomos Ai Inc. ... which goes by the business name Norm Ai'); the Form D of November 2025 naming Peter Wallace and Sri Viswanath is Norm Ai's. Found by the blind re-judgment"
+   },
+   {
+    "canonical": "lindy",
+    "duplicates": [
+     "teamflow"
+    ],
+    "name": "Lindy",
+    "reason": "Lindy is a pivot of Teamflow and the same legal entity, in its founder's words (SaaS Club podcast, https://saasclub.io/podcast/lindy-flo-crivello-450/); the firm lists the company under both names. Found by the blind re-judgment, 2026-09-27"
+   }
+  ],
+  "rejects": [],
+  "never_merge": [
+   {
+    "slugs": [
+     "magical",
+     "magical-tome-inc"
+    ],
+    "reason": "Two companies: Magical (the text-expander app the firm lists) and Magical Tome, Inc., the registered name of Tome."
+   },
+   {
+    "slugs": [
+     "sunday",
+     "sunday-robotics"
+    ],
+    "reason": "Two companies the firm lists separately: Sunday (restaurant payments, Atlanta; Sunday App, Inc. PBC on Form D) and Sunday Robotics."
+   }
+  ],
+  "desk": []
+ }
+}
