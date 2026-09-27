@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Fetch Common Crawl captures of balderton.com list surfaces by WARC range
 request (data.commoncrawl.org), from the records in sources/wayback/cc-index-raw.json.
-Raw bodies land in sources/wayback/raw-cc/<crawl>/<timestamp>-<path>.html with a
+Raw bodies land in data/filings/commoncrawl/balderton-capital/<crawl>/<timestamp>-<path>.html with a
 manifest (url, timestamp, crawl, capture_url in the index.commoncrawl.org form).
 A record that does not answer is listed as FAILED in the manifest, never skipped silently.
 Usage: python3 cc-fetch.py <regex on the path>"""
@@ -13,8 +13,10 @@ sys.path.insert(0, str(HERE.parents[4] / "scripts"))
 from paths import write_atomic  # noqa: E402
 UA = "MeritCapitalResearch/1.0 (erik@meritcapit.al)"
 IDX = HERE.parent / "sources" / "wayback" / "cc-index-raw.json"
-RAW = HERE.parent / "sources" / "wayback" / "raw-cc"
-MAN = RAW / "manifest.json"
+# Raw captures are re-downloadable from Common Crawl: they live under data/filings/ (gitignored);
+# the manifest with each capture's URL and digest is tracked as sources/wayback/cc-manifest.json.
+RAW = HERE.parents[4] / "data" / "filings" / "commoncrawl" / "balderton-capital"
+MAN = HERE.parent / "sources" / "wayback" / "cc-manifest.json"
 pat = re.compile(sys.argv[1])
 RAW.mkdir(parents=True, exist_ok=True)
 man = json.loads(MAN.read_text()) if MAN.exists() else {}

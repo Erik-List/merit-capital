@@ -20,7 +20,8 @@ sys.path.insert(0, str(HERE))
 import companies_house as ch  # noqa: E402
 from pypdf import PdfReader  # noqa: E402
 OUT = HERE.parent / "sources" / "registers" / "companies-house" / "shareholders.json"
-PDFS = HERE.parent / "sources" / "registers" / "companies-house" / "filings"
+# The filed documents are re-downloadable register material: they live under data/filings/ (gitignored).
+PDFS = HERE.parents[4] / "data" / "filings" / "companies-house" / "documents"
 TMP = Path(os.environ.get("CH_TMP", "/tmp")) / "ch-ocr"
 UA = "MeritCapitalResearch/1.0 (erik@meritcapit.al)"
 FIRM = re.compile(r"(?i)balderton|benchmark (capital )?europe|benchmark capital|gaia investments")

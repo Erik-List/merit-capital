@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Parse the archived balderton.com listing pages (Common Crawl captures under
-sources/wayback/raw-cc/) into sources/wayback/parsed/<year>.json, in the shape
+data/filings/commoncrawl/balderton-capital/) into sources/wayback/parsed/<year>.json, in the shape
 wayback-pull.py writes (slug, name, path, snapshot_ts, capture_url) plus what
 each era's card states: description, status, location, sector, partners, the
 round label and its year. Year files MERGE, keyed slug+path (COLLECTION.md s5).
@@ -19,9 +19,11 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parents[4] / "scripts"))
 from paths import write_atomic  # noqa: E402
-RAW = HERE.parent / "sources" / "wayback" / "raw-cc"
+# Raw captures are re-downloadable from Common Crawl: they live under data/filings/ (gitignored);
+# the manifest with each capture's URL and digest is tracked as sources/wayback/cc-manifest.json.
+RAW = HERE.parents[4] / "data" / "filings" / "commoncrawl" / "balderton-capital"
 PARSED = HERE.parent / "sources" / "wayback" / "parsed"
-man = json.loads((RAW / "manifest.json").read_text())
+man = json.loads((HERE.parent / "sources" / "wayback" / "cc-manifest.json").read_text())
 
 def slug_of(name): return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
 def clean(s): return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", s or ""))).strip()
