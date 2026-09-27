@@ -2,8 +2,7 @@
 
 **Linear issue** PRO-106 (sub-issue of the PRO-87 wave umbrella) · **slug** `balderton-capital` ·
 one session, one run, under the merged shape of `data/collection/COLLECTION.md` · report written
-2026-09-27. **Nothing is ingested.** Ingest waits for Erik's explicit approval (order for a
-first-time investor: icon upload, `ingest-investor.ts`, `ingest-companies.ts`).
+2026-09-27. **Ingested on 2026-09-27 with Erik's approval** (last section).
 
 ---
 
@@ -21,7 +20,7 @@ the London desk's book of 2000 to 2007 is Balderton's.**
 | Profile through the taxonomy gate | `investor/investor.json`, `profile_copy.py` ok |
 | `review.html` rendered | Served and checked, rows flat, profile panel expands |
 | Archetype-B corrections proposed to PRO-87 | Section 9 |
-| Closing message with the ingest request | Sent with this report |
+| Closing message with the ingest request | Sent; approved and ingested 2026-09-27 |
 
 ## 2. Results
 
@@ -295,7 +294,7 @@ so the figures are the wave's, not this run's alone. Base rows: 281. Web searche
 
 ## 14. Prompt count
 
-**1** (the kickoff). The count is final only after the ingest decision.
+**2**, final: the kickoff and the ingest approval.
 
 ## 15. Ingest request (not run)
 
@@ -307,3 +306,22 @@ npx tsx scripts/fetch-investor-icon.ts balderton-capital https://www.balderton.c
 ```
 
 Balderton is a first-time investor, so the companies ingest removes no rows from the database.
+
+## Ingest 2026-09-27 (Erik's approval, second prompt)
+
+Erik approved with "approved, please ingest". Run in the order for a first-time investor:
+
+| Step | Result |
+|---|---|
+| Icon upload | `investors/balderton-capital-a6ae21d54d.png` in the Icon Images bucket (vector source, white plate, contrast 12.4:1, ramp 1.60 px) |
+| `ingest-investor.ts balderton-capital` | 1 investor row upserted |
+| `ingest-companies.ts balderton-capital --dry-run` | Plan: 281 upserted (281 new), 0 removed, from 0 live |
+| `ingest-companies.ts balderton-capital` | 281 of 281 upserted |
+| Readback (`scratch/readback.ts`) | csv 281, live 281, missing 0, differing cells 0 |
+
+The database derived from the rows: 279 companies counted (the two that cannot be named are
+left out), 21 at $1B and above, 2 at $10B and above, 1 at $100B and above, 4 public, and S2A 50%
+on a cohort of 36 (38 seed entries, 2 censored).
+
+The open rulings of section 10 stand as applied. A ruling that changes a row needs a re-export
+and a fresh approval before the next ingest.
