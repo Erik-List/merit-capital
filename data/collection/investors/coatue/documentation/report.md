@@ -2,9 +2,8 @@
 
 **Linear issue** PRO-78 (Phase 2, layer-building run) · **slug** `coatue` ·
 run closed **2026-09-27** · one session, one run, under the merged shape of
-`data/collection/COLLECTION.md`. Ingest is **not** done: it waits for Erik's
-explicit approval (order for a first-time investor: icon upload, then
-`ingest-investor.ts`, then `ingest-companies.ts`).
+`data/collection/COLLECTION.md`. **Ingested 2026-09-27 on Erik's approval**
+(see the addendum at the end).
 
 ---
 
@@ -342,4 +341,29 @@ same allowance; the last of them worked through news feeds and page fetches.
 ## Prompt count
 
 **1** at close: the kickoff ("please collect Coatue"). The ingest approval
-will be the second.
+was the second.
+
+## Addendum 2026-09-27: the ingest
+
+Erik approved with "ingest". Before writing, `verify` ran again against the
+books closed since (Insight Partners, EQT Ventures) and found one new name
+collision: Coatue's Root is Root Insurance, Insight's is Root, formerly
+Slim.AI. It is ruled `distinct` in `companies/cross-rulings.json`.
+
+**First-time order:**
+
+1. Icon: `fetch-investor-icon.ts coatue sources/site/logo-wordmark.svg`
+   uploaded `investors/coatue-17004d54b9.png` (256 px master, contrast
+   9.3:1, ramp 0.91 px).
+2. Investor row: `ingest:investor -- --investors name=coatue`. The script
+   noted "China" as a geography label no investor had used before; the
+   vocabulary is open by design and 33 companies sit in China.
+3. Companies: the dry run planned 379 new rows and no removal; the ingest
+   wrote 379 of 379.
+
+**Readback** (`scratch/readback.ts`, read-only): 379 in the file, 379 live,
+0 missing, 0 differing cells. The investor row's computed track record
+reads 48 listings, 165 companies at $1B+, 47 at $10B+ and 10 at $100B+, and
+S2A 45.5% on a cohort of 22.
+
+**Prompt count 2, final:** the kickoff and the ingest approval.
