@@ -1,0 +1,199 @@
+{
+  "slug": "balderton-capital",
+  "generated_at": "2026-09-27T00:05:02+00:00",
+  "run": "PRO-106",
+  "fields": {
+    "name": {
+      "value": "Balderton Capital",
+      "source": "https://www.balderton.com/",
+      "basis": "the firm's site; Benchmark Capital Europe from 2000 until the independence of June 2007 (VentureBeat 2007-06-07). Manager: Balderton Capital (UK) LLP, Companies House OC306910 (Benchmark Management (UK) LLP until 2007-06-11), SEC exempt reporting adviser CRD 160323; decisions.md D1, D2."
+    },
+    "website": {
+      "value": "https://www.balderton.com",
+      "source": "https://www.balderton.com/",
+      "basis": "firm site (WordPress; portfolio at /companies, news at /news, team at /team)"
+    },
+    "icon_url": {
+      "value": "https://www.balderton.com/wp-content/uploads/2023/10/logo-footer.svg",
+      "source": "https://www.balderton.com/wp-content/uploads/2023/10/logo-footer.svg",
+      "basis": "source chosen by measurement (fetch-investor-icon.ts --discover, 2026-09-27): the site's own footer mark, a vector (32x33 intrinsic); the favicons are 32 to 192 px rasters (the 192 px marginal, the rest would be enlarged). Dry run 2026-09-27: 256 px master on a synthesized white plate (the source is 72% transparent), artwork box 60%, radius 79%, contrast 12.4:1, ramp 1.60 px; preview at sources/site/icon-256.png. The bucket upload runs with the ingest, after approval.",
+      "provenance": {
+        "source_url": "https://www.balderton.com/wp-content/uploads/2023/10/logo-footer.svg",
+        "format": "svg",
+        "width": 32,
+        "height": 33,
+        "vector": true,
+        "artwork_source_px": null,
+        "artwork_master_px": 154,
+        "upscale": 1,
+        "ramp_px": 1.6,
+        "master_size": 256,
+        "fetched": "2026-09-27",
+        "allow_upscale": false,
+        "allow_low_contrast": false
+      }
+    },
+    "founding_year": {
+      "value": 2000,
+      "source": "https://venturebeat.com/business/benchmark-europe-declares-independence-now-balderton-capital",
+      "basis": "founded 2000 as Benchmark Capital Europe; the firm's own post of 2014-04-01: 'Balderton has been investing since 2000, when it was Benchmark Capital Europe, before rebranding in 2007'; Benchmark Europe I closed in May 2000 (Light Reading)."
+    },
+    "history": {
+      "value": "Balderton Capital was founded in London in 2000 as Benchmark Capital Europe, by partners including Barry Maloney, George Coelho and Mark Evans, and became independent under its own name in 2007. It became known for early bets on Betfair, MySQL, Yoox, Revolut and Depop. In 2024 it raised $1.3 billion across its ninth early stage fund and its second growth fund.",
+      "source": "https://venturebeat.com/business/benchmark-europe-declares-independence-now-balderton-capital",
+      "basis": "founding and independence: VentureBeat 2007-06-07 and the firm's post of 2014-04-01; founders: Globoforce's 2013 registration statement ('Mr. Maloney is a General Partner and a founder of Balderton Capital'), the benchmark.com Europe desk pages from 2000 (Maloney, Coelho, Evans, Archambeau) and the founding members of the manager on 2004-02-12 (Companies House OC306910: Coelho, Evans, Maloney); the named bets are portfolio companies on this page; 2024 funds: the firm's post of 2024-08-12 ($615M Early Stage Fund IX, $685M Growth Fund II). Moved here from the page: the fund ladder since Benchmark Europe I; the track record on this page includes the 2000 to 2007 companies of the Benchmark years (decisions.md D2) and leaves out two companies the firm controlled outright, Alphyra and NASN (R2)."
+    },
+    "investment_concept": {
+      "value": "“Europe's leading venture firm focused exclusively on backing European-founded tech companies.”",
+      "source": "https://www.balderton.com/",
+      "basis": "The firm's own statement, verbatim from the homepage title tag, read 2026-09-26 (the homepage has no h1 headline; its h2 reads 'Two decades. Hundreds of Europe's best founders'). A closing period and straight quotes are the only edits. The meta description is the competing line ('In the two decades since our founding, we have worked with hundreds of extraordinary European founders, and have raised eight funds totalling more than $3bn.'), not used. Published inside quotation marks, as the firm's own words (Erik, 2026-09-26)."
+    },
+    "investment_stage": {
+      "value": [
+        "Pre-Seed",
+        "Seed",
+        "Series A",
+        "Growth"
+      ],
+      "source": "https://www.balderton.com/about-balderton/",
+      "basis": "the firm's own words: 'Balderton's early stage and growth funds allow us to invest from Seed to IPO'; the cards' round labels run from Pre-seed to Series E and Secondary; the landed distribution is restated in report.md"
+    },
+    "investment_geo": {
+      "value": {
+        "core": [
+          "Europe"
+        ],
+        "other": [
+          "US"
+        ]
+      },
+      "source": "https://www.balderton.com/companies/",
+      "basis": "the site's own location filter (UK 80, Germany 29, France 23, USA 19, Sweden 16, Denmark 8, Netherlands 6 and eleven more of 205 cards) and the firm's stated focus on European-founded companies: core Europe, other US (two-label cap)"
+    },
+    "investment_scope": {
+      "value": {
+        "type": "Generalist",
+        "focus": []
+      },
+      "source": "companies/base.json",
+      "basis": "focus from the firm's own site sector tags crosswalked to data/taxonomy/focus.json (crosswalk in config.json). Scope type is the curated judgement carried in investor.json: the nine sector filters span consumer, enterprise, fintech, health, AI, security and climate."
+    },
+    "investment_range": {
+      "value": {
+        "lower_limit": 1000000,
+        "median": null,
+        "upper_limit": 50000000
+      },
+      "source": "companies/classification.json",
+      "basis": "median: set at the profile build from the documented entry rounds (press-based; Form D covers few companies of a European portfolio); lower: documented seed entries of $1.2M to $1.5M (Dinghy, Riff, Rahko); upper: the firm's own words for its growth fund, 'between $25m and $50m per company' (post of 2021-06-10)",
+      "flags": [
+        "median_press_based"
+      ]
+    },
+    "notable_investments": {
+      "value": [
+        "Revolut",
+        "Depop",
+        "Betfair",
+        "Lovable",
+        "Wayve"
+      ],
+      "source": "companies/base.csv",
+      "basis": "The five best known of the firm's own companies, most recognised first (PRO-152, Erik 2026-09-24). Considered next: Darktrace, MySQL, GoCardless, Contentful, Yoox.",
+      "slugs": [
+        "revolut",
+        "depop",
+        "betfair",
+        "lovable",
+        "wayve"
+      ]
+    },
+    "aum": {
+      "value": {
+        "bottom": 8511214328,
+        "top": 8511214328
+      },
+      "source": "https://adviserinfo.sec.gov/firm/summary/160323",
+      "basis": "both ends: the sworn Form ADV Section 7.B(1) gross asset values of the firm's exempt reporting adviser, Balderton Capital (UK) LLP, CRD 160323, annual amendment of 2026-03-31 (IAPD PDF parsed with pypdf, sources/registers/adv-160323.json): sixteen private funds, $8,511,214,328 in all (Fund V $3,523,565,022; VIII $1,006,656,092; Growth II $782,760,448; Growth I $755,375,012; IX $686,508,419; VI $621,489,999; VII $486,531,418; Gaia Investments $235,132,134; IV $210,682,155; Liquidity I $177,512,060; six parallel and co-investment vehicles $24,999,569). An exempt reporting adviser files no Item 5.F, so the 7.B composite is the sworn figure (Creandum precedent). The firm's own site says $5.7bn raised; Wikipedia gives $7.0bn of assets. Both belong here, not in the range.",
+      "flags": [
+        "era_7b_composite"
+      ]
+    },
+    "funds": {
+      "value": [
+        {
+          "name": "Balderton Capital Growth II",
+          "size": 685000000,
+          "vintage": 2024
+        },
+        {
+          "name": "Balderton Capital IX",
+          "size": 615000000,
+          "vintage": 2024
+        },
+        {
+          "name": "Balderton Capital VIII",
+          "size": 600000000,
+          "vintage": 2021
+        },
+        {
+          "name": "Balderton Capital Growth I",
+          "size": 680000000,
+          "vintage": 2021
+        },
+        {
+          "name": "Balderton Capital VII",
+          "size": 400000000,
+          "vintage": 2019
+        },
+        {
+          "name": "Balderton Liquidity I",
+          "size": 145000000,
+          "vintage": 2018
+        },
+        {
+          "name": "Balderton Capital VI",
+          "size": 375000000,
+          "vintage": 2017
+        },
+        {
+          "name": "Balderton Capital V",
+          "size": 305000000,
+          "vintage": 2014
+        },
+        {
+          "name": "Balderton Capital IV",
+          "size": 430000000,
+          "vintage": 2009
+        },
+        {
+          "name": "Balderton Capital III (Benchmark Europe III)",
+          "size": 550000000,
+          "vintage": 2006
+        },
+        {
+          "name": "Benchmark Europe II",
+          "size": 375000000,
+          "vintage": 2004
+        },
+        {
+          "name": "Benchmark Europe I",
+          "size": 500000000,
+          "vintage": 2000
+        }
+      ],
+      "source": "https://www.balderton.com/news/",
+      "basis": "sizes from the firm's own announcements and press at the time: Growth II $685M and IX $615M (https://www.balderton.com/news/balderton-announces-1-3b-in-new-funds-to-back-europes-top-entrepreneurs-as-they-build-world-changing-businesses/); VIII $600M (https://www.balderton.com/news/balderton-raises-new-600m-early-stage-fund-to-back-europes-next-wave-of-breakout-tech/); Growth I $680M (https://www.balderton.com/news/balderton-capital-expands-launching-680m-early-growth-fund-to-invest-in-future-tech-giants-born-in-europe/); VII $400M (https://www.balderton.com/news/press-release-balderton-capital-europes-most-active-series-a-investor-launches-new-400m-early-stage-fund/); Liquidity I $145M (https://www.balderton.com/news/balderton-launches-europes-first-venture-fund-dedicated-to-providing-liquidity-to-early-stage-shareholders-in-high-growth-technology-companies/); VI $375M (https://www.balderton.com/news/press-release-balderton-doubles-down-on-europe-with-new-375m-fund/); V $305M (https://www.balderton.com/news/balderton-capital-raises-305m-series-a-venture-fund-to-invest-in-european-technology-start-ups-copy/); IV GBP 285M, reported as $430M (TechCrunch 2009, https://techcrunch.com/?p=2814); III EUR 430M, reported as $550M (TechCrunch 2006-11-16, https://techcrunch.com/2006/11/16/benchmark-capital-europe-raises-e430-million-2/); Benchmark Europe II $375M (Buyouts Insider, Jul 2004); Benchmark Europe I $750M at its close of May 2000 (Light Reading), cut to $500M in 2002. No entry carries an accession: the Luxembourg vehicles file their Form Ds before or during the raise. Not listed, counted here: the parallel 'A' vehicles, the 'EC' co-investment vehicles and Gaia Investments, S.L.P. (decisions.md D1, D6)."
+    },
+    "hq_location": {
+      "value": "London, United Kingdom",
+      "source": "sources/offices.json",
+      "basis": "set by scripts/firm-offices.py at the profile build: principal office on the newest Form ADV, The Stables, 28 Britannia Street, London (annual amendment 2026-03-31); the site's footer names the same office"
+    },
+    "individuals": {
+      "value": [],
+      "source": "sources/site/team.json",
+      "basis": "recomputed at the profile build from the live team page (48 cards, groups mapped in config.json)"
+    }
+  }
+}
