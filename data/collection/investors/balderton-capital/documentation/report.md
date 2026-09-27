@@ -131,10 +131,10 @@ post. A later Internet Archive pull can test that; it is listed as debt, not as 
    the firm's posts back to 2000 with date and excerpt (497 posts). They named Igglo, Whisher,
    Power Challenge and Zubka, which no list carries, and gave the entry round of Sulake, Gemvara
    and InnerWorkings.
-9. **Ordinal round words (R5).** A third round or later reads Growth. A first or a second round
-   straddles two stages and stays an anchor.
 8. **Register status.** Thirteen rows that read `unknown` were settled from the UK register and
    from the companies' own posts (section 7).
+9. **Ordinal round words (R5).** A third round or later reads Growth. A first or a second round
+   straddles two stages and stays an anchor.
 
 ## 6. Flags and debt behind `verify`
 
@@ -219,21 +219,23 @@ Did not hold, or needs a correction:
    lists it with a $250M exit.
 5. **R5**: a "third round" reads Growth; "first round" and "second round" name no stage.
    Applied to Sulake; Kobalt, Ricall, 3V, Igglo and Audium stay open.
-5a. **R3**: a fund on the share register is membership. It adds four holdings the firm does not
+6. **R3**: a fund on the share register is membership. It adds four holdings the firm does not
    publish (Hook, Cognism, Cherryz, Tilt). A share class labels a stage only where it names a
    series.
-6. **US companies on the firm's own 2013 page stay members** (Ingenio, Tabula, Terrapass, Next
+7. **US companies on the firm's own 2013 page stay members** (Ingenio, Tabula, Terrapass, Next
    New Networks, Friend.ly, Matrix Semiconductor), also where Benchmark's book lists them.
-7. **D6**: Odyssey Therapeutics out as sale consideration, Rahko in.
-8. **Two desk-era rows cannot be named** (Activiti, Visual Media) and read `undetermined`.
-9. **Stages at medium confidence from the share class**: Wonga and WorldStores (Series A).
-10. **Status calls at medium confidence**: Curious AI Company (reported bought by Apple), Hubilo,
+8. **D6**: Odyssey Therapeutics out as sale consideration, Rahko in.
+9. **Two desk-era rows cannot be named** (Activiti, Visual Media) and read `undetermined`.
+10. **Stages at medium confidence without a citation**: Wonga and WorldStores read Series A from
+    model knowledge of the deal (flag `stage_uncited`). The register's "A" share class only
+    supports it and is not the label.
+11. **Status calls at medium confidence**: Curious AI Company (reported bought by Apple), Hubilo,
     Tempow, Lyst; Jolt stays `unknown`.
-11. **Published names**: Jokr, Roli, Arive, Riff, Smol, Dash0, Trawa, Archify, KupiVIP,
+12. **Published names**: Jokr, Roli, Arive, Riff, Smol, Dash0, Trawa, Archify, KupiVIP,
     My-Wardrobe (`config.json` `names.published`).
-12. **Feast Kitchen is Simple Feast** (merge at medium confidence); **The Exploration Company** at
+13. **Feast Kitchen is Simple Feast** (merge at medium confidence); **The Exploration Company** at
     $2B (low confidence); **Premialab** moved its headquarters to the UAE.
-13. **Repository**: commits cfc7985 and 7a99878 carry about 30 MB of raw register documents and
+14. **Repository**: commits cfc7985 and 7a99878 carry about 30 MB of raw register documents and
     captures. They were moved out of the tree in 437b61a. Dropping them from history before the
     next push is Erik's call.
 
@@ -274,10 +276,10 @@ and guarded with a `never_merge` pair.
 8. §8: `record` refuses a verdict for a slug the next rebuild will create. Either it accepts one,
    or the playbook says that such rows go through `rejects` and the parsed-source name map.
 9. §3: a judge never completes a truncated URL; citations are read from disk by key.
-9a. §6 and `stage_words.py`: ordinal round words (R5).
-10. §11: `graduation-surfaces.py` needs `investor/investor.json` to exist, which a fresh book does
+10. §6 and `stage_words.py`: ordinal round words (R5).
+11. §11: `graduation-surfaces.py` needs `investor/investor.json` to exist, which a fresh book does
     not have.
-11. data/README.md: raw register documents and raw captures belong under `data/filings/`.
+12. data/README.md: raw register documents and raw captures belong under `data/filings/`.
 
 ## 13. Usage line
 
