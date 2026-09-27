@@ -22,13 +22,14 @@
     "source": "recall probe: exit-side EDGAR full-text sweep"
    },
    {
-    "basis": "LifeLock's 8-K/A of 2014-02-21 carries the financial statements of Lemon, Inc., which it bought in 2013: 'In February 2012, the Company repurchased 3,445,661 Series B preferred shares from Balderton Capital Partners (\"Balderton\"), representing all of the shares of the Company held by Balderton', about $2.7 million. A fund held Series B preferred, so a venture entry; the entry date is not in the filing.",
+    "basis": "LifeLock's 8-K/A of 2014-02-21 carries the financial statements of Lemon, Inc., which it bought in 2013: 'In February 2012, the Company repurchased 3,445,661 Series B preferred shares from Balderton Capital Partners (\"Balderton\"), representing all of the shares of the Company held by Balderton', about $2.7 million. A fund held Series B preferred, so a venture entry; the entry date is not in the filing. The position is dated by its end: the filing gives February 2012 for the repurchase and no date for the entry.",
     "citation": "https://www.sec.gov/Archives/edgar/data/1383871/000156459014000313/lock-ex992_2013121141.htm",
     "name": "Lemon",
     "on_site_now": false,
     "sector": "fintech",
     "slug": "lemon",
-    "source": "recall probe: exit-side EDGAR full-text sweep"
+    "source": "recall probe: exit-side EDGAR full-text sweep",
+    "first_seen": "2012"
    },
    {
     "basis": "The firm's post of 2024-08-22: 'The Series A round was led by Balderton Capital with participation from existing investors TQ Ventures, Earlybird and Seedcamp.' UK register: Retro Labs Ltd (13499061, directors Neil Shah and Abhinavan Thanendran) lists Balderton Capital IX, S.L.P. with Series A-1 shares on its confirmation statement of 6 July 2025; Daniel Waterhouse director since 2024-07-16. The live list omits the company.",
@@ -191,44 +192,44 @@
     "source": "recall probe: press and the UK share register"
    },
    {
-    "name": "Igglo",
-    "slug": "igglo",
-    "first_seen": "2006",
-    "sector": "consumer",
-    "source": "recall probe: the firm's archived news archive (2013 capture)",
     "basis": "The firm's own post of 2006-10-18: 'Benchmark Capital Europe leads €12.5 million investment in Igglo, the online estate agent' ('Igglo Oy, the Finnish online estate agency, today announces that it has raised €12.5m in funding led by Benchmark Capital Europe, the top-tie...'). Not on the desk pages or any later list; the company went bankrupt in February 2008.",
     "citation": "https://index.commoncrawl.org/CC-MAIN-2013-20-index?url=http%3A%2F%2Fwww.balderton.com%2Fnews%2Farchive%2Fbalderton&output=json",
-    "on_site_now": false
+    "first_seen": "2006",
+    "name": "Igglo",
+    "on_site_now": false,
+    "sector": "consumer",
+    "slug": "igglo",
+    "source": "recall probe: the firm's archived news archive (2013 capture)"
    },
    {
-    "name": "Whisher",
-    "slug": "whisher",
-    "first_seen": "2007",
-    "sector": "consumer",
-    "source": "recall probe: the firm's archived news archive (2013 capture)",
     "basis": "The firm's own post of 2007-01-30: 'WHISHER Receives Funding from Benchmark Capital Europe and Swisscom' ('WHISHER, a Spanish company launching the first social network powered by a Wi-Fi network, today announced it has received investment f...'). Not on the desk pages or any later list.",
     "citation": "https://index.commoncrawl.org/CC-MAIN-2013-20-index?url=http%3A%2F%2Fwww.balderton.com%2Fnews%2Farchive%2Fbalderton&output=json",
-    "on_site_now": false
+    "first_seen": "2007",
+    "name": "Whisher",
+    "on_site_now": false,
+    "sector": "consumer",
+    "slug": "whisher",
+    "source": "recall probe: the firm's archived news archive (2013 capture)"
    },
    {
-    "name": "Power Challenge",
-    "slug": "power-challenge",
-    "first_seen": "2007",
-    "sector": "consumer",
-    "source": "recall probe: the firm's archived news archive (2013 capture) and press",
     "basis": "The firm carried the announcement in its own news archive (2007-05-14: 'Power Challenge offers 3D sports games from your browser'); TechCrunch of 2007-05-14: 'Swedish Game Site Power Challenge Raises $8 Million From Benchmark Capital'. The London desk made the investment; not on any later list. Bought by Stillfront in November 2012.",
     "citation": "https://techcrunch.com/2007/05/14/swedish-game-site-power-challenge-raises-8-million-from-benchmark-capital/",
-    "on_site_now": false
+    "first_seen": "2007",
+    "name": "Power Challenge",
+    "on_site_now": false,
+    "sector": "consumer",
+    "slug": "power-challenge",
+    "source": "recall probe: the firm's archived news archive (2013 capture) and press"
    },
    {
-    "name": "Zubka",
-    "slug": "zubka",
-    "first_seen": "2007",
-    "sector": "consumer",
-    "source": "recall probe: the firm's archived news archive (2013 capture) and press",
     "basis": "The firm carried a feature on the company in its own news archive (2008-01-28: 'Zubka and the referral boom - Is Web 2.0 just the job?'); Startups.co.uk's 2008 list records that Zubka secured venture backing from Balderton, previously Benchmark. Job referral site, closed in December 2010; not on any later list.",
     "citation": "https://startups.co.uk/startups-100/2008/11-zubka/",
-    "on_site_now": false
+    "first_seen": "2007",
+    "name": "Zubka",
+    "on_site_now": false,
+    "sector": "consumer",
+    "slug": "zubka",
+    "source": "recall probe: the firm's archived news archive (2013 capture) and press"
    }
   ],
   "verdicts": {
@@ -1168,6 +1169,16 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "igglo": {
+    "basis": "The firm's own post of 2006-10-18: 'Benchmark Capital Europe leads €12.5 million investment in Igglo, the online estate agent' ('Igglo Oy, the Finnish online estate agency, today announces that it has raised €12.5m in funding led by Benchmark Capital Europe, the top-tie...'). Not on the desk pages or any later list; the company went bankrupt in February 2008.",
+    "citation": "https://index.commoncrawl.org/CC-MAIN-2013-20-index?url=http%3A%2F%2Fwww.balderton.com%2Fnews%2Farchive%2Fbalderton&output=json",
+    "confidence": "high",
+    "decided": "2026-09-26",
+    "evidence_class": "site_listing",
+    "slug": "igglo",
+    "verdict": "member",
+    "who": "agent-judge-pro106"
+   },
    "infarm": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -1886,6 +1897,16 @@
     "evidence_class": "formd_adjudicated",
     "slug": "power-assure-inc",
     "verdict": "not_member",
+    "who": "agent-judge-pro106"
+   },
+   "power-challenge": {
+    "basis": "The firm carried the announcement in its own news archive (2007-05-14: 'Power Challenge offers 3D sports games from your browser'); TechCrunch of 2007-05-14: 'Swedish Game Site Power Challenge Raises $8 Million From Benchmark Capital'. The London desk made the investment; not on any later list. Bought by Stillfront in November 2012.",
+    "citation": "https://techcrunch.com/2007/05/14/swedish-game-site-power-challenge-raises-8-million-from-benchmark-capital/",
+    "confidence": "high",
+    "decided": "2026-09-26",
+    "evidence_class": "web",
+    "slug": "power-challenge",
+    "verdict": "member",
     "who": "agent-judge-pro106"
    },
    "premialab": {
@@ -2618,6 +2639,16 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "whisher": {
+    "basis": "The firm's own post of 2007-01-30: 'WHISHER Receives Funding from Benchmark Capital Europe and Swisscom' ('WHISHER, a Spanish company launching the first social network powered by a Wi-Fi network, today announced it has received investment f...'). Not on the desk pages or any later list.",
+    "citation": "https://index.commoncrawl.org/CC-MAIN-2013-20-index?url=http%3A%2F%2Fwww.balderton.com%2Fnews%2Farchive%2Fbalderton&output=json",
+    "confidence": "high",
+    "decided": "2026-09-26",
+    "evidence_class": "site_listing",
+    "slug": "whisher",
+    "verdict": "member",
+    "who": "agent-judge-pro106"
+   },
    "wonga": {
     "basis": "Listed on the investor's own portfolio site (2013,2015,2016,2017,2018).",
     "confidence": "high",
@@ -2740,6 +2771,16 @@
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
+   },
+   "zubka": {
+    "basis": "The firm carried a feature on the company in its own news archive (2008-01-28: 'Zubka and the referral boom - Is Web 2.0 just the job?'); Startups.co.uk's 2008 list records that Zubka secured venture backing from Balderton, previously Benchmark. Job referral site, closed in December 2010; not on any later list.",
+    "citation": "https://startups.co.uk/startups-100/2008/11-zubka/",
+    "confidence": "medium",
+    "decided": "2026-09-26",
+    "evidence_class": "web",
+    "slug": "zubka",
+    "verdict": "member",
+    "who": "agent-judge-pro106"
    }
   }
  }
