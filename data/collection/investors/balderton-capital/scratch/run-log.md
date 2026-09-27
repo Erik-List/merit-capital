@@ -119,3 +119,52 @@ Prompt count so far: 1.
   - Benchmark Europe III: EUR 430M, Nov 2006 (TechCrunch, https://techcrunch.com/2006/11/16/benchmark-capital-europe-raises-e430-million-2/); about $550M.
   - Balderton IV: GBP 285M, about $430M, 2009 (TechCrunch, https://techcrunch.com/?p=2814); a vendor page says $485M (not used, Rule A).
   - Non-USD sizes convert with `scripts/fx-convert.py` at the announcement date.
+
+## RESUME POINT 2, 2026-09-27 01:12 UTC
+
+After a compaction: re-read `data/collection/COLLECTION.md`, then this section, then
+`python3 scripts/run.py status --investor balderton-capital`. Last commit addcb6a (local main, not pushed).
+
+### Done since resume point 1
+- Standing duties: weak-join audit (Sunrise quarantined), country audit (Cloud9 corrected), unicorn
+  re-intersection (16 matches, none missed), blind 5% re-judgment (14 rows, 75 values, 3 disagree, all on
+  Curious AI Company; the class "status unknown" was then swept: 13 statuses settled from registers and
+  company posts).
+- Recall probe: 19 recall additions in the ledger (`recall_additions`), evidence in
+  `sources/registers/companies-house/shareholders.json` (share register reader `scratch/ch-shareholders.py`,
+  text recognition `scratch/ocr.swift`), officer graph extended to 291 appointments (R4).
+- Archive: balderton.com listings 2013, 2015-2023 parsed from Common Crawl through its static index
+  (`scratch/cc-cluster.py`, `cc-fetch.py`, `cc-parse.py`; manifest `sources/wayback/cc-manifest.json`; raw
+  captures under data/filings/commoncrawl/balderton-capital, not tracked).
+- THE ONE REBUILD ran 2026-09-27 01:03 UTC: 279 rows. Delta of 39 rows judged (`scratch/judgments-delta.py`,
+  batch-delta-1, batch-delta-grad). RTT ruled not_member (T3 post-listing). 31 identity merges, 1 reject.
+- Rebuild defect: `rekey_overlays` moved Lemonade's not_member verdict onto `lemon`; restored by hand,
+  never_merge pair written.
+- Profile built (`build-firm-profile.py`), median entry round $14.0M from 77 announced entries
+  (`sources/site/entry-round-sizes.json`), focus crosswalk extended, published names in config.
+- Linear milestone comment posted 01:09 UTC.
+
+### To do, in order
+1. When the Internet Archive answers (cooldown to about 02:05 UTC): CDX for balderton.com 2007-2012,
+   eras into config.json, `wayback-pull.py`, `partner-roster.py`. New names go in as parsed rows.
+2. FINAL rebuild (needed anyway: `3dhubs` merges into `hubs`, `rtt` leaves), `prepare`, judge what is new,
+   `graduation-surfaces.py` for any new Seed row.
+3. `build-firm-profile.py`, plain `verify`, `export`, `review` (launch entry review-surface, port 8931),
+   `documentation/report.md`, write-back proposals, `run.py close`, closing commit, Linear comment, memory
+   file, closing message with the ingest request. No ingest without Erik's approval.
+
+### Open rulings for Erik (add to the list in resume point 1)
+R2 extension (CAS Services / Clinical Solutions out as a consortium buyout), RTT out (post-listing entry),
+R3 (share register as a membership layer; share class as a stage word only where it names a series),
+Hook / Cognism / Cherryz / Tilt members the firm does not list, Wonga and WorldStores stages at medium
+confidence from the share class, published names (Jokr, Roli, Arive, Riff, Smol, Dash0, Trawa, Archify).
+Two commits (cfc7985, 7a99878) carry about 30 MB of raw register PDFs and captures that were later moved
+out of the tree (437b61a); Erik may want them dropped from history before the next push.
+
+### Write-back candidates added
+- `rekey_overlays` must not pair a departing not_member row with an arriving recall addition (Lemonade -> Lemon).
+- Common Crawl's index server can be bypassed through cluster.idx range requests on data.commoncrawl.org.
+- The UK share register reader and the officer records union (R3, R4).
+- `record` should accept a verdict for a slug that the next rebuild will create (Seedcamp, Clinical Solutions),
+  or the playbook should say that such rows go through `rejects` and the parsed-source name map.
+- Web search budget: about 105 of 200 used.
