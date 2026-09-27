@@ -36,7 +36,7 @@ the London desk's book of 2000 to 2007 is Balderton's.**
 | $1B and above | 21 | 7.5% |
 | of which $10B and above | 2 | Revolut $115B, Lovable $13.3B |
 
-Entry stage: Series A 99, Growth 75, Seed 38, Pre-Seed 5, round not on record 62, company not
+Entry stage: Series A 100, Growth 77, Seed 38, Pre-Seed 5, round not on record 59, company not
 nameable 2. Headquarters: United Kingdom 111, United States 52, Germany 34, France 23, Sweden 14,
 Ireland 7. Evidence tiers: A 175, B 92, C 14. Membership rests on the firm's own listing for 265
 rows, on a fund in a filing for 7 and on press for 9.
@@ -54,7 +54,7 @@ raised a later round (18). Of the 18 that did not, 7 rest on a cited end (a sale
 |---|---|---|---|---|
 | 38 | 2 | 36 | 18 | 50.0% |
 
-The cohort is small because Balderton enters at Series A and later: 62% of the staged rows are
+The cohort is small because Balderton enters at Series A and later: 80% of the staged rows are
 Series A or Growth.
 
 ## 3. Calibration against Cherry and Creandum
@@ -66,7 +66,7 @@ Series A or Growth.
 | Acquired | 40% | 28% | 16% | 29% | 28% |
 | Defunct | 9% | 6% | 7% | 10% | 9% |
 | Seed and Pre-Seed entries | 15% | 48% | 78% | 11% | 87% |
-| Round not on record | 23% | 2% | 11% | 26% | 3% |
+| Round not on record | 22% | 2% | 11% | 26% | 3% |
 | S2A rate | 50.0% | 52.1% | 62.7% | 46.2% | 55.2% |
 
 Three readings. The acquired share is the highest of the five because the book reaches back to
@@ -80,10 +80,10 @@ name and a link and nothing else.
 | Layer | Rows it reaches | Note |
 |---|---|---|
 | Live list (balderton.com/companies, 205 cards) | 203 | Hidden post type; read through `?_paged=N` |
-| Archived balderton.com listings 2013, 2015 to 2023 | 213 | Common Crawl, ten listing years, 236 names |
+| Archived balderton.com listings 2012, 2013, 2015 to 2023 | 215 | Common Crawl, eleven listing years, 251 names |
 | benchmark.com Europe desk pages 2001 to 2009 | 46 | Copied from PRO-88's captures |
 | The firm's news archive 2014 to 2026 (552 posts) | entry citations for 82 rows | 116 rows carry a cited entry round in all |
-| The firm's pre-2014 news archive (305 posts, 2013 capture) | 4 new rows, corroboration for the desk era | |
+| The firm's pre-2014 news archive (497 posts, 2012 and 2013 captures) | 4 new rows, 3 entry stages, 9 entry dates | Posts from 2000 to May 2013 |
 | Form D roster sweep | 30 | 18 name-match rows ruled out (namesakes, seats from a prior or a next firm) |
 | EDGAR full-text sweep | 3 recall rows, 7 sale-consideration traps | |
 | UK share register | 24 companies read, 17 with a fund of the firm on a list | New layer, R3 |
@@ -95,11 +95,13 @@ name and a link and nothing else.
 registers and the recall probe. The live list of a 25-year-old firm carries its survivors and its
 famous exits and drops most of what failed.
 
-**Still open: the Internet Archive.** It was under the machine-wide cooldown for the whole run
-(to about 02:05 UTC on 2026-09-27). The balderton.com listing years 2007 to 2012 are therefore not
-pulled. What stands in for them: the desk pages to 2009, the 2013 listing (which keeps exits back
-to 2005) and the pre-2014 news archive. The blind spot is a company listed only between 2009 and
-2012 and never named in a captured post. Any row the archive adds lands as a delta (section 11).
+**The Internet Archive was not used.** It was under the machine-wide cooldown for the whole run
+(to about 02:05 UTC on 2026-09-27). Common Crawl stood in: its crawls of 2012 to 2024 carry the
+listing pages, and its 2012 and 2013 crawls carry the firm's news archive back to 2000. One gap
+remains. The 2009 and 2010 portfolio page loaded its companies by script, and no capture holds
+the list. The desk pages to 2009, the 2012 listing and the news archive bracket those years, so
+the blind spot is a company added after 2009, removed before February 2012 and never named in a
+post. A later Internet Archive pull can test that; it is listed as debt, not as a finding.
 
 ## 5. Method deltas
 
@@ -125,9 +127,12 @@ to 2005) and the pre-2014 news archive. The blind spot is a company listed only 
    is also a set of static files: a binary search over `cluster.idx` with range requests finds the
    block, one more request returns the index lines (`scratch/cc-cluster.py`, about 30 small
    requests per crawl).
-7. **The pre-2014 news archive.** The 2013 capture of `/news/archive/balderton` lists the firm's
-   own posts back to 2000 with date and excerpt. It named Igglo, Whisher, Power Challenge and
-   Zubka, which no list carries.
+7. **The pre-2014 news archive.** The 2012 and 2013 captures of `/news/archive/<company>` list
+   the firm's posts back to 2000 with date and excerpt (497 posts). They named Igglo, Whisher,
+   Power Challenge and Zubka, which no list carries, and gave the entry round of Sulake, Gemvara
+   and InnerWorkings.
+9. **Ordinal round words (R5).** A third round or later reads Growth. A first or a second round
+   straddles two stages and stays an anchor.
 8. **Register status.** Thirteen rows that read `unknown` were settled from the UK register and
    from the companies' own posts (section 7).
 
@@ -136,7 +141,7 @@ to 2005) and the pre-2014 news archive. The blind spot is a company listed only 
 | Flag | Rows | Meaning |
 |---|---|---|
 | `model_disputes_source` | 29 | A deterministic pre-fill was wrong and is overridden with a note |
-| `stage_disputes_band` | 19 | A documented round overrides the card or the Form D band |
+| `stage_disputes_band` | 20 | A documented round overrides the card or the Form D band |
 | `stale` | 12 | A private mark older than 24 months, or a float of a company since sold |
 | `cik_weak` | 5 | A registrant join on the name alone; nothing is taken from it |
 | `city_unknown` | 5 | Looked for and not found |
@@ -212,7 +217,9 @@ Did not hold, or needs a correction:
 4. **RTT out** under the ruling of 2026-09-06: Balderton entered through the December 2007
    capital increase of an already listed company and the firm's page names no round. The firm
    lists it with a $250M exit.
-5. **R3**: a fund on the share register is membership. It adds four holdings the firm does not
+5. **R5**: a "third round" reads Growth; "first round" and "second round" name no stage.
+   Applied to Sulake; Kobalt, Ricall, 3V, Igglo and Audium stay open.
+5a. **R3**: a fund on the share register is membership. It adds four holdings the firm does not
    publish (Hook, Cognism, Cherryz, Tilt). A share class labels a stage only where it names a
    series.
 6. **US companies on the firm's own 2013 page stay members** (Ingenio, Tabula, Terrapass, Next
@@ -237,9 +244,12 @@ Did not hold, or needs a correction:
 | First build (kickoff) | 271 | Live list, desk pages, Form D, EDGAR |
 | The one scheduled rebuild (01:03 UTC) | 279 | 19 recall additions, archived listings, 31 merges, 23 exclusions; delta of 39 rows judged |
 | Second rebuild (01:13 UTC) | 281 | RTT out, 3DHubs merged into Hubs, four rows from the archived news |
+| Third rebuild (01:21 UTC) | 281 | The 2012 listing year; Habbo merged into Sulake, SCVNGR into LevelUp; no new row |
 
-The second rebuild follows §8 (a membership verdict in the delta needs a final rebuild). A third
-is needed only if the Internet Archive pull adds rows.
+The second rebuild follows §8 (a membership verdict in the delta needs a final rebuild). The third
+landed an archive year that arrived late and changed no row count. Three rebuilds is two more than
+the playbook schedules; the cause was the archive outage, which split the archive layer into three
+arrivals.
 
 **Defect found in the rebuild.** `rekey_overlays` paired the departing row `lemonade-inc` (a
 `not_member` name-match) with the arriving recall addition `lemon` (Lemon, Inc., a different
@@ -251,7 +261,9 @@ and guarded with a `never_merge` pair.
 1. §5 UK row: the share register reader as a standard layer (R3), with the rule that a list that
    cannot be read is recorded as failed.
 2. §5: a person's officer records are unioned on name and birth month (R4).
-3. §5: Common Crawl's static index route, for when the index server does not answer.
+3. §5: Common Crawl's static index route, for when the index server does not answer, and the
+   ARC format of its 2008 to 2012 crawls. This also corrects memory: Common Crawl reaches back
+   to 2009 for some sites, not only to 2013.
 4. §5: a successor firm inherits the predecessor desk's rows from the sibling run's parsed
    captures, with the capture URL per row; mixed desk pages are never configured as eras.
 5. §5: FacetWP sites render server-side under `?_paged=N`.
@@ -262,6 +274,7 @@ and guarded with a `never_merge` pair.
 8. §8: `record` refuses a verdict for a slug the next rebuild will create. Either it accepts one,
    or the playbook says that such rows go through `rejects` and the parsed-source name map.
 9. §3: a judge never completes a truncated URL; citations are read from disk by key.
+9a. §6 and `stage_words.py`: ordinal round words (R5).
 10. §11: `graduation-surfaces.py` needs `investor/investor.json` to exist, which a fresh book does
     not have.
 11. data/README.md: raw register documents and raw captures belong under `data/filings/`.

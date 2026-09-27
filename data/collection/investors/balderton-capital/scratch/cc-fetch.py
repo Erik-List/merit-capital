@@ -36,8 +36,13 @@ for cid, v in sorted(idx.items()):
         time.sleep(0.3)
         try:
             rec = gzip.decompress(p.stdout)
-            head, _, rest = rec.partition(b"\r\n\r\n")
-            http, _, body = rest.partition(b"\r\n\r\n")
+            if rec.startswith(b"WARC/"):
+                head, _, rest = rec.partition(b"\r\n\r\n")
+                http, _, body = rest.partition(b"\r\n\r\n")
+            else:                      # ARC (the 2008-2012 crawls): one header line, then the HTTP response
+                head, _, body = rec.partition(b"\r\n\r\n")
+                if not body:
+                    head, _, body = rec.partition(b"\n\n")
         except Exception:
             man[key] = {"status": "FAILED", "url": r["url"], "timestamp": r["timestamp"], "crawl": cid}
             continue

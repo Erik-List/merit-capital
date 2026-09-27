@@ -349,3 +349,12 @@ portfolio company's exit as its label (D6).
   Local, Carwow, Primer, Pusher and Wonga. The graph now unions every record
   with the partner's name and birth month
   (`sources/registers/companies-house/officer-graph.json`, 291 appointments).
+- **R5 — An ordinal round word labels a stage only where every reading lands on
+  one stage** (2026-09-27, agent; §6 "a label is usable exactly when it
+  collapses onto ONE taxonomy stage"). A "third round" or later is Growth
+  whether or not the count starts at a seed (Sulake, January 2005). A "first
+  round" or "first institutional round" straddles Seed and Series A, and a
+  "second round" straddles Series A and Growth, so both stay anchors: they date
+  the entry and the stage reads `undetermined` (Kobalt, Ricall, 3V, Igglo,
+  Audium). `stage_words.py` knows none of the three; proposed for the
+  write-back.
