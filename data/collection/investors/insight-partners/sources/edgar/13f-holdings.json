@@ -1,0 +1,3234 @@
+{
+ "_readme": "13F holdings layer: the investor's public book, quarter by quarter (PRO-78).\n\nA crossover manager files Form 13F-HR every quarter for the exchange-traded\nsecurities it holds. COLLECTION.md 1 rules that a position which first appears\nas a 13F holding and never entered through a venture round is NOT a member (T3),\nso this layer never seeds membership. What it gives the run:\n\n  * a public-status corroboration for a member row: a 13F line is, by\n    definition, an exchange-traded security, so a company on it has listed;\n  * a first-seen quarter per issuer, which dates when the position became\n    public (a member entered privately shows up here only after its IPO);\n  * the recall trigger for the crossover blind spot: a 13F issuer whose IPO\n    postdates the firm's private activity is CHECKED for a pre-IPO round\n    (the judge's question), never admitted on the 13F alone.\n\nReads every 13F-HR / 13F-HR/A of the CIKs in config `edgar.thirteenf_ciks`\nthrough the submissions API, then each filing's information table (XML from\n2013Q2; the earlier text-table filings are parsed loosely and marked\n`legacy`). Values are normalised to dollars per filing: 13F values were\nreported in thousands before 2023Q1, but some large filers reported full\ndollars anyway (Coatue did), so a filing whose raw total is under $1B is\nread as thousands and scaled, and one over that is read as dollars.\n\nOutput: sources/edgar/13f-holdings.json\n  {\"_readme\", \"filers\": {cik: {name, filings: [{accession, period, filed, positions}]}},\n   \"issuers\": {norm_name: {name, cusips[], classes[], first_period, last_period,\n                           periods, max_value_usd, last_value_usd}}}\nUsage: python3 scripts/edgar-13f.py <investor-slug> [--refresh]",
+ "filers": {
+  "1305473": {
+   "name": "Insight Holdings Group, LLC",
+   "filings": [
+    {
+     "accession": "0000930413-07-004459",
+     "period": "2006-12-31",
+     "filed": "2007-05-15",
+     "form": "13F-HR",
+     "positions": 0,
+     "total_value_usd": 0,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000930413-07-004460",
+     "period": "2007-03-31",
+     "filed": "2007-05-15",
+     "form": "13F-HR",
+     "positions": 0,
+     "total_value_usd": 0,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000930413-07-007345",
+     "period": "2007-06-30",
+     "filed": "2007-09-10",
+     "form": "13F-HR/A",
+     "positions": 4,
+     "total_value_usd": 78872000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000930413-07-007833",
+     "period": "2007-09-30",
+     "filed": "2007-10-09",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 54417000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000930413-08-000926",
+     "period": "2007-12-31",
+     "filed": "2008-02-13",
+     "form": "13F-HR",
+     "positions": 0,
+     "total_value_usd": 0,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000930413-08-003078",
+     "period": "2008-03-31",
+     "filed": "2008-05-13",
+     "form": "13F-HR",
+     "positions": 0,
+     "total_value_usd": 0,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000930413-08-004755",
+     "period": "2008-06-30",
+     "filed": "2008-08-08",
+     "form": "13F-HR",
+     "positions": 0,
+     "total_value_usd": 0,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000930413-08-006615",
+     "period": "2008-09-30",
+     "filed": "2008-11-12",
+     "form": "13F-HR",
+     "positions": 0,
+     "total_value_usd": 0,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000930413-10-000750",
+     "period": "2009-12-31",
+     "filed": "2010-02-12",
+     "form": "13F-HR",
+     "positions": 0,
+     "total_value_usd": 0,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000930413-10-002778",
+     "period": "2010-03-31",
+     "filed": "2010-05-07",
+     "form": "13F-HR",
+     "positions": 0,
+     "total_value_usd": 0,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000930413-10-004390",
+     "period": "2010-06-30",
+     "filed": "2010-08-12",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 41408000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000930413-10-005594",
+     "period": "2010-09-30",
+     "filed": "2010-11-12",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 87489000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000899140-13-000037",
+     "period": "2012-12-31",
+     "filed": "2013-01-17",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 183693000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000899140-13-000275",
+     "period": "2013-03-31",
+     "filed": "2013-04-09",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 312600000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001140361-13-027059",
+     "period": "2013-06-30",
+     "filed": "2013-07-02",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 331877000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001140361-14-001252",
+     "period": "2013-09-30",
+     "filed": "2014-01-08",
+     "form": "13F-HR/A",
+     "positions": 3,
+     "total_value_usd": 623702000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001140361-14-001245",
+     "period": "2013-12-31",
+     "filed": "2014-01-08",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 2020290000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001140361-14-015868",
+     "period": "2014-03-31",
+     "filed": "2014-04-04",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 1502530000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001140361-14-028226",
+     "period": "2014-06-30",
+     "filed": "2014-07-11",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 1510991000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001140361-14-038183",
+     "period": "2014-09-30",
+     "filed": "2014-10-15",
+     "form": "13F-HR",
+     "positions": 8,
+     "total_value_usd": 849457000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001140361-15-001473",
+     "period": "2014-12-31",
+     "filed": "2015-01-13",
+     "form": "13F-HR",
+     "positions": 8,
+     "total_value_usd": 711311000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001140361-15-015410",
+     "period": "2015-03-31",
+     "filed": "2015-04-15",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 474576000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001140361-15-032448",
+     "period": "2015-06-30",
+     "filed": "2015-08-17",
+     "form": "13F-HR/A",
+     "positions": 5,
+     "total_value_usd": 230199000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001140361-15-036949",
+     "period": "2015-09-30",
+     "filed": "2015-10-06",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 157637000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001140361-16-047792",
+     "period": "2015-12-31",
+     "filed": "2016-01-14",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 301357000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001140361-16-060393",
+     "period": "2016-03-31",
+     "filed": "2016-04-06",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 254245000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001140361-16-071901",
+     "period": "2016-06-30",
+     "filed": "2016-07-07",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 322576000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001140361-16-082247",
+     "period": "2016-09-30",
+     "filed": "2016-10-07",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 328634000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001140361-17-001699",
+     "period": "2016-12-31",
+     "filed": "2017-01-12",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 220940000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001140361-17-016016",
+     "period": "2017-03-31",
+     "filed": "2017-04-17",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 238097000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001140361-17-029688",
+     "period": "2017-06-30",
+     "filed": "2017-08-02",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 409363000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001140361-17-039161",
+     "period": "2017-09-30",
+     "filed": "2017-10-20",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 453911000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001140361-18-004579",
+     "period": "2017-12-31",
+     "filed": "2018-02-02",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 453238000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001140361-18-017969",
+     "period": "2018-03-31",
+     "filed": "2018-04-10",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 511966000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001140361-18-035756",
+     "period": "2018-06-30",
+     "filed": "2018-08-07",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 2522654000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001567619-18-004460",
+     "period": "2018-09-30",
+     "filed": "2018-10-24",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 3935657000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001567619-19-002541",
+     "period": "2018-12-31",
+     "filed": "2019-02-06",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 2686452000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001567619-19-009360",
+     "period": "2019-03-31",
+     "filed": "2019-04-29",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 2643382000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001567619-19-016300",
+     "period": "2019-06-30",
+     "filed": "2019-08-12",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 1827424000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001567619-19-020819",
+     "period": "2019-09-30",
+     "filed": "2019-11-08",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 908524000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001567619-20-002216",
+     "period": "2019-12-31",
+     "filed": "2020-02-05",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 958050000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001567619-20-009886",
+     "period": "2020-03-31",
+     "filed": "2020-05-14",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 787710000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001567619-20-014242",
+     "period": "2020-06-30",
+     "filed": "2020-08-05",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 914006000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001567619-21-003600",
+     "period": "2020-09-30",
+     "filed": "2021-02-12",
+     "form": "13F-HR/A",
+     "positions": 3,
+     "total_value_usd": 3865479000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001567619-21-003688",
+     "period": "2020-12-31",
+     "filed": "2021-02-16",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 3736999000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001567619-21-015682",
+     "period": "2021-03-31",
+     "filed": "2021-08-16",
+     "form": "13F-HR/A",
+     "positions": 6,
+     "total_value_usd": 3036460000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001567619-21-015460",
+     "period": "2021-06-30",
+     "filed": "2021-08-13",
+     "form": "13F-HR",
+     "positions": 16,
+     "total_value_usd": 8862659000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001567619-21-020375",
+     "period": "2021-09-30",
+     "filed": "2021-11-15",
+     "form": "13F-HR",
+     "positions": 20,
+     "total_value_usd": 10933326000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001567619-22-010316",
+     "period": "2021-12-31",
+     "filed": "2022-05-13",
+     "form": "13F-HR/A",
+     "positions": 23,
+     "total_value_usd": 10708466000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001567619-22-010317",
+     "period": "2022-03-31",
+     "filed": "2022-05-13",
+     "form": "13F-HR",
+     "positions": 22,
+     "total_value_usd": 7386893000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001567619-22-015562",
+     "period": "2022-06-30",
+     "filed": "2022-08-11",
+     "form": "13F-HR",
+     "positions": 22,
+     "total_value_usd": 4834272000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001567619-22-019606",
+     "period": "2022-09-30",
+     "filed": "2022-11-14",
+     "form": "13F-HR",
+     "positions": 22,
+     "total_value_usd": 4984452000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000899140-23-000278",
+     "period": "2022-12-31",
+     "filed": "2023-02-13",
+     "form": "13F-HR",
+     "positions": 23,
+     "total_value_usd": 4770417125,
+     "scale": 1.0
+    },
+    {
+     "accession": "0000899140-23-000657",
+     "period": "2023-03-31",
+     "filed": "2023-05-16",
+     "form": "13F-HR/A",
+     "positions": 33,
+     "total_value_usd": 4439700666,
+     "scale": 1.0
+    },
+    {
+     "accession": "0000899140-23-000869",
+     "period": "2023-06-30",
+     "filed": "2023-08-14",
+     "form": "13F-HR",
+     "positions": 30,
+     "total_value_usd": 4327066103,
+     "scale": 1.0
+    },
+    {
+     "accession": "0000899140-23-001084",
+     "period": "2023-09-30",
+     "filed": "2023-11-13",
+     "form": "13F-HR",
+     "positions": 30,
+     "total_value_usd": 3853494629,
+     "scale": 1.0
+    },
+    {
+     "accession": "0000899140-24-000179",
+     "period": "2023-12-31",
+     "filed": "2024-02-12",
+     "form": "13F-HR",
+     "positions": 32,
+     "total_value_usd": 4142731322,
+     "scale": 1.0
+    },
+    {
+     "accession": "0000899140-24-000567",
+     "period": "2024-03-31",
+     "filed": "2024-05-13",
+     "form": "13F-HR",
+     "positions": 31,
+     "total_value_usd": 3581300107,
+     "scale": 1.0
+    },
+    {
+     "accession": "0000899140-24-000869",
+     "period": "2024-06-30",
+     "filed": "2024-08-13",
+     "form": "13F-HR",
+     "positions": 30,
+     "total_value_usd": 2885028852,
+     "scale": 1.0
+    },
+    {
+     "accession": "0000899140-24-001236",
+     "period": "2024-09-30",
+     "filed": "2024-11-14",
+     "form": "13F-HR",
+     "positions": 29,
+     "total_value_usd": 2300830212,
+     "scale": 1.0
+    },
+    {
+     "accession": "0000899140-25-000303",
+     "period": "2024-12-31",
+     "filed": "2025-02-14",
+     "form": "13F-HR",
+     "positions": 28,
+     "total_value_usd": 1545864590,
+     "scale": 1.0
+    },
+    {
+     "accession": "0000899140-25-000665",
+     "period": "2025-03-31",
+     "filed": "2025-05-15",
+     "form": "13F-HR",
+     "positions": 25,
+     "total_value_usd": 1291245069,
+     "scale": 1.0
+    },
+    {
+     "accession": "0000899140-25-000971",
+     "period": "2025-06-30",
+     "filed": "2025-08-14",
+     "form": "13F-HR",
+     "positions": 28,
+     "total_value_usd": 2391542312,
+     "scale": 1.0
+    },
+    {
+     "accession": "0000899140-25-001295",
+     "period": "2025-09-30",
+     "filed": "2025-11-14",
+     "form": "13F-HR",
+     "positions": 27,
+     "total_value_usd": 1620075692,
+     "scale": 1.0
+    },
+    {
+     "accession": "0000899140-26-000238",
+     "period": "2025-12-31",
+     "filed": "2026-02-17",
+     "form": "13F-HR",
+     "positions": 30,
+     "total_value_usd": 1337262490,
+     "scale": 1.0
+    },
+    {
+     "accession": "0000899140-26-000530",
+     "period": "2026-03-31",
+     "filed": "2026-05-15",
+     "form": "13F-HR",
+     "positions": 28,
+     "total_value_usd": 1424671137,
+     "scale": 1.0
+    },
+    {
+     "accession": "0000899140-26-000867",
+     "period": "2026-06-30",
+     "filed": "2026-08-14",
+     "form": "13F-HR",
+     "positions": 30,
+     "total_value_usd": 1315744493,
+     "scale": 1.0
+    }
+   ]
+  }
+ },
+ "issuers": {
+  "1stdibs": {
+   "name": "1STDIBS COM INC",
+   "cusips": [
+    "320551104"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31"
+   ],
+   "first_period": "2021-06-30",
+   "last_period": "2024-03-31",
+   "max_value_usd": 176294000.0,
+   "last_value_usd": 25116048.0,
+   "put_call_only": false
+  },
+  "adobe systems incorporated": {
+   "name": "ADOBE SYSTEMS INCORPORATED",
+   "cusips": [
+    "00724F101"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2023-06-30"
+   ],
+   "first_period": "2023-06-30",
+   "last_period": "2023-06-30",
+   "max_value_usd": 9633103.0,
+   "last_value_usd": 9633103.0,
+   "put_call_only": false
+  },
+  "advanced micro devices": {
+   "name": "ADVANCED MICRO DEVICES INC",
+   "cusips": [
+    "007903107"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2023-03-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 11833137.0,
+   "last_value_usd": 11833137.0,
+   "put_call_only": false
+  },
+  "alibaba": {
+   "name": "ALIBABA GROUP HLDG LTD",
+   "cusips": [
+    "01609W102"
+   ],
+   "classes": [
+    "SPONSORED ADS"
+   ],
+   "periods": [
+    "2014-09-30",
+    "2014-12-31",
+    "2015-03-31",
+    "2015-06-30",
+    "2015-09-30",
+    "2015-12-31",
+    "2016-03-31"
+   ],
+   "first_period": "2014-09-30",
+   "last_period": "2016-03-31",
+   "max_value_usd": 39013000.0,
+   "last_value_usd": 34595000.0,
+   "put_call_only": false
+  },
+  "alphabet": {
+   "name": "ALPHABET INC",
+   "cusips": [
+    "02079K305"
+   ],
+   "classes": [
+    "CAP STK CL A"
+   ],
+   "periods": [
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2021-06-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 93105606.0,
+   "last_value_usd": 93105606.0,
+   "put_call_only": false
+  },
+  "alteryx": {
+   "name": "ALTERYX INC",
+   "cusips": [
+    "02156B103"
+   ],
+   "classes": [
+    "COM CL A"
+   ],
+   "periods": [
+    "2017-03-31",
+    "2017-06-30",
+    "2017-09-30",
+    "2017-12-31",
+    "2018-03-31",
+    "2018-06-30",
+    "2018-09-30",
+    "2018-12-31",
+    "2019-03-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31"
+   ],
+   "first_period": "2017-03-31",
+   "last_period": "2023-12-31",
+   "max_value_usd": 65223000.0,
+   "last_value_usd": 43001856.0,
+   "put_call_only": false
+  },
+  "amazon": {
+   "name": "AMAZON COM INC",
+   "cusips": [
+    "023135106"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2022-06-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 98813256.0,
+   "last_value_usd": 96505058.0,
+   "put_call_only": false
+  },
+  "appfolio": {
+   "name": "APPFOLIO INC",
+   "cusips": [
+    "03783C100"
+   ],
+   "classes": [
+    "COM CL A"
+   ],
+   "periods": [
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31"
+   ],
+   "first_period": "2021-12-31",
+   "last_period": "2025-12-31",
+   "max_value_usd": 42065716.0,
+   "last_value_usd": 10364558.0,
+   "put_call_only": false
+  },
+  "apple": {
+   "name": "APPLE INC",
+   "cusips": [
+    "037833100"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-12-31",
+    "2026-06-30"
+   ],
+   "first_period": "2024-06-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 62863400.0,
+   "last_value_usd": 37920628.0,
+   "put_call_only": false
+  },
+  "applied material": {
+   "name": "APPLIED MATERIAL INC",
+   "cusips": [
+    "038222105"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2026-03-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 22843185.0,
+   "last_value_usd": 22843185.0,
+   "put_call_only": false
+  },
+  "applied matls": {
+   "name": "APPLIED MATLS INC",
+   "cusips": [
+    "038222105"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30"
+   ],
+   "first_period": "2023-09-30",
+   "last_period": "2024-06-30",
+   "max_value_usd": 2265504.0,
+   "last_value_usd": 2265504.0,
+   "put_call_only": false
+  },
+  "applovin": {
+   "name": "APPLOVIN CORP",
+   "cusips": [
+    "03831W108"
+   ],
+   "classes": [
+    "COM CL A"
+   ],
+   "periods": [
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31"
+   ],
+   "first_period": "2024-12-31",
+   "last_period": "2025-12-31",
+   "max_value_usd": 12143326.0,
+   "last_value_usd": 8261033.0,
+   "put_call_only": false
+  },
+  "atlassian": {
+   "name": "ATLASSIAN CORP PLC",
+   "cusips": [
+    "G06242104",
+    "049468101"
+   ],
+   "classes": [
+    "CL A"
+   ],
+   "periods": [
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30"
+   ],
+   "first_period": "2021-06-30",
+   "last_period": "2025-09-30",
+   "max_value_usd": 29375966.0,
+   "last_value_usd": 3896680.0,
+   "put_call_only": false
+  },
+  "axon enterprise": {
+   "name": "AXON ENTERPRISE INC",
+   "cusips": [
+    "05464C101"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2026-03-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 8983775.0,
+   "last_value_usd": 8983775.0,
+   "put_call_only": false
+  },
+  "bill": {
+   "name": "BILL COM HLDGS INC",
+   "cusips": [
+    "090043100"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31",
+    "2023-03-31"
+   ],
+   "first_period": "2021-06-30",
+   "last_period": "2023-03-31",
+   "max_value_usd": 300030000.0,
+   "last_value_usd": 8109050.0,
+   "put_call_only": false
+  },
+  "block": {
+   "name": "BLOCK INC",
+   "cusips": [
+    "852234103"
+   ],
+   "classes": [
+    "CL A"
+   ],
+   "periods": [
+    "2023-12-31",
+    "2024-03-31"
+   ],
+   "first_period": "2023-12-31",
+   "last_period": "2024-03-31",
+   "max_value_usd": 1285616.0,
+   "last_value_usd": 1285616.0,
+   "put_call_only": false
+  },
+  "bloom energy": {
+   "name": "BLOOM ENERGY CORP",
+   "cusips": [
+    "093712107"
+   ],
+   "classes": [
+    "COM CL A"
+   ],
+   "periods": [
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2026-03-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 26554358.0,
+   "last_value_usd": 26554358.0,
+   "put_call_only": false
+  },
+  "broadcom": {
+   "name": "BROADCOM INC",
+   "cusips": [
+    "11135F101"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2024-03-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 20769461.0,
+   "last_value_usd": 14885239.0,
+   "put_call_only": false
+  },
+  "callwave": {
+   "name": "CallWave, Inc.",
+   "cusips": [
+    "13126N101"
+   ],
+   "classes": [
+    "Com"
+   ],
+   "periods": [
+    "2007-06-30",
+    "2007-09-30"
+   ],
+   "first_period": "2007-06-30",
+   "last_period": "2007-09-30",
+   "max_value_usd": 10999000.0,
+   "last_value_usd": 8787000.0,
+   "put_call_only": false
+  },
+  "capella education": {
+   "name": "Capella Education Corp.",
+   "cusips": [
+    "139594105"
+   ],
+   "classes": [
+    "Com"
+   ],
+   "periods": [
+    "2007-06-30",
+    "2007-09-30"
+   ],
+   "first_period": "2007-06-30",
+   "last_period": "2007-09-30",
+   "max_value_usd": 31301000.0,
+   "last_value_usd": 11182000.0,
+   "put_call_only": false
+  },
+  "celestica": {
+   "name": "CELESTICA",
+   "cusips": [
+    "15101Q207"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2025-12-31"
+   ],
+   "first_period": "2025-12-31",
+   "last_period": "2025-12-31",
+   "max_value_usd": 3197022.0,
+   "last_value_usd": 3197022.0,
+   "put_call_only": false
+  },
+  "chegg": {
+   "name": "CHEGG INC",
+   "cusips": [
+    "163092109"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2013-12-31",
+    "2014-03-31",
+    "2014-06-30",
+    "2014-09-30",
+    "2014-12-31",
+    "2015-03-31",
+    "2015-06-30",
+    "2015-09-30",
+    "2015-12-31",
+    "2016-03-31",
+    "2016-06-30",
+    "2016-09-30"
+   ],
+   "first_period": "2013-12-31",
+   "last_period": "2016-09-30",
+   "max_value_usd": 73845000.0,
+   "last_value_usd": 22637000.0,
+   "put_call_only": false
+  },
+  "cloudflare": {
+   "name": "CLOUDFLARE INC",
+   "cusips": [
+    "18915M107"
+   ],
+   "classes": [
+    "CL A COM"
+   ],
+   "periods": [
+    "2023-12-31",
+    "2025-09-30",
+    "2026-03-31"
+   ],
+   "first_period": "2023-12-31",
+   "last_period": "2026-03-31",
+   "max_value_usd": 6767952.0,
+   "last_value_usd": 6767952.0,
+   "put_call_only": false
+  },
+  "confluent": {
+   "name": "CONFLUENT INC",
+   "cusips": [
+    "20717M103"
+   ],
+   "classes": [
+    "CLASS A COM"
+   ],
+   "periods": [
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31"
+   ],
+   "first_period": "2021-06-30",
+   "last_period": "2021-12-31",
+   "max_value_usd": 381000.0,
+   "last_value_usd": 381000.0,
+   "put_call_only": false
+  },
+  "constellation energy": {
+   "name": "CONSTELLATION ENERGY CORP",
+   "cusips": [
+    "21037T109"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2025-12-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 7113894.0,
+   "last_value_usd": 6766841.0,
+   "put_call_only": false
+  },
+  "coreweave": {
+   "name": "COREWEAVE INC",
+   "cusips": [
+    "21873s108"
+   ],
+   "classes": [
+    "COM CL A"
+   ],
+   "periods": [
+    "2025-06-30"
+   ],
+   "first_period": "2025-06-30",
+   "last_period": "2025-06-30",
+   "max_value_usd": 363514224.0,
+   "last_value_usd": 363514224.0,
+   "put_call_only": false
+  },
+  "coursera": {
+   "name": "COURSERA",
+   "cusips": [
+    "22266M104"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2026-06-30"
+   ],
+   "first_period": "2026-06-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 50435706.0,
+   "last_value_usd": 50435706.0,
+   "put_call_only": false
+  },
+  "crowdstrike": {
+   "name": "CROWDSTRIKE HLDGS INC",
+   "cusips": [
+    "22788C105"
+   ],
+   "classes": [
+    "CL A"
+   ],
+   "periods": [
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31"
+   ],
+   "first_period": "2021-06-30",
+   "last_period": "2023-12-31",
+   "max_value_usd": 28019000.0,
+   "last_value_usd": 17285164.0,
+   "put_call_only": false
+  },
+  "cvent": {
+   "name": "CVENT INC",
+   "cusips": [
+    "23247G109"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2013-09-30",
+    "2013-12-31",
+    "2014-03-31",
+    "2014-06-30",
+    "2014-09-30",
+    "2014-12-31",
+    "2015-03-31",
+    "2015-06-30",
+    "2015-09-30",
+    "2015-12-31",
+    "2016-03-31",
+    "2016-06-30",
+    "2016-09-30"
+   ],
+   "first_period": "2013-09-30",
+   "last_period": "2016-09-30",
+   "max_value_usd": 316935000.0,
+   "last_value_usd": 58255000.0,
+   "put_call_only": false
+  },
+  "cyberark software": {
+   "name": "CYBERARK SOFTWARE",
+   "cusips": [
+    "M2682V108"
+   ],
+   "classes": [
+    "SHS"
+   ],
+   "periods": [
+    "2025-06-30"
+   ],
+   "first_period": "2025-06-30",
+   "last_period": "2025-06-30",
+   "max_value_usd": 4475680.0,
+   "last_value_usd": 4475680.0,
+   "put_call_only": false
+  },
+  "datadog": {
+   "name": "DATADOG INC",
+   "cusips": [
+    "23804L103"
+   ],
+   "classes": [
+    "CL A COM"
+   ],
+   "periods": [
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30"
+   ],
+   "first_period": "2021-09-30",
+   "last_period": "2024-09-30",
+   "max_value_usd": 22497000.0,
+   "last_value_usd": 16062376.0,
+   "put_call_only": false
+  },
+  "despegar": {
+   "name": "DESPEGAR COM CORP",
+   "cusips": [
+    "G27358103"
+   ],
+   "classes": [
+    "ORD SHS"
+   ],
+   "periods": [
+    "2017-09-30",
+    "2017-12-31",
+    "2018-03-31",
+    "2018-06-30",
+    "2018-09-30",
+    "2018-12-31",
+    "2019-03-31"
+   ],
+   "first_period": "2017-09-30",
+   "last_period": "2019-03-31",
+   "max_value_usd": 50802000.0,
+   "last_value_usd": 9605000.0,
+   "put_call_only": false
+  },
+  "divx": {
+   "name": "DivX, Inc.",
+   "cusips": [
+    "255413106"
+   ],
+   "classes": [
+    "Com"
+   ],
+   "periods": [
+    "2007-06-30",
+    "2007-09-30"
+   ],
+   "first_period": "2007-06-30",
+   "last_period": "2007-09-30",
+   "max_value_usd": 34750000.0,
+   "last_value_usd": 34448000.0,
+   "put_call_only": false
+  },
+  "docusign": {
+   "name": "DOCUSIGN INC",
+   "cusips": [
+    "256163106"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2018-06-30",
+    "2018-09-30",
+    "2018-12-31"
+   ],
+   "first_period": "2018-06-30",
+   "last_period": "2018-12-31",
+   "max_value_usd": 84918000.0,
+   "last_value_usd": 64278000.0,
+   "put_call_only": false
+  },
+  "duck creek technologies": {
+   "name": "DUCK CREEK TECHNOLOGIES INC",
+   "cusips": [
+    "264120106"
+   ],
+   "classes": [
+    "SHS"
+   ],
+   "periods": [
+    "2020-09-30",
+    "2020-12-31",
+    "2021-03-31",
+    "2021-06-30"
+   ],
+   "first_period": "2020-09-30",
+   "last_period": "2021-06-30",
+   "max_value_usd": 169151000.0,
+   "last_value_usd": 74983000.0,
+   "put_call_only": false
+  },
+  "duolingo": {
+   "name": "DUOLINGO INC",
+   "cusips": [
+    "26603R106"
+   ],
+   "classes": [
+    "CL A COM"
+   ],
+   "periods": [
+    "2021-09-30",
+    "2021-12-31"
+   ],
+   "first_period": "2021-09-30",
+   "last_period": "2021-12-31",
+   "max_value_usd": 333000.0,
+   "last_value_usd": 212000.0,
+   "put_call_only": false
+  },
+  "e2 open parent": {
+   "name": "E2 OPEN PARENT HOLDINGS INC",
+   "cusips": [
+    "29788T103"
+   ],
+   "classes": [
+    "COM CL A"
+   ],
+   "periods": [
+    "2021-03-31",
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30"
+   ],
+   "first_period": "2021-03-31",
+   "last_period": "2023-06-30",
+   "max_value_usd": 439011000.0,
+   "last_value_usd": 279053639.0,
+   "put_call_only": false
+  },
+  "e2open parent": {
+   "name": "E2OPEN PARENT HOLDINGS INC",
+   "cusips": [
+    "29788T103"
+   ],
+   "classes": [
+    "COM CL A"
+   ],
+   "periods": [
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30"
+   ],
+   "first_period": "2023-09-30",
+   "last_period": "2025-06-30",
+   "max_value_usd": 226232772.0,
+   "last_value_usd": 160954153.0,
+   "put_call_only": false
+  },
+  "elastic n v": {
+   "name": "ELASTIC N V",
+   "cusips": [
+    "N14506104"
+   ],
+   "classes": [
+    "ORD SHS"
+   ],
+   "periods": [
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31"
+   ],
+   "first_period": "2022-03-31",
+   "last_period": "2022-12-31",
+   "max_value_usd": 15819000.0,
+   "last_value_usd": 3090000.0,
+   "put_call_only": false
+  },
+  "equipmentshare": {
+   "name": "EQUIPMENTSHARE COM INC",
+   "cusips": [
+    "29445S100"
+   ],
+   "classes": [
+    "COM CL A"
+   ],
+   "periods": [
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2026-03-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 275539510.0,
+   "last_value_usd": 265935531.0,
+   "put_call_only": false
+  },
+  "exacttarget": {
+   "name": "ExactTarget Inc.",
+   "cusips": [
+    "30064K105"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2012-12-31"
+   ],
+   "first_period": "2012-12-31",
+   "last_period": "2012-12-31",
+   "max_value_usd": 3000000.0,
+   "last_value_usd": 3000000.0,
+   "put_call_only": false
+  },
+  "fortinet": {
+   "name": "FORTINET INC",
+   "cusips": [
+    "34959E109"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2023-12-31",
+    "2024-03-31"
+   ],
+   "first_period": "2023-12-31",
+   "last_period": "2024-03-31",
+   "max_value_usd": 16332921.0,
+   "last_value_usd": 16332921.0,
+   "put_call_only": false
+  },
+  "gitlab": {
+   "name": "GITLAB INC",
+   "cusips": [
+    "37637K108"
+   ],
+   "classes": [
+    "CLASS A COM"
+   ],
+   "periods": [
+    "2021-12-31"
+   ],
+   "first_period": "2021-12-31",
+   "last_period": "2021-12-31",
+   "max_value_usd": 4350000.0,
+   "last_value_usd": 4350000.0,
+   "put_call_only": false
+  },
+  "greenfield online": {
+   "name": "Greenfield Online, Inc.",
+   "cusips": [
+    "395150105"
+   ],
+   "classes": [
+    "Com"
+   ],
+   "periods": [
+    "2007-06-30"
+   ],
+   "first_period": "2007-06-30",
+   "last_period": "2007-06-30",
+   "max_value_usd": 1822000.0,
+   "last_value_usd": 1822000.0,
+   "put_call_only": false
+  },
+  "hawkeye 360": {
+   "name": "HAWKEYE 360 INC",
+   "cusips": [
+    "420201105"
+   ],
+   "classes": [
+    "COM SHS"
+   ],
+   "periods": [
+    "2026-06-30"
+   ],
+   "first_period": "2026-06-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 183356456.0,
+   "last_value_usd": 183356456.0,
+   "put_call_only": false
+  },
+  "hinge health": {
+   "name": "HINGE HEALTH INC",
+   "cusips": [
+    "433313103"
+   ],
+   "classes": [
+    "CL A"
+   ],
+   "periods": [
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31"
+   ],
+   "first_period": "2025-06-30",
+   "last_period": "2026-03-31",
+   "max_value_usd": 570782007.0,
+   "last_value_usd": 361506324.0,
+   "put_call_only": false
+  },
+  "instructure": {
+   "name": "INSTRUCTURE INC",
+   "cusips": [
+    "45781U103"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2015-12-31",
+    "2016-03-31",
+    "2016-06-30",
+    "2016-09-30",
+    "2016-12-31",
+    "2017-03-31"
+   ],
+   "first_period": "2015-12-31",
+   "last_period": "2017-03-31",
+   "max_value_usd": 65859000.0,
+   "last_value_usd": 14668000.0,
+   "put_call_only": false
+  },
+  "intel": {
+   "name": "INTEL CORP",
+   "cusips": [
+    "458140100"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2025-12-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 6367826.0,
+   "last_value_usd": 6367826.0,
+   "put_call_only": false
+  },
+  "intuit": {
+   "name": "INTUIT",
+   "cusips": [
+    "461202103"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2022-12-31",
+    "2023-03-31",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30"
+   ],
+   "first_period": "2022-12-31",
+   "last_period": "2025-09-30",
+   "max_value_usd": 8978982.0,
+   "last_value_usd": 5190116.0,
+   "put_call_only": false
+  },
+  "jd": {
+   "name": "JD COM INC",
+   "cusips": [
+    "47215P106"
+   ],
+   "classes": [
+    "SPON ADR CL A"
+   ],
+   "periods": [
+    "2014-06-30",
+    "2014-09-30",
+    "2014-12-31",
+    "2015-03-31"
+   ],
+   "first_period": "2014-06-30",
+   "last_period": "2015-03-31",
+   "max_value_usd": 274800000.0,
+   "last_value_usd": 139958000.0,
+   "put_call_only": false
+  },
+  "jfrog": {
+   "name": "JFROG LTD",
+   "cusips": [
+    "M6191J100"
+   ],
+   "classes": [
+    "ORD SHS"
+   ],
+   "periods": [
+    "2020-09-30",
+    "2020-12-31",
+    "2021-03-31",
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31"
+   ],
+   "first_period": "2020-09-30",
+   "last_period": "2023-12-31",
+   "max_value_usd": 667201000.0,
+   "last_value_usd": 14209620.0,
+   "put_call_only": false
+  },
+  "kyverna therapeutics": {
+   "name": "KYVERNA THERAPEUTICS INC",
+   "cusips": [
+    "501976104"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2024-03-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 22676809.0,
+   "last_value_usd": 8812471.0,
+   "put_call_only": false
+  },
+  "lam research": {
+   "name": "LAM RESEARCH CORP",
+   "cusips": [
+    "512807306"
+   ],
+   "classes": [
+    "COM NEW"
+   ],
+   "periods": [
+    "2026-06-30"
+   ],
+   "first_period": "2026-06-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 11019582.0,
+   "last_value_usd": 11019582.0,
+   "put_call_only": false
+  },
+  "lumentum": {
+   "name": "LUMENTUM HOLDINGS INC",
+   "cusips": [
+    "55024U109"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2026-03-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 8048603.0,
+   "last_value_usd": 8048603.0,
+   "put_call_only": false
+  },
+  "macom tech solutions i": {
+   "name": "MACOM TECH SOLUTIONS HLDGS I",
+   "cusips": [
+    "55405Y100"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2026-03-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 8778940.0,
+   "last_value_usd": 8778940.0,
+   "put_call_only": false
+  },
+  "mastercard incorporated": {
+   "name": "MASTERCARD INCORPORATED",
+   "cusips": [
+    "57636Q104"
+   ],
+   "classes": [
+    "CL A"
+   ],
+   "periods": [
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30"
+   ],
+   "first_period": "2022-12-31",
+   "last_period": "2023-09-30",
+   "max_value_usd": 6606870.0,
+   "last_value_usd": 1148139.0,
+   "put_call_only": false
+  },
+  "mediamind": {
+   "name": "MediaMind",
+   "cusips": [
+    "58449C100"
+   ],
+   "classes": [
+    "Com"
+   ],
+   "periods": [
+    "2010-09-30"
+   ],
+   "first_period": "2010-09-30",
+   "last_period": "2010-09-30",
+   "max_value_usd": 42932000.0,
+   "last_value_usd": 42932000.0,
+   "put_call_only": false
+  },
+  "meta platforms": {
+   "name": "META PLATFORMS INC",
+   "cusips": [
+    "30303M102"
+   ],
+   "classes": [
+    "CL A"
+   ],
+   "periods": [
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2023-03-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 76781377.0,
+   "last_value_usd": 52394419.0,
+   "put_call_only": false
+  },
+  "micron technology": {
+   "name": "MICRON TECHNOLOGY INC",
+   "cusips": [
+    "595112103"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2026-03-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 18682184.0,
+   "last_value_usd": 18682184.0,
+   "put_call_only": false
+  },
+  "microsoft": {
+   "name": "MICROSOFT CORP",
+   "cusips": [
+    "594918104"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31"
+   ],
+   "first_period": "2021-09-30",
+   "last_period": "2026-03-31",
+   "max_value_usd": 113623366.0,
+   "last_value_usd": 25643527.0,
+   "put_call_only": false
+  },
+  "mimecast": {
+   "name": "MIMECAST LTD",
+   "cusips": [
+    "G14838109"
+   ],
+   "classes": [
+    "ORD SHS"
+   ],
+   "periods": [
+    "2015-12-31",
+    "2016-03-31",
+    "2016-06-30",
+    "2016-09-30",
+    "2016-12-31",
+    "2017-03-31",
+    "2017-06-30",
+    "2017-09-30",
+    "2017-12-31",
+    "2018-03-31",
+    "2018-06-30",
+    "2018-09-30",
+    "2018-12-31",
+    "2019-03-31"
+   ],
+   "first_period": "2015-12-31",
+   "last_period": "2019-03-31",
+   "max_value_usd": 391814000.0,
+   "last_value_usd": 71025000.0,
+   "put_call_only": false
+  },
+  "monday": {
+   "name": "MONDAY COM LTD",
+   "cusips": [
+    "M7S64H106"
+   ],
+   "classes": [
+    "SHS"
+   ],
+   "periods": [
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31"
+   ],
+   "first_period": "2021-06-30",
+   "last_period": "2023-12-31",
+   "max_value_usd": 5227852000.0,
+   "last_value_usd": 303738352.0,
+   "put_call_only": false
+  },
+  "mongodb": {
+   "name": "MONGODB INC",
+   "cusips": [
+    "60937P106"
+   ],
+   "classes": [
+    "CL A"
+   ],
+   "periods": [
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31"
+   ],
+   "first_period": "2022-06-30",
+   "last_period": "2025-12-31",
+   "max_value_usd": 14401632.0,
+   "last_value_usd": 8557479.0,
+   "put_call_only": false
+  },
+  "ncino": {
+   "name": "NCINO INC",
+   "cusips": [
+    "63947U107",
+    "63947X101"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2020-09-30",
+    "2020-12-31",
+    "2021-03-31",
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30"
+   ],
+   "first_period": "2020-09-30",
+   "last_period": "2025-06-30",
+   "max_value_usd": 3029127000.0,
+   "last_value_usd": 124706790.0,
+   "put_call_only": false
+  },
+  "netflix": {
+   "name": "NETFLIX",
+   "cusips": [
+    "64110L106"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2025-06-30"
+   ],
+   "first_period": "2025-06-30",
+   "last_period": "2025-06-30",
+   "max_value_usd": 11784344.0,
+   "last_value_usd": 11784344.0,
+   "put_call_only": false
+  },
+  "netskope": {
+   "name": "NETSKOPE",
+   "cusips": [
+    "64119N608"
+   ],
+   "classes": [
+    "CL A"
+   ],
+   "periods": [
+    "2025-09-30",
+    "2025-12-31"
+   ],
+   "first_period": "2025-09-30",
+   "last_period": "2025-12-31",
+   "max_value_usd": 3977750.0,
+   "last_value_usd": 3069500.0,
+   "put_call_only": false
+  },
+  "nextdoor": {
+   "name": "NEXTDOOR HOLDINGS INC",
+   "cusips": [
+    "65345M108"
+   ],
+   "classes": [
+    "COM CL A"
+   ],
+   "periods": [
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30"
+   ],
+   "first_period": "2021-12-31",
+   "last_period": "2023-06-30",
+   "max_value_usd": 42240000.0,
+   "last_value_usd": 16901516.0,
+   "put_call_only": false
+  },
+  "nordstrom": {
+   "name": "NORDSTROM INC",
+   "cusips": [
+    "655664100"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2014-03-31"
+   ],
+   "first_period": "2014-03-31",
+   "last_period": "2014-03-31",
+   "max_value_usd": 1533000.0,
+   "last_value_usd": 1533000.0,
+   "put_call_only": false
+  },
+  "nvidia": {
+   "name": "NVIDIA CORPORATION",
+   "cusips": [
+    "67066G104"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2023-03-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 128725901.0,
+   "last_value_usd": 128725901.0,
+   "put_call_only": false
+  },
+  "okta": {
+   "name": "OKTA INC",
+   "cusips": [
+    "679295105"
+   ],
+   "classes": [
+    "CL A"
+   ],
+   "periods": [
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30"
+   ],
+   "first_period": "2022-12-31",
+   "last_period": "2025-06-30",
+   "max_value_usd": 21327152.0,
+   "last_value_usd": 4703589.0,
+   "put_call_only": false
+  },
+  "oracle": {
+   "name": "ORACLE CORP",
+   "cusips": [
+    "68389X105"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2023-09-30",
+    "2025-09-30"
+   ],
+   "first_period": "2023-09-30",
+   "last_period": "2025-09-30",
+   "max_value_usd": 9787152.0,
+   "last_value_usd": 9787152.0,
+   "put_call_only": false
+  },
+  "palo alto networks": {
+   "name": "PALO ALTO NETWORKS INC",
+   "cusips": [
+    "697435105"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2023-03-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 9901516.0,
+   "last_value_usd": 9901516.0,
+   "put_call_only": false
+  },
+  "pluralsight": {
+   "name": "PLURALSIGHT INC",
+   "cusips": [
+    "72941B106"
+   ],
+   "classes": [
+    "COM CL A"
+   ],
+   "periods": [
+    "2018-06-30",
+    "2018-09-30",
+    "2018-12-31",
+    "2019-03-31",
+    "2019-06-30",
+    "2019-09-30",
+    "2019-12-31",
+    "2020-03-31",
+    "2020-06-30",
+    "2020-12-31",
+    "2021-03-31"
+   ],
+   "first_period": "2018-06-30",
+   "last_period": "2021-03-31",
+   "max_value_usd": 1428687000.0,
+   "last_value_usd": 116452000.0,
+   "put_call_only": false
+  },
+  "procore technologies": {
+   "name": "PROCORE TECHNOLOGIES INC",
+   "cusips": [
+    "74275K108"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31"
+   ],
+   "first_period": "2023-09-30",
+   "last_period": "2024-03-31",
+   "max_value_usd": 11691258.0,
+   "last_value_usd": 3952377.0,
+   "put_call_only": false
+  },
+  "ptc": {
+   "name": "PTC INC",
+   "cusips": [
+    "69370C100"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30"
+   ],
+   "first_period": "2023-03-31",
+   "last_period": "2024-09-30",
+   "max_value_usd": 13594392.0,
+   "last_value_usd": 3035088.0,
+   "put_call_only": false
+  },
+  "quantinuum": {
+   "name": "QUANTINUUM INC",
+   "cusips": [
+    "74768A104"
+   ],
+   "classes": [
+    "CL A COM"
+   ],
+   "periods": [
+    "2026-06-30"
+   ],
+   "first_period": "2026-06-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 4087000.0,
+   "last_value_usd": 4087000.0,
+   "put_call_only": false
+  },
+  "relic": {
+   "name": "NEW RELIC INC",
+   "cusips": [
+    "64829B100"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2014-12-31",
+    "2015-03-31"
+   ],
+   "first_period": "2014-12-31",
+   "last_period": "2015-03-31",
+   "max_value_usd": 80051000.0,
+   "last_value_usd": 79729000.0,
+   "put_call_only": false
+  },
+  "robinhood markets": {
+   "name": "ROBINHOOD MARKETS",
+   "cusips": [
+    "770700102"
+   ],
+   "classes": [
+    "COM CL A"
+   ],
+   "periods": [
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31"
+   ],
+   "first_period": "2025-06-30",
+   "last_period": "2026-03-31",
+   "max_value_usd": 5798790.0,
+   "last_value_usd": 2913026.0,
+   "put_call_only": false
+  },
+  "rubrik": {
+   "name": "RUBRIK INC.",
+   "cusips": [
+    "781154109"
+   ],
+   "classes": [
+    "CL A"
+   ],
+   "periods": [
+    "2024-06-30"
+   ],
+   "first_period": "2024-06-30",
+   "last_period": "2024-06-30",
+   "max_value_usd": 15330000.0,
+   "last_value_usd": 15330000.0,
+   "put_call_only": false
+  },
+  "salesforce": {
+   "name": "SALESFORCE COM INC",
+   "cusips": [
+    "79466L302"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2013-09-30",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-12-31"
+   ],
+   "first_period": "2013-09-30",
+   "last_period": "2024-12-31",
+   "max_value_usd": 31021540.0,
+   "last_value_usd": 16549335.0,
+   "put_call_only": false
+  },
+  "samsara": {
+   "name": "SAMSARA INC",
+   "cusips": [
+    "79589L106"
+   ],
+   "classes": [
+    "COM CL A"
+   ],
+   "periods": [
+    "2025-03-31",
+    "2025-09-30",
+    "2025-12-31"
+   ],
+   "first_period": "2025-03-31",
+   "last_period": "2025-12-31",
+   "max_value_usd": 7718200.0,
+   "last_value_usd": 6616388.0,
+   "put_call_only": false
+  },
+  "seagate technology": {
+   "name": "SEAGATE TECHNOLOGY HOLDINGS",
+   "cusips": [
+    "G7997R103"
+   ],
+   "classes": [
+    "ORD SHS"
+   ],
+   "periods": [
+    "2026-06-30"
+   ],
+   "first_period": "2026-06-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 7864750.0,
+   "last_value_usd": 7864750.0,
+   "put_call_only": false
+  },
+  "sentinelone": {
+   "name": "SENTINELONE INC",
+   "cusips": [
+    "81730H109"
+   ],
+   "classes": [
+    "CL A"
+   ],
+   "periods": [
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30"
+   ],
+   "first_period": "2021-06-30",
+   "last_period": "2025-09-30",
+   "max_value_usd": 1845148000.0,
+   "last_value_usd": 148364708.0,
+   "put_call_only": false
+  },
+  "servicenow": {
+   "name": "SERVICENOW INC",
+   "cusips": [
+    "81762P102"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2023-03-31",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30"
+   ],
+   "first_period": "2023-03-31",
+   "last_period": "2025-06-30",
+   "max_value_usd": 33711816.0,
+   "last_value_usd": 10692032.0,
+   "put_call_only": false
+  },
+  "servicetitan": {
+   "name": "SERVICETITAN INC",
+   "cusips": [
+    "81764X103"
+   ],
+   "classes": [
+    "SHS CL A"
+   ],
+   "periods": [
+    "2024-12-31"
+   ],
+   "first_period": "2024-12-31",
+   "last_period": "2024-12-31",
+   "max_value_usd": 102870.0,
+   "last_value_usd": 102870.0,
+   "put_call_only": false
+  },
+  "sfx entmt": {
+   "name": "SFX ENTMT INC",
+   "cusips": [
+    "784178303"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2013-12-31",
+    "2014-03-31",
+    "2014-06-30",
+    "2014-09-30",
+    "2014-12-31",
+    "2015-03-31",
+    "2015-06-30",
+    "2015-09-30"
+   ],
+   "first_period": "2013-12-31",
+   "last_period": "2015-09-30",
+   "max_value_usd": 18727000.0,
+   "last_value_usd": 729000.0,
+   "put_call_only": false
+  },
+  "shopify": {
+   "name": "SHOPIFY INC",
+   "cusips": [
+    "82509L107",
+    "82509L907"
+   ],
+   "classes": [
+    "CL A",
+    "CL A SUB VTG SHS"
+   ],
+   "periods": [
+    "2015-06-30",
+    "2015-09-30",
+    "2015-12-31",
+    "2016-03-31",
+    "2016-06-30",
+    "2021-09-30",
+    "2022-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2015-06-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 75203000.0,
+   "last_value_usd": 17519779.0,
+   "put_call_only": false
+  },
+  "shutterstock": {
+   "name": "Shutterstock Inc.",
+   "cusips": [
+    "825690100"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2012-12-31",
+    "2013-03-31",
+    "2013-06-30",
+    "2013-09-30",
+    "2013-12-31",
+    "2014-03-31",
+    "2014-06-30",
+    "2014-09-30"
+   ],
+   "first_period": "2012-12-31",
+   "last_period": "2014-09-30",
+   "max_value_usd": 362933000.0,
+   "last_value_usd": 92062000.0,
+   "put_call_only": false
+  },
+  "smartsheet": {
+   "name": "SMARTSHEET INC",
+   "cusips": [
+    "83200N103"
+   ],
+   "classes": [
+    "COM CL A"
+   ],
+   "periods": [
+    "2018-06-30",
+    "2018-09-30",
+    "2018-12-31",
+    "2019-03-31",
+    "2019-06-30"
+   ],
+   "first_period": "2018-06-30",
+   "last_period": "2019-06-30",
+   "max_value_usd": 898131000.0,
+   "last_value_usd": 500021000.0,
+   "put_call_only": false
+  },
+  "snowflake": {
+   "name": "SNOWFLAKE INC",
+   "cusips": [
+    "833445109"
+   ],
+   "classes": [
+    "CL A"
+   ],
+   "periods": [
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30"
+   ],
+   "first_period": "2021-06-30",
+   "last_period": "2022-09-30",
+   "max_value_usd": 20901000.0,
+   "last_value_usd": 11931000.0,
+   "put_call_only": false
+  },
+  "solarwinds": {
+   "name": "SolarWinds, Inc.",
+   "cusips": [
+    "83416B109"
+   ],
+   "classes": [
+    "Com"
+   ],
+   "periods": [
+    "2010-06-30",
+    "2010-09-30"
+   ],
+   "first_period": "2010-06-30",
+   "last_period": "2010-09-30",
+   "max_value_usd": 44557000.0,
+   "last_value_usd": 44557000.0,
+   "put_call_only": false
+  },
+  "space exploration tech": {
+   "name": "SPACE EXPLORATION TECH",
+   "cusips": [
+    "84615Q103"
+   ],
+   "classes": [
+    "CLASS A COM STK"
+   ],
+   "periods": [
+    "2026-06-30"
+   ],
+   "first_period": "2026-06-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 25629000.0,
+   "last_value_usd": 25629000.0,
+   "put_call_only": false
+  },
+  "spotify technology": {
+   "name": "SPOTIFY TECHNOLOGY SA",
+   "cusips": [
+    "L8681T102"
+   ],
+   "classes": [
+    "SHS"
+   ],
+   "periods": [
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2024-03-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 15226174.0,
+   "last_value_usd": 9992964.0,
+   "put_call_only": false
+  },
+  "stubhub": {
+   "name": "STUBHUB HLDGS INC",
+   "cusips": [
+    "86384P109"
+   ],
+   "classes": [
+    "CL A"
+   ],
+   "periods": [
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2025-09-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 57885479.0,
+   "last_value_usd": 44239081.0,
+   "put_call_only": false
+  },
+  "synopsys": {
+   "name": "SYNOPSYS INC",
+   "cusips": [
+    "871607107"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31"
+   ],
+   "first_period": "2024-06-30",
+   "last_period": "2025-12-31",
+   "max_value_usd": 27231975.0,
+   "last_value_usd": 7125652.0,
+   "put_call_only": false
+  },
+  "taiwan semiconductor": {
+   "name": "TAIWAN SEMICONDUCTOR",
+   "cusips": [
+    "874039100"
+   ],
+   "classes": [
+    "SPONSORED ADS"
+   ],
+   "periods": [
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30"
+   ],
+   "first_period": "2023-03-31",
+   "last_period": "2023-09-30",
+   "max_value_usd": 634370.0,
+   "last_value_usd": 634370.0,
+   "put_call_only": false
+  },
+  "taiwan semiconductor mfg": {
+   "name": "TAIWAN SEMICONDUCTOR MFG LTD",
+   "cusips": [
+    "874039100"
+   ],
+   "classes": [
+    "SPONSORED ADS"
+   ],
+   "periods": [
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2023-12-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 112059413.0,
+   "last_value_usd": 112059413.0,
+   "put_call_only": false
+  },
+  "tenable": {
+   "name": "TENABLE HLDGS INC",
+   "cusips": [
+    "88025T102"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2018-09-30",
+    "2018-12-31",
+    "2019-03-31",
+    "2019-06-30",
+    "2019-09-30",
+    "2019-12-31",
+    "2020-03-31",
+    "2020-06-30",
+    "2020-12-31",
+    "2021-03-31",
+    "2021-06-30",
+    "2021-09-30"
+   ],
+   "first_period": "2018-09-30",
+   "last_period": "2021-09-30",
+   "max_value_usd": 1102826000.0,
+   "last_value_usd": 803000.0,
+   "put_call_only": false
+  },
+  "tesla": {
+   "name": "TESLA INC",
+   "cusips": [
+    "88160R101"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2025-12-31"
+   ],
+   "first_period": "2025-12-31",
+   "last_period": "2025-12-31",
+   "max_value_usd": 3660721.0,
+   "last_value_usd": 3660721.0,
+   "put_call_only": false
+  },
+  "texas instruments": {
+   "name": "TEXAS INSTRUMENTS",
+   "cusips": [
+    "882508104"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2026-03-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 9812464.0,
+   "last_value_usd": 9812464.0,
+   "put_call_only": false
+  },
+  "the real brokerage": {
+   "name": "THE REAL BROKERAGE INC",
+   "cusips": [
+    "75585H206"
+   ],
+   "classes": [
+    "COM NEW"
+   ],
+   "periods": [
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2021-12-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 191884013.0,
+   "last_value_usd": 12683080.0,
+   "put_call_only": false
+  },
+  "tintri": {
+   "name": "TINTRI INC",
+   "cusips": [
+    "88770Q105"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2017-06-30",
+    "2017-09-30",
+    "2017-12-31",
+    "2018-03-31"
+   ],
+   "first_period": "2017-06-30",
+   "last_period": "2018-03-31",
+   "max_value_usd": 38786000.0,
+   "last_value_usd": 4911000.0,
+   "put_call_only": false
+  },
+  "toast": {
+   "name": "TOAST INC",
+   "cusips": [
+    "888787108"
+   ],
+   "classes": [
+    "CL A"
+   ],
+   "periods": [
+    "2021-09-30"
+   ],
+   "first_period": "2021-09-30",
+   "last_period": "2021-09-30",
+   "max_value_usd": 999000.0,
+   "last_value_usd": 999000.0,
+   "put_call_only": false
+  },
+  "twilio": {
+   "name": "TWILIO INC",
+   "cusips": [
+    "90138F102"
+   ],
+   "classes": [
+    "CL A"
+   ],
+   "periods": [
+    "2021-06-30",
+    "2021-09-30"
+   ],
+   "first_period": "2021-06-30",
+   "last_period": "2021-09-30",
+   "max_value_usd": 21089000.0,
+   "last_value_usd": 21089000.0,
+   "put_call_only": false
+  },
+  "twitter": {
+   "name": "TWITTER INC",
+   "cusips": [
+    "90184L102"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2013-12-31",
+    "2014-03-31",
+    "2014-06-30",
+    "2014-09-30",
+    "2014-12-31"
+   ],
+   "first_period": "2013-12-31",
+   "last_period": "2014-12-31",
+   "max_value_usd": 1153967000.0,
+   "last_value_usd": 148139000.0,
+   "put_call_only": false
+  },
+  "uber technologies": {
+   "name": "UBER TECHNOLOGIES INC",
+   "cusips": [
+    "90353T100"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2024-09-30"
+   ],
+   "first_period": "2024-09-30",
+   "last_period": "2024-09-30",
+   "max_value_usd": 4479536.0,
+   "last_value_usd": 4479536.0,
+   "put_call_only": false
+  },
+  "udemy": {
+   "name": "UDEMY INC",
+   "cusips": [
+    "902685106"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31"
+   ],
+   "first_period": "2021-12-31",
+   "last_period": "2026-03-31",
+   "max_value_usd": 821311000.0,
+   "last_value_usd": 175709041.0,
+   "put_call_only": false
+  },
+  "usertesting": {
+   "name": "USERTESTING",
+   "cusips": [
+    "91734E101"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31"
+   ],
+   "first_period": "2021-12-31",
+   "last_period": "2022-12-31",
+   "max_value_usd": 269951000.0,
+   "last_value_usd": 189647807.0,
+   "put_call_only": false
+  },
+  "vertiv": {
+   "name": "VERTIV HOLDINGS CO",
+   "cusips": [
+    "92537N108"
+   ],
+   "classes": [
+    "COM CL A",
+    "COM"
+   ],
+   "periods": [
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-12-31"
+   ],
+   "first_period": "2024-03-31",
+   "last_period": "2025-12-31",
+   "max_value_usd": 3658242.0,
+   "last_value_usd": 3204558.0,
+   "put_call_only": false
+  },
+  "visa": {
+   "name": "VISA",
+   "cusips": [
+    "92826C839"
+   ],
+   "classes": [
+    "COM CL A"
+   ],
+   "periods": [
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31"
+   ],
+   "first_period": "2025-06-30",
+   "last_period": "2025-12-31",
+   "max_value_usd": 7152730.0,
+   "last_value_usd": 7152730.0,
+   "put_call_only": false
+  },
+  "walkme": {
+   "name": "WALKME LTD",
+   "cusips": [
+    "M97628107"
+   ],
+   "classes": [
+    "ORD SHS"
+   ],
+   "periods": [
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30"
+   ],
+   "first_period": "2021-06-30",
+   "last_period": "2024-06-30",
+   "max_value_usd": 721551000.0,
+   "last_value_usd": 338825907.0,
+   "put_call_only": false
+  },
+  "wework": {
+   "name": "WEWORK INC",
+   "cusips": [
+    "96209A104"
+   ],
+   "classes": [
+    "CL A"
+   ],
+   "periods": [
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30"
+   ],
+   "first_period": "2021-12-31",
+   "last_period": "2023-06-30",
+   "max_value_usd": 107500000.0,
+   "last_value_usd": 3192500.0,
+   "put_call_only": false
+  },
+  "wix": {
+   "name": "WIX COM LTD",
+   "cusips": [
+    "M98068105"
+   ],
+   "classes": [
+    "SHS"
+   ],
+   "periods": [
+    "2013-12-31",
+    "2014-03-31",
+    "2014-06-30",
+    "2014-09-30",
+    "2014-12-31",
+    "2015-03-31"
+   ],
+   "first_period": "2013-12-31",
+   "last_period": "2015-03-31",
+   "max_value_usd": 99834000.0,
+   "last_value_usd": 16943000.0,
+   "put_call_only": false
+  },
+  "workday": {
+   "name": "WORKDAY INC",
+   "cusips": [
+    "98138H101"
+   ],
+   "classes": [
+    "CL A"
+   ],
+   "periods": [
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2025-03-31"
+   ],
+   "first_period": "2023-03-31",
+   "last_period": "2025-03-31",
+   "max_value_usd": 13962104.0,
+   "last_value_usd": 3853245.0,
+   "put_call_only": false
+  },
+  "yext": {
+   "name": "YEXT INC",
+   "cusips": [
+    "98585N106"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2017-06-30",
+    "2017-09-30",
+    "2017-12-31",
+    "2018-03-31",
+    "2018-06-30"
+   ],
+   "first_period": "2017-06-30",
+   "last_period": "2018-06-30",
+   "max_value_usd": 149123000.0,
+   "last_value_usd": 149123000.0,
+   "put_call_only": false
+  },
+  "zoom communications": {
+   "name": "ZOOM COMMUNICATIONS INC",
+   "cusips": [
+    "98980L101"
+   ],
+   "classes": [
+    "CL A"
+   ],
+   "periods": [
+    "2024-12-31",
+    "2025-03-31"
+   ],
+   "first_period": "2024-12-31",
+   "last_period": "2025-03-31",
+   "max_value_usd": 5378099.0,
+   "last_value_usd": 4861443.0,
+   "put_call_only": false
+  },
+  "zoom video communications in": {
+   "name": "ZOOM VIDEO COMMUNICATIONS IN",
+   "cusips": [
+    "98980L101"
+   ],
+   "classes": [
+    "CL A"
+   ],
+   "periods": [
+    "2024-09-30"
+   ],
+   "first_period": "2024-09-30",
+   "last_period": "2024-09-30",
+   "max_value_usd": 2510640.0,
+   "last_value_usd": 2510640.0,
+   "put_call_only": false
+  },
+  "zscaler": {
+   "name": "ZSCALER INC",
+   "cusips": [
+    "98980G102"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30"
+   ],
+   "first_period": "2024-03-31",
+   "last_period": "2025-06-30",
+   "max_value_usd": 6121830.0,
+   "last_value_usd": 6121830.0,
+   "put_call_only": false
+  }
+ }
+}

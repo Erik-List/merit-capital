@@ -1,0 +1,297 @@
+{
+ "insight-partners": {
+  "_readme": "Identity merges for Insight Partners. The EDGAR layers name a company by its registered or holding-company name while the firm's site uses the brand, and the firm's buyout vehicles file Form D as 'X Parent' or 'X HoldCo'. Canonical is the rendering on the firm's live site. A holding company whose platform is a control position is not merged: it takes its own control verdict, because the build applies exclusions before merges and a merge onto an excluded canonical never runs (COLLECTION.md 8).",
+  "merges": [
+   {
+    "canonical": "airwatch",
+    "duplicates": [
+     "a-w-s-holding-llc"
+    ],
+    "reason": "A.W.S. Holding, LLC (Atlanta) is AirWatch's holding company; its 2013 Form D is the $200M round the firm's post of 2013-02-24 announces"
+   },
+   {
+    "canonical": "abnormal-ai",
+    "duplicates": [
+     "abnormal-security-corp"
+    ],
+    "reason": "Abnormal Security Corp renamed itself Abnormal AI in 2025"
+   },
+   {
+    "canonical": "achieve3000",
+    "duplicates": [
+     "ac-holdco-inc"
+    ],
+    "reason": "AC HoldCo, Inc. files from the firm's own address with Achieve3000's officers (Lakewood and Red Bank, NJ): Achieve3000's holding company"
+   },
+   {
+    "canonical": "alma",
+    "duplicates": [
+     "arlozorov9-inc"
+    ],
+    "reason": "Arlozorov9, Inc. is Alma's registered name (its Form Ds name Alma's founder and board); the 2021 rounds are Alma's Series B and C"
+   },
+   {
+    "canonical": "inspiren",
+    "duplicates": [
+     "all-inspire-health-inc"
+    ],
+    "reason": "All Inspire Health, Inc. is Inspiren's registered name (Brooklyn)"
+   },
+   {
+    "canonical": "apprentice-io",
+    "duplicates": [
+     "apprentice-fs-inc"
+    ],
+    "reason": "Apprentice FS, Inc. (Jersey City) trades as Apprentice.io"
+   },
+   {
+    "canonical": "a-team",
+    "duplicates": [
+     "ateams-inc"
+    ],
+    "reason": "ATeams, Inc. trades as A.Team"
+   },
+   {
+    "canonical": "kinetic-social",
+    "duplicates": [
+     "azoogle-com-inc"
+    ],
+    "reason": "Azoogle.com, Inc. became Epic Media Group, from which Kinetic Social was spun out in 2011; the firm lists Kinetic Social under Epic's own web address, so the 2010 Form D and the listing are one investment"
+   },
+   {
+    "canonical": "alteryx",
+    "duplicates": [
+     "azurite-software-holdings-inc"
+    ],
+    "reason": "Azurite Software Holdings, Inc. (Irvine) is the vehicle of the 2024 take-private of Alteryx by Clearlake and Insight; the row is Alteryx, a member on its 2014 round"
+   },
+   {
+    "canonical": "keeper-security",
+    "duplicates": [
+     "callpod-inc"
+    ],
+    "reason": "Callpod, Inc. (Chicago) trades as Keeper Security"
+   },
+   {
+    "canonical": "fuze",
+    "duplicates": [
+     "callwave-inc"
+    ],
+    "reason": "CallWave, Inc. renamed itself Fuze; the funds' ownership filings from 2004 are the CallWave position"
+   },
+   {
+    "canonical": "candy-fanatics-fka-candy-digital",
+    "duplicates": [
+     "candy-digital-inc"
+    ],
+    "reason": "Candy Digital, Inc. is the company the firm lists as Candy Fanatics (fka Candy Digital)"
+   },
+   {
+    "canonical": "capella-university",
+    "duplicates": [
+     "capella-education-co"
+    ],
+    "reason": "Capella Education Company is the listed parent of Capella University; the funds' 2006 filings are the position the firm lists",
+    "name": "Capella Education"
+   },
+   {
+    "canonical": "ceresai",
+    "duplicates": [
+     "ceres-imaging-inc"
+    ],
+    "reason": "Ceres Imaging, Inc. renamed itself Ceres AI"
+   },
+   {
+    "canonical": "colab-software",
+    "duplicates": [
+     "colab-ai-inc"
+    ],
+    "reason": "CoLab AI Inc. is CoLab Software's US entity"
+   },
+   {
+    "canonical": "xchange-formerly-exchange-applications-inc",
+    "duplicates": [
+     "exchange-applications-inc"
+    ],
+    "reason": "Exchange Applications, Inc. renamed itself Xchange; the firm lists it as 'xchange (Formerly Exchange Applications Inc.)'",
+    "name": "Xchange"
+   },
+   {
+    "canonical": "averna-therapeutics",
+    "duplicates": [
+     "exsilio-therapeutics-inc"
+    ],
+    "reason": "Exsilio Therapeutics renamed itself Averna Therapeutics (the firm's own panel says so)"
+   },
+   {
+    "canonical": "fiddler-ai",
+    "duplicates": [
+     "fiddler-labs-inc"
+    ],
+    "reason": "Fiddler Labs, Inc. trades as Fiddler AI"
+   },
+   {
+    "canonical": "openenglish",
+    "duplicates": [
+     "foxyp2-inc-f-k-a-thinkglish-inc",
+     "open-education-holdings-inc"
+    ],
+    "reason": "FOXYP2, Inc. (formerly Thinkglish) and Open Education Holdings Inc. (Miami) are Open English's parent companies; both Form Ds name the firm's partners",
+    "name": "Open English"
+   },
+   {
+    "canonical": "glia-fka-salemove",
+    "duplicates": [
+     "glia-technologies-inc"
+    ],
+    "reason": "Glia Technologies, Inc. is Glia (fka SaleMove)"
+   },
+   {
+    "canonical": "quantive-fka-gtmhub",
+    "duplicates": [
+     "gtmhub-usa-inc"
+    ],
+    "reason": "Gtmhub USA, Inc. is Quantive (fka Gtmhub)"
+   },
+   {
+    "canonical": "honeycomb-io",
+    "duplicates": [
+     "hound-technology-inc"
+    ],
+    "reason": "Hound Technology, Inc. trades as Honeycomb"
+   },
+   {
+    "canonical": "misfits-market-fka-imperfect-foods",
+    "duplicates": [
+     "imperfect-foods-inc"
+    ],
+    "reason": "Imperfect Foods, Inc. is the company the firm lists as Misfits Market (fka Imperfect Foods)"
+   },
+   {
+    "canonical": "project-canary",
+    "duplicates": [
+     "international-environmental-standards-pbc"
+    ],
+    "reason": "International Environmental Standards, PBC (Denver) trades as Project Canary; its 2022 Form D is the $111M round the firm's post announces"
+   },
+   {
+    "canonical": "iterative-health-fka-iterative-scopes",
+    "duplicates": [
+     "iterative-scopes-inc"
+    ],
+    "reason": "Iterative Scopes, Inc. renamed itself Iterative Health"
+   },
+   {
+    "canonical": "ntop",
+    "duplicates": [
+     "ntopology-inc"
+    ],
+    "reason": "nTopology Inc. renamed itself nTop"
+   },
+   {
+    "canonical": "own-company",
+    "duplicates": [
+     "ownbackup-ltd"
+    ],
+    "reason": "OwnBackup Ltd renamed itself Own Company"
+   },
+   {
+    "canonical": "pictorlabs-ai",
+    "duplicates": [
+     "pictor-labs-inc"
+    ],
+    "reason": "Pictor Labs, Inc. trades as PictorLabs.ai"
+   },
+   {
+    "canonical": "prophecy-io",
+    "duplicates": [
+     "simpledatalabs-inc"
+    ],
+    "reason": "SimpleDataLabs Inc trades as Prophecy"
+   },
+   {
+    "canonical": "sentinelone",
+    "duplicates": [
+     "sentinel-labs-inc"
+    ],
+    "reason": "Sentinel Labs, Inc. is SentinelOne's former registered name"
+   },
+   {
+    "canonical": "6-waves",
+    "duplicates": [
+     "six-waves-inc"
+    ],
+    "reason": "Six Waves Inc. is the company the firm lists as 6 Waves"
+   },
+   {
+    "canonical": "mural",
+    "duplicates": [
+     "tactivos-inc"
+    ],
+    "reason": "Tactivos, Inc. trades as MURAL"
+   },
+   {
+    "canonical": "leal-health-fka-trialjectory",
+    "duplicates": [
+     "trialmatch-me-inc"
+    ],
+    "reason": "trialmatch.me, Inc. (Closter, NJ) traded as TrialJectory, now Leal Health"
+   },
+   {
+    "canonical": "nymbus",
+    "duplicates": [
+     "vensure-enterprises-llc"
+    ],
+    "reason": "Vensure Enterprises, LLC is the holding company of NYMBUS's founder through which the firm's 2015 money went into NYMBUS; its one Form D names two of the firm's partners"
+   },
+   {
+    "canonical": "vts",
+    "duplicates": [
+     "view-the-space-inc"
+    ],
+    "reason": "View The Space, Inc. trades as VTS"
+   },
+   {
+    "canonical": "fleetworthy",
+    "duplicates": [
+     "great-dane-holding-llc",
+     "tollpass-llc"
+    ],
+    "reason": "Great Dane Holding, LLC (Latham, NY and Atlanta) and Tollpass, LLC (care of Bestpass, Albany) are the holding companies of Bestpass, now Fleetworthy; the firm's post calls its investment a minority one, beside Susquehanna Growth Equity"
+   },
+   {
+    "canonical": "marigold-fka-campaign-monitor",
+    "duplicates": [
+     "campaign-monitor-holdings-pty-ltd",
+     "campaign-monitor-holdings-uk-ltd"
+    ],
+    "reason": "Campaign Monitor Holdings Pty Ltd (Sydney) and Campaign Monitor Holdings (UK) Ltd are the holding companies of Campaign Monitor, now Marigold; their Form Ds name the firm's partners and the two founders"
+   },
+   {
+    "canonical": "gradial",
+    "duplicates": [
+     "panorama-artificial-intelligence-corp"
+    ],
+    "reason": "Panorama Artificial Intelligence Corp. (Seattle) trades as Gradial; its 2026 Form D is the $65M Series C the firm's post announces"
+   },
+   {
+    "canonical": "recorded-future",
+    "duplicates": [
+     "rf-parent-inc",
+     "rf-ultimate-parent-inc"
+    ],
+    "reason": "RF Parent, Inc. and RF Ultimate Parent, Inc. are the vehicles of the 2019 acquisition of Recorded Future; the row is Recorded Future, a member on its 2017 round"
+   }
+  ],
+  "rejects": [],
+  "never_merge": [
+   {
+    "slugs": [
+     "resolve",
+     "resolve-systems"
+    ],
+    "reason": "Resolve (resolvepay.com, San Francisco, B2B net terms) and Resolve Systems (Irvine, IT incident response, bought by the firm in 2017) are two companies; the Form D joined to 'resolve' is Resolve Systems'"
+   }
+  ]
+ }
+}

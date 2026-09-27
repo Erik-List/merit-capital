@@ -1,0 +1,731 @@
+{
+  "slug": "insight-partners",
+  "name": "Insight Partners",
+  "wayback": {
+    "cdx_domain": "insightpartners.com",
+    "site_url_base": "https://www.insightpartners.com",
+    "eras": [],
+    "_note": "Eras are added once the archive answers: the Internet Archive was in a machine-wide cooldown at kickoff (shared_throttle ia.cooldown, until about 02:05 UTC 2026-09-27), so no CDX query was possible when this file was written. The live site already carries the historical book (292 of 856 listed companies read 'Prior Investment'), so the archive's job here is dating listings and recovering delisted rows, not enumeration.",
+    "non_company_slugs": [
+      "portfolio",
+      "all",
+      "team",
+      "ideas",
+      "events",
+      "about",
+      "about-us",
+      "contact",
+      "contact-us",
+      "news",
+      "press",
+      "blog",
+      "careers",
+      "onsite",
+      "ignite",
+      "ippe",
+      "scaleup",
+      "why-insight",
+      "insight-partners",
+      "insight-venture-partners",
+      "may_habib"
+    ]
+  },
+  "roster": {
+    "cdx_patterns": [
+      "insightpartners.com/team/*"
+    ],
+    "site_team_groups": [
+      "Investors"
+    ],
+    "slug_re": "/team/([a-z][a-z0-9-]*[a-z0-9])/?$",
+    "listing_href_re": "/team/([a-z][a-z0-9-]*[a-z0-9])[\"'/]",
+    "not_a_person": [
+      "team",
+      "all",
+      "investors",
+      "onsite-experts",
+      "firm-operations",
+      "capital-partnerships",
+      "advisors",
+      "cio-council",
+      "government-advisory-board"
+    ],
+    "_note": "The live team page mixes four kinds of people: Investors (140), Onsite Experts (52, the operating team), Firm Operations and Capital Partnerships (27), and Advisors (the CIO Council and Government Advisory Board, 68 outside executives who hold no seat for the firm). Only the Investors department feeds the Form D sweep. The provisional roster is built from the live Investors department, the Investment Team names on the 856 company panels and the related persons on the firm's own fund Form Ds (scratch/build-roster.py); archived people pages are unioned in after the archive cooldown."
+  },
+  "site_api": {
+    "type": "scrape",
+    "sources": [
+      {
+        "parser": "file_list",
+        "list": "company-pages",
+        "path": "data/collection/investors/insight-partners/sources/site/company-pages.json",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "key_field": "slug",
+        "sectors": "sectors",
+        "extras": [
+          "slug",
+          "id",
+          "invest_year",
+          "invest_date",
+          "initial_investment",
+          "site_status",
+          "partners",
+          "location",
+          "company_site",
+          "linkedin",
+          "description",
+          "investment_journey",
+          "milestones",
+          "ideas"
+        ],
+        "_note": "The live portfolio: every sfcompany post (856), each read through the site's own insight/v1 panel endpoint (scratch/pull-site-insight.py). 'initial_investment' is the firm's own month and year of first investment; invest_year and invest_date are parsed from it. 'site_status' is the FIRM's position (Current Investment / Prior Investment), never the company's state. The panel publishes no round word, so there is no entry_stage_fields entry; the case-study text on the few panels that carry one ('investment_journey') names a round in words and is read by the judge."
+      }
+    ],
+    "team_sources": [
+      {
+        "parser": "file_list",
+        "list": "team-pages",
+        "path": "data/collection/investors/insight-partners/sources/site/team-pages.json",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "key_field": "slug",
+        "extras": [
+          "slug",
+          "title",
+          "group",
+          "departments",
+          "linkedin_url",
+          "x_url",
+          "companies"
+        ]
+      }
+    ],
+    "team_buckets": {
+      "Investors": "investing"
+    },
+    "_note": "insightpartners.com is WordPress with a theme REST namespace, insight/v1, that feeds the Vue portfolio and team grids; wp/v2 serves the post types sfcompany (856) and sfuser (288) and the Ideas archive (about 1,665 posts). Every route is public and is what the site's own pages call."
+  },
+  "edgar": {
+    "seed_queries": [
+      "insight+venture+partners",
+      "insight+venture+associates",
+      "insight+venture+management",
+      "insight+partners",
+      "insight+associates",
+      "insight+holdings",
+      "insight+vision+capital",
+      "ivp+cif",
+      "ippe"
+    ],
+    "fts_phrases": [
+      "Insight Venture Partners",
+      "Insight Venture Management",
+      "Insight Venture Associates",
+      "Insight Holdings Group",
+      "Insight Partners XI",
+      "Insight Partners XII",
+      "Insight Partners (Cayman)"
+    ],
+    "fts_own_pattern": "insight (venture )?(partners|associates|management)|insight associates|insight holdings group|ivp cif|ippe ",
+    "_note": "Entity-qualified phrases only. The bare phrase 'Insight Partners' is shared by unrelated registrants (Capital Insight Partners, Insight Wealth Partners, Insight Investment), so the full-text sweep runs on the vehicle families. 'Insight Equity' (I to III, Mezzanine, Holdings; Southlake, Texas) is an unrelated private-equity firm and is classified external.",
+    "thirteenf_ciks": [
+      "1305473"
+    ],
+    "_thirteenf_note": "Insight Holdings Group, LLC (CIK 1305473, the home address) files the firm's 13F-HR; Insight Venture Management, LLC (CIK 1498545) files 13F-NT notices pointing to it. The layer never seeds membership (T3): it corroborates a public status, dates the first public quarter, and lists the issuers the recall probe checks for a pre-IPO round."
+  },
+  "wikipedia": {
+    "phrases": [
+      "Insight Partners",
+      "Insight Venture Partners"
+    ]
+  },
+  "desks": {
+    "home": "us",
+    "partition": [
+      "public"
+    ],
+    "rank": [
+      "us",
+      "public",
+      "unknown"
+    ],
+    "classify": [
+      {
+        "desk": "external",
+        "patterns": [
+          "^insight equity",
+          "insight wealth",
+          "capital insight",
+          "insight investment",
+          "^insight holdings \\(de\\)",
+          "^insight holdings inc",
+          "^ippei",
+          "insight (venture )?partners x[ivx]* access",
+          "\\(icapital\\)"
+        ]
+      },
+      {
+        "desk": "public",
+        "patterns": [
+          "public equities",
+          "^ippe "
+        ]
+      },
+      {
+        "desk": "us",
+        "patterns": [
+          "^insight venture (partners|associates|management)",
+          "^insight partners",
+          "^insight associates",
+          "^insight holdings group",
+          "^insight vision capital",
+          "^ivp cif",
+          "^ivp \\(venice\\)",
+          "^ivp gp \\(venice\\)",
+          "^insight capital partners",
+          "^insight e2open",
+          "^insight falcon",
+          "^insight satellite",
+          "^insight sn holdings",
+          "^insight-salmon river",
+          "^shutterstock investors",
+          "^star trinity",
+          "^grace software cross fund"
+        ]
+      }
+    ],
+    "_note": "One registered adviser, Insight Venture Management, LLC (CRD 142994, SEC 801-67560), 1114 Avenue of the Americas, 36th Floor, New York; no relying adviser and no brand-sharing registration (decisions.md D1). The public-equities vehicles (Insight Partners Public Equities, IPPE) are a non-venture strategy of the same adviser and partition as 'public' (T1 strategy desks). The buyout-named vehicles (Growth-Buyout Coinvestment Fund, XII Buyout Annex Fund, XIII Growth Buyout Fund) invest beside the flagship funds, which hold control positions themselves, so they stay on the home desk and control is decided per transaction (decisions.md D2, D3). External: the Insight Equity family (an unrelated Texas firm), the Access and iCapital feeders (third-party feeders, the Thrive IX Access precedent). Desks resolve by CIK and filing address, never by the name pattern alone. Co-filer vehicles with no fund name resolve by filing address (COLLECTION.md 5.3): Insight Capital Partners III and its Cayman and co-investor parallels (the firm's Fund III, filing from 527 Madison Avenue and 680 Fifth Avenue, its earlier offices), Insight-Salmon River LLC (680 Fifth Avenue, 8th floor), and the holding vehicles Grace Software Cross Fund Holdings, Insight E2open Aggregator, Insight Falcon, Insight Satellite Co-Invest, Insight SN Holdings, Shutterstock Investors and Star Trinity (all 1114 Avenue of the Americas or care of Insight) are home-desk vehicles. Salmon River Capital (S. Joshua Lewis's firm, which shared the 680 Fifth Avenue floor) and Scott Maxwell (a partner until 2006, then OpenView) stay external."
+  },
+  "profile": {
+    "own_vehicle_pattern": "^(insight venture (partners|associates|management)|insight partners|insight associates|insight holdings group|insight vision capital|ivp cif|ippe )",
+    "adv_crd": "142994",
+    "focus_min_companies": 40,
+    "focus_crosswalk": {
+      "AI/ML Ops": "AI & Applied AI",
+      "Architecture, Engineering, and Construction": "SaaS",
+      "B2B": "SaaS",
+      "B2B GTM": "SaaS",
+      "B2C MarTech & Customer Support": "SaaS",
+      "BioTech/Therapeutics": "Healthcare & Bio",
+      "Consumer": "Consumer & Marketplaces",
+      "Cybersecurity": "Security",
+      "Data & Data Mgmt.": "Data Infrastructure",
+      "DevOps": "DevTools & APIs",
+      "eCommerce Enablement": "SaaS",
+      "Energy & Climate": "Climate & Energy",
+      "Finance & Accounting": "SaaS",
+      "Financial Services": "Fintech & Payments",
+      "Gaming": "Media, Gaming & Advertising",
+      "Healthcare": "Healthcare & Bio",
+      "Human Capital": "SaaS",
+      "IT Mgmt": "Data Infrastructure",
+      "Legal & Compliance": "SaaS",
+      "Manufacturing": "Industrial & Robotics",
+      "Marketplace": "Consumer & Marketplaces",
+      "Other Vertical Market SaaS": "SaaS",
+      "Payments": "Fintech & Payments",
+      "Product & Process Management": "SaaS",
+      "Real Estate": "SaaS",
+      "Supply Chain & Logistics": "SaaS",
+      "Web3": "Crypto & Web3",
+      "Education": "SaaS",
+      "Government": "SaaS"
+    },
+    "_note": "Insight's own sector filter has 29 values. focus_min_companies is provisional at kickoff (about 4.5% of the expected base) and restated once the base lands."
+  },
+  "verify": {
+    "text_mention_leaks": [],
+    "cofiler_leaks": [],
+    "known_positions": [
+      "twitter",
+      "shopify",
+      "monday.com",
+      "wiz",
+      "jfrog",
+      "sentinelone",
+      "qualtrics",
+      "docusign",
+      "alteryx",
+      "hellofresh",
+      "delivery hero",
+      "trivago",
+      "udemy",
+      "calm",
+      "chargebee",
+      "n26",
+      "checkout.com",
+      "nextdoor",
+      "new relic",
+      "pluralsight",
+      "cvent",
+      "tumblr",
+      "docker",
+      "hootsuite",
+      "armis",
+      "recorded future",
+      "databricks",
+      "wix.com",
+      "walkme",
+      "ncino",
+      "mimecast",
+      "automattic",
+      "blablacar",
+      "postman",
+      "vinted",
+      "smartsheet",
+      "sonarsource",
+      "flipboard",
+      "gainsight"
+    ],
+    "sample_slugs": [],
+    "shape": {
+      "c2a_rate_max": 0.8,
+      "_note": "The 0.80 default stands. Insight enters at growth rounds by design, so the Seed cohort is expected to be small; a breach on a small cohort is ruled at close on the measured cohort. There is no ceiling on the $1B+ share (Erik, 2026-09-26)."
+    },
+    "not_members": [
+      {
+        "name": "Diligent",
+        "why": "control position: the firm's own post of 2016-04-15, 'Insight Venture Partners Completes Acquisition of Diligent Corporation' (a take-private); the panel dates the first investment April 2016, so the acquisition is the entry."
+      },
+      {
+        "name": "e2open",
+        "why": "control position: 'E2open Signs Definitive Agreement To Be Acquired By Insight Venture Partners' (the firm's post, 2015-02-05); first investment March 2015, the closing."
+      },
+      {
+        "name": "FireMon",
+        "why": "control position: 'FireMon's Momentum Drives Majority Investment From Insight Venture Partners' (the firm's post, 2014-06-11); first investment June 2014."
+      },
+      {
+        "name": "WorkForce Software",
+        "why": "control position: 'WorkForce Software Receives a Majority Investment From Insight Venture Partners' (the firm's post, 2014-04-23); first investment April 2014."
+      },
+      {
+        "name": "Resolve Systems",
+        "why": "control position: 'Resolve Systems ... Announces Acquisition by Insight Venture Partners' (the firm's post, 2017-05-24); first investment May 2017."
+      },
+      {
+        "name": "TriTech",
+        "why": "control position: 'Insight Venture Partners Completes Recapitalization of TriTech Software Systems' (the firm's post, 2014-11-21), a majority recapitalisation; first investment November 2014."
+      },
+      {
+        "name": "Cosmo Tech",
+        "why": "control position: 'Cosmo Tech Receives Majority Investment from Insight Partners and Former Accenture Executives' (the firm's post, 2024-12-02)."
+      },
+      {
+        "name": "Insight E2open Aggregator, LLC",
+        "why": "the firm's own holding vehicle (1114 Avenue of the Americas), never a company (T5)."
+      },
+      {
+        "name": "Grace Software Cross Fund Holdings, LLC",
+        "why": "the firm's own holding vehicle, never a company (T5)."
+      },
+      {
+        "name": "Shutterstock Investors LLC",
+        "why": "the firm's own holding vehicle for its Shutterstock position, never a company (T5); Shutterstock itself is the row."
+      },
+      {
+        "name": "Star Trinity, L.P.",
+        "why": "the firm's own holding vehicle, never a company (T5)."
+      },
+      {
+        "name": "Insight SN Holdings, LLC",
+        "why": "the firm's own holding vehicle, never a company (T5)."
+      },
+      {
+        "name": "Insight Vision Capital II, L.P.",
+        "why": "the firm's fund-of-funds vehicle; its holdings are LP stakes in other managers' funds (T5, decisions.md D2)."
+      },
+      {
+        "name": "Salmon River Capital",
+        "why": "S. Joshua Lewis's firm, a co-filer beside Insight on one 2006 filing and a neighbour at 680 Fifth Avenue; another firm, not a portfolio company."
+      },
+      {
+        "name": "Academic Partnerships",
+        "why": "control position: 'AP was previously owned by Insight Partners, a venture capital and private equity firm' (Wikipedia, on the company now called Risepoint, sold to Vistria in 2019); the terms of the November 2011 entry are not on record, so the verdict rest..."
+      },
+      {
+        "name": "Acuant",
+        "why": "control position: Acuant (formerly Card Scanning Solutions), identity verification, Los Angeles: 'Audax acquired a controlling interest in Acuant from Insight Venture Partners, Lightview Capital and Egis Capital Partners', the group that had bought the comp..."
+      },
+      {
+        "name": "Alert Holding Company, Inc.",
+        "why": "control position: Alert Holding Company, Inc. is the vehicle through which the firm bought Appriss in 2014, a control position (Appriss Retail and Bamboo Health carry their own verdicts; R2)."
+      },
+      {
+        "name": "Anaqua",
+        "why": "control position: the firm's July 2013 investment included 'the buyout of Anaqua's existing investors' (the firm's post, 2013-07-17), and Anaqua's own release of 2019 names the firm 'Anaqua's current controlling stakeholder' when Astorg bought the majority ..."
+      },
+      {
+        "name": "AppExtremes Group Holdings, LLC",
+        "why": "control position: AppExtremes Group Holdings, LLC is the holding company of Conga, a control position with its own verdict (R2)."
+      },
+      {
+        "name": "Appriss Health Holdings, Inc.",
+        "why": "control position: Appriss Health Holdings, Inc. is the holding company of Bamboo Health, a control position with its own verdict (R2)."
+      },
+      {
+        "name": "Appriss Retail",
+        "why": "control position: Appriss Retail is half of Appriss, which the seller JMI Equity lists as 'Acquired by Insight Venture Partners' (November 2014); the purchase ran through Alert Holding Company, whose Form D marks a business combination."
+      },
+      {
+        "name": "Argus Software",
+        "why": "control position: ARGUS Software is Realm Business Solutions renamed: CMGI's 10-Q of June 2006 records 'the acquisition of Realm Business Solutions Inc. by Insight Venture Partners and Lightyear Capital', the transaction the firm's panel dates March 2006, a..."
+      },
+      {
+        "name": "Azara Healthcare",
+        "why": "control position: Azara Healthcare 'received a majority investment from Insight Partners and subsequently joined forces with i2i Population Health' (the seller's adviser, February 2025)."
+      },
+      {
+        "name": "Bamboo Health",
+        "why": "control position: Bamboo Health is Appriss Health, half of Appriss: the firm's 2014 entry ran through Alert Holding Company, whose first Form D marks a business combination and seats three of the firm's people among four directors, and the press calls Appri..."
+      },
+      {
+        "name": "BeyondTrust",
+        "why": "control position: 'an affiliate of private equity firm, Veritas Capital, will acquire the company from private equity and venture capital firm, Insight Venture Partners' (the firm's post, 2014-09-02): the firm sold the whole company as its owner, and no ear..."
+      },
+      {
+        "name": "BMC Software",
+        "why": "control position: 'In May 2013, Bain Capital partnered with investment firms Golden Gate Capital, GIC Private Limited, and Insight Venture Partners to purchase BMC Software for roughly $6.9 billion': a consortium buyout, and the firm's panel dates its first..."
+      },
+      {
+        "name": "Bonterra (fka EveryAction)",
+        "why": "control position: EveryAction's one transaction with the firm was the August 2018 'growth investment', after which the firm owned it: 'In August 2021, Apax acquired EveryAction from Insight Partners' and merged it into Bonterra. A sale of the whole company ..."
+      },
+      {
+        "name": "Boxer Parent Co Inc",
+        "why": "control position: Boxer Parent Company Inc. is the vehicle through which Bain Capital, Golden Gate Capital, GIC and Insight Venture Partners bought BMC Software for about $6.9B in 2013, a consortium buyout; Richard Wells sits on its Form D."
+      },
+      {
+        "name": "Bullhorn",
+        "why": "control position: 'In October 2017, Insight Venture Partners acquired Bullhorn from Vista'; the panel dates the first investment November 2017, the closing."
+      },
+      {
+        "name": "CentralReach",
+        "why": "control position: 'Insight Venture Partners ... acquired the majority share CentralReach in February 2018 for an undisclosed amount' (Behavioral Health Business, March 2025, on the sale to Roper)."
+      },
+      {
+        "name": "Checkmarx",
+        "why": "control position: 'Insight Partners acquired Checkmarx for $84 million' in June 2015 and sold it to Hellman & Friedman in 2020 for $1.15B. The firm's own panel calls the 2015 deal an '$84M Series C', but a transaction that gave the firm the company is a con..."
+      },
+      {
+        "name": "CivicPlus",
+        "why": "control position: 'The New York venture capital and private equity firm Insight Partners has bought majority ownership of CivicPlus for $290 million' (GovTech, May 2021)."
+      },
+      {
+        "name": "CloudBolt Software",
+        "why": "control position: CloudBolt, North Bethesda MD: the firm's entry of June 2018 ran through Cloudbolt Holdings, Inc., an issuer care of the firm at its own address with two of its partners as president and treasurer, in a Form D marked as a business combinati..."
+      },
+      {
+        "name": "Community Brands",
+        "why": "control position: Community Brands is the firm's own combination of companies it bought: 'Accel-KKR sold a majority stake in Abila software to Insight in April 2017', joined to YourMembership and Aptify and, for a time, to Ministry Brands, where the previou..."
+      },
+      {
+        "name": "Comply365",
+        "why": "control position: 'Insight Partners ... has joined Liberty Hall Capital Partners ... and Comply365's current controlling shareholder, as an equal investor in the combined business' (the firm's post, 2024): the two firms hold control of the merged company be..."
+      },
+      {
+        "name": "Conga",
+        "why": "control position: Conga 'had been acquired by private equity investor Insight Venture Partners in April 2015' (diginomica, May 2020); Thoma Bravo's release on the merger with Apttus calls the firm 'the majority stakeholder in Conga'."
+      },
+      {
+        "name": "Cotality (fka CoreLogic)",
+        "why": "control position: 'In June 2021, the company was acquired by Stone Point Capital and Insight Partners': the $6B take-private of CoreLogic, a consortium buyout (decisions.md D3.3)."
+      },
+      {
+        "name": "Delinea (FKA ThycoticCentrify)",
+        "why": "control position: Delinea is Thycotic merged with Centrify under TPG in 2021: 'Insight Partners, which had previously backed Thycotic, remained involved in the combined company as a minority investor' (the firm's post), so the stake is what the firm kept wh..."
+      },
+      {
+        "name": "Diamond Parent Holdings, Corp.",
+        "why": "control position: Diamond Parent Holdings is the vehicle of the 2016 take-private of Diligent Corporation ($4.90 per share, about $624M); it files from the firm's own address with three of its partners."
+      },
+      {
+        "name": "Digital Room",
+        "why": "control position: 'Harris Williams advised Digital Room Inc., a portfolio company of Insight Venture Partners, on its sale to H.I.G. Capital' (2017): the firm is the one sponsor named at the sale of the whole company, and one of its managing directors was t..."
+      },
+      {
+        "name": "Dotmatics (FKA Insightful Science GraphPad)",
+        "why": "control position: The firm bought GraphPad Software in November 2017 ('The company was acquired in 2017 by Insight Partners'), built Insightful Science around it and merged it with Dotmatics in 2021; Siemens bought Dotmatics from the firm in 2025 for $5.1B."
+      },
+      {
+        "name": "Drilling Info Holdings, Inc.",
+        "why": "control position: Drilling Info Holdings is the company now called Enverus. Insight led its $165M investment in 2012 and held it as 'a portfolio company of Insight Venture Partners' until 2018, when Genstar became 'the new majority shareholder' with Insight..."
+      },
+      {
+        "name": "Eagle Parent Holdings, LLC",
+        "why": "control position: Eagle Parent Holdings is the vehicle of the 2015 take-private of E2open: 'E2open Signs Definitive Agreement To Be Acquired By Insight Venture Partners' (the firm's post, 2015-02-05)."
+      },
+      {
+        "name": "ECI",
+        "why": "control position: 'Insight Venture Partners ... announces the acquisition of, and investment in, eCommerce Industries, Inc. (ECI2)' (the deal note of the firm's counsel, August 2006, headed a leveraged acquisition)."
+      },
+      {
+        "name": "ELK Holdco, LLC",
+        "why": "control position: ELK Holdco, LLC is the vehicle of the firm's 2021 purchase of ELLKAY (Elmwood Park, NJ): an issuer at the firm's own address whose executive officers are the firm's partners and its general counsel beside ELLKAY's own officers (R1)."
+      },
+      {
+        "name": "ELLKAY",
+        "why": "control position: ELLKAY, healthcare data connectivity, Elmwood Park NJ: the firm's entry ran through ELK Holdco, LLC, an issuer at the firm's own address with three of its people among five board managers (R1)."
+      },
+      {
+        "name": "Enverus",
+        "why": "control position: Enverus (formerly Drillinginfo): the firm led its $165M investment in 2012 and held it as 'a portfolio company of Insight Venture Partners' until 2018, when Genstar became 'the new majority shareholder' with the firm 'retaining a significa..."
+      },
+      {
+        "name": "Epsilon Group New Holdings Ltd",
+        "why": "control position: Epsilon Group New Holdings is the holding company of Episerver, now Optimizely, which was sold to Insight Venture Partners for $1.16B in September 2018; five of the firm's partners sit on its Form D."
+      },
+      {
+        "name": "Exclaimer",
+        "why": "control position: 'Insight Partners alongside co-investor Farview will be joining historical majority shareholder, London-based private equity firm Livingbridge, who will be remaining as a minority shareholder' (the company's release, December 2020); the UK..."
+      },
+      {
+        "name": "EXIGER",
+        "why": "control position: Exiger 'has entered into a definitive agreement through which it will receive a majority investment from funds managed by global investment firm Carlyle (NASDAQ: CG) and global software investor Insight Partners' (December 2023), a group p..."
+      },
+      {
+        "name": "FacilityOS (fka iLobby)",
+        "why": "control position: 'Insight Partners invests over US $100M for majority control of iLobby' (Private Capital Journal, January 2021), the company's first outside money; the release itself says strategic investment and one outlet calls it a Series A, hence medium."
+      },
+      {
+        "name": "Fenergo",
+        "why": "control position: 'Insight had a 55 per cent stake in Fenergo, having invested $75 million in the fintech in 2015' (The Irish Times, on the sale to Astorg and Bridgepoint in 2021): a majority from its one entry, which it made with Aquiline."
+      },
+      {
+        "name": "Fourth",
+        "why": "control position: ECI Partners 'sold Fourth Hospitality, a restaurant management software firm to Insight Venture Partners' in June 2015; the panel dates the first investment July 2015."
+      },
+      {
+        "name": "Frontline Technologies",
+        "why": "control position: 'After private equity group Insight Venture Partners acquired a controlling stake in 2014, Frontline has gone on a shopping spree' (EdSurge, August 2017, on the sale to Thoma Bravo)."
+      },
+      {
+        "name": "GenArts",
+        "why": "control position: GenArts, visual-effects plug-ins, Cambridge MA: in 2008 'Insight Partners acquired a majority stake in the company'; the panel dates the first investment February 2008. Sold to Boris FX in 2016."
+      },
+      {
+        "name": "GFI Software S.A.",
+        "why": "control position: GFI Software's own registration statement: in 2005 GFI was acquired by 'an entity controlled by Insight, GFI's majority shareholder', and in 2009 funds affiliated with Insight acquired control of the registrant. Jeffrey Horing and Michael ..."
+      },
+      {
+        "name": "Healthcaresource.com",
+        "why": "control position: 'Jeff Lieberman, managing director at Insight Venture Partners, who was the majority owner of HealthcareSource' (Francisco Partners' release on buying the company, April 2015); the firm entered once, in 2008, and no earlier minority round ..."
+      },
+      {
+        "name": "Healthcaresource HR, Inc.",
+        "why": "control position: HealthcareSource HR, Inc. is the company the firm lists as Healthcaresource.com, a control position with its own verdict (R2)."
+      },
+      {
+        "name": "Incredibuild",
+        "why": "control position: 'Following the completion of the deal, Insight Partners will become the controlling shareholder of Incredibuild' (Calcalist, March 2021, on the $140M the firm paid, most of it for Fortissimo's stake)."
+      },
+      {
+        "name": "Inhabit",
+        "why": "control position: Inhabit (formerly Property Brands), Knoxville: the firm's entry of January 2018 ran through Property Brands Parent, Inc., an issuer care of the firm at its own address with its partners as president, vice presidents and secretary (R1)."
+      },
+      {
+        "name": "InhabitIQ Parent, LLC",
+        "why": "control position: InhabitIQ Parent, LLC is the holding company of Inhabit, the property-software group the firm assembled from 2018 through Property Brands Parent, Inc., an issuer filing care of Insight Venture Partners with the firm's partners as its execu..."
+      },
+      {
+        "name": "Inovalon",
+        "why": "control position: Inovalon 'was taken private with its acquisition by Nordic Capital and Insight Partners' in November 2021, a $7.3B consortium buyout (decisions.md D3.3)."
+      },
+      {
+        "name": "Insightful Science Holdings, LLC",
+        "why": "control position: Insightful Science Holdings is the group the firm built on GraphPad Software, which it acquired in 2017, and renamed Dotmatics in 2021."
+      },
+      {
+        "name": "Interfolio",
+        "why": "control position: 'District-based Interfolio ... is set to be acquired by Insight Venture Partners' (Washington Business Journal via WTOP, November 2018); the firm's counsel later wrote of 'its acquisition of Interfolio in 2018' when Elsevier bought the com..."
+      },
+      {
+        "name": "Jama Software",
+        "why": "control position: 'Jama sold a majority of the company to another investment firm, Insight Partners, as part of a $200 million recapitalization in 2018' (The Bulletin, March 2024, on the $1.2B sale to Francisco Partners)."
+      },
+      {
+        "name": "Jedox",
+        "why": "control position: the chief executive 'confirmed that Insight took a majority investment' in the round of over $100M of January 2021 (TechCrunch, 2021-01-12)."
+      },
+      {
+        "name": "Kabal",
+        "why": "control position: 'Insight announced a majority acquisition in May 2023' (the firm's post on Kabal, 2026-07-21), bought from Norvestor, which had held the majority since 2019."
+      },
+      {
+        "name": "Kaseya",
+        "why": "control position: Kaseya is 'majority-owned by private equity firm Insight Partners', which bought the company in June 2013, the month the firm's panel gives as its first investment."
+      },
+      {
+        "name": "Keyfactor",
+        "why": "control position: Keyfactor (formerly Certified Security Solutions), Cleveland: the firm's December 2018 entry ran through KF Parent, Inc., an issuer at the firm's own address whose executive officers are the firm's partners and its general counsel (R1); Si..."
+      },
+      {
+        "name": "KF Parent, Inc.",
+        "why": "control position: KF Parent, Inc. is the vehicle of the firm's December 2018 purchase of Certified Security Solutions, renamed Keyfactor: a New York issuer whose executive officers are the firm's own partners and its general counsel (R1)."
+      },
+      {
+        "name": "Kinnser Software",
+        "why": "control position: 'Mediware is purchasing Kinnser from Insight Venture Partners' (TPG's release, 2017): the firm sold the whole company as its owner after one entry, the $40M of March 2012 that its own post calls a Series A (R4)."
+      },
+      {
+        "name": "LogicNow Limited",
+        "why": "control position: LogicNow was the managed-services business of GFI Software, split out in 2014 under the same owners; GFI's registration statement names Insight as its majority shareholder since the 2005 acquisition. Sold to SolarWinds in 2016."
+      },
+      {
+        "name": "Metalogix",
+        "why": "control position: 'the current owners, Insight Venture Partners and Bessemer Venture Partners, will be bought out' (Washington Technology, November 2014, on the sale to Permira): the two firms owned the company they had entered together in 2008, and no earl..."
+      },
+      {
+        "name": "Netsmart Technologies",
+        "why": "control position: 'In 2006, Netsmart agreed to be bought out by two such firms, Bessemer Venture Partners and Insight Venture Partners, for $115 million', a take-private that closed in April 2007, the month on the firm's panel (decisions.md D3.3)."
+      },
+      {
+        "name": "Nutrient",
+        "why": "control position: Nutrient (formerly PSPDFKit), Vienna: the firm's entry of late 2021 ran through PFK Buyer Inc., an issuer at the firm's own address whose executive officers are the firm's partners and its general counsel beside the company's chief executi..."
+      },
+      {
+        "name": "Optimizely",
+        "why": "control position: Optimizely is the name Episerver took in 2021 after buying the original Optimizely; Episerver was sold to Insight Venture Partners for $1.16B in September 2018, the transaction the firm's panel dates October 2018."
+      },
+      {
+        "name": "Optoscale",
+        "why": "control position: 'New York-based software investor Insight Partners has acquired a majority shareholding in OptoScale, a Trondheim-based provider of underwater monitoring technology for the aquaculture industry' (Salmon Business, May 2025)."
+      },
+      {
+        "name": "OverDrive",
+        "why": "control position: 'Rakuten, Inc. has agreed to acquire OverDrive from Insight Venture Partners, our private equity partner and majority owner since 2010' (the company's own statement, March 2015)."
+      },
+      {
+        "name": "Palermo TT Holdings, Inc.",
+        "why": "control position: Palermo TT Holdings is the vehicle of the 2014 recapitalisation of TriTech Software Systems: 'Insight Venture Partners Completes Recapitalization of TriTech Software Systems' (the firm's post, 2014-11-21)."
+      },
+      {
+        "name": "PDI Technologies (fka PDI Software)",
+        "why": "control position: 'Insight Venture Partners joins Genstar and TA Associates, who will both retain minority stakes in PDI' (the firm's post, March 2019): the two earlier owners fell to minorities and the firm took the lead position, with three of the seven d..."
+      },
+      {
+        "name": "PDS Parent, Inc.",
+        "why": "control position: PDS Parent, Inc. is the holding company of PDI Technologies, a control position with its own verdict (R2)."
+      },
+      {
+        "name": "PerTrac",
+        "why": "control position: 'In July 2005 the company sold a majority stake to New York-based private equity firm Insight Venture Partners for $63 million' (Institutional Investor)."
+      },
+      {
+        "name": "PFK Buyer Inc.",
+        "why": "control position: PFK Buyer Inc. is the vehicle through which the firm bought into PSPDFKit, now Nutrient, in November 2021: an issuer at the firm's own address whose executive officers are the firm's partners and its general counsel beside the company's ch..."
+      },
+      {
+        "name": "Planview",
+        "why": "control position: 'Thoma Bravo is buying Planview from Insight Venture Partners, a New York-based venture capital firm that acquired the company in 2013' (Austin American-Statesman, January 2017)."
+      },
+      {
+        "name": "Precisely",
+        "why": "control position: Precisely is Syncsort renamed: 'In April 2008, Insight Venture Partners, Bessemer Venture Partners, Georgian Partners, Goldman Sachs, and other investors bought a majority interest in Syncsort', a group purchase of control (decisions.md D3..."
+      },
+      {
+        "name": "Property Brands Parent, Inc.",
+        "why": "control position: Property Brands Parent, Inc. (formerly Sunsphere Parent, Inc.) files care of Insight Venture Partners with the firm's partners as its executive officers: the vehicle through which the firm assembled Property Brands, now Inhabit (R1)."
+      },
+      {
+        "name": "Property Brands Ultimate Parent, LLC",
+        "why": "control position: The 2019 parent of Property Brands Parent, Inc., the firm's own acquisition vehicle for Property Brands, now Inhabit (R1)."
+      },
+      {
+        "name": "Revere Parent, Inc.",
+        "why": "control position: Revere Parent, Inc. is Bullhorn's holding company (its Form Ds name Bullhorn's founder and chief financial officer beside the firm's partners as executive officers). 'In October 2017, Insight Venture Partners acquired Bullhorn from Vista.'"
+      },
+      {
+        "name": "Rithum",
+        "why": "control position: Rithum is CommerceHub renamed: 'in December 2020, Insight Partners acquired a majority stake in CommerceHub for an estimated $1.9 billion', the month on the firm's panel."
+      },
+      {
+        "name": "SmartBear Inc.",
+        "why": "control position: SmartBear 'was founded in 2009 when SmartBear, AutomatedQA and Pragmatic Software were acquired by Insight Venture Partners': the firm built the company by buying its parts, the first of them in June 2007 by its own panel."
+      },
+      {
+        "name": "SolarWinds",
+        "why": "control position: 'In December 2005, investors led by Bain Capital Ventures and Insight Venture Partners acquired an aggregate of 67.8% of our outstanding capital stock from our original stockholders and we recapitalized our company' (SolarWinds' IPO prospe..."
+      },
+      {
+        "name": "Solovis",
+        "why": "control position: Solovis 'announced the close of its previously announced sale to global software investor Insight Partners' (the firm's post, 2025-10-16), bought from Nasdaq."
+      },
+      {
+        "name": "Sunsphere Parent, Inc.",
+        "why": "control position: Sunsphere Parent, Inc. is the earlier name of Property Brands Parent, Inc. (one registrant): the firm's own acquisition vehicle for Property Brands, now Inhabit, filing care of Insight Venture Partners with the firm's partners as executive..."
+      },
+      {
+        "name": "TeamViewer",
+        "why": "control position: TeamViewer was bought in 2010 by GFI Software, a company the firm controlled (its own control verdict), and sold to Permira in 2014: an acquisition made by a controlled platform (decisions.md D3.5). The date on the firm's panel, May 2005, ..."
+      },
+      {
+        "name": "ThreatTrack Security",
+        "why": "control position: GFI Software, which the firm controlled, sold its security unit in March 2013 to ThreatTrack Security Holdings, 'wholly owned by certain of our shareholders, including Insight, Bessemer Venture Partners and Greenspring' (GFI's registration..."
+      },
+      {
+        "name": "Thycotic",
+        "why": "control position: 'Insight Partners has been Thycotic's majority owner since July 2015' (CRN, 2021-03-02, on the sale to TPG for $1.4B)."
+      },
+      {
+        "name": "Trendy Entertainment",
+        "why": "control position: Trendy Entertainment (later Chromatic Games), Gainesville FL: the 2012 investment by Insight Venture Partners gained 'majority control of the company'."
+      },
+      {
+        "name": "Tricentis",
+        "why": "control position: 'The deal comes six years after Insight Partners acquired a majority stake in Tricentis for $165 million' (SiliconANGLE, November 2024, on GTCR's investment at $4.5B); the firm's own panel calls the same $165M of January 2017 a Series B."
+      },
+      {
+        "name": "Turnitin (iParadigms)",
+        "why": "control position: 'Acquisition of iParadigms for $752 Million Led by Insight Venture Partners' (the firm's post, 2014-06-02): the firm and GIC bought the maker of Turnitin from Warburg Pincus."
+      },
+      {
+        "name": "Unitrends",
+        "why": "control position: 'On October 31, 2013, Unitrends was acquired by Insight Venture Partners'; the firm's own post of that day calls it a major growth equity investment."
+      },
+      {
+        "name": "Vector Solutions",
+        "why": "control position: 'the acquisition of Vector Solutions by Genstar and Insight Partners' (GovTech, 2021): Genstar bought the majority from Golden Gate and the firm came in beside it, a group purchase of control (decisions.md D3.3); the firm's own share is no..."
+      },
+      {
+        "name": "Vertafore",
+        "why": "control position: 'On November 30, 1999, CNA sold the majority of its interest in AMS Services, Inc.' (CNA's 10-Q), AMS being the company renamed Vertafore; the firm's own panel dates its one investment December 1999, so its entry is that purchase of contro..."
+      },
+      {
+        "name": "Virgin Pulse",
+        "why": "control position: Virgin Pulse 'announced the closing of a $92 million control investment by ... Insight Venture Partners, in a combination of equity and debt' (the deal note of the firm's counsel, May 2015)."
+      },
+      {
+        "name": "VisualLogix",
+        "why": "control position: VisualLogix is a group the firm is assembling from purchases: M.E.P.CAD was sold 'to VisualLogix, Inc., a portfolio company of Insight Partners', and no financing round of the company is on record; the verdict rests on that pattern (low co..."
+      },
+      {
+        "name": "Whistler Parent Holdings, Inc.",
+        "why": "control position: Whistler Parent Holdings, Inc. is the vehicle of the firm's purchase of Within3 (Lakewood, Ohio): an issuer at the firm's own address with its partners as directors beside Within3's chief executive (R1)."
+      },
+      {
+        "name": "Within3",
+        "why": "control position: Within3, engagement platform for life sciences, Lakewood OH: the firm's entry of September 2020 ran through Whistler Parent Holdings, Inc., an issuer at the firm's own address with its partners as directors beside Within3's chief executive..."
+      },
+      {
+        "name": "Ziff Davis Enterprise",
+        "why": "control position: 'In July 2007, Ziff Davis Media announced the sale of its enterprise (B2B or business-to-business) division to Insight Venture Partners', the month on the firm's panel."
+      },
+      {
+        "name": "Zyme Holdings, Inc.",
+        "why": "control position: Zyme was bought in 2017 by E2open, which the firm had taken private in 2015: an add-on of a controlled platform (decisions.md D3.5)."
+      }
+    ],
+    "_known_positions_note": "Thirty-nine minority positions the firm lists on its own site and that the record documents as rounds (Twitter's 2009 round, Shopify's 2013 Series C, Monday.com's 2017 Series B, Wiz's 2020 Series A, JFrog's 2018 Series D). Armis and Recorded Future are here on purpose: both were minority rounds first (2019, 2017) and acquisitions later, and the entry decides (decisions.md D3.4). Tricentis was on this list at kickoff and left it on 2026-09-27: the press dates the firm's majority to the $165M of January 2017, its entry, so the row is a control position.",
+    "_not_members_note": "Pre-registered 2026-09-26 before any verdict was written. The control rows here are the ones the firm's own announcement decides in words; the rest of the control class is decided row by row in the grind, each with its citation (decisions.md D3). Armis, Recorded Future and Veeam are deliberately absent: a minority round came first. Extended 2026-09-27 after the control pass with every row ruled a control position, so a later rebuild cannot publish one."
+  },
+  "sample_slugs": [],
+  "names": {
+    "published": {}
+  }
+}
