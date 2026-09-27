@@ -1,0 +1,28 @@
+membership      : 1019 verdicts, 0 uncertain, 1 unjudged, 45 not_member awaiting rebuild
+stale classification keys: 4 (earlier base versions)
+duplicate companies (same SEC registrant): 2 groups
+  note: sibling atomico in flight; not compared
+cross-investor  : 317 rows shared with other investors, 287 agree, 26 accepted, 4 disagree
+rows            : 862
+classified      : 810
+$1B+ / $10B+ / $100B+ : 122 / 13 / 5
+stage unknown   : 149 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'SaaS': 236, 'Consumer & Marketplaces': 89, 'Data Infrastructure': 83, 'Security': 80, 'Healthcare & Bio': 71, 'Fintech & Payments': 68, 'AI & Applied AI': 64, '(outside taxonomy)': 56, 'DevTools & APIs': 47, 'Media, Gaming & Advertising': 38, 'Industrial & Robotics': 18, 'Climate & Energy': 9, 'Crypto & Web3': 3}
+hq_city         : 224 distinct, 773/862 filled, 33 recorded unknown; top {'San Francisco': 88, 'New York': 86, 'Tel Aviv': 59, 'London': 30, 'Boston': 25, 'Berlin': 16, 'Palo Alto': 15, 'Austin': 13}
+valuation_range : {'below_1b': 685, '1b_plus': 109, None: 55, '10b_plus': 8, '100b_plus': 5}
+entry_stage     : {'Growth': 441, 'Series A': 201, None: 46, 'Seed': 24, 'Pre-Seed': 1}
+stage leg       : 1 decided rows rest on an uncited entry stage (their own evidence decides them, stage low)
+S2A             : 24 seed entries, 5 censored; cohort 19, graduated 6, not graduated 13, rate 31.6%, coverage 100.0%
+  the nos rest on: Form D absence 1, a cited end 4, the absence test 8
+  note: profile: no data/collection/investors/insight-partners/sources/offices.json; run `python3 scripts/firm-offices.py insight-partners`
+
+9 problem(s):
+  - membership trap published as member: ['resolve']
+  - absorbed/rejected slug in published base: ['abnormal-security', 'ceres-imaging', 'drivecam-inc', 'exchange-applications', 'imperfect-foods']
+  - cross-investor Abnormal Security: insight-partners:abnormal-security private/1b_plus $4.00B (asof 2022) vs menlo-ventures:abnormal-ai private/below_1b (asof -); freshest insight-partners:abnormal-security
+  - cross-investor Agora: insight-partners:agora private/below_1b (asof 2015-01-01) vs coatue:agora public/below_1b $0.35B (asof 2026-09-25); freshest coatue:agora
+  - cross-investor Epsilon Group Holdings Ltd: insight-partners:epsilon-group-holdings-ltd acquired/None (asof 2013-06-30) vs greylock:epsilon acquired/below_1b (asof 2013-06-30); freshest insight-partners:epsilon-group-holdings-ltd
+  - cross-investor Epsilon Group Holdings Ltd: insight-partners:epsilon-group-holdings-ltd acquired/None (asof 2013-06-30) vs y-combinator:epsilon acquired/below_1b (asof 2013-06-30); freshest insight-partners:epsilon-group-holdings-ltd
+  - micex: non-US hq_country on a $1B+ row with no citation and no formd/wikidata/web provenance (rule 6)
+  - profile thesis: empty
+  - profile history: empty

@@ -117,3 +117,12 @@
 - run.py status at 02:12Z: base 975, member 783, not_member 153, unjudged 39 (the merge variants, which fold at the rebuild).
 - THEN, unchanged order: copy scratch/queue/queue.json -> ONE rebuild -> siblings.py, propose.py, prepare -> delta -> duties 3, 4, 5, 7 -> names.published -> firm profile -> verify, export, review, report, write-back proposal, close, commit, Linear, closing message with the ingest request. NOT INGESTED.
 - WebSearch used: 70 of 200 (the failed agent used none).
+
+## CLOSE (2026-09-27, second session on Opus 5.5)
+- Resumed 13:58 UTC. IA blocked all session (cooldown set again at 14:1x by another session); Common Crawl carried the archive layer: listings 2010/2012/2013/2017/2018, page rows, team pages -> roster-cdx.json (36 seat holders) -> collect (1,107 accessions).
+- 19 remaining $1B+ entry rounds cited (ab-stages-2.out.jsonl); the agent had failed on the session limit.
+- Curated name map (scratch/wayback-name-map.json, 243 variants) applied by scratch/wayback-apply-map.py; the ONE rebuild, delta of 70 rows (b023), corrections x014-x019, final rebuild: 800 rows, 198 excluded (83 not_member, 115 control_position).
+- New rulings R10 (acquirer-labelled panels), R11 (counsel's majority wording: commercetools, Folhamatic out), R12 (departed partners' later seats).
+- Duty 7: 41 rows, 164 values, 5 disagreements, 1 changed. Weak-join audit: 8 rows corrected (Unit, Noble statuses; six floats).
+- Profile built; HQ needs scratch/fix-hq.py after every build-firm-profile.py until the firm-offices.py parse is fixed (task spawned).
+- verify (plain, links) clean; export; review rendered and checked; documentation/report.md written. NOT INGESTED. Open: niche page (read it when the IA answers).

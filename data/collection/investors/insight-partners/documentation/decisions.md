@@ -350,3 +350,44 @@ Partnerships** ("previously owned by Insight Partners", Wikipedia) and
 **Vertafore** is medium: CNA's filing dates the sale of control of AMS Services
 to 30 November 1999, the month before the date on the firm's panel, but names
 no buyer. All four are in the report's list for Erik.
+
+### R10 — A panel under the acquirer's name is the backed company's listing (2026-09-27)
+
+The live site keeps several old investments under the name of the company that
+bought them, with the backed company's own description: "Allscripts Healthcare
+Solutions" describes RxCentric, "Conexant Systems" Harris & Jeffries, "Excite
+Japan" the McKinley Group, "Manugistics" ProMIRA Software and "ENGIE Insight
+Services" Ecova. The firm's archived pages (2000 to 2018) list the backed
+companies under their own names. The backed company is the member, and the
+acquirer-named row is what the firm received for it (sale-consideration
+ruling), so it is `not_member`. Ecova goes one step further: Ecova is itself
+Advantage IQ, which bought Cadence Network for a quarter of its shares in June
+2008, so the firm's backed company is Cadence Network (a recall addition,
+medium: its link to the firm rests on company databases and the firm's Ecova
+page). The same pages show the reverse case too: a site row renamed after a
+rebrand ("Exactera (formerly known as CrossBorder Solutions)", "Lantern (fka
+Employer Direct Healthcare)", "Nexus One" at /portfolio/nexus-cognitive/,
+"Made For" for hundred) is one company, and the archive's old name folds onto
+it in the parsed source (scratch/wayback-name-map.json).
+
+### R11 — Majority wording in the firm's counsel's notes decides at entry (2026-09-27)
+
+The firm's counsel lists "majority investments in Armis, Veeam, commercetools
+and Recorded Future" (the Fund XI close, April 2020) and "its acquisition of a
+majority interest in Folhamatic" (June 2011). R5 reads each against the firm's
+first investment: Armis, Veeam and Recorded Future entered on earlier minority
+rounds and stay members; commercetools (October 2019) and Folhamatic (June
+2011) have no earlier transaction, so the majority purchase is the entry and
+both are control positions.
+
+### R12 — A departed partner's later seats are not the firm's (2026-09-27)
+
+The archived team pages (Common Crawl, 2010 to 2022) date departures the live
+site cannot, and the roster built from them brought 26 Form D issuers whose
+only link is a former partner as a director: Nnamdi Okike's 645 Ventures
+companies, Harley Miller's Left Lane Capital companies, and single seats of
+Daniel May, Vladimir Besprozvany, Paul Szurek, Nimay Mehta, Bradley Twohig and
+Euan Menzies. The builder kept them because a person seen in fewer than three
+archived years is treated as still at the firm. Each is `not_member`: no
+listing of the firm's in any year, no fund filing, and the seat postdates the
+departure (or, for two, sits with no corroboration at all).

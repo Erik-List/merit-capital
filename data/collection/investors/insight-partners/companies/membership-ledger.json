@@ -60,6 +60,16 @@
     "sector": "Supply Chain & Logistics",
     "slug": "flightkeys",
     "source": "recall probe, counsel's deal notes"
+   },
+   {
+    "basis": "The firm's own Ecova page (2018 capture) says 'Ecova is the combination of three industry leaders: Cadence Network, Advantage IQ and Ecova'; Advantage IQ bought Cadence Network in June 2008 for 25% of its own shares, so the firm's Ecova holding is what it received for Cadence Network. Company databases list the firm among Cadence Network's investors. Not on the firm's site under its own name.",
+    "citation": "https://index.commoncrawl.org/CC-MAIN-2018-51-index?url=https%3A%2F%2Fwww.insightpartners.com%2Fportfolio%2Fecova&output=json",
+    "first_seen": "2008",
+    "name": "Cadence Network",
+    "on_site_now": false,
+    "sector": "Climate & Energy",
+    "slug": "cadence-network",
+    "source": "archive layer, the firm's Ecova page read with the sale-consideration ruling"
    }
   ],
   "verdicts": {
@@ -176,6 +186,14 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "abnormal-security": {
+    "basis": "Listed on the investor's own portfolio site (2022,2023,2024).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
    "academic-partnerships": {
     "basis": "control position: 'AP was previously owned by Insight Partners, a venture capital and private equity firm' (Wikipedia, on the company now called Risepoint, sold to Vistria in 2019); the terms of the November 2011 entry are not on record, so the verdict rests on ownership alone (R4, low confidence).",
     "citation": "https://en.wikipedia.org/wiki/Risepoint",
@@ -247,6 +265,14 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "admodus": {
+    "basis": "Listed on the investor's own portfolio site (2010,2012,2013,2017,2018).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
    "advantive": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -286,6 +312,15 @@
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
+   },
+   "ah-n-holdco-inc": {
+    "basis": "AH&N Holdco: the only link is Daniel May as a director on its Form D (2019 to 2021); he was last on the firm's site in 2017. No listing of the firm's and no fund filing: a departed partner's later seat.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "ah-n-holdco-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "aily-labs": {
     "basis": "Listed on the investor's own portfolio site (current site).",
@@ -1167,6 +1202,16 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "cadence-network": {
+    "basis": "Cadence Network, utility and facility expense management, Cincinnati. Advantage IQ bought it in June 2008 for a quarter of its own shares, and the firm's Ecova page names Cadence Network among the companies Ecova combines; company databases list the firm among its investors. The round of the firm's investment is not on record.",
+    "citation": "https://index.commoncrawl.org/CC-MAIN-2018-51-index?url=https%3A%2F%2Fwww.insightpartners.com%2Fportfolio%2Fecova&output=json",
+    "confidence": "medium",
+    "decided": "2026-09-27",
+    "evidence_class": "web",
+    "slug": "cadence-network",
+    "verdict": "member",
+    "who": "agent-precision-pass"
+   },
    "calamu-technologies": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -1263,6 +1308,14 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "carstation-com": {
+    "basis": "Listed on the investor's own portfolio site (2000).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
    "carto": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -1286,9 +1339,29 @@
     "decided": "2026-09-26",
     "evidence_class": "web",
     "exclusion": "control_position",
+    "note_rekey": "restored 2026-09-27: the rebuild's re-keying moved this verdict onto centralreach-pi-holder-llc (a holding-company or Form D rendering); both rows carry it",
     "slug": "centralreach",
     "verdict": "not_member",
     "who": "agent-precision-pass"
+   },
+   "centralreach-pi-holder-llc": {
+    "basis": "control position: 'Insight Venture Partners ... acquired the majority share CentralReach in February 2018 for an undisclosed amount' (Behavioral Health Business, March 2025, on the sale to Roper).",
+    "citation": "https://bhbusiness.com/2025/03/10/centralreach-reportedly-considering-exit-eyes-1b-valuation/",
+    "confidence": "high",
+    "decided": "2026-09-26",
+    "evidence_class": "web",
+    "exclusion": "control_position",
+    "slug": "centralreach-pi-holder-llc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
+   "ceres-imaging": {
+    "basis": "Listed on the investor's own portfolio site (2018,2019,2021,2023,2024).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
    },
    "ceresai": {
     "basis": "Listed on the investor's own portfolio site (current site).",
@@ -1373,6 +1446,15 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "chowbus-inc": {
+    "basis": "Chowbus: the only link is Harley Miller on its Form Ds from 2020, after he left the firm in 2019 to found Left Lane Capital. No listing of the firm's and no fund filing.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "chowbus-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
    "chrono24": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -1432,6 +1514,15 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "clerq-inc": {
+    "basis": "Clerq: the only link is Nnamdi Okike on its 2025 Form D; he left the firm in 2013 and co-founded 645 Ventures (last on the firm's site 2012). No listing of the firm's and no fund filing.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "clerq-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
    "click-commerce-inc": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -1456,6 +1547,17 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "cloudbolt-holdings-inc": {
+    "basis": "control position: CloudBolt, North Bethesda MD: the firm's entry of June 2018 ran through Cloudbolt Holdings, Inc., an issuer care of the firm at its own address with two of its partners as president and treasurer, in a Form D marked as a business combination (R1). The company's own release calls the entry a $23M Series A led by the firm.",
+    "citation": "https://www.sec.gov/Archives/edgar/data/1747148/000089914018000465/0000899140-18-000465-index.htm",
+    "confidence": "medium",
+    "decided": "2026-09-26",
+    "evidence_class": "formd_adjudicated",
+    "exclusion": "control_position",
+    "slug": "cloudbolt-holdings-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
    "cloudbolt-software": {
     "basis": "control position: CloudBolt, North Bethesda MD: the firm's entry of June 2018 ran through Cloudbolt Holdings, Inc., an issuer care of the firm at its own address with two of its partners as president and treasurer, in a Form D marked as a business combination (R1). The company's own release calls the entry a $23M Series A led by the firm.",
     "citation": "https://www.sec.gov/Archives/edgar/data/1747148/000089914018000465/0000899140-18-000465-index.htm",
@@ -1463,6 +1565,7 @@
     "decided": "2026-09-26",
     "evidence_class": "formd_adjudicated",
     "exclusion": "control_position",
+    "note_rekey": "restored 2026-09-27: the rebuild's re-keying moved this verdict onto cloudbolt-holdings-inc (a holding-company or Form D rendering); both rows carry it",
     "slug": "cloudbolt-software",
     "verdict": "not_member",
     "who": "agent-precision-pass"
@@ -1557,12 +1660,15 @@
     "who": "seed-evidence"
    },
    "commercetools": {
-    "basis": "Listed on the investor's own portfolio site (current site).",
+    "basis": "control position: the firm's counsel lists commercetools among the firm's 'majority investments in Armis, Veeam, commercetools and Recorded Future' (April 2020). Armis, Veeam and Recorded Future entered on earlier minority rounds and stay members (D3.4), but the firm's only transaction in commercetools is the $145M of October 2019, the month its panel gives as the first investment, so that purchase took the majority.",
+    "citation": "https://www.willkie.com/news/2020/04/insight-partners-closes-9-5-billion-fund-xi",
     "confidence": "high",
-    "decided": "2026-09-26",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "decided": "2026-09-27",
+    "evidence_class": "web",
+    "exclusion": "control_position",
+    "slug": "commercetools",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "community-brands": {
     "basis": "control position: Community Brands is the firm's own combination of companies it bought: 'Accel-KKR sold a majority stake in Abila software to Insight in April 2017', joined to YourMembership and Aptify and, for a time, to Ministry Brands, where the previous lead investor kept a minority from 2016.",
@@ -1647,10 +1753,26 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "connexus": {
+    "basis": "Listed on the investor's own portfolio site (2010).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
    "contentstack": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
     "decided": "2026-09-26",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "contractpodai": {
+    "basis": "Listed on the investor's own portfolio site (2021,2022,2023,2025).",
+    "confidence": "high",
+    "decided": "2026-09-27",
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
@@ -1767,10 +1889,27 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "cresicor-inc": {
+    "basis": "Cresicor: the only link is Nnamdi Okike on its 2022 Form D, a 645 Ventures seat (last on the firm's site 2012). No listing of the firm's and no fund filing.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "cresicor-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
    "crewai": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
     "decided": "2026-09-26",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "crossborder-solutions": {
+    "basis": "Listed on the investor's own portfolio site (2020,2023).",
+    "confidence": "high",
+    "decided": "2026-09-27",
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
@@ -1944,6 +2083,14 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "dealfind": {
+    "basis": "Listed on the investor's own portfolio site (2011,2012).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
    "deci-ai": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -2048,6 +2195,14 @@
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
     "decided": "2026-09-26",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "devshed": {
+    "basis": "Listed on the investor's own portfolio site (2013,2017,2018).",
+    "confidence": "high",
+    "decided": "2026-09-27",
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
@@ -2240,6 +2395,17 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "drilling-info": {
+    "basis": "control position: Drilling Info Holdings is the company now called Enverus. Insight led its $165M investment in 2012 and held it as 'a portfolio company of Insight Venture Partners' until 2018, when Genstar became 'the new majority shareholder' with Insight 'retaining a significant minority stake' (Genstar's release): the 2012 transaction gave the firm the majority.",
+    "citation": "https://www.gencap.com/genstar-capital-announces-agreement-to-acquire-drilling-info-holdings-inc/",
+    "confidence": "medium",
+    "decided": "2026-09-26",
+    "evidence_class": "formd_adjudicated",
+    "exclusion": "control_position",
+    "slug": "drilling-info",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
    "drilling-info-holdings-inc": {
     "basis": "control position: Drilling Info Holdings is the company now called Enverus. Insight led its $165M investment in 2012 and held it as 'a portfolio company of Insight Venture Partners' until 2018, when Genstar became 'the new majority shareholder' with Insight 'retaining a significant minority stake' (Genstar's release): the 2012 transaction gave the firm the majority.",
     "citation": "https://www.gencap.com/genstar-capital-announces-agreement-to-acquire-drilling-info-holdings-inc/",
@@ -2247,6 +2413,7 @@
     "decided": "2026-09-26",
     "evidence_class": "formd_adjudicated",
     "exclusion": "control_position",
+    "note_rekey": "restored 2026-09-27: the rebuild's re-keying moved this verdict onto drilling-info (a holding-company or Form D rendering); both rows carry it",
     "slug": "drilling-info-holdings-inc",
     "verdict": "not_member",
     "who": "agent-precision-pass"
@@ -2298,7 +2465,19 @@
     "decided": "2026-09-26",
     "evidence_class": "site_listing",
     "exclusion": "control_position",
+    "note_rekey": "restored 2026-09-27: the rebuild's re-keying moved this verdict onto e2open-parent-holdings-inc (a holding-company or Form D rendering); both rows carry it",
     "slug": "e2open",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
+   "e2open-parent-holdings-inc": {
+    "basis": "control position: The firm's own panel: '2015 Insight Partners acquired e2open for $273M, taking the company private'; its post of 2015-02-05 announced the definitive agreement. The first investment is the closing of that take-private (March 2015).",
+    "citation": "https://www.insightpartners.com/ideas/e2open-signs-definitive-agreement-to-be-acquired-by-insight-venture-partners/",
+    "confidence": "high",
+    "decided": "2026-09-26",
+    "evidence_class": "site_listing",
+    "exclusion": "control_position",
+    "slug": "e2open-parent-holdings-inc",
     "verdict": "not_member",
     "who": "agent-precision-pass"
    },
@@ -2426,6 +2605,14 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "employerdirect-healthcare": {
+    "basis": "Listed on the investor's own portfolio site (2024).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
    "employment-hero": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -2451,12 +2638,14 @@
     "who": "seed-evidence"
    },
    "engie-insight-services": {
-    "basis": "Listed on the investor's own portfolio site (current site).",
-    "confidence": "high",
-    "decided": "2026-09-26",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "basis": "ENGIE Insight (formerly Ecova, and before that Advantage IQ) came to the firm as stock: 'Under the terms of the transaction, Advantage IQ shares will be transferred to shareholders of Cadence Network, giving them a 25 percent minority stake in Advantage IQ' (June 2008), and the firm's own Ecova page says 'Ecova is the combination of three industry leaders: Cadence Network, Advantage IQ and Ecova'. Cadence Network, the firm's investment, gets its own row (recall addition); the holding in the acquirer is what the firm received for it (sale-consideration ruling). The firm's link to Cadence Network rests on company databases, so the ruling is medium and is listed for Erik.",
+    "citation": "https://www.rttnews.com/643515/avista-subsidiary-advantage-iq-buys-cadence-network-quick-facts.aspx",
+    "confidence": "medium",
+    "decided": "2026-09-27",
+    "evidence_class": "web",
+    "slug": "engie-insight-services",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "enigma": {
     "basis": "Listed on the investor's own portfolio site (current site).",
@@ -2493,6 +2682,17 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "epsilon-group-holdings-ltd": {
+    "basis": "control position: Epsilon Group New Holdings is the holding company of Episerver, now Optimizely, which was sold to Insight Venture Partners for $1.16B in September 2018; five of the firm's partners sit on its Form D.",
+    "citation": "https://en.wikipedia.org/wiki/Episerver",
+    "confidence": "high",
+    "decided": "2026-09-26",
+    "evidence_class": "formd_adjudicated",
+    "exclusion": "control_position",
+    "slug": "epsilon-group-holdings-ltd",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
    "epsilon-group-new-holdings-ltd": {
     "basis": "control position: Epsilon Group New Holdings is the holding company of Episerver, now Optimizely, which was sold to Insight Venture Partners for $1.16B in September 2018; five of the firm's partners sit on its Form D.",
     "citation": "https://en.wikipedia.org/wiki/Episerver",
@@ -2500,6 +2700,7 @@
     "decided": "2026-09-26",
     "evidence_class": "formd_adjudicated",
     "exclusion": "control_position",
+    "note_rekey": "restored 2026-09-27: the rebuild's re-keying moved this verdict onto epsilon-group-holdings-ltd (a holding-company or Form D rendering); both rows carry it",
     "slug": "epsilon-group-new-holdings-ltd",
     "verdict": "not_member",
     "who": "agent-precision-pass"
@@ -2594,7 +2795,7 @@
     "verdict": "not_member",
     "who": "agent-precision-pass"
    },
-   "exchange-applications-inc": {
+   "exchange-applications": {
     "basis": "SEC ownership filing by a fund vehicle (forms 3,4,4/A,SC, CIK 1065857).",
     "confidence": "high",
     "decided": "2026-09-26",
@@ -2602,13 +2803,24 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
-   "excite-japan-co-ltd-jasdaq-3754": {
-    "basis": "Listed on the investor's own portfolio site (current site).",
+   "exchange-applications-inc": {
+    "basis": "SEC ownership filing by a fund vehicle (forms 3,4,4/A,SC, CIK 1065857).",
     "confidence": "high",
     "decided": "2026-09-26",
-    "evidence_class": "site_listing",
+    "evidence_class": "fund_filing",
+    "note_rekey": "restored 2026-09-27: the rebuild's re-keying moved this verdict onto exchange-applications (a holding-company or Form D rendering); both rows carry it",
     "verdict": "member",
     "who": "seed-evidence"
+   },
+   "excite-japan-co-ltd-jasdaq-3754": {
+    "basis": "The firm's panel under this name describes the McKinley Group ('The McKinley Group was acquired by Excite in 1996 ... Magellan'), the company the firm backed, which has its own row from the firm's archived pages; the Excite label is the acquirer's (sale-consideration ruling), and Excite Japan Co., Ltd. was only founded in 1997.",
+    "citation": "https://www.insightpartners.com/portfolio/excite-japan-co-ltd-jasdaq3754/",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "web",
+    "slug": "excite-japan-co-ltd-jasdaq-3754",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "exclaimer": {
     "basis": "control position: 'Insight Partners alongside co-investor Farview will be joining historical majority shareholder, London-based private equity firm Livingbridge, who will be remaining as a minority shareholder' (the company's release, December 2020); the UK register shows the firm's vehicle Origin Bidco taking 75% or more of the shares that month.",
@@ -2807,6 +3019,14 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "finlatin": {
+    "basis": "Listed on the investor's own portfolio site (2009,2010,2012).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
    "finout": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -2857,6 +3077,16 @@
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
+   },
+   "flightkeys": {
+    "basis": "Flightkeys, cloud flight planning for airlines, Vienna. 'Willkie represented Insight Partners on its strategic growth investment in Flightkeys Group' (the deal note of the firm's counsel, 2024-09-20); the note does not say whether the stake is a majority, so the member verdict is medium.",
+    "citation": "https://www.willkie.com/news/2024/09/willkie-advises-insight-partners-on-strategic-growth-investment-in-flightkeys",
+    "confidence": "medium",
+    "decided": "2026-09-27",
+    "evidence_class": "web",
+    "slug": "flightkeys",
+    "verdict": "member",
+    "who": "agent-precision-pass"
    },
    "flip": {
     "basis": "Listed on the investor's own portfolio site (current site).",
@@ -2915,12 +3145,15 @@
     "who": "seed-evidence"
    },
    "folhamatic": {
-    "basis": "Listed on the investor's own portfolio site (current site).",
+    "basis": "control position: 'In June 2011, Willkie represented Insight Venture Partners in connection with its acquisition of a majority interest in Folhamatic', the month the firm's panel gives as its first investment. Sold to Sage in 2012.",
+    "citation": "https://www.willkie.com/news/2012/06/willkie-advises-brazils-folhamatic-group-in-acqu__",
     "confidence": "high",
-    "decided": "2026-09-26",
-    "evidence_class": "site_listing",
-    "verdict": "member",
-    "who": "seed-evidence"
+    "decided": "2026-09-27",
+    "evidence_class": "web",
+    "exclusion": "control_position",
+    "slug": "folhamatic",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "fora": {
     "basis": "Listed on the investor's own portfolio site (current site).",
@@ -3091,7 +3324,19 @@
     "decided": "2026-09-26",
     "evidence_class": "fund_filing",
     "exclusion": "control_position",
+    "note_rekey": "restored 2026-09-27: the rebuild's re-keying moved this verdict onto gfi-software-s-a-r-l (a holding-company or Form D rendering); both rows carry it",
     "slug": "gfi-software-s-a",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
+   "gfi-software-s-a-r-l": {
+    "basis": "control position: GFI Software's own registration statement: in 2005 GFI was acquired by 'an entity controlled by Insight, GFI's majority shareholder', and in 2009 funds affiliated with Insight acquired control of the registrant. Jeffrey Horing and Michael Triplett sit on its Form Ds.",
+    "citation": "https://www.sec.gov/Archives/edgar/data/1534271/000104746913009368/a2216574zf-1a.htm",
+    "confidence": "high",
+    "decided": "2026-09-26",
+    "evidence_class": "fund_filing",
+    "exclusion": "control_position",
+    "slug": "gfi-software-s-a-r-l",
     "verdict": "not_member",
     "who": "agent-precision-pass"
    },
@@ -3252,6 +3497,14 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "harris-jeffries": {
+    "basis": "Listed on the investor's own portfolio site (2000,2009,2010,2012,2013,2017,2018,2019,2021).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
    "harver": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -3312,6 +3565,17 @@
     "verdict": "not_member",
     "who": "agent-precision-pass"
    },
+   "healthcaresource-hr": {
+    "basis": "control position: HealthcareSource HR, Inc. is the company the firm lists as Healthcaresource.com, a control position with its own verdict (R2).",
+    "citation": "https://www.franciscopartners.com/media/francisco-partners-to-acquire-healthcaresource",
+    "confidence": "medium",
+    "decided": "2026-09-26",
+    "evidence_class": "web",
+    "exclusion": "control_position",
+    "slug": "healthcaresource-hr",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
    "healthcaresource-hr-inc": {
     "basis": "control position: HealthcareSource HR, Inc. is the company the firm lists as Healthcaresource.com, a control position with its own verdict (R2).",
     "citation": "https://www.franciscopartners.com/media/francisco-partners-to-acquire-healthcaresource",
@@ -3319,6 +3583,7 @@
     "decided": "2026-09-26",
     "evidence_class": "web",
     "exclusion": "control_position",
+    "note_rekey": "restored 2026-09-27: the rebuild's re-keying moved this verdict onto healthcaresource-hr (a holding-company or Form D rendering); both rows carry it",
     "slug": "healthcaresource-hr-inc",
     "verdict": "not_member",
     "who": "agent-precision-pass"
@@ -3387,6 +3652,15 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "hometown-ticketing-inc": {
+    "basis": "Hometown Ticketing: the only link is Vladimir Besprozvany on its 2022 Form D; he was last on the firm's site in 2019. No listing of the firm's and no fund filing.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "hometown-ticketing-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
    "honeycomb-io": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -3427,6 +3701,14 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "hundred": {
+    "basis": "Listed on the investor's own portfolio site (2021,2022).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
    "huon-holdings": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -3442,6 +3724,15 @@
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
+   },
+   "hykso-inc": {
+    "basis": "Hykso: the only link is Harley Miller on its 2021 Form D, a Left Lane Capital seat. No listing of the firm's and no fund filing.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "hykso-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "hypercore": {
     "basis": "Listed on the investor's own portfolio site (current site).",
@@ -3565,6 +3856,14 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "imperfect-foods": {
+    "basis": "Listed on the investor's own portfolio site (2021,2022,2023,2024).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
    "imubit": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -3615,6 +3914,16 @@
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
+   },
+   "inforcer": {
+    "basis": "Inforcer, security policy management for managed service providers, London. 'Inforcer announced that it raised $50 million in Series C financing led by Insight Partners ... Insight Partners acquired a minority stake' (the deal note of the firm's counsel, 2026-07).",
+    "citation": "https://www.willkie.com/news/2026/07/willkie-advises-insight-partners-on-series-c-investment-in-inforcer",
+    "confidence": "medium",
+    "decided": "2026-09-27",
+    "evidence_class": "web",
+    "slug": "inforcer",
+    "verdict": "member",
+    "who": "agent-precision-pass"
    },
    "inhabit": {
     "basis": "control position: Inhabit (formerly Property Brands), Knoxville: the firm's entry of January 2018 ran through Property Brands Parent, Inc., an issuer care of the firm at its own address with its partners as president, vice presidents and secretary (R1).",
@@ -3667,6 +3976,17 @@
     "verdict": "not_member",
     "who": "agent-precision-pass"
    },
+   "insightful-science": {
+    "basis": "control position: Insightful Science Holdings is the group the firm built on GraphPad Software, which it acquired in 2017, and renamed Dotmatics in 2021.",
+    "citation": "https://en.wikipedia.org/wiki/GraphPad_Software",
+    "confidence": "high",
+    "decided": "2026-09-26",
+    "evidence_class": "formd_adjudicated",
+    "exclusion": "control_position",
+    "slug": "insightful-science",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
    "insightful-science-holdings-llc": {
     "basis": "control position: Insightful Science Holdings is the group the firm built on GraphPad Software, which it acquired in 2017, and renamed Dotmatics in 2021.",
     "citation": "https://en.wikipedia.org/wiki/GraphPad_Software",
@@ -3674,6 +3994,7 @@
     "decided": "2026-09-26",
     "evidence_class": "formd_adjudicated",
     "exclusion": "control_position",
+    "note_rekey": "restored 2026-09-27: the rebuild's re-keying moved this verdict onto insightful-science (a holding-company or Form D rendering); both rows carry it",
     "slug": "insightful-science-holdings-llc",
     "verdict": "not_member",
     "who": "agent-precision-pass"
@@ -3735,6 +4056,14 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "intent-media": {
+    "basis": "Listed on the investor's own portfolio site (2017,2018,2019).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
    "interfolio": {
     "basis": "control position: 'District-based Interfolio ... is set to be acquired by Insight Venture Partners' (Washington Business Journal via WTOP, November 2018); the firm's counsel later wrote of 'its acquisition of Interfolio in 2018' when Elsevier bought the company from it.",
     "citation": "https://wtop.com/business-finance/2018/11/d-c-software-firm-to-sell-in-nine-figure-deal/",
@@ -3791,6 +4120,14 @@
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
     "decided": "2026-09-26",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "iterative-scopes": {
+    "basis": "Listed on the investor's own portfolio site (2022,2024,2025,2026).",
+    "confidence": "high",
+    "decided": "2026-09-27",
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
@@ -3890,6 +4227,15 @@
     "verdict": "not_member",
     "who": "agent-precision-pass"
    },
+   "jobsite123-com-llc": {
+    "basis": "JobSite123.com: Harley Miller is on its 2011 Form D while he was at the firm, but no listing of the firm's in any year names the company and no fund of the firm's filed on it; a name on an issuer's filing without corroboration is not a member.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "jobsite123-com-llc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
    "joonko": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -3956,7 +4302,19 @@
     "decided": "2026-09-26",
     "evidence_class": "web",
     "exclusion": "control_position",
+    "note_rekey": "restored 2026-09-27: the rebuild's re-keying moved this verdict onto kaseya-luxembourg-holdings-s-c-a (a holding-company or Form D rendering); both rows carry it",
     "slug": "kaseya",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
+   "kaseya-luxembourg-holdings-s-c-a": {
+    "basis": "control position: Kaseya is 'majority-owned by private equity firm Insight Partners', which bought the company in June 2013, the month the firm's panel gives as its first investment.",
+    "citation": "https://en.wikipedia.org/wiki/Kaseya",
+    "confidence": "high",
+    "decided": "2026-09-26",
+    "evidence_class": "web",
+    "exclusion": "control_position",
+    "slug": "kaseya-luxembourg-holdings-s-c-a",
     "verdict": "not_member",
     "who": "agent-precision-pass"
    },
@@ -3975,6 +4333,17 @@
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
+   },
+   "key-data-systems": {
+    "basis": "control position: Key Data Systems (Inspect item bank for K-12): Illuminate's release on the July 2018 merger calls the firm 'majority owner of Illuminate and KDS'. The firm's one transaction in KDS is its investment of 2017, so that purchase took the majority (R4 read on a single transaction; medium).",
+    "citation": "https://www.illuminateed.com/news/five-way-merger-creates-new-illuminate-education/",
+    "confidence": "medium",
+    "decided": "2026-09-27",
+    "evidence_class": "web",
+    "exclusion": "control_position",
+    "slug": "key-data-systems",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "keyfactor": {
     "basis": "control position: Keyfactor (formerly Certified Security Solutions), Cleveland: the firm's December 2018 entry ran through KF Parent, Inc., an issuer at the firm's own address whose executive officers are the firm's partners and its general counsel (R1); Sixth Street's stake of October 2023 was announced as a 'significant minority investment'. The firm's own panel calls the entry a $77M growth funding round.",
@@ -4261,6 +4630,15 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "lemonade-technology-inc": {
+    "basis": "Lemonade Technology Inc. (not the insurer): a 'Sam Brooks' on its 2024 Form D; the firm's Sam Brooks was last on its site in 2010. A name match with no corroboration.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "lemonade-technology-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
    "leo-labs": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -4342,6 +4720,15 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "liveview-technologies-inc": {
+    "basis": "LiveView Technologies: the only link is Nimay Mehta on its 2022 Form D; he was last on the firm's site in 2010. No listing of the firm's and no fund filing.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "liveview-technologies-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
    "livingsocial": {
     "basis": "LivingSocial bought Ticket Monster, the firm's investment, for stock in August 2011 ('LivingSocial Signs Agreement to Acquire Korean Deal Provider TicketMonster', the only post of the firm's about the company); the holding is what the firm received for Ticket Monster, which has its own row, and no round is named (sale-consideration ruling).",
     "citation": "https://www.insightpartners.com/ideas/livingsocial-signs-agreement-to-acquire-korean-deal-provider-ticketmonster/",
@@ -4367,7 +4754,19 @@
     "decided": "2026-09-26",
     "evidence_class": "fund_filing",
     "exclusion": "control_position",
+    "note_rekey": "restored 2026-09-27: the rebuild's re-keying moved this verdict onto logicnow-s-a (a holding-company or Form D rendering); both rows carry it",
     "slug": "logicnow-limited",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
+   "logicnow-s-a": {
+    "basis": "control position: LogicNow was the managed-services business of GFI Software, split out in 2014 under the same owners; GFI's registration statement names Insight as its majority shareholder since the 2005 acquisition. Sold to SolarWinds in 2016.",
+    "citation": "https://www.sec.gov/Archives/edgar/data/1534271/000104746913009368/a2216574zf-1a.htm",
+    "confidence": "high",
+    "decided": "2026-09-26",
+    "evidence_class": "fund_filing",
+    "exclusion": "control_position",
+    "slug": "logicnow-s-a",
     "verdict": "not_member",
     "who": "agent-precision-pass"
    },
@@ -4386,6 +4785,15 @@
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
+   },
+   "lunchbox-technologies-inc": {
+    "basis": "Lunchbox: the only link is Nnamdi Okike on its Form Ds of 2019 and 2020, a 645 Ventures seat. No listing of the firm's and no fund filing.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "lunchbox-technologies-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "lyric": {
     "basis": "Listed on the investor's own portfolio site (current site).",
@@ -4426,6 +4834,23 @@
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
+   },
+   "made-renovation": {
+    "basis": "Listed on the investor's own portfolio site (2022).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "mandolin-software-inc": {
+    "basis": "Mandolin: the only link is Nnamdi Okike on its 2021 Form D, a 645 Ventures seat. No listing of the firm's and no fund filing.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "mandolin-software-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "manugistics": {
     "basis": "Manugistics was listed on Nasdaq from 1993, two years before the firm was founded, until JDA bought it in 2006; the firm can only have come to the stock after the IPO or as consideration for a company Manugistics bought, and no round is named (T3 post-IPO ruling; sale-consideration ruling).",
@@ -4486,6 +4911,14 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "mckinley-group": {
+    "basis": "Listed on the investor's own portfolio site (2010,2012,2013,2017,2018,2019,2021).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
    "mediamind-technologies-inc-nasdaqgs-mdmd": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -4527,6 +4960,14 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "menu-next-door": {
+    "basis": "Listed on the investor's own portfolio site (2017,2018,2019,2021).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
    "meq-solutions": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -4562,6 +5003,14 @@
     "verdict": "not_member",
     "who": "agent-precision-pass"
    },
+   "micex": {
+    "basis": "Listed on the investor's own portfolio site (2013,2017,2018,2019,2021).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
    "middesk": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -4577,6 +5026,17 @@
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
+   },
+   "ministry-brands": {
+    "basis": "control position: Ministry Brands, software for churches and faith-based schools, Knoxville: at the firm's investment of October 2016 'Genstar Capital, the Company's current lead investor, will retain a significant minority investment going forward' and the other minority investor exited (the firm's post), so the firm took the majority. Later folded into Community Brands, itself a control row.",
+    "citation": "https://www.insightpartners.com/ideas/ministry-brands-announces-investment-from-insight-venture-partners-and-launches-foundation/",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "web",
+    "exclusion": "control_position",
+    "slug": "ministry-brands",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "mirantis": {
     "basis": "Listed on the investor's own portfolio site (current site).",
@@ -4618,14 +5078,32 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "molekule-group-inc": {
+    "basis": "A 'Stephen Ward' name-match on Molekule Group (Palm Beach Gardens, 2023), with nothing tying a fund of the firm to it. Missing corroboration on a name-match is not_member.",
+    "confidence": "high",
+    "decided": "2026-09-26",
+    "evidence_class": "knowledge",
+    "slug": "molekule-group-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
    "molekule-group-inc-de": {
     "basis": "A 'Stephen Ward' name-match on Molekule Group (Palm Beach Gardens, 2023), with nothing tying a fund of the firm to it. Missing corroboration on a name-match is not_member.",
     "confidence": "high",
     "decided": "2026-09-26",
     "evidence_class": "knowledge",
+    "note_rekey": "restored 2026-09-27: the rebuild's re-keying moved this verdict onto molekule-group-inc (a holding-company or Form D rendering); both rows carry it",
     "slug": "molekule-group-inc-de",
     "verdict": "not_member",
     "who": "agent-precision-pass"
+   },
+   "momac": {
+    "basis": "Listed on the investor's own portfolio site (2010,2012).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
    },
    "monday-com": {
     "basis": "Listed on the investor's own portfolio site (current site).",
@@ -4692,6 +5170,15 @@
     "verdict": "not_member",
     "who": "agent-precision-pass"
    },
+   "ms-biotech-inc": {
+    "basis": "MS Biotech: Daniel May is on its Form Ds of 2012 to 2018, but no listing of the firm's names the company and no fund of the firm's filed on it; uncorroborated.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "ms-biotech-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
    "mural": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -4732,6 +5219,14 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "n2w-software": {
+    "basis": "Listed on the investor's own portfolio site (2017,2018,2019).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
    "nanomosaic": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -4755,6 +5250,15 @@
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
+   },
+   "negotiatus-corp": {
+    "basis": "Negotiatus: the only link is Nnamdi Okike on its Form Ds of 2020 and 2021, a 645 Ventures seat. No listing of the firm's and no fund filing.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "negotiatus-corp",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "netsmart-technologies": {
     "basis": "control position: 'In 2006, Netsmart agreed to be bought out by two such firms, Bessemer Venture Partners and Insight Venture Partners, for $115 million', a take-private that closed in April 2007, the month on the firm's panel (decisions.md D3.3).",
@@ -4800,6 +5304,14 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "nexus-cognitive": {
+    "basis": "Listed on the investor's own portfolio site (2024).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
    "nexus-one": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -4812,6 +5324,14 @@
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
     "decided": "2026-09-26",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "niche": {
+    "basis": "Listed on the investor's own portfolio site (2006).",
+    "confidence": "high",
+    "decided": "2026-09-27",
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
@@ -4873,10 +5393,27 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "ns8-inc": {
+    "basis": "NS8: the only link is Bradley Twohig on its 2020 Form D, after he was last on the firm's site (2018); NS8's rounds were led by others. No listing of the firm's and no fund filing.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "ns8-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
    "ntop": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
     "decided": "2026-09-26",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "ntopology": {
+    "basis": "Listed on the investor's own portfolio site (2021,2023,2025).",
+    "confidence": "high",
+    "decided": "2026-09-27",
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
@@ -5127,6 +5664,14 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "ownbackup": {
+    "basis": "Listed on the investor's own portfolio site (2017,2018,2019,2021,2023,2024).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
    "pactum": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -5230,10 +5775,26 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "path": {
+    "basis": "Listed on the investor's own portfolio site (2017,2018,2019).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
    "paycargo-llc": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
     "decided": "2026-09-26",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "payfactors": {
+    "basis": "Listed on the investor's own portfolio site (2021,2023,2025).",
+    "confidence": "high",
+    "decided": "2026-09-27",
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
@@ -5311,6 +5872,15 @@
     "verdict": "not_member",
     "who": "agent-precision-pass"
    },
+   "per-se-beauty-inc": {
+    "basis": "Per.Se Beauty: Nicolas Wittenborn is on its 2018 Form D while he was at the firm, but no listing of the firm's names the company and no fund of the firm's filed on it; uncorroborated.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "per-se-beauty-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
    "perimeter-81": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -5371,6 +5941,14 @@
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
     "decided": "2026-09-26",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "phd-virtual-technologies": {
+    "basis": "Listed on the investor's own portfolio site (2009,2010,2012,2013).",
+    "confidence": "high",
+    "decided": "2026-09-27",
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
@@ -5656,6 +6234,14 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "promira-software": {
+    "basis": "Listed on the investor's own portfolio site (2009,2010,2012,2013,2017,2018,2019,2021).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
    "promptfoo": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -5837,7 +6423,18 @@
     "confidence": "high",
     "decided": "2026-09-26",
     "evidence_class": "site_listing",
+    "note_rekey": "restored 2026-09-27: the rebuild's re-keying moved this verdict onto real-brokerage-inc (a holding-company or Form D rendering); both rows carry it",
     "slug": "real",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
+   "real-brokerage-inc": {
+    "basis": "The Real Brokerage had been listed on the TSX Venture Exchange since June 2020 when the firm made its $20M 'strategic investment' in December 2020: the firm's own claim names no round and the partnering postdates the listing, so it is not a venture entry (Erik's T3 ruling of 2026-09-06).",
+    "citation": "https://www.insightpartners.com/ideas/the-real-brokerage-announces-closing-of-us-20-million-strategic-investment-by-insight-partners/",
+    "confidence": "high",
+    "decided": "2026-09-26",
+    "evidence_class": "site_listing",
+    "slug": "real-brokerage-inc",
     "verdict": "not_member",
     "who": "agent-precision-pass"
    },
@@ -5882,6 +6479,15 @@
     "verdict": "not_member",
     "who": "agent-precision-pass"
    },
+   "reflexai-inc": {
+    "basis": "ReflexAI: the only link is Nnamdi Okike on its 2024 Form D, a 645 Ventures seat. No listing of the firm's and no fund filing.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "reflexai-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
    "reforge": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -5920,6 +6526,33 @@
     "decided": "2026-09-26",
     "evidence_class": "knowledge",
     "slug": "ren-systems-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
+   "renegade-insurance-inc": {
+    "basis": "Renegade Insurance: the only link is Harley Miller on its 2021 Form D, a Left Lane Capital seat. No listing of the firm's and no fund filing.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "renegade-insurance-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
+   "rentspree-inc": {
+    "basis": "RentSpree: the only link is Nnamdi Okike on its 2022 Form D, a 645 Ventures seat. No listing of the firm's and no fund filing.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "rentspree-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
+   "replogic-inc": {
+    "basis": "Replogic: the only link is Harley Miller on its Form Ds of 2020 and 2021, a Left Lane Capital seat. No listing of the firm's and no fund filing.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "replogic-inc",
     "verdict": "not_member",
     "who": "agent-precision-pass"
    },
@@ -5984,6 +6617,15 @@
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
+   },
+   "rifiniti-inc": {
+    "basis": "Rifiniti: the only link is Nnamdi Okike on its 2016 Form D, a 645 Ventures seat. No listing of the firm's and no fund filing.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "rifiniti-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "rithum": {
     "basis": "control position: Rithum is CommerceHub renamed: 'in December 2020, Insight Partners acquired a majority stake in CommerceHub for an estimated $1.9 billion', the month on the firm's panel.",
@@ -6081,6 +6723,14 @@
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
     "decided": "2026-09-26",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "rxcentric-com": {
+    "basis": "Listed on the investor's own portfolio site (2009,2010,2012,2013,2017,2018,2019,2021).",
+    "confidence": "high",
+    "decided": "2026-09-27",
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
@@ -6245,6 +6895,15 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "setpoint-technologies-inc": {
+    "basis": "Setpoint: the only link is Nnamdi Okike on its 2024 Form D, a 645 Ventures seat. No listing of the firm's and no fund filing.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "setpoint-technologies-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
    "setsail": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -6358,6 +7017,17 @@
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
+   },
+   "signup-software": {
+    "basis": "control position: SignUp Software (ExFlow), accounts payable automation for Microsoft Dynamics, Stockholm: 'Insight Partners Announces a Recommended Public Cash Offer to the Shareholders of SignUp Software AB' (the firm's counsel, April 2023), a purchase of the whole listed company.",
+    "citation": "https://www.willkie.com/news/2023/04/insight-partners-announces-a-recommended-public-cash-offer",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "web",
+    "exclusion": "control_position",
+    "slug": "signup-software",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "silk": {
     "basis": "Listed on the investor's own portfolio site (current site).",
@@ -6627,6 +7297,17 @@
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
+   },
+   "spanning": {
+    "basis": "control position: 'Spanning Cloud Apps LLC ... today announced that it has been acquired by affiliates of Insight Venture Partners' (the firm's post, 2017-04-20), bought from Dell EMC.",
+    "citation": "https://www.insightpartners.com/ideas/spanning-acquired-by-insight-venture-partners-dell-emc-remains-a-spanning-strategic-partner/",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "web",
+    "exclusion": "control_position",
+    "slug": "spanning",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "sparetech": {
     "basis": "Listed on the investor's own portfolio site (current site).",
@@ -6909,6 +7590,16 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "teambuy": {
+    "basis": "TeamBuy merged with Dealfind, the firm's investment, in January 2013 ('On January 15, 2013 Teambuy announced they would be merging with Canadian daily deal rival, Dealfind.com'); the firm's TeamBuy holding is what it received for Dealfind, which has its own row, and the investors Wikipedia names for TeamBuy are Dealfind's (the firm, Georgian Partners). Sale-consideration ruling.",
+    "citation": "https://en.wikipedia.org/wiki/TeamBuy",
+    "confidence": "medium",
+    "decided": "2026-09-27",
+    "evidence_class": "web",
+    "slug": "teambuy",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
    "teamviewer": {
     "basis": "control position: TeamViewer was bought in 2010 by GFI Software, a company the firm controlled (its own control verdict), and sold to Permira in 2014: an acquisition made by a controlled platform (decisions.md D3.5). The date on the firm's panel, May 2005, is that of its GFI entry.",
     "citation": "https://en.wikipedia.org/wiki/TeamViewer",
@@ -7010,7 +7701,19 @@
     "decided": "2026-09-26",
     "evidence_class": "web",
     "exclusion": "control_position",
+    "note_rekey": "restored 2026-09-27: the rebuild's re-keying moved this verdict onto thycotic-software-llc (a holding-company or Form D rendering); both rows carry it",
     "slug": "thycotic",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
+   "thycotic-software-llc": {
+    "basis": "control position: 'Insight Partners has been Thycotic's majority owner since July 2015' (CRN, 2021-03-02, on the sale to TPG for $1.4B).",
+    "citation": "https://www.crn.com/news/security/tpg-capital-to-buy-thycotic-for-1-4b-merge-it-with-rival-centrify-report",
+    "confidence": "high",
+    "decided": "2026-09-26",
+    "evidence_class": "web",
+    "exclusion": "control_position",
+    "slug": "thycotic-software-llc",
     "verdict": "not_member",
     "who": "agent-precision-pass"
    },
@@ -7069,6 +7772,15 @@
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
+   },
+   "towards-equilibrium-inc": {
+    "basis": "Towards Equilibrium: the only link is Paul Szurek on its 2022 Form D; he was last on the firm's site in 2019. No listing of the firm's and no fund filing.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "towards-equilibrium-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "tractable": {
     "basis": "Listed on the investor's own portfolio site (current site).",
@@ -7199,6 +7911,15 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "turbopatent-corp": {
+    "basis": "TurboPatent: Euan Menzies, an operating adviser at the firm then, is on its 2016 Form D, but no listing of the firm's names the company and no fund of the firm's filed on it; uncorroborated.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "turbopatent-corp",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
    "turing": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -7310,6 +8031,15 @@
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
+   },
+   "uptiq-inc": {
+    "basis": "Uptiq: the only link is Nnamdi Okike on its Form Ds of 2024 and 2025, a 645 Ventures seat. No listing of the firm's and no fund filing.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "uptiq-inc",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
    },
    "usadata-inc": {
     "basis": "Listed on the investor's own portfolio site (current site).",
@@ -7446,6 +8176,23 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "vf-holding-corp": {
+    "basis": "VF Holding: Euan Menzies is on its 2010 Form D, four years before he was first on the firm's site. No listing of the firm's and no fund filing.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "vf-holding-corp",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
+   "view-the-space": {
+    "basis": "Listed on the investor's own portfolio site (2017,2018,2019,2021).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
    "vinted": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -7481,6 +8228,15 @@
     "evidence_class": "web",
     "exclusion": "control_position",
     "slug": "visuallogix",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
+   "vividly-inc": {
+    "basis": "Vividly: the only link is Nnamdi Okike on its Form Ds of 2024 and 2025, a 645 Ventures seat. No listing of the firm's and no fund filing.",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "formd_adjudicated",
+    "slug": "vividly-inc",
     "verdict": "not_member",
     "who": "agent-precision-pass"
    },
@@ -7827,6 +8583,14 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "xoip": {
+    "basis": "Listed on the investor's own portfolio site (2010,2012).",
+    "confidence": "high",
+    "decided": "2026-09-27",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
    "y42-fka-datos-intelligence": {
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
@@ -7839,6 +8603,14 @@
     "basis": "Listed on the investor's own portfolio site (current site).",
     "confidence": "high",
     "decided": "2026-09-26",
+    "evidence_class": "site_listing",
+    "verdict": "member",
+    "who": "seed-evidence"
+   },
+   "yogome": {
+    "basis": "Listed on the investor's own portfolio site (2018).",
+    "confidence": "high",
+    "decided": "2026-09-27",
     "evidence_class": "site_listing",
     "verdict": "member",
     "who": "seed-evidence"
@@ -7934,6 +8706,17 @@
     "verdict": "member",
     "who": "seed-evidence"
    },
+   "zyme": {
+    "basis": "control position: Zyme was bought in 2017 by E2open, which the firm had taken private in 2015: an add-on of a controlled platform (decisions.md D3.5).",
+    "citation": "https://www.insightpartners.com/ideas/e2open-acquires-zyme/",
+    "confidence": "high",
+    "decided": "2026-09-26",
+    "evidence_class": "formd_adjudicated",
+    "exclusion": "control_position",
+    "slug": "zyme",
+    "verdict": "not_member",
+    "who": "agent-precision-pass"
+   },
    "zyme-holdings-inc": {
     "basis": "control position: Zyme was bought in 2017 by E2open, which the firm had taken private in 2015: an add-on of a controlled platform (decisions.md D3.5).",
     "citation": "https://www.insightpartners.com/ideas/e2open-acquires-zyme/",
@@ -7941,6 +8724,7 @@
     "decided": "2026-09-26",
     "evidence_class": "formd_adjudicated",
     "exclusion": "control_position",
+    "note_rekey": "restored 2026-09-27: the rebuild's re-keying moved this verdict onto zyme (a holding-company or Form D rendering); both rows carry it",
     "slug": "zyme-holdings-inc",
     "verdict": "not_member",
     "who": "agent-precision-pass"
