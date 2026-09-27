@@ -2,8 +2,8 @@
 
 **Linear issue** PRO-165 · **slug** `insight-partners` · one run under the merged shape of
 `data/collection/COLLECTION.md`, in two sessions (the first stopped on the usage limit at
-02:20 UTC; the second resumed at 13:58 UTC) · report written 2026-09-27. **Not ingested**: the
-ingest request is the last section.
+02:20 UTC; the second resumed at 13:58 UTC) · report written 2026-09-27. **Ingested on 2026-09-27 with Erik's
+approval** (last section).
 
 ---
 
@@ -163,9 +163,10 @@ Marketplaces, Data Infrastructure, Security, AI & Applied AI, DevTools & APIs. N
 Twitter, Anthropic, Shopify, Alibaba.com. Team: 140 current, 26 departed. Icon: the site's "IP"
 mark, dry run only (5.3:1 contrast, 0.5 px ramp, no enlargement).
 
-HQ note: `firm-offices.py` reads the contact page's "36th Floor New York 10036" as the city
-"Floor, NY". `scratch/fix-hq.py` corrects the stored record after each build (the ADV principal
-office stands); a task to fix the parse was spawned for the tooling session.
+HQ note: `firm-offices.py` read the contact page's "36th Floor New York 10036" as the city
+"Floor, NY". Fixed in the script on Erik's instruction (9e12be5), with a judged override
+(`profile.hq_override`) for any future reading that is obviously wrong; `--all --check` changed
+only Insight.
 
 ## 9. Open rulings for Erik
 
@@ -212,7 +213,8 @@ office stands); a task to fix the parse was spawned for the tooling session.
    excluded site row, and carry identity merges across renames (8 escaped here).
 5. **Tenure filter**: a roster person absent from the live team whose last archived year is 3+
    years before a filing should count as departed even with fewer than three capture years.
-6. **`firm-offices.py` city parse** ("36th Floor New York 10036"; task spawned).
+6. **`firm-offices.py` city parse**: done (9e12be5), with the judged override, on Erik's
+   instruction at the ingest approval.
 7. **`verify` trap matching** strips descriptor words ("Systems"), so a trap for Resolve Systems
    fired on Resolve; match on the slug first even after the slug leaves the base.
 8. **Notables**: `build-firm-profile.py` checks names against base names, `verify` against
@@ -233,8 +235,9 @@ searches: 89 of 200 across both sessions.
 
 ## 13. Prompt count
 
-**2 so far**: the kickoff ("please collect insight partners") and "continue" after the usage
-limit. The ingest approval would make 3. Corrections from Erik: none.
+**3, final**: the kickoff ("please collect insight partners"), "continue" after the usage limit,
+and the ingest approval ("ingest, fix the script and like now allow model override if obvious
+flaw"). Corrections from Erik: none; one tooling request (the office parse and its override).
 
 ## 14. Ingest request (not run)
 
@@ -244,3 +247,22 @@ First-time investor, so in this order, each only on Erik's approval:
 2. `npx tsx scripts/ingest-investor.ts insight-partners`
 3. `npx tsx scripts/ingest-companies.ts insight-partners --dry-run`, read the list (a first
    ingest removes nothing), then the same without `--dry-run`: 800 companies.
+
+## Ingest 2026-09-27 (Erik's approval, third prompt)
+
+Erik approved with "ingest, fix the script and like now allow model override if obvious flaw".
+The office script was fixed first (9e12be5), so the profile's New York, NY comes from the rule
+itself. Then, in the order for a first-time investor:
+
+| Step | Result |
+|---|---|
+| Icon upload | `investors/insight-partners-0c2f26f337.png` in the Icon Images bucket (the firm's "IP" disc, contrast 5.3:1, ramp 0.50 px, no enlargement) |
+| `ingest-investor.ts insight-partners` | 1 investor row upserted |
+| `ingest-companies.ts insight-partners --dry-run` | Plan: 800 upserted (800 new), 0 removed, from 0 live |
+| `ingest-companies.ts insight-partners` | 800 of 800 upserted |
+| Readback (`scratch/readback.ts`) | csv 800, live 800, missing 0, differing cells 0 |
+
+The database derived from the rows: 800 companies, 25 public, 119 at $1B and above, 13 at $10B
+and above, 5 at $100B and above, and S2A 31.6% on a cohort of 19 (24 seed entries, 5 censored).
+The open rulings of section 9 stand as applied; a ruling that changes a row needs a re-export and
+a fresh approval before the next ingest.

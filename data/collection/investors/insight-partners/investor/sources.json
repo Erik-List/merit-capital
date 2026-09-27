@@ -1,6 +1,6 @@
 {
   "slug": "insight-partners",
-  "generated_at": "2026-09-27T14:48:14+00:00",
+  "generated_at": "2026-09-27T19:03:58+00:00",
   "run": "PRO-165",
   "fields": {
     "name": {
@@ -14,9 +14,9 @@
       "basis": "The firm's site (WordPress: portfolio at /portfolio/, posts at /ideas/, team at /team/)."
     },
     "icon_url": {
-      "value": "https://www.insightpartners.com/wp-content/themes/insight/images/cropped-IP-icon-orange-grey-rgb-270x270.png",
+      "value": "https://lsohkkmdlrlixukuncjl.supabase.co/storage/v1/object/public/Icon%20Images/investors/insight-partners-0c2f26f337.png",
       "source": "https://www.insightpartners.com/wp-content/themes/insight/images/cropped-IP-icon-orange-grey-rgb-270x270.png",
-      "basis": "Source chosen by measurement (fetch-investor-icon.ts --discover, 2026-09-27): the site's own mark, the 'IP' monogram on a dark disc, as the WordPress site icon. The declared 192 px icon is marginal and the 32 px one would be enlarged; the 270 px rendition of the same file (not declared in the page, found beside it) is the largest. Dry run 2026-09-27: self-backing disc plate kept, artwork 150 px in the source to 142 px in the master (0.95x, no enlargement), box 55%, radius 70%, contrast 5.3:1, ramp 0.50 px; preview at sources/site/icon-256.png. Nothing uploaded: the upload rides with the ingest, on Erik's approval.",
+      "basis": "fetched 2026-09-27 by scripts/fetch-investor-icon.ts from https://www.insightpartners.com/wp-content/themes/insight/images/cropped-IP-icon-orange-grey-rgb-270x270.png: png 270x270, artwork 150px in the source → 142px in the 256px master (0.95x); plate: source is self-backing (disc-plate), kept; safe area: already within the keyline (box 55%, radius 70%); master 256x256 disc-plate rgb(28,44,52) opaque=78% box=55% radius=70% contrast=5.3:1 ramp=0.50px",
       "provenance": {
         "source_url": "https://www.insightpartners.com/wp-content/themes/insight/images/cropped-IP-icon-orange-grey-rgb-270x270.png",
         "format": "png",
@@ -30,8 +30,7 @@
         "master_size": 256,
         "fetched": "2026-09-27",
         "allow_upscale": false,
-        "allow_low_contrast": false,
-        "dry_run": true
+        "allow_low_contrast": false
       }
     },
     "founding_year": {
@@ -190,16 +189,11 @@
     "hq_location": {
       "value": "New York, NY",
       "source": "sources/offices.json",
-      "basis": "Principal office on the newest Form ADV: 1114 Avenue Of The Americas 36th Floor, New York, NY (INSIGHT VENTURE PARTNERS, CRD 142994, Other-Than-Annual Amendment filed 2026-09-09). The firm's recorded site statement names New York, NY and agrees. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+      "basis": "Principal office on the newest Form ADV: 1114 Avenue Of The Americas 36th Floor, New York, NY (INSIGHT VENTURE PARTNERS, CRD 142994, Other-Than-Annual Amendment filed 2026-09-09). The firm's site lists Tel Aviv, Israel; New York, NY; the principal office is among them, so the site agrees. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
       "sources": [
         {
           "source": "Form ADV Item 1.F and Schedule D 1.F, INSIGHT VENTURE PARTNERS (Other-Than-Annual Amendment filed 2026-09-09)",
           "url": "https://reports.adviserinfo.sec.gov/reports/ADV/142994/PDF/142994.pdf"
-        },
-        {
-          "source": "the firm's own site",
-          "url": "https://www.insightpartners.com/contact",
-          "quote": "Headquarters 1114 Avenue of the Americas, 36th Floor New York 10036"
         },
         {
           "source": "the firm's own site, office list",
