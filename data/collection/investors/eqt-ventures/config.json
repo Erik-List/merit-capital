@@ -1,0 +1,361 @@
+{
+  "slug": "eqt-ventures",
+  "name": "EQT Ventures",
+  "wayback": {
+    "cdx_domain": "eqtventures.com",
+    "site_url_base": "https://eqtventures.com",
+    "eras": [],
+    "_eras_pending": "eqtventures.com (2016 to 2025, redirected to eqtgroup.com since 2025) is read through Common Crawl while the Internet Archive sits under the machine-wide cooldown set before kickoff (about 2h15 left at 14:00Z on 2026-09-27). Its /company/<slug> pages (2021-2025), /portfolio and /companies listings, the Getro board jobs.eqtventures.com (2020-2021) and the /team/<slug> pages are fetched by scratch/cc-fetch.py and parsed into sources/wayback/parsed/<year>.json by scratch/cc-parse.py; eras are written here once the markup of each generation is read.",
+    "non_company_slugs": [
+      "index",
+      "home",
+      "page",
+      "feed",
+      "search",
+      "all",
+      "see-all",
+      "companies",
+      "company",
+      "portfolio",
+      "team",
+      "people",
+      "about",
+      "contact",
+      "articles",
+      "article",
+      "story",
+      "stories",
+      "press",
+      "news",
+      "motherbrain",
+      "services",
+      "access",
+      "terms",
+      "privacy",
+      "cookie-policy",
+      "cdn-cgi",
+      "jobs",
+      "careers"
+    ]
+  },
+  "roster": {
+    "cdx_patterns": [
+      "eqtventures.com/team/*"
+    ],
+    "slug_re": "/team/([a-z][a-z0-9-]*[a-z0-9])/?$",
+    "listing_href_re": "/team/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+    "not_a_person": [
+      "index",
+      "team",
+      "people",
+      "all",
+      "page"
+    ],
+    "_note": "The roster is curated at kickoff (sources/wayback/partner-roster.json): the eqtventures.com team pages captured by Common Crawl 2021-2025 (capture-year windows), the live eqtgroup.com EQT Ventures team (28 people read 2026-09-27) and the founding team from the firm's own posts. The investing roster only: platform and operations staff are kept out of the Form D sweep."
+  },
+  "site_api": {
+    "type": "scrape",
+    "sources": [
+      {
+        "parser": "file_list",
+        "path": "data/collection/investors/eqt-ventures/sources/site/companies-eqtgroup.json",
+        "list": "eqtgroup-portfolio-2026",
+        "list_path": "rows",
+        "key_field": "site_id",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "sectors": "sectors",
+        "extras": [
+          "site_id",
+          "desk",
+          "funds",
+          "ventures_funds",
+          "invest_year",
+          "exit_year",
+          "status_site",
+          "country_site",
+          "website",
+          "tagline",
+          "description",
+          "advisors"
+        ]
+      }
+    ],
+    "_note": "eqtgroup.com is Next.js over a private Sanity dataset (project 30p7so6x, dataset eqt-public-web-prod: zero documents without a token, ladder step 2 closed). The listing page ships only the current portfolio; the sitemap (/api/sitemap.xml) carries 639 portfolio pages, 216 of them 'Former EQT Portfolio Company'. scratch/crawl-portfolio.py reads every page's rendered Key Facts (Fund, Entry, Exit, Sector, Country, Website); scratch/site-list.py keeps the pages on this run's desk map (decisions.md D1-D3). The Entry field is a bare year: an anchor for first_seen, never a round (COLLECTION.md s6). No field on the site names a round, so there is no entry_stage_fields.",
+    "team_sources": [
+      {
+        "parser": "file_list",
+        "path": "data/collection/investors/eqt-ventures/sources/site/team-pages.json",
+        "list": "team",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "extras": [
+          "slug",
+          "title"
+        ]
+      }
+    ],
+    "team_bucket_overrides": {
+      "Alexander Fred-Ojala": [
+        "platform"
+      ],
+      "Anton Ask Åström": [
+        "platform"
+      ],
+      "Björn Ström": [
+        "platform"
+      ],
+      "Maximilian Samne": [
+        "platform"
+      ],
+      "Catherine Sanderson": [
+        "operations"
+      ]
+    },
+    "team_social_exclude": [
+      "eqtgroup",
+      "eqt_group",
+      "eqtventures",
+      "eqt-ventures",
+      "eqt",
+      "eqtpartners"
+    ],
+    "_team_note": "Team buckets: the site has no groups, so the title rules decide; the Motherbrain and AI team (Head of AI, Analytics Lead, AI Engineering Manager, Quant AI Analyst) is platform by override, since the title rules would read 'Ventures' or 'Analyst' as investing and 'Analytics Lead' as nothing; 'Team Coordinator' matches no rule and is operations by override."
+  },
+  "edgar": {
+    "seed_queries": [
+      "eqt+ventures",
+      "eqt+growth"
+    ],
+    "fts_phrases": [
+      "EQT Ventures",
+      "EQT Ventures II",
+      "EQT Ventures III"
+    ],
+    "fts_own_pattern": "^eqt ventures",
+    "_note": "EDGAR carries the fund side only (read 2026-09-27 from the SEC CIK table): EQT Ventures (No.1) SCSp 1660654, (No.2) SCSp 1660662, Employee Co-Investment SCSp 1671765, Mentor (No.1) 1660667 and (No.2) 1660674, EQT Ventures II (No.1) 1781104 and (No.2) 1780884, EQT Ventures III (No.1) 1920271 and (No.2) 1920290, and a third-party feeder, EQT Ventures III (No.1) - iCapital Lux Access Fund 1943473. EQT Growth: (No.1) 1866858, (No.2) 1866869, Co-Investment (A) 1858397, (B) 1858402, (C) 1877128, (K) 2124325, Growth Network SCSp 1866871. The adviser, EQT Fund Management S.a r.l., is CIK 1834239 (13F and Section 16 filer for every EQT strategy). Namesake: EQT Corporation (CIK 33213) and its midstream family, the Pittsburgh gas producer."
+  },
+  "wikipedia": {
+    "phrases": [
+      "EQT Ventures"
+    ]
+  },
+  "desks": {
+    "home": "ventures",
+    "partition": [
+      "growth",
+      "scaleup_europe",
+      "eqt_other"
+    ],
+    "rank": [
+      "ventures",
+      "growth",
+      "scaleup_europe",
+      "eqt_other",
+      "unknown"
+    ],
+    "classify": [
+      {
+        "desk": "external",
+        "patterns": [
+          "^eqt (corp|corporation|production|midstream|gathering|energy|resources|re,? llc|rice|holdings company|aggregator|infrastructure co llc)",
+          "^eqm ",
+          "icapital",
+          "^equitrans"
+        ]
+      },
+      {
+        "desk": "ventures",
+        "patterns": [
+          "^eqt ventures"
+        ]
+      },
+      {
+        "desk": "growth",
+        "patterns": [
+          "^eqt growth"
+        ]
+      },
+      {
+        "desk": "scaleup_europe",
+        "patterns": [
+          "scaleup europe"
+        ]
+      },
+      {
+        "desk": "eqt_other",
+        "patterns": [
+          "^eqt\\b",
+          "^bpea\\b",
+          "^baring private equity asia",
+          "^lsp\\b",
+          "life sciences partners",
+          "^exeter property"
+        ]
+      }
+    ],
+    "_note": "Desk = the EQT fund family that holds the position, read per vehicle (decisions.md D1-D3): 'ventures' is EQT Ventures I-III and their feeders; 'growth' is EQT Growth (D2, partitioned); 'scaleup_europe' is the Scaleup Europe Fund (D3, partitioned); 'eqt_other' is every other EQT strategy (private equity, infrastructure, BPEA, EQT Life Sciences, EQT Future, credit, real estate). The iCapital access feeder is a third party's (external), and EQT Corporation is a namesake."
+  },
+  "registers": {},
+  "profile": {
+    "adv_crd": 288390,
+    "own_vehicle_pattern": "^eqt ventures",
+    "focus_min_companies": 6,
+    "focus_crosswalk": {},
+    "_note": "The adviser is EQT Fund Management S.a r.l. (CRD 288390, SEC 802-110840), an exempt reporting adviser for every EQT strategy (annual amendment 2026-03-30, principal office 51A Boulevard Royal, Luxembourg). Its Item 5.F does not exist and its Section 7.B total is the whole group's, so aum is the sum of the EQT Ventures funds' own 7.B gross asset values, never the adviser's total (COLLECTION.md s1, T1 strategy desks). EQT AB's annual report fund table (2025, p.180) gives committed capital per fund.",
+    "site_office": {
+      "place": "Stockholm, Sweden",
+      "url": "https://eqtgroup.com/private-capital/eqt-ventures",
+      "quote": "EQT Ventures is domiciled in Luxembourg, with investment advisors located in Stockholm, Paris, London, New York, Berlin and Amsterdam.",
+      "basis": "The firm's own page (read 2026-09-27). The Luxembourg address on the Form ADV is the fund manager's legal seat (EQT Fund Management S.a r.l., which manages every EQT strategy), not where the venture team works: the page lists the investment advisors' offices with Stockholm first and without Luxembourg, its 'At a glance' Locations read 'Stockholm, Paris, London, New York, Berlin, Amsterdam', and its contact number is a Stockholm one (+46 8 506 55 300). The fund releases agree: the 2016-05-26 launch release gives Swedish contact numbers for the founding partner, and the 2022-11-09 Ventures III release is datelined 'Stockholm, 9 November 2022'."
+    }
+  },
+  "verify": {
+    "text_mention_leaks": [],
+    "cofiler_leaks": [],
+    "known_positions": [
+      "wolt",
+      "peakon",
+      "small giant games",
+      "handshake",
+      "netlify",
+      "einride",
+      "instabee",
+      "anydesk",
+      "varjo",
+      "natural cycles",
+      "hackerone",
+      "cleo",
+      "anyfin",
+      "nothing",
+      "parloa",
+      "sana labs",
+      "candela",
+      "the exploration company",
+      "1x",
+      "frontify",
+      "heart aerospace",
+      "beamery",
+      "codesandbox",
+      "standard ai",
+      "verkor",
+      "unomaly",
+      "sonantic",
+      "hubs",
+      "reworks",
+      "risk methods",
+      "holidu",
+      "min doktor",
+      "oden technologies",
+      "juni",
+      "knoetic"
+    ],
+    "not_members": [
+      {
+        "name": "vinted",
+        "slug": "vinted",
+        "why": "EQT Growth only (decisions.md D2)"
+      },
+      {
+        "name": "mollie",
+        "slug": "mollie",
+        "why": "EQT Growth only (D2)"
+      },
+      {
+        "name": "mambu",
+        "slug": "mambu",
+        "why": "EQT Growth only (D2)"
+      },
+      {
+        "name": "epidemic sound",
+        "slug": "epidemic-sound",
+        "why": "EQT Growth only (D2)"
+      },
+      {
+        "name": "harvey",
+        "slug": "harvey",
+        "why": "EQT Growth only (D2)"
+      },
+      {
+        "name": "lovable",
+        "slug": "lovable",
+        "why": "EQT Growth 2025 and the Scaleup Europe Fund 2026 (D2, D3)"
+      },
+      {
+        "name": "mews",
+        "slug": "mews",
+        "why": "EQT Growth only (D2)"
+      },
+      {
+        "name": "wellhub",
+        "slug": "wellhub",
+        "why": "EQT Growth only (D2)"
+      },
+      {
+        "name": "reliaquest",
+        "slug": "reliaquest",
+        "why": "EQT Growth only (D2)"
+      },
+      {
+        "name": "perk",
+        "slug": "perk",
+        "why": "EQT Growth only (D2)"
+      },
+      {
+        "name": "ardoq",
+        "slug": "ardoq",
+        "why": "EQT Growth only (D2)"
+      },
+      {
+        "name": "mistral ai",
+        "slug": "mistral-ai",
+        "why": "Scaleup Europe Fund's Series D co-lead, 2026 (D3)"
+      },
+      {
+        "name": "tandem health",
+        "slug": "tandem-health",
+        "why": "Scaleup Europe Fund's Series B lead, 2026 (D3)"
+      },
+      {
+        "name": "euclyd",
+        "slug": "euclyd",
+        "why": "Scaleup Europe Fund's Series A co-lead, 2026 (D3)"
+      },
+      {
+        "name": "fever",
+        "slug": "fever",
+        "why": "Scaleup Europe Fund's 2026 round (D3)"
+      },
+      {
+        "name": "securityscorecard",
+        "slug": "securityscorecard",
+        "why": "Form D director 'Thomas Mendoza' 2016-2019 is NetApp's vice chairman, not EQT's Tom Mendoza (T4 homonym)"
+      },
+      {
+        "name": "uipath",
+        "slug": "uipath",
+        "why": "Form D director 'Tom Mendoza' 2018 is NetApp's vice chairman (T4 homonym)"
+      },
+      {
+        "name": "hinge health",
+        "slug": "hinge-health",
+        "why": "Carolina Brochado's Form D seat 2017-2020 is from her Atomico years; she joined EQT in 2020 for EQT Growth (T4, D6)"
+      }
+    ],
+    "sample_slugs": [],
+    "unicorn_bands": false,
+    "_unicorn_bands_note": "Rule A (Erik 2026-09-06): the unicorn snapshot is a coverage floor, never a mark.",
+    "shape": {
+      "c2a_rate_max": 0.8,
+      "_note": "Default kept at kickoff; restated with a note only if the landed book explains a higher rate."
+    },
+    "_known_positions_note": "Spot-check list from the firm's own releases: the first five investments (2016-05-26), Motherbrain's five sourced deals (2019-11-13), the nine EUR 1B+ companies and the Ventures III leads named at the 2022 close (2022-11-09), the Small Giant Games and Wolt exits, and the stories archive."
+  },
+  "names": {
+    "published": {}
+  }
+}

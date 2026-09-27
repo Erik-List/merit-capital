@@ -1,0 +1,81 @@
+{
+ "_readme": "Recall probe (COLLECTION.md s3), run 2026-09-27 after the membership pass. Independent lists diffed against the base; every candidate lands as a row or a recorded rejection.",
+ "sources": [
+  {
+   "source": "the firm's portfolio roll-call posts (2019 fund II, 2021 5th anniversary, 2022 and 2023 reviews, 2023 fintech map, 2024 consumer post, 2025 review)",
+   "candidates_new": [
+    "Iris"
+   ]
+  },
+  {
+   "source": "the firm's stories archive, every investment post (172 posts) and the 2017-2020 articles (38)",
+   "candidates_new": [
+    "Bluebook"
+   ]
+  },
+  {
+   "source": "Google News press sweep: 'led by EQT Ventures', 'EQT Ventures leads', 'EQT Ventures raises', one query per phrase per year 2016-2026 (33 queries, all ok, 258 headlines; sources/web/recall-news.json)",
+   "candidates_new": [
+    "Crisp",
+    "BCB Group",
+    "SHL Medical",
+    "UserTesting"
+   ]
+  },
+  {
+   "source": "EDGAR full-text sweep on 'EQT Ventures', 'EQT Ventures II', 'EQT Ventures III' (25 registrants)",
+   "candidates_new": []
+  },
+  {
+   "source": "Wikipedia insource sweep on 'EQT Ventures' (30 articles)",
+   "candidates_new": []
+  },
+  {
+   "source": "the archived job board jobs.eqtventures.com (46 company slugs, 2019-2020)",
+   "candidates_new": [
+    "Noomi"
+   ]
+  },
+  {
+   "source": "EQT's 2016-05-26 release (first five investments), the 2019-11-13 release (Motherbrain's five), the 2022-11-09 release (the nine EUR 1B+ companies)",
+   "candidates_new": []
+  }
+ ],
+ "outcomes": [
+  {
+   "name": "Bluebook",
+   "outcome": "added",
+   "basis": "the firm's own announcement 2025-02-13 (recall addition in the ledger)"
+  },
+  {
+   "name": "Noomi",
+   "outcome": "merged",
+   "basis": "Aifloo renamed Noomi (2018) and Nectarine Health (2019): one company, merged into nectarine-health"
+  },
+  {
+   "name": "Iris",
+   "outcome": "not added (unidentified)",
+   "basis": "named once in the firm's 2024 list of 'household names' it has backed; no company of that name is found with EQT Ventures on any list, archive, post, press search (Google News, web) or filing. Kept as an open lead for Erik rather than a row that could only read undetermined."
+  },
+  {
+   "name": "Crisp",
+   "outcome": "rejected",
+   "basis": "the Tech.eu story on its EUR 35M round (2023-11-16) names no EQT fund among existing or new investors"
+  },
+  {
+   "name": "BCB Group",
+   "outcome": "rejected",
+   "basis": "its $60M Series A (Jan 2022) was co-led by Foundation Capital and Backed; no EQT fund participated (The Block; the company's release)"
+  },
+  {
+   "name": "SHL Medical",
+   "outcome": "rejected",
+   "basis": "an EQT private-equity holding (decisions.md D3), not an EQT Ventures fund"
+  },
+  {
+   "name": "UserTesting",
+   "outcome": "rejected",
+   "basis": "IPO news matched on the query phrase; no EQT Ventures position"
+  }
+ ]
+}
