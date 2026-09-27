@@ -1,39 +1,38 @@
 # EQT Ventures: Build & Reconciliation Report (PRO-163)
 
 **Linear issue** PRO-163 · **slug** `eqt-ventures` · one session, one run, under the merged shape of
-`data/collection/COLLECTION.md` · report written 2026-09-27. **Not ingested**: the ingest waits for
-Erik's approval (section 15).
+`data/collection/COLLECTION.md` · report written 2026-09-27. **Ingested on 2026-09-27 with Erik's approval** (last section), after his ruling on
+Docly took the base from 138 to 137 companies.
 
 ---
 
 ## 1. The answer PRO-163 asked for
 
-**The base is 138 companies, plain `verify` is clean, and the desk partition is ruled: EQT Ventures
+**The base is 137 companies, plain `verify` is clean, and the desk partition is ruled: EQT Ventures
 is the three EQT Ventures funds, and EQT Growth is another desk.**
 
 | Done-when item | State |
 |---|---|
-| Plain `verify` green with only flagged debt | Clean on 138 rows; 0 cross-investor disagreements (section 6 lists the flags) |
+| Plain `verify` green with only flagged debt | Clean on 137 rows; 0 cross-investor disagreements (section 6 lists the flags) |
 | Desk partition in `decisions.md` with the registrations it rests on | D1 to D3: CRD 288390 (EQT Fund Management S.à r.l.), the Section 7.B fund records per vehicle, the GP entities in EQT AB's subsidiary list |
 | EQT Growth ruled before judging | D2, `other_desk`, written at kickoff; 16 Growth companies moved out; Wolt a member through its 2016 Ventures I entry |
 | Sweden gives status only | D8: no Swedish register was used as a membership layer |
 | Profile from EQT AB's annual report, the parent's total never in `aum` | Section 8; the recipe is write-back 1 in section 12 |
 | fx and non-US-listing constants on every row | Every EUR, SEK and GBP figure converted at the ECB rate of its own date (fund sizes, the check range, the entry rounds, Instabee's mark) |
 | Profile through the taxonomy gate | `investor/investor.json`, `profile_copy.py` ok, `build-firm-profile.py` clean |
-| `review.html` rendered | Served on the review surface (port 8931) and checked: 138 rows, profile panel with every field, no console errors |
+| `review.html` rendered | Served on the review surface (port 8931) and checked: 137 rows after the Docly ruling (138 at close), profile panel with every field, no console errors |
 | report.md | This file |
-| Closing message with the ingest request | Sent with this report |
+| Closing message with the ingest request | Sent; approved and ingested 2026-09-27 |
 
 ## 2. Results
 
 | | Count | Share |
 |---|---|---|
-| Companies | 138 | |
-| Private | 104 | 75% |
+| Companies | 137 | |
+| Private | 104 | 76% |
 | Acquired | 26 | 19% |
 | Defunct | 6 | 4% |
 | Public | 1 | 1% (Einride, Nasdaq ENRD since 2026-06-10) |
-| Unknown | 1 | 1% (Docly) |
 | $1B and above | 11 | 8.0% |
 
 The eleven $1B+ rows: Ineffable Intelligence $5.1B (2026-04), Handshake $3.5B (2022-01, stale),
@@ -41,13 +40,14 @@ Parloa $3.0B (2026-01), Starcloud $2.3B (2026-08), Netlify $2.0B (2021-11, stale
 Company $2.0B (2026-07, low confidence), Instabee $1.6B (2022-09, stale), Odyssey $1.45B (2026-06),
 Nothing $1.3B (2025-09), Beamery $1.0B (2022-12, stale), Standard AI $1.0B (2021-02, stale).
 
-Entry stage: Seed 51, Series A 41, Growth 29, Pre-Seed 9, round not on record 8. Headquarters:
-Germany 26, Sweden 26, United Kingdom 23, United States 22, France 13, Netherlands 9, Finland 7.
-Evidence tiers: A 102, B 35, C 1. Membership rests on the firm's own listing for all 138 (117 on
-the live eqtgroup.com pages, 21 on the archived eqtventures.com listings and the stories archive).
+Entry stage: Seed 51, Series A 41, Growth 29, Pre-Seed 9, round not on record 7. Headquarters:
+Germany 26, Sweden 25, United Kingdom 23, United States 22, France 13, Netherlands 9, Finland 7.
+Evidence tiers: A 102, B 34, C 1. Membership rests on the firm's own listing for all 137 (117 on
+the live eqtgroup.com pages, 20 on the archived eqtventures.com listings and the stories archive).
 
-Excluded (`excluded.json`, preserved): 16 EQT Growth companies (`other_desk`), 7 `not_member`
-rows (BIMobject, a public-market purchase; six Form D name-matches and seat-dating misses), and
+Excluded (`excluded.json`, preserved): 16 EQT Growth companies (`other_desk`), 8 `not_member`
+rows (BIMobject, a public-market purchase; Docly, a demerger twin, by Erik's ruling; six Form D
+name-matches and seat-dating misses), and
 1 control position (Banking Circle, EQT VIII's buyout).
 
 ### S2A block
@@ -63,13 +63,14 @@ they have used.
 
 | | Rows | $1B+ | S2A |
 |---|---|---|---|
-| EQT Ventures | 138 | 8.0% | 52.3% (23/44) |
-| Creandum | 177 | 10.7% | 52.1% (37/71) |
+| EQT Ventures | 137 | 8.0% | 52.3% (23/44) |
+| Creandum | 177 | 10.7% | 50.7% (36/71, after the Kive fix) |
 | Balderton | 281 | 7.5% | 50.0% (18/36) |
 | Atomico | 164 | 19.5% | 46.2% (6/13) |
 | Cherry | 148 | 5.4% | 62.7% (52/83) |
 
-EQT Ventures sits between Creandum and Balderton on both measures. Its stage mix (Seed 37%,
+EQT Ventures' $1B+ share sits between Balderton's and Creandum's, and its S2A rate just above both
+(Creandum's fell to 50.7% with the Kive fix). Its stage mix (Seed 37%,
 Series A 30%, Growth 21%) is earlier than Balderton's and later than Cherry's, which fits a fund
 that states a EUR 2M to 50M check and leads most of its entries.
 
@@ -111,8 +112,8 @@ that states a EUR 2M to 50M check and leads most of its entries.
 | `cik_weak` | 2 | Paid and Meridian: the SEC floats belonged to other issuers of the same name; the floats are cleared, the flag stays as the record |
 | `stage_disputes_band` | 1 | A Form D band the judge overrode |
 
-Eight rows carry a round the record does not give (`undetermined` stage): Min Doktor, WarDucks,
-Watty, Billhop, Docly, Infinit, Voilà, Bluebook. `verify` noted that Atomico's book is in flight
+Seven rows carry a round the record does not give (`undetermined` stage): Min Doktor, WarDucks,
+Watty, Billhop, Infinit, Voilà, Bluebook. `verify` noted that Atomico's book is in flight
 and was not compared.
 
 ## 7. Standing duties and the A/B pass
@@ -188,10 +189,11 @@ records in all. So:
    config line and a rebuild: the 16 rows above would return.
 2. **R1, BIMobject** (`not_member`): a EUR 23.4M purchase into a company listed on First North
    since 2012, which the firm listed for seven years.
-3. **R2, Docly** (member, stage undetermined, status unknown): arrived by demerger from Min Doktor.
-4. **R3, Kive**: this book reads Heartcore's Oct 2022 "$7 million seed round" as a named seed, so
-   not a graduation; Creandum's row reads the same round as graduated by the step-up. One of the
-   two books should change. Supernormal is read the same way here.
+3. **R2, Docly: ruled by Erik 2026-09-27, `not_member`.** It arrived by demerger from Min Doktor,
+   the class of the sale-consideration ruling; Min Doktor keeps its row. Base 138 to 137.
+4. **R3, Kive: fixed in Creandum's book 2026-09-27 on Erik's instruction.** Heartcore's Oct 2022
+   "$7 million seed round" is a named seed, so not a graduation, in both books now (Creandum's row
+   carries the full absence test). Supernormal is read the same way here.
 5. **R4, Ineffable Intelligence and Starcloud**: their pages name no fund yet; both are members on
    the Ventures team's own announcements.
 6. **"Iris"**: named once in the firm's 2024 list of household names it has backed; no company of
@@ -202,10 +204,14 @@ records in all. So:
    Nine; Odyssey vs a16z and USV; Wonder vs Accel and First Round. Vev (Oslo) and Point Nine's Vev
    (Utrecht) are different companies that happen to agree on status and band, so rule 10 counts
    them as agreeing; each note says which Vev it is.
-8. **Accel's Airkit is wrong in Accel's book**: Accel records it `not_graduated` ("no Series A found
-   before Salesforce acquired Airkit.ai"), but EQT Ventures led Airkit's named $40M Series B in May
-   2021 (Wikipedia; the firm's page), so Accel's 2017 seed graduated. A fix for Accel's book, not
-   this one; rule 10 does not compare the graduation column, so nothing flagged it.
+8. **Accel's Airkit: fixed 2026-09-27 on Erik's instruction, now `graduated`.** Accel led the $7M
+   seed in late 2017; Airkit raised a named $21M Series A in Jan 2020 (Forbes, 2020-10-06) and the
+   $40M Series B EQT Ventures led in May 2021. Rule 10 does not compare the graduation column, so
+   nothing had flagged it.
+9. **Two disagreements in Accel's book that predate this run** (Accel's `verify` shows them; they
+   did not block the re-ingest, which changed one cell): KupiVIP reads `acquired` at Accel and
+   `defunct` at Balderton, and SingleStore reads `private` at Accel and `acquired` at Insight
+   Partners. Not touched here.
 
 ## 11. Rebuilds and deltas
 
@@ -247,7 +253,7 @@ Web searches: about 130 of 200; Google News carried the rest.
 
 ## 14. Prompt count
 
-**1** so far (the kickoff); **2** with the ingest approval.
+**2**, final: the kickoff and the ingest approval (which carried the three fixes).
 
 ## 15. Ingest request (not run)
 
@@ -259,3 +265,28 @@ npx tsx scripts/fetch-investor-icon.ts eqt-ventures https://eqtgroup.com/assets/
 ```
 
 EQT Ventures is a first-time investor, so the companies ingest removes no rows from the database.
+
+## Ingest 2026-09-27 (Erik's approval, second prompt)
+
+Erik approved with "ingest", and asked for three fixes in the same message: Creandum's Kive, Docly,
+and Accel's Airkit. The fixes ran first, then the ingest in the first-time order.
+
+| Step | Result |
+|---|---|
+| Docly ruling (R2) | `not_member`; base rebuilt, 138 to 137; `verify` clean |
+| Creandum's Kive | `not_graduated` with the full absence test; `verify` clean; committed a3ee838 |
+| Accel's Airkit | `graduated` on the named Jan 2020 Series A (Forbes); committed a3ee838 |
+| Icon upload | `investors/eqt-ventures-fb257d2dc9.png` (the orange Q on a black plate, contrast 6.6:1, ramp 0.92 px) |
+| `ingest-investor.ts eqt-ventures` | 1 investor row upserted |
+| `ingest-companies.ts eqt-ventures --dry-run` | Plan: 137 upserted (137 new), 0 removed, from 0 live |
+| `ingest-companies.ts eqt-ventures` | 137 of 137 upserted |
+| Readback (`scratch/readback.ts eqt-ventures`) | csv 137, live 137, missing 0, differing cells 0 |
+| Creandum and Accel, compared before the re-ingest | exactly one differing cell each (Kive, AirKit), nothing else |
+| `ingest-companies.ts creandum` and `accel` | Plans 177 and 884 upserted (0 new, 0 removed); readback 0 differing cells each |
+
+The database derived from EQT Ventures' rows: 137 companies counted, 11 at $1B and above, 1 public,
+S2A 52.3% on a cohort of 44 (51 seed entries, 7 censored). Creandum's S2A is now 50.7% (36 of 71),
+Accel's 59.1% (143 of 242).
+
+**Prompt count: 2**, final: the kickoff and the ingest approval.
+

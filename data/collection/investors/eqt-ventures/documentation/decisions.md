@@ -177,12 +177,13 @@ archive, 172 posts since 2016) and the record.
   post, 2018-07-18). The firm listed it from 2018 to 2025, but the position
   began as a public-market purchase, so the row is `not_member`. Flagged for
   Erik because the firm's own listing says otherwise.
-- **R2: A position that arrives by demerger is a member with an undetermined
-  stage (2026-09-27; T2).** Docly was split out of Min Doktor in August 2018,
-  so the fund came to hold it without buying into a round; the firm listed it
-  2019 to 2022 and "declined to make a follow-up investment" (Sifted). Member
-  through the fund's holding, `entry_stage: undetermined`, status `unknown`
-  (no sale or closure found). Flagged for Erik as the first demerger twin.
+- **R2: A position that arrives by demerger is not a member (ruled by Erik,
+  2026-09-27, reversing the run's first reading).** Docly was split out of Min
+  Doktor in August 2018, so the fund came to hold it without buying into a
+  round; the firm listed it 2019 to 2022 and "declined to make a follow-up
+  investment" (Sifted). Stock received through a portfolio company's corporate
+  event is the class of the sale-consideration ruling (2026-09-22): the
+  investment is Min Doktor, which keeps its row, and Docly is `not_member`.
 - **R3: A later round the record names a seed does not graduate a Seed row
   (2026-09-27; applies Erik's named-round ruling of 2026-09-17).** The round's
   name is the fact the column asks about, and the 2x / $5M step-up decides
