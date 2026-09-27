@@ -109,3 +109,13 @@ merge (medium confidence), The Exploration Company at $2B (low confidence), stat
 Atomico, Point Nine, Coatue and Insight Partners sessions are active on this checkout. Insight added
 `"exclusion": "control_position"` to the builder (6fdf0fc); used on Alphyra and NASN. Never touch their directories.
 Prompt count so far: 1.
+
+### 2026-09-27 00:10 UTC: added after the resume point
+- Recall additions written to the ledger (`recall_additions`): Wonga, Touch Local, Lemon. They land at the rebuild.
+- A background job waits for the Internet Archive cooldown (task bmac9kihp); when it reports, start at to-do item 1.
+- Early fund sizes, sourced by web search 2026-09-27 (URLs from the search results, to be cited in `investor/sources.json`):
+  - Benchmark Europe I: $750M at the close of May 2000 (Light Reading, https://www.lightreading.com/business-management/benchmark-closes-750m-european-fund), reduced to $500M in 2002.
+  - Benchmark Europe II: $375M, Jul 2004 (Buyouts Insider, https://www.buyoutsinsider.com/benchmarks-2nd-euro-fund-oversubscribed/).
+  - Benchmark Europe III: EUR 430M, Nov 2006 (TechCrunch, https://techcrunch.com/2006/11/16/benchmark-capital-europe-raises-e430-million-2/); about $550M.
+  - Balderton IV: GBP 285M, about $430M, 2009 (TechCrunch, https://techcrunch.com/?p=2814); a vendor page says $485M (not used, Rule A).
+  - Non-USD sizes convert with `scripts/fx-convert.py` at the announcement date.
