@@ -318,3 +318,34 @@ portfolio company's exit as its label (D6).
   to the builder, 6fdf0fc), preserved in `excluded.json`. The firm's own card
   lists NASN as "Series A in 2005"; raised for Erik because the rule removes
   two desk-era exits from the track record.
+
+- **R2, extended 2026-09-27: a consortium acquisition is a control position
+  too.** CAS Services (the desk page's `casservicesltd.com`, listed 2005 to
+  2007) is Clinical Solutions: in March 2005 a consortium of Bridgepoint, Allco
+  Finance Group and Benchmark Capital acquired the company (Digital Health,
+  April 2006), and the register shows the three as the holders of the
+  acquisition vehicle Clinical Solutions Holdings Limited (05337596). Capita
+  bought it for GBP 20M in May 2012. The investor group acquired the company,
+  so the row is `not_member` with `exclusion: control_position`, medium
+  confidence (the press page was read through a search result, the register
+  directly). Raised for Erik with Alphyra and NASN.
+- **R3 — The UK share register is a membership layer, read per company**
+  (2026-09-27, agent; evidence rule "an SEC filing by a fund vehicle suffices
+  alone", applied to the home register). A confirmation statement or annual
+  return that lists a fund of the firm as a shareholder is filing-grade
+  evidence of a position, class `fund_filing`, the filing's own URL the
+  citation. The share class is the register's word, not the round's: it labels
+  an entry stage only where it names a series ("Series A Preferred", "Series
+  D-1 Preferred"), and a bare "A shares" or "Ordinary" stays an anchor. A seat
+  with no fund on any list read is a personal seat (Oxford Nanoimaging, Grind,
+  Player X, Goldjobs, Elemica), and a list that could not be read is recorded
+  as failed, never as "not a holder" (`scratch/ch-shareholders.py`,
+  `sources/registers/companies-house/shareholders.json`). Scanned filings are
+  read with the system's text recognition and a figure taken from one is
+  checked on the page image before it is quoted.
+- **R4 — A person has several officer records on the UK register**
+  (2026-09-27, agent). The first officer graph followed one record per partner
+  and missed 80 appointments, among them the firm's seats at Achica, Touch
+  Local, Carwow, Primer, Pusher and Wonga. The graph now unions every record
+  with the partner's name and birth month
+  (`sources/registers/companies-house/officer-graph.json`, 291 appointments).
