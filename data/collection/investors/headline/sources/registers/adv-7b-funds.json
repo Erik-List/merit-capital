@@ -1,0 +1,433 @@
+{
+ "_readme": "Parse Form ADV Schedule D Section 7.B.(1) private-fund rosters from the\nHeadline ERA PDFs (data/filings/headline/adv/<CRD>.pdf, gitignored; IAPD reports.adviserinfo.sec.gov/reports/ADV/<CRD>/PDF/<CRD>.pdf) into\nsources/registers/adv-7b-funds.json. Per-page extraction (pypdf's whole-document\ntext repeats pages), one record per fund: name, 805- ID, GAV, filing adviser.\nDeduped by private fund ID across advisers (COLLECTION.md 11: co-advisers of\none desk report identical rosters). Section 7.B.(2) (sub-advised funds reported\nby another adviser) carries no GAV and is recorded as a reference list.",
+ "advisers": {
+  "160568": {
+   "crd": "160568",
+   "adviser": "BV CAPITAL MANAGEMENT, LLC",
+   "filed": "7/25/2017",
+   "funds_7b1": [
+    {
+     "name": "BV CAPITAL FUND II, LP",
+     "id": "805-3215794954",
+     "gav": 2170533
+    },
+    {
+     "name": "BV CAPITAL FUND II-A, LP",
+     "id": "805-7438128352",
+     "gav": 429267
+    },
+    {
+     "name": "BV CAPITAL GMBH & CO. BETEILIGUNGS KG NO. 1",
+     "id": "805-1582590329",
+     "gav": 2214297
+    }
+   ],
+   "funds_7b2": []
+  },
+  "304362": {
+   "crd": "304362",
+   "adviser": "E.VENTURES MANAGEMENT, LLC",
+   "filed": "3/31/2026",
+   "funds_7b1": [
+    {
+     "name": "BV EVENTURE FUND II L.P.",
+     "id": "805-6958192659",
+     "gav": 78050809
+    },
+    {
+     "name": "E.VENTURES CO-INVEST III, LLC",
+     "id": "805-5975647676",
+     "gav": 18159234
+    },
+    {
+     "name": "E.VENTURES GROWTH II, L.P.",
+     "id": "805-8973574389",
+     "gav": 210388132
+    },
+    {
+     "name": "E.VENTURES GROWTH, L.P.",
+     "id": "805-2611143112",
+     "gav": 136884119
+    },
+    {
+     "name": "E.VENTURES US V, LP",
+     "id": "805-1816711572",
+     "gav": 403958885
+    },
+    {
+     "name": "E.VENTURES US V-A, LP",
+     "id": "805-8603784124",
+     "gav": 18479203
+    },
+    {
+     "name": "EVGC GROWTH I CO-INVEST, LLC",
+     "id": "805-4404912353",
+     "gav": 10997408
+    },
+    {
+     "name": "EVGC GROWTH II CO-INVEST, LLC",
+     "id": "805-8329541915",
+     "gav": 25843005
+    }
+   ],
+   "funds_7b2": []
+  },
+  "309084": {
+   "crd": "309084",
+   "adviser": "E.VENTURES MANAGEMENT VI, LLC",
+   "filed": "3/31/2026",
+   "funds_7b1": [
+    {
+     "name": "E.VENTURES CO-INVEST IV, LLC",
+     "id": "805-7758634016",
+     "gav": 4290248
+    },
+    {
+     "name": "E.VENTURES CO-INVEST V, LLC",
+     "id": "805-8680926202",
+     "gav": 17062597
+    },
+    {
+     "name": "HEADLINE GROWTH III AIV, L.P.",
+     "id": "805-7482289469",
+     "gav": 72303208
+    },
+    {
+     "name": "HEADLINE GROWTH III, L.P.",
+     "id": "805-2335296367",
+     "gav": 230511956,
+     "note": "value read at the top of the next page"
+    },
+    {
+     "name": "HEADLINE US VI, L.P.",
+     "id": "805-3755349596",
+     "gav": 417397831,
+     "note": "value read at the top of the next page"
+    }
+   ],
+   "funds_7b2": []
+  },
+  "315878": {
+   "crd": "315878",
+   "adviser": "INFINITY INVESTMENT MANAGEMENT HOLDINGS, LLC",
+   "filed": "3/30/2026",
+   "funds_7b1": [
+    {
+     "name": "INFINITY VC FUND I, L.P.",
+     "id": "805-2835900235",
+     "gav": 179305806
+    },
+    {
+     "name": "INFINITY VC FUND II, L.P.",
+     "id": "805-8229895408",
+     "gav": 200632501
+    }
+   ],
+   "funds_7b2": []
+  },
+  "319198": {
+   "crd": "319198",
+   "adviser": "HEADLINE MANAGEMENT GMBH",
+   "filed": "3/31/2026",
+   "funds_7b1": [
+    {
+     "name": "HEADLINE EUROPE VII GMBH & CO. KG",
+     "id": "805-9610083931",
+     "gav": 423489519
+    },
+    {
+     "name": "HEADLINE GROWTH III ESCALAR GMBH & CO. KG",
+     "id": "805-7929990866",
+     "gav": 201480274
+    },
+    {
+     "name": "HEADLINE HOMA SPV GMBH & CO. KG",
+     "id": "805-2135245895",
+     "gav": 13529986
+    }
+   ],
+   "funds_7b2": []
+  },
+  "321781": {
+   "crd": "321781",
+   "adviser": "INFINITY VENTURES CRYPTO",
+   "filed": "3/30/2026",
+   "funds_7b1": [
+    {
+     "name": "INFINITY VENTURES C1 (DE), L.P.",
+     "id": "805-4615654014",
+     "gav": 10049398
+    }
+   ],
+   "funds_7b2": []
+  },
+  "323219": {
+   "crd": "323219",
+   "adviser": "HEADLINE GROWTH MANAGEMENT, LLC",
+   "filed": "3/31/2026",
+   "funds_7b1": [
+    {
+     "name": "HEADLINE GLOBAL GROWTH IV LUX SCSP",
+     "id": "805-4074001021",
+     "gav": 663571139
+    },
+    {
+     "name": "HEADLINE GLOBAL GROWTH IV, L.P.",
+     "id": "805-7026181159",
+     "gav": 177417696
+    },
+    {
+     "name": "HEADLINE LION SPV, L.P.",
+     "id": "805-2633343631",
+     "gav": 30326449
+    },
+    {
+     "name": "HEADLINE WOMBAT SPV, L.P.",
+     "id": "805-9162140819",
+     "gav": 24898451
+    }
+   ],
+   "funds_7b2": []
+  },
+  "323221": {
+   "crd": "323221",
+   "adviser": "HEADLINE MANAGEMENT VII, LLC",
+   "filed": "3/31/2026",
+   "funds_7b1": [
+    {
+     "name": "HEADLINE US VII LP",
+     "id": "805-8335264001",
+     "gav": 447552248
+    }
+   ],
+   "funds_7b2": []
+  },
+  "344374": {
+   "crd": "344374",
+   "adviser": "HEADLINE\u00a0MANAGEMENT\u00a0LUX\u00a0S.\u00c0.R.L.",
+   "filed": null,
+   "funds_7b1": [
+    {
+     "name": "HEADLINE EU VIII SCSP",
+     "id": "805-4317976808",
+     "gav": 398405000
+    },
+    {
+     "name": "PORSCHE VENTURES II SCSP",
+     "id": "805-5139346511",
+     "gav": 118074793
+    }
+   ],
+   "funds_7b2": []
+  }
+ },
+ "funds": [
+  {
+   "name": "BV CAPITAL FUND II, LP",
+   "id": "805-3215794954",
+   "gav": 2170533,
+   "reported_by": "160568",
+   "also_reported_by": []
+  },
+  {
+   "name": "BV CAPITAL FUND II-A, LP",
+   "id": "805-7438128352",
+   "gav": 429267,
+   "reported_by": "160568",
+   "also_reported_by": []
+  },
+  {
+   "name": "BV CAPITAL GMBH & CO. BETEILIGUNGS KG NO. 1",
+   "id": "805-1582590329",
+   "gav": 2214297,
+   "reported_by": "160568",
+   "also_reported_by": []
+  },
+  {
+   "name": "BV EVENTURE FUND II L.P.",
+   "id": "805-6958192659",
+   "gav": 78050809,
+   "reported_by": "304362",
+   "also_reported_by": []
+  },
+  {
+   "name": "E.VENTURES CO-INVEST III, LLC",
+   "id": "805-5975647676",
+   "gav": 18159234,
+   "reported_by": "304362",
+   "also_reported_by": []
+  },
+  {
+   "name": "E.VENTURES GROWTH II, L.P.",
+   "id": "805-8973574389",
+   "gav": 210388132,
+   "reported_by": "304362",
+   "also_reported_by": []
+  },
+  {
+   "name": "E.VENTURES GROWTH, L.P.",
+   "id": "805-2611143112",
+   "gav": 136884119,
+   "reported_by": "304362",
+   "also_reported_by": []
+  },
+  {
+   "name": "E.VENTURES US V, LP",
+   "id": "805-1816711572",
+   "gav": 403958885,
+   "reported_by": "304362",
+   "also_reported_by": []
+  },
+  {
+   "name": "E.VENTURES US V-A, LP",
+   "id": "805-8603784124",
+   "gav": 18479203,
+   "reported_by": "304362",
+   "also_reported_by": []
+  },
+  {
+   "name": "EVGC GROWTH I CO-INVEST, LLC",
+   "id": "805-4404912353",
+   "gav": 10997408,
+   "reported_by": "304362",
+   "also_reported_by": []
+  },
+  {
+   "name": "EVGC GROWTH II CO-INVEST, LLC",
+   "id": "805-8329541915",
+   "gav": 25843005,
+   "reported_by": "304362",
+   "also_reported_by": []
+  },
+  {
+   "name": "E.VENTURES CO-INVEST IV, LLC",
+   "id": "805-7758634016",
+   "gav": 4290248,
+   "reported_by": "309084",
+   "also_reported_by": []
+  },
+  {
+   "name": "E.VENTURES CO-INVEST V, LLC",
+   "id": "805-8680926202",
+   "gav": 17062597,
+   "reported_by": "309084",
+   "also_reported_by": []
+  },
+  {
+   "name": "HEADLINE GROWTH III AIV, L.P.",
+   "id": "805-7482289469",
+   "gav": 72303208,
+   "reported_by": "309084",
+   "also_reported_by": []
+  },
+  {
+   "name": "HEADLINE GROWTH III, L.P.",
+   "id": "805-2335296367",
+   "gav": 230511956,
+   "note": "value read at the top of the next page",
+   "reported_by": "309084",
+   "also_reported_by": []
+  },
+  {
+   "name": "HEADLINE US VI, L.P.",
+   "id": "805-3755349596",
+   "gav": 417397831,
+   "note": "corrected 2026-09-27: the page-spanning parse gave it Headline Growth III's value ($230,511,956); the PDF (309084, pages 28-29) prints $417,397,831 for 805-3755349596",
+   "reported_by": "309084",
+   "also_reported_by": []
+  },
+  {
+   "name": "INFINITY VC FUND I, L.P.",
+   "id": "805-2835900235",
+   "gav": 179305806,
+   "reported_by": "315878",
+   "also_reported_by": []
+  },
+  {
+   "name": "INFINITY VC FUND II, L.P.",
+   "id": "805-8229895408",
+   "gav": 200632501,
+   "reported_by": "315878",
+   "also_reported_by": []
+  },
+  {
+   "name": "HEADLINE EUROPE VII GMBH & CO. KG",
+   "id": "805-9610083931",
+   "gav": 423489519,
+   "reported_by": "319198",
+   "also_reported_by": []
+  },
+  {
+   "name": "HEADLINE GROWTH III ESCALAR GMBH & CO. KG",
+   "id": "805-7929990866",
+   "gav": 201480274,
+   "reported_by": "319198",
+   "also_reported_by": []
+  },
+  {
+   "name": "HEADLINE HOMA SPV GMBH & CO. KG",
+   "id": "805-2135245895",
+   "gav": 13529986,
+   "reported_by": "319198",
+   "also_reported_by": []
+  },
+  {
+   "name": "INFINITY VENTURES C1 (DE), L.P.",
+   "id": "805-4615654014",
+   "gav": 10049398,
+   "reported_by": "321781",
+   "also_reported_by": []
+  },
+  {
+   "name": "HEADLINE GLOBAL GROWTH IV LUX SCSP",
+   "id": "805-4074001021",
+   "gav": 663571139,
+   "reported_by": "323219",
+   "also_reported_by": []
+  },
+  {
+   "name": "HEADLINE GLOBAL GROWTH IV, L.P.",
+   "id": "805-7026181159",
+   "gav": 177417696,
+   "reported_by": "323219",
+   "also_reported_by": []
+  },
+  {
+   "name": "HEADLINE LION SPV, L.P.",
+   "id": "805-2633343631",
+   "gav": 30326449,
+   "reported_by": "323219",
+   "also_reported_by": []
+  },
+  {
+   "name": "HEADLINE WOMBAT SPV, L.P.",
+   "id": "805-9162140819",
+   "gav": 24898451,
+   "reported_by": "323219",
+   "also_reported_by": []
+  },
+  {
+   "name": "HEADLINE US VII LP",
+   "id": "805-8335264001",
+   "gav": 447552248,
+   "reported_by": "323221",
+   "also_reported_by": []
+  },
+  {
+   "name": "HEADLINE EU VIII SCSP",
+   "id": "805-4317976808",
+   "gav": 398405000,
+   "reported_by": "344374",
+   "also_reported_by": []
+  },
+  {
+   "name": "PORSCHE VENTURES II SCSP",
+   "id": "805-5139346511",
+   "gav": 118074793,
+   "reported_by": "344374",
+   "also_reported_by": []
+  }
+ ],
+ "count": 29,
+ "sum_gross_asset_value_usd": 4537873992
+}

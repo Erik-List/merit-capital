@@ -1,0 +1,1059 @@
+{
+ "_readme": "Related persons on the firm's own vehicles' Form D filings, dated by filing.\n\nReads every own-desk CIK in entities.json, lists its Form D / D/A filings via\nthe SEC submissions API, and extracts each filing's related persons (name,\nrelationship, clarification, city). Writes sources/edgar/fund-formd-persons.json:\none row per person with the filing dates and vehicles that name them, which is\nthe kickoff roster's filing-grade leg (config.json roster._note).",
+ "filings": [
+  {
+   "cik": 1510113,
+   "vehicle": "BV Capital Fund IV (Asia), L.P.",
+   "form": "D",
+   "date": "2011-01-12",
+   "accession": "0001510113-11-000001",
+   "total_offering": "26000000",
+   "total_sold": "1000000"
+  },
+  {
+   "cik": 1611943,
+   "vehicle": "eVentures Growth, L.P.",
+   "form": "D",
+   "date": "2014-06-27",
+   "accession": "0001611943-14-000001",
+   "total_offering": "100000000",
+   "total_sold": "0"
+  },
+  {
+   "cik": 1629997,
+   "vehicle": "e.ventures US V, LP",
+   "form": "D",
+   "date": "2015-05-06",
+   "accession": "0001629997-15-000001",
+   "total_offering": "175000000",
+   "total_sold": "0"
+  },
+  {
+   "cik": 1629997,
+   "vehicle": "e.ventures US V, LP",
+   "form": "D/A",
+   "date": "2016-05-06",
+   "accession": "0001629997-16-000002",
+   "total_offering": "175000000",
+   "total_sold": "60000000"
+  },
+  {
+   "cik": 1660790,
+   "vehicle": "e.ventures US V-A, LP",
+   "form": "D",
+   "date": "2016-06-29",
+   "accession": "0001660790-16-000002",
+   "total_offering": "30000000",
+   "total_sold": "0"
+  },
+  {
+   "cik": 1695813,
+   "vehicle": "e.ventures Growth II, L.P.",
+   "form": "D",
+   "date": "2017-01-26",
+   "accession": "0001695813-17-000001",
+   "total_offering": "115000000",
+   "total_sold": "0"
+  },
+  {
+   "cik": 1780856,
+   "vehicle": "e.ventures US VI, L.P.",
+   "form": "D",
+   "date": "2019-07-03",
+   "accession": "0001780856-19-000001",
+   "total_offering": "225000000",
+   "total_sold": "225000000"
+  },
+  {
+   "cik": 1810732,
+   "vehicle": "EVGC Growth I Co-Invest, LLC",
+   "form": "D",
+   "date": "2020-05-07",
+   "accession": "0001209191-20-027579",
+   "total_offering": "13977568",
+   "total_sold": "13977568"
+  },
+  {
+   "cik": 1810727,
+   "vehicle": "EVGC Growth II Co-Invest, LLC",
+   "form": "D",
+   "date": "2020-05-07",
+   "accession": "0001209191-20-027580",
+   "total_offering": "5050000",
+   "total_sold": "5050000"
+  },
+  {
+   "cik": 1809367,
+   "vehicle": "e.ventures Growth III, L.P.",
+   "form": "D",
+   "date": "2020-06-29",
+   "accession": "0001809367-20-000002",
+   "total_offering": "300000000",
+   "total_sold": "0"
+  },
+  {
+   "cik": 1830929,
+   "vehicle": "e.ventures Co-Invest III, LLC",
+   "form": "D",
+   "date": "2020-11-12",
+   "accession": "0001209191-20-057810",
+   "total_offering": "2000000",
+   "total_sold": "2000000"
+  },
+  {
+   "cik": 1845433,
+   "vehicle": "e.ventures Co-Invest IV, LLC",
+   "form": "D",
+   "date": "2021-03-04",
+   "accession": "0001104659-21-032188",
+   "total_offering": "5250000",
+   "total_sold": "5250000"
+  },
+  {
+   "cik": 1931045,
+   "vehicle": "Headline US VII, L.P.",
+   "form": "D",
+   "date": "2022-06-29",
+   "accession": "0001104659-22-075818",
+   "total_offering": "400000000",
+   "total_sold": "0"
+  },
+  {
+   "cik": 1931106,
+   "vehicle": "Headline Global Growth IV, L.P.",
+   "form": "D",
+   "date": "2022-06-29",
+   "accession": "0001104659-22-075820",
+   "total_offering": "400000000",
+   "total_sold": "0"
+  },
+  {
+   "cik": 1931106,
+   "vehicle": "Headline Global Growth IV, L.P.",
+   "form": "D/A",
+   "date": "2024-06-13",
+   "accession": "0001104659-24-071340",
+   "total_offering": "804345000",
+   "total_sold": "804345000"
+  },
+  {
+   "cik": 2002335,
+   "vehicle": "Headline Global Growth Lux IV SCSP",
+   "form": "D/A",
+   "date": "2024-06-13",
+   "accession": "0001104659-24-071340",
+   "total_offering": "804345000",
+   "total_sold": "804345000"
+  },
+  {
+   "cik": 2036016,
+   "vehicle": "Headline Wombat SPV, L.P.",
+   "form": "D",
+   "date": "2024-09-05",
+   "accession": "0001104659-24-097310",
+   "total_offering": "25000000",
+   "total_sold": "25000000"
+  },
+  {
+   "cik": 2040786,
+   "vehicle": "Headline Lion SPV, L.P.",
+   "form": "D",
+   "date": "2024-10-28",
+   "accession": "0001104659-24-111718",
+   "total_offering": "28425703",
+   "total_sold": "28425703"
+  }
+ ],
+ "people": [
+  {
+   "name": "Mathias Schilling",
+   "filings": [
+    {
+     "date": "2020-11-12",
+     "vehicle": "e.ventures Co-Invest III, LLC",
+     "accession": "0001209191-20-057810",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the Manager",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2021-03-04",
+     "vehicle": "e.ventures Co-Invest IV, LLC",
+     "accession": "0001104659-21-032188",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the Manager",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2017-01-26",
+     "vehicle": "e.ventures Growth II, L.P.",
+     "accession": "0001695813-17-000001",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Manager of the General Partner to Issuer",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2020-06-29",
+     "vehicle": "e.ventures Growth III, L.P.",
+     "accession": "0001809367-20-000002",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner",
+     "city": "SAN FRANCISCO"
+    },
+    {
+     "date": "2016-05-06",
+     "vehicle": "e.ventures US V, LP",
+     "accession": "0001629997-16-000002",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Manager of the General Partner to Issuer",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2015-05-06",
+     "vehicle": "e.ventures US V, LP",
+     "accession": "0001629997-15-000001",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Manager of the General Partner to Issuer",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2016-06-29",
+     "vehicle": "e.ventures US V-A, LP",
+     "accession": "0001660790-16-000002",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Manager of the General Partner to Issuer",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2019-07-03",
+     "vehicle": "e.ventures US VI, L.P.",
+     "accession": "0001780856-19-000001",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner",
+     "city": "SAN FRANCISCO"
+    },
+    {
+     "date": "2014-06-27",
+     "vehicle": "eVentures Growth, L.P.",
+     "accession": "0001611943-14-000001",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Manager of the General Partner to Issuer",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2022-06-29",
+     "vehicle": "Headline US VII, L.P.",
+     "accession": "0001104659-22-075818",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2024-06-13",
+     "vehicle": "Headline Global Growth IV, L.P.",
+     "accession": "0001104659-24-071340",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner and the Investment Advisor",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2022-06-29",
+     "vehicle": "Headline Global Growth IV, L.P.",
+     "accession": "0001104659-22-075820",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2024-06-13",
+     "vehicle": "Headline Global Growth Lux IV SCSP",
+     "accession": "0001104659-24-071340",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner and the Investment Advisor",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2024-10-28",
+     "vehicle": "Headline Lion SPV, L.P.",
+     "accession": "0001104659-24-111718",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2024-09-05",
+     "vehicle": "Headline Wombat SPV, L.P.",
+     "accession": "0001104659-24-097310",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2011-01-12",
+     "vehicle": "BV Capital Fund IV (Asia), L.P.",
+     "accession": "0001510113-11-000001",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner to the Issuer",
+     "city": "San Francisco"
+    }
+   ],
+   "first_filing": "2011-01-12",
+   "last_filing": "2024-10-28",
+   "n": 16
+  },
+  {
+   "name": "BV Capital GP IV, LLC",
+   "filings": [
+    {
+     "date": "2011-01-12",
+     "vehicle": "BV Capital Fund IV (Asia), L.P.",
+     "accession": "0001510113-11-000001",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "General Partner to the Issuer",
+     "city": "San Francisco"
+    }
+   ],
+   "first_filing": "2011-01-12",
+   "last_filing": "2011-01-12",
+   "n": 1
+  },
+  {
+   "name": "Thomas Gieselmann",
+   "filings": [
+    {
+     "date": "2020-11-12",
+     "vehicle": "e.ventures Co-Invest III, LLC",
+     "accession": "0001209191-20-057810",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the Manager",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2021-03-04",
+     "vehicle": "e.ventures Co-Invest IV, LLC",
+     "accession": "0001104659-21-032188",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the Manager",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2017-01-26",
+     "vehicle": "e.ventures Growth II, L.P.",
+     "accession": "0001695813-17-000001",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Manager of the General Partner to Issuer",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2020-06-29",
+     "vehicle": "e.ventures Growth III, L.P.",
+     "accession": "0001809367-20-000002",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner",
+     "city": "SAN FRANCISCO"
+    },
+    {
+     "date": "2016-05-06",
+     "vehicle": "e.ventures US V, LP",
+     "accession": "0001629997-16-000002",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Manager of the General Partner to Issuer",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2015-05-06",
+     "vehicle": "e.ventures US V, LP",
+     "accession": "0001629997-15-000001",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Manager of the General Partner to Issuer",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2016-06-29",
+     "vehicle": "e.ventures US V-A, LP",
+     "accession": "0001660790-16-000002",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Manager of the General Partner to Issuer",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2019-07-03",
+     "vehicle": "e.ventures US VI, L.P.",
+     "accession": "0001780856-19-000001",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner",
+     "city": "SAN FRANCISCO"
+    },
+    {
+     "date": "2014-06-27",
+     "vehicle": "eVentures Growth, L.P.",
+     "accession": "0001611943-14-000001",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Manager of the General Partner to Issuer",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2022-06-29",
+     "vehicle": "Headline US VII, L.P.",
+     "accession": "0001104659-22-075818",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2024-06-13",
+     "vehicle": "Headline Global Growth IV, L.P.",
+     "accession": "0001104659-24-071340",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner and the Investment Advisor",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2022-06-29",
+     "vehicle": "Headline Global Growth IV, L.P.",
+     "accession": "0001104659-22-075820",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2024-06-13",
+     "vehicle": "Headline Global Growth Lux IV SCSP",
+     "accession": "0001104659-24-071340",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner and the Investment Advisor",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2024-10-28",
+     "vehicle": "Headline Lion SPV, L.P.",
+     "accession": "0001104659-24-111718",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2024-09-05",
+     "vehicle": "Headline Wombat SPV, L.P.",
+     "accession": "0001104659-24-097310",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner",
+     "city": "San Francisco"
+    }
+   ],
+   "first_filing": "2014-06-27",
+   "last_filing": "2024-10-28",
+   "n": 15
+  },
+  {
+   "name": "eVentures Growth GP, LLC",
+   "filings": [
+    {
+     "date": "2014-06-27",
+     "vehicle": "eVentures Growth, L.P.",
+     "accession": "0001611943-14-000001",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "General Partner to Issuer",
+     "city": "San Francisco"
+    }
+   ],
+   "first_filing": "2014-06-27",
+   "last_filing": "2014-06-27",
+   "n": 1
+  },
+  {
+   "name": "General Partner e.ventures US V GP, LLC",
+   "filings": [
+    {
+     "date": "2016-05-06",
+     "vehicle": "e.ventures US V, LP",
+     "accession": "0001629997-16-000002",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "General Partner to Issuer",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2015-05-06",
+     "vehicle": "e.ventures US V, LP",
+     "accession": "0001629997-15-000001",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "General Partner to Issuer",
+     "city": "San Francisco"
+    }
+   ],
+   "first_filing": "2015-05-06",
+   "last_filing": "2016-05-06",
+   "n": 2
+  },
+  {
+   "name": "e.ventures US V GP, LLC",
+   "filings": [
+    {
+     "date": "2016-06-29",
+     "vehicle": "e.ventures US V-A, LP",
+     "accession": "0001660790-16-000002",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "General Partner to Issuer",
+     "city": "San Francisco"
+    }
+   ],
+   "first_filing": "2016-06-29",
+   "last_filing": "2016-06-29",
+   "n": 1
+  },
+  {
+   "name": "e.ventures Growth II GP, LLC",
+   "filings": [
+    {
+     "date": "2017-01-26",
+     "vehicle": "e.ventures Growth II, L.P.",
+     "accession": "0001695813-17-000001",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "General Partner to Issuer",
+     "city": "San Francisco"
+    }
+   ],
+   "first_filing": "2017-01-26",
+   "last_filing": "2017-01-26",
+   "n": 1
+  },
+  {
+   "name": "e.ventures US VI GP, LLC",
+   "filings": [
+    {
+     "date": "2019-07-03",
+     "vehicle": "e.ventures US VI, L.P.",
+     "accession": "0001780856-19-000001",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "General Partner of the Issuer (&quot;General Partner&quot;)",
+     "city": "SAN FRANCISCO"
+    }
+   ],
+   "first_filing": "2019-07-03",
+   "last_filing": "2019-07-03",
+   "n": 1
+  },
+  {
+   "name": "e.ventures Management, LLC",
+   "filings": [
+    {
+     "date": "2019-07-03",
+     "vehicle": "e.ventures US VI, L.P.",
+     "accession": "0001780856-19-000001",
+     "relationship": [
+      "Promoter"
+     ],
+     "clarification": "Management Company",
+     "city": "SAN FRANCISCO"
+    },
+    {
+     "date": "2020-05-07",
+     "vehicle": "EVGC Growth I Co-Invest, LLC",
+     "accession": "0001209191-20-027579",
+     "relationship": [
+      "Promoter"
+     ],
+     "clarification": "A Manager of the Issuer",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2020-05-07",
+     "vehicle": "EVGC Growth II Co-Invest, LLC",
+     "accession": "0001209191-20-027580",
+     "relationship": [
+      "Promoter"
+     ],
+     "clarification": "A Manager of the Issuer",
+     "city": "San Francisco"
+    }
+   ],
+   "first_filing": "2019-07-03",
+   "last_filing": "2020-05-07",
+   "n": 3
+  },
+  {
+   "name": "Greycroft LP",
+   "filings": [
+    {
+     "date": "2020-05-07",
+     "vehicle": "EVGC Growth I Co-Invest, LLC",
+     "accession": "0001209191-20-027579",
+     "relationship": [
+      "Promoter"
+     ],
+     "clarification": "A Manager of the Issuer",
+     "city": "New York"
+    },
+    {
+     "date": "2020-05-07",
+     "vehicle": "EVGC Growth II Co-Invest, LLC",
+     "accession": "0001209191-20-027580",
+     "relationship": [
+      "Promoter"
+     ],
+     "clarification": "A Manager of the Issuer",
+     "city": "New York"
+    }
+   ],
+   "first_filing": "2020-05-07",
+   "last_filing": "2020-05-07",
+   "n": 2
+  },
+  {
+   "name": "e.ventures Growth III GP, LLC",
+   "filings": [
+    {
+     "date": "2020-06-29",
+     "vehicle": "e.ventures Growth III, L.P.",
+     "accession": "0001809367-20-000002",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "General Partner of the Issuer (&quot;General Partner&quot;)",
+     "city": "SAN FRANCISCO"
+    }
+   ],
+   "first_filing": "2020-06-29",
+   "last_filing": "2020-06-29",
+   "n": 1
+  },
+  {
+   "name": "Jonathan Turner",
+   "filings": [
+    {
+     "date": "2020-06-29",
+     "vehicle": "e.ventures Growth III, L.P.",
+     "accession": "0001809367-20-000002",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner",
+     "city": "SAN FRANCISCO"
+    }
+   ],
+   "first_filing": "2020-06-29",
+   "last_filing": "2020-06-29",
+   "n": 1
+  },
+  {
+   "name": "e.ventures Co-Invest III GP, LLC",
+   "filings": [
+    {
+     "date": "2020-11-12",
+     "vehicle": "e.ventures Co-Invest III, LLC",
+     "accession": "0001209191-20-057810",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Manager of the Issuer (&quot;Manager&quot;)",
+     "city": "San Francisco"
+    }
+   ],
+   "first_filing": "2020-11-12",
+   "last_filing": "2020-11-12",
+   "n": 1
+  },
+  {
+   "name": "e.ventures Co-Invest GP IV, LLC",
+   "filings": [
+    {
+     "date": "2021-03-04",
+     "vehicle": "e.ventures Co-Invest IV, LLC",
+     "accession": "0001104659-21-032188",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Manager of the Issuer (&quot;Manager&quot;)",
+     "city": "San Francisco"
+    }
+   ],
+   "first_filing": "2021-03-04",
+   "last_filing": "2021-03-04",
+   "n": 1
+  },
+  {
+   "name": "Headline US VII GP, LLC",
+   "filings": [
+    {
+     "date": "2022-06-29",
+     "vehicle": "Headline US VII, L.P.",
+     "accession": "0001104659-22-075818",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "General Partner of the Issuer (&quot;General Partner&quot;)",
+     "city": "San Francisco"
+    }
+   ],
+   "first_filing": "2022-06-29",
+   "last_filing": "2022-06-29",
+   "n": 1
+  },
+  {
+   "name": "Jett Fein",
+   "filings": [
+    {
+     "date": "2022-06-29",
+     "vehicle": "Headline US VII, L.P.",
+     "accession": "0001104659-22-075818",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner",
+     "city": "San Francisco"
+    }
+   ],
+   "first_filing": "2022-06-29",
+   "last_filing": "2022-06-29",
+   "n": 1
+  },
+  {
+   "name": "Christian Leybold",
+   "filings": [
+    {
+     "date": "2024-06-13",
+     "vehicle": "Headline Global Growth IV, L.P.",
+     "accession": "0001104659-24-071340",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner, Manager of the Lux GP, and the Investment Advisor",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2022-06-29",
+     "vehicle": "Headline Global Growth IV, L.P.",
+     "accession": "0001104659-22-075820",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2024-06-13",
+     "vehicle": "Headline Global Growth Lux IV SCSP",
+     "accession": "0001104659-24-071340",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner, Manager of the Lux GP, and the Investment Advisor",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2024-10-28",
+     "vehicle": "Headline Lion SPV, L.P.",
+     "accession": "0001104659-24-111718",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2024-09-05",
+     "vehicle": "Headline Wombat SPV, L.P.",
+     "accession": "0001104659-24-097310",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Managing Director of the General Partner",
+     "city": "San Francisco"
+    }
+   ],
+   "first_filing": "2022-06-29",
+   "last_filing": "2024-10-28",
+   "n": 5
+  },
+  {
+   "name": "Headline Global Growth IV GP, LLC",
+   "filings": [
+    {
+     "date": "2022-06-29",
+     "vehicle": "Headline Global Growth IV, L.P.",
+     "accession": "0001104659-22-075820",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "General Partner of the Issuer (&quot;General Partner&quot;)",
+     "city": "San Francisco"
+    }
+   ],
+   "first_filing": "2022-06-29",
+   "last_filing": "2022-06-29",
+   "n": 1
+  },
+  {
+   "name": "- Headline Global Growth IV GP, LLC",
+   "filings": [
+    {
+     "date": "2024-06-13",
+     "vehicle": "Headline Global Growth IV, L.P.",
+     "accession": "0001104659-24-071340",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "General Partner of the Issuer (&quot;General Partner&quot;)",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2024-06-13",
+     "vehicle": "Headline Global Growth Lux IV SCSP",
+     "accession": "0001104659-24-071340",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "General Partner of the Issuer (&quot;General Partner&quot;)",
+     "city": "San Francisco"
+    }
+   ],
+   "first_filing": "2024-06-13",
+   "last_filing": "2024-06-13",
+   "n": 2
+  },
+  {
+   "name": "- Headline Growth Lux GP S.a r.l.",
+   "filings": [
+    {
+     "date": "2024-06-13",
+     "vehicle": "Headline Global Growth IV, L.P.",
+     "accession": "0001104659-24-071340",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "General Partner of Headline Global Growth Lux IV SCSP (&quot;Lux GP&quot;)",
+     "city": "Bertrange"
+    },
+    {
+     "date": "2024-06-13",
+     "vehicle": "Headline Global Growth Lux IV SCSP",
+     "accession": "0001104659-24-071340",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "General Partner of Headline Global Growth Lux IV SCSP (&quot;Lux GP&quot;)",
+     "city": "Bertrange"
+    }
+   ],
+   "first_filing": "2024-06-13",
+   "last_filing": "2024-06-13",
+   "n": 2
+  },
+  {
+   "name": "- Headline Growth Management, LLC",
+   "filings": [
+    {
+     "date": "2024-06-13",
+     "vehicle": "Headline Global Growth IV, L.P.",
+     "accession": "0001104659-24-071340",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Investment Advisor to the Lux Fund and Management Company of Headline Global Growth IV, L.P. (the &quot;Investment Advisor&quot;)",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2024-06-13",
+     "vehicle": "Headline Global Growth Lux IV SCSP",
+     "accession": "0001104659-24-071340",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Investment Advisor to the Lux Fund and Management Company of Headline Global Growth IV, L.P. (the &quot;Investment Advisor&quot;)",
+     "city": "San Francisco"
+    }
+   ],
+   "first_filing": "2024-06-13",
+   "last_filing": "2024-06-13",
+   "n": 2
+  },
+  {
+   "name": "- Fundcraft Management S.a r.l.",
+   "filings": [
+    {
+     "date": "2024-06-13",
+     "vehicle": "Headline Global Growth IV, L.P.",
+     "accession": "0001104659-24-071340",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Alternative Investment Fund Manager (AIFM) of Headline Global Growth Lux IV SCSP",
+     "city": "Bertrange"
+    },
+    {
+     "date": "2024-06-13",
+     "vehicle": "Headline Global Growth Lux IV SCSP",
+     "accession": "0001104659-24-071340",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Alternative Investment Fund Manager (AIFM) of Headline Global Growth Lux IV SCSP",
+     "city": "Bertrange"
+    }
+   ],
+   "first_filing": "2024-06-13",
+   "last_filing": "2024-06-13",
+   "n": 2
+  },
+  {
+   "name": "Dr. Elias Borgmann-Dehina",
+   "filings": [
+    {
+     "date": "2024-06-13",
+     "vehicle": "Headline Global Growth IV, L.P.",
+     "accession": "0001104659-24-071340",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Manager of the Lux GP",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2024-06-13",
+     "vehicle": "Headline Global Growth Lux IV SCSP",
+     "accession": "0001104659-24-071340",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Manager of the Lux GP",
+     "city": "San Francisco"
+    }
+   ],
+   "first_filing": "2024-06-13",
+   "last_filing": "2024-06-13",
+   "n": 2
+  },
+  {
+   "name": "Patrick Daniel Reilly",
+   "filings": [
+    {
+     "date": "2024-06-13",
+     "vehicle": "Headline Global Growth IV, L.P.",
+     "accession": "0001104659-24-071340",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Manager of the Lux GP",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2024-06-13",
+     "vehicle": "Headline Global Growth Lux IV SCSP",
+     "accession": "0001104659-24-071340",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "Manager of the Lux GP",
+     "city": "San Francisco"
+    }
+   ],
+   "first_filing": "2024-06-13",
+   "last_filing": "2024-06-13",
+   "n": 2
+  },
+  {
+   "name": "Headline Global Growth Co-Invest GP, LLC",
+   "filings": [
+    {
+     "date": "2024-10-28",
+     "vehicle": "Headline Lion SPV, L.P.",
+     "accession": "0001104659-24-111718",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "General Partner of the Issuer (&quot;General Partner&quot;)",
+     "city": "San Francisco"
+    },
+    {
+     "date": "2024-09-05",
+     "vehicle": "Headline Wombat SPV, L.P.",
+     "accession": "0001104659-24-097310",
+     "relationship": [
+      "Director"
+     ],
+     "clarification": "General Partner of the Issuer (&quot;General Partner&quot;)",
+     "city": "San Francisco"
+    }
+   ],
+   "first_filing": "2024-09-05",
+   "last_filing": "2024-10-28",
+   "n": 2
+  }
+ ]
+}

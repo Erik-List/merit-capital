@@ -1,0 +1,783 @@
+{
+ "headline": {
+  "_readme": "Identity overlay for the Headline base (COLLECTION.md s8): merges, rejects, desk moves, never_merge. Desk moves send the regional desks' rows to other_desk (decisions.md D2 Asia, D3 Brazil): a row the CMS lists only under the Asia or Brazil fund page, or only by that desk's investors. A row with a home fund page (US, EU, Global Growth) stays.",
+  "merges": [
+   {
+    "canonical": "honeycomb",
+    "duplicates": [
+     "hound-technology-inc"
+    ],
+    "name": "Honeycomb",
+    "reason": "one company: Hound Technology, Inc. is Honeycomb.io's legal name (Form D issuer; Gieselmann on the filing, Honeycomb on his team page)"
+   },
+   {
+    "canonical": "nom-nom",
+    "duplicates": [
+     "nomnomnow-inc"
+    ],
+    "name": "Nom Nom",
+    "reason": "one company: NomNomNow Inc. is Nom Nom's legal name (Form D 2018, Gieselmann; Nom Nom on his team page; acquired by Mars 2022)"
+   },
+   {
+    "canonical": "blossom-health",
+    "duplicates": [
+     "blossom-bh-opco-inc"
+    ],
+    "name": "Blossom Health",
+    "reason": "one company: Blossom BH OpCo Inc. is Blossom Health's operating company (Form D 2025, Schilling; Blossom Health on his team page)"
+   },
+   {
+    "canonical": "angie-s-list",
+    "duplicates": [
+     "angi"
+    ],
+    "name": "Angie's List",
+    "reason": "one investment: BV Capital Fund II held Angie's List (Form 3 at the 2011 IPO; bvcapital.com 2008-2010); Angie's List merged into IAC's ANGI Homeservices in 2017, renamed Angi Inc. in 2021, which the 2026 site lists as 'Angi'"
+   },
+   {
+    "canonical": "expertcity",
+    "duplicates": [
+     "gotomeeting"
+    ],
+    "name": "Expertcity",
+    "reason": "one investment: Expertcity (GoToMyPC, later GoToMeeting) was the BV Capital company, bought by Citrix in 2004 and run as Citrix Online (bvcapital.com 'Expertcity (CTXS)'; Wikipedia: 'Investors included ... Bertelsmann Ventures'); the 2026 team pages list it by its product 'GoToMeeting'"
+   },
+   {
+    "canonical": "homa",
+    "duplicates": [
+     "homa-games"
+    ],
+    "name": "Homa",
+    "reason": "one company: the CMS carries Homa Games twice ('Homa' on the EU and growth fund pages, 'Homa Games' under Jonathan Userovici); Homa is the current brand"
+   },
+   {
+    "canonical": "mine",
+    "duplicates": [
+     "saymine"
+    ],
+    "name": "Mine",
+    "reason": "one company: Mine (saymine.com), Tel Aviv; the CMS carries it as 'Mine' on the grid and 'Saymine' under Christian Miele"
+   },
+   {
+    "canonical": "codesignal",
+    "duplicates": [
+     "brainfights-inc"
+    ],
+    "name": "CodeSignal",
+    "reason": "one company: BrainFights, Inc. is CodeSignal's legal name (CodeFights, founded 2015 by Tigran Sloyan; Form D 2015-2016, Gieselmann director; CodeSignal on his team page)"
+   },
+   {
+    "canonical": "housecall-pro",
+    "duplicates": [
+     "codefied-inc"
+    ],
+    "name": "Housecall Pro",
+    "reason": "one company: Codefied Inc. does business as Housecall Pro (Form D 2013-2022, Gieselmann director; 4180 Wynkoop Street, Denver, the address on the firm's CMS)"
+   },
+   {
+    "canonical": "merchantry-inc",
+    "duplicates": [
+     "ixtens-inc"
+    ],
+    "name": "Merchantry",
+    "reason": "one company: EDGAR CIK 1502734 renamed Ixtens, Inc. to Merchantry, Inc. (same registrant, 355 Lexington Avenue, New York; Gieselmann director on both)"
+   },
+   {
+    "canonical": "voicea",
+    "duplicates": [
+     "rizio-inc"
+    ],
+    "name": "Voicea",
+    "reason": "one company: Rizio, Inc. is Voicea's legal name ('Rizio dba Voicea'; Menlo Park Form Ds 2016-2018, Schilling director); acquired by Cisco 2019"
+   },
+   {
+    "canonical": "recursive",
+    "duplicates": [
+     "superintelligence"
+    ],
+    "name": "Recursive",
+    "reason": "one company: 'Superintelligence' on Christian Miele's team page is Recursive Superintelligence, the London company the CMS lists as 'Recursive' (Early 2026, Miele)"
+   },
+   {
+    "canonical": "helcim",
+    "duplicates": [
+     "helcium"
+    ],
+    "name": "Helcim",
+    "reason": "one company: 'Helcium' on Mathias Schilling's team page (a title-only doc created 2026-08-31) is a misspelling of Helcim, the Calgary payments company on the US fund page (founder Nic Beique)"
+   },
+   {
+    "canonical": "test-ai",
+    "duplicates": [
+     "appdiff"
+    ],
+    "name": "Test.ai",
+    "reason": "one company: Appdiff renamed itself test.ai (the e.ventures site swapped Appdiff.png for TestAI.png in October 2018)"
+   }
+  ],
+  "rejects": [],
+  "desk": [
+   {
+    "slug": "17live",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "36kr",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "55688-taiwan-taxi",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "abc-da-constru-o",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "accountfy",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "ahazou",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "ai-mage",
+    "lineage": "asia",
+    "reason": "listed only by Asia-desk investors (Yuka Kawata) and no home fund page (decisions.md D2)"
+   },
+   {
+    "slug": "aliado",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "antecipa",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "arena",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "arquiteto-de-bolso",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "avenia",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "backseat",
+    "lineage": "asia",
+    "reason": "listed only by Asia-desk investors (Jeremy Kai Proctor) and no home fund page (decisions.md D2)"
+   },
+   {
+    "slug": "blips",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "bossabox",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "bovcontrol",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "buyandship",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "cardmon",
+    "lineage": "asia",
+    "reason": "listed only by Asia-desk investors (Jackson Loo) and no home fund page (decisions.md D2)"
+   },
+   {
+    "slug": "celero",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "clisksign",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "condoconta",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "cortex",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "cycles-nutrition",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "datamint",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "delfos",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "doc9",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "escale",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "eureciclo",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "fabfoods",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "fiibo",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "fin-x",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "financie",
+    "lineage": "asia",
+    "reason": "listed only by Asia-desk investors (Jonathan Hayashi) and no home fund page (decisions.md D2)"
+   },
+   {
+    "slug": "forest",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "freee-k-k",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "genki-robotics",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "gesto",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "ggwp",
+    "lineage": "asia",
+    "reason": "listed only by Asia-desk investors (Jeremy Kai Proctor) and no home fund page (decisions.md D2)"
+   },
+   {
+    "slug": "gigu",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "gliacloud",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "gmi-cloud",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "hakki-group",
+    "lineage": "asia",
+    "reason": "listed only by Asia-desk investors (Toshiaki Shimakawa) and no home fund page (decisions.md D2)"
+   },
+   {
+    "slug": "hero-seguros",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "hoberton",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "horuss",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "housi",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "hubii",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "imotorbike",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "infinimind",
+    "lineage": "asia",
+    "reason": "listed only by Asia-desk investors (Jeremy Kai Proctor) and no home fund page (decisions.md D2)"
+   },
+   {
+    "slug": "intellect",
+    "lineage": "asia",
+    "reason": "listed only by Asia-desk investors (Jonathan Hayashi) and no home fund page (decisions.md D2)"
+   },
+   {
+    "slug": "inteluck",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "ivry",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "jenfi",
+    "lineage": "asia",
+    "reason": "listed only by Asia-desk investors (Jonathan Hayashi) and no home fund page (decisions.md D2)"
+   },
+   {
+    "slug": "jmty",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "jpyc",
+    "lineage": "asia",
+    "reason": "listed only by Asia-desk investors (Jonathan Hayashi) and no home fund page (decisions.md D2)"
+   },
+   {
+    "slug": "kickflow",
+    "lineage": "asia",
+    "reason": "listed only by Asia-desk investors (Toshiaki Shimakawa) and no home fund page (decisions.md D2)"
+   },
+   {
+    "slug": "kzas",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "letara",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "linte",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "maicoin",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "memed",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "mercado-de-receb-veis",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "mfast",
+    "lineage": "asia",
+    "reason": "listed only by Asia-desk investors (Kate Liu) and no home fund page (decisions.md D2)"
+   },
+   {
+    "slug": "minu",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "minuto-seguros",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "mission",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "mol",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "movidesk",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "neurogram",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "newmo",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "nibo",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "nudge",
+    "lineage": "asia",
+    "reason": "listed only by Asia-desk investors (Jonathan Hayashi) and no home fund page (decisions.md D2)"
+   },
+   {
+    "slug": "olist",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "openhome",
+    "lineage": "asia",
+    "reason": "listed only by Asia-desk investors (Jeremy Kai Proctor) and no home fund page (decisions.md D2)"
+   },
+   {
+    "slug": "passei-direto",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "peerdustry",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "pi-xcels",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "pipefy",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "pipeimob",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "plum-aka-hongbulin",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "qulture-rocks",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "rappi",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "rd-station",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "repassa",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "respond-io",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "resultados-digitais",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "rimoa",
+    "lineage": "asia",
+    "reason": "listed only by Asia-desk investors (Yuka Kawata) and no home fund page (decisions.md D2)"
+   },
+   {
+    "slug": "rlwrld",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "robot-com",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "sami",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "skore",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "smartbreak",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "spiderlabs",
+    "lineage": "asia",
+    "reason": "listed only by Asia-desk investors (Toshiaki Shimakawa) and no home fund page (decisions.md D2)"
+   },
+   {
+    "slug": "spuree",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "stract",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "syntheticgesutalt",
+    "lineage": "asia",
+    "reason": "listed only by Asia-desk investors (Toshiaki Shimakawa) and no home fund page (decisions.md D2)"
+   },
+   {
+    "slug": "tembibi",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "tokenz",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "trinus",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "turn2c",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "undone",
+    "lineage": "asia",
+    "reason": "listed only by Asia-desk investors (Kate Liu) and no home fund page (decisions.md D2)"
+   },
+   {
+    "slug": "vaas",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "viajanet",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "vittude",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "vixtra",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "wealthnavi",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "wellhub",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "xerpa",
+    "lineage": "brazil",
+    "reason": "the CMS lists it only under the Brazil fund page (decisions.md D3)"
+   },
+   {
+    "slug": "zettabyte",
+    "lineage": "asia",
+    "reason": "the CMS lists it only under the Asia fund page (decisions.md D2)"
+   },
+   {
+    "slug": "vital-signals",
+    "lineage": "asia",
+    "reason": "the CMS doc's only entry is 'Asia Early 2026', listed by the Asia desk's Jeremy Kai Proctor and Joseph Huang; no home fund page or vehicle (decisions.md D2)"
+   },
+   {
+    "slug": "bplats-inc",
+    "lineage": "asia",
+    "reason": "the e.ventures logo wall's asia desk company (Tokyo HQ; logo uploaded 2012/05 with the Chinese and Japanese network logos (Rekoo, Yicha, iLemon), i.e. the Infinity Ve); decisions.md D2"
+   },
+   {
+    "slug": "classbox",
+    "lineage": "asia",
+    "reason": "the e.ventures logo wall's asia desk company (Beijing company funded by Infinity Venture Partners (Asia desk); the logo was uploaded 2014/01 next to Infinity's TechTe); decisions.md D2"
+   },
+   {
+    "slug": "mobotap",
+    "lineage": "asia",
+    "reason": "the e.ventures logo wall's asia desk company (Inferred: logo uploaded January 2013 in the Asia batch (next to HuoMu); Chinese company. No page names Infinity Ventures); decisions.md D2"
+   },
+   {
+    "slug": "jihua-fm",
+    "lineage": "asia",
+    "reason": "the e.ventures logo wall's asia desk company (Funded by Infinity Venture Partners, which became 'Infinity e.ventures', the firm's Asia desk (TechCrunch, July 2012).); decisions.md D2"
+   },
+   {
+    "slug": "kooky-panda",
+    "lineage": "asia",
+    "reason": "the e.ventures logo wall's asia desk company (Beijing-based company on the BV Capital-era page (2012/05); the Asia desk (Infinity Venture Partners) is the natural sou); decisions.md D2"
+   },
+   {
+    "slug": "mixerbox",
+    "lineage": "asia",
+    "reason": "the e.ventures logo wall's asia desk company (Inferred: logo uploaded June 2013 in the Asia batch and MixerBox is Taipei-based, where Infinity Ventures (the e.venture); decisions.md D2"
+   },
+   {
+    "slug": "mobcent",
+    "lineage": "asia",
+    "reason": "the e.ventures logo wall's asia desk company (Beijing company in the 2012/11 Asia-desk upload batch; no page names the investor.); decisions.md D2"
+   },
+   {
+    "slug": "moca",
+    "lineage": "asia",
+    "reason": "the e.ventures logo wall's asia desk company (Infinity Venture Partners' China investment, named by co-founder Akio Tanaka (Asia desk); moca.jpg in the 2012 eventures); decisions.md D2"
+   },
+   {
+    "slug": "one-of-them-inc",
+    "lineage": "asia",
+    "reason": "the e.ventures logo wall's asia desk company (Inferred: Japanese company, logo uploaded November 2012 in the Asia batch; Infinity Ventures (Tokyo) is the e.ventures A); decisions.md D2"
+   },
+   {
+    "slug": "orderwithme",
+    "lineage": "asia",
+    "reason": "the e.ventures logo wall's asia desk company (Hangzhou-based when Infinity Venture Partners (Asia desk) co-led its Series A in December 2011; moved to Las Vegas in 20); decisions.md D2"
+   },
+   {
+    "slug": "pikkle-inc",
+    "lineage": "asia",
+    "reason": "the e.ventures logo wall's asia desk company (Tokyo social-games company in the Infinity (Asia desk) era, logo in the 2012/05 upload set; Infinity invested in Japanes); decisions.md D2"
+   },
+   {
+    "slug": "pinkoi",
+    "lineage": "asia",
+    "reason": "the e.ventures logo wall's asia desk company (The firm-side investor named is Infinity Venture Partners (the e.ventures Asia affiliate, Taipei office under Joseph Hua); decisions.md D2"
+   },
+   {
+    "slug": "q-pod",
+    "lineage": "asia",
+    "reason": "the e.ventures logo wall's asia desk company (BV Capital's own page lists it under 'Current Portfolio - Asia*' and 'Japanese Group Buying* (Groupon)', where * reads '); decisions.md D2"
+   },
+   {
+    "slug": "rekoo",
+    "lineage": "asia",
+    "reason": "the e.ventures logo wall's asia desk company (Beijing company; the investor was Infinity Venture Partners (Akio Tanaka / Hirofumi Ono), the Asia desk that became Infi); decisions.md D2"
+   },
+   {
+    "slug": "smart-education-inc",
+    "lineage": "asia",
+    "reason": "the e.ventures logo wall's asia desk company (Tokyo company; the round was taken by Infinity Ventures LLP's fund 'IVP Fund II' (the Asia desk, later Infinity e.ventur); decisions.md D2"
+   },
+   {
+    "slug": "strikingly",
+    "lineage": "asia",
+    "reason": "the e.ventures logo wall's asia desk company (The investor named in both rounds is Infinity Venture Partners (the e.ventures Asia affiliate), not an e.ventures home f); decisions.md D2"
+   },
+   {
+    "slug": "waptx",
+    "lineage": "asia",
+    "reason": "the e.ventures logo wall's asia desk company (Beijing company backed by Infinity Venture Partners (the e.ventures Asia desk from 2012); the DeNA logo on eventures.vc ); decisions.md D2"
+   },
+   {
+    "slug": "yicha",
+    "lineage": "asia",
+    "reason": "the e.ventures logo wall's asia desk company (Beijing company with a Japanese division; logo uploaded 2012/05 with the Infinity Venture Partners (Asia) network logos ); decisions.md D2"
+   },
+   {
+    "slug": "psafe",
+    "lineage": "brazil",
+    "reason": "the e.ventures logo wall's brazil desk company (Investor named as 'Redpoint e.ventures' / 'Redpoint eVentures Brazil', the Brazil desk.); decisions.md D3"
+   },
+   {
+    "slug": "sophie-juliete",
+    "lineage": "brazil",
+    "reason": "the e.ventures logo wall's brazil desk company (Redpoint eVentures (the Brazil JV) named it as its fifth investment, March 2012.); decisions.md D3"
+   }
+  ],
+  "never_merge": [
+   {
+    "slugs": [
+     "fetch",
+     "farfetch"
+    ],
+    "reason": "two companies: Fetch (Fetch Rewards, Madison WI, US fund) and Farfetch (London marketplace)"
+   },
+   {
+    "slugs": [
+     "verse",
+     "verse-medical"
+    ],
+    "reason": "two companies: Verse (Barcelona peer-to-peer payments, e.ventures Series A 2016, bought by Square 2020) and Verse Medical (New York hospital discharge system, Headline 2023); the name-variant pass merged them on the first rebuild of 2026-09-27"
+   }
+  ]
+ }
+}

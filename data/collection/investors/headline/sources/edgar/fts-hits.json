@@ -1,0 +1,3248 @@
+{
+  "_readme": "EDGAR full-text sweep (scripts/edgar-fts-sweep.py): hits for the configured phrases aggregated by registrant; bucket third_party = exit-side disclosure candidates for the judge (S-1 IRA signatories and holder tables, 424B selling stockholders, acquirer S-3/S-4/8-K), own = the investor's entities/people, lp_side = registered funds holding the investor's vehicles, ownership_forms = 13D/G, 3/4 or D filings handled by the entities/ownership layers.",
+  "phrases": [
+    "e.ventures",
+    "eVentures Growth",
+    "BV Capital Fund",
+    "BV Capital GmbH",
+    "BV eVentures",
+    "Bertelsmann Ventures",
+    "Headline US VI",
+    "Headline US VII",
+    "Headline Growth III",
+    "Headline Global Growth"
+  ],
+  "own_pattern": "^(e\\.?ventures|bv capital|bv e\\.?venture|headline (us|growth|global growth|europe|eu|lion|wombat|homa)|evgc|bertelsmann ventures)",
+  "swept_at": "2026-09-27",
+  "coverage": [
+    {
+      "phrase": "e.ventures",
+      "total": 102,
+      "complete": true,
+      "failed_windows": [],
+      "read": 102,
+      "distinct": 102
+    },
+    {
+      "phrase": "eVentures Growth",
+      "total": 1,
+      "complete": true,
+      "failed_windows": [],
+      "read": 1,
+      "distinct": 1
+    },
+    {
+      "phrase": "BV Capital Fund",
+      "total": 61,
+      "complete": true,
+      "failed_windows": [],
+      "read": 61,
+      "distinct": 61
+    },
+    {
+      "phrase": "BV Capital GmbH",
+      "total": 51,
+      "complete": true,
+      "failed_windows": [],
+      "read": 51,
+      "distinct": 51
+    },
+    {
+      "phrase": "BV eVentures",
+      "total": 3,
+      "complete": true,
+      "failed_windows": [],
+      "read": 3,
+      "distinct": 3
+    },
+    {
+      "phrase": "Bertelsmann Ventures",
+      "total": 45,
+      "complete": true,
+      "failed_windows": [],
+      "read": 45,
+      "distinct": 45
+    },
+    {
+      "phrase": "Headline US VI",
+      "total": 0,
+      "complete": true,
+      "failed_windows": [],
+      "read": 0,
+      "distinct": 0
+    },
+    {
+      "phrase": "Headline US VII",
+      "total": 1,
+      "complete": true,
+      "failed_windows": [],
+      "read": 1,
+      "distinct": 1
+    },
+    {
+      "phrase": "Headline Growth III",
+      "total": 0,
+      "complete": true,
+      "failed_windows": [],
+      "read": 0,
+      "distinct": 0
+    },
+    {
+      "phrase": "Headline Global Growth",
+      "total": 5,
+      "complete": true,
+      "failed_windows": [],
+      "read": 5,
+      "distinct": 5
+    }
+  ],
+  "registrants": [
+    {
+      "registrant": "HARTFORD MUTUAL FUNDS INC/CT",
+      "cik": "0001006415",
+      "forms": {
+        "N-CSR": 1
+      },
+      "first_date": "2015-01-07",
+      "last_date": "2015-01-07",
+      "filings": [
+        {
+          "form": "N-CSR",
+          "date": "2015-01-07",
+          "adsh": "0001144204-15-001082",
+          "url": "https://www.sec.gov/Archives/edgar/data/1006415/000114420415001082/v397121_ncsr.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1006415/000114420415001082/0001144204-15-001082-index.htm"
+        }
+      ],
+      "bucket": "lp_side"
+    },
+    {
+      "registrant": "BV Capital Fund IV (Asia), L.P.",
+      "cik": "0001510113",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2011-01-12",
+      "last_date": "2011-01-12",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2011-01-12",
+          "adsh": "0001510113-11-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1510113/000151011311000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1510113/000151011311000001/0001510113-11-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "BV Capital Fund II-A, L.P.",
+      "cik": "0001533899",
+      "forms": {
+        "4": 3,
+        "3": 2
+      },
+      "first_date": "2011-11-16",
+      "last_date": "2015-10-08",
+      "filings": [
+        {
+          "form": "3",
+          "date": "2011-11-16",
+          "adsh": "0000950103-11-004810",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533899/000095010311004810/edgar.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533899/000095010311004810/0000950103-11-004810-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2011-11-22",
+          "adsh": "0000950103-11-004924",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533899/000095010311004924/edgar.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533899/000095010311004924/0000950103-11-004924-index.htm"
+        },
+        {
+          "form": "3",
+          "date": "2015-06-25",
+          "adsh": "0001209191-15-056588",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533899/000120919115056588/doc3.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533899/000120919115056588/0001209191-15-056588-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2015-06-29",
+          "adsh": "0001209191-15-057203",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533899/000120919115057203/doc4.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533899/000120919115057203/0001209191-15-057203-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2015-10-08",
+          "adsh": "0001209191-15-074913",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533899/000120919115074913/doc4.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533899/000120919115074913/0001209191-15-074913-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "BV Capital Fund II, L.P.",
+      "cik": "0001533898",
+      "forms": {
+        "4": 3,
+        "3": 2
+      },
+      "first_date": "2011-11-16",
+      "last_date": "2015-10-08",
+      "filings": [
+        {
+          "form": "3",
+          "date": "2011-11-16",
+          "adsh": "0000950103-11-004810",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533898/000095010311004810/edgar.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533898/000095010311004810/0000950103-11-004810-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2011-11-22",
+          "adsh": "0000950103-11-004924",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533898/000095010311004924/edgar.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533898/000095010311004924/0000950103-11-004924-index.htm"
+        },
+        {
+          "form": "3",
+          "date": "2015-06-25",
+          "adsh": "0001209191-15-056588",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533898/000120919115056588/doc3.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533898/000120919115056588/0001209191-15-056588-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2015-06-29",
+          "adsh": "0001209191-15-057203",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533898/000120919115057203/doc4.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533898/000120919115057203/0001209191-15-057203-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2015-10-08",
+          "adsh": "0001209191-15-074913",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533898/000120919115074913/doc4.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533898/000120919115074913/0001209191-15-074913-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "BV Capital Management, LLC",
+      "cik": "0001534591",
+      "forms": {
+        "4": 2,
+        "3": 2
+      },
+      "first_date": "2011-11-16",
+      "last_date": "2015-10-08",
+      "filings": [
+        {
+          "form": "3",
+          "date": "2011-11-16",
+          "adsh": "0000950103-11-004810",
+          "url": "https://www.sec.gov/Archives/edgar/data/1534591/000095010311004810/edgar.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1534591/000095010311004810/0000950103-11-004810-index.htm"
+        },
+        {
+          "form": "3",
+          "date": "2015-06-25",
+          "adsh": "0001209191-15-056588",
+          "url": "https://www.sec.gov/Archives/edgar/data/1534591/000120919115056588/doc3.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1534591/000120919115056588/0001209191-15-056588-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2015-06-29",
+          "adsh": "0001209191-15-057203",
+          "url": "https://www.sec.gov/Archives/edgar/data/1534591/000120919115057203/doc4.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1534591/000120919115057203/0001209191-15-057203-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2015-10-08",
+          "adsh": "0001209191-15-074913",
+          "url": "https://www.sec.gov/Archives/edgar/data/1534591/000120919115074913/doc4.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1534591/000120919115074913/0001209191-15-074913-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "BV Capital Gmbh & Co Beteiligungs KG No. 1",
+      "cik": "0001533897",
+      "forms": {
+        "4": 3,
+        "3": 2
+      },
+      "first_date": "2011-11-16",
+      "last_date": "2015-10-08",
+      "filings": [
+        {
+          "form": "3",
+          "date": "2011-11-16",
+          "adsh": "0000950103-11-004810",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533897/000095010311004810/edgar.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533897/000095010311004810/0000950103-11-004810-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2011-11-22",
+          "adsh": "0000950103-11-004924",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533897/000095010311004924/edgar.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533897/000095010311004924/0000950103-11-004924-index.htm"
+        },
+        {
+          "form": "3",
+          "date": "2015-06-25",
+          "adsh": "0001209191-15-056588",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533897/000120919115056588/doc3.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533897/000120919115056588/0001209191-15-056588-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2015-06-29",
+          "adsh": "0001209191-15-057203",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533897/000120919115057203/doc4.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533897/000120919115057203/0001209191-15-057203-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2015-10-08",
+          "adsh": "0001209191-15-074913",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533897/000120919115074913/doc4.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533897/000120919115074913/0001209191-15-074913-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "BV Capital GP II, LLC",
+      "cik": "0001533900",
+      "forms": {
+        "4": 3,
+        "3": 2,
+        "SC 13G/A": 2,
+        "SC 13G": 4
+      },
+      "first_date": "2011-11-16",
+      "last_date": "2015-10-08",
+      "filings": [
+        {
+          "form": "3",
+          "date": "2011-11-16",
+          "adsh": "0000950103-11-004810",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533900/000095010311004810/edgar.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533900/000095010311004810/0000950103-11-004810-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2011-11-22",
+          "adsh": "0000950103-11-004924",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533900/000095010311004924/edgar.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533900/000095010311004924/0000950103-11-004924-index.htm"
+        },
+        {
+          "form": "SC 13G",
+          "date": "2012-02-14",
+          "adsh": "0001193125-12-058908",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533900/000119312512058908/d300290dsc13g.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533900/000119312512058908/0001193125-12-058908-index.htm"
+        },
+        {
+          "form": "SC 13G",
+          "date": "2012-02-14",
+          "adsh": "0001193125-12-058908",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533900/000119312512058908/d300290dex991.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533900/000119312512058908/0001193125-12-058908-index.htm"
+        },
+        {
+          "form": "SC 13G/A",
+          "date": "2013-02-07",
+          "adsh": "0001193125-13-042116",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533900/000119312513042116/d481545dsc13ga.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533900/000119312513042116/0001193125-13-042116-index.htm"
+        },
+        {
+          "form": "SC 13G/A",
+          "date": "2013-02-07",
+          "adsh": "0001193125-13-042116",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533900/000119312513042116/d481545dex991.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533900/000119312513042116/0001193125-13-042116-index.htm"
+        },
+        {
+          "form": "SC 13G",
+          "date": "2014-02-13",
+          "adsh": "0001193125-14-048591",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533900/000119312514048591/d676582dsc13g.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533900/000119312514048591/0001193125-14-048591-index.htm"
+        },
+        {
+          "form": "SC 13G",
+          "date": "2014-02-13",
+          "adsh": "0001193125-14-048591",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533900/000119312514048591/d676582dex991.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533900/000119312514048591/0001193125-14-048591-index.htm"
+        },
+        {
+          "form": "3",
+          "date": "2015-06-25",
+          "adsh": "0001209191-15-056588",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533900/000120919115056588/doc3.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533900/000120919115056588/0001209191-15-056588-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2015-06-29",
+          "adsh": "0001209191-15-057203",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533900/000120919115057203/doc4.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533900/000120919115057203/0001209191-15-057203-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2015-10-08",
+          "adsh": "0001209191-15-074913",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533900/000120919115074913/doc4.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1533900/000120919115074913/0001209191-15-074913-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "eVentures Growth, L.P.",
+      "cik": "0001611943",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2014-06-27",
+      "last_date": "2014-06-27",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2014-06-27",
+          "adsh": "0001611943-14-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1611943/000161194314000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1611943/000161194314000001/0001611943-14-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "e.ventures US V, LP",
+      "cik": "0001629997",
+      "forms": {
+        "D": 1,
+        "D/A": 1
+      },
+      "first_date": "2015-05-06",
+      "last_date": "2016-05-06",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2015-05-06",
+          "adsh": "0001629997-15-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1629997/000162999715000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1629997/000162999715000001/0001629997-15-000001-index.htm"
+        },
+        {
+          "form": "D/A",
+          "date": "2016-05-06",
+          "adsh": "0001629997-16-000002",
+          "url": "https://www.sec.gov/Archives/edgar/data/1629997/000162999716000002/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1629997/000162999716000002/0001629997-16-000002-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "e.ventures US V-A, LP",
+      "cik": "0001660790",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2016-06-29",
+      "last_date": "2016-06-29",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2016-06-29",
+          "adsh": "0001660790-16-000002",
+          "url": "https://www.sec.gov/Archives/edgar/data/1660790/000166079016000002/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1660790/000166079016000002/0001660790-16-000002-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "e.ventures Growth II, L.P.",
+      "cik": "0001695813",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2017-01-26",
+      "last_date": "2017-01-26",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2017-01-26",
+          "adsh": "0001695813-17-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1695813/000169581317000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1695813/000169581317000001/0001695813-17-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "e.ventures US VI, L.P.",
+      "cik": "0001780856",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2019-07-03",
+      "last_date": "2019-07-03",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2019-07-03",
+          "adsh": "0001780856-19-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1780856/000178085619000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1780856/000178085619000001/0001780856-19-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "EVGC Growth I Co-Invest, LLC",
+      "cik": "0001810732",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2020-05-07",
+      "last_date": "2020-05-07",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2020-05-07",
+          "adsh": "0001209191-20-027579",
+          "url": "https://www.sec.gov/Archives/edgar/data/1810732/000120919120027579/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1810732/000120919120027579/0001209191-20-027579-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "EVGC Growth II Co-Invest, LLC",
+      "cik": "0001810727",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2020-05-07",
+      "last_date": "2020-05-07",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2020-05-07",
+          "adsh": "0001209191-20-027580",
+          "url": "https://www.sec.gov/Archives/edgar/data/1810727/000120919120027580/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1810727/000120919120027580/0001209191-20-027580-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "e.ventures Growth III, L.P.",
+      "cik": "0001809367",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2020-06-29",
+      "last_date": "2020-06-29",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2020-06-29",
+          "adsh": "0001809367-20-000002",
+          "url": "https://www.sec.gov/Archives/edgar/data/1809367/000180936720000002/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1809367/000180936720000002/0001809367-20-000002-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "e.ventures Co-Invest III, LLC",
+      "cik": "0001830929",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2020-11-12",
+      "last_date": "2020-11-12",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2020-11-12",
+          "adsh": "0001209191-20-057810",
+          "url": "https://www.sec.gov/Archives/edgar/data/1830929/000120919120057810/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1830929/000120919120057810/0001209191-20-057810-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "e.ventures Co-Invest IV, LLC",
+      "cik": "0001845433",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2021-03-04",
+      "last_date": "2021-03-04",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2021-03-04",
+          "adsh": "0001104659-21-032188",
+          "url": "https://www.sec.gov/Archives/edgar/data/1845433/000110465921032188/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1845433/000110465921032188/0001104659-21-032188-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Headline US VII, L.P.",
+      "cik": "0001931045",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2022-06-29",
+      "last_date": "2022-06-29",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2022-06-29",
+          "adsh": "0001104659-22-075818",
+          "url": "https://www.sec.gov/Archives/edgar/data/1931045/000110465922075818/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1931045/000110465922075818/0001104659-22-075818-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Headline Global Growth IV, L.P.",
+      "cik": "0001931106",
+      "forms": {
+        "D/A": 1,
+        "D": 1
+      },
+      "first_date": "2022-06-29",
+      "last_date": "2024-06-13",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2022-06-29",
+          "adsh": "0001104659-22-075820",
+          "url": "https://www.sec.gov/Archives/edgar/data/1931106/000110465922075820/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1931106/000110465922075820/0001104659-22-075820-index.htm"
+        },
+        {
+          "form": "D/A",
+          "date": "2024-06-13",
+          "adsh": "0001104659-24-071340",
+          "url": "https://www.sec.gov/Archives/edgar/data/1931106/000110465924071340/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1931106/000110465924071340/0001104659-24-071340-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Headline Global Growth Lux IV SCSP",
+      "cik": "0002002335",
+      "forms": {
+        "D/A": 1
+      },
+      "first_date": "2024-06-13",
+      "last_date": "2024-06-13",
+      "filings": [
+        {
+          "form": "D/A",
+          "date": "2024-06-13",
+          "adsh": "0001104659-24-071340",
+          "url": "https://www.sec.gov/Archives/edgar/data/2002335/000110465924071340/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/2002335/000110465924071340/0001104659-24-071340-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Headline Wombat SPV, L.P.",
+      "cik": "0002036016",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2024-09-05",
+      "last_date": "2024-09-05",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2024-09-05",
+          "adsh": "0001104659-24-097310",
+          "url": "https://www.sec.gov/Archives/edgar/data/2036016/000110465924097310/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/2036016/000110465924097310/0001104659-24-097310-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Headline Lion SPV, L.P.",
+      "cik": "0002040786",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2024-10-28",
+      "last_date": "2024-10-28",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2024-10-28",
+          "adsh": "0001104659-24-111718",
+          "url": "https://www.sec.gov/Archives/edgar/data/2040786/000110465924111718/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/2040786/000110465924111718/0001104659-24-111718-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "BERTELSMANN AG",
+      "cik": "0001087051",
+      "forms": {
+        "SC 13G": 1,
+        "4": 2,
+        "3": 1
+      },
+      "first_date": "2004-11-05",
+      "last_date": "2005-02-18",
+      "filings": [
+        {
+          "form": "4",
+          "date": "2004-11-05",
+          "adsh": "0000950103-04-001602",
+          "url": "https://www.sec.gov/Archives/edgar/data/1087051/000095010304001602/bertstelmann_ex.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1087051/000095010304001602/0000950103-04-001602-index.htm"
+        },
+        {
+          "form": "3",
+          "date": "2004-11-05",
+          "adsh": "0000950103-04-001601",
+          "url": "https://www.sec.gov/Archives/edgar/data/1087051/000095010304001601/bertelsmann_ex.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1087051/000095010304001601/0000950103-04-001601-index.htm"
+        },
+        {
+          "form": "SC 13G",
+          "date": "2005-02-14",
+          "adsh": "0000950103-05-000229",
+          "url": "https://www.sec.gov/Archives/edgar/data/1087051/000095010305000229/feb1405_13g.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1087051/000095010305000229/0000950103-05-000229-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2005-02-18",
+          "adsh": "0000950103-05-000327",
+          "url": "https://www.sec.gov/Archives/edgar/data/1087051/000095010305000327/bertelsmann_ex.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1087051/000095010305000327/0000950103-05-000327-index.htm"
+        }
+      ],
+      "bucket": "ownership_forms"
+    },
+    {
+      "registrant": "Investment Group of Santa Barbara, LLC",
+      "cik": "0001645662",
+      "forms": {
+        "4/A": 2,
+        "4": 2,
+        "3": 2
+      },
+      "first_date": "2015-06-25",
+      "last_date": "2015-07-06",
+      "filings": [
+        {
+          "form": "3",
+          "date": "2015-06-25",
+          "adsh": "0001209191-15-056613",
+          "url": "https://www.sec.gov/Archives/edgar/data/1645662/000120919115056613/doc3.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1645662/000120919115056613/0001209191-15-056613-index.htm"
+        },
+        {
+          "form": "3",
+          "date": "2015-06-25",
+          "adsh": "0001209191-15-056606",
+          "url": "https://www.sec.gov/Archives/edgar/data/1645662/000120919115056606/doc3.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1645662/000120919115056606/0001209191-15-056606-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2015-06-29",
+          "adsh": "0001209191-15-057325",
+          "url": "https://www.sec.gov/Archives/edgar/data/1645662/000120919115057325/doc4.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1645662/000120919115057325/0001209191-15-057325-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2015-06-29",
+          "adsh": "0001209191-15-057322",
+          "url": "https://www.sec.gov/Archives/edgar/data/1645662/000120919115057322/doc4.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1645662/000120919115057322/0001209191-15-057322-index.htm"
+        },
+        {
+          "form": "4/A",
+          "date": "2015-07-06",
+          "adsh": "0000899243-15-000537",
+          "url": "https://www.sec.gov/Archives/edgar/data/1645662/000089924315000537/doc4a.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1645662/000089924315000537/0000899243-15-000537-index.htm"
+        },
+        {
+          "form": "4/A",
+          "date": "2015-07-06",
+          "adsh": "0000899243-15-000690",
+          "url": "https://www.sec.gov/Archives/edgar/data/1645662/000089924315000690/doc4a.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1645662/000089924315000690/0000899243-15-000690-index.htm"
+        }
+      ],
+      "bucket": "ownership_forms"
+    },
+    {
+      "registrant": "DUCA MAURICE J",
+      "cik": "0000938333",
+      "forms": {
+        "4/A": 1,
+        "4": 1,
+        "3": 1
+      },
+      "first_date": "2015-06-25",
+      "last_date": "2015-07-06",
+      "filings": [
+        {
+          "form": "3",
+          "date": "2015-06-25",
+          "adsh": "0001209191-15-056613",
+          "url": "https://www.sec.gov/Archives/edgar/data/938333/000120919115056613/doc3.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/938333/000120919115056613/0001209191-15-056613-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2015-06-29",
+          "adsh": "0001209191-15-057322",
+          "url": "https://www.sec.gov/Archives/edgar/data/938333/000120919115057322/doc4.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/938333/000120919115057322/0001209191-15-057322-index.htm"
+        },
+        {
+          "form": "4/A",
+          "date": "2015-07-06",
+          "adsh": "0000899243-15-000537",
+          "url": "https://www.sec.gov/Archives/edgar/data/938333/000089924315000537/doc4a.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/938333/000089924315000537/0000899243-15-000537-index.htm"
+        }
+      ],
+      "bucket": "ownership_forms"
+    },
+    {
+      "registrant": "RAUTH WILLIAM R III",
+      "cik": "0001213191",
+      "forms": {
+        "4": 1,
+        "4/A": 1,
+        "3": 1
+      },
+      "first_date": "2015-06-25",
+      "last_date": "2015-07-06",
+      "filings": [
+        {
+          "form": "3",
+          "date": "2015-06-25",
+          "adsh": "0001209191-15-056606",
+          "url": "https://www.sec.gov/Archives/edgar/data/1213191/000120919115056606/doc3.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1213191/000120919115056606/0001209191-15-056606-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2015-06-29",
+          "adsh": "0001209191-15-057325",
+          "url": "https://www.sec.gov/Archives/edgar/data/1213191/000120919115057325/doc4.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1213191/000120919115057325/0001209191-15-057325-index.htm"
+        },
+        {
+          "form": "4/A",
+          "date": "2015-07-06",
+          "adsh": "0000899243-15-000690",
+          "url": "https://www.sec.gov/Archives/edgar/data/1213191/000089924315000690/doc4a.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1213191/000089924315000690/0000899243-15-000690-index.htm"
+        }
+      ],
+      "bucket": "ownership_forms"
+    },
+    {
+      "registrant": "OBERNDORF WILLIAM E",
+      "cik": "0001218663",
+      "forms": {
+        "SC 13D": 1
+      },
+      "first_date": "2015-10-16",
+      "last_date": "2015-10-16",
+      "filings": [
+        {
+          "form": "SC 13D",
+          "date": "2015-10-16",
+          "adsh": "0001193125-15-345421",
+          "url": "https://www.sec.gov/Archives/edgar/data/1218663/000119312515345421/d94098dex99c.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1218663/000119312515345421/0001193125-15-345421-index.htm"
+        }
+      ],
+      "bucket": "ownership_forms"
+    },
+    {
+      "registrant": "GCEV Co-Invest TRR, L.P.",
+      "cik": "0001770851",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2019-03-27",
+      "last_date": "2019-03-27",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2019-03-27",
+          "adsh": "0001770851-19-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1770851/000177085119000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1770851/000177085119000001/0001770851-19-000001-index.htm"
+        }
+      ],
+      "bucket": "ownership_forms"
+    },
+    {
+      "registrant": "GCEV Co-Invest TRR-1, L.P.",
+      "cik": "0001770852",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2019-03-27",
+      "last_date": "2019-03-27",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2019-03-27",
+          "adsh": "0001770851-19-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1770852/000177085119000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1770852/000177085119000001/0001770851-19-000001-index.htm"
+        }
+      ],
+      "bucket": "ownership_forms"
+    },
+    {
+      "registrant": "LUMINANT WORLDWIDE CORP",
+      "cik": "0001087322",
+      "forms": {
+        "10-K/A": 1,
+        "DEF 14A": 1
+      },
+      "first_date": "2001-04-30",
+      "last_date": "2001-05-08",
+      "filings": [
+        {
+          "form": "10-K/A",
+          "date": "2001-04-30",
+          "adsh": "0000912057-01-511108",
+          "url": "https://www.sec.gov/Archives/edgar/data/1087322/000091205701511108/a2047005z10-ka.txt",
+          "index": "https://www.sec.gov/Archives/edgar/data/1087322/000091205701511108/0000912057-01-511108-index.htm"
+        },
+        {
+          "form": "DEF 14A",
+          "date": "2001-05-08",
+          "adsh": "0000912057-01-513666",
+          "url": "https://www.sec.gov/Archives/edgar/data/1087322/000091205701513666/a2048119zdef14a.txt",
+          "index": "https://www.sec.gov/Archives/edgar/data/1087322/000091205701513666/0000912057-01-513666-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1087322/000091205701511108/a2047005z10-ka.txt",
+          "form": "10-K/A",
+          "date": "2001-04-30",
+          "mentions": 1,
+          "context": [
+            "lege Fund/UNCF and Chairman of the Policy Board of the Americans for the Arts. 3 RANDOLPH L. AUSTIN has been a director since the closing of our initial public offering in September 1999. From January 1999 until present, Mr. Austin has also been an advisor to Bertelsmann Ventures. From January 1998 to December 1998, Mr. Austin was President and Chief Executive Officer of BOL, Bertelsmann Online, Bertelsmann's global electronic commerce business. From November 1995 to December 1997, Mr. Austin held various positions with Prodigy, Inc.,"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1087322/000091205701513666/a2048119zdef14a.txt",
+          "form": "DEF 14A",
+          "date": "2001-05-08",
+          "mentions": 1,
+          "context": [
+            "ON Corporation, Nanophase Technologies Corporation and LaSalle Hotel Properties. RANDOLPH L. AUSTIN has been a director since the closing of our initial public offering in September 1999. From January 1999 until present, Mr. Austin has also been an advisor to Bertelsmann Ventures. From January 1998 to December 1998, Mr. Austin was President and Chief Executive Officer 8 of BOL, Bertelsmann Online, Bertelsmann's global electronic commerce business. From November 1995 to December 1997, Mr. Austin held various positions with Prodigy, Inc"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "SHOPPING COM LTD",
+      "cik": "0001108482",
+      "forms": {
+        "S-1": 1,
+        "S-1/A": 2,
+        "SC 13G": 1,
+        "4": 2,
+        "3": 1
+      },
+      "first_date": "2004-03-23",
+      "last_date": "2005-02-18",
+      "filings": [
+        {
+          "form": "S-1",
+          "date": "2004-03-23",
+          "adsh": "0001193125-04-047249",
+          "url": "https://www.sec.gov/Archives/edgar/data/1108482/000119312504047249/dex402.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1108482/000119312504047249/0001193125-04-047249-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2004-05-26",
+          "adsh": "0001193125-04-094470",
+          "url": "https://www.sec.gov/Archives/edgar/data/1108482/000119312504094470/ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1108482/000119312504094470/0001193125-04-094470-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2004-09-29",
+          "adsh": "0001193125-04-163559",
+          "url": "https://www.sec.gov/Archives/edgar/data/1108482/000119312504163559/dex101.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1108482/000119312504163559/0001193125-04-163559-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2004-11-05",
+          "adsh": "0000950103-04-001602",
+          "url": "https://www.sec.gov/Archives/edgar/data/1108482/000095010304001602/bertstelmann_ex.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1108482/000095010304001602/0000950103-04-001602-index.htm"
+        },
+        {
+          "form": "3",
+          "date": "2004-11-05",
+          "adsh": "0000950103-04-001601",
+          "url": "https://www.sec.gov/Archives/edgar/data/1108482/000095010304001601/bertelsmann_ex.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1108482/000095010304001601/0000950103-04-001601-index.htm"
+        },
+        {
+          "form": "SC 13G",
+          "date": "2005-02-14",
+          "adsh": "0000950103-05-000229",
+          "url": "https://www.sec.gov/Archives/edgar/data/1108482/000095010305000229/feb1405_13g.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1108482/000095010305000229/0000950103-05-000229-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2005-02-18",
+          "adsh": "0000950103-05-000327",
+          "url": "https://www.sec.gov/Archives/edgar/data/1108482/000095010305000327/bertelsmann_ex.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1108482/000095010305000327/0000950103-05-000327-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1108482/000119312504047249/dex402.htm",
+          "form": "S-1",
+          "date": "2004-03-23",
+          "mentions": 3,
+          "context": [
+            "al Management Co. IV, L.L.C. its general partner By: /s/ Illegible Managing Member Signature Page To Third Amended And Restated Shareholders Rights Agreement IN WITNESS WHEREOF, the parties have signed this Agreement as of the date first hereinabove set forth BERTELSMANN VENTURES II, L.P. By: /s/ Thomas Geselmann Name: Thomas Geselmann Title: Managing Director of the General Partner BV CAPITAL FUND II, L.P. By: /s/ Thomas Geselmann Name: Thomas Geselmann Title: Managing Director of the General Partner BV CAPITAL GMBH & CO. BETEILIGUNG",
+            "d Shareholders Rights Agreement IN WITNESS WHEREOF, the parties have signed this Agreement as of the date first hereinabove set forth BERTELSMANN VENTURES II, L.P. By: /s/ Thomas Geselmann Name: Thomas Geselmann Title: Managing Director of the General Partner BV CAPITAL FUND II, L.P. By: /s/ Thomas Geselmann Name: Thomas Geselmann Title: Managing Director of the General Partner BV CAPITAL GMBH & CO. BETEILIGUNGS-KG NO. 1 By: /s/ Thomas Geselmann Name: Thomas Geselmann Title: Managing Director of the General Partner and the Managi",
+            "ve set forth BERTELSMANN VENTURES II, L.P. By: /s/ Thomas Geselmann Name: Thomas Geselmann Title: Managing Director of the General Partner BV CAPITAL FUND II, L.P. By: /s/ Thomas Geselmann Name: Thomas Geselmann Title: Managing Director of the General Partner BV CAPITAL GMBH & CO. BETEILIGUNGS-KG NO. 1 By: /s/ Thomas Geselmann Name: Thomas Geselmann Title: Managing Director of the General Partner and the Managing Partner Signature Page To Third Amended And Restated Shareholders Rights Agreement IN WITNESS WHEREOF, the parties hav"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1108482/000119312504094470/ds1a.htm",
+          "form": "S-1/A",
+          "date": "2004-05-26",
+          "mentions": 3,
+          "context": [
+            "Index to Financial Statements Shares Beneficially Owned Prior to Offering Shares Offered Shares Beneficially Owned After Offering Name of Beneficial Owner Number Percentage Number Percentage Selling Shareholders: Nahum Sharfman 738,057 3.2 112,500 625,557 2.2 BV Capital GmbH & Co. Beteiligungs-KG No. 1 (13) 460,439 2.0 109,151 351,288 1.2 Unicycle Trading Company, a Nevada limited partnership (14) 430,561 1.9 187,500 243,061 * Hollinger Capital LLC 428,266 1.9 150,000 278,266 * BV Capital Fund II, L.P. (13) 407,768 1.8 96,665 311",
+            "fman 738,057 3.2 112,500 625,557 2.2 BV Capital GmbH & Co. Beteiligungs-KG No. 1 (13) 460,439 2.0 109,151 351,288 1.2 Unicycle Trading Company, a Nevada limited partnership (14) 430,561 1.9 187,500 243,061 * Hollinger Capital LLC 428,266 1.9 150,000 278,266 * BV Capital Fund II, L.P. (13) 407,768 1.8 96,665 311,103 1.1 Axiom Venture Partners II L.P. (15) 324,515 1.4 75,000 249,515 * Dell USA L.P. 325,424 1.4 37,500 287,924 1.0 America Online, Inc. 285,510 1.2 285,510 — * TWI DealTime Holdings Inc. 285,510 1.2 285,510 — * UBS Capi",
+            "721 1.0 118,350 118,371 * Granite Capital, L.P. (16) 204,993 * 204,993 — * Advanta Partners LP 188,178 * 188,178 — * Michiel Kotting 182,458 * 68,750 113,708 * Murthy V. Nukala 150,150 * 68,750 81,400 * Banc of America Corporation † 142,755 * 33,000 109,755 * Bertelsmann Ventures II, L.P. (13) 96,467 * 22,869 73,598 * Clal Electronics Industries Ltd. † (17) 82,102 * 82,102 — * Granite Capital Opportunity Fund, L.P. (18) 19,896 * 13,250 6,646 * Granite Capital Opportunity Fund II, L.P. (18) 16,279 * 1,375 14,904 * VLG Investments 1999 "
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "OPSWARE INC",
+      "cik": "0001100813",
+      "forms": {
+        "8-K": 1
+      },
+      "first_date": "2004-12-02",
+      "last_date": "2004-12-02",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "2004-12-02",
+          "adsh": "0001193125-04-206117",
+          "url": "https://www.sec.gov/Archives/edgar/data/1100813/000119312504206117/dex9901.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1100813/000119312504206117/0001193125-04-206117-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1100813/000119312504206117/dex9901.htm",
+          "form": "8-K",
+          "date": "2004-12-02",
+          "mentions": 1,
+          "context": [
+            "e with regulations such as Sarbanes-Oxley and dramatically reducing downtime and increasing the security of a company’s IT organization. The company is privately funded by Ignition Partners, Madrona Venture Group, Menlo Ventures, Northwest Venture Associates, Bertelsmann Ventures, and Vulcan Ventures. More information is available at: www.renditionnetworks.com. This press release contains forward-looking statements within the meaning of the federal securities laws regarding expectations relating to the market for Opsware and Rendition"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "ImmunoCellular Therapeutics, Ltd.  (IMUC)",
+      "cik": "0000822411",
+      "forms": {
+        "8-K": 1,
+        "10KSB": 2,
+        "424B3": 12,
+        "SB-2": 3,
+        "10-K": 3,
+        "SB-2/A": 3,
+        "S-1": 3,
+        "POS AM": 8
+      },
+      "first_date": "2007-02-12",
+      "last_date": "2011-03-31",
+      "filings": [
+        {
+          "form": "SB-2",
+          "date": "2007-02-12",
+          "adsh": "0001193125-07-025969",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312507025969/dsb2.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312507025969/0001193125-07-025969-index.htm"
+        },
+        {
+          "form": "10KSB",
+          "date": "2007-04-02",
+          "adsh": "0001193125-07-072016",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312507072016/d10ksb.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312507072016/0001193125-07-072016-index.htm"
+        },
+        {
+          "form": "SB-2",
+          "date": "2007-05-01",
+          "adsh": "0001193125-07-096544",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312507096544/dsb2.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312507096544/0001193125-07-096544-index.htm"
+        },
+        {
+          "form": "SB-2/A",
+          "date": "2007-05-25",
+          "adsh": "0001193125-07-123823",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312507123823/dsb2a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312507123823/0001193125-07-123823-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2007-06-05",
+          "adsh": "0001193125-07-129976",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312507129976/d424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312507129976/0001193125-07-129976-index.htm"
+        },
+        {
+          "form": "SB-2/A",
+          "date": "2007-06-20",
+          "adsh": "0001193125-07-139248",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312507139248/dsb2a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312507139248/0001193125-07-139248-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2007-06-27",
+          "adsh": "0001193125-07-144130",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312507144130/d424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312507144130/0001193125-07-144130-index.htm"
+        },
+        {
+          "form": "SB-2",
+          "date": "2007-07-12",
+          "adsh": "0001193125-07-154197",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312507154197/dsb2.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312507154197/0001193125-07-154197-index.htm"
+        },
+        {
+          "form": "SB-2/A",
+          "date": "2007-09-14",
+          "adsh": "0001193125-07-200815",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312507200815/dsb2a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312507200815/0001193125-07-200815-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2007-09-18",
+          "adsh": "0001193125-07-203031",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312507203031/d424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312507203031/0001193125-07-203031-index.htm"
+        },
+        {
+          "form": "8-K",
+          "date": "2007-11-06",
+          "adsh": "0001193125-07-236884",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312507236884/d8k.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312507236884/0001193125-07-236884-index.htm"
+        },
+        {
+          "form": "10KSB",
+          "date": "2008-03-25",
+          "adsh": "0001193125-08-064683",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312508064683/d10ksb.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312508064683/0001193125-08-064683-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2008-04-16",
+          "adsh": "0001193125-08-082842",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312508082842/ds1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312508082842/0001193125-08-082842-index.htm"
+        },
+        {
+          "form": "POS AM",
+          "date": "2008-05-02",
+          "adsh": "0001193125-08-100901",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312508100901/dposam.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312508100901/0001193125-08-100901-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2008-05-09",
+          "adsh": "0001193125-08-109917",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312508109917/d424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312508109917/0001193125-08-109917-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2008-05-16",
+          "adsh": "0001193125-08-117374",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312508117374/d424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312508117374/0001193125-08-117374-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2009-03-30",
+          "adsh": "0001193125-09-067632",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312509067632/d10k.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312509067632/0001193125-09-067632-index.htm"
+        },
+        {
+          "form": "POS AM",
+          "date": "2009-04-24",
+          "adsh": "0001193125-09-086083",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312509086083/dposam.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312509086083/0001193125-09-086083-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2009-05-26",
+          "adsh": "0001193125-09-118294",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312509118294/d424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312509118294/0001193125-09-118294-index.htm"
+        },
+        {
+          "form": "POS AM",
+          "date": "2009-06-12",
+          "adsh": "0001193125-09-130309",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312509130309/dposam.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312509130309/0001193125-09-130309-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2009-06-23",
+          "adsh": "0001193125-09-135714",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312509135714/d424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312509135714/0001193125-09-135714-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2009-12-23",
+          "adsh": "0001193125-09-259142",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312509259142/ds1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312509259142/0001193125-09-259142-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2010-01-26",
+          "adsh": "0001193125-10-013032",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312510013032/d424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312510013032/0001193125-10-013032-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2010-03-31",
+          "adsh": "0001193125-10-073647",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312510073647/d10k.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312510073647/0001193125-10-073647-index.htm"
+        },
+        {
+          "form": "POS AM",
+          "date": "2010-05-12",
+          "adsh": "0001193125-10-117685",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312510117685/dposam.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312510117685/0001193125-10-117685-index.htm"
+        },
+        {
+          "form": "POS AM",
+          "date": "2010-05-12",
+          "adsh": "0001193125-10-117643",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312510117643/dposam.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312510117643/0001193125-10-117643-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2010-05-28",
+          "adsh": "0000950130-10-001484",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000095013010001484/ds1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000095013010001484/0000950130-10-001484-index.htm"
+        },
+        {
+          "form": "POS AM",
+          "date": "2010-06-14",
+          "adsh": "0001193125-10-138940",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312510138940/dposam.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312510138940/0001193125-10-138940-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2010-06-24",
+          "adsh": "0001193125-10-146029",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312510146029/d424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312510146029/0001193125-10-146029-index.htm"
+        },
+        {
+          "form": "POS AM",
+          "date": "2010-06-28",
+          "adsh": "0001193125-10-148670",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312510148670/dposam.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312510148670/0001193125-10-148670-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2010-07-08",
+          "adsh": "0001193125-10-155659",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312510155659/d424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312510155659/0001193125-10-155659-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2010-07-08",
+          "adsh": "0001193125-10-155667",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312510155667/d424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312510155667/0001193125-10-155667-index.htm"
+        },
+        {
+          "form": "POS AM",
+          "date": "2010-09-30",
+          "adsh": "0001193125-10-221210",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312510221210/dposam.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312510221210/0001193125-10-221210-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2010-10-13",
+          "adsh": "0001193125-10-228832",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312510228832/d424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312510228832/0001193125-10-228832-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2011-03-31",
+          "adsh": "0001193125-11-085051",
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312511085051/d10k.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/822411/000119312511085051/0001193125-11-085051-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312507025969/dsb2.htm",
+          "form": "SB-2",
+          "date": "2007-02-12",
+          "mentions": 1,
+          "context": [
+            "therapeutics from August 2003 through July 2004. Mr. Peacock has experience as Chief Financial Officer with several start-up companies including DigitalMed, Inc., a venture-backed subsidiary of Tenet Healthcare, and Ants.Com, Inc., a venture-backed company of Bertelsmann Ventures. Mr. Peacock was also a manager with a large, international accounting firm for a number of years. Mr. Peacock serves as a director on the Board of Directors and a member of the Audit Committee of Laird Norton Company LLC. Mr. Peacock is a graduate of Claremo"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/822411/000119312507072016/d10ksb.htm",
+          "form": "10KSB",
+          "date": "2007-04-02",
+          "mentions": 1,
+          "context": [
+            "therapeutics from August 2003 through July 2004. Mr. Peacock has experience as Chief Financial Officer with several start-up companies including DigitalMed, Inc., a venture-backed subsidiary of Tenet Healthcare, and Ants.Com, Inc., a venture-backed company of Bertelsmann Ventures. Mr. Peacock was also a manager with a large, international accounting firm for a number of years. Mr. Peacock serves as a director on the Board of Directors and a member of the Audit Committee of Laird Norton Company LLC. Mr. Peacock is a graduate of Claremo"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "RIVERSOURCE INTERNATIONAL MANAGERS SERIES, INC.",
+      "cik": "0001140531",
+      "forms": {
+        "N-PX": 1
+      },
+      "first_date": "2010-08-25",
+      "last_date": "2010-08-25",
+      "filings": [
+        {
+          "form": "N-PX",
+          "date": "2010-08-25",
+          "adsh": "0000950123-10-080735",
+          "url": "https://www.sec.gov/Archives/edgar/data/1140531/000095012310080735/c59636ppnvpx.txt",
+          "index": "https://www.sec.gov/Archives/edgar/data/1140531/000095012310080735/0000950123-10-080735-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1140531/000095012310080735/c59636ppnvpx.txt",
+          "form": "N-PX",
+          "date": "2010-08-25",
+          "mentions": 2,
+          "context": [
+            "nd Statutory Reports 3 Approve Discharge of Directors For For Management 4 Approve Allocation of Income Omission For For Management of Dividends 5 Approve Auditors' Special Report For For Management Regarding Related-Party Transactions 6 Ratify Appointment of BV Capital Fund For For Management II LP as Director 7 Reelect Cyril Zimmermann as Director For For Management 8 Elect United Internet AG as Director For For Management 9 Appoint Mazars SA as Auditor For For Management 10 Ratify Jean-Luc Barlet as Alternate For For Managemen",
+            "nd Statutory Reports 3 Approve Discharge of Directors For For Management 4 Approve Allocation of Income Omission For For Management of Dividends 5 Approve Auditors' Special Report For For Management Regarding Related-Party Transactions 6 Ratify Appointment of BV Capital Fund For For Management II LP as Director 7 Reelect Cyril Zimmermann as Director For For Management 8 Elect United Internet AG as Director For For Management 9 Appoint Mazars SA as Auditor For For Management 10 Ratify Jean-Luc Barlet as Alternate For For Managemen"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "WANGER ADVISORS TRUST",
+      "cik": "0000929521",
+      "forms": {
+        "N-PX": 1
+      },
+      "first_date": "2010-08-26",
+      "last_date": "2010-08-26",
+      "filings": [
+        {
+          "form": "N-PX",
+          "date": "2010-08-26",
+          "adsh": "0001104659-10-046022",
+          "url": "https://www.sec.gov/Archives/edgar/data/929521/000110465910046022/a10-15490_2npx.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/929521/000110465910046022/0001104659-10-046022-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/929521/000110465910046022/a10-15490_2npx.htm",
+          "form": "N-PX",
+          "date": "2010-08-26",
+          "mentions": 1,
+          "context": [
+            "nd Statutory Reports 3 Approve Discharge of Directors For For Management 4 Approve Allocation of Income Omission For For Management of Dividends 5 Approve Auditors' Special Report For For Management Regarding Related-Party Transactions 6 Ratify Appointment of BV Capital Fund For For Management II LP as Director 7 Reelect Cyril Zimmermann as Director For For Management 8 Elect United Internet AG as Director For For Management 9 Appoint Mazars SA as Auditor For For Management 10 Ratify Jean-Luc Barlet as Alternate For For Managemen"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "COLUMBIA ACORN TRUST",
+      "cik": "0000002110",
+      "forms": {
+        "N-PX": 1
+      },
+      "first_date": "2010-08-26",
+      "last_date": "2010-08-26",
+      "filings": [
+        {
+          "form": "N-PX",
+          "date": "2010-08-26",
+          "adsh": "0001104659-10-046021",
+          "url": "https://www.sec.gov/Archives/edgar/data/2110/000110465910046021/a10-15490_1npx.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/2110/000110465910046021/0001104659-10-046021-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/2110/000110465910046021/a10-15490_1npx.htm",
+          "form": "N-PX",
+          "date": "2010-08-26",
+          "mentions": 1,
+          "context": [
+            "nd Statutory Reports 3 Approve Discharge of Directors For For Management 4 Approve Allocation of Income Omission For For Management of Dividends 5 Approve Auditors' Special Report For For Management Regarding Related-Party Transactions 6 Ratify Appointment of BV Capital Fund For For Management II LP as Director 7 Reelect Cyril Zimmermann as Director For For Management 8 Elect United Internet AG as Director For For Management 9 Appoint Mazars SA as Auditor For For Management 10 Ratify Jean-Luc Barlet as Alternate For For Managemen"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "DFA INVESTMENT DIMENSIONS GROUP INC",
+      "cik": "0000355437",
+      "forms": {
+        "N-PX": 1
+      },
+      "first_date": "2010-08-31",
+      "last_date": "2010-08-31",
+      "filings": [
+        {
+          "form": "N-PX",
+          "date": "2010-08-31",
+          "adsh": "0001140361-10-035592",
+          "url": "https://www.sec.gov/Archives/edgar/data/355437/000114036110035592/dfaidg2010npx_combined.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/355437/000114036110035592/0001140361-10-035592-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/355437/000114036110035592/dfaidg2010npx_combined.htm",
+          "form": "N-PX",
+          "date": "2010-08-31",
+          "mentions": 1,
+          "context": [
+            "nd Statutory Reports 3 Approve Discharge of Directors For For Management 4 Approve Allocation of Income Omission For For Management of Dividends 5 Approve Auditors' Special Report For For Management Regarding Related-Party Transactions 6 Ratify Appointment of BV Capital Fund For Against Management II LP as Director 7 Reelect Cyril Zimmermann as Director For Against Management 8 Elect United Internet AG as Director For Against Management 9 Appoint Mazars SA as Auditor For For Management 10 Ratify Jean-Luc Barlet as Alternate For F"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "Angie's List, Inc.",
+      "cik": "0001491778",
+      "forms": {
+        "4": 1,
+        "3": 1,
+        "SC 13G/A": 2,
+        "SC 13G": 2,
+        "S-1": 3,
+        "S-1/A": 7,
+        "DEF 14A": 1,
+        "424B4": 2,
+        "10-Q": 1
+      },
+      "first_date": "2011-08-25",
+      "last_date": "2014-10-22",
+      "filings": [
+        {
+          "form": "S-1",
+          "date": "2011-08-25",
+          "adsh": "0001193125-11-232387",
+          "url": "https://www.sec.gov/Archives/edgar/data/1491778/000119312511232387/dex42.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1491778/000119312511232387/0001193125-11-232387-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2011-08-25",
+          "adsh": "0001193125-11-232387",
+          "url": "https://www.sec.gov/Archives/edgar/data/1491778/000119312511232387/ds1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1491778/000119312511232387/0001193125-11-232387-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2011-09-29",
+          "adsh": "0001193125-11-260193",
+          "url": "https://www.sec.gov/Archives/edgar/data/1491778/000119312511260193/d222159ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1491778/000119312511260193/0001193125-11-260193-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2011-10-19",
+          "adsh": "0001193125-11-274181",
+          "url": "https://www.sec.gov/Archives/edgar/data/1491778/000119312511274181/d222159ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1491778/000119312511274181/0001193125-11-274181-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2011-10-31",
+          "adsh": "0001193125-11-287102",
+          "url": "https://www.sec.gov/Archives/edgar/data/1491778/000119312511287102/d222159ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1491778/000119312511287102/0001193125-11-287102-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2011-11-02",
+          "adsh": "0001193125-11-292292",
+          "url": "https://www.sec.gov/Archives/edgar/data/1491778/000119312511292292/d222159dex11.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1491778/000119312511292292/0001193125-11-292292-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2011-11-02",
+          "adsh": "0001193125-11-292292",
+          "url": "https://www.sec.gov/Archives/edgar/data/1491778/000119312511292292/d222159ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1491778/000119312511292292/0001193125-11-292292-index.htm"
+        },
+        {
+          "form": "3",
+          "date": "2011-11-16",
+          "adsh": "0000950103-11-004810",
+          "url": "https://www.sec.gov/Archives/edgar/data/1491778/000095010311004810/edgar.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1491778/000095010311004810/0000950103-11-004810-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2011-11-17",
+          "adsh": "0001193125-11-314921",
+          "url": "https://www.sec.gov/Archives/edgar/data/1491778/000119312511314921/d222159d424b4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1491778/000119312511314921/0001193125-11-314921-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2011-11-22",
+          "adsh": "0000950103-11-004924",
+          "url": "https://www.sec.gov/Archives/edgar/data/1491778/000095010311004924/edgar.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1491778/000095010311004924/0000950103-11-004924-index.htm"
+        },
+        {
+          "form": "SC 13G",
+          "date": "2012-02-14",
+          "adsh": "0001193125-12-058908",
+          "url": "https://www.sec.gov/Archives/edgar/data/1491778/000119312512058908/d300290dsc13g.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1491778/000119312512058908/0001193125-12-058908-index.htm"
+        },
+        {
+          "form": "SC 13G",
+          "date": "2012-02-14",
+          "adsh": "0001193125-12-058908",
+          "url": "https://www.sec.gov/Archives/edgar/data/1491778/000119312512058908/d300290dex991.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1491778/000119312512058908/0001193125-12-058908-index.htm"
+        },
+        {
+          "form": "DEF 14A",
+          "date": "2012-03-28",
+          "adsh": "0001193125-12-137317",
+          "url": "https://www.sec.gov/Archives/edgar/data/1491778/000119312512137317/d318821ddef14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1491778/000119312512137317/0001193125-12-137317-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2012-05-01",
+          "adsh": "0001193125-12-201311",
+          "url": "https://www.sec.gov/Archives/edgar/data/1491778/000119312512201311/d333678ds1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1491778/000119312512201311/0001193125-12-201311-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2012-05-09",
+          "adsh": "0001193125-12-221979",
+          "url": "https://www.sec.gov/Archives/edgar/data/1491778/000119312512221979/d333678ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1491778/000119312512221979/0001193125-12-221979-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2012-05-15",
+          "adsh": "0001193125-12-232597",
+          "url": "https://www.sec.gov/Archives/edgar/data/1491778/000119312512232597/d333678ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1491778/000119312512232597/0001193125-12-232597-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2012-05-16",
+          "adsh": "0001193125-12-236616",
+          "url": "https://www.sec.gov/Archives/edgar/data/1491778/000119312512236616/d333678d424b4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1491778/000119312512236616/0001193125-12-236616-index.htm"
+        },
+        {
+          "form": "SC 13G/A",
+          "date": "2013-02-07",
+          "adsh": "0001193125-13-042116",
+          "url": "https://www.sec.gov/Archives/edgar/data/1491778/000119312513042116/d481545dsc13ga.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1491778/000119312513042116/0001193125-13-042116-index.htm"
+        },
+        {
+          "form": "SC 13G/A",
+          "date": "2013-02-07",
+          "adsh": "0001193125-13-042116",
+          "url": "https://www.sec.gov/Archives/edgar/data/1491778/000119312513042116/d481545dex991.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1491778/000119312513042116/0001193125-13-042116-index.htm"
+        },
+        {
+          "form": "10-Q",
+          "date": "2014-10-22",
+          "adsh": "0001491778-14-000070",
+          "url": "https://www.sec.gov/Archives/edgar/data/1491778/000149177814000070/angi2014930-10qexhibit1002.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1491778/000149177814000070/0001491778-14-000070-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1491778/000119312511232387/dex42.htm",
+          "form": "S-1",
+          "date": "2011-08-25",
+          "mentions": 3,
+          "context": [
+            "nally identifiable information withheld] City Investment Group, LLC 30 South Meridian Street, Suite 600 Indianapolis, IN 46204 Attn: Michael Bosway Facsimile: [personally identifiable information withheld] Email: [personally identifiable information withheld] BV Capital GmbH & CO Beteiligungs KG NO. 1 BV Capital Fund II, L.P. BV Capital Fund II – A, L.P. 600 Montgomery Street, 43rd Floor San Francisco, CA 94111 Attention: Mathias Schilling Facsimile: [personally identifiable information withheld] Email: [personally identifiable i",
+            "ty Investment Group, LLC 30 South Meridian Street, Suite 600 Indianapolis, IN 46204 Attn: Michael Bosway Facsimile: [personally identifiable information withheld] Email: [personally identifiable information withheld] BV Capital GmbH & CO Beteiligungs KG NO. 1 BV Capital Fund II, L.P. BV Capital Fund II – A, L.P. 600 Montgomery Street, 43rd Floor San Francisco, CA 94111 Attention: Mathias Schilling Facsimile: [personally identifiable information withheld] Email: [personally identifiable information withheld] Allan B. Hubbard [pers",
+            "30 South Meridian Street, Suite 600 Indianapolis, IN 46204 Attn: Michael Bosway Facsimile: [personally identifiable information withheld] Email: [personally identifiable information withheld] BV Capital GmbH & CO Beteiligungs KG NO. 1 BV Capital Fund II, L.P. BV Capital Fund II – A, L.P. 600 Montgomery Street, 43rd Floor San Francisco, CA 94111 Attention: Mathias Schilling Facsimile: [personally identifiable information withheld] Email: [personally identifiable information withheld] Allan B. Hubbard [personally identifiable infor"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1491778/000119312511232387/ds1.htm",
+          "form": "S-1",
+          "date": "2011-08-25",
+          "mentions": 4,
+          "context": [
+            ", Lawler, Lee, Tabors and Tobin disclaims beneficial ownership of these shares except to the extent of his pecuniary interest therein. The address of Battery Ventures is 930 Winter Street, Suite 2500, Waltham, MA 02451. (5) Includes (i) 375,359 shares held by BV Capital GMBH & Co Beteiligungs KG No. 1, (ii) 286,100 shares held by BV Capital Fund II, L.P. and (iii) 56,509 shares held by BV Capital Fund II-A, L.P., collectively the BV Capital funds. The address for BV Capital is 600 Montgomery Street, 43 rd Floor, San Francisco, CA",
+            "shares except to the extent of his pecuniary interest therein. The address of Battery Ventures is 930 Winter Street, Suite 2500, Waltham, MA 02451. (5) Includes (i) 375,359 shares held by BV Capital GMBH & Co Beteiligungs KG No. 1, (ii) 286,100 shares held by BV Capital Fund II, L.P. and (iii) 56,509 shares held by BV Capital Fund II-A, L.P., collectively the BV Capital funds. The address for BV Capital is 600 Montgomery Street, 43 rd Floor, San Francisco, CA 94111. (6) Includes (i) 373,713 shares held by T. Rowe Price New Horizo",
+            "rein. The address of Battery Ventures is 930 Winter Street, Suite 2500, Waltham, MA 02451. (5) Includes (i) 375,359 shares held by BV Capital GMBH & Co Beteiligungs KG No. 1, (ii) 286,100 shares held by BV Capital Fund II, L.P. and (iii) 56,509 shares held by BV Capital Fund II-A, L.P., collectively the BV Capital funds. The address for BV Capital is 600 Montgomery Street, 43 rd Floor, San Francisco, CA 94111. (6) Includes (i) 373,713 shares held by T. Rowe Price New Horizons Fund, Inc., (ii) 135,483 shares held by T. Rowe Price "
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "YuMe Inc",
+      "cik": "0001415624",
+      "forms": {
+        "SC 13G": 2,
+        "DRS": 2,
+        "S-1": 2,
+        "S-1/A": 4,
+        "DEF 14A": 1,
+        "424B4": 1,
+        "DRS/A": 3
+      },
+      "first_date": "2013-04-03",
+      "last_date": "2014-04-02",
+      "filings": [
+        {
+          "form": "DRS",
+          "date": "2013-04-03",
+          "adsh": "0000912057-13-000097",
+          "url": "https://www.sec.gov/Archives/edgar/data/1415624/000091205713000097/filename4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1415624/000091205713000097/0000912057-13-000097-index.htm"
+        },
+        {
+          "form": "DRS",
+          "date": "2013-04-03",
+          "adsh": "0000912057-13-000097",
+          "url": "https://www.sec.gov/Archives/edgar/data/1415624/000091205713000097/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1415624/000091205713000097/0000912057-13-000097-index.htm"
+        },
+        {
+          "form": "DRS/A",
+          "date": "2013-05-06",
+          "adsh": "0000912057-13-000139",
+          "url": "https://www.sec.gov/Archives/edgar/data/1415624/000091205713000139/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1415624/000091205713000139/0000912057-13-000139-index.htm"
+        },
+        {
+          "form": "DRS/A",
+          "date": "2013-06-04",
+          "adsh": "0000912057-13-000191",
+          "url": "https://www.sec.gov/Archives/edgar/data/1415624/000091205713000191/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1415624/000091205713000191/0000912057-13-000191-index.htm"
+        },
+        {
+          "form": "DRS/A",
+          "date": "2013-06-21",
+          "adsh": "0000912057-13-000208",
+          "url": "https://www.sec.gov/Archives/edgar/data/1415624/000091205713000208/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1415624/000091205713000208/0000912057-13-000208-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2013-07-02",
+          "adsh": "0001047469-13-007340",
+          "url": "https://www.sec.gov/Archives/edgar/data/1415624/000104746913007340/a2215830zex-4_2.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1415624/000104746913007340/0001047469-13-007340-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2013-07-02",
+          "adsh": "0001047469-13-007340",
+          "url": "https://www.sec.gov/Archives/edgar/data/1415624/000104746913007340/a2215830zs-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1415624/000104746913007340/0001047469-13-007340-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2013-07-25",
+          "adsh": "0001047469-13-007756",
+          "url": "https://www.sec.gov/Archives/edgar/data/1415624/000104746913007756/a2215830zex-4_2.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1415624/000104746913007756/0001047469-13-007756-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2013-07-25",
+          "adsh": "0001047469-13-007756",
+          "url": "https://www.sec.gov/Archives/edgar/data/1415624/000104746913007756/a2216045zs-1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1415624/000104746913007756/0001047469-13-007756-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2013-07-26",
+          "adsh": "0001047469-13-007833",
+          "url": "https://www.sec.gov/Archives/edgar/data/1415624/000104746913007833/a2216117zs-1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1415624/000104746913007833/0001047469-13-007833-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2013-08-02",
+          "adsh": "0001047469-13-008029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1415624/000104746913008029/a2216197zs-1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1415624/000104746913008029/0001047469-13-008029-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2013-08-07",
+          "adsh": "0001047469-13-008192",
+          "url": "https://www.sec.gov/Archives/edgar/data/1415624/000104746913008192/a2216300z424b4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1415624/000104746913008192/0001047469-13-008192-index.htm"
+        },
+        {
+          "form": "SC 13G",
+          "date": "2014-02-13",
+          "adsh": "0001193125-14-048591",
+          "url": "https://www.sec.gov/Archives/edgar/data/1415624/000119312514048591/d676582dsc13g.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1415624/000119312514048591/0001193125-14-048591-index.htm"
+        },
+        {
+          "form": "SC 13G",
+          "date": "2014-02-13",
+          "adsh": "0001193125-14-048591",
+          "url": "https://www.sec.gov/Archives/edgar/data/1415624/000119312514048591/d676582dex991.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1415624/000119312514048591/0001193125-14-048591-index.htm"
+        },
+        {
+          "form": "DEF 14A",
+          "date": "2014-04-02",
+          "adsh": "0001437749-14-005770",
+          "url": "https://www.sec.gov/Archives/edgar/data/1415624/000143774914005770/yume20140328_def14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1415624/000143774914005770/0001437749-14-005770-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1415624/000091205713000097/filename4.htm",
+          "form": "DRS",
+          "date": "2013-04-03",
+          "mentions": 12,
+          "context": [
+            "lynn Managing Director [Signature Page to YuMe, Inc. Amended and Restated Investors’ Rights Agreement] EXHIBIT A SCHEDULE OF INVESTORS Series A Investors Accel Investors 2006 L.L.C. Accel IX L.P. Accel IX Strategic Partners L.P. Vijaya K. Ananda Deepak Bhagat BV Capital Fund II, L.P. BV Capital Fund II-A, L.P. BV Capital GmbH & Co. Beteiligungs KG No. 1 DAG Ventures GP Fund III LLC DAG Ventures III – QP, L.P. DAG Ventures III, L.P. Yogesh Dandekar Ram Duraiswamy Ray H. Engstrom Kali S. Eswaran Kamal Gunsagar Jayant Kadambi Khosla",
+            "ignature Page to YuMe, Inc. Amended and Restated Investors’ Rights Agreement] EXHIBIT A SCHEDULE OF INVESTORS Series A Investors Accel Investors 2006 L.L.C. Accel IX L.P. Accel IX Strategic Partners L.P. Vijaya K. Ananda Deepak Bhagat BV Capital Fund II, L.P. BV Capital Fund II-A, L.P. BV Capital GmbH & Co. Beteiligungs KG No. 1 DAG Ventures GP Fund III LLC DAG Ventures III – QP, L.P. DAG Ventures III, L.P. Yogesh Dandekar Ram Duraiswamy Ray H. Engstrom Kali S. Eswaran Kamal Gunsagar Jayant Kadambi Khosla Ventures II, LP Khosla V",
+            " Amended and Restated Investors’ Rights Agreement] EXHIBIT A SCHEDULE OF INVESTORS Series A Investors Accel Investors 2006 L.L.C. Accel IX L.P. Accel IX Strategic Partners L.P. Vijaya K. Ananda Deepak Bhagat BV Capital Fund II, L.P. BV Capital Fund II-A, L.P. BV Capital GmbH & Co. Beteiligungs KG No. 1 DAG Ventures GP Fund III LLC DAG Ventures III – QP, L.P. DAG Ventures III, L.P. Yogesh Dandekar Ram Duraiswamy Ray H. Engstrom Kali S. Eswaran Kamal Gunsagar Jayant Kadambi Khosla Ventures II, LP Khosla Ventures III, LP Alexander K"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1415624/000091205713000097/filename1.htm",
+          "form": "DRS",
+          "date": "2013-04-03",
+          "mentions": 6,
+          "context": [
+            "eneficial ownership except to the extent of his or her pecuniary interest therein. The address for Mr. Carolan and the entities affiliated with Menlo Ventures is 3000 Sand Hill Rd, Bldg 4-100, Menlo Park, CA 94025. (5) Consists of (i) 4,632,455 shares held by BV Capital Fund II, L.P., (ii) 914,976 shares held by BV Capital Fund II-A, L.P. and (iii) 6,077,717 shares held by BV Capital GmbH & Co. Beteiligungs KG No. 1. BV Capital GP II, LLC is the sole general partner of each of BV Capital Fund II, L.P. and BV Capital Fund II-A, L.",
+            " pecuniary interest therein. The address for Mr. Carolan and the entities affiliated with Menlo Ventures is 3000 Sand Hill Rd, Bldg 4-100, Menlo Park, CA 94025. (5) Consists of (i) 4,632,455 shares held by BV Capital Fund II, L.P., (ii) 914,976 shares held by BV Capital Fund II-A, L.P. and (iii) 6,077,717 shares held by BV Capital GmbH & Co. Beteiligungs KG No. 1. BV Capital GP II, LLC is the sole general partner of each of BV Capital Fund II, L.P. and BV Capital Fund II-A, L.P. and BV Capital GmbH & Co. Beteiligungs KG No. 1. BV",
+            "he entities affiliated with Menlo Ventures is 3000 Sand Hill Rd, Bldg 4-100, Menlo Park, CA 94025. (5) Consists of (i) 4,632,455 shares held by BV Capital Fund II, L.P., (ii) 914,976 shares held by BV Capital Fund II-A, L.P. and (iii) 6,077,717 shares held by BV Capital GmbH & Co. Beteiligungs KG No. 1. BV Capital GP II, LLC is the sole general partner of each of BV Capital Fund II, L.P. and BV Capital Fund II-A, L.P. and BV Capital GmbH & Co. Beteiligungs KG No. 1. BV Capital Management, LLC is the sole managing member of BV Cap"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "DEMAND MEDIA INC.",
+      "cik": "0001365038",
+      "forms": {
+        "424B3": 1,
+        "S-3/A": 1,
+        "S-3": 1
+      },
+      "first_date": "2014-08-29",
+      "last_date": "2014-09-17",
+      "filings": [
+        {
+          "form": "S-3",
+          "date": "2014-08-29",
+          "adsh": "0001104659-14-064026",
+          "url": "https://www.sec.gov/Archives/edgar/data/1365038/000110465914064026/a14-20115_1s3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1365038/000110465914064026/0001104659-14-064026-index.htm"
+        },
+        {
+          "form": "S-3/A",
+          "date": "2014-09-15",
+          "adsh": "0001104659-14-066382",
+          "url": "https://www.sec.gov/Archives/edgar/data/1365038/000110465914066382/a14-20115_1s3a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1365038/000110465914066382/0001104659-14-066382-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2014-09-17",
+          "adsh": "0001104659-14-066876",
+          "url": "https://www.sec.gov/Archives/edgar/data/1365038/000110465914066876/a14-20115_1424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1365038/000110465914066876/0001104659-14-066876-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1365038/000110465914064026/a14-20115_1s3.htm",
+          "form": "S-3",
+          "date": "2014-08-29",
+          "mentions": 1,
+          "context": [
+            " respect to the shares registered for resale under this prospectus. (4) Michael Hecht exercises voting and dispositive power with respect to the shares registered for resale under this prospectus. (5) eVenture Capital Partners II LLC is the General Partner of BV eVentures Fund II, LP and may be deemed to have sole voting and dispositive power over the shares being registered for resale under this prospectus. Mathias Schilling is the Managing Member of eVenture Capital Partners II LLC and may be deemed to share voting and dispo"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1365038/000110465914066382/a14-20115_1s3a.htm",
+          "form": "S-3/A",
+          "date": "2014-09-15",
+          "mentions": 1,
+          "context": [
+            " respect to the shares registered for resale under this prospectus. (4) Michael Hecht exercises voting and dispositive power with respect to the shares registered for resale under this prospectus. (5) eVenture Capital Partners II LLC is the General Partner of BV eVentures Fund II, LP and may be deemed to have sole voting and dispositive power over the shares being registered for resale under this prospectus. Mathias Schilling is the Managing Member of eVenture Capital Partners II LLC and may be deemed to share voting and dispo"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "APPFOLIO INC  (APPF)",
+      "cik": "0001433195",
+      "forms": {
+        "4": 4,
+        "3": 3,
+        "4/A": 2,
+        "SC 13D": 1,
+        "CORRESP": 1,
+        "S-1/A": 4,
+        "DRS": 2,
+        "S-1": 1,
+        "424B4": 1
+      },
+      "first_date": "2015-04-17",
+      "last_date": "2015-10-16",
+      "filings": [
+        {
+          "form": "DRS",
+          "date": "2015-04-17",
+          "adsh": "0001564590-15-002642",
+          "url": "https://www.sec.gov/Archives/edgar/data/1433195/000156459015002642/filename5.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1433195/000156459015002642/0001564590-15-002642-index.htm"
+        },
+        {
+          "form": "DRS",
+          "date": "2015-04-17",
+          "adsh": "0001564590-15-002642",
+          "url": "https://www.sec.gov/Archives/edgar/data/1433195/000156459015002642/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1433195/000156459015002642/0001564590-15-002642-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2015-05-18",
+          "adsh": "0001193125-15-191809",
+          "url": "https://www.sec.gov/Archives/edgar/data/1433195/000119312515191809/d907976ds1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1433195/000119312515191809/0001193125-15-191809-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2015-06-04",
+          "adsh": "0001193125-15-213095",
+          "url": "https://www.sec.gov/Archives/edgar/data/1433195/000119312515213095/d907976dex42.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1433195/000119312515213095/0001193125-15-213095-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2015-06-04",
+          "adsh": "0001193125-15-213095",
+          "url": "https://www.sec.gov/Archives/edgar/data/1433195/000119312515213095/d907976ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1433195/000119312515213095/0001193125-15-213095-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2015-06-15",
+          "adsh": "0001193125-15-222771",
+          "url": "https://www.sec.gov/Archives/edgar/data/1433195/000119312515222771/d907976ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1433195/000119312515222771/0001193125-15-222771-index.htm"
+        },
+        {
+          "form": "CORRESP",
+          "date": "2015-06-17",
+          "adsh": "0001193125-15-225811",
+          "url": "https://www.sec.gov/Archives/edgar/data/1433195/000119312515225811/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1433195/000119312515225811/0001193125-15-225811-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2015-06-19",
+          "adsh": "0001193125-15-228466",
+          "url": "https://www.sec.gov/Archives/edgar/data/1433195/000119312515228466/d907976ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1433195/000119312515228466/0001193125-15-228466-index.htm"
+        },
+        {
+          "form": "3",
+          "date": "2015-06-25",
+          "adsh": "0001209191-15-056588",
+          "url": "https://www.sec.gov/Archives/edgar/data/1433195/000120919115056588/doc3.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1433195/000120919115056588/0001209191-15-056588-index.htm"
+        },
+        {
+          "form": "3",
+          "date": "2015-06-25",
+          "adsh": "0001209191-15-056613",
+          "url": "https://www.sec.gov/Archives/edgar/data/1433195/000120919115056613/doc3.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1433195/000120919115056613/0001209191-15-056613-index.htm"
+        },
+        {
+          "form": "3",
+          "date": "2015-06-25",
+          "adsh": "0001209191-15-056606",
+          "url": "https://www.sec.gov/Archives/edgar/data/1433195/000120919115056606/doc3.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1433195/000120919115056606/0001209191-15-056606-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2015-06-26",
+          "adsh": "0001193125-15-235916",
+          "url": "https://www.sec.gov/Archives/edgar/data/1433195/000119312515235916/d907976d424b4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1433195/000119312515235916/0001193125-15-235916-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2015-06-29",
+          "adsh": "0001209191-15-057203",
+          "url": "https://www.sec.gov/Archives/edgar/data/1433195/000120919115057203/doc4.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1433195/000120919115057203/0001209191-15-057203-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2015-06-29",
+          "adsh": "0001209191-15-057325",
+          "url": "https://www.sec.gov/Archives/edgar/data/1433195/000120919115057325/doc4.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1433195/000120919115057325/0001209191-15-057325-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2015-06-29",
+          "adsh": "0001209191-15-057322",
+          "url": "https://www.sec.gov/Archives/edgar/data/1433195/000120919115057322/doc4.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1433195/000120919115057322/0001209191-15-057322-index.htm"
+        },
+        {
+          "form": "4/A",
+          "date": "2015-07-06",
+          "adsh": "0000899243-15-000537",
+          "url": "https://www.sec.gov/Archives/edgar/data/1433195/000089924315000537/doc4a.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1433195/000089924315000537/0000899243-15-000537-index.htm"
+        },
+        {
+          "form": "4/A",
+          "date": "2015-07-06",
+          "adsh": "0000899243-15-000690",
+          "url": "https://www.sec.gov/Archives/edgar/data/1433195/000089924315000690/doc4a.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1433195/000089924315000690/0000899243-15-000690-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2015-10-08",
+          "adsh": "0001209191-15-074913",
+          "url": "https://www.sec.gov/Archives/edgar/data/1433195/000120919115074913/doc4.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1433195/000120919115074913/0001209191-15-074913-index.htm"
+        },
+        {
+          "form": "SC 13D",
+          "date": "2015-10-16",
+          "adsh": "0001193125-15-345421",
+          "url": "https://www.sec.gov/Archives/edgar/data/1433195/000119312515345421/d94098dex99c.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1433195/000119312515345421/0001193125-15-345421-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1433195/000156459015002642/filename5.htm",
+          "form": "DRS",
+          "date": "2015-04-17",
+          "mentions": 3,
+          "context": [
+            "accordance with the terms of the Investors’ Rights Agreement. By execution and delivery of this Investor Signature Page, the undersigned hereby agrees be bound by the terms and conditions of the Investors’ Rights Agreement as an Investor thereunder. Investor: BV Capital GmbH & Co Beteilingungs KG No. 1 Signature: /s/ Mathias Schilling Print Name: Mathias Schilling Title: Managing Director of the General Partner Dated: November 26, 2013 INVESTOR SIGNATURE PAGE TO APPFOLIO, INC. AMENDED AND RESTATED INVESTORS’ RIGHTS AGREEMENT The ",
+            "accordance with the terms of the Investors’ Rights Agreement. By execution and delivery of this Investor Signature Page, the undersigned hereby agrees be bound by the terms and conditions of the Investors’ Rights Agreement as an Investor thereunder. Investor: BV Capital Fund II LP Signature: /s/ Mathias Schilling Print Name: Mathias Schilling Title: Managing Director of the General Partner Dated: November 26, 2013 INVESTOR SIGNATURE PAGE TO APPFOLIO, INC. AMENDED AND RESTATED INVESTORS’ RIGHTS AGREEMENT The undersigned hereby exe",
+            "accordance with the terms of the Investors’ Rights Agreement. By execution and delivery of this Investor Signature Page, the undersigned hereby agrees be bound by the terms and conditions of the Investors’ Rights Agreement as an Investor thereunder. Investor: BV Capital Fund II A LP Signature: /s/ Mathias Schilling Print Name: Mathias Schilling Title: Managing Director of the General Partner Dated: November 26, 2013 INVESTOR SIGNATURE PAGE TO APPFOLIO, INC. AMENDED AND RESTATED INVESTORS’ RIGHTS AGREEMENT The undersigned hereby e"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1433195/000156459015002642/filename1.htm",
+          "form": "DRS",
+          "date": "2015-04-17",
+          "mentions": 6,
+          "context": [
+            "he members of IGSB and possess shared voting and dispositive power with respect to the IGSB III Entities’ shares. The address for each of the entities affiliated with IGSB is P.O. Box 5609, Santa Barbara, CA 93150. (2) Consists of (i) 6,041,921 shares held by BV Capital Fund II, L.P., (ii) 1,193,366 shares held by BV Capital Fund II-A, L.P. and (iii) 7,926,921 shares held by BV Capital GmbH & Co Beteiligungs KG No. 1. BV Capital GP II, LLC is the sole general partner of each of BV Capital Fund II, L.P., BV Capital Fund II-A, L.P.",
+            "tive power with respect to the IGSB III Entities’ shares. The address for each of the entities affiliated with IGSB is P.O. Box 5609, Santa Barbara, CA 93150. (2) Consists of (i) 6,041,921 shares held by BV Capital Fund II, L.P., (ii) 1,193,366 shares held by BV Capital Fund II-A, L.P. and (iii) 7,926,921 shares held by BV Capital GmbH & Co Beteiligungs KG No. 1. BV Capital GP II, LLC is the sole general partner of each of BV Capital Fund II, L.P., BV Capital Fund II-A, L.P. and BV Capital GmbH & Co. Beteiligungs KG No. 1. BV Cap",
+            "address for each of the entities affiliated with IGSB is P.O. Box 5609, Santa Barbara, CA 93150. (2) Consists of (i) 6,041,921 shares held by BV Capital Fund II, L.P., (ii) 1,193,366 shares held by BV Capital Fund II-A, L.P. and (iii) 7,926,921 shares held by BV Capital GmbH & Co Beteiligungs KG No. 1. BV Capital GP II, LLC is the sole general partner of each of BV Capital Fund II, L.P., BV Capital Fund II-A, L.P. and BV Capital GmbH & Co. Beteiligungs KG No. 1. BV Capital Management, LLC is the sole managing member of BV Capital"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "Itau Unibanco Holding S.A.  (ITUB)",
+      "cik": "0001132597",
+      "forms": {
+        "6-K": 1
+      },
+      "first_date": "2015-11-09",
+      "last_date": "2015-11-09",
+      "filings": [
+        {
+          "form": "6-K",
+          "date": "2015-11-09",
+          "adsh": "0001144204-15-063667",
+          "url": "https://www.sec.gov/Archives/edgar/data/1132597/000114420415063667/v423625_ex99-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1132597/000114420415063667/0001144204-15-063667-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1132597/000114420415063667/v423625_ex99-1.htm",
+          "form": "6-K",
+          "date": "2015-11-09",
+          "mentions": 1,
+          "context": [
+            "nels goes beyond traditional banking hours, thus providing a new bank to a new customer. In September 2015, we had approximately 805 thousand digital clients. “Cubo” – In September 2015, Itaú Unibanco made official the opening of “Cubo”, jointly with Redpoint e.ventures. This non-profit initiative consists in a large development center for technological entrepreneurship. With coworking spaces, education and networking activities, the purpose is to contribute on a structured basis to expand innovative and transforming initiat"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "WPP plc  (WPP, WPPGF)",
+      "cik": "0000806968",
+      "forms": {
+        "6-K": 1
+      },
+      "first_date": "2016-07-01",
+      "last_date": "2016-07-01",
+      "filings": [
+        {
+          "form": "6-K",
+          "date": "2016-07-01",
+          "adsh": "0001193125-16-639895",
+          "url": "https://www.sec.gov/Archives/edgar/data/806968/000119312516639895/d206782dex4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/806968/000119312516639895/0001193125-16-639895-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/806968/000119312516639895/d206782dex4.htm",
+          "form": "6-K",
+          "date": "2016-07-01",
+          "mentions": 1,
+          "context": [
+            "tive solutions to WPP clients and strengthen the capabilities of WPP. WPP Ventures is investing along with Third Wave Digital Partners and Andreessen Horowitz, as well as existing ADD investors Greycroft Partners, Advancit Capital, Nu Horizons Investments and e.ventures. ADD is a leader in producing and distributing music and content tailored for the important to reach urban-centric youth culture. ADD distributes this content through its own media properties, social media channels, traditional and premium television, cinemas"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "Social Capital Hedosophia Holdings Corp.  (SPCE)",
+      "cik": "0001706946",
+      "forms": {
+        "10-K": 1,
+        "424B4": 1,
+        "DRS/A": 1,
+        "DRS": 1,
+        "S-1": 1,
+        "S-1/A": 2
+      },
+      "first_date": "2017-05-25",
+      "last_date": "2018-02-14",
+      "filings": [
+        {
+          "form": "DRS",
+          "date": "2017-05-25",
+          "adsh": "0001144204-17-029620",
+          "url": "https://www.sec.gov/Archives/edgar/data/1706946/000114420417029620/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1706946/000114420417029620/0001144204-17-029620-index.htm"
+        },
+        {
+          "form": "DRS/A",
+          "date": "2017-08-01",
+          "adsh": "0001144204-17-039389",
+          "url": "https://www.sec.gov/Archives/edgar/data/1706946/000114420417039389/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1706946/000114420417039389/0001144204-17-039389-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2017-08-23",
+          "adsh": "0001144204-17-044783",
+          "url": "https://www.sec.gov/Archives/edgar/data/1706946/000114420417044783/v473766_s1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1706946/000114420417044783/0001144204-17-044783-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2017-09-01",
+          "adsh": "0001144204-17-046395",
+          "url": "https://www.sec.gov/Archives/edgar/data/1706946/000114420417046395/v474035_s1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1706946/000114420417046395/0001144204-17-046395-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2017-09-06",
+          "adsh": "0001144204-17-046877",
+          "url": "https://www.sec.gov/Archives/edgar/data/1706946/000114420417046877/v474592_s1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1706946/000114420417046877/0001144204-17-046877-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2017-09-15",
+          "adsh": "0001144204-17-048312",
+          "url": "https://www.sec.gov/Archives/edgar/data/1706946/000114420417048312/v475172_424b4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1706946/000114420417048312/0001144204-17-048312-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2018-02-14",
+          "adsh": "0001144204-18-008162",
+          "url": "https://www.sec.gov/Archives/edgar/data/1706946/000114420418008162/tv484856_10k.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1706946/000114420418008162/0001144204-18-008162-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1706946/000114420417029620/filename1.htm",
+          "form": "DRS",
+          "date": "2017-05-25",
+          "mentions": 2,
+          "context": [
+            " of Finance since 2014, where he is responsible for overseeing the financial operations of Social Capital’s investment entities, its affiliated management company and related entities. Prior to joining Social Capital, Mr. Sood was Vice President of Finance at e.ventures from 2012 to October 2014, where he managed the day-to-day operations of all the US entities and certain international entities. Preceding e.ventures, Mr. Sood began his career with PricewaterhouseCoopers LLP in its Venture Capital practice working with some ",
+            "ment company and related entities. Prior to joining Social Capital, Mr. Sood was Vice President of Finance at e.ventures from 2012 to October 2014, where he managed the day-to-day operations of all the US entities and certain international entities. Preceding e.ventures, Mr. Sood began his career with PricewaterhouseCoopers LLP in its Venture Capital practice working with some of the Bay Area’s largest 98 TABLE OF CONTENTS venture capital and private equity funds. Mr. Sood holds a BA in Economics with a minor in Business Man"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1706946/000114420417039389/filename1.htm",
+          "form": "DRS/A",
+          "date": "2017-08-01",
+          "mentions": 2,
+          "context": [
+            " of Finance since 2014, where he is responsible for overseeing the financial operations of Social Capital’s investment entities, its affiliated management company and related entities. Prior to joining Social Capital, Mr. Sood was Vice President of Finance at e.ventures from 2012 to October 2014, where he managed the day-to-day operations of all the US entities and certain international entities. Preceding e.ventures, Mr. Sood began his career with PricewaterhouseCoopers LLP in its Venture Capital practice working with some ",
+            "ment company and related entities. Prior to joining Social Capital, Mr. Sood was Vice President of Finance at e.ventures from 2012 to October 2014, where he managed the day-to-day operations of all the US entities and certain international entities. Preceding e.ventures, Mr. Sood began his career with PricewaterhouseCoopers LLP in its Venture Capital practice working with some of the Bay Area’s largest 98 TABLE OF CONTENTS venture capital and private equity funds. Mr. Sood holds a BA in Economics with a minor in Business Man"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "M17 Entertainment Ltd",
+      "cik": "0001731946",
+      "forms": {
+        "F-1": 3,
+        "F-1/A": 3,
+        "DRS/A": 2
+      },
+      "first_date": "2018-04-09",
+      "last_date": "2018-05-25",
+      "filings": [
+        {
+          "form": "DRS/A",
+          "date": "2018-04-09",
+          "adsh": "0000912057-18-000172",
+          "url": "https://www.sec.gov/Archives/edgar/data/1731946/000091205718000172/filename4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1731946/000091205718000172/0000912057-18-000172-index.htm"
+        },
+        {
+          "form": "DRS/A",
+          "date": "2018-04-09",
+          "adsh": "0000912057-18-000172",
+          "url": "https://www.sec.gov/Archives/edgar/data/1731946/000091205718000172/filename3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1731946/000091205718000172/0000912057-18-000172-index.htm"
+        },
+        {
+          "form": "F-1",
+          "date": "2018-05-11",
+          "adsh": "0001047469-18-003716",
+          "url": "https://www.sec.gov/Archives/edgar/data/1731946/000104746918003716/a2235259zex-10_7.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1731946/000104746918003716/0001047469-18-003716-index.htm"
+        },
+        {
+          "form": "F-1",
+          "date": "2018-05-11",
+          "adsh": "0001047469-18-003716",
+          "url": "https://www.sec.gov/Archives/edgar/data/1731946/000104746918003716/a2235259zex-10_5.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1731946/000104746918003716/0001047469-18-003716-index.htm"
+        },
+        {
+          "form": "F-1",
+          "date": "2018-05-11",
+          "adsh": "0001047469-18-003716",
+          "url": "https://www.sec.gov/Archives/edgar/data/1731946/000104746918003716/a2235259zex-10_6.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1731946/000104746918003716/0001047469-18-003716-index.htm"
+        },
+        {
+          "form": "F-1/A",
+          "date": "2018-05-21",
+          "adsh": "0001047469-18-003927",
+          "url": "https://www.sec.gov/Archives/edgar/data/1731946/000104746918003927/a2235723zex-10_5.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1731946/000104746918003927/0001047469-18-003927-index.htm"
+        },
+        {
+          "form": "F-1/A",
+          "date": "2018-05-21",
+          "adsh": "0001047469-18-003927",
+          "url": "https://www.sec.gov/Archives/edgar/data/1731946/000104746918003927/a2235723zex-10_6.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1731946/000104746918003927/0001047469-18-003927-index.htm"
+        },
+        {
+          "form": "F-1/A",
+          "date": "2018-05-25",
+          "adsh": "0001047469-18-004084",
+          "url": "https://www.sec.gov/Archives/edgar/data/1731946/000104746918004084/a2235811zex-10_6.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1731946/000104746918004084/0001047469-18-004084-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1731946/000091205718000172/filename4.htm",
+          "form": "DRS/A",
+          "date": "2018-04-09",
+          "mentions": 4,
+          "context": [
+            "Taiwan(R.O.C.) Attention: NG Lawrence Chun Hung Email address: lawrence@lngmgmt.com 33. Tong, Aika Address: 12F., No.58, Tianyu St., Shilin Dist., Taipei City 111, Taiwan (R.O.C.) Attention: Joseph Huang Email address: joe@infinityventures.com 34 34. Infinity e.ventures Asia III, L.P. (“IVP”) Address: Maples Corporate Service Limited, PO Box 309, Ugland House, Grand Cayman, KY1-1104, Cayman Islands Attention: Akio Tanaka Email address: akio@17.media ; akio@infinityventures.com 35. Prince Bernhard of Baden Address: S.K.H. Pri",
+            "tional Address: Vanterpool Plaza, 2 nd Floor Wickhams Cay 1, Road Town Tortola, British Virgin Islands Attention: Thomas Chan Email address: thomas.chan@goldensummitcapital.com 35 SCHEDULE 2 SERIES B PREFERENCE SHAREHOLDERS No. Shareholder Details 1. Infinity e.ventures Asia III, L.P. (“IVP”) Address: Maples Corporate Service Limited, PO Box 309, Ugland House, Grand Cayman, KY1-1104, Cayman Islands Attention: Akio Tanaka Email address: akio@17.media ; akio@infinityventures.com 2. M17 Growth SPV LLC Address: 27 Hospital Road,",
+            "Signed by ) Lin, Chih-Chen ) /s/ Lin, Chih-Chen Execution page of M17 Shareholders’ Agreement Signed by ) NG Lawrence Chun Hung ) /s/ NG Lawrence Chun Hung Execution page of M17 Shareholders’ Agreement Signed by Akio Tanaka ) ) For and on behalf of ) INFINITY E.VENTURES ASIA III, L.P. ) /s/Akio Tanaka Execution page of M17 Shareholders’ Agreement Signed by ) Tong Aika ) /s/ Tong Aika Execution page of M17 Shareholders’ Agreement Signed by ) Prince Bernhard of Baden ) /s/ Prince Bernhard of Baden Execution page of M17 Shareho"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1731946/000091205718000172/filename3.htm",
+          "form": "DRS/A",
+          "date": "2018-04-09",
+          "mentions": 7,
+          "context": [
+            "onal Plaza, Singapore 079903 Attention: Joseph Phua Email address: joseph@gopaktor.com 10. Tong, Aika Address: 12F., No.58, Tianyu St., Shilin Dist., Taipei City 111, Taiwan (R.O.C.) Attention: Joseph Huang Email address: joe@infinityventures.com 11. Infinity e.ventures Asia III, L.P. Address: Maples Corporate Service Limited, PO Box 309, Ugland House, Grand Cayman, KY1-1104, Cayman Islands Attention: Akio Tanaka Email address: akio@17.media ; akio@infinityventures.com 12. Prince Bernhard of Baden Address: S.K.H. Prinz Bernh",
+            "g issuance of the 1,239,128 Series B Plus Preference Shares to the Paktor Noteholders; (i) completion of the acquisition by Machipopo of the Prometheus Shares pursuant to the terms of the Prometheus-Machipopo SPA; (j) completion of the acquisition by INFINITY E.VENTURES ASIA III, L.P. (“ IVP ”) of 3,529,412 ordinary shares in Machipopo (“ Universal Shares ”) pursuant to terms of a shares purchase agreement executed or to be executed between IVP and UNIVERSAL STANDARD VENTURES LTD. (“ Universal ”) pursuant to which IVP had ag",
+            "onal Plaza, Singapore 079903 Attention: Joseph Phua Email address: joseph@gopaktor.com 10. Tong, Aika Address: 12F., No.58, Tianyu St., Shilin Dist., Taipei City 111, Taiwan (R.O.C.) Attention: Joseph Huang Email address: joe@infinityventures.com 11. Infinity e.ventures Asia III, L.P. Address: Maples Corporate Service Limited, PO Box 309, Ugland House, Grand Cayman, KY1-1104, Cayman Islands Attention: Akio Tanaka Email address: akio@17.media ; akio@infinityventures.com 43- 34 12. Prince Bernhard of Baden Address: S.K.H. Prin"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "F5 NETWORKS INC  (FFIV)",
+      "cik": "0001048695",
+      "forms": {
+        "8-K": 1
+      },
+      "first_date": "2019-03-11",
+      "last_date": "2019-03-11",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "2019-03-11",
+          "adsh": "0001193125-19-070884",
+          "url": "https://www.sec.gov/Archives/edgar/data/1048695/000119312519070884/d713823dex991.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1048695/000119312519070884/0001193125-19-070884-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1048695/000119312519070884/d713823dex991.htm",
+          "form": "8-K",
+          "date": "2019-03-11",
+          "mentions": 1,
+          "context": [
+            "ze legacy, monolithic applications as well as deliver new, microservices-based applications. Companies like Netflix, Starbucks, and McDonalds rely on NGINX to reduce costs, improve resiliency, and speed innovation. NGINX investors include Blue Cloud Ventures, e.ventures, Goldman Sachs, Index Ventures, MSD Capital, NEA, Runa Capital, and Telstra Ventures. F5 is a trademark or service mark of F5 Networks, Inc., in the U.S. and other countries. All other product and company names herein may be trademarks of their respective own"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "TheRealReal, Inc.  (REAL)",
+      "cik": "0001573221",
+      "forms": {
+        "424B4": 1,
+        "S-1": 1,
+        "S-1/A": 2,
+        "DRS": 1,
+        "DRS/A": 1
+      },
+      "first_date": "2019-04-08",
+      "last_date": "2019-06-28",
+      "filings": [
+        {
+          "form": "DRS",
+          "date": "2019-04-08",
+          "adsh": "0000950123-19-003119",
+          "url": "https://www.sec.gov/Archives/edgar/data/1573221/000095012319003119/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1573221/000095012319003119/0000950123-19-003119-index.htm"
+        },
+        {
+          "form": "DRS/A",
+          "date": "2019-05-16",
+          "adsh": "0000950123-19-005559",
+          "url": "https://www.sec.gov/Archives/edgar/data/1573221/000095012319005559/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1573221/000095012319005559/0000950123-19-005559-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2019-05-31",
+          "adsh": "0001193125-19-163007",
+          "url": "https://www.sec.gov/Archives/edgar/data/1573221/000119312519163007/d720814ds1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1573221/000119312519163007/0001193125-19-163007-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2019-06-06",
+          "adsh": "0001193125-19-167225",
+          "url": "https://www.sec.gov/Archives/edgar/data/1573221/000119312519167225/d720814ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1573221/000119312519167225/0001193125-19-167225-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2019-06-17",
+          "adsh": "0001193125-19-174180",
+          "url": "https://www.sec.gov/Archives/edgar/data/1573221/000119312519174180/d720814ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1573221/000119312519174180/0001193125-19-174180-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2019-06-28",
+          "adsh": "0001193125-19-184923",
+          "url": "https://www.sec.gov/Archives/edgar/data/1573221/000119312519184923/d720814d424b4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1573221/000119312519184923/0001193125-19-184923-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1573221/000095012319003119/filename1.htm",
+          "form": "DRS",
+          "date": "2019-04-08",
+          "mentions": 8,
+          "context": [
+            "e following table summarizes purchases of our Series D preferred stock by such related persons: Stockholder Shares of Series D Preferred Stock Total Purchase Price Canaan IX, L.P. (1)(2) 1,790,580 $ 4,999,998 InterWest Partners X, L.P. (1) 1,790,580 4,999,998 e.ventures Growth, LP (1) 1,110,160 3,100,000 Greycroft Growth, L.P. (1) 2,471,001 6,899,998 (1) Currently holds more than 5% of our outstanding common stock. (2) Maha Ibrahim, a member of our board of directors, is a General Partner at Canaan Partners. Series E Preferr",
+            ". The following table summarizes purchases of our Series E preferred stock by such related persons: Stockholder Shares of Series E Preferred Stock Total Purchase Price Canaan IX, L.P. (1)(2) 654,298 $ 1,926,253 InterWest Partners X, L.P. (1) 739,272 2,176,417 e.ventures Growth, LP (1) 305,041 898,041 Entities affiliated with Greenspring Associates (1)(3) 8,491,847 24,999,998 Greycroft Growth, L.P. (1) 677,871 1,995,652 (1) Currently holds more than 5% of our outstanding common stock. (2) Maha Ibrahim, a member of our board o",
+            "k Total Purchase Price Entities affiliated with Great Hill Partners (1)(2) 3,905,771 $ 20,077,800 Canaan IX, L.P. (1)(3) 427,020 2,031,121 Entities affiliated with PWP Growth Equity (1)(4) 14,191,106 74,999,995 InterWest Partners X, L.P. (1) 427,020 2,031,121 e.ventures Growth, LP (1) 132,523 630,346 Entities affiliated with Greenspring Associates (1)(5) 279,016 1,327,140 Entities affiliated with Greycroft (1)(6) 294,496 1,400,768 (1) Currently holds more than 5% of our outstanding common stock. (2) Entitles affiliated with "
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1573221/000095012319005559/filename1.htm",
+          "form": "DRS/A",
+          "date": "2019-05-16",
+          "mentions": 8,
+          "context": [
+            "e following table summarizes purchases of our Series D preferred stock by such related persons: Stockholder Shares of Series D Preferred Stock Total Purchase Price Canaan IX, L.P. (1)(2) 1,790,580 $ 4,999,998 InterWest Partners X, L.P. (1) 1,790,580 4,999,998 e.ventures Growth, LP (1) 1,110,160 3,100,000 Greycroft Growth, L.P. (1) 2,471,001 6,899,998 (1) Currently holds more than 5% of our outstanding common stock. (2) Maha Ibrahim, a member of our board of directors, is a General Partner at Canaan Partners. Series E Preferr",
+            ". The following table summarizes purchases of our Series E preferred stock by such related persons: Stockholder Shares of Series E Preferred Stock Total Purchase Price Canaan IX, L.P. (1)(2) 654,298 $ 1,926,253 InterWest Partners X, L.P. (1) 739,272 2,176,417 e.ventures Growth, LP (1) 305,041 898,041 Entities affiliated with Greenspring Associates (1)(3) 8,491,847 24,999,998 Greycroft Growth, L.P. (1) 677,871 1,995,652 (1) Currently holds more than 5% of our outstanding common stock. (2) Maha Ibrahim, a member of our board o",
+            "k Total Purchase Price Entities affiliated with Great Hill Partners (1)(2) 3,905,771 $ 20,077,800 Canaan IX, L.P. (1)(3) 427,020 2,031,121 Entities affiliated with PWP Growth Equity (1)(4) 14,191,106 74,999,995 InterWest Partners X, L.P. (1) 427,020 2,031,121 e.ventures Growth, LP (1) 132,523 630,346 Entities affiliated with Greenspring Associates (1)(5) 279,016 1,327,140 Entities affiliated with Greycroft (1)(6) 294,496 1,400,768 (1) Currently holds more than 5% of our outstanding common stock. (2) Entitles affiliated with "
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "InterPrivate Acquisition Corp.  (AEVA, AEVA-WT)",
+      "cik": "0001789029",
+      "forms": {
+        "10-K": 1,
+        "424B4": 1,
+        "S-1/A": 1,
+        "S-1": 1,
+        "DRS": 1,
+        "S-4": 1,
+        "S-4/A": 3,
+        "424B3": 1
+      },
+      "first_date": "2019-10-10",
+      "last_date": "2021-02-16",
+      "filings": [
+        {
+          "form": "DRS",
+          "date": "2019-10-10",
+          "adsh": "0001213900-19-020129",
+          "url": "https://www.sec.gov/Archives/edgar/data/1789029/000121390019020129/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1789029/000121390019020129/0001213900-19-020129-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2020-01-08",
+          "adsh": "0001213900-20-000502",
+          "url": "https://www.sec.gov/Archives/edgar/data/1789029/000121390020000502/fs12019_interprivateacq.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1789029/000121390020000502/0001213900-20-000502-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2020-01-24",
+          "adsh": "0001213900-20-001698",
+          "url": "https://www.sec.gov/Archives/edgar/data/1789029/000121390020001698/fs12020a1_interprivate.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1789029/000121390020001698/0001213900-20-001698-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2020-02-05",
+          "adsh": "0001213900-20-002614",
+          "url": "https://www.sec.gov/Archives/edgar/data/1789029/000121390020002614/f424b40120_interprivate.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1789029/000121390020002614/0001213900-20-002614-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2020-03-30",
+          "adsh": "0001213900-20-008023",
+          "url": "https://www.sec.gov/Archives/edgar/data/1789029/000121390020008023/f10k2019_interprivate.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1789029/000121390020008023/0001213900-20-008023-index.htm"
+        },
+        {
+          "form": "S-4",
+          "date": "2020-12-03",
+          "adsh": "0001213900-20-040791",
+          "url": "https://www.sec.gov/Archives/edgar/data/1789029/000121390020040791/fs42020_interprivateacq.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1789029/000121390020040791/0001213900-20-040791-index.htm"
+        },
+        {
+          "form": "S-4/A",
+          "date": "2021-01-14",
+          "adsh": "0001213900-21-002089",
+          "url": "https://www.sec.gov/Archives/edgar/data/1789029/000121390021002089/fs42021a1_interprivateacqu.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1789029/000121390021002089/0001213900-21-002089-index.htm"
+        },
+        {
+          "form": "S-4/A",
+          "date": "2021-02-02",
+          "adsh": "0001213900-21-006225",
+          "url": "https://www.sec.gov/Archives/edgar/data/1789029/000121390021006225/fs42021a2_interprivateacq.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1789029/000121390021006225/0001213900-21-006225-index.htm"
+        },
+        {
+          "form": "S-4/A",
+          "date": "2021-02-10",
+          "adsh": "0001213900-21-007911",
+          "url": "https://www.sec.gov/Archives/edgar/data/1789029/000121390021007911/fs42021a3_interprivateacq.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1789029/000121390021007911/0001213900-21-007911-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2021-02-16",
+          "adsh": "0001213900-21-009136",
+          "url": "https://www.sec.gov/Archives/edgar/data/1789029/000121390021009136/f424b30221_interprivateacq.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1789029/000121390021009136/0001213900-21-009136-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1789029/000121390019020129/filename1.htm",
+          "form": "DRS",
+          "date": "2019-10-10",
+          "mentions": 1,
+          "context": [
+            "d broker -dealer affiliate from 2011 to 2013. Prior to InterPrivate, Mr. Bentley served as the General Counsel and Chief Operating Officer of Castellan Real Estate Partners, a real estate private equity firm based in New York, from 2014 to 2016 and worked for e.ventures Europe in a senior finance and operations capacity. Mr. Bentley previously worked as an attorney at White & Case LLP in New York from 1999 to 2005, where he focused on securities transactions and mergers and acquisitions. Mr. Bentley received a BA from Wake F"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1789029/000121390020000502/fs12019_interprivateacq.htm",
+          "form": "S-1",
+          "date": "2020-01-08",
+          "mentions": 1,
+          "context": [
+            "d broker -dealer affiliate from 2011 to 2013. Prior to InterPrivate, Mr. Bentley served as the General Counsel and Chief Operating Officer of Castellan Real Estate Partners, a real estate private equity firm based in New York, from 2014 to 2016 and worked for e.ventures Europe in a senior finance and operations capacity. Mr. Bentley previously worked as an attorney at White & Case LLP in New York from 1999 to 2005, where he focused on securities transactions and mergers and acquisitions. Mr. Bentley received a BA from Wake F"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "TWILIO INC  (TWLO)",
+      "cik": "0001447669",
+      "forms": {
+        "S-3ASR": 1
+      },
+      "first_date": "2020-11-05",
+      "last_date": "2020-11-05",
+      "filings": [
+        {
+          "form": "S-3ASR",
+          "date": "2020-11-05",
+          "adsh": "0001193125-20-287018",
+          "url": "https://www.sec.gov/Archives/edgar/data/1447669/000119312520287018/d36346ds3asr.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1447669/000119312520287018/0001193125-20-287018-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1447669/000119312520287018/d36346ds3asr.htm",
+          "form": "S-3ASR",
+          "date": "2020-11-05",
+          "mentions": 2,
+          "context": [
+            "ering Beneficial Ownership After This Offering Name of Selling Stockholder Class A Shares Class B Shares % of Total Voting Power Before This Offering Number of Class A Shares Class A Class B % of Total Voting Power After This Offering Entities Affiliated with e.ventures (5) 553,487 — * 553,487 — — * Entities Affiliated with GV (6) 475,859 — * 475,859 — — * Entities Affiliated with Meritech Capital (7) 239,108 — * 239,108 — — * New View Capital Fund I, L.P. 198,864 — * 198,864 — — * Sapphire Ventures Fund III, L.P. 158,647 — ",
+            "ii) 528,916 shares of Class A common stock held of record by Thrive Capital Partners IV, L.P. (5) Consists of (i) 533,670 shares of Class A common stock held of record by BV eVenture Fund II, LP and (ii) 19,817 shares of Class A common stock held of record by e.ventures Growth II, L.P. (6) Consists of (i) 156,781 shares of Class A common stock held of record by GV 2017, L.P. and (ii) 319,078 shares of Class A common stock held of record by GV 2019, L.P. (7) Consists of (i) 6,145 shares of Class A common stock held of record "
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "SEMrush Holdings, Inc.  (SEMR)",
+      "cik": "0001831840",
+      "forms": {
+        "DRS": 3,
+        "S-1": 3,
+        "424B4": 2,
+        "DRS/A": 1,
+        "S-1/A": 1,
+        "10-K": 5,
+        "ARS": 2
+      },
+      "first_date": "2020-11-23",
+      "last_date": "2026-03-02",
+      "filings": [
+        {
+          "form": "DRS",
+          "date": "2020-11-23",
+          "adsh": "0001628279-20-000319",
+          "url": "https://www.sec.gov/Archives/edgar/data/1831840/000162827920000319/filename4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1831840/000162827920000319/0001628279-20-000319-index.htm"
+        },
+        {
+          "form": "DRS",
+          "date": "2020-11-23",
+          "adsh": "0001628279-20-000319",
+          "url": "https://www.sec.gov/Archives/edgar/data/1831840/000162827920000319/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1831840/000162827920000319/0001628279-20-000319-index.htm"
+        },
+        {
+          "form": "DRS/A",
+          "date": "2021-01-11",
+          "adsh": "0001628279-21-000004",
+          "url": "https://www.sec.gov/Archives/edgar/data/1831840/000162827921000004/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1831840/000162827921000004/0001628279-21-000004-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2021-03-01",
+          "adsh": "0001628280-21-003658",
+          "url": "https://www.sec.gov/Archives/edgar/data/1831840/000162828021003658/exhibit42-sx1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1831840/000162828021003658/0001628280-21-003658-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2021-03-01",
+          "adsh": "0001628280-21-003658",
+          "url": "https://www.sec.gov/Archives/edgar/data/1831840/000162828021003658/semrushforms-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1831840/000162828021003658/0001628280-21-003658-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2021-03-16",
+          "adsh": "0001628280-21-004792",
+          "url": "https://www.sec.gov/Archives/edgar/data/1831840/000162828021004792/semrushforms-1a1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1831840/000162828021004792/0001628280-21-004792-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2021-03-25",
+          "adsh": "0001628280-21-005671",
+          "url": "https://www.sec.gov/Archives/edgar/data/1831840/000162828021005671/semrush424b4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1831840/000162828021005671/0001628280-21-005671-index.htm"
+        },
+        {
+          "form": "DRS",
+          "date": "2021-09-22",
+          "adsh": "0001628279-21-000624",
+          "url": "https://www.sec.gov/Archives/edgar/data/1831840/000162827921000624/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1831840/000162827921000624/0001628279-21-000624-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2021-11-17",
+          "adsh": "0001628280-21-023582",
+          "url": "https://www.sec.gov/Archives/edgar/data/1831840/000162828021023582/semr-20211116.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1831840/000162828021023582/0001628280-21-023582-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2021-11-19",
+          "adsh": "0001628280-21-023898",
+          "url": "https://www.sec.gov/Archives/edgar/data/1831840/000162828021023898/semrushfollowon424b4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1831840/000162828021023898/0001628280-21-023898-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2022-03-18",
+          "adsh": "0001628280-22-006731",
+          "url": "https://www.sec.gov/Archives/edgar/data/1831840/000162828022006731/semr-20211231.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1831840/000162828022006731/0001628280-22-006731-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2023-03-15",
+          "adsh": "0001628280-23-008111",
+          "url": "https://www.sec.gov/Archives/edgar/data/1831840/000162828023008111/semr-20221231.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1831840/000162828023008111/0001628280-23-008111-index.htm"
+        },
+        {
+          "form": "ARS",
+          "date": "2023-04-18",
+          "adsh": "0001628280-23-011960",
+          "url": "https://www.sec.gov/Archives/edgar/data/1831840/000162828023011960/ars-semrushholdingsinc_com.pdf",
+          "index": "https://www.sec.gov/Archives/edgar/data/1831840/000162828023011960/0001628280-23-011960-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2024-03-07",
+          "adsh": "0001628280-24-009657",
+          "url": "https://www.sec.gov/Archives/edgar/data/1831840/000162828024009657/semr-20231231.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1831840/000162828024009657/0001628280-24-009657-index.htm"
+        },
+        {
+          "form": "ARS",
+          "date": "2024-04-18",
+          "adsh": "0001628280-24-016805",
+          "url": "https://www.sec.gov/Archives/edgar/data/1831840/000162828024016805/semrush_2023xarxv31.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1831840/000162828024016805/0001628280-24-016805-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2025-03-03",
+          "adsh": "0001628280-25-009448",
+          "url": "https://www.sec.gov/Archives/edgar/data/1831840/000162828025009448/semr-20241231.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1831840/000162828025009448/0001628280-25-009448-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2026-03-02",
+          "adsh": "0001628280-26-013259",
+          "url": "https://www.sec.gov/Archives/edgar/data/1831840/000162828026013259/semr-20251231.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1831840/000162828026013259/0001628280-26-013259-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1831840/000162827920000319/filename4.htm",
+          "form": "DRS",
+          "date": "2020-11-23",
+          "mentions": 9,
+          "context": [
+            "e of the annual revenues of the Company and its Subsidiaries; and (iii) to generate at least fifty percent (50%) of its annual revenues from the sale of competitive intelligence software for online search marketing; but shall in any event exclude Greycroft or e.ventures or their Affiliates, so long as the Series B Director is not serving as a director, executive, strategic advisor, or in a similar role at any Competitor. 1.7 “ Control ” means, in relation to any Person, the possession, directly or indirectly, of: (i) the pow",
+            " Act, the Exchange Act, or any state securities law. 1.9 “ Derivative Securities ” means any securities or rights convertible into, or exercisable or exchangeable for (in each case, directly or indirectly), Common Stock, including options and warrants. 1.10 “ e.ventures ” means E.Ventures Growth II, LP. 2 1.11 “ Exchange Act ” means the Securities Exchange Act of 1934, as amended, and the rules and regulations promulgated thereunder. 1.12 “ Excluded Registration ” means (i) a registration relating to the sale or grant of sec",
+            "Act, or any state securities law. 1.9 “ Derivative Securities ” means any securities or rights convertible into, or exercisable or exchangeable for (in each case, directly or indirectly), Common Stock, including options and warrants. 1.10 “ e.ventures ” means E.Ventures Growth II, LP. 2 1.11 “ Exchange Act ” means the Securities Exchange Act of 1934, as amended, and the rules and regulations promulgated thereunder. 1.12 “ Excluded Registration ” means (i) a registration relating to the sale or grant of securities to employee"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1831840/000162827920000319/filename1.htm",
+          "form": "DRS",
+          "date": "2020-11-23",
+          "mentions": 4,
+          "context": [
+            "iliated with Siguler Guff & Company and introduced collaboration features, including the ability to add users and share projects and received U.S. and UK search awards for the “Best SEO Software Suite”; • 2018: Completed another financing led by Greycroft and e.ventures, relocated headquarters to Boston, Massachusetts, and opened an office in Dallas, Texas, surpassed $50 million in ARR, and launched our first add-on offering, Local Listings; • 2019: Surpassed 50,000 customers and $100 million in ARR, and launched our second ",
+            "5.13 per share, for an aggregate purchase price of $24 million. The following table summarizes these purchases by related persons: Stockholder Shares of Series B Convertible Preferred Stock Total Purchase Price Greycroft Growth II, L.P. 2,870,000 $ 14,713,724 e.ventures Growth II, LP 1,031,200 $ 5,286,687 Fabstone Investments LLC 780,200 $ 3,999,877 114 Series A-1 Redeemable Convertible Preferred Stock Financing In February 2019, SEMrush CY sold an aggregate of 1,837,600 shares of its Series A-1 redeemable convertible prefer",
+            "of approximately $5.0 and $2.5 million, respectively, to certain of our stockholders. The following table summarizes these transactions: Seller Purchaser Shares of Common Stock Total Purchase Price Oleg Shchegolev Greycroft Growth II, L.P. 694,200 $ 2,224,362 e.ventures Growth II, LP 249,500 $ 799,450 SEMR Holdings Limited 416,100 $ 1,333,271 Fabstone Investments LLC 208,000 $ 666,475 Dmitry Melnikov Greycroft Growth II, L.P. 347,100 $ 1,112,181 e.ventures Growth II, LP 124,700 $ 399,565 SEMR Holdings Limited 208,000 $ 666,4"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "InterPrivate IV InfraTech Partners Inc.",
+      "cik": "0001839611",
+      "forms": {
+        "10-K": 1,
+        "424B4": 2,
+        "S-1": 1,
+        "DRS": 1,
+        "S-1/A": 1
+      },
+      "first_date": "2021-01-26",
+      "last_date": "2022-04-01",
+      "filings": [
+        {
+          "form": "DRS",
+          "date": "2021-01-26",
+          "adsh": "0001213900-21-004193",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839611/000121390021004193/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839611/000121390021004193/0001213900-21-004193-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2021-02-17",
+          "adsh": "0001213900-21-009894",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839611/000121390021009894/fs12021_interprivateacq4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839611/000121390021009894/0001213900-21-009894-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2021-02-26",
+          "adsh": "0001213900-21-012132",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839611/000121390021012132/fs12021a1_interprivate4infra.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839611/000121390021012132/0001213900-21-012132-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2021-03-08",
+          "adsh": "0001213900-21-014042",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839611/000121390021014042/f424b40321_interprivate4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839611/000121390021014042/0001213900-21-014042-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2021-03-12",
+          "adsh": "0001213900-21-015121",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839611/000121390021015121/f424b40321_interprivate4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839611/000121390021015121/0001213900-21-015121-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2022-04-01",
+          "adsh": "0001213900-22-017104",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839611/000121390022017104/f10k2021_interprivate4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839611/000121390022017104/0001213900-22-017104-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1839611/000121390021004193/filename1.htm",
+          "form": "DRS",
+          "date": "2021-01-26",
+          "mentions": 1,
+          "context": [
+            "d broker -dealer affiliate from 2011 to 2013. Prior to InterPrivate, Mr. Bentley served as the General Counsel and Chief Operating Officer of Castellan Real Estate Partners, a real estate private equity firm based in New York, from 2014 to 2016 and worked for e.ventures Europe in a senior finance and operations capacity. Mr. Bentley previously worked as an attorney at White & Case LLP in New York from 1999 to 2005, where he focused on securities transactions and mergers and acquisitions. Mr. Bentley received a B.A. from Wake"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1839611/000121390021009894/fs12021_interprivateacq4.htm",
+          "form": "S-1",
+          "date": "2021-02-17",
+          "mentions": 1,
+          "context": [
+            "d broker -dealer affiliate from 2011 to 2013. Prior to InterPrivate, Mr. Bentley served as the General Counsel and Chief Operating Officer of Castellan Real Estate Partners, a real estate private equity firm based in New York, from 2014 to 2016 and worked for e.ventures Europe in a senior finance and operations capacity. Mr. Bentley previously worked as an attorney at White & Case LLP in New York from 1999 to 2005, where he focused on securities transactions and mergers and acquisitions. Mr. Bentley received a B.A. from Wake"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "InterPrivate II Acquisition Corp.  (GETR, GETRW)",
+      "cik": "0001839608",
+      "forms": {
+        "10-K": 1,
+        "S-1": 1,
+        "S-1/A": 1,
+        "424B4": 1,
+        "DRS": 1,
+        "S-4/A": 5,
+        "424B3": 1,
+        "S-4": 1
+      },
+      "first_date": "2021-01-26",
+      "last_date": "2022-11-16",
+      "filings": [
+        {
+          "form": "DRS",
+          "date": "2021-01-26",
+          "adsh": "0001213900-21-004190",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839608/000121390021004190/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839608/000121390021004190/0001213900-21-004190-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2021-02-17",
+          "adsh": "0001213900-21-009888",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839608/000121390021009888/fs12021_interprivateacq2.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839608/000121390021009888/0001213900-21-009888-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2021-02-26",
+          "adsh": "0001213900-21-012105",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839608/000121390021012105/fs12021a1_interprivateacq2.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839608/000121390021012105/0001213900-21-012105-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2021-03-09",
+          "adsh": "0001213900-21-014130",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839608/000121390021014130/f424b40321_interprivate2.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839608/000121390021014130/0001213900-21-014130-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2022-03-31",
+          "adsh": "0001213900-22-016348",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839608/000121390022016348/f10k2021_interprivate2.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839608/000121390022016348/0001213900-22-016348-index.htm"
+        },
+        {
+          "form": "S-4",
+          "date": "2022-07-08",
+          "adsh": "0001193125-22-189756",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839608/000119312522189756/d319747ds4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839608/000119312522189756/0001193125-22-189756-index.htm"
+        },
+        {
+          "form": "S-4/A",
+          "date": "2022-08-12",
+          "adsh": "0001193125-22-219974",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839608/000119312522219974/d319747ds4a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839608/000119312522219974/0001193125-22-219974-index.htm"
+        },
+        {
+          "form": "S-4/A",
+          "date": "2022-09-26",
+          "adsh": "0001193125-22-251383",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839608/000119312522251383/d319747ds4a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839608/000119312522251383/0001193125-22-251383-index.htm"
+        },
+        {
+          "form": "S-4/A",
+          "date": "2022-10-25",
+          "adsh": "0001193125-22-267745",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839608/000119312522267745/d319747ds4a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839608/000119312522267745/0001193125-22-267745-index.htm"
+        },
+        {
+          "form": "S-4/A",
+          "date": "2022-11-08",
+          "adsh": "0001193125-22-279595",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839608/000119312522279595/d319747ds4a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839608/000119312522279595/0001193125-22-279595-index.htm"
+        },
+        {
+          "form": "S-4/A",
+          "date": "2022-11-10",
+          "adsh": "0001193125-22-281828",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839608/000119312522281828/d319747ds4a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839608/000119312522281828/0001193125-22-281828-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2022-11-16",
+          "adsh": "0001193125-22-286178",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839608/000119312522286178/d319747d424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839608/000119312522286178/0001193125-22-286178-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1839608/000121390021004190/filename1.htm",
+          "form": "DRS",
+          "date": "2021-01-26",
+          "mentions": 1,
+          "context": [
+            "d broker -dealer affiliate from 2011 to 2013. Prior to InterPrivate, Mr. Bentley served as the General Counsel and Chief Operating Officer of Castellan Real Estate Partners, a real estate private equity firm based in New York, from 2014 to 2016 and worked for e.ventures Europe in a senior finance and operations capacity. Mr. Bentley previously worked as an attorney at White & Case LLP in New York from 1999 to 2005, where he focused on securities transactions and mergers and acquisitions. Mr. Bentley received a B.A. from Wake"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1839608/000121390021009888/fs12021_interprivateacq2.htm",
+          "form": "S-1",
+          "date": "2021-02-17",
+          "mentions": 1,
+          "context": [
+            "d broker -dealer affiliate from 2011 to 2013. Prior to InterPrivate, Mr. Bentley served as the General Counsel and Chief Operating Officer of Castellan Real Estate Partners, a real estate private equity firm based in New York, from 2014 to 2016 and worked for e.ventures Europe in a senior finance and operations capacity. Mr. Bentley previously worked as an attorney at White & Case LLP in New York from 1999 to 2005, where he focused on securities transactions and mergers and acquisitions. Mr. Bentley received a B.A. from Wake"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "InterPrivate III Financial Partners Inc.",
+      "cik": "0001839610",
+      "forms": {
+        "10-K": 2,
+        "424B4": 1,
+        "S-1": 1,
+        "S-1/A": 1,
+        "DRS": 2,
+        "S-4": 1
+      },
+      "first_date": "2021-01-26",
+      "last_date": "2023-04-17",
+      "filings": [
+        {
+          "form": "DRS",
+          "date": "2021-01-26",
+          "adsh": "0001213900-21-004192",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839610/000121390021004192/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839610/000121390021004192/0001213900-21-004192-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2021-02-17",
+          "adsh": "0001213900-21-009890",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839610/000121390021009890/fs12021_interprivate3finp.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839610/000121390021009890/0001213900-21-009890-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2021-02-26",
+          "adsh": "0001213900-21-012094",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839610/000121390021012094/fs12021a1_interprivate3fin.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839610/000121390021012094/0001213900-21-012094-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2021-03-09",
+          "adsh": "0001213900-21-014136",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839610/000121390021014136/f424b40321_interprivate3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839610/000121390021014136/0001213900-21-014136-index.htm"
+        },
+        {
+          "form": "DRS",
+          "date": "2021-11-12",
+          "adsh": "0000950123-21-014973",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839610/000095012321014973/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839610/000095012321014973/0000950123-21-014973-index.htm"
+        },
+        {
+          "form": "S-4",
+          "date": "2022-02-15",
+          "adsh": "0001193125-22-042546",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839610/000119312522042546/d204847ds4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839610/000119312522042546/0001193125-22-042546-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2022-03-31",
+          "adsh": "0001213900-22-016337",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839610/000121390022016337/f10k2021_interprivate3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839610/000121390022016337/0001213900-22-016337-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2023-04-17",
+          "adsh": "0001213900-23-030215",
+          "url": "https://www.sec.gov/Archives/edgar/data/1839610/000121390023030215/f10k2022_interprivate3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1839610/000121390023030215/0001213900-23-030215-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1839610/000121390021004192/filename1.htm",
+          "form": "DRS",
+          "date": "2021-01-26",
+          "mentions": 1,
+          "context": [
+            "d broker -dealer affiliate from 2011 to 2013. Prior to InterPrivate, Mr. Bentley served as the General Counsel and Chief Operating Officer of Castellan Real Estate Partners, a real estate private equity firm based in New York, from 2014 to 2016 and worked for e.ventures Europe in a senior finance and operations capacity. Mr. Bentley previously worked as an attorney at White & Case LLP in New York from 1999 to 2005, where he focused on securities transactions and mergers and acquisitions. Mr. Bentley received a B.A. from Wake"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1839610/000121390021009890/fs12021_interprivate3finp.htm",
+          "form": "S-1",
+          "date": "2021-02-17",
+          "mentions": 1,
+          "context": [
+            "d broker -dealer affiliate from 2011 to 2013. Prior to InterPrivate, Mr. Bentley served as the General Counsel and Chief Operating Officer of Castellan Real Estate Partners, a real estate private equity firm based in New York, from 2014 to 2016 and worked for e.ventures Europe in a senior finance and operations capacity. Mr. Bentley previously worked as an attorney at White & Case LLP in New York from 1999 to 2005, where he focused on securities transactions and mergers and acquisitions. Mr. Bentley received a B.A. from Wake"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "Bright Health Group Inc.  (NEUE)",
+      "cik": "0001671284",
+      "forms": {
+        "S-1": 1,
+        "DRS/A": 1
+      },
+      "first_date": "2021-04-22",
+      "last_date": "2021-05-19",
+      "filings": [
+        {
+          "form": "DRS/A",
+          "date": "2021-04-22",
+          "adsh": "0001104659-21-053370",
+          "url": "https://www.sec.gov/Archives/edgar/data/1671284/000110465921053370/filename5.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1671284/000110465921053370/0001104659-21-053370-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2021-05-19",
+          "adsh": "0001104659-21-069324",
+          "url": "https://www.sec.gov/Archives/edgar/data/1671284/000110465921069324/tm217793d8_ex10-2.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1671284/000110465921069324/0001104659-21-069324-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1671284/000110465921053370/filename5.htm",
+          "form": "DRS/A",
+          "date": "2021-04-22",
+          "mentions": 2,
+          "context": [
+            "Agreement] GREYCROFT GROWTH II, L.P. By: Greycroft Growth II, LLC, its general partner By: /s/ Matthew Parker Name: Matthew Parker Title: Chief Financial Officer Address: [redacted] [Signature Page to Second Amended and Restated Registration Rights Agreement] E.VENTURES GROWTH II, L.P. By: E.VENTURES GROWTH II GP, LLC, its General Partner By: /s/ Mathias Schilling Name: Mathias Schilling Title: Managing Member of the General Partner Address: [redacted] [Signature Page to Second Amended and Restated Registration Rights Agreem",
+            " L.P. By: Greycroft Growth II, LLC, its general partner By: /s/ Matthew Parker Name: Matthew Parker Title: Chief Financial Officer Address: [redacted] [Signature Page to Second Amended and Restated Registration Rights Agreement] E.VENTURES GROWTH II, L.P. By: E.VENTURES GROWTH II GP, LLC, its General Partner By: /s/ Mathias Schilling Name: Mathias Schilling Title: Managing Member of the General Partner Address: [redacted] [Signature Page to Second Amended and Restated Registration Rights Agreement] REDPOINT OMEGA II, L.P. , "
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1671284/000110465921069324/tm217793d8_ex10-2.htm",
+          "form": "S-1",
+          "date": "2021-05-19",
+          "mentions": 2,
+          "context": [
+            "Agreement] GREYCROFT GROWTH II, L.P. By: Greycroft Growth II, LLC, its general partner By: /s/ Matthew Parker Name: Matthew Parker Title: Chief Financial Officer Address: [redacted] [Signature Page to Second Amended and Restated Registration Rights Agreement] E.VENTURES GROWTH II, L.P. By: E.VENTURES GROWTH II GP, LLC, its General Partner By: /s/ Mathias Schilling Name: Mathias Schilling Title: Managing Member of the General Partner Address: [redacted] [Signature Page to Second Amended and Restated Registration Rights Agreem",
+            " L.P. By: Greycroft Growth II, LLC, its general partner By: /s/ Matthew Parker Name: Matthew Parker Title: Chief Financial Officer Address: [redacted] [Signature Page to Second Amended and Restated Registration Rights Agreement] E.VENTURES GROWTH II, L.P. By: E.VENTURES GROWTH II GP, LLC, its General Partner By: /s/ Mathias Schilling Name: Mathias Schilling Title: Managing Member of the General Partner Address: [redacted] [Signature Page to Second Amended and Restated Registration Rights Agreement] REDPOINT OMEGA II, L.P. , "
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "Green Visor Financial Technology Acquisition Corp I",
+      "cik": "0001858503",
+      "forms": {
+        "DRS": 1,
+        "S-1/A": 1,
+        "424B4": 1,
+        "S-1": 1
+      },
+      "first_date": "2021-06-04",
+      "last_date": "2021-11-12",
+      "filings": [
+        {
+          "form": "DRS",
+          "date": "2021-06-04",
+          "adsh": "0001104659-21-077146",
+          "url": "https://www.sec.gov/Archives/edgar/data/1858503/000110465921077146/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1858503/000110465921077146/0001104659-21-077146-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2021-10-12",
+          "adsh": "0001104659-21-125417",
+          "url": "https://www.sec.gov/Archives/edgar/data/1858503/000110465921125417/tm2115201-4_drsa.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1858503/000110465921125417/0001104659-21-125417-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2021-11-01",
+          "adsh": "0001104659-21-132425",
+          "url": "https://www.sec.gov/Archives/edgar/data/1858503/000110465921132425/tm2115201-7_s1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1858503/000110465921132425/0001104659-21-132425-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2021-11-12",
+          "adsh": "0001104659-21-137217",
+          "url": "https://www.sec.gov/Archives/edgar/data/1858503/000110465921137217/tm2115201-11_424b4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1858503/000110465921137217/0001104659-21-137217-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1858503/000110465921077146/filename1.htm",
+          "form": "DRS",
+          "date": "2021-06-04",
+          "mentions": 2,
+          "context": [
+            "sa, MasterCard, FIS, Slack, S&P Global, PayPal, Goldman Sachs, Salesforce, and Coinbase, and from well-known venture capital and growth equity investors, including Tiger Global, Insight Partners, DST Global, Greycroft, Initialized, Polychain, Data Collective, e.ventures and True Ventures. Additionally, Green Visor Capital’s portfolio companies have been acquired by leading technology companies, such as Oracle and Q2 Holdings. ​ Through the above actions, we believe Green Visor FinTAC I offers management teams of growth-stage",
+            "sa, MasterCard, FIS, Slack, S&P Global, PayPal, Goldman Sachs, Salesforce, and Coinbase, and from well-known venture capital and growth equity investors, including Tiger Global, Insight Partners, DST Global, Greycroft, Initialized, Polychain, Data Collective, e.ventures and True Ventures. Additionally, Green Visor Capital’s portfolio companies have been acquired by leading technology companies, such as Oracle and Q2 Holdings. Through the above actions, we believe Green Visor FinTAC I offers management teams of growth-stage F"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1858503/000110465921125417/tm2115201-4_drsa.htm",
+          "form": "S-1",
+          "date": "2021-10-12",
+          "mentions": 2,
+          "context": [
+            "sa, MasterCard, FIS, Slack, S&P Global, PayPal, Goldman Sachs, Salesforce, and Coinbase, and from well-known venture capital and growth equity investors, including Tiger Global, Insight Partners, DST Global, Greycroft, Initialized, Polychain, Data Collective, e.ventures and True Ventures. Additionally, Green Visor Capital’s portfolio companies have been acquired by leading technology companies, such as Oracle and Q2 Holdings. ​ Through the above actions, we believe Green Visor FinTAC I offers management teams of growth-stage",
+            "sa, MasterCard, FIS, Slack, S&P Global, PayPal, Goldman Sachs, Salesforce, and Coinbase, and from well-known venture capital and growth equity investors, including Tiger Global, Insight Partners, DST Global, Greycroft, Initialized, Polychain, Data Collective, e.ventures and True Ventures. Additionally, Green Visor Capital’s portfolio companies have been acquired by leading technology companies, such as Oracle and Q2 Holdings. Through the above actions, we believe Green Visor FinTAC I offers management teams of growth-stage F"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "InterPrivate Investment Partners V, Inc.",
+      "cik": "0002105274",
+      "forms": {
+        "DRS": 1,
+        "S-1": 1
+      },
+      "first_date": "2026-01-27",
+      "last_date": "2026-04-24",
+      "filings": [
+        {
+          "form": "DRS",
+          "date": "2026-01-27",
+          "adsh": "0001213900-26-008240",
+          "url": "https://www.sec.gov/Archives/edgar/data/2105274/000121390026008240/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/2105274/000121390026008240/0001213900-26-008240-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2026-04-24",
+          "adsh": "0001213900-26-047608",
+          "url": "https://www.sec.gov/Archives/edgar/data/2105274/000121390026047608/ea0274206-03.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/2105274/000121390026047608/0001213900-26-047608-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/2105274/000121390026008240/filename1.htm",
+          "form": "DRS",
+          "date": "2026-01-27",
+          "mentions": 3,
+          "context": [
+            "iliate from 2011 to 2013. Prior to InterPrivate, Mr. Bentley served as the General Counsel and Chief 8 Table of Contents Operating Officer of Castellan Real Estate Partners, a real estate private equity firm based in New York, from 2014 to 2016 and worked for e.ventures Europe in a senior finance and operations capacity. Mr. Bentley previously worked as an attorney at White & Case LLP in New York from 1999 to 2005, where he focused on securities transactions and mergers and acquisitions. Mr. Bentley received a B.A. from Wake",
+            "d broker -dealer affiliate from 2011 to 2013. Prior to InterPrivate, Mr. Bentley served as the General Counsel and Chief Operating Officer of Castellan Real Estate Partners, a real estate private equity firm based in New York, from 2014 to 2016 and worked for e.ventures Europe in a senior finance and operations capacity. Mr. Bentley previously worked as an attorney at White & Case LLP in New York from 1999 to 2005, where he focused on securities transactions and mergers and acquisitions. Mr. Bentley received a B.A. from Wake",
+            "d broker -dealer affiliate from 2011 to 2013. Prior to InterPrivate, Mr. Bentley served as the General Counsel and Chief Operating Officer of Castellan Real Estate Partners, a real estate private equity firm based in New York, from 2014 to 2016 and worked for e.ventures Europe in a senior finance and operations capacity. Mr. Bentley previously worked as an attorney at White & Case LLP in New York from 1999 to 2005, where he focused on securities transactions and mergers and acquisitions. Mr. Bentley received a B.A. from Wake"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/2105274/000121390026047608/ea0274206-03.htm",
+          "form": "S-1",
+          "date": "2026-04-24",
+          "mentions": 3,
+          "context": [
+            "d broker -dealer affiliate from 2011 to 2013. Prior to InterPrivate, Mr. Bentley served as the General Counsel and Chief Operating Officer of Castellan Real Estate Partners, a real estate private equity firm based in New York, from 2014 to 2016 and worked for e.ventures Europe in a senior finance and operations capacity. Mr. Bentley previously worked as an attorney at White & Case LLP in New York from 1999 to 2005, where he focused on securities transactions and mergers and acquisitions. Mr. Bentley received a B.A. from Wake",
+            "d broker -dealer affiliate from 2011 to 2013. Prior to InterPrivate, Mr. Bentley served as the General Counsel and Chief Operating Officer of Castellan Real Estate Partners, a real estate private equity firm based in New York, from 2014 to 2016 and worked for e.ventures Europe in a senior finance and operations capacity. Mr. Bentley previously worked as an attorney at White & Case LLP in New York from 1999 to 2005, where he focused on securities transactions and mergers and acquisitions. Mr. Bentley received a B.A. from Wake",
+            "d broker -dealer affiliate from 2011 to 2013. Prior to InterPrivate, Mr. Bentley served as the General Counsel and Chief Operating Officer of Castellan Real Estate Partners, a real estate private equity firm based in New York, from 2014 to 2016 and worked for e.ventures Europe in a senior finance and operations capacity. Mr. Bentley previously worked as an attorney at White & Case LLP in New York from 1999 to 2005, where he focused on securities transactions and mergers and acquisitions. Mr. Bentley received a B.A. from Wake"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "InterPrivate Investment Partners V, Inc.  (IPV)",
+      "cik": "0002105274",
+      "forms": {
+        "424B4": 1,
+        "S-1/A": 2
+      },
+      "first_date": "2026-05-19",
+      "last_date": "2026-06-04",
+      "filings": [
+        {
+          "form": "S-1/A",
+          "date": "2026-05-19",
+          "adsh": "0001213900-26-059138",
+          "url": "https://www.sec.gov/Archives/edgar/data/2105274/000121390026059138/ea0274206-05.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/2105274/000121390026059138/0001213900-26-059138-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2026-05-27",
+          "adsh": "0001213900-26-061612",
+          "url": "https://www.sec.gov/Archives/edgar/data/2105274/000121390026061612/ea0274206-06.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/2105274/000121390026061612/0001213900-26-061612-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2026-06-04",
+          "adsh": "0001213900-26-065230",
+          "url": "https://www.sec.gov/Archives/edgar/data/2105274/000121390026065230/ea0274206-08.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/2105274/000121390026065230/0001213900-26-065230-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/2105274/000121390026059138/ea0274206-05.htm",
+          "form": "S-1/A",
+          "date": "2026-05-19",
+          "mentions": 3,
+          "context": [
+            "d broker -dealer affiliate from 2011 to 2013. Prior to InterPrivate, Mr. Bentley served as the General Counsel and Chief Operating Officer of Castellan Real Estate Partners, a real estate private equity firm based in New York, from 2014 to 2016 and worked for e.ventures Europe in a senior finance and operations capacity. Mr. Bentley previously worked as an attorney at White & Case LLP in New York from 1999 to 2005, where he focused on securities transactions and mergers and acquisitions. Mr. Bentley received a B.A. from Wake",
+            "d broker -dealer affiliate from 2011 to 2013. Prior to InterPrivate, Mr. Bentley served as the General Counsel and Chief Operating Officer of Castellan Real Estate Partners, a real estate private equity firm based in New York, from 2014 to 2016 and worked for e.ventures Europe in a senior finance and operations capacity. Mr. Bentley previously worked as an attorney at White & Case LLP in New York from 1999 to 2005, where he focused on securities transactions and mergers and acquisitions. Mr. Bentley received a B.A. from Wake",
+            "d broker -dealer affiliate from 2011 to 2013. Prior to InterPrivate, Mr. Bentley served as the General Counsel and Chief Operating Officer of Castellan Real Estate Partners, a real estate private equity firm based in New York, from 2014 to 2016 and worked for e.ventures Europe in a senior finance and operations capacity. Mr. Bentley previously worked as an attorney at White & Case LLP in New York from 1999 to 2005, where he focused on securities transactions and mergers and acquisitions. Mr. Bentley received a B.A. from Wake"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/2105274/000121390026061612/ea0274206-06.htm",
+          "form": "S-1/A",
+          "date": "2026-05-27",
+          "mentions": 3,
+          "context": [
+            "d broker -dealer affiliate from 2011 to 2013. Prior to InterPrivate, Mr. Bentley served as the General Counsel and Chief Operating Officer of Castellan Real Estate Partners, a real estate private equity firm based in New York, from 2014 to 2016 and worked for e.ventures Europe in a senior finance and operations capacity. Mr. Bentley previously worked as an attorney at White & Case LLP in New York from 1999 to 2005, where he focused on securities transactions and mergers and acquisitions. Mr. Bentley received a B.A. from Wake",
+            "d broker -dealer affiliate from 2011 to 2013. Prior to InterPrivate, Mr. Bentley served as the General Counsel and Chief Operating Officer of Castellan Real Estate Partners, a real estate private equity firm based in New York, from 2014 to 2016 and worked for e.ventures Europe in a senior finance and operations capacity. Mr. Bentley previously worked as an attorney at White & Case LLP in New York from 1999 to 2005, where he focused on securities transactions and mergers and acquisitions. Mr. Bentley received a B.A. from Wake",
+            "d broker -dealer affiliate from 2011 to 2013. Prior to InterPrivate, Mr. Bentley served as the General Counsel and Chief Operating Officer of Castellan Real Estate Partners, a real estate private equity firm based in New York, from 2014 to 2016 and worked for e.ventures Europe in a senior finance and operations capacity. Mr. Bentley previously worked as an attorney at White & Case LLP in New York from 1999 to 2005, where he focused on securities transactions and mergers and acquisitions. Mr. Bentley received a B.A. from Wake"
+          ]
+        }
+      ]
+    }
+  ]
+}

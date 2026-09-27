@@ -1,0 +1,391 @@
+{
+ "slug": "headline",
+ "name": "Headline",
+ "wayback": {
+  "cdx_domain": "headline.com",
+  "site_url_base": "https://headline.com",
+  "eras": [],
+  "_eras_pending": "Written after the CDX enumeration of bvcapital.com (BV Capital 2000-2012), eventures.vc / eventures.com (e.ventures 2012-2021) and headline.com (2021-); the Internet Archive was under a machine-wide cooldown at kickoff (2026-09-27 15:19 to 16:19 local). The live 2026 list is read through site_api.",
+  "non_company_slugs": [
+   "index",
+   "home",
+   "page",
+   "feed",
+   "search",
+   "tag",
+   "category",
+   "author",
+   "all",
+   "see-all",
+   "companies",
+   "company",
+   "portfolio",
+   "team",
+   "people",
+   "about",
+   "news",
+   "blog",
+   "contact",
+   "legal",
+   "privacy",
+   "privacy-policy",
+   "imprint",
+   "impressum",
+   "jobs",
+   "careers",
+   "events",
+   "wp-content",
+   "wp-json",
+   "wp-admin",
+   "wp-includes",
+   "cdn-cgi",
+   "assets",
+   "images",
+   "media",
+   "css",
+   "js",
+   "sitemap",
+   "robots",
+   "favicon",
+   "funds",
+   "us-early-fund",
+   "eu-early-fund",
+   "growth-fund",
+   "asia-early-fund",
+   "brazil-early-fund",
+   "asia",
+   "brazil",
+   "us",
+   "europe",
+   "eu"
+  ]
+ },
+ "roster": {
+  "cdx_patterns": [
+   "headline.com/team/*",
+   "eventures.vc/team/*",
+   "eventures.vc/people/*",
+   "bvcapital.com/team/*",
+   "bvcapital.com/people/*"
+  ],
+  "slug_re": "/(?:team|people)/([a-z][a-z0-9-]*[a-z0-9])/?$",
+  "listing_href_re": "/(?:team|people)/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+  "not_a_person": [
+   "index",
+   "team",
+   "people",
+   "partners",
+   "about",
+   "companies",
+   "portfolio",
+   "news",
+   "contact",
+   "jobs",
+   "careers",
+   "all",
+   "page",
+   "feed",
+   "investors",
+   "specialists",
+   "advisory-board",
+   "headline",
+   "eventures",
+   "e-ventures",
+   "bv-capital"
+  ],
+  "_note": "Kickoff roster (sources/wayback/partner-roster.json) is curated from the firm's own Form D related persons (every e.ventures / Headline / BV Capital vehicle, dated by filing), the Form ADV Schedule A owners of the six Headline advisers, and the live CMS investing team (sources/site/team-cards.json); the CDX people sweep extends windows when the archive answers."
+ },
+ "site_api": {
+  "type": "scrape",
+  "sources": [
+   {
+    "parser": "file_list",
+    "list": "sanity-companies",
+    "path": "data/collection/investors/headline/sources/site/sanity-companies.json",
+    "list_path": "rows",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "sectors": "sectors",
+    "extras": [
+     "cms_id",
+     "cms_slug",
+     "surface",
+     "hidden",
+     "desks",
+     "regions",
+     "stages",
+     "stage_site_first",
+     "invest_year",
+     "outcome",
+     "subline",
+     "location",
+     "founders",
+     "website",
+     "description",
+     "partners"
+    ],
+    "_note": "Every company doc of the public Sanity dataset behind headline.com (project iznipsfw), read by scratch/build-site-layer.py: 211 on the rendered portfolio grid, 38 only in an investor's portfolio list on /team/<member>/, 44 hidden CMS docs (surface cms_hidden, judged on corroboration, never on the doc alone). 'desks' are the fund pages (US, EU, Global Growth, Asia, Brazil) that list the company; 'stages' the firm's own dated entries per fund ('Early 2019; Growth 2021'); 'partners' the investors whose team page lists it."
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "file_list",
+    "list": "team",
+    "path": "data/collection/investors/headline/sources/site/team-cards.json",
+    "list_path": "rows",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "title",
+     "group",
+     "investment_team",
+     "specialist_team",
+     "region",
+     "linkedin_url",
+     "x_url",
+     "companies"
+    ]
+   }
+  ],
+  "team_buckets": {
+   "Investors": "investing",
+   "Specialists": "operations",
+   "Advisory Board": "advisor"
+  },
+  "_entry_stage_note": "The per-company 'stages' list is the firm's own dated entry per fund ('Early', 'Growth', one 'Seed'). 'Early' straddles Seed and Series A and is an anchor like a bare year; 'Growth' names the Global Growth fund's entry and may label only after it is scored blind against documented rounds (decisions.md D10). Not in entry_stage_fields until scored."
+ },
+ "edgar": {
+  "seed_queries": [
+   "e.ventures",
+   "eventures",
+   "bv capital",
+   "bv eventure",
+   "headline us",
+   "headline growth",
+   "headline global growth",
+   "headline europe",
+   "headline eu",
+   "headline lion",
+   "headline wombat",
+   "headline homa",
+   "evgc",
+   "bertelsmann ventures"
+  ],
+  "fts_phrases": [
+   "e.ventures",
+   "eVentures Growth",
+   "BV Capital Fund",
+   "BV Capital GmbH",
+   "BV eVentures",
+   "Bertelsmann Ventures",
+   "Headline US VI",
+   "Headline US VII",
+   "Headline Growth III",
+   "Headline Global Growth"
+  ],
+  "fts_own_pattern": "^(e\\.?ventures|bv capital|bv e\\.?venture|headline (us|growth|global growth|europe|eu|lion|wombat|homa)|evgc|bertelsmann ventures)",
+  "_note": "Entity-qualified phrases only: 'Headline' is a common word and 'eVentures' a common company name (eVentures Group Inc, a 1999 Dallas internet holding company, is a namesake)."
+ },
+ "wikipedia": {
+  "phrases": [
+   "e.ventures",
+   "BV Capital",
+   "Bertelsmann Ventures",
+   "Headline (company)",
+   "Headline Asia",
+   "Infinity Venture Partners",
+   "Redpoint eventures"
+  ]
+ },
+ "desks": {
+  "home": "headline",
+  "partition": [
+   "asia",
+   "brazil"
+  ],
+  "rank": [
+   "headline",
+   "asia",
+   "brazil",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "^eventures group",
+     "^e ?ventures (inc|holdings|group)",
+     "porsche ventures",
+     "^headline (media|entertainment|sports|news|films?|productions?|pictures|publishing|group|capital (partners )?llc$)",
+     "^bv capital (markets|partners bv)"
+    ]
+   },
+   {
+    "desk": "asia",
+    "patterns": [
+     "^infinity venture",
+     "^headline asia",
+     "^infinity ventures"
+    ]
+   },
+   {
+    "desk": "brazil",
+    "patterns": [
+     "^redpoint e\\.?ventures",
+     "^headline (brazil|brasil|xp)",
+     "^rpev"
+    ]
+   },
+   {
+    "desk": "headline",
+    "patterns": [
+     "^e\\.?ventures",
+     "^bv capital",
+     "^bv e\\.?venture",
+     "^eventure gp",
+     "^evgc",
+     "^bertelsmann ventures",
+     "^headline (us|growth|global growth|europe|eu|lion|wombat|homa|management|early|platform|gp)"
+    ]
+   }
+  ],
+  "_note": "One firm under successive names (BV Capital 2000, e.ventures 2012, Headline 2021): the US, Europe and Global Growth vehicles under the six Headline advisers (decisions.md D1). Asia (Infinity Ventures, renamed Headline Asia in 2021) and Brazil (Redpoint eventures 2012, Headline Brazil) run their own fund families under their own managers, which no Headline adviser reports as a related person: partitioned out as other_desk (D2, D3), a row staying in where a home fund held it."
+ },
+ "profile": {
+  "adv_crd": 304362,
+  "own_vehicle_pattern": "^(e\\.?ventures|bv capital|bv e\\.?venture|eventure gp|evgc|headline (us|growth|global growth|europe|eu|lion|wombat|homa|management|early|platform))",
+  "focus_min_companies": 12,
+  "focus_crosswalk": {
+   "fintech": "Fintech & Payments",
+   "healthcare": "Healthcare & Bio",
+   "applications": "SaaS",
+   "consumer": "Consumer & Marketplaces",
+   "infrastructure": "Data Infrastructure",
+   "Fintech": "Fintech & Payments",
+   "Healthcare": "Healthcare & Bio",
+   "Applications": "SaaS",
+   "Consumer": "Consumer & Marketplaces",
+   "Infrastructure": "Data Infrastructure",
+   "software": "SaaS",
+   "media": "Media, Gaming & Advertising",
+   "commerce": "Consumer & Marketplaces"
+  }
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "farfetch",
+   "sonos",
+   "appfolio",
+   "segment",
+   "honeycomb",
+   "blinkist",
+   "mistral",
+   "black forest labs",
+   "gopuff",
+   "zumper",
+   "shipt",
+   "fetch",
+   "acorns",
+   "the realreal",
+   "axios",
+   "nginx",
+   "munchery",
+   "flutterwave",
+   "thrive market",
+   "eucalyptus systems"
+  ],
+  "unicorn_bands": false,
+  "_unicorn_bands_note": "Rule A (Erik 2026-09-06): the unicorn snapshot is an aggregator, a coverage floor to verify, never a mark.",
+  "sample_slugs": [],
+  "shape": {
+   "c2a_rate_max": 0.8,
+   "_note": "The 0.80 default stands. There is no ceiling on the $1B+ share (Erik, 2026-09-26)."
+  },
+  "not_members": [
+   {
+    "name": "Groupon",
+    "slug": "groupon",
+    "why": "sale consideration: Groupon stock received for CityDeal and Darberry (2010); decisions.md D7"
+   },
+   {
+    "name": "Go1",
+    "slug": "go1",
+    "why": "sale consideration: Go1 bought Blinkist (2023)"
+   },
+   {
+    "name": "Ozon.ru",
+    "slug": "ozon-ru",
+    "why": "sale consideration: Ozon bought Sapato (2012)"
+   },
+   {
+    "name": "HiMedia",
+    "slug": "himedia",
+    "why": "sale consideration: Hi-Media bought Fotolog (2007)"
+   },
+   {
+    "name": "Papaya Global",
+    "slug": "papaya-global",
+    "why": "sale consideration: Papaya Global bought Azimo (2022)"
+   },
+   {
+    "name": "Gusto",
+    "slug": "gusto",
+    "why": "partner-carried: Shalini Rao's growth win at TCV / Generation (T4)"
+   },
+   {
+    "name": "Wawa",
+    "slug": "wawa",
+    "why": "hidden CMS doc with no identifiable company and no corroborated round"
+   },
+   {
+    "name": "Goldin Parent, Inc.",
+    "slug": "goldin-parent-inc",
+    "why": "Matt Brown's Chernin Group-era seat (T4)"
+   },
+   {
+    "name": "MamaMancini's Inc.",
+    "slug": "mamamancini-s-inc",
+    "why": "Matthew Brown homonym, operator role"
+   },
+   {
+    "name": "Meadow Technologies, Inc.",
+    "slug": "meadow-technologies-inc",
+    "why": "Matthew Brown name match, no Headline round (Matrix-led Series A)"
+   },
+   {
+    "name": "Attlee, Inc.",
+    "slug": "attlee-inc",
+    "why": "Jonathan Turner's Mohr Davidow-era seat (2009)"
+   },
+   {
+    "name": "Capital Integration Systems LLC",
+    "slug": "capital-integration-systems-llc",
+    "why": "Matthew Brown homonym, operator role"
+   }
+  ]
+ },
+ "names": {
+  "_readme": "Published names (COLLECTION.md s8, Erik 2026-09-24): the brand in normal capitalization, no legal suffix; a Form D legal entity publishes as the company it is. Applied at export.",
+  "published": {
+   "nginx": "Nginx",
+   "apiax": "Apiax",
+   "sparetech": "Sparetech",
+   "baron-app-inc": "Cameo",
+   "clyde-technologies-inc": "Clyde",
+   "daily-secret-inc": "Daily Secret",
+   "fanhattan-inc": "Fanhattan",
+   "merchantry-inc": "Merchantry",
+   "munchery-inc": "Munchery",
+   "pragli-inc": "Gentrace",
+   "reelio-inc": "Reelio",
+   "viavia-corp": "ViaVia",
+   "zumper-inc": "Zumper"
+  }
+ }
+}

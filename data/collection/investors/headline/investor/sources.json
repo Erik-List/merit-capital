@@ -1,0 +1,871 @@
+{
+  "slug": "headline",
+  "generated_at": "2026-09-27T23:47:24+00:00",
+  "run": "PRO-164",
+  "fields": {
+    "name": {
+      "value": "Headline",
+      "source": "https://headline.com/",
+      "basis": "The firm's own name on its site. Earlier names of the same team: e.ventures (2012 to May 2021), BV Capital (2000 to 2012), Bertelsmann Ventures (1997 to 2000); decisions.md D1. Its advisers file as E.VENTURES MANAGEMENT, LLC (CRD 304362), E.VENTURES MANAGEMENT VI, LLC (309084), HEADLINE MANAGEMENT GMBH (319198), HEADLINE GROWTH MANAGEMENT, LLC (323219), HEADLINE MANAGEMENT VII, LLC (323221) and HEADLINE MANAGEMENT LUX S.A R.L. (344374), all exempt reporting advisers; BV CAPITAL MANAGEMENT, LLC (160568) last filed in 2017."
+    },
+    "website": {
+      "value": "https://headline.com",
+      "source": "https://headline.com/",
+      "basis": "The firm's site (Gatsby over a public Sanity CMS, project iznipsfw: portfolio at /portfolio/, team at /team/, fund pages per desk); posts at blog.headline.com (Substack). Earlier sites: eventures.vc (2012 to 2021), bvcapital.com (2000 to 2012)."
+    },
+    "icon_url": {
+      "value": "https://headline.com/favicon.svg?v=b3d6e26611a1a9620c7832a226b25049",
+      "source": "https://headline.com/",
+      "basis": "Chosen by measurement (fetch-investor-icon.ts --discover, 2026-09-27): the site's vector favicon.svg (217x378 intrinsic), preferred over the 512x512 manifest PNG. Dry run: a bare black H glyph (72% transparent) set on a synthesized white plate, artwork scaled 0.696 into the keyline (box 70%, radius 80%), contrast 19.0:1, ramp 0.92px, vector so exempt from the upscale rule. The upload to the Icon Images bucket runs with the ingest, after Erik's approval (COLLECTION.md s9).",
+      "provenance": {
+        "source_url": "https://headline.com/favicon.svg?v=b3d6e26611a1a9620c7832a226b25049",
+        "format": "svg",
+        "width": 217,
+        "height": 378,
+        "vector": true,
+        "artwork_source_px": null,
+        "artwork_master_px": 178,
+        "upscale": 1,
+        "ramp_px": 0.92,
+        "master_size": 256,
+        "fetched": "2026-09-27",
+        "allow_upscale": false,
+        "allow_low_contrast": false,
+        "dry_run_only": true
+      }
+    },
+    "founding_year": {
+      "value": 1997,
+      "source": "https://headline.com/team/thomas-gieselmann/",
+      "basis": "The firm's own bio of Thomas Gieselmann: 'Thomas co-founded Headline in 1997' (Bertelsmann Ventures, Santa Barbara). Wikipedia's infobox gives 1998 and its history text says Bertelsmann Ventures was 'initiated out of Germany already in 1997'; the homepage says 'Over 25 years'. BV Capital, with outside LPs, dates from 2000 (Wikipedia 'Headline (company)')."
+    },
+    "history": {
+      "value": "Headline began in 1997 in Santa Barbara as Bertelsmann Ventures, an internet fund led by Jan Henric Buettner and Wolfgang Rose, and became BV Capital in 2000 with Mathias Schilling and Thomas Gieselmann, then e.ventures in 2012 and Headline in 2021. It became known for bets on Sonos, Farfetch, Bumble and Mistral AI. Today it runs early stage funds for the US and Europe and a global growth fund, the latest of which closed at $865 million in 2024.",
+      "source": "https://en.wikipedia.org/wiki/Headline_(company)",
+      "basis": "Founding and names: Wikipedia 'Headline (company)' (Bertelsmann Ventures 1997 in Santa Barbara, founded by Jan Henric Buettner and Wolfgang Rose; BV Capital 2000 with Buettner, Rose, Mathias Schilling and Thomas Gieselmann; e.ventures 2012; Headline 2021) and TechCrunch 2012-07-15 on the e.ventures rename. Bets: Sonos (BV Capital, 2005), Farfetch, Bumble (growth fund, 2020), Mistral AI (seed, 2023), all members of the portfolio on this page. Latest fund: Headline Global Growth IV at $865M (Fortune 2024-09-18, https://fortune.com/2024/09/18/headline-raises-865-million-hires-new-head-of-growth/). Moved to this sidecar to fit the shape rule: the move from Santa Barbara to San Francisco; offices in Berlin, Hamburg, Paris and London; the Asia desk (Infinity Ventures, now Headline Asia, own fund family, out of the portfolio on this page, decisions.md D2) and the Brazil desk (Redpoint eventures, later Headline Brazil, out, D3); US VII $408M and EU VII EUR 320M (TechCrunch 2022-07-07); the firm's early check of $1.5M to $15M."
+    },
+    "investment_concept": {
+      "value": "“Global venture capital helping founders win, bigger.”",
+      "source": "https://headline.com/",
+      "basis": "The firm's own line, read 2026-09-27: the homepage carries no headline element (a rotating highlights strip opens with 'Over 25 years, it's been our honor to work alongside exceptional founders.'), so the title-tag tagline stands: 'Headline | Global Venture Capital Helping Founders Win, Bigger', set in sentence case with one closing period. Competing lines on the same page: the section title 'A boutique firm with global wingspan.'; the meta description 'Headline is a global venture capital firm with teams across the US, Europe, Asia, and Brazil. ...'; the footer 'Headline is a venture capital firm with dedicated teams on the ground around the world.' Published inside quotation marks, as the firm's own words (Erik, 2026-09-26)."
+    },
+    "investment_stage": {
+      "value": [
+        "Seed",
+        "Series A",
+        "Growth"
+      ],
+      "source": "https://headline.com/",
+      "basis": "The firm's own statement: it invests 'from software and AI applications to consumer and fintech, and lead rounds at every stage' (meta description), with early funds per region and a global growth fund (fund pages US, EU, Global Growth). The landed entry distribution over the members is Series A 85, Seed 57, Growth 51, Pre-Seed 2 (restated in report.md)."
+    },
+    "investment_geo": {
+      "value": {
+        "core": [
+          "US",
+          "Europe"
+        ],
+        "other": []
+      },
+      "source": "companies/base.json",
+      "basis": "From the members' headquarters at the rebuild of 2026-09-27 (262 nameable rows): US 139, Europe 110 (Germany 32, UK 25, France 17, Russia 10, Denmark 6, Netherlands 4, Sweden 3, others 13), Israel 4, then Brazil, Australia and Canada 2 each, Chile, New Zealand and China 1 each. The Asia and Brazil desks' own companies are out of the portfolio on this page (decisions.md D2, D3), so neither region is a label. Core US and Europe, matching the firm's two early fund families.",
+      "flags": [
+        "derived"
+      ]
+    },
+    "investment_range": {
+      "value": {
+        "lower_limit": 1500000,
+        "median": 10000000,
+        "upper_limit": 110000000
+      },
+      "source": "companies/classification.json",
+      "basis": "MEDIAN: $10.0M, the median entry round over the 158 members whose entry round is on record with an amount (the firm's own posts and press, else the entry Form D: p10 $3.0M, p25 $5.0M, p75 $21.8M, p90 $35.0M); Form D alone covers only 29 members because two thirds of the portfolio is European or pre-2009, so the median is press-based (the Creandum recipe). It is a round size, not a cheque size. LOWER: the firm's stated early check, '$1.5 million to $15 million per startup' (TechCrunch 2022-07-07). UPPER: the largest round the firm led, Fonoa's $110M Series C (2026-05-28, https://blog.headline.com/p/fonoa-the-ai-operating-system-global), 12.7% of the $865M Global Growth IV, inside the 10 to 15% single-position check; next: Cameo's $100M Series C led by e.ventures (2021), Homa's $100M Series B co-led (2022). Aggregator 'typical check' figures were not used.",
+      "flags": [
+        "derived",
+        "press_based_median"
+      ]
+    },
+    "notable_investments": {
+      "value": [
+        "Sonos",
+        "Bumble",
+        "Mistral",
+        "Farfetch",
+        "Goop"
+      ],
+      "source": "companies/base.csv",
+      "basis": "The five best known of the firm's own companies, most recognised first (PRO-152, Erik 2026-09-24). Considered next: The RealReal, Gopuff, Cameo, Segment, Bird, Acorns, Flutterwave. Mistral is published as the firm's own site names it (the portfolio row's name); sibling books publish 'Mistral AI'.",
+      "slugs": [
+        "sonos",
+        "bumble",
+        "mistral",
+        "farfetch",
+        "goop"
+      ]
+    },
+    "aum": {
+      "value": {
+        "bottom": 4024997397,
+        "top": 4143072190
+      },
+      "source": "https://adviserinfo.sec.gov/firm/summary/304362",
+      "basis": "All six current advisers are exempt reporting advisers, so no Item 5.F exists; both ends are the sworn Section 7.B private-fund gross assets of the March 2026 ADV filings (sources/registers/adv-7b-funds.json; PDFs in data/filings/headline/adv/), deduped by private fund ID. BOTTOM $4,024,997,397: the firm's own 23 funds, co-invest sleeves and SPVs across CRDs 304362, 309084, 319198, 323219, 323221 and 344374. TOP $4,143,072,190: adds Porsche Ventures II SCSP ($118,074,793), a corporate fund Headline's Luxembourg manager advises. Out: the two Infinity advisers on the roster (Infinity Investment Management Holdings, CRD 315878, and Infinity Ventures Crypto, 321781; the Asia desk's own family, decisions.md D2) and BV Capital Management (CRD 160568, last filed 2017, $4.8M). Headline US VI's value was corrected by hand to $417,397,831 (a page-spanning parse error). Headline Brazil III (R$915M) is the Brazil desk's, out.",
+      "flags": [
+        "era_7b_composite"
+      ]
+    },
+    "funds": {
+      "value": [
+        {
+          "name": "Headline Global Growth IV",
+          "size": 865000000,
+          "vintage": 2024
+        },
+        {
+          "name": "Headline US VII",
+          "size": 408000000,
+          "vintage": 2022
+        },
+        {
+          "name": "Headline EU VII",
+          "size": 325760000,
+          "vintage": 2022
+        },
+        {
+          "name": "e.ventures US VI",
+          "size": 225000000,
+          "vintage": 2019,
+          "accession": "0001780856-19-000001"
+        },
+        {
+          "name": "e.ventures Europe VI",
+          "size": 175000000,
+          "vintage": 2019
+        },
+        {
+          "name": "e.ventures Growth III",
+          "size": 300000000,
+          "vintage": 2020
+        },
+        {
+          "name": "e.ventures Growth II",
+          "size": 115000000,
+          "vintage": 2017
+        },
+        {
+          "name": "e.ventures US V",
+          "size": 175000000,
+          "vintage": 2015
+        },
+        {
+          "name": "eVentures Growth",
+          "size": 100000000,
+          "vintage": 2014
+        }
+      ],
+      "source": "https://techcrunch.com/2022/07/07/headline-vc/",
+      "basis": "Sizes: Global Growth IV $865M (Fortune 2024-09-18; the Lux IV SCSP's Form D reports $804,345,000 sold, 0001104659-24-071340, and the Delaware L.P. filed a $400M offering at $0 sold); US VII $408M and EU VII EUR 320M = $325.76M at the ECB rate of 2022-07-07 (TechCrunch 2022-07-07; US VII's Form D a $400M offering at $0 sold); US VI $225M (Form D sold, asserted) and Europe VI $175M (FinSMEs 2019-07, 'e.ventures raises $400M across two early-stage funds', https://www.finsmes.com/2019/07/e-ventures-raises-400m-across-two-early-stage-funds.html); Growth III $300M, Growth II $115M, US V $175M and eVentures Growth $100M are the Form D total offering amounts filed at $0 sold (press sizes not found; US V-A, a $30M parallel vehicle, is not listed). Not listed: Headline EU VIII SCSP (on the 2026 ADV at $398.4M gross assets, size not announced), BV Capital Fund IV (Asia) ($26M offering, 2011), older BV Capital funds, the co-invest LLCs (e.ventures Co-Invest III to V, EVGC Growth I and II) and the single-deal SPVs (Homa, Lion, Wombat).",
+      "flags": [
+        "offering_amount_sizes"
+      ]
+    },
+    "hq_location": {
+      "value": "San Francisco, CA",
+      "source": "sources/offices.json",
+      "basis": "Principal office on the newest Form ADV: 101 Montgomery Street Ste 200, The Presidio Of San Francisco, San Francisco, CA (E.VENTURES MANAGEMENT, LLC, CRD 304362, Annual Amendment filed 2026-03-31). The firm's site lists San Francisco, CA; Berlin, Germany; Paris, France; London, United Kingdom; Hamburg, Germany; São Paulo, Brazil; the principal office is among them, so the site agrees. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+      "sources": [
+        {
+          "source": "Form ADV Item 1.F and Schedule D 1.F, E.VENTURES MANAGEMENT, LLC (Annual Amendment filed 2026-03-31)",
+          "url": "https://reports.adviserinfo.sec.gov/reports/ADV/304362/PDF/304362.pdf"
+        },
+        {
+          "source": "the firm's own site, office list",
+          "url": "https://headline.com/"
+        }
+      ]
+    },
+    "investment_scope": {
+      "value": {
+        "type": "Generalist",
+        "focus": [
+          "SaaS",
+          "Consumer & Marketplaces",
+          "Fintech & Payments",
+          "Data Infrastructure"
+        ]
+      },
+      "source": "companies/base.json",
+      "basis": "focus from the firm's own site sector tags on 160 base rows, crosswalked to data/taxonomy/focus.json (crosswalk in config.json), published above 12 companies. Scope type is the curated judgement carried in investor.json."
+    },
+    "individuals": {
+      "value": [
+        {
+          "name": "Ade Okuwoga",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/adeyinka-okuwoga-914b46167/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Akihiko Okamoto",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/akioka/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Akio Tanaka",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/akiotanaka/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Andreas Haug",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "http://www.linkedin.com/in/andreas-haug-00",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Anna Faulkner",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/anna-faulkner-3ab1a0125/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Astrid Moullé-Berteaux",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/astrid-moull%C3%A9-berteaux-138844127/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Christian Leybold",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/christianleybold/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Christian Miele",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/christianmiele/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Clarey Zhu",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/clarey-zhu-50a27226/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Cyprien Benoist",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/cyprien-benoist/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Daniela Carneiro",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/paula-daniela-carneiro-6724aa17b",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Dominic Wilhelm",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/dominicwi/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Gabriel Alves",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/gabriel-alves-71218819/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Isamu Nishijima",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jackson Loo",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jacob Conger",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jacob-conger-9238444a/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jake Horwitz",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jake-horwitz-b6905b138/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jennifer Lin",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jennifer-lin-7652a258/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jeremy Kai Proctor",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jeremy-kai-proctor/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jerry Fung",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jerryfung/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jonathan Becker",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/beckerjonathan/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jonathan Hayashi",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://tw.linkedin.com/in/hayashi-jonathan",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jonathan Userovici",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jonathan-userovici-53891276/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Joseph Huang",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/josephhuang",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Kate Liu",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/kate-l-96b321142/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Kazuhiro Oyoshi",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/kazuhiro-oyoshi-63581563/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Kiran Modi",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/kiran-modi-01265a106/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Linda Brosig",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/linda-brosig-4a9aa211a/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Luis Schmitz",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/luis-schmitz/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Maria Beatriz de Orleans e Bragança",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/maria-beatriz-de-orleans-e-bragan%C3%A7a-024242116/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Mathias Schilling",
+          "position": "Investor, Global",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/maschilling/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Matt Brown",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/matthew-brown-52785a34/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Michael Kent",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/mdfkent/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Nancy Xiao Mclaughlin",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/nancyxiao/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Nikki Farb",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/nikkifarb/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Pietro Caiafa",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/pietrocaiafa/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Romero Rodrigues",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/romero/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Shalini Rao",
+          "position": "Investor, Global",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/shalinikrao/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "SungJae  Lim",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/sungjae-lim/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Taylor Brandt",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/taylor-brandt-89415250/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Thomas Gieselmann",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/gieselmann/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Toshiaki Shimakawa",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/shimakawa-toshiaki-544074175/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Trevor Neff",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/trevor-neff-1006122b/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Valentin Kremer",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/valentin-kremer-667373ba/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Victor Cintra",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/victor-toledo-soares-cintra-924a11181/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Yuka Kawata",
+          "position": "Investor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/yuka-kawata-a0862812b/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Alina Heiliger",
+          "position": "Compliance Officer",
+          "socials": {
+            "linkedin_url": "http://www.linkedin.com/in/alina-heiliger",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Austin Hack",
+          "position": "Head of Strategy",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/austin-hack/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Beverly Cheung",
+          "position": "Legal Counsel",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/beverlycheung/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Bryan Sheehan",
+          "position": "Global Head of Tax",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Calogero Sutera",
+          "position": "Fund Controller",
+          "socials": {
+            "linkedin_url": "http://www.linkedin.com/in/calogero-sutera-a8004ab1",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Christine Betar",
+          "position": "Fund Controller",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/christine-betar-73a642b3",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Claire Liau",
+          "position": "Chief of Staff",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/chen-hsi-claire-liau-1a9837b5",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Conrad Chu",
+          "position": "Investor & CTO",
+          "socials": {
+            "linkedin_url": "http://linkedin.com/in/conradchu",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Dave King",
+          "position": "Advisor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/davebking/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Dorothee Poetter",
+          "position": "Chief of Staff",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/dorothee-poetter/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Dr. Elias Börgmann-Dehina",
+          "position": "General Counsel & Portfolio Manager",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/dr-elias-b%C3%B6rgmann-dehina-075348143",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Dr. Viktor Gorlow",
+          "position": "Senior Legal Counsel & Portfolio Manager",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/dr-viktor-gorlow-b1481811b/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Eric Tan",
+          "position": "Advisor",
+          "socials": {
+            "linkedin_url": "http://linkedin.com/in/mrerictan",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Estelle Mamane",
+          "position": "Head of Investor Relations Europe",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/estelle-mamane-46b51562/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Frankie Vinas",
+          "position": "Senior Portfolio Monitoring Analyst",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/frankie-vinas-2279751b9",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Guillaume Defer",
+          "position": "Marketing Director",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/guillaume-defer/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Ines Kopácsi",
+          "position": "Senior Growth Marketing Manager",
+          "socials": {
+            "linkedin_url": "http://linkedin.com/in/ineskopacsi",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Iñigo Garcia Gordobil",
+          "position": "Global Head of Investor Relations",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/inigo-garcia-gordobil/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jack Dailey",
+          "position": "Fund Controller",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jackdailey/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "James Vaccaro",
+          "position": "Senior Management Company Accountant",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/james-vaccaro-64049a62/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jean DeWitt Grosser",
+          "position": "Advisor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jeannedewitt/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jingjing Gong",
+          "position": "Specialist",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Martina Mattersberger",
+          "position": "Chief of Staff",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/martina-mattersberger-0b181436/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Molly Martell",
+          "position": "Head of Brand",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/molly-martell/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Morgan Dickson",
+          "position": "Director of Capital Formation",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/morganmellingerdickson/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Oanh Eng",
+          "position": "Fund Controller",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/oanh-eng-85286459/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Pat Reilly",
+          "position": "CFO",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/patrick-reilly-6025424/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Polina Horseling",
+          "position": "Transfer Agent Officer",
+          "socials": {
+            "linkedin_url": "http://www.linkedin.com/in/polinahorseling",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Praveer Melwani",
+          "position": "Advisor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/praveer-melwani/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Sai Sood",
+          "position": "Global VP of Reporting, Accounting, and Portfolio Management",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/saisood",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Sean Cloney",
+          "position": "Head of Talent",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/seancloney1/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Stephen Franchetti",
+          "position": "Advisor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/stephenfranchetti/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Tatsuya Kawamura",
+          "position": "Investor Relations & Fund Manager",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/tatsuya-kawamura-6a541a121/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Thilo Wurst",
+          "position": "Legal Counsel & Senior Portfolio Manager",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/thilo-wurst/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Tim Wan",
+          "position": "Advisor",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/tim-wan/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Wenceslas Moussa",
+          "position": "Head of Risk & Compliance",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/wenceslas-moussa-aa729617",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Yuri Kawamura",
+          "position": "Investor Relations Fund Manager",
+          "socials": {
+            "linkedin_url": "http://www.linkedin.com/in/yuri-kawamura-6a7165193",
+            "x_url": null
+          }
+        }
+      ],
+      "source": "sources/site/team.json",
+      "basis": "Live team CMS: 83 members. Positions are CMS titles (83 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 0 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 79 LinkedIn, 0 X."
+    }
+  }
+}
