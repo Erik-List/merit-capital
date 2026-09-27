@@ -81,11 +81,11 @@
     "investment_range": {
       "value": {
         "lower_limit": 1000000,
-        "median": null,
+        "median": 14000000,
         "upper_limit": 50000000
       },
-      "source": "companies/classification.json",
-      "basis": "median: set at the profile build from the documented entry rounds (press-based; Form D covers few companies of a European portfolio); lower: documented seed entries of $1.2M to $1.5M (Dinghy, Riff, Rahko); upper: the firm's own words for its growth fund, 'between $25m and $50m per company' (post of 2021-06-10)",
+      "source": "sources/site/news.json",
+      "basis": "median: $14.0M, the median of 77 entry rounds the firm announced in its own posts with a stated size (sources/site/news.json; each post is the row's entry citation; non-USD sizes converted at the ECB rate of the post date; by stage Pre-Seed $5.7M over 5, Seed $6.0M over 17, Series A $18.0M over 37, Growth $60.8M over 18; rows in sources/site/entry-round-sizes.json). It is a round size, not a cheque size, and it covers 2014 to 2026 only, the years of the news archive. lower: documented seed entries of $1.2M to $1.5M (Dinghy, Riff, Rahko); upper: the firm's own words for its growth fund, 'between $25m and $50m per company' (post of 2021-06-10)",
       "flags": [
         "median_press_based"
       ]
@@ -188,7 +188,17 @@
     "hq_location": {
       "value": "London, United Kingdom",
       "source": "sources/offices.json",
-      "basis": "set by scripts/firm-offices.py at the profile build: principal office on the newest Form ADV, The Stables, 28 Britannia Street, London (annual amendment 2026-03-31); the site's footer names the same office"
+      "basis": "Principal office on the newest Form ADV: The Stables 28 Britannia Street, London, United Kingdom (BALDERTON CAPITAL, CRD 160323, Annual Amendment filed 2026-03-31). The firm's site lists London, United Kingdom; Berlin, Germany; Paris, France; Munich, Germany; the principal office is among them, so the site agrees. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+      "sources": [
+        {
+          "source": "Form ADV Item 1.F and Schedule D 1.F, BALDERTON CAPITAL (Annual Amendment filed 2026-03-31)",
+          "url": "https://reports.adviserinfo.sec.gov/reports/ADV/160323/PDF/160323.pdf"
+        },
+        {
+          "source": "the firm's own site, office list",
+          "url": "https://www.balderton.com/"
+        }
+      ]
     },
     "individuals": {
       "value": [],

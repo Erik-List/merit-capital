@@ -2,26 +2,250 @@
  "balderton-capital": {
   "_readme": "Durable identity corrections consumed by build-company-base.py on every rebuild (COLLECTION.md s8): one company rendered under different names across Balderton's surfaces (the 2026 list, the benchmark.com Europe desk pages 2001-2009, Form D issuer names) and its renames. Canonical = the firm's current rendering where the company is still listed. Written during the grind (PRO-106, 2026-09-26) and applied at the one scheduled rebuild.",
   "merges": [
-   {"canonical": "displaylink", "duplicates": ["newnham-research"], "name": "DisplayLink",
-    "reason": "one company: Newnham Research (Cambridge) was renamed DisplayLink in 2006; the 2005-06 benchmark.com list carries the old name, the 2007-08 list and the live card the new one"},
-   {"canonical": "weeworld", "duplicates": ["saw-you"], "name": "WeeWorld",
-    "reason": "one company: the 2005-06 benchmark.com entry 'Saw-You' links to weeworld.com; Saw-You.com was renamed WeeWorld in 2006"},
-   {"canonical": "lovefilm", "duplicates": ["video-island", "lovefilm-international-limited"], "name": "Lovefilm",
-    "reason": "one investment: the desk backed Video Island (Coelho director of Video Island Entertainment 2004-07), which merged into Lovefilm in 2006; the desk page lists Video Island 2004-06 and Lovefilm International from 2007"},
-   {"canonical": "workhuman", "duplicates": ["globoforce"], "name": "Workhuman",
-    "reason": "one company: Globoforce was renamed Workhuman in 2019; the benchmark.com lists carry the old name, the live card the new one"},
-   {"canonical": "hubs", "duplicates": ["3d-hubs-inc", "3d-hubs"], "name": "Hubs",
-    "reason": "one company: 3D Hubs, Inc. is the Form D issuer name of the company the live card calls Hubs (renamed 2021)"},
-   {"canonical": "voize", "duplicates": ["anyvoice-inc"], "name": "Voize",
-    "reason": "one company: anyvoice Inc. is the Form D issuer of the $50M round of 2025-Q4 (Waterhouse director), the Series A the firm announced for voize on 2025-11-17"},
-   {"canonical": "simple-feast", "duplicates": ["feast-kitchen-inc"], "name": "Simple Feast",
-    "reason": "one company: Feast Kitchen Inc. (San Francisco) filed the Form Ds of 2019-Q4 ($21M) and 2021-Q1 with Waterhouse as director, the US entity of Simple Feast, whose $33M Series B the firm announced on 2019-09-18; medium confidence, flagged in report.md"},
-   {"canonical": "gocardless", "duplicates": ["groupay-inc"], "name": "GoCardless",
-    "reason": "one company: GoCardless was founded as GroupPay; Groupay, Inc. (London) files its Form Ds with Bunting as director (GoCardless director 2014-23), and the 2022-Q2 filing of $321.6M is the round the firm announced on 2022-02-08"},
-   {"canonical": "levelup", "duplicates": ["scvngr-inc"], "name": "LevelUp",
-    "reason": "one company: SCVNGR, Inc. renamed itself LevelUp; Maloney signs its Form Ds 2011-17 and the live card is LevelUp"}
+   {
+    "canonical": "displaylink",
+    "duplicates": [
+     "newnham-research"
+    ],
+    "name": "DisplayLink",
+    "reason": "one company: Newnham Research (Cambridge) was renamed DisplayLink in 2006; the 2005-06 benchmark.com list carries the old name, the 2007-08 list and the live card the new one"
+   },
+   {
+    "canonical": "weeworld",
+    "duplicates": [
+     "saw-you"
+    ],
+    "name": "WeeWorld",
+    "reason": "one company: the 2005-06 benchmark.com entry 'Saw-You' links to weeworld.com; Saw-You.com was renamed WeeWorld in 2006"
+   },
+   {
+    "canonical": "lovefilm",
+    "duplicates": [
+     "video-island",
+     "lovefilm-international-limited"
+    ],
+    "name": "Lovefilm",
+    "reason": "one investment: the desk backed Video Island (Coelho director of Video Island Entertainment 2004-07), which merged into Lovefilm in 2006; the desk page lists Video Island 2004-06 and Lovefilm International from 2007"
+   },
+   {
+    "canonical": "workhuman",
+    "duplicates": [
+     "globoforce"
+    ],
+    "name": "Workhuman",
+    "reason": "one company: Globoforce was renamed Workhuman in 2019; the benchmark.com lists carry the old name, the live card the new one"
+   },
+   {
+    "canonical": "hubs",
+    "duplicates": [
+     "3d-hubs-inc",
+     "3d-hubs"
+    ],
+    "name": "Hubs",
+    "reason": "one company: 3D Hubs, Inc. is the Form D issuer name of the company the live card calls Hubs (renamed 2021)"
+   },
+   {
+    "canonical": "voize",
+    "duplicates": [
+     "anyvoice-inc"
+    ],
+    "name": "Voize",
+    "reason": "one company: anyvoice Inc. is the Form D issuer of the $50M round of 2025-Q4 (Waterhouse director), the Series A the firm announced for voize on 2025-11-17"
+   },
+   {
+    "canonical": "simple-feast",
+    "duplicates": [
+     "feast-kitchen-inc"
+    ],
+    "name": "Simple Feast",
+    "reason": "one company: Feast Kitchen Inc. (San Francisco) filed the Form Ds of 2019-Q4 ($21M) and 2021-Q1 with Waterhouse as director, the US entity of Simple Feast, whose $33M Series B the firm announced on 2019-09-18; medium confidence, flagged in report.md"
+   },
+   {
+    "canonical": "gocardless",
+    "duplicates": [
+     "groupay-inc"
+    ],
+    "name": "GoCardless",
+    "reason": "one company: GoCardless was founded as GroupPay; Groupay, Inc. (London) files its Form Ds with Bunting as director (GoCardless director 2014-23), and the 2022-Q2 filing of $321.6M is the round the firm announced on 2022-02-08"
+   },
+   {
+    "canonical": "levelup",
+    "duplicates": [
+     "scvngr-inc"
+    ],
+    "name": "LevelUp",
+    "reason": "one company: SCVNGR, Inc. renamed itself LevelUp; Maloney signs its Form Ds 2011-17 and the live card is LevelUp"
+   },
+   {
+    "canonical": "abiquo-group-inc",
+    "duplicates": [
+     "abiquo"
+    ],
+    "reason": "one company: the 2013 page lists Abiquo, the Form D issuer is Abiquo Group Inc. (Liautaud director of Abiquo Limited 2012-14)",
+    "name": "Abiquo"
+   },
+   {
+    "canonical": "big-fish-games",
+    "duplicates": [
+     "big-fish"
+    ],
+    "reason": "one company: the 2015-17 pages render Big Fish Games as 'Big Fish' ('acquired for $885M in 2014')",
+    "name": "Big Fish Games"
+   },
+   {
+    "canonical": "circle",
+    "duplicates": [
+     "circle-health"
+    ],
+    "reason": "one company: the 2013 page renders Circle as 'Circle Health' ('running hospitals'); Bunting director of Circle International and Circle Holdings 2008-14",
+    "name": "Circle"
+   },
+   {
+    "canonical": "traefik-labs",
+    "duplicates": [
+     "containous"
+    ],
+    "reason": "one company: Containous ('Series A in 2020' on the 2020 page) was renamed Traefik Labs",
+    "name": "Traefik Labs"
+   },
+   {
+    "canonical": "defined-ai",
+    "duplicates": [
+     "definedcrowd"
+    ],
+    "reason": "one company: DefinedCrowd ('Secondary in 2020' on the 2021-22 pages) was renamed Defined.ai",
+    "name": "Defined.ai"
+   },
+   {
+    "canonical": "ewise-group-inc",
+    "duplicates": [
+     "ewise"
+    ],
+    "reason": "one company: the 2013-21 pages list eWise ('Series C in 2009', Nyon), the Form D issuer is eWise Group Inc.",
+    "name": "eWise"
+   },
+   {
+    "canonical": "fuse-energy",
+    "duplicates": [
+     "fuse",
+     "tesseract"
+    ],
+    "reason": "one company: Tesseract (2022 page) was renamed Fuse (2023 page), today's Fuse Energy; all three cards read 'Seed in 2022'",
+    "name": "Fuse Energy"
+   },
+   {
+    "canonical": "kbox-global",
+    "duplicates": [
+     "kbox"
+    ],
+    "reason": "one company: the 2023 page renders Kbox Global as 'Kbox'",
+    "name": "Kbox Global"
+   },
+   {
+    "canonical": "kupivip",
+    "duplicates": [
+     "kupivip-ru"
+    ],
+    "reason": "one company: the 2018-20 pages render KupiVIP as 'Kupivip.ru'",
+    "name": "KupiVIP"
+   },
+   {
+    "canonical": "bookatable",
+    "duplicates": [
+     "livebookings"
+    ],
+    "reason": "one company: Livebookings (2013 page) was renamed Bookatable in 2014; Bunting director of Livebookings Holdings 2008-16",
+    "name": "Bookatable"
+   },
+   {
+    "canonical": "matrix-semiconductor",
+    "duplicates": [
+     "matrix-memory"
+    ],
+    "reason": "one company: the 2013-18 pages render Matrix Semiconductor as 'Matrix Memory' ('Acquired by Sandisk in 2005')",
+    "name": "Matrix Semiconductor"
+   },
+   {
+    "canonical": "safex-ai",
+    "duplicates": [
+     "banjo"
+    ],
+    "reason": "one company: Banjo (2015-20 pages and the firm's 2015 post) was renamed safeXai; the 2021 page lists it as SafeX AI",
+    "name": "SafeX AI"
+   },
+   {
+    "canonical": "sunrise",
+    "duplicates": [
+     "sunrise-am"
+    ],
+    "reason": "one company: the 2015-17 pages render Sunrise as 'Sunrise.am' ('acquired by Microsoft')",
+    "name": "Sunrise"
+   },
+   {
+    "canonical": "curious-ai-company",
+    "duplicates": [
+     "the-curious-ai-company"
+    ],
+    "reason": "one company: the 2016-17 pages render it with the article",
+    "name": "Curious AI Company"
+   },
+   {
+    "canonical": "thg-the-hut-group",
+    "duplicates": [
+     "the-hut",
+     "the-hut-group"
+    ],
+    "reason": "one company: The Hut (2013-17 pages), The Hut Group (2018-20, 'Series A in 2010'), THG on the live card",
+    "name": "THG (The Hut Group)"
+   },
+   {
+    "canonical": "digital-surgery",
+    "duplicates": [
+     "touchsurgery"
+    ],
+    "reason": "one company: Touch Surgery ('Series A in 2013' on the 2015-19 pages) was renamed Digital Surgery",
+    "name": "Digital Surgery"
+   },
+   {
+    "canonical": "stream",
+    "duplicates": [
+     "wagestream"
+    ],
+    "reason": "one company: Wagestream ('Series A in 2019' on the 2019-23 pages) was renamed Stream in 2025",
+    "name": "Stream"
+   },
+   {
+    "canonical": "writer",
+    "duplicates": [
+     "writer-ai"
+    ],
+    "reason": "one company: the 2023 page renders Writer as 'Writer.ai'",
+    "name": "Writer"
+   },
+   {
+    "canonical": "interresolve",
+    "duplicates": [
+     "inter-resolve",
+     "interesolve"
+    ],
+    "reason": "one company under three spellings on the firm's own pages (Interesolve 2013, Inter Resolve 2015-18; the card text writes InterResolve)",
+    "name": "InterResolve"
+   },
+   {
+    "canonical": "justyle",
+    "duplicates": [
+     "juststyle"
+    ],
+    "reason": "one company: the 2013-17 pages write Juststyle, the 2018 page Justyle ('a fashion website operating in the Chinese market')",
+    "name": "Justyle"
+   }
   ],
   "never_merge": [],
-  "rejects": []
+  "rejects": [
+   {
+    "slug": "seedcamp",
+    "reason": "the 2015-17 pages list Seedcamp ('Leading pre-seed&seed stage acceleration programme'): a stake in an accelerator's fund, the LP-stake class, not an operating company (T5; config.verify.not_members)"
+   }
+  ]
  }
 }
