@@ -13,6 +13,13 @@ The site disagrees when it
       a recorded statement, config.json profile.site_office {place, url,
       quote, basis}: YC's site calls Mountain View "the original YC office"
       and says the batch moves to San Francisco.
+A judged override, config.json profile.hq_override {place, flaw, basis}, wins
+over everything above. It is for an obvious flaw in the automated reading (a
+mis-parsed address, a stale page, a label on the wrong office), never for a
+preference: `flaw` names what the reading got wrong and `basis` cites what
+the firm itself says. The decision records the automated reading beside it,
+so the next session can drop the override once the flaw is fixed (Erik,
+2026-09-27, after Insight's "36th Floor New York" read as "Floor, NY").
 A site that lists several offices including the principal office agrees with
 it, whatever the order: Creandum lists San Francisco first, and its ADV shows
 two advisory staff there. A site that names no office leaves the ADV standing.
@@ -247,6 +254,16 @@ US_ANCHOR = re.compile(
     + r"),? \d{5}\b")
 POSTCODE = r"(?:\d{3} ?\d{2}|\d{4,5}|[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2})"
 HQ_LABEL = re.compile(r"(?i)\b(?:headquarter(?:s|ed)|\bHQ\b)")
+# Words that end the street part of an address. When the words before a state
+# name end in one of these and name no known city, the "state" is the city:
+# "1114 Avenue of the Americas, 36th Floor New York 10036" is New York, NY,
+# not the city "Floor" (Insight Partners, 2026-09-27). Only a state name that
+# is also a city name can be read that way.
+ADDRESS_WORDS = {"floor", "fl", "suite", "ste", "street", "st", "avenue", "ave",
+                 "road", "rd", "boulevard", "blvd", "building", "bldg", "level",
+                 "plaza", "tower", "unit", "room", "drive", "dr", "lane", "ln",
+                 "place", "pl", "way", "square", "sq", "americas", "center", "centre"}
+CITY_NAMED_STATES = {"New York": "New York", "Washington": "Washington"}
 
 
 def site_offices(text: str, known: dict[str, str]) -> list[dict]:
@@ -260,6 +277,10 @@ def site_offices(text: str, known: dict[str, str]) -> list[dict]:
         city = next((c for c in sorted(known, key=len, reverse=True)
                      if norm_city(words).endswith(norm_city(c))), words)
         state = US_STATES.get(m.group(2), m.group(2))
+        if (city == words and m.group(2) in CITY_NAMED_STATES
+                and words.split()[-1].lower().strip(".") in ADDRESS_WORDS):
+            # "36th Floor New York 10036": the street ends, the state name is the city
+            city = CITY_NAMED_STATES[m.group(2)]
         found.append((m.start(), place_of(city, state, "United States"), m))
     for city, country in WORLD_CITIES.items():
         pat = (rf"(?:{POSTCODE}[ ,]+{re.escape(city)}\b|\b{re.escape(city)}[ ,]+{POSTCODE}\b"
@@ -330,6 +351,14 @@ def decide(record: dict, statement: dict | None) -> dict:
     where = (f"{titled(adv['principal']['street'])}, {principal} "
              f"({adv['firm']}, CRD {adv['crd']}, {adv['filing']} filed {adv['filed']})"
              if adv else None)
+    if statement and statement.get("override"):
+        # A judged override of an obvious flaw: it wins, and the automated
+        # reading is recorded beside it so the override can be dropped later.
+        auto = decide(record, statement.get("site_office"))
+        return {"value": statement["place"], "won_by": "judged_override",
+                "basis": f"Judged override of the automated reading ({auto['value']}, "
+                         f"{auto['won_by']}): {statement['flaw']} {statement['basis']} "
+                         f"The Form ADV principal office is {where}. {RULE}"}
     if statement:
         if not same_city(statement["place"], principal):
             return {"value": statement["place"], "won_by": "site_statement",
@@ -375,10 +404,17 @@ def decide(record: dict, statement: dict | None) -> dict:
 
 
 def statement_of(p: Paths) -> dict | None:
-    s = p.config().get("profile", {}).get("site_office")
+    prof = p.config().get("profile", {})
+    s = prof.get("site_office")
     if s and not all(s.get(k) for k in ("place", "url", "quote", "basis")):
         raise SystemExit(f"{p.slug}: config.json profile.site_office needs place, url, "
                          f"quote and basis")
+    o = prof.get("hq_override")
+    if o:
+        if not all(o.get(k) for k in ("place", "flaw", "basis")):
+            raise SystemExit(f"{p.slug}: config.json profile.hq_override needs place, "
+                             f"flaw and basis")
+        return {**o, "override": True, "site_office": s}
     return s
 
 
@@ -406,6 +442,10 @@ def hq_field(record: dict, hq: dict, statement: dict | None) -> dict:
         a = record["adv"]
         cites.append({"source": f"Form ADV Item 1.F and Schedule D 1.F, {a['firm']} "
                                 f"({a['filing']} filed {a['filed']})", "url": a["url"]})
+    if statement and statement.get("override"):
+        cites.append({"source": "judged override (config.json profile.hq_override)",
+                      "flaw": statement["flaw"]})
+        statement = statement.get("site_office")
     if statement:
         cites.append({"source": "the firm's own site", "url": statement["url"],
                       "quote": statement["quote"]})

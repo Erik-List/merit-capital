@@ -2456,6 +2456,17 @@ office; then the site wins. The site disagrees in three cases:
   Mountain View "the original YC office" and says each batch moves to San
   Francisco.
 
+**When the automated reading is obviously wrong, the judge overrides it**
+(Erik, 2026-09-27). `config.json` `profile.hq_override` (`place`, `flaw`,
+`basis`) wins over the rule; `flaw` names what the reading got wrong (a
+mis-parsed address, a stale page, a label on the wrong office) and `basis`
+cites what the firm itself says. The decision records the automated reading
+beside the override, and `verify` applies it offline like the rule, so the
+override is dropped once the flaw is fixed in the script. It is for a flaw,
+never a preference. The case that prompted it, Insight's "36th Floor New York
+10036" read as the city "Floor, NY", is fixed in the parser: a state name that
+is also a city, after a street word, is read as the city.
+
 A site that lists several offices including the principal office agrees with
 it, whatever the order: Creandum lists San Francisco first, and its ADV shows
 two advisory staff there. A site that names no office leaves the ADV
