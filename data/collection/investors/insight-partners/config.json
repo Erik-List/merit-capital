@@ -4,8 +4,31 @@
   "wayback": {
     "cdx_domain": "insightpartners.com",
     "site_url_base": "https://www.insightpartners.com",
-    "eras": [],
-    "_note": "Eras are added once the archive answers: the Internet Archive was in a machine-wide cooldown at kickoff (shared_throttle ia.cooldown, until about 02:05 UTC 2026-09-27), so no CDX query was possible when this file was written. The live site already carries the historical book (292 of 856 listed companies read 'Prior Investment'), so the archive's job here is dating listings and recovering delisted rows, not enumeration.",
+    "eras": [
+      {
+        "parser": "cdx_company_pages",
+        "path": "/portfolio/",
+        "from": 2009,
+        "to": 2012,
+        "_note": "Era 3 (2009 to 2012): one page per company at /portfolio/<name_with_underscores>. 2026-09-27: CDX lists about 190 of them."
+      },
+      {
+        "parser": "cdx_company_pages",
+        "path": "/companies/",
+        "from": 2013,
+        "to": 2018,
+        "_note": "Era 4 (2013 to 2018): the site moved the portfolio to /companies/<slug>."
+      },
+      {
+        "parser": "cdx_company_pages",
+        "path": "/portfolio/",
+        "from": 2019,
+        "to": 2026,
+        "cdx_limit": 4000,
+        "_note": "Era 5 (2019 on): WordPress, /portfolio/<slug>/. CDX collapses on the URL, so a slug first captured in era 3 under the same spelling is dated there and not here; the live site carries those rows anyway."
+      }
+    ],
+    "_note": "Eras written 2026-09-27 after the machine-wide Internet Archive cooldown ended. Eras 1 and 2 (the 2000 to 2003 ASP site and the 2007 to 2008 PHP site, with listing pages portfolio.asp, portfolio_list.asp, portfolio.php and one portfolio_<name>.php per company) are read by scratch/wayback-old-eras.py, because their markup needs its own reading; their rows land in sources/wayback/parsed/ in the same shape.",
     "non_company_slugs": [
       "portfolio",
       "all",
@@ -27,7 +50,17 @@
       "why-insight",
       "insight-partners",
       "insight-venture-partners",
-      "may_habib"
+      "may_habib",
+      "__trashed",
+      "__trashed-2",
+      "companies",
+      "searchform",
+      "asasds",
+      "drilling_infoas",
+      "drilling_infoasas",
+      "page",
+      "feed",
+      "company"
     ]
   },
   "roster": {

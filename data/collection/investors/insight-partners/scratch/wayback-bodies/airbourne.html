@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- 10/06/08 07:37 -->
+<html>
+<head>
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- 10/06/08 07:37 -->
+<html>
+<head>
+	<title>Default Title defined in head.php</title>
+	<meta name="description" content="Default MetaDescription defined in head.php">
+	<meta name="keywords" content="Default MetaKeywords defined in head.php">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" TYPE="text/css" href="includes/main.css">
+	<link rel="stylesheet" TYPE="text/css" href="includes/main_interior.css">
+	<script type="text/javascript" language="javascript" src="includes/main.js"></script>
+	<script src="includes/rollover.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript">
+        var rv = -1; // Return value assumes failure
+    if (navigator.appName == 'Microsoft Internet Explorer')
+    {
+        var ua = navigator.userAgent;
+        var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+        if (re.exec(ua) != null)
+        rv = parseFloat( RegExp.$1 );
+    }
+    //var is_ie7    = (is_ie && window.XMLHttpRequest);//(agt.indexOf("msie 7.")!=-1) );
+    var is_ie7 = (7.0 <= rv && rv < 8.0);
+      if(is_ie7 || !is_ie) {
+        document.write('<link rel="stylesheet" type="text/css" href="includes/main-ns.css" />');   
+        }
+      </script>
+    </head></head>
+
+
+<body><div id="contain">
+
+<!-- top header start -->
+<div class="top_header">
+<form action='/phpdig/search.php' method='post'>
+
+<!-- top search box start-->
+
+<div class="top_nav_search">
+<br>
+<!-- nav -->
+<div class="top_nav_search_pad">
+<a href="http://www.insightpartners.com">Home</a> |
+<a href="?printable">Print Page</a> |
+<a href="email_friend.php">Email Page</a>  |  
+<a href="sitemap.php">Site Map</a>  
+</div>
+<!-- nav end -->
+
+
+<!-- search box -->
+
+<input type='hidden' name='path' value=''/>
+<input type='hidden' name='refine' value='0'/>
+<input type='hidden' name='template_demo' value='phpdig.html'/>
+<input type='hidden' name='result_page' value='search.php'/>
+<input type='hidden' name='limite' value='10'/>
+<input type='hidden' name='option' value='start'/>
+<input type='hidden' name='site' value=''/>
+
+<div class="top_nav_search_pad_2">
+
+<input type='text'  size='15' maxlength='50' name='query_string' value=''/>
+<input type="image" src="images/search_blue.gif" alt="Insight Partners Search" align="top" border="0" height="15" hspace="5" width="45">
+</form>
+</div>
+
+<!-- search box end -->
+
+
+
+</div>
+<!-- top search box end-->
+</div>
+<!-- top header start -->
+
+
+<div class="float_left">
+<table border="0" cellpadding="0" cellspacing="0" width="770">
+<tr>
+<td>
+<img name="white_menu" src="/nav/white_menu.gif" width="770" height="18" border="0" usemap="#m_white_menu" alt=""><map name="m_white_menu">
+<area shape="rect" coords="641,0,735,18" href="contact_us.php" title="Contact Us" alt="Contact Us" >
+<area shape="rect" coords="530,0,626,18" href="http://www.insightpartners.com/login.asp" target="newWindow" title="Info for LPs" alt="Info for LPs" >
+<area shape="rect" coords="395,0,509,18" href="news_resources.php" title="News Resources" alt="News Resources" >
+<area shape="rect" coords="283,0,380,18" href="case_studies.php" title="Case Studies" alt="Case Studies" >
+<area shape="rect" coords="184,0,271,18" href="portfolio.php" title="Portfolio" alt="Portfolio" >
+<area shape="rect" coords="101,0,175,18" href="team.php" title="Team" alt="Team" >
+<area shape="rect" coords="7,0,90,18" href="firm.php" title="Our Firm" alt="Our Firm" >
+</td>
+</tr>
+</table>
+<!--
+<table border="0" cellpadding="0" cellspacing="0" width="770">
+<tr>
+<td><a href="firm.php"  onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('top_nav_r1_c1','','nav/top_nav_r1_c1_f2.gif',1);"><img name="top_nav_r1_c1" src="nav/top_nav_r1_c1.gif" width="84" height="17" border="0" alt="Home"></a></td>
+   <td><a href="team.php"  onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('top_nav_r1_c2','','nav/top_nav_r1_c2_f2.gif',1);"><img name="top_nav_r1_c2" src="nav/top_nav_r1_c2.gif" width="81" height="17" border="0" alt="Team"></a></td>
+   <td><a href="portfolio.php"  onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('top_nav_r1_c3','','nav/top_nav_r1_c3_f2.gif',1);"><img name="top_nav_r1_c3" src="nav/top_nav_r1_c3.gif" width="98" height="17" border="0" alt="Portfolio"></a></td>
+   <td><a href="case_studies.php"  onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('top_nav_r1_c5','','nav/top_nav_r1_c5_f2.gif',1);"><img name="top_nav_r1_c5" src="nav/top_nav_r1_c5.gif" width="119" height="17" border="0" alt="Case Studies"></a></td>
+   <td><a href="news_resources.php"  onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('top_nav_r1_c6','','nav/top_nav_r1_c6_f2.gif',1);"><img name="top_nav_r1_c6" src="nav/top_nav_r1_c6.gif" width="164" height="17" border="0" alt="News and Resources"></a></td>
+   <td><a href="careers.php"  onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('top_nav_r1_c7','','nav/top_nav_r1_c7_f2.gif',1);"><img name="top_nav_r1_c7" src="nav/top_nav_r1_c7.gif" width="105" height="17" border="0" alt="career opportunities"></a></td>
+      <td><a href="contact_us.php"  onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('top_nav_r1_c4','','nav/top_nav_r1_c4_f2.gif',1);"><img name="top_nav_r1_c4" src="nav/top_nav_r1_c4.gif" width="119" height="17" border="0" alt="Performance"></a></td>
+</tr>
+</table>
+
+-->
+</div>
+
+
+
+<div class="float_left">
+
+<table border="0" cellpadding="0" cellspacing="0" width="770">
+<tr>
+   <td><img src="/images/grey_bar.gif"></td>
+</tr>
+</table>
+
+<!--
+<table border="0" cellpadding="0" cellspacing="0" width="770">
+<tr>
+   <td><img name="sec_nav_r1_c1" src="nav/sec_nav_r1_c1.gif" width="611" height="26" border="0" alt=""></td>
+   <td><a href="email_friend.php"  onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('sec_nav_r1_c2','','nav/sec_nav_r1_c2_f2.gif',1);"><img name="sec_nav_r1_c2" src="nav/sec_nav_r1_c2.gif" width="29" height="26" border="0" alt="Email a Friend"></a></td>
+   <td><a href="?printable"  onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('sec_nav_r1_c3','','nav/sec_nav_r1_c3_f2.gif',1);"><img name="sec_nav_r1_c3" src="nav/sec_nav_r1_c3.gif" width="30" height="26" border="0" alt="Print page"></a></td>
+   <td><a href="https://www.insightpartners.com/login.asp"  onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('sec_nav_r1_c4','','nav/sec_nav_r1_c4_f2.gif',1);"><img name="sec_nav_r1_c4" src="nav/sec_nav_r1_c4.gif" width="100" height="26" border="0" alt="INFO FOR LPs"></a></td>
+</tr>
+</table>
+-->
+</div>
+
+
+
+
+
+
+
+
+
+<!--  --><div class="main_content_interior">
+
+
+<!-- our firm start -->
+<div class="team_member"><div class="team_member_pad">
+
+<b class="header_2"><!-- NAVIGATION --></b>
+<br><br>
+<b class="header_3">Insight Portfolio</b><br>
+<img src="/images/blue_hline.gif" width="165" height="1" border="0"><br>
+&nbsp; <a href="portfolio.php" target="">Portfolio By Sector</a><br>
+&nbsp; <a href="/alphabetical_companies.php">Alphabetical Companies</a>
+</div></div>
+<!-- our firm end -->
+
+<!-- right content start -->
+<div class="right_content_interior">
+
+
+
+<!-- header start -->
+<div class="right_content_interior_header"><div class="right_content_interior_pad">
+<b class="header_1">Internet & New Media</b>
+</div></div>
+<!-- header end -->
+
+
+
+<!-- text start -->
+<div class="right_content_interior_pad_2">
+
+
+<a name="airbourne"></a>
+<img src="images/companies/airborne_entertainment.gif" width="75" height="59" border="0"><br>
+
+<b class="header_3">SOFTWARE SECTOR:</b>  Internet & New Media <br>
+<b class="header_3">STATUS:</b>  Current Portfolio Company <br>
+<b class="header_3">WEBSITE:</b> <a href="http://www.airborne-e.com">www.airborne-e.com</a>
+
+
+<br><br>
+
+Airborne Entertainment Inc. is a leading publisher of entertainment content for mobile phones. The company creates, packages, and distributes games, lifestyle applications, messaging services, ringtones and graphics in conjunction with the world's most recognizable media and consumer brands. Airborne's distribution network comprises all tier-one North-American mobile operators, reaching nearly 100% of enabled mobile subscribers, as well as a growing number of mobile subscribers in foreign markets.   
+<br><br>
+ 
+<div align="right"><a href="portfolio.php">BACK</a></div>
+
+
+</div>
+<!-- text start -->
+
+
+
+
+
+
+
+</div>
+<!-- right content end -->
+
+
+
+<!--  --></div>
+
+
+
+
+<!-- footer start -->
+<div class="footer_links"><img src="images/g_footer.gif" width="770" height="8" alt=""></div>
+
+<div class="footer_links">
+
+<a href="firm.php">Firm</a> | 
+<a href="team.php">Team</a> | 
+<a href="portfolio.php">Portfolio</a> |  
+<a href="case_studies.php">Case Studies</a> | 
+<a href="news_resources.php">News / Resources</a> | 
+<a href="http://www.insightpartners.com/login.asp" target="newWindow">Info For LPs</a> |
+<a href="forums.php">Forums</a> |
+<a href="http://insightpartners.com/PortfolioCompanyJobs/Default.aspx">Careers</a> |
+<a href="contact_us.php">Contact Us</a>
+
+</div>
+
+
+<div class="footer_links">Copyright 2008 | All Rights Reserved</div>
+
+<br><br>
+
+<div align="center">
+<!-- L10 Hit Counter page code -->
+<table border=0 cellspacing=0 cellpadding=0 align=center>
+<tr><td>&nbsp;
+</td>
+</tr></table>
+<!-- end: L10 Hit Counter page code -->
+</div>
+
+<!-- footer end -->
+
+</div>
+
+
+</body></html>
+

@@ -1,0 +1,248 @@
+
+<HTML>
+<head>
+
+<script language="javascript">
+<!--
+var sCurrentSub = 'reset';
+var sSQL = '';
+var category, keyword, date, ownership, continent, state, alpha;
+var scategory, skeyword, sdate, sownership, scontinent, sstate, salpha;
+
+function isIE() {
+	if (document.layers) {
+		return false
+	} else {
+		return true
+	}
+}
+
+function replaceQuery (sText) {
+	if (isIE()) {
+		document.all.querytext.innerHTML = '<img src="/images/biglq.gif">' + sText + '.' + '<img src="/images/bigrq.gif">'
+	} else {
+		var a = document.container2.document.querytext.document;
+		a.open();
+		a.write('<h3><img src="/images/biglq.gif">' + sText + '<img src="/images/bigrq.gif"></h3>');
+		a.close();
+	}
+}
+
+function updateSQL(sCat) {	
+	if (sCat == 'category'){
+		category = ''; scategory = ''
+		var a = getChecks('pi_id', frmcategory);
+		category = a[0];
+		scategory = a[1];
+		if (category != '') { img_category.src = '/images/query_on.gif'; }
+	} 
+	updateString();
+}
+
+function clearSQL(sCat) {
+	if (sCat == 'industry') {
+		category = '';
+		sCategory = '';
+		img_category.src = '/images/query_off.gif'; 
+	}
+}
+
+function updateString() {
+	var t = 'Show me all Portfolio Companies'
+	var u = ''
+	var frm = document.psForm
+	if (frm.sIndustry.value != '') { u = u + ' found in the ' + frm.sIndustry.value + ' <b>industry</b> and '; }
+	if (frm.sKeyword.value != '') {u = u + ' which contain ' + frm.sType.value +': "' + frm.sKeyword.value + '" and '; }
+	if (frm.sOwnership.value != '') { u = u + ' which are ' + frm.sOwnership.value + 's and ';}
+	if (frm.sStartMonth.value != ''){ 
+		if (frm.sEndMonth.value != '') {
+			u = u + ' whose <b>date of investment</b> is between ' + frm.sStartMonth.value + '/' + frm.sStartYear.value + ' and ' + frm.sEndMonth.value + '/' + frm.sEndYear.value + ' and ';
+		} else {
+			u = u + ' whose <b>date of investment</b> is ' + frm.sStartMonth.value + '/' + frm.sStartYear.value + ' and ';
+		}	
+	}
+	if (frm.sContinent.value != '') { u = u + ' on the <b>continent(s)</b> of ' + frm.sContinent.value + ' and '; }
+	if (frm.sState.value != '') { u = u + ' located in ' + frm.sState.value + ' and '; }
+	if (frm.sAlpha.value != '') { u = u + ' whose <b>name </b> begins with ' + frm.sAlpha.value + ' and '; }	u = u.slice(0,-5);
+	if (u == '') { u = '. . .' }
+	replaceQuery(t + u);
+}
+
+function onImage (theImage) {
+	theImage.src = '/images/query_on.gif';
+}
+
+function offImage (theImage) {
+	theImage.src = '/images/query_off.gif';
+}
+
+function putOwnership (sValue) {
+	document.psForm.sOwnership.value = sValue;
+	if (sValue != '') {
+		onImage(parent.psNav.document.img_ownership);
+	} else {
+		offImage(parent.psNav.document.img_ownership); 
+	}
+	updateString();
+}
+
+function putIndustry (sValue) {
+	var fld = document.psForm.sIndustry;
+	fld.value = sValue;
+	if (sValue != '') {
+		onImage(parent.psNav.document.img_category);
+	} else {
+		offImage(parent.psNav.document.img_category); 
+	}	
+	updateString();
+} 
+
+function putAlpha (sValue) {
+	var fld = document.psForm.sAlpha;
+	fld.value = sValue;
+	if (sValue != '') {
+		onImage(parent.psNav.document.img_alpha);
+	} else {
+		offImage(parent.psNav.document.img_alpha); 
+	}
+	updateString();
+}
+
+function putContinent (sValue) {
+	var fld = document.psForm.sContinent;
+	fld.value = sValue;
+	if (sValue != '') {
+		onImage(parent.psNav.document.img_continent);
+	} else {
+		offImage(parent.psNav.document.img_continent); 
+	}
+	updateString();
+}
+
+function putState (sValue) {
+	var fld = document.psForm.sState;
+	fld.value = sValue;
+	if (sValue != '') {
+		onImage(parent.psNav.document.img_state);
+	} else {
+		offImage(parent.psNav.document.img_state); 
+	}
+	updateString();
+}
+
+function putDate (sm,sy,em,ey) {
+	var frm = document.psForm;
+	frm.sStartMonth.value = sm;
+	frm.sStartYear.value = sy;
+	frm.sEndMonth.value = em;
+	frm.sEndYear.value = ey;
+	if (sm != '' || sy != '' || em != '' || ey != '') {
+		onImage(parent.psNav.document.img_date);
+	} else {
+		offImage(parent.psNav.document.img_date); 
+	}
+	updateString();
+}
+
+function putKeyword (sKeyword, sType) {
+	var frm = document.psForm;
+	frm.sKeyword.value = sKeyword;
+	frm.sType.value = sType
+	if (sKeyword != '') {
+		onImage(parent.psNav.document.img_keyword);
+	} else {
+		offImage(parent.psNav.document.img_keyword); 
+	}
+	updateString();
+}
+
+function clearAll() {
+	for (var i=0; i<document.psForm.elements.length; i++) {
+		if (document.psForm.elements[i].name != 'ignore') {
+			document.psForm.elements[i].value = '';
+		}
+	}
+	updateString();
+	parent.psQuery.location.href = 'portfolio/blank.asp';
+	var z = parent.psNav.document.images
+	var path = ''
+	
+	for (var i=0; i<z.length; i++) {
+		if ( isIE() ) {
+			if (z[i].src = '/images/query_on.gif') {
+				z[i].src = '/images/query_off.gif';
+			}
+		} else {
+			z[i].src = '/images/query_off.gif';
+		}
+	}
+}
+
+//-->
+</script>
+
+<style type="text/css">
+<!--
+p {font-family: arial,helvetica,sans-serif;}
+td {  font-family: Arial, Helvetica, sans-serif;}
+
+#container2 {		position			: relative; 
+					width				: 200px;
+					height				: 600px;}
+
+#querytext {		position			: absolute; }
+
+.button {			font-family			: arial, helvetica;
+					font-size			: 10pt;
+					color				: #555555 }
+					
+h4 {				font-family			: arial, helvetica;
+					color				: #000066;
+					font-weight			: bold; 
+					font-size			: 120%;}
+
+h3	{		font-family			: times new roman,serif;
+					color				: #444444;
+					font-weight			: normal; 
+					font-size			: 19px;}
+
+.nice {					font-family			: Arial;
+					color				: red;
+					font-weight			: bold;
+					font-size:			: 150%;}
+
+-->
+</style>
+</head>
+<body bgcolor="#ffffff" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="#FFFFFF" text="#413e79" link="#413e79" vlink="#413e79">
+<p>&nbsp;</p>
+<form name="psForm" action="../psSearch.asp" target="_top" method="post">
+
+	<input type="hidden" name="sIndustry" value="">
+	<input type="hidden" name="sKeyword" value="">
+	<input type="hidden" name="sType" value="">
+	<input type="hidden" name="sStartMonth" value="">
+	<input type="hidden" name="sStartYear" value="">
+	<input type="hidden" name="sEndMonth" value="">
+	<input type="hidden" name="sEndYear" value="">
+	<input type="hidden" name="sOwnership" value="">
+	<input type="hidden" name="sContinent" value="">
+	<input type="hidden" name="sState" value="">
+	<input type="hidden" name="sAlpha" value="">
+<p>
+	<input type="submit" value=" Search! " id=submit1 name="ignore">
+</p>	
+</form>
+		<!-- English Query -->
+		<h3>
+			<div id="container2">
+			<div id="querytext">
+		
+				<img src="/images/biglq.gif" width="18" height="18">Show me all Portfolio Companies . . . <img src="/images/bigrq.gif" width="18" height="18">
+			</div></div>
+		</h3>	
+		
+
+
+</BODY>
+</HTML>

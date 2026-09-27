@@ -1,0 +1,135 @@
+
+<HTML>
+<head>
+<script language="Javascript">
+<!--
+	//This function parses the checked values of checkboxes
+	function getChecks(sName, oFrm) {
+		var sSQL = ''; //var sDisp = '';
+		for (var x=0; x < oFrm.elements.length; x++) {
+			var a = oFrm.elements[x];
+			if (a.name == sName) {
+				if (a.checked) {
+					sSQL = sSQL + a.value + '", "';
+					//sDisp = sDisp + a.value + ' or ';
+				}
+			}
+		}
+		if (sSQL != '') {sSQL = '"' + sSQL.slice(0,-3);}
+		//sDisp = sDisp.slice(0,-4);
+		//var b = new Array(1);
+		//b[0] = sSQL;
+		//b[1] = sDisp;
+		return sSQL;
+	}
+//-->
+</script>
+
+<style type="text/css">
+<!--
+p {font-family: arial,helvetica,sans-serif;}
+td {  font-family: Arial, Helvetica, sans-serif;}
+
+td.header {			background-color	: #cccccc;
+					font-size			: 14pt;
+					font-weight			: bold ;}
+
+#container {		position			: relative; 
+					width				: 200px;
+					height				: 400px;}
+#container2 {		position			: relative; 
+					width				: 200px;
+					height				: 400px;}
+
+#querytext {		position			: absolute; }
+
+.button {			font-family			: arial, helvetica;
+					font-size			: 10pt;
+					color				: #555555 }
+					
+h3 {				font-family			: arial, helvetica;
+					color				: #000066;
+					font-weight			: bold; 
+					font-size			: 100%;}
+					
+h4 {				font-family			: arial, helvetica;
+					color				: #666666;
+					font-weight			: bold; 
+					font-size			: 95%;}
+-->
+</style>
+</head>
+<body bgcolor="#eeeeee" onLoad="getValues();" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="#FFFFFF" text="#413e79" link="#413e79" vlink="#413e79">
+<p>&nbsp;</p>
+<h3>Find Just What You're Looking For:</h3>
+
+<script language="javascript" onClick="putValues();">
+<!--
+function getValues() {
+	var a = parent.psText.document.psForm.sAlpha.value;
+	if (a != '') {
+		var arText = 'new Array (' + a + ')';
+		var arV = eval(arText)
+		for (var i=0; i< document.form1.elements.length; i++) {
+			for (var j=0; j<arV.length; j++) {
+				if (document.form1.elements[i].value == arV[j]) {
+					document.form1.elements[i].checked = true;
+				}
+			}
+		}
+	}
+}
+
+function putValues() {
+	var a = getChecks('id',document.form1);
+	parent.psText.putAlpha(a);
+}
+//-->
+</script>
+
+
+<h4>Search By First Letter</h4>
+
+<table border="0" cellspacing="0" cellpadding="0" width="90%">
+	<tr>
+		<td align="left">
+		<form name="form1" action="">
+		<font face="arial, helvetica, sans-serif" >
+		<input type="checkbox" name="id" value="A" onClick="putValues();"><font size="-1">A</font><br>
+		<input type="checkbox" name="id" value="B" onClick="putValues();"><font size="-1">B</font><br>
+		<input type="checkbox" name="id" value="C" onClick="putValues();"><font size="-1">C</font><br>
+		<input type="checkbox" name="id" value="D" onClick="putValues();"><font size="-1">D</font><br>
+		<input type="checkbox" name="id" value="E" onClick="putValues();"><font size="-1">E</font><br>
+		<input type="checkbox" name="id" value="F" onClick="putValues();"><font size="-1">F</font><br>
+		<input type="checkbox" name="id" value="G" onClick="putValues();"><font size="-1">G</font><br>
+		<input type="checkbox" name="id" value="H" onClick="putValues();"><font size="-1">H</font><br>
+		<input type="checkbox" name="id" value="I" onClick="putValues();"><font size="-1">I</font><br>
+		<input type="checkbox" name="id" value="J" onClick="putValues();"><font size="-1">J</font><br>
+		<input type="checkbox" name="id" value="K" onClick="putValues();"><font size="-1">K</font><br>
+		<input type="checkbox" name="id" value="L" onClick="putValues();"><font size="-1">L</font><br>
+		<input type="checkbox" name="id" value="M" onClick="putValues();"><font size="-1">M</font><br>
+		</font>
+				</td>
+				<td align="left">
+		<font face="arial, helvetica, sans-serif">
+		<input type="checkbox" name="id" value="N" onClick="putValues();"><font size="-1">N</font><br>
+		<input type="checkbox" name="id" value="O" onClick="putValues();"><font size="-1">O</font><br>
+		<input type="checkbox" name="id" value="P" onClick="putValues();"><font size="-1">P</font><br>
+		<input type="checkbox" name="id" value="Q" onClick="putValues();"><font size="-1">Q</font><br>
+		<input type="checkbox" name="id" value="R" onClick="putValues();"><font size="-1">R</font><br>
+		<input type="checkbox" name="id" value="S" onClick="putValues();"><font size="-1">S</font><br>
+		<input type="checkbox" name="id" value="T" onClick="putValues();"><font size="-1">T</font><br>
+		<input type="checkbox" name="id" value="U" onClick="putValues();"><font size="-1">U</font><br>
+		<input type="checkbox" name="id" value="V" onClick="putValues();"><font size="-1">V</font><br>
+		<input type="checkbox" name="id" value="W" onClick="putValues();"><font size="-1">W</font><br>
+		<input type="checkbox" name="id" value="X" onClick="putValues();"><font size="-1">X</font><br>
+		<input type="checkbox" name="id" value="Y" onClick="putValues();"><font size="-1">Y</font><br>
+		<input type="checkbox" name="id" value="Z" onClick="putValues();"><font size="-1">Z</font><br>
+		</font>
+		</td>
+	</tr>
+</table>
+</form>
+		
+</body>
+</html>
