@@ -1,0 +1,388 @@
+{
+  "slug": "bain-capital-ventures",
+  "name": "Bain Capital Ventures",
+  "wayback": {
+    "cdx_domain": "baincapitalventures.com",
+    "site_url_base": "https://www.baincapitalventures.com",
+    "eras": [
+      {
+        "parser": "cdx_company_pages",
+        "path": "/portfolio/company/",
+        "from": 2011,
+        "to": 2015,
+        "_note": "Era 3 (2011 to 2015): WordPress-like site, one page per company at /portfolio/company/<slug>/ (188 captured URLs).",
+        "per_company_pages": true
+      },
+      {
+        "parser": "cdx_company_pages",
+        "path": "/portfolio/",
+        "from": 2015,
+        "to": 2026,
+        "_note": "Era 4 (2016 to 2023, WordPress; the Next.js site from 2024 lists the portfolio on one page with no per-company URL): /portfolio/<slug>/. CDX collapses on the URL, so a slug is dated by its first capture.",
+        "per_company_pages": true
+      }
+    ],
+    "_note": "Eras 1 and 2 (the 2002 to 2005 ASP site, portfolio.asp?b=4&l=8&w=1&c=<id> per company, and the 2006 to 2010 sites, /portfolio/index.asp?viewType=... in 2006 to 2009 and /Portfolio/*.aspx in 2009 to 2010, each with current and past-company listing views) are read by scratch/wayback-old-eras.py, because their markup needs its own reading; their rows land in sources/wayback/parsed/ in the same shape.",
+    "non_company_slugs": [
+      "portfolio",
+      "company",
+      "filtered",
+      "filtered-new",
+      "category",
+      "all",
+      "team",
+      "about",
+      "news",
+      "page",
+      "feed",
+      "4701-2",
+      "all-bain-capital-ventures-investments",
+      "view-all-investments",
+      "bain-capital-ventures-investments"
+    ]
+  },
+  "roster": {
+    "cdx_patterns": [
+      "baincapitalventures.com/your-team/member/*",
+      "baincapitalventures.com/team/*"
+    ],
+    "site_team_groups": [
+      "Investing Team"
+    ],
+    "slug_re": "/(?:your-team/member|team)/([a-z][a-z0-9_-]*[a-z0-9])/?$",
+    "listing_href_re": "/(?:your-team/member|team)/([a-z][a-z0-9_-]*[a-z0-9])[\"'/]",
+    "not_a_person": [
+      "team",
+      "member",
+      "all",
+      "category",
+      "location",
+      "6772"
+    ],
+    "_note": "People pages by era: 2002 team.asp?m=<id>, 2006 to 2009 our_team/index.asp?d_Bio_ID=<id>, 2009 to 2010 OurTeam/TeamMember.aspx?id=<id> (id-based, names read from the bodies by scratch/wayback-old-eras.py), 2011 to 2015 /your-team/member/<slug>/, 2015 on /team/<slug>/. The live CMS has four groups (Investing Team 18, The Hive platform team, Operating Team, External Contributors); only the Investing Team feeds the Form D sweep, unioned with the related persons on the firm's own fund Form Ds and Bain Capital Crypto's people (scratch/build-roster.py)."
+  },
+  "site_api": {
+    "entry_stage_fields": [
+      "site_stage"
+    ],
+    "entry_stage_confidence": "medium",
+    "_entry_stage_note": "site_stage is the firm's stage tag per company (Seed / Early / Growth; IPO and Acquired are split off into site_outcome). Eligible: it states the stage BCV entered, not the company's current stage (Crusoe Energy, Nightfall and Orum, all later-stage companies today, read Seed; the six 'Seed, Early' rows name both stages the firm joined and the earliest is the entry). Scored 2026-09-27 against rounds named in the firm's own posts and Wikipedia: 25 of 27 (Seed 10/11, Growth 15/16; misses: Archive, a pre-seed entry tagged Seed, and HYCU's $87.5M Series A tagged Growth), so medium confidence (COLLECTION.md 5: high needs 95% over 30 rows). 'Early' straddles Seed and Series A (and on this site covers Series B entries: Ankorstore, Clockwise) and is an anchor, never a label (decisions.md R2).",
+    "type": "scrape",
+    "base": "https://baincapitalventures.com",
+    "sources": [
+      {
+        "parser": "file_list",
+        "list": "bcv-cms",
+        "path": "data/collection/investors/bain-capital-ventures/sources/site/company-pages.json",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "key_field": "slug",
+        "sectors": "sectors",
+        "extras": [
+          "slug",
+          "id",
+          "invest_year",
+          "site_stage",
+          "site_outcome",
+          "partners",
+          "location",
+          "founded",
+          "company_site",
+          "about",
+          "popover"
+        ],
+        "_note": "The live portfolio: every Sanity `portfolio` doc (280), flattened by scratch/shape-site.py from sanity-portfolio.json. invest_year is the firm's own year_of_investment. site_stage is the firm's stage tag (Seed / Early / Growth) and is held OUT of entry_stage_fields until scored against documented rounds (COLLECTION.md 5); site_outcome is the IPO / Acquired tag."
+      },
+      {
+        "parser": "file_list",
+        "list": "bcv-crypto",
+        "path": "data/collection/investors/bain-capital-ventures/sources/site/crypto-portfolio.json",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "key_field": "slug",
+        "extras": [
+          "slug",
+          "id",
+          "published",
+          "class_list",
+          "content"
+        ],
+        "_note": "Bain Capital Crypto's own portfolio (baincapitalcrypto.com, WordPress REST post type `portfolio`, 18 rows), scratch/pull-crypto.py. Same adviser as BCV (decisions.md D1)."
+      }
+    ],
+    "team_sources": [
+      {
+        "parser": "file_list",
+        "list": "team-pages",
+        "path": "data/collection/investors/bain-capital-ventures/sources/site/team-pages.json",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "key_field": "slug",
+        "extras": [
+          "slug",
+          "title",
+          "group",
+          "location",
+          "linkedin_url",
+          "x_url"
+        ]
+      }
+    ],
+    "team_buckets": {
+      "Investing Team": "investing",
+      "The Hive - Platform Team": "platform"
+    },
+    "_note": "baincapitalventures.com is Next.js over a Sanity dataset (project 0ystv7v4, dataset production) whose GROQ API answers without a token: scratch/pull-sanity.py reads portfolio (280), team (66), insights (346) and press. Bain Capital Crypto publishes its own list on baincapitalcrypto.com (WordPress).",
+    "_team_buckets_note": "Operating Team (executive assistants, finance, legal, recruiting, communications) is left unmapped so operations staff stay out of the profile (COLLECTION.md s11); Investing Team and The Hive platform team publish."
+  },
+  "edgar": {
+    "seed_queries": [
+      "bain+capital+venture",
+      "bain+capital+crypto",
+      "bcv+crypto",
+      "bcv+20",
+      "bcv+coinvestment",
+      "bcv+21",
+      "bcv+xi",
+      "bcip+venture",
+      "bcv+emerge"
+    ],
+    "fts_phrases": [
+      "Bain Capital Venture Fund",
+      "Bain Capital Venture Partners",
+      "Bain Capital Venture Investors",
+      "Bain Capital Venture Coinvestment Fund",
+      "BCIP Venture Associates",
+      "Bain Capital Crypto",
+      "BCV Crypto Fund"
+    ],
+    "fts_own_pattern": "bain capital venture|bain capital crypto|bcv (crypto|coinvestment|20\\d\\d|21 innovators|xi|emerge)|bcip venture",
+    "_note": "Entity-qualified phrases only. The bare phrase 'Bain Capital' names every Bain Capital strategy (private equity, credit, public equity, real estate, life sciences, tech opportunities, double impact), each under its own adviser; only the venture and crypto vehicle families are BCV's (decisions.md D1)."
+  },
+  "wikipedia": {
+    "phrases": [
+      "Bain Capital Ventures",
+      "Bain Capital Crypto"
+    ]
+  },
+  "desks": {
+    "home": "bcv",
+    "partition": [],
+    "rank": [
+      "bcv",
+      "unknown"
+    ],
+    "classify": [
+      {
+        "desk": "external",
+        "patterns": [
+          "^bcv (55|66|77|iii opportunity)",
+          "^bain capital (private equity|credit|public equity|real estate|life sciences|tech(nology)? opportunities|double impact|insurance|special situations|partnership strategies|asset management|europe|asia|india|japan|investments|integral investors \\d|fund|partners,|capital|holdings|specialty finance|global)",
+          "^bain capital (i{1,3}|iv|v|vi{0,3}|ix|x{1,3}|x[iv]+)\\b",
+          "^bcip (associates|trust|life sciences|double impact|tech)",
+          "^brookside capital",
+          "^sankaty",
+          "^absolute return capital",
+          "^bain & company",
+          "^bain and company",
+          "^bcv asset management",
+          "brown advisory investors",
+          "^bga horizon",
+          "^mgf partners",
+          "icapital"
+        ]
+      },
+      {
+        "desk": "bcv",
+        "patterns": [
+          "^bain capital venture",
+          "^bain capital crypto",
+          "^bcv (crypto|coinvestment|20\\d\\d|21 innovators|xi|emerge)",
+          "^bcip venture"
+        ]
+      }
+    ],
+    "_note": "One adviser, Bain Capital Ventures, LP (CRD 145652, SEC 801-69071, formerly Bain Capital Venture Partners, LLC; 200 Clarendon Street, Boston), whose Section 7.B holds the venture funds, co-investment funds, the 2019-MD sidecars, BCV 21 Innovators and the Bain Capital Crypto funds. The other Bain Capital strategies file under their own advisers (Bain Capital Private Equity, LP CRD 145653; Bain Capital Credit, LP 134852; Bain Capital Public Equity, LP 145650; Bain Capital Real Estate, LP 291809; Bain Capital Insurance Solutions 305575), so they are `external` under T1 and no strategy partition is needed (decisions.md D1). Third-party access feeders into BCV funds (Brown Advisory, BGA Horizon, MGF Partners, iCapital) are external (Thrive IX Access precedent). Namesake: 'BCV 55, LLC', 'BCV 66, LLC', 'bcv 77, LLC' and 'BCV III Opportunity LLC' are Blue Cloud Ventures vehicles (Form D related persons Aber Whitcomb, Darin Feinstein, Blue Cloud Management LLC), external."
+  },
+  "profile": {
+    "adv_crd": "145652",
+    "own_vehicle_pattern": "^(bain capital venture|bain capital crypto|bcv (crypto|coinvestment|20\\d\\d|21 innovators|xi|emerge))",
+    "focus_min_companies": 20,
+    "focus_crosswalk": {
+      "Applied AI": "AI & Applied AI",
+      "Infrastructure": "Data Infrastructure",
+      "Commerce": "Consumer & Marketplaces",
+      "Fintech": "Fintech & Payments",
+      "Health": "Healthcare & Bio",
+      "Security": "Security",
+      "Physical AI": "Industrial & Robotics"
+    },
+    "_note": "The adviser's Item 5.F RAUM covers BCV and Bain Capital Crypto only (one adviser), so it is the firm's own sworn figure and the boundary matches the base. focus_min_companies is provisional, about 4.5% of the expected base."
+  },
+  "verify": {
+    "text_mention_leaks": [],
+    "cofiler_leaks": [],
+    "known_positions": [
+      "linkedin",
+      "rapid7",
+      "docusign",
+      "jet",
+      "kiva systems",
+      "redis",
+      "attentive",
+      "justworks",
+      "rubrik",
+      "sendgrid",
+      "flywire",
+      "avidxchange",
+      "rent the runway",
+      "acv",
+      "smartrent",
+      "docker",
+      "apollo.io",
+      "crusoe energy",
+      "moveworks",
+      "clari",
+      "billtrust",
+      "quanterix",
+      "tellapart",
+      "stackdriver",
+      "signifyd",
+      "mirakl",
+      "gocardless",
+      "pleo",
+      "fourkites"
+    ],
+    "not_members": [
+      {
+        "name": "staples",
+        "slug": "staples",
+        "why": "Bain Capital's 1986 investment, fifteen years before BCV's first fund (decisions.md D2)"
+      },
+      {
+        "name": "bright horizons",
+        "slug": "bright-horizons",
+        "why": "Bain Capital's pre-2001 generalist-fund position (D2)"
+      },
+      {
+        "name": "gartner group",
+        "slug": "gartner-group",
+        "why": "Bain Capital's 1990 buyout, IPO 1993, before BCV existed (D2; also a control position, D4)"
+      },
+      {
+        "name": "course technology",
+        "slug": "course-technology",
+        "why": "Bain Capital's pre-2001 position (D2)"
+      },
+      {
+        "name": "bmc software",
+        "slug": "bmc-software",
+        "why": "the 2013 take-private of a listed company by Bain Capital, Golden Gate and co-investors: a control acquisition, not a venture round (D4)"
+      },
+      {
+        "name": "bluecoat",
+        "slug": "bluecoat-symantec",
+        "why": "Bain Capital's 2016 buyout of Blue Coat from Thoma Bravo: a control acquisition (D4)"
+      },
+      {
+        "name": "zelis",
+        "slug": "zelis",
+        "why": "Bain Capital's 2019 majority recapitalisation of Zelis with Parthenon: a control acquisition (D4)"
+      }
+    ],
+    "shape": {
+      "c2a_rate_max": 0.8,
+      "_note": "The 0.80 default stands. There is no ceiling on the $1B+ share (Erik, 2026-09-26)."
+    },
+    "_known_positions_note": "SurveyMonkey removed 2026-09-27: a control position under D4 (Spectrum Equity and Bain Capital bought a majority in 2009).",
+    "_not_members_note": "Membership traps asserted before any verdict writes (COLLECTION.md 10, invariant 11): the pre-2001 heritage book (D2) and control acquisitions the site lists beside venture rounds (D4)."
+  },
+  "sample_slugs": [],
+  "names": {
+    "published": {
+      "ability-network-inovalon": "Ability Network",
+      "adready-cpxi": "AdReady",
+      "apixio-centene": "Apixio",
+      "appassure-software-dell": "AppAssure Software",
+      "appneta-broadcom-software": "AppNeta",
+      "appriss-inc": "Appriss",
+      "attivo-networks-sentinelone": "Attivo Networks",
+      "awake-security-arista-networks": "Awake Security",
+      "bti-systems-juniper": "BTI Systems",
+      "buywithme-gilt-groupe": "BuyWithMe",
+      "celerion-h-i-g-capital": "Celerion",
+      "chrome-river-emburse": "Chrome River",
+      "cloudistics-fungible": "Cloudistics",
+      "color-labs-inc-apple": "Color Labs",
+      "corvus-travelers": "Corvus",
+      "evident-io-palo-alto-networks": "Evident.io",
+      "finley-concord": "Finley",
+      "flow-commerce-global-e": "Flow Commerce",
+      "forescout-technologies-inc": "Forescout",
+      "gainsight-vista": "Gainsight",
+      "halo-health-symplr": "Halo Health",
+      "hooklogic-criteo": "HookLogic",
+      "humedica-unitedhealth-group": "Humedica",
+      "ike-robotics-nuro": "Ike",
+      "inauth-american-express": "InAuth",
+      "infoscout-acquired-by-numerator-in-2017": "InfoScout",
+      "inrix": "Inrix",
+      "iodine-software-waystar": "Iodine Software",
+      "kiva-systems-amazon-robotics-since-2012": "Kiva Systems",
+      "linkable-networks-collinson-group": "Linkable Networks",
+      "manicube-elizabeth-arden-red-door": "Manicube",
+      "medeanalytics-jll-partners": "MedeAnalytics",
+      "medhok-hearst-communications": "MedHOK",
+      "moveworks-servicenow": "Moveworks",
+      "national-cardiovascular-partners-fresenius-medical-care": "National Cardiovascular Partners",
+      "nightfall-shoreline-labs": "Nightfall",
+      "novus-sei-investments": "Novus",
+      "nubisio-tracxn": "Nubisio",
+      "observeit-proofpoint": "ObserveIT",
+      "onera-acquired-by-lyniate-in-2021": "Onera",
+      "optimizely-episerver": "Optimizely",
+      "passport-arrive": "Passport",
+      "prisma-sd-wan-palo-alto-networks": "CloudGenix",
+      "reonomy-altus-group": "Reonomy",
+      "scalearc-ignitetech": "ScaleArc",
+      "scorebig-ticketnetwork": "ScoreBig",
+      "semantic-machines-microsoft": "Semantic Machines",
+      "sendgrid-acquired-by-twilio-in-2018": "SendGrid",
+      "sevone-turbonomic": "SevOne",
+      "shieldx-fortinet": "ShieldX",
+      "skai-kenshoo": "Skai",
+      "squaretrade-allstate": "SquareTrade",
+      "stackdriver-google": "Stackdriver",
+      "startree-cortexdata": "StarTree",
+      "tapcommerce-twitter": "TapCommerce",
+      "tellapart-acquired-by-twitter-in-2015": "TellApart",
+      "thefind-meta": "TheFind",
+      "total-attorneys-internet-brands": "Total Attorneys",
+      "travelclick-amadeus": "TravelClick",
+      "trooly-airbnb": "Trooly",
+      "turbonomic-ibm": "Turbonomic",
+      "txvia-google": "TxVia",
+      "venminder-digital-comply": "Venminder",
+      "xplenty-xenon": "Xplenty",
+      "command-e-dropbox": "Command E",
+      "fidel-api": "Fidel API",
+      "foghorn-systems-johnson-controls": "FogHorn Systems",
+      "forus-fka-tandem-health": "Forus",
+      "mpower-auto-inc": "mPower Auto",
+      "tecton-databricks": "Tecton",
+      "viso-trust-protecht": "VISO Trust",
+      "boon-business-solutions-inc": "Boon Business Solutions",
+      "camino-real-inc": "Camino Real",
+      "idelic-inc": "Idelic",
+      "mmjk-inc": "PurePlay",
+      "mynd-management-inc": "Mynd",
+      "superstate-inc": "Superstate"
+    }
+  }
+}

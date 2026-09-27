@@ -1,0 +1,61 @@
+export refused: 59 Seed row(s) without a decided graduation status (cquotient, dgraph, evertrue, hazelcast, myedu, noteable, oyster-com-tripadvisor, rapid7, roofstock, scorebig-ticketnetwork, sendgrid-acquired-by-twilio-in-2018, sneakpeeq …); a Seed row is graduated, not_graduated or censored (PRO-132). Judge them (prepare queues them), then export.
+site API portfolio: 297 companies
+  first-party entry round: 119 rows from site_entry_stage, site_stage
+pooled fund vehicles dropped: 304 issuers (396 filings)
+initial-only person matches ignored: 4 issuers (6 attributions)
+limited partnerships dropped (not operating companies): 5
+    - EAG Holdings LP
+    - Maguire Hayden Real Estate Co III, L.P.
+    - SubSplit Services Group Partners, LP
+    - SubSplit Services Group, L.P.
+    - Zelis Parent, L.P.
+non-portfolio industry, Form D-only (15 dropped):
+    - BLUETARP FINANCIAL INC [Other Banking and Financial Services]
+    - Digital Comply, Inc. [Other Banking and Financial Services]
+    - Everest Merchant Funding, Inc. [Commercial Banking]
+    - Finitive Co-Lending Noteholders LLC [Investing]
+    - Graham Income Trust [Construction]
+    - Klarna Group plc [Other Banking and Financial Services]
+    - Metatech Holdings [Other Banking and Financial Services]
+    - New Orleans Exchange Inc [Other Banking and Financial Services]
+    - OSB FINANCIAL SERVICES INC [Other Banking and Financial Services]
+    - On Deck Capital Inc [Other Banking and Financial Services]
+    - Renewa RE I LLC [REITS and Finance]
+    - Renewa RE II LLC [REITS and Finance]
+    - SWIFT FINANCIAL CORP [Other Banking and Financial Services]
+    - San Antonio Capital & Trust Holdings, LLC [Other Banking and Financial Services]
+    - Southwest Bancshares, Inc. [Commercial Banking]
+    - Atlassian Corp (personal Section 16 filing only)
+    - AUTOMATIC DATA PROCESSING INC (personal Section 16 filing only)
+    - Mandiant, Inc. (personal Section 16 filing only)
+    - Netskope Inc (personal Section 16 filing only)
+    - SYMANTEC CORP (personal Section 16 filing only)
+removed (partner's personal board seat, no fund position): 5
+tenure mismatch flagged: 43 rows
+removed (ex-partner is the only evidence): 41
+    - Aktana, Inc. — Jared Kesselheim last on site 2013, filing 2018 (5y after)
+    - Assay Depot Inc — Jared Kesselheim last on site 2013, filing 2017 (4y after)
+    - Augmented Reality Concepts, Inc. — Todd Maclean last on site 2015, filing 2023 (8y after)
+    - Auxia Inc. — Indranil Guha last on site 2017, filing 2025 (8y after)
+    - BioCircuit Technologies, Inc. — James Nahirny last on site 2013, filing 2021 (8y after)
+    - Boston Health Economic Holdings, LLC — Jeffrey Crisan last on site 2014, filing 2019 (5y after)
+    - CORTICA INC. — Stephen Anastos last on site 2017, filing 2023 (6y after)
+    - Capital Rx, Inc. — Jared Kesselheim last on site 2013, filing 2021 (8y after)
+    - Care.Stat!, Inc. — Jared Kesselheim last on site 2013, filing 2021 (8y after)
+    - Carpool Logistics, Inc. — Deepak Sindwani last on site 2013, filing 2025 (12y after)
+    - Cogito Corp — Mark Midle last on site 2013, filing 2018 (5y after)
+    - Collage Group Parent, Inc. — Deepak Sindwani last on site 2013, filing 2022 (9y after)
+    … and 29 more
+verification ledger: 0 excluded, 0 control positions excluded, 0 uncertain kept
+duplicate name-variants merged: 114; kept separate (co-listed or differing CIK): 0
+  overlay: reject 'view-all-investments' matches no row in the base
+identity overlay: 33 duplicate rows merged, 1 rejected, 0 desk reassignments
+excluded.json: 1 rows ({'build_filter': 1})
+Traceback (most recent call last):
+  File "/Users/erik/Developer/merit-capital/scripts/build-company-base.py", line 1089, in <module>
+    main()
+  File "/Users/erik/Developer/merit-capital/scripts/build-company-base.py", line 1076, in main
+    subprocess.run([sys.executable, str(Path(__file__).parent / "run.py"),
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/usr/local/bin/python3', '/Users/erik/Developer/merit-capital/scripts/run.py', 'export', '--investor', 'bain-capital-ventures']' returned non-zero exit status 1.

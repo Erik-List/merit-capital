@@ -1,0 +1,99 @@
+{
+ "_readme": "Recall probe, candidates ruled out (PRO-162, 2026-09-27). Additions are in companies/membership-ledger.json under recall_additions. Sources: the Wikipedia insource sweep (company articles not in the base), the firm's own posts, and parametric enumeration of the firm's history; the EDGAR full-text registrants are triaged in scratch/recall/fts-triage.json.",
+ "rejections": [
+  {
+   "name": "Abacus Data Systems",
+   "reason": "not a position: the article names BCV only in its CEO's biography (Keri Gohman, 'previously a partner at Bain Capital Ventures'); Providence Equity took the majority",
+   "citation": "https://en.wikipedia.org/wiki/Abacus_Data_Systems"
+  },
+  {
+   "name": "Binary Capital, Liquid 2 Ventures",
+   "reason": "venture firms whose articles mention BCV as a founder's former employer or a co-investor (T5, not companies)",
+   "citation": "https://en.wikipedia.org/wiki/Binary_Capital"
+  },
+  {
+   "name": "Bain Capital",
+   "reason": "the parent firm's article; every company it names as a BCV company is already in the base (DocuSign, Jet.com, Lime, LinkedIn, Rent the Runway, SendGrid, SurveyMonkey)",
+   "citation": "https://en.wikipedia.org/wiki/Bain_Capital"
+  },
+  {
+   "name": "Edgars (department store)",
+   "reason": "another desk: a 2007 buyout by Bain Capital Private Equity (decisions D1, external)",
+   "citation": "https://en.wikipedia.org/wiki/Edgars_%28department_store%29"
+  },
+  {
+   "name": "Envestnet",
+   "reason": "another desk and a control position: the 2024 take-private by a Bain Capital-controlled consortium (private equity, decisions D1 and D4)",
+   "citation": "https://en.wikipedia.org/wiki/Envestnet"
+  },
+  {
+   "name": "Utimaco",
+   "reason": "another desk: Bain Capital Credit holds a minority beside SGT Capital (decisions D1, external)",
+   "citation": "https://en.wikipedia.org/wiki/Utimaco"
+  },
+  {
+   "name": "Just A Pinch Recipes",
+   "reason": "no BCV position found: the article (Nashville recipe site, a subsidiary of American Hometown Media) names no investor, and a news search for the firm returned nothing",
+   "citation": "https://en.wikipedia.org/wiki/Just_A_Pinch_Recipes"
+  },
+  {
+   "name": "Simple (bank)",
+   "reason": "the Simple seat was Matt Harris's at Village Ventures in 2011, before he joined BCV in September 2012 (ruled with the Form D row simple-finance-technology-corp); the article's text names no BCV round",
+   "citation": "https://en.wikipedia.org/wiki/Simple_%28bank%29"
+  },
+  {
+   "name": "APCM",
+   "reason": "not a company: Advanced Primary Care Management is a Medicare billing code the firm's 2026 sector post discusses",
+   "citation": "https://baincapitalventures.com/insight/coding-the-future-how-apcm-leads-the-way-for-tech-enabled-care/"
+  },
+  {
+   "name": "Engine Yard, Sonatype, SpringSource, MuleSoft, Cassandra and Spinnaker companies",
+   "reason": "parametric candidates from Salil Deshpande's 2018 post, which lists the open-source projects behind his investments over 13 years as an investor, seven of them at Bay Partners before BCV (his own 2013 page). Gradle, Redis, Sysdig, Hazelcast and Akka (Lightbend) are in the base; news searches for Engine Yard and Sonatype with the firm's name returned nothing, and no source read ties the rest to a BCV fund. None is added without a source.",
+   "citation": "https://baincapitalventures.com/insight/commons-clause-stops-open-source-abuse/"
+  }
+ ],
+ "in_base": [
+  {
+   "name": "Akka.io",
+   "slug": "lightbend",
+   "why": "Lightbend (Typesafe) renamed Akka"
+  },
+  {
+   "name": "Bench Accounting",
+   "slug": "bench"
+  },
+  {
+   "name": "Blip.tv",
+   "slug": "blip-tv"
+  },
+  {
+   "name": "Fingerhut",
+   "slug": "bluestem-brands"
+  },
+  {
+   "name": "TheFind.com",
+   "slug": "thefind-meta"
+  },
+  {
+   "name": "Poolside AI",
+   "slug": "poolside"
+  },
+  {
+   "name": "Whop.com",
+   "slug": "whop"
+  },
+  {
+   "name": "Zenreach",
+   "slug": "adentro",
+   "why": "merged in identity-merges.json"
+  },
+  {
+   "name": "Ike (We Like Ike post)",
+   "slug": "ike-robotics-nuro"
+  },
+  {
+   "name": "Risk Harbor",
+   "slug": "risk-harbor"
+  }
+ ]
+}

@@ -1,0 +1,27 @@
+== seeding from EDGAR company search
+   55 entities
+== folding in own pooled Form D vehicles
+   +0 (total 55)
+== co-filer closure (sampling filings of seed entities)
+   69 entities
+   unclassified resolved: 5 partners (people), 3 external co-filers excluded from crawling
+
+wrote data/collection/investors/bain-capital-ventures/entities.json — 69 entities
+  by desk: {'bcv': 60, 'external': 9}
+  crawlable (desk != external): 60
+registry: 69 entities · {'bcv': 60, 'external': 9}
+crawling 60 (external excluded)
+  25/60 entities · 101 unique accessions
+  50/60 entities · 118 unique accessions
+unique ownership filings: 389
+Traceback (most recent call last):
+  File "/Users/erik/Developer/merit-capital/scripts/edgar-companies.py", line 132, in <module>
+    main()
+  File "/Users/erik/Developer/merit-capital/scripts/edgar-companies.py", line 84, in main
+    hdr = fetch_header(cik, acc)
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/erik/Developer/merit-capital/scripts/edgar_common.py", line 43, in fetch_header
+    shared_throttle.wait("sec")
+  File "/Users/erik/Developer/merit-capital/scripts/shared_throttle.py", line 130, in wait
+    fh.truncate()
+OSError: [Errno 28] No space left on device

@@ -1,0 +1,20 @@
+== seeding from EDGAR company search
+   55 entities
+== folding in own pooled Form D vehicles
+   +5 (total 60)
+== co-filer closure (sampling filings of seed entities)
+   88 entities
+   unclassified resolved: 5 partners (people), 10 external co-filers excluded from crawling
+
+wrote data/collection/investors/bain-capital-ventures/entities.json — 88 entities
+  by desk: {'bcv': 62, 'external': 26}
+  crawlable (desk != external): 62
+registry: 88 entities · {'bcv': 62, 'external': 26}
+crawling 62 (external excluded)
+  25/62 entities · 101 unique accessions
+  50/62 entities · 118 unique accessions
+unique ownership filings: 389
+  headers 250/389 · 24 companies
+
+wrote edgar-companies.json — 26 companies
+  by desk: {'bcv': 26}
