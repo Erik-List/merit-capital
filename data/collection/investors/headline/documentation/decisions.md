@@ -61,7 +61,7 @@ site, the archive, registers and press (D11).
   funds, co-invest sleeves and SPVs alike. Precedent: Thrive's sleeves;
   Balderton D2 (a rename of one manager is one firm across the rename).
 
-- **D2: The Asia desk (T1) → `other_desk`, partitioned; a row stays where a
+- **D2 (REVERSED 2026-09-28 by E1, desk in): The Asia desk (T1) → `other_desk`, partitioned; a row stays where a
   home vehicle held it.** Infinity Venture Partners / Infinity Ventures (Tokyo,
   Taipei, Beijing; founding partner Akio Tanaka, with Joseph Huang in Taipei)
   "helped one another on a deal-by-deal basis" with e.ventures for ten years and
@@ -89,7 +89,7 @@ site, the archive, registers and press (D11).
   fits cleanly. Applied as derived; the rows are preserved in `excluded.json`
   as `other_desk` so a reversal is a config change plus a delta grind.
 
-- **D3: The Brazil desk (T1) → `other_desk`, partitioned; a row stays where a
+- **D3 (REVERSED 2026-09-28 by E1, desk in): The Brazil desk (T1) → `other_desk`, partitioned; a row stays where a
   home vehicle held it.** Redpoint e.ventures was formed in 2012 as a joint
   venture with Redpoint Ventures ("Redpoint e.ventures Closes On $130M For
   Brazil-Focused VC Fund", TechCrunch 2012-07-23); its partners (Anderson
@@ -188,6 +188,29 @@ D4 partner-carried deals, D11 two evidence models; Germany's backtrace is a
 layer, used on German GmbH rows where status or membership needs it). The one
 point no test settles cleanly, the regional desks against the firm's own "single
 firm" statement, is applied as derived and raised as **X1** at the close.
+
+## Erik's rulings (2026-09-28, after the first close)
+
+- **E1: A regional desk that operates under the firm's name and affiliates
+  itself with the firm is IN** (Erik, 2026-09-28, on X1: "do the Asia & Brazil
+  desks operate under the same name and affiliate themselves with Headline? In
+  that name, count in"). Both do: Infinity Ventures became **Headline Asia** in
+  May 2021 by Headline's own release ("will be known as Headline Asia", Media
+  OutReach 2021-05-10), and Headline's own July 2022 announcement counted
+  **Headline Brazil III** (R$915M) among its three new funds (TechCrunch
+  2022-07-07); the firm's blog places Redpoint eventures as "our first fund in
+  Brazil ... under our previous name". **D2 and D3 are reversed**: both desks
+  are in, and `config.json` `desks.partition` is emptied. Applied with the D1
+  lineage test inside each desk (one team under successive names is one firm
+  across the rename, Balderton D2): Infinity Ventures' pre-2021 funds and
+  Redpoint eventures (2012 on) come in with the desks. Flagged for Erik: the
+  narrower reading, only deals made under the Headline name (from May 2021),
+  would drop the pre-rename rows again. Binds every investor: a desk that
+  carries the firm's brand and claims the firm is the firm, whatever its
+  adviser registrations say.
+- **E2: Sorare reads 1b_plus in Accel's book too** (Erik, 2026-09-28: "adjust
+  Accel's Sorare to match"): the September 2021 $4.3B Series B is the last
+  priced mark; layoffs do not band a row.
 
 ## Run-time standing rulings
 
