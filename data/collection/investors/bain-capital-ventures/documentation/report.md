@@ -9,28 +9,28 @@ Crawl carrying the archive layer while the Internet Archive blocked this machine
 
 ## 1. The answer PRO-162 asked for
 
-**The base is 416 companies. Plain `verify` (links checked) has one open item, Celestia's country,
+**The base is 414 companies (416 before Erik's ruling of 2026-09-28, section 9). Plain `verify` (links checked) has one open item, Celestia's country,
 which needs a one-line tooling fix (section 9).** BCV has its own adviser (Bain Capital Ventures, LP,
 CRD 145652), and Bain Capital Crypto sits under it, so both are in with no desk partition (D1).
 Bain Capital's generalist-fund book that the firm's 2003-2010 pages carried is out (78 rows, R1), and
-every transaction in which BCV with its co-investors took control is out (36 rows, D4).
+every transaction in which BCV with its co-investors took control is out (33 rows, D4).
 
 | Done-when item | State |
 |---|---|
 | Plain `verify` green | One problem: `celestia: no hq_country` (Liechtenstein is missing from run.py's ISO table; section 9) |
-| Every row judged, classified, cited | 664 verdicts on 416 published + 226 excluded rows; 416/416 classified |
+| Every row judged, classified, cited | 664 verdicts on 414 published + 228 excluded rows; 414/414 classified |
 | Firm profile | `investor/investor.json` + `sources.json`, built by `build-firm-profile.py`, `profile_copy.py` ok |
-| `review.html` rendered | Served on the review surface and checked: 416/416 rows, profile panel |
-| Cross-investor (rule 10) | 244 shared rows: 212 agree, 32 accepted, 0 disagree; 24 namesake pairs ruled distinct |
+| `review.html` rendered | Served on the review surface and checked (416/416 before the ruling; re-rendered at 414) |
+| Cross-investor (rule 10) | 243 shared rows: 212 agree, 31 accepted, 0 disagree; 24 namesake pairs ruled distinct |
 | Closing message with the ingest request | Sent with this report |
 
 ## 2. Results
 
 | | Count | Share |
 |---|---|---|
-| Companies | 416 | |
-| Private | 201 | 48% |
-| Acquired | 182 | 44% |
+| Companies | 414 | |
+| Private | 200 | 48% |
+| Acquired | 181 | 44% |
 | Unknown | 17 | 4% |
 | Public | 10 | 2% |
 | Defunct | 6 | 1% |
@@ -40,7 +40,7 @@ every transaction in which BCV with its co-investors took control is out (36 row
 Entry stage: Seed 108, Growth 102, Series A 87, Pre-Seed 2, round not on record 117 (mostly pre-2010
 rows whose round no source names). Headquarters: US 376, Canada 8, UK 6, Israel 5, France 3,
 Germany 3, India 3. Membership rests on the firm's own listing for 408 rows, a Form D ruled by the
-judge for 6, a fund filing for 1 and the firm's own post for 1 (Cogsy).
+judge for 4, a fund filing for 1 and the firm's own post for 1 (Cogsy).
 
 ### S2A block
 
@@ -63,13 +63,13 @@ its 2021 priced secondary sale at $10B (open ruling, section 9).
   aPriori). 21 of these rest on that list at medium confidence, several of them 1999-2002 deals
   (iWon, NetLibrary, ProfitLogic, Shopping.com, eTranslate, Imagitas) where the 1999 venture fund could
   in principle have co-invested; flagged for Erik under COLLECTION.md s9 trigger 2.
-- **D4, control positions (36 rows, about 20 companies).** SolarWinds (S-1: investors led by BCV and
+- **D4, control positions (33 rows, about 19 companies).** SolarWinds (S-1: investors led by BCV and
   Insight bought 67.8% in the December 2005 recapitalisation; Insight's run excluded the same deal),
   SurveyMonkey (Spectrum and Bain bought a majority in 2009), Zelis (the 2019 Parthenon/Bain merger),
   Air Medical Group (AMGH), iPay ("our new majority shareholders"), M/C Communications, OneSource,
   Publishing Group of America, USinternetworking, Blue Coat, BMC, the 1990s buyouts (Gartner,
   Experian, Waters, Dade Behring, Physio-Control, Wesley Jessen, Stage Stores, DDi, STATS ChipPAC,
-  SMTC, ICS, Nutraceutical), and the Syncapay lineage (Swift Prepaid, daVinci Payments, Onbe, medium).
+  SMTC, ICS, Nutraceutical). The Syncapay lineage (Swift Prepaid, daVinci Payments, Onbe) is out as not verified to be a venture investment (Erik, 2026-09-28).
 - **T3 placements into listed companies**: US LEC, EDGAR Online, The Princeton Review, CTC
   Communications, Open Text, Instinet.
 - **Sale consideration**: Signify Health (stock for Remedy Partners), and the Radionomy and Datica
@@ -155,8 +155,12 @@ icon, dry run clean (0.45x, contrast 4.3:1); upload at ingest.
    state the investor group's share of the holding company.
 6. **DCG graduation**: its only later priced event is the 2021 secondary sale at $10B; recorded
    graduated at medium (rule 7 refuses a $1B+ row that did not).
-7. **Director-of-record members at medium**: Mynd (Clelia Peters, Venture Partner) and Boon (Noah
-   Breslow, Operating Partner); either seat could be personal.
+7. ~~Director-of-record members at medium: Mynd and Boon~~. **Ruled by Erik, 2026-09-28**: "rm Mynd,
+   Boon, Swift, daVinci, Onbe if not verified to be a venture investment". None of the five is
+   verified: Mynd and Boon rested only on a venture or operating partner's board seat, and the
+   Syncapay lineage on a holding company of unknown ownership. All five are `not_member` with
+   `who: erik` (the three Syncapay rows lose the `control_position` code: out as unverified, not as
+   proven control). The base is 414 companies after the fifth build (no renames).
 
 ## 10. Rebuilds and deltas
 
