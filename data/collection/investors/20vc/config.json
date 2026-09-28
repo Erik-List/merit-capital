@@ -1,0 +1,249 @@
+{
+  "slug": "20vc",
+  "name": "20VC",
+  "wayback": {
+    "cdx_domain": "20vc.fund",
+    "site_url_base": "https://20vc.fund",
+    "eras": [],
+    "_eras_pending": "20vc.fund exists only from 2024-09 (the Framer site; the Internet Archive's CDX for 20vc.fund/* starts 2024-09-13). The firm's earlier list is the WordPress portfolio post type on the podcast site, thetwentyminutevc.com/portfolio/<slug>/, 2022-2024, read from Common Crawl (the Internet Archive was under a machine-wide block from 19:36 UTC, doubled to two hours at 20:36): scratch/cc-cluster.py (static index) -> scratch/cc-fetch.py -> scratch/cc-parse.py -> sources/wayback/parsed/<year>.json. 'stealth' is a placeholder card that names no company (T5) and is configured out.",
+    "non_company_slugs": [
+      "index",
+      "home",
+      "team",
+      "portfolio",
+      "portfolios",
+      "companies",
+      "company",
+      "shows",
+      "show",
+      "contact",
+      "pitch",
+      "privacy",
+      "privacy-policy",
+      "terms",
+      "about",
+      "news",
+      "blog",
+      "podcast",
+      "episodes",
+      "sitemap",
+      "search",
+      "feed",
+      "all",
+      "see-all",
+      "404",
+      "stealth"
+    ]
+  },
+  "roster": {
+    "cdx_patterns": [
+      "20vc.fund/team*",
+      "20vc.fund/about*"
+    ],
+    "slug_re": "/(?:team|people)/([a-z][a-z0-9-]*[a-z0-9])/?$",
+    "listing_href_re": "/(?:team|people)/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+    "not_a_person": [
+      "team",
+      "people",
+      "portfolio",
+      "contact",
+      "shows",
+      "about"
+    ],
+    "_note": "The roster is curated at kickoff (sources/wayback/partner-roster.json) from the Companies House member register of Twenty VC LLP OC435791 (exact appointment dates for every member since 2021-03-02), the adviser's Form ADV Schedule A (CRD 316359), the firm's own Form D related persons, the live team page (sources/site/team-cards.json) and dated press for the joiners. The live team page is one page with no per-person URLs; the CDX sweep is re-run when the archive answers and may only extend a register-dated window. The operator partners of the 20Growth, 20Sales and 20Product funds are NOT roster: each card names the partner's own employer (Dropbox, Vanta, Ramp...), and sweeping those names through Form D would confirm their employers' own filings (COLLECTION.md s5, the First Round founder-directory trap)."
+  },
+  "site_api": {
+    "type": "scrape",
+    "sources": [
+      {
+        "parser": "file_list",
+        "path": "data/collection/investors/20vc/sources/site/companies-framer.json",
+        "list": "portfolio-2026",
+        "list_path": "rows",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "sectors": "sectors",
+        "extras": [
+          "cms_slug",
+          "one_liner",
+          "sector_1",
+          "sector_2",
+          "website",
+          "exit_site",
+          "order",
+          "cms_created",
+          "cms_updated",
+          "cms_id"
+        ]
+      }
+    ],
+    "team_sources": [
+      {
+        "parser": "file_list",
+        "path": "data/collection/investors/20vc/sources/site/team-cards.json",
+        "list": "team",
+        "list_path": "rows",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "extras": [
+          "title",
+          "group",
+          "org",
+          "linkedin_url",
+          "x_url"
+        ]
+      }
+    ],
+    "team_buckets": {
+      "team": "investing"
+    },
+    "team_bucket_overrides": {
+      "Kitty Mayo": []
+    },
+    "_note": "20vc.fund is a Framer site (escalation ladder step 4). /portfolio server-renders 16 cards behind a client-side Load More; the whole collection (79 items on 2026-09-28) ships as a Framer CMS data chunk, decoded by scratch/framercms.py into sources/site/companies-framer.json (scratch/site-from-framer.py rebuilds it, --fetch re-downloads the chunk). The card carries a name, a one-liner, two sector enums, the company URL and an Exit flag: no round word and no investment year, so the site is a listing layer only and sets no entry stage. /team renders every card server-side. Kitty Mayo is Project Europe's CEO, a separate fund (decisions.md D5), so she carries no bucket and does not publish on the profile; the three operator-partner groups are left unmapped for the same reason (their own funds' advisers, not the firm's team)."
+  },
+  "edgar": {
+    "seed_queries": [
+      "20vc"
+    ],
+    "fts_phrases": [
+      "20VC Fund",
+      "20VC Explorer Fund",
+      "20VC GP",
+      "Twenty VC LLP",
+      "a series of 20VC",
+      "20Growth, LP",
+      "20Product, LP",
+      "20Sales, LP"
+    ],
+    "fts_own_pattern": "^(20vc|twenty vc|the twenty minute vc|fund i+, a series of 20(vc|growth|product|sales)|do fund i, a series of 20vc)",
+    "_note": "Kickoff 2026-09-28. The EDGAR company search (a name-PREFIX search) finds twelve filers from 'company=20vc': 20VC Fund II, L.P. (CIK 1852410) and its parallel 20VC Explorer Fund II, L.P. (1852406) (both first sale 2021-06-14, $33M + $107M = the $140M second fund), 20VC Fund III, L.P. (1921168) and 20VC Explorer Fund III, L.P. (1921021) (co-issued Form D 2024-04-18, $400M offering), 20VC Fund D-1, L.P. (1857965, $7.5M from one investor, 2021-06), 20VC Fund S-1 to S-5, L.P. (1886396, 2077933, 2108553, 2108560, 2107393; single-purpose vehicles of $6.5M-$55.7M, 2021-2026) and the AngelList-platform 20VC SPV1 / SPV2, a series of SAX Capital Series Fund III, LP (1898359, 1868708; SPV2 filed first as 'DO Fund I, a series of 20VC FUND D-2, LP'). It CANNOT find the platform series funds, whose names begin with the administrator's pattern: Fund I, a series of 20VC, LP (1808687, first sale 2020-04-01: the firm's first fund), Fund I, a series of 20Growth, LP (1994833), Fund I, a series of 20Product, LP (2010909), Fund I and Fund II, a series of 20Sales, LP (1984365, 2140140). Those five come from the adviser's Form ADV 7.B and EDGAR full-text search and are merged into entities.json by scratch/adv-vehicles.py (decisions.md D1; the method delta PRO-76 asked for). No seed query can reach them: 'fund i, a series of 20...' returns nothing, because the search does not match past the comma."
+  },
+  "wikipedia": {
+    "phrases": [
+      "20VC Fund",
+      "20VC",
+      "Twenty Minute VC",
+      "Harry Stebbings"
+    ]
+  },
+  "desks": {
+    "home": "uk",
+    "partition": [],
+    "rank": [
+      "uk",
+      "unknown"
+    ],
+    "classify": [
+      {
+        "desk": "external",
+        "patterns": [
+          "^stride",
+          "^project europe",
+          "^belltower",
+          "^sax capital",
+          "^20vc property",
+          "^fund i+, a series of 20(growth|product|sales)\\b"
+        ]
+      },
+      {
+        "desk": "uk",
+        "patterns": [
+          "^20vc",
+          "^twenty vc",
+          "^the twenty minute vc",
+          "^fund i, a series of 20vc\\b",
+          "^do fund i, a series of 20vc"
+        ]
+      }
+    ],
+    "_note": "One adviser, Twenty VC LLP (London; SEC exempt reporting adviser CRD 316359, SEC 802-122639; FCA-registered, Item 1.M). External by entity, never by name: Stride.VC (Stride Capital Fund I SCSp, Stride Capital II LP: Harry Stebbings is an executive officer on both Form Ds, but the funds are Stride.VC LLP's, decisions.md D4), Project Europe (its own manager and Scottish fund partnerships, D5), Belltower Fund Group and SAX Capital Series Fund III (AngelList's administrator and series umbrella, which also hold other managers' vehicles) and 20VC Property Limited (Harry Stebbings' property company, not a fund). The 20Growth, 20Sales and 20Product offshoot funds are external too (decisions.md D1: separate vehicles managed by their operator partners, Harry Stebbings an LP and advisor), though the firm's ADV lists three of them under 7.B(2)."
+  },
+  "registers": {
+    "uk": {
+      "firm_entities": [
+        "OC435791",
+        "09951526",
+        "14169715",
+        "16679576"
+      ],
+      "firm_addresses": [
+        "16,? berkeley mews",
+        "15,? langthorne street"
+      ],
+      "holder_pattern": "(?i)\\b(20 ?vc|twenty vc|twenty minute vc)\\b",
+      "_note": "Companies House, read through the public register website (scratch/companies_house.py, the Atomico run's helper). Twenty VC LLP OC435791 (2021-03-02; the FCA-registered manager and SEC exempt reporting adviser CRD 316359; designated members Harry Stebbings and The Twenty Minute VC Ltd from 2021-03-02, William Goodwin 2021-03-30 to 2025-04-04; members Kieran Hill 2021-09-13, Paul Bonnet 2024-08-19, Julien Codorniou 2025-03-24). The Twenty Minute VC Limited 09951526 (2016-01-14, the podcast business, SIC 59200). 20VC Property Limited 14169715 (2022, letting). Project Europe Ltd 16679576 (2025-08-28, fund management, directors Harry Stebbings and Kitty Mayo), with Project Europe Carry GP Limited SC873561 and Project Europe Founder Partner LP SL037877 / II SL038085 (Edinburgh). Offices: 15 Langthorne Street, Fulham (the 2021 Form Ds), 16 Berkeley Mews W1H 7AY (2024-). None is a row."
+    }
+  },
+  "profile": {
+    "adv_crd": 316359,
+    "own_vehicle_pattern": "^(20vc (explorer )?fund|20vc spv|20vc gp|twenty vc|fund i+, a series of 20(vc|growth|product|sales)|do fund i, a series of 20vc)",
+    "focus_min_companies": 6,
+    "focus_crosswalk": {
+      "Artificial Intelligence": "AI & Applied AI",
+      "Fintech": "Fintech & Payments",
+      "Consumer": "Consumer & Marketplaces"
+    },
+    "_note": "One exempt reporting adviser, Twenty VC LLP (CRD 316359, SEC 802-122639, principal office 16 Berkeley Mews, London W1H 7AY; FCA-registered, Item 1.M; Item 2.B(1) adviser solely to venture capital funds). Section 7.B.(1), annual amendment of 2025-06-17: six private funds, gross assets $602,711,121 (20VC Fund II $37,068,827; 20VC Explorer Fund II $97,197,156; 20VC Fund III $125,501,224; 20VC Explorer Fund III $276,103,289; 20VC Fund D-1 $2,868,962; 20VC Fund S-1 $63,971,663; the six sum to the roster's total to the dollar). Section 7.B.(2): Fund I, a series of 20Growth / 20Product / 20Sales, LP, reported by AngelList Advisors (802-78135). Schedule A: Harry Stebbings, Managing Director, 75%+ (CRD 7242842). focus_min_companies ~4.5% of an expected ~130-row base. 'Deep-tech' names no single sector of the closed twelve (energy, chips, data layers), so it stays unmapped and each company's focus is judged in the grind."
+  },
+  "verify": {
+    "text_mention_leaks": [],
+    "cofiler_leaks": [],
+    "known_positions": [
+      "airwallex",
+      "linear",
+      "linktree",
+      "lovable",
+      "mercor",
+      "cognition",
+      "poolside",
+      "sorare",
+      "workos",
+      "merge.dev",
+      "fyxer",
+      "tripledot",
+      "ledgy",
+      "taxdoo",
+      "xentral",
+      "deblock",
+      "junction",
+      "peec ai",
+      "solve intelligence",
+      "hofy",
+      "context",
+      "comstruct",
+      "buena"
+    ],
+    "_known_positions_note": "Spot-check list from the live list of 2026-09-28 (the firm's own 79 cards), chosen to span Fund II (2021) to the S-series vehicles (2025-2026) and the Exit flag (Hofy, Context). Each still needs a fund, not only a listing, under decisions.md D3 (a founder's angel check stays out even where the firm lists it).",
+    "unicorn_bands": false,
+    "_unicorn_bands_note": "Rule A (Erik 2026-09-06): the unicorn snapshot is an aggregator, a coverage floor to verify, never a mark.",
+    "sample_slugs": [],
+    "shape": {
+      "c2a_rate_max": 0.8,
+      "_note": "Set at kickoff: a seed and Series A firm whose funds date from 2020, so most seed entries sit inside or near the 24-month censoring window and the cohort will be small; the S2A ceiling is kept at the 80% default."
+    },
+    "not_members": []
+  },
+  "names": {
+    "_doc": "Published-name decisions (COLLECTION.md s8): the brand a row publishes under when the firm's rendering is not the company's name. Keyed by slug; the slug never moves.",
+    "published": {
+      "roam": "Roam Research",
+      "remote-com": "Remote",
+      "kevin": "Kevin",
+      "agent-sync": "AgentSync",
+      "ami-labs": "AMI Labs",
+      "nex-health": "NexHealth",
+      "lottielabs": "Lottielab",
+      "techwolf": "TechWolf",
+      "noh-payments": "Noh",
+      "roadflex": "RoadFlex",
+      "allo": "Allo",
+      "merge-dev": "Merge",
+      "datalane": "DataLane"
+    }
+  }
+}

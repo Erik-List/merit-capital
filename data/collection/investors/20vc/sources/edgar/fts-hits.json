@@ -1,0 +1,406 @@
+{
+  "_readme": "EDGAR full-text sweep (scripts/edgar-fts-sweep.py): hits for the configured phrases aggregated by registrant; bucket third_party = exit-side disclosure candidates for the judge (S-1 IRA signatories and holder tables, 424B selling stockholders, acquirer S-3/S-4/8-K), own = the investor's entities/people, lp_side = registered funds holding the investor's vehicles, ownership_forms = 13D/G, 3/4 or D filings handled by the entities/ownership layers.",
+  "phrases": [
+    "20VC Fund",
+    "20VC Explorer Fund",
+    "20VC GP",
+    "Twenty VC LLP",
+    "a series of 20VC",
+    "20Growth, LP",
+    "20Product, LP",
+    "20Sales, LP"
+  ],
+  "own_pattern": "^(20vc|twenty vc|the twenty minute vc|fund i+, a series of 20(vc|growth|product|sales)|do fund i, a series of 20vc)",
+  "swept_at": "2026-09-28",
+  "coverage": [
+    {
+      "phrase": "20VC Fund",
+      "total": 10,
+      "complete": true,
+      "failed_windows": [],
+      "read": 10,
+      "distinct": 10
+    },
+    {
+      "phrase": "20VC Explorer Fund",
+      "total": 2,
+      "complete": true,
+      "failed_windows": [],
+      "read": 2,
+      "distinct": 2
+    },
+    {
+      "phrase": "20VC GP",
+      "total": 9,
+      "complete": true,
+      "failed_windows": [],
+      "read": 9,
+      "distinct": 9
+    },
+    {
+      "phrase": "Twenty VC LLP",
+      "total": 0,
+      "complete": true,
+      "failed_windows": [],
+      "read": 0,
+      "distinct": 0
+    },
+    {
+      "phrase": "a series of 20VC",
+      "total": 3,
+      "complete": true,
+      "failed_windows": [],
+      "read": 3,
+      "distinct": 3
+    },
+    {
+      "phrase": "20Growth, LP",
+      "total": 1,
+      "complete": true,
+      "failed_windows": [],
+      "read": 1,
+      "distinct": 1
+    },
+    {
+      "phrase": "20Product, LP",
+      "total": 1,
+      "complete": true,
+      "failed_windows": [],
+      "read": 1,
+      "distinct": 1
+    },
+    {
+      "phrase": "20Sales, LP",
+      "total": 2,
+      "complete": true,
+      "failed_windows": [],
+      "read": 2,
+      "distinct": 2
+    }
+  ],
+  "registrants": [
+    {
+      "registrant": "Fund I, a series of 20VC, LP",
+      "cik": "0001808687",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2020-04-07",
+      "last_date": "2020-04-07",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2020-04-07",
+          "adsh": "0001808687-20-000002",
+          "url": "https://www.sec.gov/Archives/edgar/data/1808687/000180868720000002/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1808687/000180868720000002/0001808687-20-000002-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "DO Fund I, a series of 20VC FUND D-2, LP",
+      "cik": "0001868708",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2021-06-22",
+      "last_date": "2021-06-22",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2021-06-22",
+          "adsh": "0001868708-21-000002",
+          "url": "https://www.sec.gov/Archives/edgar/data/1868708/000186870821000002/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1868708/000186870821000002/0001868708-21-000002-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "20VC Fund D-1, L.P.",
+      "cik": "0001857965",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2021-06-22",
+      "last_date": "2021-06-22",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2021-06-22",
+          "adsh": "0001857965-21-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1857965/000185796521000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1857965/000185796521000001/0001857965-21-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "20VC Fund II, L.P.",
+      "cik": "0001852410",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2021-06-29",
+      "last_date": "2021-06-29",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2021-06-29",
+          "adsh": "0001852410-21-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1852410/000185241021000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1852410/000185241021000001/0001852410-21-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "20VC Explorer Fund II, L.P.",
+      "cik": "0001852406",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2021-06-29",
+      "last_date": "2021-06-29",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2021-06-29",
+          "adsh": "0001852410-21-000002",
+          "url": "https://www.sec.gov/Archives/edgar/data/1852406/000185241021000002/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1852406/000185241021000002/0001852410-21-000002-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "20VC Fund S-1, L.P.",
+      "cik": "0001886396",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2021-12-07",
+      "last_date": "2021-12-07",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2021-12-07",
+          "adsh": "0001886396-21-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1886396/000188639621000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1886396/000188639621000001/0001886396-21-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "20VC SPV2, a series of SAX Capital Series Fund III, LP",
+      "cik": "0001868708",
+      "forms": {
+        "D/A": 1
+      },
+      "first_date": "2022-02-03",
+      "last_date": "2022-02-03",
+      "filings": [
+        {
+          "form": "D/A",
+          "date": "2022-02-03",
+          "adsh": "0001868708-22-000005",
+          "url": "https://www.sec.gov/Archives/edgar/data/1868708/000186870822000005/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1868708/000186870822000005/0001868708-22-000005-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Fund I, a series of 20Sales, LP",
+      "cik": "0001984365",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2023-07-13",
+      "last_date": "2023-07-13",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2023-07-13",
+          "adsh": "0001984365-23-000002",
+          "url": "https://www.sec.gov/Archives/edgar/data/1984365/000198436523000002/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1984365/000198436523000002/0001984365-23-000002-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Fund I, a series of 20Growth, LP",
+      "cik": "0001994833",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2023-10-03",
+      "last_date": "2023-10-03",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2023-10-03",
+          "adsh": "0001994833-23-000002",
+          "url": "https://www.sec.gov/Archives/edgar/data/1994833/000199483323000002/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1994833/000199483323000002/0001994833-23-000002-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "20VC Fund III, L.P.",
+      "cik": "0001921168",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2024-04-18",
+      "last_date": "2024-04-18",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2024-04-18",
+          "adsh": "0001921168-24-000003",
+          "url": "https://www.sec.gov/Archives/edgar/data/1921168/000192116824000003/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1921168/000192116824000003/0001921168-24-000003-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "20VC Explorer Fund III, L.P.",
+      "cik": "0001921021",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2024-04-18",
+      "last_date": "2024-04-18",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2024-04-18",
+          "adsh": "0001921168-24-000003",
+          "url": "https://www.sec.gov/Archives/edgar/data/1921021/000192116824000003/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1921021/000192116824000003/0001921168-24-000003-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Fund I, a series of 20Product, LP",
+      "cik": "0002010909",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2024-07-22",
+      "last_date": "2024-07-22",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2024-07-22",
+          "adsh": "0002010909-24-000002",
+          "url": "https://www.sec.gov/Archives/edgar/data/2010909/000201090924000002/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/2010909/000201090924000002/0002010909-24-000002-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "20VC Fund S-2, L.P.",
+      "cik": "0002077933",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2025-07-21",
+      "last_date": "2025-07-21",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2025-07-21",
+          "adsh": "0002077933-25-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/2077933/000207793325000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/2077933/000207793325000001/0002077933-25-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "20VC Fund S-4, L.P.",
+      "cik": "0002108560",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2026-02-11",
+      "last_date": "2026-02-11",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2026-02-11",
+          "adsh": "0001231919-26-000131",
+          "url": "https://www.sec.gov/Archives/edgar/data/2108560/000123191926000131/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/2108560/000123191926000131/0001231919-26-000131-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "20VC Fund S-3, L.P.",
+      "cik": "0002108553",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2026-02-11",
+      "last_date": "2026-02-11",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2026-02-11",
+          "adsh": "0001231919-26-000132",
+          "url": "https://www.sec.gov/Archives/edgar/data/2108553/000123191926000132/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/2108553/000123191926000132/0001231919-26-000132-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Fund II, a series of 20Sales, LP",
+      "cik": "0002140140",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2026-06-11",
+      "last_date": "2026-06-11",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2026-06-11",
+          "adsh": "0002140140-26-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/2140140/000214014026000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/2140140/000214014026000001/0002140140-26-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "20VC Fund S-5, L.P.",
+      "cik": "0002107393",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2026-07-14",
+      "last_date": "2026-07-14",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2026-07-14",
+          "adsh": "0001231919-26-000760",
+          "url": "https://www.sec.gov/Archives/edgar/data/2107393/000123191926000760/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/2107393/000123191926000760/0001231919-26-000760-index.htm"
+        }
+      ],
+      "bucket": "own"
+    }
+  ]
+}

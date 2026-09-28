@@ -1,0 +1,195 @@
+{
+ "slug": "20vc",
+ "generated_at": "2026-09-28T22:41:20+00:00",
+ "run": "PRO-76",
+ "fields": {
+  "name": {
+   "value": "20VC",
+   "source": "https://20vc.fund/",
+   "basis": "the firm's own name: '20VC Fund' on its site, '20VC' in its releases and its adviser's name Twenty VC LLP"
+  },
+  "website": {
+   "value": "https://20vc.fund",
+   "source": "https://20vc.fund/",
+   "basis": "the fund's own site (Framer; portfolio at /portfolio, team at /team). The podcast and media business runs at thetwentyminutevc.com as The Twenty Minute VC Ltd, a separate company outside the firm (decisions.md D2)."
+  },
+  "icon_url": {
+   "value": "data/collection/investors/20vc/sources/site/icon-stacked.svg",
+   "source": "sources/site/icon-stacked.svg",
+   "basis": "The source the upload will use (the upload to the Icon Images bucket runs with the ingest, after approval; COLLECTION.md s9). Source chosen by measurement: --discover on 20vc.fund offers only a 32x32 favicon (refused, would be upscaled) and a 1200x630 og:image of the one-line wordmark; the podcast site offers the same pair. The published source is the site's own stacked mark ('20VC' over 'FUND', as its favicon sets it) redrawn from the vector wordmark of the nav logo (sources/site/logo-wordmark.svg, read from the rendered page 2026-09-28; the nine paths hash identical to the site's). Dry run 2026-09-28: svg 90x58 (vector, rendered at 2x); plate synthesized #ffffff behind a bare glyph; safe area 0.677 (box 68%, radius 80%); contrast 16.8:1; ramp 0.80px; nothing uploaded."
+  },
+  "founding_year": {
+   "value": 2020,
+   "source": "https://fortune.com/2021/06/16/harry-stebbings-podcaster-vc-20vc-mit-spotify/",
+   "basis": "'An $8.3 million \"micro\" seed fund that Stebbings began managing under the 20VC name in April 2020' (Fortune, 2021-06-16); the adviser, Twenty VC LLP, was incorporated on 2021-03-02 (Companies House OC435791); the podcast itself dates from 2015 and is the media business, not the firm."
+  },
+  "history": {
+   "value": "20VC was founded in London in 2020 by Harry Stebbings, host of The Twenty Minute VC podcast, with an $8.3 million first fund. It became known for early bets on Clubhouse, Hopin and Lovable, and for leading Tripledot's $116 million Series B. In 2024 it raised $400 million across its third seed fund and a Series A fund.",
+   "source": "https://fortune.com/2021/06/16/harry-stebbings-podcaster-vc-20vc-mit-spotify/",
+   "basis": "founding, city, founder and first fund: Fortune 2021-06-16 ('The London-based 24-year-old'; the $8.3M micro seed fund from April 2020 'has made investments in ... Hopin and social media app Clubhouse, as well as RevenueCat'); Lovable: 'existing investors, which include 20VC' at the July 2025 Series A (TechCrunch, 2025-07-17); Tripledot: 'The round is being led by 20VC', $116M Series B (TechCrunch, 2022-02-14); 2024: 'About $125 million of the fund will be dedicated to seed investments, and $275 million will go to Series A rounds' (TechCrunch, 2024-10-15). Moved to the basis: the second fund pair of 2021 ($33M seed, $107M growth, 'which raised $140 million in 2021'), the SPVs S-1 to S-5, D-1, SPV1 and SPV2, the operator funds 20Growth, 20Product and 20Sales (separate vehicles run by their operator partners, outside the portfolio on this page) and Project Europe (a separate fund)."
+  },
+  "investment_concept": {
+   "value": "\u201c20VC operates at the intersection of venture capital and media.\u201d",
+   "source": "https://20vc.fund/",
+   "basis": "The firm's own statement, verbatim from the homepage headline (set in capitals by the site's CSS; the markup is client-rendered, so it was read in a rendered browser on 2026-09-28). Sentence case, straight text and a closing period are the only edits. Competing lines on the page: the title tag '20VC Fund | The Intersection of Venture Capital and Media' and the meta description '20VC operates at the intersection of venture and media. 20VC invests in early-stage startups targeting large markets with low competition.' Published inside quotation marks, as the firm's own words (Erik, 2026-09-26)."
+  },
+  "investment_stage": {
+   "value": [
+    "Pre-Seed",
+    "Seed",
+    "Series A",
+    "Growth"
+   ],
+   "source": "https://fortune.com/2021/06/16/harry-stebbings-podcaster-vc-20vc-mit-spotify/",
+   "basis": "the firm's own words: 'a $33 million fund will be dedicated to pre-seed and seed investments ... a larger, $107 million fund will target \"growth stage\" startups' (Fortune, 2021-06-16); 'About $125 million of the fund will be dedicated to seed investments, and $275 million will go to Series A rounds' (TechCrunch, 2024-10-15); the team's titles read 'General Partner - Pre-Seed & Seed' and 'Partner - Series A & Growth' (20vc.fund/team). The landed entry distribution is restated in report.md."
+  },
+  "investment_geo": {
+   "value": {
+    "core": [
+     "Europe"
+    ],
+    "other": [
+     "US",
+     "Australia"
+    ]
+   },
+   "source": "https://techcrunch.com/2024/10/15/20vc-closes-new-400m-fund-to-make-europe-great-again-says-harry-stebbings/",
+   "basis": "the 2024 funds' stated focus on European startups (TechCrunch, 2024-10-15: 'will focus on backing startups in the region') and the portfolio on this page by country: Europe 67 (UK 26, France 18, Germany 9 and ten more), US 43 (Fund I of 2020 was US-leaning), Australia 5, Pakistan 2, and four more single companies. Core Europe, other US and Australia."
+  },
+  "investment_scope": {
+   "value": {
+    "type": "Generalist",
+    "focus": [
+     "AI & Applied AI",
+     "Fintech & Payments",
+     "Consumer & Marketplaces"
+    ]
+   },
+   "source": "companies/base.json",
+   "basis": "focus from the firm's own site sector tags on 84 base rows, crosswalked to data/taxonomy/focus.json (crosswalk in config.json), published above 6 companies. Scope type is the curated judgement carried in investor.json."
+  },
+  "investment_range": {
+   "value": {
+    "lower_limit": 250000,
+    "median": 9000000,
+    "upper_limit": 116000000
+   },
+   "source": "companies/base.csv",
+   "basis": "median: $9.0M, the median entry round over the 68 companies whose entry round is cited with a USD size (by stage: Pre-Seed $5.5M over 6, Seed $5.5M over 37, Series A $15.0M over 17, Growth $48.9M over 8). It is a round size, not a cheque size. lower: the firm's own stated minimum cheque, 'pre-seed and seed investments, each totaling between $250,000 to $500,000' (Fortune, 2021-06-16; Fund I wrote $100,000 to $300,000 in 2020, TechCrunch 2020-07-17). upper: the largest round the firm led, Tripledot's $116M Series B (TechCrunch, 2022-02-14), a round size like the median; the Explorer growth cheques were stated at $3M to $5M (Fortune, 2021-06-16) and the largest single-company vehicle, 20VC Fund S-1, sold $55.7M (Form D, November 2021). Rejected: AMI Labs' $1.03B seed as a range end (a syndicated round, 20VC a minor participant)."
+  },
+  "notable_investments": {
+   "value": [
+    "Perplexity",
+    "Lovable",
+    "Clubhouse",
+    "BeReal",
+    "Hopin"
+   ],
+   "source": "companies/base.csv",
+   "slugs": [
+    "perplexity",
+    "lovable",
+    "clubhouse",
+    "bereal",
+    "hopin"
+   ],
+   "basis": "The five best known of the firm's own companies, most recognised first (PRO-152, Erik 2026-09-24): Perplexity and Lovable (named by the firm in its own releases), Clubhouse and Hopin (Fund I, Fortune 2021-06-16) and BeReal (the firm's own list of 2022-2023, and its press line 'portfolio includes companies like Hopin ... Sorare ... and BeReal'). Considered next: Linear, Mercor, Sorare, Poolside, Remote."
+  },
+  "aum": {
+   "value": {
+    "bottom": 602711121,
+    "top": 602711121
+   },
+   "source": "https://adviserinfo.sec.gov/firm/summary/316359",
+   "basis": "both ends: the sworn Form ADV Section 7.B(1) gross asset values of the firm's only adviser, Twenty VC LLP (CRD 316359, SEC 802-122639; London; exempt reporting adviser, FCA-registered), annual amendment of 2025-06-17: six private funds, $602,711,121 in all (Explorer Fund III $276,103,289; Fund III $125,501,224; Explorer Fund II $97,197,156; S-1 $63,971,663; Fund II $37,068,827; D-1 $2,868,962; the six sum to the roster total to the dollar). An exempt reporting adviser files no Item 5.F, so the 7.B composite is both ends. Not in it: Fund I, a series of 20Growth/20Product/20Sales, LP (reported under Section 7.B(2) by AngelList Advisors), and the SPVs S-2 to S-5 formed after the amendment (Form D sales $12.2M, $10.06M, $6.49M and $10.05M, 2025-07 to 2026-06). Press 'about $650 million' figures sit above the sworn number and are not used."
+  },
+  "funds": {
+   "value": [
+    {
+     "name": "20VC Explorer Fund III",
+     "size": 275000000,
+     "vintage": 2024
+    },
+    {
+     "name": "20VC Fund III",
+     "size": 125000000,
+     "vintage": 2024
+    },
+    {
+     "name": "20VC Explorer Fund II",
+     "size": 107000000,
+     "vintage": 2021
+    },
+    {
+     "name": "20VC Fund II",
+     "size": 33000000,
+     "vintage": 2021
+    },
+    {
+     "name": "20VC Fund I",
+     "size": 8300000,
+     "vintage": 2020
+    }
+   ],
+   "source": "https://techcrunch.com/2024/10/15/20vc-closes-new-400m-fund-to-make-europe-great-again-says-harry-stebbings/",
+   "basis": "sizes as the firm announced them: Fund III $125M (seed) and Explorer Fund III $275M (Series A), one $400M close in 2024 (TechCrunch, 2024-10-15; one co-issued Form D of $400M, first sale 2024-04-18, CIKs 1921168 and 1921021); Fund II $33M (pre-seed and seed) and Explorer Fund II $107M (growth), 2021 (Fortune, 2021-06-16; Form Ds, first sale 2021-06-14, CIKs 1852410 and 1852406); Fund I $8.3M, 2020 (Fortune; it filed as 'Fund I, a series of 20VC, LP', CIK 1808687, $2.08M sold to 28 investors on its first Form D). Counted, not listed: the single-deal and co-investment vehicles 20VC Fund S-1 to S-5, D-1, SPV1 and SPV2 (Form D, 2021-2026). No accession is asserted: the fund Form Ds report offering-level sales that do not map one to one to these sizes."
+  },
+  "hq_location": {
+   "value": "London, United Kingdom",
+   "source": "sources/offices.json",
+   "basis": "Principal office on the newest Form ADV: 16 Berkeley Mews, London, United Kingdom (TWENTY VC LLP, CRD 316359, Annual Amendment filed 2025-06-17). The firm's site names no office in its served pages (2 checked), so the Form ADV stands. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+   "sources": [
+    {
+     "source": "Form ADV Item 1.F and Schedule D 1.F, TWENTY VC LLP (Annual Amendment filed 2025-06-17)",
+     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/316359/PDF/316359.pdf"
+    }
+   ]
+  },
+  "individuals": {
+   "value": [
+    {
+     "name": "Alexandre Dewez",
+     "position": "Partner - Series A & Growth",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/alexandre-dewez/",
+      "x_url": "https://x.com/alexandre_dewez"
+     }
+    },
+    {
+     "name": "Harry Stebbings",
+     "position": "Founder",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/harrystebbings/",
+      "x_url": "https://x.com/HarryStebbings"
+     }
+    },
+    {
+     "name": "Julien Codorniou",
+     "position": "General Partner - Pre-Seed & Seed",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/julien/",
+      "x_url": "https://x.com/codorniou"
+     }
+    },
+    {
+     "name": "Kieran Hill",
+     "position": "General Partner - Pre-Seed & Seed",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/kieranleehill/",
+      "x_url": "https://x.com/Kieranleehill"
+     }
+    },
+    {
+     "name": "Paul Bonnet",
+     "position": "General Partner - Series A & Growth",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/bonnetpaul/",
+      "x_url": "https://x.com/P_Bonnet"
+     }
+    }
+   ],
+   "source": "sources/site/team.json",
+   "basis": "Live team CMS: 5 members. Positions are CMS titles (5 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 0 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 5 LinkedIn, 5 X."
+  }
+ }
+}
