@@ -14,9 +14,24 @@
       "basis": "The firm's site (Webflow: portfolio grid at /portfolio, company pages at /companies/<slug>, the marketing-rule list at /list, posts at /stories, team at /team)."
     },
     "icon_url": {
-      "value": "https://cdn.prod.website-files.com/69df4e62ff62d7b5568fc58b/6a16ee532ff7f5b53d83064a_GC.svg",
+      "value": "https://lsohkkmdlrlixukuncjl.supabase.co/storage/v1/object/public/Icon%20Images/investors/general-catalyst-58d4b02cda.png",
       "source": "https://cdn.prod.website-files.com/69df4e62ff62d7b5568fc58b/6a16ee532ff7f5b53d83064a_GC.svg",
-      "basis": "source chosen by measurement (fetch-investor-icon.ts --discover, 2026-09-27): the site's own GC symbol, a vector (179x180 intrinsic), found as a logo <img>; the favicons are 32 to 512 px rasters of the same symbol (the 512 px usable, the rest marginal or would be enlarged) and the wordmark is 312x40. Dry run 2026-09-27: 256 px master on a synthesized white plate (the source is 60% transparent), artwork box 64%, radius 80%, contrast 19.0:1, ramp 0.81 px; preview at sources/site/icon-256.png. The bucket URL replaces this at ingest, after Erik's approval."
+      "basis": "fetched 2026-09-28 by scripts/fetch-investor-icon.ts from https://cdn.prod.website-files.com/69df4e62ff62d7b5568fc58b/6a16ee532ff7f5b53d83064a_GC.svg: svg 179x180 (vector, rendered at 2x), 164px in the 256px master (1.00x); plate: synthesized #ffffff behind a bare glyph (source was 60% transparent); safe area: artwork scaled 0.640 (box 100%→64%, radius 125%→80%); master 256x256 opaque-plate rgb(252,252,252) opaque=100% box=64% radius=80% contrast=19.0:1 ramp=0.81px",
+      "provenance": {
+        "source_url": "https://cdn.prod.website-files.com/69df4e62ff62d7b5568fc58b/6a16ee532ff7f5b53d83064a_GC.svg",
+        "format": "svg",
+        "width": 179,
+        "height": 180,
+        "vector": true,
+        "artwork_source_px": null,
+        "artwork_master_px": 164,
+        "upscale": 1,
+        "ramp_px": 0.81,
+        "master_size": 256,
+        "fetched": "2026-09-28",
+        "allow_upscale": false,
+        "allow_low_contrast": false
+      }
     },
     "founding_year": {
       "value": 2000,
@@ -29,7 +44,7 @@
       "basis": "Founding (2000, Cambridge, Joel Cutler and David Fialkow): Wikipedia and the firm's team pages. Bets: Kayak, hatched with the founders in 2004 (the firm's post 'Hatching Success'; 30.0% before the 2012 IPO, S-1); HubSpot's 2007 Series A; Airbnb's 2011 round; Stripe's 2012 Series B, which it led (TechCrunch 2012-07-09); Snap from 2013; Anduril from 2017 (the firm's grid). Fund XII: 'raises $8 bn' (VCCircle and Fortune, 2024-10-24/25). BOUNDARY (decisions.md D3, D4, D6): buyouts, AI-enabled roll-ups and HATCo's hospital purchase are control positions and are left out; money from the Customer Value Fund, which takes a share of revenue instead of shares, is not a venture entry and is left out; La Famiglia (combined 2023) and Venture Highway (combined 2024) count from their combination dates (D8). Nothing true dropped: the fund ladder, the Creation and Customer Value strategies and GC Wealth live in the funds and aum bases."
     },
     "investment_concept": {
-      "value": "\u201cGeneral Catalyst is a global investment and transformation company that partners with the world's most ambitious entrepreneurs to drive resilience and applied AI.\u201d",
+      "value": "“General Catalyst is a global investment and transformation company that partners with the world's most ambitious entrepreneurs to drive resilience and applied AI.”",
       "source": "https://www.generalcatalyst.com/",
       "basis": "The firm's own statement, read off the homepage on 2026-09-27: the meta description, 'General Catalyst is a global investment and transformation company that partners with the world's most ambitious entrepreneurs to drive resilience and applied AI.' The title tag reads only 'General Catalyst' and the headlines rotate stories ('Quadrupling down on Anthropic', 'A Blueprint for Healthcare Transformation', 'Rethinking Venture in an Era of Concentration'), so the meta description is the first line that says what the firm does; set with straight quotes and one closing period."
     },
@@ -367,7 +382,7 @@
           }
         },
         {
-          "name": "Jeannette zu F\u00fcrstenberg",
+          "name": "Jeannette zu Fürstenberg",
           "position": "President & Managing Director",
           "socials": {
             "linkedin_url": "https://www.linkedin.com/in/jeannette-zu-f%C3%BCrstenberg-a4227a17a/",

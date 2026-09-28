@@ -282,3 +282,24 @@ personal Gmail address in its User-Agent header, contrary to the rule that the a
 only to identify him. The repo's own scripts send the Merit Capital research address
 (`scripts/edgar_common.py`); every later agent prompt in this run forbade personal identifiers
 in requests, and no other request carried it.
+
+## 16. Ingest 2026-09-28 (Erik's approval, third prompt)
+
+Erik answered the open rulings and approved: "keep 1. considerations out, mark as same companies
+on 2., approve on 3., keep both 4., ingest afterwards". The rulings went in first (decisions.md
+E1 to E4, rebuild 6, plain `verify` clean on 1,933 rows, committed 826ffd8). Then, in the order
+for a first-time investor:
+
+| Step | Result |
+|---|---|
+| Icon upload | `investors/general-catalyst-58d4b02cda.png` in the Icon Images bucket (the site's GC.svg vector, white plate, contrast 19.0:1, ramp 0.81 px, no enlargement) |
+| `ingest-investor.ts general-catalyst` | 1 investor row upserted |
+| `ingest-companies.ts general-catalyst --dry-run` | Plan: 1,933 upserted (1,933 new), 0 removed, from 0 live |
+| `ingest-companies.ts general-catalyst` | 1,933 of 1,933 upserted |
+| Readback (`scratch/readback.ts`) | csv 1,933, live 1,933, missing 0, differing cells 0 |
+
+The database derived from the rows: 1,933 companies, 29 public, 143 at $1B and above, 34 at
+$10B and above, 4 at $100B and above, and S2A 67.2% on a cohort of 122 (184 seed entries, 62
+censored). The readback script now pages through the rows: PostgREST returns 1,000 per request,
+so the first read showed 1,000 live rows for a book of 1,933 (Insight's 800 never reached the
+cap). Section 9's items 5 to 8 stand as reported.
