@@ -226,7 +226,7 @@ EarnIn, LendingHome to Kiavi, SaltPay to Teya, Sling Money to Morse Money, IBOD 
 
 ## 12. Usage line
 
-Close (2026-09-28, ~22:45 UTC, Opus 5.5): the weekly and five-hour percentages are not readable from this
+Close (2026-09-28, ~22:15 UTC, Opus 5.5): the weekly and five-hour percentages are not readable from this
 session. Web searches: about 75 of the 200 cap, subagents included (the four batch judges, the blind judge's
 12 and this session's). Subagents: 4 classification judges, 1 blind judge.
 

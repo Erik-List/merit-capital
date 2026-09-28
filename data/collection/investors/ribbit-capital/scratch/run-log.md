@@ -67,7 +67,7 @@ Usage line: weekly / Fable percentages not readable from this session; record at
 - decisions.md: kickoff text corrected (SPVs do file Form Ds; 40% non-US); R1 token-cap banding (OPEN), R2 Caret (OPEN), R3, R4.
 - WebSearch used this session: ~64 (plus the blind judge's up to 12).
 
-## CLOSE 2026-09-28 ~22:45Z
+## CLOSE 2026-09-28 ~22:15Z
 - Blind 5% (9 rows): 52/54 cells agree; Privy -> Growth, Teya keeps $1B on Sifted; both `unstable`. Duty 9: Lighter -> Growth.
 - IA gap fetch STOPPED before it fired (BCV: the first request after a cooldown doubles the machine-wide block; Sutter Hill
   and 20VC active). ForUsAll decided on its own release (Ribbit led the $21M second round, Jan 2018): member, Growth.
