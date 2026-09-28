@@ -203,3 +203,19 @@ Celestia's country accepted as open):
 2. `npx tsx scripts/ingest-investor.ts bain-capital-ventures`
 3. `npx tsx scripts/ingest-companies.ts bain-capital-ventures --dry-run`, read the list (a first
    ingest removes nothing), then the same without `--dry-run`: 416 companies.
+
+## Ingest 2026-09-28 (Erik's approval, third prompt)
+
+Erik's third prompt: "rm Mynd, Boon, Swift, daVinci, Onbe if not verified to be a venture investment; afterwards ingest".
+The five rows were ruled out (section 9, item 7), the base rebuilt clean at 414, plain `verify` rerun (the one known
+item: Celestia's country), then, in order:
+
+| Step | Result |
+|---|---|
+| `fetch-investor-icon.ts bain-capital-ventures <512px manifest icon>` | Uploaded `investors/bain-capital-ventures-e820755ddb.png` (9,720 bytes); `icon_url` now the bucket URL |
+| `ingest-investor.ts bain-capital-ventures` | 1 investor row upserted ("Canada" added to the open geography vocabulary) |
+| `ingest-companies.ts bain-capital-ventures --dry-run` | 414 new, 0 removed, from 0 live |
+| `ingest-companies.ts bain-capital-ventures` | Upserted 414/414; `public.companies` holds 414 rows for the investor |
+
+Celestia's country is published empty until Liechtenstein is added to `scripts/run.py`'s ISO table and the row is
+re-recorded (a one-row re-ingest). Prompt count: **3, final**.
