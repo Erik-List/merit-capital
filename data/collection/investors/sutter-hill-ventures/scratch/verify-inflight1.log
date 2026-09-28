@@ -1,0 +1,36 @@
+membership      : 301 verdicts, 0 uncertain, 0 unjudged, 45 not_member awaiting rebuild
+duplicate companies (same SEC registrant): 4 groups
+  note: sibling 20vc in flight; not compared
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+  note: sibling ribbit-capital in flight; not compared
+cross-investor  : 103 rows shared with other investors, 91 agree, 2 accepted, 10 disagree; 2 unnameable rows not compared
+rows            : 301
+classified      : 262
+$1B+ / $10B+ / $100B+ : 17 / 6 / 2
+identity        : 2 unnameable rows, excluded from every metric
+stage unknown   : 171 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'Healthcare & Bio': 68, 'Data Infrastructure': 47, '(outside taxonomy)': 46, 'SaaS': 41, 'Media, Gaming & Advertising': 28, 'Industrial & Robotics': 24, 'Consumer & Marketplaces': 14, 'Fintech & Payments': 12, 'Security': 9, 'DevTools & APIs': 5, 'AI & Applied AI': 3, 'Climate & Energy': 2}
+hq_city         : 88 distinct, 236/301 filled, 18 recorded unknown; top {'San Francisco': 17, 'Mountain View': 14, 'San Jose': 13, 'Santa Clara': 12, 'Palo Alto': 11, 'Redwood City': 10, 'Sunnyvale': 10, 'Menlo Park': 9}
+valuation_range : {'below_1b': 240, None: 42, '1b_plus': 11, '10b_plus': 4, '100b_plus': 2}
+entry_stage     : {'Series A': 55, 'Growth': 33, None: 21, 'Seed': 16, 'Pre-Seed': 3}
+S2A             : 16 seed entries, 0 censored; cohort 2, graduated 2, not graduated 0, rate 100.0%, coverage 12.5%; 14 still open
+
+15 problem(s):
+  - known positions missing: ['portola pharmaceuticals']
+  - absorbed/rejected slug in published base: ['cogine-inc', 'eloyalty', 'mandelbrot-project-inc', 'novoglia-inc', 'paragon-management-systems']
+  - astera-labs-inc: public $1B+ row without a cited market cap
+  - corcept-therapeutics: public $1B+ row without a cited market cap
+  - nvidia: $1B+ row without cited/structural entry stage and no cite_pending marker
+  - cross-investor ARUBA NETWORKS, INC.: sutter-hill-ventures:aruba-networks-inc acquired/None (asof 2014-01-31) vs sequoia-capital:aruba acquired/below_1b (asof 2014-01-31); freshest sutter-hill-ventures:aruba-networks-inc
+  - cross-investor Ameritox: sutter-hill-ventures:ameritox acquired/below_1b (asof -) vs sequoia-capital:ameritox private/below_1b (asof -); freshest sutter-hill-ventures:ameritox
+  - cross-investor Banyan Systems: sutter-hill-ventures:banyan-systems acquired/below_1b (asof -) vs greylock:banyan-systems-incorporated defunct/below_1b (asof -); freshest sutter-hill-ventures:banyan-systems
+  - cross-investor Benu Networks Inc.: sutter-hill-ventures:benu-networks-inc acquired/below_1b (asof -) vs spark-capital:benu private/below_1b (asof -); freshest sutter-hill-ventures:benu-networks-inc
+  - cross-investor Forte Software: sutter-hill-ventures:forte-software acquired/below_1b (asof -) vs a16z:forte private/1b_plus $1.00B (asof 2021-05); freshest a16z:forte
+  - cross-investor Forte Software: sutter-hill-ventures:forte-software acquired/below_1b (asof -) vs a16z:forte-labs-inc private/1b_plus $1.00B (asof 2021-11); freshest a16z:forte-labs-inc
+  - cross-investor Forte Software: sutter-hill-ventures:forte-software acquired/below_1b (asof -) vs battery-ventures:forte private/1b_plus $1.00B (asof 2021-05); freshest battery-ventures:forte
+  - cross-investor JAMBA, INC.: sutter-hill-ventures:jamba-inc acquired/None (asof 2017-07-04) vs benchmark:jamba-juice acquired/below_1b (asof 2017-07-04); freshest sutter-hill-ventures:jamba-inc
+  - cross-investor JUNIPER NETWORKS INC: sutter-hill-ventures:juniper-networks-inc acquired/None (asof 2011-08-19) vs benchmark:juniper-networks acquired/below_1b (asof 2011-08-19); freshest sutter-hill-ventures:juniper-networks-inc
+  - cross-investor JUNIPER NETWORKS INC: sutter-hill-ventures:juniper-networks-inc acquired/None (asof 2011-08-19) vs ivp:juniper-networks acquired/below_1b (asof 2011-08-19); freshest sutter-hill-ventures:juniper-networks-inc

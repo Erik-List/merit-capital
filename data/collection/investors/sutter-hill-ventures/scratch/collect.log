@@ -1,0 +1,34 @@
+targets: 20 roster names
+wrote /Users/erik/Developer/merit-capital/data/collection/investors/sutter-hill-ventures/sources/edgar/formd-sweep.json
+# accessions matched: 593
+# distinct issuers: 245
+== seeding from EDGAR company search
+   6 entities
+== folding in own pooled Form D vehicles
+   +17 (total 23)
+== co-filer closure (sampling filings of seed entities)
+   35 entities
+   unclassified resolved: 9 partners (people), 3 external co-filers excluded from crawling
+
+wrote data/collection/investors/sutter-hill-ventures/entities.json — 35 entities
+  by desk: {'external': 20, 'shv': 15}
+  crawlable (desk != external): 15
+registry: 35 entities · {'external': 20, 'shv': 15}
+crawling 15 (external excluded)
+unique ownership filings: 1493
+  headers 250/1493 · 17 companies
+  headers 500/1493 · 20 companies
+  headers 750/1493 · 23 companies
+  headers 1000/1493 · 30 companies
+  headers 1250/1493 · 34 companies
+
+wrote edgar-companies.json — 42 companies
+  by desk: {'shv': 42}
+
+==== formd-query.py
+
+==== edgar-entities.py
+
+==== edgar-companies.py
+
+no base.json yet — the Form D rescan (formd-issuer-rounds.py) runs via `prepare` after build-company-base.py

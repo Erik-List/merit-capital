@@ -1,0 +1,65 @@
+export refused: 4 Seed row(s) without a decided graduation status (connection-engine, xios-therapeutics, boxer, freestyle-software-inc); a Seed row is graduated, not_graduated or censored (PRO-132). Judge them (prepare queues them), then export.
+recall additions injected: 20
+pooled fund vehicles dropped: 26 issuers (68 filings)
+initial-only person matches ignored: 0 issuers (0 attributions)
+non-portfolio industry, Form D-only (15 dropped):
+    - 838 Oak Street LLC [Residential]
+    - 8600 AR LLC [Residential]
+    - Anderson Bancshares Inc. [Commercial Banking]
+    - Avenue Financial Holdings, Inc. [Commercial Banking]
+    - Betto, Inc. [Other Banking and Financial Services]
+    - Cambury Apartments LLC [Residential]
+    - Cole Power, LLC. [Other Real Estate]
+    - FPB FINANCIAL CORP [Commercial Banking]
+    - Independent Bank Group, Inc. [Commercial Banking]
+    - Lakeshore Apartments, LLC [Residential]
+    - One Pine Apartments, LLC [Residential]
+    - Patrons Holdings, Inc. [Other Banking and Financial Services]
+    - SUPERIOR BANCORP [Commercial Banking]
+    - Spin Move, LLC [Investing]
+    - UNITED COMMUNITY FINANCIAL CORP [Commercial Banking]
+    - AT ROAD INC (personal Section 16 filing only)
+    - Aviza Technology, Inc. (personal Section 16 filing only)
+    - BAKBONE SOFTWARE INC (personal Section 16 filing only)
+    - COPPER MOUNTAIN NETWORKS INC (personal Section 16 filing only)
+    - DIONEX CORP /DE (personal Section 16 filing only)
+    - Intermix Media, Inc. (personal Section 16 filing only)
+    - Macondray Capital Acquisition Corp. I (personal Section 16 filing only)
+    - SIEBEL SYSTEMS INC (personal Section 16 filing only)
+    - Workday, Inc. (personal Section 16 filing only)
+removed (partner's personal board seat, no fund position): 9
+tenure mismatch flagged: 78 rows
+removed (ex-partner is the only evidence): 77
+    - 563 Systems, LLC — James White last on site 2017, filing 2023 (6y after)
+    - AIKO BIOTECHNOLOGY INC — David Anderson last on site 2005, filing 2009 (4y after)
+    - ActualMeds Corp — David Anderson last on site 2005, filing 2015 (10y after)
+    - American Bridge Education Services LLC — David Anderson last on site 2005, filing 2015 (10y after)
+    - AnaBios Corp — David Anderson last on site 2005, filing 2022 (17y after)
+    - Aquabyte, Inc. — Greg Sands last on site 2013, filing 2022 (9y after)
+    - Auterion Group Inc. — Greg Sands last on site 2013, filing 2025 (12y after)
+    - Avidian Gold Corp. — David Anderson last on site 2005, filing 2021 (16y after)
+    - BASANITE, INC. — David Anderson last on site 2005, filing 2019 (14y after)
+    - Bay1, Inc. — Greg Sands last on site 2013, filing 2020 (7y after)
+    - Beacon AI, Inc. — Gregory Sands last on site 2013, filing 2024 (11y after)
+    - Bugcrowd Inc. — Greg Sands last on site 2013, filing 2020 (7y after)
+    … and 65 more
+verification ledger: 46 excluded, 1 control positions excluded, 0 uncertain kept
+duplicate name-variants merged: 22; kept separate (co-listed or differing CIK): 1
+identity overlay: 23 duplicate rows merged, 0 rejected, 0 desk reassignments
+excluded.json: 47 rows ({'not_member': 46, 'control_position': 1})
+rows renamed by the rebuild: 4
+    acacia-venture-partners -> acacia
+    biovest -> biovest-partners
+    idexx-laboratories-inc -> idexx
+    quinstreet-inc -> quinstreet
+    classification.json: 2 re-keyed
+    resolved.json: 4 re-keyed
+    membership-ledger.json: 4 re-keyed
+Traceback (most recent call last):
+  File "/Users/erik/Developer/merit-capital/scripts/build-company-base.py", line 1089, in <module>
+    main()
+  File "/Users/erik/Developer/merit-capital/scripts/build-company-base.py", line 1076, in main
+    subprocess.run([sys.executable, str(Path(__file__).parent / "run.py"),
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/usr/local/bin/python3', '/Users/erik/Developer/merit-capital/scripts/run.py', 'export', '--investor', 'sutter-hill-ventures']' returned non-zero exit status 1.

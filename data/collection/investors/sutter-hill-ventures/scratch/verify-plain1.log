@@ -1,0 +1,24 @@
+membership      : 337 verdicts, 0 uncertain
+stale classification keys: 9 (earlier base versions)
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+cross-investor  : 111 rows shared with other investors, 105 agree, 5 accepted, 1 disagree; 3 unnameable rows not compared
+rows            : 274
+classified      : 274
+$1B+ / $10B+ / $100B+ : 18 / 7 / 2
+identity        : 3 unnameable rows, excluded from every metric
+stage unknown   : 177 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'Healthcare & Bio': 68, 'Data Infrastructure': 51, 'SaaS': 44, 'Industrial & Robotics': 29, 'Media, Gaming & Advertising': 25, 'Consumer & Marketplaces': 17, 'Fintech & Payments': 13, 'Security': 9, 'DevTools & APIs': 7, 'AI & Applied AI': 4, 'Climate & Energy': 3, '(outside taxonomy)': 1}
+hq_city         : 90 distinct, 251/274 filled, 20 recorded unknown; top {'San Francisco': 21, 'Palo Alto': 15, 'Mountain View': 15, 'San Jose': 14, 'Redwood City': 12, 'Sunnyvale': 12, 'Santa Clara': 11, 'Menlo Park': 10}
+valuation_range : {'below_1b': 253, '1b_plus': 11, '10b_plus': 5, '100b_plus': 2}
+entry_stage     : {'Series A': 51, 'Growth': 34, 'Seed': 9}
+S2A             : 9 seed entries, 1 censored; cohort 8, graduated 4, not graduated 4, rate 50.0%, coverage 100.0%
+  the nos rest on: Form D absence 3, a cited end 0, the absence test 1
+
+4 problem(s):
+  - known positions missing: ['idexx']
+  - base rebuilt since prepare: 9 resolved slugs no longer in the base, 0 base rows unresolved; re-run prepare
+  - cross-investor Linear Technology Corporation: sutter-hill-ventures:linear-technology-corporation acquired/below_1b (asof -) vs 20vc:linear private/1b_plus $1.25B (asof 2025-06-10); freshest 20vc:linear
+  - profile notable_investments: investor/sources.json value differs from investor.json

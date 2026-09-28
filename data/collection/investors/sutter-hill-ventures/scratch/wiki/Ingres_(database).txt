@@ -1,0 +1,211 @@
+Ingres Database ( ing-GRESS) is a proprietary SQL relational database management system intended to support large commercial and government applications.
+In its early years, Ingres was an important milestone in the history of database development. Ingres began as a research project at UC Berkeley, starting in the early 1970s and ending in 1985. During this time Ingres remained largely similar to IBM's seminal System R in concept; it differed in more permissive licensing of source code, in being based largely on DEC machines, both under
+UNIX and VAX/VMS, and in providing QUEL as a query language instead of SQL. QUEL was considered at the time to run truer to Edgar F. Codd's relational algebra (especially concerning composability), but SQL was easier to parse and less intimidating for those without a formal background in mathematics.
+When ANSI preferred SQL over QUEL as part of the 1986 SQL standard (SQL-86), Ingres became less competitive against rival products such as Oracle until future Ingres versions also provided SQL. Many companies spun off of the original Ingres technology, including Actian itself, originally known as Relational Technology Inc., and the NonStop SQL database originally developed by Tandem Computers but now offered by Hewlett Packard Enterprise.
+
+
+== History ==
+Ingres began as a research project at the University of California, Berkeley, starting in the early 1970s and ending in 1985. The original code, like that from other projects at Berkeley, was available at minimal cost under a permissive license. Ingres spawned a number of commercial database applications, including Sybase, Microsoft SQL Server, NonStop SQL and a number of others.
+Postgres (Post Ingres), a project which started in the mid-1980s, later evolved into PostgreSQL. It is ACID compatible and is fully transactional (including all DDL statements) and is part of the Lisog open-source stack initiative.
+
+
+=== 1970s ===
+In 1973 when the System R project led by Edgar Codd was getting started at IBM, the research team released a series of papers describing the system they were building. Two scientists at Berkeley, Michael Stonebraker and Eugene Wong, became interested in the concept after reading the papers, and started a relational database research project of their own.
+They had already raised money for researching a geographic database system for Berkeley's economics group, which they called Ingres, for Interactive Graphics Retrieval System. They decided to use this money to fund their relational project instead, and used this as a seed for a new and much larger project. They decided to re-use the original project name, and the new project became University INGRES. For further funding, Stonebraker approached the DARPA, the obvious funding source for computing research and development at the time, but both the DARPA and the Office of Naval Research (ONR) turned them down as they were already funding database research elsewhere. Stonebraker then introduced his idea to other agencies, and, with help from his colleagues he eventually obtained modest support from the NSF and three military agencies: the Air Force Office of Scientific Research, the Army Research Office, and the Naval Electronic Systems Command.
+Thus funded, Ingres was developed during the mid-1970s by a rotating team of students and staff. Ingres went through an evolution similar to that of IBM System R, with an early prototype in 1974 followed by major revisions to make the code maintainable. Ingres was then disseminated to a small user community, and project members rewrote the prototype repeatedly to incorporate accumulated experience, feedback from users, and new ideas. The research project ended in 1985.
+
+
+=== Commercialization (1980s) ===
+Ingres remained largely similar to IBM's System R in concept, but it was based largely on DEC machines running
+Unix. Unlike System R, Ingres benefited from Unix's growing popularity and was available for free; source code was available (on tape) for a nominal fee. By 1980 some 1,000 copies had been distributed, primarily to universities. Many students from Berkeley and other universities who used the Ingres source code worked on various commercial database software systems.
+Many asked when Ingres would become a commercial product. After hearing that Larry Ellison was comparing the Oracle Database to Ingres, the project formed a commercial company, borrowed university computers in exchange for a free license, and ported the database from Unix to VAX VMS. The first product release occurred in early 1981; among the customers were DEC and Schlumberger. Demand for the VMS version was so much stronger than on Unix that the company neglected the latter and had to port the software back to it.
+Berkeley students Jerry Held and later Karel Youseffi moved to Tandem Computers, where they built a database system that evolved into NonStop SQL. The Tandem database system was a re-implementation of the Ingres technology. It evolved into a system that ran effectively on parallel computers; that is, it included functionality for distributed data, distributed execution, and distributed transactions (the last being fairly difficult). Components of the system were first released in the late 1970s. By 1989, the system could run queries in parallel and the product became fairly famous for being one of the few systems that scales almost linearly with the number of processors in the machine: adding a second CPU to an existing NonStop SQL server will almost exactly double its performance. Tandem was later purchased by Compaq, which started a re-write in 2000, and now the product is at Hewlett-Packard Enterprise.
+In the early 1980s, Ingres competed head-to-head with Oracle, but IBM's endorsement of SQL benefited Oracle. The two products were widely regarded as the leading hardware-independent relational database implementations; they had comparable functionality, performance, market share, and pricing, and many commentators considered Ingres to be a (perhaps marginally) superior product. From around 1985, however, Ingres steadily lost market share. One reason was Oracle's aggressive marketing; another was the increasing recognition of SQL as the preferred relational query language. Ingres originally had provided a different language, QUEL, and the conversion to SQL (delivered in Ingres version 6) took about three years, losing valuable time in the race.
+Robert Epstein, the chief programmer on the project while he was at Berkeley, formed Britton Lee, Inc. along with other students from the Ingres Project, Paula Hawthorn and Michael Ubell; they were joined later by Eric Allman. Later, Epstein founded Sybase. Sybase had been the #2 product (behind Oracle) for some time through the 1980s and into the 1990s, before Informix came "out of nowhere" and took over in 1997. Sybase's product line had also been licensed to Microsoft in 1992, who rebranded it as Microsoft SQL Server. This relationship soured in the late 1990s, and today SQL Server outsells Sybase by a wide margin.
+
+
+=== Relational Technologies, Inc. (RTI) ===
+Several companies used the Ingres source code to produce products. The most successful was a company named Relational Technology, Inc. (RTI), founded in 1980 by Stonebraker and Wong, and another Berkeley professor, Lawrence A. Rowe. RTI was renamed Ingres Corporation in the late 1980s. The company ported the code to DEC VAX/VMS, which was the commercial operating system for DEC VAX computers. They also developed a collection of front-end tools for creating and manipulating databases (e.g., reporterwriters, forms entry and update, etc.) and application development tools. Over time, much of the source was rewritten to add functionality (for example, multiple-statement transactions, SQL, B-tree access method, date/time datatypes, etc.) and improve performance (for example, compiled queries, multithreaded server).
+Project Jewel was an early prototype of abstract data types. Ingres was the first database to be certified as a "Rainbow Book" B2 certified database, as such it was adopted by the US National Laboratories (Los Alamos, Livermore, Sandia) for storage for the design of nuclear weapons. It was also deployed by the CIA. Support needs for highly classified air gapped systems led to the creation of an Expert System for problem resolution hosted on the DARPA network.
+After DEC withdrew from a planned investment in Ingres, the company was purchased by ASK Corporation in November 1990.  The founders left the company over the next several months.
+
+
+=== Computer Associates ===
+
+In 1994, ASK/Ingres was purchased by Computer Associates.
+In February 2000, Computer Associates announced the general availability of Ingres II 2.0 for Linux. Besides the components found in the SDK, the full edition contains more modules, such as:
+
+Net: this component makes possible for Ingres utilities and user applications to access databases residing on different installations.
+Replicator: support for replication functions.
+Star: for handling distributed databases.
+Enterprise Access: communication with different database management systems and other, non-relational data sources (used to be called Gateways).
+Protocol Bridge: for communicating with clients on different types of networks.
+Spatial Object Library: for handling two-dimensional spatial objects.
+Ingres versions 6.4 and Ingres II have long been a commonly used database management system (DBMS), mainly in data center operations at universities and other public bodies. For a while, it was still able to resist Oracle's dominance due to low licensing costs.
+In addition to the low license fees, Ingres II had the advantage of lower resource requirements over Oracle, for example, which is why it could also be used on smaller machines. Disadvantages were the more difficult usability, the lower number of platforms on which this system ran and fewer Ingres-capable applications.
+On the grounds that the performance of Ingres was comparable to that of other large DBMSes, Computer Associates raised the license fees sharply, thereby losing a key advantage over Oracle. Insufficient marketing by Computer Associates and the resulting lack of sales as well as a lack of IT technicians who master this system and who could be called on when necessary were partly responsible for a decline in marketshare. As a result, Ingres installations were increasingly replaced by Oracle implementations (only about 15,000 installations worldwide in 2004).
+In 2004, Computer Associates (CA) released Ingres R3 under CA Trusted Open Source License (CATOSL), an open source license. The code includes the DBMS server and utilities and the character-based front-end and application-development tools.  In essence, it shipped everything except OpenROAD, the Windows 4GL GUI-based development environment.
+
+
+=== Ingres Corporation ===
+In November 2005, Garnett & Helfrich Capital, in partnership with Computer Associates, created a new company called Ingres Corporation, which provided support and services for Ingres, OpenROAD, and the connectivity products.
+In February 2006, Ingres Corporation released Ingres 2006 under the GNU General Public Licence.
+Ingres 9.3 was released on October 7, 2009. It was a limited release targeted at new application development on Linux and Windows only.
+The company focused on the open-source community, with the following initiatives:
+
+Community Bundles – Alliances with other open-source providers and projects, such as Alfresco, JasperSoft, Hibernate, Apache Tomcat, and Eclipse, enable Ingres to provide its platform and technology with other open-source technologies.
+Ingres Icebreaker BI: in 2007, Ingres Corporation partnered with Jaspersoft and rPath start-up to release this business intelligence software based appliance. It consisted of the Ingres 2006 database with rPath Linux and business intelligence tools from JasperSoft. Although it included no hardware, Ingres called it an appliance because all the components of the software stack were tightly integrated and the company supported all the software itself.
+Ingres CAFÉ (Consolidated Application Foundation for Eclipse), created by a team of developers at Carleton University, is an integrated environment that helps software architects accelerate and simplify Java application development.
+Ingres Geospatial was community-based project to create industry-standards-compliant geospatial storage features in the Ingres DBMS. In other words, for storing map data and providing powerful analysis functions within the DBMS.
+Established by Ingres and Carleton University, a series of Open Source Boot Camps were held in 2008 to work with other open-source communities and projects to introduce university and college students and staff to the concepts and realities of open source.
+Other involvement includes: Global Ingres University Alliances, Ingres Engineering Summit, Ingres Janitors Project and several memberships in open-source initiatives.
+Ingres 10 was released on October 12, 2010,  as a full release, supporting upgrade from earlier versions of the product. It was available on 32-bit and 64-bit Linux, and 32-bit Microsoft Windows.
+In November 2010 Garnett & Helfrich Capital acquired the last 20% of equity in Ingres Corp that it did not already own.
+
+
+=== Actian ===
+
+On September 22, 2011, Ingres Corporation became Actian Corporation, focusing on data management and integration technologies, including Vectorwise/Vector, Btrieve/Pervasive PSQL/Zen, OpenROAD and the Ingres database.
+Actian was acquired by HCL Technologies and Sumeru Equity Partners for $330 million. In 2021, HCL Technologies became the sole owner of Actian, which became the Data and Analytics division of HCLSoftware.
+On 18 April 2017, Actian X was announced as the first natively integrated hybrid database, designed to manage transactional, analytic and hybrid data workloads from a single database.
+Actian X combines the features and capabilities of Ingres and Vector, including column-based storage, vector processing, multi-core parallelism (and more):
+
+DataConnect 11 for Actian X: DataConnect is an end-to-end application integration solution for designing and deploying data integration with Ingres applications. The bundle included a GUI and development engine, for designing and testing integrations, and a production engine for deployment.
+Enterprise Monitoring Appliance (EMA): helps maintain the health of databases and host systems by monitoring and setting alerts for key system functions like disk usage, I/O performance, transaction log files and network latency. EMA provides early warnings and alerts so problems and potential problems can be quickly resolved.
+Cloud Backup Service: a scalable, secure managed service for storing and managing Ingres backups. More than file or system backup, the service is designed with tight Ingres integration. Backup agents monitor Ingres for checkpoints and journals, and transfer them to cloud storage automatically ensuring consistent backups and successful restores.
+Geospatial: Several geospatial enhancements, highlighted by the ArcGIS plug-in for ESRI, which enables ArcGIS desktop tools to visualize and manipulate Ingres geospatial data. Added 3D support for R-Tree indexes and in-line geospatial functions improves query performance and greatly simplifies coding for geospatial features.
+New features and enhancements: MERGE support, a reuse heuristic for query optimization, compression of network communications, automatic log file rotation, blob encryption, etc.
+In 2024, Actian decided to withdraw the Actian X brand, making all its features and capabilities available to Ingres 12.0.
+
+
+== Release history ==
+
+Actian announced that, following vendor end-of-life decisions for HP Itanium systems running OpenVMS (December 31, 2025) and Oracle Solaris 10/11.3 (January 31, 2027), Ingres on those platforms will transition to a "Best Effort Only" support model, meaning issues related to the operating system or hardware may not be fully resolvable. Customers are advised to migrate to supported platforms—particularly Linux for DBMS workloads, while using OpenVMS x86 where required—to ensure continued full support and maintenance.
+For more information about the kind of support available for a specific product version, go to the Actian Ingres Lifecycle Dates page at https://communities.actian.com/s/supportservices/lifecycle-dates/actian-ingres?language=en_US.
+
+
+== Features ==
+Major features as available in Actian Ingres 11.2:
+
+A broad subset of ANSI/ISO SQL-92, as well as extensions;
+Cross-platform support;
+ACID compliance;
+Stored procedures in both SQL and QUEL;
+Triggers;
+Cursors;
+Updatable views;
+Primary and secondary indexes;
+Foreign Keys, as well as constraints and indexes on them;
+Partitioned tables with pruning of partitions in optimizer;
+Query caching;
+Sub-SELECTs (i.e. nested SELECTs);
+Embedded SQL, statements that can be embedded in a host language such as C;
+Unicode support;
+Information schema through iidbdb catalog, the instance's "master database" catalog, which holds information on other databases in the instance, database locations, users, permits, etc.  Each database within the instance will also hold data such as table column info in its system catalogs. There are numerous ways to access this data, for example via SQL or via a GUI interface such as Actian Director or Visual DBA (VDBA). Other command line utilities such as vwinfo and infodb will also give database and/or table column data;
+Workload management, a set of SQL Mode options to control runtime behavior;
+Database replication support through Ingres Replicator, which can also be used with Enterprise Access products, enabling to replicate data to other databases: Oracle, MS SQL, IBM DB2, RMS, Oracle Rdb, DATACOM/DB, and IBM IMS;
+
+
+== Architecture ==
+Ingres is a single-node relational database management system, and therefore it is "Share-Everything".
+
+
+=== Storage architecture ===
+Ingres is a disk-oriented DBMS, and by default employ the n-ary storage model (NSM), also known as a row-store.
+However, Actian has incorporated columnar storage into its latest version of Ingres (Actian X) to improve its performance on OLAP tasks. Actian X has two storage engines, the traditional Ingres and X100, the same engine from Actian Vector.
+Although it is currently branded as the "Actian X Hybrid Database", the term "Hybrid" refers to its capability of performing both OLTP and OLAP tasks by employing a hybrid storage model (i.e. both row and column), not that it has a hybrid storage architecture.
+Regarding the storage organization, Ingres supports Heap, Hash, ISAM and B-tree.
+
+
+=== Indexes ===
+Ingres chooses ISAM (Index Sequential Access Method) as the index data structure by default, but also offers B+ Tree, Hash Table, and R-Tree as options. On Actian X, there is also two other options available only for X100 tables:
+
+X100_IX: Default, creates a primary (clustered) index. Only one primary index per table is allowed.
+X100_SI: Creates a secondary index on additional columns in an X100 table. Can also be specified as VWSI. Secondary indexes are not supported for partitioned tables.
+
+
+=== Concurrency control ===
+Ingres uses multiversion concurrency control (MVCC), deterministic concurrency control, and two-phase locking (deadlock detection).
+
+
+=== Isolation levels ===
+Ingres supports four isolation levels, from favoring consistency to maximizing concurrency: Serializable, Repeatable Read, Read Committed. and Read Uncommitted, Serializable is the default isolation level and it provides the strongest consistency guarantee.
+
+
+=== Joins ===
+Ingres supports joins with hash join, sort-merge join, and nested loop join algorithms. The query optimizer determines which type of join algorithm to use based on its analysis of the query. Nested-loop joins are most often seen on disjoint queries, where correlation variables and table names are arbitrarily used in random order. When there are no restrictions on either table in the join clause, and the rows being joined are spatially continuous, then the query optimizer is likely to choose sort-merge join or hash join.
+
+
+== Installation ==
+Ingres can be installed as a client (Client Installation) or as a server (Server Installation), the client does not have a database associated with it, but it allows you to access the database created in the server installation.
+A typical site installs the Ingres client for workers on the computers that will interact with the Ingres server at the core of the site.
+Note that the expression "instance" is synonymous with "installation".
+An installation can be thought of as a collection of server processes, shared memory, and semaphores for inter-process communication, as well as disk files used for transaction processing and recovery in the event of a host or installation failure.
+
+
+=== Install ID ===
+An installation is often named by its installation ID. This identifier consists of two case-sensitive characters, starting with a letter. The default is II. The installation ID is used to calculate which ports the Ingres servers will listen on. For example, "II" indicates that the servers are listening on port 21064 and 7 ports after it.
+Any host (machine or virtual machine) can have multiple installations of Ingres, but each installation must have a unique identifier to ensure that clients and components interact with the correct installation.
+One installation can use multiple installation IDs. A classic example is when you need to run more than 8 processes on the server. Also, while Ingres database servers (iidbms) and Ingres communication servers (iigcc) conventionally use the same installation ID, there is no requirement to do so.
+
+
+=== Installation paths ===
+Some important paths must be assigned at the location where the installation was created. The paths will not change without reinstallation, so you should take care to choose them.
+The paths are shown in the following table. Note that the "II_" prefix does not indicate that these paths are for the "II" installation. Each installation, regardless of its ID, will have its own set of these variables.
+
+
+=== Databases ===
+An Ingres installation (or instance) can support multiple databases, each owned by any user known to the installation. The installation allows multiple databases to be accessed at the same time. The number of databases is a configurable value. Note that this simply limits the number of databases available at any one time and many more databases can be created.
+When creating an Ingres server installation, the databases "iidbdb" and "imadb" will be created, owned by the user "$ingres". The iidbdb database, also known as the "Master Catalog database", contains many special tables to manage the installation itself. The imadb (Management Architecture database) database also includes registered objects used to manage the installation.
+Of particular note is that databases are not pre-sized. Each database in the installation is allowed to grow in size as much as the free disk space allows.
+
+
+== Data types ==
+Ingres supports:
+
+Common data types
+Integers (1 byte, 2 bytes, 4 bytes and 8 bytes)
+Floating-point numbers (4 bytes, 8 bytes)
+Fixed-point numbers
+Character type (fixed and variable length)
+Binary type (fixed and variable length)
+Date and time (ANSI date, time and timestamp)
+Unicode data types
+nchar
+nvarchar
+Types for large objects
+long varchar
+long byte
+Native types
+ingres date
+money
+Geospatial data types (version 10S and later)
+point, multipoint
+linestring, multilinestring
+polygon, multipolygon
+geometry, geometry collection
+
+
+== Postgres ==
+
+The Postgres project was started in the mid 1980s to address limitations of existing database-management implementations of the relational model. Primary among these was their inability to let the user define new domains (or "types") which are combinations of simpler domains (see relational model for an explanation of the term "domain"). The project explored other ideas including the incorporation of write-once media (e.g., optical disks), the use of massive storage (e.g., never delete data), inferencing, and object-oriented data models.  The implementation also experimented with new interfaces between the database and application programs (e.g., "portals", which are sometimes referred to as "fat cursors").
+The resulting project, named "Postgres", aimed at introducing the minimum number of features needed to add complete types support. These included the ability to define types, but also the ability to fully describe relationships – which up until this time had been widely used but maintained entirely by the user. In Postgres, the database "understood" relationships, and could retrieve information in related tables in a natural way using rules.
+In the 1990s, Stonebraker started a new company to commercialize Postgres, under the name Illustra. The company and technology were later purchased by Informix Corporation.
+
+
+== See also ==
+
+Applications-By-Forms
+Comparison of relational database management systems
+List of relational database management systems
+
+
+== References ==
+
+
+== External links ==
+The Design and Implementation of INGRES
+Retrospection on a Database System
+Ingres FAQ (from 1997)
+Actian Corp.
+University INGRES, Version 8.9

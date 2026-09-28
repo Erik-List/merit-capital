@@ -1,0 +1,286 @@
+{
+  "slug": "sutter-hill-ventures",
+  "name": "Sutter Hill Ventures",
+  "wayback": {
+    "cdx_domain": "shv.com",
+    "site_url_base": "https://www.shv.com",
+    "eras": [],
+    "_note": "The firm published its portfolio from 1999 to 2016 on two mirrored domains, shv.com and sutterhillventures.com, and has shown only a wordmark and its address since 2017. Every era is read by scratch/wayback-eras.py into sources/wayback/parsed/<year>.json with its own capture_url, because none fits the generic era parsers: (1) 1999 to 2000 investments.htm, one table of every investment since 1970 with a description and the firm's own outcome line ('Acquired by Teradyne', 'Public company'); (2) 2000 to 2003 sector pages (software.html, medicaltech.html, networking.html, informationtech.html) linking per-company pages under /soft/, /mt/, /nt/, /it/; (3) 2004 to 2012 sector directories (/software/, /healthcare/, /networking/, /business/, /consumer/, /investment/) with an index page and a page per company; (4) 2013 to 2016 Drupal: /portfolio-full with every company, its description and its managing director, and /portfolio/<sector> filters.",
+    "non_company_slugs": [
+      "index",
+      "portfolio",
+      "portfolio-full",
+      "team",
+      "meet-team",
+      "approach",
+      "directions",
+      "node",
+      "user",
+      "news"
+    ]
+  },
+  "roster": {
+    "cdx_patterns": [
+      "shv.com/team/*",
+      "sutterhillventures.com/team/*"
+    ],
+    "site_team_groups": [],
+    "slug_re": "/team/([a-z][a-z0-9_-]*[a-z0-9])(?:\\.html)?/?$",
+    "listing_href_re": "/team/([a-z][a-z0-9_-]*[a-z0-9])[\"'/.]",
+    "not_a_person": [
+      "team",
+      "meet-team",
+      "index"
+    ],
+    "_note": "Built by scratch/build-roster.py from the archived people pages (2000 to 2016, both domains; name pages like anderson.html and later /team/<surname>.html and /<first-last>), the ADV Schedule A owners (CRD 162959, 2026-03-27), and the related persons who file from the firm's own address on issuers' Form Ds (sources/edgar/formd-address-sweep.json), kept only where a first-party source names the person as the firm's."
+  },
+  "edgar": {
+    "seed_queries": [
+      "sutter+hill",
+      "1962+opportunity"
+    ],
+    "fts_phrases": [
+      "Sutter Hill Ventures",
+      "Sutter Hill Entrepreneurs Fund",
+      "Sutter Hill Associates",
+      "Sutter Hill Management Company",
+      "1962 Opportunity Fund"
+    ],
+    "fts_own_pattern": "sutter hill|1962 opportunity fund",
+    "_note": "Entity-qualified phrases. Sutter Hill Ventures, A California Limited Partnership files ownership forms under CIK 879051; Sutter Hill Entrepreneurs Fund (AI) and (QP), Sutter Hill Associates and Sutter Hill Management Company file Forms 3/4 as co-filers; 1962 Opportunity Fund I, L.P. (CIK 2034518) filed a Form D in 2024. The bare 'Sutter Hill' also names a winery, a shopping centre, Sutter Health and a Sacramento property; the phrase layer keeps the firm's own entity names."
+  },
+  "wikipedia": {
+    "phrases": [
+      "Sutter Hill Ventures"
+    ]
+  },
+  "desks": {
+    "home": "shv",
+    "partition": [],
+    "rank": [
+      "shv",
+      "unknown"
+    ],
+    "classify": [
+      {
+        "desk": "external",
+        "patterns": [
+          "^costanoa",
+          "^bluebird ventures",
+          "^1870 embarcadero",
+          "^sutter health",
+          "^sutter hill (winery|ranch|shopping|place|apartments|capital)"
+        ]
+      },
+      {
+        "desk": "shv",
+        "patterns": [
+          "^sutter hill (ventures|entrepreneurs|associates|management)",
+          "^1962 opportunity fund"
+        ]
+      }
+    ],
+    "_note": "One adviser, SUTTER HILL VENTURES, L.L.C. (IAPD CRD 162959, exempt reporting adviser 802-75145, 755 Page Mill Road, Suite A-200, Palo Alto; ADV annual amendment 2026-03-27). Its Section 7.B reports two private funds: Sutter Hill Ventures, A California Limited Partnership, and 1962 Opportunity Fund I, L.P. The partnership has invested since the 1960s; the Entrepreneurs Funds (AI, QP) and the Associates / Management GP entities are the same firm (decisions.md D1). External: Costanoa Venture Capital (Greg Sands's own firm from 2012, first housed at the same address), Bluebird Ventures (Jeff Bird's own vehicle), 1870 Embarcadero LP (a property partnership at the same address), and the Sutter namesakes."
+  },
+  "profile": {
+    "adv_crd": "162959",
+    "own_vehicle_pattern": "^(sutter hill (ventures|entrepreneurs fund|associates|management)|1962 opportunity fund)",
+    "focus_min_companies": 12,
+    "focus_crosswalk": {
+      "Software": "SaaS & Enterprise Software",
+      "Healthcare": "Healthcare & Bio",
+      "Networking & Computer Technology": "Data Infrastructure",
+      "Consumer": "Consumer & Marketplaces",
+      "Business & Financial Services": "Fintech & Payments"
+    },
+    "_note": "An exempt reporting adviser files no Item 5.F; the Section 7.B gross asset values of the two funds are the sworn figure. focus_min_companies is provisional, about 4.5% of the expected base."
+  },
+  "verify": {
+    "text_mention_leaks": [],
+    "cofiler_leaks": [],
+    "known_positions": [
+      "snowflake",
+      "pure storage",
+      "nvidia",
+      "netapp",
+      "linear technology",
+      "lsi logic",
+      "tellabs",
+      "hybritech",
+      "shutterfly",
+      "yext",
+      "glassdoor",
+      "sumo logic",
+      "sila nanotechnologies",
+      "portola"
+    ],
+    "not_members": [
+      {
+        "name": "acacia venture partners",
+        "slug": "acacia-venture-partners",
+        "why": "a health-services investment partnership in the firm's own Investment Partnerships category (decisions.md D6, T5)"
+      },
+      {
+        "name": "biovest partners",
+        "slug": "biovest-partners",
+        "why": "a medical investment partnership, 'Distributed' in the firm's 1999 table (D6, T5)"
+      },
+      {
+        "name": "chengwei capital",
+        "slug": "chengwei-capital",
+        "why": "a venture fund in the firm's Investment Partnerships category (D6, T5)"
+      },
+      {
+        "name": "costanoa venture capital",
+        "slug": "costanoa-venture-capital",
+        "why": "Greg Sands's own venture firm from 2012, listed by SHV as an investment partnership (D1 external, D6)"
+      },
+      {
+        "name": "golden gate capital",
+        "slug": "golden-gate-capital",
+        "why": "a private equity firm in the firm's Investment Partnerships category (D6, T5)"
+      },
+      {
+        "name": "helion venture partners",
+        "slug": "helion-venture-partners",
+        "why": "a venture fund in the firm's Investment Partnerships category (D6, T5)"
+      },
+      {
+        "name": "makena capital management",
+        "slug": "makena-capital-management",
+        "why": "an investment manager in the firm's Investment Partnerships category (D6, T5)"
+      },
+      {
+        "name": "venture tdf china",
+        "slug": "venture-tdf-china",
+        "why": "a venture fund vehicle in the firm's Investment Partnerships category (D6, T5)"
+      },
+      {
+        "name": "emcore",
+        "slug": "emcore",
+        "why": "acquirer of SHV-backed K2 Optronics (2006); the funds' Emcore shares were sale consideration (COLLECTION.md s1)"
+      },
+      {
+        "name": "usana health sciences",
+        "slug": "usana-health-sciences",
+        "why": "acquirer of SHV-backed BabyCare (Yaolan) in 2010; the shares were sale consideration"
+      },
+      {
+        "name": "telecommunication systems",
+        "slug": "telecommunication-systems",
+        "why": "acquirer of SHV-backed Networks In Motion (2009); the shares were sale consideration"
+      },
+      {
+        "name": "siebel systems",
+        "slug": "siebel-systems",
+        "why": "James Gaither's personal board seat from his Cooley years (T4)"
+      },
+      {
+        "name": "workday",
+        "slug": "workday",
+        "why": "Mike Speiser's personal board seat from 2024 (T4); Workday bought SHV-backed Platfora"
+      },
+      {
+        "name": "macondray capital acquisition corp. i",
+        "slug": "macondray-capital-acquisition-corp-i",
+        "why": "a blank-check company (T5); Andy Sheehan a director nominee"
+      },
+      {
+        "name": "suro capital",
+        "slug": "suro-capital",
+        "why": "a namesake business development company, formerly Sutter Rock Capital (D1)"
+      },
+      {
+        "name": "juniper networks",
+        "slug": "juniper-networks",
+        "why": "Stefan Dyckerhoff's employer before he joined SHV in 2012 (T4)"
+      },
+      {
+        "name": "idexx",
+        "slug": "idexx",
+        "why": "IDEXX's shares came to SHV as payment for Blue Ridge Pharmaceuticals (IDEXX 1998 8-K names SHV among Blue Ridge's holders paid in IDEXX shares and warrants): sale consideration, COLLECTION.md s1 (A/B pass 2026-09-28, medium, open for Erik)"
+      },
+      {
+        "name": "avid technology",
+        "slug": "avid-technology",
+        "why": "SHV's Avid shares read as payment for Digidesign, which Avid bought in 1995: sale consideration (A/B pass 2026-09-28, medium, open for Erik)"
+      }
+    ],
+    "shape": {
+      "c2a_rate_max": 0.8,
+      "_note": "The 0.80 default stands. There is no ceiling on the $1B+ share (Erik, 2026-09-26)."
+    },
+    "_not_members_note": "Membership traps asserted before any verdict writes (COLLECTION.md 10, invariant 11): the firm's Investment Partnerships category (D6), acquirers whose shares were sale consideration, partners' personal board seats (T4), and namesakes."
+  },
+  "sample_slugs": [],
+  "names": {
+    "published": {
+      "astera-labs-inc": "Astera Labs",
+      "benu-networks-inc": "Benu Networks",
+      "drais-pharmaceuticals-inc": "Drais Pharmaceuticals",
+      "forty-seven-inc": "Forty Seven",
+      "kineto-wireless-inc": "Kineto Wireless",
+      "nexxo-financial-corporation": "Nexxo Financial",
+      "nvidia": "Nvidia",
+      "pinc": "Pinc Solutions",
+      "redseal-inc": "RedSeal",
+      "snowflake-inc": "Snowflake",
+      "swift-financial": "Swift Financial",
+      "vera-security-inc": "Vera",
+      "virobay-inc": "ViroBay",
+      "xios-therapeutics": "Xios Therapeutics",
+      "xoft-inc": "Xoft",
+      "akarx-inc": "AkaRx",
+      "amberpoint-inc": "AmberPoint",
+      "amylin-pharmaceuticals-inc": "Amylin Pharmaceuticals",
+      "buzznet-com": "Buzznet",
+      "ceon-corporation": "Ceon",
+      "claimcard-inc": "Claimcard",
+      "edify-corporation": "Edify",
+      "farecast-com": "Farecast",
+      "indicative-software-inc": "Indicative Software",
+      "isis": "Ionis Pharmaceuticals",
+      "kalypto-medical-inc": "Kalypto Medical",
+      "linear-technology-corporation": "Linear Technology",
+      "lsi-logic-corporation": "LSI Logic",
+      "palm-inc": "Palm",
+      "phycor-management-inc": "Phycor Management",
+      "roxro-pharma-inc": "Roxro Pharma",
+      "aria-networks-inc": "Aria Networks",
+      "atommap-corp": "Fathom Therapeutics",
+      "augment-computing-inc": "Augment Code",
+      "celero-communications-inc": "Celero Communications",
+      "clumio-inc": "Clumio",
+      "cspeed-inc": "Cspeed",
+      "enfabrica-corp": "Enfabrica",
+      "eversight-inc": "Eversight",
+      "freestyle-software-inc": "Freestyle Software",
+      "gridcare": "GridCare",
+      "lacework-inc": "Lacework",
+      "laserlike-inc": "Laserlike",
+      "leibniz-data-systems-inc": "Leibniz Data Systems",
+      "luminary-cloud-inc": "Luminary Cloud",
+      "neye-systems-inc": "nEye",
+      "observe-inc": "Observe",
+      "seldar-pharma-inc": "Seldar Pharma",
+      "serviz-inc": "Serviz",
+      "telsar-pharma-inc": "Telsar Pharma",
+      "room77": "Room 77",
+      "foundation-db": "FoundationDB",
+      "thousand-eyes": "ThousandEyes",
+      "c3-energy": "C3.ai",
+      "horizon-pharma-inc": "Horizon Therapeutics",
+      "sumo-logic-software": "Sumo Logic",
+      "aac": "AAC Technologies",
+      "onstream-inc": "OnStream Networks",
+      "sigma-computing-inc": "Sigma Computing",
+      "ghost-autonomy-inc": "Ghost Autonomy",
+      "savanna-biotherapeutics-inc": "Savanna Biotherapeutics",
+      "quinstreet": "QuinStreet",
+      "artisan-partners-limited-partnership": "Artisan Partners",
+      "yaolan-babycare": "YaoLan",
+      "mobile-com": "@mobile.com",
+      "i-pro": "I/PRO"
+    }
+  }
+}

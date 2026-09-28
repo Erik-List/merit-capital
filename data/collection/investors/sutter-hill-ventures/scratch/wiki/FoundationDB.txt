@@ -1,0 +1,59 @@
+FoundationDB is a free and open-source multi-model distributed NoSQL database owned by Apple Inc. with a shared-nothing architecture. The product was designed around a "core" database, with additional features supplied in "layers." The core database exposes an ordered key–value store with transactions. The transactions are able to read or write multiple keys stored on any machine in the cluster while fully supporting ACID properties. Transactions are used to implement a variety of data models via layers.
+The FoundationDB Alpha program began in January 2012 and concluded on March 4, 2013, with their public Beta release. Their 1.0 version was released for general availability on August 20, 2013. On March 24, 2015, it was reported that Apple has acquired the company. A notice on the FoundationDB web site indicated that the company has "evolved" its mission and would no longer offer downloads of the software.
+On April 19, 2018, Apple open sourced the software, releasing it under the Apache 2.0 license.
+
+
+== Main features ==
+The main features of FoundationDB include the following:
+
+Ordered key–value store
+In addition to supporting standard key-based reads and writes, the ordering property enables range reads that can efficiently scan large swaths of data.
+Transactions
+Transaction processing employs multiversion concurrency control for reads and optimistic concurrency for writes. Transactions can span multiple keys stored on multiple machines.
+ACID properties
+FoundationDB guarantees serializable isolation and strong durability via redundant storage on disk before transactions are considered committed.
+Layers
+Layers map new data models, APIs, and query languages to the FoundationDB core. They employ FoundationDB's ability to update multiple data elements in a single transaction, ensuring consistency. An example is their SQL layer.
+Commodity clusters
+FoundationDB is designed for deployment on distributed clusters of commodity hardware running Linux.
+Replication
+FoundationDB stores each piece of data on multiple machines according to a configurable replication factor. Triple replication is the recommended mode for clusters of 5 or more machines.
+Scalability
+FoundationDB is designed to support horizontal scaling through the addition of machines to a cluster while automatically handling data replication and partitioning.
+Systems supported
+FoundationDB supports packages for Linux, Windows, and macOS. The Linux version supports production clusters, while the Windows and macOS versions support local operation for development purposes. Configurations on Amazon EC2 are also supported.
+Programming language bindings
+FoundationDB supports language bindings for Python, Go, Ruby, Node.js, Java, PHP, and C, all of which are made available with the product.
+
+
+== Design limitations ==
+The design of FoundationDB results in several limitations:
+
+Long transactions
+FoundationDB does not support transactions running over five seconds.
+Large transactions
+Transaction size cannot exceed 10 MB of total written keys and values.
+Large keys and values
+Keys cannot exceed 10 kB in size. Values cannot exceed 100 kB in size.
+
+
+== History ==
+FoundationDB, headquartered in Vienna, Virginia, was started in 2009 by Nick Lavezzo, Dave Rosenthal, and Dave Scherer, drawing on their experience in executive and technology roles at their previous company, Visual Sciences.
+In March 2015 the FoundationDB Community site was updated to state that the company had changed directions and would no longer be offering downloads of its product. The company was acquired by Apple Inc., which was confirmed March 25, 2015.
+On April 19, 2018, Apple open sourced the software, releasing it under the Apache 2.0 license.
+
+
+== See also ==
+
+Ordered key-value store
+Database transaction
+Distributed database
+Distributed transaction
+List of formerly proprietary software
+
+
+== References ==
+
+
+== External links ==
+Official website

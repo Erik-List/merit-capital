@@ -1,0 +1,37 @@
+base: data/collection/investors/sutter-hill-ventures/companies/base.json
+target companies: 114  distinct issuer CIKs: 112
+scanning 74 quarterly datasets (offline)...
+filings collected: 416
+evidence: 343/343 base accessions found
+wrote data/collection/investors/sutter-hill-ventures/scratch/issuer-evidence.json (117 CIKs, 53 with a name history)
+
+wrote data/collection/investors/sutter-hill-ventures/sources/edgar/formd-issuer-rounds.json
+  companies with Form D history : 111
+  rounds after amendment merge  : 348 (68 amendments folded in)
+  companies with 2+ rounds      : 82
+  filings the partner sweep never saw: 70
+  companies gaining >=1 such filing  : 32
+  rounds carrying a sale date   : 345/348
+in flight: wrote data/collection/investors/sutter-hill-ventures/scratch/in-flight.json
+rows: 301
+membership seed: 243 site_listing, 2 fund_filing; left for the judge: 56
+layer A (SEC public float): 301 rows to resolve
+    fetched 100/127
+    100/301
+    200/301
+    300/301
+    resolved a CIK: 216   with public float: 41
+layer B (Wikidata): 301 rows in batches of 60
+    60/301
+    120/301
+    180/301
+    240/301
+    300/301
+    301/301
+    matched: 60
+layer C (unicorn list): 629 current, 209 former
+graduation layer 1: 111 companies, 38 entered at Seed, 38 decided by the filings as of 2026-09-28 (the judge confirms each), 19 entries moved past pre-investor rounds
+
+deterministically resolved: 0/301
+retired (not_member, awaiting rebuild): 0
+queued for judgment       : 301 rows in 7 batches

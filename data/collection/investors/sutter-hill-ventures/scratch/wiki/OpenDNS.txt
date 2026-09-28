@@ -1,0 +1,78 @@
+OpenDNS is an American company providing Domain Name System (DNS) resolution services—with features such as phishing protection, optional content filtering, and DNS lookup in its DNS servers—and a cloud computing security product suite, Umbrella, designed to protect enterprise customers from malware, botnets, phishing, and targeted online attacks. The OpenDNS Global Network processes an estimated 100 billion DNS queries daily from 85 million users through 25 data centers worldwide.
+On August 27, 2015, Cisco acquired OpenDNS for US$635 million in an all-cash transaction, plus retention-based incentives for OpenDNS. OpenDNS's business services were renamed Cisco Umbrella; home products retained the OpenDNS name. Cisco said that it intended to continue development of OpenDNS with its other cloud-based security products, and that it would continue its existing services.
+Until June 2014, OpenDNS provided an ad-supported service and a paid advertisement-free service. The services are based on software proprietary to the company.
+
+
+== Products and services ==
+The name "OpenDNS" refers to the DNS concept that queries are accepted from any source. It is not related to open source software; the service is based on closed-source software. 
+
+
+=== DNS ===
+OpenDNS offers DNS resolution as an alternative to using Internet service providers' DNS servers or locally installed DNS servers. OpenDNS has adopted and supports the DNSCurve secure protocol.
+OpenDNS provides the following recursive nameserver addresses for public use, mapped to the nearest operational server location by anycast routing.
+OpenDNS also provides the following recursive nameserver addresses as part of their FamilyShield parental controls that block pornography, proxy servers, and phishing sites.
+OpenDNS Sandbox is an RFC-compliant DNS service that does not provide any level of filtering. 
+
+In July 2013 OpenDNS said that it handled over 50 billion DNS requests daily.
+In many cases OpenDNS provides only negligible performance gain, but may process queries more quickly than an ISP with slow DNS servers. DNS query results are sometimes cached by routers (e.g., local ISPs' queries may be cached by ISPs' home routers), the local operating system or applications, so differences in speed may be noticeable only with requests that are not stored in a local cache.
+
+
+==== For free personal home use ====
+On May 13, 2007, OpenDNS launched a domain-blocking service to block web sites or non-web servers by categories, allowing control over the type of sites that may be accessed. The categories can be overridden through individually managed blacklists and whitelists. In 2008, OpenDNS changed from a closed list of blocked domains to a community-driven list allowing subscribers to suggest sites for blocking; if enough subscribers (the number has not been disclosed) concur with the categorization of a site, it is added to the appropriate category for blocking. As of 2014 there were over 60 categories. The basic OpenDNS service does not require users to register, but using the customizable block feature requires registration.
+Other free, built-in features include a phishing filter. OpenDNS also run a service called PhishTank for users to submit and review suspected phishing sites.
+OpenDNS supports the DNSCrypt protocol, which authenticates DNS traffic between the user's computer and the name servers. This requires installing free software onto supported devices.
+In December 2007 OpenDNS began offering the free DNS-O-Matic service to provide a method of sending dynamic DNS (DDNS) updates to several DDNS providers using DynDNS's update API. In October 2009 OpenDNS launched charged-for premium services called Home VIP that offer increased reporting and block features, and other services.
+
+
+==== For paid business use ====
+In 2009 OpenDNS launched OpenDNS Enterprise, a first foray into enterprise-grade network security. OpenDNS Enterprise included the ability to share management of the product across a team, along with an audit log, expanded malware protection, daily network statistic reports, and a custom block page URL.
+OpenDNS expanded on the Enterprise product in July 2012 with OpenDNS Insights. This new service featured integration with Microsoft Active Directory, which allowed admins granular control over creating policies on a per-user, per-device, and per-group basis.
+
+
+=== Umbrella ===
+In November 2012 OpenDNS launched its network security product suite called Umbrella, designed to enforce security policies for mobile employees who work beyond the corporate network using roaming devices such as Windows and Mac laptops, iPhones, and iPads, and provides granular network security for all devices behind the network perimeter. 
+In February 2013 the company launched the OpenDNS Security Graph to support Umbrella. Security graph is a data-driven threat intelligence engine that automatically updates malware, botnet, and phishing domain and IP blacklists enforced by Umbrella. The data is sourced from the DNS requests OpenDNS receives, plus the BGP routing tables that are managed by OpenDNS's network operations center.
+
+
+==== Added features ====
+OpenDNS introduced the Investigate feature to Umbrella in November 2013. It allows security teams to compare local to global traffic to help determine the intent of an attack, and help incident response teams prioritize events. In January 2014 the Intelligent Proxy feature was added to the Umbrella suite. The OpenDNS Intelligent Proxy only proxies connections if the requested domain is scored as suspicious or tagged as partially malicious by OpenDNS Security Graph.
+One month later OpenDNS announced a technology integration partnership with FireEye. The collaboration allows indicators of compromise to be forwarded from FireEye’s real-time notification system to Umbrella, extending FireEye’s protection to mobile employees and branch offices.
+
+
+==== Umbrella for MSPs ====
+There is a distinct Umbrella package for MSPs. It features the same protection as the regular business packages, but offers additional MSP features: a centralized multi-tenant dashboard, on-demand monthly licensing, and ConnectWise and Autotask PSA integrations.
+
+
+== History ==
+In July 2006 OpenDNS was launched by computer scientist and entrepreneur David Ulevitch, providing recursive DNS resolution. It received venture capital funding from Minor Ventures, led by CNET founder Halsey Minor. In October 2006 OpenDNS launched PhishTank, an online collaborative anti-phishing database. Before 2007 OpenDNS was using the DNS Update API from DynDNS to handle updates from users with dynamic IPs. In June 2007 OpenDNS started advanced web filtering to optionally block "adult content" for their free accounts. Nand Mulchandani, former head of VMware's security group, left VMware to join OpenDNS as new CEO in November 2008, replacing founder David Ulevitch, who remained as the company's chief technology officer. David Ulevitch resumed his post as CEO of OpenDNS in late 2009.
+Sequoia Capital and Greylock purchased the majority of shares held by Halsey Minor in July 2009 in a secondary transaction. Then, in conjunction with DAG Ventures, all remaining shares held by Minor were purchased in a similar fashion in early 2010. In June 2010 OpenDNS launched "FamilyShield", a service designed to filter out sites with pornographic content. The service uses the DNS addresses 208.67.222.123 and 208.67.220.123. The World Economic Forum announced the company as a Technology Pioneer for 2011. In March 2012 Dan Hubbard, former CTO at Websense, joined OpenDNS as CTO. The OpenDNS Security Labs were founded in December 2012, serving as a hub for research at the company. OpenDNS launched Security Graph, a security intelligence and threat detection engine in February 2013, followed by a Series B funding round. In May 2014 OpenDNS announced a Series C funding round totaling US$35 million, with new investors Glynn Capital Management, Northgate Capital, Mohr Davidow Ventures, Lumia Capital, Evolution Equity Partners, Cisco, Chris Sacca, Naval Ravikant, Elad Gill, as well as previous backers Greylock Partners, Sequoia Capital, and Sutter Hill Ventures.
+On August 27, 2015, Cisco acquired OpenDNS for US$635 million in an all-cash transaction, plus retention-based incentives for OpenDNS. OpenDNS's business services were renamed Cisco Umbrella; home products retained the OpenDNS name. Cisco said that it intended to continue development of OpenDNS with its other cloud-based security products, and that it would continue its existing services. 
+
+
+=== Discontinued advertising ===
+OpenDNS previously earned a portion of its revenue by resolving a domain name to an OpenDNS server when the name is not otherwise defined in DNS. This had the effect that if a user typed a non-existent name in a URL in a web browser, the user saw an OpenDNS search page. Advertisers paid OpenDNS to have advertisements for their sites on this page. This behavior is similar to VeriSign's previous Site Finder or the redirects many ISP's place on their own DNS servers. OpenDNS said that the advertising revenue paid for the free customized DNS service. It was discontinued on June 6, 2014; OpenDNS said this was because of their move towards a security focus in their business.
+
+
+== Reception ==
+In 2007, David Ulevitch explained that, in response to Dell installing "Browser Address Error Redirector" software on their PCs, OpenDNS started resolving requests to Google.com. Some of the traffic is handled by OpenDNS typo-correcting service that corrects mistyped addresses and redirects keyword addresses to OpenDNS's search page, while the rest is transparently passed through to the intended recipient.
+Also, a user's search request from the address bar of a browser that is configured to use the Google search engine (with a certain parameter configured) may be covertly redirected to a server owned by OpenDNS (which is within the OpenDNS Terms of Service). Users can disable this behavior by logging into their OpenDNS account and unchecking "OpenDNS proxy" option; Mozilla users can instead install an extension, or change or remove the navclient sourceid from their keyword search URLs.
+This redirection breaks some non-Web applications that rely on getting an NXDOMAIN response for non-existent domains, such as e-mail spam filtering, or VPN access where the private network's nameservers are consulted only when the public ones fail to resolve. Breaking local name resolution can be avoided by configuring the DNS addresses only in the forwarders of the local DNS server or router (the WAN/Internet configuration of a router or other gateway). For other purposes, or when the DNS addresses cannot be configured in a forwarder, domains for which an NXDOMAIN response is expected should be added to the Exceptions for VPN Users section of the OpenDNS Dashboard.
+Most of the issues above were resolved when OpenDNS discontinued their advertising service, and started responding with NXDOMAIN and SERVFAIL instead of redirecting non-existing domains.
+
+
+== See also ==
+DNSCrypt
+EDNS Client Subnet
+PhishTank
+Public recursive name server
+Response policy zone
+
+
+== References ==
+
+
+== External links ==
+Official website
+Dark Reading: OpenDNS Goes Mobile Nov. 15, 2012
+PC World: OpenDNS introduces VPN, content filtering for mobile devices Nov. 13, 2012
+PC Magazine: OpenDNS Extends Company Security to Mobile Devices Nov. 13, 2012 Archived 2019-06-25 at the Wayback Machine
