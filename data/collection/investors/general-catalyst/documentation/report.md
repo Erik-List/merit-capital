@@ -2,24 +2,23 @@
 
 **Linear issue** PRO-166 · **slug** `general-catalyst` · one run under the merged shape of
 `data/collection/COLLECTION.md`, in two sessions (a context restart mid-grind) · report written
-2026-09-27. **Not ingested**: the ingest waits on Erik's approval (section 14).
+2026-09-27; rulings applied and ingested 2026-09-28 on Erik's approval (section 16).
 
 ---
 
 ## 1. The answer PRO-166 asked for
 
-**The base is 1,938 companies and plain `verify` is clean.** 1,935 are members and 3 are
-`uncertain`. Every control transaction is out (21 excluded rows, about 19 companies), and so are
+**The base is 1,933 companies and plain `verify` is clean.** All are members: Erik ruled
+the 3 `uncertain` rows out and folded two same-company pairs (E1, E2, section 9). Every control transaction is out (21 excluded rows, about 19 companies), and so are
 the Customer Value Fund's revenue-share-only companies, the SPACs and La Famiglia's deals from
-before the combination. The page's track record covers the firm's venture investments; the
-profile's history says so. Nothing is ingested yet: that waits on Erik (section 14).
+before the combination. The page's track record covers the firm's venture investments; the profile's history says so. Ingested 2026-09-28 on Erik's approval (section 16).
 
 | Done-when item | State |
 |---|---|
-| Plain `verify` green with only flagged debt | Clean on 1,938 rows, cross-investor 0 disagree (section 6 lists the flags) |
-| Boundary rows counted | 21 control-position rows, 117 not_member rows in `excluded.json` (section 3) |
+| Plain `verify` green with only flagged debt | Clean on 1,933 rows, cross-investor 0 disagree (section 6 lists the flags) |
+| Boundary rows counted | 21 control-position rows, 120 not_member rows in `excluded.json` (section 3) |
 | Profile fields populated or null, sourced | `investor/investor.json` and `investor/sources.json`, built by `build-firm-profile.py` |
-| `review.html` rendered | Served on the review surface and checked: rows flat, 1,938 shown, profile panel expands |
+| `review.html` rendered | Served on the review surface and checked: rows flat, 1,933 shown, profile panel expands (re-checked after the rulings) |
 | `report.md` with delta outcomes, open rulings, prompt count | This file |
 | Closing message with the ingest request | Sent with this report |
 
@@ -27,9 +26,9 @@ profile's history says so. Nothing is ingested yet: that waits on Erik (section 
 
 | | Count | Share |
 |---|---|---|
-| Companies | 1,938 | |
-| Unknown | 880 | 45% |
-| Private | 734 | 38% |
+| Companies | 1,933 | |
+| Unknown | 876 | 45% |
+| Private | 733 | 38% |
 | Acquired | 242 | 12% |
 | Defunct | 53 | 3% |
 | Public | 29 | 1% |
@@ -38,16 +37,15 @@ profile's history says so. Nothing is ingested yet: that waits on Erik (section 
 | of which $100B and above | 4 | Anthropic $965B, Databricks $190B, Stripe $159B, Snowflake $118B |
 
 **Why 45% unknown.** The firm's /list page gives 1,896 legal names; 1,321 rows rest on that list
-alone, with nothing else to identify the company behind a legal name, and 848 of them carry
-`status: unknown` and `city_unknown` rather than a guess. The rows the firm shows on its grid
-(579) are identified and classified in full. There is no ceiling on the $1B+ share (Erik,
+alone, with nothing else to identify the company behind a legal name, and 846 of them carry
+`status: unknown` and `city_unknown` rather than a guess. The rows the firm shows on its grid (578) are identified and classified in full. There is no ceiling on the $1B+ share (Erik,
 2026-09-26); 7.4% of a base this long-tailed reads as expected for a multi-stage firm.
 
-Entry stage: Seed 184, Growth 129, Series A 82, Pre-Seed 4, round not on record 1,539.
-Headquarters: US 1,666, UK 65, India 56, Germany 36, France 13, Netherlands 10, Israel 9, Mexico
-8, Sweden 7, Canada 6, Singapore 6 (690 of the US rows are `country_prior`: the firm's pattern,
-not an address). Evidence tiers: A 766, B 1,166, C 6. Membership rests on the firm's own listing
-for 1,932 rows (grid 579, list 1,321, archived pages 32), on press for 4 recall additions and on a
+Entry stage: Seed 184, Growth 129, Series A 82, Pre-Seed 4, round not on record 1,534.
+Headquarters: US 1,661, UK 65, India 56, Germany 36, France 13, Netherlands 10, Israel 9, Mexico
+8, Sweden 7, Canada 6, Singapore 6 (686 of the US rows are `country_prior`: the firm's pattern,
+not an address). Evidence tiers: A 765, B 1,162, C 6. Membership rests on the firm's own listing
+for 1,927 rows (grid 578, list 1,319, archived pages 30), on press for 4 recall additions and on a
 Form D ruled by the judge for 2 (Healing Humanity Productions, nToggle).
 
 ### S2A block
@@ -128,13 +126,13 @@ Technologies; Point Wild is Aura's split-off).
 
 ## 6. Flags and debt behind `verify`
 
-On the 1,938 published rows: `city_unknown` 981, `country_prior` 690 (both the /list
+On the 1,933 published rows: `city_unknown` 977, `country_prior` 686 (both the /list
 rows), `model_disputes_source` 89, `stage_uncited` 79 (a model stage under $1B; allowed),
 `unicorn_name_match` 57, `cik_weak` 31, `stale` 24, `stage_disputes_band` 22, `cite_pending` 12
 ($1B+ rows whose entry round no source names: Cognition, Color, Devoted, Figma, GitLab, NotCo,
 Oscar, Physical Intelligence, Spinny, Sword, Vercel, Telegram), `boundary` 6, `needs_web_value` 4
 (ArriVent, Eikon, Maze, Parabilis Medicines: believed $1B+ with no citable figure, so they sit
-below $1B), `duplicate` 4 (the Ponto and Trellis pairs, section 9), `entry_anchor_weak` 2.
+below $1B), `entry_anchor_weak` 2.
 33 of the 143 $1B+ rows carry the unicorn list's figure rather than a cited one. Cross-investor:
 1,054 rows shared, 1,014 agree, 40 accepted, 0 disagree; 124 namesake pairs ruled distinct in
 `companies/cross-rulings.json`.
@@ -180,6 +178,10 @@ missed (Greenboard). 27 generic names matched other companies and carry a note o
 - **Icon**: the site's GC.svg vector; dry-run render clean at `sources/site/icon-256.png`.
 
 ## 9. Open rulings for Erik
+
+**Erik's answers (2026-09-28), applied before the ingest** (decisions.md E1 to E4): items 1 and
+2 as asked (the three uncertain rows out; Ponto and Trellis one company each), item 3 approved,
+item 4 both kept. Items 5 to 8 stand as reported.
 
 1. **Three `uncertain` rows.** Dandy (CVF money and a vendor-reported equity round; no
    citable equity round found). Domestic Bank and Federal One: 2010 archived company pages that
@@ -227,6 +229,8 @@ missed (Greenboard). 27 generic names matched other companies and carry a note o
   Pre-Seed entry of 2025 or earlier, almanac.io a 2019 row) and were corrected; Stripe's status was
   put back to private; the three stale classification keys (castle-global, fragment-technologies,
   point-wild-holdings) and two merged ones were removed (kept in `scratch/stale-classification-keys.json`).
+- **Rebuild 6** (Erik's rulings, 2026-09-28): Dandy, Domestic Bank and Federal One out; Ponto
+  Software folded into Ponto and Trellis Technologies into Trellis. 1,933 rows, no renames.
 
 ## 11. Playbook write-backs proposed (not applied mid-wave)
 
@@ -253,12 +257,14 @@ missed (Greenboard). 27 generic names matched other companies and carry a note o
 Kickoff (2026-09-27 19:10 UTC): not read. Close (2026-09-27 23:05 UTC, on Opus 5.5): weekly all
 models 94%, Fable 85%, 5-hour 60%, extra usage EUR 12.14 of 50 (disabled). Other sessions ran in
 the same window (BCV, the pipeline session), so the week's movement is not this run's alone. Web
-searches: 90 of 200 (judge 24, research agents 66). Base rows: 1,938.
+searches: 90 of 200 (judge 24, research agents 66). Base rows: 1,933.
 
 ## 13. Prompt count
 
-**2 so far**: the kickoff ("please collect general catalyst") and "continue" after a restart.
-The ingest approval would make 3. Corrections from Erik: none yet.
+**3, final**: the kickoff ("please collect general catalyst"), "continue" after a restart, and
+the review answer that carried four rulings and the ingest approval ("keep 1. considerations
+out, mark as same companies on 2., approve on 3., keep both 4., ingest afterwards"). Corrections
+from Erik: none to judged rows; four rulings on the open questions.
 
 ## 14. Ingest request (not run)
 
@@ -267,7 +273,7 @@ First-time investor, so in this order, each only on Erik's approval:
 1. `npx tsx scripts/fetch-investor-icon.ts general-catalyst https://cdn.prod.website-files.com/69df4e62ff62d7b5568fc58b/6a16ee532ff7f5b53d83064a_GC.svg`
 2. `npx tsx scripts/ingest-investor.ts general-catalyst`
 3. `npx tsx scripts/ingest-companies.ts general-catalyst --dry-run`, read the list (a first
-   ingest removes nothing), then the same without `--dry-run`: 1,938 companies.
+   ingest removes nothing), then the same without `--dry-run`: 1,933 companies.
 
 ## 15. Incident: a personal address in a request header
 

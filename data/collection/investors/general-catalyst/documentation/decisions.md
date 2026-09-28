@@ -276,3 +276,19 @@ bind). Two questions the facts raise that no test settles cleanly:
   Stilla) and five entered at a later round (Gitpod, PhysicsX, Thatch,
   Anagram, Stripe). The flag stays a positive, medium-confidence Seed label;
   20 cited seeds carry no flag.
+
+## Erik's rulings at review (2026-09-28)
+
+Recorded as `who: erik` verdicts, which outrank every agent verdict and survive rebuilds.
+
+- **E1 — The three uncertain rows are out.** Dandy (CVF money, no citable equity
+  round), Domestic Bank and Federal One (2010 archived company pages that could
+  not be read, names on no other surface): `not_member`.
+- **E2 — Ponto and Trellis are one company each.** Ponto Software, Inc. is the
+  grid's Ponto and Trellis Technologies, Inc. the grid's Trellis (each pair one
+  SEC registrant); folded in `identity-merges.json`.
+- **E3 — The X1 line is approved.** Accrual, Crescendo, Eudia and Titan in (a
+  product company at the firm's entry, acquisitions after); Zero RFI out.
+- **E4 — nToggle and Healing Humanity Productions stay in** on their Form D
+  evidence (two of the firm's partners of the time on nToggle's filing; Hemant
+  Taneja and Alexa Liautaud as directors on Healing Humanity's).
