@@ -1,0 +1,76 @@
+{
+ "_readme": "Recall probe (COLLECTION.md s3), 2026-09-28: candidates from sources independent of the base, each landed as a base row (recall_additions in the ledger) or rejected here with its reason. Sources: the EDGAR full-text sweep (sources/edgar/fts-hits.json, 61 third-party registrants), the Wikipedia insource sweep (12 company candidates), a Google News press sweep ('\"led by Ribbit Capital\"', '\"Ribbit Capital\" led seed / Series A / Series B', '\"Ribbit Capital\" invests', '\"Ribbit Capital\" backed startup raises'; 222 items, recall/press-sweep.txt), the adviser's 13F lines (sources/edgar/13f-holdings.json), the deal-vehicle decode (sources/registers/spv-decode.json), and a parametric enumeration by era and region. The press sweep and the parametric list re-found the live and archived lists almost entirely: every Ribbit-led round reported 2016-2026 names a company already in the base, except Delphia.",
+ "added": [
+  {
+   "slug": "delphia",
+   "why": "press: Delphia's own release names Ribbit among the participants of its $60M Series A (2022-06-08)"
+  }
+ ],
+ "rejected": [
+  {
+   "name": "Dhani (Dhani Services)",
+   "why": "T3: Ribbit's money went into an NSE-listed company (the Rs 1,200 crore preferential allotment of October 2020 with General Catalyst; Wikipedia 'Dhani (company)', Livemint 2021-10-20) and the 2022 deal vehicle DH-S Ribbit Cayman IN Opportunity VI is a secondary in the same listed shares. A placement into an already-listed company is not a venture round."
+  },
+  {
+   "name": "OkCredit",
+   "why": "A 2019 Livemint item matched the query, but no source names Ribbit among OkCredit's investors (its rounds were led by Lightspeed and Tiger Global); the mention belongs to another company in the article."
+  },
+  {
+   "name": "Commonware",
+   "why": "Fortune 2025-11-07 names Ribbit only as an investor in Tempo, which led Commonware's round; Tempo's strategic stake is not a Ribbit fund position."
+  },
+  {
+   "name": "Humble",
+   "why": "Fortune 2026-04-21 names Ribbit only for Slash; Humble's seed was led by Eclipse."
+  },
+  {
+   "name": "RedotPay",
+   "why": "The 2026-02 report names Ribbit only for M0's Series B."
+  },
+  {
+   "name": "Armadin",
+   "why": "The CyberWire briefing names Ribbit only for Evervault's Series B."
+  },
+  {
+   "name": "StableCoinX, TON Strategy Co, Forward Industries, Hyperliquid Strategies, Dynamix",
+   "why": "T3: PIPEs into listed crypto-treasury companies (TLGY 425 2025-07-21; Verb 8-K 2025-08-04; Forward Industries 8-K 2025-09-11; the 13F lines), bought through Ribbit OB1 (Master), L.P.; no venture round into an operating company."
+  },
+  {
+   "name": "Block, Coupang, Grab, Clear Secure, dLocal, Capital One, Grayscale bitcoin trusts",
+   "why": "13F-only positions of the adviser (2023-2026): public-market holdings the firm never listed (T3). Capital One is stock received when it bought Brex (sale consideration, 2026-04)."
+  },
+  {
+   "name": "Walmart",
+   "why": "Wikipedia and the 8-Ks name Ribbit as Walmart's partner in the ONE / OnePay joint venture; the member is OnePay, never the parent."
+  },
+  {
+   "name": "Silvergate Capital",
+   "why": "Its 2022 S-3 lists Diem's members as selling stockholders: Silvergate stock was consideration for Diem's assets (sale consideration, Erik 2026-09-22)."
+  },
+  {
+   "name": "10X Capital SPACs, Vy Global Growth, ExcelFin, MELI Kaszek Pioneer, Binah Capital, Kingswood, Procter & Gamble, Green Dot, Synchrony, Marqeta, Redwood Trust, Trinity Capital, QIWI, Intuit, Altice USA",
+   "why": "Filings that mention Ribbit in a co-investor list, a director's biography or a counterparty's description of a Ribbit company (Figure, Coalition, Point, Parafin, ONE, Revolut, Credit Karma, Cheddar), not a Ribbit position in the registrant."
+  },
+  {
+   "name": "Paradigm, Galaxy Digital, Contrary",
+   "why": "Wikipedia 'See also' links between investment firms, not portfolio companies."
+  }
+ ],
+ "spv_codes_unresolved": [
+  "IG",
+  "AL-W",
+  "CA-S",
+  "SP-E",
+  "SP-F",
+  "WN-C",
+  "CO-B",
+  "CO-BX",
+  "XTO",
+  "RTZ",
+  "GT-B",
+  "TG",
+  "BRING",
+  "BPW-D"
+ ],
+ "spv_note": "Unresolved deal-vehicle codes are left unresolved rather than guessed; none decodes to a company absent from the base with the certainty a new row needs. RNBW-1 decodes to ONE (RNBW Ventures Inc., Green Dot 10-Q 2025-08-11) and DH-S to Dhani."
+}

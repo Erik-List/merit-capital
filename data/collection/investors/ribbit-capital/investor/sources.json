@@ -1,0 +1,601 @@
+{
+ "slug": "ribbit-capital",
+ "generated_at": "2026-09-28T22:10:42+00:00",
+ "run": "PRO-161",
+ "fields": {
+  "name": {
+   "value": "Ribbit Capital",
+   "source": "https://ribbitcap.com/",
+   "basis": "The firm's own name on its site (the Rebels, team and perspective pages) and its adviser's primary business name on Form ADV: Ribbit Management Company, LLC, primary business name RIBBIT CAPITAL, CRD 165308 (decisions.md D1)."
+  },
+  "website": {
+   "value": "https://ribbitcap.com",
+   "source": "https://ribbitcap.com/",
+   "basis": "The firm's site: Next.js (App Router) with no CMS API; the Rebels list (/rebels) and the team (/team) are arrays compiled into the page chunks, read by scratch/pull-site.py (sources/site/rebels.json, team-pages.json). The perspective letters are DocSend links."
+  },
+  "icon_url": {
+   "value": "https://ribbitcap.com/icon.ico?7f47e9c8855b75ce",
+   "source": "https://ribbitcap.com/",
+   "basis": "The site's only declared icon, <link rel=icon href=/icon.ico sizes=256x256>: an ICO holding one 256x256 PNG, extracted to sources/site/icon-256.png, which is the upload source. Dry run (fetch-investor-icon.ts, 2026-09-28): the reversed R in a ring on the brand's own opaque green plate (self-backing, kept), artwork 200px in the source, 189px in the master (0.945x, never enlarged), keyline box and radius 74%, contrast 10.6:1, ramp 1.07px. The upload to the Icon Images bucket runs with the ingest, after Erik's approval (COLLECTION.md s9).",
+   "provenance": {
+    "source_url": "data/collection/investors/ribbit-capital/sources/site/icon-256.png",
+    "format": "png",
+    "width": 256,
+    "height": 256,
+    "vector": false,
+    "artwork_source_px": 200,
+    "artwork_master_px": 189,
+    "upscale": 0.945,
+    "ramp_px": 1.07,
+    "master_size": 256,
+    "fetched": "2026-09-28",
+    "allow_upscale": false,
+    "allow_low_contrast": false,
+    "dry_run_only": true
+   }
+  },
+  "founding_year": {
+   "value": 2012,
+   "source": "https://reports.adviserinfo.sec.gov/reports/ADV/165308/PDF/165308.pdf",
+   "basis": "Form ADV Schedule A: MALKA, MEYER, Managing Director of the adviser since 03/2012; the first fund, Ribbit Capital, L.P., filed its Form D in 2012 Q2 (0001553005-12-000001); LAVCA's report of the $100M debut fund (https://www.lavca.org/ribbit-capital-debuts-with-100m-early-stage-fund/); Wikipedia's infobox gives 2012 (https://en.wikipedia.org/wiki/Ribbit_Capital)."
+  },
+  "history": {
+   "value": "Ribbit Capital was founded in Palo Alto in 2012 by Micky Malka, an entrepreneur who had started five financial companies, with a $100 million first fund. It became known for bets on Coinbase, Robinhood, Credit Karma, Nubank and Revolut. It manages about $21 billion, and its latest fund, Ribbit Capital Z, raised $562 million in 2026.",
+   "source": "https://www.lavca.org/ribbit-capital-debuts-with-100m-early-stage-fund/",
+   "basis": "Founding: Palo Alto, 2012, Meyer 'Micky' Malka, 'a serial entrepreneur and financial-services veteran' who had 'started five financial-services companies ... in Latin America, Europe and the U.S.', with a $100 million debut fund and Malka the sole general partner (LAVCA). Bets: Coinbase, Robinhood (Series A, 2014), Credit Karma, Nubank and Revolut (Series A, 2016), all members on this page. Assets: $20,775,390,188 regulatory assets under management, Form ADV annual amendment of 2026-03-30 (CRD 165308, Item 5.F), 'about $21 billion'. Latest fund: Ribbit Capital Z, L.P., $561,860,000 sold (Form D/A 2026 Q2, first sale 2026-02-12). Dropped to fit: the fund ladder (see funds), the growth line (Bullfrog, Bullfrog II and III), the opportunistic Leapfrog fund (2025), the firm's 2020 SPAC, Ribbit LEAP (liquidated without a merger, out of the portfolio under decisions.md D3), and the partners (see individuals). BOUNDARY: one adviser, no relying advisers (decisions.md D1); Bitcoin and Ethereum, which the firm lists, are treasury or protocol assets and are out (D2); public-market purchases (Mercado Libre, Sea, Futu, Tinkoff) are out (D4); the single-deal vehicles decode to rounds, never entries (D6)."
+  },
+  "investment_concept": {
+   "value": "“The future belongs to the rebels.”",
+   "source": "https://ribbitcap.com/",
+   "basis": "The firm's own statement, read off the homepage on 2026-09-28 (sources/site/home.html): the hero reads 'the future belongs to the rebels', set letter by letter in lower case and repeated as a ticker; the same line is on the firm's coin (sources/site/ribbit-coin.png). Published in sentence case with one closing period, inside quotation marks (Erik, 2026-09-26). Competing lines on the page: the title tag 'RIBBIT' and the meta description 'The world doesn't change because incumbents decide it should. It changes because someone, somewhere, decides the system is broken and has the conviction to build something better.' (two sentences, 34 words, over the 25-word limit)."
+  },
+  "investment_stage": {
+   "value": [
+    "Seed",
+    "Series A",
+    "Growth"
+   ],
+   "source": "companies/base.json",
+   "flags": [
+    "derived"
+   ],
+   "basis": "Derived: the firm publishes no stage vocabulary (its site lists company names only). The landed entry distribution over the 181 members: Growth 71, Series A 45, Seed 25, Pre-Seed 1; 39 rows whose entry round the record does not give are left out. Three stages carry weight. The fund architecture agrees: flagship venture funds (Ribbit Capital I to VII, X, Y, Z) beside growth funds (Bullfrog Capital, Ribbit Bullfrog II and III) and an opportunistic fund (Leapfrog Capital, 2025)."
+  },
+  "investment_geo": {
+   "value": {
+    "core": [
+     "US"
+    ],
+    "other": [
+     "Europe",
+     "Latin America"
+    ]
+   },
+   "source": "companies/base.json",
+   "flags": [
+    "derived"
+   ],
+   "basis": "From the members' headquarters on the landed base: US 109 of 181, Europe 21 (GB 13, FR 3, DE 3, PT 1, IE 1), Latin America 20 (BR 14, MX 3, CL 1, AR 1, CO 1), India 11, the rest of Asia 10 (CN 3, ID 2, SG 2, PH 1, HK 1, KR 1), and IL 3, PR 1, ZA 1, AE 1, SN 1, BS 1, TR 1, CA 1. The firm's offices are Palo Alto (principal) and New York (Form ADV). Core US, other Europe and Latin America (two-label cap); India is next."
+  },
+  "investment_scope": {
+   "value": {
+    "type": "Specialist",
+    "focus": [
+     "Fintech & Payments",
+     "Crypto & Web3",
+     "AI & Applied AI"
+    ]
+   },
+   "source": "companies/classification.json",
+   "flags": [
+    "derived"
+   ],
+   "basis": "Derived: the site carries no sector tags, so the build's site-tag recompute does not apply. The grind's focus column over the 181 members: Fintech & Payments 103, Crypto & Web3 38, AI & Applied AI 10, SaaS 7, Consumer & Marketplaces 6, Security 6, Industrial & Robotics 4, Climate & Energy 3, Media, Gaming & Advertising 1, Data Infrastructure 1, DevTools & APIs 1, Healthcare & Bio 1; published above profile.focus_min_companies (8). Specialist: 78% of the members are fintech or crypto companies; the homepage now also names AI, commerce, infrastructure, wealth management, identity, data and energy."
+  },
+  "investment_range": {
+   "value": {
+    "lower_limit": 6000000,
+    "median": 30000000,
+    "upper_limit": 427000000
+   },
+   "source": "scratch/entry-rounds.json",
+   "flags": [
+    "derived"
+   ],
+   "basis": "MEDIAN: $30.0M, the median entry round over the 126 of 181 members whose first round with the firm is on record with an amount (122 from the judged rounds, each cited on its row; 4 from the entry Form D where the entry rests on the filing): p10 $6.3M, p25 $13.2M, p75 $75.0M, p90 $426.8M. By entry stage: Growth $68.5M, Pre-Seed $10.0M, Seed $10.8M, Series A $20.0M. LOWER and UPPER are the p10 and p90, since the firm publishes no cheque range. It is a round size, not a cheque size: the firm joins large growth rounds (Checkout.com's $1B round), which sets the upper end. Form D covers few entries because two in five members are outside the US."
+  },
+  "notable_investments": {
+   "value": [
+    "Coinbase",
+    "Robinhood",
+    "Stripe",
+    "Revolut",
+    "Nubank"
+   ],
+   "source": "companies/base.csv",
+   "basis": "The five best known of the firm's own companies, most recognised first (PRO-152, Erik 2026-09-24). Considered next: Credit Karma, Affirm, Brex, Wealthfront, Razorpay.",
+   "slugs": [
+    "coinbase",
+    "robinhood",
+    "stripe",
+    "revolut",
+    "nubank"
+   ]
+  },
+  "aum": {
+   "value": {
+    "bottom": 20775390188,
+    "top": 20775390188
+   },
+   "source": "https://adviserinfo.sec.gov/firm/summary/165308",
+   "basis": "Both ends: the sworn regulatory assets under management of Ribbit Management Company, LLC (primary business name RIBBIT CAPITAL, CRD 165308), Item 5.F of the Form ADV annual amendment of 2026-03-30: $20,775,390,188, all discretionary, 67 accounts (sources/registers/adv-165308.pdf, https://reports.adviserinfo.sec.gov/reports/ADV/165308/PDF/165308.pdf). Section 7.B lists 67 private funds: the flagship and growth funds, founder side funds, holding vehicles and about 40 single-deal vehicles (decisions.md D1). Ribbit Capital Z (first sale 2026-02-12) postdates the amendment's fiscal year, and Leapfrog Capital, L.P. (first sale 2025-07-01) is not on the list."
+  },
+  "funds": {
+   "value": [
+    {
+     "name": "Ribbit Capital Z, L.P.",
+     "size": 561860000,
+     "vintage": 2026,
+     "accession": "0001315863-26-000403",
+     "sources": [
+      {
+       "source": "https://www.sec.gov/Archives/edgar/data/2107959/000131586326000403/0001315863-26-000403-index.htm",
+       "note": "Form D/A 2026 Q2: $561,860,000 sold of a $565,000,000 offering, first sale 2026-02-12 (the first filing, 0001315863-26-000144, offered $500,000,000 with $0 sold)."
+      }
+     ]
+    },
+    {
+     "name": "Leapfrog Capital, L.P.",
+     "size": 331535070,
+     "vintage": 2025,
+     "accession": "0002063407-25-000034",
+     "sources": [
+      {
+       "source": "https://www.sec.gov/Archives/edgar/data/2072275/000206340725000034/0002063407-25-000034-index.htm",
+       "note": "Form D/A 2025 Q3: $331,535,070 sold, equal to the offering, first sale 2025-07-01; a Cayman venture fund at the firm's Palo Alto office (364 University Avenue) with Meyer Malka its related person. The first filing (0002063407-25-000012) offered $300,000,000."
+      },
+      {
+       "source": "https://pitchbook.com/news/articles/fintech-vc-firm-ribbit-capital-raising-300m-opportunistic-fund-leapfrog",
+       "note": "PitchBook: 'Fintech VC firm Ribbit Capital is raising a new $300M opportunistic fund' (Leapfrog)."
+      }
+     ]
+    },
+    {
+     "name": "Ribbit Bullfrog III, L.P.",
+     "size": 650000000,
+     "vintage": 2025,
+     "sources": [
+      {
+       "source": "https://www.sec.gov/Archives/edgar/data/2059489/000131586325000242/0001315863-25-000242-index.htm",
+       "note": "Form D 2025 Q1: total offering $650,000,000, $0 sold at filing, no amendment on EDGAR through 2026 Q2; the offering amount is published (no accession asserted). The Form ADV of 2026-03-30 lists the fund; its gross asset value there is a current value, not a size."
+      }
+     ]
+    },
+    {
+     "name": "Ribbit Capital Y, L.P.",
+     "size": 500000000,
+     "vintage": 2025,
+     "sources": [
+      {
+       "source": "https://www.sec.gov/Archives/edgar/data/2059488/000131586325000241/0001315863-25-000241-index.htm",
+       "note": "Form D 2025 Q1: total offering $500,000,000, $0 sold at filing."
+      },
+      {
+       "source": "https://techcrunch.com/2025/03/19/in-another-good-sign-for-fintech-ribbit-capital-is-raising-a-new-500m-fund/",
+       "note": "TechCrunch 2025-03-19: Ribbit Capital 'is raising a new $500M fund', from the filing."
+      }
+     ]
+    },
+    {
+     "name": "Ribbit Capital X, L.P.",
+     "size": 798800000,
+     "vintage": 2022,
+     "accession": "0001937574-23-000001",
+     "sources": [
+      {
+       "source": "https://www.sec.gov/Archives/edgar/data/1937574/000193757423000001/0001937574-23-000001-index.htm",
+       "note": "Form D/A 2023 Q3: $798,800,000 sold of an $800,000,000 offering, first sale 2022-07-14."
+      }
+     ]
+    },
+    {
+     "name": "Ribbit Capital VII, L.P.",
+     "size": 1155000000,
+     "vintage": 2021,
+     "accession": "0001851162-22-000001",
+     "sources": [
+      {
+       "source": "https://www.sec.gov/Archives/edgar/data/1851162/000185116222000001/0001851162-22-000001-index.htm",
+       "note": "Form D/A 2022 Q1: $1,155,000,000 sold, first sale 2021-03-25 (the first filing offered $750,000,000)."
+      },
+      {
+       "source": "https://techcrunch.com/2022/01/03/fintech-focused-ribbit-capital-raises-1-15b-in-seventh-fund-according-to-sec-filing",
+       "note": "TechCrunch 2022-01-03: 'Ribbit Capital raises $1.15B in seventh fund, according to SEC filing'."
+      }
+     ]
+    },
+    {
+     "name": "Ribbit Bullfrog II, L.P.",
+     "size": 1150000000,
+     "vintage": 2021,
+     "accession": "0001851163-22-000001",
+     "sources": [
+      {
+       "source": "https://www.sec.gov/Archives/edgar/data/1851163/000185116322000001/0001851163-22-000001-index.htm",
+       "note": "Form D/A 2022 Q1: $1,150,000,000 sold, first sale 2021-03-25; the growth line beside Fund VII."
+      }
+     ]
+    },
+    {
+     "name": "Ribbit Capital VI, L.P.",
+     "size": 420000000,
+     "vintage": 2020,
+     "sources": [
+      {
+       "source": "https://www.sec.gov/Archives/edgar/data/1800884/000180088420000001/0001800884-20-000001-index.htm",
+       "note": "Form D 2020 Q1: total offering $420,000,000, $0 sold at filing."
+      },
+      {
+       "source": "https://news.crunchbase.com/venture/ribbit-capital-targets-420m-for-its-sixth-flagship-venture-fund",
+       "note": "Crunchbase News: 'Ribbit Capital targets $420M for its sixth flagship venture fund'."
+      }
+     ]
+    },
+    {
+     "name": "Bullfrog Capital, L.P.",
+     "size": 500000000,
+     "vintage": 2020,
+     "sources": [
+      {
+       "source": "https://www.sec.gov/Archives/edgar/data/1801181/000180118120000001/0001801181-20-000001-index.htm",
+       "note": "Form D 2020 Q1: total offering $500,000,000, $0 sold at filing; the first growth fund."
+      }
+     ]
+    },
+    {
+     "name": "Ribbit Capital V, L.P.",
+     "size": 420000000,
+     "vintage": 2018,
+     "sources": [
+      {
+       "source": "https://www.sec.gov/Archives/edgar/data/1751613/000175161318000001/0001751613-18-000001-index.htm",
+       "note": "Form D 2018 Q3: total offering $420,000,000, $0 sold at filing."
+      }
+     ]
+    },
+    {
+     "name": "Ribbit Capital IV, L.P.",
+     "size": 300000000,
+     "vintage": 2017,
+     "sources": [
+      {
+       "source": "https://www.sec.gov/Archives/edgar/data/1697450/000169745017000001/0001697450-17-000001-index.htm",
+       "note": "Form D 2017 Q1: total offering $300,000,000, $0 sold at filing."
+      }
+     ]
+    },
+    {
+     "name": "Ribbit Capital III, L.P.",
+     "size": 220000000,
+     "vintage": 2015,
+     "sources": [
+      {
+       "source": "https://www.sec.gov/Archives/edgar/data/1637438/000163743815000001/0001637438-15-000001-index.htm",
+       "note": "Form D 2015 Q1: total offering $220,000,000, $0 sold at filing."
+      }
+     ]
+    },
+    {
+     "name": "Ribbit Capital II, L.P.",
+     "size": 124725000,
+     "vintage": 2014,
+     "accession": "0001603636-14-000002",
+     "sources": [
+      {
+       "source": "https://www.sec.gov/Archives/edgar/data/1603636/000160363614000002/0001603636-14-000002-index.htm",
+       "note": "Form D/A 2014 Q3: $124,725,000 sold of a $125,000,000 offering, first sale 2014-03-27."
+      }
+     ]
+    },
+    {
+     "name": "Ribbit Capital, L.P.",
+     "size": 100000000,
+     "vintage": 2012,
+     "sources": [
+      {
+       "source": "https://www.lavca.org/ribbit-capital-debuts-with-100m-early-stage-fund/",
+       "note": "LAVCA: 'Ribbit Capital Debuts With $100M Early-Stage Fund'."
+      },
+      {
+       "source": "https://www.sec.gov/Archives/edgar/data/1553005/000155300512000001/0001553005-12-000001-index.htm",
+       "note": "Form D 2012 Q2: total offering $90,000,000, $0 sold at filing; the press size is published."
+      }
+     ]
+    }
+   ],
+   "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&company=ribbit&type=D",
+   "basis": "The flagship funds (Ribbit Capital, L.P. to Ribbit Capital Z, L.P.; there is no VIII or IX), the growth line (Bullfrog Capital, Ribbit Bullfrog II and III) and the opportunistic Leapfrog fund, from the firm's own Form D filings (the own-desk CIKs in entities.json, read over the bulk zips by build-firm-profile.py). Sizes: the sold amount where an amendment reports the close (II, VII, Bullfrog II, X, Leapfrog, Z; each entry carries its accession and is asserted against the filing); the total offering amount where the only filing reports $0 sold (III, IV, V, VI, Bullfrog Capital, Y, Bullfrog III; press corroborates VI and Y); LAVCA's $100M for Fund I, whose Form D offered $90M. Form ADV gross asset values are current values, not sizes (Fund III reports $3.58B on a $220M fund), so none is used. NOT LISTED, described here: two hedge-fund-type evergreen vehicles at the firm's office, RBT, L.P. (2017, $160,988,933 sold by its 2023 amendment) and Ribbit OB1 (2022, US and Cayman feeders on one co-issued Form D, $959,405,827 sold by 2025 Q3); the founder side funds (Ribbit Founder Fund I to VII, X, Y, Z; Bullfrog Founder Fund; Ribbit Bullfrog Founder Fund II and III); holding vehicles (Ribbit Holdings, Ribbit Holdings II, Revolut Ribbit Holdings, Ribbit BTC Holdings, RTZ Ribbit Opportunity); and about 40 lettered single-deal vehicles (Ribbit Opportunity I to VII and Bullfrog Opportunity I and II series, decoded in sources/registers/spv-decode.json)."
+  },
+  "hq_location": {
+   "value": "Palo Alto, CA",
+   "source": "sources/offices.json",
+   "basis": "Principal office on the newest Form ADV: 364 University Ave, Palo Alto, CA (RIBBIT CAPITAL, CRD 165308, Annual Amendment filed 2026-03-30). The firm's site names no office in its served pages (1 checked), so the Form ADV stands. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+   "sources": [
+    {
+     "source": "Form ADV Item 1.F and Schedule D 1.F, RIBBIT CAPITAL (Annual Amendment filed 2026-03-30)",
+     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/165308/PDF/165308.pdf"
+    }
+   ]
+  },
+  "individuals": {
+   "value": [
+    {
+     "name": "Gabe Mennesson",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/gabriel-mennesson/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Justin Saslaw",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/justin-saslaw-cfa-1a181312/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Meyer “Micky” Malka",
+     "position": "Managing Director",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/meyermalka",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Nick Shalek",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": "http://www.linkedin.com/pub/nick-shalek/0/166/438",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Nikolay Kostov",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "http://www.linkedin.com/in/nkostov",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Sigal Mandelker",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/sigal-mandelker-20a7a9b/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Akshay Choudhry",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/akshay-choudhry-87ab98154/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Alli London",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/allison-london-84510a3b/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Amy Hawkins-Leong",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/amynhawkins/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Andrew Ciatto",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/andrewciatto/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Anna Nguyen",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/anna-n-01742922/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Ben Paull",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/ben-paull-cfa-75125082/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Christina Paxinos",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/cpaxinos",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Cindy McAdam",
+     "position": "Chief Operating Officer",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/cindymcadam",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Dayna Moya",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/dayna-moya-a91145127/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Denise Gilbert",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/denise-gilbert-0b07341/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Eva Alonso",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/eva-alonso-61823361/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Ian McCreadie",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/ian-mccreadie-5068a4185/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Jaime Brantley",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/jaime-m-brantley-54148965/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Jessi Brooks",
+     "position": "Chief Compliance Officer",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/jessi-brooks-8289ab32/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Jordan Angelos",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/jordan-angelos-54b4a216/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Karen Sidey",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/karensidey/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Lesley Chavkin",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/lesley-chavkin-0ab06710/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Manav Kohli",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/manavkohli/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Matt Tracey",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/matthew-tracey-40502824/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Matt Wong",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/mattwong2013/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Max Montgomery",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/max-montgomery-95a29523/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Max Ryan",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/nicholasmaxryan/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Rebekah Murphy",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/rebekah-murphy-837006a0/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Ryan Ly",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/helloryanly/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Sophia Lee",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/sophia-lee-25a62630/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Tessa Savakus",
+     "position": null,
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/tessa-savakus-0278511a/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Zack Rosen",
+     "position": null,
+     "socials": {
+      "linkedin_url": "http://linkedin.com/in/zrosen",
+      "x_url": null
+     }
+    }
+   ],
+   "source": "sources/site/team.json",
+   "basis": "Live team CMS: 33 members. Positions are CMS titles (6 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 9 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 33 LinkedIn, 0 X. TITLES: the site publishes names and LinkedIn links only. Eight titles come from sources/web/team-titles.json (Form ADV Schedule A: Malka Managing Director, McAdam Chief Operating Officer, Brooks Chief Compliance Officer; releases quoting the person: Mandelker, Saslaw and Shalek General Partner, Mennesson and Kostov Partner), merged onto the site rows by config site_api.team_sources; the other 25 publish without a position (site_api.team_bucket_overrides 'other'). Jordan Angelos is 'General Partner' only on aggregators, so untitled."
+  }
+ }
+}

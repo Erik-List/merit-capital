@@ -1,0 +1,33 @@
+in flight: wrote data/collection/investors/ribbit-capital/scratch/in-flight.json
+rows: 207
+membership seed: 189 site_listing, 0 fund_filing; left for the judge: 18
+base: data/collection/investors/ribbit-capital/companies/base.json
+target companies: 36  distinct issuer CIKs: 36
+scanning 74 quarterly datasets (offline)...
+filings collected: 102
+evidence: 71/71 base accessions found
+wrote data/collection/investors/ribbit-capital/scratch/issuer-evidence.json (37 CIKs, 9 with a name history)
+
+wrote data/collection/investors/ribbit-capital/sources/edgar/formd-issuer-rounds.json
+  companies with Form D history : 35
+  rounds after amendment merge  : 96 (6 amendments folded in)
+  companies with 2+ rounds      : 21
+  filings the partner sweep never saw: 31
+  companies gaining >=1 such filing  : 13
+  rounds carrying a sale date   : 96/96
+layer A (SEC public float): 207 rows to resolve
+    100/207
+    200/207
+    resolved a CIK: 109   with public float: 13
+layer B (Wikidata): 207 rows in batches of 60
+    60/207
+    120/207
+    180/207
+    207/207
+    matched: 64
+layer C (unicorn list): 629 current, 209 former
+graduation layer 1: 35 companies, 12 entered at Seed, 11 decided by the filings as of 2026-09-28 (the judge confirms each), 12 entries moved past pre-investor rounds
+
+deterministically resolved: 0/207
+retired (not_member, awaiting rebuild): 0
+queued for judgment       : 207 rows in 5 batches

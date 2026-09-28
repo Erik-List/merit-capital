@@ -1,0 +1,31 @@
+
+==== formd-query.py
+targets: 51 roster names
+wrote /Users/erik/Developer/merit-capital/data/collection/investors/ribbit-capital/sources/edgar/formd-sweep.json
+# accessions matched: 183
+# distinct issuers: 135
+
+==== edgar-entities.py
+== seeding from EDGAR company search
+   28 entities
+== folding in own pooled Form D vehicles
+   +42 (total 70)
+== co-filer closure (sampling filings of seed entities)
+   80 entities
+   unclassified resolved: 2 partners (people), 7 external co-filers excluded from crawling
+
+wrote data/collection/investors/ribbit-capital/entities.json — 80 entities
+  by desk: {'external': 9, 'ribbit': 71}
+  crawlable (desk != external): 71
+
+==== edgar-companies.py
+registry: 80 entities · {'external': 9, 'ribbit': 71}
+crawling 71 (external excluded)
+  25/71 entities · 7 unique accessions
+  50/71 entities · 63 unique accessions
+unique ownership filings: 63
+
+wrote edgar-companies.json — 3 companies
+  by desk: {'ribbit': 3}
+
+no base.json yet — the Form D rescan (formd-issuer-rounds.py) runs via `prepare` after build-company-base.py

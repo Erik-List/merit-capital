@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset=UTF-8 />
+	<title>Ribbit Capital · It takes money to change money.</title>
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" href="http://ribbitcap.com/wp-content/themes/ribbitcap/style.css" />
+
+	<!--[if gte IE 7]>
+	<link rel="stylesheet" href="http://ribbitcap.com/wp-content/themes/ribbitcap/ie.css" type="text/css" media="screen" />
+	<![endif]-->
+
+	<link rel="pingback" href="http://ribbitcap.com/xmlrpc.php" />
+
+	<link href="//cloud.webtype.com/css/9b701df9-a205-4ffa-ae58-556d482a5906.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="//use.typekit.net/qtn6csm.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
+	<script>
+
+(function($) {
+	shuffle = function(v){
+	for(var j, x, i = v.length; i; j = parseInt(Math.random() * i), x = v[--i], v[i] = v[j], v[j] = x);
+	return v;
+	};
+
+
+	slider = function(options){
+
+		var texts = [];
+		texts.push('<a href="http://ribbitcap.com/bets/fuze-networks/"><dl><dt class="company-fuze-small">Fuze Networks</dt><dd></dd></dl></a>');
+		texts.push('<a href="http://ribbitcap.com/bets/borro"><dl><dt class="company-borro-small">Borro</dt><dd></dd></dl></a>');
+		texts.push('<a href="http://ribbitcap.com/bets/contaazul"><dl><dt class="company-contaazul-small">ContaAzul</dt><dd></dd></dl></a>');
+		texts.push('<a href="http://ribbitcap.com/bets/credit-karma"><dl><dt class="company-credit-karma-small">Credit Karma</dt><dd></dd></dl></a>');
+		texts.push('<a href="http://ribbitcap.com/bets/capital-access-networks/"><dl><dt class="company-can-small">Capital Access Networks</dt><dd></dd></dl></a>');
+		texts.push('<a href="http://ribbitcap.com/bets/coinbase/"><dl><dt class="company-coinbase-small">Coinbase</dt><dd></dd></dl></a>');
+		texts.push('<a href="http://ribbitcap.com/bets/funding-circle/"><dl><dt class="company-funding-circle-small">Funding Circle</dt><dd></dd></dl></a>');
+		texts.push('<a href="http://ribbitcap.com/bets/comparaonline/"><dl><dt class="company-comparaonline-small">ComparaOnline</dt><dd></dd></dl></a>');
+		texts.push('<a href="http://ribbitcap.com/bets/btcjam/"><dl><dt class="company-btcjam-small">BTCJam</dt><dd></dd></dl></a>');
+		texts.push('<a href="http://ribbitcap.com/bets/edefter/"><dl><dt class="company-edefter-small">eDefter</dt><dd></dd></dl></a>');
+
+		var defaults = {
+			count : 0,
+			time: 5000, //10secs
+			pos : [".two", ".four", ".five", ".seven"]
+		};
+
+		var options = $.extend(defaults, options);
+
+		var flag = options.count;
+		var maxLimit = texts.length;
+
+		var maxPos = options.pos.length;
+
+		setInterval(function() {
+
+			shuffle(texts);
+			shuffle(texts);
+
+			$(options.pos).each(function(k,v){
+				$(v).fadeOut('slow', function(){
+					$(v).html(texts[k]);
+				});
+
+				$(v).fadeIn(500);
+			})
+
+		}, options.time);
+
+	}
+
+
+})(jQuery);
+
+slider();
+
+	</script>
+	<link rel='stylesheet' id='jetpack-widgets-css'  href='http://ribbitcap.com/wp-content/plugins/jetpack/modules/widgets/widgets.css?ver=20121003' type='text/css' media='all' />
+<script type='text/javascript' src='http://ribbitcap.com/wp-includes/js/jquery/jquery.js?ver=1.8.3'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://ribbitcap.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://ribbitcap.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='next' title='Mantra' href='http://ribbitcap.com/mantra/' />
+<meta name="generator" content="WordPress 3.5" />
+<link rel='shortlink' href='http://wp.me/P2X6on-5' />
+
+<!-- All in One SEO Pack 1.6.15.3 by Michael Torbert of Semper Fi Web Design[57,79] -->
+<meta name="description" content="Introducing Ribbit. Because the World Needs More Financial Innovation. And Less Financial Engineering." />
+<link rel="canonical" href="http://ribbitcap.com/" />
+<!-- /all in one seo pack -->
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="blog" />
+<meta property="og:title" content="Ribbit Capital" />
+<meta property="og:url" content="http://ribbitcap.com/" />
+<meta property="og:description" content="It takes money to change money" />
+<meta property="og:site_name" content="Ribbit Capital" />
+</head>
+
+<body class="home page page-id-5 page-template page-template-page-home-php" id="home">
+
+<div id="wrapper">
+	<h1><a href=".">Ribbit Capital</a></h1>
+
+	<h2>It takes money to change money.</h2>
+
+	<!-- No indenting to prevent empty spaces with inline-block elements. -->
+
+	<ul class="mods">
+		<li class="nav one"><a href="mantra/">Mantra</a></li><li class="nav two"><a href="bets/fuze-networks/"><dl>
+				<dt class="company-fuze-small">Fuze Networks</dt>
+				<dd></dd>
+			</dl></a></li><li class="nav three"><a href="about/">Our Team</a></li><li class="nav four"><a href="bets/borro"><dl>
+				<dt class="company-borro-small">Borro</dt>
+				<dd></dd>
+			</dl></a></li><li class="nav five"><a href="bets/contaazul"><dl>
+				<dt class="company-contaazul-small">ContaAzul</dt>
+				<dd></dd>
+			</dl></a></li><li class="nav six"><a href="bets/">Our Bets</a></li><li class="nav seven"><a href="bets/capital-access-networks/"><dl>
+				<dt class="company-can-small">Capital Access Networks</dt>
+				<dd></dd>
+			</dl></a></li><li class="nav eight"><a href="contact/">Contact</a></li></ul>
+</div>
+
+</body>
+</html>
+	<script src="http://stats.wordpress.com/e-201410.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	st_go({v:'ext',j:'1:2.0.2',blog:'43638599',post:'5'});
+	var load_cmc = function(){linktracker_init(43638599,5,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script>
+<style type='text/css'>img#wpstats{display:none}</style>
+

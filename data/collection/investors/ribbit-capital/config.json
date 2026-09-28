@@ -1,0 +1,221 @@
+{
+ "slug": "ribbit-capital",
+ "name": "Ribbit Capital",
+ "wayback": {
+  "cdx_domain": "ribbitcap.com",
+  "site_url_base": "https://ribbitcap.com",
+  "eras": [],
+  "_note": "Three listing eras, read by scratch/wayback-ribbit.py rather than wayback-pull.py because the middle era carries no name in its markup: 2012-2015 /bets/ (WordPress 3.5, <h3 class=company-...><a title=NAME> per company with a one-line description; the 2012-2014 homepage slider repeats the names), 2015-2024 /our-bets/ (one <a href=COMPANY_URL alt=COUNTRY><img src=uploads/...> per company: the firm's own link identifies the company, the alt is its own country label), 2025 on /rebels (Next.js; the page chunk's array, name + founders + companyUrl, archived chunk versions read from the domain index). Every distinct capture is fetched once into sources/wayback/raw/, listed in sources/wayback/captures.json, and mapped to a company through the curated sources/wayback/identity-map.json (company URL host, or the era-1 name) into sources/wayback/parsed/<year>.json.",
+  "non_company_slugs": []
+ },
+ "roster": {
+  "_note": "The site publishes one team page with names and LinkedIn links only (no titles, no groups, no per-person pages), so partner-roster.py's per-person CDX sweep has nothing to enumerate. The sweep roster is built by scratch/build-roster.py from the archived /about/ and /team/ pages (one capture per year gives each person's first and last year on the page), the firm's own fund Form D related persons, the ADV and dated press for titles; only people with an investing role are sweep targets (COLLECTION.md s5.2)."
+ },
+ "site_api": {
+  "type": "scrape",
+  "base": "https://ribbitcap.com",
+  "sources": [
+   {
+    "parser": "file_list",
+    "list": "rebels",
+    "path": "data/collection/investors/ribbit-capital/sources/site/rebels.json",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "key_field": "slug",
+    "extras": [
+     "slug",
+     "company_url",
+     "founders"
+    ],
+    "_note": "The live Rebels list (155 rows at kickoff), parsed from the /rebels page chunk by scratch/pull-site.py. The site gives no year, stage, sector or status per company; url is the listing, company_url the firm's own link to the company."
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "file_list",
+    "list": "team-pages",
+    "path": "data/collection/investors/ribbit-capital/sources/site/team-pages.json",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "key_field": "slug",
+    "extras": [
+     "slug",
+     "linkedin_url"
+    ]
+   },
+   {
+    "parser": "file_list",
+    "list": "team-titles",
+    "path": "data/collection/investors/ribbit-capital/sources/web/team-titles.json",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "key_field": "slug",
+    "extras": [
+     "slug",
+     "title",
+     "title_basis"
+    ],
+    "_note": "Titles from the Form ADV and releases (the site gives none), merged onto the site rows by slug; the site row's own url is kept."
+   }
+  ],
+  "_note": "ribbitcap.com is a Next.js (App Router) site with no CMS API: /rebels and /team render arrays compiled into their page chunks. There is no stage or year field on any surface, so no entry_stage_fields.",
+  "team_bucket_overrides": {
+   "Denise Gilbert": "other",
+   "Rebekah Murphy": "other",
+   "Tessa Savakus": "other",
+   "Zack Rosen": "other",
+   "Matt Wong": "other",
+   "Max Montgomery": "other",
+   "Eva Alonso": "other",
+   "Alli London": "other",
+   "Ben Paull": "other",
+   "Jordan Angelos": "other",
+   "Amy Hawkins-Leong": "other",
+   "Matt Tracey": "other",
+   "Anna Nguyen": "other",
+   "Andrew Ciatto": "other",
+   "Ryan Ly": "other",
+   "Jaime Brantley": "other",
+   "Max Ryan": "other",
+   "Sophia Lee": "other",
+   "Karen Sidey": "other",
+   "Manav Kohli": "other",
+   "Lesley Chavkin": "other",
+   "Dayna Moya": "other",
+   "Akshay Choudhry": "other",
+   "Ian McCreadie": "other",
+   "Christina Paxinos": "other"
+  },
+  "_team_note": "The team page (sources/site/team-pages.json) is one list of 33 names with no groups or titles. Eight titles come from sources/web/team-titles.json and bucket by the title rules; the other 25 publish under 'other' with no position (the firm's own roster, no role on record)."
+ },
+ "edgar": {
+  "seed_queries": [
+   "ribbit"
+  ],
+  "fts_phrases": [
+   "Ribbit Capital",
+   "Ribbit Management Company",
+   "Ribbit Bullfrog",
+   "Ribbit Founder Fund",
+   "Ribbit Opportunity",
+   "Bullfrog Opportunity",
+   "Bullfrog Capital, L.P.",
+   "Ribbit TG Holdings",
+   "Bring Ribbit Holdings",
+   "Ribbit OB1"
+  ],
+  "fts_own_pattern": "ribbit|bullfrog (capital|opportunity|founder)",
+  "_note": "Every EDGAR filer named 'ribbit' is the firm's (28 at kickoff: Funds I to VII, X, Y and Z, Founder Funds, Bullfrog II and III, the OB1 feeders, their GPs, Ribbit TG Holdings, the adviser, and the Ribbit LEAP SPAC with its sponsor). The per-deal Opportunity and Holdings SPVs on the ADV (RH, RV, BX, ST ... Ribbit Opportunity) file no Form D.",
+  "thirteenf_ciks": [
+   "1571355",
+   "1836733"
+  ],
+  "_thirteenf_note": "Form 13F-HR is filed by Meyer Malka (CIK 1571355; 13F-HR from 2018, then 13F-NT pointing to the adviser from 2024) and by Ribbit Management Company, LLC (CIK 1836733, from 2024). The layer never seeds membership (T3); it dates when a member's position became public and flags public names the site lists (Mercado Libre, Futu, Sea, Tinkoff) for the venture-entry check."
+ },
+ "wikipedia": {
+  "phrases": [
+   "Ribbit Capital"
+  ]
+ },
+ "desks": {
+  "home": "ribbit",
+  "partition": [],
+  "rank": [
+   "ribbit",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "^ribbit leap"
+    ]
+   },
+   {
+    "desk": "ribbit",
+    "patterns": [
+     "^ribbit (capital|founder fund|bullfrog|ob1|tg holdings|management company|btc holdings|opportunity|cayman)",
+     "ribbit opportunity",
+     "ribbit cayman",
+     "ribbit holdings",
+     "^bullfrog (capital|founder fund|opportunity)",
+     "bullfrog opportunity",
+     "^rbt, l\\.?p\\.?$",
+     "^leapfrog capital, l\\.?p\\.?$"
+    ]
+   }
+  ],
+  "_note": "One adviser, Ribbit Management Company, LLC (CRD 165308, SEC 801-111886, 364 University Ave, Palo Alto), no relying advisers (Schedule R empty), 67 private funds on the 2026-03-30 ADV: the Ribbit Capital funds, the Bullfrog growth funds, the Founder Funds, OB1 and ~40 single-deal Opportunity and Holdings SPVs. All are the home desk under T1. Ribbit LEAP, Ltd. (the 2020 SPAC) and Ribbit LEAP Sponsor, Ltd. are the firm's own entities but make no venture investments: a blank-check shell is out under T5 and a sponsor promote is not a venture entry (Erik, 2026-09-07), so they are classed external to keep them from seeding members (decisions.md D3). Form D adds the deal vehicles' own filings, which the company-name search misses because their names lead with the deal code ('RH-D Ribbit Opportunity II, LLC', 'DH-S Ribbit Cayman IN Opportunity VI, LLC', 'BRING Ribbit Holdings, L.P.'), and two funds without the brand in the name, RBT, L.P. (an open-ended vehicle filing 2017-2023) and Leapfrog Capital, L.P. (2025, $331.5M sold), both signed by Meyer Malka."
+ },
+ "profile": {
+  "adv_crd": "165308",
+  "own_vehicle_pattern": "^(ribbit (capital|founder fund|bullfrog|ob1|tg holdings|opportunity|cayman)|bullfrog (capital|founder fund|opportunity)|rbt, l\\.?p\\.?$|leapfrog capital)|ribbit opportunity|bullfrog opportunity|ribbit cayman|ribbit holdings",
+  "focus_min_companies": 8
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "robinhood",
+   "coinbase",
+   "nubank",
+   "revolut",
+   "credit karma",
+   "brex",
+   "affirm",
+   "razorpay"
+  ],
+  "not_members": [
+   {
+    "name": "Ribbit LEAP",
+    "slug": "ribbit-leap",
+    "why": "the firm's own 2020 SPAC: a blank-check shell with no operating business (T5), liquidated without a merger; a sponsor promote is not a venture entry (Erik, 2026-09-07; decisions.md D3)"
+   },
+   {
+    "name": "Bitcoin",
+    "slug": "bitcoin",
+    "why": "listed by the firm, but a base-layer asset with no issuing organisation: a treasury position (Ribbit BTC Holdings, LP on the ADV), not a portfolio company (COLLECTION.md s1 token rule; Erik's a16z ruling 7; decisions.md D2)"
+   },
+   {
+    "name": "Ethereum",
+    "slug": "ethereum",
+    "why": "listed by the firm, but a protocol asset with no investable issuing entity (Erik's a16z ruling 7, 2026-08-30: Ethereum out); decisions.md D2"
+   }
+  ],
+  "shape": {
+   "c2a_rate_max": 0.8,
+   "_note": "The 0.80 default stands. There is no ceiling on the $1B+ share (Erik, 2026-09-26)."
+  },
+  "_not_members_note": "Membership traps asserted before any verdict writes (COLLECTION.md s10, invariant 11)."
+ },
+ "sample_slugs": [],
+ "names": {
+  "published": {
+   "bonify": "Bonify",
+   "can-capital": "Can Capital",
+   "checkout": "Checkout.com",
+   "coinswitch": "CoinSwitch",
+   "cred": "Cred",
+   "dv01": "DV01",
+   "forusall-inc": "ForUsAll",
+   "good-leap": "GoodLeap",
+   "next-insurance": "Next Insurance",
+   "nydig": "Nydig",
+   "parasut": "Paraşüt",
+   "policy-bazaar": "Policybazaar",
+   "quinto-andar": "QuintoAndar",
+   "redefine": "Redefine",
+   "root": "Root",
+   "taxbit": "TaxBit",
+   "top-group": "Top Group",
+   "uala": "Ualá"
+  },
+  "_note": "COLLECTION.md s8 (Erik 2026-09-24): the brand in normal case, letter-read words keep capitals, no legal suffix. Word-read: CRED, ROOT, NEXT, NYDIG, CAN (Capital Access Network), TOP (The Open Platform), bonify, so normal case; letter-read and kept: AIUC, DCG, FTX, M0, RHI, IQ, and dv01 as DV01. Paraşüt restores the brand's own spelling (the build keys the row on ASCII 'Parasut' from the archive's link host). Brand spellings restored from the firm's flattened renderings: Checkout.com, CoinSwitch, GoodLeap, Policybazaar, QuintoAndar, TaxBit, Ualá (as the Coatue, Insight, a16z and IVP books publish the shared ones); ReDeFine is the firm's styling, the company writes Redefine."
+ }
+}

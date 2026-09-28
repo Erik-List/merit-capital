@@ -1,0 +1,618 @@
+{
+ "_readme": "13F holdings layer: the investor's public book, quarter by quarter (PRO-78).\n\nA crossover manager files Form 13F-HR every quarter for the exchange-traded\nsecurities it holds. COLLECTION.md 1 rules that a position which first appears\nas a 13F holding and never entered through a venture round is NOT a member (T3),\nso this layer never seeds membership. What it gives the run:\n\n  * a public-status corroboration for a member row: a 13F line is, by\n    definition, an exchange-traded security, so a company on it has listed;\n  * a first-seen quarter per issuer, which dates when the position became\n    public (a member entered privately shows up here only after its IPO);\n  * the recall trigger for the crossover blind spot: a 13F issuer whose IPO\n    postdates the firm's private activity is CHECKED for a pre-IPO round\n    (the judge's question), never admitted on the 13F alone.\n\nReads every 13F-HR / 13F-HR/A of the CIKs in config `edgar.thirteenf_ciks`\nthrough the submissions API, then each filing's information table (XML from\n2013Q2; the earlier text-table filings are parsed loosely and marked\n`legacy`). Values are normalised to dollars per filing by an implied price\ntest: a 13F table reports a value and a share count per line, so the median\nvalue per share of a filing is a share price (tens to hundreds of dollars)\nwhen the table is in dollars and a thousandth of one when it is in thousands.\nThe rule of the form (thousands before 2023Q1, dollars after) is not safe on\nits own: Coatue's five filings of 2001 are in dollars, its 2002 to 2022\nfilings in thousands. A filing total was tried first as the test and failed\non exactly those five (a $43M book read as $43B).\n\nOutput: sources/edgar/13f-holdings.json\n  {\"_readme\", \"filers\": {cik: {name, filings: [{accession, period, filed, positions}]}},\n   \"issuers\": {norm_name: {name, cusips[], classes[], first_period, last_period,\n                           periods, max_value_usd, last_value_usd}}}\nUsage: python3 scripts/edgar-13f.py <investor-slug> [--refresh]",
+ "filers": {
+  "1571355": {
+   "name": "Malka Meyer",
+   "filings": [
+    {
+     "accession": "0001104659-23-021343",
+     "period": "2022-12-31",
+     "filed": "2023-02-14",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 4921281,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-23-060320",
+     "period": "2023-03-31",
+     "filed": "2023-05-15",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 5755602,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-23-090958",
+     "period": "2023-06-30",
+     "filed": "2023-08-14",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 9540272,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-23-117715",
+     "period": "2023-09-30",
+     "filed": "2023-11-14",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 8766410,
+     "scale": 1.0
+    }
+   ]
+  },
+  "1836733": {
+   "name": "Ribbit Management Company, LLC",
+   "filings": [
+    {
+     "accession": "0001104659-24-023459",
+     "period": "2023-12-31",
+     "filed": "2024-02-14",
+     "form": "13F-HR",
+     "positions": 15,
+     "total_value_usd": 1183055077,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-24-061660",
+     "period": "2024-03-31",
+     "filed": "2024-05-15",
+     "form": "13F-HR",
+     "positions": 14,
+     "total_value_usd": 1380140085,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-24-089351",
+     "period": "2024-06-30",
+     "filed": "2024-08-14",
+     "form": "13F-HR",
+     "positions": 14,
+     "total_value_usd": 1436587503,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-24-118279",
+     "period": "2024-09-30",
+     "filed": "2024-11-14",
+     "form": "13F-HR",
+     "positions": 14,
+     "total_value_usd": 1492388032,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-25-013418",
+     "period": "2024-12-31",
+     "filed": "2025-02-14",
+     "form": "13F-HR",
+     "positions": 16,
+     "total_value_usd": 884047838,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-25-048796",
+     "period": "2025-03-31",
+     "filed": "2025-05-15",
+     "form": "13F-HR",
+     "positions": 14,
+     "total_value_usd": 975308588,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-25-078238",
+     "period": "2025-06-30",
+     "filed": "2025-08-14",
+     "form": "13F-HR",
+     "positions": 14,
+     "total_value_usd": 1469130098,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-25-111967",
+     "period": "2025-09-30",
+     "filed": "2025-11-14",
+     "form": "13F-HR",
+     "positions": 16,
+     "total_value_usd": 2106199555,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-26-015824",
+     "period": "2025-12-31",
+     "filed": "2026-02-17",
+     "form": "13F-HR",
+     "positions": 16,
+     "total_value_usd": 2017243329,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-26-061700",
+     "period": "2026-03-31",
+     "filed": "2026-05-15",
+     "form": "13F-HR",
+     "positions": 16,
+     "total_value_usd": 1681022928,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-26-096351",
+     "period": "2026-06-30",
+     "filed": "2026-08-14",
+     "form": "13F-HR",
+     "positions": 19,
+     "total_value_usd": 2052253496,
+     "scale": 1.0
+    }
+   ]
+  }
+ },
+ "issuers": {
+  "block": {
+   "name": "BLOCK INC",
+   "cusips": [
+    "852234103"
+   ],
+   "classes": [
+    "CL A"
+   ],
+   "periods": [
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31"
+   ],
+   "first_period": "2023-12-31",
+   "last_period": "2026-03-31",
+   "max_value_usd": 86147670.0,
+   "last_value_usd": 86147670.0,
+   "put_call_only": false
+  },
+  "capital one finl": {
+   "name": "CAPITAL ONE FINL CORP",
+   "cusips": [
+    "14040H105"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2026-06-30"
+   ],
+   "first_period": "2026-06-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 206948557.0,
+   "last_value_usd": 266882578.0,
+   "put_call_only": false
+  },
+  "clear secure": {
+   "name": "CLEAR SECURE INC",
+   "cusips": [
+    "18467V109"
+   ],
+   "classes": [
+    "COM CL A"
+   ],
+   "periods": [
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2024-12-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 41684809.0,
+   "last_value_usd": 41684809.0,
+   "put_call_only": false
+  },
+  "coinbase global": {
+   "name": "COINBASE GLOBAL INC",
+   "cusips": [
+    "19260Q107"
+   ],
+   "classes": [
+    "COM CL A"
+   ],
+   "periods": [
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2023-12-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 220142770.0,
+   "last_value_usd": 50187027.0,
+   "put_call_only": false
+  },
+  "coupang": {
+   "name": "COUPANG INC",
+   "cusips": [
+    "22266T109"
+   ],
+   "classes": [
+    "CL A"
+   ],
+   "periods": [
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2026-03-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 10856000.0,
+   "last_value_usd": 9987750.0,
+   "put_call_only": false
+  },
+  "dlocal": {
+   "name": "DLOCAL LTD",
+   "cusips": [
+    "G29018101"
+   ],
+   "classes": [
+    "CLASS A COM"
+   ],
+   "periods": [
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2023-12-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 67328140.0,
+   "last_value_usd": 50555781.0,
+   "put_call_only": false
+  },
+  "dynamix": {
+   "name": "DYNAMIX CORP",
+   "cusips": [
+    "G2949D104"
+   ],
+   "classes": [
+    "SHS CL A"
+   ],
+   "periods": [
+    "2025-09-30"
+   ],
+   "first_period": "2025-09-30",
+   "last_period": "2025-09-30",
+   "max_value_usd": 27100551.0,
+   "last_value_usd": 27100551.0,
+   "put_call_only": false
+  },
+  "figure technology solutions": {
+   "name": "FIGURE TECHNOLOGY SOLUTIONS",
+   "cusips": [
+    "349381103"
+   ],
+   "classes": [
+    "COM CL A"
+   ],
+   "periods": [
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2025-09-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 459580320.0,
+   "last_value_usd": 345585495.0,
+   "put_call_only": false
+  },
+  "grab limited": {
+   "name": "GRAB HOLDINGS LIMITED",
+   "cusips": [
+    "G4124C109"
+   ],
+   "classes": [
+    "CLASS A ORD"
+   ],
+   "periods": [
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2025-12-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 38265500.0,
+   "last_value_usd": 38265500.0,
+   "put_call_only": false
+  },
+  "grayscale bitcoin mini tr bt": {
+   "name": "GRAYSCALE BITCOIN MINI TR BT",
+   "cusips": [
+    "389930207"
+   ],
+   "classes": [
+    "SHS NEW"
+   ],
+   "periods": [
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30"
+   ],
+   "first_period": "2024-12-31",
+   "last_period": "2025-09-30",
+   "max_value_usd": 296743.0,
+   "last_value_usd": 296743.0,
+   "put_call_only": false
+  },
+  "grayscale bitcoin tr btc": {
+   "name": "GRAYSCALE BITCOIN TR BTC",
+   "cusips": [
+    "389637109"
+   ],
+   "classes": [
+    "SHS REP COM UT"
+   ],
+   "periods": [
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30"
+   ],
+   "first_period": "2024-03-31",
+   "last_period": "2024-09-30",
+   "max_value_usd": 1851450.0,
+   "last_value_usd": 1480105.0,
+   "put_call_only": false
+  },
+  "grayscale bitcoin trust etf": {
+   "name": "GRAYSCALE BITCOIN TRUST ETF",
+   "cusips": [
+    "389637109"
+   ],
+   "classes": [
+    "SHS REP COM UT"
+   ],
+   "periods": [
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30"
+   ],
+   "first_period": "2024-12-31",
+   "last_period": "2025-09-30",
+   "max_value_usd": 2631069.0,
+   "last_value_usd": 2631069.0,
+   "put_call_only": false
+  },
+  "hyperliquid strategies": {
+   "name": "HYPERLIQUID STRATEGIES INC",
+   "cusips": [
+    "44916Y106"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2025-12-31"
+   ],
+   "first_period": "2025-12-31",
+   "last_period": "2025-12-31",
+   "max_value_usd": 1341419.0,
+   "last_value_usd": 1341419.0,
+   "put_call_only": false
+  },
+  "mercadolibre": {
+   "name": "MERCADOLIBRE INC",
+   "cusips": [
+    "58733R102"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2023-12-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 87836538.0,
+   "last_value_usd": 87836538.0,
+   "put_call_only": false
+  },
+  "nu": {
+   "name": "NU HLDGS LTD",
+   "cusips": [
+    "G6683N103"
+   ],
+   "classes": [
+    "ORD SHS CL A"
+   ],
+   "periods": [
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2022-12-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 274145784.0,
+   "last_value_usd": 520949860.0,
+   "put_call_only": false
+  },
+  "robinhood mkts": {
+   "name": "ROBINHOOD MKTS INC",
+   "cusips": [
+    "770700102"
+   ],
+   "classes": [
+    "COM CL A"
+   ],
+   "periods": [
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2023-12-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 466151329.0,
+   "last_value_usd": 393739492.0,
+   "put_call_only": false
+  },
+  "root": {
+   "name": "ROOT INC",
+   "cusips": [
+    "77664L207"
+   ],
+   "classes": [
+    "CL A NEW"
+   ],
+   "periods": [
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2023-12-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 163034723.0,
+   "last_value_usd": 68927383.0,
+   "put_call_only": false
+  },
+  "sea": {
+   "name": "SEA LTD",
+   "cusips": [
+    "81141R100"
+   ],
+   "classes": [
+    "SPONSORED ADS",
+    "SPONSORD ADS"
+   ],
+   "periods": [
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2023-12-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 196634993.0,
+   "last_value_usd": 123398279.0,
+   "put_call_only": false
+  },
+  "stablecoinx": {
+   "name": "STABLECOINX INC",
+   "cusips": [
+    "85238K100"
+   ],
+   "classes": [
+    "SHS CL A"
+   ],
+   "periods": [
+    "2026-06-30"
+   ],
+   "first_period": "2026-06-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 1246275.0,
+   "last_value_usd": 1246275.0,
+   "put_call_only": false
+  },
+  "ton strategy": {
+   "name": "TON STRATEGY CO",
+   "cusips": [
+    "92337U302"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2025-09-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 11104101.0,
+   "last_value_usd": 4022082.0,
+   "put_call_only": false
+  },
+  "wealthfront": {
+   "name": "WEALTHFRONT CORP",
+   "cusips": [
+    "947002101"
+   ],
+   "classes": [
+    "COM"
+   ],
+   "periods": [
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2025-12-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 133836481.0,
+   "last_value_usd": 48984647.0,
+   "put_call_only": false
+  }
+ }
+}
