@@ -14,6 +14,7 @@ Ingest waits for Erik's approval (section 14).**
 | Plain `verify` green | `verify: clean` (flagged debt only, section 6) |
 | Entity set in `decisions.md` | D1: one exempt reporting adviser, Twenty VC LLP (CRD 316359); Fund I to III, Explorer II and III, D-1, S-1 to S-5, SPV1 and SPV2 in; the 20Growth, 20Product and 20Sales offshoot funds, Stride.VC, Project Europe and the media business out (D1 to D5) |
 | Silent-empty vehicle registry made loud | Section 3: five of seventeen vehicles were invisible to every registry route; a config shape and a verify signal are proposed (section 11, write-back 1) |
+| COLLECTION.md diff proposed | `documentation/collection-md-proposal.md` (five hunks, not applied: the playbook is the tooling session's) |
 | Rulings asked for | Media business vs fund (D2: out), podcast relationships (D7: out), SPVs and syndicates (D6: in); two run-time rulings R1 and R2 (section 9) |
 | Every row judged, classified, cited | 125 verdicts (123 member, 2 `not_member`), 123/123 classified |
 | Firm profile | `investor/investor.json` + `sources.json`, built by `build-firm-profile.py`, `profile_copy.py` ok |
@@ -199,6 +200,8 @@ renames. The delta produced three membership verdicts (all member), so one
 more rebuild ran before export, as the playbook asks: no change.
 
 ## 11. Playbook write-backs proposed (not applied mid-wave)
+
+The exact text is in `documentation/collection-md-proposal.md`.
 
 1. **Vehicle registry completeness** (PRO-76's ask). Config shape:
 
