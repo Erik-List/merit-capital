@@ -1,0 +1,81 @@
+{
+ "investment_stage": {
+  "value": [
+   "Seed",
+   "Series A",
+   "Growth"
+  ],
+  "source": "https://en.wikipedia.org/wiki/GV_(company)",
+  "basis": "GV 'provides seed, venture, and growth stage funding' (Wikipedia, 'GV (company)'); the firm's own portfolio page says it provides value 'across multiple stages and milestones'. The landed entry distribution over 749 members: Growth 231, Series A 199, Seed 199, undetermined 117, Pre-Seed 3.",
+  "flags": [
+   "derived"
+  ]
+ },
+ "investment_geo": {
+  "value": {
+   "core": [
+    "US"
+   ],
+   "other": [
+    "Europe"
+   ]
+  },
+  "source": "companies/base.json",
+  "basis": "From the members' headquarters: US 680 of 749, Europe 58 (GB 41, DE 5, FR 3, CH 2, DK 1, FI 1, BG 1, IE 1, NL 1, CZ 1, SE 1), CA 6, IL 5. The firm's offices are San Francisco, New York, Cambridge and London (its own offices document); GV Europe opened in London in 2014.",
+  "flags": [
+   "derived"
+  ]
+ },
+ "investment_scope": {
+  "value": {
+   "type": "Generalist",
+   "focus": [
+    "Healthcare & Bio",
+    "Consumer & Marketplaces",
+    "SaaS",
+    "AI & Applied AI",
+    "Media, Gaming & Advertising",
+    "DevTools & APIs",
+    "Data Infrastructure",
+    "Industrial & Robotics",
+    "Security",
+    "Fintech & Payments"
+   ]
+  },
+  "source": "companies/base.json",
+  "basis": "focus from the grind's focus column over 749 members, published at 30 companies or more: Healthcare & Bio 204, Consumer & Marketplaces 146, SaaS 80, AI & Applied AI 54, Media, Gaming & Advertising 48, DevTools & APIs 41, Data Infrastructure 39, Industrial & Robotics 37, Security 36, Fintech & Payments 34, Climate & Energy 20, Crypto & Web3 10. GV's own sectors (Life Sciences, Enterprise, Consumer, Frontier Tech, AI) cross-check the spread; a generalist firm.",
+  "flags": [
+   "derived"
+  ]
+ },
+ "investment_range": {
+  "value": {
+   "lower_limit": 6000000,
+   "median": 22000000,
+   "upper_limit": 75000000
+  },
+  "source": "sources/edgar/formd-issuer-rounds.json",
+  "basis": "MEDIAN $22.5M: the median entry round over the 78 members whose entry round is on EDGAR (the Form D round filed nearest the recorded entry date; p10 $6.5M, p25 $15.0M, p75 $50.0M, p90 $75.5M). LOWER and UPPER are the p10 and p90 of the same distribution, because the firm publishes no cheque range (the BCV convention). It is a round size, not a cheque size, and Form D coverage starts in 2009.",
+  "flags": [
+   "derived"
+  ]
+ },
+ "notable_investments": {
+  "value": [
+   "Uber",
+   "Stripe",
+   "Slack",
+   "Nest",
+   "Robinhood"
+  ],
+  "source": "companies/base.csv",
+  "slugs": [
+   "uber",
+   "stripe",
+   "slack",
+   "nest",
+   "robinhood"
+  ],
+  "basis": "The five best known of the firm's companies to a general reader, most recognised first (PRO-152, Erik 2026-09-24), each a member on the firm's own list: Uber (GV's 2013 investment), Stripe (a GV case study), Slack, Nest (bought by Google in 2014) and Robinhood. Left out as better known for other reasons: Waymo and Isomorphic Labs (Alphabet's own companies, decisions.md D4) and 23andMe."
+ }
+}

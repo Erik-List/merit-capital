@@ -1,0 +1,274 @@
+{
+  "slug": "gv",
+  "name": "GV",
+  "wayback": {
+    "cdx_domain": "gv.com",
+    "site_url_base": "https://www.gv.com",
+    "eras": [],
+    "_note": "The firm has published its portfolio on two domains: googleventures.com (Google Ventures, 2009 to 2015) and gv.com (from the 2015 rename; the domain answers in Common Crawl from 2014). No era fits the generic Wayback parsers, and the Internet Archive's machine-wide firewall cooldown was at its 8-hour ceiling when the run started (2026-09-29 00:31 UTC), so the archive layer is read from Common Crawl (Erik 2026-09-26): scratch/cc-cluster.py (index lines via cluster.idx on the data host), scratch/cc-fetch.py (bodies), scratch/cc-parse.py (listing pages into sources/wayback/parsed/<year>.json, each row carrying its index.commoncrawl.org capture_url).",
+    "non_company_slugs": [
+      "portfolio",
+      "team",
+      "about",
+      "news",
+      "ai",
+      "archive",
+      "press",
+      "case-study",
+      "all",
+      "companies",
+      "life-sciences",
+      "consumer",
+      "enterprise",
+      "frontier-tech",
+      "health",
+      "index"
+    ]
+  },
+  "roster": {
+    "cdx_patterns": [
+      "gv.com/team/*",
+      "googleventures.com/team/*"
+    ],
+    "site_team_groups": [
+      "Investing Team"
+    ],
+    "slug_re": "/team/([a-z][a-z0-9_-]*[a-z0-9])/?$",
+    "listing_href_re": "/team/([a-z][a-z0-9_-]*[a-z0-9])[\"'/]",
+    "not_a_person": [
+      "team",
+      "all",
+      "investing",
+      "operations",
+      "advisors",
+      "design",
+      "engineering",
+      "marketing",
+      "recruiting"
+    ],
+    "_note": "Built by scratch/build-roster.py from the live CMS team (sources/site/team-pages.json, the Investing Team group) and the archived people pages on googleventures.com and gv.com read from Common Crawl (capture-year windows), kept to people the firm itself titled as investors. The live CMS carries current staff only; every departed partner comes from the archive."
+  },
+  "site_api": {
+    "type": "scrape",
+    "base": "https://www.gv.com",
+    "sources": [
+      {
+        "parser": "file_list",
+        "list": "gv-cms",
+        "path": "data/collection/investors/gv/sources/site/company-list.json",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "sectors": "sectors",
+        "extras": [
+          "id",
+          "gv_lists",
+          "sector",
+          "secondary_sector",
+          "company_site",
+          "partners",
+          "exited",
+          "exit_line",
+          "more_info",
+          "ai_category",
+          "ai_rounds",
+          "ai_first_invested",
+          "invest_year",
+          "cms_created"
+        ],
+        "_note": "The live portfolio: every Sanity `company` doc (646, the /portfolio list, exits kept with a trailing ' *' and the firm's own exit line) unioned with the `aiCompany` docs (112, the /ai list, with the firm's own first 'Invested' month), flattened by scratch/shape-site.py from sources/site/sanity/. invest_year is the /ai first-investment year (an anchor, never a stage label; decisions.md D7). No field on either list states a round, so entry_stage_fields is empty."
+      }
+    ],
+    "team_sources": [
+      {
+        "parser": "file_list",
+        "list": "gv-team",
+        "path": "data/collection/investors/gv/sources/site/team-pages.json",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "key_field": "slug",
+        "extras": [
+          "slug",
+          "title",
+          "group",
+          "location",
+          "linkedin_url",
+          "x_url",
+          "deal_count"
+        ]
+      }
+    ],
+    "team_buckets": {
+      "Investing Team": "investing"
+    },
+    "_note": "gv.com is Nuxt 3 over a Sanity dataset (project v5ygm6ip, dataset production) whose GROQ API answers without a token: scratch/pull-sanity.py reads company (646), aiCompany (112), teamMember (109), newsArticle (153), caseStudy (19), sector, office and stats docs.",
+    "_team_buckets_note": "Only the Investing Team (35) publishes. Operations (11), the 20 external Advisors and the 43 staff with no group (executive business partners, finance, legal, engineering) stay unmapped, so they stay out of the profile (COLLECTION.md s11).",
+    "team_bucket_overrides": {
+      "Zach Brauer": []
+    },
+    "_team_bucket_overrides_note": "Zach Brauer is 'Senior Finance Partner', filed under the Investing Team group in the CMS: a finance role, so he stays out of the published team (COLLECTION.md s11)."
+  },
+  "edgar": {
+    "seed_queries": [
+      "gv+20",
+      "google+ventures",
+      "gv+management"
+    ],
+    "fts_phrases": [
+      "Google Ventures",
+      "affiliated with GV",
+      "GV 2013, L.P.",
+      "GV 2014, L.P.",
+      "GV 2015, L.P.",
+      "GV 2016, L.P.",
+      "GV 2017, L.P.",
+      "GV 2019, L.P.",
+      "GV 2021, L.P.",
+      "GV 2023, L.P.",
+      "GV 2025",
+      "GV Management Company"
+    ],
+    "fts_own_pattern": "^(gv 20\\d\\d|google ventures|gv management company)",
+    "_note": "Entity-qualified phrases. The bare 'GV' is hopeless as a phrase (a ticker, a unit, other firms' initials); the S-1 principal-holder tables name the firm as 'entities affiliated with GV' or 'Google Ventures' before 2016, and its vehicles by their L.P. names. The vehicles file no Form D (Alphabet is the only limited partner); they file 13D/G and Forms 3/4 as holders. GV 2025 GP, L.P. filed a Form D in 2025 (84 investors, $0 sold, David Krane as executive officer): the team's own general-partner vehicle."
+  },
+  "wikipedia": {
+    "phrases": [
+      "Google Ventures",
+      "GV (company)"
+    ]
+  },
+  "desks": {
+    "home": "gv",
+    "partition": [],
+    "rank": [
+      "gv",
+      "unknown"
+    ],
+    "classify": [
+      {
+        "desk": "external",
+        "patterns": [
+          "^capitalg",
+          "^google capital",
+          "^gradient ventures",
+          "^alphabet",
+          "^xxvi holdings",
+          "^google (inc|llc)",
+          "^gv spv",
+          "^growthline",
+          "^gv (black|investment|financial|capital|partners|holdings|advisors)",
+          "^gvr ",
+          "^gvc "
+        ]
+      },
+      {
+        "desk": "gv",
+        "patterns": [
+          "^gv 20\\d\\d",
+          "^google ventures",
+          "^gv management company"
+        ]
+      }
+    ],
+    "_note": "No adviser registration: IAPD returns nothing for GV, Google Ventures, GV Management Company or Alphabet (checked 2026-09-29); GV Management Company, L.L.C. (CIK 1940173) files only 13F notices (its holdings are reported inside Alphabet's 13F) and N-PX. The vehicles are Google Ventures 2011, L.P. (CIK 1586699), GV 2013, L.P. (1634261, formerly Google Ventures 2013), GV 2014 (1728797), 2015 (1719755), 2016 (1721789), 2017 (1733340), 2019 (1845041), 2021 (1861202) and 2023 (1961979), L.P., each with GV 20xx GP entities, and GV 2025 GP, L.P. (2036706), all at 1600 Amphitheatre Parkway, Mountain View. External under T1 (decisions.md D1): CapitalG (formerly Google Capital; its own vehicles CapitalG 2013 to IV and its own team, at the same address), Gradient Ventures, Alphabet Inc. and its holding companies (they co-file GV's 13D/G as the parent; crawling them would import CapitalG's and Google's own positions), Google itself, and the 'GV' namesakes (GV SPV I is a Growthline Ventures series)."
+  },
+  "profile": {
+    "own_vehicle_pattern": "^(gv 20\\d\\d|google ventures 20\\d\\d|gv management company)",
+    "focus_min_companies": 30,
+    "focus_crosswalk": {
+      "AI": "AI & Applied AI",
+      "Life Sciences": "Healthcare & Bio",
+      "Consumer": "Consumer & Marketplaces",
+      "Enterprise": "SaaS",
+      "Frontier Tech": "Industrial & Robotics"
+    },
+    "_note": "No Form ADV exists (decisions.md D1), so the ADV-anchored fields of COLLECTION.md s11 (aum, hq_location's principal office) have no sworn source; see decisions.md D9. focus_min_companies is provisional, about 4.5% of the expected base.",
+    "adv_crd": null,
+    "site_office": {
+      "place": "San Francisco, CA",
+      "url": "https://www.gv.com/news/welcoming-elena-sakach",
+      "quote": "We're excited to welcome Elena Sakach to GV as our newest investment partner, based in our San Francisco office",
+      "basis": "GV files no Form ADV (decisions.md D1), so the rule's principal office does not exist. The firm's site labels its headquarters 'San Francisco Bay Area' (the Sanity offices document, read 2026-09-29), a region, and its own posts and bios place the Bay Area team in 'our San Francisco office' (Elena Sakach 2024-05-20, Michael McBride 2023-12-13, Brendan Bulik-Sullivan and Frederique Dame 2023-06-05) and 'our offices in San Francisco' (David Krane, 2026-02-02). The vehicles' filing address, 1600 Amphitheatre Parkway, Mountain View, is Alphabet's headquarters, not the firm's office."
+    }
+  },
+  "verify": {
+    "text_mention_leaks": [],
+    "cofiler_leaks": [],
+    "known_positions": [
+      "uber",
+      "slack",
+      "nest",
+      "flatiron health",
+      "foundation medicine",
+      "23andme",
+      "gitlab",
+      "stripe",
+      "robinhood",
+      "toast",
+      "upstart",
+      "docusign",
+      "hubspot",
+      "cloudera",
+      "jet",
+      "blue bottle coffee",
+      "harvey",
+      "vercel"
+    ],
+    "not_members": [
+      {
+        "name": "calico",
+        "slug": "calico",
+        "why": "an Alphabet company founded and funded by Google and AbbVie (2013); no GV vehicle held it (T2, decisions.md D2)"
+      },
+      {
+        "name": "calico life sciences",
+        "slug": "calico-life-sciences",
+        "why": "the same Alphabet company under its legal name (T2, D2)"
+      },
+      {
+        "name": "starco brands",
+        "slug": "starco-brands-inc",
+        "why": "acquirer of GV-backed Soylent (2023); the GV vehicles' Starco shares (Forms 3/4 and 13D/G from 2023-02) were sale consideration for Soylent (COLLECTION.md s1, the a16z Starco precedent); Soylent is the member"
+      },
+      {
+        "name": "oxford science enterprises",
+        "slug": "oxford-science-enterprises",
+        "why": "an investment company: the firm's own 2015 listing calls Oxford Sciences Innovation 'a fund that provides capital and business expertise to companies developed in Oxford University' (T5, fund-shaped position; decisions.md D10)"
+      },
+      {
+        "name": "oxford sciences innovation",
+        "slug": "oxford-sciences-innovation",
+        "why": "the same investment company under its 2015 to 2021 name (D10); every slug of the merge group carries its own verdict"
+      },
+      {
+        "name": "revolution medicines",
+        "slug": "revolution-medicines",
+        "why": "sale consideration: the firm's own line reads 'NASDAQ: RVMD, Acquired EQRx 2023' and the stock came to GV when Revolution Medicines bought GV-backed EQRx (all-stock, 2023); listed from 2025 with no partner (decisions.md D11; Erik 2026-09-22, the acquirer leaves the base even when the firm lists it); EQRx is the member"
+      }
+    ],
+    "shape": {
+      "c2a_rate_max": 0.8,
+      "_note": "The 0.80 default stands. There is no ceiling on the $1B+ share (Erik, 2026-09-26)."
+    },
+    "_not_members_note": "Membership traps asserted before any verdict writes (COLLECTION.md 10, invariant 11): Alphabet's own companies and Google's corporate and CapitalG positions that press attributes to 'Google', added as the evidence identifies them (decisions.md D1, D2)."
+  },
+  "sample_slugs": [],
+  "names": {
+    "published": {
+      "armo-biosciences": "Armo BioSciences",
+      "heavy-ai": "Heavy.AI",
+      "hover": "Hover",
+      "owkin": "Owkin",
+      "rapt-therapeutics": "Rapt Therapeutics",
+      "rome-therapeutics": "Rome Therapeutics",
+      "tmrw-life-sciences": "Tmrw Life Sciences",
+      "ujet": "Ujet",
+      "vida": "Vida",
+      "synapse-health-inc": "Synapse Health"
+    },
+    "_published_note": "COLLECTION.md s8 (Erik 2026-09-24): brand in normal case, initialisms keep capitals, no legal suffix. Kept as rendered: BBOT, HAGS and PACT Pharma (initialisms), CTRL-labs (as the Lux and Spark books publish it), The Climate Corporation and The Orange Chef Co. (the word is part of the brand, as three sibling books publish Climate). Aligned with siblings: Ujet (General Catalyst), Hover (Menlo), Rome Therapeutics (a16z)."
+  }
+}

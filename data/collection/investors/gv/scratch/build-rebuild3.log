@@ -1,0 +1,39 @@
+export refused: 78 Seed row(s) without a decided graduation status (altspacevr, astrid, bonnet, bounti, cacheflow, carnival-mobile, cliqr-technologies, cognosys, confide, context-ai, cord, corduro …); a Seed row is graduated, not_graduated or censored (PRO-132). Judge them (prepare queues them), then export.
+site API portfolio: 648 companies
+recall additions injected: 5
+pooled fund vehicles dropped: 32 issuers (47 filings)
+initial-only person matches ignored: 0 issuers (0 attributions)
+limited partnerships dropped (not operating companies): 3
+    - GV 2021 GP, L.P.
+    - GV 2023 GP, L.P.
+    - GV 2025 GP, L.P.
+non-portfolio industry, Form D-only (6 dropped):
+    - ASJL Capital LLC [Other Real Estate]
+    - Carolina Trust BancShares, Inc. [Commercial Banking]
+    - Cincinnati Revitalization, LLC [Residential]
+    - FIELD & MAIN BANCORP, INC. [Commercial Banking]
+    - Riverwalk Castle Rock, LLC [Other Real Estate]
+    - Tampa Bay Banking Co [Commercial Banking]
+tenure mismatch flagged: 10 rows
+removed (ex-partner is the only evidence): 7
+    - Forward Human Inc. — Kevin Rose last on site 2015, filing 2019 (4y after)
+    - Guild Education, Inc. — Wesley Chan last on site 2014, filing 2019 (5y after)
+    - Jocasta Neuroscience, Inc. — Kevin Rose last on site 2015, filing 2024 (9y after)
+    - Opsera, Inc. — Wesley Chan last on site 2014, filing 2023 (9y after)
+    - Reflect Orbital Inc. — Shaun Maguire last on site 2019, filing 2025 (6y after)
+    - YENDO INC. — Wesley Chan last on site 2014, filing 2023 (9y after)
+    - knownwell, inc. — Vineeta Agarwala last on site 2019, filing 2025 (6y after)
+verification ledger: 99 excluded, 0 control positions excluded, 0 uncertain kept
+duplicate name-variants merged: 29; kept separate (co-listed or differing CIK): 15
+  overlay: canonical 'oxford-science-enterprises' not in base, group skipped
+  overlay: canonical 'expanse-inc' not in base, group skipped
+identity overlay: 60 duplicate rows merged, 0 rejected, 0 desk reassignments
+excluded.json: 99 rows ({'not_member': 99})
+Traceback (most recent call last):
+  File "/Users/erik/Developer/merit-capital/scripts/build-company-base.py", line 1089, in <module>
+    main()
+  File "/Users/erik/Developer/merit-capital/scripts/build-company-base.py", line 1076, in main
+    subprocess.run([sys.executable, str(Path(__file__).parent / "run.py"),
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/usr/local/bin/python3', '/Users/erik/Developer/merit-capital/scripts/run.py', 'export', '--investor', 'gv']' returned non-zero exit status 1.

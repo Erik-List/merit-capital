@@ -1,0 +1,52 @@
+base: data/collection/investors/gv/companies/base.json
+target companies: 192  distinct issuer CIKs: 192
+scanning 74 quarterly datasets (offline)...
+filings collected: 644
+evidence: 428/428 base accessions found
+wrote data/collection/investors/gv/scratch/issuer-evidence.json (202 CIKs, 86 with a name history)
+
+wrote data/collection/investors/gv/sources/edgar/formd-issuer-rounds.json
+  companies with Form D history : 185
+  rounds after amendment merge  : 576 (68 amendments folded in)
+  companies with 2+ rounds      : 137
+  filings the partner sweep never saw: 216
+  companies gaining >=1 such filing  : 80
+  rounds carrying a sale date   : 572/576
+in flight: wrote data/collection/investors/gv/scratch/in-flight.json
+rows: 862
+membership seed: 766 site_listing, 1 fund_filing; left for the judge: 95
+layer A (SEC public float): 862 rows to resolve
+    fetched 100/229
+    fetched 200/229
+    100/862
+    200/862
+    300/862
+    400/862
+    500/862
+    600/862
+    700/862
+    800/862
+    resolved a CIK: 522   with public float: 86
+layer B (Wikidata): 862 rows in batches of 60
+    60/862
+    120/862
+    180/862
+    240/862
+    300/862
+    360/862
+    420/862
+    480/862
+    540/862
+    600/862
+    660/862
+    720/862
+    780/862
+    840/862
+    862/862
+    matched: 205
+layer C (unicorn list): 629 current, 209 former
+graduation layer 1: 185 companies, 28 entered at Seed, 26 decided by the filings as of 2026-09-28 (the judge confirms each), 67 entries moved past pre-investor rounds
+
+deterministically resolved: 0/862
+retired (not_member, awaiting rebuild): 0
+queued for judgment       : 862 rows in 20 batches

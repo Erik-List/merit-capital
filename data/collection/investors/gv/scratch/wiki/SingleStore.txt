@@ -1,0 +1,70 @@
+SingleStore (formerly MemSQL) is a distributed, relational, SQL database management system (RDBMS) that features ANSI SQL support, designed to handle data ingest, transaction processing, and query processing.
+SingleStore stores relational data, JSON data, geospatial data, key-value vector data, and time series data. It can be run in various Linux environments, including on-premises installations, public and private cloud providers, in containers via a Kubernetes operator, or as a hosted service in the cloud known as SingleStore Helios.
+In the 2020s, SingleStore introduced updates related to data lake integration, search capabilities, and deployment flexibility, including support for Apache Iceberg and expanded cloud deployment options.
+
+
+== History ==
+On April 23, 2013, SingleStore launched its first generally available version of the database to the public as MemSQL. Early versions supported row-oriented tables, and were optimized for cases where all data fit within main memory. This design was based on the idea that the cost of RAM would continue to decrease exponentially over time, in a trend similar to Moore's law. This would eventually allow most use cases for database systems to store their data exclusively in memory.
+Shortly after launch, MemSQL added general support for an on-disk column-based storage format to work alongside the in-memory rowstore.
+On October 27, 2020, MemSQL rebranded to SingleStore to reflect a shift in focus away from exclusively in-memory workloads.
+In April 2023, SingleStore announced updates to its platform, with a focus on data processing and support for artificial intelligence, including tools for Generative AI (GenAI), and analytics workloads.
+In July 2023, SingleStore announced a partnership with Amazon Web Services (AWS) related to real-time data analytics and AI applications.
+In August 2023, IBM announced a collaboration with SingleStore to integrate with its watsonx.ai platform for developing generative AI applications.
+In January 2024, SingleStore introduced a feature named SingleStore Kai, which provides compatibility with the MongoDB API. In September 2024, the company announced availability as a Snowflake Native App within the Snowpark Container Services (SPCS) marketplace.
+In October 2024, the company announced the acquisition of BryteFlow, a data integration platform. Following the acquisition, data ingest capabilities were incorporated into the product under the name "SingleStore Flow".
+Headquartered in San Francisco, California, in June 2021 SingleStore opened an office in Raleigh, North Carolina. Its other offices include Sunnyvale, California; Seattle, Washington; London, England; Hyderabad, India; and Lisbon, Portugal.
+
+
+=== Funding ===
+In January 2013, SingleStore announced it raised $5 million. Since then, the company has raised $318.1M from investors including Khosla Ventures, Accel, Google Ventures, Dell Capital and HPE, among others. In October 2022, SingleStore closed Series F-2 and welcomed new investor Prosperity7.
+
+
+== Architecture ==
+
+
+=== Row and column table formats ===
+SingleStore can store data in either row-oriented tables ("rowstores") or column-oriented tables ("columnstores"). The format used is determined by the user when creating the table.
+Rowstore tables, as the name implies, store information in row format, which is the traditional data format used by RDBMS systems. Rowstores are optimized for singleton or small insert, update, or delete queries and are most closely associated with OLTP (transactional) use cases. Data for rowstore tables is stored completely in-memory, making random reads fast, with snapshots and transaction logs persisted to disk. Columnstores are optimized for complex SELECT queries, typically associated with OLAP (analytics) and data warehousing use cases.
+
+
+=== Indexing ===
+Rather than the traditional B-tree index, SingleStore rowstores use skiplists optimized for fast, lock-free processing in memory. Columnstores store data in sorted segments, in order to maximize on-disk compression and achieve fast ordered scans. SingleStore also supports using hash indexes as secondary indexes to speed up certain queries.
+
+
+=== Distributed architecture ===
+A SingleStore database is distributed across many nodes, which may be cloud-based servers or commodity machines. Data is stored in partitions on leaf nodes, and users connect to aggregator nodes. A single piece of software is installed for SingleStore aggregator and leaf nodes; administrators designate each machine’s role in the cluster during setup. An aggregator node is responsible for receiving SQL queries, breaking them up across leaf nodes, and aggregating results back to the client. A leaf node stores SingleStore data and processes queries from the aggregator(s). All communication between aggregators and leaf nodes is done over the network using SQL. SingleStore uses hash partitioning to distribute data uniformly across the number of leaf nodes.
+
+
+=== Durability ===
+Durability for the in-memory rowstore is implemented with a write-ahead log and snapshots, similar to checkpoints. With default settings, as soon as a transaction is acknowledged in memory, the database will asynchronously write the transaction to disk as fast as the disk allows.
+
+
+=== Replication ===
+A SingleStore cluster can be configured in "High Availability" (HA) mode, where every data partition is automatically created with primary and replica partitions on two separate leaf nodes. In HA mode, aggregators send transactions to the primary  partitions, which then send logs to the secondary partitions. In the event of an unexpected primary failure, the replica partitions take over as primary partitions, in a fully online operation with no downtime.
+
+
+=== Iceberg support and vector search ===
+In 2024, SingleStore added support for Apache Iceberg, a table format used in data lake architectures. The release also included updates to vector search, full-text search, autoscaling, and deployment options.
+
+
+== Distribution formats ==
+SingleStore can be downloaded for free and run on Linux for systems up to 4 leaf nodes of 32 gigs RAM each; an Enterprise license is required for larger deployments and for official SingleStore support. The system is also available as a managed cloud service named SingleStore Helios, which is available on public cloud platforms including Google Cloud and Amazon Web Services. The underlying engine is identical in all distribution formats.
+The system includes tools for installation, management, and monitoring of database clusters across multiple machines; as well as a web-based interface for querying and administration.
+
+
+== See also ==
+Comparison of relational database management systems
+Comparison of object-relational database management systems
+Database management system
+Hybrid transactional/analytical processing
+List of relational database management systems
+List of column-oriented DBMSes
+List of in-memory databases
+List of databases using MVCC
+
+
+== References ==
+
+
+== External links ==
+Official website

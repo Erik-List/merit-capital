@@ -1,0 +1,43 @@
+Mitro was a password manager for individuals and teams that securely saved users' logins, and allowed users to log in and share access.
+On October 6, 2015, the Mitro service shut down.
+The successor to Mitro is named Passopolis; this is a password manager built upon the Mitro source code.
+
+
+== History ==
+Mitro was founded in 2012 by Vijay Pandurangan, Evan Jones, and Adam Hilss. Mitro was backed by $1.2 million in seed funding from Google Ventures and Matrix Partners.
+On July 31, 2014, the Mitro team announced that they would join Twitter, and at the same time, they released the source code for Mitro on GitHub as free software under GPL.
+The Mitro team announced the shuttering of the Mitro service with the following timeline:
+
+July 11, 2015: Initial announcement that Mitro would be shut down
+July 18, 2015: Creating new accounts was disabled
+August 4, 2015: Final email warning about imminent shutdown was sent
+September 24, 2015: Mitro become read-only
+October 6, 2015: Mitro service was turned off
+October 31, 2015: All Mitro user data permanently destroyed
+The Mitro team explained the reason for shutting down the service was that the cost and administrative burden to maintain the service in their spare time with their own money had become too much. Given that they could not properly manage a service that people rely on for their security, they needed to stop running it.
+Former customers were encouraged to move to Passopolis, and independent project that uses the open source Mitro code, or use alternatives such as 1Password, Dashlane, or LastPass.
+On October 5, 2015, Mitro was officially terminated by Twitter.
+
+
+== Security ==
+Mitro uses Google's Keyczar on the server and Keyczar JS implementation on the browser.
+
+Master key is a 128-bit AES key derived using PBKDF2 (SHA-1; 50000 iterations; 16 salt bytes)
+RSA with 2048-bit keys using OAEP-SHA1 (separate signing and encryption keys)
+AES with 128-bit keys in CBC mode with PKCS5 padding
+All encrypted data includes a MAC (HMAC-SHA1)
+
+
+== See also ==
+List of password managers
+
+
+== Notes ==
+
+
+== References ==
+
+
+== External links ==
+Official website
+Source code
