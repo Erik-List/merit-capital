@@ -1554,13 +1554,14 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Winter 2014); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) menlo-ventures (freshest as-of: menlo-ventures); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) menlo-ventures (freshest as-of: menlo-ventures); COLLECTION.md invariant 10 binds these two columns. | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows.",
+  "note": "YC directory record (batch Winter 2014); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) menlo-ventures (freshest as-of: menlo-ventures); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) menlo-ventures (freshest as-of: menlo-ventures); COLLECTION.md invariant 10 binds these two columns. | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows. | Aligned 2026-09-29 from the GV run (PRO-75, rule 10): acquired: 'Certify acquires real-time expense management startup and YC alum Abacus' (TechCrunch, 2018-07-17, https://techcrunch.com/2018/07/17/certify-acquires-real-time-expense-management-startup-and-yc-alum-abacus/), as the GV row reads.",
   "seed_to_a_graduation": null,
   "slug": "abacus",
-  "status": "private",
+  "status": "acquired",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "who": "agent-pro136-yc"
+  "valuation_usd": null,
+  "who": "agent-align-pro75"
  },
  "abalone-bio": {
   "entry_stage": "Pre-Seed",
@@ -4670,13 +4671,17 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Winter 2013); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z, first-round-capital (freshest as-of: a16z); invariant 10 binds these two columns across investors. The landed bases already disagree with each other on this row. | status and valuation_range carried from landed base(s) a16z, first-round-capital (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns. The landed bases already disagree with each other on this row. | Airware (W13, commercial drones) shut down 2018-09-14 and its assets were auctioned to Delair. The row had carried `acquired`, imported from a landed base; the correct current state is defunct. Adjudicated 2026-09-07. | Airware (W13, commercial drones) shut down 2018-09-14 with assets auctioned to Delair; no acquirer took the business, so defunct. Adjudicated 2026-09-07. | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows.",
+  "note": "YC directory record (batch Winter 2013); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z, first-round-capital (freshest as-of: a16z); invariant 10 binds these two columns across investors. The landed bases already disagree with each other on this row. | status and valuation_range carried from landed base(s) a16z, first-round-capital (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns. The landed bases already disagree with each other on this row. | Airware (W13, commercial drones) shut down 2018-09-14 and its assets were auctioned to Delair. The row had carried `acquired`, imported from a landed base; the correct current state is defunct. Adjudicated 2026-09-07. | Airware (W13, commercial drones) shut down 2018-09-14 with assets auctioned to Delair; no acquirer took the business, so defunct. Adjudicated 2026-09-07. | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows. | Aligned 2026-09-29 from the GV run (PRO-75, rule 10): acquired under the asset-sale rule: Airware shut in September 2018 and Delair bought its Redbird analytics software and IP plus the 26 staff who ran it (TechCrunch, 2018-10-29, https://techcrunch.com/2018/10/29/fresh-drones-of-delair/), as the a16z, Felicis and GV rows read.",
   "seed_to_a_graduation": null,
   "slug": "airware",
-  "status": "defunct",
+  "status": "acquired",
+  "valuation_asof": null,
+  "valuation_citation": null,
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "who": "agent-pro136-yc"
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "agent-align-pro75"
  },
  "airweave": {
   "entry_stage": "Pre-Seed",
@@ -36040,12 +36045,17 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Summer 2019); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | S19 35 staff, The fastest way for developers to build...; seed-scale, no $1B mark | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows.",
+  "note": "YC directory record (batch Summer 2019); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | S19 35 staff, The fastest way for developers to build...; seed-scale, no $1B mark | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows. | Aligned 2026-09-29 from the GV run (PRO-75, rule 10): private: the acquired status and its 2014 date came from a name match on another Courier; this Courier (YC S19) closed a $35M Series B led by GV in June 2022 (TechCrunch, 2022-06-22, https://techcrunch.com/2022/06/22/courier-lands-35m-to-build-a-service-for-app-notifications/) and its site still operates (its footer reads '\u00a9 2026 Courier', https://www.courier.com/), as the GV row reads.",
   "seed_to_a_graduation": null,
   "slug": "courier",
+  "status": "private",
+  "valuation_asof": null,
+  "valuation_citation": null,
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
-  "who": "agent-pro136-yc"
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "agent-align-pro75"
  },
  "coursedog": {
   "entry_stage": "Pre-Seed",
@@ -61713,17 +61723,17 @@
   "hq_country": "GB",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Summer 2011); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) accel (freshest as-of: accel); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) accel (freshest as-of: accel); COLLECTION.md invariant 10 binds these two columns. | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows.",
+  "note": "YC directory record (batch Summer 2011); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) accel (freshest as-of: accel); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) accel (freshest as-of: accel); COLLECTION.md invariant 10 binds these two columns. | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows. | Aligned 2026-09-29 from the GV run (PRO-75, rule 10): acquired: Mollie completed its purchase of GoCardless on 2026-09-01 (Dem\u00f3crata, https://www.democrata.es/en/economy/mollie-closes-the-purchase-of-gocardless-and-forms-a-group-with-more-than-350-000-client-companies/), as the Balderton, BCV and GV rows read; the $2.1B mark of February 2022 no longer applies.",
   "seed_to_a_graduation": null,
   "slug": "gocardless",
-  "status": "private",
-  "valuation_asof": "2022-02",
-  "valuation_citation": "https://www.pymnts.com/news/investment-tracker/2022/gocardless-valued-at-2-1b-after-series-g/",
+  "status": "acquired",
+  "valuation_asof": null,
+  "valuation_citation": null,
   "valuation_confidence": "medium",
-  "valuation_range": "1b_plus",
-  "valuation_source": "web_verified",
-  "valuation_usd": 2100000000.0,
-  "who": "agent-pro136-yc"
+  "valuation_range": "below_1b",
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "agent-align-pro75"
  },
  "gocomm": {
   "entry_stage": "Pre-Seed",
@@ -82340,13 +82350,14 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Summer 2013); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns. | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows.",
+  "note": "YC directory record (batch Summer 2013); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) a16z (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns. | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows. | Aligned 2026-09-29 from the GV run (PRO-75, rule 10): acquired under the asset-sale rule: the bankruptcy court approved the $12M sale of Le Tote's and Lord & Taylor's assets to Saadia Group (Bloomberg Law, 2020-10-20, https://news.bloomberglaw.com/bankruptcy-law/lord-taylor-le-tote-12-million-asset-sale-to-saadia-approved), as the GV row reads.",
   "seed_to_a_graduation": null,
   "slug": "le-tote",
-  "status": "defunct",
+  "status": "acquired",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "who": "agent-pro136-yc"
+  "valuation_usd": null,
+  "who": "agent-align-pro75"
  },
  "leada": {
   "entry_stage": "Pre-Seed",
@@ -140370,13 +140381,14 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Winter 2011); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) accel, first-round-capital (freshest as-of: accel); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) accel, first-round-capital (freshest as-of: accel); COLLECTION.md invariant 10 binds these two columns. | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows.",
+  "note": "YC directory record (batch Winter 2011); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) accel, first-round-capital (freshest as-of: accel); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) accel, first-round-capital (freshest as-of: accel); COLLECTION.md invariant 10 binds these two columns. | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows. | Aligned 2026-09-29 from the GV run (PRO-75, rule 10): acquired: Vector Capital agreed a growth buyout of SingleStore on 2025-09-10 (TechTarget, https://www.techtarget.com/data-technologies/news/366630612/SingleStore-agrees-to-growth-buyout-by-private-equity-firm) and lists it among its investments as a private company buyout (Vector Capital, https://www.vectorcapital.com/investments/case-study/singlestore), as the Insight and GV rows read.",
   "seed_to_a_graduation": null,
   "slug": "singlestore",
-  "status": "private",
+  "status": "acquired",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "who": "agent-pro136-yc"
+  "valuation_usd": null,
+  "who": "agent-align-pro75"
  },
  "singularity": {
   "entry_stage": "Pre-Seed",
@@ -162689,12 +162701,17 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Winter 2018); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | W18 iPhone website builder; distinct from the Universe/Kite crypto names | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows.",
+  "note": "YC directory record (batch Winter 2018); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | W18 iPhone website builder; distinct from the Universe/Kite crypto names | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows. | Aligned 2026-09-29 from the GV run (PRO-75, rule 10): private: the defunct status and its 2017 date were a Wikidata join to another entity; this Universe (univer.se) raised a $30M Series B led by Addition in December 2021 (PR Newswire, https://www.prnewswire.com/news-releases/universe-raises-30m-to-empower-creators-to-build-the-web-from-their-phone-301438421.html) and its site still sells plans (https://univer.se/), as the GV row reads.",
   "seed_to_a_graduation": null,
   "slug": "universe",
+  "status": "private",
+  "valuation_asof": null,
+  "valuation_citation": null,
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
-  "who": "agent-pro136-yc"
+  "valuation_source": null,
+  "valuation_usd": null,
+  "who": "agent-align-pro75"
  },
  "unlayer": {
   "entry_stage": "Pre-Seed",
