@@ -114,3 +114,30 @@ Next, in order:
    Merges into identity-merges.json for renames.
 4. ONE rebuild, prepare delta, judge delta, graduation-surfaces.py + graduation pass (26 open Seed rows now).
 5. Duties, A/B + momentum slice, profile, verify, export, review, report, write-back, close, commit, ingest gate.
+
+## RESUME POINT 3, 2026-09-29 ~21:00 UTC
+Since resume point 2 (commit 45b6c0b5):
+- Archive via Common Crawl: CC-MAIN-2013..2025 (two crawls a year) + CC-MAIN-2012/2009-2010/2008-2009 (ARC).
+  1,160 captures fetched (sources/wayback/cc-manifest.json; raw in data/filings/commoncrawl/northzone).
+  scratch/archive-listings.py `cc` era -> sources/wayback/parsed/{2010,2012..2025}.json, 228 distinct names.
+- identity-merges.json: 28 merges (archive renames: FreightHub->Forto, iZettle->Zettle, Wagestream->Stream,
+  Trolltech->Qt, MarketInvoice/MarketFinance->Kriya, 3Box->Recall Labs, Infogrid->Noda, ZeppelinOS->OpenZeppelin,
+  EyeTrackShop->Sticky, Statement->Tuza (medium), Arfa->Chord, Noquo->Stockeld, Imagini->VisualDNA, spellings).
+- Graduation pass (judgments-grad.py): 12 graduated, 5 not graduated (absence test), Fishbrain stage -> undetermined.
+  S2A now 12/17 = 70.6% on base v1.
+- Patches: Klarna stage cite (patch1), Era/Tier float quarantine + Flink/Hopin stage_uncited (patch2),
+  CuspAI $2.6B Series B July 2026 (patch3) + accepted pair with lightspeed:cusp-ai.
+- Momentum slice run on 32 rows (scratch/momentum.py -> momentum.json): no missed $1B+ round; record the
+  per-row checks (valuation_range_source web_verified, citation = latest round article, asof) in the A/B pass.
+- FTS noise explained: Velti (Northzone Ventures V Ltd is a Seedcamp LP), TPB/Revelstone/Marquee Raine/Enjoy
+  (Assia Grazioli-Venier bio), Bird/Tier (Tier's own 13D). Recall rejects: Entocycle (no Northzone), FOSSA.
+- Profile inputs: thesis = homepage h2 "Backing world-changing companies from inception to IPO"; HQ London
+  (firm-offices.py, site list wins over the Jersey ADV office); icon = 512x512 Webclip.png (--discover);
+  fund ladder from posts: VII first close EUR 150M (2013-12-05) / final $325M (2014-12-16), VIII EUR 350M
+  (2016-09-05), IX (2019-11-18, "$500M"), X EUR 1B (Sept 2022). investor.json + sources.json are stubs.
+Waiting on IA (cooldown to ~21:03): scratch/archive-probe.py and scratch/ia-pass.py (both queued).
+Then: parse 2001-2008 eras from IA, ia-pass titles -> parsed rows or recall additions (Ocapo, Online Backup Co,
+Gro, Mojn, Nuday, Outracks, Brave New World, Proxilliant), partner-roster.py + roster-curate.py,
+ONE rebuild, prepare delta, judge delta (many old archive rows), graduation delta, A/B + momentum records,
+duties, profile, verify, export, review, report, write-back, close, commit, ingest gate (§9), siblings.
+Web searches used: 10 of 200.

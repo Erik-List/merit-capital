@@ -26,12 +26,38 @@ FACTS = {
  "sanjot-malhi": (2023, 2026, "Sanjot Malhi", "member of Northzone UK LLP 2023-04-01 to date; live team page 2026 (Partner, London)"),
  "sam-endacott": (2026, 2026, "Sam Endacott", "member of Northzone UK LLP 2026-07-01; live team page 2026 (Partner, London)"),
 }
+# Windows and titles read off the Common Crawl captures of the team pages 2010-2025 (scratch/cc-people.json)
+import re as _re
+CC = json.loads((Path(__file__).resolve().parent / "cc-people.json").read_text())
+NON_INVESTING = {"Stine Foss", "Kristin Kulsrud", "Lea Bajc", "Jackson Heddy", "Rachael Rickwood", "Nicola Sibley", "Nick McCaul",
+                 "Amit Sanghvi", "Laura Clifford", "Grace Bentley", "Sanna Blomkvist", "Elena Pantazi", "Iby Khan", "Theo Weir",
+                 "Phillip Lally", "Marlowe Cameron", "Daniel Ek", "Geir Førre", "Sorosh Tavakoli", "William Jilltoft"}
+def _slug(n): return _re.sub(r"[^a-z0-9]+", "-", n.lower().replace("ø", "o").replace("ö", "o").replace("ä", "a").replace("å", "a").replace("é", "e")).strip("-")
+ALIAS = {"wendy-xiao-schadeck": "wendy-xiao", "vincent-touati-tomas": "vincent-touati-tomas", "sarah-nockel": "sarah-nockel", "torleif-ahlsand": "thorleif-ahlsand"}
+for name, e in CC.items():
+    sl = ALIAS.get(_slug(name), _slug(name))
+    r = rows.setdefault(sl, {"slug": sl, "name": name, "years_seen": [], "sources": [], "snapshots": 0})
+    ys = sorted(set(r.get("years_seen", [])) | set(e["years"]))
+    r.update(years_seen=ys, first_seen=min(ys), last_seen=max(ys), snapshots=len(ys))
+    r["sources"] = sorted(set(r.get("sources", [])) | {"commoncrawl-team-pages"})
+    r["title_cc"] = ", ".join(e["titles"]) or None
+    r["investing"] = name not in NON_INVESTING
+    r["basis"] = (r.get("basis", "") if "PROVISIONAL" not in r.get("basis", "") else "") + f" | team page captured {min(e['years'])}-{max(e['years'])} (Common Crawl){'; ' + r['title_cc'] if r['title_cc'] else ''}"
+for extra, (name, a0, b0, why) in {"jessica-nilsson": ("Jessica Nilsson", 2016, 2026, "Jessica Schultz's earlier surname (the firm's post 'Jessica Nilsson promoted to Partner', 2016-09-01), kept so filings under either surname match"),
+                                     "erik-bakkejord": ("Erik Bakkejord", 2013, 2014, "on the 2013-14 people pages (Common Crawl); role not stated on the capture")}.items():
+    r = rows.setdefault(extra, {"slug": extra, "name": name, "years_seen": [a0, b0], "sources": ["registers-filings-posts"], "snapshots": 2})
+    r.update(first_seen=a0, last_seen=b0, basis=why, investing=True)
+for r in rows.values():
+    if r.get("name") in NON_INVESTING:
+        r["investing"] = False
 for slug, (a, b, name, basis) in FACTS.items():
     r = rows.setdefault(slug, {"slug": slug, "name": name, "years_seen": [], "sources": [], "snapshots": 0})
     ys = sorted(set(r.get("years_seen", [])) | {a, b})
     r.update(name=name, years_seen=ys, first_seen=min(ys), last_seen=max(ys),
              basis=basis + (" | " + r["basis"] if r.get("basis") and "PROVISIONAL" not in r["basis"] else ""))
     r["sources"] = sorted(set(r.get("sources", [])) | {"registers-filings-posts"})
-out = sorted(rows.values(), key=lambda r: r["slug"])
+staff = sorted((r for r in rows.values() if r.get("investing") is False), key=lambda r: r["slug"])
+(Path(__file__).resolve().parent / "staff.json").write_text(json.dumps(staff, indent=1, ensure_ascii=False) + "\n")
+out = sorted((r for r in rows.values() if r.get("investing") is not False), key=lambda r: r["slug"])
 tmp = str(P) + ".t"; open(tmp, "w").write(json.dumps(out, indent=1, ensure_ascii=False) + "\n"); os.replace(tmp, P)
 print(len(out), "people;", sum(1 for r in out if "registers-filings-posts" in r["sources"]), "with dated facts")

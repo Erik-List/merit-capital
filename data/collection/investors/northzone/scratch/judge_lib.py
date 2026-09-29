@@ -197,3 +197,28 @@ def wp(slug: str) -> str:
     idx = json.load(open(_H / "wp-posts-index.json"))
     d, orig, ts = idx[slug]
     return f"https://web.archive.org/web/{ts}/{orig}"
+
+
+def gsurl(slug: str, sub: str) -> str:
+    """Publisher URL of the one headline in scratch/graduation-surfaces.json for `slug` containing `sub`
+    (Google News items decoded on demand; other surfaces carry their own link)."""
+    global _GS
+    g = json.load(open(_H / "graduation-surfaces.json"))
+    hits = []
+    for name, sf in g[slug]["surfaces"].items():
+        for i in sf.get("items", []):
+            if sub.lower() in i.get("title", "").lower() and all(i.get("title") != h.get("title") for h in hits):
+                hits.append(i)
+    if len(hits) != 1:
+        raise KeyError(f"gsurl({slug!r}, {sub!r}): {len(hits)} hits {[h['title'][:60] for h in hits][:4]}")
+    it = hits[0]
+    if it.get("link"):
+        return it["link"]
+    if _GS is None:
+        import importlib.util as iu, sys as _s
+        spec = iu.spec_from_file_location("gs", ROOT / "scripts" / "graduation-surfaces.py")
+        _GS = iu.module_from_spec(spec); a = _s.argv; _s.argv = a[:1]; spec.loader.exec_module(_GS); _s.argv = a
+    u = _GS.decode(it["gid"]) or ""
+    if not u:
+        raise KeyError(f"gsurl({slug!r}, {sub!r}): decode failed")
+    return u

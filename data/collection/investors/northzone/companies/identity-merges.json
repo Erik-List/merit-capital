@@ -1,14 +1,15 @@
 {
  "northzone": {
-  "_readme": "Durable identity corrections consumed by build-company-base.py on every rebuild (COLLECTION.md s8): one company under different names across Northzone's surfaces (the live list, the archived listings 2003-2025, Form D issuer names) and its renames. Canonical = the firm's current rendering where the company is still listed. Written during the grind (PRO-105, 2026-09-29) and applied at the one scheduled rebuild.",
+  "_readme": "Durable identity corrections consumed by build-company-base.py on every rebuild (COLLECTION.md s8): one company under different names across Northzone's surfaces (the live list, the archived listings 2003-2025, Form D issuer names) and its renames. Canonical = the firm's current rendering where the company is still listed. Written during the grind (PRO-105, 2026-09-29) and applied at the one scheduled rebuild. Archive renames added 2026-09-29 from the Common Crawl captures of 2010-2025.",
   "merges": [
    {
     "canonical": "dots",
     "duplicates": [
+     "playdots",
      "playdots-inc"
     ],
     "name": "Dots",
-    "reason": "one company: Playdots, Inc. (New York) is the legal name of Dots, the live list's entry (dots.co); its 2014 Form D carries Paul Murphy as Executive Officer, the founder-era filing (decisions.md D9)"
+    "reason": "one company: Playdots, Inc. (New York) is the legal name of Dots, the live list's entry (dots.co); its 2014 Form D carries Paul Murphy as Executive Officer, the founder-era filing (decisions.md D9); the 2013-14 pages render it as 'Playdots'"
    },
    {
     "canonical": "sellersfi",
@@ -17,6 +18,242 @@
     ],
     "name": "SellersFi",
     "reason": "one company: SellersFunding Corp. (Weston, FL) renamed itself SellersFi; its 2021 and 2025 Form Ds carry Jeppe Zink as director, and the firm's insight of 2021-09-15 reports the $166.5M Northzone-led round"
+   },
+   {
+    "canonical": "recall-labs",
+    "duplicates": [
+     "3box",
+     "3box-labs"
+    ],
+    "name": "Recall Labs",
+    "reason": "one company: 3Box (the firm's 2019 investment page) became 3Box Labs (2024 page) and today's Recall Labs on the live list (recall.network)"
+   },
+   {
+    "canonical": "forto",
+    "duplicates": [
+     "freighthub"
+    ],
+    "name": "Forto",
+    "reason": "one company: FreightHub (2018-19 investment pages; the firm's post on the Series A it led, 2017-12-13) renamed Forto in 2021"
+   },
+   {
+    "canonical": "zettle",
+    "duplicates": [
+     "izettle"
+    ],
+    "name": "Zettle",
+    "reason": "one company: iZettle (2013-2024 pages) renamed Zettle by PayPal"
+   },
+   {
+    "canonical": "stream",
+    "duplicates": [
+     "wagestream"
+    ],
+    "name": "Stream",
+    "reason": "one company: Wagestream (2019 page; the firm's post 2019-05-20) renamed Stream in 2025"
+   },
+   {
+    "canonical": "qt",
+    "duplicates": [
+     "trolltech"
+    ],
+    "name": "Qt",
+    "reason": "one investment: the firm's Trolltech (2010-2025 pages) is the live list's 'Qt (formerly Trolltech)'"
+   },
+   {
+    "canonical": "kriya",
+    "duplicates": [
+     "kriya-formerly-marketfinance",
+     "marketfinance",
+     "marketinvoice"
+    ],
+    "name": "Kriya",
+    "reason": "one company: MarketInvoice (2017-18) renamed MarketFinance (2019) and Kriya (2024-25 page: 'Kriya (formerly MarketFinance)')"
+   },
+   {
+    "canonical": "noda",
+    "duplicates": [
+     "infogrid"
+    ],
+    "name": "Noda",
+    "reason": "one company: Infogrid (2021-24 pages) renamed Noda (the live list: 'formerly known as Infogrid')"
+   },
+   {
+    "canonical": "openzeppelin",
+    "duplicates": [
+     "zeppelinos"
+    ],
+    "name": "OpenZeppelin",
+    "reason": "one company: ZeppelinOS (the 2019 page) is OpenZeppelin's product; the firm's later pages and the live list name OpenZeppelin"
+   },
+   {
+    "canonical": "sticky",
+    "duplicates": [
+     "eyetrackshop"
+    ],
+    "name": "Sticky",
+    "reason": "one company: EyeTrackShop (2013 page; the firm's post 'Northzone invests in EyeTrackShop', 2012) renamed Sticky (sticky.ai)"
+   },
+   {
+    "canonical": "jasper",
+    "duplicates": [
+     "jasper-sold-to-cadence"
+    ],
+    "name": "Jasper",
+    "reason": "one company: the 2017-19 page renders Jasper Design Automation as 'Jasper (sold to Cadence)'"
+   },
+   {
+    "canonical": "videoplaza",
+    "duplicates": [
+     "videoplaza-sold-to-ooyala"
+    ],
+    "name": "Videoplaza",
+    "reason": "one company: the 2017-19 page renders Videoplaza as 'Videoplaza (sold to Ooyala)'"
+   },
+   {
+    "canonical": "lastminute-com",
+    "duplicates": [
+     "lastminute"
+    ],
+    "name": "Lastminute.com",
+    "reason": "one company: the 2010-2019 pages render lastminute.com as 'Lastminute'"
+   },
+   {
+    "canonical": "homa-games",
+    "duplicates": [
+     "homa"
+    ],
+    "name": "Homa Games",
+    "reason": "one company: the 2024-25 pages render Homa Games as 'Homa'"
+   },
+   {
+    "canonical": "tobii",
+    "duplicates": [
+     "tobii-technology-ab"
+    ],
+    "name": "Tobii",
+    "reason": "one company: the 2010-12 pages render Tobii as 'Tobii Technology AB'"
+   },
+   {
+    "canonical": "supponor",
+    "duplicates": [
+     "supponor-systems"
+    ],
+    "name": "Supponor",
+    "reason": "one company: the 2010-12 pages render Supponor as 'Supponor Systems'"
+   },
+   {
+    "canonical": "spaceape",
+    "duplicates": [
+     "spaceape-games"
+    ],
+    "name": "SpaceApe",
+    "reason": "one company: the 2013-14 pages render Space Ape as 'Spaceape Games'"
+   },
+   {
+    "canonical": "masmovil",
+    "duplicates": [
+     "m-s-movil",
+     "mas-movil"
+    ],
+    "name": "Masmovil",
+    "reason": "one company: the 2010-12 pages render MásMóvil as 'Más Movil'"
+   },
+   {
+    "canonical": "global-name-registry",
+    "duplicates": [
+     "gnr"
+    ],
+    "name": "Global Name Registry",
+    "reason": "one company: the 2010-12 pages render the .name registry as 'GNR', the 2013-14 pages as 'Global Name Registry'"
+   },
+   {
+    "canonical": "fox-technologies",
+    "duplicates": [
+     "foxt"
+    ],
+    "name": "Fox Technologies",
+    "reason": "one company: 'FoxT' (2010-12 pages) and 'Fox Technologies' (2013-14 pages)"
+   },
+   {
+    "canonical": "billiant-connova-labs2",
+    "duplicates": [
+     "billiant"
+    ],
+    "name": "Billiant",
+    "reason": "one company: 'Billiant' (2010-12 pages) and 'Billiant/Connova/Labs2' (2013-14 pages)"
+   },
+   {
+    "canonical": "silex",
+    "duplicates": [
+     "silex-microsystems"
+    ],
+    "name": "Silex Microsystems",
+    "reason": "one company: 'Silex' (2010-19 pages) and 'Silex Microsystems' (2013-14 pages); the firm's post 'Northzone exits Silex Microsystems AB' (2015-07-14)"
+   },
+   {
+    "canonical": "p1",
+    "duplicates": [
+     "p1-cn"
+    ],
+    "name": "P1",
+    "reason": "one company: 'P1.CN' (2013-14 pages) and 'P1' (2017-19 pages); the firm's post 'Northzone invests in P1, the private social network for the urban Chinese' (2012-10-02)"
+   },
+   {
+    "canonical": "tuza",
+    "duplicates": [
+     "statement"
+    ],
+    "name": "Tuza",
+    "reason": "one company, medium confidence: Statement, the SMB payments-comparison tool whose GBP 1.5m pre-seed Northzone led in June 2023 (UKTN, 2023-06-30; the archived /portfolio/statement page), is the live list's Tuza ('Choosing a payment provider in minutes', founded 2023, Pascual Cortes-Monroy and Jeppe Zink)"
+   },
+   {
+    "canonical": "chord",
+    "duplicates": [
+     "arfa"
+    ],
+    "name": "Chord",
+    "reason": "one company: Arfa (the archived /portfolio/arfa page) renamed Chord in 2021 ('Chord (formerly Arfa)', PR Newswire 2021-03-24)"
+   },
+   {
+    "canonical": "stockeld-dreamery",
+    "duplicates": [
+     "noquo-foods"
+    ],
+    "name": "Stockeld Dreamery",
+    "reason": "one company: Noquo Foods (the archived /portfolio/noquo-foods page; EU-Startups 2020-01) renamed Stockeld Dreamery in 2021"
+   },
+   {
+    "canonical": "visualdna",
+    "duplicates": [
+     "imagini"
+    ],
+    "name": "VisualDNA",
+    "reason": "one company: Imagini (the 2010-12 pages) renamed VisualDNA (the 2013-19 pages)"
+   },
+   {
+    "canonical": "zeal",
+    "duplicates": [
+     "gro"
+    ],
+    "name": "Zeal",
+    "reason": "one company: Gro (the DeFi protocol the firm backed at its $7.1M seed, March 2021; tech.eu, Crunchbase News) is today's Zeal, and the firm's own page northzone.com/portfolio/gro/ is titled 'Zeal'"
+   },
+   {
+    "canonical": "lorum",
+    "duplicates": [
+     "fuse"
+    ],
+    "name": "Lorum",
+    "reason": "one company: Fuse (the 2025 page; 'Fuse raises $6.6M to fix a payment problem for companies expanding to MENA', the firm's press post 2025-04-03, an ex-BVNK founder) renamed Lorum (the live list: 'Lorum (previously Fuse)'); not Fusetools, the Oslo app-development tool of 2015-19"
+   },
+   {
+    "canonical": "activate",
+    "duplicates": [
+     "bloglovin"
+    ],
+    "name": "Activate",
+    "reason": "one company: Bloglovin' (the 2014-17 pages; the firm's post on the $7M Series A it led, 2014) rebranded Activate in 2018 (the firm's 2018 page: 'Activate started life as Bloglovin''; the firm's post 'Bloglovin becomes Activate')"
    }
   ],
   "never_merge": [],
