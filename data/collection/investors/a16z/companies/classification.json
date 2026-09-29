@@ -7684,13 +7684,14 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Kaggle founders' data tool; a16z seed (2013); wound down 2014 | TechCrunch reported DataPad's only funding, $1.7M, on 2014-05-20 (does not name a16z directly, though the row's note logs the company as a16z's 2013 seed); no later round found and no citable wind-down source, consistent with the note's 'wound down 2014'.",
+  "note": "Kaggle founders' data tool; a16z seed (2013); wound down 2014 | TechCrunch reported DataPad's only funding, $1.7M, on 2014-05-20 (does not name a16z directly, though the row's note logs the company as a16z's 2013 seed); no later round found and no citable wind-down source, consistent with the note's 'wound down 2014'. | Aligned 2026-09-29 from the GV run (PRO-75, rule 10): acquired: 'Datapad was acquired by Cloudera in September 2014' (Wikipedia, https://en.wikipedia.org/wiki/Wes_McKinney), Cloudera taking its technology and team, as the GV row reads.",
   "seed_to_a_graduation": "not_graduated",
   "slug": "datapad",
-  "status": "defunct",
+  "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-a16z"
+  "valuation_usd": null,
+  "who": "agent-align-pro75"
  },
  "daylight": {
   "entry_date": "2024-07-31",
@@ -12769,8 +12770,17 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "payroll platform; SF company - unicorn-list NL disputed; a16z entry round undocumented - citation pass | no source names a16z in any Gusto round; Fortune's 2026 investor recap omits a16z, and the Ribbit+a16z $300M at $17.3B round was Deel, not Gusto",
-  "slug": "gusto"
+  "note": "payroll platform; SF company - unicorn-list NL disputed; a16z entry round undocumented - citation pass | no source names a16z in any Gusto round; Fortune's 2026 investor recap omits a16z, and the Ribbit+a16z $300M at $17.3B round was Deel, not Gusto | Aligned 2026-09-29 from the GV run (PRO-75, rule 10): the June 2025 employee tender 'was done at Gusto's last valuation, $9.3 billion', led by Teachers' Venture Growth (Fortune, 2025-06-09), as in the Ribbit and GV rows; the 2021 $10B unicorn-list figure is superseded.",
+  "slug": "gusto",
+  "status": "private",
+  "valuation_asof": "2025-06-09",
+  "valuation_citation": "https://fortune.com/2025/06/09/gusto-200-million-plus-tender-offer",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_range_source": "web_verified",
+  "valuation_source": "web_verified",
+  "valuation_usd": 9300000000,
+  "who": "agent-align-pro75"
  },
  "gym-class-vr": {
   "entry_date": "2022-08",
@@ -16070,11 +16080,13 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "clothing rental; a16z in the 2015 Series A era; Ch11 2020 after the Lord & Taylor purchase",
+  "note": "clothing rental; a16z in the 2015 Series A era; Ch11 2020 after the Lord & Taylor purchase | Aligned 2026-09-29 from the GV run (PRO-75, rule 10): acquired under the asset-sale rule: the bankruptcy court approved the $12M sale of Le Tote's and Lord & Taylor's assets to Saadia Group (Bloomberg Law, 2020-10-20, https://news.bloomberglaw.com/bankruptcy-law/lord-taylor-le-tote-12-million-asset-sale-to-saadia-approved), as the GV row reads.",
   "slug": "le-tote",
-  "status": "defunct",
+  "status": "acquired",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "valuation_usd": null,
+  "who": "agent-align-pro75"
  },
  "lead-bank": {
   "entry_stage": "Growth",
@@ -18329,6 +18341,7 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "stage_uncited"
   ],
   "focus": "Healthcare & Bio",
@@ -18338,8 +18351,17 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "genetics-driven therapeutics; launched 2019 with $191M (Third Rock/ARCH); a16z round undocumented; IPO 2025",
-  "slug": "maze-therapeutics"
+  "note": "genetics-driven therapeutics; launched 2019 with $191M (Third Rock/ARCH); a16z round undocumented; IPO 2025 | Aligned 2026-09-29 from the GV run (PRO-75, rule 10): market cap $1.49B at the 2026-09-28 close (StockAnalysis), as in the GV row, replacing the $443.9M public float of 2025-06-30; the entry stage stays as recorded (model-read) and is flagged cite_pending, which a $1B+ row requires (rule 4).",
+  "slug": "maze-therapeutics",
+  "status": "public",
+  "valuation_asof": "2026-09-28",
+  "valuation_citation": "https://stockanalysis.com/stocks/maze/market-cap/",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_range_source": "web_verified",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1490000000,
+  "who": "agent-align-pro75"
  },
  "media-chain": {
   "entry_date": "2016-06",
@@ -22545,11 +22567,13 @@
   "hq_city": "Bala Cynwyd",
   "hq_city_confidence": "high",
   "hq_city_source": "formd_address",
-  "note": "primary care for 65+; a16z co-led the $50M launch round (2021, with GV)",
+  "note": "primary care for 65+; a16z co-led the $50M launch round (2021, with GV) | Aligned 2026-09-29 from the GV run (PRO-75, rule 10): defunct: Patina Medical Group 'stopped providing patient care on September 30, 2025', per the records custodian's notice on its own site (https://patinahealth.com), as the GV row reads.",
   "slug": "patina",
-  "status": "private",
+  "status": "defunct",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "valuation_usd": null,
+  "who": "agent-align-pro75"
  },
  "patterneq": {
   "entry_stage": "undetermined",
@@ -26125,11 +26149,13 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "repeatome therapeutics; a16z joined the $77M Series B (2021)",
+  "note": "repeatome therapeutics; a16z joined the $77M Series B (2021) | Aligned 2026-09-29 from the GV run (PRO-75, rule 10): acquired: Rome wound down its operations and 'will now operate as a fully owned subsidiary of Pretzel Therapeutics' (Fierce Biotech, 2026-01-13, https://www.fiercebiotech.com/biotech/pretzel-winner-rise-and-fall-rome-therapeutics), as the GV row reads.",
   "slug": "rome-therapeutics",
-  "status": "private",
+  "status": "acquired",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "valuation_usd": null,
+  "who": "agent-align-pro75"
  },
  "rooms-xyz": {
   "entry_date": "2023-05",
