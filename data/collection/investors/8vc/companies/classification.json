@@ -691,10 +691,14 @@
   "who": "agent-judge-s2a-8vc"
  },
  "aviatrix": {
+  "cleared_flags": [
+   "needs_web_value"
+  ],
   "entry_stage": "Growth",
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "momentum_ruled_out",
    "stage_uncited"
   ],
@@ -706,11 +710,17 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Aviatrix, multi-cloud networking. 8VC listed from 2022; the company raised a $200M Series E in 2021, so an entry at that point is at scale. | Momentum slice (\u00a76): a private row first listed in the last five years in a hot sector. Ruled out rather than searched \u2014 the row is an unrecognised company, absent from the unicorn snapshot re-pulled at run start, with no priced round carrying a published figure and no recent trace of a large raise. \u00a73's rule-out: sub-$1B with high probability. The rule-out is recorded on the row so the claim carries its date and the next run starts from it rather than re-deriving it; it is NOT a web_verified absence claim, which \u00a76 says is not citeable at scale.",
+  "note": "Aligned 2026-09-29 from the TCV run (PRO-169, rule 10): the $200M Series E of September 2021 at $2B (Aviatrix's release, PR Newswire, 2021-09-08).",
   "slug": "aviatrix",
   "status": "private",
-  "valuation_range": "below_1b",
-  "valuation_range_source": "model"
+  "valuation_asof": "2021-09-08",
+  "valuation_citation": "https://www.prnewswire.com/news-releases/aviatrix-raises-200-million-in-funding-led-by-tcv-elevating-the-cloud-networking-leaders-valuation-to-2-billion-301371330.html",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_range_source": "web_verified",
+  "valuation_source": "web_verified",
+  "valuation_usd": 2000000000.0,
+  "who": "agent-align-pro169"
  },
  "baton": {
   "entry_date": "2021-03",
@@ -4469,6 +4479,7 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "rule_a_below_1b",
    "stage_uncited"
   ],
@@ -4480,7 +4491,7 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Quince, direct-to-consumer essentials. 8VC listed from 2026, after the company's 2025 raise; the unicorn-list $4.5B pre-fill is checked against a priced event in the A/B pass. | A/B pass. The $4.5B pre-fill came from the unicorn snapshot, which \u00a74 calls a coverage floor and Rule A calls an aggregator \u2014 never a mark. No priced round with a published figure was found. below_1b with the check recorded. | Aligned 2026-09-29 from the ICONIQ Growth run (PRO-168, rule 10): the $500M Series E of March 2026 at $10.1B (TechCrunch, 2026-03-11).",
+  "note": "Quince, direct-to-consumer essentials. 8VC listed from 2026, after the company's 2025 raise; the unicorn-list $4.5B pre-fill is checked against a priced event in the A/B pass. | A/B pass. The $4.5B pre-fill came from the unicorn snapshot, which \u00a74 calls a coverage floor and Rule A calls an aggregator \u2014 never a mark. No priced round with a published figure was found. below_1b with the check recorded. | Aligned 2026-09-29 from the ICONIQ Growth run (PRO-168, rule 10): the $500M Series E of March 2026 at $10.1B (TechCrunch, 2026-03-11). | Flagged cite_pending 2026-09-29 (PRO-169 alignment pass): a $1B+ row whose entry round is not cited.",
   "slug": "quince",
   "status": "private",
   "valuation_asof": "2026-03-11",
@@ -4490,7 +4501,7 @@
   "valuation_range_source": "web_verified",
   "valuation_source": "web_verified",
   "valuation_usd": 10100000000.0,
-  "who": "agent-align-pro168"
+  "who": "agent-align-pro169"
  },
  "radius": {
   "entry_stage": "Growth",
