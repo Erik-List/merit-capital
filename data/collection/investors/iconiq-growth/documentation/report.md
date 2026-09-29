@@ -3,7 +3,7 @@
 **Linear issue** PRO-168 · **slug** `iconiq-growth` · one run under the merged shape of
 `data/collection/COLLECTION.md`, one session (paused 02:50 to 14:00 UTC on the usage limit), with Common Crawl
 carrying the archive while the Internet Archive was in a machine-wide cooldown · report written 2026-09-29.
-**Not ingested: the ingest waits on Erik's approval.**
+**Ingested 2026-09-29 on Erik's approval (section 14).**
 
 ---
 
@@ -38,7 +38,7 @@ ICONIQ tenure or not at all.
 | Acquired | 25 | 15% |
 | Defunct | 2 | 1% (FTX, InVision) |
 | $1B and above | 98 | **58.0%** |
-| of which $10B and above | 32 | Anthropic $965B, OpenAI $852B, Alibaba $272.8B, CrowdStrike $258.7B, Stripe $159B, Uber $142.2B, Databricks $134B, Snowflake $115.7B, Robinhood $104.7B, Datadog $96.3B, Airbnb $92.8B, Anduril $61B, Ramp $44B, Canva $42B, Adyen $31.4B, Zoom $25.5B, Epic Games $22.5B, Whatnot $20B, Helsing $18B, Sierra $15.8B, Wayfair $13.5B, DocuSign $12.6B, Devoted Health $12.6B, NinjaOne $12.3B, Groww $12.2B, OpenEvidence $12B, Figma $11.1B, ElevenLabs $11B, Notion $11B, Oura $11B, Chime $10.1B, Quince $10.1B |
+| of which $10B and above | 32 | Anthropic $965B, OpenAI $852B, Alibaba $272.8B, CrowdStrike $258.7B, Databricks $190B, Stripe $159B, Uber $142.2B, Snowflake $115.7B, Robinhood $104.7B, Datadog $96.3B, Airbnb $92.8B, Anduril $61B, Ramp $44B, Canva $42B, Adyen $31.4B, Zoom $25.5B, Epic Games $22.5B, Whatnot $20B, Helsing $18B, Sierra $15.8B, Wayfair $13.5B, DocuSign $12.6B, Devoted Health $12.6B, NinjaOne $12.3B, Groww $12.2B, OpenEvidence $12B, Figma $11.1B, ElevenLabs $11B, Notion $11B, Oura $11B, Chime $10.1B, Quince $10.1B |
 
 **The $1B+ share is 58.0%, with no ceiling** (Erik, 2026-09-26). It reads right for this firm: ICONIQ
 Growth enters late (154 of 169 entries are Growth rounds, secondaries or tenders), and its book is the
@@ -252,3 +252,39 @@ entry citations 40, momentum 20, the blind judges about 26, this session's about
 
 **1** so far: the kickoff ("please collect ICONIQ"). The session paused once on the usage limit and was
 resumed with "continue". Corrections from Erik: none.
+
+## 14. Ingest (run 2026-09-29, on Erik's approval)
+
+Erik's word: "ingest", on the closing message that offered the sibling alignment with it.
+
+1. **Databricks, ICONIQ's own row, corrected first**: the comparison of every shared row (figure and
+   as-of, not only status and band) showed the ICONIQ row carrying the $134B of February 2026 under an
+   August date; the round Coatue led closed on 2026-08-13 at $190B (CNBC), as the Coatue, Lightspeed and
+   Thrive rows read. Verify clean after.
+2. **Icon**: `fetch-investor-icon.ts` uploaded `investors/iconiq-growth-c894a87fa8.png` (256px master, the
+   wordmark on its own off-white plate, contrast 7.6:1, ramp 1.72px).
+3. **Investor row**: `ingest-investor.ts iconiq-growth` upserted 1 row ("Canada" added as a new
+   geography label, as four other books already use it).
+4. **Companies**: the dry run planned 169 new, 0 removed, from 0 live; the write upserted 169/169 and the
+   count check closed at 169. Readback of every column the ingest writes: 169 rows, 0 differing cells.
+5. **Siblings aligned** (`scratch/align/align.py`, who `agent-align-pro168`): 61 rows in 21 books took the
+   ICONIQ row's cited value. Status: HeadSpin acquired (Battery, EQT Ventures, Felicis), Panther acquired
+   (Lightspeed). Band: Airbnb to $92.8B (a16z, Greylock, Sequoia, Y Combinator), Robinhood to $104.7B
+   (a16z, Sequoia, Thrive), Aurora Solar $4B (Lux), Drata $2B (Menlo), Houzz $4B (Sequoia), K2 Space $6.8B
+   (First Round, Lightspeed, Redpoint), Miro $1.79B at Bending Spoons' price (Accel), Monte Carlo $1.6B
+   (Accel), Omni $1.5B (First Round, Redpoint), Quince $10.1B (8VC, Insight), Rain $1.95B (Lightspeed),
+   Reify Health $4.8B (Battery), Rillet $1B (a16z, Creandum, First Round, Sequoia). Figure, same band: Ajaib
+   $1.3B (IVP, Ribbit, Y Combinator), Anthropic $965B (Greylock, Lightspeed, Menlo), Automattic $7.5B
+   (General Catalyst, Insight), ezCater $1.6B and FloQast $1.6B (Insight; FloQast also Redpoint), Hightouch
+   $2.75B (Y Combinator), Legora $5.55B, Stripe $159B, Whatnot $20B and Wealthsimple $7.15B (Redpoint; Whatnot
+   also a16z, Wealthsimple also Greylock), Ramp $44B (General Catalyst, Greylock, Khosla, Lux, Redpoint),
+   Anduril $61B (Lux), OpenAI $852B (Greylock), Komodo Health $3.3B replacing an aggregator's $3.71B (a16z).
+   Each book's CSV changed by exactly its rows (`csvdiff.py`); the database read back equal to the
+   committed CSV except those cells before the write; each dry run planned 0 new and 0 removed; every book
+   read back with 0 differing cells after. Y Combinator's readback shows one name that differs only by a
+   leading space (" Metadata"), a readback-script artefact the ingest's own plan does not see.
+6. **Not aligned, listed for their owners**: a16z carries both People.ai and Backstory (the same company
+   after the April 2026 rename: a double count that needs an identity merge at a16z's next rebuild);
+   Founders Fund (in flight), GV (collected, not ingested) and Tiger Global (in flight) were not touched;
+   figure-less below-$1B rows (Pinecone, Braintrust) and as-of-only differences (a public cap read on
+   another date, Axonius's and Guild's dates in Accel, General Catalyst and Redpoint) were left as they are.

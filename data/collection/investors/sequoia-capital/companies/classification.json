@@ -785,6 +785,9 @@
   "valuation_usd": null
  },
  "airbnb": {
+  "cleared_flags": [
+   "needs_web_value"
+  ],
   "entry_date": "2009-04",
   "entry_stage": "Seed",
   "entry_stage_citation": "https://en.wikipedia.org/wiki/Airbnb",
@@ -802,17 +805,18 @@
   "hq_city": "San Francisco",
   "hq_city_confidence": "high",
   "hq_city_source": "model_knowledge",
-  "note": "[stage3] Golden: Sequoia led the $585K April 2009 seed (McAdoo); Series A $7.2M Nov 2010 followed -> graduated. The 2011 $117M B is merely the first FILED round. | [cv2] Market cap ~$100B (Aug 2026, sources $90-112B; midpoint 2026-08-07 $100.4B); crosses into $100B+ from the $56.2B float. | Stage leg could not be established: Sequoia's own company page says only 'Partnered 2009' (no round), and the Nov-2010 $7.2M Series A (FinSMES) names Sequoia without saying it was new; no fetchable page names Sequoia in the April-2009 $600K seed (TechCrunch's 2009 archive is not in its search index and web.archive.org was blocked this session). The $112M Series B (TechCrunch 2011-07-24) is the available later round. | [stage3] Golden: Sequoia led the $585K April 2009 seed (McAdoo); Series A $7.2M Nov 2010 followed -> graduated. The 2011 $117M B is merely the first FILED round. | [cv2] Market cap ~$100B (Aug 2026, sources $90-112B; midpoint 2026-08-07 $100.4B); crosses into $100B+ from the $56.2B float. | Stage leg could not be established: Sequoia's own company page says only 'Partnered 2009' (no round), and the Nov-2010 $7.2M Series A (FinSMES) names Sequoia without saying it was new; no fetchable page names Sequoia in the April-2009 $600K seed (TechCrunch's 2009 archive is not in its search index and web.archive.org was blocked this session). The $112M Series B (TechCrunch 2011-07-24) is the available later round. | Re-sourced `web_verified` -> `model` + cite_pending (PRO-135 item 4): the claim carried no citation at all, and rung 3 is what a named deal in the note without a URL actually is; the citation is owed | Wikipedia confirms Sequoia's $600K seed April 2009 (with Youniversity Ventures partners); Greylock and Sequoia's $7.2M Series A followed Nov 2010 (FinSMEs), named round -> graduated.",
+  "note": "[stage3] Golden: Sequoia led the $585K April 2009 seed (McAdoo); Series A $7.2M Nov 2010 followed -> graduated. The 2011 $117M B is merely the first FILED round. | [cv2] Market cap ~$100B (Aug 2026, sources $90-112B; midpoint 2026-08-07 $100.4B); crosses into $100B+ from the $56.2B float. | Stage leg could not be established: Sequoia's own company page says only 'Partnered 2009' (no round), and the Nov-2010 $7.2M Series A (FinSMES) names Sequoia without saying it was new; no fetchable page names Sequoia in the April-2009 $600K seed (TechCrunch's 2009 archive is not in its search index and web.archive.org was blocked this session). The $112M Series B (TechCrunch 2011-07-24) is the available later round. | [stage3] Golden: Sequoia led the $585K April 2009 seed (McAdoo); Series A $7.2M Nov 2010 followed -> graduated. The 2011 $117M B is merely the first FILED round. | [cv2] Market cap ~$100B (Aug 2026, sources $90-112B; midpoint 2026-08-07 $100.4B); crosses into $100B+ from the $56.2B float. | Stage leg could not be established: Sequoia's own company page says only 'Partnered 2009' (no round), and the Nov-2010 $7.2M Series A (FinSMES) names Sequoia without saying it was new; no fetchable page names Sequoia in the April-2009 $600K seed (TechCrunch's 2009 archive is not in its search index and web.archive.org was blocked this session). The $112M Series B (TechCrunch 2011-07-24) is the available later round. | Re-sourced `web_verified` -> `model` + cite_pending (PRO-135 item 4): the claim carried no citation at all, and rung 3 is what a named deal in the note without a URL actually is; the citation is owed | Wikipedia confirms Sequoia's $600K seed April 2009 (with Youniversity Ventures partners); Greylock and Sequoia's $7.2M Series A followed Nov 2010 (FinSMEs), named round -> graduated. | Aligned 2026-09-29 from the ICONIQ Growth run (PRO-168, rule 10): market cap $92.84B on 2026-09-25 (StockAnalysis), below the $100B edge.",
   "seed_to_a_graduation": "graduated",
   "slug": "airbnb",
-  "valuation_asof": "2026-08-07",
-  "valuation_citation": "https://companiesmarketcap.com/airbnb/marketcap/",
+  "status": "public",
+  "valuation_asof": "2026-09-25",
+  "valuation_citation": "https://stockanalysis.com/stocks/abnb/market-cap/",
   "valuation_confidence": "high",
-  "valuation_range": "100b_plus",
+  "valuation_range": "10b_plus",
   "valuation_range_source": "web_verified",
   "valuation_source": "web_verified",
-  "valuation_usd": 100450000000,
-  "who": "agent-judge-s2a-sequoia-capital"
+  "valuation_usd": 92840000000.0,
+  "who": "agent-align-pro168"
  },
  "airstrip-technologies": {
   "entry_stage": "Growth",
@@ -9554,6 +9558,9 @@
   "valuation_usd": null
  },
  "houzz": {
+  "cleared_flags": [
+   "needs_web_value"
+  ],
   "entry_stage": "Series A",
   "entry_stage_confidence": "high",
   "entry_stage_source": "model",
@@ -9563,15 +9570,17 @@
   "hq_city": "Palo Alto",
   "hq_city_confidence": "high",
   "hq_city_source": "model_knowledge",
-  "note": "Sequoia led Series A 2011 (~$11.6M) -> not Seed; C2A n/a. | Sequoia led the 2011 Series A. | [stage3] Sequoia led the ~$11.6M Series A 2011. | [cv2] Last primary was $4B in 2017, nine years stale; Hiive/Caplight secondary pricing implies below $1B today; attack-pass down-bucket per decline evidence.",
+  "note": "Sequoia led Series A 2011 (~$11.6M) -> not Seed; C2A n/a. | Sequoia led the 2011 Series A. | [stage3] Sequoia led the ~$11.6M Series A 2011. | [cv2] Last primary was $4B in 2017, nine years stale; Hiive/Caplight secondary pricing implies below $1B today; attack-pass down-bucket per decline evidence. | Aligned 2026-09-29 from the ICONIQ Growth run (PRO-168, rule 10): the $400M Series E of June 2017 at $4B (TechCrunch, 2017-06-24).",
   "slug": "houzz",
+  "status": "private",
   "valuation_asof": "2017-06",
-  "valuation_citation": "https://accessipos.com/houzz-ipo-stock/",
-  "valuation_confidence": "medium",
-  "valuation_range": "below_1b",
+  "valuation_citation": "https://techcrunch.com/2017/06/24/houzz-raises-a-huge-400m-round-at-a-4b-valuation/",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
   "valuation_range_source": "web_verified",
   "valuation_source": "web_verified",
-  "valuation_usd": null
+  "valuation_usd": 4000000000.0,
+  "who": "agent-align-pro168"
  },
  "hpn-select-llc": {
   "flags": [],
@@ -18018,6 +18027,9 @@
   "valuation_usd": null
  },
  "rillet": {
+  "cleared_flags": [
+   "needs_web_value"
+  ],
   "entry_stage": "Series A",
   "entry_stage_confidence": "high",
   "entry_stage_source": "model",
@@ -18031,14 +18043,17 @@
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
   "is_public": false,
-  "note": "AI-native ERP; Sequoia led A 2024, ICONIQ B 2025; small. | [stage3] Sequoia led the 2024 Series A.",
+  "note": "AI-native ERP; Sequoia led A 2024, ICONIQ B 2025; small. | [stage3] Sequoia led the 2024 Series A. | Aligned 2026-09-29 from the ICONIQ Growth run (PRO-168, rule 10): the August 2026 round at $1B (the company's release).",
   "slug": "rillet",
   "status": "private",
-  "valuation_confidence": "medium",
-  "valuation_range": "below_1b",
-  "valuation_range_source": "model_knowledge",
-  "valuation_source": "model_knowledge",
-  "valuation_usd": null
+  "valuation_asof": "2026-08-19",
+  "valuation_citation": "https://www.businesswire.com/news/home/20260819978953/en/Rillet-Raises-%24100M-Series-C-at-%241B-Valuation-to-Build-Accounting-Superintelligence",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_range_source": "web_verified",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1000000000.0,
+  "who": "agent-align-pro168"
  },
  "ringcentral": {
   "entry_stage": "Growth",
@@ -18180,6 +18195,9 @@
   "valuation_usd": null
  },
  "robinhood": {
+  "cleared_flags": [
+   "needs_web_value"
+  ],
   "entry_stage": "Growth",
   "entry_stage_confidence": "high",
   "entry_stage_source": "model",
@@ -18195,17 +18213,18 @@
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
   "is_public": true,
-  "note": "HOOD; Layer A missed (registrant Robinhood Markets) -> assist CIK 1783879. Sequoia entered late growth 2020-21. | [stage3] Golden: 2018 Series D. | [cv2] Market cap ~$83B (Aug 2026, range $80-88B).",
+  "note": "HOOD; Layer A missed (registrant Robinhood Markets) -> assist CIK 1783879. Sequoia entered late growth 2020-21. | [stage3] Golden: 2018 Series D. | [cv2] Market cap ~$83B (Aug 2026, range $80-88B). | Aligned 2026-09-29 from the ICONIQ Growth run (PRO-168, rule 10): market cap $104.71B on 2026-09-28 (StockAnalysis), above the $100B edge.",
   "public_since": 2021,
   "slug": "robinhood",
   "status": "public",
-  "valuation_asof": "2026-08",
-  "valuation_citation": "https://companiesmarketcap.com/robinhood/marketcap/",
+  "valuation_asof": "2026-09-28",
+  "valuation_citation": "https://stockanalysis.com/stocks/hood/market-cap/",
   "valuation_confidence": "high",
-  "valuation_range": "10b_plus",
+  "valuation_range": "100b_plus",
   "valuation_range_source": "web_verified",
   "valuation_source": "web_verified",
-  "valuation_usd": 83430000000
+  "valuation_usd": 104710000000.0,
+  "who": "agent-align-pro168"
  },
  "robust-intelligence": {
   "entry_stage": "Series A",

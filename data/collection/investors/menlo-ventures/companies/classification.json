@@ -686,6 +686,9 @@
   "who": "agent-judge-pro91"
  },
  "anthropic": {
+  "cleared_flags": [
+   "needs_web_value"
+  ],
   "entry_stage": "Growth",
   "entry_stage_citation": "https://www.forbes.com/sites/alexkonrad/2024/01/11/anthropic-750million-funding-round-menlo-ventures/",
   "entry_stage_confidence": "high",
@@ -701,16 +704,17 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Anthropic: Menlo first invested in the $450M Series C of May 2023 (Spark Capital led) and then led the $750M Series D in Jan 2024 \u2014 the entry is the C, not the round it led. Value carried by the deterministic layer. | REPAIR 2026-09-06: the batch-001 line carried a default valuation_range and clobbered the deterministic pre-fill; the unicorn-snapshot mark ($965B as of 2026-05) is restored and goes to the A/B pass for a priced-event citation. | A/B pass 2026-09-06: Anthropic's last priced round is the $30B Series G that closed 2026-02-12 at a $380B post-money valuation (GIC and Coatue led), against a $183B Series F in Sept 2025. The unicorn-snapshot pre-fill of $965B is an aggregator figure with no priced event behind it and is disputed under Rule A. Menlo entered at the 2023 Series C and led the 2024 Series D \u2014 its largest cheque ever.",
+  "note": "Anthropic: Menlo first invested in the $450M Series C of May 2023 (Spark Capital led) and then led the $750M Series D in Jan 2024 \u2014 the entry is the C, not the round it led. Value carried by the deterministic layer. | REPAIR 2026-09-06: the batch-001 line carried a default valuation_range and clobbered the deterministic pre-fill; the unicorn-snapshot mark ($965B as of 2026-05) is restored and goes to the A/B pass for a priced-event citation. | A/B pass 2026-09-06: Anthropic's last priced round is the $30B Series G that closed 2026-02-12 at a $380B post-money valuation (GIC and Coatue led), against a $183B Series F in Sept 2025. The unicorn-snapshot pre-fill of $965B is an aggregator figure with no priced event behind it and is disputed under Rule A. Menlo entered at the 2023 Series C and led the 2024 Series D \u2014 its largest cheque ever. | Aligned 2026-09-29 from the ICONIQ Growth run (PRO-168, rule 10): the round of May 2026 at $965B (the company's announcement).",
   "slug": "anthropic",
   "status": "private",
-  "valuation_citation": "https://techcrunch.com/2026/01/21/openevidence-hits-12b-valuation-with-new-round-led-by-thrive-dst/",
+  "valuation_asof": "2026-05-28",
+  "valuation_citation": "https://www.anthropic.com/news/series-h",
   "valuation_confidence": "high",
   "valuation_range": "100b_plus",
   "valuation_range_source": "web_verified",
   "valuation_source": "web_verified",
-  "valuation_usd": 380000000000,
-  "who": "agent-judge-pro91"
+  "valuation_usd": 965000000000.0,
+  "who": "agent-align-pro168"
  },
  "anvil": {
   "entry_date": "2018",
@@ -3407,13 +3411,14 @@
   "who": "agent-s2a-pass"
  },
  "drata-inc": {
+  "cleared_flags": [
+   "needs_web_value"
+  ],
   "entry_date": "2020-11-06",
   "entry_stage": "Seed",
   "entry_stage_confidence": "medium",
   "entry_stage_source": "formd_structural",
-  "flags": [
-   "needs_web_value"
-  ],
+  "flags": [],
   "focus": "Security",
   "focus_source": "model",
   "graduation_confidence": "high",
@@ -3424,12 +3429,18 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Drata, security and compliance automation. HOUMAN HAGHIGHI, a Menlo partner, is Director of record on the 2021 Form D inside his tenure and the issuer resolves \u2014 the director-of-record pattern. Unannounced deal, medium confidence, flagged for the adversarial pass. | Form D layer accepted: the $3.24M entry offering sold 2020-11-06 (Houman Haghighi Director of record) is followed by the $100.0M 2021q4 filing (the Series B of Nov 2021; the $25M Series A of June 2021 has no filing in the sequence); the step-up clears many times over. The $1B+ marks that followed are for the valuation pass.",
+  "note": "Drata, security and compliance automation. HOUMAN HAGHIGHI, a Menlo partner, is Director of record on the 2021 Form D inside his tenure and the issuer resolves \u2014 the director-of-record pattern. Unannounced deal, medium confidence, flagged for the adversarial pass. | Form D layer accepted: the $3.24M entry offering sold 2020-11-06 (Houman Haghighi Director of record) is followed by the $100.0M 2021q4 filing (the Series B of Nov 2021; the $25M Series A of June 2021 has no filing in the sequence); the step-up clears many times over. The $1B+ marks that followed are for the valuation pass. | Aligned 2026-09-29 from the ICONIQ Growth run (PRO-168, rule 10): the $200M Series C of December 2022 at $2B.",
   "seed_to_a_graduation": "graduated",
   "slug": "drata-inc",
   "status": "private",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-menlo"
+  "valuation_asof": "2022-12",
+  "valuation_citation": "https://news.crunchbase.com/cybersecurity/drata-doubles-valuation-to-2b-after-200m-series-c/",
+  "valuation_confidence": "high",
+  "valuation_range": "1b_plus",
+  "valuation_range_source": "web_verified",
+  "valuation_source": "web_verified",
+  "valuation_usd": 2000000000.0,
+  "who": "agent-align-pro168"
  },
  "drawbridge": {
   "entry_stage": "Growth",
