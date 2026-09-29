@@ -1,0 +1,176 @@
+{
+ "tiger-global-management": {
+  "_readme": "Durable identity corrections for Tiger Global (COLLECTION.md 8): one company filed under several legal entities or renamed is one row; never_merge pairs are two companies the builder must not fold.",
+  "merges": [
+   {
+    "canonical": "freshworks-inc",
+    "duplicates": [
+     "freshdesk-inc"
+    ],
+    "reason": "Freshdesk renamed itself Freshworks in 2017; both Form Ds name Lee Fixel as director (2013-2016 and 2018).",
+    "name": "Freshworks"
+   },
+   {
+    "canonical": "warby-parker-inc",
+    "duplicates": [
+     "jand-inc"
+    ],
+    "reason": "JAND, Inc. is the registered name of Warby Parker (its Form Ds 2011-2018 name Lee Fixel as director; the 2021 listing entity is Warby Parker Inc.).",
+    "name": "Warby Parker"
+   },
+   {
+    "canonical": "despegar-com-corp",
+    "duplicates": [
+     "decolar-com-inc",
+     "satylca-s-c-a"
+    ],
+    "reason": "Decolar.com, Inc. and Satylca S.C.A. are Despegar group entities; the 2012 Form Ds name Charles Coleman and Scott Shleifer as directors of all three.",
+    "name": "Despegar"
+   },
+   {
+    "canonical": "tpt-holdco-llc",
+    "duplicates": [
+     "tpt-investor-llc",
+     "teacher-synergy-llc"
+    ],
+    "reason": "TPT Holdco, TPT Investor and Teacher Synergy LLC are the 2014 holding entities of TeachersPayTeachers (Teacher Synergy LLC is the operating company); Lee Fixel is a director on all three Form Ds.",
+    "name": "TeachersPayTeachers"
+   },
+   {
+    "canonical": "harry-s-inc",
+    "duplicates": [
+     "adkm-inc",
+     "hf-global-inc"
+    ],
+    "reason": "ADKM, Inc. and HF Global, Inc. are Harry's earlier filing names (one CIK, 1556308)",
+    "name": "Harry's"
+   },
+   {
+    "canonical": "ftx",
+    "duplicates": [
+     "bankruptcy-of-ftx"
+    ],
+    "reason": "'Bankruptcy of FTX' is a Wikipedia article about FTX, not a second company"
+   },
+   {
+    "canonical": "indmoney",
+    "duplicates": [
+     "indwealth"
+    ],
+    "reason": "INDwealth renamed itself INDmoney"
+   },
+   {
+    "canonical": "kutumb",
+    "duplicates": [
+     "primetrace"
+    ],
+    "reason": "Primetrace Technologies is the company behind the Kutumb app"
+   },
+   {
+    "canonical": "scaler",
+    "duplicates": [
+     "interviewbit"
+    ],
+    "reason": "InterviewBit renamed itself Scaler"
+   },
+   {
+    "canonical": "games24x7",
+    "duplicates": [
+     "rummycircle"
+    ],
+    "reason": "RummyCircle is a Games24x7 product"
+   },
+   {
+    "canonical": "surveymonkey",
+    "duplicates": [
+     "svmk-inc"
+    ],
+    "reason": "SVMK Inc. is SurveyMonkey's listed parent (renamed Momentive)"
+   },
+   {
+    "canonical": "the-viral-fever",
+    "duplicates": [
+     "tvf"
+    ],
+    "reason": "TVF is The Viral Fever"
+   },
+   {
+    "canonical": "urban-company",
+    "duplicates": [
+     "urbanclap"
+    ],
+    "reason": "UrbanClap renamed itself Urban Company in 2020"
+   },
+   {
+    "canonical": "automattic",
+    "duplicates": [
+     "wordpress"
+    ],
+    "reason": "WordPress.com is Automattic's product; Tiger invested in Automattic"
+   },
+   {
+    "canonical": "octoai",
+    "duplicates": [
+     "octoml"
+    ],
+    "reason": "OctoML renamed itself OctoAI"
+   },
+   {
+    "canonical": "phoenix-tree-holdings-ltd",
+    "duplicates": [
+     "danke-phoenix-tree"
+    ],
+    "reason": "Danke Apartment's listed parent is Phoenix Tree Holdings",
+    "name": "Danke"
+   },
+   {
+    "canonical": "beleza-com-ltd",
+    "duplicates": [
+     "beleza-na-web"
+    ],
+    "reason": "Beleza.Com Ltd. is the Cayman parent of Beleza na Web",
+    "name": "Beleza na Web"
+   },
+   {
+    "canonical": "scribe",
+    "duplicates": [
+     "colony-labs"
+    ],
+    "reason": "Colony Labs, Inc. is Scribe's legal name ('Colony Labs, Inc. dba Scribe', Scribe's own terms page); one investment",
+    "name": "Scribe"
+   },
+   {
+    "canonical": "sympoz-inc",
+    "duplicates": [
+     "craftsy"
+    ],
+    "reason": "Sympoz, Inc. is the company behind Craftsy (Denver); Lee Fixel's Form D seat and Wikipedia's Craftsy article describe one investment",
+    "name": "Craftsy"
+   }
+  ],
+  "rejects": [],
+  "never_merge": [
+   {
+    "slugs": [
+     "locus",
+     "locus-robotics"
+    ],
+    "reason": "Locus (Locus.sh, Bangalore logistics software) and Locus Robotics (Wilmington, warehouse robots) are two companies"
+   },
+   {
+    "slugs": [
+     "ola",
+     "ola-electric"
+    ],
+    "reason": "Ola (ANI Technologies, the ride-hailing company; Tiger's Series A of April 2012) and Ola Electric (the scooter maker spun out in 2017; Tiger's 2019 round) are two companies"
+   }
+  ],
+  "desk": [
+   {
+    "slug": "elong-inc",
+    "lineage": "us",
+    "reason": "eLong's 2004 F-1 investors' rights agreement names Tiger Technology Private Investment Partners, L.P. (PIP I, the private-equity desk) as an investor and selling shareholder; the public-desk 13G filer that partitioned the row came after the listing (D2: the partition follows the vehicle the record names)."
+   }
+  ]
+ }
+}

@@ -1,0 +1,29 @@
+export refused: 1 Seed row(s) without a decided graduation status (mayfair); a Seed row is graduated, not_graduated or censored (PRO-132). Judge them (prepare queues them), then export.
+site API portfolio: 18 companies
+recall additions injected: 561
+pooled fund vehicles dropped: 40 issuers (110 filings)
+initial-only person matches ignored: 0 issuers (0 attributions)
+limited partnerships dropped (not operating companies): 2
+    - Chester Plaza, LP & Netherlands Apts., LP
+    - Stone Oak Ranch RV 210, LP
+tenure mismatch flagged: 3 rows
+removed (ex-partner is the only evidence): 3
+    - Ernesta Home, Inc. — Lee Fixel last on site 2019, filing 2024 (5y after)
+    - Fortive Corp — Feroz Dewan last on site 2015, filing 2020 (5y after)
+    - Tend Dental, Inc. — Lee Fixel last on site 2019, filing 2024 (5y after)
+verification ledger: 114 excluded, 9 control positions excluded, 1 uncertain kept
+duplicate name-variants merged: 6; kept separate (co-listed or differing CIK): 1
+  overlay: canonical 'despegar-com-corp' not in base, group skipped
+  overlay: canonical 'tpt-holdco-llc' not in base, group skipped
+  overlay: canonical 'harry-s-inc' not in base, group skipped
+identity overlay: 14 duplicate rows merged, 0 rejected, 1 desk reassignments
+other-desk companies moved out: 1 ({'public': 1})
+excluded.json: 124 rows ({'other_desk': 1, 'not_member': 114, 'control_position': 9})
+Traceback (most recent call last):
+  File "/Users/erik/Developer/merit-capital/scripts/build-company-base.py", line 1089, in <module>
+    main()
+  File "/Users/erik/Developer/merit-capital/scripts/build-company-base.py", line 1076, in main
+    subprocess.run([sys.executable, str(Path(__file__).parent / "run.py"),
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/usr/local/bin/python3', '/Users/erik/Developer/merit-capital/scripts/run.py', 'export', '--investor', 'tiger-global-management']' returned non-zero exit status 1.

@@ -1,0 +1,492 @@
+{
+ "slug": "tiger-global-management",
+ "name": "Tiger Global",
+ "wayback": {
+  "cdx_domain": "tigerglobal.com",
+  "site_url_base": "https://www.tigerglobal.com",
+  "eras": [],
+  "non_company_slugs": [
+   "index",
+   "home",
+   "default",
+   "page",
+   "investors",
+   "ourstory",
+   "ourstrategy",
+   "ouredge",
+   "disclosure",
+   "tg-privacypolicy",
+   "chase-coleman",
+   "templates",
+   "css",
+   "media",
+   "sitemap",
+   "robots",
+   "favicon"
+  ],
+  "_note": "tigerglobal.com has never published a portfolio list. Common Crawl holds no capture before CC-MAIN-2020-50 (the site's robots kept crawlers out), then only /home, /Investors (the LP login) and /chase-coleman (a founder bio); the Internet Archive is in a machine-wide cooldown at kickoff (until 2026-09-29 06:38 UTC) and is checked after it (COLLECTION.md 5, outage rule). The one first-party list is the live 'Our Story' paragraph (sources/site/our-story-2026.json, a site_api file_list source), so no era is configured; eras are added only if an archived capture carries a list."
+ },
+ "roster": {
+  "cdx_patterns": [],
+  "site_team_groups": [],
+  "slug_re": "/([a-z][a-z0-9-]*[a-z0-9])/?$",
+  "listing_href_re": "/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+  "not_a_person": [
+   "index",
+   "home",
+   "investors",
+   "ourstory",
+   "ourstrategy",
+   "ouredge",
+   "disclosure",
+   "tg-privacypolicy",
+   "default",
+   "tiger-global"
+  ],
+  "_note": "tigerglobal.com publishes no team page (only a founder bio at /chase-coleman in 2020-2021 captures), so partner-roster.py has nothing to enumerate. sources/wayback/partner-roster.json is CURATED (the Thrive and Coatue shape): the natural persons on the firm's own fund Form Ds 2009-2026 (Coleman, Shleifer, Fixel, Dewan; Manish Chopra for the Tiger Veda affiliate), the ADV Schedule A officers (2026-03-27), and press-dated tenures for the private-equity partners, one basis line per person. Rebuilding it means editing that file (scratch/build-roster.py), not running the script."
+ },
+ "site_api": {
+  "type": "scrape",
+  "sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/tiger-global-management/sources/site/our-story-2026.json",
+    "list": "our-story",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "key_field": "name",
+    "extras": [
+     "page_rendering"
+    ],
+    "_note": "The live 'Our Story' page (read 2026-09-29) names 18 companies as notable examples of the firm's investments. The firm's disclosure page says the named companies may be long, short or not currently owned positions, so a name here is evidence of a position, not of a venture entry: each row still passes T3 (decisions.md D3)."
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/tiger-global-management/sources/site/team-curated.json",
+    "list": "team",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "title",
+     "group"
+    ]
+   }
+  ],
+  "team_buckets": {
+   "Leadership": "investing",
+   "Private Equity": "investing",
+   "Public Equity": "investing",
+   "Operations": "operations"
+  },
+  "team_bucket_overrides": {},
+  "_note": "tigerglobal.com is an ASP.NET site with five pages (home, Our Story, Our Strategy, Our Edge, Disclosure) and an investor login. No portfolio, no team, no posts. The team is not published; see roster._note."
+ },
+ "edgar": {
+  "seed_queries": [
+   "tiger global",
+   "tiger technology",
+   "tiger veda"
+  ],
+  "fts_phrases": [
+   "Tiger Global",
+   "Tiger Technology"
+  ],
+  "fts_own_pattern": "^tiger global|^tiger technology|^tiger veda|^cc - tiger global|^oca tiger global|^pe premier tiger global|^sage-mtn tiger global|^ppb (ht fund|tiger global)|^lido advisors colossus tiger|^ic hedge fund series|^bca select|tiger global series of hcp",
+  "thirteenf_ciks": [
+   "1167483"
+  ],
+  "registered_fund_ciks": [],
+  "_note": "The adviser, Tiger Global Management LLC (CIK 1167483, formerly Tiger Technology Management LLC), files the 13F-HRs (since 2002) and the Schedules 13D/G for all funds at once; the fund vehicles file Form D (hedge funds typed 'Hedge Fund', the private investment partnerships typed 'Venture Capital Fund' or 'Private Equity Fund'). 'Tiger Global' is distinctive on EDGAR apart from the third-party feeders (CC -, OCA, PE Premier, Sage-Mtn, PPB, Lido, iCapital, BCA Select, HCP, J.P. Morgan's PIP XV Private Investors) and the unrelated 'TGM' real-estate filers, which the seed queries do not reach. Tiger Veda (Manish Chopra's hedge fund at the firm's old 101 Park Avenue office, 13F filer 2006-2016) is a public-equity affiliate. No registered fund files N-PORT."
+ },
+ "wikipedia": {
+  "phrases": [
+   "Tiger Global"
+  ]
+ },
+ "desks": {
+  "home": "us",
+  "partition": [
+   "public"
+  ],
+  "rank": [
+   "us",
+   "public",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "^cc - tiger",
+     "^oca tiger",
+     "^pe premier tiger",
+     "^sage-mtn",
+     "^ppb ",
+     "lido advisors",
+     "ic hedge fund series",
+     "^bca select",
+     "icapital",
+     "hcp hedge fund investors",
+     "pip xv private investors",
+     "pip xi ps epq",
+     "crossover access",
+     "intertrust",
+     "j\\.?p\\.? ?morgan",
+     "^dms ",
+     "maples",
+     "aurum",
+     "epiq capital"
+    ]
+   },
+   {
+    "desk": "public",
+    "patterns": [
+     "^tiger global,? l\\.?p\\.?$",
+     "^tiger global,? ltd\\.?$",
+     "^tiger global ii,? l\\.?p",
+     "^tiger global investments",
+     "^tiger global long opportunities",
+     "^tiger global internet opportunities",
+     "^tiger global crossover",
+     "^tiger global performance",
+     "^tiger technology performance",
+     "^tiger technology ii",
+     "^tiger technology,? ltd",
+     "^tiger veda",
+     "^cc - tiger global,? l\\.?p"
+    ]
+   },
+   {
+    "desk": "us",
+    "patterns": [
+     "^tiger global private investment",
+     "^tiger technology private investment",
+     "^tiger global pip",
+     "^tiger global fb partners",
+     "^tiger global linkedin",
+     "^tiger global management",
+     "^tiger technology management",
+     "^tiger global (hong kong|singapore|australia|management consulting)",
+     "^tiger global (one|two|three|four|five|six|seven|eight|nine|ten)\\b.*holdings",
+     "^tiger global (fb|360buy|linkedin) holdings",
+     "^tiger global mauritius",
+     "^tiger global holding co",
+     "^tiger global international",
+     "^tiger global intermediary",
+     "^internet fund (i|ii|iii|iv|v|vi|vii|viii)\\b"
+    ]
+   }
+  ],
+  "_note": "One adviser (CRD 160318) with two strategy families, in the firm's own words (tigerglobal.com/ourstrategy, read 2026-09-29): a public-equity business ('long/short, long-focused and crossover strategies, targeting investments in high-quality, public growth companies') and a private-equity business ('invests in early through late-stage companies'). Under COLLECTION.md 1 (T1, strategy desks) the public-equity vehicles are the `public` desk and leave the base as other_desk: the long/short fund (Tiger Global, L.P. / Ltd. / II, master Tiger Global Investments, L.P., GP Tiger Global Performance), the long-focused funds (Long Opportunities, its master, Long Opportunities II / Internet Opportunities), the crossover funds (Crossover, L.P. / (Cayman) and their master, 2021) and the Tiger Veda affiliate. The home desk `us` is every private-equity vehicle, whatever the geography of the deal: Tiger Technology Private Investment Partners (PIP I, 2003), Tiger Global Private Investment Partners II to XVII with their GP entities (PIP Management / Performance / Partners / Holding), the PIP 1 co-investment series (LLCs and lettered L.P.s under Tiger Global PIP Management, 2021 on), the single-deal holdcos (Tiger Global FB Partners 2011, Tiger Global LinkedIn Holdings 2011), the Singapore 'Internet Fund' and 'Tiger Global <n> Holdings' vehicles that carry the Indian and Asian positions, and the adviser itself, which files the 13D/Gs for every fund at once (a filing by the adviser alone cannot place a row on either desk, so T3 decides such a row: decisions.md D3). A company resolves to the most senior desk among its filing entities; only a row whose every filer is a public-desk vehicle is partitioned. External: third-party feeders and their administrators and fund directors.",
+  "_vehicles_seen_note": "Per-deal vehicles named in prospectus holder tables and IRA exhibits (sources/edgar/fts-hits.json, scratch/recall/fts-triage.json), all home desk: Tiger Global PIP <fund>-<n> LLCs (PIP XII-6, PIP 14-11, PIP 15-35, PIP 16), Tiger Global PIP 11 Holdings-2, Tiger Global Five China / Six YY / Seven Parent / Eight Holdings, Tiger Global 360Buy and FB Holdings, Tiger Global Mauritius Fund, Tiger Global Holding Cooperatief U.A. (Yandex), Tiger Global International II Holdings (Flipkart), Tiger Global Intermediary 3, Internet Fund II / IV / V / VII Pte. Ltd. (Singapore). LFX Trust / LFX Capital are Lee Fixel's personal vehicles (T2: not fund money) and MH1 LLC is not the firm's."
+ },
+ "profile": {
+  "own_vehicle_pattern": "^tiger (global|technology)",
+  "adv_crd": 160318,
+  "focus_min_companies": 25,
+  "focus_crosswalk": {},
+  "_note": "Tiger Global Management, LLC (CRD 160318) is the one registered adviser, an umbrella registration with relying advisers in Hong Kong, Singapore, Australia and Shanghai (and TG India (Consulting) in IAPD's other names); RAUM $77,993,959,953 on the 2026-03-27 amendment (sources/registers/adv-160318.json). The venture-desk AUM is the private-equity vehicles' Section 7.B gross asset values, master funds only (feeders resolve to their master), published as a floor and never the umbrella RAUM (COLLECTION.md 1, strategy desks). The site publishes no sector vocabulary, so scope is derived from the grind's focus column (the Thrive precedent); focus_min_companies is about 4.5% of the expected base."
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "facebook",
+   "linkedin",
+   "jd.com",
+   "flipkart",
+   "spotify",
+   "nubank",
+   "stripe",
+   "toast",
+   "databricks",
+   "openai",
+   "bytedance",
+   "scale ai",
+   "waymo",
+   "coinbase",
+   "grab",
+   "peloton",
+   "warby parker",
+   "freshworks",
+   "pure storage",
+   "wealthfront",
+   "netshoes",
+   "makemytrip",
+   "dangdang",
+   "eventbrite",
+   "glassdoor",
+   "postmates",
+   "razorpay",
+   "zomato"
+  ],
+  "unicorn_bands": false,
+  "_unicorn_bands_note": "Rule A (Erik 2026-09-06): the unicorn snapshot is an aggregator, a coverage floor to verify, never a mark. prepare keeps the name-match as a flag and writes no figure or band; every $1B+ figure on this book is pinned from a cited priced event.",
+  "sample_slugs": [],
+  "shape": {
+   "c2a_rate_max": 0.8,
+   "_note": "The $1B+ share has no ceiling (COLLECTION.md 8, Erik 2026-09-26): a crossover book can sit at any share, so the share is stated in the report and not gated. c2a_rate_max restates the 80% default."
+  },
+  "not_members": [
+   {
+    "name": "Microsoft",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Alphabet",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Google",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Amazon",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Apple",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Taiwan Semiconductor Manufacturing",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Nvidia",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Netflix",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Apollo Global Management",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Booking Holdings",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Priceline.com",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Take-Two Interactive",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "ServiceNow",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "UnitedHealth Group",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Lam Research",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Applied Materials",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Eli Lilly",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "TransDigm Group",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Broadcom",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Flutter Entertainment",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Charter Communications",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "GE Vernova",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Mastercard",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Intel",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Salesforce",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Fiat Chrysler Automobiles",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Shopify",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Workday",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Veeva Systems",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Corpay",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "FleetCor Technologies",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Domino's Pizza",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Twenty-First Century Fox",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Liberty Media",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Liberty Global",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "News Corp",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Dollar General",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "America Movil",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "CSX",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Carter's",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Intuit",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Zscaler",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Electronic Arts",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Live Nation Entertainment",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Dolby Laboratories",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "SBA Communications",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Apollo Group",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Sohu.com",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   },
+   {
+    "name": "Sina",
+    "why": "13F or 13G public-desk position with no venture round naming the firm (T3, decisions.md D3); re-enters only on a cited private round."
+   }
+  ],
+  "_not_members_note": "Membership traps (COLLECTION.md 10 invariant 11), written 2026-09-29 before any verdict writes, from decisions.md D3: the largest positions of the adviser's 13F-HRs 2001-2026 (sources/edgar/13f-holdings.json) and the adviser-only 13G subjects that are listed-company purchases with no private round. Names the firm's own 'Our Story' page carries (Facebook, JD.com, Spotify, Uber, Snowflake, Mercado Libre and the rest) are NOT traps: each is judged on T3 (D4, X2).",
+  "_known_positions_note": "Positions a filing or the firm's own page ties to a private round (the FB and LinkedIn holdcos 2011, prospectus holder tables, the roster's Form D board seats, the Our Story page): asserted present at the end of the run, disjoint from not_members."
+ },
+ "sample_slugs": [],
+ "names": {
+  "published": {
+   "aihuishou-international-co-ltd": "ATRenew",
+   "avenida-inc": "Avenida",
+   "blend-labs-inc": "Blend Labs",
+   "bryter": "Bryter",
+   "buf-technologies": "Buf",
+   "chinaedu-corp": "ChinaEdu",
+   "ctrip-com-international-ltd": "Trip.com",
+   "dingdong-cayman-ltd": "Dingdong",
+   "doubleverify-holdings-inc": "DoubleVerify",
+   "elong-inc": "eLong",
+   "embark-technology-inc": "Embark Trucks",
+   "etsy-inc": "Etsy",
+   "exclusively-in-inc": "Exclusively.in",
+   "getninjas-holdings-ltd": "GetNinjas",
+   "glassdoor-inc": "Glassdoor",
+   "gushan-environmental-energy-ltd": "Gushan Environmental Energy",
+   "heavy-ai": "Heavy.AI",
+   "homeaway-inc": "HomeAway",
+   "invisionapp-inc": "InVision",
+   "itilite": "Itilite",
+   "longtop-financial-technologies-ltd": "Longtop Financial Technologies",
+   "makemytrip-ltd": "MakeMyTrip",
+   "missfresh-ltd": "Missfresh",
+   "netshoes-cayman-ltd": "Netshoes",
+   "new-oriental-education-technology-group-inc": "New Oriental",
+   "nylas-inc": "Nylas",
+   "on-deck-capital-inc": "OnDeck",
+   "pagaya-technologies-ltd": "Pagaya",
+   "petlove-cayman-ltd": "Petlove",
+   "portside-inc": "Portside",
+   "postmates-inc": "Postmates",
+   "procore-technologies-inc": "Procore",
+   "pure-storage-inc": "Everpure",
+   "razorpay-inc": "Razorpay",
+   "redfin-corp": "Redfin",
+   "starry-group-holdings-inc": "Starry",
+   "stoneco-ltd": "StoneCo",
+   "sumo-logic-inc": "Sumo Logic",
+   "sympoz-inc": "Craftsy",
+   "tal-education-group": "TAL Education",
+   "uxin-ltd": "Uxin",
+   "vecmocon-technologies": "Vecmocon",
+   "wealthfront-corp": "Wealthfront",
+   "weave-communications-inc": "Weave",
+   "wiz-ai": "Wiz.AI",
+   "yandex-n-v": "Yandex",
+   "yatsen-holding-ltd": "Yatsen",
+   "zkh-group-ltd": "ZKH",
+   "zynga-inc": "Zynga"
+  },
+  "_note": "COLLECTION.md 8 (names rule, 2026-09-24): brand in normal capitals, no legal suffix. These rows come from SEC filings (registered names) or a styled capitals brand (BRYTER, ITILITE, HEAVY.AI, WIZ.AI). Renamed companies publish under the current brand where the book's other rows would (Trip.com for Ctrip, ATRenew for AiHuiShou, Everpure for Pure Storage per its January 2026 rename, as Sutter Hill's book publishes it); Sympoz is Craftsy."
+ }
+}

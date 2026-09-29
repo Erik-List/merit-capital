@@ -1,0 +1,127 @@
+{
+ "_readme": "Bounded register probe for PRO-167 (Tiger Global Management, private portfolio), under COLLECTION.md's rule that a jurisdiction below the pre-build threshold is decided in the run, never degraded in advance. Budget: about 25 minutes and 3 WebSearch calls (all 3 used; about 15 minutes spent). Each entry answers one question: status (is the company alive), holders (backtrace: who holds this company) or forward enumeration (which companies does a Tiger vehicle hold). finding is usable, not usable or partial; obstacle names what stopped it. Tests ran as plain scripted requests (curl, browser user agent) and WebFetch from this machine's network; no login, no account, no captcha, no form submitted with personal data. A block recorded here may depend on the network, so re-check before building on a 'not usable'. Tiger vehicle names seen in the tests: Internet Fund VI Pte. Ltd. (Zomato), Internet Fund IIIA Pte. Ltd. and Internet Fund IV Pte. Ltd. (Meituan).",
+ "probed": "2026-09-29",
+ "summary": "Two free, filing-grade layers work for Tiger's Asian companies: offer documents. The company registers themselves do not show Tiger's holdings. SEBI's offer documents and HKEXnews prospectuses both name Tiger's Singapore vehicles and can be read by script: Zomato's 2021 DRHP lists Internet Fund VI Pte. Ltd. with 6.04% and dates its three rounds (Class J4, J7 and K preference shares, September 2020 to February 2021), and Meituan's 2018 Hong Kong prospectus names Internet Fund IIIA and IV, 'managed by Tiger Global Singapore', with 3.06% split by preferred series. Both only confirm a company already on the list (their search covers titles, not text) and only for companies that filed an Indian or Hong Kong offer document. Most registers are not usable. India's MCA site returned 403 to every scripted request, and shareholder lists (MGT-7) cost Rs 100 per company behind a login. China's gsxt blocks scripts with a JavaScript challenge, and Tiger holds the offshore Cayman parent anyway. Mexico's SIGER needs a login. Mexico's PSM shows that a shareholding notice was filed but not what it says. Brazil's CNPJ data gives free, machine-readable company status and names foreign partners of a limitada. But a startup's limitada is owned by its own offshore holding company (QuintoAndar's partners are QuintoAndar LLC and QuintoAndar II LLC), and a sociedade anonima lists only directors, so Tiger does not appear. The bulk files needed to scan for Tiger names would not download from this network, so forward enumeration there is untested, not ruled out. Proposed write-back: the SEBI and HKEX offer-document layers for backtrace; the registers for status only (Brazil CNPJ; Mexico PSM liquidation notices, untested); the rest counted as a gap.",
+ "registers": [
+  {
+   "country": "IN",
+   "register": "Ministry of Corporate Affairs (MCA21 V3), View Company/LLP Master Data",
+   "question": "status",
+   "finding": "not usable",
+   "how": "Would be one lookup per CIN on the master-data page (e.g. Flipkart Internet Private Limited, ANI Technologies Private Limited).",
+   "obstacle": "mca.gov.in answers every scripted request with HTTP 403 'Access Denied' from its Akamai edge: the master-data page and the home page, by curl and by WebFetch alike. The lookup was never reached, so neither test company was checked.",
+   "test": "GET .../mca/master-data/MDS.html and .../en/home.html: 403, 450 and 419 bytes (Akamai reference 18.a5c83017.1790644101.1216cc33). WebFetch of MDS.html: 403.",
+   "citation": "https://www.mca.gov.in/content/mca/global/en/mca/master-data/MDS.html"
+  },
+  {
+   "country": "IN",
+   "register": "Open Government Data platform (data.gov.in), 'Company Master Data' catalog contributed by MCA",
+   "question": "status",
+   "finding": "partial",
+   "how": "Bulk files by state with CIN, company name, company status, class, category, authorised and paid-up capital, registration date, state and RoC. The catalog page loads (HTTP 200) and says 'Updated On: 22/07/2026'. Flipkart Internet and ANI Technologies are both Karnataka companies, so one state file would cover the test.",
+   "obstacle": "The catalog's API is marked 'Catalog API is not available', and the page source has no direct file link: downloads go through the page's JavaScript download button, which the probe did not use. So no file was read and the status column is untested.",
+   "test": "GET https://www.data.gov.in/catalog/company-master-data: 200, 1.0 MB page (Nuxt app); no direct file link in the page source.",
+   "citation": "https://www.data.gov.in/catalog/company-master-data"
+  },
+  {
+   "country": "IN",
+   "register": "MCA21 V3, View Public Documents (annual return MGT-7 and its list of shareholders)",
+   "question": "holders",
+   "finding": "not usable",
+   "how": "None without paying: documents of one company open for 7 days after paying Rs 100, after logging in to an MCA V3 user account.",
+   "obstacle": "Paid (Rs 100 per company) and behind a login, which needs an account the project rules forbid the agent to create; mca.gov.in also returns 403 to scripted requests (entry above). Untested free fallback: Section 92(3) of the Companies Act makes a company put its annual return on its own website, if it has one.",
+   "test": "No MCA page loaded (403). Terms taken from the VPD V3 page as found by WebSearch and third-party guides (fee Rs 100 per company, access for 7 days, login for download).",
+   "citation": "https://www.mca.gov.in/content/mca/global/en/mca/document-related-services/view-public-documents-v3.html"
+  },
+  {
+   "country": "IN",
+   "register": "SEBI offer documents (DRHP, RHP, prospectus) at sebi.gov.in, Filings > Public Issues",
+   "question": "holders",
+   "finding": "usable",
+   "how": "1) GET the listing page https://www.sebi.gov.in/sebiweb/home/HomeAction.do?doListing=yes&sid=3&ssid=15&smid=10 to get a session cookie. 2) POST /sebiweb/ajax/home/getnewslistinfo.jsp with search=<company>, sid=3, ssid=15, smid=0, next=s, nextValue=1, plus the cookie, Referer, Origin and X-Requested-With headers; it returns the filing pages. 3) The filing page embeds the PDF under /sebi_data/attachdocs/. 4) pdftotext, then grep 'Tiger|Internet Fund'. The definitions, the 1%-plus shareholder table, the capital build-up (every allotment by class and date) and the investment-agreement summaries each name the vehicle. Filing-grade: vehicle, round class, date, amount.",
+   "obstacle": "Backtrace only: the search matches titles, not document text, so it confirms a candidate that filed an Indian offer document and cannot list Tiger's holdings. A POST without the session cookie and XHR headers is blocked by SEBI's firewall (HTTP 530 'Unauthorized Request Blocked'). PDFs are large and slow (17.6 MB in 70 s).",
+   "test": "Zomato Limited DRHP, filed 2021-04-28. The definitions (PDF page 10) define 'Tiger' as Internet Fund VI Pte. Ltd. The pre-offer shareholder table (PDF page 99) lists Internet Fund VI Pte Ltd with 402,328,300 equity shares, 6.04%. The investment agreements (PDF page 182) date Tiger's rounds: 2020-09-03, 25,313 Class J4 CCCPS for Rs 7,599.84 million; 2020-12-10, 25,313 Class J7 CCCPS; 2021-02-10, 9,423 Class K CCCPS. The capital build-up (PDF page 94) shows each allotment and conversion. The same search also returned the offer documents of Delhivery (2021-11, 2022-05), PB Fintech (DRHP 2021-08) and Ola Electric Mobility (DRHP 2023-12, RHP 2024-07); these were not opened.",
+   "citation": "https://www.sebi.gov.in/filings/public-issues/apr-2021/zomato-limited-drhp_49956.html (PDF: https://www.sebi.gov.in/sebi_data/attachdocs/apr-2021/1619584567739.pdf)"
+  },
+  {
+   "country": "CN",
+   "register": "National Enterprise Credit Information Publicity System (gsxt.gov.cn)",
+   "question": "holders",
+   "finding": "not usable",
+   "how": "None by script. Status sits behind the same wall, so this register gives neither status nor holders.",
+   "obstacle": "Every request gets HTTP 521 and a JavaScript cookie challenge (__jsl_clearance_s) before any page or search loads. Getting past it would be bot-detection evasion, which the project rules exclude. There is a second reason, which holds even if the site were readable: Tiger's Chinese companies are held through offshore Cayman parents (Meituan's prospectus cover: 'incorporated in the Cayman Islands'). A PRC register shows the onshore company owned by that parent, not the Tiger vehicle.",
+   "test": "GET https://www.gsxt.gov.cn/index.html: 521, 885 bytes, body is only the cookie-setting script.",
+   "citation": "https://www.gsxt.gov.cn/index.html"
+  },
+  {
+   "country": "HK",
+   "register": "HKEXnews listing documents (Global Offering prospectus)",
+   "question": "holders",
+   "finding": "usable",
+   "how": "Plain GETs, no cookie. 1) https://www1.hkexnews.hk/search/prefix.do?callback=callback&lang=EN&type=A&name=<stock code>&market=SEHK returns the internal stockId. 2) https://www1.hkexnews.hk/search/titleSearchServlet.do?sortDir=0&sortByOptions=DateTime&category=0&market=SEHK&stockId=<id>&documentType=-1&fromDate=<yyyymmdd>&toDate=<yyyymmdd>&title=&searchType=0&t1code=-2&t2Gcode=-2&t2code=-2&rowRange=200&lang=E returns JSON with FILE_LINK. 3) Download the 'Global Offering' PDF, pdftotext, grep 'Tiger|Internet Fund'. The 'History, Reorganization and Corporate Structure' section names each pre-IPO vehicle, the manager behind it and its shares by preferred series. Filing-grade.",
+   "obstacle": "Backtrace only: titles are searchable, document text is not, so it confirms a candidate listing rather than finding Tiger's holdings. It covers only companies that listed in Hong Kong. Not tested: the Disclosure of Interests system (di.hkex.com.hk), which is searched by listed company and covers 5%-plus holders only.",
+   "test": "Meituan (03690, stockId 198419), prospectus of 2018-09-07, ltn20180907011.pdf, 13.7 MB in 1.2 s. PDF page 179: 'Internet Fund IIIA Pte. Ltd. and Internet Fund IV Pte. Ltd.' are managed by Tiger Global Singapore Pte. Ltd., owned by Tiger Global Management, LLC, and collectively hold 3.06%. The pre-IPO cap table (footnote 12, PDF page 172) splits their shares by preferred series: IIIA 14,084,508 shares (0.2811%), IV 139,162,201 shares (2.7771%).",
+   "citation": "https://www1.hkexnews.hk/listedco/listconews/sehk/2018/0907/ltn20180907011.pdf"
+  },
+  {
+   "country": "BR",
+   "register": "Receita Federal CNPJ open data (Empresas, Estabelecimentos), read per company through BrasilAPI, a free mirror of the same files",
+   "question": "status",
+   "finding": "usable",
+   "how": "GET https://brasilapi.com.br/api/cnpj/v1/<14-digit CNPJ> returns JSON with descricao_situacao_cadastral (ATIVA, BAIXADA, INAPTA, SUSPENSA), the date of that status, legal form and capital. One lookup per company, no key. A 'BAIXADA' (closed) status is register evidence for defunct.",
+   "obstacle": "The official bulk host did not answer from this network (next entries). The mirror serves the same Receita data but is a third party, so cite the Receita dataset and name the mirror as the access route.",
+   "test": "Nu Pagamentos S.A. (18.236.120/0001-58): ATIVA since 2013-06-04, Sociedade Anonima Fechada. GRPQA LTDA, trade name QUINTOANDAR (16.788.643/0001-81): ATIVA, Sociedade Empresaria Limitada.",
+   "citation": "https://brasilapi.com.br/api/cnpj/v1/16788643000181 (source dataset: https://arquivos.receitafederal.gov.br/dados/cnpj/dados_abertos_cnpj/)"
+  },
+  {
+   "country": "BR",
+   "register": "Receita Federal CNPJ open data, partner file (Socios), per company through BrasilAPI",
+   "question": "holders",
+   "finding": "not usable",
+   "how": "The same BrasilAPI call returns the qsa list: partner name, partner type, role, country for foreign partners, date of entry, root of the partner's CNPJ.",
+   "obstacle": "It names a foreign fund only when the fund holds quotas of a Brazilian limitada directly, and that is not how Tiger's Brazilian companies are held. 1) A startup's Brazilian limitada is owned by its own offshore holding company, so Tiger sits one level above the register. 2) For a sociedade anonima the file lists directors, not shareholders.",
+   "test": "QuintoAndar (GRPQA LTDA): partners are QUINTOANDAR LLC ('Socio Pessoa Juridica Domiciliado no Exterior', Estados Unidos, since 2012-11-06) and QUINTOANDAR II LLC (since 2024-03-18), plus two administrators; no investor appears. Nu Pagamentos S.A.: 17 entries, all Diretor or Presidente, no shareholders.",
+   "citation": "https://brasilapi.com.br/api/cnpj/v1/16788643000181"
+  },
+  {
+   "country": "BR",
+   "register": "Receita Federal CNPJ open data, bulk partner files (Socios0-9.zip)",
+   "question": "forward enumeration",
+   "finding": "not usable",
+   "how": "Would be a name scan of every partner row for 'TIGER GLOBAL' or 'INTERNET FUND', listing each Brazilian limitada where a Tiger vehicle holds quotas directly (probably few, see the holders entry).",
+   "obstacle": "The files could not be downloaded from this network. arquivos.receitafederal.gov.br reset the connection twice, the old host dadosabertos.rfb.gov.br timed out after 30 s, and the dados.gov.br catalog API answered 401 (token required). A third-party search by partner name (consultasocio.com) returned 403. Not a verdict on the data, which is free: retry from another network before counting the gap.",
+   "test": "GET https://arquivos.receitafederal.gov.br/dados/cnpj/dados_abertos_cnpj/: curl (56) connection reset, twice. GET https://dadosabertos.rfb.gov.br/CNPJ/: timeout. consultasocio.com/q/sa/internet-fund-iii-pte-ltd and three other Tiger slugs: 403.",
+   "citation": "https://arquivos.receitafederal.gov.br/dados/cnpj/dados_abertos_cnpj/"
+  },
+  {
+   "country": "MX",
+   "register": "Registro Publico de Comercio (SIGER 2.0)",
+   "question": "holders",
+   "finding": "not usable",
+   "how": "None without an account.",
+   "obstacle": "The landing page redirects to a login form (user and password or e.firma); there is no anonymous search. A login needs an account, which the project rules exclude. Share transfers in an S.A. or S.A.P.I. are also kept in the company's own share book, not in this register.",
+   "test": "GET https://rpc.economia.gob.mx/siger2/: 200 after a redirect to /siger2/xhtml/login/login.xhtml.",
+   "citation": "https://rpc.economia.gob.mx/siger2/"
+  },
+  {
+   "country": "MX",
+   "register": "Publicaciones de Sociedades Mercantiles (PSM), shareholding-structure notices under LGSM articles 73 and 129",
+   "question": "holders",
+   "finding": "not usable",
+   "how": "Public search at /PSM/index2.jsf needs no e.firma (PSM FAQ, question 7). Publication type 30 ('Aviso de inscripcion ... con la estructura accionaria vigente') lists the notices.",
+   "obstacle": "The list shows only that a notice exists (company, number, date). The notice text is not public: the detail page leaves 'Texto de la publicacion' empty and the document view answers 'No se puede mostrar el documento'.",
+   "test": "Type 30, last 30 days: 357 notices. GRUPO FEVEH S A P I DE CV, notice 2026-0000026694 of 2026-09-28: metadata only, document not shown.",
+   "citation": "https://psm.economia.gob.mx/PSM/index2.jsf (FAQ: https://psm.economia.gob.mx/PSM/resources/Preguntas_Frecuentes_PSM.pdf)"
+  },
+  {
+   "country": "MX",
+   "register": "Publicaciones de Sociedades Mercantiles (PSM), dissolution and liquidation publications",
+   "question": "status",
+   "finding": "partial",
+   "how": "The same free public search carries 'Disolucion y liquidacion simplificada', 'Balance (liquidacion)' and 'Acuerdo sobre distribucion parcial (liquidacion)' publications, searchable by keyword or period through 'Busqueda avanzada'. A liquidation notice would be register evidence for defunct.",
+   "obstacle": "Not tested on a Tiger company: the keyword search was not run within the budget. A missing notice proves nothing, since only companies that follow the formal process publish one.",
+   "test": "The list page for each publication type loaded without login (type 30 above); no company name searched.",
+   "citation": "https://psm.economia.gob.mx/PSM/index2.jsf"
+  }
+ ]
+}

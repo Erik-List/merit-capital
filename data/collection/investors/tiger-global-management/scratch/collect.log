@@ -1,0 +1,31 @@
+targets: 10 roster names
+wrote /Users/erik/Developer/merit-capital/data/collection/investors/tiger-global-management/sources/edgar/formd-sweep.json
+# accessions matched: 226
+# distinct issuers: 82
+== seeding from EDGAR company search
+   0 entities
+== folding in own pooled Form D vehicles
+   +20 (total 20)
+== co-filer closure (sampling filings of seed entities)
+   27 entities
+   unclassified resolved: 2 partners (people), 0 external co-filers excluded from crawling
+
+wrote data/collection/investors/tiger-global-management/entities.json — 27 entities
+  by desk: {'public': 7, 'us': 20}
+  crawlable (desk != external): 27
+registry: 27 entities · {'public': 7, 'us': 20}
+crawling 27 (external excluded)
+  25/27 entities · 429 unique accessions
+unique ownership filings: 429
+  headers 250/429 · 53 companies
+
+wrote edgar-companies.json — 101 companies
+  by desk: {'us': 101}
+
+==== formd-query.py
+
+==== edgar-entities.py
+
+==== edgar-companies.py
+
+no base.json yet — the Form D rescan (formd-issuer-rounds.py) runs via `prepare` after build-company-base.py

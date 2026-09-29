@@ -1,0 +1,46 @@
+base: data/collection/investors/tiger-global-management/companies/base.json
+target companies: 31  distinct issuer CIKs: 34
+scanning 74 quarterly datasets (offline)...
+filings collected: 222
+evidence: 110/110 base accessions found
+wrote data/collection/investors/tiger-global-management/scratch/issuer-evidence.json (66 CIKs, 36 with a name history)
+
+wrote data/collection/investors/tiger-global-management/sources/edgar/formd-issuer-rounds.json
+  companies with Form D history : 29
+  rounds after amendment merge  : 139 (83 amendments folded in)
+  companies with 2+ rounds      : 24
+  filings the partner sweep never saw: 103
+  companies gaining >=1 such filing  : 17
+  rounds carrying a sale date   : 126/139
+rows: 641
+membership seed: 18 site_listing, 90 fund_filing; left for the judge: 73
+layer A (SEC public float): 641 rows to resolve
+    fetched 100/132
+    Wikidata unavailable for a batch of 60 (SPARQL POST failed (curl rc=56)); deferred
+
+DEFERRED: 0 row(s) without a public-float answer (SEC unavailable), 60 row(s) without a Wikidata answer; nothing cached for them. Re-run prepare to retry.
+    100/641
+    200/641
+    300/641
+    400/641
+    500/641
+    600/641
+    resolved a CIK: 323   with public float: 85
+layer B (Wikidata): 641 rows in batches of 60
+    120/641
+    180/641
+    240/641
+    300/641
+    360/641
+    420/641
+    480/641
+    540/641
+    600/641
+    641/641
+    matched: 161
+layer C (unicorn list): 629 current, 209 former
+graduation layer 1: 29 companies, 3 entered at Seed, 3 decided by the filings as of 2026-09-29 (the judge confirms each), 13 entries moved past pre-investor rounds
+
+deterministically resolved: 0/641
+retired (not_member, awaiting rebuild): 0
+queued for judgment       : 641 rows in 15 batches

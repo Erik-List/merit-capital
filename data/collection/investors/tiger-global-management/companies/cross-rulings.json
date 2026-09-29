@@ -1,0 +1,435 @@
+{
+ "_doc": "Tiger Global's cross-investor rulings for COLLECTION.md rule 10 (run.py verify), same schema as data/collection/cross-investor.json; verify merges them at read time. Written in the PRO-167 run, 2026-09-29. distinct: the loose name key matched two different companies. accepted: one company, where this run holds the fresher cited event and the sibling's published row is stale or wrong; a session may not touch another investor's directory mid-wave (COLLECTION.md 12), so each sibling row aligns at the next ingest (Erik's 2026-09-28 rule: align stale siblings at ingest). Same-company pairs whose Tiger row had no band yet on 2026-09-29 (its valuation still being pinned) are not ruled here.",
+ "distinct": [
+  {
+   "rows": [
+    "tiger-global-management:avant",
+    "sutter-hill-ventures:avant"
+   ],
+   "note": "different companies: this book's Avant is the Chicago online consumer lender (avant.com; Tiger's first round is the 2014 equity raise); Sutter Hill's Avant! is the Fremont chip-design (EDA) software company that merged into Synopsys in 2002, as both rows' notes say."
+  },
+  {
+   "rows": [
+    "tiger-global-management:bold",
+    "khosla-ventures:bold"
+   ],
+   "note": "different companies: this book's Bold is bold.co, the Bogotá payments company whose $55M Series B Tiger led in February 2022; Khosla's Bold is the San Francisco exercise programme for older adults ($17M Series A, 2023), as its own note says."
+  },
+  {
+   "rows": [
+    "tiger-global-management:carma",
+    "y-combinator:carma"
+   ],
+   "note": "different companies: this book's Carma is the Sydney online used-car retailer (ASX: CMA since November 2025); YC's Carma is joincarma.com, fleet-operations software in San Francisco from the Winter 2024 batch."
+  },
+  {
+   "rows": [
+    "tiger-global-management:carrot",
+    "khosla-ventures:carrot"
+   ],
+   "note": "different companies: this book's Carrot is Carrot Fertility, the San Francisco fertility-benefits company whose $75M Series C Tiger led in August 2021; Khosla's Carrot is Carrot Inc, the Pivot smoking-cessation programme, as its own note says."
+  },
+  {
+   "rows": [
+    "tiger-global-management:cedar",
+    "y-combinator:cedar"
+   ],
+   "note": "different companies: this book's Cedar is cedar.com, the New York patient-billing platform (Tiger led the $200M Series D at $3.2B, March 2021); YC's Cedar is the two-person sales-playbook copilot of the Winter 2025 batch (cedarcopilot.com)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:clubhouse",
+    "greylock:clubhouse"
+   ],
+   "note": "different companies: this book's Clubhouse is the San Francisco social audio app (Alpha Exploration Co.; Series C at $4B, April 2021); Greylock's is the New York project tracker Clubhouse.io, renamed Shortcut in 2021, as its own note says."
+  },
+  {
+   "rows": [
+    "tiger-global-management:cohere",
+    "lightspeed:cohere-technologies"
+   ],
+   "note": "different companies: this book's Cohere is the Toronto large-language-model company (Tiger led the $125M Series B, February 2022); Lightspeed's is Cohere Technologies, the Santa Clara wireless company it has backed since its 2011 seed."
+  },
+  {
+   "rows": [
+    "tiger-global-management:cohere",
+    "y-combinator:cohere"
+   ],
+   "note": "different companies: this book's Cohere is the Toronto large-language-model company (cohere.com); YC's Cohere is cohere.io, a New York B2B software company of the Summer 2020 batch."
+  },
+  {
+   "rows": [
+    "tiger-global-management:inventa",
+    "battery-ventures:inventa"
+   ],
+   "note": "different companies: this book's Inventa is the São Paulo B2B marketplace for small retailers (Series A, January 2022); Battery's is Inventa Corporation, the Santa Clara e-business integration firm on its 1997 portfolio page, absorbed around 2001."
+  },
+  {
+   "rows": [
+    "tiger-global-management:karat",
+    "coatue:karat"
+   ],
+   "note": "different companies: this book's Karat is karat.com, the Seattle technical-interviewing company (Tiger led its 2019 Series B and the $110M round at $1.1B of October 2021); Coatue's Karat is Karat Financial, the Los Angeles credit card for creators."
+  },
+  {
+   "rows": [
+    "tiger-global-management:karat",
+    "union-square-ventures:karat"
+   ],
+   "note": "different companies: karat.com, the Seattle interviewing company, here; USV's Karat is Karat Financial (trykarat.com), the Los Angeles creator credit card whose $26M Series A USV led in June 2021."
+  },
+  {
+   "rows": [
+    "tiger-global-management:lattice",
+    "gv:lattice"
+   ],
+   "note": "different companies: this book's Lattice is lattice.com, the San Francisco people-management software ($175M Series F at $3B, January 2022); GV's Lattice is Lattice Data, the Stanford DeepDive machine-learning company Apple bought in May 2017, as its own note says."
+  },
+  {
+   "rows": [
+    "tiger-global-management:lysto",
+    "y-combinator:lysto"
+   ],
+   "note": "different companies: this book's Lysto is the Bengaluru and Singapore Web3 gamer platform (the $12M pre-Series A of August 2022); YC's Lysto is lysto.ai, a New York revenue-intelligence tool of the Summer 2023 batch."
+  },
+  {
+   "rows": [
+    "tiger-global-management:milkrun",
+    "spark-capital:milkrun"
+   ],
+   "note": "different companies: this book's Milkrun is the Sydney grocery quick-commerce startup (Tiger's A$75M Series A, January 2022; shut in April 2023, brand taken over by Woolworths); Spark's MilkRun is the Portland, Oregon farm-direct grocery delivery (localmilkrun.com)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:milkrun",
+    "y-combinator:milkrun"
+   ],
+   "note": "different companies: the Sydney quick-commerce Milkrun here; YC's MilkRun is the Portland, Oregon farm-direct delivery of the Summer 2020 batch (localmilkrun.com)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:mojo",
+    "y-combinator:mojo"
+   ],
+   "note": "different companies: this book's Mojo is the New York sports-betting app of Marc Lore and Alex Rodriguez ($75M Series A, 2022); YC's Mojo is a Paris consumer content app of the Winter 2018 batch (mojo-app.com)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:moov",
+    "a16z:moov"
+   ],
+   "note": "different companies: this book's Moov is Moov Technologies, the used semiconductor-equipment marketplace (Tempe; Tiger led its $41M Series A; bought by Axion Semiconductor in May 2026); a16z's Moov is Moov Financial, the Cedar Falls payments infrastructure whose $27M Series A a16z led."
+  },
+  {
+   "rows": [
+    "tiger-global-management:open",
+    "coatue:open"
+   ],
+   "note": "different companies: this book's Open is open.money, the Bangalore neobank for small businesses (unicorn round, May 2022); Coatue's Open is o-p-e-n.com, the Los Angeles mindfulness studio."
+  },
+  {
+   "rows": [
+    "tiger-global-management:open",
+    "first-round-capital:open"
+   ],
+   "note": "different companies: open.money, the Bangalore neobank, here; First Round's row is &Open, the Dublin corporate-gifting company."
+  },
+  {
+   "rows": [
+    "tiger-global-management:open",
+    "y-combinator:open"
+   ],
+   "note": "different companies: open.money, the Bangalore neobank, here; YC's Open is open.cx, the San Francisco AI customer-support company of the Winter 2024 batch."
+  },
+  {
+   "rows": [
+    "tiger-global-management:pax",
+    "y-combinator:pax"
+   ],
+   "note": "different companies: this book's PAX is PAX Labs, the San Francisco vaporizer maker (founded 2007 as Ploom; $420M at $1.7B, April 2019); YC's Pax is paxai.com, an AI broker for tariff refunds from the Summer 2024 batch."
+  },
+  {
+   "rows": [
+    "tiger-global-management:polygon",
+    "lightspeed:polygon"
+   ],
+   "note": "different companies: this book's Polygon is Polygon Labs (formerly Matic Network), the Ethereum scaling network (the $450M token sale of February 2022); Lightspeed's Polygon is the learning-differences screening startup, as its own note says."
+  },
+  {
+   "rows": [
+    "tiger-global-management:porter",
+    "y-combinator:porter"
+   ],
+   "note": "different companies: this book's Porter is the Bangalore intra-city goods transport marketplace ($200M Series F at $1.2B, May 2025); YC's Porter is porter.run, the New York deployment platform of the Summer 2020 batch."
+  },
+  {
+   "rows": [
+    "tiger-global-management:scribe",
+    "y-combinator:scribe"
+   ],
+   "note": "different companies: this book's Scribe is the San Francisco workflow-documentation company (scribehow.com; $75M Series C at $1.3B, November 2025); YC's Scribe is tryscribe.com, the Bengaluru AI sales-development tool of the Winter 2017 batch."
+  },
+  {
+   "rows": [
+    "tiger-global-management:slice",
+    "lightspeed:slice"
+   ],
+   "note": "different companies: this book's slice is the Bangalore consumer fintech (now slice Small Finance Bank); Lightspeed's Slice is Slice Technologies of Palo Alto (Project Slice), bought by Rakuten in 2014, as its own note says."
+  },
+  {
+   "rows": [
+    "tiger-global-management:stake",
+    "battery-ventures:stake"
+   ],
+   "note": "different companies: this book's Stake is the Sydney share-trading app (Stakeshop; the US$30M round of May 2021); Battery's row is @stake, the Cambridge, Massachusetts security consultancy Symantec bought in 2004."
+  },
+  {
+   "rows": [
+    "tiger-global-management:upstream",
+    "coatue:upstream"
+   ],
+   "note": "different companies: this book's Upstream is the Miami no-code platform for DAOs (the $12.5M Series A of March 2022); Coatue's UpStream is the Greensboro value-based primary-care company whose $140M Series B it co-led (October 2022)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:upstream",
+    "y-combinator:upstream"
+   ],
+   "note": "different companies: the Miami DAO platform here; YC's Upstream is upstream.do, a Paris productivity SaaS of the Summer 2023 batch."
+  }
+ ],
+ "accepted": [
+  {
+   "rows": [
+    "tiger-global-management:airbnb",
+    "a16z:airbnb"
+   ],
+   "note": "Same company. This run carries Airbnb's market cap at the 2026-09-25 close, $92.84B (StockAnalysis), as the General Catalyst and ICONIQ rows do; a16z's $111.69B is the 2026-08-28 close, and the $100B band edge lies between. Stale side is a16z's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:airbnb",
+    "greylock:airbnb"
+   ],
+   "note": "Same company. Market cap $92.84B at the 2026-09-25 close (StockAnalysis); Greylock's $107.27B is the 2026-09-04 reading its note gives (the as-of field says 2025-06-30), and the $100B band edge lies between. Stale side is Greylock's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:airbnb",
+    "sequoia-capital:airbnb"
+   ],
+   "note": "Same company. Market cap $92.84B at the 2026-09-25 close (StockAnalysis); Sequoia's $100.45B is its 2026-08-07 midpoint, and the $100B band edge lies between. Stale side is Sequoia's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:airbnb",
+    "y-combinator:airbnb"
+   ],
+   "note": "Same company. Market cap $92.84B at the 2026-09-25 close (StockAnalysis); YC's $100.45B (2026-08-07) is carried from Sequoia's row. Stale side is YC's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:alkira",
+    "sequoia-capital:alkira"
+   ],
+   "note": "Same company. Lumen Technologies completed its acquisition of Alkira on 2026-07-07 (citybiz; aligned in this book from the GV row, 2026-09-29): acquired. Sequoia's private predates the sale. Stale side is Sequoia's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:blackbuck",
+    "accel:blackbuck"
+   ],
+   "note": "Same company. Zinka Logistics Solutions, renamed BlackBuck Limited in 2025, has been listed on the NSE since November 2024; this run cites a market cap of INR 113.36B on 2026-09-29 (StockAnalysis), $1.18B. Accel's private and below $1B predate the listing. Stale side is Accel's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:byju-s",
+    "lightspeed:byju-s"
+   ],
+   "note": "Same company. The NCLT admitted Think & Learn into corporate insolvency in July 2024 and it was still before the tribunal in September 2026 (Business Line, 2026-09-05), with no sale of the business: defunct under Erik's 2026-09-07 rule that a bankruptcy with no sale reads defunct. Lightspeed's private (its note records the insolvency) predates that rule. Stale side is Lightspeed's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:cedar",
+    "a16z:cedar"
+   ],
+   "note": "Same company. By the a16z row's own membership evidence it is this company: its site URL is a16z's 'Investing in Cedar' announcement, and its CMS record gives cedar.com, founded 2016, stage Growth, on a16z's investment list from 2023. The a16z run classified the row from a speedrun SR006 company of the same name that shares the CMS record (founded 2025; Pre-Seed, San Francisco, below $1B). This run cites the $200M Series D at $3.2B (Bloomberg, 2021-03-09). At that ingest the speedrun company needs its own row. The shared file's 2026-09-03 distinct ruling on Thrive's Cedar read only the classification; the Felicis run accepted its pair as one company. Stale side is a16z's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:cheq",
+    "battery-ventures:cheq"
+   ],
+   "note": "Same company. This run cites the $150M Series C that Tiger led in February 2022, with Battery among the existing investors, at $1B (Calcalist, 2022-02-22); Battery's below $1B carries no figure. Stale side is Battery's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:eventbrite",
+    "sequoia-capital:eventbrite"
+   ],
+   "note": "Same company. Bending Spoons completed its purchase of Eventbrite in March 2026 at $4.50 a share (about $500M) and the stock was delisted (MarketScreener; Bending Spoons' 2026 F-1): acquired. Sequoia's public, on the 2025-06-30 float, predates the sale. Stale side is Sequoia's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:frubana",
+    "lightspeed:frubana"
+   ],
+   "note": "Same company. Frubana, the Bogotá B2B food-supply marketplace, closed Brazil, its last market, in August 2025 (Portafolio, 2025-08-14): defunct. Lightspeed's private is its card's reading from before the shutdown. Stale side is Lightspeed's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:frubana",
+    "y-combinator:frubana-inc"
+   ],
+   "note": "Same company. YC's Winter 2019 Frubana closed Brazil, its last market, in August 2025 (Portafolio, 2025-08-14): defunct. YC's private is carried from Lightspeed's row. Stale side is YC's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:getir",
+    "sequoia-capital:getir"
+   ],
+   "note": "Same company. Mubadala bought out Getir in its entirety in September 2024 (Wikipedia), and Uber then bought its Turkish food-delivery business and a 15% stake in its grocery business, agreed in February 2026 and closed on 2026-07-01 (Uber's second-quarter 2026 10-Q): acquired. Sequoia's private rests on the 2024 split. Stale side is Sequoia's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:grubmarket",
+    "battery-ventures:grubmarket"
+   ],
+   "note": "Same company. This run cites the $50M Series H of February 2026 at a $4.5B pre-money valuation (Pulse 2.0, 2026-02-03), as the Y Combinator row reads; Battery's below $1B carries no figure (its note: reported above $3B in 2024, uncited). Stale side is Battery's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:headspin",
+    "battery-ventures:headspin"
+   ],
+   "note": "Same company. PartnerOne bought HeadSpin for about $28M in July 2024 (TechCrunch): acquired, as the ICONIQ and GV rows read. Battery's private predates the sale. Stale side is Battery's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:headspin",
+    "eqt-ventures:headspin"
+   ],
+   "note": "Same company. PartnerOne bought HeadSpin for about $28M in July 2024 (TechCrunch): acquired, as the ICONIQ and GV rows read. EQT Ventures' private predates the sale. Stale side is EQT Ventures's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:headspin",
+    "felicis:headspin"
+   ],
+   "note": "Same company. PartnerOne bought HeadSpin for about $28M in July 2024 (TechCrunch): acquired, as the ICONIQ and GV rows read. Felicis's private predates the sale. Stale side is Felicis's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:koo",
+    "accel:koo"
+   ],
+   "note": "Same company. Koo, the Bengaluru Indian-language microblogging app, shut down in July 2024 after acquisition talks failed (BBC): defunct. Accel's private predates the shutdown. Stale side is Accel's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:meesho",
+    "y-combinator:meesho"
+   ],
+   "note": "Same company. This run cites the NSE market cap of INR 1,030B on 2026-09-29 (StockAnalysis), $10.73B at that day's ECB rates; YC's $8.69B is the listing-day cap of 2025-12-10, and its own note says the row probably belongs in 10b_plus. Stale side is YC's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:redfin-corp",
+    "greylock:redfin"
+   ],
+   "note": "Same company. Rocket Companies bought Redfin in July 2025 and the stock was delisted: acquired. Greylock's public at $1.43B is a market-cap page read after the delisting; its own note records the sale. Stale side is Greylock's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:rogo",
+    "sequoia-capital:rogo"
+   ],
+   "note": "Same company. This run cites the $160M Series D of April 2026 led by Kleiner Perkins at a $2B valuation (TipRanks, 2026-04-29); Sequoia's below $1B rests on the 2025 figure of about $350M. Stale side is Sequoia's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:rogo",
+    "thrive-capital:rogo"
+   ],
+   "note": "Same company. This run cites the $160M Series D of April 2026 led by Kleiner Perkins at a $2B valuation (TipRanks, 2026-04-29); Thrive's below $1B rests on its April 2025 Series B at $350M. Stale side is Thrive's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:scribe",
+    "redpoint-ventures:scribe"
+   ],
+   "note": "Same company. The San Francisco workflow-documentation company (Redpoint's card: its 2024 Series B). This run cites the $75M Series C of November 2025 at $1.3B post-money (TechCrunch, 2025-11-10); Redpoint's below $1B predates it. Stale side is Redpoint's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:sidecar-health",
+    "menlo-ventures:sidecar-health"
+   ],
+   "note": "Same company. This run cites the $125M Series C of January 2021 at $1B (FinTech Global, 2021-02-01), a round Menlo joined; the $165M Series D of June 2024 stated no valuation. Menlo's below $1B carries no figure. Stale side is Menlo's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:temporal",
+    "a16z:temporal"
+   ],
+   "note": "Same company. This run cites the $550M Series E of September 2026 at $12.55B (SiliconANGLE, 2026-09-14); a16z's $5B is the February 2026 Series D, and its note has the $12B round only in talks (August 2026). Stale side is a16z's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:temporal",
+    "lightspeed:temporal"
+   ],
+   "note": "Same company. This run cites the $550M Series E of September 2026 at $12.55B (SiliconANGLE, 2026-09-14); Lightspeed's $5B is the February 2026 Series D, and its note has the $12B round only in talks (August 2026). Stale side is Lightspeed's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:temporal",
+    "sequoia-capital:temporal-technologies"
+   ],
+   "note": "Same company. This run cites the $550M Series E of September 2026 at $12.55B (SiliconANGLE, 2026-09-14); Sequoia's $5B is the February 2026 Series D. Stale side is Sequoia's; it aligns at the next ingest (align stale siblings at ingest, Erik 2026-09-28)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:avant",
+    "ribbit-capital:avant"
+   ],
+   "note": "same company (avant.com); this book's $1.98B is the priced 2015 Series E Tiger joined, Ribbit's 2015 row reads below_1b: Ribbit aligns at its next ingest (Erik 2026-09-28, align stale siblings at ingest)."
+  },
+  {
+   "rows": [
+    "tiger-global-management:quora",
+    "a16z:quora"
+   ],
+   "note": "same company; this book's mark is the January 2024 raise from a16z ($75M at a $500M valuation, cited), fresher than a16z's 2017 $1.8B: a16z aligns at its next ingest."
+  },
+  {
+   "rows": [
+    "tiger-global-management:quora",
+    "benchmark:quora"
+   ],
+   "note": "same company; the January 2024 raise at $500M (cited) supersedes Benchmark's 2017 $1.8B: Benchmark aligns at its next ingest."
+  },
+  {
+   "rows": [
+    "tiger-global-management:rapyd",
+    "spark-capital:rapyd"
+   ],
+   "note": "same company; Rapyd's March 2025 round at $4.5B (cited) supersedes Spark's July 2022 $15B mark: Spark aligns at its next ingest."
+  },
+  {
+   "rows": [
+    "tiger-global-management:revolut",
+    "a16z:revolut"
+   ],
+   "note": "same company; the July 2026 priced event at $115B (cited) supersedes a16z's November 2025 $75B: a16z aligns at its next ingest."
+  },
+  {
+   "rows": [
+    "tiger-global-management:revolut",
+    "greylock:revolut"
+   ],
+   "note": "same company; the July 2026 $115B mark (cited) supersedes Greylock's November 2025 $75B: Greylock aligns at its next ingest."
+  }
+ ],
+ "same": []
+}
