@@ -1,0 +1,278 @@
+{
+ "slug": "northzone",
+ "name": "Northzone",
+ "wayback": {
+  "cdx_domain": "northzone.com",
+  "site_url_base": "https://northzone.com",
+  "eras": [],
+  "_eras_note": "Six site generations on northzone.com (CDX enumeration 2026-09-29, scratch/cdx-enum.json): 2001-2005 a framed W5 site (Norwegian landing page, /portfolio and per-company .W5Doc pages, logos named by GUID), 2005-2008 an ASP site (/web/folder.asp, press through Hugin), 2009-2011 /portfolio/active-investments and /portfolio/exits, 2012-2014 /investments and /investments/<id>, 2015-2019 WordPress /investments/<slug>/, 2020-2025 WordPress /portfolio/<slug>/, 2026 Webflow (read live through site_api). The archive eras are parsed by scratch/archive-listings.py into sources/wayback/parsed/<year>.json with capture_url per row; no era here is a wayback-pull.py parser, so this list stays empty and the parsed files are the record.",
+  "non_company_slugs": [
+   "index",
+   "home",
+   "page",
+   "feed",
+   "search",
+   "tag",
+   "category",
+   "author",
+   "all",
+   "see-all",
+   "portfolio",
+   "investments",
+   "companies",
+   "team",
+   "people",
+   "about",
+   "platform",
+   "insights",
+   "spotlight",
+   "press",
+   "news",
+   "blog",
+   "contact",
+   "privacy",
+   "legal",
+   "wp-content",
+   "wp-json",
+   "active-investments",
+   "exits",
+   "investments-by-segment",
+   "portfolio_location"
+  ]
+ },
+ "roster": {
+  "cdx_patterns": [
+   "northzone.com/team/*"
+  ],
+  "slug_re": "/team/(?:venture-partners/)?([a-z][a-z0-9-]*[a-z0-9])/?$",
+  "listing_href_re": "/team/(?:venture-partners/)?([a-z][a-z0-9-]*[a-z0-9])/?[\"'?]",
+  "site_team_groups": [
+   "Investment"
+  ],
+  "not_a_person": [
+   "index",
+   "team",
+   "people",
+   "venture-partners",
+   "partners",
+   "about",
+   "portfolio",
+   "investments",
+   "news",
+   "contact",
+   "jobs",
+   "careers",
+   "all",
+   "page",
+   "feed",
+   "platform",
+   "investment",
+   "northzone"
+  ],
+  "_note": "The roster is the live team page (Investment group) unioned with the archived /team/<slug> pages 2009-2026 (partner-roster.py) and the 2012-2014 /people/<id> pages read by name (scratch/people-era.py); curated per person with a dated basis in sources/wayback/partner-roster.json."
+ },
+ "site_api": {
+  "type": "scrape",
+  "sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/northzone/sources/site/companies-list.json",
+    "list": "portfolio-2026",
+    "list_path": "rows",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "sectors": "sectors",
+    "extras": [
+     "partners",
+     "invest_year",
+     "status_site",
+     "stage_site_word",
+     "unicorn_tag",
+     "location_site",
+     "founded_year",
+     "founders",
+     "website",
+     "description",
+     "insight_links"
+    ]
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/northzone/sources/site/team-cards.json",
+    "list": "team",
+    "list_path": "rows",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "title",
+     "group",
+     "office"
+    ]
+   }
+  ],
+  "team_buckets": {
+   "Investment": "investing",
+   "Platform": "platform"
+  },
+  "_note": "northzone.com is Webflow (2026 rebuild). The portfolio list renders 100 cards per page (?d42057d9_page=1..2; Finsweet cmsload fills the rest client-side) and every company has a page listed in sitemap.xml with the firm's own fields: founders, status (Active / Acquired / IPO), a hidden stage word (Early / Growth), a Unicorn tag, category, location, Founded year, Partnered year and the Northzone team member. scratch/site-scrape.py reads both; raw pages in data/filings/northzone/site-raw (gitignored). The insights archive (689 posts) is the news surface."
+ },
+ "edgar": {
+  "seed_queries": [
+   "northzone",
+   "nz+x+nif"
+  ],
+  "fts_phrases": [
+   "Northzone"
+  ],
+  "fts_own_pattern": "^northzone|^nz x nif",
+  "_note": "EDGAR company names 2026-09-29: Northzone Conviction I L.P. (1806667), Growth II L.P. (1907963), IX L.P. (1776879), Streaming Opportunity L.P. (1641222), X L.P. (1917731), XI L.P. (2114600). Advisers: three Jersey exempt reporting advisers, Northzone Management X Limited (CRD 327695), IX (327719) and Growth II (327713), ADVs of 2026-03-30 (sources/registers/adv-7b-funds.json)."
+ },
+ "wikipedia": {
+  "phrases": [
+   "Northzone"
+  ]
+ },
+ "desks": {
+  "home": "eu",
+  "partition": [],
+  "rank": [
+   "eu",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "eu",
+    "patterns": [
+     "^northzone",
+     "^nz x nif"
+    ]
+   }
+  ],
+  "_note": "One firm, offices in London, Stockholm, Oslo (historic), Amsterdam, Berlin and New York; the New York office is the same firm (decisions.md D1). External namesake patterns are added here once the entity sweep shows any."
+ },
+ "profile": {
+  "adv_crd": 327695
+ },
+ "verify": {
+  "not_members": [
+   {
+    "name": "Take-Two Interactive Software",
+    "slug": "take-two-interactive-software",
+    "why": "acquired Dots (Playdots) in 2020; its S-3ASR lists the sellers: sale consideration (D4)"
+   },
+   {
+    "name": "RadNet",
+    "slug": "radnet",
+    "why": "acquired Aidence in 2022 (424B7 selling holders): consideration (D4)"
+   },
+   {
+    "name": "Silicon Laboratories",
+    "slug": "silicon-laboratories",
+    "why": "acquired Energy Micro in 2013 (D4)"
+   },
+   {
+    "name": "ValueClick",
+    "slug": "valueclick",
+    "why": "acquired PriceRunner in 2004 (D4)"
+   },
+   {
+    "name": "Cadence Design Systems",
+    "slug": "cadence-design-systems",
+    "why": "acquired Jasper Design Automation in 2014 (D4)"
+   },
+   {
+    "name": "Ooyala",
+    "slug": "ooyala",
+    "why": "acquired Videoplaza in 2014 (D4)"
+   },
+   {
+    "name": "IK Investment Partners",
+    "slug": "ik-investment-partners",
+    "why": "bought Northzone's Episerver stake in 2010 (D4)"
+   },
+   {
+    "name": "Supercell",
+    "slug": "supercell",
+    "why": "took 62% of Space Ape Games in 2017 (D4)"
+   },
+   {
+    "name": "Autodesk",
+    "slug": "autodesk",
+    "why": "acquired Spacemaker in 2020 (D4)"
+   },
+   {
+    "name": "SpareBank 1",
+    "slug": "sparebank-1",
+    "why": "acquired mCash's Norwegian entity in 2015 (D4)"
+   },
+   {
+    "name": "Caterwings",
+    "slug": "caterwings",
+    "why": "acquired Lemoncat in 2019 (D4)"
+   },
+   {
+    "name": "Ageras",
+    "slug": "ageras",
+    "why": "acquired Zervant in 2021 (D4)"
+   },
+   {
+    "name": "FaceBank Group",
+    "slug": "facebank-group",
+    "why": "fuboTV's 2020 merger counterparty (the row is fuboTV, D3)"
+   },
+   {
+    "name": "Del Taco Holdings",
+    "slug": "del-taco-holdings",
+    "why": "Paul Murphy homonym (D9)"
+   },
+   {
+    "name": "Sentinel Capital Partners V",
+    "slug": "sentinel-capital-partners-v",
+    "why": "Paul Murphy homonym, a buyout fund (D9)"
+   },
+   {
+    "name": "Alamos Gold",
+    "slug": "alamos-gold",
+    "why": "Paul Murphy homonym (D9)"
+   },
+   {
+    "name": "Pembina Pipeline",
+    "slug": "pembina-pipeline",
+    "why": "Paul Murphy homonym (D9)"
+   },
+   {
+    "name": "Northzone Streaming Opportunity",
+    "slug": "northzone-streaming-opportunity",
+    "why": "the firm's own single-company vehicle (D4)"
+   },
+   {
+    "name": "Northzone Conviction I",
+    "slug": "northzone-conviction-i",
+    "why": "the firm's own fund (D1, T5)"
+   },
+   {
+    "name": "N22 Africa Fund",
+    "slug": "n22-africa-fund",
+    "why": "a fund on which Hans Otterling sits (T5)"
+   },
+   {
+    "name": "Marquee Raine Acquisition Corp",
+    "slug": "marquee-raine-acquisition-corp",
+    "why": "SPAC naming the firm only in a biography (D5)"
+   },
+   {
+    "name": "Revelstone Capital Acquisition Corp",
+    "slug": "revelstone-capital-acquisition-corp",
+    "why": "SPAC naming the firm only in a biography (D5)"
+   }
+  ],
+  "known_positions": [],
+  "_not_members_note": "Written at kickoff 2026-09-29 before any verdict (COLLECTION.md s1 step 3): acquirers named on exit filings or the firm's posts (sale consideration, decisions.md D4), the firm's own and third-party fund vehicles (T5), SPAC shells whose filings name the firm only in a biography (D5), and the Form D homonym issuers of the 'Paul Murphy' cluster (decisions.md D9)."
+ }
+}

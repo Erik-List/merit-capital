@@ -1,0 +1,1085 @@
+{
+  "_readme": "EDGAR full-text sweep (scripts/edgar-fts-sweep.py): hits for the configured phrases aggregated by registrant; bucket third_party = exit-side disclosure candidates for the judge (S-1 IRA signatories and holder tables, 424B selling stockholders, acquirer S-3/S-4/8-K), own = the investor's entities/people, lp_side = registered funds holding the investor's vehicles, ownership_forms = 13D/G, 3/4 or D filings handled by the entities/ownership layers.",
+  "phrases": [
+    "Northzone"
+  ],
+  "own_pattern": "^northzone|^nz x nif",
+  "swept_at": "2026-09-29",
+  "coverage": [
+    {
+      "phrase": "Northzone",
+      "total": 69,
+      "complete": true,
+      "failed_windows": [],
+      "read": 69,
+      "distinct": 69
+    }
+  ],
+  "registrants": [
+    {
+      "registrant": "Northzone Streaming Opportunity L.P.",
+      "cik": "0001641222",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2015-05-05",
+      "last_date": "2015-05-05",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2015-05-05",
+          "adsh": "0001140361-15-017563",
+          "url": "https://www.sec.gov/Archives/edgar/data/1641222/000114036115017563/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1641222/000114036115017563/0001140361-15-017563-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Northzone IX L.P.",
+      "cik": "0001776879",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2019-05-21",
+      "last_date": "2019-05-21",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2019-05-21",
+          "adsh": "0001776879-19-000002",
+          "url": "https://www.sec.gov/Archives/edgar/data/1776879/000177687919000002/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1776879/000177687919000002/0001776879-19-000002-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Northzone Conviction I L.P.",
+      "cik": "0001806667",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2020-03-17",
+      "last_date": "2020-03-17",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2020-03-17",
+          "adsh": "0001012975-20-000328",
+          "url": "https://www.sec.gov/Archives/edgar/data/1806667/000101297520000328/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1806667/000101297520000328/0001012975-20-000328-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Northzone Growth II L.P.",
+      "cik": "0001907963",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2022-03-24",
+      "last_date": "2022-03-24",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2022-03-24",
+          "adsh": "0001907963-22-000003",
+          "url": "https://www.sec.gov/Archives/edgar/data/1907963/000190796322000003/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1907963/000190796322000003/0001907963-22-000003-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Northzone X L.P.",
+      "cik": "0001917731",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2022-03-24",
+      "last_date": "2022-03-24",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2022-03-24",
+          "adsh": "0001907963-22-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1917731/000190796322000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1917731/000190796322000001/0001907963-22-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Northzone XI L.P.",
+      "cik": "0002114600",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2026-06-26",
+      "last_date": "2026-06-26",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2026-06-26",
+          "adsh": "0001012975-26-000576",
+          "url": "https://www.sec.gov/Archives/edgar/data/2114600/000101297526000576/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/2114600/000101297526000576/0001012975-26-000576-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Bird Global, Inc.  (BRDSQ)",
+      "cik": "0001861449",
+      "forms": {
+        "SC 13D": 1
+      },
+      "first_date": "2023-10-02",
+      "last_date": "2023-10-02",
+      "filings": [
+        {
+          "form": "SC 13D",
+          "date": "2023-10-02",
+          "adsh": "0000950127-23-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1861449/000095012723000058/schedule_13d.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1861449/000095012723000058/0000950127-23-000058-index.htm"
+        }
+      ],
+      "bucket": "ownership_forms"
+    },
+    {
+      "registrant": "Tier Mobility SE",
+      "cik": "0001994876",
+      "forms": {
+        "SC 13D": 1
+      },
+      "first_date": "2023-10-02",
+      "last_date": "2023-10-02",
+      "filings": [
+        {
+          "form": "SC 13D",
+          "date": "2023-10-02",
+          "adsh": "0000950127-23-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1994876/000095012723000058/schedule_13d.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1994876/000095012723000058/0000950127-23-000058-index.htm"
+        }
+      ],
+      "bucket": "ownership_forms"
+    },
+    {
+      "registrant": "VALUECLICK INC/CA",
+      "cik": "0001080034",
+      "forms": {
+        "10-K": 1
+      },
+      "first_date": "2005-03-31",
+      "last_date": "2005-03-31",
+      "filings": [
+        {
+          "form": "10-K",
+          "date": "2005-03-31",
+          "adsh": "0001104659-05-014455",
+          "url": "https://www.sec.gov/Archives/edgar/data/1080034/000110465905014455/a05-5030_1ex2d1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1080034/000110465905014455/0001104659-05-014455-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1080034/000110465905014455/a05-5030_1ex2d1.htm",
+          "form": "10-K",
+          "date": "2005-03-31",
+          "mentions": 1,
+          "context": [
+            "NC. SHAREHOLDER AGENT By: SPARK INVESTORS AB Name: Title: By: Name: Title: Address: PRICERUNNER HOLDING AB By: Name: Title: SHAREHOLDERS: KRISTOFER ARWIN MAGNUS WIBERG Address: Address: MARTIN ALEXANDERSON SPARK INVESTORS AB Address: By: Name: Title: Address: NORTHZONE VENTURES IV KS TDC A/S By: By: Name: Name: Title: Title: Address: Address: 3I GROUP PLC NEGOCIATEUR SARL By: By: Name: Name: Title: Title: Address: Address: PÄR-JÖRGEN PÄRSSON DANIEL SHISHOO By: Address: Name: Title: Address: PAVILLION LIFE INSURANCE COMPANY "
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "Velti plc",
+      "cik": "0001490412",
+      "forms": {
+        "424B1": 1,
+        "F-3/A": 1,
+        "F-3": 1
+      },
+      "first_date": "2012-05-31",
+      "last_date": "2012-06-26",
+      "filings": [
+        {
+          "form": "F-3",
+          "date": "2012-05-31",
+          "adsh": "0001047469-12-006406",
+          "url": "https://www.sec.gov/Archives/edgar/data/1490412/000104746912006406/a2209793zf-3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1490412/000104746912006406/0001047469-12-006406-index.htm"
+        },
+        {
+          "form": "F-3/A",
+          "date": "2012-06-13",
+          "adsh": "0001047469-12-006623",
+          "url": "https://www.sec.gov/Archives/edgar/data/1490412/000104746912006623/a2209903zf-3a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1490412/000104746912006623/0001047469-12-006623-index.htm"
+        },
+        {
+          "form": "424B1",
+          "date": "2012-06-26",
+          "adsh": "0001047469-12-006914",
+          "url": "https://www.sec.gov/Archives/edgar/data/1490412/000104746912006914/a2210024z424b1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1490412/000104746912006914/0001047469-12-006914-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1490412/000104746912006406/a2209793zf-3.htm",
+          "form": "F-3",
+          "date": "2012-05-31",
+          "mentions": 1,
+          "context": [
+            "II L.P. and related individuals, acting by its manager Balderton Capital Management (UK) LLP; Atlas Venture Fund VII, L.P.; Index Ventures IV (Jersey), L.P.; Index Ventures IV Parallel Entrepreneur Fund (Jersey), L.P.; Yucca Partners L.P.; Sixth Paradigm LLP; Northzone Ventures V Ltd; Atomico Investment Holdings Limited; Eden Two LP; Eden Ventures (Nominee) Ltd; Amadeus III; Amadeus Affiliates LP; Amadeus and Angels Seed Fund; Brown Rudnick Berlack Israels LLP; Local Globe III Limited; Burgundy Holdings Limited; VLG Investm"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1490412/000104746912006623/a2209903zf-3a.htm",
+          "form": "F-3/A",
+          "date": "2012-06-13",
+          "mentions": 1,
+          "context": [
+            "II L.P. and related individuals, acting by its manager Balderton Capital Management (UK) LLP; Atlas Venture Fund VII, L.P.; Index Ventures IV (Jersey), L.P.; Index Ventures IV Parallel Entrepreneur Fund (Jersey), L.P.; Yucca Partners L.P.; Sixth Paradigm LLP; Northzone Ventures V Ltd; Atomico Investment Holdings Limited; Eden Two LP; Eden Ventures (Nominee) Ltd; Amadeus III; Amadeus Affiliates LP; Amadeus and Angels Seed Fund; Brown Rudnick Berlack Israels LLP; Local Globe III Limited; Burgundy Holdings Limited; VLG Investm"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "SILICON LABORATORIES INC  (SLAB)",
+      "cik": "0001038074",
+      "forms": {
+        "8-K": 2
+      },
+      "first_date": "2013-06-07",
+      "last_date": "2013-06-07",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "2013-06-07",
+          "adsh": "0001104659-13-047702",
+          "url": "https://www.sec.gov/Archives/edgar/data/1038074/000110465913047702/a13-14126_1ex99d1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1038074/000110465913047702/0001104659-13-047702-index.htm"
+        },
+        {
+          "form": "8-K",
+          "date": "2013-06-07",
+          "adsh": "0001104659-13-047702",
+          "url": "https://www.sec.gov/Archives/edgar/data/1038074/000110465913047702/a13-14126_1ex2d1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1038074/000110465913047702/0001104659-13-047702-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1038074/000110465913047702/a13-14126_1ex99d1.htm",
+          "form": "8-K",
+          "date": "2013-06-07",
+          "mentions": 1,
+          "context": [
+            "embedded system development times by a half. The company was founded in 2007 by experienced semiconductor professionals with previous expertise from Chipcon, Texas Instruments, Atmel and Nordic Semiconductor. Energy Micro is backed by leading Nordic investors Northzone Ventures and Investinor. For more information about Energy Micro, visit www.energymicro.com. Silicon Labs Acquires Energy Micro - Page 4 About Silicon Labs Silicon Labs is an industry leader in the innovation of high-performance, analog-intensive, mixed-signa"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1038074/000110465913047702/a13-14126_1ex2d1.htm",
+          "form": "8-K",
+          "date": "2013-06-07",
+          "mentions": 2,
+          "context": [
+            "onsideration shall be reduced by the Departure Percentage that is applicable at the time of the payment of the Earn-Out Period Additional Consideration. Seller covenants that any reduction attributable to the Departure Percentage shall be borne exclusively by Northzone Ventures VI L.P. and Investinor AS through corresponding reductions of liquidation proceeds or otherwise. 9 (e) Earn-Out Calculations . All calculations of revenues shall eliminate inter-company transactions within Parent Group as required by GAAP such that t",
+            " Non-Competition Agreement . All of the Main Founders shall have executed and delivered to Acquiror a Non-Competition Agreement in substantially the form set forth as Exhibit C (the “ Non-Competition Agreement ”). (i) Non-Employee Non-Solicitation Agreement . Northzone Ventures VI L.P. and Investinor AS shall have executed and delivered to Acquiror a Non-Solicitation Agreement in substantially the form set forth as Exhibit D (the “ Non-Employee Non-Solicitation Agreement ”). (j) Debt . Acquiror shall have received evidence "
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "FaceBank Group, Inc.  (FUBO)",
+      "cik": "0001484769",
+      "forms": {
+        "8-K": 2,
+        "PRE 14C": 1,
+        "DEF 14C": 1,
+        "S-1": 2,
+        "10-K": 1
+      },
+      "first_date": "2020-05-22",
+      "last_date": "2020-08-11",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "2020-05-22",
+          "adsh": "0001493152-20-009711",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220009711/ex99-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220009711/0001493152-20-009711-index.htm"
+        },
+        {
+          "form": "8-K",
+          "date": "2020-05-22",
+          "adsh": "0001493152-20-009711",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220009711/form8-k.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220009711/0001493152-20-009711-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2020-05-29",
+          "adsh": "0001493152-20-010180",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220010180/form10-k.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220010180/0001493152-20-010180-index.htm"
+        },
+        {
+          "form": "PRE 14C",
+          "date": "2020-07-01",
+          "adsh": "0001654954-20-007234",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000165495420007234/fobo_pre14c.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000165495420007234/0001654954-20-007234-index.htm"
+        },
+        {
+          "form": "DEF 14C",
+          "date": "2020-07-14",
+          "adsh": "0001654954-20-007686",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000165495420007686/fobo_def14c.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000165495420007686/0001654954-20-007686-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2020-08-11",
+          "adsh": "0001493152-20-015153",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220015153/forms-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220015153/0001493152-20-015153-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2020-08-11",
+          "adsh": "0001493152-20-015153",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220015153/ex10-6.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220015153/0001493152-20-015153-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220009711/ex99-1.htm",
+          "form": "8-K",
+          "date": "2020-05-22",
+          "mentions": 3,
+          "context": [
+            "D OF DIRECTORS NEW YORK – MAY 22, 2020 – FaceBank Group, Inc. (d/b/a fuboTV) (OTCQB: FUBO) announced today it has appointed Pär-Jörgen Pärson to its Board of Directors effective immediately. Pärson is an investor in fuboTV through leading venture capital fund Northzone, where he has been a General Partner since 2004. He has appeared several times in Forbes ’ prestigious Midas List. “Like our recently-appointed Chairman of the Board Edgar Bronfman Jr., PJ was an early champion of fuboTV,” said David Gandler, co-founder and C",
+            "rt of fuboTV’s development into a massive company. I’ve been impressed by the clarity of vision and speed of execution by David and his team since we’ve invested in 2015. This reminds me a lot about the phenomenal adventure of Spotify, and our early days.” At Northzone, Pärson focuses on disruptive businesses in consumer internet, health and fintech. His portfolio includes multi-billion dollar exits in market-defining companies such as Spotify, iZettle and Avito, as well as Pricerunner, Jasper, Videoplaza, and current compa",
+            " and fintech. His portfolio includes multi-billion dollar exits in market-defining companies such as Spotify, iZettle and Avito, as well as Pricerunner, Jasper, Videoplaza, and current companies like fuboTV, Spring Health, Play Dots and others. Before joining Northzone in 2004, Pärson ran his own investment firm and did consulting at McKinsey. He holds an MBA from the Stockholm School of Economics. Since its founding in 2015 as a soccer streaming service, fuboTV has evolved into a live TV streaming platform with more top Ni"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220009711/form8-k.htm",
+          "form": "8-K",
+          "date": "2020-05-22",
+          "mentions": 2,
+          "context": [
+            "ers of the Company’s Series AA Convertible Preferred Stock. The Company issued a press release announcing Mr. Pärson’s appointment on May 22, 2020, a copy of which is attached hereto as Exhibit 99.1. Since 2004, Pär-Jörgen Pärson has been a General Partner of Northzone, a venture capital firm, where his primary areas of focus are disruptive businesses in consumer internet, health, and fintech. Before joining Northzone, Mr. Pärson ran his own investment firm and was a consultant at McKinsey & Company. Until April 1, 2020, Mr",
+            "py of which is attached hereto as Exhibit 99.1. Since 2004, Pär-Jörgen Pärson has been a General Partner of Northzone, a venture capital firm, where his primary areas of focus are disruptive businesses in consumer internet, health, and fintech. Before joining Northzone, Mr. Pärson ran his own investment firm and was a consultant at McKinsey & Company. Until April 1, 2020, Mr. Pärson served on the board of directors of fuboTV Inc., the wholly-owned subsidiary of FaceBank Group, Inc. that was acquired by the Company on April "
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "TAKE TWO INTERACTIVE SOFTWARE INC  (TTWO)",
+      "cik": "0000946581",
+      "forms": {
+        "S-3ASR": 1
+      },
+      "first_date": "2020-09-04",
+      "last_date": "2020-09-04",
+      "filings": [
+        {
+          "form": "S-3ASR",
+          "date": "2020-09-04",
+          "adsh": "0001193125-20-240101",
+          "url": "https://www.sec.gov/Archives/edgar/data/946581/000119312520240101/d88757ds3asr.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/946581/000119312520240101/0001193125-20-240101-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/946581/000119312520240101/d88757ds3asr.htm",
+          "form": "S-3ASR",
+          "date": "2020-09-04",
+          "mentions": 3,
+          "context": [
+            "0 0 61,354 0 0 JAWS Equity Owner 53, LLC(1)(10) 0 0 7,067 0 0 Jennifer Tan(1) 0 0 221 0 0 JoRon Management LLC(1)(11) 0 0 211 0 0 Kohta Aoki Wajima(1) 0 0 1,183 0 0 Lee Erin Glenn(1) 0 0 336 0 0 MLC 50 LP Inc.(1)(12) 0 0 28,266 0 0 Nir Efrat(1) 0 0 21,740 0 0 Northzone VII L.P.(1)(13) 0 0 66,916 0 0 Patrick Moberg(1) 0 0 77,536 0 0 Paul Handly(1) 0 0 516 0 0 Paul Murphy(1) 0 0 30,756 0 0 4 Table of Contents Name Ownership Prior to the Registration Shares of Common Stock Covered by this Registration Statement Ownership After",
+            "C 50 LP Inc. MLC 50 GP Limited is wholly owned by JC Holdings Limited, and Novatrust Limited is the trustee of JC Holdings Limited Purpose Trust. Jeremy Collar, the economic settlor, has voting or investment control over the shares held by MLC 50 LP Inc. (13) Northzone VII L.P. is managed by NZVII (GP) Limited. Antoinette Kyriacou, Nicholas Watkins, Ian Lambert and Matthew Robins, directors (controllers) of NZVII (GP) Limited have voting or investment control over the shares held by Northzone VII L.P. (14) RBC USA Holdco Co",
+            "res held by MLC 50 LP Inc. (13) Northzone VII L.P. is managed by NZVII (GP) Limited. Antoinette Kyriacou, Nicholas Watkins, Ian Lambert and Matthew Robins, directors (controllers) of NZVII (GP) Limited have voting or investment control over the shares held by Northzone VII L.P. (14) RBC USA Holdco Corporation is managed by RBC US Group Holdings LLC. (15) Feng Bo and Chen Lin, the sole shareholders and directors of Upward Ventures Limited, have voting or investment control over the shares held by Upward Ventures Limited. 5 T"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "fuboTV Inc. /FL  (FUBO)",
+      "cik": "0001484769",
+      "forms": {
+        "144": 2,
+        "8-K": 1,
+        "SC 13D": 1,
+        "SC 13D/A": 1,
+        "DEF 14A": 4,
+        "PRE 14A": 3,
+        "S-1/A": 6,
+        "424B3": 1,
+        "424B4": 1,
+        "S-1": 1,
+        "ARS": 1
+      },
+      "first_date": "2020-09-15",
+      "last_date": "2024-03-05",
+      "filings": [
+        {
+          "form": "S-1/A",
+          "date": "2020-09-15",
+          "adsh": "0001493152-20-017821",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220017821/forms-1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220017821/0001493152-20-017821-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2020-09-15",
+          "adsh": "0001493152-20-017821",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220017821/ex10-6.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220017821/0001493152-20-017821-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2020-10-01",
+          "adsh": "0001493152-20-018668",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220018668/forms-1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220018668/0001493152-20-018668-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2020-10-01",
+          "adsh": "0001493152-20-018668",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220018668/ex10-6.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220018668/0001493152-20-018668-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2020-10-05",
+          "adsh": "0001493152-20-018884",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220018884/forms-1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220018884/0001493152-20-018884-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2020-10-09",
+          "adsh": "0001493152-20-019232",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220019232/form424b4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220019232/0001493152-20-019232-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2020-10-30",
+          "adsh": "0001493152-20-020255",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220020255/forms-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220020255/0001493152-20-020255-index.htm"
+        },
+        {
+          "form": "PRE 14A",
+          "date": "2020-11-02",
+          "adsh": "0001654954-20-011743",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000165495420011743/fubo_pre14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000165495420011743/0001654954-20-011743-index.htm"
+        },
+        {
+          "form": "DEF 14A",
+          "date": "2020-11-19",
+          "adsh": "0001654954-20-012723",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000165495420012723/fubo_def14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000165495420012723/0001654954-20-012723-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2020-12-10",
+          "adsh": "0001493152-20-023295",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220023295/forms-1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220023295/0001493152-20-023295-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2020-12-28",
+          "adsh": "0001493152-20-024292",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220024292/form424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220024292/0001493152-20-024292-index.htm"
+        },
+        {
+          "form": "SC 13D",
+          "date": "2021-04-01",
+          "adsh": "0000905718-21-000511",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000090571821000511/fubotv_sc13dmar22021.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000090571821000511/0000905718-21-000511-index.htm"
+        },
+        {
+          "form": "SC 13D/A",
+          "date": "2021-04-06",
+          "adsh": "0000905718-21-000563",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000090571821000563/fubotv_sc13dam1apr62021.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000090571821000563/0000905718-21-000563-index.htm"
+        },
+        {
+          "form": "DEF 14A",
+          "date": "2021-04-28",
+          "adsh": "0001493152-21-009950",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315221009950/formdef14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000149315221009950/0001493152-21-009950-index.htm"
+        },
+        {
+          "form": "PRE 14A",
+          "date": "2022-04-08",
+          "adsh": "0001493152-22-009504",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315222009504/formpre14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000149315222009504/0001493152-22-009504-index.htm"
+        },
+        {
+          "form": "DEF 14A",
+          "date": "2022-04-27",
+          "adsh": "0001493152-22-011353",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315222011353/formdef14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000149315222011353/0001493152-22-011353-index.htm"
+        },
+        {
+          "form": "PRE 14A",
+          "date": "2023-04-20",
+          "adsh": "0001628280-23-012285",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000162828023012285/fubo-20230420.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000162828023012285/0001628280-23-012285-index.htm"
+        },
+        {
+          "form": "DEF 14A",
+          "date": "2023-05-01",
+          "adsh": "0001628280-23-014597",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000162828023014597/fubo-20230501.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000162828023014597/0001628280-23-014597-index.htm"
+        },
+        {
+          "form": "ARS",
+          "date": "2023-05-01",
+          "adsh": "0001628280-23-014611",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000162828023014611/fubo2022annualreportas-fil.pdf",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000162828023014611/0001628280-23-014611-index.htm"
+        },
+        {
+          "form": "144",
+          "date": "2023-08-08",
+          "adsh": "0001493152-23-027166",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315223027166/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000149315223027166/0001493152-23-027166-index.htm"
+        },
+        {
+          "form": "144",
+          "date": "2023-09-08",
+          "adsh": "0001493152-23-032125",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315223032125/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000149315223032125/0001493152-23-032125-index.htm"
+        },
+        {
+          "form": "8-K",
+          "date": "2024-03-05",
+          "adsh": "0001493152-24-008801",
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315224008801/ex99-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1484769/000149315224008801/0001493152-24-008801-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220017821/forms-1a.htm",
+          "form": "S-1/A",
+          "date": "2020-09-15",
+          "mentions": 8,
+          "context": [
+            "2016 by Warner Bros. Entertainment Inc. Mr. Horihuela holds a B.A. in Economics from the University of Chicago. 101 Non-Employee Directors Pär-Jörgen Pärson joined our board of directors in May 2020. Since 2004, Pär-Jörgen Pärson has been a General Partner of Northzone, a venture capital firm, where his primary areas of focus are disruptive businesses in consumer internet, health, and fintech. Before joining Northzone, Mr. Pärson ran his own investment firm and was a consultant at McKinsey & Company. Until April 1, 2020, Mr",
+            "rson joined our board of directors in May 2020. Since 2004, Pär-Jörgen Pärson has been a General Partner of Northzone, a venture capital firm, where his primary areas of focus are disruptive businesses in consumer internet, health, and fintech. Before joining Northzone, Mr. Pärson ran his own investment firm and was a consultant at McKinsey & Company. Until April 1, 2020, Mr. Pärson served on the board of directors of fuboTV Pre-Merger. In addition, Mr. Pärson serves on the board of directors of Spring Health Inc, a health ",
+            "of directors or compensation committee of any entity that has one or more executive officers serving on our board of directors or compensation committee. A member of our board of directors and compensation committee, Pär-Jörgen Pärson, is a General Partner of Northzone, a venture capital firm which is an affiliate of certain record and beneficial owners of more than 5% of the voting power of our capital stock. An entity affiliated with Northzone purchased 277,008 shares of our common stock and a warrant to purchase 277,008 "
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1484769/000149315220017821/ex10-6.htm",
+          "form": "S-1/A",
+          "date": "2020-09-15",
+          "mentions": 1,
+          "context": [
+            "giving effect to such acquisition, Minimum Liquidity shall be at least $3,000,000. “ Permitted Investments ” means each of the Investments permitted pursuant to Section 6.6. “ Permitted Holders ” means each of (i) 21 st Century Fox America, Inc., (ii) , (iii) Northzone VIII L.P., (iv) Sky Ventures Limited, (v) Scripps Networks, LLC and (v) AMC and, in each case, their respective Affiliates. “ Permitted Joint Venture ” means any Joint Venture (i) where the Borrower shall have taken, or caused to be taken, as of the date such"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "Marquee Raine Acquisition Corp.",
+      "cik": "0001830180",
+      "forms": {
+        "S-1/A": 1,
+        "S-1": 1,
+        "424B4": 1,
+        "10-K/A": 1,
+        "10-K": 1,
+        "S-4": 1,
+        "S-4/A": 5,
+        "424B3": 1
+      },
+      "first_date": "2020-11-27",
+      "last_date": "2021-09-22",
+      "filings": [
+        {
+          "form": "S-1",
+          "date": "2020-11-27",
+          "adsh": "0001193125-20-304459",
+          "url": "https://www.sec.gov/Archives/edgar/data/1830180/000119312520304459/d94626ds1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1830180/000119312520304459/0001193125-20-304459-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2020-12-09",
+          "adsh": "0001193125-20-313060",
+          "url": "https://www.sec.gov/Archives/edgar/data/1830180/000119312520313060/d94626ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1830180/000119312520313060/0001193125-20-313060-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2020-12-16",
+          "adsh": "0001193125-20-319029",
+          "url": "https://www.sec.gov/Archives/edgar/data/1830180/000119312520319029/d94626d424b4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1830180/000119312520319029/0001193125-20-319029-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2021-03-26",
+          "adsh": "0001193125-21-094950",
+          "url": "https://www.sec.gov/Archives/edgar/data/1830180/000119312521094950/d116229d10k.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1830180/000119312521094950/0001193125-21-094950-index.htm"
+        },
+        {
+          "form": "10-K/A",
+          "date": "2021-05-13",
+          "adsh": "0001193125-21-160679",
+          "url": "https://www.sec.gov/Archives/edgar/data/1830180/000119312521160679/d87039d10ka.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1830180/000119312521160679/0001193125-21-160679-index.htm"
+        },
+        {
+          "form": "S-4",
+          "date": "2021-05-14",
+          "adsh": "0001193125-21-162058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1830180/000119312521162058/d157023ds4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1830180/000119312521162058/0001193125-21-162058-index.htm"
+        },
+        {
+          "form": "S-4/A",
+          "date": "2021-06-24",
+          "adsh": "0001193125-21-198828",
+          "url": "https://www.sec.gov/Archives/edgar/data/1830180/000119312521198828/d157023ds4a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1830180/000119312521198828/0001193125-21-198828-index.htm"
+        },
+        {
+          "form": "S-4/A",
+          "date": "2021-07-26",
+          "adsh": "0001193125-21-223271",
+          "url": "https://www.sec.gov/Archives/edgar/data/1830180/000119312521223271/d157023ds4a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1830180/000119312521223271/0001193125-21-223271-index.htm"
+        },
+        {
+          "form": "S-4/A",
+          "date": "2021-08-23",
+          "adsh": "0001193125-21-254077",
+          "url": "https://www.sec.gov/Archives/edgar/data/1830180/000119312521254077/d157023ds4a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1830180/000119312521254077/0001193125-21-254077-index.htm"
+        },
+        {
+          "form": "S-4/A",
+          "date": "2021-09-02",
+          "adsh": "0001193125-21-264506",
+          "url": "https://www.sec.gov/Archives/edgar/data/1830180/000119312521264506/d157023ds4a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1830180/000119312521264506/0001193125-21-264506-index.htm"
+        },
+        {
+          "form": "S-4/A",
+          "date": "2021-09-14",
+          "adsh": "0001193125-21-272957",
+          "url": "https://www.sec.gov/Archives/edgar/data/1830180/000119312521272957/d157023ds4a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1830180/000119312521272957/0001193125-21-272957-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2021-09-22",
+          "adsh": "0001193125-21-279383",
+          "url": "https://www.sec.gov/Archives/edgar/data/1830180/000119312521279383/d157023d424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1830180/000119312521279383/0001193125-21-279383-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1830180/000119312520304459/d94626ds1.htm",
+          "form": "S-1",
+          "date": "2020-11-27",
+          "mentions": 3,
+          "context": [
+            "ion, Telehealth & Wellness, Gaming, Fintech, and Product-lead Communities. Muse Capital operates as a bridge between Silicon Valley, the brand world and entertainment industry. Prior to Muse Capital, Ms. Grazioli-Venier also served on the board of advisors of Northzone, one of Europe’s leading technology investment partnerships whose portfolio includes Spotify and iZettle, sold to PayPal in 2018. Prior to that, she was for several years an innovation investment advisor to Andrea Agnelli at LAMSE, S.p.a. Starting in 2010, Ms",
+            "ion, Telehealth & Wellness, Gaming, Fintech, and Product-lead Communities. Muse Capital operates as a bridge between Silicon Valley, the brand world and entertainment industry. Prior to Muse Capital, Ms. Grazioli-Venier also served on the board of advisors of Northzone, one of Europe’s leading technology investment partnerships whose portfolio includes Spotify and iZettle, sold to PayPal in 2018. Prior to that, she was for several years an innovation investment 108 Table of Contents advisor to Andrea Agnelli at LAMSE, S.p.a",
+            "ingate. Muse Capital is a seed-stage consumer fund investing in Future of Motherhood/Parenting, Education, Telehealth & Wellness, Gaming, Fintech, and Product-lead Communities. Prior to Muse Capital, Ms. Grazioli-Venier also served on the board of advisors of Northzone, one of Europe’s leading technology investment partnerships whose portfolio includes Spotify and iZettle, sold to PayPal in 2018. For several years an innovation investment advisor to Andrea Agnelli at LAMSE, S.p.a. Starting in 2010, Ms. Grazioli-Venier was a"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1830180/000119312520313060/d94626ds1a.htm",
+          "form": "S-1/A",
+          "date": "2020-12-09",
+          "mentions": 3,
+          "context": [
+            "ion, Telehealth & Wellness, Gaming, Fintech, and Product-lead Communities. Muse Capital operates as a bridge between Silicon Valley, the brand world and entertainment industry. Prior to Muse Capital, Ms. Grazioli-Venier also served on the board of advisors of Northzone, one of Europe’s leading technology investment partnerships whose portfolio includes Spotify and iZettle, sold to PayPal in 2018. Prior to that, she was for several years an innovation investment advisor to Andrea Agnelli at LAMSE, S.p.a. Starting in 2010, Ms",
+            "ion, Telehealth & Wellness, Gaming, Fintech, and Product-lead Communities. Muse Capital operates as a bridge between Silicon Valley, the brand world and entertainment industry. Prior to Muse Capital, Ms. Grazioli-Venier also served on the board of advisors of Northzone, one of Europe’s leading technology investment partnerships whose portfolio includes Spotify and iZettle, sold to PayPal in 2018. Prior to that, she was for several years an innovation investment 108 Table of Contents advisor to Andrea Agnelli at LAMSE, S.p.a",
+            "ingate. Muse Capital is a seed-stage consumer fund investing in Future of Motherhood/Parenting, Education, Telehealth & Wellness, Gaming, Fintech, and Product-lead Communities. Prior to Muse Capital, Ms. Grazioli-Venier also served on the board of advisors of Northzone, one of Europe’s leading technology investment partnerships whose portfolio includes Spotify and iZettle, sold to PayPal in 2018. For several years an innovation investment advisor to Andrea Agnelli at LAMSE, S.p.a. Starting in 2010, Ms. Grazioli-Venier was a"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "Turning Point Brands, Inc.  (TPB)",
+      "cik": "0001290677",
+      "forms": {
+        "8-K": 1,
+        "DEF 14A": 3
+      },
+      "first_date": "2021-03-23",
+      "last_date": "2023-03-31",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "2021-03-23",
+          "adsh": "0001140361-21-009627",
+          "url": "https://www.sec.gov/Archives/edgar/data/1290677/000114036121009627/brhc10022099_8k.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1290677/000114036121009627/0001140361-21-009627-index.htm"
+        },
+        {
+          "form": "DEF 14A",
+          "date": "2021-03-25",
+          "adsh": "0001140361-21-009982",
+          "url": "https://www.sec.gov/Archives/edgar/data/1290677/000114036121009982/nc10021454x1_def14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1290677/000114036121009982/0001140361-21-009982-index.htm"
+        },
+        {
+          "form": "DEF 14A",
+          "date": "2022-03-15",
+          "adsh": "0001140361-22-009565",
+          "url": "https://www.sec.gov/Archives/edgar/data/1290677/000114036122009565/ny20001910x2_def14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1290677/000114036122009565/0001140361-22-009565-index.htm"
+        },
+        {
+          "form": "DEF 14A",
+          "date": "2023-03-31",
+          "adsh": "0001140361-23-015398",
+          "url": "https://www.sec.gov/Archives/edgar/data/1290677/000114036123015398/ny20007601x1_def14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1290677/000114036123015398/0001140361-23-015398-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1290677/000114036121009627/brhc10022099_8k.htm",
+          "form": "8-K",
+          "date": "2021-03-23",
+          "mentions": 1,
+          "context": [
+            "d to Warner Music. In 2010, she joined Spotify, where she advised on global strategic initiatives and business expansion efforts for over five years. Ms. Grazioli-Venier has served on a number of Boards in both the for-profit and non-profit sectors, including Northzone, one of Europe’s leading technology investment partnerships whose portfolio includes Spotify and Kahoot; the Sports Leadership Board, a women’s leadership board composed of female executives from the sports, media, and technology industries; the publicly-list"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1290677/000114036121009982/nc10021454x1_def14a.htm",
+          "form": "DEF 14A",
+          "date": "2021-03-25",
+          "mentions": 1,
+          "context": [
+            "d to Warner Music. In 2010, she joined Spotify, where she advised on global strategic initiatives and business expansion efforts for over five years. Ms. Grazioli-Venier has served on a number of Boards in both the for-profit and non-profit sectors, including Northzone, one of Europe’s leading technology investment partnerships whose portfolio includes Spotify and Kahoot; the Sports Leadership Board, a women’s leadership board composed of female executives from the sports, media, and technology industries; the publicly-list"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "NZ VIII (GP) Ltd",
+      "cik": "0001854791",
+      "forms": {
+        "144": 2,
+        "SC 13D": 1,
+        "SC 13D/A": 1
+      },
+      "first_date": "2021-04-01",
+      "last_date": "2023-09-08",
+      "filings": [
+        {
+          "form": "SC 13D",
+          "date": "2021-04-01",
+          "adsh": "0000905718-21-000511",
+          "url": "https://www.sec.gov/Archives/edgar/data/1854791/000090571821000511/fubotv_sc13dmar22021.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1854791/000090571821000511/0000905718-21-000511-index.htm"
+        },
+        {
+          "form": "SC 13D/A",
+          "date": "2021-04-06",
+          "adsh": "0000905718-21-000563",
+          "url": "https://www.sec.gov/Archives/edgar/data/1854791/000090571821000563/fubotv_sc13dam1apr62021.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1854791/000090571821000563/0000905718-21-000563-index.htm"
+        },
+        {
+          "form": "144",
+          "date": "2023-08-08",
+          "adsh": "0001493152-23-027166",
+          "url": "https://www.sec.gov/Archives/edgar/data/1854791/000149315223027166/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1854791/000149315223027166/0001493152-23-027166-index.htm"
+        },
+        {
+          "form": "144",
+          "date": "2023-09-08",
+          "adsh": "0001493152-23-032125",
+          "url": "https://www.sec.gov/Archives/edgar/data/1854791/000149315223032125/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1854791/000149315223032125/0001493152-23-032125-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1854791/000149315223027166/primary_doc.xml",
+          "form": "144",
+          "date": "2023-08-08",
+          "mentions": 1,
+          "context": [
+            " 144 0001854791 XXXXXXXX LIVE 0001484769 fuboTV Inc. 001-39590 1290 Avenue of the Americas, New York, NY 10104 212-672-0055 Northzone VIII L.P. Affiliate Common Stock BMO Capital Markets Corp. 3 Times Square New York, NY 10036 1192838 3172233.00 291850000 08/07/2023 NYSE Common Stock BMO Capital Markets Corp. 3 Times Square New York, NY 10036 600000 1497900.00 291850000 08/08/2023 NYSE Comm"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1854791/000149315223032125/primary_doc.xml",
+          "form": "144",
+          "date": "2023-09-08",
+          "mentions": 3,
+          "context": [
+            " 144 0001854791 XXXXXXXX LIVE 0001484769 fuboTV Inc. 001-39590 1290 Avenue of the Americas, New York, NY 10104 212-672-0055 Northzone VIII L.P. Affiliate Common Stock BMO Capital Markets Corp. 3 Times Square New York, NY 10036 110402 329870.14 292584450 09/08/2023 NYSE Common Stock 03/03/2021 Private Placements Issuer N 1100000 03/03/2021 N/A N Northzone VIII L.P. 1130 Avenue of the America",
+            "cas, New York, NY 10104 212-672-0055 Northzone VIII L.P. Affiliate Common Stock BMO Capital Markets Corp. 3 Times Square New York, NY 10036 110402 329870.14 292584450 09/08/2023 NYSE Common Stock 03/03/2021 Private Placements Issuer N 1100000 03/03/2021 N/A N Northzone VIII L.P. 1130 Avenue of the Americas New York, NY 10019 Common Stock 08/07/2023 1192838 3172233.00 Northzone VIII L.P. 1130 Avenue of the Americas New York, NY 10019 Common Stock 08/08/2023 600000 1497900.00 09/08/2023 /s/ Ian Lambert, Authorized Signatory ",
+            "mes Square New York, NY 10036 110402 329870.14 292584450 09/08/2023 NYSE Common Stock 03/03/2021 Private Placements Issuer N 1100000 03/03/2021 N/A N Northzone VIII L.P. 1130 Avenue of the Americas New York, NY 10019 Common Stock 08/07/2023 1192838 3172233.00 Northzone VIII L.P. 1130 Avenue of the Americas New York, NY 10019 Common Stock 08/08/2023 600000 1497900.00 09/08/2023 /s/ Ian Lambert, Authorized Signatory "
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "Revelstone Capital Acquisition Corp.",
+      "cik": "0001874218",
+      "forms": {
+        "10-K": 2,
+        "S-1/A": 1,
+        "S-1": 1,
+        "424B4": 1
+      },
+      "first_date": "2021-11-24",
+      "last_date": "2023-03-27",
+      "filings": [
+        {
+          "form": "S-1",
+          "date": "2021-11-24",
+          "adsh": "0001104659-21-143588",
+          "url": "https://www.sec.gov/Archives/edgar/data/1874218/000110465921143588/tm2122267-3_s1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1874218/000110465921143588/0001104659-21-143588-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2021-12-08",
+          "adsh": "0001104659-21-147310",
+          "url": "https://www.sec.gov/Archives/edgar/data/1874218/000110465921147310/tm2122267-8_s1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1874218/000110465921147310/0001104659-21-147310-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2021-12-20",
+          "adsh": "0001104659-21-151797",
+          "url": "https://www.sec.gov/Archives/edgar/data/1874218/000110465921151797/tm2122267-10_424b4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1874218/000110465921151797/0001104659-21-151797-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2022-04-05",
+          "adsh": "0001104659-22-042861",
+          "url": "https://www.sec.gov/Archives/edgar/data/1874218/000110465922042861/rcac-20211231x10k.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1874218/000110465922042861/0001104659-22-042861-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2023-03-27",
+          "adsh": "0001104659-23-036742",
+          "url": "https://www.sec.gov/Archives/edgar/data/1874218/000110465923036742/rcac-20221231x10k.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1874218/000110465923036742/0001104659-23-036742-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1874218/000110465921143588/tm2122267-3_s1.htm",
+          "form": "S-1",
+          "date": "2021-11-24",
+          "mentions": 2,
+          "context": [
+            "Raine) and was a member of board of directors of Italy’s Juventus Football Club (JVTSF) for 9 years (2012- 2021) where she sat on both control/risk and remuneration committees. Prior to Muse Capital, Ms. Grazioli-Venier also served on the board of advisors of Northzone, one of Europe’s leading technology investment partnerships whose portfolio includes Spotify and iZettle, sold to PayPal in 2018. Prior to that, she was for several years an innovation & investment advisor to Andrea Agnelli at LAMSE, S.p.a. Starting in 2010, ",
+            "Raine) and was a member of board of directors of Italy’s Juventus Football Club (JVTSF) for 9 years (2012- 2021) where she sat on both control/risk and remuneration committees. Prior to Muse Capital, Ms. Grazioli-Venier also served on the board of advisors of Northzone, one of Europe’s leading technology investment partnerships whose portfolio includes Spotify and iZettle, sold to PayPal in 2018. Prior to that, she was for several years an innovation & investment advisor to Andrea Agnelli at LAMSE, S.p.a. Starting in 2010, "
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1874218/000110465921147310/tm2122267-8_s1a.htm",
+          "form": "S-1/A",
+          "date": "2021-12-08",
+          "mentions": 2,
+          "context": [
+            "Raine) and was a member of board of directors of Italy’s Juventus Football Club (JVTSF) for 9 years (2012- 2021) where she sat on both control/risk and remuneration committees. Prior to Muse Capital, Ms. Grazioli-Venier also served on the board of advisors of Northzone, one of Europe’s leading technology investment partnerships whose portfolio includes Spotify and iZettle, sold to PayPal in 2018. Prior to that, she was for several years an innovation & investment advisor to Andrea Agnelli at LAMSE, S.p.a. Starting in 2010, ",
+            "Raine) and was a member of board of directors of Italy’s Juventus Football Club (JVTSF) for 9 years (2012- 2021) where she sat on both control/risk and remuneration committees. Prior to Muse Capital, Ms. Grazioli-Venier also served on the board of advisors of Northzone, one of Europe’s leading technology investment partnerships whose portfolio includes Spotify and iZettle, sold to PayPal in 2018. Prior to that, she was for several years an innovation & investment advisor to Andrea Agnelli at LAMSE, S.p.a. Starting in 2010, "
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "ENJOY TECHNOLOGY, INC./DE",
+      "cik": "0001830180",
+      "forms": {
+        "10-K/A": 1
+      },
+      "first_date": "2021-12-21",
+      "last_date": "2021-12-21",
+      "filings": [
+        {
+          "form": "10-K/A",
+          "date": "2021-12-21",
+          "adsh": "0001193125-21-362728",
+          "url": "https://www.sec.gov/Archives/edgar/data/1830180/000119312521362728/d248809d10ka.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1830180/000119312521362728/0001193125-21-362728-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1830180/000119312521362728/d248809d10ka.htm",
+          "form": "10-K/A",
+          "date": "2021-12-21",
+          "mentions": 1,
+          "context": [
+            "ingate. Muse Capital is a seed-stage consumer fund investing in Future of Motherhood/Parenting, Education, Telehealth & Wellness, Gaming, Fintech, and Product-lead Communities. Prior to Muse Capital, Ms. Grazioli-Venier also served on the board of advisors of Northzone, one of Europe’s leading technology investment partnerships whose portfolio includes Spotify and iZettle, sold to PayPal in 2018. For several years an innovation investment advisor to Andrea Agnelli at LAMSE, S.p.a. Starting in 2010, Ms. Grazioli-Venier was a"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "RadNet, Inc.  (RDNT)",
+      "cik": "0000790526",
+      "forms": {
+        "424B7": 1
+      },
+      "first_date": "2022-02-02",
+      "last_date": "2022-02-02",
+      "filings": [
+        {
+          "form": "424B7",
+          "date": "2022-02-02",
+          "adsh": "0001683168-22-000610",
+          "url": "https://www.sec.gov/Archives/edgar/data/790526/000168316822000610/radnet_424b7.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/790526/000168316822000610/0001683168-22-000610-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/790526/000168316822000610/radnet_424b7.htm",
+          "form": "424B7",
+          "date": "2022-02-02",
+          "mentions": 1,
+          "context": [
+            " Prior to Offering Shares of Common Stock Being Shares of Common Stock to be Beneficially Owned After Offering Name of Selling Stockholder Number Percentage Offered Number Percentage Driftin Holding B.V. 124,084 * 124,084 – – Opacha B.V. 169,637 * 169,637 – – Northzone VIII L.P. 206,907 * 206,907 – – HenQ III Fund B.V. 62,142 * 62,142 – – HenQ III Seed Fund B.V. 82,477 * 82,477 – – Health Innovation Fund II B.V. 62,109 * 62,109 – – Stichting Depositary. INKEF Investment Fund 293,229 * 293,229 – – Rabo Ventures B.V. 117,287 "
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "Einride AB",
+      "cik": "0002095096",
+      "forms": {
+        "DRS/A": 1,
+        "F-4": 1
+      },
+      "first_date": "2026-03-17",
+      "last_date": "2026-04-21",
+      "filings": [
+        {
+          "form": "DRS/A",
+          "date": "2026-03-17",
+          "adsh": "0001829126-26-002388",
+          "url": "https://www.sec.gov/Archives/edgar/data/2095096/000182912626002388/filename3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/2095096/000182912626002388/0001829126-26-002388-index.htm"
+        },
+        {
+          "form": "F-4",
+          "date": "2026-04-21",
+          "adsh": "0001829126-26-003703",
+          "url": "https://www.sec.gov/Archives/edgar/data/2095096/000182912626003703/einrideab_ex10-12.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/2095096/000182912626003703/0001829126-26-003703-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/2095096/000182912626002388/filename3.htm",
+          "form": "DRS/A",
+          "date": "2026-03-17",
+          "mentions": 2,
+          "context": [
+            "AIF - NORDIC BEAR AND EQT VENTURES III S.A.R.L. SICAF-RAIF – NORID BEAR II, REPRESENTED BY EQT FUND MANAGEMENT S.A.R.L., ITSELF REPRESENTED BY: BY: /s/ Sara Huda NAME: Sara Huda TITLE: Manager BY: /s/ Christiaan Snyders NAME: Christiaan Snyders TITLE: Manager NORTHZONE GROWTH II L.P. BY: /s/ Emma Syvret NAME: Emma Syvret TITLE: Director, NZ Growth II (GP) Limited as general partner of NZ Growth II GP L.P. as general partner Sch. 1- 1 NORTHZONE IX, L.P. ACTING BY ITS GENERAL PARTNER NZ IX GP L.P., ACTING BY ITS GENERAL PARTN",
+            "TITLE: Manager BY: /s/ Christiaan Snyders NAME: Christiaan Snyders TITLE: Manager NORTHZONE GROWTH II L.P. BY: /s/ Emma Syvret NAME: Emma Syvret TITLE: Director, NZ Growth II (GP) Limited as general partner of NZ Growth II GP L.P. as general partner Sch. 1- 1 NORTHZONE IX, L.P. ACTING BY ITS GENERAL PARTNER NZ IX GP L.P., ACTING BY ITS GENERAL PARTNER NZ IX (GP) LIMITED BY: /s/ Will Taylor NAME: Will Taylor TITLE: Director NZ IX NETWORK INVESTORS, L.P. ACTING BY ITS GENERAL PARTNER NZ IX GP L.P., ACTING BY ITS GENERAL PARTN"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/2095096/000182912626003703/einrideab_ex10-12.htm",
+          "form": "F-4",
+          "date": "2026-04-21",
+          "mentions": 2,
+          "context": [
+            "AIF - NORDIC BEAR AND EQT VENTURES III S.A.R.L. SICAF-RAIF – NORID BEAR II, REPRESENTED BY EQT FUND MANAGEMENT S.A.R.L., ITSELF REPRESENTED BY: BY: /s/ Sara Huda NAME: Sara Huda TITLE: Manager BY: /s/ Christiaan Snyders NAME: Christiaan Snyders TITLE: Manager NORTHZONE GROWTH II L.P. BY: /s/ Emma Syvret NAME: Emma Syvret TITLE: Director, NZ Growth II (GP) Limited as general partner of NZ Growth II GP L.P. as general partner Sch. 1- 1 NORTHZONE IX, L.P. ACTING BY ITS GENERAL PARTNER NZ IX GP L.P., ACTING BY ITS GENERAL PARTN",
+            "TITLE: Manager BY: /s/ Christiaan Snyders NAME: Christiaan Snyders TITLE: Manager NORTHZONE GROWTH II L.P. BY: /s/ Emma Syvret NAME: Emma Syvret TITLE: Director, NZ Growth II (GP) Limited as general partner of NZ Growth II GP L.P. as general partner Sch. 1- 1 NORTHZONE IX, L.P. ACTING BY ITS GENERAL PARTNER NZ IX GP L.P., ACTING BY ITS GENERAL PARTNER NZ IX (GP) LIMITED BY: /s/ Will Taylor NAME: Will Taylor TITLE: Director NZ IX NETWORK INVESTORS, L.P. ACTING BY ITS GENERAL PARTNER NZ IX GP L.P., ACTING BY ITS GENERAL PARTN"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "Einride AB  (ENRD, ENRDW)",
+      "cik": "0002095096",
+      "forms": {
+        "6-K": 1
+      },
+      "first_date": "2026-06-16",
+      "last_date": "2026-06-16",
+      "filings": [
+        {
+          "form": "6-K",
+          "date": "2026-06-16",
+          "adsh": "0001829126-26-006548",
+          "url": "https://www.sec.gov/Archives/edgar/data/2095096/000182912626006548/einrideab_ex99-3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/2095096/000182912626006548/0001829126-26-006548-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/2095096/000182912626006548/einrideab_ex99-3.htm",
+          "form": "6-K",
+          "date": "2026-06-16",
+          "mentions": 1,
+          "context": [
+            "rtain cost reduction initiatives. Ownership Structure The Parent Company’s five largest shareholders as of December 31, 2025: Shareholder Voting Interest % EQT Ventures II Investments SARL (B234616) 14.3 % Capital Group 12.1 % Navisalma AB (559025-6888) 6.0 % Northzone IX L.P. 5.8 % JB Nordic Fund (Nordic Ninja) 5.1 % Material Risks and Uncertainties The group is leading the transformation of a market that continues to be characterized by volatility, which is affected by the prevailing economic and regulatory environment. D"
+          ]
+        }
+      ]
+    }
+  ]
+}

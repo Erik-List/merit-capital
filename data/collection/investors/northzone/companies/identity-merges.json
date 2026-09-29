@@ -1,0 +1,25 @@
+{
+ "northzone": {
+  "_readme": "Durable identity corrections consumed by build-company-base.py on every rebuild (COLLECTION.md s8): one company under different names across Northzone's surfaces (the live list, the archived listings 2003-2025, Form D issuer names) and its renames. Canonical = the firm's current rendering where the company is still listed. Written during the grind (PRO-105, 2026-09-29) and applied at the one scheduled rebuild.",
+  "merges": [
+   {
+    "canonical": "dots",
+    "duplicates": [
+     "playdots-inc"
+    ],
+    "name": "Dots",
+    "reason": "one company: Playdots, Inc. (New York) is the legal name of Dots, the live list's entry (dots.co); its 2014 Form D carries Paul Murphy as Executive Officer, the founder-era filing (decisions.md D9)"
+   },
+   {
+    "canonical": "sellersfi",
+    "duplicates": [
+     "sellersfunding-corp"
+    ],
+    "name": "SellersFi",
+    "reason": "one company: SellersFunding Corp. (Weston, FL) renamed itself SellersFi; its 2021 and 2025 Form Ds carry Jeppe Zink as director, and the firm's insight of 2021-09-15 reports the $166.5M Northzone-led round"
+   }
+  ],
+  "never_merge": [],
+  "rejects": []
+ }
+}

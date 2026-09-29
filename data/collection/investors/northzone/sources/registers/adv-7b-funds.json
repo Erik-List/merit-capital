@@ -1,0 +1,88 @@
+{
+ "_readme": "Parse Form ADV Schedule D Section 7.B.(1) private-fund rosters from the\nNorthzone ERA PDFs (data/filings/northzone/adv/<CRD>.pdf, gitignored; IAPD reports.adviserinfo.sec.gov/reports/ADV/<CRD>/PDF/<CRD>.pdf) into\nsources/registers/adv-7b-funds.json. Per-page extraction (pypdf's whole-document\ntext repeats pages), one record per fund: name, 805- ID, GAV, filing adviser.\nDeduped by private fund ID across advisers (COLLECTION.md 11: co-advisers of\none desk report identical rosters). Section 7.B.(2) (sub-advised funds reported\nby another adviser) carries no GAV and is recorded as a reference list.",
+ "advisers": {
+  "327695": {
+   "crd": "327695",
+   "adviser": "NORTHZONE MANAGEMENT X LIMITED",
+   "filed": "3/30/2026",
+   "funds_7b1": [
+    {
+     "name": "NORTHZONE X L.P.",
+     "id": "805-7107629513",
+     "gav": 529798730
+    },
+    {
+     "name": "NZ X NIF L.P.",
+     "id": "805-5100612658",
+     "gav": 9588844
+    }
+   ],
+   "funds_7b2": []
+  },
+  "327713": {
+   "crd": "327713",
+   "adviser": "NORTHZONE MANAGEMENT GROWTH II LIMITED",
+   "filed": "3/30/2026",
+   "funds_7b1": [
+    {
+     "name": "NORTHZONE GROWTH II L.P.",
+     "id": "805-9329638385",
+     "gav": 361868910
+    },
+    {
+     "name": "NZ X NIF L.P.",
+     "id": "805-5100612658",
+     "gav": 9588844
+    }
+   ],
+   "funds_7b2": []
+  },
+  "327719": {
+   "crd": "327719",
+   "adviser": "NORTHZONE MANAGEMENT IX LIMITED",
+   "filed": "3/30/2026",
+   "funds_7b1": [
+    {
+     "name": "NORTHZONE IX L.P.",
+     "id": "805-6145259582",
+     "gav": 749903423
+    }
+   ],
+   "funds_7b2": []
+  }
+ },
+ "funds": [
+  {
+   "name": "NORTHZONE X L.P.",
+   "id": "805-7107629513",
+   "gav": 529798730,
+   "reported_by": "327695",
+   "also_reported_by": []
+  },
+  {
+   "name": "NZ X NIF L.P.",
+   "id": "805-5100612658",
+   "gav": 9588844,
+   "reported_by": "327695",
+   "also_reported_by": [
+    "327713"
+   ]
+  },
+  {
+   "name": "NORTHZONE GROWTH II L.P.",
+   "id": "805-9329638385",
+   "gav": 361868910,
+   "reported_by": "327713",
+   "also_reported_by": []
+  },
+  {
+   "name": "NORTHZONE IX L.P.",
+   "id": "805-6145259582",
+   "gav": 749903423,
+   "reported_by": "327719",
+   "also_reported_by": []
+  }
+ ],
+ "count": 4,
+ "sum_gross_asset_value_usd": 1651159907
+}

@@ -1,0 +1,169 @@
+{
+ "_doc": "Northzone's rule-10 rulings (COLLECTION.md s10 invariant 10, s12): 'distinct' = two companies sharing a name; 'accepted' = the other book is stale and is aligned at this run's ingest (s9); 'same' = one company across books. verify merges this file at read time.",
+ "distinct": [
+  {
+   "rows": [
+    "northzone:dots",
+    "felicis:dots"
+   ],
+   "note": "Northzone = Dots (Playdots, New York mobile puzzle games, acq. by Take-Two 2020); Felicis's Dots is another company. Different companies under one name."
+  },
+  {
+   "rows": [
+    "northzone:dots",
+    "y-combinator:dots"
+   ],
+   "note": "Northzone = Playdots (New York games); YC's Dots is a San Francisco fintech of its own batch. Different companies."
+  },
+  {
+   "rows": [
+    "northzone:flink",
+    "accel:flink"
+   ],
+   "note": "Northzone = Flink, the Berlin quick-commerce grocer; Accel = Flink, the Mexican brokerage app. Different companies."
+  },
+  {
+   "rows": [
+    "northzone:jasper",
+    "coatue:jasper"
+   ],
+   "note": "Northzone = Jasper Design Automation (chip formal verification, acq. by Cadence 2014); Coatue = Jasper AI (Austin). Different companies."
+  },
+  {
+   "rows": [
+    "northzone:jasper",
+    "insight-partners:jasper"
+   ],
+   "note": "Northzone = Jasper Design Automation; Insight = Jasper AI. Different companies."
+  },
+  {
+   "rows": [
+    "northzone:jasper",
+    "ivp:jasper"
+   ],
+   "note": "Northzone = Jasper Design Automation; IVP = Jasper AI. Different companies."
+  },
+  {
+   "rows": [
+    "northzone:jasper",
+    "sequoia-capital:jasper"
+   ],
+   "note": "Northzone = Jasper Design Automation (Cadence 2014); Sequoia = Jasper Wireless (Cisco 2016). Different companies."
+  },
+  {
+   "rows": [
+    "northzone:magic-labs",
+    "sequoia-capital:magic"
+   ],
+   "note": "Northzone = Magic Labs (magic.link passwordless login and wallets); Sequoia = Magic (magic.dev, AI coding). Different companies."
+  },
+  {
+   "rows": [
+    "northzone:stream",
+    "battery-ventures:general-workings-inc-dba-stream-labs"
+   ],
+   "note": "Northzone = Stream, formerly Wagestream (London earned-wage access); Battery = Stream Labs (General Workings Inc.). Different companies."
+  },
+  {
+   "rows": [
+    "northzone:stream",
+    "felicis:stream"
+   ],
+   "note": "Northzone = Stream (Wagestream, London); Felicis = Stream of Boulder (data infrastructure). Different companies."
+  },
+  {
+   "rows": [
+    "northzone:stream",
+    "y-combinator:stream"
+   ],
+   "note": "Northzone = Stream (Wagestream, London); YC = a San Francisco fintech of its batch. Different companies."
+  },
+  {
+   "rows": [
+    "northzone:yonder",
+    "lux-capital:yonder"
+   ],
+   "note": "Northzone = Yonder, the London credit card; Lux = Yonder of Austin (security, acquired). Different companies."
+  },
+  {
+   "rows": [
+    "northzone:nirvana",
+    "general-catalyst:nirvana"
+   ],
+   "note": "Northzone = Nirvana (meetnirvana.com, health-insurance benefit verification); GC = Nirvana Insurance (trucking insurance, $1.5B, 2025). Different companies."
+  },
+  {
+   "rows": [
+    "northzone:nirvana",
+    "lightspeed:nirvana"
+   ],
+   "note": "Northzone = Nirvana (meetnirvana.com); Lightspeed = Nirvana Insurance (its $3.2M seed of Jan 2021 was co-led by GC and Lightspeed). Different companies."
+  },
+  {
+   "rows": [
+    "northzone:zeal",
+    "spark-capital:zeal"
+   ],
+   "note": "Northzone = Zeal, a crypto wallet and card (zeal.app); Spark = Zeal, the San Francisco payroll API. Different companies."
+  },
+  {
+   "rows": [
+    "northzone:zeal",
+    "y-combinator:zeal"
+   ],
+   "note": "Northzone = Zeal (zeal.app crypto wallet); YC = Zeal (payroll API, San Francisco). Different companies."
+  },
+  {
+   "rows": [
+    "northzone:bunch",
+    "cherry:bunch"
+   ],
+   "note": "Northzone = Bunch, the social video app for mobile games (bunch.live); Cherry = bunch, the Berlin investment-syndicate fintech. Different companies."
+  },
+  {
+   "rows": [
+    "northzone:flower",
+    "y-combinator:flower"
+   ],
+   "note": "Northzone = Flower, the Stockholm battery-storage platform; YC's Flower is a US company of its batch. Different companies."
+  },
+  {
+   "rows": [
+    "northzone:sticky",
+    "menlo-ventures:sticky"
+   ],
+   "note": "Northzone = Sticky Ad, Inc. (formerly EyeTrackShop, eye-tracking SaaS, Form D CIK 1671816, 2016); Menlo = Sticky Technologies (a 2021 seed, CIK 1920419). Different companies."
+  }
+ ],
+ "accepted": [
+  {
+   "rows": [
+    "northzone:blitzy",
+    "battery-ventures:blitzy"
+   ],
+   "note": "Northzone's side is fresher: Blitzy raised $200M led by Northzone at a $1.4B valuation in May 2026 (techfundingnews 2026-05-06); Battery still reads below $1B. Aligned at Northzone's ingest (COLLECTION.md s9)."
+  },
+  {
+   "rows": [
+    "northzone:stockeld-dreamery",
+    "creandum:stockeld-dreamery"
+   ],
+   "note": "Northzone's side is fresher: Bettani Farms acquired Stockeld Dreamery in Dec 2025 (Green Queen); Creandum reads defunct. Aligned at Northzone's ingest."
+  },
+  {
+   "rows": [
+    "northzone:thirty-madison",
+    "first-round-capital:thirty-madison"
+   ],
+   "note": "Northzone's side is fresher: Remedy Meds acquired Thirty Madison, Sept 2025 (MobiHealthNews, Axios); First Round reads private. Aligned at Northzone's ingest."
+  },
+  {
+   "rows": [
+    "northzone:wallapop",
+    "accel:wallapop"
+   ],
+   "note": "Northzone's side is fresher: Naver took 100% of Wallapop in Aug 2025 (bebeez); Accel reads private. Aligned at Northzone's ingest."
+  }
+ ],
+ "same": []
+}
