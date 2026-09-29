@@ -1,0 +1,15 @@
+J = [
+ {"s": "airbnb", "st": "public", "v": 92540000000, "va": "2026-09-29", "vc": "https://stockanalysis.com/stocks/abnb/market-cap/", "cf": ["cite_pending"] if "airbnb" in ("payoneer",) else []},
+ {"s": "alarm-com", "st": "public", "v": 2640000000, "va": "2026-09-29", "vc": "https://stockanalysis.com/stocks/alrm/market-cap/", "cf": ["cite_pending"] if "alarm-com" in ("payoneer",) else []},
+ {"s": "ccc-intelligent-solutions", "st": "public", "v": 3880000000, "va": "2026-09-29", "vc": "https://stockanalysis.com/stocks/cccs/market-cap/", "cf": ["cite_pending"] if "ccc-intelligent-solutions" in ("payoneer",) else []},
+ {"s": "green-dot", "st": "public", "v": 702060000, "va": "2026-09-29", "vc": "https://stockanalysis.com/stocks/gdot/market-cap/", "cf": ["cite_pending"] if "green-dot" in ("payoneer",) else []},
+ {"s": "groupon", "st": "public", "v": 812900000, "va": "2026-09-29", "vc": "https://stockanalysis.com/stocks/grpn/market-cap/", "cf": ["cite_pending"] if "groupon" in ("payoneer",) else []},
+ {"s": "grupa-pracuj", "st": "public", "vlocal": (3930000000.0, "PLN", "2026-09-29"), "va": "2026-09-29", "vc": "https://stockanalysis.com/quote/wse/GPP/market-cap/", "n": "Market cap PLN 3.930B on 2026-09-29 (StockAnalysis), converted at the ECB rate of the day."},
+ {"s": "nerdy", "st": "public", "v": 108580000, "va": "2026-09-29", "vc": "https://stockanalysis.com/stocks/nrdy/market-cap/", "cf": ["cite_pending"] if "nerdy" in ("payoneer",) else []},
+ {"s": "netflix", "st": "public", "v": 292790000000, "va": "2026-09-29", "vc": "https://stockanalysis.com/stocks/nflx/market-cap/", "cf": ["cite_pending"] if "netflix" in ("payoneer",) else []},
+ {"s": "payoneer", "st": "public", "v": 2420000000, "va": "2026-09-29", "vc": "https://stockanalysis.com/stocks/payo/market-cap/", "cf": ["cite_pending"] if "payoneer" in ("payoneer",) else []},
+ {"s": "rapid7", "st": "public", "v": 788920000, "va": "2026-09-29", "vc": "https://stockanalysis.com/stocks/rpd/market-cap/", "cf": ["cite_pending"] if "rapid7" in ("payoneer",) else []},
+ {"s": "siteminder", "st": "public", "vlocal": (755970000.0, "AUD", "2026-09-29"), "va": "2026-09-29", "vc": "https://stockanalysis.com/quote/asx/SDR/market-cap/", "n": "Market cap AUD 0.756B on 2026-09-29 (StockAnalysis), converted at the ECB rate of the day."},
+ {"s": "sportradar", "st": "public", "v": 3420000000, "va": "2026-09-29", "vc": "https://stockanalysis.com/stocks/srad/market-cap/", "cf": ["cite_pending"] if "sportradar" in ("payoneer",) else []},
+ {"s": "zillow", "st": "public", "v": 6200000000, "va": "2026-09-29", "vc": "https://stockanalysis.com/stocks/z/market-cap/", "cf": ["cite_pending"] if "zillow" in ("payoneer",) else []},
+]

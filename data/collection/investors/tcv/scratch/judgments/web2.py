@@ -1,0 +1,20 @@
+# Web pass 2 (PRO-169): entry-round citations for rows flagged cite_pending. Judge: this session, 2026-09-29.
+J = [
+ {"s": "bytedance", "es": "Growth", "esc": "https://techcrunch.com/2019/01/31/tcv-closes-3b-fund-aimed-at-consumer-internet-it-infrastructure-and-services/", "ess": "web_verified", "econf": "medium", "ed": "2018",
+  "cf": ["cite_pending", "stage_uncited"],
+  "n": "ByteDance, Beijing. TechCrunch's report on TCV X (2019-01-31) names ByteDance among TCV's recent investments, a position taken in 2018 in a company already valued in the tens of billions: Growth. Mark aligned with Coatue's cited $330B (ByteDance's 2025 buyback, SCMP). Country cited to Wikipedia (rule 6)."},
+ {"s": "ccc-intelligent-solutions", "es": "Growth", "esc": "https://www.stblaw.com/about-us/news/view/2017/08/22/technology-crossover-ventures-invests-in-ccc-information-services", "ess": "web_verified", "econf": "high", "ed": "2017-08",
+  "cf": ["cite_pending", "stage_uncited", "boundary"],
+  "n": "P&C insurance software, Chicago. TCV invested in CCC Information Services in August 2017 (Simpson Thacher, 2017-08-22), four months after Advent International's acquisition closed, taking about 8.9% beside Advent's 62.7% (the 2021 S-1): a minority purchase in a private company, not part of the control transaction, matching the firm's own 'minority' label; Growth."},
+ {"s": "fireworks-ai", "es": "Growth", "esc": "https://www.businesswire.com/news/home/20260716264405/en/Fireworks-Raises-a-$1.5-Billion-Series-D-to-Lead-the-Specialized-Intelligence-Revolution", "ess": "web_verified", "econf": "high", "ed": "2026-07-16",
+  "cf": ["cite_pending", "stage_uncited"],
+  "n": "AI inference platform, Redwood City. TCV co-led the $1.505B Series D at $17.5B with Atreides and Index Ventures (Business Wire, 2026-07-16). Mark aligned with Insight."},
+ {"s": "gitlab", "es": "Growth", "esn": "GitLab CEO weighing options for going public after employee share sale valued company at $6 billion", "ess": "web_verified", "econf": "medium", "ed": "2020-11",
+  "cf": ["cite_pending", "stage_uncited"],
+  "n": "DevOps platform (all-remote; registered in San Francisco). TCV bought in the November 2020 secondary share sale at $6B beside Alta Park, HMI Capital, OMERS and Verition (CNBC, 2021-01): a secondary, Growth by the policy constant. Cap aligned with GV."},
+ {"s": "iceye", "es": "Growth", "esc": "https://www.iceye.com/newsroom/press-releases/iceye-leads-a-new-era-of-sovereign-intelligence-from-space-with-1b-funding-round", "ess": "web_verified", "econf": "high", "ed": "2026-06-09",
+  "cf": ["cite_pending", "stage_uncited"],
+  "n": "Radar satellite intelligence, Espoo. TCV joined the EUR 450M Series F of June 2026 led by General Atlantic, part of a transaction of over EUR 1B with a secondary sale, valuing ICEYE above EUR 10B (ICEYE's release; Bloomberg). Not yet on the compliance list of 2026-07-15. Mark aligned with General Catalyst."},
+ {"s": "payoneer", "cf": ["cite_pending"],
+  "n": "Cross-border payments, New York; listed through a SPAC merger in June 2021. TCV led the $180M growth equity financing of October 2016, the Series E (the firm's own copy of the release). Market cap cited (StockAnalysis, 2026-09-29)."},
+]

@@ -1,0 +1,11 @@
+# Fix 7 (PRO-169): restore seven notes that caps1's note-less lines blanked (record writes an empty note over a stored one). Judge: this session, 2026-09-29.
+C = " Market cap pinned from StockAnalysis on 2026-09-29."
+J = [
+ {"s": "airbnb", "n": "Home-sharing marketplace, San Francisco; listed on Nasdaq in December 2020. On TCV's compliance list and on its 2018-2023 grid as 'minority'; the entry stage is the Form D band's (a $205M offering of 2019): Growth." + C},
+ {"s": "alarm-com", "n": "Interactive security and home automation software, Tysons VA (Vienna VA at the time); listed June 2015. TCV made a $136 million investment in July 2012 (the firm's own copy of the release), the grid's 'minority': Growth by the Form D band." + C},
+ {"s": "groupon", "n": "Local commerce, Chicago. TCV invested in the $950M round of January 2011 (the firm's own post) before the November 2011 IPO: Growth." + C},
+ {"s": "nerdy", "n": "Live online learning (Varsity Tutors' parent), St. Louis. TCV's $57M of November 2015 was the company's first institutional round (the firm's own copy of the release): a minority growth investment, Growth by the taxonomy's scale limb. Listed through a SPAC merger in 2021." + C},
+ {"s": "netflix", "n": "Streaming, Los Gatos. TCV II entered at the Series C preferred of 1999 beside Foundation Capital and IVP VIII (the S-1's IPO-participation agreement, 2002); Jay Hoag has been a director since June 1999. The Form D band read the concurrent common and convertible financing of November 2011, a later public-company raise." + C},
+ {"s": "rapid7", "n": "Security analytics, Boston; listed 2015. TCV led the $50M Series C (the firm's own copy of the release); the Form D band's 'Seed' and its graduation read a small filing of 2012, not the round." + C},
+ {"s": "sportradar", "n": "Sports data and betting technology, St. Gallen; listed on Nasdaq in 2021. TCV and CPPIB bought EQT's roughly 35% stake in July 2018 at an enterprise value of EUR 2.1B (~$2.4B; the firm's own copy of the release: the founder 'will retain his entire ownership position'): a minority secondary, Growth. The firm's grid labels the deal 'minority' in 2019 and 'majority' from 2020; the transaction's own facts decide it, run-time ruling R2, flagged." + C},
+]

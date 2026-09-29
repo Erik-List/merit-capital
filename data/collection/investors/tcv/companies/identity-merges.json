@@ -1,0 +1,65 @@
+{
+ "tcv": {
+  "_readme": "Identity merges for TCV (PRO-169). The filing layers name a company by its registered or former name while the firm's compliance list and grid use the brand (Maplebear / Instacart, Themis Solutions / Clio, Grow Care / Grow Therapy), and EDGAR keeps a registrant's old name after a rename (XATA / XRS, INVESTools / thinkorswim Group). Canonical is the live site row. Archived renderings are mapped in the parsed layer itself by scratch/canon-archive.py (name_listed keeps the archive's text), so they need no merge here. Written 2026-09-29 after the first build and before any judged verdict.",
+  "merges": [
+   {
+    "canonical": "xrs",
+    "duplicates": [
+     "xata-corp-mn"
+    ],
+    "reason": "XATA Corp. renamed itself XRS Corporation in 2012; the compliance list carries XRS, EDGAR the old registered name (same CIK)."
+   },
+   {
+    "canonical": "tastytrade",
+    "duplicates": [
+     "dough-inc"
+    ],
+    "reason": "Dough, Inc. is Tastytrade's former name (the compliance list: \"Tastytrade, Inc. (fka Dough, Inc.)\"); the Form D names John Rosenberg."
+   },
+   {
+    "canonical": "grow-therapy",
+    "duplicates": [
+     "grow-care-inc"
+    ],
+    "reason": "Grow Care, Inc. is Grow Therapy's registered name (the compliance list); the Form D names Gautam Gupta."
+   },
+   {
+    "canonical": "ipipeline",
+    "duplicates": [
+     "internet-pipeline-inc"
+    ],
+    "reason": "Internet Pipeline, Inc. is iPipeline's registered name (the compliance list; the firm's 2016 post \"ipipeline-announces-investment-by-technology-crossover-ventures\"); the Form D names Robert Trudeau."
+   },
+   {
+    "canonical": "techstyle",
+    "duplicates": [
+     "just-fabulous-inc"
+    ],
+    "reason": "Just Fabulous, Inc. is TechStyle's former name (the compliance list: \"TechStyle, Inc. (fka Just Fabulous, Inc.)\"); the Form D names John Drew."
+   },
+   {
+    "canonical": "instacart",
+    "duplicates": [
+     "maplebear-inc"
+    ],
+    "reason": "Maplebear Inc. is Instacart's registered name (the compliance list: \"Maplebear Inc. (dba Instacart)\")."
+   },
+   {
+    "canonical": "clio",
+    "duplicates": [
+     "themis-solutions-inc"
+    ],
+    "reason": "Themis Solutions Inc. is Clio's registered name (the compliance list: \"Themis Solutions Inc. (dba Clio)\"); the Form D names Amol Helekar."
+   },
+   {
+    "canonical": "thinkorswim",
+    "duplicates": [
+     "investools-inc"
+    ],
+    "reason": "INVESTools Inc. acquired thinkorswim in 2007 and renamed itself thinkorswim Group Inc. in 2009 (same registrant); the compliance list carries Thinkorswim Group, EDGAR the old name."
+   }
+  ],
+  "never_merge": [],
+  "rejects": []
+ }
+}

@@ -1,0 +1,126 @@
+{
+ "_doc": "TCV's cross-investor rulings for COLLECTION.md rule 10 (run.py verify), scoped to this investor and merged at read time with data/collection/cross-investor.json. Written in the PRO-169 run, 2026-09-29. `distinct` = the loose name key matched two different companies. Same-company disagreements where the sibling's row is stale are not accepted here: the run aligns and re-ingests those siblings at its own ingest (COLLECTION.md 9).",
+ "distinct": [
+  {
+   "rows": [
+    "tcv:capsule",
+    "y-combinator:capsule"
+   ],
+   "note": "different companies: TCV's Capsule is the New York digital pharmacy (the $200M Series D of 2019); YC's Capsule is a Summer 2022 social-commerce buying app from San Francisco."
+  },
+  {
+   "rows": [
+    "tcv:corgi",
+    "y-combinator:corgi-labs"
+   ],
+   "note": "different companies: TCV's Corgi is the San Francisco AI-native insurance carrier (TCV led its 2026 Series B); YC's Corgi Labs is a Winter 2023 payments company from Singapore."
+  },
+  {
+   "rows": [
+    "tcv:icon",
+    "tiger-global-management:icon"
+   ],
+   "note": "different companies: TCV's ICON is ICON International, the Stamford corporate barter and specialty finance company acquired by Omnicom; Tiger's ICON is the Austin 3D-printed homes company (Series B of 2022)."
+  },
+  {
+   "rows": [
+    "tcv:origin",
+    "coatue:origin"
+   ],
+   "note": "different companies: TCV's Origin is Origin Healthcare Solutions (Chicago, healthcare revenue-cycle software, TCV's 2009 growth investment); Coatue's is Origin (useorigin.com), the San Francisco financial planning app."
+  },
+  {
+   "rows": [
+    "tcv:origin",
+    "felicis:origin"
+   ],
+   "note": "different companies: TCV's Origin is Origin Healthcare Solutions (Chicago, 2009); Felicis's is the US personal-finance company Origin."
+  },
+  {
+   "rows": [
+    "tcv:inventa-technologies",
+    "a16z:inventa"
+   ],
+   "note": "different companies: TCV's Inventa Technologies is the Mount Laurel NJ remote infrastructure services firm ANTs software bought in 2008; the sibling's Inventa is the Sao Paulo B2B marketplace (Series A of 2022)."
+  },
+  {
+   "rows": [
+    "tcv:inventa-technologies",
+    "greylock:inventa"
+   ],
+   "note": "different companies: TCV's Inventa Technologies is the Mount Laurel NJ remote infrastructure services firm ANTs software bought in 2008; the sibling's Inventa is the Sao Paulo B2B marketplace (Series A of 2022)."
+  },
+  {
+   "rows": [
+    "tcv:inventa-technologies",
+    "tiger-global-management:inventa"
+   ],
+   "note": "different companies: TCV's Inventa Technologies is the Mount Laurel NJ remote infrastructure services firm ANTs software bought in 2008; the sibling's Inventa is the Sao Paulo B2B marketplace (Series A of 2022)."
+  }
+ ],
+ "accepted": [
+  {
+   "rows": [
+    "tcv:aviatrix",
+    "8vc:aviatrix"
+   ],
+   "note": "Same company. TCV led the $200M Series E of September 2021 at $2B (Aviatrix's release, PR Newswire, 2021-09-08); 8VC's row carries no figure and reads below $1B. Stale side is the sibling's; aligned and re-ingested at this run's ingest (COLLECTION.md 9)."
+  },
+  {
+   "rows": [
+    "tcv:grow-therapy",
+    "menlo-ventures:grow-therapy"
+   ],
+   "note": "Same company. The $150M Series D of March 2026 valued Grow Therapy at $3B (Modern Healthcare); Menlo's row carries no figure and reads below $1B. Stale side is the sibling's; aligned and re-ingested at this run's ingest (COLLECTION.md 9)."
+  },
+  {
+   "rows": [
+    "tcv:grow-therapy",
+    "sequoia-capital:grow-therapy"
+   ],
+   "note": "Same company. The $150M Series D of March 2026 valued Grow Therapy at $3B (Modern Healthcare); Sequoia's row carries no figure and reads below $1B. Stale side is the sibling's; aligned and re-ingested at this run's ingest (COLLECTION.md 9)."
+  },
+  {
+   "rows": [
+    "tcv:nourish",
+    "menlo-ventures:nourish"
+   ],
+   "note": "Same company. The $100M Series C of May 2026 valued Nourish at $1.75B (Reuters); Menlo's row reads below $1B. Stale side is the sibling's; aligned and re-ingested at this run's ingest (COLLECTION.md 9)."
+  },
+  {
+   "rows": [
+    "tcv:nourish",
+    "thrive-capital:nourish"
+   ],
+   "note": "Same company. The $100M Series C of May 2026 valued Nourish at $1.75B (Reuters); Thrive's row reads below $1B. Stale side is the sibling's; aligned and re-ingested at this run's ingest (COLLECTION.md 9)."
+  },
+  {
+   "rows": [
+    "tcv:nourish",
+    "y-combinator:nourish"
+   ],
+   "note": "Same company. The $100M Series C of May 2026 valued Nourish at $1.75B (Reuters); YC's row reads below $1B. Stale side is the sibling's; aligned and re-ingested at this run's ingest (COLLECTION.md 9)."
+  },
+  {
+   "rows": [
+    "tcv:revolut",
+    "a16z:revolut"
+   ],
+   "note": "Same company. Revolut's secondary share sale of July 2026 set $115B (Bloomberg, 2026-07-22); a16z's row carries $75B from November 2025. Stale side is the sibling's; aligned and re-ingested at this run's ingest (COLLECTION.md 9)."
+  },
+  {
+   "rows": [
+    "tcv:revolut",
+    "greylock:revolut"
+   ],
+   "note": "Same company. Revolut's secondary share sale of July 2026 set $115B (Bloomberg, 2026-07-22); Greylock's row carries $75B from November 2025. Stale side is the sibling's; aligned and re-ingested at this run's ingest (COLLECTION.md 9)."
+  },
+  {
+   "rows": [
+    "tcv:zillow",
+    "benchmark:zillow-com"
+   ],
+   "note": "Same company. Zillow has been listed on Nasdaq since July 2011 and is public at $6.2B (StockAnalysis, 2026-09-29); Benchmark's row reads acquired below $1B as of 2014. Stale side is the sibling's; aligned and re-ingested at this run's ingest (COLLECTION.md 9)."
+  }
+ ]
+}

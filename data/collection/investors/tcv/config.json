@@ -1,0 +1,292 @@
+{
+  "slug": "tcv",
+  "name": "TCV",
+  "wayback": {
+    "cdx_domain": "tcv.com",
+    "site_url_base": "https://www.tcv.com",
+    "eras": [],
+    "non_company_slugs": [
+      "index",
+      "home",
+      "page",
+      "feed",
+      "search",
+      "tag",
+      "category",
+      "author",
+      "all",
+      "see-all",
+      "companies",
+      "all-companies",
+      "portfolio",
+      "portfolios",
+      "partnerships",
+      "team",
+      "teams",
+      "people",
+      "news",
+      "insights",
+      "tcv-insights",
+      "about",
+      "about-us",
+      "approach",
+      "our-approach",
+      "focus-areas",
+      "contact",
+      "privacy-policy",
+      "terms-of-use",
+      "careers",
+      "jobs",
+      "assets",
+      "images",
+      "css",
+      "sitemap",
+      "robots",
+      "favicon"
+    ],
+    "_note": "The archive layer is written by scratch/pull-archive-tcv.py, not by wayback-pull.py eras: tcv.com carried a company list in almost every year since 2000 across seven site generations whose markups differ (a 2000-2002 alphabetical table, 2002-2006 sector pages, the 2007-2011 index.php4 dt/dd list, the 2011-2013 all-portfolio.php4 dd list, the 2013-2016 WordPress partnerships grid, the 2017-2026 compliance list /all-companies and the 2017-2023 /companies/ grid whose card classes carry the firm's own deal type (minority | majority | public), active flag, sector and deal partners, and the 2024-2026 Next.js /partnerships grid). The script reads the first and the last capture of each year per surface through scripts/ia_fetch.py and writes sources/wayback/parsed/<year>.json rows in the builder's shape, with name_listed keeping the archive's own rendering where the canonical name map (sources/site/name-map.json) maps it onto the live compliance list's company."
+  },
+  "roster": {
+    "cdx_patterns": [
+      "tcv.com/team/*",
+      "tcv.com/teams/*"
+    ],
+    "site_team_groups": [
+      "Investor"
+    ],
+    "slug_re": "/teams?/([a-z][a-z0-9]*(?:-[a-z0-9]+)+)/?$",
+    "listing_href_re": "/teams?/([a-z][a-z0-9]*(?:-[a-z0-9]+)+)/?[\"']",
+    "not_a_person": [
+      "index",
+      "team",
+      "teams",
+      "people",
+      "partners",
+      "about",
+      "companies",
+      "portfolio",
+      "news",
+      "contact",
+      "jobs",
+      "careers",
+      "all",
+      "page",
+      "tcv",
+      "investment-team",
+      "operating-team",
+      "senior-advisors"
+    ],
+    "_note": "Profile pages under /team/<first-last> (2019-2026) and /teams/<first-last> (2015-2016) are swept from the CDX by partner-roster.py; the 2002-2013 pages are /team/<first_last>.html (underscore, no hyphen) and are added by scratch/roster-old-pages.py with their capture years. The live team (sources/site/team.json) mixes investors with operations, finance and investor-relations staff: only the site's own role 'Investor' is kept as current-year roster evidence (site_team_groups). Tenure windows come from capture spans and from the natural persons on the firm's own fund Form Ds (the Thrive shape for the pre-2002 partners), one basis line per person in sources/wayback/roster-notes.json."
+  },
+  "site_api": {
+    "type": "scrape",
+    "entry_stage_fields": [],
+    "_entry_stage_note": "No TCV surface states an entry round: the compliance list is names only, the partnerships pages carry founding year, location, sector and the deal team, and the 2018-2023 grid's classes carry a deal TYPE (minority / majority / public), which is a control and T3 label, never a stage (stage_words.py knows no such word). Nothing is eligible to label entry_stage (COLLECTION.md 5); the firm's own news posts are class 1 for the round each one names and assert an entry only where they say so in words (COLLECTION.md 6).",
+    "sources": [
+      {
+        "parser": "file_list",
+        "path": "data/collection/investors/tcv/sources/site/portfolio-2026.json",
+        "list": "portfolio-2026",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "sectors": "sectors",
+        "extras": [
+          "legal_name",
+          "aliases",
+          "lists",
+          "list_note",
+          "status_site",
+          "location",
+          "continent",
+          "description",
+          "year_founded",
+          "company_site",
+          "partners",
+          "articles",
+          "partnership_url",
+          "jobboard_url",
+          "domain",
+          "deal_type_site"
+        ],
+        "_note": "One row per company, merged by scratch/merge-site-tcv.py from the three live first-party surfaces: the compliance list tcv.com/all-companies (339 legal names, as of 2026-07-15), the partnerships grid and pages (155, with the deal team), and the Getro job board portfoliojobs.tcv.com (62). The join uses sources/site/name-map.json (curated: the grid's brand to the list's legal name). url is the partnership page where one exists, else the compliance list."
+      }
+    ],
+    "team_sources": [
+      {
+        "parser": "file_list",
+        "path": "data/collection/investors/tcv/sources/site/team-2026.json",
+        "list": "team",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "rename": {
+          "role": "group"
+        },
+        "extras": [
+          "title",
+          "group",
+          "location",
+          "leadership",
+          "executive_committee",
+          "linkedin_url",
+          "x_url"
+        ],
+        "_note": "tcv.com/team and each /team/<slug> page (scratch/pull-site-tcv.py)."
+      }
+    ],
+    "team_buckets": {
+      "Investor": "investing"
+    },
+    "team_bucket_overrides": {},
+    "_note": "tcv.com is Next.js App Router over Contentful (space ue5a638q2a2b); every surface ships its data in the page's RSC flight payload, read without an API key (escalation ladder step 5). The job board is Getro (portfoliojobs.tcv.com); its stage field is never a label."
+  },
+  "edgar": {
+    "seed_queries": [
+      "tcv",
+      "technology+crossover",
+      "tcmi"
+    ],
+    "fts_phrases": [
+      "Technology Crossover Ventures",
+      "Technology Crossover Management",
+      "TCV Management 2004"
+    ],
+    "fts_own_pattern": "^tcv |^tcv$|^technology crossover|^tcmi|^tcvf management|^tcvii v o f",
+    "thirteenf_ciks": [
+      "1123171",
+      "1283643",
+      "1370400",
+      "1466999",
+      "1626282",
+      "1698264",
+      "1787727",
+      "1977402"
+    ],
+    "_note": "'TCV' is distinctive on EDGAR once qualified: 108 registrants in the lookup table start TCV or Technology Crossover, all the firm's own funds, general partners, relying advisers and single-deal 'Co' vehicles, except three namesakes (TCV Trust & Wealth Management, Inc. of Richmond, a trust company that files its own 13F; TCVI Group Inc.; TCV Franchise Fund LP, checked by address) and the third-party access feeders (desks.classify). Each fund's general partner files its own 13F-HR (Technology Crossover Management IV LLC 2002-2013, V 2007-2019, VI 2009-2019, VII Ltd 2012-2023, VIII Ltd 2017-2026, IX Ltd 2018-2026, X Ltd 2021-2026, XI Ltd 2023-2026; thirteenf_ciks), so a 13F line names the fund holding a listed position. The funds file Schedule 13D/G and Forms 3/4 themselves: fund-filing evidence for a listed member. The adviser is TCMI, Inc. (CRD 160389) with relying advisers TCV VI, VII, VIII, IX Management and TCV Management 2004. Seed queries are URL-ready (edgar-entities.py does not encode them: 'technology crossover' with a space returned nothing)."
+  },
+  "wikipedia": {
+    "phrases": [
+      "Technology Crossover Ventures",
+      "led by TCV",
+      "TCV-led",
+      "investment from TCV"
+    ]
+  },
+  "desks": {
+    "home": "tcv",
+    "partition": [],
+    "rank": [
+      "tcv",
+      "unknown"
+    ],
+    "classify": [
+      {
+        "desk": "external",
+        "patterns": [
+          "tcv trust & wealth",
+          "tcv trust and wealth",
+          "^tcvi group",
+          "tcv franchise fund",
+          "\\baccess (llc|offshore)",
+          "access fund",
+          "icapital"
+        ]
+      },
+      {
+        "desk": "tcv",
+        "patterns": [
+          "^tcv",
+          "^technology crossover",
+          "^tcmi"
+        ]
+      }
+    ],
+    "_note": "One adviser, one strategy (COLLECTION.md 1, T1; decisions.md D1-D2): TCMI, Inc. (CRD 160389) and its relying advisers advise all 34 private funds on the 2026-03-27 ADV, and their Section 7.B gross assets sum to the Item 5.F RAUM to the dollar ($22,506,060,259), so there is no second strategy family to partition: the public and private positions sit in the same growth funds (the PRO-169 delta), and T3 decides each row. External: the three namesakes above and the access feeders into TCV XI, XII and Global Growth XIII where their filing address is a third party's (the Thrive IX Access precedent; checked in the run). TCV Acquisition Corp., the firm's own blank-check company, sits on the home desk as a vehicle and is never a row (T5; a promote would be out under the sponsor-promote ruling), and it is a membership trap in verify.not_members."
+  },
+  "profile": {
+    "own_vehicle_pattern": "^(tcv|technology crossover|tcmi)",
+    "adv_crd": 160389,
+    "focus_min_companies": 18,
+    "focus_crosswalk": {},
+    "_note": "TCMI, Inc. (CRD 160389, SEC-registered, primary business name TCV) reports RAUM $22,506,060,259 on the 2026-03-27 annual amendment (sources/registers/adv-160389.json), 34 private funds whose Section 7.B gross assets sum to the RAUM exactly. There is no strategy partition, so the RAUM is the firm's AUM floor. focus_min_companies is about 4.5% of the expected base."
+  },
+  "verify": {
+    "text_mention_leaks": [],
+    "cofiler_leaks": [],
+    "known_positions": [
+      "netflix",
+      "zillow",
+      "airbnb",
+      "spotify",
+      "peloton",
+      "nubank",
+      "revolut",
+      "toast",
+      "rent the runway",
+      "klarna",
+      "trade republic",
+      "mollie",
+      "clio",
+      "payoneer"
+    ],
+    "unicorn_bands": false,
+    "_unicorn_bands_note": "Rule A (Erik 2026-09-06): the unicorn snapshot is an aggregator, a coverage floor to verify, never a mark.",
+    "sample_slugs": [],
+    "shape": {
+      "c2a_rate_max": 0.8,
+      "_note": "The $1B+ share has no ceiling (COLLECTION.md 8, Erik 2026-09-26): a growth and crossover book can sit at any share, so the share is stated in the report and not gated. c2a_rate_max restates the 80% default; the Seed cohort is expected to be thin or empty (PRO-169: no new stage, entries are Growth by design)."
+    },
+    "not_members": [
+      {
+        "name": "TCV Acquisition Corp",
+        "why": "The firm's own blank-check company (CIK 1845580, IPO 2021): a vehicle with no operating business (T5); a sponsor promote is not a venture entry (COLLECTION.md 1, T3 sponsor promotes)."
+      },
+      {
+        "name": "InterActiveCorp",
+        "why": "13F 2003-2004 only: IAC stock received when USA Interactive bought out Expedia's minority holders in 2003, i.e. consideration for TCV's Expedia position (sale consideration, Erik 2026-09-22; decisions.md D6). The member is Expedia."
+      },
+      {
+        "name": "USA Interactive",
+        "why": "The same company as InterActiveCorp under its 2002-2003 name: consideration for Expedia (D6)."
+      },
+      {
+        "name": "Amdocs",
+        "why": "13F 2004-2006 only: Amdocs acquired Solect Technology (a TCV portfolio company) in 2000 for stock; consideration, not an investment (D6). The member is Solect Technology."
+      },
+      {
+        "name": "Nuance Communications",
+        "why": "13F 2007-2009 only: Nuance acquired BeVocal (a TCV portfolio company) in 2007 for stock; consideration (D6). The member is BeVocal."
+      },
+      {
+        "name": "Shutterfly",
+        "why": "13F 2011-2012 only: Shutterfly acquired Tiny Prints (a TCV portfolio company) in 2011 for stock; consideration (D6). The member is TinyPrints."
+      },
+      {
+        "name": "RadiSys",
+        "why": "13F 2011-2012 only: RadiSys acquired Continuous Computing (a TCV portfolio company) in 2011 for stock; consideration (D6). The member is Continuous Computing."
+      },
+      {
+        "name": "8x8",
+        "why": "13F 2022-2025 only: 8x8 acquired Fuze (a TCV portfolio company) in 2022 for cash and stock; consideration (D6). The member is Fuze."
+      },
+      {
+        "name": "Peregrine Systems",
+        "why": "13F 2001-2003 only, a listed company absent from every version of the firm's compliance list: a TCV I-III public holding, excluded by the list's own note (D4, D9)."
+      },
+      {
+        "name": "PSW Technologies",
+        "why": "Schedule 13D 1998-2000 only, a listed company absent from every version of the compliance list: a TCV I-III public holding (D4, D9)."
+      },
+      {
+        "name": "Citigroup",
+        "why": "13F 2008-2013 only, a position of about $1M absent from every version of the compliance list: not a venture entry (T3, D9)."
+      }
+    ],
+    "_not_members_note": "Membership traps (COLLECTION.md 10 invariant 11), written 2026-09-29 before any verdict from decisions.md D4, D6, D8 and D9: TCV's own blank-check company, the acquirers whose stock the 13F shows arriving at a portfolio company's sale, and listed holdings from TCV I to III that the firm's compliance list excludes by its own note.",
+    "_known_positions_note": "Positions the firm documents as its own private-round, minority investments: its posts and press releases (sources/site/news-archive.json), the funds' Schedule 13D/G filings, and the 2018-2023 grid's own 'minority' deal type. Verify fails if one is missing from the published base. Expedia was dropped before any verdict: the grid labels it a 'public' deal (decisions.md D6)."
+  },
+  "sample_slugs": []
+}

@@ -1,0 +1,36 @@
+# Batch o07 (PRO-169): legacy rows the 2008-2013 portfolio pages place (Common Crawl ARC captures of
+# /portfolio/index.php4, parsed into the archive layer as cc:idx2007). Judge: this session, 2026-09-29.
+U = "undetermined"
+IDX = "the firm's 2008-2013 portfolio page"
+J = [
+ {"s": "corsair-communications", "st": "acquired", "es": U, "hc": "US", "city": "Palo Alto", "f": "SaaS",
+  "n": f"Real-time prepaid billing for wireless carriers, Palo Alto. 'Acquired by Lightbridge, Inc.' ({IDX}), 2001. Round not named."},
+ {"s": "cosmocom", "st": "unknown", "vr": "below_1b", "es": U, "hc": "US", "city": "Melville", "f": "SaaS",
+  "n": f"All-IP contact-centre platforms, Melville NY ({IDX}, no exit noted). No later trace found in the press surfaces; status unknown. Round not named."},
+ {"s": "creo-products", "st": "acquired", "es": U, "hc": "US", "city": "Bedford", "f": "Industrial & Robotics",
+  "n": f"Graphic-arts systems (Creo Products, Inc.), Bedford MA ({IDX}); Creo was acquired by Eastman Kodak in 2005. Round not named."},
+ {"s": "ejasent", "st": "acquired", "es": U, "hc": "US", "city": "Mountain View", "f": "Data Infrastructure",
+  "n": f"Utility computing software, Mountain View. 'Acquired by Veritas Software Corporation' ({IDX}), 2004. Round not named."},
+ {"s": "encompass", "st": "acquired", "es": U, "hc": "US", "city": "San Francisco", "f": "Consumer & Marketplaces",
+  "n": f"Consumer web-access software, San Francisco. 'Acquired by Yahoo, Inc.' ({IDX}). Round not named."},
+ {"s": "imarket", "st": "acquired", "es": U, "hc": "US", "city": "Waltham", "f": "SaaS",
+  "n": f"Small-business marketing information, Waltham MA. 'Acquired by Dun and Bradstreet' ({IDX}). Round not named."},
+ {"s": "integres-global-logistics", "st": "acquired", "es": U, "hc": "US", "city": "Rancho Cordova", "f": None,
+  "n": f"Air freight and logistics services, Rancho Cordova CA ({IDX}); acquired by Panther Expedited Services in 2011 (FreightWaves, 2011-01-06). Logistics services are outside the focus taxonomy. Round not named."},
+ {"s": "metapath-software-international", "st": "acquired", "es": U, "hc": "US", "city": "Bellevue", "f": "SaaS",
+  "n": f"Telecom network information software, Bellevue WA. 'Acquired by Marconi, Inc.' ({IDX}). Round not named."},
+ {"s": "moneyexpert", "st": "unknown", "vr": "below_1b", "es": U, "hc": "GB", "city": "Manchester", "f": "Fintech & Payments",
+  "n": f"Online comparison of financial products, Manchester ({IDX}; Manchester Evening News, 2013). No later trace found; status unknown. Round not named."},
+ {"s": "one-touch-systems", "st": "acquired", "es": U, "hc": "US", "city": "San Jose", "f": "SaaS",
+  "n": f"Interactive distance-learning systems, San Jose. 'Acquired by Interactive Distance Learning' ({IDX}). Round not named."},
+ {"s": "origin", "st": "unknown", "vr": "below_1b", "city": "Chicago", "f": "Healthcare & Bio",
+  "n": f"Healthcare revenue-cycle management and intelligence (Origin Healthcare Solutions; the list's 'Origin Holdings Inc.'), Chicago ({IDX}). TCV's growth investment of 2009 (the firm's post; the Form D names John Drew). Its later ownership is not established: status unknown."},
+ {"s": "testmart", "st": "defunct", "es": U, "hc": "US", "city": "San Bruno", "f": "Consumer & Marketplaces",
+  "n": f"Online marketplace for test and measurement equipment (Technical Communities, Inc. dba TestMart), San Bruno ({IDX}). No trace after the early 2000s; defunct. Round not named."},
+ {"s": "trading-edge", "st": "acquired", "es": U, "hc": "US", "city": "New York", "f": "Fintech & Payments",
+  "n": f"Electronic bond trading (BondLink), New York. '(Acquired by MarketAxess, Inc.)' ({IDX}). Round not named."},
+ {"s": "tradingscreen", "st": "acquired", "es": U, "hc": "US", "city": "New York", "f": "Fintech & Payments",
+  "n": f"Multi-asset trading software, New York ({IDX}). Francisco Partners acquired it and merged it with Imagine Software in 2021 (TS Imagine; pehub, 2021-05-03). Round not named."},
+ {"s": "webtone-technologies", "st": "acquired", "es": U, "hc": "US", "city": "Atlanta", "f": "SaaS",
+  "n": f"Customer interaction software for banks, Atlanta. 'Acquired by Fidelity Information Services, Inc.' ({IDX}). Round not named."},
+]

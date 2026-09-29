@@ -1,0 +1,4986 @@
+{
+ "_readme": "13F holdings layer: the investor's public book, quarter by quarter (PRO-78).\n\nA crossover manager files Form 13F-HR every quarter for the exchange-traded\nsecurities it holds. COLLECTION.md 1 rules that a position which first appears\nas a 13F holding and never entered through a venture round is NOT a member (T3),\nso this layer never seeds membership. What it gives the run:\n\n  * a public-status corroboration for a member row: a 13F line is, by\n    definition, an exchange-traded security, so a company on it has listed;\n  * a first-seen quarter per issuer, which dates when the position became\n    public (a member entered privately shows up here only after its IPO);\n  * the recall trigger for the crossover blind spot: a 13F issuer whose IPO\n    postdates the firm's private activity is CHECKED for a pre-IPO round\n    (the judge's question), never admitted on the 13F alone.\n\nReads every 13F-HR / 13F-HR/A of the CIKs in config `edgar.thirteenf_ciks`\nthrough the submissions API, then each filing's information table (XML from\n2013Q2; the earlier text-table filings are parsed loosely and marked\n`legacy`). Values are normalised to dollars per filing by an implied price\ntest: a 13F table reports a value and a share count per line, so the median\nvalue per share of a filing is a share price (tens to hundreds of dollars)\nwhen the table is in dollars and a thousandth of one when it is in thousands.\nThe rule of the form (thousands before 2023Q1, dollars after) is not safe on\nits own: Coatue's five filings of 2001 are in dollars, its 2002 to 2022\nfilings in thousands. A filing total was tried first as the test and failed\non exactly those five (a $43M book read as $43B).\n\nOutput: sources/edgar/13f-holdings.json\n  {\"_readme\", \"filers\": {cik: {name, filings: [{accession, period, filed, positions}]}},\n   \"issuers\": {norm_name: {name, cusips[], classes[], first_period, last_period,\n                           periods, max_value_usd, last_value_usd}}}\nUsage: python3 scripts/edgar-13f.py <investor-slug> [--refresh]",
+ "filers": {
+  "1123171": {
+   "name": "TECHNOLOGY CROSSOVER MANAGEMENT IV LLC",
+   "filings": [
+    {
+     "accession": "0000950005-02-000514",
+     "period": "2001-12-31",
+     "filed": "2002-05-09",
+     "form": "13F-HR/A",
+     "positions": 4,
+     "total_value_usd": 159695000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950005-02-000528",
+     "period": "2002-03-31",
+     "filed": "2002-05-09",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 259036000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950005-02-000732",
+     "period": "2002-06-30",
+     "filed": "2002-07-09",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 291880000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950005-02-000977",
+     "period": "2002-09-30",
+     "filed": "2002-11-05",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 281910000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950005-03-000084",
+     "period": "2002-12-31",
+     "filed": "2003-02-03",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 323213000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950005-03-000484",
+     "period": "2003-03-31",
+     "filed": "2003-04-21",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 429029000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950005-03-000722",
+     "period": "2003-06-30",
+     "filed": "2003-07-07",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 522137000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950005-03-000957",
+     "period": "2003-09-30",
+     "filed": "2003-10-08",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 537190000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000891618-04-000068",
+     "period": "2003-12-31",
+     "filed": "2004-01-12",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 447976000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-04-005128",
+     "period": "2004-03-31",
+     "filed": "2004-04-13",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 382088000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-04-010317",
+     "period": "2004-06-30",
+     "filed": "2004-07-21",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 379421000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-04-014474",
+     "period": "2004-09-30",
+     "filed": "2004-10-04",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 211237000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-05-000527",
+     "period": "2004-12-31",
+     "filed": "2005-01-11",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 415752000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-05-007054",
+     "period": "2005-03-31",
+     "filed": "2005-04-07",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 334800000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-05-013047",
+     "period": "2005-06-30",
+     "filed": "2005-07-08",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 248494000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-05-019486",
+     "period": "2005-09-30",
+     "filed": "2005-10-21",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 268297000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000891618-06-000016",
+     "period": "2005-12-31",
+     "filed": "2006-01-13",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 260939000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-06-007290",
+     "period": "2006-03-31",
+     "filed": "2006-04-14",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 255591000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-06-013454",
+     "period": "2006-06-30",
+     "filed": "2006-07-19",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 533030000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-06-018871",
+     "period": "2006-09-30",
+     "filed": "2006-10-10",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 358452000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-07-000772",
+     "period": "2006-12-31",
+     "filed": "2007-01-18",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 630440000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-07-007888",
+     "period": "2007-03-31",
+     "filed": "2007-04-10",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 311482000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-07-014916",
+     "period": "2007-06-30",
+     "filed": "2007-07-10",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 356132000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-07-021289",
+     "period": "2007-09-30",
+     "filed": "2007-10-15",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 380505000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-08-000518",
+     "period": "2007-12-31",
+     "filed": "2008-01-14",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 437017000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000891618-08-000220",
+     "period": "2008-03-31",
+     "filed": "2008-04-18",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 507572000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-08-015629",
+     "period": "2008-06-30",
+     "filed": "2008-08-22",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 401275000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-08-017584",
+     "period": "2008-09-30",
+     "filed": "2008-10-06",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 379098000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-09-002806",
+     "period": "2008-12-31",
+     "filed": "2009-02-13",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 273807000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-09-007420",
+     "period": "2009-03-31",
+     "filed": "2009-04-13",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 350381000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950123-09-036190",
+     "period": "2009-06-30",
+     "filed": "2009-08-18",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 278934000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950123-09-051274",
+     "period": "2009-09-30",
+     "filed": "2009-10-19",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 308518000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-10-004164",
+     "period": "2009-12-31",
+     "filed": "2010-01-28",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 310554000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-10-026750",
+     "period": "2010-03-31",
+     "filed": "2010-05-13",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 412399000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-10-040520",
+     "period": "2010-06-30",
+     "filed": "2010-08-02",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 407460000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-10-057568",
+     "period": "2010-09-30",
+     "filed": "2010-11-04",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 606427000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-11-007634",
+     "period": "2010-12-31",
+     "filed": "2011-02-11",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 330925000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-11-028910",
+     "period": "2011-03-31",
+     "filed": "2011-05-13",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 226775000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-11-045965",
+     "period": "2011-06-30",
+     "filed": "2011-08-12",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 5166000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-11-064147",
+     "period": "2011-09-30",
+     "filed": "2011-11-14",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 5666000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-12-008580",
+     "period": "2011-12-31",
+     "filed": "2012-02-14",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 1581000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-12-028725",
+     "period": "2012-03-31",
+     "filed": "2012-05-14",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 2312000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-12-042282",
+     "period": "2012-06-30",
+     "filed": "2012-08-01",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 1962000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-12-059951",
+     "period": "2012-09-30",
+     "filed": "2012-11-07",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 562000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-13-006377",
+     "period": "2012-12-31",
+     "filed": "2013-02-06",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 465000,
+     "scale": 1000.0
+    }
+   ]
+  },
+  "1283643": {
+   "name": "TECHNOLOGY CROSSOVER MANAGEMENT V LLC",
+   "filings": [
+    {
+     "accession": "0000950134-07-000873",
+     "period": "2006-12-31",
+     "filed": "2007-01-19",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 172540000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-07-007889",
+     "period": "2007-03-31",
+     "filed": "2007-04-10",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 229080000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-07-014917",
+     "period": "2007-06-30",
+     "filed": "2007-07-10",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 351036000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-07-021288",
+     "period": "2007-09-30",
+     "filed": "2007-10-15",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 325110000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-08-000516",
+     "period": "2007-12-31",
+     "filed": "2008-01-14",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 243052000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000891618-08-000219",
+     "period": "2008-03-31",
+     "filed": "2008-04-18",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 301679000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-08-015628",
+     "period": "2008-06-30",
+     "filed": "2008-08-22",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 130753000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-08-017583",
+     "period": "2008-09-30",
+     "filed": "2008-10-06",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 212406000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-09-002808",
+     "period": "2008-12-31",
+     "filed": "2009-02-13",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 149155000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-09-007417",
+     "period": "2009-03-31",
+     "filed": "2009-04-13",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 121527000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950123-09-036196",
+     "period": "2009-06-30",
+     "filed": "2009-08-18",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 49528000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950123-09-051273",
+     "period": "2009-09-30",
+     "filed": "2009-10-19",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 164508000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-10-004166",
+     "period": "2009-12-31",
+     "filed": "2010-01-28",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 69710000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-10-026755",
+     "period": "2010-03-31",
+     "filed": "2010-05-13",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 64757000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-10-040521",
+     "period": "2010-06-30",
+     "filed": "2010-08-02",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 104923000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-10-057554",
+     "period": "2010-09-30",
+     "filed": "2010-11-04",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 116463000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-11-007642",
+     "period": "2010-12-31",
+     "filed": "2011-02-11",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 177680000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-11-028916",
+     "period": "2011-03-31",
+     "filed": "2011-05-13",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 133940000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-11-045966",
+     "period": "2011-06-30",
+     "filed": "2011-08-12",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 102809000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-11-064141",
+     "period": "2011-09-30",
+     "filed": "2011-11-14",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 232184000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-12-008582",
+     "period": "2011-12-31",
+     "filed": "2012-02-14",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 213065000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-12-028719",
+     "period": "2012-03-31",
+     "filed": "2012-05-14",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 251935000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-12-042284",
+     "period": "2012-06-30",
+     "filed": "2012-08-01",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 230672000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-12-059943",
+     "period": "2012-09-30",
+     "filed": "2012-11-07",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 227433000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-13-006364",
+     "period": "2012-12-31",
+     "filed": "2013-02-06",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 183186000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-13-021801",
+     "period": "2013-03-31",
+     "filed": "2013-04-15",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 261890000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-13-045487",
+     "period": "2013-06-30",
+     "filed": "2013-08-14",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 271982000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-13-059874",
+     "period": "2013-09-30",
+     "filed": "2013-11-08",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 241192000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-14-008631",
+     "period": "2013-12-31",
+     "filed": "2014-02-13",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 199835000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-14-029566",
+     "period": "2014-03-31",
+     "filed": "2014-05-12",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 170014000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-14-049334",
+     "period": "2014-06-30",
+     "filed": "2014-08-13",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 129161000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-14-067116",
+     "period": "2014-09-30",
+     "filed": "2014-11-12",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 126969000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-15-008825",
+     "period": "2014-12-31",
+     "filed": "2015-02-13",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 145121000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-15-028711",
+     "period": "2015-03-31",
+     "filed": "2015-05-08",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 166560000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-15-048963",
+     "period": "2015-06-30",
+     "filed": "2015-08-13",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 130459000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-15-065252",
+     "period": "2015-09-30",
+     "filed": "2015-11-13",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 129697000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-16-080747",
+     "period": "2015-12-31",
+     "filed": "2016-02-11",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 128150000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-16-101231",
+     "period": "2016-03-31",
+     "filed": "2016-05-12",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 121586000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-16-118039",
+     "period": "2016-06-30",
+     "filed": "2016-08-10",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 92039000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-16-133333",
+     "period": "2016-09-30",
+     "filed": "2016-11-10",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 81268000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-17-008372",
+     "period": "2016-12-31",
+     "filed": "2017-02-14",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 74949000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-17-027418",
+     "period": "2017-03-31",
+     "filed": "2017-05-15",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 85189000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-17-042755",
+     "period": "2017-06-30",
+     "filed": "2017-08-14",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 128680000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-17-058271",
+     "period": "2017-09-30",
+     "filed": "2017-11-13",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 127060000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-18-008159",
+     "period": "2017-12-31",
+     "filed": "2018-02-14",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 125805000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-18-028154",
+     "period": "2018-03-31",
+     "filed": "2018-05-14",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 116924000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-18-044546",
+     "period": "2018-06-30",
+     "filed": "2018-08-14",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 137369000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-18-059836",
+     "period": "2018-09-30",
+     "filed": "2018-11-14",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 122431000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-19-007885",
+     "period": "2018-12-31",
+     "filed": "2019-02-14",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 75322000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-19-026037",
+     "period": "2019-03-31",
+     "filed": "2019-05-14",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 88307000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-19-039911",
+     "period": "2019-06-30",
+     "filed": "2019-08-14",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 86743000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-19-064088",
+     "period": "2019-09-30",
+     "filed": "2019-11-14",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 85196000,
+     "scale": 1000.0
+    }
+   ]
+  },
+  "1370400": {
+   "name": "Technology Crossover Management VI, L.L.C.",
+   "filings": [
+    {
+     "accession": "0000950134-09-002809",
+     "period": "2008-12-31",
+     "filed": "2009-02-13",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 82551000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950134-09-007419",
+     "period": "2009-03-31",
+     "filed": "2009-04-13",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 85075000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950123-09-036206",
+     "period": "2009-06-30",
+     "filed": "2009-08-18",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 92270000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0000950123-09-051271",
+     "period": "2009-09-30",
+     "filed": "2009-10-19",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 126469000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-10-004169",
+     "period": "2009-12-31",
+     "filed": "2010-01-28",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 141471000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-10-026744",
+     "period": "2010-03-31",
+     "filed": "2010-05-13",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 168075000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-10-040516",
+     "period": "2010-06-30",
+     "filed": "2010-08-02",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 187556000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-10-057557",
+     "period": "2010-09-30",
+     "filed": "2010-11-04",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 268932000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-11-007645",
+     "period": "2010-12-31",
+     "filed": "2011-02-11",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 161065000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-11-028922",
+     "period": "2011-03-31",
+     "filed": "2011-05-13",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 199218000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-11-049370",
+     "period": "2011-06-30",
+     "filed": "2011-08-24",
+     "form": "13F-HR/A",
+     "positions": 5,
+     "total_value_usd": 187193000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-11-064153",
+     "period": "2011-09-30",
+     "filed": "2011-11-14",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 222603000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-12-008588",
+     "period": "2011-12-31",
+     "filed": "2012-02-14",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 147158000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-12-028720",
+     "period": "2012-03-31",
+     "filed": "2012-05-14",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 265691000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-12-042283",
+     "period": "2012-06-30",
+     "filed": "2012-08-01",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 246545000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-12-059949",
+     "period": "2012-09-30",
+     "filed": "2012-11-07",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 123375000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-13-006374",
+     "period": "2012-12-31",
+     "filed": "2013-02-06",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 92018000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-13-021803",
+     "period": "2013-03-31",
+     "filed": "2013-04-15",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 86500000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-13-045491",
+     "period": "2013-06-30",
+     "filed": "2013-08-14",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 126180000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-13-059876",
+     "period": "2013-09-30",
+     "filed": "2013-11-08",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 125962000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-14-008637",
+     "period": "2013-12-31",
+     "filed": "2014-02-13",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 252641000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-14-029571",
+     "period": "2014-03-31",
+     "filed": "2014-05-12",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 177124000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-14-049328",
+     "period": "2014-06-30",
+     "filed": "2014-08-13",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 193179000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-14-067118",
+     "period": "2014-09-30",
+     "filed": "2014-11-12",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 155188000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-15-008820",
+     "period": "2014-12-31",
+     "filed": "2015-02-13",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 144915000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-15-028714",
+     "period": "2015-03-31",
+     "filed": "2015-05-08",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 168857000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-15-048966",
+     "period": "2015-06-30",
+     "filed": "2015-08-13",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 130056000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-15-065257",
+     "period": "2015-09-30",
+     "filed": "2015-11-13",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 82307000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-16-080749",
+     "period": "2015-12-31",
+     "filed": "2016-02-11",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 83486000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-16-101234",
+     "period": "2016-03-31",
+     "filed": "2016-05-12",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 80315000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-16-118038",
+     "period": "2016-06-30",
+     "filed": "2016-08-10",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 92039000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-16-133338",
+     "period": "2016-09-30",
+     "filed": "2016-11-10",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 81268000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-17-008373",
+     "period": "2016-12-31",
+     "filed": "2017-02-14",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 74949000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-17-027420",
+     "period": "2017-03-31",
+     "filed": "2017-05-15",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 85189000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-17-042758",
+     "period": "2017-06-30",
+     "filed": "2017-08-14",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 80484000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-17-058272",
+     "period": "2017-09-30",
+     "filed": "2017-11-13",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 89878000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-18-008160",
+     "period": "2017-12-31",
+     "filed": "2018-02-14",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 88682000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-18-028155",
+     "period": "2018-03-31",
+     "filed": "2018-05-14",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 84579000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-18-044550",
+     "period": "2018-06-30",
+     "filed": "2018-08-14",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 98966000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-18-059838",
+     "period": "2018-09-30",
+     "filed": "2018-11-14",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 86583000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-19-007886",
+     "period": "2018-12-31",
+     "filed": "2019-02-14",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 48059000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-19-026043",
+     "period": "2019-03-31",
+     "filed": "2019-05-14",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 61896000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-19-039913",
+     "period": "2019-06-30",
+     "filed": "2019-08-14",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 61671000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-19-064090",
+     "period": "2019-09-30",
+     "filed": "2019-11-14",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 59576000,
+     "scale": 1000.0
+    }
+   ]
+  },
+  "1466999": {
+   "name": "Technology Crossover Management VII, Ltd.",
+   "filings": [
+    {
+     "accession": "0001144204-12-008584",
+     "period": "2011-12-31",
+     "filed": "2012-02-14",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 938312000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-12-028724",
+     "period": "2012-03-31",
+     "filed": "2012-05-14",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 1214076000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-12-042285",
+     "period": "2012-06-30",
+     "filed": "2012-08-01",
+     "form": "13F-HR",
+     "positions": 10,
+     "total_value_usd": 1049573000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-12-059947",
+     "period": "2012-09-30",
+     "filed": "2012-11-07",
+     "form": "13F-HR",
+     "positions": 9,
+     "total_value_usd": 804972000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-13-006371",
+     "period": "2012-12-31",
+     "filed": "2013-02-06",
+     "form": "13F-HR",
+     "positions": 9,
+     "total_value_usd": 738243000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-13-021806",
+     "period": "2013-03-31",
+     "filed": "2013-04-15",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 748281000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-13-045495",
+     "period": "2013-06-30",
+     "filed": "2013-08-14",
+     "form": "13F-HR",
+     "positions": 8,
+     "total_value_usd": 1299518000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-13-059878",
+     "period": "2013-09-30",
+     "filed": "2013-11-08",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 1097481000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-14-008643",
+     "period": "2013-12-31",
+     "filed": "2014-02-13",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 1594069000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-14-029578",
+     "period": "2014-03-31",
+     "filed": "2014-05-12",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 1262224000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-14-049332",
+     "period": "2014-06-30",
+     "filed": "2014-08-13",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 1489887000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-14-067121",
+     "period": "2014-09-30",
+     "filed": "2014-11-12",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 1484340000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-15-008823",
+     "period": "2014-12-31",
+     "filed": "2015-02-13",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 1197512000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-15-028718",
+     "period": "2015-03-31",
+     "filed": "2015-05-08",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 1270157000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-15-048969",
+     "period": "2015-06-30",
+     "filed": "2015-08-13",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 1648057000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-15-065260",
+     "period": "2015-09-30",
+     "filed": "2015-11-13",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 1519086000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-16-080751",
+     "period": "2015-12-31",
+     "filed": "2016-02-11",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 1632524000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-16-101235",
+     "period": "2016-03-31",
+     "filed": "2016-05-12",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 1643912000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-16-118040",
+     "period": "2016-06-30",
+     "filed": "2016-08-10",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 1960336000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-16-133343",
+     "period": "2016-09-30",
+     "filed": "2016-11-10",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 2127431000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-17-008380",
+     "period": "2016-12-31",
+     "filed": "2017-02-14",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 2166717000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-17-027422",
+     "period": "2017-03-31",
+     "filed": "2017-05-15",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 2477131000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-17-042785",
+     "period": "2017-06-30",
+     "filed": "2017-08-14",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 2438522000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-17-058274",
+     "period": "2017-09-30",
+     "filed": "2017-11-13",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 2610299000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-18-013659",
+     "period": "2017-12-31",
+     "filed": "2018-03-08",
+     "form": "13F-HR/A",
+     "positions": 6,
+     "total_value_usd": 2012299000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-18-028158",
+     "period": "2018-03-31",
+     "filed": "2018-05-14",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 1942055000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-18-044554",
+     "period": "2018-06-30",
+     "filed": "2018-08-14",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 3064862000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-18-059839",
+     "period": "2018-09-30",
+     "filed": "2018-11-14",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 3019408000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-19-007887",
+     "period": "2018-12-31",
+     "filed": "2019-02-14",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 2155511000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-19-026047",
+     "period": "2019-03-31",
+     "filed": "2019-05-14",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 2723268000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-19-039915",
+     "period": "2019-06-30",
+     "filed": "2019-08-14",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 2705743000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-19-064093",
+     "period": "2019-09-30",
+     "filed": "2019-11-14",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 2125711000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-20-020922",
+     "period": "2019-12-31",
+     "filed": "2020-02-14",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 2302228000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-20-062313",
+     "period": "2020-03-31",
+     "filed": "2020-05-15",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 1969566000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-20-095342",
+     "period": "2020-06-30",
+     "filed": "2020-08-14",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 1116336000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-20-125735",
+     "period": "2020-09-30",
+     "filed": "2020-11-16",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 1152894000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-21-024404",
+     "period": "2020-12-31",
+     "filed": "2021-02-16",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 1340637000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-21-068224",
+     "period": "2021-03-31",
+     "filed": "2021-05-17",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 773724000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-21-106443",
+     "period": "2021-06-30",
+     "filed": "2021-08-16",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 786833000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-21-138805",
+     "period": "2021-09-30",
+     "filed": "2021-11-15",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 621646000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-22-022194",
+     "period": "2021-12-31",
+     "filed": "2022-02-14",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 218511000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-22-061131",
+     "period": "2022-03-31",
+     "filed": "2022-05-16",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 135868000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-22-090652",
+     "period": "2022-06-30",
+     "filed": "2022-08-15",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 63427000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-22-117128",
+     "period": "2022-09-30",
+     "filed": "2022-11-10",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 85396000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-23-020008",
+     "period": "2022-12-31",
+     "filed": "2023-02-14",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 106955925,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-23-059826",
+     "period": "2023-03-31",
+     "filed": "2023-05-12",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 0,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-23-090494",
+     "period": "2023-06-30",
+     "filed": "2023-08-11",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 0,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-23-117262",
+     "period": "2023-09-30",
+     "filed": "2023-11-13",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 0,
+     "scale": 1.0
+    }
+   ]
+  },
+  "1626282": {
+   "name": "Technology Crossover Management VIII, Ltd.",
+   "filings": [
+    {
+     "accession": "0001144204-17-008382",
+     "period": "2016-12-31",
+     "filed": "2017-02-14",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 194175000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-17-027424",
+     "period": "2017-03-31",
+     "filed": "2017-05-15",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 209491000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-17-042763",
+     "period": "2017-06-30",
+     "filed": "2017-08-14",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 245624000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-17-058277",
+     "period": "2017-09-30",
+     "filed": "2017-11-13",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 181047000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-18-008185",
+     "period": "2017-12-31",
+     "filed": "2018-02-14",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 265556000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-18-028159",
+     "period": "2018-03-31",
+     "filed": "2018-05-14",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 387982000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-18-044556",
+     "period": "2018-06-30",
+     "filed": "2018-08-14",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 1388027000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-18-059840",
+     "period": "2018-09-30",
+     "filed": "2018-11-14",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 1346953000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-19-007888",
+     "period": "2018-12-31",
+     "filed": "2019-02-14",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 934706000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-19-026051",
+     "period": "2019-03-31",
+     "filed": "2019-05-14",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 1056832000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-19-039917",
+     "period": "2019-06-30",
+     "filed": "2019-08-14",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 1136382000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-19-064095",
+     "period": "2019-09-30",
+     "filed": "2019-11-14",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 849375000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-20-020918",
+     "period": "2019-12-31",
+     "filed": "2020-02-14",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 1110830000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-20-062316",
+     "period": "2020-03-31",
+     "filed": "2020-05-15",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 998775000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-20-095344",
+     "period": "2020-06-30",
+     "filed": "2020-08-14",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 1756943000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-20-125739",
+     "period": "2020-09-30",
+     "filed": "2020-11-16",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 1864007000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-21-024405",
+     "period": "2020-12-31",
+     "filed": "2021-02-16",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 2526534000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-21-068231",
+     "period": "2021-03-31",
+     "filed": "2021-05-17",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 2224639000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-21-106445",
+     "period": "2021-06-30",
+     "filed": "2021-08-16",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 2648205000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-21-138807",
+     "period": "2021-09-30",
+     "filed": "2021-11-15",
+     "form": "13F-HR",
+     "positions": 8,
+     "total_value_usd": 2819527000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-22-022200",
+     "period": "2021-12-31",
+     "filed": "2022-02-14",
+     "form": "13F-HR",
+     "positions": 9,
+     "total_value_usd": 2349863000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-22-061132",
+     "period": "2022-03-31",
+     "filed": "2022-05-16",
+     "form": "13F-HR",
+     "positions": 9,
+     "total_value_usd": 1258196000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-22-090655",
+     "period": "2022-06-30",
+     "filed": "2022-08-15",
+     "form": "13F-HR",
+     "positions": 9,
+     "total_value_usd": 782599000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-22-117129",
+     "period": "2022-09-30",
+     "filed": "2022-11-10",
+     "form": "13F-HR",
+     "positions": 9,
+     "total_value_usd": 869842000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-23-019938",
+     "period": "2022-12-31",
+     "filed": "2023-02-14",
+     "form": "13F-HR",
+     "positions": 10,
+     "total_value_usd": 868152392,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-23-059834",
+     "period": "2023-03-31",
+     "filed": "2023-05-12",
+     "form": "13F-HR",
+     "positions": 9,
+     "total_value_usd": 1182823729,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-23-090496",
+     "period": "2023-06-30",
+     "filed": "2023-08-11",
+     "form": "13F-HR",
+     "positions": 8,
+     "total_value_usd": 1279502910,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-23-117266",
+     "period": "2023-09-30",
+     "filed": "2023-11-13",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 1138603558,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-24-013427",
+     "period": "2023-12-31",
+     "filed": "2024-02-09",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 1115251554,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-24-060658",
+     "period": "2024-03-31",
+     "filed": "2024-05-13",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 899935742,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-24-088339",
+     "period": "2024-06-30",
+     "filed": "2024-08-12",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 891906085,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-24-117671",
+     "period": "2024-09-30",
+     "filed": "2024-11-13",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 928967945,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-25-011465",
+     "period": "2024-12-31",
+     "filed": "2025-02-11",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 581173321,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-25-046705",
+     "period": "2025-03-31",
+     "filed": "2025-05-09",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 469780674,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-25-077527",
+     "period": "2025-06-30",
+     "filed": "2025-08-13",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 459607523,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-25-110319",
+     "period": "2025-09-30",
+     "filed": "2025-11-12",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 452184666,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-26-011490",
+     "period": "2025-12-31",
+     "filed": "2026-02-06",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 410662664,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-26-057878",
+     "period": "2026-03-31",
+     "filed": "2026-05-08",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 298421856,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-26-092683",
+     "period": "2026-06-30",
+     "filed": "2026-08-07",
+     "form": "13F-HR",
+     "positions": 5,
+     "total_value_usd": 345987787,
+     "scale": 1.0
+    }
+   ]
+  },
+  "1698264": {
+   "name": "Technology Crossover Management IX, Ltd.",
+   "filings": [
+    {
+     "accession": "0001144204-18-008163",
+     "period": "2017-12-31",
+     "filed": "2018-02-14",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 205100000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-18-028152",
+     "period": "2018-03-31",
+     "filed": "2018-05-14",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 261894000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-18-044559",
+     "period": "2018-06-30",
+     "filed": "2018-08-14",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 359020000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-18-059842",
+     "period": "2018-09-30",
+     "filed": "2018-11-14",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 116491000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-19-007890",
+     "period": "2018-12-31",
+     "filed": "2019-02-14",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 156162000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-19-026053",
+     "period": "2019-03-31",
+     "filed": "2019-05-14",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 153759000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001144204-19-039919",
+     "period": "2019-06-30",
+     "filed": "2019-08-14",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 251542000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-19-064097",
+     "period": "2019-09-30",
+     "filed": "2019-11-14",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 225340000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-20-020910",
+     "period": "2019-12-31",
+     "filed": "2020-02-14",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 262844000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-20-062319",
+     "period": "2020-03-31",
+     "filed": "2020-05-15",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 198615000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-20-095347",
+     "period": "2020-06-30",
+     "filed": "2020-08-14",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 324286000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-20-125737",
+     "period": "2020-09-30",
+     "filed": "2020-11-16",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 535549000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-21-024407",
+     "period": "2020-12-31",
+     "filed": "2021-02-16",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 736407000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-21-068237",
+     "period": "2021-03-31",
+     "filed": "2021-05-17",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 724788000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-21-116827",
+     "period": "2021-06-30",
+     "filed": "2021-09-17",
+     "form": "13F-HR/A",
+     "positions": 5,
+     "total_value_usd": 854228000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-21-138808",
+     "period": "2021-09-30",
+     "filed": "2021-11-15",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 2109695000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-22-022205",
+     "period": "2021-12-31",
+     "filed": "2022-02-14",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 1725734000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-22-061134",
+     "period": "2022-03-31",
+     "filed": "2022-05-16",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 1572825000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-22-090657",
+     "period": "2022-06-30",
+     "filed": "2022-08-15",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 1020281000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-22-117131",
+     "period": "2022-09-30",
+     "filed": "2022-11-10",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 997663000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-23-019942",
+     "period": "2022-12-31",
+     "filed": "2023-02-14",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 1061742106,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-23-059837",
+     "period": "2023-03-31",
+     "filed": "2023-05-12",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 1211170133,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-23-090497",
+     "period": "2023-06-30",
+     "filed": "2023-08-11",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 1291375919,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-23-117268",
+     "period": "2023-09-30",
+     "filed": "2023-11-13",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 1107505672,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-24-013430",
+     "period": "2023-12-31",
+     "filed": "2024-02-09",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 1163772017,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-24-060661",
+     "period": "2024-03-31",
+     "filed": "2024-05-13",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 848003179,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-24-088342",
+     "period": "2024-06-30",
+     "filed": "2024-08-12",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 717507530,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-24-117675",
+     "period": "2024-09-30",
+     "filed": "2024-11-13",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 767859742,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-25-011474",
+     "period": "2024-12-31",
+     "filed": "2025-02-11",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 1012510752,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-25-046710",
+     "period": "2025-03-31",
+     "filed": "2025-05-09",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 1149158075,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-25-077530",
+     "period": "2025-06-30",
+     "filed": "2025-08-13",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 1241731234,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-25-110325",
+     "period": "2025-09-30",
+     "filed": "2025-11-12",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 1268197819,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-26-011492",
+     "period": "2025-12-31",
+     "filed": "2026-02-06",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 1127563483,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-26-057885",
+     "period": "2026-03-31",
+     "filed": "2026-05-08",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 752164315,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-26-092690",
+     "period": "2026-06-30",
+     "filed": "2026-08-07",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 689878414,
+     "scale": 1.0
+    }
+   ]
+  },
+  "1787727": {
+   "name": "Technology Crossover Management X, Ltd.",
+   "filings": [
+    {
+     "accession": "0001104659-21-024411",
+     "period": "2020-12-31",
+     "filed": "2021-02-16",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 431545000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-21-068240",
+     "period": "2021-03-31",
+     "filed": "2021-05-17",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 432749000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-21-106450",
+     "period": "2021-06-30",
+     "filed": "2021-08-16",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 365652000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-21-138809",
+     "period": "2021-09-30",
+     "filed": "2021-11-15",
+     "form": "13F-HR",
+     "positions": 4,
+     "total_value_usd": 332882000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-22-022210",
+     "period": "2021-12-31",
+     "filed": "2022-02-14",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 927710000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-22-061136",
+     "period": "2022-03-31",
+     "filed": "2022-05-16",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 731463000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-22-090660",
+     "period": "2022-06-30",
+     "filed": "2022-08-15",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 358494000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-22-117132",
+     "period": "2022-09-30",
+     "filed": "2022-11-10",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 394951000,
+     "scale": 1000.0
+    },
+    {
+     "accession": "0001104659-23-019947",
+     "period": "2022-12-31",
+     "filed": "2023-02-14",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 558394823,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-23-059847",
+     "period": "2023-03-31",
+     "filed": "2023-05-12",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 655243978,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-23-090500",
+     "period": "2023-06-30",
+     "filed": "2023-08-11",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 1016496590,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-23-117271",
+     "period": "2023-09-30",
+     "filed": "2023-11-13",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 716847750,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-24-013438",
+     "period": "2023-12-31",
+     "filed": "2024-02-09",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 848898299,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-24-060663",
+     "period": "2024-03-31",
+     "filed": "2024-05-13",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 953748529,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-24-088343",
+     "period": "2024-06-30",
+     "filed": "2024-08-12",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 1013497342,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-24-117670",
+     "period": "2024-09-30",
+     "filed": "2024-11-13",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 1094981265,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-25-011481",
+     "period": "2024-12-31",
+     "filed": "2025-02-11",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 698899029,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-25-046714",
+     "period": "2025-03-31",
+     "filed": "2025-05-09",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 684275080,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-25-077532",
+     "period": "2025-06-30",
+     "filed": "2025-08-13",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 896638110,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-25-110327",
+     "period": "2025-09-30",
+     "filed": "2025-11-12",
+     "form": "13F-HR",
+     "positions": 7,
+     "total_value_usd": 1187550524,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-26-011496",
+     "period": "2025-12-31",
+     "filed": "2026-02-06",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 1002281160,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-26-057889",
+     "period": "2026-03-31",
+     "filed": "2026-05-08",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 781280088,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-26-092692",
+     "period": "2026-06-30",
+     "filed": "2026-08-07",
+     "form": "13F-HR",
+     "positions": 6,
+     "total_value_usd": 795170640,
+     "scale": 1.0
+    }
+   ]
+  },
+  "1977402": {
+   "name": "Technology Crossover Management XI, Ltd.",
+   "filings": [
+    {
+     "accession": "0001104659-23-059882",
+     "period": "2023-03-31",
+     "filed": "2023-05-12",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 127270645,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-23-090501",
+     "period": "2023-06-30",
+     "filed": "2023-08-11",
+     "form": "13F-HR",
+     "positions": 1,
+     "total_value_usd": 152920985,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-23-117287",
+     "period": "2023-09-30",
+     "filed": "2023-11-13",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 280781029,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-24-013445",
+     "period": "2023-12-31",
+     "filed": "2024-02-09",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 307148965,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-24-060664",
+     "period": "2024-03-31",
+     "filed": "2024-05-13",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 443046540,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-24-088344",
+     "period": "2024-06-30",
+     "filed": "2024-08-12",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 602326474,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-24-117672",
+     "period": "2024-09-30",
+     "filed": "2024-11-13",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 737384044,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-25-011494",
+     "period": "2024-12-31",
+     "filed": "2025-02-11",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 865361930,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-25-046718",
+     "period": "2025-03-31",
+     "filed": "2025-05-09",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 981565318,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-25-077536",
+     "period": "2025-06-30",
+     "filed": "2025-08-13",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 1053267422,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-25-110329",
+     "period": "2025-09-30",
+     "filed": "2025-11-12",
+     "form": "13F-HR",
+     "positions": 3,
+     "total_value_usd": 977397674,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-26-011497",
+     "period": "2025-12-31",
+     "filed": "2026-02-06",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 740210816,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-26-057893",
+     "period": "2026-03-31",
+     "filed": "2026-05-08",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 581657930,
+     "scale": 1.0
+    },
+    {
+     "accession": "0001104659-26-092694",
+     "period": "2026-06-30",
+     "filed": "2026-08-07",
+     "form": "13F-HR",
+     "positions": 2,
+     "total_value_usd": 532824895,
+     "scale": 1.0
+    }
+   ]
+  }
+ },
+ "issuers": {
+  "0": {
+   "name": "0",
+   "cusips": [
+    "000000000"
+   ],
+   "classes": [
+    "0"
+   ],
+   "periods": [
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30"
+   ],
+   "first_period": "2023-03-31",
+   "last_period": "2023-09-30",
+   "max_value_usd": 0.0,
+   "last_value_usd": 0.0,
+   "put_call_only": false
+  },
+  "8x8": {
+   "name": "8x8, Inc.",
+   "cusips": [
+    "282914100"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2025-03-31"
+   ],
+   "first_period": "2022-03-31",
+   "last_period": "2025-03-31",
+   "max_value_usd": 8689000.0,
+   "last_value_usd": 101916.0,
+   "put_call_only": false
+  },
+  "airbnb": {
+   "name": "Airbnb, Inc.",
+   "cusips": [
+    "009066101"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2020-12-31",
+    "2021-03-31",
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31"
+   ],
+   "first_period": "2020-12-31",
+   "last_period": "2021-12-31",
+   "max_value_usd": 456028000.0,
+   "last_value_usd": 362082000.0,
+   "put_call_only": false
+  },
+  "alarm": {
+   "name": "Alarm.com Holdings, Inc.",
+   "cusips": [
+    "011642105"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2015-06-30",
+    "2015-09-30",
+    "2015-12-31",
+    "2016-03-31",
+    "2016-06-30",
+    "2016-09-30",
+    "2016-12-31",
+    "2017-03-31",
+    "2017-06-30",
+    "2017-09-30",
+    "2017-12-31",
+    "2018-03-31",
+    "2018-06-30",
+    "2018-09-30",
+    "2018-12-31",
+    "2019-03-31",
+    "2019-06-30",
+    "2019-09-30",
+    "2019-12-31",
+    "2020-03-31"
+   ],
+   "first_period": "2015-06-30",
+   "last_period": "2020-03-31",
+   "max_value_usd": 682961000.0,
+   "last_value_usd": 218536000.0,
+   "put_call_only": false
+  },
+  "altiris": {
+   "name": "Altiris, Inc.",
+   "cusips": [
+    "02148M100"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2002-06-30",
+    "2002-09-30",
+    "2002-12-31",
+    "2003-03-31",
+    "2003-06-30",
+    "2003-09-30",
+    "2003-12-31",
+    "2004-03-31",
+    "2004-06-30",
+    "2004-09-30",
+    "2004-12-31",
+    "2005-03-31",
+    "2005-06-30",
+    "2005-09-30",
+    "2005-12-31",
+    "2006-03-31",
+    "2006-06-30",
+    "2006-09-30",
+    "2006-12-31"
+   ],
+   "first_period": "2002-06-30",
+   "last_period": "2006-12-31",
+   "max_value_usd": 166671000.0,
+   "last_value_usd": 77887000.0,
+   "put_call_only": false
+  },
+  "amdocs limited": {
+   "name": "Amdocs Limited",
+   "cusips": [
+    "G02602103"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2004-03-31",
+    "2004-06-30",
+    "2004-09-30",
+    "2004-12-31",
+    "2005-03-31",
+    "2005-06-30",
+    "2005-09-30",
+    "2005-12-31",
+    "2006-03-31",
+    "2006-06-30",
+    "2006-09-30",
+    "2006-12-31"
+   ],
+   "first_period": "2004-03-31",
+   "last_period": "2006-12-31",
+   "max_value_usd": 2957000.0,
+   "last_value_usd": 2894000.0,
+   "put_call_only": false
+  },
+  "avalara": {
+   "name": "Avalara, Inc.",
+   "cusips": [
+    "05338G106"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2018-06-30",
+    "2018-09-30",
+    "2018-12-31"
+   ],
+   "first_period": "2018-06-30",
+   "last_period": "2018-12-31",
+   "max_value_usd": 140525000.0,
+   "last_value_usd": 82019000.0,
+   "put_call_only": false
+  },
+  "capella education company": {
+   "name": "Capella Education Company",
+   "cusips": [
+    "139594105"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2007-06-30"
+   ],
+   "first_period": "2007-06-30",
+   "last_period": "2007-06-30",
+   "max_value_usd": 72126000.0,
+   "last_value_usd": 72126000.0,
+   "put_call_only": false
+  },
+  "ccc intelligent solutions": {
+   "name": "CCC Intelligent Solutions Holdings Inc",
+   "cusips": [
+    "12510Q100"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31"
+   ],
+   "first_period": "2021-09-30",
+   "last_period": "2023-12-31",
+   "max_value_usd": 604613000.0,
+   "last_value_usd": 348409018.0,
+   "put_call_only": false
+  },
+  "citigroup": {
+   "name": "Citigroup, Inc.*",
+   "cusips": [
+    "172967101",
+    "172967424"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2008-12-31",
+    "2009-03-31",
+    "2009-06-30",
+    "2009-09-30",
+    "2009-12-31",
+    "2010-03-31",
+    "2010-06-30",
+    "2010-09-30",
+    "2010-12-31",
+    "2011-03-31",
+    "2011-06-30",
+    "2011-09-30",
+    "2011-12-31",
+    "2012-03-31",
+    "2012-06-30",
+    "2012-09-30",
+    "2012-12-31",
+    "2013-03-31",
+    "2013-06-30",
+    "2013-09-30"
+   ],
+   "first_period": "2008-12-31",
+   "last_period": "2013-09-30",
+   "max_value_usd": 1192000.0,
+   "last_value_usd": 33000.0,
+   "put_call_only": false
+  },
+  "communications": {
+   "name": "Communications*",
+   "cusips": [
+    "67020Y100"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2007-09-30",
+    "2007-12-31",
+    "2008-03-31",
+    "2008-06-30",
+    "2008-12-31",
+    "2009-06-30"
+   ],
+   "first_period": "2007-09-30",
+   "last_period": "2009-06-30",
+   "max_value_usd": 151913000.0,
+   "last_value_usd": 2038000.0,
+   "put_call_only": false
+  },
+  "company": {
+   "name": "Company",
+   "cusips": [
+    "139594105"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2006-12-31",
+    "2007-03-31",
+    "2007-09-30",
+    "2007-12-31"
+   ],
+   "first_period": "2006-12-31",
+   "last_period": "2007-12-31",
+   "max_value_usd": 65694000.0,
+   "last_value_usd": 40385000.0,
+   "put_call_only": false
+  },
+  "corporation": {
+   "name": "Corporation",
+   "cusips": [
+    "39304D102"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2011-12-31"
+   ],
+   "first_period": "2011-12-31",
+   "last_period": "2011-12-31",
+   "max_value_usd": 56165000.0,
+   "last_value_usd": 56165000.0,
+   "put_call_only": false
+  },
+  "cosine communications": {
+   "name": "Cosine Communications, Inc.",
+   "cusips": [
+    "221222102"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2002-06-30",
+    "2002-09-30",
+    "2002-12-31",
+    "2003-03-31"
+   ],
+   "first_period": "2002-06-30",
+   "last_period": "2003-03-31",
+   "max_value_usd": 2992000.0,
+   "last_value_usd": 2239000.0,
+   "put_call_only": false
+  },
+  "electronic arts": {
+   "name": "Electronic Arts Inc.*",
+   "cusips": [
+    "285512109"
+   ],
+   "classes": [
+    "Common",
+    "Common*",
+    "Common Class A"
+   ],
+   "periods": [
+    "2011-09-30",
+    "2011-12-31",
+    "2012-03-31",
+    "2012-06-30",
+    "2012-09-30",
+    "2012-12-31",
+    "2013-03-31",
+    "2013-06-30",
+    "2013-09-30",
+    "2013-12-31",
+    "2014-03-31",
+    "2014-06-30",
+    "2014-09-30",
+    "2014-12-31",
+    "2015-03-31",
+    "2015-06-30",
+    "2015-09-30",
+    "2015-12-31",
+    "2016-03-31",
+    "2016-06-30",
+    "2016-09-30",
+    "2016-12-31",
+    "2017-03-31",
+    "2017-06-30",
+    "2017-09-30",
+    "2017-12-31",
+    "2018-03-31",
+    "2018-06-30",
+    "2018-09-30",
+    "2018-12-31",
+    "2019-03-31",
+    "2019-06-30",
+    "2019-09-30",
+    "2019-12-31",
+    "2020-03-31"
+   ],
+   "first_period": "2011-09-30",
+   "last_period": "2020-03-31",
+   "max_value_usd": 378773000.0,
+   "last_value_usd": 225601000.0,
+   "put_call_only": false
+  },
+  "elevate credit": {
+   "name": "Elevate Credit Inc.",
+   "cusips": [
+    "28621V101"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2017-06-30",
+    "2017-09-30",
+    "2017-12-31",
+    "2018-03-31",
+    "2018-06-30",
+    "2018-09-30",
+    "2018-12-31",
+    "2019-03-31",
+    "2019-06-30",
+    "2019-09-30"
+   ],
+   "first_period": "2017-06-30",
+   "last_period": "2019-09-30",
+   "max_value_usd": 51483000.0,
+   "last_value_usd": 25620000.0,
+   "put_call_only": false
+  },
+  "eloyalty": {
+   "name": "eLoyalty Corp.",
+   "cusips": [
+    "290151109"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2001-12-31",
+    "2002-03-31",
+    "2002-06-30",
+    "2002-09-30",
+    "2002-12-31",
+    "2003-03-31",
+    "2003-06-30",
+    "2003-09-30",
+    "2003-12-31",
+    "2004-03-31",
+    "2004-06-30",
+    "2004-09-30",
+    "2004-12-31",
+    "2005-03-31",
+    "2005-06-30",
+    "2005-09-30",
+    "2005-12-31",
+    "2006-03-31",
+    "2006-06-30",
+    "2006-09-30",
+    "2006-12-31",
+    "2007-03-31",
+    "2007-06-30",
+    "2007-09-30",
+    "2007-12-31",
+    "2008-03-31",
+    "2008-06-30",
+    "2008-09-30",
+    "2008-12-31",
+    "2009-03-31",
+    "2009-06-30",
+    "2009-09-30",
+    "2009-12-31",
+    "2010-03-31",
+    "2010-06-30",
+    "2010-09-30",
+    "2010-12-31",
+    "2011-03-31"
+   ],
+   "first_period": "2001-12-31",
+   "last_period": "2011-03-31",
+   "max_value_usd": 16630000.0,
+   "last_value_usd": 6844000.0,
+   "put_call_only": false
+  },
+  "envestnet": {
+   "name": "Envestnet, Inc.",
+   "cusips": [
+    "29404K106"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2011-12-31",
+    "2012-03-31",
+    "2012-06-30",
+    "2012-09-30",
+    "2012-12-31",
+    "2013-03-31",
+    "2013-06-30"
+   ],
+   "first_period": "2011-12-31",
+   "last_period": "2013-06-30",
+   "max_value_usd": 30619000.0,
+   "last_value_usd": 18743000.0,
+   "put_call_only": false
+  },
+  "everday health": {
+   "name": "Everday Health, Inc.",
+   "cusips": [
+    "300415106"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2014-06-30"
+   ],
+   "first_period": "2014-06-30",
+   "last_period": "2014-06-30",
+   "max_value_usd": 18028000.0,
+   "last_value_usd": 18028000.0,
+   "put_call_only": false
+  },
+  "exacttarget": {
+   "name": "ExactTarget, Inc.",
+   "cusips": [
+    "30064K105"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2012-03-31",
+    "2012-06-30",
+    "2012-09-30",
+    "2012-12-31",
+    "2013-03-31",
+    "2013-06-30"
+   ],
+   "first_period": "2012-03-31",
+   "last_period": "2013-06-30",
+   "max_value_usd": 377967000.0,
+   "last_value_usd": 237318000.0,
+   "put_call_only": false
+  },
+  "exlservice": {
+   "name": "EXLService Holdings, Inc.",
+   "cusips": [
+    "302081104"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2007-06-30"
+   ],
+   "first_period": "2007-06-30",
+   "last_period": "2007-06-30",
+   "max_value_usd": 16386000.0,
+   "last_value_usd": 16386000.0,
+   "put_call_only": false
+  },
+  "expedia": {
+   "name": "Expedia, Inc.",
+   "cusips": [
+    "302125109"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2001-12-31",
+    "2002-03-31",
+    "2002-06-30",
+    "2002-09-30",
+    "2002-12-31",
+    "2003-03-31",
+    "2003-06-30"
+   ],
+   "first_period": "2001-12-31",
+   "last_period": "2003-06-30",
+   "max_value_usd": 300991000.0,
+   "last_value_usd": 300991000.0,
+   "put_call_only": false
+  },
+  "facebook": {
+   "name": "Facebook, Inc***",
+   "cusips": [
+    "30303M102"
+   ],
+   "classes": [
+    "Common",
+    "Class A Common"
+   ],
+   "periods": [
+    "2012-06-30",
+    "2012-09-30",
+    "2012-12-31",
+    "2013-03-31",
+    "2013-06-30",
+    "2013-09-30",
+    "2013-12-31",
+    "2014-03-31",
+    "2014-06-30",
+    "2014-09-30",
+    "2014-12-31",
+    "2015-03-31",
+    "2015-06-30",
+    "2015-09-30",
+    "2015-12-31",
+    "2016-03-31",
+    "2016-06-30",
+    "2016-09-30",
+    "2016-12-31",
+    "2017-03-31",
+    "2017-06-30",
+    "2017-09-30",
+    "2017-12-31"
+   ],
+   "first_period": "2012-06-30",
+   "last_period": "2017-12-31",
+   "max_value_usd": 545127000.0,
+   "last_value_usd": 165166000.0,
+   "put_call_only": false
+  },
+  "fx alliance": {
+   "name": "FX Alliance Inc",
+   "cusips": [
+    "361202104"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2012-03-31",
+    "2012-06-30"
+   ],
+   "first_period": "2012-03-31",
+   "last_period": "2012-06-30",
+   "max_value_usd": 124993000.0,
+   "last_value_usd": 124993000.0,
+   "put_call_only": false
+  },
+  "gitlab": {
+   "name": "Gitlab, Inc.",
+   "cusips": [
+    "37637K108"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2021-12-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 72136938.0,
+   "last_value_usd": 58682140.0,
+   "put_call_only": false
+  },
+  "godaddy": {
+   "name": "GoDaddy Inc.",
+   "cusips": [
+    "380237107"
+   ],
+   "classes": [
+    "Class A Common"
+   ],
+   "periods": [
+    "2015-06-30",
+    "2015-09-30",
+    "2015-12-31",
+    "2016-03-31",
+    "2016-06-30",
+    "2016-09-30",
+    "2016-12-31",
+    "2017-03-31",
+    "2017-06-30",
+    "2017-09-30"
+   ],
+   "first_period": "2015-06-30",
+   "last_period": "2017-09-30",
+   "max_value_usd": 540722000.0,
+   "last_value_usd": 309035000.0,
+   "put_call_only": false
+  },
+  "goodrx": {
+   "name": "GoodRX Holdings, Inc.",
+   "cusips": [
+    "38246G108"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2020-12-31",
+    "2021-03-31",
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2020-12-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 67829000.0,
+   "last_value_usd": 4762270.0,
+   "put_call_only": false
+  },
+  "group, inc.": {
+   "name": "Group, Inc.",
+   "cusips": [
+    "45841N107"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2009-06-30",
+    "2009-09-30"
+   ],
+   "first_period": "2009-06-30",
+   "last_period": "2009-09-30",
+   "max_value_usd": 29805000.0,
+   "last_value_usd": 29805000.0,
+   "put_call_only": false
+  },
+  "group, inc.**": {
+   "name": "Group, Inc.**",
+   "cusips": [
+    "45841N107"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2009-12-31",
+    "2010-03-31",
+    "2010-06-30",
+    "2010-09-30",
+    "2010-12-31",
+    "2011-03-31",
+    "2011-06-30",
+    "2011-09-30",
+    "2011-12-31",
+    "2012-03-31",
+    "2012-06-30",
+    "2012-09-30",
+    "2012-12-31"
+   ],
+   "first_period": "2009-12-31",
+   "last_period": "2012-12-31",
+   "max_value_usd": 59500000.0,
+   "last_value_usd": 43570000.0,
+   "put_call_only": false
+  },
+  "group, inc.***": {
+   "name": "Group, Inc.***",
+   "cusips": [
+    "45841N107"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2011-12-31",
+    "2012-03-31",
+    "2012-06-30",
+    "2012-09-30",
+    "2012-12-31"
+   ],
+   "first_period": "2011-12-31",
+   "last_period": "2012-12-31",
+   "max_value_usd": 25500000.0,
+   "last_value_usd": 18673000.0,
+   "put_call_only": false
+  },
+  "groupon": {
+   "name": "Groupon, Inc.",
+   "cusips": [
+    "399473107"
+   ],
+   "classes": [
+    "Class A Common"
+   ],
+   "periods": [
+    "2013-06-30"
+   ],
+   "first_period": "2013-06-30",
+   "last_period": "2013-06-30",
+   "max_value_usd": 162821000.0,
+   "last_value_usd": 162821000.0,
+   "put_call_only": false
+  },
+  "hashicorp": {
+   "name": "HashiCorp, Inc.",
+   "cusips": [
+    "418100103"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30"
+   ],
+   "first_period": "2021-12-31",
+   "last_period": "2023-06-30",
+   "max_value_usd": 1138000.0,
+   "last_value_usd": 327250.0,
+   "put_call_only": false
+  },
+  "holdings, inc.": {
+   "name": "Holdings, Inc.",
+   "cusips": [
+    "302081104",
+    "57060D108"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2006-12-31",
+    "2007-03-31",
+    "2007-09-30",
+    "2007-12-31",
+    "2011-03-31",
+    "2011-06-30"
+   ],
+   "first_period": "2006-12-31",
+   "last_period": "2011-06-30",
+   "max_value_usd": 55637000.0,
+   "last_value_usd": 32578000.0,
+   "put_call_only": false
+  },
+  "homeaway": {
+   "name": "HomeAway, Inc.**",
+   "cusips": [
+    "43739Q100"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2011-06-30",
+    "2011-09-30",
+    "2011-12-31",
+    "2012-03-31",
+    "2012-06-30",
+    "2012-09-30",
+    "2012-12-31",
+    "2013-03-31",
+    "2013-06-30",
+    "2013-09-30",
+    "2013-12-31",
+    "2014-03-31",
+    "2014-06-30"
+   ],
+   "first_period": "2011-06-30",
+   "last_period": "2014-06-30",
+   "max_value_usd": 238374000.0,
+   "last_value_usd": 179793000.0,
+   "put_call_only": false
+  },
+  "inc.": {
+   "name": "Inc.",
+   "cusips": [
+    "767735103",
+    "399473107"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2008-12-31",
+    "2011-12-31",
+    "2012-03-31",
+    "2012-06-30",
+    "2012-09-30",
+    "2012-12-31",
+    "2013-03-31"
+   ],
+   "first_period": "2008-12-31",
+   "last_period": "2013-03-31",
+   "max_value_usd": 392864000.0,
+   "last_value_usd": 116545000.0,
+   "put_call_only": false
+  },
+  "inc.*": {
+   "name": "Inc.*",
+   "cusips": [
+    "285512109"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2011-12-31",
+    "2012-03-31",
+    "2012-06-30",
+    "2012-09-30",
+    "2012-12-31",
+    "2013-03-31"
+   ],
+   "first_period": "2011-12-31",
+   "last_period": "2013-03-31",
+   "max_value_usd": 152165000.0,
+   "last_value_usd": 130744000.0,
+   "put_call_only": false
+  },
+  "inc.**": {
+   "name": "Inc.**",
+   "cusips": [
+    "285512109"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2012-06-30",
+    "2012-09-30"
+   ],
+   "first_period": "2012-06-30",
+   "last_period": "2012-09-30",
+   "max_value_usd": 25348000.0,
+   "last_value_usd": 25348000.0,
+   "put_call_only": false
+  },
+  "inphonic": {
+   "name": "Inphonic, Inc.",
+   "cusips": [
+    "45772G105"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2004-12-31",
+    "2005-03-31",
+    "2005-06-30",
+    "2005-09-30",
+    "2005-12-31",
+    "2006-03-31",
+    "2006-06-30",
+    "2006-09-30",
+    "2006-12-31"
+   ],
+   "first_period": "2004-12-31",
+   "last_period": "2006-12-31",
+   "max_value_usd": 196097000.0,
+   "last_value_usd": 15164000.0,
+   "put_call_only": false
+  },
+  "interactivecorp": {
+   "name": "InterActiveCorp.",
+   "cusips": [
+    "45840Q101"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2003-09-30",
+    "2003-12-31",
+    "2004-03-31",
+    "2004-06-30"
+   ],
+   "first_period": "2003-09-30",
+   "last_period": "2004-06-30",
+   "max_value_usd": 254296000.0,
+   "last_value_usd": 107044000.0,
+   "put_call_only": false
+  },
+  "investools": {
+   "name": "INVESTools, inc.",
+   "cusips": [
+    "46145P103",
+    "43145P103"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2007-03-31",
+    "2007-06-30",
+    "2007-09-30"
+   ],
+   "first_period": "2007-03-31",
+   "last_period": "2007-09-30",
+   "max_value_usd": 60464000.0,
+   "last_value_usd": 14059000.0,
+   "put_call_only": false
+  },
+  "k12": {
+   "name": "K12 Inc.",
+   "cusips": [
+    "48273U102"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2011-12-31",
+    "2012-03-31",
+    "2012-06-30",
+    "2012-09-30",
+    "2012-12-31",
+    "2013-03-31",
+    "2013-06-30",
+    "2013-09-30",
+    "2013-12-31",
+    "2014-03-31",
+    "2014-06-30",
+    "2014-09-30",
+    "2014-12-31",
+    "2015-03-31",
+    "2015-06-30",
+    "2015-09-30",
+    "2015-12-31",
+    "2016-03-31",
+    "2016-06-30",
+    "2016-09-30",
+    "2016-12-31",
+    "2017-03-31",
+    "2017-06-30",
+    "2017-09-30",
+    "2017-12-31",
+    "2018-03-31"
+   ],
+   "first_period": "2011-12-31",
+   "last_period": "2018-03-31",
+   "max_value_usd": 123520000.0,
+   "last_value_usd": 39331000.0,
+   "put_call_only": false
+  },
+  "klarna": {
+   "name": "Klarna Group PLC",
+   "cusips": [
+    "G5279N105"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2025-09-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 140909574.0,
+   "last_value_usd": 77817457.0,
+   "put_call_only": false
+  },
+  "legalzoom": {
+   "name": "LegalZoom.com",
+   "cusips": [
+    "52466B103"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2021-06-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 377575000.0,
+   "last_value_usd": 100509399.0,
+   "put_call_only": false
+  },
+  "maplebear": {
+   "name": "Maplebear Inc.",
+   "cusips": [
+    "565394103"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30"
+   ],
+   "first_period": "2023-09-30",
+   "last_period": "2025-09-30",
+   "max_value_usd": 122148000.0,
+   "last_value_usd": 99252000.0,
+   "put_call_only": false
+  },
+  "mattersight": {
+   "name": "Mattersight Corp",
+   "cusips": [
+    "290151307"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2011-06-30",
+    "2011-09-30"
+   ],
+   "first_period": "2011-06-30",
+   "last_period": "2011-09-30",
+   "max_value_usd": 5166000.0,
+   "last_value_usd": 3754000.0,
+   "put_call_only": false
+  },
+  "motricity": {
+   "name": "Motricity, Inc.",
+   "cusips": [
+    "620107102"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2010-06-30",
+    "2010-09-30",
+    "2010-12-31",
+    "2011-03-31",
+    "2011-06-30"
+   ],
+   "first_period": "2010-06-30",
+   "last_period": "2011-06-30",
+   "max_value_usd": 76366000.0,
+   "last_value_usd": 6094000.0,
+   "put_call_only": false
+  },
+  "nerdy": {
+   "name": "Nerdy, Inc.",
+   "cusips": [
+    "64081V109",
+    "64081V117"
+   ],
+   "classes": [
+    "Common",
+    "Warrant"
+   ],
+   "periods": [
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2021-09-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 90137000.0,
+   "last_value_usd": 3618404.0,
+   "put_call_only": false
+  },
+  "netflix": {
+   "name": "Netflix, Inc.",
+   "cusips": [
+    "64110L106",
+    "64116L106"
+   ],
+   "classes": [
+    "Common",
+    "Common*",
+    "Common**",
+    "Common *"
+   ],
+   "periods": [
+    "2002-06-30",
+    "2002-09-30",
+    "2002-12-31",
+    "2003-03-31",
+    "2003-06-30",
+    "2003-09-30",
+    "2003-12-31",
+    "2004-03-31",
+    "2004-06-30",
+    "2004-09-30",
+    "2004-12-31",
+    "2005-03-31",
+    "2005-06-30",
+    "2005-09-30",
+    "2005-12-31",
+    "2006-03-31",
+    "2006-06-30",
+    "2006-09-30",
+    "2006-12-31",
+    "2007-03-31",
+    "2007-06-30",
+    "2007-09-30",
+    "2007-12-31",
+    "2008-03-31",
+    "2008-06-30",
+    "2008-09-30",
+    "2008-12-31",
+    "2009-03-31",
+    "2009-06-30",
+    "2009-09-30",
+    "2009-12-31",
+    "2010-03-31",
+    "2010-06-30",
+    "2010-09-30",
+    "2010-12-31",
+    "2011-03-31",
+    "2012-06-30",
+    "2012-09-30",
+    "2012-12-31",
+    "2013-06-30",
+    "2013-09-30",
+    "2013-12-31",
+    "2014-03-31",
+    "2014-06-30",
+    "2014-09-30",
+    "2014-12-31",
+    "2015-03-31",
+    "2015-06-30",
+    "2015-09-30",
+    "2015-12-31",
+    "2016-03-31",
+    "2016-06-30",
+    "2016-09-30",
+    "2016-12-31",
+    "2017-03-31",
+    "2017-06-30",
+    "2017-09-30",
+    "2017-12-31",
+    "2018-03-31",
+    "2018-06-30",
+    "2018-09-30",
+    "2018-12-31",
+    "2019-03-31",
+    "2019-06-30",
+    "2019-09-30",
+    "2019-12-31",
+    "2020-03-31",
+    "2020-06-30",
+    "2020-09-30",
+    "2020-12-31",
+    "2021-03-31",
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31"
+   ],
+   "first_period": "2002-06-30",
+   "last_period": "2023-12-31",
+   "max_value_usd": 1383869000.0,
+   "last_value_usd": 210332160.0,
+   "put_call_only": false
+  },
+  "nu limited": {
+   "name": "Nu Holdings Limited",
+   "cusips": [
+    "G6683N103"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2021-12-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 951770957.0,
+   "last_value_usd": 568800263.0,
+   "put_call_only": false
+  },
+  "nuance communications": {
+   "name": "Nuance Communications",
+   "cusips": [
+    "67020Y100"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2007-06-30",
+    "2008-09-30",
+    "2009-03-31"
+   ],
+   "first_period": "2007-06-30",
+   "last_period": "2009-03-31",
+   "max_value_usd": 135477000.0,
+   "last_value_usd": 1826000.0,
+   "put_call_only": false
+  },
+  "orbitz worldwide": {
+   "name": "Orbitz Worldwide, Inc. **",
+   "cusips": [
+    "68557K109"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2009-03-31"
+   ],
+   "first_period": "2009-03-31",
+   "last_period": "2009-03-31",
+   "max_value_usd": 1296000.0,
+   "last_value_usd": 1296000.0,
+   "put_call_only": false
+  },
+  "payoneer global": {
+   "name": "Payoneer Global, Inc.",
+   "cusips": [
+    "70451X104"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2021-06-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 432399000.0,
+   "last_value_usd": 243483466.0,
+   "put_call_only": false
+  },
+  "peloton interactive": {
+   "name": "Peloton Interactive, Inc.",
+   "cusips": [
+    "70614W100"
+   ],
+   "classes": [
+    "Common*",
+    "Common",
+    "Common *"
+   ],
+   "periods": [
+    "2019-09-30",
+    "2019-12-31",
+    "2020-03-31",
+    "2020-06-30",
+    "2020-09-30",
+    "2020-12-31",
+    "2021-03-31",
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2019-09-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 261586000.0,
+   "last_value_usd": 36748611.0,
+   "put_call_only": false
+  },
+  "pension worldwide": {
+   "name": "Pension Worldwide, Inc",
+   "cusips": [
+    "709600100"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2006-12-31"
+   ],
+   "first_period": "2006-12-31",
+   "last_period": "2006-12-31",
+   "max_value_usd": 105220000.0,
+   "last_value_usd": 105220000.0,
+   "put_call_only": false
+  },
+  "penson worldwide": {
+   "name": "Penson Worldwide, Inc.",
+   "cusips": [
+    "709600100"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2007-03-31",
+    "2007-06-30",
+    "2007-09-30",
+    "2007-12-31",
+    "2008-03-31"
+   ],
+   "first_period": "2007-03-31",
+   "last_period": "2008-03-31",
+   "max_value_usd": 83486000.0,
+   "last_value_usd": 3192000.0,
+   "put_call_only": false
+  },
+  "peregrine systems": {
+   "name": "Peregrine Systems, Inc.",
+   "cusips": [
+    "71366Q101"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2001-12-31",
+    "2002-03-31",
+    "2002-06-30",
+    "2002-09-30",
+    "2002-12-31",
+    "2003-03-31",
+    "2003-06-30",
+    "2003-09-30",
+    "2003-12-31"
+   ],
+   "first_period": "2001-12-31",
+   "last_period": "2003-12-31",
+   "max_value_usd": 667000.0,
+   "last_value_usd": 0.0,
+   "put_call_only": false
+  },
+  "radisys": {
+   "name": "RadiSys Corp*",
+   "cusips": [
+    "750459109"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2011-09-30",
+    "2011-12-31",
+    "2012-03-31",
+    "2012-06-30",
+    "2012-09-30",
+    "2012-12-31"
+   ],
+   "first_period": "2011-09-30",
+   "last_period": "2012-12-31",
+   "max_value_usd": 2312000.0,
+   "last_value_usd": 465000.0,
+   "put_call_only": false
+  },
+  "rapid7": {
+   "name": "Rapid7, Inc.",
+   "cusips": [
+    "753422104"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2015-09-30",
+    "2015-12-31",
+    "2016-03-31",
+    "2016-06-30",
+    "2016-09-30",
+    "2016-12-31",
+    "2017-03-31",
+    "2017-06-30",
+    "2017-09-30",
+    "2017-12-31",
+    "2018-03-31",
+    "2018-06-30",
+    "2018-09-30",
+    "2018-12-31"
+   ],
+   "first_period": "2015-09-30",
+   "last_period": "2018-12-31",
+   "max_value_usd": 214715000.0,
+   "last_value_usd": 32345000.0,
+   "put_call_only": false
+  },
+  "redback networks": {
+   "name": "Redback Networks, Inc.",
+   "cusips": [
+    "84856M209"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2005-12-31",
+    "2006-03-31",
+    "2006-06-30",
+    "2006-12-31"
+   ],
+   "first_period": "2005-12-31",
+   "last_period": "2006-12-31",
+   "max_value_usd": 248402000.0,
+   "last_value_usd": 248402000.0,
+   "put_call_only": false
+  },
+  "rent the runway": {
+   "name": "Rent the Runway Inc",
+   "cusips": [
+    "76010Y103",
+    "76010Y202"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2021-12-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 32190000.0,
+   "last_value_usd": 622065.0,
+   "put_call_only": false
+  },
+  "riskmetrics": {
+   "name": "RiskMetrics Group, Inc.",
+   "cusips": [
+    "767735103"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2008-03-31",
+    "2008-09-30",
+    "2009-03-31",
+    "2009-09-30"
+   ],
+   "first_period": "2008-03-31",
+   "last_period": "2009-09-30",
+   "max_value_usd": 125733000.0,
+   "last_value_usd": 93931000.0,
+   "put_call_only": false
+  },
+  "rocket companies": {
+   "name": "Rocket Companies Inc.",
+   "cusips": [
+    "77311W101"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2020-12-31",
+    "2021-03-31",
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2020-12-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 102751000.0,
+   "last_value_usd": 70087500.0,
+   "put_call_only": false
+  },
+  "rover": {
+   "name": "Rover Group Inc",
+   "cusips": [
+    "77936F103"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31"
+   ],
+   "first_period": "2021-09-30",
+   "last_period": "2023-03-31",
+   "max_value_usd": 125005000.0,
+   "last_value_usd": 22398345.0,
+   "put_call_only": false
+  },
+  "shutterfly": {
+   "name": "Shutterfly, Inc.*****",
+   "cusips": [
+    "82568P304"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2011-09-30",
+    "2011-12-31",
+    "2012-03-31"
+   ],
+   "first_period": "2011-09-30",
+   "last_period": "2012-03-31",
+   "max_value_usd": 47104000.0,
+   "last_value_usd": 3464000.0,
+   "put_call_only": false
+  },
+  "splunk": {
+   "name": "Splunk, Inc.",
+   "cusips": [
+    "848637104"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2012-06-30"
+   ],
+   "first_period": "2012-06-30",
+   "last_period": "2012-06-30",
+   "max_value_usd": 62101000.0,
+   "last_value_usd": 62101000.0,
+   "put_call_only": false
+  },
+  "sportradar": {
+   "name": "Sportradar Group AG",
+   "cusips": [
+    "H8088L103"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2021-09-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 820024368.0,
+   "last_value_usd": 437171111.0,
+   "put_call_only": false
+  },
+  "spotify technologies s a": {
+   "name": "Spotify Technologies, S.A.",
+   "cusips": [
+    "L8681T102"
+   ],
+   "classes": [
+    "Common*",
+    "Common",
+    "Common *"
+   ],
+   "periods": [
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2021-06-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 1246449000.0,
+   "last_value_usd": 459130000.0,
+   "put_call_only": false
+  },
+  "spotify technology s a": {
+   "name": "Spotify Technology S.A.",
+   "cusips": [
+    "L8681T102",
+    "177876291"
+   ],
+   "classes": [
+    "Common**",
+    "Common*"
+   ],
+   "periods": [
+    "2018-06-30",
+    "2018-09-30",
+    "2018-12-31",
+    "2019-03-31",
+    "2019-06-30",
+    "2019-09-30",
+    "2019-12-31",
+    "2020-03-31",
+    "2020-06-30",
+    "2020-09-30",
+    "2020-12-31",
+    "2021-03-31"
+   ],
+   "first_period": "2018-06-30",
+   "last_period": "2021-03-31",
+   "max_value_usd": 1423157000.0,
+   "last_value_usd": 1424615000.0,
+   "put_call_only": false
+  },
+  "talend": {
+   "name": "Talend SA ADR",
+   "cusips": [
+    "874224207"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2020-12-31",
+    "2021-03-31"
+   ],
+   "first_period": "2020-12-31",
+   "last_period": "2021-03-31",
+   "max_value_usd": 99278000.0,
+   "last_value_usd": 99278000.0,
+   "put_call_only": false
+  },
+  "techtarget": {
+   "name": "TechTarget, Inc.",
+   "cusips": [
+    "87874R100"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2007-06-30",
+    "2007-09-30",
+    "2007-12-31",
+    "2008-03-31",
+    "2008-06-30",
+    "2008-09-30",
+    "2008-12-31",
+    "2009-03-31",
+    "2009-06-30",
+    "2009-09-30",
+    "2009-12-31",
+    "2010-03-31",
+    "2010-06-30",
+    "2010-09-30",
+    "2010-12-31",
+    "2011-03-31",
+    "2011-06-30",
+    "2011-09-30",
+    "2011-12-31",
+    "2012-03-31",
+    "2012-06-30",
+    "2012-09-30",
+    "2012-12-31",
+    "2013-03-31",
+    "2013-06-30",
+    "2013-09-30",
+    "2013-12-31",
+    "2014-03-31",
+    "2014-06-30",
+    "2014-09-30",
+    "2014-12-31",
+    "2015-03-31",
+    "2015-06-30",
+    "2015-09-30",
+    "2015-12-31",
+    "2016-03-31"
+   ],
+   "first_period": "2007-06-30",
+   "last_period": "2016-03-31",
+   "max_value_usd": 209254000.0,
+   "last_value_usd": 41271000.0,
+   "put_call_only": false
+  },
+  "techwell": {
+   "name": "Techwell, Inc.",
+   "cusips": [
+    "87874D101"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2007-03-31"
+   ],
+   "first_period": "2007-03-31",
+   "last_period": "2007-03-31",
+   "max_value_usd": 53274000.0,
+   "last_value_usd": 53274000.0,
+   "put_call_only": false
+  },
+  "thestreet": {
+   "name": "TheStreet, Inc",
+   "cusips": [
+    "88368Q103"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2017-12-31",
+    "2018-03-31",
+    "2018-06-30",
+    "2018-09-30"
+   ],
+   "first_period": "2017-12-31",
+   "last_period": "2018-09-30",
+   "max_value_usd": 13200000.0,
+   "last_value_usd": 13200000.0,
+   "put_call_only": false
+  },
+  "toast": {
+   "name": "Toast, Inc.",
+   "cusips": [
+    "888787108"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30"
+   ],
+   "first_period": "2021-09-30",
+   "last_period": "2025-09-30",
+   "max_value_usd": 31219000.0,
+   "last_value_usd": 22818750.0,
+   "put_call_only": false
+  },
+  "tripadvisor": {
+   "name": "TripAdvisor, Inc.",
+   "cusips": [
+    "896945201"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2017-12-31",
+    "2018-03-31",
+    "2018-06-30",
+    "2018-09-30",
+    "2018-12-31",
+    "2019-03-31",
+    "2019-06-30",
+    "2019-09-30",
+    "2019-12-31",
+    "2020-03-31",
+    "2020-06-30",
+    "2020-09-30",
+    "2020-12-31",
+    "2021-03-31",
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2017-12-31",
+   "last_period": "2026-06-30",
+   "max_value_usd": 127075000.0,
+   "last_value_usd": 31272510.0,
+   "put_call_only": false
+  },
+  "twilio": {
+   "name": "Twilio, Inc.",
+   "cusips": [
+    "90138F102"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2017-12-31",
+    "2018-03-31",
+    "2018-06-30"
+   ],
+   "first_period": "2017-12-31",
+   "last_period": "2018-06-30",
+   "max_value_usd": 112987000.0,
+   "last_value_usd": 112987000.0,
+   "put_call_only": false
+  },
+  "vastera": {
+   "name": "Vastera, Inc.",
+   "cusips": [
+    "92239N109"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2001-12-31",
+    "2002-03-31",
+    "2002-06-30",
+    "2002-09-30",
+    "2002-12-31",
+    "2003-03-31",
+    "2003-06-30",
+    "2003-09-30",
+    "2003-12-31",
+    "2004-03-31",
+    "2004-06-30",
+    "2004-09-30",
+    "2004-12-31",
+    "2005-03-31"
+   ],
+   "first_period": "2001-12-31",
+   "last_period": "2005-03-31",
+   "max_value_usd": 15871000.0,
+   "last_value_usd": 7816000.0,
+   "put_call_only": false
+  },
+  "worldwide": {
+   "name": "Worldwide, Inc. **",
+   "cusips": [
+    "68557K109"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2008-12-31",
+    "2009-06-30",
+    "2009-09-30",
+    "2009-12-31",
+    "2010-06-30",
+    "2010-09-30",
+    "2010-12-31",
+    "2011-03-31",
+    "2011-06-30",
+    "2011-09-30",
+    "2011-12-31",
+    "2012-03-31",
+    "2012-06-30",
+    "2012-09-30",
+    "2012-12-31",
+    "2013-03-31"
+   ],
+   "first_period": "2008-12-31",
+   "last_period": "2013-03-31",
+   "max_value_usd": 7375000.0,
+   "last_value_usd": 5737000.0,
+   "put_call_only": false
+  },
+  "xero limited": {
+   "name": "Xero Limited",
+   "cusips": [
+    "Q98665104"
+   ],
+   "classes": [
+    "Common"
+   ],
+   "periods": [
+    "2017-12-31",
+    "2018-03-31",
+    "2018-06-30"
+   ],
+   "first_period": "2017-12-31",
+   "last_period": "2018-06-30",
+   "max_value_usd": 118958000.0,
+   "last_value_usd": 118958000.0,
+   "put_call_only": false
+  },
+  "zillow": {
+   "name": "Zillow, Inc.",
+   "cusips": [
+    "98954A107",
+    "98954M101",
+    "98954M200"
+   ],
+   "classes": [
+    "Common",
+    "Class A Common",
+    "Common**",
+    "Capital**",
+    "Capital **",
+    "Common **",
+    "Common ***",
+    "Capital *",
+    "Common*",
+    "Capital*"
+   ],
+   "periods": [
+    "2011-09-30",
+    "2011-12-31",
+    "2012-03-31",
+    "2012-06-30",
+    "2012-09-30",
+    "2012-12-31",
+    "2013-03-31",
+    "2013-06-30",
+    "2013-09-30",
+    "2013-12-31",
+    "2014-03-31",
+    "2016-12-31",
+    "2017-03-31",
+    "2017-06-30",
+    "2017-09-30",
+    "2017-12-31",
+    "2018-03-31",
+    "2018-06-30",
+    "2018-09-30",
+    "2018-12-31",
+    "2019-03-31",
+    "2019-06-30",
+    "2019-09-30",
+    "2019-12-31",
+    "2020-03-31",
+    "2020-06-30",
+    "2020-09-30",
+    "2020-12-31",
+    "2021-03-31",
+    "2021-06-30",
+    "2021-09-30",
+    "2021-12-31",
+    "2022-03-31",
+    "2022-06-30",
+    "2022-09-30",
+    "2022-12-31",
+    "2023-03-31",
+    "2023-06-30",
+    "2023-09-30",
+    "2023-12-31",
+    "2024-03-31",
+    "2024-06-30",
+    "2024-09-30",
+    "2024-12-31",
+    "2025-03-31",
+    "2025-06-30",
+    "2025-09-30",
+    "2025-12-31",
+    "2026-03-31",
+    "2026-06-30"
+   ],
+   "first_period": "2011-09-30",
+   "last_period": "2026-06-30",
+   "max_value_usd": 395580000.0,
+   "last_value_usd": 271156540.0,
+   "put_call_only": false
+  }
+ }
+}

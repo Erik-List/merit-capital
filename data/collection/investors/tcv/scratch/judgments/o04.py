@@ -1,0 +1,45 @@
+# Batch o04 (PRO-169): the 1996-2012 book, K to O (companies the judge can place now). Judge: this session, 2026-09-29.
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _post import post
+U = "undetermined"
+J = [
+ {"s": "kgb", "st": "private", "vr": "below_1b", "es": U, "hc": "US", "city": "New York", "f": None,
+  "n": "Directory assistance and mobile answers (INFONXX, renamed kgb in 2008), New York (founded in Bethlehem PA); operating and private. Directory services are outside the focus taxonomy. TCV's round (the firm's own 2004 release, tcv.com/news/infonxx.html) is not named."},
+ {"s": "knight-capital", "es": U, "hc": "US", "city": "Jersey City", "f": "Fintech & Payments", "vr": "below_1b",
+  "n": "Electronic market maker (Knight/Trimark, later Knight Capital Group), Jersey City. Merged with GETCO in 2013 (KCG), which Virtu bought in 2017: acquired. TCV's pre-1998-IPO round is not named."},
+ {"s": "lhs-group", "st": "acquired", "es": U, "hc": "US", "city": "Atlanta", "f": "SaaS",
+  "n": "Telecom billing software, Atlanta with operations in Frankfurt. acq. by Sema Group, 2000. Round not named."},
+ {"s": "liquidnet", "st": "acquired", "es": U, "hc": "US", "city": "New York", "f": "Fintech & Payments",
+  "n": "Institutional block-trading network, New York. acq. by TP ICAP, 2021. Round not named."},
+ {"s": "lynk-systems", "st": "acquired", "es": U, "hc": "US", "city": "Atlanta", "f": "Fintech & Payments",
+  "n": "Card payment processing, Atlanta. acq., aligned with Sutter Hill. Round not named."},
+ {"s": "mattersight", "m": "not_member", "me": "fund_filing", "mconf": "high",
+  "mc": "https://www.sec.gov/Archives/edgar/data/1094348/000095013701000838/c60662ex10-4.txt",
+  "mb": "bought into a listed company (T3, decisions.md D6, delta X1): eLoyalty (renamed Mattersight in 2011) listed in February 2000 when TSC spun it off, and TCV IV and TCV IV Strategic Partners bought its Series B convertible preferred under a 2001 agreement filed with the 10-K (exhibit 10.4, amended 2001-02-12); TCV held 53% of that series in 2011 (the 8-K of 2011-08-10). No private round before the listing names TCV. A negotiated PIPE is read as a listed purchase, flagged."},
+ {"s": "memberworks", "st": "acquired", "es": U, "hc": "US", "city": "Stamford", "f": "Consumer & Marketplaces",
+  "n": "Membership programmes, Stamford CT; renamed Vertrue in 2004 and taken private by One Equity Partners in 2007: acquired. Round not named."},
+ {"s": "modsy", "st": "acquired", "es": "Growth", "esc": post("modsy"), "ess": "first_party", "econf": "high", "ed": "2019-05",
+  "hc": "US", "city": "San Francisco", "f": "Consumer & Marketplaces",
+  "n": "Online interior design (Pencil and Pixel, Inc.), San Francisco. TCV led the $37M Series C of May 2019 (the firm's own post). Modsy shut its design business in 2022 (Fortune) and was bought by End to End: acquired, successor note."},
+ {"s": "mortgage-com", "st": "defunct", "es": U, "hc": "US", "city": "Plantation", "f": "Fintech & Payments",
+  "n": "Online mortgage lender, Plantation FL. Listed 1999; closed its business in 2000. Round not named."},
+ {"s": "motricity", "es": U, "hc": "US", "city": "Bellevue", "f": "Media, Gaming & Advertising", "vr": "below_1b",
+  "n": "Mobile data services, Bellevue WA. Listed 2010 (TCV already a holder, Forms 3/4); renamed Voltari in 2013 and acquired by Carl Icahn in 2019: acquired. Round not named."},
+ {"s": "mypoints-com", "st": "acquired", "es": U, "hc": "US", "city": "San Francisco", "f": "Media, Gaming & Advertising",
+  "n": "Online loyalty rewards, San Francisco. acq. by UAL (United Airlines), 2001. Round not named."},
+ {"s": "newsedge", "st": "acquired", "es": U, "hc": "US", "city": "Burlington", "f": "Media, Gaming & Advertising",
+  "n": "Business news service (Individual, Inc., renamed NewsEdge), Burlington MA. acq. by Thomson, 2001. Round not named."},
+ {"s": "nextag", "st": "defunct", "vr": "below_1b", "es": U, "city": "San Mateo", "f": "Consumer & Marketplaces",
+  "n": "Comparison shopping, San Mateo. Providence Equity bought a majority in 2007; the site was later wound down: defunct. TCV's round is not named."},
+ {"s": "numega-technologies", "st": "acquired", "es": U, "hc": "US", "city": "Nashua", "f": "DevTools & APIs",
+  "n": "Debugging and testing tools, Nashua NH. acq. by Compuware, 1998. Round not named."},
+ {"s": "oak-pacific-interactive", "st": "public", "vr": "below_1b", "es": U, "hc": "CN", "city": "Beijing", "f": "Media, Gaming & Advertising",
+  "n": "Chinese internet group (Renren's parent, renamed Renren Inc. before its 2011 NYSE listing), Beijing; still listed and small. Round not named."},
+ {"s": "onyx-software", "st": "acquired", "es": U, "hc": "US", "city": "Bellevue", "f": "SaaS",
+  "n": "CRM software, Bellevue WA. Listed 1999; acq. by M2M Holdings, 2006. Round not named."},
+ {"s": "open-english", "st": "private", "vr": "below_1b", "es": "Growth", "esc": post("open-english-secures-65-million"), "ess": "first_party", "econf": "high", "ed": "2013-04-23",
+  "city": "Miami", "f": "Consumer & Marketplaces",
+  "n": "Online English school (FoxyP2 Inc., dba Open Education), Miami. TCV led the $65M Series D of April 2013, joined by existing investors (the firm's own copy of the release): its first fund entry. The 2009 Form D that names Robert Trudeau (the band's 'Seed' and its graduation) is his personal seat four years before any TCV fund came in (T4), not TCV's entry."},
+]

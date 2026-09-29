@@ -1,0 +1,8 @@
+J = [
+ {
+  "s": "grupa-pracuj",
+  "hc": "PL",
+  "hcc": "https://index.commoncrawl.org/CC-MAIN-2017-30-index?url=https://www.tcv.com/pracuj-group-announces-strategic-investment-tcv/&output=json",
+  "n": "Online recruitment (Pracuj.pl, theprotocol.it), Warsaw. TCV's 2017 strategic investment (the firm's own post) in a private company later listed on the Warsaw Stock Exchange (December 2021): Growth. Market cap pinned in the web pass (PLN, converted at the ECB rate). | Market cap PLN 3.930B on 2026-09-29 (StockAnalysis), converted at the ECB rate of the day. | PLN 3.93B @ ECB 2026-09-29 (PLN/EUR 4.3653, EUR/USD 1.1355) = $1.02B | Within 5% of the $1B band edge."
+ }
+]
