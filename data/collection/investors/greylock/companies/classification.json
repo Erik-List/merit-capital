@@ -7131,23 +7131,22 @@
   "entry_stage_citation": null,
   "entry_stage_confidence": "low",
   "entry_stage_source": null,
-  "flags": [
-   "country_conflict"
-  ],
+  "flags": [],
   "focus": "Fintech & Payments",
   "focus_source": "model",
   "hq_city": "Hamilton",
   "hq_city_confidence": "medium",
   "hq_city_source": "model_knowledge",
-  "hq_country": "US",
+  "hq_country": "BM",
+  "hq_country_citation": "https://www.sec.gov/Archives/edgar/data/826918/000102140802013493/0001021408-02-013493-index.htm",
   "hq_country_confidence": "medium",
-  "hq_country_source": "model_knowledge",
-  "note": "IPO 1991 (the firm's own listing); the group collapsed in 2002 after reserve write-downs and went into run-off. Domiciled in Hamilton, BERMUDA \u2014 but run.py's ISO_OF table has no BM entry, so the country cannot be published truthfully and the row carries the firm's own region (US Eastern) with country_conflict rather than a null that would fail invariant 1. Adding BM to ISO_OF is requested at close; the same class as the seven missing countries added in bdd1534. | IPO 1991 (the firm's own listing); the group collapsed in 2002 after reserve write-downs and went into run-off. Domiciled in Hamilton, BERMUDA \u2014 but run.py's ISO_OF table has no BM entry, so the country cannot be published truthfully and the row carries the firm's own region (US Eastern) with country_conflict rather than a null that would fail invariant 1. Adding BM to ISO_OF is requested at close; the same class as the seven missing countries added in bdd1534. | Stage undetermined (PRO-135): the record does not give the round this row entered at, and nothing in the evidence names one, so the column says so rather than carrying 'Series A' on the firm's habits or on no source at all",
+  "hq_country_source": "web_verified",
+  "note": "IPO 1991 (the firm's own listing); the group collapsed in 2002 after reserve write-downs and went into run-off. Domiciled in Hamilton, BERMUDA. The country reads BM since 2026-09-29: the company's 10-K gives 44 Church Street, Hamilton, Bermuda (EDGAR, CIK 826918), and the country table now carries every ISO code. | IPO 1991 (the firm's own listing); the group collapsed in 2002 after reserve write-downs and went into run-off. Domiciled in Hamilton, BERMUDA. The country reads BM since 2026-09-29: the company's 10-K gives 44 Church Street, Hamilton, Bermuda (EDGAR, CIK 826918), and the country table now carries every ISO code. | Stage undetermined (PRO-135): the record does not give the round this row entered at, and nothing in the evidence names one, so the column says so rather than carrying 'Series A' on the firm's habits or on no source at all",
   "slug": "mutual-risk-management",
   "status": "defunct",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro89"
+  "who": "agent-judge-pro161"
  },
  "mutual-risk-mngmt": {
   "entry_stage": "Series A",
@@ -12604,23 +12603,22 @@
   "entry_stage_citation": "https://greylock.com/portfolio/xapo/",
   "entry_stage_confidence": "medium",
   "entry_stage_source": "first_party",
-  "flags": [
-   "country_conflict"
-  ],
+  "flags": [],
   "focus": "Crypto & Web3",
   "focus_source": "model",
   "hq_city": "Gibraltar",
   "hq_city_confidence": "high",
   "hq_city_source": "model_knowledge",
-  "hq_country": "US",
+  "hq_country": "GI",
+  "hq_country_citation": "https://en.wikipedia.org/wiki/Xapo_Bank",
   "hq_country_confidence": "high",
-  "hq_country_source": "model_knowledge",
-  "note": "Bitcoin wallet and vault custody; Greylock led the $20M Series A in 2014. The custody business went to Coinbase in 2019 and Xapo Bank continues under a GIBRALTAR banking licence, which is the firm's own HQ field \u2014 but run.py's ISO_OF table has no GI entry (nor BM, KY or VG), so the country carries the company's Delaware/Palo Alto origin with country_conflict rather than a null that would fail invariant 1. Adding the four financial-jurisdiction codes is requested at close. | Bitcoin wallet and vault custody; Greylock led the $20M Series A in 2014. The custody business went to Coinbase in 2019 and Xapo Bank continues under a GIBRALTAR banking licence, which is the firm's own HQ field \u2014 but run.py's ISO_OF table has no GI entry (nor BM, KY or VG), so the country carries the company's Delaware/Palo Alto origin with country_conflict rather than a null that would fail invariant 1. Adding the four financial-jurisdiction codes is requested at close. | Entry round from the firm's own listing (Series A); replaces model",
+  "hq_country_source": "web_verified",
+  "note": "Bitcoin wallet and vault custody; Greylock led the $20M Series A in 2014. The custody business went to Coinbase in 2019 and Xapo Bank continues under a GIBRALTAR banking licence, which is the firm's own HQ field. The country reads GI (Gibraltar, Wikipedia) since 2026-09-29, when the country table came to carry every ISO code. | Bitcoin wallet and vault custody; Greylock led the $20M Series A in 2014. The custody business went to Coinbase in 2019 and Xapo Bank continues under a GIBRALTAR banking licence, which is the firm's own HQ field. The country reads GI (Gibraltar, Wikipedia) since 2026-09-29, when the country table came to carry every ISO code. | Entry round from the firm's own listing (Series A); replaces model",
   "slug": "xapo",
   "status": "private",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
-  "who": "agent-judge-pro89"
+  "who": "agent-judge-pro161"
  },
  "xcellenet-inc": {
   "entry_stage": "undetermined",

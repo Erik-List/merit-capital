@@ -73,6 +73,7 @@ import outcome_sources as S                                    # noqa: E402
 import profile_copy                                            # noqa: E402
 from people_common import clean_social, firm_handles, handle_score, social_handle  # noqa: E402
 from paths import COLLECTION, INVESTORS, ROOT, Paths, write_atomic           # noqa: E402
+from countries import ISO_CODES, canon_country                  # noqa: E402
 
 # Set in main() from the parsed investor slug; every path derives from them.
 P: Paths
@@ -229,83 +230,8 @@ VALID_FOCUS = set(json.loads(_FOCUS_FILE.read_text())["values"]) \
 CITY_SOURCES = {"formd_address", "model_knowledge", "web_verified"}
 CITY_SUFFIX_RE = re.compile(r"[,/]|\s+\b([A-Z]{2}|USA|UK)\b\s*$")
 
-US_STATES = {
-    "ALABAMA", "ALASKA", "ARIZONA", "ARKANSAS", "CALIFORNIA", "COLORADO",
-    "CONNECTICUT", "DELAWARE", "DISTRICT OF COLUMBIA", "FLORIDA", "GEORGIA",
-    "HAWAII", "IDAHO", "ILLINOIS", "INDIANA", "IOWA", "KANSAS", "KENTUCKY",
-    "LOUISIANA", "MAINE", "MARYLAND", "MASSACHUSETTS", "MICHIGAN", "MINNESOTA",
-    "MISSISSIPPI", "MISSOURI", "MONTANA", "NEBRASKA", "NEVADA", "NEW HAMPSHIRE",
-    "NEW JERSEY", "NEW MEXICO", "NEW YORK", "NORTH CAROLINA", "NORTH DAKOTA",
-    "OHIO", "OKLAHOMA", "OREGON", "PENNSYLVANIA", "PUERTO RICO", "RHODE ISLAND",
-    "SOUTH CAROLINA", "SOUTH DAKOTA", "TENNESSEE", "TEXAS", "UTAH", "VERMONT",
-    "VIRGINIA", "WASHINGTON", "WEST VIRGINIA", "WISCONSIN", "WYOMING",
-}
-# Business addresses in filing havens say nothing about where a company
-# operates; fall through to the next country source instead.
-OFFSHORE = {"CAYMAN ISLANDS", "VIRGIN ISLANDS, BRITISH", "BERMUDA",
-            "MARSHALL ISLANDS", "BAHAMAS", "JERSEY", "GUERNSEY"}
-COUNTRY_CANON = {
-    "UNITED STATES": "United States", "UNITED STATES OF AMERICA": "United States",
-    "United States of America": "United States", "USA": "United States",
-    "UNITED KINGDOM": "United Kingdom", "UK": "United Kingdom",
-    "Kingdom of the Netherlands": "Netherlands",
-    "People's Republic of China": "China", "CHINA": "China",
-    "KOREA, REPUBLIC OF": "South Korea", "Republic of Korea": "South Korea",
-    "RUSSIAN FEDERATION": "Russia", "TAIWAN, PROVINCE OF CHINA": "Taiwan",
-    "Republic of Ireland": "Ireland", "CZECHIA": "Czech Republic",
-    "Czechia": "Czech Republic", "VIET NAM": "Vietnam",
-    "UNITED ARAB EMIRATES": "United Arab Emirates", "HONG KONG": "Hong Kong",
-}
-# ISO 3166-1 alpha-2. `hq_country` is stored, validated and exported as the
-# two-letter code; rendering a display name is the frontend's job. Keys are
-# the canonical display names COUNTRY_CANON and the EDGAR title-casing
-# produce. A name missing here passes through canon_country verbatim, so
-# verify flags it instead of silently dropping the signal.
-ISO_OF = {
-    "United States": "US", "Canada": "CA",
-    "United Kingdom": "GB", "Germany": "DE", "France": "FR",
-    "Netherlands": "NL", "Sweden": "SE", "Switzerland": "CH", "Belgium": "BE",
-    "Ireland": "IE", "Spain": "ES", "Italy": "IT", "Denmark": "DK",
-    "Norway": "NO", "Finland": "FI", "Austria": "AT", "Poland": "PL",
-    "Portugal": "PT", "Estonia": "EE", "Lithuania": "LT", "Latvia": "LV",
-    "Czech Republic": "CZ", "Romania": "RO", "Bulgaria": "BG", "Hungary": "HU",
-    "Greece": "GR", "Croatia": "HR", "Ukraine": "UA", "Russia": "RU",
-    "Luxembourg": "LU", "Iceland": "IS", "Cyprus": "CY", "Malta": "MT",
-    "Slovakia": "SK", "Slovenia": "SI", "Serbia": "RS",
-    "Israel": "IL", "United Arab Emirates": "AE", "Saudi Arabia": "SA",
-    "Bahrain": "BH", "Qatar": "QA", "Kuwait": "KW", "Jordan": "JO",
-    "Lebanon": "LB", "Turkey": "TR", "Armenia": "AM",
-    "China": "CN", "India": "IN", "Japan": "JP", "South Korea": "KR",
-    "Singapore": "SG", "Hong Kong": "HK", "Taiwan": "TW", "Indonesia": "ID",
-    "Vietnam": "VN", "Thailand": "TH", "Malaysia": "MY", "Philippines": "PH",
-    "Pakistan": "PK", "Bangladesh": "BD", "Sri Lanka": "LK", "Kazakhstan": "KZ",
-    "Brazil": "BR", "Mexico": "MX", "Argentina": "AR", "Colombia": "CO",
-    "Chile": "CL", "Peru": "PE", "Uruguay": "UY", "Ecuador": "EC",
-    "Costa Rica": "CR", "Panama": "PA", "Guatemala": "GT", "Venezuela": "VE",
-    "Dominican Republic": "DO", "Bahamas": "BS",
-    "Nigeria": "NG", "South Africa": "ZA", "Kenya": "KE", "Egypt": "EG",
-    "Ghana": "GH", "Morocco": "MA", "Tunisia": "TN", "Ethiopia": "ET",
-    "Senegal": "SN", "Rwanda": "RW", "Uganda": "UG",
-    "Australia": "AU", "New Zealand": "NZ",
-    # Added 2026-09-06 on the YC run, the first investor global enough to
-    # reach them: seven countries its portfolio has companies in that this
-    # table did not carry, so their rows bounced `record` as "not a known ISO
-    # 3166-1 alpha-2 code" and took their whole batch with them. Purely
-    # additive — no landed investor can hold a row in a country the table
-    # rejected, since verify is green on all of them.
-    "Georgia": "GE", "Tanzania": "TZ", "Nepal": "NP", "Zambia": "ZM",
-    "Cambodia": "KH", "Bolivia": "BO", "Paraguay": "PY",
-    # Second pass, from YC's own region and location vocabulary rather than
-    # one rejected batch at a time: every country-shaped value its directory
-    # carries is now present. "United States of America" is the directory's
-    # own long form.
-    "Algeria": "DZ", "Belarus": "BY", "Bermuda": "BM", "Cayman Islands": "KY",
-    "Czechia": "CZ", "Democratic Republic of the Congo": "CD", "Iraq": "IQ",
-    "Ivory Coast": "CI", "Kyrgyzstan": "KG", "Namibia": "NA",
-    "Puerto Rico": "PR", "Seychelles": "SC",
-    "United States of America": "US",
-}
-ISO_CODES = frozenset(ISO_OF.values())
+# Country codes and names (ISO_CODES, canon_country) live in countries.py,
+# shared with every script that resolves a country.
 
 
 # ---------------------------------------------------------------------------
@@ -435,7 +361,7 @@ def load_queue_items() -> list[dict]:
     return items
 
 
-def open_needs(item: dict, verdicts: dict, merged: dict) -> list[str]:
+def open_needs(item: dict, verdicts: dict, merged: dict, cls: dict | None = None) -> list[str]:
     """The needs of one queue item still unanswered on disk.
 
     "membership" is answered by a ledger verdict; every other need by a
@@ -443,7 +369,9 @@ def open_needs(item: dict, verdicts: dict, merged: dict) -> list[str]:
     retires the row outright: its classification needs are moot, and the row
     leaves base.json at the next rebuild. The graduation need also closes
     when the judged entry stage turns out not to be Seed, or the row is
-    non-Seed: the column is null by rule there, not missing.
+    non-Seed: the column is null by rule there, not missing. A country asked
+    as a claim (`hq_country_claim`) is already filled by the claim itself, so
+    it closes only when the judge's own value is in the classification.
     """
     verdict = verdicts.get(item["slug"], {}).get("verdict")
     if verdict == "not_member":
@@ -461,6 +389,9 @@ def open_needs(item: dict, verdicts: dict, merged: dict) -> list[str]:
             if not graduation_open(rec):
                 continue
             out.append(need)
+        elif need == "hq_country" and item.get("hq_country_claim"):
+            if not (cls or {}).get(item["slug"], {}).get("hq_country"):
+                out.append(need)
         elif rec.get(need) is None:
             out.append(need)
     return out
@@ -781,31 +712,6 @@ def range_of(usd: float | int) -> str:
         return "1b_plus"
     return "below_1b"
 
-
-def canon_country(raw: str | None) -> str | None:
-    """Normalize an ISSUERS state description, Wikidata label, or free-form
-    country to an ISO 3166-1 alpha-2 code; US states collapse to US; offshore
-    filing havens return None (no signal). An unrecognized name comes back
-    verbatim so verify can flag it rather than losing the signal."""
-    if not raw:
-        return None
-    raw = raw.strip()
-    if len(raw) == 2 and raw.upper() in ISO_CODES:
-        return raw.upper()
-    if raw.upper() in US_STATES:
-        return "US"
-    if "CANADA" in raw.upper():
-        return "CA"
-    if raw.upper() in OFFSHORE:
-        return None
-    name = COUNTRY_CANON.get(raw) or COUNTRY_CANON.get(raw.upper())
-    if name is None:
-        if raw.isupper():  # EDGAR renders foreign countries in caps
-            name = " ".join(w if w in ("of", "and", "the") else w.capitalize()
-                            for w in raw.lower().split())
-        else:
-            name = raw
-    return ISO_OF.get(name, name)
 
 
 def add_flag(rec: dict, flag: str) -> None:
@@ -1179,6 +1085,19 @@ def cmd_prepare(args) -> None:
                          if v is not None})
         flags_now = set(overlaid.get("flags") or []) | set(rec.get("flags") or [])
         need = [f for f in ("status", "hq_country", "entry_stage") if not overlaid.get(f)]
+        # A Wikidata country on a one-word name is a join to check, not a fill
+        # to trust (COLLECTION.md §5: First Round's Uber→NL and Square→JP;
+        # Pearl→Suriname and Sofia→Bulgaria were caught only because the old
+        # country table lacked those codes). Outside the US it is asked with
+        # the claim shown, until the judge's own value stands; the fill stays
+        # meanwhile, so no landed book loses a country.
+        country_claim = (rec.get("hq_country_source") == "wikidata"
+                         and rec.get("hq_country") not in (None, "US")
+                         and len(re.findall(r"\w+", row["name"])) == 1
+                         and not cls_prev.get(slug, {}).get("hq_country"))
+        if country_claim and "hq_country" not in need:
+            need.insert(need.index("entry_stage") if "entry_stage" in need else len(need),
+                        "hq_country")
         # The city is published: the investor page draws its whole geography
         # bar from it, and a company with no city lands in "Other". It was
         # never asked, so books closed "clean" with the column empty and Lux
@@ -1234,6 +1153,11 @@ def cmd_prepare(args) -> None:
             # (and cites it) without a round-trip to base.json per row.
             item.update({k: row.get(k) for k in EVIDENCE_FIELDS})
             item["evidence_class"] = evidence_class(row)
+            if country_claim:
+                item["hq_country_claim"] = (
+                    f"{rec['hq_country']} comes from a name match on a one-word name "
+                    f"(Wikidata or the unicorn list), not from the company's own "
+                    f"record: confirm or correct it")
             item.update({
                 "issuer_city": e.get("city"), "issuer_state": e.get("state_desc"),
                 "year_inc": e.get("year_inc"),
@@ -1831,12 +1755,12 @@ def cmd_status(args) -> None:
     c = Counter(verdicts[r["slug"]]["verdict"] if r["slug"] in verdicts else "UNJUDGED"
                 for r in rows)
     items = load_queue_items()
-    open_by = {it["slug"]: open_needs(it, verdicts, merged) for it in items}
+    open_by = {it["slug"]: open_needs(it, verdicts, merged, cls) for it in items}
     answered = sum(1 for o in open_by.values() if not o)
     kinds = Counter(n for o in open_by.values() for n in o)
     batches = queue_batches()
     pending = [b.name for b in batches
-               if any(open_by.get(r["slug"]) or open_needs(r, verdicts, merged)
+               if any(open_by.get(r["slug"]) or open_needs(r, verdicts, merged, cls)
                       for r in json.loads(b.read_text()))]
     stale = len(set(cls) - base_slugs)
     print(f"base rows        : {len(rows)}")

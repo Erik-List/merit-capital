@@ -927,7 +927,14 @@ results; those results stand as history.
    reaches the judge (§8, the Black Forest Labs class). So **score the layer
    against the base before trusting it**, demote it to corroboration where the
    portfolio is full of common words, and re-judge every value it wrote with
-   `model_disputes_source`. The same property is what makes invariant 10 noisy
+   `model_disputes_source`. **`prepare` asks it since 2026-09-28**: a non-US
+   Wikidata country on a one-word name opens the `hq_country` question with
+   the claim shown (`hq_country_claim`), and only the judge's own value
+   closes it (a join the judge checks and confirms is recorded with source
+   `wikidata`); the fill stands meanwhile. On the landed books 404 such values
+   were never judged (Oscar Health read BE, Ciena CA), and only the missing
+   codes of the old country table caught Pearl→Suriname and Sofia→Bulgaria.
+   The same property is what makes invariant 10 noisy
    for such a firm: one-word names collide across investors (Maven, Whisper,
    Drift, Level, Cover, Haven, Gem, Parallel, Prepared), and each pair needs a
    `distinct` ruling rather than an alignment.
@@ -1815,9 +1822,20 @@ row that has a stage back to the judge.
 
 ### hq_country
 
-ISO 3166-1 alpha-2, 100% fill. Source hierarchy, entry-time first:
-`formd_address` > `wikidata` > `model_knowledge` > `web_verified`. Offshore
-filing havens fall through to the next source. Conflicts flagged
+ISO 3166-1 alpha-2, 100% fill, and **every code is valid**: the vocabulary is
+`scripts/countries.py`, all 249 officially assigned codes plus XK (Kosovo)
+since 2026-09-28. A table grown to 107 codes had left Xapo (Gibraltar)
+published as US and Celestia (Liechtenstein) with no country. Source
+hierarchy, entry-time first: `formd_address` > `wikidata` >
+`model_knowledge` > `web_verified`. Offshore filing havens fall through to
+the next source (Cayman, the BVI, Bermuda, Mauritius, Gibraltar, Monaco, Isle
+of Man, the Caribbean IBC jurisdictions: fund vehicles and registered
+offices, not where a company operates), and so do mis-picked dropdown
+entries (every Form D naming North Korea is a Seoul issuer) and former
+states (Czechoslovakia is a bad Wikidata join, never a headquarters). A
+judge who places a company in a haven records its code (GI). A Wikidata
+country on a one-word name is a claim `prepare` asks the judge to confirm
+outside the US (§5), never evidence that outranks knowledge. Conflicts flagged
 `country_conflict`; a Form D Delaware-of-convenience address may be disputed
 only with a note. Non-US claims on visible rows carry a citation or
 formd/wikidata provenance.

@@ -40,8 +40,8 @@ with no Ribbit fund named.
 
 Entry stage: Growth 71, Series A 45, Seed 25, Pre-Seed 1, round not on record 39 (mostly companies where
 Ribbit is first named as an existing investor, so its own entry round is earlier and unnamed).
-Headquarters: US 109, Brazil 14, UK 13, India 11, then France, China, Israel, Mexico and Germany 3 each, and
-17 more countries with one or two. Focus: Fintech & Payments 103, Crypto & Web3 38, AI & Applied AI 10.
+Headquarters: US 108, Brazil 14, UK 13, India 11, then France, China, Israel, Mexico and Germany 3 each, and
+18 more countries with one or two (Gibraltar since the country fix, section 9). Focus: Fintech & Payments 103, Crypto & Web3 38, AI & Applied AI 10.
 Membership rests on the firm's own listing for 179 rows and on the company's own release for 2 (Delphia,
 ForUsAll).
 
@@ -127,7 +127,7 @@ Redefine). Censored: CoPlane, Enigma, Tako.
 On the 181 published rows: `model_disputes_source` 41 (mostly wrong Wikidata or SEC joins on common
 words, each disputed with evidence), `stale` 26, `unicorn_name_match` 17, `city_unknown` 13, `cik_weak` 8,
 `stage_disputes_band` 5, `token_funded` 2, `unstable` 2 (duty 7), `country_conflict` 1 (Morse Money:
-London company, US parent), `city_country_conflict` 1 (Xapo, section 9). Archive debt: 2019-2020. Three
+London company, US parent). Archive debt: 2019-2020. Three
 stale classification keys (aside, capital-float, sling-money) duplicate their canonical rows (Daffy, Axio,
 Morse Money) exactly and are harmless.
 
@@ -180,9 +180,14 @@ ramp 1.07px); upload at ingest.
 2. **Caret (decisions.md R2).** Priced units in Safehold's private subsidiary at an implied $1.75B (the 8-K
    of 2022-02-15 names Ribbit): kept as a venture position; the alternative reads it as a structured
    position in a listed REIT (out).
-3. **Tooling: add Gibraltar (GI) to `ISO_OF` in `scripts/run.py`** (and Liechtenstein, BCV's open item).
-   Xapo Bank is in Gibraltar; until then the row keeps the filing's US with `city_country_conflict`, as
-   Greylock's Xapo row does.
+3. **Country table: fixed 2026-09-29** (Erik: "fix the country issue to resolve to the correct country
+   now and in the future"). The vocabulary moved to `scripts/countries.py`: all 249 ISO 3166-1 codes plus
+   XK, every name the inputs use, and no signal from filing havens (Mauritius, Gibraltar, Monaco, the
+   Caribbean IBC jurisdictions), mis-picked dropdown entries (North Korea for Seoul filers) or former
+   states (Czechoslovakia). Tested against 1,293 strings: nothing that resolved before changed. Rows fixed:
+   Xapo GI here and in Greylock, Mutual Risk Management BM (Greylock), Celestia LI (BCV). `prepare` now
+   asks the judge about a non-US Wikidata country on a one-word name; here it asked 10 (Ajaib, BharatPe,
+   Clip, Cred, Kavak, Monzo, Nubank, PhonePe, Razorpay, Borro), all the right company and confirmed.
 4. **Published-name calls** under the all-caps rule: CAN Capital, NYDIG and TOP (The Open Platform) read as
    words (Can Capital, Nydig, Top Group); dv01 reads letter by letter (DV01); the firm's "ReDeFine" is
    published as the company writes it (Redefine).
@@ -222,7 +227,7 @@ EarnIn, LendingHome to Kiavi, SaltPay to Teya, Sling Money to Morse Money, IBOD 
 6. **`record --replace-note`** for rewrite passes (what `scratch/set-notes.py` does).
 7. **Build order**: the industry filter drops Form D rows before the identity merge (Nave Holdings, Nave
    Bank's holding company, dropped as Commercial Banking).
-8. **ISO table**: Gibraltar and Liechtenstein.
+8. **Country table**: done in `scripts/countries.py` (section 9, item 3).
 
 ## 12. Usage line
 
@@ -232,8 +237,8 @@ session. Web searches: about 75 of the 200 cap, subagents included (the four bat
 
 ## 13. Prompt count
 
-**1 so far**: the kickoff ("please collect ribbit capital"). The ingest approval would be the second.
-Corrections from Erik: none.
+**2**: the kickoff ("please collect ribbit capital") and "fix the country issue to resolve to the correct
+country now and in the future, afterwards ingest" (2026-09-29). Corrections from Erik: none.
 
 ## 14. Ingest request (not run)
 

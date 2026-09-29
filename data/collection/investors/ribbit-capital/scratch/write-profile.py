@@ -43,7 +43,7 @@ def col(s, k):
 geo = Counter(col(s, "hq_country") or "?" for s in members)
 stage = Counter(col(s, "entry_stage") or "undetermined" for s in members)
 focus = Counter(cls.get(s, {}).get("focus") or "?" for s in members)
-REGION = {"Europe": ["GB", "FR", "DE", "PT", "IE", "ES", "IT", "NL", "SE", "CH", "PL", "EE", "LT", "DK", "FI", "NO", "BE", "AT"],
+REGION = {"Europe": ["GB", "FR", "DE", "PT", "IE", "ES", "IT", "NL", "SE", "CH", "PL", "EE", "LT", "DK", "FI", "NO", "BE", "AT", "GI"],
           "Latin America": ["BR", "MX", "CL", "AR", "CO", "PE", "UY"],
           "Asia": ["CN", "ID", "SG", "PH", "HK", "KR", "JP", "VN", "MY", "TH"]}
 reg = {k: sum(geo[c] for c in v) for k, v in REGION.items()}
