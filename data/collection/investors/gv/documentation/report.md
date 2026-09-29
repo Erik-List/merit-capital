@@ -274,8 +274,7 @@ WebFetch calls, and every later read went through curl and Google News. Base row
 
 ## 13. Prompt count
 
-**1** so far: the kickoff ("please collect GV"). The session resumed three times after context compaction or the
-app being quit ("continue"). Corrections from Erik: none.
+**2**, final: the kickoff ("please collect GV") and the ingest approval with three rulings (AUM firm-stated, Clarifai acquired, Vaccitech by the company). The session resumed three times after context compaction or the app being quit ("continue"). Corrections from Erik: none.
 
 ## 14. Ingest (run 2026-09-29, on Erik's approval)
 
