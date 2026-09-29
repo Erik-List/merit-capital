@@ -39,7 +39,8 @@ The shape of a collection, in order:
 7. Firm profile built once, against the landed base (§11).
 8. `verify` green with only flagged debt; `export`; `review`; `report.md`;
    playbook write-back (§9).
-9. One message to Erik: results, open rulings, the ingest request (§9).
+9. Ingest through the gate (§9), with the stale sibling rows aligned and re-ingested in the same
+   pass; then one message to Erik: results, open rulings, and what was ingested.
 
 Until 2026-09-03 a collection was two issues and two sessions — the base,
 then classification — separated by a blocking sample sign-off. The
@@ -2208,19 +2209,63 @@ finish everything it does not block**, then raise it once at the end,
 alongside the results; never stop mid-run with work outstanding that the
 open question does not touch.
 
-**Ingestion is gated on Erik's explicit approval** (ruled 2026-08-31, after
-the a16z run ingested ahead of review; unchanged by the merge):
-`ingest-companies.ts` and `ingest-investor.ts` write the shared database,
-so they run only after Erik explicitly approves — never as an autonomous
-step, even when the issue's Done-when lists ingestion. The run ends at
-export + review.html + report; `run.py close --investor <slug>` removes the
-in-flight marker (§12) as the last act before the closing commit; the
-session's closing message carries the results, the open rulings and the
-ingest request, and stops. Corrections
-that land after an approved ingest are re-ingested only with a fresh
-approval. Rows taken out of the base after an ingest are removed from the
-database by the next ingest rather than left behind, so the closing message
-names them and the approval covers the removals too.
+**The run ingests its own work, behind a mechanical gate** (Erik,
+2026-09-29, replacing the approval rule of 2026-08-31). From 2026-08-31 to
+2026-09-29 every ingest waited for Erik's explicit approval, after the a16z
+run ingested ahead of review. What made those ingests safe was never the
+prompt: it was the dry run's plan, the removal list and the database read
+back before and after the write (GV, PRO-75, ran the whole sequence and
+Erik's approval added nothing the checks had not shown). So the ingest is
+the run's last step, run by the session without asking, and the gate below
+is what it must pass. `run.py close --investor <slug>` removes the in-flight
+marker (§12) and the closing commit is made **before** the ingest, so the
+database always ends equal to a committed state.
+
+The gate, in order (the commands GV ran):
+
+1. **Preconditions**: plain `run.py verify --investor <slug>` clean;
+   `run.py close` done; the closing commit made; every ruling of the run
+   recorded. Open rulings do not block: the run ingests its current reading
+   and raises them in the closing message.
+2. **First ingest of an investor**: `npx tsx scripts/fetch-investor-icon.ts
+   <slug> <source>` (the icon upload), then `npx tsx
+   scripts/ingest-investor.ts <slug>`, then `npx tsx
+   scripts/ingest-companies.ts <slug> --dry-run`.
+3. **The removal check** (what the approval used to be given on): every row
+   the dry run would remove must be explained by the run itself, a slug in
+   `excluded.json`, a duplicate in `identity-merges.json`, or a rename the
+   rebuild printed. One unexplained removal stops the ingest.
+4. **Re-ingest of a live book**: the readback before the write must equal the
+   last committed `base.csv` except the cells the run changed; then the dry
+   run, the write, and the readback after, which must show 0 differing cells.
+   The readback tool is `data/collection/investors/20vc/scratch/align/readback.ts
+   <slug> [--investor-row]` (the most complete of the per-investor copies; use
+   this one).
+5. **Stop conditions** (stop, report, write nothing more): verify not clean;
+   an unexplained removal; a readback-before difference the run did not make;
+   a taxonomy or shape rejection from an ingest script (fix it only when it is
+   the run's own file, as GV fixed its `funds` shape); a readback-after that is
+   not zero. A stop is reported in the closing message with the output, and
+   Erik decides.
+
+**Stale sibling rows are aligned and re-ingested in the same pass**, not
+offered: every rule-10 pair accepted because the other book is stale gets
+that book's row written from the run's cited evidence (`run.py record
+--investor <book>`, a note of one sentence naming the event and its source,
+never a citation of the run's own firm's site), the book re-exported, and
+re-ingested through the same gate, one book at a time. Skip and report any
+book that carries `scratch/in-flight.json` or uncommitted changes to its
+company files. Commit only that book's three company files
+(`classification.json`, `base.csv`, `review.html`) with an explicit
+pathspec. A namesake pair the alignment surfaces is ruled `distinct` in that
+book's own `cross-rulings.json`, and the run's accepted pairs are removed
+once aligned (20VC and GV did both).
+
+**A correction from Erik after an ingest is the instruction to re-ingest**:
+apply it, pass the gate again, report. Rows a correction or a rebuild takes
+out of the base leave the database at that re-ingest, through the removal
+check. **Exception**: runs closed before 2026-09-29 and still waiting (Tiger
+Global, PRO-167) keep the old approval until Erik calls them.
 
 Before the closing message, the review surface is verified rendered —
 serve it (`file://` is blocked in the app browser; use a static server)
@@ -2233,9 +2278,10 @@ Every run ends in the investor's `report.md`: method deltas, results
 graduated, rate — with what the nos rest on in the sentence, §6),
 corrections taken, the flag and debt counts behind `verify`, the open
 rulings raised, the usage line (§12), and the session's prompt count — the number this pipeline
-exists to drive down. **The target is two prompts: kickoff and the ingest
-approval.** The count is final only after the ingest decision: review
-exchanges count, and a16z went from "1 prompt, 0 corrections" mid-run to
+exists to drive down. **The target is one prompt: the kickoff** (Erik,
+2026-09-29; it was two, the kickoff and the ingest approval, until the gate
+above replaced the approval). The count is final at the closing message;
+review exchanges and corrections count, and a16z went from "1 prompt, 0 corrections" mid-run to
 10 prompts and 6 rulings by close. Session recipe: the strongest available
 harness, web search enabled, the machine kept awake for the grind.
 
@@ -2249,10 +2295,10 @@ diff at its mid-run checkpoint and then ran nine more hours, so a whole
 evidence layer and every classification-phase rule went unrecorded
 until the next investor needed them.
 
-The icon is part of the gated step: at profile time
+The icon is part of the ingest: at profile time
 `fetch-investor-icon.ts --dry-run` normalizes the source image to a local
 PNG for inspection and `investor.json` carries the source URL; the upload
-to the Icon Images bucket runs with the ingest, after the approval, and
+to the Icon Images bucket runs with the ingest, as its first step, and
 `ingest-investor.ts` then carries the bucket URL. **Order for a first-time
 investor: icon upload, `ingest-investor.ts`, then `ingest-companies.ts`** —
 the companies ingest resolves the investor's database id and refuses to
@@ -2819,8 +2865,10 @@ checkout safe, and the etiquette that keeps it safe:
   serves every slug at `/<slug>/companies/review.html`.
 - **Alignment once per wave**, on main, after every session in the wave has
   closed: the cross-investor invariant over all published bases, the stale
-  side aligned and re-exported, the wave's playbook write-backs landed once,
-  then the ingest requests.
+  side aligned and re-exported, the wave's playbook write-backs landed once.
+  Since 2026-09-29 each run also aligns and re-ingests the stale rows it
+  finds at its own ingest (§9), so the wave pass only picks up what a run
+  had to skip.
 - **Wave etiquette.** Kickoff order by base size, starts about two hours
   apart. Each report carries a **usage line**: the account's weekly and
   Fable percentages read before kickoff and at close, and the base rows, so
