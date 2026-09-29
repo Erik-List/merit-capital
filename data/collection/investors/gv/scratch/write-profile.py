@@ -76,13 +76,15 @@ put("funds", funds, "https://www.sec.gov/cgi-bin/browse-edgar?company=gv+20&type
     "Management Company, L.L.C. (the manager), and CapitalG's vehicles (a separate firm). Press allocations: Google's "
     "commitment was $100 million in 2009 and $300 million a year from 2012 (Wikipedia); a $125 million European "
     "allocation was announced in 2014.")
+inv["funds"] = {"funds": funds}   # the table shape investor.json carries (ingest-investor.ts); the sidecar keeps the list
 
-put("icon_url", "data/collection/investors/gv/sources/site/gv-logo.svg", "data/collection/investors/gv/sources/site/gv-logo.svg",
-    "Source chosen by measurement: --discover on https://www.gv.com offers a 512x512 favicon.png, a 1280x720 og:image "
-    "and two inline SVG logo elements; the vector wins (COLLECTION.md s11). The source is the header's own inline <svg> "
-    "(viewBox 0 0 49 31, the black 'GV' mark), saved as sources/site/gv-logo.svg. Dry run 2026-09-29: vector, a "
-    "synthesized #ffffff plate behind the bare glyph, artwork scaled 0.682 into the keyline (box 68%, radius 79%), "
-    "contrast 18.8:1, ramp 0.86 px. Uploaded at ingest, after Erik's approval.")
+if not str(inv.get("icon_url") or "").startswith("https://"):  # uploaded at ingest: keep the bucket URL
+    put("icon_url", "data/collection/investors/gv/sources/site/gv-logo.svg", "data/collection/investors/gv/sources/site/gv-logo.svg",
+        "Source chosen by measurement: --discover on https://www.gv.com offers a 512x512 favicon.png, a 1280x720 og:image "
+        "and two inline SVG logo elements; the vector wins (COLLECTION.md s11). The source is the header's own inline <svg> "
+        "(viewBox 0 0 49 31, the black 'GV' mark), saved as sources/site/gv-logo.svg. Dry run 2026-09-29: vector, a "
+        "synthesized #ffffff plate behind the bare glyph, artwork scaled 0.682 into the keyline (box 68%, radius 79%), "
+        "contrast 18.8:1, ramp 0.86 px. Uploaded at ingest, after Erik's approval.")
 
 derived = HERE / "profile-derived.json"
 if derived.exists():

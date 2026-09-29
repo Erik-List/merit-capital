@@ -276,3 +276,16 @@ WebFetch calls, and every later read went through curl and Google News. Base row
 
 **1** so far: the kickoff ("please collect GV"). The session resumed three times after context compaction or the
 app being quit ("continue"). Corrections from Erik: none.
+
+## 14. Ingest (run 2026-09-29, on Erik's approval)
+
+Erik's rulings of 2026-09-29 were applied first: AUM the firm's own $13B at both ends (`firm_stated`), Clarifai
+acquired with the sibling rows aligned, Vaccitech by what the company says (GB, Altrincham).
+
+1. Icon: `fetch-investor-icon.ts` uploaded `investors/gv-2fbd596521.png` (the header's vector mark on a white plate,
+   contrast 18.8:1, ramp 0.86px); `icon_url` points at the bucket.
+2. Investor row: `ingest-investor.ts gv` upserted 1 row after one fix: the profile writer emitted `funds` as a bare
+   list where the table takes `{"funds": [...]}` (the sidecar keeps the list); fixed in `scratch/write-profile.py`.
+3. Companies: the dry run planned 749 new, 0 removed, from 0 live; the write upserted 749/749.
+4. Readback of every column the ingest writes against `base.csv`: 749 rows, 0 missing, 0 extra, 0 differing cells;
+   the investor row reads the $13B AUM, the bucket icon and the S2A block (103 of 187, 55.1%).
