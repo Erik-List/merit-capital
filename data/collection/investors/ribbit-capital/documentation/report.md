@@ -188,9 +188,8 @@ ramp 1.07px); upload at ingest.
    Xapo GI here and in Greylock, Mutual Risk Management BM (Greylock), Celestia LI (BCV). `prepare` now
    asks the judge about a non-US Wikidata country on a one-word name; here it asked 10 (Ajaib, BharatPe,
    Clip, Cred, Kavak, Monzo, Nubank, PhonePe, Razorpay, Borro), all the right company and confirmed.
-   Greylock's and BCV's corrected rows are committed but not yet in the database: their re-ingest (a
-   full upsert, dry run 0 new / 0 removed, readback showing only those three cells differ) awaits
-   Erik's approval.
+   Greylock and BCV were re-ingested with those rows on Erik's approval (2026-09-29): dry runs 0 new /
+   0 removed, readback exact (553 and 414 rows, 0 mismatches).
 4. **Published-name calls** under the all-caps rule: CAN Capital, NYDIG and TOP (The Open Platform) read as
    words (Can Capital, Nydig, Top Group); dv01 reads letter by letter (DV01); the firm's "ReDeFine" is
    published as the company writes it (Redefine).
@@ -240,8 +239,8 @@ session. Web searches: about 75 of the 200 cap, subagents included (the four bat
 
 ## 13. Prompt count
 
-**2**: the kickoff ("please collect ribbit capital") and "fix the country issue to resolve to the correct
-country now and in the future, afterwards ingest" (2026-09-29). Corrections from Erik: none.
+**3**: the kickoff ("please collect ribbit capital"), "fix the country issue to resolve to the correct
+country now and in the future, afterwards ingest" (2026-09-29), and "please reingest greylock & BCV". Corrections from Erik: none.
 
 ## 14. Ingest (run 2026-09-29, on Erik's approval)
 
