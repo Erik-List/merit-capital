@@ -289,3 +289,11 @@ acquired with the sibling rows aligned, Vaccitech by what the company says (GB, 
 3. Companies: the dry run planned 749 new, 0 removed, from 0 live; the write upserted 749/749.
 4. Readback of every column the ingest writes against `base.csv`: 749 rows, 0 missing, 0 extra, 0 differing cells;
    the investor row reads the $13B AUM, the bucket icon and the S2A block (103 of 187, 55.1%).
+5. **Sibling alignment** (Erik's approval of 2026-09-29): 61 stale rows in 18 books aligned to GV's newer cited event,
+   each book re-ingested with a dry run of 0 new and 0 removed and a readback of 0 differing cells, and committed by
+   explicit pathspec: First Round 9, a16z 6, Accel 6, Sequoia 5, Felicis 4, Khosla 4, Lux 3, Lightspeed 3, and one
+   or two in USV, Menlo, Battery, IVP, Spark, Insight, Greylock, Redpoint, 8VC (Lyell: public) and Y Combinator (plus
+   its Artifact, found only once GV was published). EQT, Thrive and several other pairs had already been aligned by
+   the ICONIQ run. Not aligned: a16z's Oration (its sale is stated only on gv.com; the pair stays accepted) and
+   ICONIQ's Fin row (another session was editing that book). New namesake pairs the alignment surfaced are ruled
+   distinct in the books' own `cross-rulings.json`. GV's verify: 0 disagree, 1 accepted.
