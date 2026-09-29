@@ -1,8 +1,7 @@
 # Sutter Hill Ventures: Build & Reconciliation Report (PRO-77)
 
 **Linear issue** PRO-77 · **slug** `sutter-hill-ventures` · one run, one session, under the merged shape of
-`data/collection/COLLECTION.md` · report written 2026-09-28. **Not ingested: the ingest waits on Erik's approval
-(section 14).**
+`data/collection/COLLECTION.md` · report written 2026-09-28. **Ingested 2026-09-28 with Erik's approval (see the last section).**
 
 ---
 
@@ -209,7 +208,7 @@ Sutter Hill led). Notables: Nvidia, Snowflake, Activision, Palm, Glassdoor.
 
 ## 13. Prompt count
 
-1 so far (the kickoff). It becomes 2 with the ingest approval.
+2, final: the kickoff and the ingest approval (which also ruled the Everpure rename).
 
 ## 14. Ingest request (not run)
 
@@ -219,3 +218,18 @@ This is a first-time investor, so the order is icon, investor row, companies:
 2. `npx tsx scripts/ingest-investor.ts sutter-hill-ventures`
 3. `npx tsx scripts/ingest-companies.ts sutter-hill-ventures --dry-run`, read the list (a first ingest removes
    nothing), then the same without `--dry-run`: 274 companies.
+
+## Ingest 2026-09-28 (Erik's approval, second prompt)
+
+Erik: "rename pure Storage" and "ingest now". The rename is recorded as R4 in decisions.md: Pure Storage publishes as
+**Everpure** (`config.names.published`, slug unchanged); `export` and plain `verify` were re-run clean before any
+write.
+
+1. Icon uploaded: `investors/sutter-hill-ventures-8b21517b8c.png` (the "SHV" monogram, 256x256, contrast 12.1:1,
+   ramp 0.99px); `icon_url` and its provenance are in the profile files.
+2. `ingest-investor.ts sutter-hill-ventures`: 1 investor record upserted.
+3. `ingest-companies.ts sutter-hill-ventures --dry-run`: 274 new, 0 removed, from 0 live; then the real run upserted
+   274/274, and `public.companies` holds 274 rows for the investor.
+
+Greylock, IVP and Redpoint still publish the company as Pure Storage; renaming it there means re-exporting and
+re-ingesting those three books, which waits on Erik's word.

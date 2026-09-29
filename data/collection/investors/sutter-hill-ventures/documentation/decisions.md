@@ -170,3 +170,6 @@ moves a class of the firm's own listings.
   the firm's own deal attribution.** It feeds `partners_site` and is the
   reference graph for resolving a Form D name-match cluster (§5, the Accel
   rule), dated by the capture.
+- **R4 (2026-09-28, Erik): Pure Storage publishes as Everpure.** Pure Storage, Inc. renamed itself Everpure,
+  Inc. in January 2026 (SEC name change on CIK 1474432, ticker P). Erik, answering the open ruling at close:
+  "rename pure Storage". The row keeps its slug `pure-storage`; `config.names.published` carries the brand.
