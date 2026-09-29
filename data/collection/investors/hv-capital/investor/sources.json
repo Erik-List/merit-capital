@@ -1,431 +1,446 @@
 {
- "slug": "hv-capital",
- "generated_at": "2026-09-29T21:17:44+00:00",
- "run": "PRO-104",
- "fields": {
-  "name": {
-   "value": "HV Capital",
-   "source": "https://www.hvcapital.com/",
-   "basis": "the firm's site. Holtzbrinck Ventures from April 2000 (the 2007 site's Facts and Figures: 'Founded April 2000 ... Corporate venture company of the publishing group Georg von Holtzbrinck and a subsidiary company (100%)'), HV Holtzbrinck Ventures after the 2010 spin-off (Martin Weber's page: 'In 2010, he led HV's transformation into a true partnership, making the firm independent from the Holtzbrinck Publishing Group'), HV Capital from 2020. Advisers: HV Capital Manager GmbH (SEC exempt reporting adviser CRD 301966, formerly HV Holtzbrinck Ventures Manager GmbH) and HV Capital Adviser GmbH (CRD 163955, formerly HV Holtzbrinck Ventures Adviser GmbH), both Kaiserstrasse 14b, 80801 Munich; decisions.md D1, D2."
-  },
-  "website": {
-   "value": "https://www.hvcapital.com",
-   "source": "https://www.hvcapital.com/",
-   "basis": "firm site (Next.js on Storyblok; portfolio export at /api/portfolio-csv, team at /team); holtzbrinck-ventures.com until 2018"
-  },
-  "icon_url": {
-   "value": "https://a.storyblok.com/f/330117/2380x2380/7da52419d7/hv-logo-on-white-background.png",
-   "source": "https://a.storyblok.com/f/330117/2380x2380/7da52419d7/hv-logo-on-white-background.png",
-   "basis": "The firm's own logo on white (Storyblok asset behind the site header's logo <img>, 2380x2380), chosen by fetch-investor-icon.ts --discover over the 512x512 manifest icon (both pass; the larger raster wins). Dry run 2026-09-29: self-backing plate kept, artwork 2120px -> 189px (0.09x), contrast 3.9:1, ramp 1.01px. Uploaded at the ingest."
-  },
-  "founding_year": {
-   "value": 2000,
-   "source": "https://web.archive.org/web/20070205014901/http://www.holtzbrinck-ventures.com:80/index.php?facts_and_figures",
-   "basis": "the firm's own 2007 Facts and Figures page: 'Founded April 2000'; the 2011 history page: 'Founded in 2000 as the venture capital arm of the Georg von Holtzbrinck Publishing Group'."
-  },
-  "history": {
-   "value": "HV Capital was founded in Munich in 2000 as Holtzbrinck Ventures, the venture arm of the Georg von Holtzbrinck publishing group, and became an independent partnership in 2010, taking its current name in 2020. It became known for early bets on Zalando, Delivery Hero, HelloFresh, Flix and Scalable Capital. In 2023 it closed its ninth fund at \u20ac710 million, split between an early stage and a growth vehicle.",
-   "source": "https://techcrunch.com/2023/05/04/hv-capital-closes-e710m-fund-amidst-the-wider-european-and-global-funding-downturn/",
-   "basis": "founding and the corporate lineage: the firm's own 2007 and 2011 pages (founding_year) and Martin Weber's team page (independence in 2010); the rebrand with Fund VIII in 2020 (Global Venturing, 2020-11-03); the bets named are the firm's own export and 2015 site, all members; Fund IX: 'closed its ninth Fund IX at EUR 710 million ... split into two vehicles, Fund IX Venture and Fund IX Growth' (TechCrunch, 2023-05-04). Left out to fit: the Rocket Internet co-investments (Lazada, Dafiti, lamoda, Linio) and the Rocket share sale of 2014; Groupon via CityDeal; Fund X (Ventures and Growth Form Ds of 2026-01 and 2026-05)."
-  },
-  "investment_concept": {
-   "value": "\u201cBacking the bold. Building the future.\u201d",
-   "source": "https://www.hvcapital.com/",
-   "basis": "The firm's own statement, verbatim from the homepage h1 ('Backing the bold / Building the future'), read 2026-09-29, set as two sentences with closing periods. Competing lines: the portfolio page's 'HV backs Europe's most ambitious founders from Seed to Growth.' and the homepage's 'The future starts as a bold idea. We provide the capital and conviction to help founders build it.' The title tag is 'HV Capital' and the meta description 'Welcome'."
-  },
-  "investment_stage": {
-   "value": [
-    "Seed",
-    "Series A",
-    "Growth"
-   ],
-   "source": "https://www.hvcapital.com/portfolio",
-   "basis": "the firm's own words: 'HV backs Europe's most ambitious founders from Seed to Growth' and Fund IX's two vehicles 'to target companies from seed to Series' growth (TechCrunch 2023-05-04); the landed entry-stage distribution, with a few pre-seed entries (Beyond Presence, Qontext, Tzafon), is restated in report.md"
-  },
-  "investment_geo": {
-   "value": {
-    "core": [
-     "Europe"
-    ],
-    "other": [
-     "US"
-    ]
-   },
-   "source": "https://www.hvcapital.com/api/portfolio-csv?lang=en",
-   "basis": "the export's own HQ field: Germany 105, United Kingdom 14, United States 9, Netherlands 5, France 5, Switzerland 3 and eight more of 154 companies; core Europe, other US (two-label cap)"
-  },
-  "investment_scope": {
-   "value": {
-    "type": "Generalist",
-    "focus": [
-     "Consumer & Marketplaces",
-     "SaaS",
-     "Industrial & Robotics",
-     "Healthcare & Bio",
-     "Climate & Energy",
-     "Fintech & Payments"
-    ]
-   },
-   "source": "companies/base.json",
-   "basis": "focus from the firm's own site sector tags on 183 base rows, crosswalked to data/taxonomy/focus.json (crosswalk in config.json), published above 10 companies. Scope type is the curated judgement carried in investor.json."
-  },
-  "investment_range": {
-   "value": {
-    "lower_limit": 553700,
-    "median": 12000000,
-    "upper_limit": 66444000
-   },
-   "source": "https://techcrunch.com/2023/05/04/hv-capital-closes-e710m-fund-amidst-the-wider-european-and-global-funding-downturn/",
-   "basis": "lower and upper limits: the firm's stated ticket range, 'ticket sizes ranging from EUR 500,000 to EUR 60 million' (TechCrunch, 2023-05-04): EUR 500K @ ECB 2023-05-04 (EUR/USD 1.1074) = $553,700 and EUR 60M = $66,444,000. Median: the entry rounds whose size the record states, on 73 member rows (the firm's own posts and press; HV files no Form D for most of its European companies, so the Form D leg does not apply), median $12.0M, published $12M; a round-size proxy for the cheque, fair only where HV led, flagged press-based (COLLECTION.md s11).",
-   "flags": [
-    "press_based_median"
-   ]
-  },
-  "notable_investments": {
-   "value": [
-    "Zalando",
-    "Delivery Hero",
-    "HelloFresh",
-    "Flix",
-    "Depop"
-   ],
-   "source": "companies/base.csv",
-   "basis": "The five best known of the firm's own companies, most recognised first (PRO-152). Considered next: Scalable Capital, SumUp (out: sale consideration for payleven, decisions.md D4), n8n, Groupon (out: consideration for CityDeal), Isar Aerospace, Westwing.",
-   "slugs": [
-    "zalando",
-    "delivery-hero",
-    "hellofresh",
-    "flix",
-    "depop"
-   ]
-  },
-  "aum": {
-   "value": {
-    "bottom": 4000968225,
-    "top": 4000968225
-   },
-   "source": "https://adviserinfo.sec.gov/firm/summary/301966",
-   "basis": "both ends: the sworn Form ADV Section 7.B(1) gross asset values of the firm's two exempt reporting advisers (annual amendments of 2026-03-24 and 2026-03-26; sources/registers/adv-7b.json), master funds only: Fund IX Growth $804,714,476; Fund VII $708,296,405; Fund IX Ventures $662,832,210; Coco Growth $661,654,433; Fund VIII $633,705,446; Fund VI SCS $440,228,627; Co-Investment Fund I $70,572,515; Fund 7 COIF $11,751,522; Fund 7 COIF II $7,218,591; Fund V $0 = $4,000,968,225. The Jersey and German feeders (Fund VII feeder $456,043,708, Fund VIII feeder $300,650,086, Angels Feeder Fund VIII $25,905,874, Fund V and Co-Invest I feeders $0) hold interests in these masters and are excluded to avoid double counting. The firm's own '2.8 Billion Euros AUM' (homepage, 2026-09-29) and '2.7 billion' (TechCrunch 2023) are committed capital and sit below the sworn gross value: flagged, not the range."
-  },
-  "funds": {
-   "value": [
-    {
-     "name": "HV Capital Fund IX (Venture and Growth)",
-     "size": 786300000,
-     "vintage": 2023
+  "slug": "hv-capital",
+  "generated_at": "2026-09-29T21:17:44+00:00",
+  "run": "PRO-104",
+  "fields": {
+    "name": {
+      "value": "HV Capital",
+      "source": "https://www.hvcapital.com/",
+      "basis": "the firm's site. Holtzbrinck Ventures from April 2000 (the 2007 site's Facts and Figures: 'Founded April 2000 ... Corporate venture company of the publishing group Georg von Holtzbrinck and a subsidiary company (100%)'), HV Holtzbrinck Ventures after the 2010 spin-off (Martin Weber's page: 'In 2010, he led HV's transformation into a true partnership, making the firm independent from the Holtzbrinck Publishing Group'), HV Capital from 2020. Advisers: HV Capital Manager GmbH (SEC exempt reporting adviser CRD 301966, formerly HV Holtzbrinck Ventures Manager GmbH) and HV Capital Adviser GmbH (CRD 163955, formerly HV Holtzbrinck Ventures Adviser GmbH), both Kaiserstrasse 14b, 80801 Munich; decisions.md D1, D2."
     },
-    {
-     "name": "HV Capital Coco Growth Fund",
-     "size": 489000000,
-     "vintage": 2022
+    "website": {
+      "value": "https://www.hvcapital.com",
+      "source": "https://www.hvcapital.com/",
+      "basis": "firm site (Next.js on Storyblok; portfolio export at /api/portfolio-csv, team at /team); holtzbrinck-ventures.com until 2018"
     },
-    {
-     "name": "HV Holtzbrinck Ventures Fund VIII",
-     "size": 625000000,
-     "vintage": 2020
+    "icon_url": {
+      "value": "https://lsohkkmdlrlixukuncjl.supabase.co/storage/v1/object/public/Icon%20Images/investors/hv-capital-28837082a3.png",
+      "source": "https://a.storyblok.com/f/330117/2380x2380/7da52419d7/hv-logo-on-white-background.png",
+      "basis": "fetched 2026-09-29 by scripts/fetch-investor-icon.ts from https://a.storyblok.com/f/330117/2380x2380/7da52419d7/hv-logo-on-white-background.png: png 2380x2380, artwork 2120px in the source → 189px in the 256px master (0.09x); plate: source is self-backing (opaque-plate), kept; safe area: artwork scaled 0.831 (box 89%→74%, radius 93%→77%); master 256x256 opaque-plate rgb(252,252,252) opaque=100% box=74% radius=77% contrast=3.9:1 ramp=1.01px",
+      "provenance": {
+        "source_url": "https://a.storyblok.com/f/330117/2380x2380/7da52419d7/hv-logo-on-white-background.png",
+        "format": "png",
+        "width": 2380,
+        "height": 2380,
+        "vector": false,
+        "artwork_source_px": 2120,
+        "artwork_master_px": 189,
+        "upscale": 0.089,
+        "ramp_px": 1.01,
+        "master_size": 256,
+        "fetched": "2026-09-29",
+        "allow_upscale": false,
+        "allow_low_contrast": false
+      }
     },
-    {
-     "name": "HV Holtzbrinck Ventures Fund VI",
-     "size": 330300000,
-     "vintage": 2015
+    "founding_year": {
+      "value": 2000,
+      "source": "https://web.archive.org/web/20070205014901/http://www.holtzbrinck-ventures.com:80/index.php?facts_and_figures",
+      "basis": "the firm's own 2007 Facts and Figures page: 'Founded April 2000'; the 2011 history page: 'Founded in 2000 as the venture capital arm of the Georg von Holtzbrinck Publishing Group'."
     },
-    {
-     "name": "HV Holtzbrinck Ventures Fund IV",
-     "size": 229200000,
-     "vintage": 2011
+    "history": {
+      "value": "HV Capital was founded in Munich in 2000 as Holtzbrinck Ventures, the venture arm of the Georg von Holtzbrinck publishing group, and became an independent partnership in 2010, taking its current name in 2020. It became known for early bets on Zalando, Delivery Hero, HelloFresh, Flix and Scalable Capital. In 2023 it closed its ninth fund at €710 million, split between an early stage and a growth vehicle.",
+      "source": "https://techcrunch.com/2023/05/04/hv-capital-closes-e710m-fund-amidst-the-wider-european-and-global-funding-downturn/",
+      "basis": "founding and the corporate lineage: the firm's own 2007 and 2011 pages (founding_year) and Martin Weber's team page (independence in 2010); the rebrand with Fund VIII in 2020 (Global Venturing, 2020-11-03); the bets named are the firm's own export and 2015 site, all members; Fund IX: 'closed its ninth Fund IX at EUR 710 million ... split into two vehicles, Fund IX Venture and Fund IX Growth' (TechCrunch, 2023-05-04). Left out to fit: the Rocket Internet co-investments (Lazada, Dafiti, lamoda, Linio) and the Rocket share sale of 2014; Groupon via CityDeal; Fund X (Ventures and Growth Form Ds of 2026-01 and 2026-05)."
+    },
+    "investment_concept": {
+      "value": "“Backing the bold. Building the future.”",
+      "source": "https://www.hvcapital.com/",
+      "basis": "The firm's own statement, verbatim from the homepage h1 ('Backing the bold / Building the future'), read 2026-09-29, set as two sentences with closing periods. Competing lines: the portfolio page's 'HV backs Europe's most ambitious founders from Seed to Growth.' and the homepage's 'The future starts as a bold idea. We provide the capital and conviction to help founders build it.' The title tag is 'HV Capital' and the meta description 'Welcome'."
+    },
+    "investment_stage": {
+      "value": [
+        "Seed",
+        "Series A",
+        "Growth"
+      ],
+      "source": "https://www.hvcapital.com/portfolio",
+      "basis": "the firm's own words: 'HV backs Europe's most ambitious founders from Seed to Growth' and Fund IX's two vehicles 'to target companies from seed to Series' growth (TechCrunch 2023-05-04); the landed entry-stage distribution, with a few pre-seed entries (Beyond Presence, Qontext, Tzafon), is restated in report.md"
+    },
+    "investment_geo": {
+      "value": {
+        "core": [
+          "Europe"
+        ],
+        "other": [
+          "US"
+        ]
+      },
+      "source": "https://www.hvcapital.com/api/portfolio-csv?lang=en",
+      "basis": "the export's own HQ field: Germany 105, United Kingdom 14, United States 9, Netherlands 5, France 5, Switzerland 3 and eight more of 154 companies; core Europe, other US (two-label cap)"
+    },
+    "investment_scope": {
+      "value": {
+        "type": "Generalist",
+        "focus": [
+          "Consumer & Marketplaces",
+          "SaaS",
+          "Industrial & Robotics",
+          "Healthcare & Bio",
+          "Climate & Energy",
+          "Fintech & Payments"
+        ]
+      },
+      "source": "companies/base.json",
+      "basis": "focus from the firm's own site sector tags on 183 base rows, crosswalked to data/taxonomy/focus.json (crosswalk in config.json), published above 10 companies. Scope type is the curated judgement carried in investor.json."
+    },
+    "investment_range": {
+      "value": {
+        "lower_limit": 553700,
+        "median": 12000000,
+        "upper_limit": 66444000
+      },
+      "source": "https://techcrunch.com/2023/05/04/hv-capital-closes-e710m-fund-amidst-the-wider-european-and-global-funding-downturn/",
+      "basis": "lower and upper limits: the firm's stated ticket range, 'ticket sizes ranging from EUR 500,000 to EUR 60 million' (TechCrunch, 2023-05-04): EUR 500K @ ECB 2023-05-04 (EUR/USD 1.1074) = $553,700 and EUR 60M = $66,444,000. Median: the entry rounds whose size the record states, on 73 member rows (the firm's own posts and press; HV files no Form D for most of its European companies, so the Form D leg does not apply), median $12.0M, published $12M; a round-size proxy for the cheque, fair only where HV led, flagged press-based (COLLECTION.md s11).",
+      "flags": [
+        "press_based_median"
+      ]
+    },
+    "notable_investments": {
+      "value": [
+        "Zalando",
+        "Delivery Hero",
+        "HelloFresh",
+        "Flix",
+        "Depop"
+      ],
+      "source": "companies/base.csv",
+      "basis": "The five best known of the firm's own companies, most recognised first (PRO-152). Considered next: Scalable Capital, SumUp (out: sale consideration for payleven, decisions.md D4), n8n, Groupon (out: consideration for CityDeal), Isar Aerospace, Westwing.",
+      "slugs": [
+        "zalando",
+        "delivery-hero",
+        "hellofresh",
+        "flix",
+        "depop"
+      ]
+    },
+    "aum": {
+      "value": {
+        "bottom": 4000968225,
+        "top": 4000968225
+      },
+      "source": "https://adviserinfo.sec.gov/firm/summary/301966",
+      "basis": "both ends: the sworn Form ADV Section 7.B(1) gross asset values of the firm's two exempt reporting advisers (annual amendments of 2026-03-24 and 2026-03-26; sources/registers/adv-7b.json), master funds only: Fund IX Growth $804,714,476; Fund VII $708,296,405; Fund IX Ventures $662,832,210; Coco Growth $661,654,433; Fund VIII $633,705,446; Fund VI SCS $440,228,627; Co-Investment Fund I $70,572,515; Fund 7 COIF $11,751,522; Fund 7 COIF II $7,218,591; Fund V $0 = $4,000,968,225. The Jersey and German feeders (Fund VII feeder $456,043,708, Fund VIII feeder $300,650,086, Angels Feeder Fund VIII $25,905,874, Fund V and Co-Invest I feeders $0) hold interests in these masters and are excluded to avoid double counting. The firm's own '2.8 Billion Euros AUM' (homepage, 2026-09-29) and '2.7 billion' (TechCrunch 2023) are committed capital and sit below the sworn gross value: flagged, not the range."
+    },
+    "funds": {
+      "value": [
+        {
+          "name": "HV Capital Fund IX (Venture and Growth)",
+          "size": 786300000,
+          "vintage": 2023
+        },
+        {
+          "name": "HV Capital Coco Growth Fund",
+          "size": 489000000,
+          "vintage": 2022
+        },
+        {
+          "name": "HV Holtzbrinck Ventures Fund VIII",
+          "size": 625000000,
+          "vintage": 2020
+        },
+        {
+          "name": "HV Holtzbrinck Ventures Fund VI",
+          "size": 330300000,
+          "vintage": 2015
+        },
+        {
+          "name": "HV Holtzbrinck Ventures Fund IV",
+          "size": 229200000,
+          "vintage": 2011
+        }
+      ],
+      "source": "https://techcrunch.com/2023/05/04/hv-capital-closes-e710m-fund-amidst-the-wider-european-and-global-funding-downturn/",
+      "basis": "Fund IX: EUR 710M (TechCrunch 2023-05-04) at ECB 2023-05-04 (1.1074) = $786.3M, in two vehicles (Fund IX Ventures, CIK 1956452; Fund IX Growth, CIK 1956473; Form Ds 2022-12-16). Coco Growth Fund: the '$489m continuation fund' (https://globalventuring.com/corporate/hv-capital-launches-489m-continuation/). Fund VIII: '$625m fund' (https://globalventuring.com/blog/2020/11/03/holtzbrinck-helps-hv-capital-to-625m-fund/; EUR 535M, Jersey feeder CIK 1826851). Fund VI: EUR 285M, the firm's own post of 2015-01-16 (https://web.archive.org/web/20151024071829/http://www.holtzbrinck-ventures.com:80/?news_en&newsdetail=20150116-292_hv-holtzbrinck-ventures-raises-285-million-for-internet-entrepreneurs-in-its-sixth-fund), at ECB 1.1588 = $330.3M (SCS, CIK 1632401). Fund IV: EUR 177M, the firm's own post of 2011-01-11 (https://web.archive.org/web/20110124050850/http://www.holtzbrinck-ventures.com:80/index.php?news_en&newsdetail=20110111-292_closing-of-holtzbrinck-ventures-fund-at-177m), at ECB 1.2948 = $229.2M. Not listed for want of a sourced size: Funds I-III (the corporate era, 2000-10), Fund V, Fund VII, Fund X (Ventures CIK 2103544 and Growth CIK 2129211, Form Ds of 2026). Co-investment and feeder vehicles are plumbing, described here and never listed (decisions.md D5)."
+    },
+    "hq_location": {
+      "value": "Munich, Bavaria, Germany",
+      "source": "sources/offices.json",
+      "basis": "Principal office on the newest Form ADV: Kaiserstrasse 14 B, Munich, Bavaria, Germany (HV CAPITAL MANAGER GMBH, CRD 301966, Annual Amendment filed 2026-03-26). The firm's site names no office in its served pages (7 checked), so the Form ADV stands. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+      "sources": [
+        {
+          "source": "Form ADV Item 1.F and Schedule D 1.F, HV CAPITAL MANAGER GMBH (Annual Amendment filed 2026-03-26)",
+          "url": "https://reports.adviserinfo.sec.gov/reports/ADV/301966/PDF/301966.pdf"
+        }
+      ]
+    },
+    "individuals": {
+      "value": [
+        {
+          "name": "Alexander Joël-Carbonell",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Ann-Christin Stiehl",
+          "position": "Investment Manager",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Barbod Namini",
+          "position": "General Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Christian Saller",
+          "position": "General Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Christoph Jung",
+          "position": "Founding Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "David Kuczek",
+          "position": "General Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Emma Ubrig",
+          "position": "Analyst",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Fabian Gruner",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Felix Klühr",
+          "position": "General Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Frazier Christie",
+          "position": "Analyst",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Frederic Kost",
+          "position": "Investment Manager",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jack McGuinness",
+          "position": "Investment Manager",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jan Miczaika",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jannis Fett",
+          "position": "Principal",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Lars Langusch",
+          "position": "Founding Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Laura Seifert",
+          "position": "Investment Manager",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Lina Chong",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Lucian Rilling",
+          "position": "Analyst",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Luisa Textor",
+          "position": "Analyst",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Manal Belaouane",
+          "position": "Principal",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Martin Weber",
+          "position": "Founding Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Maxi Pethö-Schramm",
+          "position": "Principal",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Mina Mutafchieva",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Rainer Märkle",
+          "position": "General Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Said Haschemi",
+          "position": "Principal",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Sven Achter",
+          "position": "Founding Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Vincent Coon",
+          "position": "Investment Manager",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Anna Ott",
+          "position": "VP People",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Christine Regitz",
+          "position": "Advisor",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Kasey Davies",
+          "position": "Marketing, Comms & Brand",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Lothar Lanz",
+          "position": "Advisor",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Marie Bos",
+          "position": "ESG & Public Affairs",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Martin Ott",
+          "position": "Advisor",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Nicholas Denissen",
+          "position": "Advisor",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        }
+      ],
+      "source": "sources/site/team.json",
+      "basis": "Live team CMS: 34 members. Positions are CMS titles (29 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 0 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 0 LinkedIn, 0 X."
     }
-   ],
-   "source": "https://techcrunch.com/2023/05/04/hv-capital-closes-e710m-fund-amidst-the-wider-european-and-global-funding-downturn/",
-   "basis": "Fund IX: EUR 710M (TechCrunch 2023-05-04) at ECB 2023-05-04 (1.1074) = $786.3M, in two vehicles (Fund IX Ventures, CIK 1956452; Fund IX Growth, CIK 1956473; Form Ds 2022-12-16). Coco Growth Fund: the '$489m continuation fund' (https://globalventuring.com/corporate/hv-capital-launches-489m-continuation/). Fund VIII: '$625m fund' (https://globalventuring.com/blog/2020/11/03/holtzbrinck-helps-hv-capital-to-625m-fund/; EUR 535M, Jersey feeder CIK 1826851). Fund VI: EUR 285M, the firm's own post of 2015-01-16 (https://web.archive.org/web/20151024071829/http://www.holtzbrinck-ventures.com:80/?news_en&newsdetail=20150116-292_hv-holtzbrinck-ventures-raises-285-million-for-internet-entrepreneurs-in-its-sixth-fund), at ECB 1.1588 = $330.3M (SCS, CIK 1632401). Fund IV: EUR 177M, the firm's own post of 2011-01-11 (https://web.archive.org/web/20110124050850/http://www.holtzbrinck-ventures.com:80/index.php?news_en&newsdetail=20110111-292_closing-of-holtzbrinck-ventures-fund-at-177m), at ECB 1.2948 = $229.2M. Not listed for want of a sourced size: Funds I-III (the corporate era, 2000-10), Fund V, Fund VII, Fund X (Ventures CIK 2103544 and Growth CIK 2129211, Form Ds of 2026). Co-investment and feeder vehicles are plumbing, described here and never listed (decisions.md D5)."
-  },
-  "hq_location": {
-   "value": "Munich, Bavaria, Germany",
-   "source": "sources/offices.json",
-   "basis": "Principal office on the newest Form ADV: Kaiserstrasse 14 B, Munich, Bavaria, Germany (HV CAPITAL MANAGER GMBH, CRD 301966, Annual Amendment filed 2026-03-26). The firm's site names no office in its served pages (7 checked), so the Form ADV stands. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
-   "sources": [
-    {
-     "source": "Form ADV Item 1.F and Schedule D 1.F, HV CAPITAL MANAGER GMBH (Annual Amendment filed 2026-03-26)",
-     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/301966/PDF/301966.pdf"
-    }
-   ]
-  },
-  "individuals": {
-   "value": [
-    {
-     "name": "Alexander Jo\u00ebl-Carbonell",
-     "position": "Partner",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Ann-Christin Stiehl",
-     "position": "Investment Manager",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Barbod Namini",
-     "position": "General Partner",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Christian Saller",
-     "position": "General Partner",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Christoph Jung",
-     "position": "Founding Partner",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "David Kuczek",
-     "position": "General Partner",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Emma Ubrig",
-     "position": "Analyst",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Fabian Gruner",
-     "position": "Partner",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Felix Kl\u00fchr",
-     "position": "General Partner",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Frazier Christie",
-     "position": "Analyst",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Frederic Kost",
-     "position": "Investment Manager",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Jack McGuinness",
-     "position": "Investment Manager",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Jan Miczaika",
-     "position": "Partner",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Jannis Fett",
-     "position": "Principal",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Lars Langusch",
-     "position": "Founding Partner",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Laura Seifert",
-     "position": "Investment Manager",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Lina Chong",
-     "position": "Partner",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Lucian Rilling",
-     "position": "Analyst",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Luisa Textor",
-     "position": "Analyst",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Manal Belaouane",
-     "position": "Principal",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Martin Weber",
-     "position": "Founding Partner",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Maxi Peth\u00f6-Schramm",
-     "position": "Principal",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Mina Mutafchieva",
-     "position": "Partner",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Rainer M\u00e4rkle",
-     "position": "General Partner",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Said Haschemi",
-     "position": "Principal",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Sven Achter",
-     "position": "Founding Partner",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Vincent Coon",
-     "position": "Investment Manager",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Anna Ott",
-     "position": "VP People",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Christine Regitz",
-     "position": "Advisor",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Kasey Davies",
-     "position": "Marketing, Comms & Brand",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Lothar Lanz",
-     "position": "Advisor",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Marie Bos",
-     "position": "ESG & Public Affairs",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Martin Ott",
-     "position": "Advisor",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    },
-    {
-     "name": "Nicholas Denissen",
-     "position": "Advisor",
-     "socials": {
-      "linkedin_url": null,
-      "x_url": null
-     }
-    }
-   ],
-   "source": "sources/site/team.json",
-   "basis": "Live team CMS: 34 members. Positions are CMS titles (29 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 0 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 0 LinkedIn, 0 X."
   }
- }
 }
