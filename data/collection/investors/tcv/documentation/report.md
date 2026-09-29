@@ -23,8 +23,8 @@ listing), 255 Form D rows that matched a TCV person's name on a company the comp
 | control_position rows counted | 24, listed in section 3 |
 | Profile through the taxonomy gate | `investor.json` + `sources.json` built by `build-firm-profile.py`; `profile_copy.py` ok |
 | `review.html` rendered and checked | Served on the review surface: 296/296 rows flat, profile panel expands with every field and basis |
-| Cross-investor (rule 10) | 221 shared rows: 209 agree, 9 accepted (stale siblings, aligned at ingest), 0 disagree; 8 namesake pairs ruled distinct |
-| Report, close, commit, ingest, Linear, closing message | This report; section 14 records the ingest |
+| Cross-investor (rule 10) | 218 shared rows: 215 agree, 3 accepted (stale rows in sibling books skipped at the gate), 0 disagree; 8 namesake pairs ruled distinct |
+| Report, close, commit, ingest, Linear, closing message | This report; `run.py close`; closing commit d8409c94; **ingested 2026-09-29, 296 live, readback exact** (section 14); PRO-169 comment |
 
 ## 2. Results
 
@@ -192,6 +192,12 @@ position. The final rebuild renamed nothing.
 8. **Next.js RSC `T` blocks are byte-counted**, not character-counted (two parsers sliced mid-name).
 9. **The momentum slice should include Security**: Upwind's $1.6B to $3.8B raise sat outside it and was
    found only by the blind judge.
+10. **An alignment line that lifts a sibling row to $1B+ must add `cite_pending`** when that book's entry
+    stage is uncited: the ICONIQ pass left Quince (8VC), Rillet (a16z, Creandum, Sequoia) and Houzz
+    (Sequoia) failing their books' verify, which blocked this run's gate until the markers were added.
+11. **Sibling books drift out of verify-clean between runs** (disputes one run creates in another's book:
+    KupiVIP, Banyan, Coda, Faire, Root, Versatile). An alignment pass should verify each book it touches and
+    raise the third-book disputes it cannot fix, or a later run's gate skips the book.
 
 ## 12. Usage line
 
@@ -203,6 +209,36 @@ included (the legacy-row research 40, the blind judge 9, this session about 36).
 
 **2**: the kickoff ("please collect TCV") and a "go ahead" after a mid-run status message. No corrections.
 
-## 14. Ingest
+## 14. Ingest (run 2026-09-29 through the §9 gate, no approval prompt)
 
-Recorded after the closing commit (below).
+**TCV.** Preconditions met: plain `verify` clean, `run.py close` run, closing commit d8409c94. Icon uploaded
+(`investors/tcv-1b75ed91f7.png`: vector source, contrast 9.2:1, ramp 0.92px); `ingest-investor.ts` upserted the
+investor row (the geo labels Canada, Australia and China were new to the label list, which is open by design);
+`ingest-companies.ts` dry run: 296 new, 0 removed; written; readback **296 live, 0 differing cells**. A second
+pass fixed two published names (config `names.published`: Sportradar, SiteMinder): readback before showed
+exactly those two renames, the dry run removed only the two old names (the run's own change), readback after 0.
+
+**Stale sibling rows: 9 books aligned and re-ingested, each through the same gate** (record from TCV's cited
+value with a one-sentence note, never a TCV-site citation; export; review; plain `verify` clean; a cell diff
+showing only the intended rows; dry run with 0 removals; write; readback after 0; the book's company files
+committed by explicit pathspec):
+
+| Book | Rows | Commit |
+|---|---|---|
+| 8VC | Aviatrix $2B (Aviatrix's own release); Quince `cite_pending` | 6e08cd6f |
+| a16z | Revolut $115B; Rillet `cite_pending` | ad803e75 |
+| Benchmark | Zillow public, $6.2B (was acquired, below $1B) | 117e92ae |
+| Coatue, Felicis, IVP | Attentive $5B (June 2021) | aa7f2731, f414462a, 964f4df9 |
+| Creandum | Klarna cap $4.85B; Rillet `cite_pending` | 98d1a48d |
+| Menlo | Grow Therapy $3B, Nourish $1.75B; JUMP ruled distinct from Insight's Jump | e8133c37 |
+| Thrive | Nourish $1.75B | 32b5525f |
+
+**Skipped at the gate, lines removed by restoring the committed files (readback exact against live):**
+Y Combinator (its readback before the write differs in one name the run did not make: `" Metadata"` in the CSV,
+`"Metadata"` live), Accel (KupiVIP: acquired there, defunct in Balderton), Battery Ventures (Banyan Systems:
+acquired there, defunct in Greylock; Trip.com against Tiger's Ctrip, a likely namesake), Greylock (Coda against
+Khosla; Upwind's country would also need a rule-6 citation once it crosses $1B) and Sequoia (Houzz and Rillet
+without `cite_pending`; Faire against Khosla; Root and Versatile against Insight). Each fails plain `verify` on a
+dispute with a third book that this run did not make. **Still stale there:** Sequoia's Grow Therapy, Pennylane
+and Klarna; Greylock's Revolut and Upwind; YC's Nourish; Accel's Facebook cap; Battery's Groupon cap. The three
+rule-10 pairs among them stay `accepted` in `companies/cross-rulings.json`; the aligned pairs were removed.

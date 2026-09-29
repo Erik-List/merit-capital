@@ -1,5 +1,5 @@
 {
- "_doc": "TCV's cross-investor rulings for COLLECTION.md rule 10 (run.py verify), scoped to this investor and merged at read time with data/collection/cross-investor.json. Written in the PRO-169 run, 2026-09-29. `distinct` = the loose name key matched two different companies. Same-company disagreements where the sibling's row is stale are not accepted here: the run aligns and re-ingests those siblings at its own ingest (COLLECTION.md 9).",
+ "_doc": "TCV's cross-investor rulings for COLLECTION.md rule 10 (run.py verify), scoped to this investor and merged at read time with data/collection/cross-investor.json. Written in the PRO-169 run, 2026-09-29. `distinct` = the loose name key matched two different companies. `accepted` = the same company, where the sibling's row is stale and the sibling book was skipped at this run's ingest gate (report.md section 14); the pairs this run aligned were removed.",
  "distinct": [
   {
    "rows": [
@@ -61,66 +61,38 @@
  "accepted": [
   {
    "rows": [
-    "tcv:aviatrix",
-    "8vc:aviatrix"
-   ],
-   "note": "Same company. TCV led the $200M Series E of September 2021 at $2B (Aviatrix's release, PR Newswire, 2021-09-08); 8VC's row carries no figure and reads below $1B. Stale side is the sibling's; aligned and re-ingested at this run's ingest (COLLECTION.md 9)."
-  },
-  {
-   "rows": [
-    "tcv:grow-therapy",
-    "menlo-ventures:grow-therapy"
-   ],
-   "note": "Same company. The $150M Series D of March 2026 valued Grow Therapy at $3B (Modern Healthcare); Menlo's row carries no figure and reads below $1B. Stale side is the sibling's; aligned and re-ingested at this run's ingest (COLLECTION.md 9)."
-  },
-  {
-   "rows": [
     "tcv:grow-therapy",
     "sequoia-capital:grow-therapy"
    ],
-   "note": "Same company. The $150M Series D of March 2026 valued Grow Therapy at $3B (Modern Healthcare); Sequoia's row carries no figure and reads below $1B. Stale side is the sibling's; aligned and re-ingested at this run's ingest (COLLECTION.md 9)."
-  },
-  {
-   "rows": [
-    "tcv:nourish",
-    "menlo-ventures:nourish"
-   ],
-   "note": "Same company. The $100M Series C of May 2026 valued Nourish at $1.75B (Reuters); Menlo's row reads below $1B. Stale side is the sibling's; aligned and re-ingested at this run's ingest (COLLECTION.md 9)."
-  },
-  {
-   "rows": [
-    "tcv:nourish",
-    "thrive-capital:nourish"
-   ],
-   "note": "Same company. The $100M Series C of May 2026 valued Nourish at $1.75B (Reuters); Thrive's row reads below $1B. Stale side is the sibling's; aligned and re-ingested at this run's ingest (COLLECTION.md 9)."
+   "note": "Same company. The $150M Series D of March 2026 valued Grow Therapy at $3B (Modern Healthcare); Sequoia's row carries no figure and reads below $1B. Stale side is the sibling's; not aligned: the sibling book was skipped at the gate (its verify fails on disputes with a third book that this run did not make; see report.md section 14)."
   },
   {
    "rows": [
     "tcv:nourish",
     "y-combinator:nourish"
    ],
-   "note": "Same company. The $100M Series C of May 2026 valued Nourish at $1.75B (Reuters); YC's row reads below $1B. Stale side is the sibling's; aligned and re-ingested at this run's ingest (COLLECTION.md 9)."
-  },
-  {
-   "rows": [
-    "tcv:revolut",
-    "a16z:revolut"
-   ],
-   "note": "Same company. Revolut's secondary share sale of July 2026 set $115B (Bloomberg, 2026-07-22); a16z's row carries $75B from November 2025. Stale side is the sibling's; aligned and re-ingested at this run's ingest (COLLECTION.md 9)."
+   "note": "Same company. The $100M Series C of May 2026 valued Nourish at $1.75B (Reuters); YC's row reads below $1B. Stale side is the sibling's; not aligned: YC was skipped at the gate (its readback before the write differs in one name the run did not make)."
   },
   {
    "rows": [
     "tcv:revolut",
     "greylock:revolut"
    ],
-   "note": "Same company. Revolut's secondary share sale of July 2026 set $115B (Bloomberg, 2026-07-22); Greylock's row carries $75B from November 2025. Stale side is the sibling's; aligned and re-ingested at this run's ingest (COLLECTION.md 9)."
+   "note": "Same company. Revolut's secondary share sale of July 2026 set $115B (Bloomberg, 2026-07-22); Greylock's row carries $75B from November 2025. Stale side is the sibling's; not aligned: the sibling book was skipped at the gate (its verify fails on disputes with a third book that this run did not make; see report.md section 14)."
   },
   {
    "rows": [
-    "tcv:zillow",
-    "benchmark:zillow-com"
+    "thrive-capital:nourish",
+    "y-combinator:nourish"
    ],
-   "note": "Same company. Zillow has been listed on Nasdaq since July 2011 and is public at $6.2B (StockAnalysis, 2026-09-29); Benchmark's row reads acquired below $1B as of 2014. Stale side is the sibling's; aligned and re-ingested at this run's ingest (COLLECTION.md 9)."
+   "note": "Same company. Raised by the TCV run (PRO-169): the $100M Series C of May 2026 valued Nourish at $1.75B (Reuters), which this run aligned into the sibling's row; YC's row still reads below $1B because YC was skipped at the gate (its readback before the write differs in one name the run did not make: ' Metadata'). Stale side is YC's."
+  },
+  {
+   "rows": [
+    "menlo-ventures:nourish",
+    "y-combinator:nourish"
+   ],
+   "note": "Same company. Raised by the TCV run (PRO-169): the $100M Series C of May 2026 valued Nourish at $1.75B (Reuters), which this run aligned into the sibling's row; YC's row still reads below $1B because YC was skipped at the gate (its readback before the write differs in one name the run did not make: ' Metadata'). Stale side is YC's."
   }
  ]
 }
