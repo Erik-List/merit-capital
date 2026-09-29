@@ -2,15 +2,14 @@
 
 **Linear issue** PRO-104 · **slug** `hv-capital` · one run under the merged shape of
 `data/collection/COLLECTION.md`, one session · report written 2026-09-29.
-**Not ingested beyond the icon: the investor-row write was refused by this session's permission classifier (section 15).**
+**Ingested 2026-09-29 through the §9 gate: 266 companies live, readback exact; Accel, Headline and Lightspeed re-ingested (section 15).**
 
 ---
 
 ## 1. The answer PRO-104 asked for
 
-**The base is 266 companies, plain `verify` is clean and the firm profile is built. The §9 ingest
-stopped after step 1 (the icon upload): the investor-row write was refused by this session's
-permission classifier, so no database row was written (section 15).** HV Capital is one firm under two SEC exempt reporting advisers of
+**The base is 266 companies, plain `verify` is clean, the firm profile is built, and the book is
+live: ingested through the §9 gate with an exact readback (section 15).** HV Capital is one firm under two SEC exempt reporting advisers of
 one manager (HV Capital Manager GmbH, CRD 301966; HV Capital Adviser GmbH, CRD 163955), founded in
 Munich in 2000 as Holtzbrinck Ventures. The book runs from its corporate era (1999-2010, Funds I-III)
 through the independent partnership (Funds IV-IX, 2010-2026).
@@ -45,7 +44,7 @@ Out: 14 rows.
 | `review.html` rendered | Served on a local static server: 266 rows flat, profile panel expands |
 | `report.md` | This file |
 | Archetype-B corrections to PRO-87 | Section 12 and a PRO-87 comment |
-| Ingest through the §9 gate, sibling rows aligned | Icon uploaded; investor and companies not written (permission refusal); the 3 sibling rows aligned and committed, re-ingest pending (section 15) |
+| Ingest through the §9 gate, sibling rows aligned | Done: 266 live, readback 0 differing cells; Accel, Headline and Lightspeed re-ingested, each exact (section 15) |
 
 ## 2. Results
 
@@ -373,39 +372,29 @@ the closing message.
 
 ## 15. Ingest
 
-**Stopped after step 1 of the gate.** The preconditions held: plain `verify` clean, `run.py close`
-done, closing commit `6f8d9a77` made. The readback before the write confirmed that HV has no row in
-`public.investors`.
+**Ingested 2026-09-29 through the COLLECTION.md §9 gate.** The first attempt at the investor row
+was refused by the session's permission classifier. After that, Erik told the session in chat to run
+the ingest commands.
 
-1. **Icon: done.** `npx tsx scripts/fetch-investor-icon.ts hv-capital
-   https://a.storyblok.com/f/330117/2380x2380/7da52419d7/hv-logo-on-white-background.png`
-   uploaded `investors/hv-capital-28837082a3.png`. The provenance is committed in `165c0d05`.
-2. **Investor row: not written.** `npx tsx scripts/ingest-investor.ts hv-capital` was refused by
-   the session's permission classifier as a write to a shared resource. Nothing was written to
-   `public.investors` or `public.companies`.
+- **Preconditions.** Plain `verify` clean, `run.py close` done, closing commit `6f8d9a77`. The
+  readback before the write found no HV row in `public.investors`.
+- **Icon.** `investors/hv-capital-28837082a3.png` uploaded; provenance committed in `165c0d05`.
+- **Investor row.** `ingest-investor.ts hv-capital`: 1 record upserted.
+- **Companies.** The dry run planned 266 new rows and 0 removals, so the removal check passed
+  trivially. The write upserted 266 of 266.
+- **Readback after the write.** csv 266, live 266, missing 0, extra 0, **0 differing cells**. The
+  investor row carries the published profile:
+  - range $553,700 to $66,444,000, median $12M;
+  - S2A 28 of 43 (65.1%);
+  - AUM $4,000,968,225;
+  - track record: 5 IPOs, 16 companies at $1B+, 1 at $10B+.
 
-**Stale sibling rows.** Aligned in their books and committed, three company files each:
-- Accel: Framer at $2B (`9e6aa4e9`).
-- Headline: Klima acquired by Wren (`5f53cd46`).
-- Lightspeed: Plan A acquired by Diginex (`ac62ab88`).
+**Stale sibling rows**, re-ingested one book at a time. In each book, the readback before the write
+differed only in the row this run aligned, the dry run removed nothing, and the readback after
+showed 0 differing cells.
 
-The three accepted pairs are removed from `companies/cross-rulings.json`, and HV now agrees with
-every shared row (80 of 80). Their re-ingest waits with HV's. Verify on Accel and Lightspeed shows
-three older cross-book disagreements that this run did not touch (KupiVIP with Balderton, Faire with
-Khosla, Yubi with Insight).
-
-**To finish, in this order**, per COLLECTION.md §9:
-
-```bash
-npx tsx scripts/ingest-investor.ts hv-capital
-npx tsx scripts/ingest-companies.ts hv-capital --dry-run
-npx tsx scripts/ingest-companies.ts hv-capital
-npx tsx data/collection/investors/20vc/scratch/align/readback.ts hv-capital --investor-row
-```
-
-1. The dry run of a first ingest removes nothing; any removal it lists stops the ingest.
-2. The readback after the write must show 0 differing cells.
-3. Then, for accel, headline and lightspeed, one book at a time:
-   - readback before the write, which must differ only in the one aligned row;
-   - `ingest-companies.ts <book>`;
-   - readback after, which must show 0 differing cells.
+| Book | Before the write | Rows | After |
+|---|---|---|---|
+| Accel | Framer valuation (3 cells) | 884 | 0 differing |
+| Headline | Klima status (1 cell) | 395 | 0 differing |
+| Lightspeed | Plan A status (1 cell) | 875 | 0 differing |
