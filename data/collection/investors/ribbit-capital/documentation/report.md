@@ -188,6 +188,9 @@ ramp 1.07px); upload at ingest.
    Xapo GI here and in Greylock, Mutual Risk Management BM (Greylock), Celestia LI (BCV). `prepare` now
    asks the judge about a non-US Wikidata country on a one-word name; here it asked 10 (Ajaib, BharatPe,
    Clip, Cred, Kavak, Monzo, Nubank, PhonePe, Razorpay, Borro), all the right company and confirmed.
+   Greylock's and BCV's corrected rows are committed but not yet in the database: their re-ingest (a
+   full upsert, dry run 0 new / 0 removed, readback showing only those three cells differ) awaits
+   Erik's approval.
 4. **Published-name calls** under the all-caps rule: CAN Capital, NYDIG and TOP (The Open Platform) read as
    words (Can Capital, Nydig, Top Group); dv01 reads letter by letter (DV01); the firm's "ReDeFine" is
    published as the company writes it (Redefine).
@@ -240,11 +243,12 @@ session. Web searches: about 75 of the 200 cap, subagents included (the four bat
 **2**: the kickoff ("please collect ribbit capital") and "fix the country issue to resolve to the correct
 country now and in the future, afterwards ingest" (2026-09-29). Corrections from Erik: none.
 
-## 14. Ingest request (not run)
+## 14. Ingest (run 2026-09-29, on Erik's approval)
 
-First-time investor, so in this order, each only on Erik's approval:
-
-1. `npx tsx scripts/fetch-investor-icon.ts ribbit-capital data/collection/investors/ribbit-capital/sources/site/icon-256.png`
-2. `npx tsx scripts/ingest-investor.ts ribbit-capital`
-3. `npx tsx scripts/ingest-companies.ts ribbit-capital --dry-run`, read the plan (a first ingest removes
-   nothing), then the same without `--dry-run`: 181 companies.
+1. Icon: `fetch-investor-icon.ts` uploaded `investors/ribbit-capital-c067140720.png` (256px master, the
+   brand's green plate, contrast 10.6:1, ramp 1.07px); `icon_url` points at the bucket.
+2. Investor row: `ingest-investor.ts ribbit-capital` upserted 1 row.
+3. Companies: the dry run planned 181 new, 0 removed, from 0 live; the write upserted 181/181 and the
+   script's own count check closed at 181.
+4. Readback, every column the ingest writes against `base.csv`: 181 rows, 0 cell mismatches, `icon_url`
+   matching `investor.json`.
