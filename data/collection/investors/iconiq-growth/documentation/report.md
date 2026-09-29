@@ -243,7 +243,7 @@ design (its canonical row is out).
 
 ## 12. Usage line
 
-Kickoff (2026-09-29 00:32 UTC): weekly all models 23%, Fable 6%, five-hour 2%. Close (about 14:30 UTC):
+Kickoff (2026-09-29 00:32 UTC): weekly all models 23%, Fable 6%, five-hour 2%. Close (about 14:15 UTC):
 weekly all models 53%, Fable 6%, five-hour 4% (the weekly figure includes the GV, Tiger Global and Ribbit
 sessions that ran alongside). Web searches: about 170 of the 200 cap, subagents included (pass B 34,
 entry citations 40, momentum 20, the blind judges about 26, this session's about 48). Base rows 169.

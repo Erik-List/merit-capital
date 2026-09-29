@@ -37,7 +37,7 @@ weekly all models 23%, Fable 6%, 5-hour 2%.
   city_unknown only where no city is on disk.
 - WebSearch used: about 45 of 200.
 
-## CLOSED 2026-09-29 ~14:45 UTC (resumed at 14:00 after the usage-limit pause)
+## CLOSED 2026-09-29 ~14:15 UTC (resumed at 14:00 after the usage-limit pause)
 - IA CDX read once after the cooldown: earliest growth portfolio page iconiqcapital.com/growth 2020-09-25 (73 logos),
   all in the base or excluded; no Wayback pull needed.
 - Second rebuild: 169 rows, 30 excluded (24 not_member, 6 control_position), no rename; prepare re-run; verify clean.
