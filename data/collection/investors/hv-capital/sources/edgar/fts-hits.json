@@ -1,0 +1,928 @@
+{
+  "_readme": "EDGAR full-text sweep (scripts/edgar-fts-sweep.py): hits for the configured phrases aggregated by registrant; bucket third_party = exit-side disclosure candidates for the judge (S-1 IRA signatories and holder tables, 424B selling stockholders, acquirer S-3/S-4/8-K), own = the investor's entities/people, lp_side = registered funds holding the investor's vehicles, ownership_forms = 13D/G, 3/4 or D filings handled by the entities/ownership layers.",
+  "phrases": [
+    "Holtzbrinck Ventures",
+    "HV Holtzbrinck",
+    "HV Capital Fund",
+    "HV Capital Manager",
+    "HV Capital Adviser"
+  ],
+  "own_pattern": "^hv capital (fund|coco|angels|manager|adviser)|^hv holtzbrinck ventures|^holtzbrinck ventures",
+  "swept_at": "2026-09-29",
+  "coverage": [
+    {
+      "phrase": "Holtzbrinck Ventures",
+      "total": 42,
+      "complete": true,
+      "failed_windows": [],
+      "read": 42,
+      "distinct": 42
+    },
+    {
+      "phrase": "HV Holtzbrinck",
+      "total": 24,
+      "complete": true,
+      "failed_windows": [],
+      "read": 24,
+      "distinct": 24
+    },
+    {
+      "phrase": "HV Capital Fund",
+      "total": 4,
+      "complete": true,
+      "failed_windows": [],
+      "read": 4,
+      "distinct": 4
+    },
+    {
+      "phrase": "HV Capital Manager",
+      "total": 14,
+      "complete": true,
+      "failed_windows": [],
+      "read": 14,
+      "distinct": 14
+    },
+    {
+      "phrase": "HV Capital Adviser",
+      "total": 0,
+      "complete": true,
+      "failed_windows": [],
+      "read": 0,
+      "distinct": 0
+    }
+  ],
+  "registrants": [
+    {
+      "registrant": "HV Holtzbrinck Ventures Fund VI SCS",
+      "cik": "0001632401",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2015-02-11",
+      "last_date": "2015-02-11",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2015-02-11",
+          "adsh": "0001632401-15-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1632401/000163240115000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1632401/000163240115000001/0001632401-15-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Holtzbrinck Ventures NM GmbH & Co. KG",
+      "cik": "0001724105",
+      "forms": {
+        "SC 13G": 1,
+        "SC 13G/A": 2
+      },
+      "first_date": "2017-12-06",
+      "last_date": "2020-01-15",
+      "filings": [
+        {
+          "form": "SC 13G",
+          "date": "2017-12-06",
+          "adsh": "0000904454-17-000706",
+          "url": "https://www.sec.gov/Archives/edgar/data/1724105/000090445417000706/s13g_12062017-sparks.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1724105/000090445417000706/0000904454-17-000706-index.htm"
+        },
+        {
+          "form": "SC 13G/A",
+          "date": "2018-01-17",
+          "adsh": "0000904454-18-000036",
+          "url": "https://www.sec.gov/Archives/edgar/data/1724105/000090445418000036/s13ga_01172018-sparks.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1724105/000090445418000036/0000904454-18-000036-index.htm"
+        },
+        {
+          "form": "SC 13G/A",
+          "date": "2020-01-15",
+          "adsh": "0000904454-20-000033",
+          "url": "https://www.sec.gov/Archives/edgar/data/1724105/000090445420000033/s13ga_01142020-sparks.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1724105/000090445420000033/0000904454-20-000033-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "HV Holtzbrinck Ventures Fund VIII Feeder Ltd",
+      "cik": "0001826851",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2020-10-09",
+      "last_date": "2020-10-09",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2020-10-09",
+          "adsh": "0001826851-20-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1826851/000182685120000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1826851/000182685120000001/0001826851-20-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "HV Capital Fund IX Growth GmbH & Co. geschlossene Investment KG",
+      "cik": "0001956473",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2022-12-16",
+      "last_date": "2022-12-16",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2022-12-16",
+          "adsh": "0001956473-22-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1956473/000195647322000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1956473/000195647322000001/0001956473-22-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "HV Capital Fund IX Ventures GmbH & Co. geschlossene Investment KG",
+      "cik": "0001956452",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2022-12-16",
+      "last_date": "2022-12-16",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2022-12-16",
+          "adsh": "0001956452-22-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1956452/000195645222000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1956452/000195645222000001/0001956452-22-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "HV Capital Fund X Ventures GmbH & Co. geschlossene Investment KG",
+      "cik": "0002103544",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2026-01-06",
+      "last_date": "2026-01-06",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2026-01-06",
+          "adsh": "0002103544-26-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/2103544/000210354426000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/2103544/000210354426000001/0002103544-26-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "HV Capital Fund X Growth GmbH & Co. geschlossene Investment KG",
+      "cik": "0002129211",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2026-05-04",
+      "last_date": "2026-05-04",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2026-05-04",
+          "adsh": "0002129211-26-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/2129211/000212921126000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/2129211/000212921126000001/0002129211-26-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "AUDIBLE INC",
+      "cik": "0001077926",
+      "forms": {
+        "10-Q": 1
+      },
+      "first_date": "2006-11-09",
+      "last_date": "2006-11-09",
+      "filings": [
+        {
+          "form": "10-Q",
+          "date": "2006-11-09",
+          "adsh": "0001077926-06-000035",
+          "url": "https://www.sec.gov/Archives/edgar/data/1077926/000107792606000035/exhibit10_49de.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1077926/000107792606000035/0001077926-06-000035-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1077926/000107792606000035/exhibit10_49de.htm",
+          "form": "10-Q",
+          "date": "2006-11-09",
+          "mentions": 1,
+          "context": [
+            "ervereinbarung 1 st Amendment to the Shareholder Agreement [notarization required] zwischen by and among 1. Audible, Inc. (\" Audible \") und / and 2a. MNO Beteiligungs GmbH (\" Random House \") und / and 2b. Verlagsgruppe Random House GmbH (\" VRH \") und / and 3. Holtzbrinck Ventures GmbH (\" Holtzbrinck \") und / and 4. Verlagsgruppe Lübbe GmbH & Co. KG (\" LUEBBE “) und / and 5. Audible GmbH (die \" Gesellschaft \" / the \" Company \") 1. Sachstand 1. Recitals 1.1 Die Gesellschaft ist eine Gesellschaft mit beschränkter Haftung nach deutschem R"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "CAFEPRESS INC.",
+      "cik": "0001117733",
+      "forms": {
+        "CORRESP": 1,
+        "S-1/A": 6,
+        "424B4": 1
+      },
+      "first_date": "2011-10-24",
+      "last_date": "2012-03-29",
+      "filings": [
+        {
+          "form": "S-1/A",
+          "date": "2011-10-24",
+          "adsh": "0001193125-11-278775",
+          "url": "https://www.sec.gov/Archives/edgar/data/1117733/000119312511278775/d187703ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1117733/000119312511278775/0001193125-11-278775-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2012-02-17",
+          "adsh": "0001193125-12-067697",
+          "url": "https://www.sec.gov/Archives/edgar/data/1117733/000119312512067697/d187703ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1117733/000119312512067697/0001193125-12-067697-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2012-03-06",
+          "adsh": "0001193125-12-097412",
+          "url": "https://www.sec.gov/Archives/edgar/data/1117733/000119312512097412/d187703ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1117733/000119312512097412/0001193125-12-097412-index.htm"
+        },
+        {
+          "form": "CORRESP",
+          "date": "2012-03-12",
+          "adsh": "0001193125-12-108258",
+          "url": "https://www.sec.gov/Archives/edgar/data/1117733/000119312512108258/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1117733/000119312512108258/0001193125-12-108258-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2012-03-14",
+          "adsh": "0001193125-12-115214",
+          "url": "https://www.sec.gov/Archives/edgar/data/1117733/000119312512115214/d187703ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1117733/000119312512115214/0001193125-12-115214-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2012-03-27",
+          "adsh": "0001193125-12-133159",
+          "url": "https://www.sec.gov/Archives/edgar/data/1117733/000119312512133159/d187703ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1117733/000119312512133159/0001193125-12-133159-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2012-03-28",
+          "adsh": "0001193125-12-135260",
+          "url": "https://www.sec.gov/Archives/edgar/data/1117733/000119312512135260/d187703ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1117733/000119312512135260/0001193125-12-135260-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2012-03-29",
+          "adsh": "0001193125-12-138490",
+          "url": "https://www.sec.gov/Archives/edgar/data/1117733/000119312512138490/d187703d424b4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1117733/000119312512138490/0001193125-12-138490-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1117733/000119312511278775/d187703ds1a.htm",
+          "form": "S-1/A",
+          "date": "2011-10-24",
+          "mentions": 7,
+          "context": [
+            " Joel J. Paston Lynch Family Trust(15) Michael Murray Ohana Holdings, LLC (16) PacRim Venture Partners Funds(17) Robert Senoff Staenberg Private Capital, LLC(18) Steven Blank** William J. Anderson Abdul Popal(19)** Angela Low(20)** Dawn Durham 2005 Trust (21) Holtzbrinck Ventures GmBH & Co., KG (22) Joe Schmidt(23)** Joshua Collins(24)** Marc Cull(25)** Ryan Kearns(26)** Samantha Loredo(27)** Tom Lotrecchiano(23)** William R. Beardsley** All other selling stockholders (28) * Represents beneficial ownership of less than 1%. ** This ind",
+            "September 30, 2011. (20) Includes 14,750 shares subject to options exercisable within 60 days of September 30, 2011. (21) Dawn Durham, as sole trustee, holds dispositive and voting power over these shares. Dawn Durham is the mother of Fred E. Durham III. (22) HV Holtzbrinck Ventures Fund IV LP is the sole shareholder of Holtzbrinck Ventures GmBH & Co., KG. The general partner of HV Holtzbrinck Ventures Fund IV LP is HV Holtzbrinck Ventures Fund IV GP. Lars Langusch, Sven Achter, Christoph Jung and Martin Weber share dispositive ",
+            "ions exercisable within 60 days of September 30, 2011. (21) Dawn Durham, as sole trustee, holds dispositive and voting power over these shares. Dawn Durham is the mother of Fred E. Durham III. (22) HV Holtzbrinck Ventures Fund IV LP is the sole shareholder of Holtzbrinck Ventures GmBH & Co., KG. The general partner of HV Holtzbrinck Ventures Fund IV LP is HV Holtzbrinck Ventures Fund IV GP. Lars Langusch, Sven Achter, Christoph Jung and Martin Weber share dispositive and voting power over these shares as the indirect shareholders of H"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1117733/000119312512067697/d187703ds1a.htm",
+          "form": "S-1/A",
+          "date": "2012-02-17",
+          "mentions": 7,
+          "context": [
+            "s(20) 220,702 1.5% 110,350 Robert Senoff 30,553 * 12,500 Staenberg Private Capital, LLC(21) 89,471 * 67,100 Steven Blank** 153,381 1.1% 45,534 William J. Anderson 44,955 * 10,000 Angela Low(22)** 42,374 * 5,000 Dawn Durham 2005 Trust (23) 210,959 1.5% 138,045 Holtzbrinck Ventures GmBH & Co., KG (24) 82,705 * 16,541 Joshua Collins(25)** 10,804 * 3,000 Marc Cull(26)** 23,653 * 5,000 Philip J. Monego, Sr.(27)** 249,316 1.7% 30,000 Ryan Kearns(28)** 19,077 * 3,000 Samantha Loredo(29)** 7,324 * 2,000 William R. Beardsley** 36,651 * 4,152 A",
+            "e, Washington 98121. (22) Includes 14,874 shares subject to options exercisable within 60 days of December 31, 2011. (23) Dawn Durham, as sole trustee, holds dispositive and voting power over these shares. Dawn Durham is the mother of Fred E. Durham III. (24) HV Holtzbrinck Ventures Fund IV LP is the sole shareholder of Holtzbrinck Ventures GmBH & Co., KG. The general partner of HV Holtzbrinck Ventures Fund IV LP is HV Holtzbrinck Ventures Fund IV GP. Lars Langusch, Sven Achter, Christoph Jung and Martin Weber share dispositive ",
+            "tions exercisable within 60 days of December 31, 2011. (23) Dawn Durham, as sole trustee, holds dispositive and voting power over these shares. Dawn Durham is the mother of Fred E. Durham III. (24) HV Holtzbrinck Ventures Fund IV LP is the sole shareholder of Holtzbrinck Ventures GmBH & Co., KG. The general partner of HV Holtzbrinck Ventures Fund IV LP is HV Holtzbrinck Ventures Fund IV GP. Lars Langusch, Sven Achter, Christoph Jung and Martin Weber share dispositive and voting power over these shares as the indirect shareholders of H"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "Care.com Inc",
+      "cik": "0001412270",
+      "forms": {
+        "S-1": 2,
+        "DRS": 2
+      },
+      "first_date": "2013-09-13",
+      "last_date": "2013-12-12",
+      "filings": [
+        {
+          "form": "DRS",
+          "date": "2013-09-13",
+          "adsh": "0001410578-13-000222",
+          "url": "https://www.sec.gov/Archives/edgar/data/1412270/000141057813000222/filename11.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1412270/000141057813000222/0001410578-13-000222-index.htm"
+        },
+        {
+          "form": "DRS",
+          "date": "2013-09-13",
+          "adsh": "0001410578-13-000222",
+          "url": "https://www.sec.gov/Archives/edgar/data/1412270/000141057813000222/filename3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1412270/000141057813000222/0001410578-13-000222-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2013-12-12",
+          "adsh": "0001047469-13-011159",
+          "url": "https://www.sec.gov/Archives/edgar/data/1412270/000104746913011159/a2217607zex-10_9.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1412270/000104746913011159/0001047469-13-011159-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2013-12-12",
+          "adsh": "0001047469-13-011159",
+          "url": "https://www.sec.gov/Archives/edgar/data/1412270/000104746913011159/a2217607zex-3_1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1412270/000104746913011159/0001047469-13-011159-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1412270/000141057813000222/filename11.htm",
+          "form": "DRS",
+          "date": "2013-09-13",
+          "mentions": 3,
+          "context": [
+            "rities and the number of shares of Common Stock issuable (directly or indirectly) pursuant to then exercisable and/or convertible securities that are Registrable Securities. “ Requisite Holders ” means each of Matrix, Trinity, NEA, USAA, Rocket Internet GmbH, Holtzbrinck Ventures GmbH & Co. KG, IVP, Stephanie Breedlove and William Breedlove, including any Affiliates thereof who hold shares of capital stock of the Company. “ Restricted Securities ” means the securities of the Company required to bear the legend set forth in Section 2.1",
+            "traße 140 10119 Berlin, Germany [Signature Page to Sixth Amended and Restated Investors’ Rights Agreement] IN WITNESS WHEREOF, the parties have executed this Sixth Amended and Restated Investors’ Rights Agreement as of the date first written above. INVESTORS: Holtzbrinck Ventures GmbH & Co. KG By: /s/ Andreas Wisser Name: Andreas Wisser Title: Managing Director Mutschler Ventures AG By: Name: Title: Rocket Internet GmbH By: /s/ Arnt Jeschke, /s/ Dr. Johannes Bruder Name: Arnt Jeschke, Dr. Johannes Bruder Title: Managing Director, Mana",
+            "treet Palo Alto, CA 94304-1114 Fax: (650) 233-4545 Email: jorgc@pillsburylaw.com Dr. Florian Heinemann Marthashof 7 10435 Berlin, Germany Fax: Email: The Reid Hoffman and Michelle Yee Living Trust dated October 27, 2009 2930 Kipling Street Palo Alto, CA 94306 Holtzbrinck Ventures GmbH & Co. KG Kaiserstra b e 14 B 80801 München, Germany Fax: Email: Stephen Kaufer 306 Country Club Road Newton, MA 02459 Email: kaufer@tripadvisor.com David Khalil Ruppiner Straße 49 10115 Berlin, Germany Fax: Email: A-3 SCHEDULE A INVESTORS (continued) Ale"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1412270/000141057813000222/filename3.htm",
+          "form": "DRS",
+          "date": "2013-09-13",
+          "mentions": 2,
+          "context": [
+            "of Incorporation) the written consent or affirmative vote of New Enterprise Associates 13, L.P., Trinity Ventures IX, L.P., Matrix Partners VII, L.P., United Services Automobile Association, a reciprocal interinsurance exchange (“USAA”), Rocket Internet GmbH, Holtzbrinck Ventures GmbH & Co. KG, Institutional Venture Partners XIII, L.P., Stephanie Breedlove and William Breedlove: (i) amend, alter, repeal or waive any provision of Section 10 of Part B of this Article Fourth; or (ii) amend, alter, repeal or waive the votes required to ap",
+            "en in writing or by vote at a meeting, consenting or voting (as the case may be) separately as a class. The “Requisite Holders” means each of New Enterprise Associates 13, L.P., Trinity Ventures IX, L.P., Matrix Partners VII, L.P., USAA, Rocket Internet GmbH, Holtzbrinck Ventures GmbH & Co. KG, Institutional Venture Partners XIII, L.P., Stephanie Breedlove and William Breedlove, including any Affiliates thereof who hold shares of capital stock of the Corporation. “Affiliate” means, with respect to any specified Person, any other Perso"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "PHILIPPINE LONG DISTANCE TELEPHONE CO  (PHI, PHTCF)",
+      "cik": "0000078150",
+      "forms": {
+        "6-K": 4
+      },
+      "first_date": "2014-08-22",
+      "last_date": "2015-03-03",
+      "filings": [
+        {
+          "form": "6-K",
+          "date": "2014-08-22",
+          "adsh": "0001309014-14-000552",
+          "url": "https://www.sec.gov/Archives/edgar/data/78150/000130901414000552/exhibit1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/78150/000130901414000552/0001309014-14-000552-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2014-09-11",
+          "adsh": "0001309014-14-000596",
+          "url": "https://www.sec.gov/Archives/edgar/data/78150/000130901414000596/exhibit1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/78150/000130901414000596/0001309014-14-000596-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2014-11-04",
+          "adsh": "0001309014-14-000707",
+          "url": "https://www.sec.gov/Archives/edgar/data/78150/000130901414000707/exhibit1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/78150/000130901414000707/0001309014-14-000707-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2015-03-03",
+          "adsh": "0001309014-15-000164",
+          "url": "https://www.sec.gov/Archives/edgar/data/78150/000130901415000164/exhibit1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/78150/000130901415000164/0001309014-15-000164-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/78150/000130901414000552/exhibit1.htm",
+          "form": "6-K",
+          "date": "2014-08-22",
+          "mentions": 15,
+          "context": [
+            " ROCKET INTERNET’S INCREASED STAKES IN ITS LEADING e-COMMERCE BUSINESSES MANILA, Philippines, 22 nd August 2014 – Philippine Long Distance Telephone Company (“PLDT”) (PSE:TEL) (NYSE:PHI), the leading telecoms operator in the Philippines, welcomed the entry of Holtzbrinck Ventures (“HV”) in Rocket Internet. HV, a long-term, early-stage investor in companies started by Rocket, is contributing its entire stakes in seven of Rocket’s most developed e-commerce businesses directly into Rocket, in exchange for equity in Rocket. This transacti",
+            "sfy basic consumer needs across three sectors: e-Commerce, marketplaces and financial technology. Rocket started in 2007 and now has more than 20,000 employees across its network of companies, which operate in more than 100 countries on five continents. About Holtzbrinck Ventures HV Holtzbrinck Ventures has been investing in internet companies for over ten years, primarily during their start-up phase. In this time, Holtzbrinck Ventures has financed over 120 companies and has established itself as one of the few venture capital firms t",
+            "eds across three sectors: e-Commerce, marketplaces and financial technology. Rocket started in 2007 and now has more than 20,000 employees across its network of companies, which operate in more than 100 countries on five continents. About Holtzbrinck Ventures HV Holtzbrinck Ventures has been investing in internet companies for over ten years, primarily during their start-up phase. In this time, Holtzbrinck Ventures has financed over 120 companies and has established itself as one of the few venture capital firms that has also fo"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/78150/000130901414000596/exhibit1.htm",
+          "form": "6-K",
+          "date": "2014-09-11",
+          "mentions": 2,
+          "context": [
+            "l Founders”, which is the investment vehicle of Oliver Samwer, the founder and CEO of Rocket, and his brothers), Investment AB Kinnevik (“Kinnevik”), Access Industries (“Access”), Philippine Long Distance Telephone Company (“PLDT”), United Internet (“UI”) and HV Holtzbrinck Ventures (“HV”). All existing shareholders of Rocket Internet will remain invested and will not sell any shares as part of the offering. All six shareholders have signed lock up commitments not to sell or otherwise dispose of their shares for at least twelve ",
+            "ring. Currently, the shareholders consist of Global Founders (the investment vehicle of Oliver Samwer, the founder and CEO of Rocket, and his brothers), Investment AB Kinnevik, Access Industries, Philippine Long Distance Telephone Company, United Internet and HV Holtzbrinck Ventures and some of their affiliates. The new shares will be of the same class and bearing the same rights as shares held by current Rocket shareholders. All six shareholders will sign lock up commitments not to sell or otherwise dispose of their shares for "
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "SPARK NETWORKS INC",
+      "cik": "0001314475",
+      "forms": {
+        "8-K": 1,
+        "425": 1,
+        "DEFM14A": 1,
+        "DEFA14A": 1
+      },
+      "first_date": "2017-05-03",
+      "last_date": "2017-10-19",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "2017-05-03",
+          "adsh": "0001193125-17-154936",
+          "url": "https://www.sec.gov/Archives/edgar/data/1314475/000119312517154936/d378071dex103.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1314475/000119312517154936/0001193125-17-154936-index.htm"
+        },
+        {
+          "form": "425",
+          "date": "2017-05-03",
+          "adsh": "0001193125-17-154938",
+          "url": "https://www.sec.gov/Archives/edgar/data/1314475/000119312517154938/d378071dex103.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1314475/000119312517154938/0001193125-17-154938-index.htm"
+        },
+        {
+          "form": "DEFM14A",
+          "date": "2017-10-04",
+          "adsh": "0001571049-17-008085",
+          "url": "https://www.sec.gov/Archives/edgar/data/1314475/000157104917008085/t1702686-defm14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1314475/000157104917008085/0001571049-17-008085-index.htm"
+        },
+        {
+          "form": "DEFA14A",
+          "date": "2017-10-19",
+          "adsh": "0001571049-17-008277",
+          "url": "https://www.sec.gov/Archives/edgar/data/1314475/000157104917008277/t1702795-defa14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1314475/000157104917008277/0001571049-17-008277-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1314475/000119312517154936/d378071dex103.htm",
+          "form": "8-K",
+          "date": "2017-05-03",
+          "mentions": 1,
+          "context": [
+            " parties hereto holding together at least 80% of the Riesling Shares, but in any event not without the consent of the Investors, if and to the extent the amendment does not have unilateral disadvantages for any non-consenting parties. “ Investors ” shall mean Holtzbrinck Ventures NM GmbH, Rocket Internet SE (formerly: Rocket Internet GmbH), VC Fonds Technologie Berlin GmbH, PDV Inter-Media Venture GmbH, Mwide Net GmbH (formerly: Mwide Net Unternehmergesellschaft (haftungsbeschrankt)) and Mercutio GmbH. (b) At any time prior to the Mer"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1314475/000119312517154938/d378071dex103.htm",
+          "form": "425",
+          "date": "2017-05-03",
+          "mentions": 1,
+          "context": [
+            " parties hereto holding together at least 80% of the Riesling Shares, but in any event not without the consent of the Investors, if and to the extent the amendment does not have unilateral disadvantages for any non-consenting parties. “ Investors ” shall mean Holtzbrinck Ventures NM GmbH, Rocket Internet SE (formerly: Rocket Internet GmbH), VC Fonds Technologie Berlin GmbH, PDV Inter-Media Venture GmbH, Mwide Net GmbH (formerly: Mwide Net Unternehmergesellschaft (haftungsbeschrankt)) and Mercutio GmbH. (b) At any time prior to the Mer"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "Blitz 17655 SE",
+      "cik": "0001705338",
+      "forms": {
+        "F-4": 1
+      },
+      "first_date": "2017-08-16",
+      "last_date": "2017-08-16",
+      "filings": [
+        {
+          "form": "F-4",
+          "date": "2017-08-16",
+          "adsh": "0001571049-17-007526",
+          "url": "https://www.sec.gov/Archives/edgar/data/1705338/000157104917007526/t1702287-f4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1705338/000157104917007526/0001571049-17-007526-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1705338/000157104917007526/t1702287-f4.htm",
+          "form": "F-4",
+          "date": "2017-08-16",
+          "mentions": 15,
+          "context": [
+            "th American business and does not conduct any operations. Affinitas launched its first online dating platform, eDarling, in 2009 in Germany. Affinitas’s initial investor in 2008 was Rocket Internet, which supported Affinitas through its early phases. In 2009, Holtzbrinck Ventures, PDV Inter-Media and VCFT (the venture capital fund of the state of Berliner-Brandenburg) made investments in Affinitas. After six months of operations, Affinitas then received a significant investment from eHarmony, which made eHarmony the largest investor i",
+            "ion and Province/​ State and Country of Residence ​ ​ Member of the Supervisory Board Since (or N/A) ​ ​ Principal Occupation During the Five Preceding Years ​ Oliver Samwer ​ ​ May 2010 ​ ​ CEO of Rocket Internet SE ​ Martin Weber ​ ​ August 2010 ​ ​ Partner Holtzbrinck Ventures NM GmbH & Co. KG ​ Christian Vollmann ​ ​ August 2013 ​ ​ Private investor and founder of www.Nebenan.de and Mercutio GmbH ​ Jeronimo Folgueira ​ ​ N/A ​ ​ CEO of Affinitas GmbH ​ Michael Schrezenmaier ​ ​ N/A ​ ​ COO of Affinitas GmbH ​ Herbert Sablotny ​ ​ ",
+            "e business models and invests in startups through its venture capital arm Global Founders Capital. Mr. Samwer holds a Master’s degree from WHU–Otto Beisheim School of Management, Germany. 193 TABLE OF CONTENTS ​ Mr. Martin Weber , 52, is a founding partner at Holtzbrinck Ventures, a leading European venture capital firm. His investments include Groupon, Lazada, Linio, Delivery Hero, Affinitas and Global Fashion Group. Before joining Holtzbrinck Ventures in 2000, Mr. Weber was the Chief Financial Officer of Netlife AG, a software compa"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "Spark Networks SE",
+      "cik": "0001705338",
+      "forms": {
+        "SC 13G": 1,
+        "SC 13G/A": 2,
+        "F-1/A": 1,
+        "6-K": 3,
+        "F-4/A": 3,
+        "424B3": 2,
+        "POS AM": 1,
+        "20-F": 2
+      },
+      "first_date": "2017-09-15",
+      "last_date": "2020-01-15",
+      "filings": [
+        {
+          "form": "F-4/A",
+          "date": "2017-09-15",
+          "adsh": "0001571049-17-007927",
+          "url": "https://www.sec.gov/Archives/edgar/data/1705338/000157104917007927/t1702414-f4a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1705338/000157104917007927/0001571049-17-007927-index.htm"
+        },
+        {
+          "form": "F-4/A",
+          "date": "2017-09-27",
+          "adsh": "0001571049-17-008024",
+          "url": "https://www.sec.gov/Archives/edgar/data/1705338/000157104917008024/t1702603-f4a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1705338/000157104917008024/0001571049-17-008024-index.htm"
+        },
+        {
+          "form": "F-4/A",
+          "date": "2017-09-29",
+          "adsh": "0001571049-17-008046",
+          "url": "https://www.sec.gov/Archives/edgar/data/1705338/000157104917008046/t1702665-f4a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1705338/000157104917008046/0001571049-17-008046-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2017-10-04",
+          "adsh": "0001571049-17-008086",
+          "url": "https://www.sec.gov/Archives/edgar/data/1705338/000157104917008086/t1702703-424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1705338/000157104917008086/0001571049-17-008086-index.htm"
+        },
+        {
+          "form": "POS AM",
+          "date": "2017-10-17",
+          "adsh": "0001571049-17-008258",
+          "url": "https://www.sec.gov/Archives/edgar/data/1705338/000157104917008258/t1702745-posam.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1705338/000157104917008258/0001571049-17-008258-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2017-10-19",
+          "adsh": "0001571049-17-008278",
+          "url": "https://www.sec.gov/Archives/edgar/data/1705338/000157104917008278/t1702791-424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1705338/000157104917008278/0001571049-17-008278-index.htm"
+        },
+        {
+          "form": "SC 13G",
+          "date": "2017-12-06",
+          "adsh": "0000904454-17-000706",
+          "url": "https://www.sec.gov/Archives/edgar/data/1705338/000090445417000706/s13g_12062017-sparks.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1705338/000090445417000706/0000904454-17-000706-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2017-12-07",
+          "adsh": "0001144204-17-062675",
+          "url": "https://www.sec.gov/Archives/edgar/data/1705338/000114420417062675/tv480968_6k.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1705338/000114420417062675/0001144204-17-062675-index.htm"
+        },
+        {
+          "form": "SC 13G/A",
+          "date": "2018-01-17",
+          "adsh": "0000904454-18-000036",
+          "url": "https://www.sec.gov/Archives/edgar/data/1705338/000090445418000036/s13ga_01172018-sparks.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1705338/000090445418000036/0000904454-18-000036-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2018-04-25",
+          "adsh": "0001144204-18-022440",
+          "url": "https://www.sec.gov/Archives/edgar/data/1705338/000114420418022440/tv489626_20f.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1705338/000114420418022440/0001144204-18-022440-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2018-05-22",
+          "adsh": "0001144204-18-030158",
+          "url": "https://www.sec.gov/Archives/edgar/data/1705338/000114420418030158/tv494780_ex99-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1705338/000114420418030158/0001144204-18-030158-index.htm"
+        },
+        {
+          "form": "F-1/A",
+          "date": "2018-08-31",
+          "adsh": "0001144204-18-047614",
+          "url": "https://www.sec.gov/Archives/edgar/data/1705338/000114420418047614/tv502037_f1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1705338/000114420418047614/0001144204-18-047614-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2018-09-04",
+          "adsh": "0001144204-18-047867",
+          "url": "https://www.sec.gov/Archives/edgar/data/1705338/000114420418047867/tv502287_ex99-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1705338/000114420418047867/0001144204-18-047867-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2019-04-29",
+          "adsh": "0001628280-19-004964",
+          "url": "https://www.sec.gov/Archives/edgar/data/1705338/000162828019004964/a20-ffy2018.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1705338/000162828019004964/0001628280-19-004964-index.htm"
+        },
+        {
+          "form": "SC 13G/A",
+          "date": "2020-01-15",
+          "adsh": "0000904454-20-000033",
+          "url": "https://www.sec.gov/Archives/edgar/data/1705338/000090445420000033/s13ga_01142020-sparks.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1705338/000090445420000033/0000904454-20-000033-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1705338/000157104917007927/t1702414-f4a.htm",
+          "form": "F-4/A",
+          "date": "2017-09-15",
+          "mentions": 15,
+          "context": [
+            "th American business and does not conduct any operations. Affinitas launched its first online dating platform, eDarling, in 2009 in Germany. Affinitas’s initial investor in 2008 was Rocket Internet, which supported Affinitas through its early phases. In 2009, Holtzbrinck Ventures, PDV Inter-Media and VCFT (the venture capital fund of the state of Berliner-Brandenburg) made investments in Affinitas. After six months of operations, Affinitas then received a significant investment from eHarmony, which made eHarmony the largest investor i",
+            "ion and Province/​ State and Country of Residence ​ ​ Member of the Supervisory Board Since (or N/A) ​ ​ Principal Occupation During the Five Preceding Years ​ Oliver Samwer ​ ​ May 2010 ​ ​ CEO of Rocket Internet SE ​ Martin Weber ​ ​ August 2010 ​ ​ Partner Holtzbrinck Ventures NM GmbH & Co. KG ​ Christian Vollmann ​ ​ August 2013 ​ ​ Private investor and founder of www.Nebenan.de and Mercutio GmbH ​ Jeronimo Folgueira ​ ​ N/A ​ ​ CEO of Affinitas GmbH ​ Michael Schrezenmaier ​ ​ N/A ​ ​ COO of Affinitas GmbH ​ Herbert Sablotny ​ ​ ",
+            "e business models and invests in startups through its venture capital arm Global Founders Capital. Mr. Samwer holds a Master’s degree from WHU–Otto Beisheim School of Management, Germany. 198 TABLE OF CONTENTS ​ Mr. Martin Weber , 52, is a founding partner at Holtzbrinck Ventures, a leading European venture capital firm. His investments include Groupon, Lazada, Linio, Delivery Hero, Affinitas and Global Fashion Group. Before joining Holtzbrinck Ventures in 2000, Mr. Weber was the Chief Financial Officer of Netlife AG, a software compa"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1705338/000157104917008024/t1702603-f4a.htm",
+          "form": "F-4/A",
+          "date": "2017-09-27",
+          "mentions": 15,
+          "context": [
+            "th American business and does not conduct any operations. Affinitas launched its first online dating platform, eDarling, in 2009 in Germany. Affinitas’s initial investor in 2008 was Rocket Internet, which supported Affinitas through its early phases. In 2009, Holtzbrinck Ventures, PDV Inter-Media and VCFT (the venture capital fund of the state of Berliner-Brandenburg) made investments in Affinitas. After six months of operations, Affinitas then received a significant investment from eHarmony, which made eHarmony the largest investor i",
+            "ion and Province/​ State and Country of Residence ​ ​ Member of the Supervisory Board Since (or N/A) ​ ​ Principal Occupation During the Five Preceding Years ​ Oliver Samwer ​ ​ May 2010 ​ ​ CEO of Rocket Internet SE ​ Martin Weber ​ ​ August 2010 ​ ​ Partner Holtzbrinck Ventures NM GmbH & Co. KG ​ Christian Vollmann ​ ​ August 2013 ​ ​ Private investor and founder of www.Nebenan.de and Mercutio GmbH ​ Jeronimo Folgueira ​ ​ N/A ​ ​ CEO of Affinitas GmbH ​ Michael Schrezenmaier ​ ​ N/A ​ ​ COO of Affinitas GmbH ​ Herbert Sablotny ​ ​ ",
+            "e business models and invests in startups through its venture capital arm Global Founders Capital. Mr. Samwer holds a Master’s degree from WHU–Otto Beisheim School of Management, Germany. 199 TABLE OF CONTENTS ​ Mr. Martin Weber , 52, is a founding partner at Holtzbrinck Ventures, a leading European venture capital firm. His investments include Groupon, Lazada, Linio, Delivery Hero, Affinitas and Global Fashion Group. Before joining Holtzbrinck Ventures in 2000, Mr. Weber was the Chief Financial Officer of Netlife AG, a software compa"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "VASCO DATA SECURITY INTERNATIONAL INC  (OSPN)",
+      "cik": "0001044777",
+      "forms": {
+        "8-K": 1
+      },
+      "first_date": "2018-06-01",
+      "last_date": "2018-06-01",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "2018-06-01",
+          "adsh": "0001558370-18-005091",
+          "url": "https://www.sec.gov/Archives/edgar/data/1044777/000155837018005091/ex-2d1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1044777/000155837018005091/0001558370-18-005091-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1044777/000155837018005091/ex-2d1.htm",
+          "form": "8-K",
+          "date": "2018-06-01",
+          "mentions": 6,
+          "context": [
+            "ral Warranty” means a warranty contained in Part 2 of Schedule 4 and “General Warranties” means all those warranties; “Group” means the Company and the Subsidiaries; “Group Company” means the Company or a Subsidiary and “ Group Companies ” means all of them; “Holtzbrinck Ventures” means HV Holtzbrinck Ventures Fund VI SCS (registered with the Luxembourg Trade and Companies Register (Registre de Commerce et des Sociétés) under number B 191426) with the registered address at 5, Rue Heienhaff, L-1736 Senningerberg, Luxembourg; “Indebtedn",
+            "ty contained in Part 2 of Schedule 4 and “General Warranties” means all those warranties; “Group” means the Company and the Subsidiaries; “Group Company” means the Company or a Subsidiary and “ Group Companies ” means all of them; “Holtzbrinck Ventures” means HV Holtzbrinck Ventures Fund VI SCS (registered with the Luxembourg Trade and Companies Register (Registre de Commerce et des Sociétés) under number B 191426) with the registered address at 5, Rue Heienhaff, L-1736 Senningerberg, Luxembourg; “Indebtedness” means any indebte",
+            "e Group ” for this definition means as regards any undertaking, a company which is for the time being a holding company or a subsidiary of that undertaking or a subsidiary of any such holding company; \"Investors\" means each of Notion Capital, Frog Capital and Holtzbrinck Ventures and \" Investor \" shall be construed accordingly; 6 “IT Contracts” means all agreements under which any third party (including, without limitation, any source code deposit agents) provides any element of, or services relating to, the Computer System, including"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "Perion Network Ltd.  (PERI)",
+      "cik": "0001338940",
+      "forms": {
+        "6-K": 1
+      },
+      "first_date": "2018-12-03",
+      "last_date": "2018-12-03",
+      "filings": [
+        {
+          "form": "6-K",
+          "date": "2018-12-03",
+          "adsh": "0001178913-18-003072",
+          "url": "https://www.sec.gov/Archives/edgar/data/1338940/000117891318003072/exhibit_99-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1338940/000117891318003072/0001178913-18-003072-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1338940/000117891318003072/exhibit_99-1.htm",
+          "form": "6-K",
+          "date": "2018-12-03",
+          "mentions": 1,
+          "context": [
+            "s mobile platforms for commission-free stock investing and CFD trading. Since launching in 2014, BUX has made the markets accessible for nearly 2 million users across 9 countries in Europe. Headquartered in Amsterdam, the Netherlands, the company is backed by Holtzbrinck Ventures, Finch Capital, Velocity Capital and Initial Capital. Forward Looking Statements: This press release contains historical information and forward-looking statements within the meaning of The Private Securities Litigation Reform Act of 1995 with respect to the "
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "Marpai, Inc.  (MRAI)",
+      "cik": "0001844392",
+      "forms": {
+        "8-K": 1,
+        "DEF 14A": 2,
+        "10-K": 2,
+        "10-K/A": 1
+      },
+      "first_date": "2022-02-22",
+      "last_date": "2023-07-27",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "2022-02-22",
+          "adsh": "0001104659-22-025634",
+          "url": "https://www.sec.gov/Archives/edgar/data/1844392/000110465922025634/tm227379d1_8k.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1844392/000110465922025634/0001104659-22-025634-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2022-03-30",
+          "adsh": "0001410578-22-000657",
+          "url": "https://www.sec.gov/Archives/edgar/data/1844392/000141057822000657/mrai-20211231x10k.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1844392/000141057822000657/0001410578-22-000657-index.htm"
+        },
+        {
+          "form": "DEF 14A",
+          "date": "2022-04-07",
+          "adsh": "0001104659-22-043688",
+          "url": "https://www.sec.gov/Archives/edgar/data/1844392/000110465922043688/tm2212053d1_def14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1844392/000110465922043688/0001104659-22-043688-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2023-03-29",
+          "adsh": "0000950170-23-010614",
+          "url": "https://www.sec.gov/Archives/edgar/data/1844392/000095017023010614/mrai-20221231.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1844392/000095017023010614/0000950170-23-010614-index.htm"
+        },
+        {
+          "form": "DEF 14A",
+          "date": "2023-04-12",
+          "adsh": "0000950170-23-012554",
+          "url": "https://www.sec.gov/Archives/edgar/data/1844392/000095017023012554/2023_proxy_statement.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1844392/000095017023012554/0000950170-23-012554-index.htm"
+        },
+        {
+          "form": "10-K/A",
+          "date": "2023-07-27",
+          "adsh": "0000950170-23-035218",
+          "url": "https://www.sec.gov/Archives/edgar/data/1844392/000095017023035218/mrai-20221231.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1844392/000095017023035218/0000950170-23-035218-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1844392/000110465922025634/tm227379d1_8k.htm",
+          "form": "8-K",
+          "date": "2022-02-22",
+          "mentions": 1,
+          "context": [
+            "p Product manager at Google Health, a division of Google Inc. where he led the population health effort. From 2016 to 2017, he also served as the Director of Product Analytics at Snap Inc. (NYSE: SNAP). In addition, since 2022, he also serves as an advisor at HV Capital Manager GmbH, a venture capital company focused on product management and artificial intelligence. Since 2021, Mr. Finger has also served as an advisor to 1&1 Mail & Media Beteiligungen GmbH, a subsidiary of United Internet AG, a global internet services company. Mr."
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1844392/000141057822000657/mrai-20211231x10k.htm",
+          "form": "10-K",
+          "date": "2022-03-30",
+          "mentions": 1,
+          "context": [
+            "p Product manager at Google Health, a division of Google Inc. where he led the population health effort. From 2016 to 2017, he also served as the Director of Product Analytics at Snap Inc. (NYSE: SNAP). In addition, since 2022, he also serves as an advisor at HV Capital Manager GmbH, a venture capital company focused on product management and artificial intelligence. Since 2021, Mr. Finger has also served as an advisor to 1&1 Mail & Media Beteiligungen GmbH, a subsidiary of United Internet AG, a global internet services company. Mr."
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "SAP SE  (SAP, SAPGF)",
+      "cik": "0001000184",
+      "forms": {
+        "20-F": 2,
+        "6-K": 2
+      },
+      "first_date": "2023-03-02",
+      "last_date": "2024-03-08",
+      "filings": [
+        {
+          "form": "20-F",
+          "date": "2023-03-02",
+          "adsh": "0001104659-23-027626",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465923027626/sap-20221231x20f.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000110465923027626/0001104659-23-027626-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2023-03-10",
+          "adsh": "0001104659-23-030841",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465923030841/tm2231129d2_ex99-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000110465923030841/0001104659-23-030841-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2024-02-29",
+          "adsh": "0001104659-24-029038",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465924029038/sap-20231231x20f.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000110465924029038/0001104659-24-029038-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2024-03-08",
+          "adsh": "0001104659-24-032038",
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465924032038/tm2331168d2_ex99-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1000184/000110465924032038/0001104659-24-032038-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465923027626/sap-20221231x20f.htm",
+          "form": "20-F",
+          "date": "2023-03-02",
+          "mentions": 1,
+          "context": [
+            "betriebs GmbH, Sinsheim, Germany Christine Regitz 1, 2, 4, 5 Vice President, User Experience Vice President, Head of Women in Tech@SAP Supervisory Board, Schloss Dagstuhl – Leibniz Center for Informatics, Wadern, Germany (from May 20, 2022) Supervisory Board, HV Capital Manager GmbH, Munich, Germany (from May 1, 2022) Dr. Friederike Rotsch 2, 3, 6, 7 Group General Counsel and Head of Group Legal & Compliance, Merck KGaA, Darmstadt, Germany Heike Steck 1, 4 , 5, 7 Senior Operations Manager Member of the SAP SE Works Council and Membe"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1000184/000110465923030841/tm2231129d2_ex99-1.htm",
+          "form": "6-K",
+          "date": "2023-03-10",
+          "mentions": 1,
+          "context": [
+            "betriebs GmbH, Sinsheim, Germany Christine Regitz 1, 2, 4, 5 Vice President, User Experience Vice President, Head of Women in Tech@SAP Supervisory Board, Schloss Dagstuhl – Leibniz Center for Informatics, Wadern, Germany (from May 20, 2022) Supervisory Board, HV Capital Manager GmbH, Munich, Germany (from May 1, 2022) Dr. Friederike Rotsch 2, 3, 6, 7 Group General Counsel and Head of Group Legal & Compliance, Merck KGaA, Darmstadt, Germany Heike Steck 1, 4, 5, 7 Senior Operations Manager Member of the SAP SE Works Council and Member"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "Worthington Steel, Inc.  (WS)",
+      "cik": "0001968487",
+      "forms": {
+        "10-K": 1
+      },
+      "first_date": "2026-07-30",
+      "last_date": "2026-07-30",
+      "filings": [
+        {
+          "form": "10-K",
+          "date": "2026-07-30",
+          "adsh": "0001968487-26-000026",
+          "url": "https://www.sec.gov/Archives/edgar/data/1968487/000196848726000026/ws-ex21_1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1968487/000196848726000026/0001968487-26-000026-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1968487/000196848726000026/ws-ex21_1.htm",
+          "form": "10-K",
+          "date": "2026-07-30",
+          "mentions": 1,
+          "context": [
+            "rmtechnik Stendal UTS s.r.o. Slovakia XOM Materials GmbH Germany Klöckner & Co Financial Services S.A. Luxembourg kloeckner.i GmbH Germany Klöckner & Co Center of Excellence GmbH Germany kloeckner.v GmbH Germany Paua Ventures Co-Invest 2 GmbH & Co. KG Germany HV Holtzbrinck Ventures Fund VIII GmbH & Co. Germany Unternehmertum VC Fonds III GmbH & Co. KG Germany SquareOne Fonds 2 GmbH & Co. KG Germany 468 Capital GmbH & Co. KG Germany Target Global Growth Fund II, SCSp-RAIF Luxembourg BigRep GmbH Germany Keelvar System Ltd. Irelan"
+          ]
+        }
+      ]
+    }
+  ]
+}

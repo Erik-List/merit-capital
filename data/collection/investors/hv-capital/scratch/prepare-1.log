@@ -1,0 +1,35 @@
+base: data/collection/investors/hv-capital/companies/base.json
+target companies: 4  distinct issuer CIKs: 4
+scanning 74 quarterly datasets (offline)...
+filings collected: 15
+evidence: 5/5 base accessions found
+wrote data/collection/investors/hv-capital/scratch/issuer-evidence.json (4 CIKs, 2 with a name history)
+
+wrote data/collection/investors/hv-capital/sources/edgar/formd-issuer-rounds.json
+  companies with Form D history : 4
+  rounds after amendment merge  : 13 (2 amendments folded in)
+  companies with 2+ rounds      : 3
+  filings the partner sweep never saw: 10
+  companies gaining >=1 such filing  : 3
+  rounds carrying a sale date   : 13/13
+    Wikidata unavailable for a batch of 52 (SPARQL POST failed (curl rc=56)); deferred
+
+DEFERRED: 0 row(s) without a public-float answer (SEC unavailable), 52 row(s) without a Wikidata answer; nothing cached for them. Re-run prepare to retry.
+rows: 292
+membership seed: 288 site_listing, 0 fund_filing; left for the judge: 4
+layer A (SEC public float): 292 rows to resolve
+    100/292
+    200/292
+    resolved a CIK: 35   with public float: 6
+layer B (Wikidata): 292 rows in batches of 60
+    60/292
+    120/292
+    180/292
+    240/292
+    matched: 43
+layer C (unicorn list): 629 current, 209 former
+graduation layer 1: 4 companies, 3 entered at Seed, 3 decided by the filings as of 2026-09-29 (the judge confirms each), 1 entries moved past pre-investor rounds
+
+deterministically resolved: 0/292
+retired (not_member, awaiting rebuild): 0
+queued for judgment       : 292 rows in 7 batches

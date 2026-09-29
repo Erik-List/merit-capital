@@ -1,0 +1,296 @@
+{
+  "slug": "hv-capital",
+  "name": "HV Capital",
+  "wayback": {
+    "cdx_domain": "hvcapital.com",
+    "site_url_base": "https://www.hvcapital.com",
+    "eras": [],
+    "_eras_note": "HV's archive straddles two domains and six site generations, none of which fits a generic era parser: holtzbrinck-ventures.com 2006-2010 (phpwcms, per-company pages index.php?<key>_en whose subnav carries the whole Portfolio or Exits list, section read from levelsensitive_active_link), 2011-2015 (Dutyfarm CMS, the pf-teaser grid of <a href=index.php?<key> title=Name> on every portfolio page, Current vs Former read from the submenu act_path), 2015-2018 (WordPress /portfolio/ and /filterportfolio/), then hvcapital.com 2020-2021 (WordPress Divi /companies) and 2022-2025 (Next.js /_next/data/<build>/companies.json, the Storyblok companiesListingData with entry_date, founded_date, partners, city, country, current_stage). scratch/hv_archive.py reads the raw captures under sources/wayback/raw/ and writes sources/wayback/parsed/<year>.json in wayback-pull's shape, every row carrying its exact capture_url (COLLECTION.md s1: a capture URL is a valid citation). Proposed write-back: a query-string per-company-page era type and a Next.js _next/data JSON era type for wayback-pull.py.",
+    "non_company_slugs": [
+      "index",
+      "home",
+      "page",
+      "feed",
+      "search",
+      "tag",
+      "category",
+      "author",
+      "all",
+      "see-all",
+      "companies",
+      "company",
+      "portfolio",
+      "team",
+      "our-team",
+      "people",
+      "news",
+      "about",
+      "about_us",
+      "contact",
+      "imprint",
+      "legal-notice",
+      "privacy-policy",
+      "jobs",
+      "careers",
+      "history",
+      "historie",
+      "strategy",
+      "partners",
+      "strategic_partners",
+      "strategische_partner",
+      "fund-investors",
+      "fund-investoren",
+      "business_plans_en",
+      "facts_and_figures",
+      "media_services",
+      "medialeistungen",
+      "investment-strategy",
+      "investmentstrategie",
+      "investmentcriteria_and_focus",
+      "investmentkriterien_und_schwerpunkte",
+      "portfolio_de",
+      "portfolio_en",
+      "portfolio-aktuell",
+      "portfolio-aktuell_en",
+      "portfolio-ehemalig",
+      "portfolio-ehemalig_en",
+      "exits_en",
+      "aktuelle-news",
+      "aktuelle-news_en",
+      "news-archiv",
+      "news-archiv_en",
+      "news_en",
+      "wp-content",
+      "wp-json",
+      "wp-admin",
+      "wp-includes",
+      "sitemap",
+      "robots",
+      "favicon"
+    ]
+  },
+  "roster": {
+    "cdx_patterns": [
+      "hvcapital.com/team/*",
+      "holtzbrinck-ventures.com/team/*"
+    ],
+    "slug_re": "/team/([a-z][a-z0-9-]*[a-z0-9])/?$",
+    "listing_href_re": "/team/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+    "not_a_person": [
+      "index",
+      "team",
+      "people",
+      "partners",
+      "about",
+      "companies",
+      "portfolio",
+      "news",
+      "contact",
+      "jobs",
+      "careers",
+      "all",
+      "page",
+      "feed",
+      "our-team",
+      "hv-capital"
+    ],
+    "_note": "The roster is curated (sources/wayback/partner-roster.json) from the live team pages (hvcapital.com/team/<slug>, 67 in the 2026 sitemap), the old site's team pages (holtzbrinck-ventures.com index.php?<firstlast>_en 2006-2015, with the 2007 facts page naming the managing directors), the Form ADV Schedule A owners of both advisers, and the portfolio records' own deal-partner fields (the 2022-2025 Storyblok partners and the live CSV)."
+  },
+  "site_api": {
+    "type": "scrape",
+    "entry_stage_fields": [
+      "stage_at_entry"
+    ],
+    "entry_stage_listing_url": "https://www.hvcapital.com/api/portfolio-csv?lang=en",
+    "_entry_stage_note": "The firm's own export carries 'Stage at Entry' (early / growth). Eligible by semantics (the firm's claim about the stage at which IT entered, beside HV Entry), but 'early' straddles Pre-Seed, Seed and Series A and is an anchor like a bare year (COLLECTION.md s5, stage_words); only 'growth' collapses onto one stage. The field is scored blind against the book's documented rounds before it labels (decisions.md); until then entry_stage_fields stays empty and the value rides in the item as evidence.",
+    "sources": [
+      {
+        "parser": "file_list",
+        "path": "data/collection/investors/hv-capital/sources/site/companies-2026.json",
+        "list": "companies-2026",
+        "list_path": "rows",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "sectors": "categories",
+        "extras": [
+          "description",
+          "founded",
+          "founders",
+          "invest_year",
+          "hq_site",
+          "locations_site",
+          "fund_site",
+          "stage_current_site",
+          "stage_at_entry",
+          "status_site",
+          "website"
+        ]
+      }
+    ],
+    "_note": "hvcapital.com is Next.js App Router on the Storyblok CMS (space 330117); the company table is streamed client-side and paged by a server action, but the page's own export button (PortfolioExportButton) calls /api/portfolio-csv, which returns the whole list as CSV. Escalation ladder step 4 (the SPA's own endpoint), read 2026-09-29.",
+    "team_sources": [
+      {
+        "parser": "file_list",
+        "path": "data/collection/investors/hv-capital/sources/site/team-cards.json",
+        "list": "team",
+        "list_path": "rows",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "extras": [
+          "title",
+          "group",
+          "location"
+        ]
+      }
+    ],
+    "team_buckets": {
+      "Founding Partners": "investing",
+      "Venture": "investing",
+      "Growth": "investing",
+      "Platform": "platform",
+      "Advisory Board": "advisor"
+    },
+    "_team_note": "hvcapital.com/team (Storyblok): 66 people in six departments; the Operations department (32: finance, legal, fund operations) is left unmapped so it does not publish; titles from each person page's positionField (sources/site/team-cards.json). The site publishes no social links.",
+    "entry_stage_confidence": "medium",
+    "_entry_stage_score": "Scored 2026-09-29 at the taxonomy level against each row's documented entry round (decisions.md D11): of the 17 export rows labelled 'growth' whose entry round the record documents, 16 were Growth entries (Agreena, CarOnSale excluded as undocumented; Enpal, Exein, FMC, Flip, Flowdesk, Framer, Holidu, HOLY, KoRo, Marvel Fusion, n8n, Nabla, Quantum Systems, Roadsurfer, Solaris, Storyblok) and one was not (ARX: the growth fund bought into the EUR 31M Series A): 16/17 = 94%, below the 95% bar and under 30 rows, so the label is promoted at medium (COLLECTION.md s5). 'early' straddles Pre-Seed, Seed and Series A and stays an anchor (stage_words), never a label."
+  },
+  "edgar": {
+    "seed_queries": [
+      "holtzbrinck",
+      "hv+capital",
+      "hv+holtzbrinck"
+    ],
+    "fts_phrases": [
+      "Holtzbrinck Ventures",
+      "HV Holtzbrinck",
+      "HV Capital Fund",
+      "HV Capital Manager",
+      "HV Capital Adviser"
+    ],
+    "fts_own_pattern": "^hv capital (fund|coco|angels|manager|adviser)|^hv holtzbrinck ventures|^holtzbrinck ventures",
+    "_note": "Entity-qualified phrases: 'HV Capital' alone is also HV Capital Management LLC (Montgomery NY, CRD 339467) and HV Capital Advisors LLC (Dallas, CRD 163912), unrelated US advisers, and 'Holtzbrinck' alone is the publishing family and group. Kickoff 2026-09-29, EDGAR company search: HV Holtzbrinck Ventures Fund VI SCS (CIK 1632401, Form D 2015-02, Luxembourg), HV Holtzbrinck Ventures Fund VIII Feeder Ltd (1826851, Form D 2020-10, Jersey), HV Capital Fund IX Ventures (1956452) and IX Growth (1956473) GmbH & Co. geschlossene Investment KG (Form Ds 2022-12, Kaiserstrasse 14b Munich), HV Capital Fund X Ventures (2103544, 2026-01) and X Growth (2129211, 2026-05), and Holtzbrinck Ventures NM GmbH & Co. KG (1724105, Kaiserstrasse 14b; SC 13G 2017-12 and 13G/As 2018 and 2020 on Spark Networks SE, the renamed Affinitas / eDarling). HOLTZBRINCK DIETER VON (1189774) is a natural person of the publishing family, not a firm entity."
+  },
+  "wikipedia": {
+    "phrases": [
+      "Holtzbrinck Ventures",
+      "HV Holtzbrinck Ventures",
+      "HV Capital"
+    ]
+  },
+  "desks": {
+    "home": "eu",
+    "partition": [],
+    "rank": [
+      "eu",
+      "unknown"
+    ],
+    "classify": [
+      {
+        "desk": "external",
+        "patterns": [
+          "^hv capital management",
+          "^hv capital advisors",
+          "holtzbrinck (publishing|digital|networks?|networxs|elab|verlag|buchverlage)",
+          "georg von holtzbrinck",
+          "verlagsgruppe",
+          "^holtzbrinck dieter",
+          "^holtzbrinck,? dieter",
+          "macmillan",
+          "digital science"
+        ]
+      },
+      {
+        "desk": "eu",
+        "patterns": [
+          "^hv capital (fund|coco|angels|manager|adviser)",
+          "^hv holtzbrinck ventures",
+          "^holtzbrinck ventures"
+        ]
+      }
+    ],
+    "_note": "Namesakes and the parent verified by entity and address, never by name: the firm and every fund vehicle file from Kaiserstrasse 14b, 80801 Munich; the publishing group's own digital holdings (Holtzbrinck Networks / Networxs, Holtzbrinck Digital, Holtzbrinck eLab, Macmillan, Digital Science) are the parent's, listed by the firm itself in 2007 as 'strategic partners', never as its portfolio (decisions.md D2)."
+  },
+  "profile": {
+    "adv_crd": 301966,
+    "own_vehicle_pattern": "^(hv capital (fund|coco|angels)|hv holtzbrinck ventures|holtzbrinck ventures)",
+    "focus_min_companies": 10,
+    "focus_crosswalk": {
+      "ai-enterprise-software": "SaaS",
+      "consumer": "Consumer & Marketplaces",
+      "marketplace": "Consumer & Marketplaces",
+      "fintech": "Fintech & Payments",
+      "healthcare": "Healthcare & Bio",
+      "climate-energy": "Climate & Energy",
+      "deep-tech": "Industrial & Robotics",
+      "resilience-defence": "Industrial & Robotics",
+      "cybersecurity": "Security"
+    },
+    "_note": "One registered adviser, HV Capital Manager GmbH (CRD 301966; Munich principal office, Berlin office). focus_min_companies ~7% of the ~150-company live export. The export's nine category facets crosswalk to the closed twelve: 'ai-enterprise-software' (48 base rows) splits 20 SaaS / 19 AI & Applied AI in the grind's own per-row focus and takes SaaS for the firm-level recompute; 'deep-tech' and 'resilience-defence' (drones, launchers, fusion) take Industrial & Robotics."
+  },
+  "verify": {
+    "text_mention_leaks": [],
+    "cofiler_leaks": [],
+    "known_positions": [
+      "zalando",
+      "delivery hero",
+      "hellofresh",
+      "flix",
+      "scalable capital",
+      "enpal",
+      "depop",
+      "isar aerospace",
+      "n8n",
+      "parship",
+      "studivz",
+      "wooga"
+    ],
+    "sample_slugs": [],
+    "shape": {
+      "c2a_rate_max": 0.8
+    },
+    "not_members": [
+      {
+        "name": "Rocket Internet",
+        "slug": "rocket-internet",
+        "why": "sale consideration: HV sold its stakes in selected Rocket companies to Rocket before Rocket's 2014 IPO and received Rocket shares (the firm's own 2015 Rocket page); the investments are the Rocket companies (COLLECTION.md s1, share swap at a sale, PRO-157)"
+      },
+      {
+        "name": "Groupon",
+        "slug": "groupon",
+        "why": "sale consideration: Groupon Inc. bought HV's CityDeal GmbH in May 2010 (the firm's own 2011 page); the investment is CityDeal, the acquirer leaves the base (COLLECTION.md s1, Erik 2026-09-22; decisions.md D4)"
+      }
+    ]
+  },
+  "names": {
+    "_published_note": "COLLECTION.md s8 (Erik 2026-09-24): the brand in normal caps, letter-read acronyms keep capitals (FMC, ARX, AMI Labs, LAP Coffee stay); genuine lowercase stylings stay (n8n, i2x, peaq, home24). Sennder and Voize follow the Accel and Balderton books.",
+    "published": {
+      "urban-sports-club": "Urban Sports Club",
+      "b-cher-de": "buecher.de",
+      "bux": "Bux",
+      "ceezer": "Ceezer",
+      "jokr": "Jokr",
+      "spread": "Spread",
+      "glossybox": "Glossybox",
+      "holy": "Holy",
+      "immo": "Immo",
+      "mpiriq": "Mpiriq",
+      "my-hammer": "MyHammer",
+      "pact": "Pact",
+      "penta": "Penta",
+      "pippa-jean": "Pippa&Jean",
+      "vaha": "Vaha",
+      "wind": "Wind Mobility",
+      "youtailor": "Youtailor",
+      "verbit": "Verbit",
+      "neura-robotics": "Neura Robotics",
+      "ozon-ru": "Ozon",
+      "lamoda-ru": "Lamoda",
+      "sennder": "Sennder",
+      "voize": "Voize"
+    }
+  }
+}
