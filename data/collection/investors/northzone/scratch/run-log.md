@@ -141,3 +141,14 @@ Gro, Mojn, Nuday, Outracks, Brave New World, Proxilliant), partner-roster.py + r
 ONE rebuild, prepare delta, judge delta (many old archive rows), graduation delta, A/B + momentum records,
 duties, profile, verify, export, review, report, write-back, close, commit, ingest gate (§9), siblings.
 Web searches used: 10 of 200.
+
+## CLOSE, 2026-09-29 ~23:30 UTC
+Since resume point 3: final rebuild (221), patch5 (momentum + Fox), duty 7 blind 44/44, profile (investor.json,
+sources.json, config profile keys, icon uploaded northzone-8d6d5a3a15.png), register status pass (patch6 DK/FI,
+patch7 UK; sources/registers/register-status.json), Ocapo merged into eProspects (third rebuild, 220 rows),
+cross-rulings lightspeed slug fixed (cuspai), decisions R1-R10, report.md. Plain verify clean.
+Record bug found: re-recording a line replaces the joined note (patch6 run twice; five notes restored from HEAD).
+Sibling alignment plan: first-round-capital:thirty-madison, lightspeed:cuspai, creandum:stockeld-dreamery
+(free after TCV's 98d1a48d); accel:wallapop and battery-ventures:blitzy depend on those books' own verify
+(TCV reports third-book disputes: accel KupiVIP vs Balderton, battery Banyan vs Greylock).
+Web searches used: about 19 of 200.

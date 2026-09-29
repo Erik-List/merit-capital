@@ -1,19 +1,428 @@
 {
- "fields": {
-  "hq_location": {
-   "value": "London, United Kingdom",
-   "source": "sources/offices.json",
-   "basis": "The firm's site lists its offices as London, United Kingdom; Berlin, Germany; Amsterdam, Netherlands (https://northzone.com/), without the Form ADV principal office, Icf 5, St. Helier, Channel Islands, Jersey (NORTHZONE MANAGEMENT X LIMITED, CRD 327695, Annual Amendment filed 2026-03-30); the first office it lists is published. The Form ADV does not list that office. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
-   "sources": [
-    {
-     "source": "Form ADV Item 1.F and Schedule D 1.F, NORTHZONE MANAGEMENT X LIMITED (Annual Amendment filed 2026-03-30)",
-     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/327695/PDF/327695.pdf"
+  "slug": "northzone",
+  "generated_at": "2026-09-29T22:40:24+00:00",
+  "run": "PRO-105",
+  "fields": {
+    "name": {
+      "value": "Northzone",
+      "source": "https://northzone.com/",
+      "basis": "the firm's site and title tag ('Northzone'); earlier styled Northzone Ventures (the firm's posts to 2016). Advisers: three exempt reporting advisers in Jersey, Northzone Management IX Limited (CRD 327719), Northzone Management X Limited (CRD 327695) and Northzone Management Growth II Limited (CRD 327713), annual amendments filed 2026-03-30; decisions.md D1."
     },
-    {
-     "source": "the firm's own site, office list",
-     "url": "https://northzone.com/"
+    "website": {
+      "value": "https://northzone.com",
+      "source": "https://northzone.com/",
+      "basis": "firm site (Webflow; portfolio at /portfolio, team at /team, posts at /insights)"
+    },
+    "founding_year": {
+      "value": 1996,
+      "source": "https://northzone.com/insights/in-the-zone",
+      "basis": "Tellef Thorleifsson, 'Northzone co-founder and general partner': 'We've been raising a fund every three to four years since we started in 1996' (Real Deal, 2010-04-21, republished on the firm's site); the firm's boilerplate 'Founded in 1996' (e.g. https://northzone.com/insights/distribusion-annoucement, 2016-03-17) and the homepage meta description 'Since 1996'."
+    },
+    "history": {
+      "value": "Northzone was founded in 1996 by partners including Tellef Thorleifsson and built its name in the Nordic region, with offices in Oslo, Stockholm and Copenhagen before London followed in 2012. It became known for backing Spotify, Kahoot!, iZettle, Trustpilot and Klarna. In 2022 it raised \u20ac1 billion, its largest fund, to invest from seed to growth across Europe and the US, and it reports more than $3.1 billion under management.",
+      "source": "https://northzone.com/insights/in-the-zone",
+      "basis": "founding year and co-founder: Real Deal 2010-04-21 on the firm's site (Tellef Thorleifsson, co-founder); Nordic offices: 'Northzone was established in 1996 and has offices in Copenhagen, Oslo, and Stockholm' and London from 2012, https://northzone.com/insights/northzone-establishes-london-presence-and-welcomes-jeppe-zink-as-general-partner (2012-01-17); the companies: the firm's post of 2022-09-13 names Spotify, iZettle, Klarna, Trustpilot and Kahoot! among its most successful, https://northzone.com/insights/weve-raised-e1bn-investing-from-seed-to-growth-in-category-defining-entrepreneurs; the 2022 raise: the same post ('our largest fundraise to date: \u20ac1bn') and Tech.eu 2022-09-13; assets: the firm's About page '$3.1B+ Assets under management', https://northzone.com/about, read 2026-09-29. Moved here from the page: the other founders are not named in any source read, so only Thorleifsson is; Fund V was \u20ac175M and Fund VI had a first close of \u20ac90M against a \u20ac150M target in March 2010 (Real Deal); six funds and about \u20ac500M by January 2012; a new vehicle, Northzone XI L.P., filed its first notice of sale in 2026 Q2 with nothing sold (accession 0001012975-26-000576), so the eleventh fund is being raised; the site now lists offices in London, New York, Berlin, Stockholm and Amsterdam."
+    },
+    "investment_concept": {
+      "value": "\u201cBacking world-changing companies from inception to IPO.\u201d",
+      "source": "https://northzone.com/",
+      "basis": "The firm's own statement, verbatim from the homepage headline (the page has no h1; this is its lead h2), read 2026-09-29 (data/filings/northzone/site-raw/home.html). A closing period and curly quotes are the only edits. The title tag is just 'Northzone'; the meta description is the competing line ('Northzone is a multi-stage venture capital firm operating across Europe and the US. Since 1996, it has backed more than 250 companies, including Spotify, Klarna, Spring Health, and Black Forest Labs.')."
+    },
+    "investment_stage": {
+      "value": [
+        "Seed",
+        "Series A",
+        "Series B",
+        "Growth"
+      ],
+      "source": "https://northzone.com/insights/weve-raised-e1bn-investing-from-seed-to-growth-in-category-defining-entrepreneurs",
+      "basis": "the firm's own words: 'from Seed through to IPO' and 'from Seed to Growth' (2022-09-13); Northzone IX 'focusing primarily on Series A and B rounds. Selective seed stage investments will continue' (https://northzone.com/insights/announcing-our-new-500-m-fund, 2019-11-18); a growth partner since 2023 (Sanjot Malhi). Landed entry stages on the portfolio: Series A 48, Seed 27, Growth 20, Pre-Seed 2, undetermined 123 (report.md). Pre-Seed is left out: two rows, no programme."
+    },
+    "investment_geo": {
+      "value": {
+        "core": [
+          "Europe"
+        ],
+        "other": [
+          "US"
+        ]
+      },
+      "source": "https://northzone.com/",
+      "basis": "the firm's own line 'operating across Europe and the US' (homepage meta description) and the 2022 post ('focusing on opportunities across Europe and the US'); landed countries: SE 42, GB 39, US 35, NO 31, DE 15, DK 10, NL/FR/FI/ES 6 each; core Europe, other US (two-label cap)."
+    },
+    "investment_scope": {
+      "value": {
+        "type": "Generalist",
+        "focus": [
+          "AI & Applied AI",
+          "Fintech & Payments",
+          "SaaS",
+          "Consumer & Marketplaces",
+          "Media, Gaming & Advertising",
+          "Industrial & Robotics",
+          "DevTools & APIs"
+        ]
+      },
+      "source": "companies/base.json",
+      "basis": "focus from the firm's own site sector tags on 144 base rows, crosswalked to data/taxonomy/focus.json (crosswalk in config.json), published above 10 companies. Scope type is the curated judgement carried in investor.json."
+    },
+    "investment_range": {
+      "value": {
+        "lower_limit": 2500000,
+        "median": 17000000,
+        "upper_limit": 82100000
+      },
+      "source": "sources/site/entry-round-sizes.json",
+      "basis": "median: $17.0M, the median of 34 entry rounds the firm announced in its own posts with a stated size (sources/site/insights.json; each post is the row's entry citation; non-USD sizes converted at the ECB rate of the post date; by stage Seed $9.75M over 10, Series A $18.0M over 15, Growth $35.0M over 9; rows and the 22 skipped in the same file, built by scratch/entry-round-sizes.py). It is a round size, not a cheque size, and it covers 2012 to 2025, the years of those posts. Lower limit: the smallest of those rounds, aidence (\u20ac2.25M Seed, 2017-06-01, https://northzone.com/insights/medical-ai-start-aidence-raises-e2-25m); the firm runs no seed programme with a stated cheque. Upper limit: the largest round it led in those posts, CarOnSale's \u20ac70 million Series C growth round ('This round was led by Northzone', https://northzone.com/insights/our-growth-investment-in-caronsale-reinventing-b2b-auto-trade, 2025-07-07; 70,000,000 EUR at the ECB rate of 2025-07-07); at about 7% of the \u20ac1bn 2022 fund cycle it sits inside a 10 to 15% single-position cap, and the cheque itself is smaller than the round. Rejected: SellersFunding's $166.5M 'Northzone-led round' (2021-09-15), which mixed equity with a debt facility."
+    },
+    "notable_investments": {
+      "value": [
+        "Spotify",
+        "Klarna",
+        "Trustpilot",
+        "Kahoot!",
+        "Personio"
+      ],
+      "source": "companies/base.csv",
+      "basis": "The five best known of the firm's own companies, most recognised first (PRO-152, Erik 2026-09-24). Considered next: Zettle (iZettle), Lastminute.com, Black Forest Labs, TrueLayer, Avito.",
+      "slugs": [
+        "spotify",
+        "klarna",
+        "trustpilot",
+        "kahoot",
+        "personio"
+      ]
+    },
+    "aum": {
+      "value": {
+        "bottom": 1651159907,
+        "top": 3100000000
+      },
+      "source": "https://adviserinfo.sec.gov/firm/summary/327695",
+      "basis": "bottom: the sworn Form ADV Section 7.B(1) gross asset values of the firm's three exempt reporting advisers, annual amendments of 2026-03-30 (IAPD PDFs parsed with pypdf, sources/registers/adv-7b-funds.json): Northzone IX L.P. $749,903,423 (CRD 327719), Northzone X L.P. $529,798,730 (CRD 327695), Northzone Growth II L.P. $361,868,910 (CRD 327713), NZ X NIF L.P. $9,588,844 (reported by 327695 and 327713, counted once), $1,651,159,907 in all. It is a floor: Funds VII and VIII and the older funds report to no SEC adviser. Top: the firm's own About page, '$3.1B+ Assets under management' (https://northzone.com/about, read 2026-09-29)."
+    },
+    "funds": {
+      "value": [
+        {
+          "name": "Northzone X and Growth II",
+          "size": 1017500000,
+          "vintage": 2022
+        },
+        {
+          "name": "Northzone IX",
+          "size": 500000000,
+          "vintage": 2019
+        },
+        {
+          "name": "Northzone VIII",
+          "size": 390460000,
+          "vintage": 2016
+        },
+        {
+          "name": "Northzone VII",
+          "size": 325000000,
+          "vintage": 2013
+        }
+      ],
+      "source": "https://northzone.com/insights/weve-raised-e1bn-investing-from-seed-to-growth-in-category-defining-entrepreneurs",
+      "basis": "The firm's own fund announcements: X and Growth II, \u20ac1bn (2022-09-13, 'our largest fundraise to date', the tenth fund cycle from Seed to Growth; the split between Northzone X L.P. and Northzone Growth II L.P. is not published; both filed their first notices of sale in 2022 Q1 with nothing sold, 0001907963-22-000001 and 0001907963-22-000003; converted at the ECB rate of 2022-09-13, 1.0175); IX, $500M (https://northzone.com/insights/announcing-our-new-500-m-fund, 2019-11-18; its 2019 Form D offered $504,230,000 with nothing sold, 0001776879-19-000002); VIII, \u20ac350M (https://northzone.com/insights/announcing-nzviii-biggest-fund-date, 2016-09-05; ECB 1.1156, $390.5M); VII, $325M final close (https://northzone.com/insights/announcing-northzone-vii-biggest-fund-date-325-million, 2014-12-16; first close \u20ac150M on 2013-12-05, the vintage). No accession is asserted: every fund notice reports nothing sold or a partial first sale. Described, not listed: Northzone XI L.P. (first notice 2026 Q2, nothing sold, being raised); Northzone Conviction I L.P. (2020, $65,744,000 sold of a $168,000,000 offering, 0001012975-20-000328; final size not published); Northzone Streaming Opportunity L.P. (2015, a single-company vehicle, $7.5M sold); NZ X NIF L.P. (a $9.6M side vehicle of Fund X); Funds I to VI (Fund V \u20ac175M and VI first close \u20ac90M, Real Deal 2010; six funds and about \u20ac500M by 2012)."
+    },
+    "hq_location": {
+      "value": "London, United Kingdom",
+      "source": "sources/offices.json",
+      "basis": "The firm's site lists its offices as London, United Kingdom; Berlin, Germany; Amsterdam, Netherlands (https://northzone.com/), without the Form ADV principal office, Icf 5, St. Helier, Channel Islands, Jersey (NORTHZONE MANAGEMENT X LIMITED, CRD 327695, Annual Amendment filed 2026-03-30); the first office it lists is published. The Form ADV does not list that office. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+      "sources": [
+        {
+          "source": "Form ADV Item 1.F and Schedule D 1.F, NORTHZONE MANAGEMENT X LIMITED (Annual Amendment filed 2026-03-30)",
+          "url": "https://reports.adviserinfo.sec.gov/reports/ADV/327695/PDF/327695.pdf"
+        },
+        {
+          "source": "the firm's own site, office list",
+          "url": "https://northzone.com/"
+        }
+      ]
+    },
+    "icon_url": {
+      "value": "https://lsohkkmdlrlixukuncjl.supabase.co/storage/v1/object/public/Icon%20Images/investors/northzone-8d6d5a3a15.png",
+      "source": "https://cdn.prod.website-files.com/6a42cde2da0ec82a02565414/6a79b7677960c42773b03e76_Webclip.png",
+      "basis": "fetched 2026-09-29 by scripts/fetch-investor-icon.ts from https://cdn.prod.website-files.com/6a42cde2da0ec82a02565414/6a79b7677960c42773b03e76_Webclip.png: png 512x512, artwork 468px in the source \u2192 145px in the 256px master (0.31x); plate: source is self-backing (opaque-plate), kept; safe area: artwork scaled 0.622 (box 91%\u219257%, radius 129%\u219280%); master 256x256 opaque-plate rgb(252,252,252) opaque=100% box=57% radius=80% contrast=18.5:1 ramp=0.91px",
+      "provenance": {
+        "source_url": "https://cdn.prod.website-files.com/6a42cde2da0ec82a02565414/6a79b7677960c42773b03e76_Webclip.png",
+        "format": "png",
+        "width": 512,
+        "height": 512,
+        "vector": false,
+        "artwork_source_px": 468,
+        "artwork_master_px": 145,
+        "upscale": 0.31,
+        "ramp_px": 0.91,
+        "master_size": 256,
+        "fetched": "2026-09-29",
+        "allow_upscale": false,
+        "allow_low_contrast": false
+      }
+    },
+    "individuals": {
+      "value": [
+        {
+          "name": "Alessandro De Benedetti",
+          "position": "Associate",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/alessandro-de-benedetti-b1460a167/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Alex Agureev",
+          "position": "Vice President",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/agureev/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Andrea Gazvini",
+          "position": "Associate",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/andreagazvini/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Dominik Esen",
+          "position": "Principal",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/dominik-esen/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jeppe Zink",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jeppe-zink-5a85305/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jessica Schultz",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jessica-schultz-37a22724/",
+            "x_url": "https://twitter.com/Jess_M_Schultz"
+          }
+        },
+        {
+          "name": "Johanna Oln\u00e9n",
+          "position": "Data Analyst",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/johanna-oln%C3%A9n-a58880210/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Loubaba El Ayoubi",
+          "position": "Associate",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Manavi Mehra",
+          "position": "Vice President",
+          "socials": {
+            "linkedin_url": "https://linkedin.com/in/manavi-m-8628b1a2",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Michiel Kotting",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/kotting/",
+            "x_url": "https://twitter.com/mkotting"
+          }
+        },
+        {
+          "name": "Molly Alter",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/molly-alter-3ab1159a/",
+            "x_url": "https://twitter.com/molly_alter"
+          }
+        },
+        {
+          "name": "Naseem Moumene",
+          "position": "Vice President",
+          "socials": {
+            "linkedin_url": "https://linkedin.com/in/naseemmoumene/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Pascual Cortes-Monroy",
+          "position": "Principal",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/pascualcm/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "P\u00e4r-J\u00f6rgen P\u00e4rson",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/p%C3%A4r-j%C3%B6rgen-p%C3%A4rson-4946b/",
+            "x_url": "https://twitter.com/pjparson"
+          }
+        },
+        {
+          "name": "Sam Endacott",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Sanjot Malhi",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/sanjot-malhi-a08b3432/",
+            "x_url": "https://twitter.com/SanjotMalhi"
+          }
+        },
+        {
+          "name": "Wendy Xiao",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/wendyxiaoschadeck",
+            "x_url": "https://twitter.com/wen_xs"
+          }
+        },
+        {
+          "name": "Amanda Thickpenny",
+          "position": "Events Manager",
+          "socials": {
+            "linkedin_url": "https://linkedin.com/in/amandathickpenny/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Dennis Eriksson",
+          "position": "Talent Director",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/deriksson01/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Dom Taylor",
+          "position": "Head of Legal",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/dominicjtaylor/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Elena Pantazi",
+          "position": "Partner & Head of Platform",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/elenapantazi/",
+            "x_url": "https://twitter.com/ecpantazi"
+          }
+        },
+        {
+          "name": "Evan Duff",
+          "position": "Executive and Office Assistant",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/evan-duff13/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Grace Bentley",
+          "position": "HR Manager",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/grace-bentley-78615017a/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jackson Heddy",
+          "position": "CFO",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jackson-heddy-74199246/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "James Braithwaite",
+          "position": "Financial Controller",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Laura Clifford",
+          "position": "Talent Director",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/laurabclifford/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Marlowe Cameron",
+          "position": "Executive Assistant",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/marlowe-cameron-44427a1b8/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Molly Cooke",
+          "position": "Team Assistant",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/molly-cooke-37946322a/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Nicola Sibley",
+          "position": "Executive & Marketing Assistant",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/nicola-sibley-6b8a7612a/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Sanna Blomkvist",
+          "position": "Sustainability Lead",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/sanna-blomkvist-1304559a/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Tom McGinn",
+          "position": "Legal Advisor",
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "William Jilltoft",
+          "position": "Director of Strategy and Operations",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/william-jilltoft-3ba381b2/",
+            "x_url": null
+          }
+        }
+      ],
+      "source": "sources/site/team.json",
+      "basis": "Live team CMS: 32 members. Positions are CMS titles (24 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 1 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 28 LinkedIn, 7 X."
     }
-   ]
   }
- }
 }

@@ -208,4 +208,70 @@ founder-era or next-firm seat (D9); the Early / Growth word read as a round
 
 ## Run-time standing rulings (dated, class-wide, flagged for Erik's review)
 
-(none yet)
+R1 (2026-09-29, sale consideration). **Nevion is not a member; T-VIPS is.** The firm's
+own 2017 page calls Nevion "the combined entity of two industry-leading companies,
+Nevion and T-VIPS"; Northzone held T-VIPS (its 2010-12 pages) and its Nevion shares came
+from that 2012 merger. Under the sale-consideration rule (COLLECTION.md §1, Erik
+2026-09-22) the acquirer leaves the base; T-VIPS stays, status acquired. Class: any later
+archived page that lists the merged entity of a held company.
+
+R2 (2026-09-29, director of record). **Realize, Inc. is a member at medium confidence,
+flagged `boundary`.** Molly Alter, a Northzone partner since 2024 (joined 2023-07-13),
+sits as a director on Realize's Form Ds of 2024-Q1 ($10.3M) and 2026-Q1 ($25.4M), inside
+her tenure; the firm's site does not list the company and no press names Northzone. The
+director-of-record pattern (Accel, Battery) admits it; if Erik rules that an
+unannounced seat is not enough for an archetype-B firm with a complete live list, it
+leaves at the next re-ingest.
+
+R3 (2026-09-29, renames at medium confidence). **Statement is Tuza.** The GBP 1.5m
+pre-seed Northzone led in June 2023 (UKTN; the archived /portfolio/statement page) and
+the live list's Tuza (founded 2023, same payments-comparison product, same two partners)
+are merged as one company; no source states the rename in words. Class: a rename is
+merged at medium when product, year and deal partners all match and no source
+contradicts.
+
+R4 (2026-09-29, renames by the firm's own page). **Gro is Zeal**: the firm's page
+northzone.com/portfolio/gro/ is titled "Zeal". A rename the firm's own URL carries is
+high confidence without press.
+
+R5 (2026-09-29, conflicting round records). **Fishbrain's entry stage is undetermined.**
+The July 2014 round Northzone led with Active Venture Partners ($2.4M) is a Series A
+to TechCrunch (2014-07-08), while the firm's own post calls the 2015 $8M round its
+"A-round" (2015-07-22), after a 2013 seed; with two readings of the entry round on the
+record, the stage is not guessed.
+
+R6 (2026-09-29, status after a stall). **Stockeld Dreamery is acquired, not defunct.**
+Bettani Farms bought it in December 2025 (Green Queen) after the business stalled;
+a purchase of the brand and assets decides the status as acquired. Creandum's row
+reads defunct and is aligned at this ingest when Creandum's company files are clean.
+
+R7 (2026-09-29, archive gap). **The Internet Archive was unavailable for the whole
+run** (a machine-wide cooldown that doubled to about 167 minutes). The 2008-2025
+listings came from Common Crawl (1,160 captures, including the 2008-2012 ARC crawls) and
+2003 from one cached Wayback capture mapped by description. Not read, and recorded as
+gaps rather than absences: 2001-2002, 2004-2007, the 2005-2008 ASP site, the Hugin press
+releases of 2000-2008, three company pages (Nuday, Proxilliant, Brave New World) and two
+2003 descriptions no later page matches ("Service infrastructure platform...",
+"Specialized provider of ERP..."). A re-run of `scratch/archive-listings.py` when the
+archive answers closes them.
+
+R8 (2026-09-29, unnameable rows). **BNT and OBC stay as `identity_unresolved`.** The
+firm listed both on its 2017-19 pages with no name, text or link that resolves them; they
+are members (the firm's own listing) and undetermined in every column.
+
+R9 (2026-09-29, a trading name found after the final rebuild). **Ocapo is eProspects.**
+Ocapo Limited (Companies House 08350690; Jeppe Zink a director 2013-2017), where
+Northzone led a GBP 9.5m investment in July 2013, trades as eProspects, the name the
+firm's 2013-19 pages list (ocapolimited.com serves eProspects' pages; Ocapo's director is
+the sole director of EPROSPECTS LIMITED). The two rows are one company: merged in
+`identity-merges.json` (canonical eprospects) and applied by a third rebuild before
+export, which changed that one slug and nothing else. Class: a recall addition named
+after the legal entity is checked against the listing's brand names before close.
+
+R10 (2026-09-29, register status). **A live registration with employees reads
+`private` at medium; a dissolution or bankruptcy with no sale reads `defunct`; a
+register rename into an acquirer's name reads `acquired`.** Applied to nine rows from
+the Danish, Finnish and UK registers: AllUnite, Cryptico, Interse, Speakanet, Imbera,
+BraveNewTalent, Orecon, Colibria and eProspects (Colibria's acquisition itself rests on
+Metaswitch's release); answers in
+`sources/registers/register-status.json` and the cache.
