@@ -166,7 +166,7 @@ exist.
 
 ## Deltas (Erik's)
 
-- **Delta 1 (open): the profile of a manager with no Form ADV.** §11 anchors
+- **Delta 1 (ruled by Erik 2026-09-29: publish the firm's own $13B at both ends, flagged `firm_stated`): the profile of a manager with no Form ADV.** §11 anchors
   `aum` on Item 5.F or the Section 7.B gross assets, and `hq_location` on the
   ADV's principal office. GV has neither. What the record does hold: the
   firm's own "$13B Under Management" (first-party, not sworn), Alphabet's 13F,
@@ -200,7 +200,12 @@ exist.
   reads "Acquired by Nebius, 2026": the row reads `acquired`, because the business's core changed hands (the
   asset-sale reading of §6), not the acqui-hire rule, which covers a hire without the business. Flagged for
   Erik: some press calls it an acqui-hire, and the three sibling rows (Lux, Menlo, USV) read private.
+  **Confirmed by Erik 2026-09-29 ("clarifai as acquired, keep rule consistent")**: the sibling rows are aligned to
+  acquired at the ingest.
 - **R5 (2026-09-29): a venture-creation firm on the list is a fund position (D10).** Curie.Bio's $520M
   from GV, ARCH and a16z funded a seed-investing vehicle and a services unit ("a new biotech VC", Fierce
   Biotech), so it reads `not_member` under D10 at medium confidence. Flagged: a16z's row keeps it as a
   member.
+- **R6 (Erik, 2026-09-29): a company's HQ is what the company says.** Vaccitech (Barinthus Biotherapeutics): its own
+  contact page names the "UK Head Office" (Altrincham, Cheshire) and lists Germantown, Maryland as its US office, so
+  the row reads GB, Altrincham, and the `city_country_conflict` flag is cleared.

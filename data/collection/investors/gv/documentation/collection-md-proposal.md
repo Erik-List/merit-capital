@@ -13,7 +13,8 @@ kickoff by three checks: IAPD returns nothing under the brand, the legal names o
 vehicles file ownership forms (13D/G, Forms 3/4) but no Form D (at most a general-partner or carry vehicle files
 one); and the management company files 13F notices whose holdings sit inside the parent's 13F. Then:
 
-- `aum` publishes `{bottom: null, top: null}` with the flag `no_sworn_source`. The firm's own stated figure goes
+- `aum` publishes the firm's own stated figure as both ends, flagged `firm_stated` (Erik's ruling, 2026-09-29, on
+  the alternative below; the null-and-flag form was the run's first proposal). The firm's own stated figure goes
   into the sidecar basis with its page and date, never into the value, because every other profile's range is
   anchored on a sworn number and a firm's marketing figure is not comparable to it.
   *Alternative for Erik (delta 1 in decisions.md):* publish the firm's own figure as both ends, flagged

@@ -4,7 +4,7 @@ Re-runnable: the base-dependent fields (stage, geo, scope, range, notables) are 
 when it exists (written after the grind by scratch/derive-profile.py), else left as they are.
 
 The fields a Form ADV would anchor (aum; hq_location's principal office) follow decisions.md Delta 1: GV files no
-ADV, so `aum` is the explicit null range with the flag `no_sworn_source` and the firm's own "$13B Under Management" in
+ADV, so `aum` is the firm's own "$13B Under Management" at both ends, flagged `firm_stated` (Erik, 2026-09-29), with
 the basis, and hq_location comes from the firm's own site statement through firm-offices.py (config profile.site_office).
 Usage: python3 write-profile.py
 """
@@ -44,16 +44,14 @@ put("history", HISTORY, "https://en.wikipedia.org/wiki/GV_(company)",
     "Moved to this sidecar, not the page: the vehicles by vintage (funds field), CapitalG and Gradient as separate "
     "Alphabet units, the $125 million European allocation of 2014 led by Tom Hulme, and Bill Maris's departure in 2016.")
 
-put("aum", {"bottom": None, "top": None}, STATS,
-    "EXPLICITLY NULL, flagged no_sworn_source (decisions.md Delta 1, open for Erik). GV is a corporate venture arm and "
-    "files no Form ADV: IAPD returns no firm under GV, GV Management, Google Ventures, Google or Alphabet (2026-09-29), "
-    "so neither Item 5.F nor Section 7.B exists, and the vehicles raise no outside money (no fund Form D; the one Form "
-    "D is GV 2025 GP, L.P., the team's own vehicle, $0 sold). The firm's own statement is '$13B Under Management' "
-    "(gv.com stats box, read 2026-09-29); Wikipedia's infobox says 'approximately $10 billion'. Neither is sworn, and "
-    "every other profile's range is anchored on a sworn figure, so the firm's number stays here. Alternative for "
-    "Erik: publish the firm-stated $13B as both ends, flagged firm_stated. GV Management Company, L.L.C. (CIK 1940173) "
-    "files 13F notices; its listed holdings are reported inside Alphabet Inc.'s 13F, which covers public equities "
-    "only and is no AUM figure.", flags=["no_sworn_source"])
+put("aum", {"bottom": 13000000000, "top": 13000000000}, STATS,
+    "FIRM-STATED, both ends (Erik 2026-09-29, ruling decisions.md Delta 1): the firm's own '$13B Under Management' "
+    "(gv.com stats box, read 2026-09-29), flagged firm_stated because no sworn figure exists. GV is a corporate venture "
+    "arm and files no Form ADV: IAPD returns no firm under GV, GV Management, Google Ventures, Google or Alphabet "
+    "(2026-09-29), so neither Item 5.F nor Section 7.B exists, and the vehicles raise no outside money (no fund Form D; "
+    "the one Form D is GV 2025 GP, L.P., the team's own vehicle, $0 sold). Wikipedia's infobox says 'approximately $10 "
+    "billion'. GV Management Company, L.L.C. (CIK 1940173) files 13F notices; its listed holdings are reported inside "
+    "Alphabet Inc.'s 13F, which covers public equities only and is no AUM figure.", flags=["firm_stated"])
 
 VEHICLES = [("GV 2023, L.P.", 1961979, 2023), ("GV 2021, L.P.", 1861202, 2021), ("GV 2019, L.P.", 1845041, 2019),
             ("GV 2017, L.P.", 1733340, 2017), ("GV 2016, L.P.", 1721789, 2016), ("GV 2015, L.P.", 1719755, 2015),

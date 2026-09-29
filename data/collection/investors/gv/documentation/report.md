@@ -10,16 +10,13 @@ archive while the Internet Archive sat in its machine-wide cooldown · report wr
 ## 1. The answer PRO-75 asked for
 
 **What §11 does when the manager is not a manager in the ADV sense: three fields lose their sworn anchor. The
-run publishes AUM as null with a flag, takes the HQ from the firm's own site, and lists the funds by name with no
+run publishes AUM as the firm's own figure, flagged, takes the HQ from the firm's own site, and lists the funds by name with no
 size; every other profile field is built as usual.** GV files no Form ADV of any kind (IAPD has nothing under GV,
 GV Management, Google Ventures, Google or Alphabet), Alphabet is the only limited partner of every vehicle, so no
 vehicle files a Form D, and the management company (CIK 1940173) files only 13F notices and N-PX.
 
-- **`aum`** publishes `{bottom: null, top: null}` flagged `no_sworn_source`. The firm's own "$13B Under
-  Management" (gv.com, read 2026-09-29) is kept in the sidecar with its page and date, not in the value, because
-  every other profile's range rests on a sworn Item 5.F or Section 7.B figure and a marketing figure is not
-  comparable to it. **Delta 1, open for you**: the alternative publishes $13B as both ends, flagged
-  `firm_stated`.
+- **`aum`** publishes the firm's own "$13B Under Management" (gv.com, read 2026-09-29) at both ends, flagged
+  `firm_stated` (Erik's ruling on Delta 1, 2026-09-29), because no sworn Item 5.F or Section 7.B figure exists.
 - **`hq_location`**: no ADV principal office exists, and the vehicles' filing address (1600 Amphitheatre Parkway,
   Mountain View) is Alphabet's headquarters, not the firm's office. `profile.adv_crd: null` lets the firm's own
   site decide (`profile.site_office`: "our San Francisco office", the firm's own posts): **San Francisco, CA**.
@@ -196,8 +193,8 @@ apps whose domains are gone.
 Thesis "We support innovative founders moving the world forward." (the homepage meta description; the portfolio
 page's line is recorded as competing). History 53 words: founded in 2009 as Google Ventures by Bill Maris, renamed
 GV in 2015 under Alphabet, Uber, Nest, Slack and Flatiron Health, led by David Krane, the four offices, and the
-firm's own $13 billion (said, not sworn). HQ San Francisco, CA (the firm's own site; no ADV). AUM null, flagged
-`no_sworn_source` (Delta 1). Funds: 10 vehicles, sizes null. Stages Seed, Series A, Growth; geography US, then
+firm's own $13 billion (said, not sworn). HQ San Francisco, CA (the firm's own site; no ADV). AUM $13B at both ends, the firm's own
+figure, flagged `firm_stated` (Delta 1, ruled). Funds: 10 vehicles, sizes null. Stages Seed, Series A, Growth; geography US, then
 Europe; scope Generalist across five focus labels from the firm's own sector tags (SaaS, Healthcare & Bio,
 Consumer & Marketplaces, AI & Applied AI, Industrial & Robotics). Range $6M to $75M around a $22M median entry
 round (a round-size proxy over the 78 members whose entry round is on EDGAR, not GV's cheque). Notables Uber,
@@ -208,12 +205,11 @@ vector on a white plate, contrast 18.8:1, ramp 0.86px; uploads at ingest.
 
 ## 9. Open rulings for Erik
 
-1. **Delta 1, the issue's question: AUM for a manager with no ADV.** Null and flagged (as built), or the firm's own
-   $13B as both ends flagged `firm_stated`.
+1. **Delta 1: ruled** (Erik, 2026-09-29): the firm's own $13B at both ends, flagged `firm_stated`.
 2. **D4, Alphabet's own companies.** Waymo ($126B, the third-largest mark in the book) and Isomorphic Labs are in as
    minority financings. Out would take one of four $100B+ rows away.
 3. **R1, Seedling.** Out as merger stock for Moonfrye; the parties called it a merger of equals.
-4. **R4, Clarifai.** Acquired (Nebius took the team, bought the patents, licensed the technology; the firm's exit
+4. **R4, Clarifai: ruled acquired** (Erik, 2026-09-29), siblings aligned at the ingest. Acquired (Nebius took the team, bought the patents, licensed the technology; the firm's exit
    line says acquired) against the acqui-hire rule's reading; Lux, Menlo and USV read private.
 5. **R5, Curie.Bio.** Out under D10 (a venture-creation firm); a16z keeps it as a member.
 6. **BufferBox (D2).** In by the firm's own listing, but TechCrunch (2014-01-14) says it "was grandfathered in as a
@@ -221,8 +217,8 @@ vector on a white plate, contrast 18.8:1, ramp 0.86px; uploads at ingest.
    yours; Product Hunt (listed with Kevin Rose, no source names GV in its only round) is the same kind of doubt.
    The same piece counts Makani among the "Google Ventures funded" companies, which answers that row's doubt.
 7. **Synapse Health.** In on a Form D alone (a GV partner's seat filed from GV's address; medium).
-8. **Vaccitech (Barinthus).** Country GB (Oxford at entry) with the last-known city Germantown, Maryland; flagged
-   `city_country_conflict`.
+8. **Vaccitech (Barinthus): ruled** (Erik, 2026-09-29, by what the company says): GB, Altrincham, its own "UK Head
+   Office"; Germantown is its US office.
 9. **Likely understatements under Rule A**: Inertia (a $450M Series A with no published valuation) and Treeline
    (more than $1B raised, a reverse merger pending) read below $1B.
 10. **Siblings to align at ingest** (the 69 accepted pairs in `companies/cross-rulings.json`): First Round 11,
