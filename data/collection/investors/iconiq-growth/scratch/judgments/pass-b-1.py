@@ -1,0 +1,35 @@
+# A/B pass, pass B (COLLECTION.md 7): marks older than 2025 attacked for a newer round, a sale, a listing or a shutdown,
+# and aggregator citations replaced by the priced event's own source (Rule A). Research agent, 2026-09-29; every URL
+# came from its search results or fetches.
+PB = "Pass B 2026-09-29: "
+NONE = PB + "no newer round, sale, listing or shutdown found; the mark stands."
+J = [
+ dict(s="age-of-learning", v=3e9, va="2021-06-29", vc="https://finance.yahoo.com/news/abcmouse-creator-valued-3-billion-110000764.html",
+      n=PB + "the $300M round of June 2021 led by TPG more than doubled Age of Learning's valuation to $3B (Bloomberg, syndicated); the company's release of the same day confirms the round without a figure. Supersedes the $1B of 2016."),
+ dict(s="fivetran",
+      n=PB + "Fivetran completed its all-stock merger with dbt Labs on 2026-06-01 (Fivetran's release, https://www.fivetran.com/press/fivetran-dbt-labs-complete-merger-to-create-the-data-infrastructure-for-trusted-ai-agents); Fivetran announced it, its chief executive stays, and the combined company operates as 'Fivetran + dbt Labs', so the row stays private. No deal value or valuation was stated; the $5.6B of 2021 remains the last priced mark."),
+ dict(s="ezcater", v=1.6e9, va="2021-12-15",
+      vc="https://www.ezcater.com/company/press-release/ezcater-raises-100-million-to-scale-corporate-food-solutions-and-redefine-food-for-work/",
+      n=PB + "the $100M Series D-2 of December 2021 led by SoftBank Vision Fund 2 raised the post-money valuation to $1.6B (the company's release); replaces an aggregator citation and the May 2021 date."),
+ dict(s="epic-games", v=22.5e9, va="2024-02-07",
+      vc="https://www.marketscreener.com/quote/stock/WALT-DISNEY-COMPANY-THE-4842/news/Disney-s-Epic-deal-shows-sharp-cut-in-Fortnite-maker-s-valuation-The-Information-45918084/",
+      n=PB + "Disney's $1.5B investment of February 2024 values Epic Games at $22.5B (Reuters, citing The Information); replaces an aggregator citation. No new primary financing since."),
+ dict(s="komodo-health", v=3.3e9, va="2021-03-22",
+      vc="https://www.mobihealthnews.com/news/health-data-analytics-startup-komodo-healths-220m-series-e-propels-it-33b-valuation",
+      n=PB + "the last priced round is the $220M Series E of March 2021 led by Tiger Global and Casdin at $3.3B (MobiHealthNews); the aggregator's $3.71B was not a priced event (Rule A)."),
+ dict(s="axonius", v=2.6e9, va="2022-03-08", vc="https://www.axonius.com/newsroom/press-release/axonius-closes-200m-series-e-funding-round",
+      n=PB + "the $200M Series E led by Accel, at $2.6B, is dated 2022-03-08 (the company's release), not 2024-03; nothing newer."),
+ dict(s="recharge", v=2.1e9, va="2021-05", vc="https://getrecharge.com/blog/press-release-recharge-raises-277-million-in-growth-capital/",
+      n=PB + "the company's own release: 'Recharge Raises $277 Million in Growth Capital at a $2.1 Billion Valuation' (May 2021); nothing newer. The 2025 Coda purchase of 'Recharge' is the Dutch namesake Recharge.com."),
+ dict(s="deepl", n=PB + "a reported plan (Bloomberg via SiliconANGLE, 2025-10-02) to weigh a US listing at up to $5B is a lead, not a priced event; the $2B of May 2024 stands."),
+ dict(s="monzo", n=PB + "a reported private share sale arranged with Morgan Stanley (October 2025) completed at no stated price that could be found; the $5.9B of October 2024 stands."),
+ dict(s="clara", n=PB + "the later rounds (a $60M Series B extension in 2023, $80M in April 2025 with Citi Ventures and Kaszek) stated no valuation; the $1B of December 2021 stands."),
+ dict(s="side", n=PB + "no round, sale or listing since 2021; Side cut its engineering, product and design teams in October 2024 (The Real Deal)."),
+ dict(s="guild", n=PB + "no priced round, sale or listing after the June 2022 Series F; aggregator secondary estimates are not priced events. After layoffs in 2023 and 2024 the company operates (it bought Nomadic Learning in 2024)."),
+ dict(s="gem", n=NONE + " Gem still publishes under its own name ($148M raised in total)."),
+ dict(s="monte-carlo", n=NONE + " A '$135M Series E at $1.6B' dated 2025 on one aggregator repeats the 2022 Series D's figures and is not confirmed."),
+ dict(s="calendly", n=NONE), dict(s="unite-us", n=NONE), dict(s="sendbird", n=NONE), dict(s="articulate", n=NONE),
+ dict(s="betterup", n=NONE), dict(s="benchling", n=NONE), dict(s="dialpad", n=NONE), dict(s="captivateiq", n=NONE + " National CineMedia's 2026 purchase of Captivate is a namesake."),
+ dict(s="fireblocks", n=NONE), dict(s="aurora-solar", n=NONE), dict(s="reify-health", n=NONE), dict(s="drata", n=NONE),
+ dict(s="floqast", n=NONE), dict(s="pigment", n=NONE), dict(s="writer", n=NONE),
+]

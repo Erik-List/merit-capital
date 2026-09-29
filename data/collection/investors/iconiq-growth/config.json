@@ -1,0 +1,356 @@
+{
+ "slug": "iconiq-growth",
+ "name": "ICONIQ Growth",
+ "wayback": {
+  "cdx_domain": "iconiqgrowth.com",
+  "site_url_base": "https://www.iconiqgrowth.com",
+  "eras": [],
+  "non_company_slugs": [
+   "index",
+   "home",
+   "page",
+   "feed",
+   "search",
+   "tag",
+   "category",
+   "author",
+   "all",
+   "see-all",
+   "companies",
+   "portfolio",
+   "team",
+   "people",
+   "news",
+   "insights",
+   "about",
+   "approach",
+   "contact",
+   "privacy",
+   "terms-of-use",
+   "careers",
+   "growth",
+   "impact",
+   "real-assets",
+   "investment-management",
+   "videos",
+   "reports",
+   "research",
+   "series",
+   "assets",
+   "images",
+   "css",
+   "sitemap",
+   "robots",
+   "favicon"
+  ],
+  "_note": "Eras are written from the archive's own shape once the captures are read. At kickoff (2026-09-29 00:35 UTC) the Internet Archive was in an eight-hour machine-wide cooldown (shared_throttle ia.cooldown, set 22:38 UTC by an earlier session's block, ends 06:38 UTC) and index.commoncrawl.org refused connections, so the archive layer starts on Common Crawl's static cluster.idx (scratch/cc-cluster.py) and the Wayback pull runs later in the run, never at the instant the cooldown ends. Three domains carry the firm's history: iconiqcapital.com (the parent, from about 2012), iconiqgrowth.com (the growth desk's own site) and iconiq.com (the parent from 2025; iconiqcapital.com now redirects there)."
+ },
+ "roster": {
+  "cdx_patterns": [],
+  "site_team_groups": [],
+  "slug_re": "/(?:team|people)/([a-z][a-z0-9-]*[a-z0-9])/?$",
+  "listing_href_re": "/team/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+  "not_a_person": [
+   "index",
+   "team",
+   "people",
+   "partners",
+   "about",
+   "companies",
+   "portfolio",
+   "news",
+   "contact",
+   "jobs",
+   "careers",
+   "all",
+   "page",
+   "iconiq"
+  ],
+  "_note": "The live site publishes no investment team page (the /growth/approach page shows nine ADVISORY board members, operators at their own companies, who must never be swept as the firm's roster: each is a related person on their own company's Form D). sources/wayback/partner-roster.json is CURATED (the Thrive and Coatue shape): the natural persons on the firm's own fund Form Ds (sources/edgar/formd-own-issuers.json), the firm's own welcome and interview posts (sources/site/posts.json), the archived team pages of iconiqgrowth.com where Common Crawl holds them, and press-dated tenures, one basis line per person."
+ },
+ "site_api": {
+  "type": "scrape",
+  "entry_stage_fields": [],
+  "_entry_stage_note": "The grid carries no year and no round word. Nothing on it is eligible to label entry_stage (COLLECTION.md 5); the firm's partnership posts (sources/site/posts.json) are class 1 for the round each one names and assert an entry only where they say so in words (COLLECTION.md 6).",
+  "sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/iconiq-growth/sources/site/portfolio-2026.json",
+    "list": "portfolio-2026",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "company_site",
+     "categories",
+     "exit_site",
+     "description",
+     "logo"
+    ],
+    "_note": "Every company on iconiq.com/growth/companies (scratch/pull-site-iconiq.py): 172 on 2026-09-28, 53 tagged IPO/Acquired. url is the listing page (the citation; the site has no per-company pages); company_site is the company's own URL."
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/iconiq-growth/sources/site/team-curated.json",
+    "list": "team",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "title",
+     "group"
+    ],
+    "_note": "No team page: the curated list of growth-desk investors whose titles a dated first-party record states (team-curated.json _readme)."
+   }
+  ],
+  "team_buckets": {
+   "Leadership": "investing",
+   "Investing": "investing"
+  },
+  "team_bucket_overrides": {},
+  "_note": "iconiq.com is Webflow (site 65d0d38fc4ec8ce8a8921654) with no public CMS API. The growth grid renders server-side, 100 items per page, paged by ?03ce0375_page=N (escalation ladder step 5, the page's own markup). Other surfaces read as evidence: the growth insights (135 posts: partnership announcements, IPO and exit notes, general-partner welcomes) and news (8 posts), in sources/site/posts.json. /impact/portfolio is ICONIQ Impact's philanthropy (Co-Labs grants to nonprofits), not a portfolio of investments."
+ },
+ "edgar": {
+  "seed_queries": [
+   "iconiq",
+   "icq "
+  ],
+  "fts_phrases": [
+   "ICONIQ Strategic Partners",
+   "ICONIQ Capital",
+   "ICONIQ Growth"
+  ],
+  "fts_own_pattern": "^iconiq|^icq |cerberus icq|brigade opportunistic credit fund - iconiq",
+  "thirteenf_ciks": [
+   "1569709"
+  ],
+  "_note": "Every EDGAR filer named ICONIQ or ICQ is the firm's (204 ICONIQ and 107 ICQ registrants in the lookup table at kickoff). ICONIQ Capital, LLC (CIK 1569709) is the one registered adviser (CRD 159198) and files the 13F-HRs (quarterly since 2013-02) for every account it manages, client accounts included, plus some Schedule 13D/G; the growth funds (ICONIQ Strategic Partners, L.P. CIK 1575779 and its successors) file Forms 3 and 4 and Schedule 13G themselves, which is fund-filing evidence for a listed member. Strategic Partners VII files 13F-NT pointing at the adviser. No registered fund exists, so the Coatue N-PORT layer does not apply."
+ },
+ "wikipedia": {
+  "phrases": [
+   "ICONIQ Capital",
+   "ICONIQ Growth",
+   "Iconiq Capital"
+  ]
+ },
+ "desks": {
+  "home": "growth",
+  "partition": [
+   "platform"
+  ],
+  "rank": [
+   "growth",
+   "umbrella",
+   "platform",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "^cerberus",
+     "brigade",
+     "^ipi ",
+     "iconiq dc management"
+    ]
+   },
+   {
+    "desk": "platform",
+    "patterns": [
+     "^iconiq access",
+     "^icq access",
+     "^icq investments",
+     "^icq opportunities",
+     "^icq cpe",
+     "^icq cvc",
+     "^icq cs ",
+     "^icq bb",
+     "^icq ethos",
+     "^icq 4 investments",
+     "^icq management",
+     "^icq co-investment",
+     "^icq tactical",
+     "^iconiq residential",
+     "^iconiq dc fund",
+     "^iconiq investment holdings"
+    ]
+   },
+   {
+    "desk": "growth",
+    "patterns": [
+     "^iconiq strategic (partners|parnters|partner|management)",
+     "^icq holdings",
+     "^isp "
+    ]
+   },
+   {
+    "desk": "umbrella",
+    "patterns": [
+     "^iconiq capital",
+     "^iconiq,? llc"
+    ]
+   }
+  ],
+  "_note": "One registered adviser, ICONIQ Capital, LLC (CRD 159198), under an umbrella registration, and two strategy families (COLLECTION.md 1, T1 strategy desks; decisions.md D1-D2). The GROWTH desk is every vehicle under an ICONIQ Strategic Partners general partner: the flagship funds I-VIII and their -B parallels, the numbered co-invest series, the FO / -C / -T co-invest vehicles, and the ICQ Holdings LLCs, which the ADV places under ICONIQ Strategic Partners II GP (81 funds, $32.17B gross assets on the 2026-08-12 ADV). The PLATFORM desk is the wealth-management client platform: ICONIQ/ICQ Access (client access to outside managers), ICQ Investments and ICQ Opportunities (client deal-by-deal vehicles under ICQ Management and ICQ Opportunities GP), ICQ CPE / CVC / Co-Investment (client private-equity programmes), the ICQ BB GP portfolios (Glide Path, Absolute Return, Fixed Income, Emerging Markets, BB Holdings), credit (ICQ CS) and real estate (ICONIQ Residential, ICQ Ethos, ICONIQ DC Fund). Platform rows leave the base as other_desk. The UMBRELLA entities (ICONIQ Capital, LLC; ICONIQ Capital Group) file for every account at once, so a row whose only lineage is the umbrella is decided row by row on T3 and T2, never by desk (the Coatue D2/D3 shape). External: Cerberus's and Brigade's funds for ICONIQ clients (the other manager's vehicles), and IPI Partners (formerly ICONIQ DC Management; its own adviser). ISP-prefixed vehicles (ISP V Main Fund EF LLC, ISP V-B EF LP) are ICONIQ Strategic Partners V's own deal vehicles and sit on the growth desk (fixed 2026-09-29 after the co-filer closure classed them external)."
+ },
+ "profile": {
+  "own_vehicle_pattern": "^(iconiq|icq )",
+  "adv_crd": 159198,
+  "focus_min_companies": 12,
+  "focus_crosswalk": {},
+  "_note": "ICONIQ Capital, LLC (CRD 159198, SEC-registered) reports RAUM $117,526,862,202 on the 2026-08-12 amendment (sources/registers/adv-159198.json), across 351 private funds and client accounts. The growth desk's AUM is the sum of its own funds' Section 7.B gross asset values ($32,172,497,450, 81 funds, all masters), published as a floor and never the umbrella RAUM (COLLECTION.md 1, strategy desks). focus_min_companies is about 4.5% of the expected base."
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "snowflake",
+   "datadog",
+   "procore",
+   "uber",
+   "airbnb",
+   "adyen",
+   "flipkart",
+   "gitlab",
+   "braze",
+   "servicetitan",
+   "figma",
+   "netskope",
+   "anthropic",
+   "databricks",
+   "stripe",
+   "ramp",
+   "miro",
+   "1password",
+   "chime",
+   "robinhood",
+   "zoom",
+   "alteryx",
+   "coupa",
+   "marqeta",
+   "wolt",
+   "epic games",
+   "canva",
+   "notion",
+   "glean",
+   "sierra",
+   "elevenlabs",
+   "monzo",
+   "deepl",
+   "pinecone",
+   "omni"
+  ],
+  "unicorn_bands": false,
+  "_unicorn_bands_note": "Rule A (Erik 2026-09-06): the unicorn snapshot is an aggregator, a coverage floor to verify, never a mark.",
+  "sample_slugs": [],
+  "shape": {
+   "c2a_rate_max": 0.8,
+   "_note": "The $1B+ share has no ceiling (COLLECTION.md 8, Erik 2026-09-26): a growth book can sit at any share, so the share is stated in the report and not gated. c2a_rate_max restates the 80% default; the Seed cohort is expected to be thin or empty (PRO-168)."
+  },
+  "not_members": [
+   {
+    "name": "Nvidia",
+    "why": "13F position only (client accounts; up to $204M, 2021-2026); listed since 1999, before the growth desk existed: no venture round (T3, decisions.md D5)."
+   },
+   {
+    "name": "Alphabet",
+    "why": "13F position only (2017-2026); listed since 2004: no venture round (T3, D5)."
+   },
+   {
+    "name": "Microsoft",
+    "why": "13F position only; listed since 1986 (T3, D5)."
+   },
+   {
+    "name": "Broadcom",
+    "why": "13F position only; listed (T3, D5)."
+   },
+   {
+    "name": "Taiwan Semiconductor Manufacturing",
+    "why": "13F position only (2025-2026); listed (T3, D5)."
+   },
+   {
+    "name": "ASML",
+    "why": "13F position only (2024-2025); listed (T3, D5)."
+   },
+   {
+    "name": "Meta Platforms",
+    "why": "13F position only (as Facebook 2013-2021, Meta 2021-2026); the IPO of May 2012 predates the growth desk's first fund (2013), so no growth-fund venture round exists (T3, D5). The client-era holdings are D3's."
+   },
+   {
+    "name": "Facebook",
+    "why": "The same company as Meta Platforms under its former name (13F 2013-2021): T3, D5."
+   },
+   {
+    "name": "Amazon",
+    "why": "13F position only; listed since 1997 (T3, D5)."
+   },
+   {
+    "name": "Apple",
+    "why": "13F position only; listed (T3, D5). Alex Gorsky's Apple directorship is personal (D8)."
+   },
+   {
+    "name": "Oracle",
+    "why": "13F position only (2024-2026); listed (T3, D5)."
+   },
+   {
+    "name": "Advanced Micro Devices",
+    "why": "13F position only (2024-2026); listed (T3, D5)."
+   },
+   {
+    "name": "ServiceNow",
+    "why": "13F position only (2024-2026); listed since 2012 (T3, D5). Moveworks, which ServiceNow bought, is the member."
+   },
+   {
+    "name": "Salesforce",
+    "why": "13F position only; listed (T3, D5)."
+   },
+   {
+    "name": "Shopify",
+    "why": "13F position only (2022-2026); listed since 2015 with no ICONIQ round before it (T3, D5)."
+   },
+   {
+    "name": "MercadoLibre",
+    "why": "13F position only (2018-2026); listed since 2007 (T3, D5)."
+   },
+   {
+    "name": "JD.com",
+    "why": "13F position only (2014-2026) from its 2014 listing on (T3, D5)."
+   },
+   {
+    "name": "Chipotle Mexican Grill",
+    "why": "13F position only; listed (T3, D5)."
+   },
+   {
+    "name": "Blue Owl Capital",
+    "why": "13F and 13G position (2021-2026): Blue Owl bought a 6% stake in ICONIQ itself in 2020 and the shares arrived through the Altimar merger, a relationship with the firm, not a venture entry (T3, D5)."
+   },
+   {
+    "name": "DoorDash",
+    "why": "13F position (2022-2026) that arrived as consideration for Wolt, which DoorDash bought in 2022 (the S-4 of 2021-11 names ICONIQ): sale consideration, not membership; Wolt is the member (COLLECTION.md 1, Erik 2026-09-22)."
+   }
+  ],
+  "_not_members_note": "Membership traps (COLLECTION.md 10 invariant 11), written 2026-09-29 before any verdict from decisions.md D5: the largest 13F positions of ICONIQ Capital, LLC that no growth fund could have entered through a venture round (listed before the growth desk's first fund of 2013, or received as sale consideration). The 13F holds client accounts beside the growth funds' listed winners, so only positions certain to be client-side or consideration are listed here; the rest are judged.",
+  "_known_positions_note": "Positions the firm documents in its own posts, S-1 holder tables or fund filings (sources/site/posts.json, sources/edgar/fts-hits.json); verify fails if one is missing from the published base."
+ },
+ "sample_slugs": [],
+ "names": {
+  "published": {
+   "airbnb": "Airbnb",
+   "apttus-corporation": "Apttus",
+   "dbt": "dbt Labs",
+   "dx": "DX",
+   "ezcater": "ezCater",
+   "floqast": "FloQast",
+   "freewill": "FreeWill",
+   "ftx-trading": "FTX",
+   "honest-company": "The Honest Company",
+   "skuid": "Skuid",
+   "ura": "Oura"
+  },
+  "_note": "Published names (COLLECTION.md 8, PRO-146): the brand as the company writes it, letter acronyms in capitals, no legal suffix. skuid: the merged row takes the live grid's 'Nintex' rendering (the renamed panel), but the company ICONIQ backed is Skuid (decisions.md R5). ura: the grid's stylised 'ŌURA' publishes as Oura."
+ }
+}

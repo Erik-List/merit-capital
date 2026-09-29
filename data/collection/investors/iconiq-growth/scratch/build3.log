@@ -1,0 +1,23 @@
+export refused: 7 Seed row(s) without a decided graduation status (datadog, procore, good-bad-ugly-llc, gravy-analytics-inc, oxford-county-telephone-telegraph-co, the-people-s-movement-inc, xylos-corp); a Seed row is graduated, not_graduated or censored (PRO-132). Judge them (prepare queues them), then export.
+site API portfolio: 172 companies
+pooled fund vehicles dropped: 439 issuers (599 filings)
+initial-only person matches ignored: 0 issuers (0 attributions)
+limited partnerships dropped (not operating companies): 1
+    - Coupa Parent, LP
+non-portfolio industry, Form D-only (4 dropped):
+    - 394 Pacific DC Dallas Domestic REIT, LLC [REITS and Finance]
+    - 394 Pacific DC Portland Domestic REIT, LLC [REITS and Finance]
+    - DCCO TUKWILA Domestic REIT, LLC [REITS and Finance]
+    - IPI NSIPI REIT, LLC [REITS and Finance]
+verification ledger: 0 excluded, 0 control positions excluded, 0 uncertain kept
+duplicate name-variants merged: 9; kept separate (co-listed or differing CIK): 0
+identity overlay: 7 duplicate rows merged, 0 rejected, 0 desk reassignments
+excluded.json: 0 rows ({})
+Traceback (most recent call last):
+  File "/Users/erik/Developer/merit-capital/scripts/build-company-base.py", line 1089, in <module>
+    main()
+  File "/Users/erik/Developer/merit-capital/scripts/build-company-base.py", line 1076, in main
+    subprocess.run([sys.executable, str(Path(__file__).parent / "run.py"),
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/usr/local/bin/python3', '/Users/erik/Developer/merit-capital/scripts/run.py', 'export', '--investor', 'iconiq-growth']' returned non-zero exit status 1.

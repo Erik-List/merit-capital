@@ -1,0 +1,33 @@
+base: data/collection/investors/iconiq-growth/companies/base.json
+target companies: 45  distinct issuer CIKs: 44
+scanning 74 quarterly datasets (offline)...
+filings collected: 179
+evidence: 113/113 base accessions found
+wrote data/collection/investors/iconiq-growth/scratch/issuer-evidence.json (52 CIKs, 22 with a name history)
+
+wrote data/collection/investors/iconiq-growth/sources/edgar/formd-issuer-rounds.json
+  companies with Form D history : 44
+  rounds after amendment merge  : 160 (19 amendments folded in)
+  companies with 2+ rounds      : 34
+  filings the partner sweep never saw: 66
+  companies gaining >=1 such filing  : 25
+  rounds carrying a sale date   : 159/160
+in flight: wrote data/collection/investors/iconiq-growth/scratch/in-flight.json
+rows: 201
+membership seed: 176 site_listing, 3 fund_filing; left for the judge: 22
+layer A (SEC public float): 201 rows to resolve
+    100/201
+    200/201
+    resolved a CIK: 129   with public float: 34
+layer B (Wikidata): 201 rows in batches of 60
+    60/201
+    120/201
+    180/201
+    201/201
+    matched: 68
+layer C (unicorn list): 629 current, 209 former
+graduation layer 1: 44 companies, 9 entered at Seed, 9 decided by the filings as of 2026-09-28 (the judge confirms each), 23 entries moved past pre-investor rounds
+
+deterministically resolved: 0/201
+retired (not_member, awaiting rebuild): 0
+queued for judgment       : 201 rows in 5 batches

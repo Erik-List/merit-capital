@@ -1,0 +1,448 @@
+{
+ "slug": "iconiq-growth",
+ "run": "PRO-168",
+ "generated_at": "2026-09-29T14:16:36+00:00",
+ "fields": {
+  "name": {
+   "value": "ICONIQ Growth",
+   "source": "https://www.iconiq.com/growth",
+   "basis": "The desk's own brand ('ICONIQ | Venture & Growth' on its pages; 'ICONIQ Growth' in its posts and fund announcements). The adviser's legal name is ICONIQ Capital, LLC; the growth funds are ICONIQ Strategic Partners I to VIII."
+  },
+  "website": {
+   "value": "https://www.iconiq.com/growth",
+   "source": "https://www.iconiq.com/growth",
+   "basis": "Live site, read 2026-09-28; iconiqgrowth.com (2020-2023) and iconiqcapital.com/growth (2022-2025) now redirect to iconiq.com."
+  },
+  "icon_url": {
+   "value": "https://cdn.prod.website-files.com/65d0d38fc4ec8ce8a8921654/65d0d5fa229f4b4e263a486e_Webclip.png",
+   "source": "https://cdn.prod.website-files.com/65d0d38fc4ec8ce8a8921654/65d0d5fa229f4b4e263a486e_Webclip.png",
+   "basis": "Not uploaded: the upload runs with the ingest, after Erik's approval (COLLECTION.md s9). Source: the site's 256px apple-touch-icon (the ICONIQ wordmark on its own off-white plate), the largest raster --discover lists; the 32px favicon would be enlarged. Dry run 2026-09-29: png 256x256, self-backing plate kept, artwork 196px to 189px (0.96x), box 74%, radius 75%, contrast 7.6:1, ramp 1.72px.",
+   "provenance": {
+    "source_url": "https://cdn.prod.website-files.com/65d0d38fc4ec8ce8a8921654/65d0d5fa229f4b4e263a486e_Webclip.png",
+    "format": "png",
+    "width": 256,
+    "height": 256,
+    "vector": false,
+    "artwork_source_px": 196,
+    "artwork_master_px": 189,
+    "upscale": 0.964,
+    "ramp_px": 1.72,
+    "master_size": 256,
+    "fetched": "2026-09-29",
+    "allow_upscale": false,
+    "allow_low_contrast": false
+   }
+  },
+  "founding_year": {
+   "value": 2013,
+   "source": "sources/edgar/formd-own-issuers.json",
+   "basis": "The growth desk's first fund, ICONIQ Strategic Partners, L.P., made its first sale on 2013-06-07 (its Form D); Wikipedia: ICONIQ launched ICONIQ Growth in 2013 and brought in Will Griffith from TCV to lead it. ICONIQ itself was founded in December 2011 (Schedule A: Makan and Anders, partners since 11/2011)."
+  },
+  "history": {
+   "value": "ICONIQ was founded in San Francisco in 2011 by Divesh Makan, Michael Anders and Chad Boeding as a wealth manager for technology founders, and its growth funds began investing in 2013 under Will Griffith. They backed Snowflake, Datadog, Airbnb, Adyen and Robinhood before those companies went public. Its seventh growth fund closed at $5.75 billion in 2024, and the track record on this page covers the growth funds' minority stakes only, not client accounts.",
+   "source": "https://en.wikipedia.org/wiki/Iconiq_Capital",
+   "basis": "Founders and founding year from Wikipedia and the ADV's Schedule A; the 2013 start from the first fund's Form D; the five companies are portfolio rows with filing- or release-cited pre-IPO entries (Snowflake's 2017 Series D, Datadog 2015, Airbnb in Fund II's S-1 lock-up exhibit, Adyen 2015, Robinhood's 2018 Series D); the $5.75 billion seventh fund from the firm's news post of 2024-07-22 (https://www.iconiq.com/news/iconiq-growth-raises-5-75b-to-support-the-next-generation-of-exceptional-founders). Moved off the page: the adviser's $117.5 billion of regulatory assets (mostly client money, decisions.md D1) and the client platform's deal vehicles (ICQ Investments, ICQ Opportunities, D3); four control positions left out of the track record (BlackLine, Truckstop.com, GoFundMe; decisions.md R1); the London office (ICONIQ Partners (UK) LLP, from 2022)."
+  },
+  "investment_concept": {
+   "value": "\u201cThe future is built by extraordinary people.\u201d",
+   "source": "https://www.iconiq.com/growth",
+   "basis": "The growth page's hero headline, verbatim (read 2026-09-28; the only edit is the closing period). Competing lines on the same page: the hero's subline 'We partner with founders from the aha moment onward' and the meta description 'Partnering at critical inflection points, from earliest signs of traction through IPO and beyond.'; the title tag reads 'ICONIQ | Venture & Growth'."
+  },
+  "investment_stage": {
+   "value": [
+    "Seed",
+    "Series A",
+    "Growth"
+   ],
+   "source": "https://www.iconiq.com/growth",
+   "basis": "The firm's own words ('from earliest signs of traction through IPO and beyond'; 'We partner with founders from the aha moment onward'), reconciled with the landed entry stages: Growth 154, Series A 8, Seed 3 (all three in 2026, led after incubation: 'a first for ICONIQ'), undetermined 4. The book is a growth book; the earlier stages are recent.",
+   "derived": true
+  },
+  "investment_geo": {
+   "value": {
+    "core": [
+     "US"
+    ],
+    "other": [
+     "Europe",
+     "Canada",
+     "India",
+     "Southeast Asia"
+    ]
+   },
+   "source": "companies/base.csv",
+   "basis": "Derived from hq_country on the landed base (169 companies; the firm publishes no geography filter): United States 145, Europe 12 (United Kingdom 6, Germany 2, the Netherlands, Sweden, France and Finland 1 each; a London office since 2022), Canada 3, India 2, Southeast Asia 2 (Indonesia, Singapore), and one each in China, Israel, Mexico, Australia and the Bahamas (FTX). Regions with two or more companies are listed.",
+   "derived": true
+  },
+  "investment_scope": {
+   "value": {
+    "type": "Generalist",
+    "focus": [
+     "SaaS",
+     "Fintech & Payments",
+     "AI & Applied AI",
+     "Healthcare & Bio",
+     "Consumer & Marketplaces",
+     "Data Infrastructure"
+    ]
+   },
+   "source": "companies/classification.json",
+   "basis": "Derived: the grid's four categories (Enterprise, Consumer, Fintech, Healthcare) are not a sector taxonomy, so the scope is read from the focus column. The six sectors listed each hold at least 12 of the 169 companies (profile.focus_min_companies): SaaS 46, Fintech & Payments 26, AI & Applied AI 22, Healthcare & Bio 17, Consumer & Marketplaces 15, Data Infrastructure 13. Below the floor: Security 11, DevTools & APIs 10, Industrial & Robotics 4, Media, Gaming & Advertising 2, Crypto & Web3 2, Climate & Energy 1. Six sectors read Generalist in this taxonomy.",
+   "flags": [
+    "derived"
+   ]
+  },
+  "investment_range": {
+   "value": {
+    "lower_limit": 9000000,
+    "median": 100000000,
+    "upper_limit": 750000000
+   },
+   "source": "companies/classification.json (the entry rounds stated in member notes); sources/edgar/formd-own-issuers.json",
+   "basis": "MEDIAN: press- and filing-based, a ROUND-SIZE PROXY and not the firm's cheque: 102 members' notes state the size of the round in which ICONIQ entered; their median is about $92M (25th percentile $50M, 75th $190M; Seed rows $10M, Series A rows $47M, Growth rows $100M), published as $100M. The note parse is approximate (a few rows name an earlier or later round). LOWER LIMIT: $9M, the smallest documented entry rounds (Whirl AI's $8.9M seed and Grotto's $10M seed, both led by ICONIQ in 2026). UPPER LIMIT: $750M, 13% of the largest fund family with a stated size (the seventh fund, $5.75 billion); the largest rounds ICONIQ led are far larger in total (Anthropic's $13 billion Series F of 2025, 1Password's $620M Series C, Ramp's $500M Series E-2, Quince's $500M Series E), and its own share is not published."
+  },
+  "notable_investments": {
+   "value": [
+    "OpenAI",
+    "Airbnb",
+    "Uber",
+    "Robinhood",
+    "Canva"
+   ],
+   "source": "companies/base.csv",
+   "basis": "The five best known of the firm's companies, most recognised first (PRO-152). Also considered: Zoom, Alibaba, Stripe, Anthropic, Snowflake, Datadog, Figma.",
+   "slugs": [
+    "openai",
+    "airbnb",
+    "uber",
+    "robinhood",
+    "canva"
+   ]
+  },
+  "aum": {
+   "value": {
+    "bottom": 32172497450,
+    "top": 32172497450
+   },
+   "source": "sources/registers/adv-159198.json",
+   "basis": "The growth desk's floor, both ends (COLLECTION.md 1, strategy desks; PRO-168 delta 4): the sum of Section 7.B.(1) gross asset values of the 81 private funds whose general partner is a growth-desk GP (ICONIQ Strategic Partners), $32,172,497,450, on ICONIQ Capital, LLC's Form ADV (CRD 159198, amendment of 2026-08-12). The adviser's Item 5.F regulatory assets, $117,526,862,202, cover client accounts and the client platform's 270 other funds and never fill this field."
+  },
+  "funds": {
+   "value": [
+    {
+     "name": "ICONIQ Strategic Partners VIII, L.P.",
+     "size": null,
+     "vintage": 2025,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D of 2025-12-12 reports $0 sold (offering 'Indefinite'), the eighth fund's first filing."
+      }
+     ]
+    },
+    {
+     "name": "ICONIQ Strategic Partners VIII-B, L.P.",
+     "size": null,
+     "vintage": 2025,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D of 2025-12-12 reports $0 sold (offering 'Indefinite')."
+      }
+     ]
+    },
+    {
+     "name": "ICONIQ Strategic Partners VII, L.P.",
+     "size": 1260584173,
+     "vintage": 2022,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D/A filed 2024-04-26 reports $1,260,584,173 sold to 462 investors; first sale 2022-04-29."
+      }
+     ],
+     "accession": "0001784241-24-000003"
+    },
+    {
+     "name": "ICONIQ Strategic Partners VII-B, L.P.",
+     "size": 3954362494,
+     "vintage": 2022,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D/A filed 2024-04-26 reports $3,954,362,494 sold to 291 investors; first sale 2022-04-29."
+      }
+     ],
+     "accession": "0001784241-24-000004"
+    },
+    {
+     "name": "ICONIQ Strategic Partners VI, L.P.",
+     "size": null,
+     "vintage": 2021,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D of 2021-05-28 reports $0 sold (offering 'Indefinite'); no amendment gives an amount."
+      }
+     ]
+    },
+    {
+     "name": "ICONIQ Strategic Partners VI-B, L.P.",
+     "size": null,
+     "vintage": 2021,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D of 2021-06-01 reports $0 sold (offering 'Indefinite'); no amendment gives an amount."
+      }
+     ]
+    },
+    {
+     "name": "ICONIQ Strategic Partners V, L.P.",
+     "size": null,
+     "vintage": 2020,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D of 2020-06-30 reports $0 sold (offering 'Indefinite'); no amendment gives an amount."
+      }
+     ]
+    },
+    {
+     "name": "ICONIQ Strategic Partners V-B, L.P.",
+     "size": 1504767561,
+     "vintage": 2020,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D filed 2021-09-15 reports $1,504,767,561 sold to 250 investors; first sale 2020-06-30."
+      }
+     ],
+     "accession": "0001816068-21-000003"
+    },
+    {
+     "name": "ICONIQ Strategic Partners IV-B, L.P.",
+     "size": null,
+     "vintage": 2018,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D of 2018-12-13 reports $0 sold (filed before the first close, offering 'Indefinite'); no amendment gives an amount."
+      }
+     ]
+    },
+    {
+     "name": "ICONIQ Strategic Partners III, L.P.",
+     "size": 570440000,
+     "vintage": 2016,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D/A filed 2017-07-03 reports $570,440,000 sold to 308 investors; first sale 2016-08-01."
+      }
+     ],
+     "accession": "0001678064-17-000001"
+    },
+    {
+     "name": "ICONIQ Strategic Partners III-B, L.P.",
+     "size": 547425000,
+     "vintage": 2016,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D/A filed 2017-07-03 reports $547,425,000 sold to 79 investors; first sale 2016-08-01."
+      }
+     ],
+     "accession": "0001678109-17-000001"
+    },
+    {
+     "name": "ICONIQ Strategic Partners II, L.P.",
+     "size": 550737500,
+     "vintage": 2014,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D/A filed 2015-11-20 reports $550,737,500 sold to 292 investors; first sale 2014-10-27."
+      }
+     ],
+     "accession": "0001619710-15-000001"
+    },
+    {
+     "name": "ICONIQ Strategic Partners II-B, L.P.",
+     "size": 449262500,
+     "vintage": 2014,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D/A filed 2015-11-20 reports $449,262,500 sold to 54 investors; first sale 2014-10-27."
+      }
+     ],
+     "accession": "0001619682-15-000001"
+    },
+    {
+     "name": "ICONIQ Strategic Partners, L.P.",
+     "size": 393085000,
+     "vintage": 2013,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D/A filed 2014-06-20 reports $393,085,000 sold to 231 investors; first sale 2013-06-07."
+      }
+     ],
+     "accession": "0001575779-14-000004"
+    },
+    {
+     "name": "ICONIQ Strategic Partners-B, L.P.",
+     "size": 102115000,
+     "vintage": 2013,
+     "sources": [
+      {
+       "source": "sources/edgar/formd-own-issuers.json (the fund's own Form D filings, bulk data)",
+       "note": "Form D/A filed 2014-08-20 reports $102,115,000 sold to 22 investors; first sale 2013-06-12."
+      }
+     ],
+     "accession": "0001584545-14-000002"
+    }
+   ],
+   "source": "sources/edgar/formd-own-issuers.json",
+   "basis": "The growth desk's flagship funds and their parallel -B funds that file Form D under their own names, 2013 to 2025, sizes as sworn on each fund's own filing; a fund whose filings report $0 sold carries no size. The firm announced its seventh fund at $5.75 billion (its news post of 2024-07-22); the sworn VII and VII-B amounts sum to $5.215 billion, the rest sitting in parallel vehicles. Counted here, not listed: the co-investment series under the growth GPs (about 70 ICONIQ Strategic Partners Co-Invest series), feeders and blockers, and the client platform's funds (ICQ Investments, ICQ Opportunities, ICONIQ Access and others), which are not the growth desk (decisions.md D2, D3)."
+  },
+  "hq_location": {
+   "value": "San Francisco, CA",
+   "source": "sources/offices.json",
+   "basis": "Principal office on the newest Form ADV: 50 Beale St. Ste 2300, San Francisco, CA (ICONIQ CAPITAL, LLC, CRD 159198, Other-Than-Annual Amendment filed 2026-08-12). The firm's site names no office in its served pages (1 checked), so the Form ADV stands. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+   "sources": [
+    {
+     "source": "Form ADV Item 1.F and Schedule D 1.F, ICONIQ CAPITAL, LLC (Other-Than-Annual Amendment filed 2026-08-12)",
+     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/159198/PDF/159198.pdf"
+    }
+   ]
+  },
+  "individuals": {
+   "value": [
+    {
+     "name": "Alex Gorsky",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Amit Agarwal",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Caroline Xie",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Chris Hubbell",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Divesh Makan",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Doug Pepper",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Kamran Zaki",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Matt Jacobson",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Murali Joshi",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Rob Bernshteyn",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Roy Luo",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Seth Pierrepont",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Tengbo Li",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Will Griffith",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Yoonkee Sull",
+     "position": "General Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    }
+   ],
+   "source": "sources/site/team.json",
+   "basis": "Live team CMS: 15 members. Positions are CMS titles (12 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 4 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 0 LinkedIn, 0 X."
+  }
+ }
+}

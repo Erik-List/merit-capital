@@ -1,0 +1,77 @@
+{
+ "iconiq-growth": {
+  "_readme": "Identity merges for ICONIQ Growth. Two sources of duplication: the filing layers name a company by its registered name while the firm's grid uses the brand (AgileBits / 1Password, Appboy / Braze, Unite USA / Unite Us), and the firm's own surfaces rendered one company two ways across site generations (The Honest Company on the 2020-2026 grid vs Honest Company on the DatoCMS and live grids; Tencent Music on the grid vs TME on the 2022 per-company pages). Canonical is the rendering on the firm's live grid, else the longest-running archive rendering. Written 2026-09-29 after the first build and before any judged verdict; the base was rebuilt on it the same hour. Added 2026-09-29 before any verdict: Smile Family / SendBird and DYN365 / Restaurant365 (registered names found by EDGAR's name history). Added 2026-09-29 in the valuation pass: Nintex / Skuid (the grid's renamed panel), Intercom / Fin and People.ai / Backstory (renames in 2026).",
+  "merges": [
+   {
+    "canonical": "1password",
+    "duplicates": [
+     "agilebits-inc"
+    ],
+    "reason": "AgileBits Inc. is 1Password's registered name (Form D naming Will Griffith; the firm led 1Password's Series C of January 2022, its post of 2022-01-19)."
+   },
+   {
+    "canonical": "braze",
+    "duplicates": [
+     "appboy-inc"
+    ],
+    "reason": "Appboy, Inc. renamed itself Braze in 2017; the Form D names Doug Pepper and Matthew Jacobson."
+   },
+   {
+    "canonical": "unite-us",
+    "duplicates": [
+     "unite-usa-inc"
+    ],
+    "reason": "Unite USA Inc. is Unite Us's registered name (Form D naming Caroline Xie)."
+   },
+   {
+    "canonical": "honest-company",
+    "duplicates": [
+     "the-honest-company"
+    ],
+    "reason": "The firm's 2020-2026 grid renders The Honest Company, its live and DatoCMS grids Honest Company: one company (honest.com)."
+   },
+   {
+    "canonical": "tencent-music",
+    "duplicates": [
+     "tme"
+    ],
+    "reason": "TME is the firm's 2022 per-company page (/company/tme/) for Tencent Music Entertainment, which its grids render Tencent Music (tencentmusic.com)."
+   },
+   {
+    "canonical": "sendbird",
+    "duplicates": [
+     "smile-family-inc"
+    ],
+    "reason": "Smile Family, Inc. (CIK 1724032, San Mateo) is SendBird, Inc. under its name until 2019-05-06 (EDGAR formerNames); its 2019 Form Ds name Matthew Jacobson and Douglas Pepper as directors."
+   },
+   {
+    "canonical": "restaurant365",
+    "duplicates": [
+     "dyn365-inc"
+    ],
+    "reason": "DYN365, Inc. (CIK 1727596, 7 Bendix, Irvine) is Restaurant365's registered name; its Form D of 2019-06-28 records the $88.0M round and names Will Griffith as a director."
+   },
+   {
+    "canonical": "skuid",
+    "duplicates": [
+     "nintex"
+    ],
+    "reason": "The live grid's Nintex panel links to skuid.com: it is the Skuid panel renamed after Nintex bought Skuid in December 2023 (Skuid on the grid 2020 to January 2026). ICONIQ's company is Skuid; the acquirer is not a member (decisions.md R5; Insight's R10 reads the panel the same way)."
+   },
+   {
+    "canonical": "fin",
+    "duplicates": [
+     "intercom"
+    ],
+    "reason": "Intercom renamed itself Fin in 2026 (Salesforce's release of 2026-06-15: 'Fin, formerly Intercom'); the live grid shows Fin (fin.ai), the 2020-2026 archives Intercom (decisions.md R5)."
+   },
+   {
+    "canonical": "backstory",
+    "duplicates": [
+     "people-ai"
+    ],
+    "reason": "People.ai renamed itself Backstory on 2026-04-21 (the company's newsroom, https://www.backstory.ai/newsroom/people-ai-becomes-backstory-redefining-how-revenue-teams-get-answers-about-their-deals); the live grid shows Backstory, the 2020-2026 archives People.ai."
+   }
+  ]
+ }
+}
