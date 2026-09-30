@@ -270,8 +270,10 @@ base agree. Both site generations with a full list (the live CMS, 114 companies,
   (Balderton) and ZenMate (HV Capital). They are `same` pairs in `companies/cross-rulings.json`.
   Two sibling sides were stale (section 15). Because this row now publishes as Tabula, four
   pairs with Tabula Inc., the chip maker, are ruled distinct.
-- **Cities.** Quantum Systems moved from Munich to Gilching, the registered seat of every group
-  entity (the city rule publishes the municipality). Tictail stays Stockholm: at the 2018 sale the
+- **Cities.** Quantum Systems reads Munich by Erik's ruling of 2026-09-30: Gilching, the
+  registered seat of every group entity, is near Munich. The run had first moved it to Gilching
+  under the municipality rule; all three books that hold it (Project A, Balderton, HV Capital) now
+  read Munich (section 15). Tictail stays Stockholm: at the 2018 sale the
   press called it Sweden-based, with offices in Stockholm and New York.
 
 ## 9. Firm profile
@@ -392,6 +394,10 @@ Metrigo, Priceloop, Store2be, Yababa and CrossEngage.
     (Tabula, Eduflow, ExpressSteuer, Saatchi Online, ZenMate), and rule 10 had never compared them;
     two siblings were stale. A merge's duplicate names and a note's "formerly" and "later" names,
     matched against every sibling's names, find them; they belong in `same` pairs.
+12. **A suburb seat and its metro.** Erik's Quantum Systems ruling (Munich, not Gilching) departs
+    from §6's "municipality, not borough or metro". If it is meant as a class, the city rule needs a
+    line saying when a company registered in a suburb reads as the metro. Applied here to this one
+    row only.
 
 ## 13. Usage line
 
@@ -407,8 +413,9 @@ duty-7 judge.
 
 ## 14. Prompt count
 
-**2**: the kickoff ("please collect Project A") and a "continue" while the run waited out the
-archive cooldown. No corrections from Erik. The count is final at the closing message.
+**3**: the kickoff ("please collect Project A"), a "continue" while the run waited out the
+archive cooldown, and one correction after the close: Quantum Systems reads Munich, not Gilching
+(section 15).
 
 ## 15. Ingest
 
@@ -439,7 +446,18 @@ dry run removed nothing, and the readback after showed 0 differing cells.
 | Book | Row | Change | Rows | After | Commit |
 |---|---|---|---|---|---|
 | Insight | ExpressSteuer | `unknown` to `defunct` (liquidation since March 2024, North Data) | 800 | 0 differing | `cdcfd20e` |
-| Balderton | Quantum Systems | city Munich to Gilching (registered seat) | 281 | 0 differing | `d2f6e48c` |
+| Balderton | Quantum Systems | city Munich to Gilching (registered seat); restored to Munich below | 281 | 0 differing | `d2f6e48c` |
+
+**Quantum Systems reads Munich (Erik, 2026-09-30, after the close: "Gilching near Munich").** The
+same gate ran again in the three books that hold the company. Each was checked first (clean tree,
+verify clean, readback equal to the committed CSV). Each diff was the one row, each dry run removed
+nothing, and each readback after showed 0 differing cells.
+
+| Book | Before | Rows | After | Commit |
+|---|---|---|---|---|
+| Project A | Gilching | 131 | 0 differing | `426f0b78` |
+| Balderton | Gilching (this run's alignment), restored to its earlier row | 281 | 0 differing | `9bae5de9` |
+| HV Capital | Gilching | 266 | 0 differing | `0fafe3f9` |
 
 **Skipped at the gate and reported:**
 

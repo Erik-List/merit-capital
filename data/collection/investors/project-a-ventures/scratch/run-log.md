@@ -16,6 +16,7 @@ Kickoff 2026-09-30 ~11:40 local (machine clock EDT) on Erik's "please collect Pr
 ## Prompt count
 1. kickoff ("please collect Project A")
 2. "continue" (16:03 local, while the run waited out the archive cooldown; no correction)
+3. "please make quantum systems read Munich (Gilching near Munich)" (after the close; a correction, applied in three books)
 
 ## In-flight marker
 Written at kickoff by hand (run.py in_flight_mark shape), before any base build.

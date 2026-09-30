@@ -11,6 +11,9 @@ compared them. Two sibling sides are stale:
   since March 2024 after a December 2023 insolvency, with no sale.
 One city is aligned too: balderton-capital:quantum-systems read Munich, the metro; every group entity is registered in
 Gilching (the city rule publishes the municipality).
+Superseded the same day: Erik ruled that Quantum Systems reads Munich (Gilching is near Munich). Balderton's row was
+restored to its earlier state, and the Project A and HV Capital rows moved to Munich (report.md section 15). The
+balderton-capital line below is kept as the record of what was written; do not re-record it.
 Skipped at the gate and reported: y-combinator (tabula; verify not clean on an unrelated Vela pair, readback before
 differs by one row) and sequoia-capital (stark reads Munich; SKD SE's registered office is Berlin; verify not clean on
 an unrelated Versatile pair).
