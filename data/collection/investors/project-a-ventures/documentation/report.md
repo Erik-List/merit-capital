@@ -2,13 +2,13 @@
 
 **Linear issue** PRO-102 · **slug** `project-a-ventures` · one run under the merged shape of
 `data/collection/COLLECTION.md`, one session · report written 2026-09-30.
-**Closed 2026-09-30. Ingest through the §9 gate: section 15.**
+**Ingested 2026-09-30 through the §9 gate: 131 companies live, readback exact; Insight and Balderton re-ingested for aligned rows (section 15).**
 
 ---
 
 ## 1. The answer PRO-102 asked for
 
-**The base is 131 companies (130 nameable), plain `verify` is clean, and the firm profile is built.**
+**The base is 131 companies (130 nameable), plain `verify` is clean, the firm profile is built, and the book is live: ingested through the §9 gate with an exact readback (section 15).**
 Project A is one Berlin firm under one SEC exempt reporting adviser (Project A Ventures Management
 GmbH, CRD 319556). Four former Rocket Internet managers founded it in 2012, with the Otto Group as
 its first investor. The book runs from the 2012 company-builder years through Fund V (2025). Every
@@ -49,7 +49,7 @@ R1 is Erik's call (section 10).
 | `review.html` rendered | Served on the review surface: 131 rows, the profile panel expands, no console errors |
 | `report.md` with delta outcome, open rulings, prompt count | This file (sections 1, 10, 14) |
 | Archetype-B corrections to PRO-87 | Section 12 and a PRO-87 comment |
-| Ingest through the §9 gate, sibling rows aligned | Section 15 |
+| Ingest through the §9 gate, sibling rows aligned | Done: 131 live, readback 0 differing cells; Insight and Balderton re-ingested, each exact; YC and Sequoia skipped at their gates (section 15) |
 
 ## 2. Results
 
@@ -412,4 +412,44 @@ archive cooldown. No corrections from Erik. The count is final at the closing me
 
 ## 15. Ingest
 
-Pending at the closing commit; recorded after the §9 gate runs.
+**Ingested 2026-09-30 through the COLLECTION.md §9 gate, with no approval prompt (Erik,
+2026-09-29).**
+
+- **Preconditions.** Plain `verify` clean, `run.py close` done, closing commit `d573831e`. The
+  readback before the write found no Project A row in `public.investors`.
+- **Icon.** `investors/project-a-ventures-771f91fa2d.png` uploaded; provenance committed in
+  `30a9c2b9` (the script's JSON style restored; the basis names the favicon the file was
+  flattened from).
+- **Investor row.** `ingest-investor.ts project-a-ventures`: 1 record upserted.
+- **Companies.** The dry run planned 131 new rows and 0 removals, so the removal check passed
+  trivially. The write upserted 131 of 131.
+- **Readback after the write.** csv 131, live 131, missing 0, extra 0, **0 differing cells**. The
+  investor row carries the published profile:
+  - range $338,550 to $7,000,000, median $5M;
+  - S2A 31 of 66 (47%);
+  - AUM $2,755,658,750;
+  - track record: 0 IPOs, 6 companies at $1B+, 1 at $10B+, 130 companies, investing since 2012.
+
+**Stale sibling rows**, one book at a time through the Tiger Global kit adapted in
+`scratch/align/` (`align.py`, `reingest.py`, `precheck.sh`). Each book was checked first (clean
+tree, no in-flight marker, verify clean, readback equal to the committed CSV). Its line was recorded
+once and the book re-exported. The readback before the write differed only in the aligned cell, the
+dry run removed nothing, and the readback after showed 0 differing cells.
+
+| Book | Row | Change | Rows | After | Commit |
+|---|---|---|---|---|---|
+| Insight | ExpressSteuer | `unknown` to `defunct` (liquidation since March 2024, North Data) | 800 | 0 differing | `cdcfd20e` |
+| Balderton | Quantum Systems | city Munich to Gilching (registered seat) | 281 | 0 differing | `d2f6e48c` |
+
+**Skipped at the gate and reported:**
+
+- **YC's Tabula** reads `defunct`, carried from Tabula Inc., the chip maker. YC's book fails the
+  gate on things this run did not make: its verify flags an unrelated Vela pair with Insight, and
+  its readback differs from its committed CSV by one row. The pair is `accepted` in this book's
+  `cross-rulings.json`. The line and the four distinct pairs YC needs are ready in
+  `scratch/align/align.py` (`y-combinator.jsonl`) for YC's next ingest.
+- **Sequoia's Stark** reads Munich; SKD SE's registered office is Berlin (its imprint). Sequoia's
+  verify fails on an unrelated Versatile pair with Insight. City is not a rule-10 column, so
+  nothing blocks; it waits for Sequoia's next ingest.
+- **Tictail** reads New York in Balderton and Creandum and Stockholm here. Not aligned: the company
+  had offices in both, and the 2018 sale press calls it Sweden-based.
