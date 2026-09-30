@@ -48,7 +48,8 @@ const DrawerContent = React.forwardRef<
       )}
       {...props}
     >
-      <div className="mx-auto mt-4 h-2 w-[100px] rounded-full bg-muted" />
+      {/* The grab handle: white so it reads on the glass (Erik, 2026-09-30). */}
+      <div className="mx-auto mt-3 h-1.5 w-16 rounded-full bg-white/90" />
       {children}
     </DrawerPrimitive.Content>
   </DrawerPortal>

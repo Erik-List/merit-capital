@@ -23,7 +23,8 @@ interface FilterDrawerProps extends Omit<FilterCardProps, "variant"> {
  * `<FilterCard>` moves into a bottom sheet. It takes the same prop set as the
  * sidebar copy apart from `variant`, which it fixes to "drawer": both are
  * controlled by `leaderboard.tsx`, so the two instances cannot drift, and vaul
- * unmounts this one while it is closed.
+ * unmounts this one while it is closed. The entry stage is not in the sheet:
+ * below `lg` it sits as chips under the search bar.
  */
 export default function FilterDrawer({ activeCount, ...filterProps }: FilterDrawerProps) {
   return (
