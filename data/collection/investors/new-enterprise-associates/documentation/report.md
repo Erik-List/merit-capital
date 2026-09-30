@@ -24,8 +24,8 @@ uncorroborated name matches.
 | control_position rows counted | 17 rows, 11 companies (section 3) |
 | Profile through the taxonomy gate | `investor.json` + `sources.json` built by `build-firm-profile.py`; `profile_copy.py` ok |
 | `review.html` rendered and checked | Served on the review surface: 1,110/1,110 rows flat, profile panel expands with every field and basis |
-| Cross-investor (rule 10) | 541 shared rows: 516 agree, 25 accepted (sibling rows stale, aligned at ingest, section 14), 0 disagree; 49 namesake pairs ruled distinct |
-| Report, close, commit, ingest, Linear, closing message | This report; `run.py close`; closing commit; ingest (section 14); PRO-100 comment |
+| Cross-investor (rule 10) | 541 shared rows: 529 agree, 12 accepted (stale rows in five sibling books skipped at the gate, section 14), 0 disagree; 51 namesake pairs ruled distinct |
+| Report, close, commit, ingest, Linear, closing message | This report; `run.py close`; closing commit 2262d6f3; **ingested 2026-09-30, 1,110 live, readback exact** (section 14); 13 stale rows in 9 sibling books aligned and re-ingested; PRO-100 comment |
 
 ## 2. Results
 
@@ -206,7 +206,13 @@ Cohere Technologies; the firm's 2017-2019 "Blend" is Genies (Blend Systems, CIK 
     a probe in `site-portfolio.py` beside the WordPress and Webflow paths.
 11. **`edgar-entities.py` single-match seeding** (from the kickoff): a seed query that matches one filer only is
     treated as the firm, which let a person's own filer number in (Heliogen via Krishna Kolluri).
-12. **`run.py record` note-join defect** still bites (the stage pass recorded one batch twice; 48 notes restored by
+12. **`run.py verify`'s stale-CSV check compares slug sets only.** This run's first export preceded the cross-book
+    judges' `record`, so the committed `base.csv` and the first ingest missed five rows' changes (Influitive's status,
+    four notes); caught by a sibling's verify and re-ingested. Compare the CSV's cells with the merged record, or have
+    `record` mark the CSV stale.
+13. **The review stale-check false alarm** still fails a freshly rendered old book (Khosla: the base name "Academia
+    Inc." is not on a page that shows the published name); accept the published name too.
+14. **`run.py record` note-join defect** still bites (the stage pass recorded one batch twice; 48 notes restored by
     `scratch/repair-notes.py`): keep the stored note when a line is recorded again.
 
 ## 12. Usage line
@@ -218,3 +224,42 @@ pause mid-run and resumed on "continue"). Web searches: about 159 of the 200 cap
 ## 13. Prompt count
 
 **2**: the kickoff ("please collect NEA") and "continue" after the usage-limit pause. No corrections.
+
+## 14. Ingest (run 2026-09-30 through the §9 gate, no approval prompt)
+
+**NEA.** Preconditions met: plain `verify` clean, `run.py close` run, closing commit 2262d6f3. The icon was uploaded
+at profile time (`investors/new-enterprise-associates-bbcae460c3.png`: vector source, contrast 6.0:1, ramp 0.98px);
+`ingest-investor.ts` wrote the investor row (the geo labels China and Canada were new to the label list, which is open
+by design); `ingest-companies.ts` dry run: 1,110 new, 0 removed; written; readback **1,110 live, 0 differing cells**.
+The database computed the same S2A (63.4% on 161). **A second pass** re-exported `base.csv` after the cross-book
+judges' changes (write-back 12): the cell diff against the commit showed exactly five rows (Influitive acquired; four
+notes), committed as fa14fe97; readback before showed the one intended cell; dry run 0 removals; readback after 0.
+
+**Stale sibling rows: 9 books aligned and re-ingested, each through the same gate** (the lines recorded once from
+NEA's cited evidence with a one-sentence note, never an NEA-site citation, `scratch/align/`; export; review; plain
+`verify` clean; a cell diff showing only the intended rows; dry run with 0 removals; readback before showing only the
+intended cells; write; readback after 0; the book's three company files committed by explicit pathspec):
+
+| Book | Rows | Commit |
+|---|---|---|
+| 8VC | Chaos $4.5B (November 2025 round); Forethought acquired by Zendesk | 66868de1 |
+| Benchmark | EnVerv acquired by Semtech (8-K); Lithium acquired by Vista (the float was a wrong join) | e98f8512 |
+| GV | Monte Rosa Therapeutics, cap $1.02B (1b_plus) | 2bcde980 |
+| Insight | Tulip Interfaces $1.3B (January 2026) | d605a249 |
+| TCV | TestMart private (the company's live site) | e79e4933 |
+| USV | Cloudflare cap $123.66B (100b_plus) | b169dccc |
+| First Round | Grubwithus private, $3.7B (the GOAT corporation, CIK 1552345); Limitless acquired by Meta | 5188e770 |
+| Khosla | Coda acquired by Grammarly (its only verify flag is the review false alarm, write-back 13) | 06d80f76 |
+| Greylock | Cleo acquired by Wellthy; Lytro defunct (the acqui-hire rule) | a4347bd5 |
+
+Three pairs the alignment surfaced were ruled in NEA's `cross-rulings.json`: 8VC's Chaos and Lightspeed's Chaos Labs
+distinct, Greylock's Cleo (hicleo.com) and EQT Ventures' Cleo (Cleo AI) distinct, and two pairs against skipped books
+accepted (8VC and First Round against Accel's Chaos and a16z's Grubwithus).
+
+**Skipped at the gate, nothing written (each fails plain `verify` on disputes this run did not make):** a16z
+(Scribenote's lapsed censoring window) with Cowboy Space $2B, Belly acquired, Grubwithus private $3.7B; Accel
+(KupiVIP against Balderton) with Chaos $4.5B, Sentry $3B, Wallapop acquired by Naver; Felicis (Entalpic, Letta) with
+Cleo and Plusmo acquired; Lightspeed (Faire, Yubi) with CuspAI $2.6B and Influitive acquired; Y Combinator (28
+disputes) with Minimum acquired and Super private. Those 12 pairs stay `accepted` in NEA's `cross-rulings.json`,
+stale side the sibling's; the lines are ready in `scratch/align/<book>.jsonl` for whichever run clears those books.
+Greylock's Cleo also carries London, GB, while its own card says San Francisco (a country row, not rule 10; noted).
