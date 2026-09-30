@@ -1,0 +1,448 @@
+{
+  "slug": "new-enterprise-associates",
+  "name": "NEA",
+  "wayback": {
+    "cdx_domain": "nea.com",
+    "site_url_base": "https://www.nea.com",
+    "eras": [],
+    "_note": "NEA's site has had four generations on nea.com, and every parsed row carries its own capture URL, so no era needs wayback-pull.py: (1) the ColdFusion site to 2010 (/PortfolioCompanies/ sector pages and the SummaryReports: Current, Historical, Acquisitions, Public Purchase, VGE; /NEATeam/ people), parsed by scratch/old-parse.py (era old-cf) and scratch/old-roster.py; (2) the ASP.NET site 2010-13 (/Portfolio/CompanyDetail.aspx?id=N, /Team/Default.aspx), era old-aspx; (3) the ExpressionEngine and Craft sites 2013-24 (/portfolio/<slug> company pages with the firm's Year invested, Investment Stage, Investment Status and Company Status; /team/<slug>), scratch/cc-parse.py (era cc-company-page) and scratch/cc-roster.py; (4) the Next.js site from 2024, read live through the Statamic API. Common Crawl (scratch/cc-cluster.py, cc-fetch.py, cc-fetch-q.py) carries 2008 on; the Internet Archive carries the years before 2008 and the pages Common Crawl missed (scratch/ia-cdx.py), both through the machine-wide throttles.",
+    "non_company_slugs": [
+      "portfolio",
+      "team",
+      "about",
+      "news",
+      "insights",
+      "content",
+      "press-releases",
+      "all",
+      "companies",
+      "technology",
+      "healthcare",
+      "enterprise",
+      "consumer",
+      "fintech",
+      "life-sciences",
+      "digital-health",
+      "index"
+    ]
+  },
+  "roster": {
+    "cdx_patterns": [
+      "nea.com/team/*"
+    ],
+    "site_team_groups": [
+      "Investors",
+      "Leadership"
+    ],
+    "slug_re": "/team/([a-z][a-z0-9_-]*[a-z0-9])/?$",
+    "listing_href_re": "/team/([a-z][a-z0-9_-]*[a-z0-9])[\"'/]",
+    "not_a_person": [
+      "team",
+      "all",
+      "investors",
+      "leadership",
+      "operations",
+      "investor-relations",
+      "marketing-impact",
+      "technology",
+      "healthcare"
+    ],
+    "_note": "Provisional: the archived people namespaces are set once the capture paths are read."
+  },
+  "site_api": {
+    "type": "scrape",
+    "base": "https://www.nea.com",
+    "sources": [
+      {
+        "parser": "file_list",
+        "list": "nea-cms",
+        "path": "data/collection/investors/new-enterprise-associates/sources/site/company-list.json",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "sectors": "sectors",
+        "extras": [
+          "statamic_id",
+          "site_slug",
+          "categories",
+          "themes",
+          "partners",
+          "deal_team",
+          "board_members",
+          "board_observers",
+          "invest_year",
+          "stage_site",
+          "status_site",
+          "exit_line",
+          "investment_type",
+          "force_current",
+          "company_site",
+          "description",
+          "cms_date"
+        ],
+        "_note": "The live portfolio: every published Statamic `portfolio` entry (917), read through the CMS's public GraphQL endpoint (statamic.nea.com/graphql) by scratch/pull-statamic.py and flattened by scratch/shape-site.py. Per company the firm states its first-investment year, a stage label (Seed / Early / Growth / Public/PIPES, carried as stage_site until scored), its status and exit line, the NEA deal team and NEA board members. Draft entries (10) are not listings."
+      }
+    ],
+    "team_sources": [
+      {
+        "parser": "file_list",
+        "list": "nea-team",
+        "path": "data/collection/investors/new-enterprise-associates/sources/site/team-pages.json",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "key_field": "slug",
+        "extras": [
+          "slug",
+          "title",
+          "group",
+          "units",
+          "published",
+          "linkedin_url",
+          "x_url"
+        ]
+      }
+    ],
+    "team_buckets": {
+      "Investors": "investing",
+      "Leadership": "investing"
+    },
+    "_note": "nea.com is Next.js over Statamic (statamic.nea.com); its GraphQL endpoint answers without a token and serves the portfolio, team, press_releases and content collections.",
+    "entry_stage_fields": [
+      "stage_site"
+    ],
+    "_entry_stage_note": "stage_site is the CMS company_stage: Seed, Early, Growth or Public/PIPES, NEA's own label for its investment (a company's current stage is never 'PIPES'), so it is eligible (decisions.md D6). Early straddles Seed and Series A and is an anchor only; Public/PIPES names no round; Seed and Growth label at MEDIUM confidence: scored 2026-09-30 against documented entry rounds (scratch/stage-score.json), Seed 15/21, Growth 20/25, 35/46 together (76%); Early splits 8 Series A to 6 Series B or later and never labels. The misses are one-directional by size: Seed on small first-priced Series A rounds (TiVo, Data Domain, Tamr, Synlogic), Growth on large Series A rounds (MoonPay, Desire2Learn, Supernus, Monte Rosa), plus two plain mislabels (Tempus, Pair). The field reads as company maturity at entry more than the round's own name. A documented round overrides with stage_disputes_band.",
+    "team_social_overrides": {
+      "Andrew Schoen": {
+        "linkedin_url": "https://www.linkedin.com/in/andrewaschoen",
+        "x_url": null
+      },
+      "Danielle Ezratty": {
+        "linkedin_url": "https://www.linkedin.com/in/danielle-ezratty-103262122",
+        "x_url": null
+      },
+      "Ayush Goradia": {
+        "linkedin_url": "https://www.linkedin.com/in/ayush-goradia",
+        "x_url": null
+      },
+      "Mason Murray": {
+        "linkedin_url": "https://www.linkedin.com/in/mason-murray",
+        "x_url": null
+      },
+      "Alexa Grabelle": {
+        "linkedin_url": "https://www.linkedin.com/in/alexagrabelle",
+        "x_url": null
+      },
+      "Edward Mathers": {
+        "linkedin_url": "https://www.linkedin.com/in/ed-mathers-71418b14",
+        "x_url": null
+      }
+    },
+    "_team_social_overrides_note": "search_verified 2026-09-30 (Erik's ruling of 2026-09-30): each link came from a LinkedIn search whose result title names the person and NEA ('<name> - New Enterprise Associates (NEA)'; Mason Murray's 'Principal at NEA'), and each handle names the person. The firm's own team pages carry no personal links for these six. Tony Florence, Scott Sandell, Ali Behbahani, Paul Walker and Claudia Fan Munce stay without a link: their search results did not name the firm in the title."
+  },
+  "edgar": {
+    "seed_queries": [
+      "new+enterprise+associates",
+      "nea+partners",
+      "nea+management+company",
+      "nea+general+partners",
+      "nea+presidents",
+      "nea+ventures",
+      "nea+secondary",
+      "nea+18",
+      "nea+19",
+      "nea+15+opportunity",
+      "nea+14+manager",
+      "growth+equity+opportunities"
+    ],
+    "fts_phrases": [
+      "New Enterprise Associates",
+      "NEA Partners",
+      "NEA Management Company",
+      "NEA Ventures",
+      "NEA 15 Opportunity Fund",
+      "NEA 18 Venture Growth Equity",
+      "NEA Secondary Opportunity Fund",
+      "NEA General Partners"
+    ],
+    "fts_own_pattern": "^(new enterprise associates (\\d+|[ivx]+|8a)\\b|nea partners|nea management company|nea general partners|nea presidents|nea ventures|nea \\d+ (gp|venture growth equity|vge|opportunity fund|manager fund|access fund)|nea partners \\d+ vge|nea (bh|ch|sh|rp|ts|pla|1f|1m)( 20\\d\\d)?( ii)? spv|nea secondary opportunity|growth equity opportunities (\\d+|[ivx]+|fund))",
+    "_note": "Entity-qualified phrases. 'NEA' alone is hopeless on EDGAR full-text search (the National Education Association, NEA-named namesakes in Tulsa, ticker and unit noise). S-1 holder tables name the firm as 'entities affiliated with New Enterprise Associates' and its vehicles by their L.P. names.",
+    "_seed_queries_note": "A company search with exactly one match returns that company's own page, which edgar-entities.py's result regex does not read, so single-match seeds (nea+secondary, nea+bh) add nothing; those vehicles enter through the own pooled Form D fold-in once the roster sweep sees their filings. Write-back proposed at close."
+  },
+  "wikipedia": {
+    "phrases": [
+      "New Enterprise Associates"
+    ]
+  },
+  "desks": {
+    "home": "nea",
+    "partition": [],
+    "rank": [
+      "nea",
+      "unknown"
+    ],
+    "classify": [
+      {
+        "desk": "external",
+        "patterns": [
+          "^nea-heavy contractors",
+          "^nea-inv-inf",
+          "^nea opportunities access",
+          "^nea 18 private investors",
+          "^wm alternatives",
+          "indous",
+          "^onset enterprise associates",
+          "^chemicals & materials enterprise associates",
+          "^rio bravo enterprise associates",
+          "^southwest enterprise associates",
+          "^enea fund",
+          "^national education association",
+          "^nea member benefits"
+        ]
+      },
+      {
+        "desk": "nea",
+        "patterns": [
+          "^new enterprise associates (\\d+|[ivx]+|8a)\\b",
+          "^nea partners",
+          "^nea management company",
+          "^nea general partners",
+          "^nea presidents",
+          "^nea ventures",
+          "^nea \\d+ (gp|venture growth equity|vge|opportunity fund|manager fund|access fund)",
+          "^nea (bh|ch|sh|rp|ts|pla|1f|1m)( 20\\d\\d)?( ii)? spv",
+          "^nea secondary opportunity",
+          "^growth equity opportunities (\\d+|[ivx]+|fund)",
+          "^spectra enterprise associates",
+          "^nea spectra partners"
+        ]
+      }
+    ],
+    "_note": "One registered adviser: New Enterprise Associates (NEA Management Company, LLC), CRD 161004, principal office 2855 Sand Hill Road, Menlo Park. Own vehicles file from 1954 Greenspring Drive, Timonium MD (and 1119 St Paul Street, Baltimore, before about 2005): New Enterprise Associates IV to 19, NEA 18 and 19 Venture Growth Equity, NEA 15 Opportunity Fund, NEA 14 Manager Fund, NEA Secondary Opportunity Fund (2024), NEA 19 Access Fund, the NEA Partners and GP entities, NEA Presidents Fund, NEA General Partners and the single-deal SPVs (NEA BH, CH, SH, RP, TS, PLA, 1F, 1M). External (checked 2026-09-30 by filing address): NEA Opportunities Access LLC / Offshore LP (200 West Street, New York: Goldman Sachs' address, a third-party feeder), NEA 18 Private Investors LLC / Offshore LP (390 Madison Avenue, New York, a private-bank feeder), WM Alternatives New Enterprise Associates 19 Feeder Fund (a wealth-platform feeder), New Enterprise Associates IndoUS Ventures LLC (filed through IndoUS Ventures Management LLC, Santa Clara: the India joint venture that became Kalaari Capital; the IDG-Accel precedent), the 1980s-90s 'Enterprise Associates' affiliates that file from their own offices (Onset, OEAM's own team; Chemicals & Materials, run from Cleveland by Baruch and Murfin, later CMEA Ventures; Rio Bravo; Southwest, Dallas), and the Tulsa namesakes NEA-Heavy Contractors and NEA-INV-INF. Growth Equity Opportunities Fund, LLC and Funds II to V, 17 and 18 VGE file from 1954 Greenspring Drive, Timonium, and co-file NEA's 13D/G and Forms 3/4: NEA's own growth co-investment vehicles (home desk). Re-derived 2026-09-30 (recall triage, shard 3): Spectra Enterprise Associates is HOME, not external: its 13G of 1997-02-14 gives its principal business office as New Enterprise Associates, 1119 St. Paul Street, Baltimore, and its general partner as NEA Spectra Partners, whose individual general partners are NEA's own (Bond, Bonsal, Kramlich, Marks, Newhall); EDGAR's current address for it (Westlake Village) is stale."
+  },
+  "profile": {
+    "own_vehicle_pattern": "^(new enterprise associates (\\d+|[ivx]+|8a)\\b|nea \\d+ (venture growth equity|opportunity fund)|nea secondary opportunity)",
+    "adv_crd": 161004,
+    "focus_min_companies": 45,
+    "_note": "focus_min_companies is about 4.5% of the expected base. The site's two broadest categories, 'Technology' (607 companies) and 'Enterprise' (380), name no sector in the closed taxonomy and are left unmapped on purpose; the themes (AI, SaaS, Infrastructure, ...) carry the technology split.",
+    "focus_crosswalk": {
+      "Healthcare": "Healthcare & Bio",
+      "Life Sciences": "Healthcare & Bio",
+      "Digital Health": "Healthcare & Bio",
+      "Biopharma": "Healthcare & Bio",
+      "Fintech": "Fintech & Payments",
+      "Consumer": "Consumer & Marketplaces",
+      "E-commerce": "Consumer & Marketplaces",
+      "Marketplaces": "Consumer & Marketplaces",
+      "Social": "Consumer & Marketplaces",
+      "AI": "AI & Applied AI",
+      "Artificial Intelligence": "AI & Applied AI",
+      "SaaS": "SaaS",
+      "Infrastructure": "Data Infrastructure",
+      "Digital Media": "Media, Gaming & Advertising",
+      "Robotics/Frontier": "Industrial & Robotics",
+      "Energy": "Climate & Energy"
+    }
+  },
+  "verify": {
+    "text_mention_leaks": [],
+    "cofiler_leaks": [],
+    "known_positions": [
+      "cloudflare",
+      "databricks",
+      "robinhood",
+      "coursera",
+      "plaid",
+      "duolingo",
+      "workday",
+      "juniper networks",
+      "tableau software",
+      "braintree",
+      "mulesoft",
+      "tesaro",
+      "vonage",
+      "groupon",
+      "tempus"
+    ],
+    "not_members": [
+      {
+        "name": "harvard experiment fund",
+        "slug": "harvard-experiment-fund",
+        "why": "a fund: the firm's own archived page reads 'Founded by NEA and anchored at Harvard University's School of Engineering and Applied Sciences, the ... fund' (T5, fund-shaped entry; decisions.md D5)"
+      },
+      {
+        "name": "indous ventures",
+        "slug": "indous-ventures-llc",
+        "why": "the India joint venture fund with IndoUS Venture Partners (the firm's own page: 'India-focused venture fund'), managed by IndoUS Ventures Management LLC, later Kalaari Capital (T1 external, T5 fund; decisions.md D1, D5)"
+      },
+      {
+        "name": "upwork",
+        "slug": "upwork-formerly-odesk",
+        "why": "sale consideration: NEA's position was Elance (first invested 2003, the year the firm gives for this row); its Upwork stock came from oDesk's 2013 all-stock combination with Elance (Erik 2026-09-22: the acquirer leaves the base even where the firm lists it; the GV Revolution Medicines and Seedling precedents); Elance is the member (decisions.md D8)"
+      }
+    ],
+    "shape": {
+      "c2a_rate_max": 0.8,
+      "_note": "The 0.80 default stands. There is no ceiling on the $1B+ share (Erik, 2026-09-26)."
+    },
+    "_not_members_note": "Membership traps asserted before any verdict writes (COLLECTION.md s10, invariant 11): fund-shaped entries on the firm's own list (D5), the IndoUS joint venture (D1) and sale consideration (D8). Added as the evidence identifies them.",
+    "_known_positions_note": "Each is on the firm's own published list (sources/site/company-list.json, read 2026-09-30)."
+  },
+  "sample_slugs": [],
+  "names": {
+    "_published_note": "Published names (PRO-146; COLLECTION.md s8, Erik 2026-09-24): the brand in normal capitalization, letter-read acronyms kept, no legal suffix. {slug: name}, applied by run.py export; the slug and every overlay keep the source rendering. Decided 2026-09-30 (PRO-100). Kept as they are: 1BOG, CRISPR (as the other book publishes it), FTX, FTX US, IFTTT, LXA, SBC, IBAH (acronyms) and the .com brands Advertising.com, Care.com, Jet.com.",
+    "published": {
+      "3com-corporation": "3Com",
+      "3jam-inc": "3Jam",
+      "acorn-cardiovascular-inc": "Acorn Cardiovascular",
+      "acoustic-imaging-technologies-corp": "Acoustic Imaging Technologies",
+      "actelis-networks-inc": "Actelis Networks",
+      "actional-corporation": "Actional",
+      "adaptec-inc": "Adaptec",
+      "advanced-cardiac-therapeutics-inc": "Advanced Cardiac Therapeutics",
+      "advanced-switching-communications-inc": "Advanced Switching Communications",
+      "agami-systems-inc": "Agami Systems",
+      "agenebio-inc": "AgeneBio",
+      "agitar-software-inc": "Agitar Software",
+      "agni-corporation": "Agni",
+      "akashic-memories-corporation": "Akashic Memories",
+      "alien-technology-corporation": "Alien Technology",
+      "alkermes-inc": "Alkermes",
+      "alliance-fiber-optic-products-inc": "Alliance Fiber Optic Products",
+      "alsius-corporation": "Alsius",
+      "alta-devices-inc": "Alta Devices",
+      "amerigroup-corporation": "Amerigroup",
+      "amplica-inc": "Amplica",
+      "anadys-pharmaceuticals-inc": "Anadys Pharmaceuticals",
+      "anulex-technologies-inc": "Anulex Technologies",
+      "apnex-medical-inc": "Apnex Medical",
+      "applied-imaging-corp": "Applied Imaging",
+      "apprenda-inc": "Apprenda",
+      "approva-corp": "Approva",
+      "aprius-inc": "Aprius",
+      "aradigm-corporation": "Aradigm",
+      "arch-rock-corporation": "Arch Rock",
+      "aronex-pharmaceuticals-inc": "Aronex Pharmaceuticals",
+      "aurora-biosciences-corporation": "Aurora Biosciences",
+      "autoimmune-inc": "AutoImmune",
+      "avivo-corporation": "Avivo",
+      "axys-pharmaceuticals-inc": "Axys Pharmaceuticals",
+      "azuray-technologies-inc": "Azuray Technologies",
+      "bariatric-partners-inc": "Bariatric Partners",
+      "benu-inc": "Benu",
+      "bnto": "Bnto",
+      "braincells-inc": "BrainCells",
+      "british-bio-technology-limited": "British Bio-technology",
+      "cardima-inc": "Cardima",
+      "caremark-rx-inc": "Caremark Rx",
+      "carewise-inc": "CareWise",
+      "carrier-access-corporation": "Carrier Access",
+      "cellgate-inc": "CellGate",
+      "censtor-corp-ca": "Censtor",
+      "china-gtel-limited": "China Gtel",
+      "chinaway-technologies-limited": "Chinaway Technologies",
+      "cirtas-systems-inc": "Cirtas Systems",
+      "compass-labs-inc": "Compass Labs",
+      "corvita-corporation": "Corvita",
+      "cyren-call-communications-corp": "Cyren Call Communications",
+      "data-critical-corporation": "Data Critical",
+      "djust": "Djust",
+      "dots-technology-corp": "Dots Technology",
+      "dreamfactory-software-inc": "DreamFactory Software",
+      "echopass-corporation": "Echopass",
+      "elance-inc": "Elance",
+      "fire1": "Fire1",
+      "firstlight-bio-inc": "FirstLight Bio",
+      "genemedicine-inc": "GeneMedicine",
+      "genetic-therapy-inc": "Genetic Therapy",
+      "geotel-corporation": "GeoTel",
+      "glacier-bay-inc": "Glacier Bay",
+      "gliatech-inc": "Gliatech",
+      "grid": "Grid",
+      "heliovolt-corporation": "HelioVolt",
+      "hospital-group-of-america-inc": "Hospital Group of America",
+      "hospital-partners-of-america-inc": "Hospital Partners of America",
+      "hydra-biosciences-inc": "Hydra Biosciences",
+      "iasiaworks-inc": "iAsiaWorks",
+      "ibah-inc": "IBAH",
+      "illumitex-inc": "Illumitex",
+      "innovasive-devices-inc": "Innovasive Devices",
+      "intarcia-therapeutics-inc": "Intarcia Therapeutics",
+      "iomai-corporation": "Iomai",
+      "iridex-corporation": "Iridex",
+      "isgn-technologies-ltd": "ISGN Technologies",
+      "jobfox-inc": "Jobfox",
+      "konarka-technologies-inc": "Konarka Technologies",
+      "launchpad-therapeutics-inc": "Launchpad Therapeutics",
+      "lifemetrix-inc": "LifeMetrix",
+      "liquidia-corporation": "Liquidia",
+      "lumisys-inc-de": "Lumisys",
+      "mapr-technologies-inc": "MapR Technologies",
+      "mashlogic-inc": "MashLogic",
+      "maxiscale-inc": "MaxiScale",
+      "medicalogic-medscape-inc": "MedicaLogic/Medscape",
+      "microcide-pharmaceuticals-inc": "Microcide Pharmaceuticals",
+      "microwave-technology-inc": "Microwave Technology",
+      "movius-interactive-corporation": "Movius Interactive",
+      "nazomi-communications-inc": "Nazomi Communications",
+      "netcentives-inc": "Netcentives",
+      "netrix-corp": "Netrix",
+      "novast-holdings-limited": "Novast",
+      "nurien-soft-ltd": "Nurien Soft",
+      "oanda": "Oanda",
+      "object-design-inc": "Object Design",
+      "occam-networks-inc": "Occam Networks",
+      "oceana-therapeutics-inc": "Oceana Therapeutics",
+      "opta-food-ingredients-inc-de": "Opta Food Ingredients",
+      "pacificdental-benefits-inc": "PacificDental Benefits",
+      "penederm-inc": "Penederm",
+      "peptimmune-inc": "Peptimmune",
+      "pmc-sierra-inc": "PMC-Sierra",
+      "popdust-inc": "Popdust",
+      "premier-laser-systems-inc": "Premier Laser Systems",
+      "primary-health-inc": "Primary Health",
+      "primax-recoveries-inc": "Primax Recoveries",
+      "prostor-systems-inc": "ProStor Systems",
+      "protostar-ltd": "ProtoStar",
+      "provation-medical-inc": "ProVation Medical",
+      "quadramed-corporation": "QuadraMed",
+      "quick-hit-inc": "Quick Hit",
+      "rapid-mobile-media-limited": "Rapid Mobile Media",
+      "realtime-worlds-inc": "Realtime Worlds",
+      "reshape-inc": "ReShape",
+      "roka-bioscience-inc": "Roka Bioscience",
+      "salesforce-com": "Salesforce",
+      "sequana-therapeutics-inc": "Sequana Therapeutics",
+      "sibeam-inc": "SiBEAM",
+      "skyline-solar-inc": "Skyline Solar",
+      "snaptell-inc": "SnapTell",
+      "solfocus-inc": "SolFocus",
+      "summit-medical-systems-inc-mn": "Summit Medical Systems",
+      "suniva-inc": "Suniva",
+      "t-ram-semiconductor-inc": "T-RAM Semiconductor",
+      "tabula-inc": "Tabula",
+      "targetrx-inc": "TargetRx",
+      "telebit-corp": "Telebit",
+      "telsima-corporation": "Telsima",
+      "the-well": "The Well",
+      "the-yes": "The Yes",
+      "think3-inc": "think3",
+      "tintri-inc": "Tintri",
+      "triquint-semiconductor-inc": "TriQuint Semiconductor",
+      "unite-genomics-inc": "Unite Genomics",
+      "versicor-inc-ca": "Versicor",
+      "viacor-inc": "Viacor",
+      "viavia": "Viavia",
+      "vibrynt-inc": "Vibrynt",
+      "visual-edge-technology-inc": "Visual Edge Technology",
+      "wirewheel-inc": "WireWheel",
+      "x9-inc": "X9",
+      "xoom-corporation": "Xoom",
+      "xsky": "Xsky",
+      "xtera-communications-inc": "Xtera Communications",
+      "ym-biosciences-inc": "YM Biosciences"
+    }
+  }
+}

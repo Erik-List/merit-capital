@@ -1,0 +1,746 @@
+{
+ "new-enterprise-associates": {
+  "_readme": "Identity merges for the NEA base (PRO-100): each canonical keeps the live site's own rendering; duplicates are pre-rename archive rows (the 2008 ColdFusion reports, the 2010-13 ASP.NET detail pages, the 2013-24 company pages) and EDGAR issuer names of the same company. Written 2026-09-30 before the first prepare.",
+  "merges": [
+   {
+    "canonical": "mongodb",
+    "duplicates": [
+     "10gen"
+    ],
+    "name": "MongoDB",
+    "reason": "one company: 10gen renamed MongoDB, Inc. (2013); the 2013 detail page is its pre-rename listing"
+   },
+   {
+    "canonical": "quidsi-diapers-com",
+    "duplicates": [
+     "diapers-com"
+    ],
+    "reason": "one company: Diapers.com is Quidsi's flagship site; the firm lists it as Quidsi (Diapers.com)"
+   },
+   {
+    "canonical": "spinmedia",
+    "duplicates": [
+     "buzzmedia"
+    ],
+    "name": "SpinMedia",
+    "reason": "one company: BuzzMedia renamed SpinMedia (2013)"
+   },
+   {
+    "canonical": "heavy-ai",
+    "duplicates": [
+     "mapd",
+     "omnisci"
+    ],
+    "reason": "one company: MapD renamed OmniSci (2018) and HEAVY.AI (2021); the archive rows are its earlier names"
+   },
+   {
+    "canonical": "sunesis-pharmaceuticals",
+    "duplicates": [
+     "viracta-therapeutics-formerly-sunesis"
+    ],
+    "reason": "one company: Sunesis Pharmaceuticals merged with Viracta and took its name (2021); the 2024-26 page is the same listed company; canonical re-pointed 2026-09-30 after the rebuild renamed sunesis"
+   },
+   {
+    "canonical": "elastic",
+    "duplicates": [
+     "elasticsearch-global-bv"
+    ],
+    "reason": "one company: Elastic N.V. was Elasticsearch Global BV until 2018; the EDGAR row is its legal name"
+   },
+   {
+    "canonical": "paratek-formerly-transcept-pharmaceuticals",
+    "duplicates": [
+     "transcept-pharmaceuticals-inc"
+    ],
+    "reason": "one listed company: Transcept Pharmaceuticals merged with Paratek (2014) and took its name; the firm lists it as Paratek (formerly Transcept Pharmaceuticals)"
+   },
+   {
+    "canonical": "bedrocket-media-sportsrocket",
+    "duplicates": [
+     "sportsrocket-inc"
+    ],
+    "reason": "one company: SportsRocket, Inc. is BedRocket Media's legal name, the same Form D issuer (CIK 1526026)"
+   },
+   {
+    "canonical": "1bog",
+    "duplicates": [
+     "one-block-off-the-grid-1bog"
+    ],
+    "name": "1BOG",
+    "reason": "one company: One Block Off the Grid, listed by the firm as 1BOG"
+   },
+   {
+    "canonical": "willow",
+    "duplicates": [
+     "exploramed-nc7-inc"
+    ],
+    "reason": "one company: ExploraMed NC7 is Willow's incubator entity (Form D name) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "revelle-aesthetics",
+    "duplicates": [
+     "nc8-inc"
+    ],
+    "reason": "one company: NC8, Inc. is Revelle Aesthetics' ExploraMed NewCo entity (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "fusion-io",
+    "duplicates": [
+     "fusion-multisystems-inc"
+    ],
+    "reason": "one company: Fusion Multisystems renamed Fusion-io (2008) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "the-wing",
+    "duplicates": [
+     "refresh-club-inc"
+    ],
+    "reason": "one company: Refresh Club, Inc. is The Wing's legal name on its Form D (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "ifonly",
+    "duplicates": [
+     "traina-interactive-corp"
+    ],
+    "reason": "one company: Traina Interactive Corp. is IfOnly's legal name (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "lot18",
+    "duplicates": [
+     "l18-holdings-inc"
+    ],
+    "reason": "one company: L18 Holdings, Inc. is Lot18's legal name (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "elements-behavioral-health",
+    "duplicates": [
+     "ebh-holding-company-inc"
+    ],
+    "reason": "one company: EBH Holding Company is Elements Behavioral Health's holding company (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "brale",
+    "duplicates": [
+     "stable-coin-inc"
+    ],
+    "reason": "one company: Stable Coin, Inc. renamed Brale (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "nationwide-remittance-centers",
+    "duplicates": [
+     "nrc"
+    ],
+    "reason": "one company: NRC is the firm's archived short name for Nationwide Remittance Centers (the nrc row's public CIK join is another company) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "semiconductor-manufacturing-international-corporation-smic",
+    "duplicates": [
+     "semiconductor-manufacturing-int-l"
+    ],
+    "reason": "one company: one company, SMIC, under two renderings (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "limitless",
+    "duplicates": [
+     "rewind"
+    ],
+    "reason": "one company: Rewind renamed Limitless (2024) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "mayhem",
+    "duplicates": [
+     "forallsecure"
+    ],
+    "reason": "one company: ForAllSecure renamed Mayhem Security; the firm lists it as Mayhem (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "topia",
+    "duplicates": [
+     "move-guides"
+    ],
+    "reason": "one company: MOVE Guides renamed Topia (2017) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "howl",
+    "duplicates": [
+     "narrativ"
+    ],
+    "reason": "one company: Narrativ renamed Howl (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "springpath",
+    "duplicates": [
+     "storvisor"
+    ],
+    "reason": "one company: Storvisor renamed Springpath (2015) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "union",
+    "duplicates": [
+     "tabbedout",
+     "atx-innovation-inc"
+    ],
+    "reason": "one company: TabbedOut became Union; ATX Innovation, Inc. is its legal name (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "medisys-edutech",
+    "duplicates": [
+     "medrc-edutech"
+    ],
+    "reason": "one company: MedRC EduTech and MediSys EduTech are one company under two renderings (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "catalyst-biosciences",
+    "duplicates": [
+     "targacept"
+    ],
+    "reason": "one company: Targacept merged with Catalyst Biosciences (2015) and took its name (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "occam-networks-inc",
+    "duplicates": [
+     "accelerated-networks-inc"
+    ],
+    "reason": "one company: Accelerated Networks merged with Occam Networks (2002) and took its name (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "sagimet-biosciences",
+    "duplicates": [
+     "3-v-biosciences-inc"
+    ],
+    "reason": "one company: 3-V Biosciences renamed Sagimet Biosciences (2019), CIK 1400118 (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "serious-energy",
+    "duplicates": [
+     "serious-materials-inc"
+    ],
+    "reason": "one company: Serious Materials renamed Serious Energy, CIK 1418835 (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "sitetracker",
+    "duplicates": [
+     "sitetraker"
+    ],
+    "reason": "one company: one company (CIK 1711376) under a misspelling (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "everactive",
+    "duplicates": [
+     "psikick-inc"
+    ],
+    "reason": "one company: PsiKick renamed Everactive (2019) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "expanse",
+    "duplicates": [
+     "qadium"
+    ],
+    "reason": "one company: Qadium renamed Expanse (2019) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "reneo-pharmaceuticals",
+    "duplicates": [
+     "onkure-therapeutics-inc"
+    ],
+    "reason": "one company: Reneo Pharmaceuticals merged with OnKure (2024) and took its name; the firm lists Reneo (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "the-climate-corporation",
+    "duplicates": [
+     "climate-corp",
+     "weatherbill-inc"
+    ],
+    "reason": "one company: WeatherBill renamed The Climate Corporation (2011) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "vuclip",
+    "duplicates": [
+     "xinlab-inc"
+    ],
+    "reason": "one company: Xinlab, Inc. is Vuclip's legal name (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "travelbank",
+    "duplicates": [
+     "travelator-inc"
+    ],
+    "reason": "one company: Travelator, Inc. is TravelBank's legal name (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "pulse",
+    "duplicates": [
+     "alphonso-labs-inc"
+    ],
+    "reason": "one company: Alphonso Labs, Inc. is Pulse's legal name (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "drobo",
+    "duplicates": [
+     "data-robotics-inc"
+    ],
+    "reason": "one company: Data Robotics renamed Drobo (2010) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "turi",
+    "duplicates": [
+     "graphlab-inc"
+    ],
+    "reason": "one company: GraphLab renamed Turi (2016) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "mojo-vision",
+    "duplicates": [
+     "tectus-corp"
+    ],
+    "reason": "one company: Tectus Corp. is Mojo Vision's legal name (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "block-renovation",
+    "duplicates": [
+     "lyra-technologies-inc"
+    ],
+    "reason": "one company: Lyra Technologies, Inc. is Block Renovation's legal name (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "super",
+    "duplicates": [
+     "nusantara-holdings-inc"
+    ],
+    "reason": "one company: Nusantara Holdings is Super's holding company (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "trivascular-technologies-inc",
+    "duplicates": [
+     "tv2-holding-co"
+    ],
+    "reason": "one company: TV2 Holding Co. is TriVascular's holding company (grind judges, 2026-09-30); canonical re-pointed 2026-09-30 after the rebuild renamed trivascular"
+   },
+   {
+    "canonical": "the-well",
+    "duplicates": [
+     "wrii-corp"
+    ],
+    "reason": "one company: WRII Corp. is The Well's legal name (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "zhone-technologies",
+    "duplicates": [
+     "dasan-zhone-solutions-inc",
+     "zti-merger-subsidiary-iii-inc"
+    ],
+    "reason": "one company: Zhone Technologies merged with DASAN Network Solutions (2016) as DASAN Zhone Solutions (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "cowboy-space",
+    "duplicates": [
+     "aetherflux"
+    ],
+    "reason": "one company: one company: Aetherflux and Cowboy Space (renamed 2026) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "imergy-power-systems",
+    "duplicates": [
+     "deeya-energy-inc"
+    ],
+    "reason": "one company: Deeya Energy renamed Imergy Power Systems (2014) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "curana-health",
+    "duplicates": [
+     "allyalign-health"
+    ],
+    "reason": "one company: AllyAlign Health combined into Curana Health (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "onshape",
+    "duplicates": [
+     "belmont-technology"
+    ],
+    "reason": "one company: Belmont Technology renamed Onshape (2015) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "newglobe",
+    "duplicates": [
+     "bridge-international-academies"
+    ],
+    "reason": "one company: Bridge International Academies became NewGlobe (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "fenris-creations",
+    "duplicates": [
+     "ccp-games"
+    ],
+    "reason": "one company: CCP Games renamed Fenris Creations (2026) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "tamr",
+    "duplicates": [
+     "data-tamer"
+    ],
+    "reason": "one company: Data Tamer renamed Tamr (2013) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "alfred",
+    "duplicates": [
+     "hello-alfred"
+    ],
+    "reason": "one company: Hello Alfred renamed Alfred (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "omio",
+    "duplicates": [
+     "goeuro"
+    ],
+    "reason": "one company: GoEuro renamed Omio (2019) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "grey-rhino",
+    "duplicates": [
+     "one-concern"
+    ],
+    "reason": "one company: one company: the firm's Grey Rhino row carries One Concern's description, year and board member (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "liquidia-corporation",
+    "duplicates": [
+     "liquidia-technologies"
+    ],
+    "reason": "one company: Liquidia Technologies is Liquidia Corporation's former name (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "the-players-tribune",
+    "duplicates": [
+     "players-tribune-inc"
+    ],
+    "reason": "one company: Players Tribune, Inc. is The Players' Tribune's legal name (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "addthis",
+    "duplicates": [
+     "clearspring-technologies-inc"
+    ],
+    "reason": "one company: Clearspring renamed AddThis (2013) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "eegeo",
+    "duplicates": [
+     "kimble-inc",
+     "recce"
+    ],
+    "reason": "one company: Kimble, Inc. is eeGeo's legal name (grind judges, 2026-09-30); Recce is eeGeo's product name (WRLD3D liquidated, per NetSol's 10-K)"
+   },
+   {
+    "canonical": "fugue",
+    "duplicates": [
+     "luminal-inc"
+    ],
+    "reason": "one company: Luminal renamed Fugue (2016) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "upskill",
+    "duplicates": [
+     "apx-labs-inc"
+    ],
+    "reason": "one company: APX Labs renamed Upskill (2016) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "evenly",
+    "duplicates": [
+     "cloudline-technologies-inc"
+    ],
+    "reason": "one company: Cloudline Technologies is Evenly's legal name (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "goji-solutions",
+    "duplicates": [
+     "goji-food-solutions-ltd"
+    ],
+    "reason": "one company: Goji Food Solutions is Goji's legal name (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "snagfilms",
+    "duplicates": [
+     "viewlift-inc"
+    ],
+    "reason": "one company: SnagFilms renamed ViewLift (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "benchprep",
+    "duplicates": [
+     "watermelon-express-inc"
+    ],
+    "reason": "one company: Watermelon Express renamed BenchPrep (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "fightcamp",
+    "duplicates": [
+     "hykso-inc"
+    ],
+    "reason": "one company: Hykso renamed FightCamp (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "playvs",
+    "duplicates": [
+     "play-versus-inc"
+    ],
+    "reason": "one company: Play Versus, Inc. is PlayVS's legal name (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "deltastream",
+    "duplicates": [
+     "araz-inc"
+    ],
+    "reason": "one company: Araz, Inc. is DeltaStream's legal name (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "outrider",
+    "duplicates": [
+     "azevtec-inc"
+    ],
+    "reason": "one company: Azevtec renamed Outrider (2020) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "flox",
+    "duplicates": [
+     "floxdev-inc"
+    ],
+    "reason": "one company: floxdev, Inc. is Flox's legal name (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "zosano",
+    "duplicates": [
+     "zp-holdings-inc"
+    ],
+    "reason": "one company: ZP Holdings is Zosano's holding company (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "logikcull",
+    "duplicates": [
+     "logik-systems-inc"
+    ],
+    "reason": "one company: Logik Systems, Inc. is Logikcull's legal name (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "dots-technology-corp",
+    "duplicates": [
+     "dots-devices-inc"
+    ],
+    "reason": "one company: Dots Devices is Dots Technology's earlier name (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "hearsay-social",
+    "duplicates": [
+     "hearsay-labs-inc"
+    ],
+    "reason": "one company: Hearsay Labs is Hearsay Social's legal name (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "nuelle",
+    "duplicates": [
+     "exploramed-nc6-inc"
+    ],
+    "reason": "one company: ExploraMed NC6 is Nuelle's ExploraMed NewCo entity (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "videology",
+    "duplicates": [
+     "tidaltv-inc"
+    ],
+    "reason": "one company: TidalTV renamed Videology (2012) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "tigerdata",
+    "duplicates": [
+     "440-labs-inc",
+     "iobeam",
+     "timescale"
+    ],
+    "reason": "one company: iobeam renamed Timescale (2017) and TigerData (2025); 440 Labs, Inc. is its legal name (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "spring-mobile-solutions",
+    "duplicates": [
+     "spring-wireless"
+    ],
+    "reason": "one company: Spring Wireless and Spring Mobile Solutions are one EDGAR filer (CIK 1440096) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "spyglass-pharma",
+    "duplicates": [
+     "spyglass-ophthalmics"
+    ],
+    "reason": "one company: SpyGlass Ophthalmics and SpyGlass Pharma are one EDGAR filer (CIK 1778922) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "testmart",
+    "duplicates": [
+     "technical-communities"
+    ],
+    "reason": "one company: Technical Communities, Inc. trades as TestMart; the firm lists both names (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "philo",
+    "duplicates": [
+     "tivli"
+    ],
+    "reason": "one company: Tivli renamed itself Philo (2013) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "neuehealth",
+    "duplicates": [
+     "bright-health"
+    ],
+    "reason": "one company: Bright Health Group renamed NeueHealth (2024) (grind judges, 2026-09-30)"
+   },
+   {
+    "canonical": "allay-therapeutics",
+    "duplicates": [
+     "foundry-therapeutics-1"
+    ],
+    "reason": "one company: Foundry Therapeutics 1 renamed Allay Therapeutics, the same EDGAR filer (CIK 1766366) (fix pass F2, 2026-09-30)"
+   },
+   {
+    "canonical": "china-health-citic",
+    "duplicates": [
+     "citic-pharmaceuticals"
+    ],
+    "reason": "one company: CITIC Pharmaceuticals is the 2013 detail page's name for the firm's China Health (CITIC) row (same description and acquirer) (stage pass s1, 2026-09-30)"
+   },
+   {
+    "canonical": "iomai-corporation",
+    "duplicates": [
+     "intercell-usa-inc"
+    ],
+    "reason": "one position: Intercell bought Iomai (2008) and the EDGAR filer continued as Intercell USA (stage pass s5, 2026-09-30)"
+   },
+   {
+    "canonical": "nektar-therapeutics",
+    "duplicates": [
+     "inhale-therapeutic-systems"
+    ],
+    "reason": "one company: Inhale Therapeutic Systems renamed Nektar Therapeutics (2003), one EDGAR filer, CIK 906709 (A/B pass ab3, 2026-09-30)"
+   },
+   {
+    "canonical": "gainspeed",
+    "duplicates": [
+     "cohere-networks"
+    ],
+    "name": "Gainspeed",
+    "reason": "one company: EDGAR lists Gainspeed, Inc. (CIK 1556546) as formerly Cohere Networks, Inc. (2012-09 to 2013-01), and the firm's 2013 Cohere Networks listing carries Gainspeed's description ('Redefining how cable networks are built'). Cohere Technologies (CIK 1636993, OTFS wireless) is a different company; the earlier merge into it was wrong (corrected 2026-09-30)"
+   },
+   {
+    "canonical": "genies",
+    "duplicates": [
+     "blend",
+     "blend-systems-inc"
+    ],
+    "name": "Genies",
+    "reason": "one company: the firm's 2017-2019 'Blend' listing describes the chatbot platform 'coined as Genies', and EDGAR lists Genies, Inc. (CIK 1560253) as formerly Blend Systems, Inc. (2014-2017) (corrected 2026-09-30; the earlier merge of 'blend' into Tarveda was wrong)"
+   },
+   {
+    "canonical": "tarveda-therapeutics",
+    "duplicates": [
+     "blend-therapeutics",
+     "blend-therapeutics-inc",
+     "blend-biosciences",
+     "blend-biosciences-inc"
+    ],
+    "name": "Tarveda Therapeutics",
+    "reason": "one company: the firm's 2013-2015 'Blend Therapeutics' listing, Form D issuer Blend Therapeutics, Inc. and Blend Biosciences, Inc. (CIK 1528747), renamed Tarveda Therapeutics (2016)"
+   },
+   {
+    "canonical": "ohai",
+    "duplicates": [
+     "proof-of-learn"
+    ],
+    "name": "Ohai",
+    "reason": "one company: ProofOfLearn, Inc. renamed Ohai.ai, Inc., the same Form D filer (CIK 1904393) with Tony Florence a director on both names; the firm lists Ohai today and listed Proof of Learn 2022-2026 (delta judge g2, 2026-09-30)"
+   }
+  ],
+  "never_merge": [
+   {
+    "slugs": [
+     "glacier",
+     "glacier-bay-inc"
+    ],
+    "reason": "Two companies. Glacier Bay, Inc. is NEA's energy technology platform company on the firm's 2008 Energy Technology list and its 2013 detail page (CompanyDetail.aspx?id=1347), with a 2009 Form D (CIK 1470797, 'Other Energy'). Glacier is NEA's 2022 Seed investment in recycling robotics (the firm's own 2025 post). The prefix rule joined them on the shared first word.",
+    "decided": "2026-09-30"
+   },
+   {
+    "slugs": [
+     "blend",
+     "blend-therapeutics"
+    ],
+    "reason": "Blend (Blend Systems, now Genies, CIK 1560253) and Blend Therapeutics (Blend Biosciences, now Tarveda, CIK 1528747) are two companies; the prefix rule joined them on the shared first word",
+    "decided": "2026-09-30"
+   },
+   {
+    "slugs": [
+     "blend",
+     "blend-therapeutics-inc"
+    ],
+    "reason": "Blend (Blend Systems, now Genies, CIK 1560253) and Blend Therapeutics (Blend Biosciences, now Tarveda, CIK 1528747) are two companies; the prefix rule joined them on the shared first word",
+    "decided": "2026-09-30"
+   },
+   {
+    "slugs": [
+     "blend",
+     "blend-biosciences"
+    ],
+    "reason": "Blend (Blend Systems, now Genies, CIK 1560253) and Blend Therapeutics (Blend Biosciences, now Tarveda, CIK 1528747) are two companies; the prefix rule joined them on the shared first word",
+    "decided": "2026-09-30"
+   },
+   {
+    "slugs": [
+     "blend",
+     "blend-biosciences-inc"
+    ],
+    "reason": "Blend (Blend Systems, now Genies, CIK 1560253) and Blend Therapeutics (Blend Biosciences, now Tarveda, CIK 1528747) are two companies; the prefix rule joined them on the shared first word",
+    "decided": "2026-09-30"
+   },
+   {
+    "slugs": [
+     "blend-systems-inc",
+     "blend-therapeutics"
+    ],
+    "reason": "Blend (Blend Systems, now Genies, CIK 1560253) and Blend Therapeutics (Blend Biosciences, now Tarveda, CIK 1528747) are two companies; the prefix rule joined them on the shared first word",
+    "decided": "2026-09-30"
+   },
+   {
+    "slugs": [
+     "blend-systems-inc",
+     "blend-therapeutics-inc"
+    ],
+    "reason": "Blend (Blend Systems, now Genies, CIK 1560253) and Blend Therapeutics (Blend Biosciences, now Tarveda, CIK 1528747) are two companies; the prefix rule joined them on the shared first word",
+    "decided": "2026-09-30"
+   },
+   {
+    "slugs": [
+     "blend-systems-inc",
+     "blend-biosciences"
+    ],
+    "reason": "Blend (Blend Systems, now Genies, CIK 1560253) and Blend Therapeutics (Blend Biosciences, now Tarveda, CIK 1528747) are two companies; the prefix rule joined them on the shared first word",
+    "decided": "2026-09-30"
+   },
+   {
+    "slugs": [
+     "blend-systems-inc",
+     "blend-biosciences-inc"
+    ],
+    "reason": "Blend (Blend Systems, now Genies, CIK 1560253) and Blend Therapeutics (Blend Biosciences, now Tarveda, CIK 1528747) are two companies; the prefix rule joined them on the shared first word",
+    "decided": "2026-09-30"
+   }
+  ],
+  "rejects": [
+   {
+    "slug": "talent",
+    "reason": "not a company: nea.com/portfolio/talent is the site's talent-network page"
+   },
+   {
+    "slug": "technology-briefings",
+    "reason": "not a company: nea.com/portfolio/technology-briefings is the site's events page"
+   }
+  ]
+ }
+}

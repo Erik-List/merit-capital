@@ -1,0 +1,105 @@
+The YubiKey is a collection of hardware authentication devices manufactured by Yubico AB (Nasdaq Stockholm: YUBICO), a company founded in 2007 by Jakob and Stina Ehrensvärd and headquartered in Stockholm, Sweden, with an American subdivision incorporated in Santa Clara, California. 
+As of March 2026, the YubiKey range includes a number of devices that support the FIDO2 authentication standard and come in various sizes and interface formats. The flagship YubiKey 5 Series also supports a number of other industry standards including OATH, PIV and OpenPGP, as well as a legacy proprietary "OTP" applet with various functions. Yubico also offers a hardware security module, the YubiHSM 2. The YubiKey 5 Series and YubiHSM 2 have FIPS 140-2–certified versions for government or enterprise clients subject to regulatory requirements.
+YubiKeys can be used to authenticate access to websites, apps, operating systems, remote servers, networks and other environments, with some YubiKey products also supporting encryption/decryption (of files or messages) and digital signing. The name "YubiKey" derives from the phrase "your ubiquitous key" and "yubi", the Japanese word for finger, emphasising the YubiKey's versatility and the physical touch used to verify the user's presence.
+
+
+== History ==
+Yubico was founded in 2007 and began offering a Pilot Box for developers in November of that year. The original YubiKey product was shown at the annual RSA Conference in April 2008, and a more robust YubiKey 2.0 model was launched in 2009. The YubiKey 2.0 added dual "slots", for storing two distinct configurations with separate AES secrets and other settings. When authenticating, the first slot is used by only briefly pressing the button on the device, while the second slot is used by holding the button for 2 to 5 seconds. 
+In 2010, Yubico began offering the YubiKey OATH and YubiKey RFID models. The YubiKey OATH added the ability to generate 6- and 8-character OATH passwords in addition to the 32-character passwords used by Yubico's own OTP scheme. The YubiKey RFID model included the OATH capability plus also included a MIFARE Classic 1k radio-frequency identification chip, though that was a separate device within the package that could not be configured with the normal Yubico software over a USB connection.
+Yubico announced the YubiKey Nano in February 2012, a miniaturized version of the standard YubiKey which was designed so it would fit almost entirely inside a USB port and only expose a small touch pad for the button. Most later models of the YubiKey have also been available in both standard and "nano" sizes.
+
+2012 also saw the introduction of the YubiKey Neo, which improved upon the previous YubiKey RFID product by integrating near-field communication (NFC). The YubiKey Neo (and Neo-n, a "nano" version of the device) was able to transmit one-time passwords to NFC readers as part of a configurable URL contained in a NFC message. The Neo was also able to communicate using the CCID smart-card protocol in addition to USB HID (human interface device) keyboard emulation. The CCID mode is used for PIV smart card and OpenPGP support, while USB HID is used for the one-time password authentication schemes.
+
+In 2014, the YubiKey Neo was updated with FIDO Universal 2nd Factor (U2F) support. Yubico, Google and NXP Semiconductors co-developed the FIDO U2F standard. Later that year, Yubico released the "FIDO U2F Security Key", which specifically included U2F support but none of the other one-time password, static password, smart card, or NFC features of previous YubiKeys. At launch, it was correspondingly sold at a lower price point of just $18, compared to $25 for the YubiKey Standard ($40 for the Nano version) and $50 for the YubiKey Neo ($60 for Neo-n). Some of the pre-release devices issued by Google during FIDO/U2F development reported themselves as "Yubico WinUSB Gnubby (gnubby1)".
+
+In April 2015, the company launched the YubiKey Edge in both standard and nano form factors. This slotted in between the Neo and FIDO U2F products feature-wise, as it was designed to handle OTP and U2F authentication, but did not include smart card or NFC support. The YubiKey 4 family of devices was first launched in November 2015, with USB-A models in both standard and nano sizes. The YubiKey 4 includes most features of the YubiKey Neo, including increasing the allowed OpenPGP key size to 4096 bits (vs. the previous 2048), but dropped the NFC capability of the Neo.
+At CES 2017, Yubico announced an expansion of the YubiKey 4 series to support a new USB-C design. The YubiKey 4C was released on February 13, 2017. On Android OS over the USB-C connection, only the one-time password feature is supported by the Android OS and YubiKey, with other features not currently supported including Universal 2nd Factor (U2F). A 4C Nano version became available in September 2017.
+In April 2018, Yubico released a new product called the Security Key (this name had previously been used for the 2014 FIDO U2F Security Key); this was their first device to implement the new FIDO2 authentication protocols, WebAuthn (which reached W3C Candidate Recommendation status in March) and Client to Authenticator Protocol (CTAP). The device was only available in the "standard" form factor with a USB-A connector. Like the previous FIDO U2F Security Key, it used a key icon on its touch sensor. At launch, it was blue in color like the previous FIDO U2F Security Key and distinguished by a number "2" etched into the plastic between the touch sensor and the keyring hole. It was also less expensive than the YubiKey Neo and YubiKey 4 models, costing $20 per unit at launch because it lacked the OTP and smart card features of those previous devices, though it retained FIDO U2F capability.
+From 2021 to 2023, Yubico progressively brought the Security Key Series aesthetically in line with the YubiKey 5 Series: in 2021, the touch sensor icon was changed from the key to the "y" logo for the launch of the Security Key C NFC in 2021 (a change that was also brought to the older Security Key NFC in May 2022), and in 2023, the color was changed from blue to black. The non-NFC versions were also retired, and the "NFC" part of the Security Key NFC name became less prominent.
+
+
+== Products and features ==
+
+
+=== YubiKey 5 Series ===
+
+As of June 2026, the flagship product is the YubiKey 5 Series, first released in 2018, which comes in multiple sizes and interface formats (USB-A with NFC, USB-C with or without NFC, and USB-C + Lightning) and can be used for a wide range of cryptographic tasks including authentication (for access to websites, apps, operating systems, remote servers, networks etc.), encryption/decryption and digital signing. It achieves this by hosting multiple "applets" with memory slots/addresses on its secure, tamper-resistant hardware, with most applets being based on a widespread, cross-platform industry standard. The applets and their protocols are understood by and can be interacted with using a wide variety of software, ranging from Yubico applications to third-party software, web browsers and operating systems, although some administrative tasks can only be performed by Yubico tools.
+The FIDO2 (sometimes referred to as FIDO2/WebAuthn, WebAuthn being the browser/OS implementation standard) applet can store passkeys for passwordless authentication via the CTAP2 protocol or two-factor authentication (2FA) via the CTAP1 (formerly U2F) protocol. The OATH applet can store seeds for time-based one-time passwords (TOTP) or HMAC-based one-time passwords (HOTP). The YubiKey 5 Series also has a PIV (a smart card standard) applet and an OpenPGP applet, which each have widespread applications from authentication to message and file encryption and signing. There is also a legacy proprietary applet named "OTP" with two slots, each of which can be programmed to store either a one-time password following a proprietary format ("Yubico OTP", which platforms verify using Yubico's "YubiCloud" servers), a static password of the user's choosing, a random or user-chosen secret for HMAC challenge–response or an OATH HOTP. This applet causes the YubiKey to function as a USB HID (similar to a keyboard) to enter the "OTP" slot contents on short press (slot 1) or long press (slot 2) of the YubiKey's touch sensor (unless challenge–response is used in the given slot). This USB HID functionality does not apply to the other applets. A "Yubico OTP" is factory-programmed into slot 1 of the YubiKey 5; the user can regenerate it or overwrite the slot for a different use, but any user-generated Yubico OTPs will have a different prefix ("vv" instead of "cc").
+
+
+=== Other products ===
+The product lineup as of March 2026 also includes the following products.
+
+
+==== YubiKey Security Key Series ====
+The YubiKey Security Key Series is a cheaper, "streamlined" offering that only contains the FIDO2 applet, does not contain a serial number (to thwart tracking) and does not have a nano or non-NFC version.
+Yubico also offers an "Enterprise Edition" of the Security Key Series, available on the "Yubikey as a Service" subscription plan; these retain the serial number to enable asset tracking (such as linking a Security Key to a specific employee) and include other minor enhancements to security, such as stricter PIN requirements and enforcement.
+
+
+==== YubiKey Bio Series ====
+The YubiKey Bio Series is another offering that supports biometric authentication through its fingerprint sensor. This series does not have a nano or NFC version.
+The standard YubiKey Bio Series (known as the "FIDO Edition") only supports FIDO2, but in 2024, Yubico announced a "Multi-protocol Edition" that also supports PIV, available to enterprise clients on the YubiEnterprise Subscription.
+
+
+==== YubiHSM 2 ====
+Yubico also offers the YubiHSM 2, a hardware security module for generating and storing master cryptographic keys for servers.
+
+
+==== FIPS 140-2–certified versions of products ====
+Yubico offers a FIPS 140-2–certified version of the YubiKey 5 Series for government and enterprise clients subject to regulation requiring stringent certification. In November 2024, Yubico announced that the YubiKey 5 FIPS Series was undergoing certification according to the new FIPS 140-3 standard.
+The YubiHSM 2 also has a FIPS 140-2–certified version.
+Yubico had previously offered CSPN-certified versions of the YubiKey 5 Series for European markets (CSPN is an ANSSI certification), but these were discontinued in 2024 due to limited demand.
+
+
+=== Comparison table ===
+A list of the primary features and capabilities of the YubiKey products.
+
+
+== Modhex ==
+When being used for one-time passwords and stored static passwords, the YubiKey emits characters using a modified hexadecimal alphabet which is intended to be as independent of system keyboard settings as possible. This alphabet, invented by Yubico specifically for this application, is referred to as Modhex (sometimes written "ModHex" or "modhex") and consists of the characters "cbdefghijklnrtuv", corresponding to the hexadecimal digits "0123456789abcdef". 
+Since YubiKeys use raw keyboard scan codes in USB HID mode, there can be problems when using the devices on computers that are set up with different keyboard layouts, such as Dvorak. Modhex was created to avoid conflicts between different keyboard layouts. It only uses characters that are located in the same place on most Latin alphabet keyboards, but is still 16 characters, allowing it to be used in place of hexadecimal. Alternatively, this issue can be addressed by using operating system features to temporarily switch to a standard US keyboard layout (or similar) when using one-time passwords. However, YubiKey Neo and later devices can be configured with alternate scan codes to match layouts that aren't compatible with the Modhex character set.
+This problem only applies to YubiKey products in HID mode, where it must emulate keyboard input. U2F authentication in YubiKey products bypasses this problem by using the alternate U2FHID protocol, which sends and receives raw binary messages instead of keyboard scan codes. CCID mode acts as a smart card reader, which does not use HID protocols at all.
+
+
+== Security issues ==
+
+
+=== YubiKey 4 closed-sourcing concerns ===
+Most of the code that runs on a YubiKey is closed-source. While Yubico has released some code for industry standard functionality like OpenPGP and HOTP, it was disclosed that as of the 4th generation of the product this is not the same code that the new units ship with. Because new units are permanently firmware-locked at the factory, it is not possible to compile the open-source code and load it on the device manually; a user must trust that the code on a new key is authentic and secure.
+Code for other functionality such as U2F, PIV and Modhex is entirely closed source.
+On May 16, 2016, Yubico CTO Jakob Ehrensvärd responded to the open-source community's concerns with a blog post saying that "we, as a product company, have taken a clear stand against implementations based on off-the-shelf components and further believe that something like a commercial-grade AVR or ARM controller is unfit to be used in a security product."
+Techdirt founder Mike Masnick strongly criticized this decision, saying "Encryption is tricky. There are almost always vulnerabilities and bugs -- a point we've been making a lot lately. But the best way to fix those tends to be getting as many knowledgeable eyes on the code as possible. And that's not possible when it's closed source."
+
+
+=== ROCA vulnerability in certain YubiKey 4, 4C, and 4 Nano devices ===
+In October 2017, security researchers found a vulnerability (known as ROCA) in the implementation of RSA keypair generation in a cryptographic library used by a large number of Infineon security chips, as used in a wide range of security keys and security token products (including YubiKey). The vulnerability allows an attacker to reconstruct the private key by using the public key. All YubiKey 4, YubiKey 4C, and YubiKey 4 Nano devices within the revisions 4.2.6 to 4.3.4 were affected by this vulnerability. Yubico remedied this issue in all shipping YubiKey 4 devices by switching to a different key generation function and offered free replacements for any affected keys until March 31, 2019. In some cases, the issue could be bypassed by generating new keys outside of the YubiKey and importing them onto the device.
+
+
+=== OTP password protection on YubiKey NEO ===
+In January 2018, Yubico disclosed a moderate vulnerability where password protection for the OTP functionality on the YubiKey NEO could be bypassed under certain conditions. The issue was corrected as of firmware version 3.5.0, and Yubico offered free replacement keys to any user claiming to be affected until April 1, 2019.
+
+
+=== Reduced initial randomness on certain FIPS series devices ===
+In June 2019, Yubico released a security advisory reporting reduced randomness in FIPS-certified devices with firmware version 4.4.2 and 4.4.4 (there is no version 4.4.3), shortly after power-up. Security keys with reduced randomness may leave keys more easily discovered and compromised than expected. The issue affected the FIPS series only, and then only certain scenarios, although FIPS ECDSA usage was "at higher risk". The company offered free replacements for any affected keys.
+
+
+=== Infineon ECDSA private key recovery ===
+In September 2024, security researchers from NinjaLab discovered a cryptographic flaw in Infineon chips that would allow a person to clone a YubiKey if an attacker gained physical access to it. The security vulnerability permanently affects all YubiKeys prior to firmware update 5.7. Yubico rated the issue as "moderate", citing the need for an attacker to have physical access to the key, expensive equipment, and advanced cryptographic and technical knowledge.
+
+
+== Social activism ==
+In 2018, Yubico gave away free YubiKeys with laser-engraved logos to new WIRED and Ars Technica subscribers.
+Yubico provided 500 YubiKeys to protesters during the 2019–2020 Hong Kong protests. The company stated that the decision was based on their mission to protect vulnerable Internet users and work with free speech supporters.
+
+
+== See also ==
+FIDO Alliance
+Nitrokey
+OpenPGP card
+
+
+== References ==
+
+
+== External links ==
+Official website

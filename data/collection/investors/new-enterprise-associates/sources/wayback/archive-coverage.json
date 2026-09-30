@@ -1,0 +1,33 @@
+{
+ "_readme": "Where the pre-2008 nea.com listing pages can be read, tried 2026-09-30 (COLLECTION.md s5: a channel tried and found empty is a finding).",
+ "internet_archive": {
+  "status": "blocked",
+  "detail": "Machine-wide firewall cooldown set by other sessions at 11:42 (60 min), re-set at 12:43 for 120 min, and on this run's first query after it cleared IA refused the connection again (rc7): cooldown now at the 480-minute ceiling. One CDX year (1996) returned 0 rows seconds before the refusal and is recorded as unverified, not as an empty year.",
+  "ready": "scratch/ia-cdx.py (1996-2012 CDX), scratch/ia-fetch.py (captures through ia_fetch), scratch/old-parse.py (ColdFusion SummaryReports incl. Historical and Public Purchase, ASP.NET CompanyDetail), scratch/old-roster.py"
+ },
+ "common_crawl": {
+  "status": "used",
+  "detail": "2008 on: the 2008-09 ColdFusion site (first page of each SummaryReport, the sector pages, NEATeam), the 2013 ASP.NET detail pages (338) and team table, and every /portfolio/<slug> and /team/<slug> page 2013-2026."
+ },
+ "arquivo_pt": {
+  "status": "empty_for_need",
+  "detail": "CDX answers; nea.com holds 227 captures, all 2010-2011, the homepage and assets only (https://arquivo.pt/wayback/cdx?url=nea.com/*&from=1996&to=2012)."
+ },
+ "archive_today": {
+  "status": "empty_for_need",
+  "detail": "TimeMap starts 2013-01-04 (https://archive.ph/timemap/http://www.nea.com/)."
+ },
+ "library_of_congress": {
+  "status": "unreadable",
+  "detail": "webarchive.loc.gov CDX serves a Cloudflare challenge to scripts."
+ },
+ "uk_web_archive": {
+  "status": "unreadable",
+  "detail": "no public CDX endpoint (redirects to the landing page)."
+ },
+ "memento_timetravel": {
+  "status": "unreadable",
+  "detail": "timetravel.mementoweb.org returned no response (connection code 000)."
+ },
+ "checked": "2026-09-30"
+}

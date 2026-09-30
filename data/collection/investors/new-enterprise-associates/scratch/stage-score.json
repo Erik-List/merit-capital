@@ -1,0 +1,758 @@
+{
+ "_readme": "Scores NEA's first-party stage label (sources/site/company-list.json stage_site) against the documented round in which NEA first invested. Sample: 25 Seed, 25 Growth, 15 Early rows, stratified 1997-2025, tech and healthcare, chosen for documentability (so skewed toward well-covered companies). Taxonomy: Pre-Seed | Seed | Series A | Growth (Series B and later). agrees is null for Early (a bucket, not a round) and for unresolved rows. Citations are SEC S-1/DRS/S-4 filings, TechCrunch/press releases, or Google News headlines; notes flag weak ties (round or NEA only via full-text match, or entry dated by fund vintage / board date). Built 2026-09-30 by a scoring subagent; Google News items also logged in scratch/news-extra-score.json.",
+ "rows": [
+  {
+   "name": "TiVo",
+   "invest_year": "1997",
+   "label": "Seed",
+   "documented_stage": "Series A",
+   "documented_round": "Series A preferred ($0.60/sh, 5,000,000 sh, ~$3.0M)",
+   "date": "1997-09/1997-10",
+   "citation": "https://www.sec.gov/Archives/edgar/data/1088825/000101287099002461/0001012870-99-002461.txt",
+   "agrees": false,
+   "note": "S-1 (1999) related-party table: entities affiliated with NEA bought 2,000,000 Series A (co-equal with IVP). First institutional round, seed-sized by today's standard but named Series A."
+  },
+  {
+   "name": "Data Domain",
+   "invest_year": "2001",
+   "label": "Seed",
+   "documented_stage": "Series A",
+   "documented_round": "Series A-1 preferred (~$1.0M at $0.4444)",
+   "date": "2001-11",
+   "citation": "https://www.sec.gov/Archives/edgar/data/1391984/000119312507070662/ds1.htm",
+   "agrees": false,
+   "note": "Weak tie: S-1 names NEA in Series B and C but not per holder for Series A; Series A-1 (Nov 2001) is the only 2001 financing and NEA 10 is on the investor schedule, so NEA's 2001 entry = Series A-1 by date. Seed-sized round named Series A."
+  },
+  {
+   "name": "Tempus",
+   "invest_year": "2017",
+   "label": "Seed",
+   "documented_stage": "Growth",
+   "documented_round": "Series C ($70M)",
+   "date": "2017-09-25",
+   "citation": "https://techcrunch.com/2017/09/25/groupons-billionaire-cofounder-eric-lefkofsky-just-raised-70-million-for-his-new-company/",
+   "agrees": false,
+   "note": "TC: NEA was part of the $70M Series C at a $700M valuation. Clear mislabel."
+  },
+  {
+   "name": "Omada Health",
+   "invest_year": "2011",
+   "label": "Seed",
+   "documented_stage": "Seed",
+   "documented_round": "Seed ($800K)",
+   "date": "2011-12",
+   "citation": "https://techcrunch.com/2013/03/21/omada-health-secures-4-7m-from-usvp-nea-kapor-more-to-roll-out-its-online-diabetes-prevention-program/",
+   "agrees": true,
+   "note": "TC: Dec 2011 $800K seed from investors including NEA, Aberdare, Kapor Capital."
+  },
+  {
+   "name": "Kong",
+   "invest_year": "2011",
+   "label": "Seed",
+   "documented_stage": "Seed",
+   "documented_round": "Seed ($1.5M, NEA led; company then named Mashape)",
+   "date": "2011-09-08",
+   "citation": "https://techcrunch.com/2011/09/08/mashape-turns-down-acquisition-offers-raises-seed-round-from-big-name-investors/",
+   "agrees": true,
+   "note": "Seed led by NEA with Index, CRV, Ignition, Innovation Endeavors, Jeff Bezos."
+  },
+  {
+   "name": "Zumper",
+   "invest_year": "2012",
+   "label": "Seed",
+   "documented_stage": "Seed",
+   "documented_round": "Seed ($1M)",
+   "date": "2012",
+   "citation": "https://techcrunch.com/2013/02/28/vc-backed-disrupt-alum-zumper-jumps-into-the-chicago-rentals-market-builds-out-pro-features/",
+   "agrees": true,
+   "note": "TC: $1M seed from Kleiner Perkins, Andreessen Horowitz, NEA, CrunchFund and others."
+  },
+  {
+   "name": "Upworthy",
+   "invest_year": "2012",
+   "label": "Seed",
+   "documented_stage": "unresolved",
+   "documented_round": "",
+   "date": "",
+   "citation": "https://techcrunch.com/2013/07/01/upworthy-purveyor-of-videos-with-a-heart-makes-plans-to-monetize-on-crazy-growth-rate/",
+   "agrees": null,
+   "note": "TC names a $4M seed (Oct 2012; Hughes, Ohanian, Johnson) and a Spark-led $8M Series A (2013); NEA named in neither."
+  },
+  {
+   "name": "FiscalNote",
+   "invest_year": "2013",
+   "label": "Seed",
+   "documented_stage": "Seed",
+   "documented_round": "Seed ($1.2M)",
+   "date": "2013-09-11",
+   "citation": "https://techcrunch.com/2013/09/11/fiscalnote-seed-funding/",
+   "agrees": true,
+   "note": "Seed from Mark Cuban, NEA, First Round."
+  },
+  {
+   "name": "Tamr",
+   "invest_year": "2013",
+   "label": "Seed",
+   "documented_stage": "Series A",
+   "documented_round": "$16M first round from GV and NEA (unnamed; Series A by sequence)",
+   "date": "2014-05-19",
+   "citation": "https://techcrunch.com/2014/05/19/tamr-gets-16m-from-google-ventures-nea-to-connect-enterprise-data-sources/",
+   "agrees": false,
+   "note": "Round name by sequence only: company emerged from stealth with this round; TC 2015-06-19 names the next round Series B. NEA site year 2013 may reflect an earlier close."
+  },
+  {
+   "name": "Synlogic",
+   "invest_year": "2014",
+   "label": "Seed",
+   "documented_stage": "Series A",
+   "documented_round": "Series A-1 initial closing (co-led with Atlas Venture IX)",
+   "date": "2014-07",
+   "citation": "https://www.sec.gov/Archives/edgar/data/1527599/000119312517209493/d390888ds4.htm",
+   "agrees": false,
+   "note": "S-4 (2017): Series A purchase agreement July 2014 among Atlas IX and NEA 14; Atlas's earlier note converted into Series A-1. NEA not in any pre-A instrument."
+  },
+  {
+   "name": "Aquabyte",
+   "invest_year": "2017",
+   "label": "Seed",
+   "documented_stage": "Seed",
+   "documented_round": "Seed ($3.5M)",
+   "date": "2018-01-30",
+   "citation": "Google News: FinSMEs, 2018-01-30, 'Aquabyte Raises $3.5M in Seed Funding' (https://www.finsmes.com/2018/01/aquabyte-raises-3-5m-in-seed-funding.html)",
+   "agrees": true,
+   "note": "Weak NEA tie: headline names the round; NEA only via Google News full-text match on \"New Enterprise Associates\" (page 403 to fetch)."
+  },
+  {
+   "name": "Simple Habit",
+   "invest_year": "2017",
+   "label": "Seed",
+   "documented_stage": "unresolved",
+   "documented_round": "$2.5M round (unnamed)",
+   "date": "2017-05-09",
+   "citation": "https://techcrunch.com/2017/05/09/simple-habit-2-5-million/",
+   "agrees": null,
+   "note": "TC: $2.5M from investors including NEA, FJ Labs, Foundation Capital (post-YC); round not named."
+  },
+  {
+   "name": "Neural Magic",
+   "invest_year": "2018",
+   "label": "Seed",
+   "documented_stage": "Seed",
+   "documented_round": "Seed ($15M, led by Comcast Ventures)",
+   "date": "2019-11-06",
+   "citation": "https://techcrunch.com/2019/11/06/neural-magic-gets-15m-seed-to-run-machine-learning-models-on-commodity-cpus/",
+   "agrees": true,
+   "note": "NEA participated in the $15M seed; a $5M pre-seed preceded it (investors not named). NEA's 2018 site year may mean pre-seed entry."
+  },
+  {
+   "name": "Acrivon Therapeutics",
+   "invest_year": "2018",
+   "label": "Seed",
+   "documented_stage": "Seed",
+   "documented_round": "Convertible notes (pre-Series A), converted into Series A-1 in Oct 2020",
+   "date": "2018-2020",
+   "citation": "https://www.sec.gov/Archives/edgar/data/1781174/000095012322008876/filename1.htm",
+   "agrees": true,
+   "note": "DRS (2022): NEA 16 received 1,187,816 Series A-1 shares upon conversion of convertible notes; the priced Series A-1 came later. Scored Seed because NEA's money went in before any priced round; a stricter reading would score Series A."
+  },
+  {
+   "name": "Pair",
+   "invest_year": "2021",
+   "label": "Seed",
+   "documented_stage": "Growth",
+   "documented_round": "Series B ($60M, led by NEA and Connect Ventures)",
+   "date": "2021-12-14",
+   "citation": "https://www.businesswire.com/news/home/20211214005436/en/Pair-Eyewear-Announces-a-%2460M-Series-B-Led-by-NEA-and-Connect-Ventures",
+   "agrees": false,
+   "note": "lastmoneyin.co (Pair seed-to-C story): NEA's term sheet to lead the Series B came about 8 months after the Javelin-led Series A; no sign of NEA in seed or A. Clear mislabel."
+  },
+  {
+   "name": "Merge",
+   "invest_year": "2021",
+   "label": "Seed",
+   "documented_stage": "Seed",
+   "documented_round": "Seed ($4.5M, led by NEA)",
+   "date": "2021-05-17",
+   "citation": "https://techcrunch.com/2021/05/17/merge-raises-4-5m-to-help-b2b-companies-build-customer-facing-integrations/",
+   "agrees": true,
+   "note": ""
+  },
+  {
+   "name": "Wispr AI",
+   "invest_year": "2021",
+   "label": "Seed",
+   "documented_stage": "Seed",
+   "documented_round": "Seed ($4.6M, co-led by NEA and 8VC)",
+   "date": "2021-11-30",
+   "citation": "https://www.prnewswire.com/news-releases/wispr-ai-secures-4-6m-from-nea-and-8vc-to-build-thought-powered-neural-interface-301433912.html",
+   "agrees": true,
+   "note": ""
+  },
+  {
+   "name": "Datafold",
+   "invest_year": "2020",
+   "label": "Seed",
+   "documented_stage": "Seed",
+   "documented_round": "Seed (NEA)",
+   "date": "2020-11-19",
+   "citation": "https://techcrunch.com/2020/11/19/datafold-nea-seed/",
+   "agrees": true,
+   "note": ""
+  },
+  {
+   "name": "Union.ai",
+   "invest_year": "2020",
+   "label": "Seed",
+   "documented_stage": "Seed",
+   "documented_round": "Seed ($10M)",
+   "date": "2022-04-12",
+   "citation": "Google News: PR Newswire, 2022-04-12, 'Union.ai Raises $10M in Seed Funding for AI and ML Orchestration Technology'; NEA per https://techcrunch.com/2022/04/12/union-ai-raises-10m-to-simplify-ai-and-ml-workflow-orchestration/",
+   "agrees": true,
+   "note": "Announced 2022; NEA site year 2020 (stealth-era close)."
+  },
+  {
+   "name": "Orby AI",
+   "invest_year": "2022",
+   "label": "Seed",
+   "documented_stage": "Seed",
+   "documented_round": "Seed ($4.5M, co-led by Pear VC and NEA)",
+   "date": "2023-05-10",
+   "citation": "https://www.prnewswire.com/news-releases/orby-ai-emerges-from-stealth-announces-funding-to-build-generative-ai-software-that-learns-what-you-do-and-does-it-for-you-301820206.html",
+   "agrees": true,
+   "note": "Announced at stealth exit 2023; NEA site year 2022."
+  },
+  {
+   "name": "Courtyard",
+   "invest_year": "2022",
+   "label": "Seed",
+   "documented_stage": "Seed",
+   "documented_round": "$7M round (seed)",
+   "date": "2022-11-02",
+   "citation": "Google News: Business Insider, 2022-11-02, 'Courtyard Raises $7 Million to Turn Collectibles Into NFTs' (https://www.businessinsider.com/courtyard-y-combinator-web3-nfts-startup-vc-funding-nea-brinks-2022-11)",
+   "agrees": true,
+   "note": "Weak on round name: headline has no round word; 'seed' and NEA via Google News full-text match and the URL slug; the next round was a $30M Series A (FinTech Global, 2025-07-29)."
+  },
+  {
+   "name": "Martian",
+   "invest_year": "2023",
+   "label": "Seed",
+   "documented_stage": "Seed",
+   "documented_round": "Seed ($9M)",
+   "date": "2023-11-15",
+   "citation": "Google News: Maginative, 2023-11-15, 'Martian Emerges from Stealth with $9M Seed Funding to Bring Model Router Tech to Enterprises'; NEA per https://techcrunch.com/2023/11/15/martians-tool-automatically-switches-between-llms-to-reduce-costs/",
+   "agrees": true,
+   "note": ""
+  },
+  {
+   "name": "Ceramic",
+   "invest_year": "2024",
+   "label": "Seed",
+   "documented_stage": "Seed",
+   "documented_round": "Seed ($12M, led by NEA)",
+   "date": "2025-03-05",
+   "citation": "https://techcrunch.com/2025/03/05/anna-pattersons-ceramic-ai-looks-to-help-enterprises-build-models-faster-and-more-efficiently/",
+   "agrees": true,
+   "note": "Announced 2025; NEA site year 2024."
+  },
+  {
+   "name": "Xaira Therapeutics",
+   "invest_year": "2024",
+   "label": "Seed",
+   "documented_stage": "unresolved",
+   "documented_round": "$1B+ launch financing (unnamed)",
+   "date": "2024-04-24",
+   "citation": "Google News: TechCrunch, 2024-04-24, 'Xaira, an AI drug discovery startup, launches with a massive $1B'",
+   "agrees": null,
+   "note": "Launch round led by ARCH and Foresite, not named seed or Series A in coverage."
+  },
+  {
+   "name": "Stride Health",
+   "invest_year": "2014",
+   "label": "Seed",
+   "documented_stage": "unresolved",
+   "documented_round": "$13M round led by Venrock (unnamed)",
+   "date": "2015-05-26",
+   "citation": "https://www.healthcaredive.com/news/stride-health-raises-13m-to-help-self-employed-get-coverage/399710/",
+   "agrees": null,
+   "note": "NEA participated in the 2015 $13M round; NEA site year 2014 suggests an earlier entry; no round named."
+  },
+  {
+   "name": "Atheros Communications",
+   "invest_year": "2000",
+   "label": "Growth",
+   "documented_stage": "Growth",
+   "documented_round": "Series B ($25.3M)",
+   "date": "2000-03",
+   "citation": "https://www.sec.gov/Archives/edgar/data/1140486/000119312503087125/ds1.htm",
+   "agrees": true,
+   "note": "S-1 table: NEA 9 bought Series B 4,329,292 and Series C 464,683; none of Series A."
+  },
+  {
+   "name": "Pharmion",
+   "invest_year": "2001",
+   "label": "Growth",
+   "documented_stage": "Growth",
+   "documented_round": "Series B ($64.9M)",
+   "date": "2001-11",
+   "citation": "https://www.sec.gov/Archives/edgar/data/1203866/000103570403000642/d08255sv1.htm",
+   "agrees": true,
+   "note": "S-1 table: NEA 10 bought Series B 9,547,847 and Series C; none of Series A."
+  },
+  {
+   "name": "Supernus Pharmaceuticals",
+   "invest_year": "2005",
+   "label": "Growth",
+   "documented_stage": "Series A",
+   "documented_round": "Series A preferred (Shire Labs spin-out)",
+   "date": "2005-12/2006",
+   "citation": "https://www.sec.gov/Archives/edgar/data/1356576/000104746910010575/a2201368zs-1.htm",
+   "agrees": false,
+   "note": "S-1: NEA 11 holds 24,965,000 of 49,000,000 Series A; Series A is the only preferred. Growth-sized founding round, named Series A."
+  },
+  {
+   "name": "Echo Global Logistics",
+   "invest_year": "2006",
+   "label": "Growth",
+   "documented_stage": "Growth",
+   "documented_round": "Series D ($17.4M; NEA $13.05M)",
+   "date": "2006-06",
+   "citation": "https://www.sec.gov/Archives/edgar/data/1426945/000104746908005580/a2182822zs-1.htm",
+   "agrees": true,
+   "note": ""
+  },
+  {
+   "name": "Aerohive Networks",
+   "invest_year": "2011",
+   "label": "Growth",
+   "documented_stage": "Growth",
+   "documented_round": "Series D ($25M; NEA $16M)",
+   "date": "2011-03",
+   "citation": "https://www.sec.gov/Archives/edgar/data/1372414/000095012313007395/filename1.htm",
+   "agrees": true,
+   "note": "DRS: NEA in Series D and E tables, not in the Series C table."
+  },
+  {
+   "name": "Braintree",
+   "invest_year": "2012",
+   "label": "Growth",
+   "documented_stage": "Growth",
+   "documented_round": "Series B ($35M, led by NEA)",
+   "date": "2012-10-17",
+   "citation": "https://techcrunch.com/2012/10/17/payments-platform-braintree-raises-35m-from-nea-accel-to-take-on-paypal-and-square/",
+   "agrees": true,
+   "note": "TC drops the letter ('Series funding'); round follows Accel's $34M Series A, existing investors Accel, RRE, Greycroft; NEA new."
+  },
+  {
+   "name": "Desire2Learn",
+   "invest_year": "2012",
+   "label": "Growth",
+   "documented_stage": "Series A",
+   "documented_round": "Series A ($80M, co-led by NEA and OMERS)",
+   "date": "2012-09-04",
+   "citation": "https://techcrunch.com/2012/09/04/online-education-platform-desire2learn-raises-massive-80m-round-from-nea-omers-ventures/",
+   "agrees": false,
+   "note": "First outside money; growth-sized but named Series A."
+  },
+  {
+   "name": "MuleSoft",
+   "invest_year": "2013",
+   "label": "Growth",
+   "documented_stage": "Growth",
+   "documented_round": "Series E ($37M; NEA $25M)",
+   "date": "2013-02",
+   "citation": "https://www.sec.gov/Archives/edgar/data/1374684/000095012316022629/filename1.htm",
+   "agrees": true,
+   "note": ""
+  },
+  {
+   "name": "Acquia",
+   "invest_year": "2014",
+   "label": "Growth",
+   "documented_stage": "Growth",
+   "documented_round": "$50M round led by NEA (letter not named; later-stage by sequence)",
+   "date": "2014-05-27",
+   "citation": "https://techcrunch.com/2014/05/27/drupal-platform-acquia-raises-50m-funding-round-led-by-nea/",
+   "agrees": true,
+   "note": "Round letter not in coverage; existing investors North Bridge, Sigma, Investor Growth Capital, Tenaya from earlier rounds, so it is Series B or later."
+  },
+  {
+   "name": "Appian",
+   "invest_year": "2014",
+   "label": "Growth",
+   "documented_stage": "Growth",
+   "documented_round": "Series B ($37.5M; NEA bought 6,118,418 of 6,120,050 shares)",
+   "date": "2014-02",
+   "citation": "https://www.sec.gov/Archives/edgar/data/1441683/000095012317002630/filename1.htm",
+   "agrees": true,
+   "note": "Series A existed from 2008 (lender warrant); NEA was first outside equity at Series B."
+  },
+  {
+   "name": "Code42",
+   "invest_year": "2015",
+   "label": "Growth",
+   "documented_stage": "Growth",
+   "documented_round": "Series B ($85M, co-led by JMI Equity and NEA)",
+   "date": "2015-10-06",
+   "citation": "https://techcrunch.com/2015/10/06/code42-snares-huge-85m-series-b-investment/",
+   "agrees": true,
+   "note": "Only prior round: $52.5M (Accel-led)."
+  },
+  {
+   "name": "Trevi Therapeutics",
+   "invest_year": "2017",
+   "label": "Growth",
+   "documented_stage": "Growth",
+   "documented_round": "Series C (TPG-led, 2017; NEA also in the 2018 tranche)",
+   "date": "2017-07",
+   "citation": "https://www.sec.gov/Archives/edgar/data/1563880/000095012318012153/filename1.htm",
+   "agrees": true,
+   "note": "NEA holds only via NEA 16 and NEA Ventures 2017 (2017 funds); DRS names NEA in the Series C second tranche ($5.2M)."
+  },
+  {
+   "name": "Echodyne",
+   "invest_year": "2017",
+   "label": "Growth",
+   "documented_stage": "Growth",
+   "documented_round": "Series B ($29M)",
+   "date": "2017-05-22",
+   "citation": "Google News: GeekWire, 2017-05-22, 'Echodyne gets $29M from NEA, Bill Gates and others to boost radar for drones'",
+   "agrees": true,
+   "note": "Headline names NEA; 'Series B' via Google News full-text match (page 403)."
+  },
+  {
+   "name": "Bestow",
+   "invest_year": "2018",
+   "label": "Growth",
+   "documented_stage": "Seed",
+   "documented_round": "Pre-Series A round (~$3M); NEA named an existing investor at the May 2018 Series A",
+   "date": "2017-2018",
+   "citation": "https://www.prnewswire.com/news-releases/bestow-raises-15-million-in-series-a-financing-300651762.html",
+   "agrees": false,
+   "note": "Series A led by Valar 'with participation from existing investors NEA, Core Innovation Capital, 8VC, Morpheus'; total >$18M, so NEA entered at the ~$3M pre-A round. Clear mislabel."
+  },
+  {
+   "name": "Monte Rosa Therapeutics",
+   "invest_year": "2020",
+   "label": "Growth",
+   "documented_stage": "Series A",
+   "documented_round": "Series A-2 ($12.5M, bought entirely by NEA)",
+   "date": "2020-04",
+   "citation": "https://www.sec.gov/Archives/edgar/data/1826457/000095012321004703/filename1.htm",
+   "agrees": false,
+   "note": "NEA then led/joined Series B ($23M) and C. Entry was Series A-2."
+  },
+  {
+   "name": "Pulumi",
+   "invest_year": "2020",
+   "label": "Growth",
+   "documented_stage": "Growth",
+   "documented_round": "Series B ($37.5M, led by NEA)",
+   "date": "2020-10-28",
+   "citation": "https://techcrunch.com/2020/10/28/pulumi-raises-37-5m-series-b-for-its-cloud-engineering-platform/",
+   "agrees": true,
+   "note": "Previous investors Madrona, Tola."
+  },
+  {
+   "name": "Clarifai",
+   "invest_year": "2021",
+   "label": "Growth",
+   "documented_stage": "Growth",
+   "documented_round": "Series C ($60M, led by NEA)",
+   "date": "2021-10-15",
+   "citation": "https://www.gunder.com/en/news-insights/client-news/clarifai-raises-60m-series-c-financing",
+   "agrees": true,
+   "note": "NEA listed among new investors (SiliconANGLE 2021-10-15)."
+  },
+  {
+   "name": "MoonPay",
+   "invest_year": "2021",
+   "label": "Growth",
+   "documented_stage": "Series A",
+   "documented_round": "Series A ($555M, co-led by Tiger Global and Coatue; NEA participated)",
+   "date": "2021-11-22",
+   "citation": "https://www.businesswire.com/news/home/20211122006158/en/Leading-Crypto-Payments-Infrastructure-Provider-MoonPay-Closes-$555-Million-Series-A",
+   "agrees": false,
+   "note": "Company's first round, named Series A, at $3.4B valuation: growth-sized, label arguably right in substance."
+  },
+  {
+   "name": "FTX",
+   "invest_year": "2021",
+   "label": "Growth",
+   "documented_stage": "Growth",
+   "documented_round": "Series B ($900M)",
+   "date": "2021-07-20",
+   "citation": "https://forkast.news/ftx-crypto-exchange-record-series-b-valuation/",
+   "agrees": true,
+   "note": "NEA in the Series B investor list."
+  },
+  {
+   "name": "Uniphore",
+   "invest_year": "2022",
+   "label": "Growth",
+   "documented_stage": "Growth",
+   "documented_round": "Series E ($400M, led by NEA)",
+   "date": "2022-02-16",
+   "citation": "https://inc42.com/buzz/uniphore-enters-unicorn-club-with-400-mn-funding-led-by-nea/",
+   "agrees": true,
+   "note": ""
+  },
+  {
+   "name": "VAST Data",
+   "invest_year": "2023",
+   "label": "Growth",
+   "documented_stage": "Growth",
+   "documented_round": "Series E ($118M, led by Fidelity; NEA participated)",
+   "date": "2023-12-06",
+   "citation": "https://www.calcalistech.com/ctechnews/article/bjfh5gast",
+   "agrees": true,
+   "note": ""
+  },
+  {
+   "name": "Clio",
+   "invest_year": "2024",
+   "label": "Growth",
+   "documented_stage": "Growth",
+   "documented_round": "Series F ($900M, led by NEA, its first investment)",
+   "date": "2024-07-23",
+   "citation": "https://techcrunch.com/2024/07/23/clio-raises-900m-at-a-3b-valuation-plans-to-double-down-on-ai-and-fintech/",
+   "agrees": true,
+   "note": ""
+  },
+  {
+   "name": "Synthesia",
+   "invest_year": "2024",
+   "label": "Growth",
+   "documented_stage": "Growth",
+   "documented_round": "Series D ($180M, led by NEA)",
+   "date": "2025-01",
+   "citation": "https://pulse2.com/synthesia-180-million-series-d-raised-to-advance-ai-video-for-enterprises/",
+   "agrees": true,
+   "note": "Announced Jan 2025; NEA site year 2024."
+  },
+  {
+   "name": "Horizon3.ai",
+   "invest_year": "2025",
+   "label": "Growth",
+   "documented_stage": "Growth",
+   "documented_round": "Series D ($100M, led by NEA)",
+   "date": "2025-06-10",
+   "citation": "https://www.axios.com/pro/enterprise-software-deals/2025/06/10/horizon3ai-100m-series-d-nea",
+   "agrees": true,
+   "note": ""
+  },
+  {
+   "name": "Veza",
+   "invest_year": "2025",
+   "label": "Growth",
+   "documented_stage": "Growth",
+   "documented_round": "Series D ($108M, led by NEA)",
+   "date": "2025-04-28",
+   "citation": "https://www.securityweek.com/veza-banks-108-million-series-d-at-808-million-valuation/",
+   "agrees": true,
+   "note": "NEA not among the named existing backers (Accel, GV, True, Norwest, Blackstone...)."
+  },
+  {
+   "name": "Magma Design Automation",
+   "invest_year": "1998",
+   "label": "Early",
+   "documented_stage": "Growth",
+   "documented_round": "Series B ($4.0M at $1.24)",
+   "date": "1998-05/1998-06",
+   "citation": "https://www.sec.gov/Archives/edgar/data/1065034/000101287001500766/ds1.txt",
+   "agrees": null,
+   "note": "S-1 table: NEA (VII and 9) hold Series B 806,452, C, D; no Series A."
+  },
+  {
+   "name": "Myogen",
+   "invest_year": "1999",
+   "label": "Early",
+   "documented_stage": "Growth",
+   "documented_round": "Series C ($18M at $1.375)",
+   "date": "1999-11/1999-12",
+   "citation": "https://www.sec.gov/Archives/edgar/data/1101052/000103570403000654/d95096sv1.htm",
+   "agrees": null,
+   "note": "Inferred: NEA partner a director since Nov 1999 (Series C close); NEA 9/Ventures 1999 hold 12,727,273 preferred = $17.5M at the $1.375 Series C/D price; none at the $1.00 Series A price."
+  },
+  {
+   "name": "Clovis Oncology",
+   "invest_year": "2009",
+   "label": "Early",
+   "documented_stage": "Series A",
+   "documented_round": "Series A-1 ($10.1M)",
+   "date": "2009-05-15",
+   "citation": "https://www.sec.gov/Archives/edgar/data/1466301/000095012311061021/d82988sv1.htm",
+   "agrees": null,
+   "note": "S-1 related-party table: NEA bought 1,206,897 Series A-1, then A-2 and B."
+  },
+  {
+   "name": "Workday",
+   "invest_year": "2009",
+   "label": "Early",
+   "documented_stage": "Growth",
+   "documented_round": "Series E ($75.7M; NEA $46M)",
+   "date": "2009-04/2009-11",
+   "citation": "https://www.sec.gov/Archives/edgar/data/1327811/000119312512375787/d385110ds1.htm",
+   "agrees": null,
+   "note": ""
+  },
+  {
+   "name": "Tesaro",
+   "invest_year": "2010",
+   "label": "Early",
+   "documented_stage": "Series A",
+   "documented_round": "Series A-1 ($10M; NEA 8,000,000 shares)",
+   "date": "2010-05",
+   "citation": "https://www.sec.gov/Archives/edgar/data/1491576/000104746912003207/a2208385zs-1.htm",
+   "agrees": null,
+   "note": "S-1: NEA and the executives 'completed our Series A preferred stock financing' in May 2010."
+  },
+  {
+   "name": "Cloudflare",
+   "invest_year": "2010",
+   "label": "Early",
+   "documented_stage": "unresolved",
+   "documented_round": "Series A (Nov 2009) or Series B (Jul 2011): sources conflict",
+   "date": "",
+   "citation": "https://www.sec.gov/Archives/edgar/data/1477333/000095012319005710/filename1.htm",
+   "agrees": null,
+   "note": "S-1: NEA's Sandell a director since Nov 2009 (the Series A month); secondary coverage of the Jul 2011 $20M Series B has NEA leading with Pelion and Venrock as existing investors. Not reconciled."
+  },
+  {
+   "name": "Coursera",
+   "invest_year": "2011",
+   "label": "Early",
+   "documented_stage": "Series A",
+   "documented_round": "$16M first institutional round from KPCB and NEA (unnamed; Series A by sequence)",
+   "date": "2012-04-18",
+   "citation": "https://techcrunch.com/2012/04/18/coursera-raises-16m/",
+   "agrees": null,
+   "note": "Round letter not in coverage; first outside money; TC 2015-08-25 names the NEA-led round Series C."
+  },
+  {
+   "name": "Buzzfeed",
+   "invest_year": "2011",
+   "label": "Early",
+   "documented_stage": "Growth",
+   "documented_round": "Series C ($15.5M, led by NEA)",
+   "date": "2012-01-09",
+   "citation": "https://techcrunch.com/2012/01/09/viral-aggregator-buzzfeed-raises-15-5m-to-transform-the-way-people-get-their-news/",
+   "agrees": null,
+   "note": "NEA also led the 2013 Series D. Site year 2011 vs Jan 2012 announcement."
+  },
+  {
+   "name": "DataRobot",
+   "invest_year": "2014",
+   "label": "Early",
+   "documented_stage": "Series A",
+   "documented_round": "Series A ($21M)",
+   "date": "2014-08-15",
+   "citation": "Google News: WSJ, 2014-08-15, 'DataRobot, Run by World's Top Data Scientists, Raises $21M Series A'",
+   "agrees": null,
+   "note": "NEA via Google News full-text match on \"New Enterprise Associates\" (NEA led)."
+  },
+  {
+   "name": "Casper",
+   "invest_year": "2014",
+   "label": "Early",
+   "documented_stage": "Series A",
+   "documented_round": "Series A ($13.1M, led by NEA)",
+   "date": "2014-08",
+   "citation": "https://www.pehub.com/2014/08/casper-snags-13-1-mln-series-a/",
+   "agrees": null,
+   "note": "Mar 2014 $1.85M seed led by Lerer Hippeau (Norwest, Crosslink); NEA not in the seed."
+  },
+  {
+   "name": "Elastic",
+   "invest_year": "2014",
+   "label": "Early",
+   "documented_stage": "Growth",
+   "documented_round": "Series C ($70M, led by NEA)",
+   "date": "2014-06-05",
+   "citation": "https://techcrunch.com/2014/06/05/elasticsearch-scores-70m-in-series-c-to-fund-growth-spurt/",
+   "agrees": null,
+   "note": ""
+  },
+  {
+   "name": "Robinhood",
+   "invest_year": "2015",
+   "label": "Early",
+   "documented_stage": "Growth",
+   "documented_round": "Series B ($50M, led by NEA)",
+   "date": "2015-05-07",
+   "citation": "https://techcrunch.com/2015/05/07/free-stock-trades/",
+   "agrees": null,
+   "note": "Seed (Index, a16z) and Series A (Index) had no NEA."
+  },
+  {
+   "name": "Forethought",
+   "invest_year": "2018",
+   "label": "Early",
+   "documented_stage": "Series A",
+   "documented_round": "Series A ($9M, led by NEA)",
+   "date": "2018-12-04",
+   "citation": "https://techcrunch.com/2018/12/04/forethought-snares-9m-series-a-in-wake-of-battlefield-win/",
+   "agrees": null,
+   "note": ""
+  },
+  {
+   "name": "Perplexity",
+   "invest_year": "2023",
+   "label": "Early",
+   "documented_stage": "Series A",
+   "documented_round": "Series A ($25.6M, led by NEA)",
+   "date": "2023-03-28",
+   "citation": "https://www.prnewswire.com/news-releases/perplexity-ai-launches-ios-version-of-conversational-answer-engine-announces-25-6m-series-a-round-led-by-nea-301782754.html",
+   "agrees": null,
+   "note": "Seed (2022) from angels; NEA new at A."
+  },
+  {
+   "name": "TwelveLabs",
+   "invest_year": "2024",
+   "label": "Early",
+   "documented_stage": "Series A",
+   "documented_round": "Series A ($50M, co-led by NEA and NVentures)",
+   "date": "2024-06-05",
+   "citation": "https://siliconangle.com/2024/06/05/twelve-labs-raises-50m-multimodal-ai-foundation-models-co-led-nea-nvidia/",
+   "agrees": null,
+   "note": "Seed investors (Index, Radical, WndrCo, KIP) listed as previous investors; NEA new."
+  }
+ ],
+ "summary": {
+  "Seed": {
+   "scored": 25,
+   "resolved": 21,
+   "unresolved": 4,
+   "agree": 15,
+   "disagree": 6,
+   "disagree_by_documented_stage": {
+    "Series A": 4,
+    "Growth": 2
+   }
+  },
+  "Growth": {
+   "scored": 25,
+   "resolved": 25,
+   "unresolved": 0,
+   "agree": 20,
+   "disagree": 5,
+   "disagree_by_documented_stage": {
+    "Series A": 4,
+    "Seed": 1
+   }
+  },
+  "Early": {
+   "scored": 15,
+   "resolved": 14,
+   "unresolved": 1,
+   "documented_stage_distribution": {
+    "Growth": 6,
+    "Series A": 8
+   },
+   "growth_detail": {
+    "Series B": 2,
+    "Series C": 3,
+    "Series E": 1
+   }
+  }
+ }
+}

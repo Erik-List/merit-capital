@@ -1,0 +1,11 @@
+"""NeueHealth control check (RESUME step 1, PRO-100 NEA). Both SEC documents were read in this pass."""
+import judge_lib as jl
+
+L = [jl.cls("neuehealth", note=(
+    "Control check: NEA entered at the 2016 Series A as a minority holder (the S-1 table above); control came only "
+    "with its own take-private, announced 2024-12-23 at $7.33 a share for the common and an enterprise value of "
+    "about $1.3 billion, the preferred (held by NEA and 12 other investors) rolled over, and closed 2025-10-02 "
+    "(NeueHealth 8-K). That is the exit, not the entry, so R1 does not apply and the row stays a member, acquired; "
+    "the common's price puts the equity well below $1B, as the Tiger Global, Redpoint and Headline rows read it."))]
+
+jl.write("nh", L)

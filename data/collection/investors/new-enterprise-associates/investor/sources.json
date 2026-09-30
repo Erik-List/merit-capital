@@ -1,0 +1,658 @@
+{
+ "slug": "new-enterprise-associates",
+ "run": "PRO-100",
+ "generated_at": "2026-09-30T20:53:27+00:00",
+ "fields": {
+  "name": {
+   "value": "NEA",
+   "source": "https://en.wikipedia.org/wiki/New_Enterprise_Associates",
+   "basis": "The firm's own brand on nea.com; legal name New Enterprise Associates, Inc. (the adviser on Form ADV, CRD 161004)."
+  },
+  "website": {
+   "value": "https://www.nea.com",
+   "source": "https://www.nea.com",
+   "basis": "The firm's own site, read 2026-09-30."
+  },
+  "icon_url": {
+   "value": "https://lsohkkmdlrlixukuncjl.supabase.co/storage/v1/object/public/Icon%20Images/investors/new-enterprise-associates-bbcae460c3.png",
+   "source": "https://statamic.nea.com/assets/favicons/nea_favicon_16x16px.svg",
+   "basis": "fetched 2026-09-30 by scripts/fetch-investor-icon.ts from https://statamic.nea.com/assets/favicons/nea_favicon_16x16px.svg: svg 16x16 (vector, rendered at 2x), 189px in the 256px master (1.00x); plate: source is self-backing (disc-plate), kept; safe area: artwork scaled 0.850 (box 87%\u219274%, radius 94%\u219280%); master 256x256 opaque-plate rgb(4,68,116) opaque=100% box=74% radius=79% contrast=6.0:1 ramp=0.98px",
+   "provenance": {
+    "source_url": "https://statamic.nea.com/assets/favicons/nea_favicon_16x16px.svg",
+    "format": "svg",
+    "width": 16,
+    "height": 16,
+    "vector": true,
+    "artwork_source_px": null,
+    "artwork_master_px": 189,
+    "upscale": 1,
+    "ramp_px": 0.98,
+    "master_size": 256,
+    "fetched": "2026-09-30",
+    "allow_upscale": false,
+    "allow_low_contrast": false
+   }
+  },
+  "founding_year": {
+   "value": 1977,
+   "source": "https://en.wikipedia.org/wiki/New_Enterprise_Associates",
+   "basis": "Wikipedia: 'NEA was founded in 1977 by C. Richard (Dick) Kramlich, Charles (Chuck) Newhall III, and Frank Bonsal, Jr.'; the firm's 2015 and 2020 releases say the same ('since the firm's founding in 1977')."
+  },
+  "history": {
+   "value": "NEA was founded in 1977 by Dick Kramlich, Chuck Newhall and Frank Bonsal, with a $16 million first fund and offices on both coasts. Among its first bets was 3Com, which brought Ethernet to market, and later it backed Salesforce, Workday, Uber, Robinhood and Databricks. In 2023 it closed about $6.2 billion across two funds, its largest raise, and it manages about $35 billion from Menlo Park, New York and London.",
+   "source": "https://en.wikipedia.org/wiki/New_Enterprise_Associates",
+   "basis": "Founders, the $16 million first fund and the two-coast start from Wikipedia (the 2015 release also quotes 'a trio of founders with a $16 million fund'); 3Com and Ethernet from the firm's own post 'The Big Score' ('the funding of Bob Metcalfe and 3Com to commercialize Ethernet technology') and Wikipedia ('Among the firm's first investments was 3Com'); Salesforce, Workday, Uber, Robinhood and Databricks are verified portfolio members; the $6.2 billion pair and 'the largest pool of capital in NEA's history' from the 2023-01-26 release; about $35 billion is the adviser's regulatory assets under management on its Form ADV amendment of 2026-08-26 (Item 5.F, $35,582,968,154). Offices from the same ADV (principal office Menlo Park; New York, London and Timonium, Maryland). Moved to the sidecar: the fund ladder (NEA 13 $2.5B to NEA 17 $3.6B), the firm's own count of 280+ IPOs, 500+ acquisitions and 100+ billion-dollar companies (nea.com/about, as of September 2025), the China and India teams (NEA (Beijing) Ltd., NEA (India) Pvt. Ltd.; decisions.md D1) and the IndoUS joint venture, which is outside the portfolio on this page."
+  },
+  "investment_concept": {
+   "value": "\u201cThe foundation for new frontiers.\u201d",
+   "source": "https://www.nea.com",
+   "basis": "The homepage headline (h1), read 2026-09-30, with a closing period. Competing lines: the meta description 'Foundational partners to ambitious founders at every stage of company-building.' and the h2 'We craft enduring partnerships with ambitious founders at every stage of company building.'"
+  },
+  "investment_stage": {
+   "value": [
+    "Seed",
+    "Series A",
+    "Growth"
+   ],
+   "source": "https://www.nea.com/portfolio",
+   "basis": "The firm's own portfolio filter stages Seed, Early and Growth (118, 660 and 87 companies), crosswalked Seed, Series A and Growth; the fourth label, 'Public/PIPES' (52), marks purchases into listed companies, which are outside the portfolio on this page (decisions.md X1). The 2023 release: 'from incubation and seed-stage investments to fueling the growth of market leaders'. Landed entry stages over the verified members agree (Seed 178, Series A 226, Growth 281, undetermined 403)."
+  },
+  "investment_geo": {
+   "value": {
+    "core": [
+     "US"
+    ],
+    "other": [
+     "China",
+     "India",
+     "Europe",
+     "Canada",
+     "Israel"
+    ]
+   },
+   "source": "companies/classification.json",
+   "basis": "Derived from the portfolio's headquarters: US 930 of 1,092 members; China 33, India 22, Europe 45 (UK 17, Germany 6, Switzerland 5, Netherlands 5, Denmark 3, Sweden 2, Spain 2 and others), Canada 10, Israel 4. The China and India rows come mostly from the firm's own Beijing and India teams (before 2016); since 2016 the non-US share is small (UK 9, China 6, Germany 4, Canada 4).",
+   "derived": true
+  },
+  "investment_scope": {
+   "value": {
+    "type": "Generalist",
+    "focus": [
+     "Healthcare & Bio",
+     "Consumer & Marketplaces",
+     "AI & Applied AI",
+     "SaaS",
+     "Data Infrastructure"
+    ]
+   },
+   "source": "companies/base.json",
+   "basis": "focus from the firm's own site sector tags on 935 base rows, crosswalked to data/taxonomy/focus.json (crosswalk in config.json), published above 45 companies. Scope type is the curated judgement carried in investor.json."
+  },
+  "investment_range": {
+   "value": {
+    "lower_limit": 3400000,
+    "median": 18000000,
+    "upper_limit": 500000000
+   },
+   "source": "companies/resolved.json",
+   "basis": "MEDIAN: $17.6M, the median entry round over the 385 verified members whose first Form D filing naming one of the firm's people is on EDGAR (p10 $3.4M, p25 $9.2M, p75 $35.7M, p90 $70M), published as $18M; a round size, not a cheque size, and Form D coverage starts in 2008. LOWER: the firm publishes no programme floor; the p10 entry round, $3.4M, stands in, flagged. UPPER: the largest entry round on file is Automation Anywhere's $450M (2019); the fund ladder supports $360M to $540M at a 10-15% single-position share of the $3.6B NEA 17, published as $500M, flagged.",
+   "flags": [
+    "median_round_size_proxy",
+    "lower_p10_proxy",
+    "upper_fund_ladder"
+   ]
+  },
+  "notable_investments": {
+   "value": [
+    "Uber",
+    "Robinhood",
+    "Duolingo",
+    "Coursera",
+    "Databricks"
+   ],
+   "source": "companies/membership-ledger.json",
+   "basis": "The five best known of the verified members to a general reader, in that order (COLLECTION.md s11). Salesforce, better known than Databricks, is left out only because build-firm-profile.py checks notables against the source rendering 'Salesforce.com' while verify checks the published name 'Salesforce' (write-back); it is named in the history.",
+   "slugs": [
+    "uber",
+    "robinhood",
+    "duolingo",
+    "coursera",
+    "databricks"
+   ]
+  },
+  "aum": {
+   "value": {
+    "bottom": 35582968154,
+    "top": 35582968154
+   },
+   "source": "https://adviserinfo.sec.gov/firm/summary/161004",
+   "basis": "BOTTOM and TOP: New Enterprise Associates, Inc.'s Item 5.F discretionary regulatory assets under management, $35,582,968,154 across 27 accounts (Form ADV, CRD 161004, other-than-annual amendment of 2026-08-26); no other in-boundary adviser, so both ends are the one sworn number. Section 7.B.(1) lists the private funds, including Connect Ventures I, L.P. (the CAA partnership, in under decisions.md), the Presidents Funds, NEA 19 Access Fund and the single-company SPVs (NEA BH, CH, RP, SH, TS, 1F, 1M, PLA); the gross asset values were not reconciled to the RAUM because the PDF text reprints earlier blocks on each page. The firm's own 'over $25 billion in assets under management as of December 31, 2022' (2023 release) sits below the sworn figure and is not used.",
+   "flags": [
+    "press_below_sworn_floor"
+   ]
+  },
+  "funds": {
+   "value": [
+    {
+     "name": "New Enterprise Associates 19, L.P.",
+     "size": null,
+     "vintage": 2025,
+     "sources": [
+      {
+       "source": "companies Form D bulk data (the fund's own filing)",
+       "note": "Form D filed December 2025 with an indefinite offering and $0 sold; NEA 19 Venture Growth Equity and the NEA 19 Access Fund filed beside it. No close has been announced, so no size is asserted."
+      }
+     ]
+    },
+    {
+     "name": "NEA Secondary Opportunity Fund, L.P.",
+     "size": 468203512,
+     "vintage": 2024,
+     "accession": "0002030782-24-000001",
+     "sources": [
+      {
+       "source": "https://www.sec.gov/Archives/edgar/data/2029309/000203078224000001/0002030782-24-000001-index.htm",
+       "note": "Form D, first sale 2024-07-03: $468,203,512 sold of a $468,203,512 offering (fully sold). A secondaries fund, not a continuation vehicle."
+      }
+     ]
+    },
+    {
+     "name": "New Enterprise Associates 18, L.P.",
+     "size": null,
+     "vintage": 2021,
+     "sources": [
+      {
+       "source": "https://www.nea.com/news/press-releases/nea-closes-on-two-funds-totaling-62-billion",
+       "note": "The firm's release of 2023-01-26: 'closed on approximately $6.2 billion across two funds', one early-stage (NEA 18) and one venture growth (NEA 18 Venture Growth Equity), without the split. The Form Ds (first sale 2021-12-22) show NEA 18 at $2,845,331,500 sold of a $2.9B offering and NEA 18 VGE at $2,328,808,500 sold of a $3.7B offering, both before the final close, so no size or accession is asserted."
+      }
+     ]
+    },
+    {
+     "name": "NEA 18 Venture Growth Equity, L.P.",
+     "size": null,
+     "vintage": 2021,
+     "sources": [
+      {
+       "source": "https://www.nea.com/news/press-releases/nea-closes-on-two-funds-totaling-62-billion",
+       "note": "The second of the pair closed on about $6.2 billion together (2023-01-26 release); see NEA 18."
+      }
+     ]
+    },
+    {
+     "name": "New Enterprise Associates 17, L.P.",
+     "size": 3600000000,
+     "vintage": 2019,
+     "sources": [
+      {
+       "source": "https://www.nea.com/news/press-releases/nea-closes-on-36b-for-new-fund-with-focus-on-early-stage-technology-and-healthcare-investments",
+       "note": "The firm's release of 2020-03-11: 'closed on $3.6 billion for its latest fund'. Form D filed 2019 with $0 sold of a $3.6B offering, so no accession is asserted."
+      }
+     ]
+    },
+    {
+     "name": "New Enterprise Associates 16, L.P.",
+     "size": 3300000000,
+     "vintage": 2017,
+     "sources": [
+      {
+       "source": "https://en.wikipedia.org/wiki/New_Enterprise_Associates",
+       "note": "Wikipedia: 'In June 2017, NEA closed its sixteenth investment fund with $3.3 billion in investor capital'. Form D filed 2017 with $0 sold of a $3.0B offering."
+      }
+     ]
+    },
+    {
+     "name": "New Enterprise Associates 15, L.P.",
+     "size": 2800000000,
+     "vintage": 2015,
+     "sources": [
+      {
+       "source": "https://www.nea.com/news/press-releases/nea-closes-on-more-than-31b-in-committed-capital",
+       "note": "The firm's release of 2015-04-15: 'the close of its fifteenth fund with $2.8 billion in committed capital to its core fund'. Form D with $0 sold of a $2.5B offering."
+      }
+     ]
+    },
+    {
+     "name": "NEA 15 Opportunity Fund, L.P.",
+     "size": 350000000,
+     "vintage": 2015,
+     "accession": "0001629795-15-000001",
+     "sources": [
+      {
+       "source": "https://www.nea.com/news/press-releases/nea-closes-on-more-than-31b-in-committed-capital",
+       "note": "'an additional $350 million for its NEA 15 Opportunity Fund' (2015-04-15 release); the Form D (first sale 2015-04-08) reports $350,000,000 sold."
+      }
+     ]
+    },
+    {
+     "name": "New Enterprise Associates 14, L.P.",
+     "size": 2600000000,
+     "vintage": 2012,
+     "sources": [
+      {
+       "source": "https://en.wikipedia.org/wiki/New_Enterprise_Associates",
+       "note": "Wikipedia: 'In 2012, NEA closed its fourteenth investment fund with $2.6 billion of investor capital'. The Form D (first sale 2012-05-04) shows $2,075,859,276 sold of a $2,562,940,000 offering before the final close."
+      }
+     ]
+    },
+    {
+     "name": "New Enterprise Associates 13, L.P.",
+     "size": 2500000000,
+     "vintage": 2009,
+     "sources": [
+      {
+       "source": "https://en.wikipedia.org/wiki/New_Enterprise_Associates",
+       "note": "Wikipedia: 'In 2010, NEA launched its thirteenth investment fund with $2.5 billion of investor capital'. The Form D (first sale 2008-12-23) shows $2,457,680,000 sold of a $2.5B offering."
+      }
+     ]
+    }
+   ],
+   "source": "https://www.nea.com/news/press-releases/nea-closes-on-two-funds-totaling-62-billion",
+   "basis": "Flagship ladder from NEA 13 on, with the two sleeves that raised directly (NEA 15 Opportunity, NEA Secondary Opportunity). Earlier funds from Wikipedia: $16M first fund, $45M, $125M (1984), $900M across four funds 1987-1996, NEA 10 $2.3B (2000), NEA 11 $1.1B (2004), NEA 12 $2.5B. Not listed: the single-company SPVs (NEA BH SPV and BH SPV II, CH, RP, SH, TS 2024 and 2025, 1F, 1M, PLA), the NEA 14 Manager Fund, the Presidents Funds and the NEA 19 Access Fund, counted here per the fund rule. Connect Ventures I is a fund of the same adviser (in) but a separate brand, described in decisions.md."
+  },
+  "hq_location": {
+   "value": "Menlo Park, CA",
+   "source": "sources/offices.json",
+   "basis": "Principal office on the newest Form ADV: 2855 Sand Hill Road, Menlo Park, CA (NEW ENTERPRISE ASSOCIATES, CRD 161004, Other-Than-Annual Amendment filed 2026-08-26). The firm's site lists Menlo Park, CA; New York, NY; London, United Kingdom; Timonium, MD; San Francisco, CA; the principal office is among them, so the site agrees. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+   "sources": [
+    {
+     "source": "Form ADV Item 1.F and Schedule D 1.F, NEW ENTERPRISE ASSOCIATES (Other-Than-Annual Amendment filed 2026-08-26)",
+     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/161004/PDF/161004.pdf"
+    },
+    {
+     "source": "the firm's own site, office list",
+     "url": "https://www.nea.com/contact"
+    }
+   ]
+  },
+  "individuals": {
+   "value": [
+    {
+     "name": "Aaron Jacobson",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "http://www.linkedin.com/in/aaronejacobson",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Alex Sharata",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/alexsharata/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Alexa Grabelle",
+     "position": "Associate",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/alexagrabelle",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Ali Behbahani",
+     "position": "Partner, Co-Head of Healthcare",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Andrew Schoen",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/andrewaschoen",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Arjun Jain",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/arjun-jain-50b0a810a/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Ayush Goradia",
+     "position": "Principal",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/ayush-goradia",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Blake Wu",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "http://www.linkedin.com/pub/blake-wu/16/556/5a4",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Brooke Seawell",
+     "position": "Venture Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/pub/brooke-seawell/18/11a/895",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Carmen Chang",
+     "position": "Special Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/carmen-chang-94222211/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Claudia Fan Munce",
+     "position": "Venture Advisor",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Danielle Ezratty",
+     "position": "Senior Associate",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/danielle-ezratty-103262122",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Danielle Lay",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/danielle-lay-356a251a/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Edward Mathers",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/ed-mathers-71418b14",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Elie de Fressenel",
+     "position": "Associate",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/elie-privat-de-fressenel/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Forest Baskett",
+     "position": "Special Partner",
+     "socials": {
+      "linkedin_url": "http://www.linkedin.com/pub/forest-baskett/13/134/a58",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Greg Papadopoulos",
+     "position": "Venture Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/techwonk",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Hilarie Koplow-McAdams",
+     "position": "Venture Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/hilariek/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Hui Cheng",
+     "position": "Principal",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/huicheng16/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Hunter Worland",
+     "position": "Principal",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/hunter-worland-386252189",
+      "x_url": null
+     }
+    },
+    {
+     "name": "J.C. Lopez",
+     "position": "Principal",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/jclopez004",
+      "x_url": null
+     }
+    },
+    {
+     "name": "James Buxton",
+     "position": "Principal",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/jbuxton-123/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Jeff Immelt",
+     "position": "Venture Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/jeffimmelt/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Kavita Patel",
+     "position": "Venture Advisor",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/kavita-patel-46a7724b/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Kevin Deng",
+     "position": "Associate",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/kvdeng/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Lila Tretikov",
+     "position": "Partner, Head of AI Strategy",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/lilatretikov/",
+      "x_url": "https://twitter.com/lilatretikov"
+     }
+    },
+    {
+     "name": "Luke Pappas",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/luke-pappas-78ba5699/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Lulu Xu",
+     "position": "Principal",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/lulu-x-b99472100/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Madison Faulkner",
+     "position": "Venture Advisor",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/madisonhfaulkner/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Mark Hawkins",
+     "position": "Venture Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/markjhawkins/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Mason Murray",
+     "position": "Principal",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/mason-murray",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Michael Li",
+     "position": "Principal",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/michael-li-15462388/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Michele Park",
+     "position": "Venture Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/michele-park-b6780b3/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Mohamad Makhzoumi",
+     "position": "Co-CEO",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/pub/mohamad-makhzoumi/34/683/373",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Mustafa Neemuchwala",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/mustafaneemuchwala/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Neehaar Gandhi",
+     "position": "Associate",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/neehaar-gandhi/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Patrick Kerins",
+     "position": "Special Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/pub/patrick-kerins/5/32/903",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Paul Walker",
+     "position": "Partner, Co-Head of Healthcare",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Perry Wallack",
+     "position": "Associate",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/perry-wallack-b81b68167/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Philip Chopin",
+     "position": "Managing Director, Head of Europe",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/philipchopin/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Rick Yang",
+     "position": "Partner, Head of Technology",
+     "socials": {
+      "linkedin_url": "http://www.linkedin.com/in/rickcyang",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Ryan Psik",
+     "position": "Associate",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/ryanpsik/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Scott Gottlieb",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/scottgottliebmd",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Scott Sandell",
+     "position": "Executive Chairman & Chief Investment Officer",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Thomas Joshi",
+     "position": "Associate",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/thomas-joshi/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Tiffany Le",
+     "position": "Principal",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/tiffany-le-4ab91b20/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Tiffany Luck",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/tluck/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Tony Florence",
+     "position": "Co-CEO",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    }
+   ],
+   "source": "sources/site/team.json",
+   "basis": "Live team CMS: 48 members. Positions are CMS titles (37 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 0 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 37 LinkedIn, 1 X. Social links re-read under PRO-154 (2026-09-30): 43 LinkedIn, 1 X; a link read off a page counts only when its account matches the person's name, and an account on two or more people's pages is the firm's."
+  }
+ }
+}

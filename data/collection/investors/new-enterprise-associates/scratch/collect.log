@@ -1,0 +1,63 @@
+targets: 178 roster names
+wrote /Users/erik/Developer/merit-capital/data/collection/investors/new-enterprise-associates/sources/edgar/formd-sweep.json
+# accessions matched: 2071
+# distinct issuers: 929
+== seeding from EDGAR company search
+   45 entities
+== folding in own pooled Form D vehicles
+   +9 (total 54)
+== co-filer closure (sampling filings of seed entities)
+   79 entities
+   unclassified resolved: 17 partners (people), 1 external co-filers excluded from crawling
+
+wrote data/collection/investors/new-enterprise-associates/entities.json — 79 entities
+  by desk: {'external': 4, 'nea': 75}
+  crawlable (desk != external): 75
+registry: 79 entities · {'external': 4, 'nea': 75}
+crawling 75 (external excluded)
+  25/75 entities · 2524 unique accessions
+  50/75 entities · 2669 unique accessions
+  75/75 entities · 4483 unique accessions
+unique ownership filings: 4483
+  headers 250/4483 · 62 companies
+  headers 500/4483 · 91 companies
+  headers 750/4483 · 124 companies
+  headers 1000/4483 · 127 companies
+  headers 1250/4483 · 128 companies
+  headers 1500/4483 · 138 companies
+  headers 1750/4483 · 148 companies
+  headers 2000/4483 · 152 companies
+  headers 2250/4483 · 154 companies
+  headers 2500/4483 · 154 companies
+  headers 2750/4483 · 156 companies
+  headers 3000/4483 · 160 companies
+  headers 3250/4483 · 168 companies
+  headers 3500/4483 · 213 companies
+  headers 3750/4483 · 226 companies
+  headers 4000/4483 · 226 companies
+  headers 4250/4483 · 226 companies
+
+wrote edgar-companies.json — 226 companies
+  by desk: {'nea': 226}
+base: data/collection/investors/new-enterprise-associates/companies/base.json
+target companies: 582  distinct issuer CIKs: 550
+scanning 74 quarterly datasets (offline)...
+filings collected: 2201
+evidence: 1530/1530 base accessions found
+wrote data/collection/investors/new-enterprise-associates/scratch/issuer-evidence.json (590 CIKs, 257 with a name history)
+
+wrote data/collection/investors/new-enterprise-associates/sources/edgar/formd-issuer-rounds.json
+  companies with Form D history : 543
+  rounds after amendment merge  : 1840 (361 amendments folded in)
+  companies with 2+ rounds      : 398
+  filings the partner sweep never saw: 669
+  companies gaining >=1 such filing  : 231
+  rounds carrying a sale date   : 1831/1840
+
+==== formd-query.py
+
+==== edgar-entities.py
+
+==== edgar-companies.py
+
+==== formd-issuer-rounds.py
