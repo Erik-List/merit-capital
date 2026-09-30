@@ -181,4 +181,18 @@ resumed. 76 base rows.
 
 ## 15. Ingest
 
-See below.
+Through the §9 gate on 2026-09-30, after the closing commit c18ae77c (verify clean, `run.py close` done):
+
+1. Icon: `fetch-investor-icon.ts` from https://www.visionaries.vc/favicon-new.svg, uploaded as
+   `investors/visionaries-club-f83d14983f.png` (provenance in `investor/sources.json`).
+2. `ingest-investor.ts visionaries-club`: 1 investor row upserted.
+3. `ingest-companies.ts --dry-run`: 76 new, 0 removed, from 0 live (first ingest; no removal to explain).
+4. Write: 76 of 76 upserted. Readback (`20vc/scratch/align/readback.ts --investor-row`): csv 76, live 76, missing 0,
+   extra 0, differing cells 0. The database computes the track record at 7 companies of $1B+ (1 of $10B+) and the
+   S2A block at 18 / 5 / 13 / 7 / 53.8%.
+
+Stale sibling rows: none aligned. Rows (Accel, Cherry: private, should read acquired) and Two (Sequoia: acquired,
+should read private) were accepted in `companies/cross-rulings.json`, because the 2026-09-30 precheck found all three
+books failing their own plain verify on unrelated pairs (Accel: KupiVIP vs Balderton; Cherry: flinn-ai's expired
+censor clock; Sequoia: Versatile vs Insight), which the gate treats as a stop for that book. Left for the wave
+alignment (PRO-87).
