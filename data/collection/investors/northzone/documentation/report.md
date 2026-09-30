@@ -32,7 +32,7 @@ The four deltas of the issue, in one line each:
 | Entry stage | Series A 49, Seed 27, Growth 20, Pre-Seed 2; 120 nameable rows undetermined; 2 unnameable |
 | Focus | Consumer & Marketplaces 45, Media, Gaming & Advertising 30, SaaS 27, Fintech & Payments 26, AI & Applied AI 20, and seven more |
 | City | 191 of 220 filled, 42 distinct; London 35, Stockholm 30, Oslo 21, New York 18, Berlin 12 |
-| Rule 10 | 98 rows shared with 33 books; 94 agree, 4 accepted as stale on the other side, 0 disagree |
+| Rule 10 | 98 rows shared with 33 books; 96 agree, 2 accepted as stale on the other side, 0 disagree (after the alignment in section 15) |
 
 ### S2A block
 
@@ -193,7 +193,8 @@ None blocks the ingest; the book was ingested on its current reading.
    Northzone's rows found one other variant pair (`spaceape` / Accel's `space-ape`, which agrees).
 2. **`run.py record` is not idempotent on notes** (around line 1633): `prev.update(rec)` replaces the note
    before the join check runs, so recording the same line twice leaves only the new sentence. Recording a
-   patch twice here dropped five rows' descriptions, restored from HEAD. Build the joined note from the
+   patch twice here dropped five rows' descriptions, restored from HEAD; the same thing appears to have
+   happened to Creandum's Klarna note in 98d1a48d (its original description is gone). Build the joined note from the
    old one first, and skip the join when the new sentence is already in it.
 3. **Common Crawl is the archive layer when the Internet Archive stays blocked for the run**, not only for
    sites it excludes (§1, IVP), and the 2008-2012 ARC crawls reach the older site generations.
@@ -219,4 +220,30 @@ and should not have been; section 9 item 3 is what removes it next time.
 
 ## 15. Ingest
 
-(filled in at the end of the run)
+Through the §9 gate, no approval prompt (Erik, 2026-09-29). Closing commit 186e93cd before any write.
+
+1. **Icon**: uploaded at the profile step (`northzone-8d6d5a3a15.png`, 512 px webclip, ramp 0.91 px); the URL
+   answers 200 and is the one in the committed `investor.json`.
+2. **Investor row**: the first `ingest-investor.ts` refused on a shape violation in the run's own file
+   (`funds` must be `{funds: [...]}`); fixed and committed (3293dd40), then written. The row carries the
+   S2A block (27 / 8 / 19 / 12 / 63.2%) and the track record (218 nameable companies, 9 IPOs, 11 at $1B+).
+3. **Companies**: dry run 220 new, 0 removed, from 0 live, so the removal check had nothing to explain.
+   Written; **readback 220 live, 0 missing, 0 extra, 0 differing cells**.
+
+Stale sibling rows (rule 10 pairs accepted as stale on the other side):
+
+| Book | Row | Outcome |
+| -- | -- | -- |
+| first-round-capital | thirty-madison, private to acquired (Remedy Meds, Sept 2025) | aligned and re-ingested (8c3aed30); readback before showed only that cell, after 0. First Round's plain verify failed on two rows the ICONIQ alignment had raised to $1B+ with uncited stages (K2 Space, Rillet); both now carry `cite_pending`, the marker invariant 8 asks for, as TCV did for Creandum's Rillet |
+| creandum | stockeld-dreamery, defunct to acquired (Bettani Farms, Dec 2025) | aligned and re-ingested (a115b501); readback before only that cell, after 0 |
+| accel | wallapop, private to acquired (Naver, Aug 2025) | **skipped**: Accel's plain verify fails on a dispute this run did not make (KupiVIP: acquired in Accel, defunct in Balderton) |
+| battery-ventures | blitzy, below $1B to $1.4B (May 2026) | **skipped**: Battery's plain verify fails on two disputes this run did not make (Banyan Systems against Greylock; Trip.com against Tiger's Ctrip, which looks like a namesake pair) |
+| lightspeed | cuspai, below $1B to $2.6B (July 2026) | **skipped**: Lightspeed's plain verify fails on a sampled SEC link and two disputes (Faire against Khosla, Yubi against Insight). This pair was also never compared by rule 10 (slug `cuspai` against `cusp-ai`, section 12 item 1) |
+
+The three skipped pairs stay `accepted` in `companies/cross-rulings.json` for the wave alignment PRO-87
+plans; each needs the other book's disputes settled first. Rule 10 on Northzone now reads 96 agree,
+2 accepted, 0 disagree (the Lightspeed pair is not compared, as above).
+
+The TCV session (PRO-169) had uncommitted edits in Accel, Battery and Creandum when this run reached its
+gate; it committed Creandum and reverted its Accel and Battery edits, and reported the same third-book
+disputes, which this run re-checked at source.
