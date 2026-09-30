@@ -1,0 +1,199 @@
+{
+  "_readme": "EDGAR full-text sweep (scripts/edgar-fts-sweep.py): hits for the configured phrases aggregated by registrant; bucket third_party = exit-side disclosure candidates for the judge (S-1 IRA signatories and holder tables, 424B selling stockholders, acquirer S-3/S-4/8-K), own = the investor's entities/people, lp_side = registered funds holding the investor's vehicles, ownership_forms = 13D/G, 3/4 or D filings handled by the entities/ownership layers.",
+  "phrases": [
+    "Project A Ventures",
+    "Project A Opportunity",
+    "Project A Security I",
+    "Project A Services GmbH"
+  ],
+  "own_pattern": "^project a (ventures|opportunity|security|services)",
+  "swept_at": "2026-09-30",
+  "coverage": [
+    {
+      "phrase": "Project A Ventures",
+      "total": 8,
+      "complete": true,
+      "failed_windows": [],
+      "read": 8,
+      "distinct": 8
+    },
+    {
+      "phrase": "Project A Opportunity",
+      "total": 1,
+      "complete": true,
+      "failed_windows": [],
+      "read": 1,
+      "distinct": 1
+    },
+    {
+      "phrase": "Project A Security I",
+      "total": 0,
+      "complete": true,
+      "failed_windows": [],
+      "read": 0,
+      "distinct": 0
+    },
+    {
+      "phrase": "Project A Services GmbH",
+      "total": 0,
+      "complete": true,
+      "failed_windows": [],
+      "read": 0,
+      "distinct": 0
+    }
+  ],
+  "registrants": [
+    {
+      "registrant": "Project A Ventures III GmbH & Co. KG",
+      "cik": "0001769632",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2019-03-04",
+      "last_date": "2019-03-04",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2019-03-04",
+          "adsh": "0001769632-19-000002",
+          "url": "https://www.sec.gov/Archives/edgar/data/1769632/000176963219000002/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1769632/000176963219000002/0001769632-19-000002-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Project A Opportunity II GmbH & Co. KG",
+      "cik": "0001837937",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2021-01-26",
+      "last_date": "2021-01-26",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2021-01-26",
+          "adsh": "0001837937-21-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1837937/000183793721000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1837937/000183793721000001/0001837937-21-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Project A Ventures IV Feeder GmbH & Co. KG",
+      "cik": "0001892828",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2021-11-12",
+      "last_date": "2021-11-12",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2021-11-12",
+          "adsh": "0001892828-21-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1892828/000189282821000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1892828/000189282821000001/0001892828-21-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Project A Ventures V International Feeder SCSp",
+      "cik": "0002048219",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2024-12-13",
+      "last_date": "2024-12-13",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2024-12-13",
+          "adsh": "0002048219-24-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/2048219/000204821924000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/2048219/000204821924000001/0002048219-24-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Project A Ventures V GmbH & Co. KG",
+      "cik": "0002048216",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2024-12-13",
+      "last_date": "2024-12-13",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2024-12-13",
+          "adsh": "0002048216-24-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/2048216/000204821624000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/2048216/000204821624000001/0002048216-24-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "DEMAND MEDIA INC.",
+      "cik": "0001365038",
+      "forms": {
+        "424B3": 1,
+        "S-3/A": 1,
+        "S-3": 1
+      },
+      "first_date": "2014-08-29",
+      "last_date": "2014-09-17",
+      "filings": [
+        {
+          "form": "S-3",
+          "date": "2014-08-29",
+          "adsh": "0001104659-14-064026",
+          "url": "https://www.sec.gov/Archives/edgar/data/1365038/000110465914064026/a14-20115_1s3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1365038/000110465914064026/0001104659-14-064026-index.htm"
+        },
+        {
+          "form": "S-3/A",
+          "date": "2014-09-15",
+          "adsh": "0001104659-14-066382",
+          "url": "https://www.sec.gov/Archives/edgar/data/1365038/000110465914066382/a14-20115_1s3a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1365038/000110465914066382/0001104659-14-066382-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2014-09-17",
+          "adsh": "0001104659-14-066876",
+          "url": "https://www.sec.gov/Archives/edgar/data/1365038/000110465914066876/a14-20115_1424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1365038/000110465914066876/0001104659-14-066876-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1365038/000110465914064026/a14-20115_1s3.htm",
+          "form": "S-3",
+          "date": "2014-08-29",
+          "mentions": 2,
+          "context": [
+            "t Balderton Capital IV, L.P. (3) 439,173 2.25 % 337,826 — — Beagle Limited (4) 25,336 * 25,336 — — BV eVenture Fund II, LP (5) 70,943 * 70,943 — — F+W Investments II LLC - Series 2009 (6) 2,702 * 2,702 — — Greycroft Partners III, L.P.(7) 101,347 * 101,347 — — Project A Ventures GmbH & Co. KG(8) 410,458 2.10 % 410,458 — — *Represents less than 1.0%. (1) Beneficial ownership is determined in accordance with Rule 13d-3(d) promulgated by the SEC under the Exchange Act. (2) Assumes the sale by the selling stockholders of all of the share",
+            "is prospectus. Messrs. Patricof and Sigalow and Ms. Settle disclaim beneficial ownership of such shares except to the extent of any pecuniary interest therein. (8) Uwe Horstmann, Thies Sander, Florian Heinemann and Christian Weiss serve as Managing Members of Project A Ventures GmbH & Co. KG and exercise dispositive power over the shares being registered for resale under this prospectus. PLAN OF DISTRIBUTION We will not receive any proceeds from the sale of our common stock offered by this prospectus. The aggregate proceeds to the s"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1365038/000110465914066382/a14-20115_1s3a.htm",
+          "form": "S-3/A",
+          "date": "2014-09-15",
+          "mentions": 2,
+          "context": [
+            "t Balderton Capital IV, L.P. (3) 439,173 2.25 % 439,173 — — Beagle Limited (4) 25,336 * 25,336 — — BV eVenture Fund II, LP (5) 70,943 * 70,943 — — F+W Investments II LLC - Series 2009 (6) 2,702 * 2,702 — — Greycroft Partners III, L.P.(7) 101,347 * 101,347 — — Project A Ventures GmbH & Co. KG(8) 410,458 2.10 % 410,458 — — *Represents less than 1.0%. (1) Beneficial ownership is determined in accordance with Rule 13d-3(d) promulgated by the SEC under the Exchange Act. (2) Assumes the sale by the selling stockholders of all of the share",
+            "is prospectus. Messrs. Patricof and Sigalow and Ms. Settle disclaim beneficial ownership of such shares except to the extent of any pecuniary interest therein. (8) Uwe Horstmann, Thies Sander, Florian Heinemann and Christian Weiss serve as Managing Members of Project A Ventures GmbH & Co. KG and exercise dispositive power over the shares being registered for resale under this prospectus. PLAN OF DISTRIBUTION We will not receive any proceeds from the sale of our common stock offered by this prospectus. The aggregate proceeds to the s"
+          ]
+        }
+      ]
+    }
+  ]
+}

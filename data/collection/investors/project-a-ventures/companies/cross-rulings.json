@@ -1,0 +1,128 @@
+{
+ "_doc": "Project A's own rulings for COLLECTION.md s10 invariant 10 (same schema as data/collection/cross-investor.json; a session rules in its own investor's file and never edits the shared one).",
+ "distinct": [
+  {
+   "rows": [
+    "project-a-ventures:butter",
+    "y-combinator:butter"
+   ],
+   "note": "Project A = Butter, the Copenhagen online-workshop tool (butter.us, MeetButter ApS, acquired by Miro 2025); y-combinator = Butter, the W25 agent-sandbox company (butter.dev). Different companies under one name."
+  },
+  {
+   "rows": [
+    "project-a-ventures:flow-ai",
+    "a16z:flow"
+   ],
+   "note": "Project A = Flow AI, the Helsinki AI company formerly Flowrite (acquired by Aiven 2026); a16z = Flow, Adam Neumann's US residential real-estate company. Different companies."
+  },
+  {
+   "rows": [
+    "project-a-ventures:nettle",
+    "gv:nettle"
+   ],
+   "note": "Project A = nettle, the London AI risk-assessment platform for commercial insurers (founded 2024); gv = Nettle, the 2012 maker of the MovieGoer iPhone app. Different companies under one name."
+  },
+  {
+   "rows": [
+    "project-a-ventures:tabular",
+    "a16z:tabular"
+   ],
+   "note": "Project A = Tabular (brand Tabula), the Berlin accounting-automation company founded 2024 (YC S24); a16z = Tabular, the Apache Iceberg data company Databricks bought in 2024. Different companies."
+  },
+  {
+   "rows": [
+    "project-a-ventures:waypoint",
+    "y-combinator:waypoint"
+   ],
+   "note": "Project A = Waypoint Commodities, the London B2B chemicals and fertiliser marketplace; y-combinator = Waypoint, the W21 transactional email API (usewaypoint.com). Different companies under one name."
+  },
+  {
+   "rows": [
+    "project-a-ventures:relay",
+    "spark-capital:relay"
+   ],
+   "note": "Project A = Relay, the London e-commerce parcel-delivery company (seed 2023, Series A 2025); spark-capital = Relay, a different company under the same name."
+  },
+  {
+   "rows": [
+    "project-a-ventures:relay",
+    "a16z:relay"
+   ],
+   "note": "Project A = Relay, the London e-commerce parcel-delivery company; a16z = Relay, a different company under the same name (acquired)."
+  },
+  {
+   "rows": [
+    "project-a-ventures:tabular",
+    "benchmark:tabula"
+   ],
+   "note": "Project A = Tabula GmbH (tabula.de), the Berlin accounting-automation company founded 2024 (published as Tabula); benchmark = Tabula Inc., the Santa Clara FPGA chip maker that shut in 2015. Different companies under one name."
+  },
+  {
+   "rows": [
+    "project-a-ventures:tabular",
+    "greylock:tabula"
+   ],
+   "note": "Project A = Tabula GmbH (tabula.de), the Berlin accounting-automation company founded 2024 (published as Tabula); greylock = Tabula Inc., the Santa Clara FPGA chip maker that shut in 2015. Different companies under one name."
+  },
+  {
+   "rows": [
+    "project-a-ventures:tabular",
+    "balderton-capital:tabula"
+   ],
+   "note": "Project A = Tabula GmbH (tabula.de), the Berlin accounting-automation company founded 2024 (published as Tabula); balderton-capital = Tabula Inc., the Santa Clara FPGA chip maker that shut in 2015. Different companies under one name."
+  },
+  {
+   "rows": [
+    "project-a-ventures:tabular",
+    "new-enterprise-associates:tabula-inc"
+   ],
+   "note": "Project A = Tabula GmbH (tabula.de), the Berlin accounting-automation company founded 2024 (published as Tabula); new-enterprise-associates = Tabula Inc., the Santa Clara FPGA chip maker that shut in 2015. Different companies under one name."
+  }
+ ],
+ "accepted": [
+  {
+   "rows": [
+    "project-a-ventures:tabular",
+    "y-combinator:tabula"
+   ],
+   "note": "Same company (the `same` pair above). Tabula GmbH is operating: YC's own page lists it Active (founded 2024, Berlin). YC's `defunct` and its 2015 date were carried from Tabula Inc., the FPGA chip maker Benchmark and Greylock backed. Stale side is YC's. The Project A ingest (PRO-102, 2026-09-30) could not align it: YC's book failed the gate (verify not clean on an unrelated Vela pair; readback before differs by one row). The line and the four distinct pairs YC needs are ready in project-a-ventures/scratch/align/align.py; it aligns at YC's next ingest."
+  }
+ ],
+ "same": [
+  {
+   "rows": [
+    "project-a-ventures:tabular",
+    "y-combinator:tabula"
+   ],
+   "note": "One company: Tabula GmbH (tabula.de), the Berlin accounting-automation company from YC S24. The firm's CMS spells it 'Tabular' with the website tabula.de; YC lists it as Tabula. The name key cannot join the two spellings."
+  },
+  {
+   "rows": [
+    "project-a-ventures:peergrade",
+    "y-combinator:eduflow"
+   ],
+   "note": "One company: the Copenhagen DTU spin-out (YC S17) that sold Peergrade and replaced it with Eduflow in 2020; Multiverse acquired Eduflow in May 2023. Project A lists it as Peergrade, YC as Eduflow."
+  },
+  {
+   "rows": [
+    "project-a-ventures:expressgroup",
+    "insight-partners:expresssteuer-fka-express-group"
+   ],
+   "note": "One company: the Hamburg tax-refund app ExpressSteuer, later Express Group, whose April 2022 Series A Insight led with Project A participating. Project A lists it as ExpressGroup, Insight as ExpressSteuer."
+  },
+  {
+   "rows": [
+    "project-a-ventures:saatchi-art",
+    "balderton-capital:saatchi-online"
+   ],
+   "note": "One company: Saatchi Online, renamed Saatchi Art, acquired by Demand Media in 2014."
+  },
+  {
+   "rows": [
+    "project-a-ventures:zenguard",
+    "hv-capital:zenmate"
+   ],
+   "note": "One company: ZenGuard GmbH, the Berlin maker of the ZenMate browser VPN, acquired by Kape Technologies in 2018."
+  }
+ ]
+}

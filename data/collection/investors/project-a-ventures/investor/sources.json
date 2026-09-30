@@ -1,0 +1,274 @@
+{
+ "slug": "project-a-ventures",
+ "generated_at": "2026-09-30T20:06:55+00:00",
+ "run": "PRO-102",
+ "fields": {
+  "name": {
+   "value": "Project A",
+   "source": "https://www.project-a.vc/",
+   "basis": "the firm's site and its own brand; legal names Project A Ventures GmbH & Co. KG and the adviser Project A Ventures Management GmbH (primary business name PROJECT A, SEC exempt reporting adviser CRD 319556)."
+  },
+  "website": {
+   "value": "https://www.project-a.vc",
+   "source": "https://www.project-a.vc/",
+   "basis": "firm site (Next.js on the Sanity CMS, project nykgtoh6); www.project-a.com until 2025"
+  },
+  "hq_location": {
+   "value": "Berlin, Berlin, Germany",
+   "source": "sources/offices.json",
+   "basis": "Principal office on the newest Form ADV: Julie\u00adWolfthorn Stra\u00dfe 1, Berlin, Berlin, Germany (PROJECT A, CRD 319556, Annual Amendment filed 2026-03-18). The firm's site lists Berlin, Germany; London, United Kingdom; the principal office is among them, so the site agrees. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+   "sources": [
+    {
+     "source": "Form ADV Item 1.F and Schedule D 1.F, PROJECT A (Annual Amendment filed 2026-03-18)",
+     "url": "https://reports.adviserinfo.sec.gov/reports/ADV/319556/PDF/319556.pdf"
+    },
+    {
+     "source": "the firm's own site, office list",
+     "url": "https://www.project-a.vc/contact"
+    }
+   ]
+  },
+  "founding_year": {
+   "value": 2012,
+   "source": "https://index.commoncrawl.org/CC-MAIN-2016-50-index?url=https%3A%2F%2Fwww.project-a.com%2Fen%2Fpress%2Fpress-releases-news%2Faxel-springer-engages-in-project-a-venture&output=json",
+   "basis": "the firm's own release of 2013-10-16: 'Project A Ventures was founded in January 2012 by its managing directors Florian Heinemann, Uwe Horstmann, Thies Sander and Christian Weiss in cooperation with the Otto Group. The Otto Group remains the leading investor with 50 million euros of committed capital.'"
+  },
+  "history": {
+   "value": "Project A was founded in Berlin in 2012 by four former Rocket Internet managers, Florian Heinemann, Uwe Horstmann, Thies Sander and Christian Weiss, with the Otto Group as its first investor. It became known for early bets on WorldRemit, Trade Republic, sennder and Quantum Systems, backed by a large team of operating specialists. In 2025 it closed its fifth fund at \u20ac325 million; the track record on this page covers its venture investments, not its private equity co-investments.",
+   "source": "https://www.project-a.vc/blog/project-a-launches-325-million-fund-to-fuel-europes-earliest-stage-tech-right-from-idea-stage",
+   "basis": "founding, founders and the Otto Group: the firm's 2013 release (above); 'former Rocket Internet managers': Wikipedia's Rocket Internet article ('The former Rocket Internet managers subsequently went on to found the incubator Project A Ventures') and Christian Weiss's 2016 management page ('Founding Managing Director of Rocket Internet'); the bets: the firm's own fund posts of 2022 and 2025 ('Trade Republic, sennder, Zepz plus the most recently announced unicorn, Quantum Systems'); the operating team: the 2016 overview ('nearly one hundred specialists') and the 2022 post ('over 140 experts'); Fund V: EUR 325M, the firm's post of 2025-06-24. The boundary sentence: 13 positions the firm made as private equity co-investments beside a controlling buyout sponsor are excluded as control positions, with HomeToGo (a listed company) and HelloPrint (held through Onlineprinters) (decisions.md D3, R1). Moved here from the page: Axel Springer's EUR 30M commitment of 2013, the London office (2021) and the Studio (2024)."
+  },
+  "investment_concept": {
+   "value": "\u201cFrom ideas to icons.\u201d",
+   "source": "https://www.project-a.vc/",
+   "basis": "The firm's own statement, verbatim from the homepage h1 ('From ideas / to icons') and the title tag ('Project A \u2013 From ideas to icons'), read 2026-09-30, set as one sentence with a closing period. Competing line: the meta description 'Project A is the early-stage VC for entrepreneurs building the next generation of European icons. Since 2012, we've partnered with 130+ founding teams at the earliest and most decisive stages.'"
+  },
+  "investment_stage": {
+   "value": [
+    "Pre-Seed",
+    "Seed",
+    "Series A"
+   ],
+   "source": "https://www.project-a.vc/blog/project-a-ventures-raises-usd375m-fourth-fund",
+   "basis": "the firm's own words: Fund IV 'to invest from pre-seed to Series A' (2022-06-15), Fund V for 'the critical pre-seed and seed stages, and even earlier at the idea stage' (2025-06-24); the landed entry-stage distribution (report.md) is mostly Seed, then Series A and Pre-Seed, with a few Growth entries."
+  },
+  "investment_geo": {
+   "value": {
+    "core": [
+     "Europe"
+    ],
+    "other": [
+     "US"
+    ]
+   },
+   "source": "companies/base.csv",
+   "basis": "derived from hq_country on the landed base (Germany, the UK and the rest of Europe carry most rows; about ten US rows such as Klara, Gabi, Pactum, 11x and Ello); two-label cap. The firm calls itself a European early-stage VC with offices in Berlin, London and Munich."
+  },
+  "investment_range": {
+   "value": {
+    "lower_limit": 338550,
+    "median": 5000000,
+    "upper_limit": 7000000
+   },
+   "source": "https://index.commoncrawl.org/CC-MAIN-2018-51-index?url=https%3A%2F%2Fwww.project-a.com%2Fen%2Fabout-us%2Fscope&output=json",
+   "basis": "lower limit: the firm's stated ticket 'Initially, we invest between EUR 300k and EUR 5m and reserve up to EUR 10m for follow-on financings per company' (its 2018 scope page, captured 2018-12-15): EUR 300,000 @ ECB 2018-12-14 (EUR/USD 1.1285) = $338,550. Upper limit: 'initial cheques up to $7 million' (Fund III release, 2019-09-26). Median: the entry rounds whose size the record states, on 68 member rows (scratch/entry-round-sizes.json), a round size and not the firm's cheque; flagged press-based. The Fund IV and V posts state no ticket."
+  },
+  "notable_investments": {
+   "value": [
+    "Trade Republic",
+    "Voi",
+    "Catawiki",
+    "Quantum Systems",
+    "Zepz"
+   ],
+   "source": "companies/base.csv",
+   "basis": "The five best known of the firm's own companies, most recognised first (PRO-152). Considered next: sennder, Kry (Livi), Spryker, Unmind, 11x. Zepz is WorldRemit (renamed 2021).",
+   "slugs": [
+    "trade-republic",
+    "voi",
+    "catawiki",
+    "quantum-systems",
+    "zepz"
+   ]
+  },
+  "aum": {
+   "value": {
+    "bottom": 2755658750,
+    "top": 2755658750
+   },
+   "source": "https://adviserinfo.sec.gov/firm/summary/319556",
+   "basis": "both ends: the sworn Form ADV Section 7.B(1) gross asset values of the firm's one exempt reporting adviser, PROJECT A VENTURES MANAGEMENT GMBH (CRD 319556, annual amendment of 2026-03-18; sources/registers/adv-7b.json): Ventures III $1,378,584,350; Ventures IV $666,352,550; Ventures V $357,393,550; Ventures II $196,177,350; Opportunity II $77,936,650; Opportunity IIA $42,859,350; Silver Stone GmbH & Co. KG $28,689,050; Security I $7,665,900 = $2,755,658,750. No feeders are listed. The firm's own 'total assets under management to EUR 1.2 billion' (2025) is committed capital, below the sworn gross value (Trade Republic's mark sits in Fund III). The venture funds also hold the private equity co-investments excluded from the base; their share is not disclosed, and Silver Stone's purpose is not stated in the register, so the figure is the whole adviser."
+  },
+  "funds": {
+   "value": [
+    {
+     "name": "Project A Ventures V",
+     "size": 377200000,
+     "vintage": 2025
+    },
+    {
+     "name": "Project A Ventures IV",
+     "size": 375000000,
+     "vintage": 2022
+    },
+    {
+     "name": "Project A Ventures III",
+     "size": 196900000,
+     "vintage": 2019
+    },
+    {
+     "name": "Project A Ventures II",
+     "size": 147200000,
+     "vintage": 2017
+    },
+    {
+     "name": "Project A Ventures (Fund I)",
+     "size": 108500000,
+     "vintage": 2012
+    }
+   ],
+   "source": "https://www.project-a.vc/blog/project-a-launches-325-million-fund-to-fuel-europes-earliest-stage-tech-right-from-idea-stage",
+   "basis": "Fund V: EUR 325M (the firm's post, 2025-06-24) @ ECB 2025-06-24 (EUR/USD 1.1607) = $377.2M. Fund IV: $375M (the firm's post, 2022-06-15). Fund III: EUR 180M ('$200 million (EUR 180 million)', the firm's release of 2019-09-26) @ ECB 2019-09-26 (1.0938) = $196.9M. Fund II: EUR 140M (the firm's release of 2017-02-22, led by the EIF, plus a EUR 40M follow-on vehicle) @ ECB 2017-02-22 (1.0513) = $147.2M. Fund I: EUR 80M, the Otto Group's EUR 50M and Axel Springer's EUR 30M (release of 2013-10-16; the 2017 release: AUM 'from EUR 80 million to EUR 260 million') @ ECB 2013-10-16 (1.3561) = $108.5M, matching the 2016 overview's '110 Million USD Fund'. Not listed: the Opportunity II/IIA and Security I vehicles, Silver Stone GmbH & Co. KG and 'Buyout Fund I' (sizes not stated; the Security vehicles and the buyout fund are counted in the aum basis where the ADV reports them). Feeders: Ventures IV Feeder, Ventures V International Feeder SCSp (Luxembourg)."
+  },
+  "icon_url": {
+   "value": "https://www.project-a.vc/favicon.png",
+   "source": "https://www.project-a.vc/favicon.png",
+   "basis": "The firm's own favicon (the site header's <link rel=\"icon\">, 1440x1440 PNG with a transparent background). Flattened onto its own light blue (190,213,229), the colour of the mark's plate on the site, as sources/site/icon-source-flat.png, because the transparent mark measured 2.00:1 against the default plate; the dry run of fetch-investor-icon.ts on the flattened file passed at contrast 8.6:1, edge ramp 0.77px, keyline OK (sources/site/icon-dryrun.png). The bucket URL replaces this at upload."
+  },
+  "investment_scope": {
+   "value": {
+    "type": "Generalist",
+    "focus": [
+     "Industrial & Robotics",
+     "Consumer & Marketplaces",
+     "AI & Applied AI",
+     "Fintech & Payments",
+     "Healthcare & Bio",
+     "SaaS",
+     "Climate & Energy",
+     "Security"
+    ]
+   },
+   "source": "companies/base.json",
+   "basis": "focus from the firm's own site sector tags on 100 base rows, crosswalked to data/taxonomy/focus.json (crosswalk in config.json), published above 6 companies. Scope type is the curated judgement carried in investor.json."
+  },
+  "individuals": {
+   "value": [
+    {
+     "name": "Anton Waitz",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/antonwaitz/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Christoph R\u00f6sler",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/christoph-roesler/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Daria Gneusheva",
+     "position": "Investment Manager",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/dgneusheva/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Florian Heinemann",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/fheinemann/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Jack Wang",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/jackwanguk/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Malin Posern",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/malinposern/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Marjorie Lengereau",
+     "position": "Investment Manager",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/marjorielengereau/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Miha Pavlovic",
+     "position": "Investment Associate",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/miha-pavlovic-896a24148/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Mila Cramer",
+     "position": "Principal",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/mila-cramer",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Omar Hedeya",
+     "position": "Investment Manager",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/omar-hedeya/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Oskar Lingk",
+     "position": "Senior Investment Associate",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/oskar-nikolas-lingk/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Philipp Werner",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/wernerph/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Thies Sander",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/thies-sander-5a789653/",
+      "x_url": null
+     }
+    },
+    {
+     "name": "Uwe Horstmann",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": "https://www.linkedin.com/in/uwehorstmann/",
+      "x_url": null
+     }
+    }
+   ],
+   "source": "sources/site/team.json",
+   "basis": "Live team CMS: 14 members. Positions are CMS titles (6 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 0 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 14 LinkedIn, 0 X."
+  }
+ }
+}

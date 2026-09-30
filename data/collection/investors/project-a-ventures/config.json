@@ -1,0 +1,262 @@
+{
+ "slug": "project-a-ventures",
+ "name": "Project A",
+ "wayback": {
+  "cdx_domain": "project-a.com",
+  "site_url_base": "https://www.project-a.com",
+  "eras": [],
+  "_eras_note": "Two domains: project-a.com (2012-2025; the portfolio at /portfolio/<slug>, /en/portfolio/<slug> and /de/portfolio/<slug> 2012-2019, a Next.js site from 2022) and project-a.vc (2025-2026, Next.js on the Sanity CMS read live through site_api). project-a.com/companies/<slug> (2022-2024) is the Knowledge Conference's speaker and partner directory, not the portfolio (decisions.md D8). The archive eras are parsed by scratch/archive_listings.py into sources/wayback/parsed/<year>.json with capture_url per row; no era here is a wayback-pull.py parser, so this list stays empty and the parsed files are the record.",
+  "non_company_slugs": [
+   "index",
+   "home",
+   "page",
+   "feed",
+   "search",
+   "tag",
+   "tagged",
+   "category",
+   "author",
+   "all",
+   "see-all",
+   "portfolio",
+   "companies",
+   "company",
+   "team",
+   "people",
+   "about",
+   "about-us",
+   "blog",
+   "news",
+   "media",
+   "press",
+   "presse",
+   "contact",
+   "kontakt",
+   "imprint",
+   "impressum",
+   "privacy-policy",
+   "datenschutz",
+   "jobs",
+   "careers",
+   "career",
+   "karriere",
+   "knowledge",
+   "knowledge-conference",
+   "speakers",
+   "sessions",
+   "working-with-project-a",
+   "arbeiten-mit-project-a",
+   "approach",
+   "studio",
+   "perspectives",
+   "private-equity",
+   "sfdr",
+   "wp-content",
+   "wp-json",
+   "wp-admin",
+   "wp-includes",
+   "sitemap",
+   "robots",
+   "favicon",
+   "en",
+   "de"
+  ]
+ },
+ "roster": {
+  "cdx_patterns": [
+   "project-a.com/team/*",
+   "project-a.com/en/team/*",
+   "project-a.com/de/team/*",
+   "project-a.vc/team/*"
+  ],
+  "slug_re": "/team/([a-z][a-z0-9-]*[a-z0-9])/?$",
+  "listing_href_re": "/team/([a-z][a-z0-9-]*[a-z0-9])/?[\"'?]",
+  "site_team_groups": [
+   "investments"
+  ],
+  "not_a_person": [
+   "index",
+   "team",
+   "people",
+   "partners",
+   "about",
+   "portfolio",
+   "companies",
+   "news",
+   "contact",
+   "jobs",
+   "careers",
+   "all",
+   "page",
+   "feed",
+   "project-a",
+   "investments",
+   "operations"
+  ],
+  "_note": "PRO-102's delta: Project A is an operational VC whose people namespace mixes the investment team with the operating-services staff (finance, legal, IR, and historically the value-creation unit of marketing, engineering, BI, recruiting and sales specialists). The sweep roster is constrained to the site's own 'investments' department (14 of 25 on the live CMS, 2026-09-30) unioned with the Form ADV Schedule A owners (Heinemann, Horstmann, Sander, Waitz as general partners since 2015/2016) and the partners the CMS names on portfolio boards; archived people are admitted only with an investing title. Curated in sources/wayback/partner-roster.json."
+ },
+ "site_api": {
+  "type": "scrape",
+  "entry_stage_fields": [
+   "stage_at_entry_site"
+  ],
+  "entry_stage_listing_url": "https://www.project-a.vc/companies",
+  "_entry_stage_note": "The CMS field projectInvestedAt (pre_seed / seed / series_a / series_b / private_equity) is the firm's own claim about the round it entered: eligible by semantics (COLLECTION.md s5). It rides in each queue item as stage_at_entry_site and is scored blind against the book's documented entry rounds before it labels (decisions.md D10); until then entry_stage_fields stays empty. 'private_equity' names no round and never labels.",
+  "sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/project-a-ventures/sources/site/companies-2026.json",
+    "list": "portfolio-2026",
+    "list_path": "rows",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "sectors": "industries",
+    "extras": [
+     "description",
+     "founded",
+     "founders",
+     "invest_year",
+     "stage_at_entry_site",
+     "fund_site",
+     "status_site",
+     "hq_city_site",
+     "hq_country_site",
+     "venture_themes",
+     "partners",
+     "website",
+     "cms_slug"
+    ]
+   }
+  ],
+  "_note": "www.project-a.vc is Next.js on a Sanity CMS (project nykgtoh6) whose public query API serves the whole dataset (COLLECTION.md s5 ladder step 2): 114 portfolioCompany documents with the firm's own entry year, entry round, fund, status, HQ, industries and board partner; 25 team personas with department; 44 articles; 6 funds (Fund I-V, Buyout Fund I). scratch/sanity.py re-reads any GROQ query.",
+  "entry_stage_confidence": "medium",
+  "_entry_stage_score": "Scored 2026-09-30 blind against the book's documented entry rounds (web_verified rows naming Project A's round; scratch/score_fields.py, scratch/field-score.json; decisions.md R2): the live CMS projectInvestedAt agreed on 48 of 53 (90.6%), the misses being three pre-seeds labelled seed (Baobab, Gabi, Spryker) and two Series A entries labelled seed (42matters, Homeday); the archived 2020-2024 Contentful `investment` agreed on 30 of 38 (78.9%), every miss but two a pre-seed read as Seed (that vocabulary had no pre-seed word); the 2015-2019 page line 11 of 13. Both are eligible (the firm's claim about the round IT entered) and promoted at medium (below 95%), the CMS taking precedence where both exist; private_equity, 'Venture Round', 'Joint Venture', 'Later Stage Acceleration' and 'Succession Arrangement' name no round.",
+  "team_sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/project-a-ventures/sources/site/team-cards.json",
+    "list": "team",
+    "list_path": "rows",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "title",
+     "group",
+     "location",
+     "linkedin_url"
+    ]
+   }
+  ],
+  "team_buckets": {
+   "investments": "investing"
+  },
+  "_team_note": "www.project-a.vc/team (Sanity persona documents): 25 people in two departments; 'investments' (14: eight partners, a principal, investment managers and associates) publishes, 'operations' (11: CFO, general counsel, finance, IR, assistants) is left unmapped so it does not publish. LinkedIn links are the CMS row's own."
+ },
+ "edgar": {
+  "seed_queries": [
+   "project+a+ventures",
+   "project+a+opportunity",
+   "project+a+security"
+  ],
+  "fts_phrases": [
+   "Project A Ventures",
+   "Project A Opportunity",
+   "Project A Security I",
+   "Project A Services GmbH"
+  ],
+  "fts_own_pattern": "^project a (ventures|opportunity|security|services)",
+  "_note": "Entity-qualified phrases only: 'Project A' alone is a generic phrase (project names in thousands of filings). EDGAR company search 2026-09-30: Project A Ventures III GmbH & Co. KG (CIK 1769632, Form D 2019-03), Project A Ventures IV Feeder GmbH & Co. KG (1892828, Form D 2021-11), Project A Ventures V GmbH & Co. KG (2048216, Form D 2024-12), all Julie-Wolfthorn-Strasse 1, Berlin; Project A Ventures V International Feeder SCSp (2048219, Luxembourg, Form D 2024-12). Adviser: PROJECT A VENTURES MANAGEMENT GMBH (primary business name PROJECT A, CRD 319556, exempt reporting adviser, annual amendment 2026-03-18; sources/registers/adv-7b.json)."
+ },
+ "wikipedia": {
+  "phrases": [
+   "Project A Ventures",
+   "Project A (venture capital)"
+  ]
+ },
+ "desks": {
+  "home": "eu",
+  "partition": [],
+  "rank": [
+   "eu",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "eu",
+    "patterns": [
+     "^project a (ventures|opportunity|security|services|studio)",
+     "^silver stone gmbh"
+    ]
+   }
+  ],
+  "_note": "One firm and one adviser (CRD 319556) at Julie-Wolfthorn-Strasse 1, Berlin, with London and Munich offices (decisions.md D1). External namesake patterns are added here once the entity sweep shows any."
+ },
+ "profile": {
+  "adv_crd": 319556,
+  "own_vehicle_pattern": "^(project a (ventures|opportunity|security)|silver stone gmbh)",
+  "focus_min_companies": 6,
+  "focus_crosswalk": {
+   "Finance": "Fintech & Payments",
+   "Climate & Sustainability": "Climate & Energy",
+   "Industrial & Real Assets": "Industrial & Robotics",
+   "Commerce & Consumer Goods": "Consumer & Marketplaces",
+   "Go-to-market & Enterprise tools": "SaaS",
+   "Mobility & Travel": "Consumer & Marketplaces",
+   "Cyber & Risk Tech": "Security",
+   "Media & Entertainment": "Media, Gaming & Advertising",
+   "AI & Data Infrastructure": "AI & Applied AI",
+   "Defence AI Applications": "Industrial & Robotics",
+   "Health": "Healthcare & Bio"
+  },
+  "_note": "One exempt reporting adviser, Project A Ventures Management GmbH (CRD 319556; principal office Julie-Wolfthorn-Strasse 1, Berlin; London office). The live CMS's eleven industry facets crosswalk to the closed twelve; 'Health, Work & Education' mixes health, HR and education companies and is left unmapped, '3D Design' is one company. focus_min_companies about 5% of the ~130-member base."
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "trade republic",
+   "sennder",
+   "kry",
+   "zepz",
+   "catawiki",
+   "spryker",
+   "voi",
+   "quantum systems",
+   "uberall"
+  ],
+  "sample_slugs": [],
+  "shape": {
+   "c2a_rate_max": 0.8
+  },
+  "not_members": [
+   {
+    "name": "Modernizing Medicine",
+    "slug": "modernizing-medicine",
+    "why": "sale consideration: ModMed bought Project A's Klara in 2022 (the firm's own post 'Patient collaboration platform Klara is acquired by ModMed'); the CMS files ModMed under Fund II 2022 with no entry round. The investment is Klara (COLLECTION.md s1, Erik 2026-09-22)"
+   },
+   {
+    "name": "Navan",
+    "slug": "navan",
+    "why": "sale consideration: Navan (TripActions) bought Project A's Comtravo in 2022; the CMS files Navan under Fund II 2022 with no entry round. The investment is Comtravo (COLLECTION.md s1)"
+   }
+  ]
+ },
+ "names": {
+  "published": {
+   "q": "Project Q",
+   "amazd": "Amazd",
+   "pets-deli": "Pets Deli",
+   "metrigo": "Metrigo",
+   "priceloop": "Priceloop",
+   "store2be": "Store2be",
+   "yababa": "Yababa",
+   "stark": "Stark",
+   "tabular": "Tabula",
+   "crossengage": "CrossEngage"
+  }
+ }
+}
