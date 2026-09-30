@@ -34,8 +34,8 @@ The three PRO-102 deltas, all derived from verified facts (`decisions.md`):
   event directory and never entered the base.
 
 A fourth class the issue did not name decided more rows than any delta: **the private equity
-practice (D3, R1).** The firm labels 17 positions private equity. 13 are stakes beside a buyout
-sponsor that holds the majority and leave as `control_position`; HomeToGo (a listed company, bought
+practice (D3, R1).** The firm labels 16 companies private equity. 12 are stakes beside a buyout
+sponsor that holds the majority and leave as `control_position` (15 rows with their name variants); HomeToGo (a listed company, bought
 in 2025) and HelloPrint (held through the Bregal-controlled Onlineprinters group) are out; Yoummday
 and Amboss are ordinary minority growth financings and stay as Growth members. The narrow reading of
 R1 is Erik's call (section 10).
@@ -128,9 +128,9 @@ Cherry's. Its S2A rate is the lowest too, near Creandum and Balderton. The rate 
   backed: Modernizing Medicine (which bought Klara) and Navan (which bought Comtravo). Both are
   `not_member`; Klara and Comtravo are the members and read `acquired`. Demand Media, which bought
   Saatchi Online in 2014, appears only on EDGAR's exit side and never became a row.
-- **The private equity practice (D3, R1).** Out as `control_position` (13): kfzteile24 (EQT, then
-  the 2023 MBO consortium Project A was part of), Onlineprinters (Bregal), LUQOM Group (3i),
-  trendtours (Bregal's succession purchase), YDEON Group (3i), Perfect Drive Sports Group and its
+- **The private equity practice (D3, R1).** Out as `control_position` (12 companies, 15 rows): kfzteile24 (EQT, then
+  the 2023 MBO consortium Project A was part of), Onlineprinters (Bregal), LUQOM Group and its old name Lampenwelt (3i),
+  trendtours (Bregal's succession purchase), YDEON Group and its old name GartenHaus (3i), Perfect Drive Sports Group and its
   short name PDSG (Bregal), WindStar Medical (Oakley), Inwerk (Triton), Amann Girrbach (Capvis),
   Konges Sløjd (3i), NWT Group (KLAR Partners) and Primutec (Buyout Fund I, Trill Impact). Out on
   other tests: HomeToGo (a public-market purchase, T3) and HelloPrint (T2). Members at Growth:
@@ -306,8 +306,8 @@ base agree. Both site generations with a full list (the live CMS, 114 companies,
 
 1. **R1, the private equity class: the broad reading is applied.** A stake the firm records as a
    "PE Co-Investment" beside a sponsor that holds the majority counts as part of the control group,
-   so 13 rows are out. On the narrow reading (only Project A's own stake counts, and it is a
-   minority in every case) twelve of them return as Growth members. kfzteile24 is out on either
+   so 12 companies are out. On the narrow reading (only Project A's own stake counts, and it is a
+   minority in every case) 11 of them return as Growth members. kfzteile24 is out on either
    reading: Project A was part of the 2023 management buy-out.
 2. **R3, an unnamed later round of unstated size does not graduate a seed.** store2be, Toroleo, Kyto
    and Loopline raised a later round the press calls only "seven figures" or "single-digit
