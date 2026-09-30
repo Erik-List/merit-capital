@@ -263,3 +263,10 @@ Cleo and Plusmo acquired; Lightspeed (Faire, Yubi) with CuspAI $2.6B and Influit
 disputes) with Minimum acquired and Super private. Those 12 pairs stay `accepted` in NEA's `cross-rulings.json`,
 stale side the sibling's; the lines are ready in `scratch/align/<book>.jsonl` for whichever run clears those books.
 Greylock's Cleo also carries London, GB, while its own card says San Francisco (a country row, not rule 10; noted).
+
+## 15. Verify-all pass (2026-09-30, after the ingest)
+
+Erik asked the run to clear `verify` on every book where it failed and re-ingest them with this run's findings. Every
+book not in flight now passes plain `verify`; 13 books were re-ingested through the §9 gate, 38 rows in all,
+including the 12 rows the NEA gate had skipped. The full account, commits and the items left for Erik are in
+`scratch/verify-all/REPORT.md`. NEA's accepted rule-10 pairs were all removed: every stale sibling row is aligned.
