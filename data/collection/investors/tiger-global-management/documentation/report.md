@@ -2,7 +2,8 @@
 
 **Linear issue** PRO-167 · **slug** `tiger-global-management` · one run under the merged shape of
 `data/collection/COLLECTION.md`, one session with two usage-limit pauses · report written 2026-09-29.
-**Not ingested: the ingest waits on Erik's approval (section 15).**
+**Ingested 2026-09-30 on Erik's approval: 560 companies live, readback exact (section 15). The sibling
+alignment is partly done: Benchmark aligned; six books wait on a permission step (section 15).**
 
 ---
 
@@ -288,22 +289,60 @@ model-memory lists, 3 headline extractors (Sonnet), full-text triage and registe
 
 ## 14. Prompt count
 
-**3 so far**: the kickoff ("please collect Tiger Global") and two "continue" messages after the usage
-pauses. Corrections from Erik: none. The count is final after the ingest decision.
+**4**: the kickoff ("please collect Tiger Global"), two "continue" messages after the usage pauses, and
+the ingest approval ("ingest", 2026-09-30; Tiger Global kept the old approval gate, COLLECTION.md 9).
+Corrections from Erik: none.
 
-## 15. Ingest (awaiting Erik's approval)
+## 15. Ingest (run 2026-09-30, on Erik's approval)
 
-Order for a first-time investor (COLLECTION.md 9):
+Through the COLLECTION.md 9 gate. Preconditions: plain `verify` re-run clean on the day (the sibling books
+had changed overnight), run closed, closing commit `61633f1f`.
 
-1. Icon: `npx tsx scripts/fetch-investor-icon.ts tiger-global-management data/collection/investors/tiger-global-management/sources/site/icon-tg-monogram.svg`
-2. Investor row: `npx tsx scripts/ingest-investor.ts tiger-global-management`
-3. Companies: `npx tsx scripts/ingest-companies.ts tiger-global-management --dry-run`, then without
-   `--dry-run`, then a readback of every written column against `base.csv`.
+1. Icon: `fetch-investor-icon.ts` uploaded `investors/tiger-global-management-509f71df55.png` (vector
+   source rendered at 2x, white plate, contrast 4.0:1, edge ramp 0.81px); `icon_url` points at the bucket.
+2. Investor row: `ingest-investor.ts` upserted 1 row. It noted "China" as a geography label outside the
+   seed list; the geography list is open by design and three other investors already use "China".
+3. Companies: the dry run planned 560 new, 0 removed, from 0 live (so the removal check had nothing to
+   explain); the write upserted 560/560.
+4. Readback of every written column against `base.csv`, with the investor row: 560 rows, 0 missing,
+   0 extra, 0 differing cells. Committed as `9d97d100`.
 
-With the ingest, under Erik's rule of 2026-09-28, the stale rows in other books named by the accepted pairs
-in `companies/cross-rulings.json` are aligned and re-ingested (figures compared and read back before
-writing): a16z (Airbnb, Cedar, Quora, Revolut, Temporal), Accel (BlackBuck, Koo), Battery (CHEQ,
-GrubMarket, HeadSpin), Benchmark (Quora), EQT Ventures (HeadSpin), Felicis (HeadSpin), Greylock (Airbnb,
-Redfin, Revolut), Lightspeed (Byju's, Frubana, Temporal), Menlo (Sidecar Health), Redpoint (Scribe),
-Ribbit (Avant), Sequoia (Airbnb, Alkira, Eventbrite, Getir, Rogo, Temporal), Spark (Rapyd), Thrive (Rogo),
-Y Combinator (Airbnb, Frubana, Meesho).
+**Namesakes the published names surfaced.** Once the in-flight marker was gone, the published names
+"Trip.com" (Ctrip) and "Weave" (Weave Communications) met different companies in other books and failed
+their verify: Battery's and Redpoint's Trip.com (the US travel site of the Gogobot line, bought by Ctrip in
+2017) and Y Combinator's weave-2 (weave.in) and weave-3 (weaveos.com). All four are ruled `distinct` in
+this book's `companies/cross-rulings.json` (32 distinct pairs now).
+
+**Sibling alignment** (Erik's rule of 2026-09-28; `scratch/align/`: `compare.py` finds the pairs,
+`align.py` writes one line per stale row, `reingest.py` runs the per-book gate with a readback before the
+write). The pairs: 24 accepted pairs whose other side is still stale (9 more were already aligned by
+other runs overnight), and 18 same-band rows more than 20% off a newer Tiger mark.
+
+- **Done: Benchmark** (Quora: $500M, January 2024, below $1B). Readback before exact, 1 row changed, dry
+  run 0 new and 0 removed, readback after 0 differing cells, commit `2c1a17b1`. The pair it surfaced with
+  a16z's stale Quora is accepted in Benchmark's own `cross-rulings.json`; this book's Benchmark pair is
+  removed.
+- **Waiting on a permission step**: 8VC (Blend cap), Insight (CRED $4.5B), Menlo (Sidecar Health $1B,
+  Chime cap), Redpoint (Scribe $1.3B, Cockroach Labs $5B, Nextdoor cap), Ribbit (Avant $1.975B, CRED
+  $4.5B), Thrive (Rogo $2B, Blend Labs cap). All six passed the precheck (clean tree, no in-flight
+  marker, verify clean, readback before exact) and their lines are in `scratch/align/<book>.jsonl`, not
+  recorded. The auto-mode permission check refused the batch that would have re-ingested them (and
+  created Thrive's own `cross-rulings.json` for the Rogo pair against Sequoia's stale row), so nothing
+  was written. To finish, from the repository root:
+  `python3 data/collection/investors/tiger-global-management/scratch/align/reingest.py 8vc insight-partners menlo-ventures redpoint-ventures ribbit-capital`,
+  then accept `thrive-capital:rogo ~ sequoia-capital:rogo` in a new `thrive-capital/companies/cross-rulings.json`
+  and run `reingest.py thrive-capital`.
+- **Skipped at the gate** (verify not clean on pairs between other books, or the book in flight; the
+  stale rows stay and are listed for their next ingest):
+  - a16z: Cedar, Quora, Temporal. Its verify fails on `scribenote`, a censored graduation that is now 24 months old.
+  - Accel: BlackBuck, Koo, Facebook cap, UiPath cap. Fails on KupiVIP against Balderton.
+  - Battery: CHEQ, GrubMarket, ServiceTitan cap. Fails on Banyan Systems against Greylock.
+  - Greylock: Redfin, Revolut, Blend cap. Fails on Coda against Khosla.
+  - Lightspeed: Byju's, Frubana, Temporal, Blend cap. Fails on Yubi against Insight and Faire against Khosla.
+  - Sequoia: Eventbrite, Getir, Rogo, Temporal, UiPath cap. Fails on Versatile and Root against Insight,
+    Faire against Khosla, and Houzz and Rillet without `cite_pending`.
+  - Spark: Rapyd. Fails on Plume against Insight.
+  - Y Combinator: Frubana, Meesho, EquipmentShare, TRM Labs. Its readback before differs by one name, and
+    its verify fails on a dozen pairs with other books.
+  - General Catalyst: Kavak, Innovaccer. A run is in flight.
+  - a16z's Cedar would stay out in any case: its row mixes two companies (section 10, ruling 7).
