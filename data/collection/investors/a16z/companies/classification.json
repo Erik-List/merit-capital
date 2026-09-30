@@ -3521,11 +3521,12 @@
   "hq_city": "Chicago",
   "hq_city_confidence": "high",
   "hq_city_source": "formd_address",
-  "note": "merchant loyalty; a16z led the $10M Series B (2012), Jordan board; faded out by ~2019",
+  "note": "merchant loyalty; a16z led the $10M Series B (2012), Jordan board; faded out by ~2019 | Aligned 2026-09-30 from the NEA run (PRO-100, rule 10): In November 2018 Mobivity Holdings bought the Belly product line from Hatch Loyalty (Wikipedia), a sale of the business as a going concern, so the row reads acquired rather than defunct.",
   "slug": "belly",
-  "status": "defunct",
+  "status": "acquired",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-align-pro100"
  },
  "belong": {
   "entry_stage": "Pre-Seed",
@@ -6918,13 +6919,18 @@
   ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "note": "Formerly Aetherflux (rebranded Cowboy Space Corporation, May 2026). Founder Baiju Bhatt personally funded the Oct-2024 seed with no outside investors; a16z's first money was the $50M Series A (Apr 2025, Index Ventures/Interlagos-led, a16z named as participant) - re-staged from Seed. Company has since raised a $275M Series B at a $2B valuation (May 2026); known.valuation_range (below_1b) is stale and worth a look outside this pass.",
+  "note": "Formerly Aetherflux (rebranded Cowboy Space Corporation, May 2026). Founder Baiju Bhatt personally funded the Oct-2024 seed with no outside investors; a16z's first money was the $50M Series A (Apr 2025, Index Ventures/Interlagos-led, a16z named as participant) - re-staged from Seed. Company has since raised a $275M Series B at a $2B valuation (May 2026); known.valuation_range (below_1b) is stale and worth a look outside this pass. | Aligned 2026-09-30 from the NEA run (PRO-100, rule 10): Cowboy Space closed a $275M Series B led by Index Ventures at a $2B post-money valuation in May 2026 (TechCrunch, 2026-05-11), so the row moves to 1b_plus.",
   "seed_to_a_graduation": null,
   "slug": "cowboy-space-corporation",
   "status": "private",
+  "valuation_asof": "2026-05",
+  "valuation_citation": "https://techcrunch.com/2026/05/11/there-arent-enough-rockets-for-space-data-centers-cowboy-space-raised-275-million-to-build-them/",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-a16z"
+  "valuation_range": "1b_plus",
+  "valuation_range_source": "web_verified",
+  "valuation_source": "web_verified",
+  "valuation_usd": 2000000000,
+  "who": "agent-align-pro100"
  },
  "crater-studios": {
   "entry_stage": "Pre-Seed",
@@ -12737,7 +12743,9 @@
   "entry_stage_citation": "https://techcrunch.com/2011/05/06/grubwithus-funding/",
   "entry_stage_confidence": "high",
   "entry_stage_source": "web_verified",
-  "flags": [],
+  "flags": [
+   "stale"
+  ],
   "focus": "Consumer & Marketplaces",
   "focus_source": "model",
   "graduation_citation": "https://techcrunch.com/2012/05/30/grubwithus-munches-on-5m/",
@@ -12748,13 +12756,18 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "$1.6M seed (May 2011, TechCrunch; a16z among the investors per the Series A writeup) followed by a $5M Series A led by GRP Partners/Mark Suster (May 2012, TechCrunch, named Series A).",
+  "note": "$1.6M seed (May 2011, TechCrunch; a16z among the investors per the Series A writeup) followed by a $5M Series A led by GRP Partners/Mark Suster (May 2012, TechCrunch, named Series A). | Aligned 2026-09-30 from the NEA run (PRO-100, rule 10): GrubWithUs did not wind up: the same corporation (EDGAR CIK 1552345, same EIN) was renamed 1661, Inc. and became GOAT, whose $195M Series F of June 2021 valued it at $3.7B (Retail Dive), the last priced mark and stale beyond 24 months, so the row reads private at that mark.",
   "seed_to_a_graduation": "graduated",
   "slug": "grubwithus",
-  "status": "defunct",
+  "status": "private",
+  "valuation_asof": "2021-06-25",
+  "valuation_citation": "https://www.retaildive.com/news/goat-valuation-doubles-to-37b-following-195m-funding-round/602436/",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-a16z"
+  "valuation_range": "1b_plus",
+  "valuation_range_source": "web_verified",
+  "valuation_source": "web_verified",
+  "valuation_usd": 3700000000,
+  "who": "agent-align-pro100"
  },
  "gusto": {
   "entry_stage": "Growth",
@@ -27016,16 +27029,31 @@
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
+  "graduation_asof": "2026-09-30",
+  "graduation_confidence": "medium",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: a16z.com/announcement/investing-in-scribenote/ (2024-09-23, read 2026-09-30, the only a16z post on the company, no update) + the a16z investment list + googlenews_firm (\"Scribenote\" a16z, 2026-09-20) -> only the September 2024 seed",
+   "formd: Scribenote Inc. (CIK 0002036179) submissions read 2026-09-30 -> one Form D, 0002036179-24-000002 filed 2024-09-18 (first sale 2024-06-28, $7,084,999 sold, SAFEs converting into Series 1 and Series 2 Seed Preferred), no later filing",
+   "googlenews: \"Scribenote\" in the en-US edition (2026-09-30) -> 10 results: the September 2024 seed (Reuters, BetaKit, citybiz, University of Waterloo) and 2025 product coverage (DVM360, National Law Review, VIN News 2025-11-03); no later round",
+   "googlenews_local: \"Scribenote\" in the en-CA edition (2026-09-30) -> 10 results, the same set; no later round",
+   "betakit: WordPress archive search \"Scribenote\" (2026-09-30) -> 4 posts, only the 2024-09-24 seed article names the company; no later round",
+   "techcrunch: Scribenote (2026-09-20) -> 0 results",
+   "crunchbase_news: Scribenote (2026-09-20) -> 1 result, the September 2024 deals roundup of the seed",
+   "websearch: \"Scribenote veterinary AI scribe Series A funding\" (2026-09-30) -> only the $8.2M seed of September 2024 (GlobeNewswire release, BetaKit, Silicon Republic)",
+   "company: scribenote.com (read 2026-09-30) -> operating, 6,000+ veterinarians, 'independently owned', no funding news",
+   "sibling: none; no other book's base.csv carries Scribenote"
+  ],
   "hq_country": "CA",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "a16z leads Scribenote's $11M CAD (~$8.2M USD) seed round, Sep 23-24 2024 (BetaKit, citybiz, University of Waterloo - a16z named as lead). Entry inside the 24-month window as of 2026-09-21 (month precision puts the latest possible day, 2024-09-30, just inside): censored. No later round found across googlenews/googlenews_local/googlenews_firm.",
-  "seed_to_a_graduation": "censored",
+  "note": "a16z leads Scribenote's $11M CAD (~$8.2M USD) seed round, Sep 23-24 2024 (BetaKit, citybiz, University of Waterloo - a16z named as lead). Entry inside the 24-month window as of 2026-09-21 (month precision puts the latest possible day, 2024-09-30, just inside): censored. No later round found across googlenews/googlenews_local/googlenews_firm. | S2A: not graduated, the CAD 11M ($8.2M) seed a16z led in September 2024 is still the last round at 24 months, with no later Form D from Scribenote Inc. and no later round in the press, and the company operates independently with no acquisition or shutdown.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "scribenote",
   "status": "private",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-a16z"
+  "who": "agent-verifyall-pro100"
  },
  "season-health": {
   "entry_stage": "Series A",
