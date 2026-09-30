@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/Users/erik/Developer/merit-capital/scripts/wikipedia-insource.py", line 112, in <module>
+    main()
+  File "/Users/erik/Developer/merit-capital/scripts/wikipedia-insource.py", line 64, in main
+    base = {loose(r["name"]): r["slug"] for r in json.load(open(P.base_json))}
+                                                           ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/erik/Developer/merit-capital/data/collection/investors/visionaries-club/companies/base.json'

@@ -1,0 +1,304 @@
+{
+  "slug": "visionaries-club",
+  "name": "Visionaries Club",
+  "wayback": {
+    "cdx_domain": "visionaries.vc",
+    "site_url_base": "https://visionaries.vc",
+    "eras": [],
+    "_eras_note": "visionaries.vc belonged to a Japanese Toastmasters club (Visionaries Toastmasters Club, Musashi-Kosugi) until 2019; every capture before 2020 is that club and is not read. The firm's own site has four generations, none of which fits a generic era parser: a 2020 placeholder, a Gatsby build 2020-2022 that carried no portfolio list at all (page-data.json holds no query data; the page component bundle, fetched from the Internet Archive on 2026-09-30, has the manifesto text and a 'See portfolio' button linking to the firm's Crunchbase page), WordPress 2023-2025 (/portfolio/ with per-company /portfolio/<slug>/ posts, portfolio-sitemap.xml) and the Kirby single page of 2026 (read live through site_api). scratch/archive-parse.py reads the captures (Internet Archive and Common Crawl) and writes sources/wayback/parsed/<year>.json in wayback-pull's shape, every row carrying its exact capture_url (COLLECTION.md s1: a capture URL is a valid citation).",
+    "non_company_slugs": [
+      "index",
+      "home",
+      "page",
+      "feed",
+      "search",
+      "tag",
+      "category",
+      "author",
+      "all",
+      "see-all",
+      "companies",
+      "portfolio",
+      "team",
+      "people",
+      "news",
+      "stories",
+      "unplugged",
+      "editorial",
+      "about",
+      "contact",
+      "imprint",
+      "impressum",
+      "datenschutz",
+      "disclaimer",
+      "sfdr",
+      "privacy-policy",
+      "jobs",
+      "careers",
+      "wp-content",
+      "wp-json",
+      "wp-admin",
+      "wp-includes",
+      "sitemap",
+      "robots",
+      "favicon"
+    ]
+  },
+  "roster": {
+    "cdx_patterns": [
+      "visionaries.vc/team/*"
+    ],
+    "slug_re": "/team/([a-z][a-z0-9-]*[a-z0-9])/?$",
+    "listing_href_re": "/team/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+    "not_a_person": [
+      "index",
+      "team",
+      "people",
+      "partners",
+      "about",
+      "portfolio",
+      "news",
+      "contact",
+      "jobs",
+      "careers",
+      "all",
+      "page",
+      "feed"
+    ],
+    "_note": "The roster is curated (sources/wayback/partner-roster.json) from the live team section (sources/site/team-cards.json), the archived team sections of the Gatsby and WordPress sites, the Form D related persons of the three US-filing vehicles (Robert Lacher, Sebastian Pollok) and the firm's own promotion posts, each person with a dated basis."
+  },
+  "site_api": {
+    "type": "scrape",
+    "entry_stage_fields": [],
+    "_entry_stage_note": "The live Kirby page publishes no round, year or fund per company, so there is no field to score or promote (COLLECTION.md s5).",
+    "sources": [
+      {
+        "parser": "file_list",
+        "path": "data/collection/investors/visionaries-club/sources/site/companies-2026.json",
+        "list": "companies-2026",
+        "list_path": "rows",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "extras": [
+          "website",
+          "claim",
+          "description",
+          "spotlight"
+        ]
+      },
+      {
+        "parser": "file_list",
+        "path": "data/collection/investors/visionaries-club/sources/site/companies-tomorrow-2026.json",
+        "list": "tomorrow-2026",
+        "list_path": "rows",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "extras": [
+          "website",
+          "claim",
+          "fund_site"
+        ]
+      }
+    ],
+    "_note": "visionaries.vc (2026) is Kirby CMS; the portfolio ships server-rendered in the single page (59 companies, read 2026-09-30 by scratch/site-live.py). tomorrow.vc is VISIONARIES TOMORROW, the firm's industrial deep-tech fund (Visionaries Club Tomorrow Fund I GmbH & Co. KG, on the same ADV); its Svelte homepage lists 10 companies in the 'Change Makers' carousel (scratch/site-tomorrow.py). Earlier tomorrow.vc captures render only the carousel's first slide ('01 / 04' in 2024, '01 / 08' in 2025), so the live ten are the list.",
+    "team_sources": [
+      {
+        "parser": "file_list",
+        "path": "data/collection/investors/visionaries-club/sources/site/team-cards.json",
+        "list": "team",
+        "list_path": "rows",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "extras": [
+          "title",
+          "linkedin_url",
+          "bio"
+        ]
+      }
+    ]
+  },
+  "edgar": {
+    "seed_queries": [
+      "visionaries+club"
+    ],
+    "fts_phrases": [
+      "Visionaries Club"
+    ],
+    "fts_own_pattern": "^visionaries club",
+    "_note": "Kickoff 2026-09-30, EDGAR company search: Visionaries Club Seed Fund I GmbH & Co. KG (CIK 1861538), Growth Fund I (1861059) and Late Growth I (1886703), each one Form D of 2021 filed from Brunnenstr. 24, 10119 Berlin, with Robert Lacher and Sebastian Pollok as executive officers and Visionaries Club GmbH and Visionaries Club Fund I Admin GmbH as related entities. Adviser: Visionaries Club GmbH, exempt reporting adviser, CRD 317147, SEC 802-122841 (ADV of 2026-03-24, sources/registers/adv-7b-funds.json)."
+  },
+  "wikipedia": {
+    "phrases": [
+      "Visionaries Club"
+    ]
+  },
+  "desks": {
+    "home": "eu",
+    "partition": [],
+    "rank": [
+      "eu",
+      "unknown"
+    ],
+    "classify": [
+      {
+        "desk": "eu",
+        "patterns": [
+          "^visionaries club"
+        ]
+      }
+    ],
+    "_note": "One adviser, Visionaries Club GmbH (CRD 317147), advising all eleven vehicles on its ADV: Seed Fund I and II (with a feeder), Growth Fund I and II (with a feeder), Late Growth I to IV and Tomorrow Fund I (decisions.md D1). Offices in Berlin and London."
+  },
+  "profile": {
+    "adv_crd": 317147,
+    "own_vehicle_pattern": "^visionaries club (seed|growth|late growth|tomorrow)",
+    "focus_min_companies": 5,
+    "focus_crosswalk": {},
+    "_note": "One exempt reporting adviser; no Item 5.F, so the 7.B gross asset values are the sworn floor (COLLECTION.md s11)."
+  },
+  "verify": {
+    "text_mention_leaks": [],
+    "cofiler_leaks": [],
+    "known_positions": [
+      "lovable",
+      "n8n",
+      "pigment",
+      "miro",
+      "choco",
+      "truelayer",
+      "black forest labs",
+      "langdock",
+      "tacto"
+    ],
+    "sample_slugs": [],
+    "shape": {
+      "c2a_rate_max": 0.8
+    },
+    "not_members": [
+      {
+        "name": "UiPath",
+        "slug": "uipath",
+        "why": "LP-founder association, not a position (decisions.md D4): the firm's 'Humility feeds boldness' story profiles UiPath's founder Daniel Dines, a Visionaries LP; no Visionaries round in UiPath found (Google News 2026-09-30)"
+      },
+      {
+        "name": "Supercell",
+        "slug": "supercell",
+        "why": "LP-founder association, not a position (D4): the firm's story on Ilkka Paananen's Supercell is a founder profile; no Visionaries round found"
+      },
+      {
+        "name": "Deel",
+        "slug": "deel",
+        "why": "partner's previous firm (D5, T4): Robert Lacher's own bio credits Deel to La Famiglia; no Visionaries round found"
+      },
+      {
+        "name": "Groq",
+        "slug": "groq",
+        "why": "partner's previous firm (D5, T4): Lacher's bio credits Groq to La Famiglia; no Visionaries round found"
+      },
+      {
+        "name": "Parloa",
+        "slug": "parloa",
+        "why": "partner's previous firm (D5, T4): Judith Dada's bio lists Parloa among her La Famiglia / General Catalyst companies; no Visionaries round found"
+      },
+      {
+        "name": "Orbem",
+        "slug": "orbem",
+        "why": "partner's previous firm (D5, T4): Dada's La Famiglia portfolio; no Visionaries round found"
+      },
+      {
+        "name": "Buynomics",
+        "slug": "buynomics",
+        "why": "partner's previous firm (D5, T4): Dada's La Famiglia portfolio; no Visionaries round found"
+      },
+      {
+        "name": "Ethon",
+        "slug": "ethon",
+        "why": "partner's previous firm (D5, T4): Dada's La Famiglia portfolio; no Visionaries round found"
+      },
+      {
+        "name": "Adyen",
+        "slug": "adyen",
+        "why": "LP association (D4): the homepage lists Pieter van der Does of Adyen as an LP; no Visionaries round"
+      },
+      {
+        "name": "Hugging Face",
+        "slug": "hugging-face",
+        "why": "LP association (D4): the homepage lists Thomas Wolf of Hugging Face as an LP; no Visionaries round"
+      },
+      {
+        "name": "Spotify",
+        "slug": "spotify",
+        "why": "LP association (D4): named among the 'luminary founders' LP companies on the homepage"
+      },
+      {
+        "name": "HelloFresh",
+        "slug": "hellofresh",
+        "why": "LP association (D4): named among the LP founders' companies on the homepage"
+      },
+      {
+        "name": "DeepMind",
+        "slug": "deepmind",
+        "why": "LP association (D4): named among the LP founders' companies on the homepage"
+      },
+      {
+        "name": "FlixBus",
+        "slug": "flixbus",
+        "why": "LP association (D4): FlixBus's founders are backers of Visionaries Tomorrow (tomorrow.vc) and named on the homepage"
+      },
+      {
+        "name": "Swarovski",
+        "slug": "swarovski",
+        "why": "LP association (D4): an industrial-family LP (homepage; tomorrow.vc backers)"
+      },
+      {
+        "name": "Stihl",
+        "slug": "stihl",
+        "why": "LP association (D4): Selina Stihl is an LP (homepage)"
+      },
+      {
+        "name": "Siemens",
+        "slug": "siemens",
+        "why": "LP association (D4): an industrial-family LP company (homepage)"
+      },
+      {
+        "name": "Henkel",
+        "slug": "henkel",
+        "why": "LP association (D4): an industrial-family LP company (homepage)"
+      },
+      {
+        "name": "Haniel",
+        "slug": "haniel",
+        "why": "LP association (D4): Franz Haniel is a Visionaries Tomorrow backer"
+      },
+      {
+        "name": "Fiege",
+        "slug": "fiege",
+        "why": "LP association (D4): Felix Fiege is a Visionaries Tomorrow backer"
+      },
+      {
+        "name": "Heraeus",
+        "slug": "heraeus",
+        "why": "LP association (D4): Frank Stietz of Heraeus is a Visionaries Tomorrow backer"
+      },
+      {
+        "name": "Babor",
+        "slug": "babor",
+        "why": "LP association (D4): Isabel Bonacker of Babor is a Visionaries Tomorrow backer"
+      }
+    ],
+    "_not_members_note": "Membership traps written at kickoff 2026-09-30 before any verdict (COLLECTION.md s10 invariant 11): companies the firm's own pages name through an LP founder or a partner's previous firm, each checked on Google News for a Visionaries round (none found).",
+    "_known_positions_note": "Personio removed 2026-09-30: ruled a partner-carried La Famiglia deal (decisions.md R1)."
+  },
+  "names": {
+    "_published_note": "COLLECTION.md s8 (Erik 2026-09-24): the brand in normal caps; the companies' own lowercase stylings stay (11x, automaited, incident.io, n8n, turian). tomorrow.vc renders SirenOpt in capitals; the company writes SirenOpt.",
+    "published": {
+      "sirenopt": "SirenOpt"
+    }
+  }
+}

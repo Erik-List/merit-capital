@@ -1,0 +1,77 @@
+{
+  "_readme": "EDGAR full-text sweep (scripts/edgar-fts-sweep.py): hits for the configured phrases aggregated by registrant; bucket third_party = exit-side disclosure candidates for the judge (S-1 IRA signatories and holder tables, 424B selling stockholders, acquirer S-3/S-4/8-K), own = the investor's entities/people, lp_side = registered funds holding the investor's vehicles, ownership_forms = 13D/G, 3/4 or D filings handled by the entities/ownership layers.",
+  "phrases": [
+    "Visionaries Club"
+  ],
+  "own_pattern": "^visionaries club",
+  "swept_at": "2026-09-30",
+  "coverage": [
+    {
+      "phrase": "Visionaries Club",
+      "total": 3,
+      "complete": true,
+      "failed_windows": [],
+      "read": 3,
+      "distinct": 3
+    }
+  ],
+  "registrants": [
+    {
+      "registrant": "Visionaries Club Seed Fund I GmbH & Co. KG",
+      "cik": "0001861538",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2021-09-29",
+      "last_date": "2021-09-29",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2021-09-29",
+          "adsh": "0001861538-21-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1861538/000186153821000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1861538/000186153821000001/0001861538-21-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Visionaries Club Growth Fund I GmbH & Co. KG",
+      "cik": "0001861059",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2021-09-29",
+      "last_date": "2021-09-29",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2021-09-29",
+          "adsh": "0001861059-21-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1861059/000186105921000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1861059/000186105921000001/0001861059-21-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Visionaries Club Late Growth I GmbH & Co. KG",
+      "cik": "0001886703",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2021-11-09",
+      "last_date": "2021-11-09",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2021-11-09",
+          "adsh": "0001886703-21-000002",
+          "url": "https://www.sec.gov/Archives/edgar/data/1886703/000188670321000002/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1886703/000188670321000002/0001886703-21-000002-index.htm"
+        }
+      ],
+      "bucket": "own"
+    }
+  ]
+}

@@ -1,0 +1,1440 @@
+{
+ "_readme": "Press sweep for Visionaries Club deals (recall layer, COLLECTION.md s3/s5).\n\nGoogle News RSS through scripts/graduation-surfaces.py (paced by the shared\nthrottle), one query per phrase per half-year window 2019-2026, so each\nwindow stays under the feed's ~100-item cap. Every headline is kept with its\ndate, source and Google id; nothing is judged here. Output:\nsources/web/press-sweep.json. Usage: python3 press-sweep.py\n",
+ "queries": {
+  "\"Visionaries Club\" after:2019-01-01 before:2019-07-01": {
+   "status": "ok",
+   "n": 0,
+   "items": []
+  },
+  "\"Visionaries Club\" after:2019-07-01 before:2020-01-01": {
+   "status": "ok",
+   "n": 0,
+   "items": []
+  },
+  "\"Visionaries Club\" after:2020-01-01 before:2020-07-01": {
+   "status": "ok",
+   "n": 1,
+   "items": [
+    {
+     "date": "2020-04-16",
+     "source": "Crunchbase News",
+     "title": "Berlin’s Choco Raises $30.2M, Doubles Valuation to $250M - Crunchbase News",
+     "gid": "CBMilAFBVV95cUxOWkZhdnY2SUg4d1lGYzJydDRhdWdtSXRWYTZBY283Y1ExbzFjSEdyQzdfSzFGRkJTWU5UYWxhX0NHY1phWUZ1dXd1RjRjRm8waGY5SUVTTzJmU1hWSDlGbFJWZ05ZaXE3QmFGSGNGcm8xVUxYNmNlSVJJaVdETi1SY05xWHAtRENhWUJRbGxfOEFma0R1",
+     "rounds": [],
+     "amounts": [
+      "$250M",
+      "$30.2M"
+     ]
+    }
+   ]
+  },
+  "\"Visionaries Club\" after:2020-07-01 before:2021-01-01": {
+   "status": "ok",
+   "n": 0,
+   "items": []
+  },
+  "\"Visionaries Club\" after:2021-01-01 before:2021-07-01": {
+   "status": "ok",
+   "n": 0,
+   "items": []
+  },
+  "\"Visionaries Club\" after:2021-07-01 before:2022-01-01": {
+   "status": "ok",
+   "n": 2,
+   "items": [
+    {
+     "date": "2021-09-07",
+     "source": "startupticker.ch",
+     "title": "Ledgy completes $10 million series A round - startupticker.ch",
+     "gid": "CBMifEFVX3lxTFBkRF9jZzlQUmlKLWdZak14WlRrT3o3Z0VnbkhkaEVzdjNXV0owSEo5ZWVXM05mVFZvX2UzckxUSTRqQVlWOGZYdHFiU1VJYVB5Q2hQZzZvN1hIRXpRaURfeEF1U2xhN2NSaGUyWnpKYXd0WFc5NGo2V1AwcVA",
+     "rounds": [
+      "series a"
+     ],
+     "amounts": [
+      "$10 million"
+     ]
+    },
+    {
+     "date": "2021-12-08",
+     "source": "businessinsider.com",
+     "title": "See the 12-page pitch deck that landed legal-tech startup CourtCorrect nearly $3 million in seed funding - businessinsider.com",
+     "gid": "CBMiogFBVV95cUxNVmVaRTNIUFV6THpoSHczWmdjaWtBUjBZZ01ZX0JuVlNDNXVzYlh4X2toUUtKMDhfTnJMd2M3ZldscVNyR29nRU1HMHU4MXRWSGFwVWRKdDJ1NkVGeEtSSjgxQTFVWGtJR0JkM0FYY1hfekk0b3A2c2VSXzc2Q3ZHeXhaOXZLMHNmcjUxUC1QTkdTcFZ1TTU4SzNpNW1yLVV2Z1E",
+     "rounds": [
+      "seed funding"
+     ],
+     "amounts": [
+      "$3 million"
+     ]
+    }
+   ]
+  },
+  "\"Visionaries Club\" after:2022-01-01 before:2022-07-01": {
+   "status": "ok",
+   "n": 7,
+   "items": [
+    {
+     "date": "2022-02-10",
+     "source": "techcrunch.com",
+     "title": "Insify is modernizing insurance, but this time for SMEs - techcrunch.com",
+     "gid": "CBMikwFBVV95cUxOX2JqY0E5d2gtem5UUW9oY09ISThJSGFZZ1NTYWNPQmZIcUtpTklJRm1lTG5GYnpaclZVdzhHNl9Ubzk3QjFuMUlNVi1WU2xXNjN0OXNxWVo0ODFSbXBJaG5aOTY2eFc4dkV0cDBxb2sxTWNrYjhHQXN3OEJZUTZocTBwVEZJN2dwelFQQXRVUXR2SVk",
+     "rounds": [],
+     "amounts": []
+    },
+    {
+     "date": "2022-03-22",
+     "source": "Tech.eu",
+     "title": "Munich-based Tacto procures €5.3 million to transform industrial supply management - Tech.eu",
+     "gid": "CBMinwFBVV95cUxQUnROOVRKMnBMNURoN0VFb3BhTDhWY0Vzb2tqNHlobl91RFJSU3NISWx6djJUN2IyaC01d1VhT1NiaHRJNnZuNGRKQ0JtZkNTWHQ5Slp2ZlQ4Mm9XSEZsOTFPb0Y3ODhaNWdVSnJHUF8yWWtWRWFlT0dlb0xpZFVoOXZfQkNxVThOSDR1RlpIRkp1VHB1LThDbk14aDJNSDQ",
+     "rounds": [],
+     "amounts": [
+      "€5.3 million"
+     ]
+    },
+    {
+     "date": "2022-04-05",
+     "source": "Sifted",
+     "title": "The biggest German VC deals so far this year - Sifted",
+     "gid": "CBMiWEFVX3lxTFBmcFVIWGhpXzZUdDFEZDhaTnlkeEdtVmszWWNKUVBXUXV1ekRUbFNhM3pIWElnQkNMbzQwcTZreEdLb2xtdFI2d1k1blhyV0cyR1lBNmd5MHY",
+     "rounds": [],
+     "amounts": []
+    },
+    {
+     "date": "2022-04-12",
+     "source": "eu-startups.com",
+     "title": "Berlin-based foodtech startup Choco bites into €102 million to become Germany’s latest unicorn - eu-startups.com",
+     "gid": "CBMiygFBVV95cUxNN1A5RXZaaUJCeUFDM3pRc0MtQi1PbG5vOWxZRWVsMjNrYlVJczkxbk9JbEdSYTg2Q2xLT3BuRW5NVWw4SzR2OHB0YTZENW9veWViY0d2MFAxRjR0UlBiRVpDNmJoZ3VQQXNrbjlGbTZvcm1WVXh2WHNUYWJpNmVtRWw1Q29FclVOSFdKNF9YazEzSTFCelk3eG12elRNRHh0S000Z0RvY3d6YVM4VWZjUG4yYlp6c2pyYmhySEVFYW9NZ0twNUtWdzRn",
+     "rounds": [],
+     "amounts": [
+      "€102 million"
+     ]
+    },
+    {
+     "date": "2022-05-10",
+     "source": "techcrunch.com",
+     "title": "Berlin’s GetHenry breaks into last-mile delivery e-bike scene with $17.4M seed - techcrunch.com",
+     "gid": "CBMisAFBVV95cUxNQWVabF8zUEZfUlNkSEpNdmJibFh5dmQ1TzNSajMyZ3lyZHNwR1pXeWE4U0pVUFlPT2xsQ3JUcWhibjQxRTJyMktzUGVjQVY1cG0yTlprckVoTHh5Z2xpdTJxMlFVYXJhNkxBekl1S2o0QjBwaU9lU1p0ZWlyYjMweVVCM0gwZXRMWm44ZzNOUk5QY2twT2pfYVdQTWdUUU11VUtPQzNIZjhySFJJSjVOYg",
+     "rounds": [
+      "seed"
+     ],
+     "amounts": [
+      "$17.4M"
+     ]
+    },
+    {
+     "date": "2022-05-26",
+     "source": "businessinsider.com",
+     "title": "GetHenry: Mobility Startup Raises $17.4 Million for European Expansion - businessinsider.com",
+     "gid": "CBMiqgFBVV95cUxNN0JOM2JsVFQzRWVEZ3NVQi1kVVRkUjI1WDlHUnhfWmZXd1JYM2xJVTBXaUNSWXowQlNOcWRZMkNMNUZsNElCREFOeGVtelNNVi1KZ0poampmQ2Z6dHphQVJ2UjhlR19vS29lN081MFk3VVNoWDFLN2xDblpoQ193azdiZm04RW9LdFJ3eHhKWnB4bDRlcDhLNzlWbU81SGJzSDFCRUMwWWwxdw",
+     "rounds": [],
+     "amounts": [
+      "$17.4 Million"
+     ]
+    },
+    {
+     "date": "2022-06-23",
+     "source": "Business Insider Deutschland",
+     "title": "Hanno Renners Investments: Der Personio-CEO setzt auf diese Startups - Business Insider Deutschland",
+     "gid": "CBMisAFBVV95cUxQcmx2dXJ3YWNzTzlzTFQtcjl3OHdCejBqUWVieGZwMm9oRE5oMTlPbk9BWEpVd0tYZUU2Ql91a1Z5WE52Y3pWV2tNV0RBNFp0bERxTFpSU0ZpVlZ1X20xVGtFOG9na0hwdXF0UU9pRVhuTXNKa1V4RVJjc1FQWjU2OG5HZDlla244NThjeEI0T2NtMU9RdHV5LU95WlNwTVYxMXF1WGhTNzVpMGdOZ0Nzcg",
+     "rounds": [],
+     "amounts": []
+    }
+   ]
+  },
+  "\"Visionaries Club\" after:2022-07-01 before:2023-01-01": {
+   "status": "ok",
+   "n": 3,
+   "items": [
+    {
+     "date": "2022-09-21",
+     "source": "eu-startups.com",
+     "title": "Zurich-based Ledgy secures €22 million to encourage a culture of ownership through the power of equity - eu-startups.com",
+     "gid": "CBMi1gFBVV95cUxPNlVQelhNQ0hrWUdyd2dHVndsUVExdC1oZWpRRGNFWTZsRTBITTNCcktkZzhVLTI4eF9hOWVXR2V3bFk3NXZpemplYXVpOEJPclhScEoyX19aX056Q3Qxa0dPa29hTTNPNVdMS19NRU9hUnI4aTEtRmplQURHOUhvc0xSX25jZXpIaGxWVmROZ1JBV3FZaUNCMTNBQkNQSEJHUExPdExYTGctbzdEMEViMEJrTS15TTJRcXBMWUh0d21WVHNGOTdwbGF1aDdUaUJDc3VnRGFB",
+     "rounds": [],
+     "amounts": [
+      "€22 million"
+     ]
+    },
+    {
+     "date": "2022-09-22",
+     "source": "techcrunch.com",
+     "title": "Berlin's Visionaries Club VC boosts its funds with €400M worth of fresh capital for B2B investments - techcrunch.com",
+     "gid": "CBMizgFBVV95cUxNR3IwVGxycG5hWXRETTZtMXJiVzh4UlJlTmRmS294R0pSZ0lmWVVHLUw4cm5ONDI1U2F1RDhkeF9yc1U1anpyMVJ3Ny1zT3hFT1BtZm82M2xsY3V2NkhTNmlrN3dTUlkwajlFbk1VenFLbndRVm9ubTQ3R2YyckU5eHZYaUgzTDdYQ2hiMVBNN05sZkVJeXBXVlZhV1ZfT3ZSZGM3VGZ0bHN3YU1PTklJTmR4MUJCaUhpNVZJeHVCWHg3Wk54emt1dlM1TFgyQQ",
+     "rounds": [],
+     "amounts": [
+      "€400M"
+     ]
+    },
+    {
+     "date": "2022-11-30",
+     "source": "Baltimore Magazine",
+     "title": "Philosophy Winery Brings New Vintages to Baltimore - Baltimore Magazine",
+     "gid": "CBMitwFBVV95cUxQU3VGNlg1a1pEUnBCV3pXODFQTG91bjdFZG5sM0s5OXpXZWV6aHZpaW9UQlNwTXBwejFDM0JtMUVsbVU1VzZOV2I1TWVFdzI1aE52UTJJY0J0WXNlSlcxY3V1MHJLamN2TGpZb3cwYmVTeUZnU2RkZHhjZ1d5RDZQWTVUWHQwUXdhUWpYQllQbEtoWlJ4cnBQYkVEaW5DZGppZkJGdVNHZEJzMmRpYWJDN0VMZTNJelE",
+     "rounds": [],
+     "amounts": []
+    }
+   ]
+  },
+  "\"Visionaries Club\" after:2023-01-01 before:2023-07-01": {
+   "status": "ok",
+   "n": 5,
+   "items": [
+    {
+     "date": "2023-02-01",
+     "source": "businessinsider.com",
+     "title": "These are the 27 most exciting European fintech startups to watch in 2023, according to venture capitalists - businessinsider.com",
+     "gid": "CBMikwFBVV95cUxPWmVFdXBGSnowUmd4ZzZRTks1SGRBeWJnZWs2QWFtdmFFNG5feVk0UzJUZ0wteHpTVEU3V0txUnlHVDdzejNxck1UaFNsYnJuRlJ5TUd2dGVaUTlaSG5Ha2dMWGxxcEhLNzJCM0QxR1JEV1VsNl81TVo4dnB1M1JlalBzdlVPSTZpem1SOGduRUxsdWs",
+     "rounds": [],
+     "amounts": []
+    },
+    {
+     "date": "2023-03-21",
+     "source": "businessinsider.com",
+     "title": "Two: B2B Payments Fintech Startup Raises $19.3 Million Series a Round - businessinsider.com",
+     "gid": "CBMiowFBVV95cUxONWU4X0t6UVZKemlfY2kyMTI3dDQ4OFlsVjhpWGdUZ0xDN0pGanduX2Jmc2pVUUtfanFHVGNxN0stdWpOVGpNZHZoOTVKM1ZCNzJrVEYwTjFpblhfS2dtSmlTNTNJZ1B1ZWd1dG96c2p0SzV3SnRnNTBFSXFIN2dmbG5DOHZtQ0VTVnNDbFVuNHktVVZpLXhENmxQbHhLeExYMnlR",
+     "rounds": [
+      "series a"
+     ],
+     "amounts": [
+      "$19.3 Million"
+     ]
+    },
+    {
+     "date": "2023-05-16",
+     "source": "businessinsider.com",
+     "title": "Pledge: Carbon Accounting Startup Raises $10 Million Series a - businessinsider.com",
+     "gid": "CBMisgFBVV95cUxQTWdzdHlqZjZtV3lnRFJ5dHZ3OE82YkJTeHM5SFNvZEtIUEtUNGVtTEJUdjB1d2g0T1M0Mjg2ZFdUX3F0SFpCSEh3MXdzNnQ5U3lNa1RLbWVBOWtUYVk5U1ZhVzVWQUxTcEpjbHJCRHZFLUN1eE93Mm02WVI2d3Q3SmlJazJWeWhpMGhPcUlTdW5iTm52S0tRVmJ6blNka2tHWi1HRVRaRWFQamdqRVFHSnVR",
+     "rounds": [
+      "series a"
+     ],
+     "amounts": [
+      "$10 Million"
+     ]
+    },
+    {
+     "date": "2023-06-08",
+     "source": "businesscloud.co.uk",
+     "title": "Founder taking Harley Street global secures £42m - businesscloud.co.uk",
+     "gid": "CBMiiAFBVV95cUxNdlVpR3NhaXlKLXhtVlFHMVMzZndjbDJtVU9hZktSMjNhSmdsQS1sQVZtZFZGS1NTMjhBQy1qT211UDVEYjh1Ul9maXM4eElneEFvSUZEMUJhUnB2LUtSd2h4bTNyQzFUZ3NHMmFRSlBXWUktVklvbzYwZ1F6R2cxX3BRVTZ0WVEx",
+     "rounds": [],
+     "amounts": []
+    },
+    {
+     "date": "2023-06-09",
+     "source": "Insurance Journal",
+     "title": "Insify Raises €10 million Series A Extension Led By Munich Re - Insurance Journal",
+     "gid": "CBMifkFVX3lxTE1abzkxWUE1aHR0YUlFVlozdjYtRTczTHZzR1pRU2Z2b3VzZWxsZHk4eVkzLWZDVTVSUkdXRG1sRHp2R2lkMlZIQlNWVU05dzJmek01MGRRWWhvUlNyTmgyajRaTnlZMzk5RzNlaUpJTDV3YXVWQWN2LVRBWC1Fdw",
+     "rounds": [
+      "series a"
+     ],
+     "amounts": [
+      "€10 million"
+     ]
+    }
+   ]
+  },
+  "\"Visionaries Club\" after:2023-07-01 before:2024-01-01": {
+   "status": "ok",
+   "n": 10,
+   "items": [
+    {
+     "date": "2023-07-13",
+     "source": "MobiHealthNews",
+     "title": "Causaly scores $60M to enhance AI platform for biomedical research - MobiHealthNews",
+     "gid": "CBMimgFBVV95cUxPa1NGR2JLQURUU2RodkRvT3FQU0J0OEhqRjVyb2ZRbllzUDRSeFhEYktWZkJpZ2taS1pvR2VZU2hJV1FRZUZ2Q25EemNWelBnMmlKdjdZekxmUmMzX1MxTXJfb3JvdlFoeVRSYlZaTWFWYjdrVTlTcFRHNy0zazdSQ182NndBTXhsQ1Jhd3VrbUtueXJ1V0lRc193",
+     "rounds": [],
+     "amounts": [
+      "$60M"
+     ]
+    },
+    {
+     "date": "2023-07-13",
+     "source": "Business Wire",
+     "title": "Causaly Raises $60 Million in Series B Funding to Catalyze AI-powered Preclinical Discovery - Business Wire",
+     "gid": "CBMi5AFBVV95cUxPMnJKT09UMGMwaVplQ3FsTDR5NUF4bGlJci1VTzBwd1p4ZjJjeGVOSVVIY09WQTA0SXhjS0RTUG51TTdVR2NUeTVyZTRZMXhyZ191U19oYWo3T1ZPRFBIcndzTnFYVV9WR2lvQk9kRWpfNzlTM2M2ZVNSRGNwV0VTLUp6NG1qQnl4ZHJabnV2Z0U1a2diWXozemhrQzZ5UWtYMHhCQllLdWkyMldmM0tzYnVsbXp3T3VHN29YZWtVWDdCVGk4UjA3Z2EwX2syR0NnNE5BY3hhRkE2LWo4REUzODlwTEQ",
+     "rounds": [
+      "series b"
+     ],
+     "amounts": [
+      "$60 Million"
+     ]
+    },
+    {
+     "date": "2023-07-13",
+     "source": "techcrunch.com",
+     "title": "Causaly, an AI platform for drug discovery and biomedical research, raises $60M - techcrunch.com",
+     "gid": "CBMisAFBVV95cUxQVzZwck1OR2pIbk9SeG1MbVdRbzZaYjlGVzc0QjBWN0I0MGlVWnpTRDdIcm9fU2daS2Y5TG1Hc2Mxd0VXQVBoYlpOR0xObDN3NHZzY0MtRTRQdU5YRG1id2xXMWJzRHBqY0s4S0h4Ylloa0l1dWczVGtJTUNpY2ppQ1IxV0JmRlJWdFp1OHQxT0p5cVZkSV9jOWRfYzNEbmhIM3I0a1psUlJpSjdjdWIxLQ",
+     "rounds": [],
+     "amounts": [
+      "$60M"
+     ]
+    },
+    {
+     "date": "2023-07-27",
+     "source": "Bike Europe",
+     "title": "German fleet and subscription startup Cycle Mobility raises €10.3 million - Bike Europe",
+     "gid": "CBMipgFBVV95cUxOTEdTRWhiYUtYLVVldjZCakJTcUh1NjZabVVYclo5ZEtkT25jdmJ2MmxsNkF0MVhqY3hNQ1Bna080bTVHOExRUkVZMHlDbVpyYUR0cnc2X3g0OEZJSkw2MDdSMHY5d3p5cFpTNzN2Wi1pX3p2a01oZ2pQRGhYdjVEaHhsdmtwY0o3NnRRdTZtY2xpWllUcHVYczJmcXBXdlJRN2xRUlJ3",
+     "rounds": [],
+     "amounts": [
+      "€10.3 million"
+     ]
+    },
+    {
+     "date": "2023-09-27",
+     "source": "businessinsider.com",
+     "title": "Apron: London Fintech Startup Raises $15 Million From Index Ventures - businessinsider.com",
+     "gid": "CBMiqAFBVV95cUxQS3VZUkdtREhaamRkRHFNUnZONGZLNll3bkNHS2swbklWVUlwYXJzTVZzZGpiX1ZjQ1Q3LVJlNERGNWMyaU0tQjZKMzJzZE9IMjRTUU1EQkNsRXdHUkZ5YnRTb1pWTDlWZG1BbUJkQTVZR1NOdzRTaUxmRVFIMFZVMHZYNHluRjE0V0xmbTlwa1ZjMWY1RmJGcXp6cWpoSi1td2Z2bVVlRTY",
+     "rounds": [],
+     "amounts": [
+      "$15 Million"
+     ]
+    },
+    {
+     "date": "2023-09-28",
+     "source": "techcrunch.com",
+     "title": "Apron grabs $15 million to simplify invoice processing - techcrunch.com",
+     "gid": "CBMikgFBVV95cUxONFVEWVhlZXZpeHA5SDBKUmpTMjVkT0xUemZNY2RxSzcyLXoydmhmZWVjdU8ycG5STi16TEVqZ1B2OERrb1luWEtaaGIyOHJYd2NUREs4Y0ZnODJvUjg4bHNOT0I5THlJWlhzUHZiUW53aURTUkFkcTROOFpQM0N3RDRxY0xhd1FtQ3g1VzhPOXFTZw",
+     "rounds": [],
+     "amounts": [
+      "$15 million"
+     ]
+    },
+    {
+     "date": "2023-09-28",
+     "source": "FinTech Global",
+     "title": "Apron seeks to revolutionise invoice management with $15m funding - FinTech Global",
+     "gid": "CBMioAFBVV95cUxNREJsRW1HRGdpQ3lFb2U3cU9TWWc1S2FsZ3RyeVBnM2hwSU13My1FdVVkc01tVEQxVWtJZHItUXFNc0xXV0JqcERDZTEzWmhjbHhaNWl2NWtzRXVScmYyNGdmMENXMHR6NGJiZVB4TVlMbnNKMEN5c3E1d3hWSzVsWFFKeG9nWE5RVExxLXItU1lsc2trdldOUE5PQ3h3dEYy",
+     "rounds": [],
+     "amounts": [
+      "$15m"
+     ]
+    },
+    {
+     "date": "2023-09-28",
+     "source": "FinTech Magazine",
+     "title": "Apron Fintech Revolutionises Business Payments - FinTech Magazine",
+     "gid": "CBMilgFBVV95cUxQeHowTmMwRFhLQVZfTVh3dzVsUVFrOERfYy05ODJvdEZ5TVB5S2tDUFNLX1RuNW5uVmhsOFVnakhGd09DRnBWVW5wNTNkMmRPS1JmN09Lb1dMLWNfdFZOd0g1UVEweHZNd1M0OU5tV0ZfMWJlRUxjNm5CeDlBQ1VIUHNYT0JDaGxNQ09RQkdLVkV3T09qdkE",
+     "rounds": [],
+     "amounts": []
+    },
+    {
+     "date": "2023-09-28",
+     "source": "UKTN",
+     "title": "Apron, a fintech startup from ex-Revolut product lead, raises £12m - UKTN",
+     "gid": "CBMidEFVX3lxTE44aXpHWnVZOWs1QUQ1OTJ2bkh6akhEQWFqVXRhT1ByNHZWRGRpLThvNjZvaUxVMnpmOEdCazBhU0d1VGp5WjBKNVFwTmExQnB3T3FxN0xYMHh6S3NWbjVOZzdQaE9sOENpZjQtNVZPa092RE5v",
+     "rounds": [],
+     "amounts": []
+    },
+    {
+     "date": "2023-09-29",
+     "source": "businesscloud.co.uk",
+     "title": "Former Revolut star raises £12.3m for invoice software startup - businesscloud.co.uk",
+     "gid": "CBMimwFBVV95cUxNRHJHQ1dHZUVZcXk4bHVWMzM3ZHVMaFlDbldoMzJKX1lpbnpaTkx4cGxMbF9KN25UZkV0R0tpVUtGVXFFZ3I2eVdmM0JUeWFNTTRsQm5VVlhRTEJ4dDR4elhLbEU1YWotRVcxUWFBT1I2NkdVQjk5VGxuTUhyNFg2QUJxTkRNRUpHVTRtT1I0dHlHRWU1Y2JaMXplTQ",
+     "rounds": [],
+     "amounts": []
+    }
+   ]
+  },
+  "\"Visionaries Club\" after:2024-01-01 before:2024-07-01": {
+   "status": "ok",
+   "n": 8,
+   "items": [
+    {
+     "date": "2024-02-08",
+     "source": "Aerocontact",
+     "title": "Cosmic Aerospace raises $4.5 million for its 24-seat electric regional aircraft with 1,000 km range - Aerocontact",
+     "gid": "CBMi7gFBVV95cUxOVEd6ZkRXTDJiRi1Kcl9sWGFRdjA0MWZUV1hKek1FRno4OHM2S0VfNE4xRm1wMEJGaThsTkR1RmFyRW9vY0FhczI3eTRqOXdCQTljd09ES0oxRV9CQThVSVdJZjBwbHgxbkRPcS15aG9YMGw5QkZlX0oyNjc3ODJwcVRuQTdCSDhlajFhdXR3NkhMakMtbzU2bWlkcm5ZZlJGcXY2b2xXcEppYjJyQUZxSDhDOWRZRF9KYlBOeUdUVGhBOHlXYWdTX1ZqclJuUGkxSXZaQ1hDOWpLX282MzVJZmhCZlE1ZGQzUU8weEVR",
+     "rounds": [],
+     "amounts": [
+      "$4.5 million"
+     ]
+    },
+    {
+     "date": "2024-02-15",
+     "source": "startupticker.ch",
+     "title": "Deep Tech Momentum - startupticker.ch",
+     "gid": "CBMidkFVX3lxTE9OeVVmeGdBekZGd09fY3p0VmFRVU9tbF9OSG5XLUltLXVfS2F2RmNnNkE5UGhzaFcyaHcwNlUtWVphd1Q3QW02a2NQZHJuTEJaX1NvWnNBTHVoanhMSVJWOGdQQzZqVVRGaGtuR3FtSS04RnhiS1E",
+     "rounds": [],
+     "amounts": []
+    },
+    {
+     "date": "2024-02-20",
+     "source": "Gainesville Sun",
+     "title": "Cynthia Moore Chestnut is a woman of many firsts - Gainesville Sun",
+     "gid": "CBMi3gFBVV95cUxNZ1FOUVZEYlIzSHNFWmY0cWJRM0lsNVYtazNZZ09ZSWV1TVgya2tVbklEei1xcU1NNHF1TU1GZ1c5Z0I5Q09uaVRwbmhkR2w1eS1ycTR5OExCeV9GZDVSeEN5UTFIbTlkYkNlazRFNE5odExJQ21KMXNNa3plaEliTnBENEFKV0czM3B2dE43R2tTcGM5V2hTOXk2Y3NFT012YzMxdzVuSjNSejljeDFGUWtRaVRYU01VakZIUVYwQTBiUWVoWWxNTlVLMGJmN0hBaXozZlBwMzdSXzNEMkE",
+     "rounds": [],
+     "amounts": []
+    },
+    {
+     "date": "2024-02-29",
+     "source": "SiliconANGLE",
+     "title": "Quantive unveils AI-driven strategy platform to enhance business decision making - SiliconANGLE",
+     "gid": "CBMitAFBVV95cUxOZ0tlR00xQkZzcWprM3N4SHNIM19Vb3Btc2tRZldlMDJ0LWJ1WTF0YTJER0NKNnFCeWJ0N2NwdkhTbXFCdFZGU3Q3TDhfbkpIYWNJMkVrX3lKWml1clRFZ0ZwUmRMOGdRcF9XdWxBU0xJTEtibXJYN2hoN3haMDFyeFpUZEw2WmtDemhNSjJNUXlUNGMzQURDYVBHZzE3WFIwNkFDOE9MLW9pUmp3WTl1WkN3blQ",
+     "rounds": [],
+     "amounts": []
+    },
+    {
+     "date": "2024-03-13",
+     "source": "Forbes",
+     "title": "Why Europe’s Next Unicorns Need Both Old And New Economy Stars - Forbes",
+     "gid": "CBMitgFBVV95cUxOSFgxbm53c0FMT2FJM1U5SUNGWWp3VlBxZFNLTUkzWTZKWEd1dU16RUc5dmFGczIxaUxhenNRZ0QydHAzdWQ5Wm1UXzNDUlc3VEJJeDB3ZFFSU3BnUlV0SXVkTU14S0lqOVFmeXM4SGdfbXFTajZvQnh4X29meVI1UElrdkF5cXBER2w4aGJJZEpYX0QycllRbUI0TDJZbmZ3bzE1dFpMcHFZZllNMFNxeWo4dUIwdw",
+     "rounds": [],
+     "amounts": []
+    },
+    {
+     "date": "2024-03-19",
+     "source": "fortune.com",
+     "title": "How IVP built a VC firm to last - fortune.com",
+     "gid": "CBMigAFBVV95cUxNMTJya1lMQ2xTQnlYRU1yU2Q1TElLdG9BZjg3ZVp4TXpXaUxuSDJTWVhDU2pnSDdoUzEwWm9EYzA3S1lCdTNJMm03LVZ6bUlyOVlBbmx2eExxV0NJVVNWUzhPYy1ZclljNklwMVUwVmtTb1l1ejlqMkpuckhZUlJBRQ",
+     "rounds": [],
+     "amounts": []
+    },
+    {
+     "date": "2024-04-10",
+     "source": "Tech.eu",
+     "title": "Proxima fusion raises €20M Seed to bring fusion energy to market - Tech.eu",
+     "gid": "CBMiXkFVX3lxTE9jamhQZnR0Ml9sRk12YTF6Q2VHc2ZVYWFMQWtDbVpKamdaNEJVZWRUWFlUVXV1X252eGo2QTZtVFo1b2NBQm9sdUhiaU9qNXV5M2Y4aXpWWmVteWkwNVE",
+     "rounds": [
+      "seed"
+     ],
+     "amounts": [
+      "€20M"
+     ]
+    },
+    {
+     "date": "2024-05-21",
+     "source": "techcrunch.com",
+     "title": "French AI startup H raises $220M seed round - techcrunch.com",
+     "gid": "CBMijAFBVV95cUxQTW9KcDRyem03VWV4SFg0RHItbEdOdW9NTFdlMmpQMW9KbFRjQWViSi10aFdFVVVybWVDOExmNDZ6UGZRQ3FEYUxmWlB0cFluUDhkMEpRNG9iMkFIQVZIQlBmTEJ2bkV2WFFJNTBJYldVdks0dVFqQlJwQ0lvWmRIdmlaQThPVjNrQlF6UA",
+     "rounds": [
+      "seed round"
+     ],
+     "amounts": [
+      "$220M"
+     ]
+    }
+   ]
+  },
+  "\"Visionaries Club\" after:2024-07-01 before:2025-01-01": {
+   "status": "ok",
+   "n": 7,
+   "items": [
+    {
+     "date": "2024-07-04",
+     "source": "eu-startups.com",
+     "title": "Amsterdam-based Roboat raises €550k to transform inland waterway transport with fully autonomous boats - eu-startups.com",
+     "gid": "CBMi1gFBVV95cUxQcDJmR0hMMEduTHpZcTF0Zy0xa0lyN1l3R0V5VjZsbG1VV2dXN25QQktmQVVYU1JPQ2hxQjhlLWlZOUdVakNnZEhTbzB2dE42WFZ5Z3BmQzcyTzkxVjA4dldNZllYMFVRWGR2aVAwTDJHT0xkcTlEakdvOHI4RGJYOE1ucVFydEtPNEE3d3RRX3ZIMW0zbjlrbDJQTHhWU2pfNEZRbnV5VlNHVFBuZE9nMTZXN0lld2lpd2sxZVhTNERTLXNuSFMtQW5CVXpXaktYc1hOTkNB",
+     "rounds": [],
+     "amounts": []
+    },
+    {
+     "date": "2024-07-23",
+     "source": "Bike Europe",
+     "title": "Mobility provider Cycle acquires Ebike4Delivery - Bike Europe",
+     "gid": "CBMiigFBVV95cUxQMXFZWkdaRjRvc2xXeHVlRGxMQ1dhTnhNY2FHd1RxXzd5dHJjQnNucVFCQUM3UGplSjNmcFU3YkNiTEt4Vm5FXzlFV3pGei0wQklwazRlcGpSX0dNN01GZnJ0S1VBRUlreU1wV3hOVGFLblhrODQyWVg1cHFUWEZDd3NyZndUOHJWOGc",
+     "rounds": [
+      "acquires"
+     ],
+     "amounts": []
+    },
+    {
+     "date": "2024-09-25",
+     "source": "FinTech Global",
+     "title": "Apron secures $30m in Series B funding to revolutionize SMB payments - FinTech Global",
+     "gid": "CBMipAFBVV95cUxNZ0RBRHFSOGYtb19QTldmWTlseFBBQWlaXzd1V3RNLW9FNDJpLU5hM1dQdnV5anlRQWlVUjBkT2hFT1FiOFoyeFlDSzhmd1hXYnlxWktQX3RXQ2g3V2QzRWppb3lOVENpTzI3Z3JJNlVEUDNyVlNMdnFMYlhyZ2ZsV1ZaV3VRMll3WGVVZWZfM09LQ0tQeFZhekxCTTg0WTk3VU5MQw",
+     "rounds": [
+      "series b"
+     ],
+     "amounts": [
+      "$30m"
+     ]
+    },
+    {
+     "date": "2024-09-26",
+     "source": "thedigitalbanker.com",
+     "title": "UK fintech start-up Apron lands $30M in Series B funding - thedigitalbanker.com",
+     "gid": "CBMijgFBVV95cUxQakMzajhYSGh5Smxjd2NQUmdrVmNEOWFkUGNZbnRrOTBEQzBQSGFWazZfT3MtS2dQaVhvMEN6X0RoZEwzdW5ZTDNGakpOc196NVpnNE50bGctckJwQ3c4SGpYTDVUN1VITmRIc2RHRG53VGRZejVqV1B6VEhZZUE5bEw0NF9xd3Jhd3MtdUVB",
+     "rounds": [
+      "series b"
+     ],
+     "amounts": [
+      "$30M"
+     ]
+    },
+    {
+     "date": "2024-10-03",
+     "source": "businesscloud.co.uk",
+     "title": "Ameba targets ‘sprawling supply chains’ with £5.4m seed funding - businesscloud.co.uk",
+     "gid": "CBMimgFBVV95cUxNenJ2VkQ2UjUtQ0xmNXpLMWZTUENyakNJVVdLdzU1X1ctZ3Njb21oYnNOS2Z1UUpGTGZXcE9VOVlDdUF2RjFnY1ZkU1p4bEJHTHFxeFMtNGwyb0phSXhJTmtiLTV6dDdvUlNmUk52ZlhsY2NJX0txYVVjWVdPaEJTOVhJeEQ2ZExKV1BKRERnbzlQdmVPbGJEcjZB",
+     "rounds": [
+      "seed funding"
+     ],
+     "amounts": []
+    },
+    {
+     "date": "2024-10-29",
+     "source": "Rochester Institute of Technology | RIT",
+     "title": "RIT students raise awareness about mural art through TunnelVision - Rochester Institute of Technology | RIT",
+     "gid": "CBMilAFBVV95cUxNLUtmclptVjBmZDBPelhEb0h1aEhXYkdkWDdaVlNYTFVoQ29uZjU0OG1hdWpmMlZvMUlPdmQ5NGRvdmdWcWNwYTBLWXlWVHpJcERnZFU2dWtNak42X3UtQldIQlFHb2U5Z2EwbVNOQWRQbld0bUZWaVZQamNkdGVadVJMVXNsMzNUcjk0ZDVITm52WEUx",
+     "rounds": [],
+     "amounts": []
+    },
+    {
+     "date": "2024-12-12",
+     "source": "Forbes",
+     "title": "Robert Lacher - Forbes",
+     "gid": "CBMiWEFVX3lxTE9vRGRPZmJSUEh4WE9uVU9vVnMzdEdnSE5ybjI4MDFldS1ZTFhpSzIzNVpyVkF2bGJFRWwzcVROeFFONm9BQ1hETzlhVlZfTnRoRTFBOVZCN2s",
+     "rounds": [],
+     "amounts": []
+    }
+   ]
+  },
+  "\"Visionaries Club\" after:2025-01-01 before:2025-07-01": {
+   "status": "ok",
+   "n": 10,
+   "items": [
+    {
+     "date": "2025-01-22",
+     "source": "Pulse 2.0",
+     "title": "Lindus Health: $55 Million (Series B) Closed For Changing Clinical Trial Landscape - Pulse 2.0",
+     "gid": "CBMinwFBVV95cUxOVUxROTRVcDVBZzVselBBcmpoWHhHOW5DMFViZDlOSEpONW9IT1RkS0YtYVJtazVfblZhV1R4MlJ3LS1fTmh5VjV4YnZKTVFsMTZoSzAxN2pNQVFZRjBWUURBRmpUdjNlNWVudFBGUHJxbTFDbW1hQlRaV2RqVjFzV3Y2MWFuVnR5S1dvUGxId0FsbUhOUHJvdzBYS00zaFnSAaQBQVVfeXFMTmVkS2RPTXJnNjdoSldyVV9LWS04OW1GZEFUZ1I2b25uZW9uSUt3cXBrOFFyU3RYNl9FVndmczJJWTQ5VXl1bXVVcVVEUjFEVE14X01GWFVfZnpnTHZLQXVpOThhbzlHRUpBVk9lSnpiVy1KeXZJWnpKRnhQRVlTSUduYUp0c1NBSkxUVWJweUM0SHcwOTRqeWlDYkp1MjZFdDZ1REc",
+     "rounds": [
+      "series b"
+     ],
+     "amounts": [
+      "$55 Million"
+     ]
+    },
+    {
+     "date": "2025-02-25",
+     "source": "techcrunch.com",
+     "title": "Sweden’s Lovable, an app-building AI platform, rakes in $15M after spectacular growth - techcrunch.com",
+     "gid": "CBMitwFBVV95cUxOekNjOUtWR0pUNXlLV252YlJEWGwtOFNoT3d4QlhGT1o3b1JQVkl3c0NJRGphVmJSTXRPUk5hQWpLdGNhOUZlVnFoamdBZ0RJQVlUeXV1Y1JESmFBb3ZzeE5QaUpDb2EtdzJtdmxRejd4eExZYUhSMUIyZVhvUmltQUY3eEtDLVNKc0t5WTkzYi1OaTVOUXdGbG5BSFdSMUFYc0JTeWxybkJEcEdzUktOU1BablBoMmc",
+     "rounds": [],
+     "amounts": [
+      "$15M"
+     ]
+    },
+    {
+     "date": "2025-02-27",
+     "source": "Pulse 2.0",
+     "title": "Taktile: $54 Million (Series B) Raised For Decision Automation Platform - Pulse 2.0",
+     "gid": "CBMikAFBVV95cUxPQy04aEdTVTVmb1RfZE1uN1E1eTNPTFpwbkU2U0tJaGpqWVdwYmJFTkRlb2ZRdFpUSHFPcVJKeXhqM2JTMEdNZEV1VEdSMlcyTFRfX2MxOGw2dzVRbkY4NlYzLTRwcnZFbzliWlRER1VKRFdvSzdQMHJWdGdPRGJtLVdwV1BRbEphOWlkWXFuNnDSAZYBQVVfeXFMTm1jYUU5YndJREpyVUZ6bFIzbEp3Q3g1UU01c3dReDNkMWl4R1UzdU12ZUVrODd4ZVlSZFBPWEd2eDRJb3hjS20xOGRDRWR0X0hBTXJ3WHlRcUotSlFkQ2tIMFZmUXRNbHN4MGpJZ0lCZDE3U2cxd1pmRDRQanctdmtOTWhfSmFYRUxsRzJSSFFybU51QWNB",
+     "rounds": [
+      "series b"
+     ],
+     "amounts": [
+      "$54 Million"
+     ]
+    },
+    {
+     "date": "2025-02-27",
+     "source": "eu-startups.com",
+     "title": "Taktile raises €51.5 million to help risk experts in financial services adopt AI for decision-making - eu-startups.com",
+     "gid": "CBMi0wFBVV95cUxPSjBhRUlBblI0ZjItRDJQMVZFWG0zdER2YXhqVGxCZk1DYmpGelFQX05oaWZvSDFIMmY3VnpwdVZrRWlwLWpLaGVFd3RJU2ZjS0tqYVZoNnVLLXhHdDRiclVDRExBZ2J5YUhYRC1iaTVDRFBTVHFzR1kzNTdIZmFPMXB2WGpDVU5ZdDJyVVVPYlgxZU1mZkM3aTRaNHF5RXk1bUdsd2NhbDRCQ2xlWnpFd19WOTJSdWhRRm9kekVYRUtKSTAxcjkxRUhlMUVTdFFoMTFN",
+     "rounds": [],
+     "amounts": [
+      "€51.5 million"
+     ]
+    },
+    {
+     "date": "2025-03-13",
+     "source": "Mobile World Live",
+     "title": "Visionary VC founder backs EU for AI leadership - Mobile World Live",
+     "gid": "CBMikAFBVV95cUxQc050Q1RtNUhOMXByQWMyb3VhT1B4a1prNGd6ZkZOczJuRGFSUllfeGlZdloyRXM1ZkVwaHloaTFHSUp6OGJBdkd3ZXN4bUFDOGthaG1CN29IZjkzTG1sb3BPc3hvMjliMkhDNllkWlFmUVpmN253UTNtY2VfRUdGai1rekl3am42anNLdnJZcVM",
+     "rounds": [],
+     "amounts": []
+    },
+    {
+     "date": "2025-05-15",
+     "source": "Startuprad Io",
+     "title": "How Europe’s Visionaries Are Using AI to Disrupt Industrial Tech - Startuprad Io",
+     "gid": "CBMimwFBVV95cUxOM3lIRWtDVFh4VlBjLWV3MUpabkRkZG4yZE9GMjVqX2lBTzZnRmZ0bmZLUXNZR3RrZ2hWY2lLaFIydnREbWJjYWRTWEJSWDJuYmdVLTNvLXpXTWlKT1NLcFZZVFJRcUlBdWlTcDQ0TzVxUWlnWDFNUENFLVRKZUhVWXJndEJqQWZIUVZuYU00NHN2c0ZCWVh6ZnZRNA",
+     "rounds": [],
+     "amounts": []
+    },
+    {
+     "date": "2025-06-13",
+     "source": "Bloomberg.com",
+     "title": "Watch Visionaries Club Co-Founder Lacher at Founders Forum - Bloomberg.com",
+     "gid": "CBMiqwFBVV95cUxNMk01dWZlNnpTbEg1MWQ4OUVMYWZ1OXF2S2ZLWUxUd0wxb1FwRkNnVEJBQVNlRUw5ejVfT2toSmMtdHVfcHZKNE5PeUF6R2wtU1NnaTV5VjF1a1dEMXhOYTEybGhYUXRnMWtMQXJZOXE5N1FYWERmdUVhajlxVmFRMmRwWVlPV3U1TnVYS2JuQzNyYjcyc2xybFdmWFR5eV81d1RhQlFSMzNRemM",
+     "rounds": [],
+     "amounts": []
+    },
+    {
+     "date": "2025-06-30",
+     "source": "Tech Funding News",
+     "title": "Meet Tandem Health: The AI-driven clinician co-pilot that just raised $50M - Tech Funding News",
+     "gid": "CBMiowFBVV95cUxNckxGMWRGbmZOdWpNc3d1Z3dYOWlsREE4UzBMb3JPcmpHSXNRdTF6VGJnNFI5Z0ZGMlhyclEtYWpDOUhFTEdwZnFNelFRQU9vY0RZZ0ZyWG9pVmc3ckFBU1R0YUtycEN1Y3RHTFVpQkJZdkdfWUdHR2YxcHB3RVd4VlBQZ0ZKbXp1dWhaSnlKem1GNkItelcyTzlqY2F4eWpvdWpF",
+     "rounds": [],
+     "amounts": [
+      "$50M"
+     ]
+    },
+    {
+     "date": "2025-06-30",
+     "source": "eu-startups.com",
+     "title": "Swedish startup Tandem Health secures €42.6 million to reduce admin burden on clinicians - eu-startups.com",
+     "gid": "CBMiugFBVV95cUxNa2hZZzM0WXo5Q3dKYnkzTnZYRFoydVRQUDlUZjRYVzZDaVJiLWh6TVpmU29tV2pyRjgtOGpXNU5qNExiSmpLaDlUQTdNVENwS3dJN2RJcVRVR1NKd19vbXp0YXl5ZkpFbWRtZEkya3RZcVhCaG5TWXJ1N21STE9wN1lhRmlqYm11ZjItc3I4MnNfNW9JYThkcEZ5RXNkWVpiUHJySnVxVDFicGxFZG10MWpFUTMyT1labmc",
+     "rounds": [],
+     "amounts": [
+      "€42.6 million"
+     ]
+    },
+    {
+     "date": "2025-07-01",
+     "source": "FinSMEs",
+     "title": "Tandem Health Raises $50M in Series A Funding - FinSMEs",
+     "gid": "CBMiiAFBVV95cUxNT2NRdERKVkN1VTd5djNDdHV6RXpUUnV0TmFFYjdMUnI5ZWdmUktoaFlRMW91ZWRMZ2JPbnd4WVdWS1dzbDhHWTIwOXFRdFhRakJZNF9KRVF1QldVeFhoeVRiMU5peFI2M2s4b3N4N09SNUhfYk44UUJ3ODBvdGg2SWFDVEFiWGRJ",
+     "rounds": [
+      "series a"
+     ],
+     "amounts": [
+      "$50M"
+     ]
+    }
+   ]
+  },
+  "\"Visionaries Club\" after:2025-07-01 before:2026-01-01": {
+   "status": "ok",
+   "n": 9,
+   "items": [
+    {
+     "date": "2025-07-17",
+     "source": "techcrunch.com",
+     "title": "Lovable becomes a unicorn with $200M Series A just 8 months after launch - techcrunch.com",
+     "gid": "CBMiqgFBVV95cUxOMWVEZ0tyYXZDM3hXNHpISGQ2NDJteDFYaUVIdzd4MExzdV9MRS1YdG8tSXB1OFEzUXc1OS1yM1R4Q05VaGNPUFpzNjAzNE1RbGJlSC1rYndUVHFZWmg4UDlRM3hoeWpKWW9mYmEtUURNUWl5ZUlFOWpERUhjRmxMNnRnWVd1bGpNaWs4U21rWFk0WjUyYVlfQk9ac0MweXBJQ0E1cVdxS004Zw",
+     "rounds": [
+      "series a"
+     ],
+     "amounts": [
+      "$200M"
+     ]
+    },
+    {
+     "date": "2025-07-23",
+     "source": "eu-startups.com",
+     "title": "Sweden's Lovable becomes fastest growing software company ever by skyrocketing to $100 million ARR in 8 months - eu-startups.com",
+     "gid": "CBMi3gFBVV95cUxQdGw0dnFxNDd0SzlfMDhEMm1QY0FWTXJpQVdtZGRYdGpqLW5sdnBacEZnRWc2TnBqYUlkYnNab0RzbjdNX1NJQ09mZFhKa1lyYl8yT3F3ZHVCNExFdjhhRU8tcTVDSV9uMjNZNG1ha0FLTDZpeVhCSUN6ZTl5cUtsbUxfSTM5WjQzWGlJbE1GYkZuMjAxM0VMdG1DRmVhSE9uaFNQTnVTX1UyQnVjejdkNFJtdmo0d05NZEprUy1VZHNzTjZhcFVtT3dqWFFKU0UxcVNHTmc2VkY2LTRHdnc",
+     "rounds": [],
+     "amounts": [
+      "$100 million"
+     ]
+    },
+    {
+     "date": "2025-09-25",
+     "source": "Tech.eu",
+     "title": "Spanish Orbio raises $7.6M to expand AI-native HR platform - Tech.eu",
+     "gid": "CBMijgFBVV95cUxPcXlwUVhzQUhWcmdSaTJ3TlloaWdxdlp4RVlRQlI5S0Q3enZwM0RwWGlmbnFxYTlFQjk0QThKeUM4WmYyV2tKMnJUaVVaMXQwTDNGZDdTQmJuZUFvdzhRQ3k3ZWdnM3d3akdBSVZRQUR5SFd4c1ViSEx2U19ndWwzaXhhdkhtbEduM3BZZnlB",
+     "rounds": [],
+     "amounts": [
+      "$7.6M"
+     ]
+    },
+    {
+     "date": "2025-09-25",
+     "source": "eu-startups.com",
+     "title": "Spanish AI-Native system Orbio has raised over €6 million for its HRTech offering - eu-startups.com",
+     "gid": "CBMiugFBVV95cUxOa1E2Wmx0OHRVZTVhRFV3dkRkbkpNOW1vOV9CakRBbzBtT08xSUVBZXRFajduMzZqYm1pS1dBdFNXd3o3dl85d0JKd19Id09HRk13cmFKcUVMalRETGFnbW5MWUZqWlotSVNqeVZOSFl3SlJSdkdhTWFGcnNtOGtuM2U0Rk9VYzNqUTJ5Vl9qbGRaS3k5eVVMQ21JUXJQUkZVTkktVXR1bjc3Tkl1eHZsaVpJSElYYmNaRmc",
+     "rounds": [],
+     "amounts": [
+      "€6 million"
+     ]
+    },
+    {
+     "date": "2025-09-26",
+     "source": "capital-riesgo.es",
+     "title": "Orbio raises $7.6M to redefine the future of HR with the first AI-native HR system - capital-riesgo.es",
+     "gid": "CBMivAFBVV95cUxNekF3a2tQVnBLc2hqWWI5ajR5bGtRWTh2TGNqaHFvTUdjLVhzU29OMnhGQTVDQzllSEk3UE1HaGxHUUFjXzByZW13elJvYmJZTm4wYjB2MGtXM1ZldWRjQzJlZVdnRXJ3U1JGcFpxcExsNmkzNlJLaktSbjljNS1yX2h1R1lwQUh1MFV4cDJLNHhMTExlMkpBdEdXU0ZPUV9hYUk2Qk5oUHRBM3VyZDY5TzRpLXNBRm82eVhSRQ",
+     "rounds": [],
+     "amounts": [
+      "$7.6M"
+     ]
+    },
+    {
+     "date": "2025-10-16",
+     "source": "Tech Funding News",
+     "title": "Madrid's Omnia secures €3.5M to boost brand visibility across ChatGPT, Perplexity, and Google AI - Tech Funding News",
+     "gid": "CBMifEFVX3lxTE1lYXhVaU1SOHJ2U1NWMF8yZXBNWEh2T1RBbkItWTBIOG82MW4xYmZTZlVKdkxYZ1dib0JqckJsSTltWF9HVjRLTDR6WTB1YzMtNXIwc0Rja0dUMU1TOXNPbzE0dkVmNld4QnNOeHlkd2h5WXlKc3dCLUhYRnE",
+     "rounds": [],
+     "amounts": [
+      "€3.5M"
+     ]
+    },
+    {
+     "date": "2025-10-16",
+     "source": "eu-startups.com",
+     "title": "With €3.5 million in funding, Spanish startup Omnia is helping brands stand out across AI platforms - eu-startups.com",
+     "gid": "CBMi0AFBVV95cUxNV0xJcW5HMGJBLVpIaGxOTHJQdmRhYVM3WDkxYWZWOFR3bDlMRDVPd0trSkZnS21KZHVwMkE2SmFfZ1dWdllTYkd0Q1hZSTBUWFRTTUFNOTBXQXRHMmNLSXI0Z2FpVUw2ektjYkxGMTRkU1VjVlBJdGZKOS1hN1B0NUhPdGJMRHlTRWRqbUxpWlNiQ2Q1WUFQcmxzQTJxWUxPaVkwV2FoaV9pU3NRUTljMW42YnNpdlVrRjJqQkpLNDNRM0o4VkllZV9IS0pSblpk",
+     "rounds": [],
+     "amounts": [
+      "€3.5 million"
+     ]
+    },
+    {
+     "date": "2025-11-05",
+     "source": "capital-riesgo.es",
+     "title": "Kabilio raises €4 million to use AI to transform collaboration between accounting firms and their clients. Visionaries Club, Picus Capital, and ENISA participated in the round - capital-riesgo.es",
+     "gid": "CBMitAJBVV95cUxObzk4dEg5VHNjVUl3NVhrSV9UNDNoa2JKNmZTSlFhaTdGY1JKQkJyMFc0U2Z0UkJxeG5aQkZ4ME8yQkVVTUUtXzg0OTIxaGJ6Y1VEeHQ0NEdGVVQ4LVdyQ1VYMDljLWpsUlFCS3hzNXB1Nlo5YVJjdl9aUnZwTjNrMnNoQlcwX0NwN3JJRjRvRDkzVmc1QnZtTEl6MGJFbUk1OGhGcVZPcTZpd0pCUC1LenJ5UmVqSEFwNUVGbTV2Z3lGSFJBakRObEVfZ2wzWWRJMWFXQ2JrUk1QdUYyeVBjV1ZfTWJyUGNxWE5CZEQ1bWV1dmpPYzBwbUhQZUdjSDBpTkFJX1cyNno3TG16TEdWWmMzUTJoaUhQR19hampjQWJLTVdLVXluZFE1Vkh6c2tfWnMwdg",
+     "rounds": [],
+     "amounts": [
+      "€4 million"
+     ]
+    },
+    {
+     "date": "2025-11-05",
+     "source": "eu-startups.com",
+     "title": "With €4 million in funding, Kabilio scales AI tools helping Spanish accounting firms lift productivity by up to 50% - eu-startups.com",
+     "gid": "CBMi5AFBVV95cUxPQ1VSNkc5eWMwTHhxSTJOWXA3R29ZeU5YTjViNWVQX1NSaF9jbUdtek9GLWFDdmhNSHREWDFpX0lCX3V6MWFRbHVLQkxmMjlXRV9adWpwLXVUUVRMX3RrTlZVWHJUOGhtRjB2cm5aTFp2YW9hVXdWUXNsMzRuemRZbFBPYW9tLWRqUTBnMkdoWEE3X0pQSE1jaC1qUURGc1F6ZDV5eUZlcV92NVJ6YzlkTUxNYkJwRUxaOVFmellhMml0amlQak1YdmNSWVpTWlBsdWRRMjRfZnBxV2JXMFpFNTBSRFk",
+     "rounds": [],
+     "amounts": [
+      "€4 million"
+     ]
+    }
+   ]
+  },
+  "\"Visionaries Club\" after:2026-01-01 before:2026-07-01": {
+   "status": "ok",
+   "n": 9,
+   "items": [
+    {
+     "date": "2026-02-10",
+     "source": "The Recursive",
+     "title": "OpenAI and Hugging Face Angels Join Record Hungarian Pre-Seed Round for Robotics Startup - The Recursive",
+     "gid": "CBMiggFBVV95cUxPWUNEbGVLVHNPVFlYSVVGWFdFUG41c3RfR2tBeDdpV0pyRkJMSHM4TXYxNVEwQjVBYUI4TTRVRS1XQkp4dUYteEhQQlpna1BHMXl6UDE5UC1ITlM5NXRaRDJtOHJoYkJIdS0wVFc0VDVPbm9oRlFWbTd1VjN0ekxUZ0pR",
+     "rounds": [
+      "pre-seed"
+     ],
+     "amounts": []
+    },
+    {
+     "date": "2026-02-10",
+     "source": "Tech.eu",
+     "title": "OpenAI and Hugging Face angels back Hungary's \"highest-ever\" pre-seed funding round - Tech.eu",
+     "gid": "CBMirgFBVV95cUxPTE1rWXR0Y09XdXE4U1Zra05HMW5CZWlUTXRqLU9DZ2lwdDJ6c3ptUUN3VXgtU1dWVlloOFpEUzFhM0ZWWGg2c3Jhb1hBcENvRUtYd3EyOGVtbVQ3NWJsZ1E2QV9VZlpXajFEamxzeS1yUWJWQ2djdUNFWjl5QnVvQ3A4N29taGRNLXEzTlYxM1YwMTJwNjhWSVo0T0dwT1FNcEpvYjk4U3lTQnNTWHc",
+     "rounds": [
+      "pre-seed"
+     ],
+     "amounts": []
+    },
+    {
+     "date": "2026-02-24",
+     "source": "Resilience Media",
+     "title": "Tytan raises €30M for drone defence, sources say at a ~€150M valuation - Resilience Media",
+     "gid": "CBMinAFBVV95cUxPb3NYTEZsZGdERmVxLVhmU0lOdW5JelpRM2F2eC1yb1NuNTcwLXM0N1V0b1RDN3JnaTNEYWdTY1ZGSVpyVkw4STJ4dVVidjZFbzNPa1dlUnpGS0Jkc05QYTItS1RlNDhOb3RyMGJGZXNQV3pyOFhRX2lLeEpkOU9LN2lBa242MVBzQWx6RTVNaFdic2xiVzQ4M1FXWWw",
+     "rounds": [],
+     "amounts": [
+      "€150M",
+      "€30M"
+     ]
+    },
+    {
+     "date": "2026-02-24",
+     "source": "Defence Industry Europe",
+     "title": "Tytan Technologies raises €30 million Series A to scale AI air defence systems across Europe and Ukraine - Defence Industry Europe",
+     "gid": "CBMizgFBVV95cUxNalh3Rmk5dEJEYnRDUGhROEJXU0NmN0tEdlhxNG9fTXRkLWx6VVAwOWoxTVdvYkczMkZqZ05kbnZhZmU3U3JmNFREQzJlZEhOb0FiMWpXV2xSbjQwV1I5eHNjNnk5aEc3bDZkcUwtZkZxRllJZFVIV3h3b0l3WHFOeWtGck5PQzhNZXR2TjdBZ3c3cEs2eExfcTdTaEJFQjdNYWdFcUNrLUhrRHFBbVpuQ011RmJZeVAtbUdqcTRlNGpjN0p3bkJ0VW9RSXdTUQ",
+     "rounds": [
+      "series a"
+     ],
+     "amounts": [
+      "€30 million"
+     ]
+    },
+    {
+     "date": "2026-03-17",
+     "source": "eu-startups.com",
+     "title": "Amsterdam’s WorkFlex secures €37 million as geopolitical instability drives urgency around cross-border mobility compliance - eu-startups.com",
+     "gid": "CBMi8AFBVV95cUxQMnZvZ3hnZE5ocXQ0VzNyaHRyOVdKdjJ5T0hYX0hUYmZIcnRhNnZ6SHUyZkdYYXJ4UU1OeGIyZW15alg0UDkxeW94bkljTmFLSlpibG9WS1hYMXdPVkp1RzFkUGUzYTVZcHlodTFSZF92bTQyb1VCT2FCNkhtZktONlZqTllNY3RIVWlzaDBGT2FTSWpSRmMyc0ludDR3SWZjbERBOF9NaDJYWEVOZWtRQW01SUd2bEF4ZllDWURkOEZaTDZheXRxdDkyRGJQSmdiX293LThtMGx0SzBSRFNDRUdMbUlrd29BdVpKWFJHRVA",
+     "rounds": [],
+     "amounts": [
+      "€37 million"
+     ]
+    },
+    {
+     "date": "2026-05-12",
+     "source": "FF News",
+     "title": "Adfin Raises $18M Series A from Index Ventures for Automated Business Finance - FF News",
+     "gid": "CBMiogFBVV95cUxOV281eVl6eWtIaUZ1bFFVWlAwdGhEV08yR0VObjZuZnc4azJNMWp1T2ZyUUlBUlZNVWFkdXRLSmVHZXRhS3F6cW5XbzAzemVHWHA5d1pIZ0VvNEh2VjZuR0M1cmdSYjBINzBrS0ZHdU5QNGFERWF2NlNMTDFjdWl0WjRWMTRZc2dvR1FyNWlkMjNfMlZYZlg5bkdLcEZxWE1IR3c",
+     "rounds": [
+      "series a"
+     ],
+     "amounts": [
+      "$18M"
+     ]
+    },
+    {
+     "date": "2026-05-12",
+     "source": "eu-startups.com",
+     "title": "Index Ventures backed-Adfin raises €15.3 million to help businesses automate revenue collection with AI - eu-startups.com",
+     "gid": "CBMi1wFBVV95cUxPWnh4QlFxcXVyLTZyaUZnbVdRRkZIeVNPNHMxNUxIM3ZhOUF5elBTcXg1WmdPYlR0Tmp3R2NmaXotbXdPbmhhWnRfZi1Qc1JZb2lkVnNkUnROUEFPZG1XNFpQUzNuaE1MMGdZYkFOME1KbzRtMGJOTU5VdEMwaTdUYWdzTzVvWFk3QmozT1Y1dUV0aUZ3NEhaNXVMNVNTOV9LdGduQ3p4RVhKbkdWWGVGbGxVUVRmSjdKTkdIOFJDSDkwcGtpdU1yZ3F4UXVGdzlrY1p5aWdlUQ",
+     "rounds": [],
+     "amounts": [
+      "€15.3 million"
+     ]
+    },
+    {
+     "date": "2026-06-15",
+     "source": "FinSMEs",
+     "title": "Orbio Raises $21M in Series A Funding - FinSMEs",
+     "gid": "CBMifkFVX3lxTE90V3lGaklId2FycllYMlBRZ3cwVWduZXl6NWdHOVB3Mm1NSktEbTEteHhycjVsX0VOS3pFNWxWYk5ZUDBsUVFlU1lTZzFQUkFTUloteEZJLWxpV1o1RHNXTGhnWjdDME1rS1JSanNndURqQnFWNGduZi1ycnpYdw",
+     "rounds": [
+      "series a"
+     ],
+     "amounts": [
+      "$21M"
+     ]
+    },
+    {
+     "date": "2026-06-15",
+     "source": "eu-startups.com",
+     "title": "Madrid’s Orbio raises €18.09 million Series A to scale AI workforce platform for frontline teams - eu-startups.com",
+     "gid": "CBMizAFBVV95cUxQZHNDdGFhR2hlX1ViWmJ5T3dlVmlBVE9nZUpUWVlyeW1kRjk3Rmhiem02dHA0TEVjN05sNHMwYlotM3hhQl9sMElIY0VkRXFIcmpaWF9yQU5BcUswTElWUTNYSGpkbmk4X2w0QmM0SGFTaFpNSFI5QVhtNUpsWkVCNG8yZTNmRm5TWnNha0pMS01Zd20tRTZtOUpGUUxubnM5ajBYWFdhT250dGJJUHZSRmZVYXdzOUx0UnFfbWYyVTRidFdZTzlWVkc4NXI",
+     "rounds": [
+      "series a"
+     ],
+     "amounts": [
+      "€18.09 million"
+     ]
+    }
+   ]
+  },
+  "\"Visionaries Club\" after:2026-07-01 before:2027-01-01": {
+   "status": "ok",
+   "n": 4,
+   "items": [
+    {
+     "date": "2026-07-20",
+     "source": "Startuprad Io",
+     "title": "How Europe Builds Enduring Technology Companies: From Scientific Breakthrough to Global Scale - Startuprad Io",
+     "gid": "CBMiwAFBVV95cUxOaC1xMG5vbVlTclhFWm9uZ0dTd1NPUjE3bkE5NWJYNnVSZ3pfRWExTlR2ODY1cGtQdlZXZmlRWHlLS3o4YTJzN0Ntd3c4RzZxcEV6RkhZbWRnN09ZZHVzWnhkRjl0N011M3NXUmQ5MnllRVUzTy1mWFZXZWpiVjRSMzV5Vi15QmVFV1VWRDVJOVZYakNSMk5nNmdmeTJFXzNNNWZWTGtfZW16YkU0XzNuQkx6MmFqb1AzOHJXdDJCR0U",
+     "rounds": [],
+     "amounts": []
+    },
+    {
+     "date": "2026-08-26",
+     "source": "Tracxn",
+     "title": "TrueLayer - 2026 Funding Rounds & List of Investors - Tracxn",
+     "gid": "CBMirAFBVV95cUxOenBsX1RDMl9QQjZTQWQ1WFNYX0h4eVZ5a0lqdTlVakpLWDU0REZZLW5BX0J5elpKSmttY3I4VGkyS1ZJMnhmaTBuYnRPcjI0NGdQeHp1Y3d1dUJlamhWV1lhT1hxNUlSMXRVZFRxeWFHcHRVLXl6cHlwcGdKaWxxc3Bqbk11MTRKbE9vNWFxUW5BUmFmV0xrUWZyTm5DbnNtTThBVHVFTUFyTk91",
+     "rounds": [],
+     "amounts": []
+    },
+    {
+     "date": "2026-09-04",
+     "source": "Tracxn",
+     "title": "N8n - 2026 Funding Rounds & List of Investors - Tracxn",
+     "gid": "CBMipAFBVV95cUxOUkFnaFhjMFpYYlYwS01fU1VmN2JvQ3l2OFgzRm9aU3hLY2FRN2oyZlR6N082VTN1aWphVTBGUDBHYjJvaC13M2lzaGk0dHlrc0RPd29QcXhtYU8tSTNCSWc3Qy1BUVZMX3RRM004WkFDMERZaEpjTVZ5aUlLMEpEYnJrNzdHeDdYZ2MtbktQR1hwc1lVWlZxVkZ2SUtGUnBiY2JOTA",
+     "rounds": [],
+     "amounts": []
+    },
+    {
+     "date": "2026-09-16",
+     "source": "Tracxn",
+     "title": "Lovable - 2026 Funding Rounds & List of Investors - Tracxn",
+     "gid": "CBMiqgFBVV95cUxPRzNaTUNhYWRJbF9FNzZzSDA1VndvQ2RSUUdwMDRWb2M1TEZjRGEtbVpXMDdnNFhEcTNqMU92TWxJUWliVjNrTlFtVFdLSWV4TmxrOGVDclVITkdadzJWOEJkSTdTUXplRHFrQURJMDhXajA0X2ZjbmFYOEJVWnFybVZFRFpNSm5tSllQLXFpLU44SDVGdXgwcTlhUVJoMjVhX3NlVk1rTTBuUQ",
+     "rounds": [],
+     "amounts": []
+    }
+   ]
+  },
+  "\"Visionaries Tomorrow\" after:2019-01-01 before:2019-07-01": {
+   "status": "ok",
+   "n": 0,
+   "items": []
+  },
+  "\"Visionaries Tomorrow\" after:2019-07-01 before:2020-01-01": {
+   "status": "ok",
+   "n": 0,
+   "items": []
+  },
+  "\"Visionaries Tomorrow\" after:2020-01-01 before:2020-07-01": {
+   "status": "ok",
+   "n": 0,
+   "items": []
+  },
+  "\"Visionaries Tomorrow\" after:2020-07-01 before:2021-01-01": {
+   "status": "ok",
+   "n": 1,
+   "items": [
+    {
+     "date": "2020-07-30",
+     "source": "Comstock's magazine",
+     "title": "Market Maker - Comstock's magazine",
+     "gid": "CBMiXkFVX3lxTFBqcUtrb0R5NUlUeDdjU1lZVVZDRldXLVJEaFhjSWtQQmlGUTRtcXJJWWVFSXNHWW9rX19tT0xjemVINmF3clRZeVBYbTJ5emtIWDd0V21TYUNHS05HTFE",
+     "rounds": [],
+     "amounts": []
+    }
+   ]
+  },
+  "\"Visionaries Tomorrow\" after:2021-01-01 before:2021-07-01": {
+   "status": "ok",
+   "n": 0,
+   "items": []
+  },
+  "\"Visionaries Tomorrow\" after:2021-07-01 before:2022-01-01": {
+   "status": "ok",
+   "n": 0,
+   "items": []
+  },
+  "\"Visionaries Tomorrow\" after:2022-01-01 before:2022-07-01": {
+   "status": "ok",
+   "n": 0,
+   "items": []
+  },
+  "\"Visionaries Tomorrow\" after:2022-07-01 before:2023-01-01": {
+   "status": "ok",
+   "n": 0,
+   "items": []
+  },
+  "\"Visionaries Tomorrow\" after:2023-01-01 before:2023-07-01": {
+   "status": "ok",
+   "n": 0,
+   "items": []
+  },
+  "\"Visionaries Tomorrow\" after:2023-07-01 before:2024-01-01": {
+   "status": "ok",
+   "n": 2,
+   "items": [
+    {
+     "date": "2023-11-16",
+     "source": "Tech.eu",
+     "title": "Proxima Fusion extends Pre-Seed round, welcomes scientists from Stanford, MIT, and Harvard - Tech.eu",
+     "gid": "CBMif0FVX3lxTE5LdW1iYkZHMUhYbENXTXBWN1hQb1hwNVJvMEYySFpubGVGRU1sQ1doRzAyOUx5YTYxOEYxTVFaeWVqVGotNkVpeW5MQ2VfX1lxWWZhVWFSN1g1X1VZbnFqUHdNS1U1UDFCeTNta3ROMmdrdENhb1UwXzNmNlE1VGM",
+     "rounds": [
+      "pre-seed"
+     ],
+     "amounts": []
+    },
+    {
+     "date": "2023-11-17",
+     "source": "Recharge News",
+     "title": "Unleash the 'stellarator': fusion pioneer raids Google, Tesla and Harvard in limitless clean energy quest - Recharge News",
+     "gid": "CBMi8gFBVV95cUxPX2pOX1ZXd19LNHZJSVhvV1o3cHpaZ3dicFpqRmtEY01nT3gtaDVsVkZXTjg1UWM0dTVQV0Eza2ZtZl9KZG5uWG9nQ2JjQk5QTjdPQmd4d2ZhbzFvcExzaGNob3k5Vy15ZG9yUmFwc2RkUUVydWlSeVBhcmhWdjFkY2dTZmRyTkYyYV9iTTB4NHhpaENhV1dRRmFYUDlFYnJydVQ0aG95Y29lbmpEWWpGNkx2VGxFaURGS1ZuSlZNclBYcWpXaG1OVjFsSkJRSnZvSkV0aEFPQWdjSmVaZW9yUWZEYTNwc3Eya0V2X3dTQmF5QQ",
+     "rounds": [],
+     "amounts": []
+    }
+   ]
+  },
+  "\"Visionaries Tomorrow\" after:2024-01-01 before:2024-07-01": {
+   "status": "ok",
+   "n": 0,
+   "items": []
+  },
+  "\"Visionaries Tomorrow\" after:2024-07-01 before:2025-01-01": {
+   "status": "ok",
+   "n": 0,
+   "items": []
+  },
+  "\"Visionaries Tomorrow\" after:2025-01-01 before:2025-07-01": {
+   "status": "ok",
+   "n": 2,
+   "items": [
+    {
+     "date": "2025-06-11",
+     "source": "Business Wire",
+     "title": "Proxima Fusion Raises €130M Series A to Build World’s First Stellarator-Based Fusion Power Plant in the 2030S - Business Wire",
+     "gid": "CBMigwJBVV95cUxPSzNxRkJNOXRKblNvZUVtZ2pzQlpMd05Ba2tWUGFJMjQtbWJKc3VBM3lrQWNkQWV0OXdweEdTcmhRa1ExT2JFOVZZbkMtY1l5UWdDU3dQNkRvM2lOYU1XbE1INzRfSVNZQ1BIYTJySk1mQjJyTUZGSEJERmFVWnBMUkIzUWdwWXZ6d0kwd2VDb1U5QjBuOEJRaWo4MUhfbTFWZVFmQ3ctVVhrMFVuUFlwbDRCYzVXT3Ezck0zZjE0cnJrcWdyc2pjQm5WTVJLall0Rzhqbml1UjVTbjNRT0xpZTd4Y2lIOU15S0NsY3dzS091MzZUNFRlMHZaQnR6UHVvRG1Z",
+     "rounds": [
+      "series a"
+     ],
+     "amounts": [
+      "€130M"
+     ]
+    },
+    {
+     "date": "2025-06-11",
+     "source": "Startupbusiness.it",
+     "title": "Proxima Fusion, €130m Series A round closed - Startupbusiness.it",
+     "gid": "CBMijAFBVV95cUxPSFJLMzhXVHcxeWt0WmMtNkFwaXJ5akFwVzl1RU82Y1YxMVZsSWRPa0JCc3JoSmRPaENGekM5UUEtbkxlSE9YSlpfTXhaU0VQOWFxVEZZNEg2MkJHSkozVjRxU2ItaWN6V0I1WndWQWZaLUVnYlN2bDQyMXJKUTBrUXBUWUU0OHIzcTVTVw",
+     "rounds": [
+      "series a"
+     ],
+     "amounts": [
+      "€130m"
+     ]
+    }
+   ]
+  },
+  "\"Visionaries Tomorrow\" after:2025-07-01 before:2026-01-01": {
+   "status": "ok",
+   "n": 9,
+   "items": [
+    {
+     "date": "2025-07-08",
+     "source": "lw.com",
+     "title": "Watkins Advises Arago in Seed Funding Round - lw.com",
+     "gid": "CBMijgFBVV95cUxOeUZhbW5xbFJoVWpEU1oyMGpKRDYwUEl0Q1E2WkJCdTB2bmhZV2picHh3cGFvWF8tU2VtdmNJZ3I3SFdlcTdZUTROb1lPZU9YZWVLSGN3dUdNdktPVkotR3lEN0NwbnV3dl9Ea2V0N01hYjJEdUZDeDNIaHZNcnN0ZGxsZE9ldXQwVjRqeHF3",
+     "rounds": [
+      "seed funding"
+     ],
+     "amounts": []
+    },
+    {
+     "date": "2025-07-08",
+     "source": "Tech Funding News",
+     "title": "New chip on the block: Arago’s photonic chip inks $26M to slash energy use - Tech Funding News",
+     "gid": "CBMiogFBVV95cUxQcjRfN1lodDJYSXJFbFM3eVYxUWxxRm5LU1Fkd18yMV94OE5RbkZiSHRLNGhvb1hTZ2kwR3UwWldKRkh6dVZaZFZQSWZhdVdYWWhtMjNfNEVSX1Z5MkNQcl95a0V2anJuU0RJLWNRZTdtYS0wZnFPcDAwWUU4cmJzRS01UXZzeTB2RGU5ODNJOWh3NXpyck0zNm9KVnh1SFQ2dHc",
+     "rounds": [],
+     "amounts": [
+      "$26M"
+     ]
+    },
+    {
+     "date": "2025-07-08",
+     "source": "eu-startups.com",
+     "title": "French DeepTech company Arago raises €22.1 million to slash AI energy consumption with photonic chip - eu-startups.com",
+     "gid": "CBMi4gFBVV95cUxQS1gteldiTzRYQVIwVEZUek5lUnhNbVYwblNWRWN1WWUxSE5RMDUyTlhFR0tHcTNnVzlNZlF1eTdZUEREYnNQQmo3Z0J6bnlibF8yR3NWM2VqRDdXVzV6bEtDMUxtZlJlZ2pzRVVSMzRfMGx2U1NpOERJeTZVLVpNSTVzSDVMNTZnU0Q3b2pFUkxkQmhIYV9ZWjJKWkdNcFhSVWFXcTNXcldQSk1UVHd6REpCNFRVdVYtNU1XVkw4aHdraFBTVjNiemE3RWhudE1SNHM4TVVUMTRxVGI1LTI3V2VR",
+     "rounds": [],
+     "amounts": [
+      "€22.1 million"
+     ]
+    },
+    {
+     "date": "2025-07-08",
+     "source": "Tech.eu",
+     "title": "Arago raises $26M to slash AI energy consumption with breakthrough photonic chip - Tech.eu",
+     "gid": "CBMiqwFBVV95cUxQUE5ab280WExtb2NsSGNWRktFMWVUVlNQQzlRdGNleWlzRU9CdmpEUk91ZFBsQWpkLVJKbGVEUmRqUHg5TGstZjJPZXRpakJidzN1eUF4emVJd0ZHSWxRWk53MDZJVVhkb2ZiZzJYbWdNMllOU2Nwa1FVVWxGTnRzVGlpdEYtTlVIbkpoX0dhaTRGQTlFb3M3Nmk1bS1maGpfcTFhOU9Hb01hNXM",
+     "rounds": [],
+     "amounts": [
+      "$26M"
+     ]
+    },
+    {
+     "date": "2025-07-10",
+     "source": "datacenterdynamics.com",
+     "title": "Photonic chip startup Arago closes $26m seed round - datacenterdynamics.com",
+     "gid": "CBMimAFBVV95cUxQSHcxT0hfR3IzcnRVSjJXWklvNFdoYkZEaXRkQW9mUXh1Zmh0YUJORGxNOWdZZGxxc05kMFRQeWZNQXNoSnltUjg5NWxHcDBBaHJxVXVRTGNOcV9vdERybDdVZHhUTTgzdGE0R2NNbjRuRVBSRWM4Wm1BUFZIUGg4MWRxNklPMFlZbGZ4ZGlVMU94c0tmZ1c3Nw",
+     "rounds": [
+      "seed round"
+     ],
+     "amounts": [
+      "$26m"
+     ]
+    },
+    {
+     "date": "2025-07-11",
+     "source": "IT Europa",
+     "title": "Markets round-up for the week: 11 July - IT Europa",
+     "gid": "CBMiZ0FVX3lxTE1OTFBwQWZYbVV4TmZjbWtvOGpqaVo2TVJ2TDBGMnkwdkd0VzdENUJxaE85ZHRRcmgyTmQwdTAxazFkSE5SZ3o5RUVkSnB2djJKWENzaW1xT21KRHluU1BJNE1JdWllMnM",
+     "rounds": [],
+     "amounts": []
+    },
+    {
+     "date": "2025-08-20",
+     "source": "eu-startups.com",
+     "title": "Munich-based Hades Mining raises €5.5 million to unlock Europe’s deepest energy reserves - eu-startups.com",
+     "gid": "CBMiwgFBVV95cUxPU2N1ek1UYndFRWRfb0FUeDdnUTB0eG9kWFlxUGcwdlFNWHpscUt2RjI1QUExb1VnQnpFVkEySlE3RGpVUmg1MFBtcjlYUGtGV3NwbEhNRDdtNl9oQ0ZmU2dtWkJPWjRTZVM0VXp5UHRhR0ZCbjBJcXBYdHZEdE1vTFdjc3hjU3pmczFCclU5NjM1STJfWm5GSXhKZk03NXJJS1JBUF9OelE2S1NWbmVpNEdycWMtLWk3Sk00cUIyM1AyQQ",
+     "rounds": [],
+     "amounts": [
+      "€5.5 million"
+     ]
+    },
+    {
+     "date": "2025-10-14",
+     "source": "Global Venturing",
+     "title": "Hitachi Ventures and JLR’s InMotion back materials intelligence startup SirenOpt - Global Venturing",
+     "gid": "CBMiigFBVV95cUxPUWV3dXduVmFpOFdyYmpEYW9jX0NtaXFORmpibE5ROXNYOFl3bEFZYmxCTTd4SmpKdk9JWEpzVFBtaU1VQ2NSVFpuTVZ4dDl0TUt0LUZzbTBHTjdXMjI3RWJFTlBGTWdSZ3liS1JpamV1YU43YWg5eGtZOFctcnVkeUYzZ0YteDZReEE",
+     "rounds": [],
+     "amounts": []
+    },
+    {
+     "date": "2025-10-14",
+     "source": "Tech Funding News",
+     "title": "SirenOpt raises $6.5M to scale PlasmaSens, its AI-powered platform for real-time, non-destructive manufacturing inspection - Tech Funding News",
+     "gid": "CBMiqwFBVV95cUxNZkpkQm1vbzEwVVgyWGdxRmZndFQ0Z2NGUEFxNHk4UUYzQVpDNjF1bmlqU0JiY3k4TElNTnpTV1VDTTdhWUVpTzRHZ0ExSW00amRPM0l5NS1rTG5NZVJ5cEJ6RUlBYVVxcFJ6a21sOERZOG9UNVM4Tl80ZWduV1RSNmo2N1BYZkVudW1UbE05MmJOMUoxckQzZmNNTDJza24xcHBjWHdzSEd5RU0",
+     "rounds": [],
+     "amounts": [
+      "$6.5M"
+     ]
+    }
+   ]
+  },
+  "\"Visionaries Tomorrow\" after:2026-01-01 before:2026-07-01": {
+   "status": "ok",
+   "n": 7,
+   "items": [
+    {
+     "date": "2026-02-05",
+     "source": "UK Tech Investment News",
+     "title": "Nyxium secures £2.4 million Pre-Seed investment led by Visionaries Tomorrow - UK Tech Investment News",
+     "gid": "CBMitAFBVV95cUxNRUVTRTcxRW9HUk5iaEtIRGJhMFg5aVU4LTFZQjFxbVVJQnc5NUhaQkMwRG4tdXpqaUdmWHZNQ0tBMHFFWWJMMWRqbUc3cEZYTWMtOE1nUFBSQTEyLWk4WjdCWlNQZzdQdU9ZVVVabGltX251T0dPSjRfdS1QUjdpMWtaY2dSM2dzMld4S09SMnFRVG84OFY3TDRKRXVIU1JLZHFWc1N1WndPUmdCRVIySkkyYlI",
+     "rounds": [
+      "pre-seed"
+     ],
+     "amounts": [
+      "2.4 million"
+     ]
+    },
+    {
+     "date": "2026-02-05",
+     "source": "Tech Funding News",
+     "title": "Exclusive: Nyxium lands £2.4M for agentic AI that slashes energy permitting timelines by 75% - Tech Funding News",
+     "gid": "CBMiggFBVV95cUxQXy1vcVlkUldKSk44Q1VLZldMRUdnTkhobjZLRjN0ajZBSnpIb1o2QWk2dTFPNjlfR1d3ODA3T3dYU1o4OWVIRDNTUFI0SGlUT3VSc0VHMlZvSzZ2V1RiNUdSVVpTLXlHTncxS3VDbUZtNDlROEs0Z2pHV3ZDREMyZGhR",
+     "rounds": [],
+     "amounts": []
+    },
+    {
+     "date": "2026-02-11",
+     "source": "Axios",
+     "title": "Apptronik's $5.3b valuation, Loyal's canine longevity bet, and Toyota's reboot - Axios",
+     "gid": "CBMilgFBVV95cUxPanFfenR0V0dyTnFQZ0tzczJGM0poeGdfaVRUY0QxNGxQQjZTREt6M2Q0SXRoMGVtalgxWWdKWlNSZnN4bnpNVy1fLXBhcVNqTlY5VTB1dzRkQXB4MlJvTWlkamtsSWhnRVA3OXJZY0JndkkwdXZ3SlBzM3pPMzJGZDRIQUItTDhSNjRmajZmUS1SdGxCZFE",
+     "rounds": [],
+     "amounts": [
+      "$5.3b"
+     ]
+    },
+    {
+     "date": "2026-03-17",
+     "source": "Tech.eu",
+     "title": "Level Nine raises €4M to unlock local feedstocks for chemicals - Tech.eu",
+     "gid": "CBMilwFBVV95cUxONF8zSVRWUzlPaDdwZmlQcG0ydkNldHhnSDBlaW91Nmp4V1Bfc203VlVZd2Vpa1RvTjg1UmFIaHlmbmVERkNiZUF6MGw5ZWZ3Z0s0QjRJODdiNDB2YVNzZXRQemFaejQxVVhxNVNPNF9NajBfMjd2SEsxalpzd1dhZkQweXpid3dOLU4xVDhfS1ZTa0tnSXlB",
+     "rounds": [],
+     "amounts": [
+      "€4M"
+     ]
+    },
+    {
+     "date": "2026-03-17",
+     "source": "Axios",
+     "title": "Standard Template's $49m seed, Ramp's acquisition, and Rogers Communications sale - Axios",
+     "gid": "CBMif0FVX3lxTE4zZ1l3TUxzU1dSUmpybGlZZ1BqLVUwMkdhTlVSbk12VDRTZVdtd2lFOGdFb0syd2JGT2RSeWQxUVc0STAyeWxMSk43RkhlOWFqdHZGeGpkMXhsZlZUWmluTmJLX005VVJ2V2pvaTBRcFB1ZVc3RWhIRUJOcUlHZ3c",
+     "rounds": [
+      "acquisition",
+      "seed"
+     ],
+     "amounts": [
+      "$49m"
+     ]
+    },
+    {
+     "date": "2026-03-17",
+     "source": "Tech Funding News",
+     "title": "Exclusive: Level Nine just raised €4M for what they call the ‘Lego for catalysts’ - Tech Funding News",
+     "gid": "CBMiogFBVV95cUxQZXRERmF3OWZuenRDeExzMldYWHZhbW1wRHVyYnVlOFdoQ2FYcTA1cFpyWkp4Y2hERFIwUmRpVFZRRFRBTHNlcWx5UUZvYTZsWG45SzE3SnJRZllaZjEyWmlnNHJ1YnJrWVBaYk1ORjV4UjU1d1lPTzFaOTYxVVJWR3Qwd25RdnU3ZUh5NmtMd0lVQWxqVUxISEJkSXN0LTRyS2c",
+     "rounds": [],
+     "amounts": [
+      "€4M"
+     ]
+    },
+    {
+     "date": "2026-03-18",
+     "source": "ESG Today",
+     "title": "Level Nine Raises $4.6 Million to Convert Biomass into Green Chemicals - ESG Today",
+     "gid": "CBMimwFBVV95cUxPcVB1NkRiWlI1OTJTT19uMHlPTTdBZ2RCaldwZTNvZjdtb195Sm5xZ1UxNy1SakU3Z29tdFBubVU5akdTVWFnZEFnbVF5MU9GTDcwc0xESjNFakVYVnFiTFhKM2FweUdyZ3ZWbnpCd0lqNUZ4bVhEVDNaN2pDODR5YVlBV1R2Y2t6MWlHQlJtLTNlS0M1NVBxdXU4VQ",
+     "rounds": [],
+     "amounts": [
+      "$4.6 Million"
+     ]
+    }
+   ]
+  },
+  "\"Visionaries Tomorrow\" after:2026-07-01 before:2027-01-01": {
+   "status": "ok",
+   "n": 1,
+   "items": [
+    {
+     "date": "2026-09-09",
+     "source": "Business Post",
+     "title": "Meet the Irish founders trying to loosen Big Oil’s grip on chemicals - Business Post",
+     "gid": "CBMiowFBVV95cUxOeXdDcFBKV2ZQeDB0UWxiZnZhTjZic2N4aHFtX3cwbzk5ZUlIWU5jWjlxdHo5M1JkTEhtc2FXLV9LZjYwdl9JR2RBMVU2SGNXS2t0aFc0elN6aWhlcU92M1lEbXllRHpsMnJYcTZEdm1JWE8zQXk1WHkzaHoyMXdTZXJ1QXlDM2l0U3JrNUFLcnZyTWRtY0gtQTUzdnRVN0VydW1r",
+     "rounds": [],
+     "amounts": []
+    }
+   ]
+  },
+  "\"Visionaries\" venture Berlin raises after:2019-01-01 before:2019-07-01": {
+   "status": "ok",
+   "n": 0,
+   "items": []
+  },
+  "\"Visionaries\" venture Berlin raises after:2019-07-01 before:2020-01-01": {
+   "status": "ok",
+   "n": 0,
+   "items": []
+  },
+  "\"Visionaries\" venture Berlin raises after:2020-01-01 before:2020-07-01": {
+   "status": "ok",
+   "n": 1,
+   "items": [
+    {
+     "date": "2020-04-16",
+     "source": "Crunchbase News",
+     "title": "Berlin’s Choco Raises $30.2M, Doubles Valuation to $250M - Crunchbase News",
+     "gid": "CBMilAFBVV95cUxOWkZhdnY2SUg4d1lGYzJydDRhdWdtSXRWYTZBY283Y1ExbzFjSEdyQzdfSzFGRkJTWU5UYWxhX0NHY1phWUZ1dXd1RjRjRm8waGY5SUVTTzJmU1hWSDlGbFJWZ05ZaXE3QmFGSGNGcm8xVUxYNmNlSVJJaVdETi1SY05xWHAtRENhWUJRbGxfOEFma0R1",
+     "rounds": [],
+     "amounts": [
+      "$250M",
+      "$30.2M"
+     ]
+    }
+   ]
+  },
+  "\"Visionaries\" venture Berlin raises after:2020-07-01 before:2021-01-01": {
+   "status": "ok",
+   "n": 0,
+   "items": []
+  },
+  "\"Visionaries\" venture Berlin raises after:2021-01-01 before:2021-07-01": {
+   "status": "ok",
+   "n": 0,
+   "items": []
+  },
+  "\"Visionaries\" venture Berlin raises after:2021-07-01 before:2022-01-01": {
+   "status": "ok",
+   "n": 0,
+   "items": []
+  },
+  "\"Visionaries\" venture Berlin raises after:2022-01-01 before:2022-07-01": {
+   "status": "ok",
+   "n": 1,
+   "items": [
+    {
+     "date": "2022-04-12",
+     "source": "eu-startups.com",
+     "title": "Berlin-based foodtech startup Choco bites into €102 million to become Germany’s latest unicorn - eu-startups.com",
+     "gid": "CBMiygFBVV95cUxNN1A5RXZaaUJCeUFDM3pRc0MtQi1PbG5vOWxZRWVsMjNrYlVJczkxbk9JbEdSYTg2Q2xLT3BuRW5NVWw4SzR2OHB0YTZENW9veWViY0d2MFAxRjR0UlBiRVpDNmJoZ3VQQXNrbjlGbTZvcm1WVXh2WHNUYWJpNmVtRWw1Q29FclVOSFdKNF9YazEzSTFCelk3eG12elRNRHh0S000Z0RvY3d6YVM4VWZjUG4yYlp6c2pyYmhySEVFYW9NZ0twNUtWdzRn",
+     "rounds": [],
+     "amounts": [
+      "€102 million"
+     ]
+    }
+   ]
+  },
+  "\"Visionaries\" venture Berlin raises after:2022-07-01 before:2023-01-01": {
+   "status": "ok",
+   "n": 1,
+   "items": [
+    {
+     "date": "2022-09-22",
+     "source": "techcrunch.com",
+     "title": "Berlin's Visionaries Club VC boosts its funds with €400M worth of fresh capital for B2B investments - techcrunch.com",
+     "gid": "CBMizgFBVV95cUxNR3IwVGxycG5hWXRETTZtMXJiVzh4UlJlTmRmS294R0pSZ0lmWVVHLUw4cm5ONDI1U2F1RDhkeF9yc1U1anpyMVJ3Ny1zT3hFT1BtZm82M2xsY3V2NkhTNmlrN3dTUlkwajlFbk1VenFLbndRVm9ubTQ3R2YyckU5eHZYaUgzTDdYQ2hiMVBNN05sZkVJeXBXVlZhV1ZfT3ZSZGM3VGZ0bHN3YU1PTklJTmR4MUJCaUhpNVZJeHVCWHg3Wk54emt1dlM1TFgyQQ",
+     "rounds": [],
+     "amounts": [
+      "€400M"
+     ]
+    }
+   ]
+  },
+  "\"Visionaries\" venture Berlin raises after:2023-01-01 before:2023-07-01": {
+   "status": "ok",
+   "n": 1,
+   "items": [
+    {
+     "date": "2023-06-09",
+     "source": "Insurance Journal",
+     "title": "Insify Raises €10 million Series A Extension Led By Munich Re - Insurance Journal",
+     "gid": "CBMifkFVX3lxTE1abzkxWUE1aHR0YUlFVlozdjYtRTczTHZzR1pRU2Z2b3VzZWxsZHk4eVkzLWZDVTVSUkdXRG1sRHp2R2lkMlZIQlNWVU05dzJmek01MGRRWWhvUlNyTmgyajRaTnlZMzk5RzNlaUpJTDV3YXVWQWN2LVRBWC1Fdw",
+     "rounds": [
+      "series a"
+     ],
+     "amounts": [
+      "€10 million"
+     ]
+    }
+   ]
+  },
+  "\"Visionaries\" venture Berlin raises after:2023-07-01 before:2024-01-01": {
+   "status": "ok",
+   "n": 2,
+   "items": [
+    {
+     "date": "2023-07-27",
+     "source": "Bike Europe",
+     "title": "German fleet and subscription startup Cycle Mobility raises €10.3 million - Bike Europe",
+     "gid": "CBMipgFBVV95cUxOTEdTRWhiYUtYLVVldjZCakJTcUh1NjZabVVYclo5ZEtkT25jdmJ2MmxsNkF0MVhqY3hNQ1Bna080bTVHOExRUkVZMHlDbVpyYUR0cnc2X3g0OEZJSkw2MDdSMHY5d3p5cFpTNzN2Wi1pX3p2a01oZ2pQRGhYdjVEaHhsdmtwY0o3NnRRdTZtY2xpWllUcHVYczJmcXBXdlJRN2xRUlJ3",
+     "rounds": [],
+     "amounts": [
+      "€10.3 million"
+     ]
+    },
+    {
+     "date": "2023-11-03",
+     "source": "businessinsider.com",
+     "title": "AI startup Tacto is about to close a $20 million Sequoia round and already has more investors lined up, sources say - businessinsider.com",
+     "gid": "CBMipAFBVV95cUxQZVdxV0VvelM3OW5HZ0YzVnpldzYxZThJTmpOZzRsb3o4UjVDYmlDRnptZWp4d2dTZk13dUdqbE9ZcnlKY2dCYlRydEVJS0tKNkwxQVRZMEVTOGg1TVdLYVNXWjJHMkR2WFJmX0taWHhXS0xHcGdBZURXSnN0cm5RLXVuYnowcFVadmRTRThaNlVaTTFFM2V1Mi0wWmMtSVg5ajJuUg",
+     "rounds": [],
+     "amounts": [
+      "$20 million"
+     ]
+    }
+   ]
+  },
+  "\"Visionaries\" venture Berlin raises after:2024-01-01 before:2024-07-01": {
+   "status": "ok",
+   "n": 0,
+   "items": []
+  },
+  "\"Visionaries\" venture Berlin raises after:2024-07-01 before:2025-01-01": {
+   "status": "ok",
+   "n": 0,
+   "items": []
+  },
+  "\"Visionaries\" venture Berlin raises after:2025-01-01 before:2025-07-01": {
+   "status": "ok",
+   "n": 2,
+   "items": [
+    {
+     "date": "2025-02-27",
+     "source": "eu-startups.com",
+     "title": "Taktile raises €51.5 million to help risk experts in financial services adopt AI for decision-making - eu-startups.com",
+     "gid": "CBMi0wFBVV95cUxPSjBhRUlBblI0ZjItRDJQMVZFWG0zdER2YXhqVGxCZk1DYmpGelFQX05oaWZvSDFIMmY3VnpwdVZrRWlwLWpLaGVFd3RJU2ZjS0tqYVZoNnVLLXhHdDRiclVDRExBZ2J5YUhYRC1iaTVDRFBTVHFzR1kzNTdIZmFPMXB2WGpDVU5ZdDJyVVVPYlgxZU1mZkM3aTRaNHF5RXk1bUdsd2NhbDRCQ2xlWnpFd19WOTJSdWhRRm9kekVYRUtKSTAxcjkxRUhlMUVTdFFoMTFN",
+     "rounds": [],
+     "amounts": [
+      "€51.5 million"
+     ]
+    },
+    {
+     "date": "2025-03-12",
+     "source": "fortune.com",
+     "title": "Exclusive: Causal Labs emerges from stealth, raises $6 million for AI weather prediction - fortune.com",
+     "gid": "CBMiuwFBVV95cUxPUzZSU2hyZUgwaVVZbFYtVFFGazZoc0FlZzFPYmhIZ3RmYkhpamFiYi1Sb1lhUkxqb1hnQ1JmeklnZ215QktnV1JzbEtpN3FDSTc5cEJuSmdMbjNIVmpqMlBLU1d5TDdodHVJRnVKRlhYUFViRnI5TjlPSEdqT2hHMWVfMzR0ektTQjdYeDNEeWEzRkpBOTBRLVEyMjBTOEF3UDVkOXFGWjNhZ1RaTlVvdmZrQXhfODlSZWNn",
+     "rounds": [],
+     "amounts": [
+      "$6 million"
+     ]
+    }
+   ]
+  },
+  "\"Visionaries\" venture Berlin raises after:2025-07-01 before:2026-01-01": {
+   "status": "ok",
+   "n": 5,
+   "items": [
+    {
+     "date": "2025-07-08",
+     "source": "eu-startups.com",
+     "title": "French DeepTech company Arago raises €22.1 million to slash AI energy consumption with photonic chip - eu-startups.com",
+     "gid": "CBMi4gFBVV95cUxQS1gteldiTzRYQVIwVEZUek5lUnhNbVYwblNWRWN1WWUxSE5RMDUyTlhFR0tHcTNnVzlNZlF1eTdZUEREYnNQQmo3Z0J6bnlibF8yR3NWM2VqRDdXVzV6bEtDMUxtZlJlZ2pzRVVSMzRfMGx2U1NpOERJeTZVLVpNSTVzSDVMNTZnU0Q3b2pFUkxkQmhIYV9ZWjJKWkdNcFhSVWFXcTNXcldQSk1UVHd6REpCNFRVdVYtNU1XVkw4aHdraFBTVjNiemE3RWhudE1SNHM4TVVUMTRxVGI1LTI3V2VR",
+     "rounds": [],
+     "amounts": [
+      "€22.1 million"
+     ]
+    },
+    {
+     "date": "2025-08-20",
+     "source": "eu-startups.com",
+     "title": "Munich-based Hades Mining raises €5.5 million to unlock Europe’s deepest energy reserves - eu-startups.com",
+     "gid": "CBMiwgFBVV95cUxPU2N1ek1UYndFRWRfb0FUeDdnUTB0eG9kWFlxUGcwdlFNWHpscUt2RjI1QUExb1VnQnpFVkEySlE3RGpVUmg1MFBtcjlYUGtGV3NwbEhNRDdtNl9oQ0ZmU2dtWkJPWjRTZVM0VXp5UHRhR0ZCbjBJcXBYdHZEdE1vTFdjc3hjU3pmczFCclU5NjM1STJfWm5GSXhKZk03NXJJS1JBUF9OelE2S1NWbmVpNEdycWMtLWk3Sk00cUIyM1AyQQ",
+     "rounds": [],
+     "amounts": [
+      "€5.5 million"
+     ]
+    },
+    {
+     "date": "2025-09-25",
+     "source": "eu-startups.com",
+     "title": "Spanish AI-Native system Orbio has raised over €6 million for its HRTech offering - eu-startups.com",
+     "gid": "CBMiugFBVV95cUxOa1E2Wmx0OHRVZTVhRFV3dkRkbkpNOW1vOV9CakRBbzBtT08xSUVBZXRFajduMzZqYm1pS1dBdFNXd3o3dl85d0JKd19Id09HRk13cmFKcUVMalRETGFnbW5MWUZqWlotSVNqeVZOSFl3SlJSdkdhTWFGcnNtOGtuM2U0Rk9VYzNqUTJ5Vl9qbGRaS3k5eVVMQ21JUXJQUkZVTkktVXR1bjc3Tkl1eHZsaVpJSElYYmNaRmc",
+     "rounds": [],
+     "amounts": [
+      "€6 million"
+     ]
+    },
+    {
+     "date": "2025-10-09",
+     "source": "Heise Online",
+     "title": "Berlin-based AI startup n8n reaches 2.5 billion dollar valuation - Heise Online",
+     "gid": "CBMiqwFBVV95cUxPczNVSjUzaWNTMWFROUFBUzRaQVNVaUN1bWx4Vm5tc2VyYkN1bVFZOGVYNFgxUHJMNm1DSVpYSXdlUzl1X0FhNXh1MTBRUmhqNGtOblJVdmdPT1ctRHU2N3VCOUZHMEFnSW40T2xQaDRxSmFoZ1Z4bXgwNEE2MkJHZzRnSkFSUzZ1SHZZRDhsYkZuSXg2OHZ6cno0dWpLbkNOc3FBbGRWQ19MZ28",
+     "rounds": [],
+     "amounts": [
+      "2.5 billion"
+     ]
+    },
+    {
+     "date": "2025-10-20",
+     "source": "Ventureburn",
+     "title": "n8n Secures $180 Million Series C Funding, Hits $2.5 Billion Valuation to Lead AI-Powered Workflow Automation - Ventureburn",
+     "gid": "CBMiWEFVX3lxTFBaM21WOE9zSFctVUZ1OF9TaWp2Vkx6QWtOcXRrUjdFNTFOZkZoaUxEdE02aHRrcVMzcHNaa0FjLU5qRTlUNzFvRlVSb2lBSzNBYTNac3lWUETSAVhBVV95cUxQWjNtVjhPc0hXLVVGdThfU2lqdlZMekFrTnF0a1I3RTUxTmZGaGlMRHRNNmh0a3FTM3BzWmtBYy1OakU5VDcxb0ZVUm9pQUszQWEzWnN5VlBE",
+     "rounds": [
+      "series c"
+     ],
+     "amounts": [
+      "$180 Million",
+      "$2.5 Billion"
+     ]
+    }
+   ]
+  },
+  "\"Visionaries\" venture Berlin raises after:2026-01-01 before:2026-07-01": {
+   "status": "ok",
+   "n": 7,
+   "items": [
+    {
+     "date": "2026-02-10",
+     "source": "eu-startups.com",
+     "title": "With OpenAI backing, Allonic raises €6 million for robotic body manufacturing platform - eu-startups.com",
+     "gid": "CBMivwFBVV95cUxPRUtGZHBvZnZkR3dfV0VNanZ0akFRM3ZRMnpHYzNOdG9sajdHOVF2NkQ4R2FQbDV5Qms1Q3lzc05tWjVDY09WRmJRaTFVdEF0dWhNYlBVQ2NiYTd0Wk41SkE4ZEMxbk03TktiYUZsODJqdFhnUk9PdDlOdF9faEpmQzZNaHpxZ3Z6emduQ0hReEpxMzBBd3gxZE9mWjIwRlg2QlVPZ3ZDdUkteElub01pWVBYdmdRX20yMDYzbmlmdw",
+     "rounds": [],
+     "amounts": [
+      "€6 million"
+     ]
+    },
+    {
+     "date": "2026-03-17",
+     "source": "Tech.eu",
+     "title": "Level Nine raises €4M to unlock local feedstocks for chemicals - Tech.eu",
+     "gid": "CBMilwFBVV95cUxONF8zSVRWUzlPaDdwZmlQcG0ydkNldHhnSDBlaW91Nmp4V1Bfc203VlVZd2Vpa1RvTjg1UmFIaHlmbmVERkNiZUF6MGw5ZWZ3Z0s0QjRJODdiNDB2YVNzZXRQemFaejQxVVhxNVNPNF9NajBfMjd2SEsxalpzd1dhZkQweXpid3dOLU4xVDhfS1ZTa0tnSXlB",
+     "rounds": [],
+     "amounts": [
+      "€4M"
+     ]
+    },
+    {
+     "date": "2026-03-17",
+     "source": "Tech Funding News",
+     "title": "Exclusive: Level Nine just raised €4M for what they call the ‘Lego for catalysts’ - Tech Funding News",
+     "gid": "CBMiogFBVV95cUxQZXRERmF3OWZuenRDeExzMldYWHZhbW1wRHVyYnVlOFdoQ2FYcTA1cFpyWkp4Y2hERFIwUmRpVFZRRFRBTHNlcWx5UUZvYTZsWG45SzE3SnJRZllaZjEyWmlnNHJ1YnJrWVBaYk1ORjV4UjU1d1lPTzFaOTYxVVJWR3Qwd25RdnU3ZUh5NmtMd0lVQWxqVUxISEJkSXN0LTRyS2c",
+     "rounds": [],
+     "amounts": [
+      "€4M"
+     ]
+    },
+    {
+     "date": "2026-03-17",
+     "source": "eu-startups.com",
+     "title": "Amsterdam’s WorkFlex secures €37 million as geopolitical instability drives urgency around cross-border mobility compliance - eu-startups.com",
+     "gid": "CBMi8AFBVV95cUxQMnZvZ3hnZE5ocXQ0VzNyaHRyOVdKdjJ5T0hYX0hUYmZIcnRhNnZ6SHUyZkdYYXJ4UU1OeGIyZW15alg0UDkxeW94bkljTmFLSlpibG9WS1hYMXdPVkp1RzFkUGUzYTVZcHlodTFSZF92bTQyb1VCT2FCNkhtZktONlZqTllNY3RIVWlzaDBGT2FTSWpSRmMyc0ludDR3SWZjbERBOF9NaDJYWEVOZWtRQW01SUd2bEF4ZllDWURkOEZaTDZheXRxdDkyRGJQSmdiX293LThtMGx0SzBSRFNDRUdMbUlrd29BdVpKWFJHRVA",
+     "rounds": [],
+     "amounts": [
+      "€37 million"
+     ]
+    },
+    {
+     "date": "2026-03-18",
+     "source": "ESG Today",
+     "title": "Level Nine Raises $4.6 Million to Convert Biomass into Green Chemicals - ESG Today",
+     "gid": "CBMimwFBVV95cUxPcVB1NkRiWlI1OTJTT19uMHlPTTdBZ2RCaldwZTNvZjdtb195Sm5xZ1UxNy1SakU3Z29tdFBubVU5akdTVWFnZEFnbVF5MU9GTDcwc0xESjNFakVYVnFiTFhKM2FweUdyZ3ZWbnpCd0lqNUZ4bVhEVDNaN2pDODR5YVlBV1R2Y2t6MWlHQlJtLTNlS0M1NVBxdXU4VQ",
+     "rounds": [],
+     "amounts": [
+      "$4.6 Million"
+     ]
+    },
+    {
+     "date": "2026-05-12",
+     "source": "eu-startups.com",
+     "title": "Index Ventures backed-Adfin raises €15.3 million to help businesses automate revenue collection with AI - eu-startups.com",
+     "gid": "CBMi1wFBVV95cUxPWnh4QlFxcXVyLTZyaUZnbVdRRkZIeVNPNHMxNUxIM3ZhOUF5elBTcXg1WmdPYlR0Tmp3R2NmaXotbXdPbmhhWnRfZi1Qc1JZb2lkVnNkUnROUEFPZG1XNFpQUzNuaE1MMGdZYkFOME1KbzRtMGJOTU5VdEMwaTdUYWdzTzVvWFk3QmozT1Y1dUV0aUZ3NEhaNXVMNVNTOV9LdGduQ3p4RVhKbkdWWGVGbGxVUVRmSjdKTkdIOFJDSDkwcGtpdU1yZ3F4UXVGdzlrY1p5aWdlUQ",
+     "rounds": [],
+     "amounts": [
+      "€15.3 million"
+     ]
+    },
+    {
+     "date": "2026-06-15",
+     "source": "eu-startups.com",
+     "title": "Madrid’s Orbio raises €18.09 million Series A to scale AI workforce platform for frontline teams - eu-startups.com",
+     "gid": "CBMizAFBVV95cUxQZHNDdGFhR2hlX1ViWmJ5T3dlVmlBVE9nZUpUWVlyeW1kRjk3Rmhiem02dHA0TEVjN05sNHMwYlotM3hhQl9sMElIY0VkRXFIcmpaWF9yQU5BcUswTElWUTNYSGpkbmk4X2w0QmM0SGFTaFpNSFI5QVhtNUpsWkVCNG8yZTNmRm5TWnNha0pMS01Zd20tRTZtOUpGUUxubnM5ajBYWFdhT250dGJJUHZSRmZVYXdzOUx0UnFfbWYyVTRidFdZTzlWVkc4NXI",
+     "rounds": [
+      "series a"
+     ],
+     "amounts": [
+      "€18.09 million"
+     ]
+    }
+   ]
+  },
+  "\"Visionaries\" venture Berlin raises after:2026-07-01 before:2027-01-01": {
+   "status": "ok",
+   "n": 0,
+   "items": []
+  }
+ }
+}

@@ -1,0 +1,149 @@
+{
+ "_readme": "Parse Form ADV Schedule D Section 7.B.(1) private-fund rosters from the\nVisionaries ERA PDF (data/filings/visionaries-club/adv/<CRD>.pdf, gitignored; IAPD reports.adviserinfo.sec.gov/reports/ADV/<CRD>/PDF/<CRD>.pdf) into\nsources/registers/adv-7b-funds.json. Per-page extraction (pypdf's whole-document\ntext repeats pages), one record per fund: name, 805- ID, GAV, filing adviser.\nDeduped by private fund ID across advisers (COLLECTION.md 11: co-advisers of\none desk report identical rosters). Section 7.B.(2) (sub-advised funds reported\nby another adviser) carries no GAV and is recorded as a reference list.",
+ "advisers": {
+  "317147": {
+   "crd": "317147",
+   "adviser": "VISIONARIES CLUB GMBH",
+   "filed": "3/24/2026",
+   "funds_7b1": [
+    {
+     "name": "VISIONARIES CLUB GROWTH FUND I GMBH & CO. KG",
+     "id": "805-2558840530",
+     "gav": 42460894
+    },
+    {
+     "name": "VISIONARIES CLUB GROWTH FUND II FEEDER GMBH & CO. KG",
+     "id": "805-9825779468",
+     "gav": 6493876
+    },
+    {
+     "name": "VISIONARIES CLUB GROWTH FUND II GMBH & CO. KG",
+     "id": "805-3658987247",
+     "gav": 22088013
+    },
+    {
+     "name": "VISIONARIES CLUB LATE GROWTH I GMBH & CO. KG",
+     "id": "805-2985166101",
+     "gav": 6551313
+    },
+    {
+     "name": "VISIONARIES CLUB LATE GROWTH II GMBH & CO. KG",
+     "id": "805-3597666613",
+     "gav": 5397386
+    },
+    {
+     "name": "VISIONARIES CLUB LATE GROWTH III GMBH & CO.",
+     "id": "805-4259927204",
+     "gav": 34864362
+    },
+    {
+     "name": "VISIONARIES CLUB LATE GROWTH IV GMBH & CO",
+     "id": "805-2656756629",
+     "gav": 13136362
+    },
+    {
+     "name": "VISIONARIES CLUB SEED FUND I GMBH & CO. KG",
+     "id": "805-3851672842",
+     "gav": 39121196
+    },
+    {
+     "name": "VISIONARIES CLUB SEED FUND II FEEDER GMBH & CO. KG",
+     "id": "805-3253206955",
+     "gav": 6230652
+    },
+    {
+     "name": "VISIONARIES CLUB SEED FUND II GMBH & CO. KG",
+     "id": "805-7332643436",
+     "gav": 12661353
+    },
+    {
+     "name": "VISIONARIES CLUB TOMORROW FUND I GMBH & CO. KG",
+     "id": "805-3649541967",
+     "gav": 4103279
+    }
+   ],
+   "funds_7b2": []
+  }
+ },
+ "funds": [
+  {
+   "name": "VISIONARIES CLUB GROWTH FUND I GMBH & CO. KG",
+   "id": "805-2558840530",
+   "gav": 42460894,
+   "reported_by": "317147",
+   "also_reported_by": []
+  },
+  {
+   "name": "VISIONARIES CLUB GROWTH FUND II FEEDER GMBH & CO. KG",
+   "id": "805-9825779468",
+   "gav": 6493876,
+   "reported_by": "317147",
+   "also_reported_by": []
+  },
+  {
+   "name": "VISIONARIES CLUB GROWTH FUND II GMBH & CO. KG",
+   "id": "805-3658987247",
+   "gav": 22088013,
+   "reported_by": "317147",
+   "also_reported_by": []
+  },
+  {
+   "name": "VISIONARIES CLUB LATE GROWTH I GMBH & CO. KG",
+   "id": "805-2985166101",
+   "gav": 6551313,
+   "reported_by": "317147",
+   "also_reported_by": []
+  },
+  {
+   "name": "VISIONARIES CLUB LATE GROWTH II GMBH & CO. KG",
+   "id": "805-3597666613",
+   "gav": 5397386,
+   "reported_by": "317147",
+   "also_reported_by": []
+  },
+  {
+   "name": "VISIONARIES CLUB LATE GROWTH III GMBH & CO.",
+   "id": "805-4259927204",
+   "gav": 34864362,
+   "reported_by": "317147",
+   "also_reported_by": []
+  },
+  {
+   "name": "VISIONARIES CLUB LATE GROWTH IV GMBH & CO",
+   "id": "805-2656756629",
+   "gav": 13136362,
+   "reported_by": "317147",
+   "also_reported_by": []
+  },
+  {
+   "name": "VISIONARIES CLUB SEED FUND I GMBH & CO. KG",
+   "id": "805-3851672842",
+   "gav": 39121196,
+   "reported_by": "317147",
+   "also_reported_by": []
+  },
+  {
+   "name": "VISIONARIES CLUB SEED FUND II FEEDER GMBH & CO. KG",
+   "id": "805-3253206955",
+   "gav": 6230652,
+   "reported_by": "317147",
+   "also_reported_by": []
+  },
+  {
+   "name": "VISIONARIES CLUB SEED FUND II GMBH & CO. KG",
+   "id": "805-7332643436",
+   "gav": 12661353,
+   "reported_by": "317147",
+   "also_reported_by": []
+  },
+  {
+   "name": "VISIONARIES CLUB TOMORROW FUND I GMBH & CO. KG",
+   "id": "805-3649541967",
+   "gav": 4103279,
+   "reported_by": "317147",
+   "also_reported_by": []
+  }
+ ],
+ "count": 11,
+ "sum_gross_asset_value_usd": 193108686
+}
