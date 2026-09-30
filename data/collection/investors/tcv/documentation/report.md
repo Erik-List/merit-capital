@@ -185,8 +185,11 @@ position. The final rebuild renamed nothing.
    map) as a shared step before the base build; `scratch/canon-archive.py` left 0 unmatched of 5,154.
 4. **`edgar-entities.py` seed queries containing spaces return nothing** (URL encoding).
 5. **Build the roster before `edgar-entities.py`**, or partners are classed external.
-6. **`run.py record` writes an empty `note` over the stored note**; it should keep the stored note (seven
-   notes were blanked here and restored).
+6. **`run.py record` loses notes two ways**: an empty `note` is written over the stored one (seven TCV notes
+   blanked and restored), and a note already contained in the stored one replaces it, because `prev.update`
+   runs before the join check, so recording the same line twice leaves only the new sentence (seven sibling
+   notes lost in this run's alignment, found by the Northzone session, restored). Keep the stored note in both
+   cases.
 7. **The rebuild's re-key must copy, not move, an excluded verdict**, and `record` needs a sanctioned way
    to restore a verdict on an excluded slug (recurred here on 3 rows after BCV and Insight).
 8. **Next.js RSC `T` blocks are byte-counted**, not character-counted (two parsers sliced mid-name).
@@ -241,4 +244,15 @@ Khosla; Upwind's country would also need a rule-6 citation once it crosses $1B) 
 without `cite_pending`; Faire against Khosla; Root and Versatile against Insight). Each fails plain `verify` on a
 dispute with a third book that this run did not make. **Still stale there:** Sequoia's Grow Therapy, Pennylane
 and Klarna; Greylock's Revolut and Upwind; YC's Nourish; Accel's Facebook cap; Battery's Groupon cap. The three
-rule-10 pairs among them stay `accepted` in `companies/cross-rulings.json`; the aligned pairs were removed.
+rule-10 pairs among them stay `accepted` in `companies/cross-rulings.json`; the aligned pairs were removed,
+and two pairs the skip created between aligned and skipped books (a16z's against Greylock's Revolut, Menlo's
+against Sequoia's Grow Therapy) and two against YC's Nourish are recorded there as accepted, stale side the
+skipped book's.
+
+**A second pass restored seven sibling notes** (8VC Aviatrix, a16z Revolut, Creandum Klarna, Benchmark Zillow,
+Thrive Nourish, Menlo Grow Therapy and Nourish). Recording an alignment line more than once had replaced each
+row's original note with the alignment sentence alone (write-back 6; flagged by the Northzone session). Each
+note was rewritten as the original plus the alignment sentence under the book's record lock, then the book
+went through the gate again: verify clean, a diff of only those note cells, 0 removals, readback 0. Commits
+fa9b753c (8VC), 1b88ecf2 (a16z), e5d7a164 (Creandum), 1ec5be63 (Benchmark), 1908bb84 (Thrive), 75a827dc
+(Menlo).
