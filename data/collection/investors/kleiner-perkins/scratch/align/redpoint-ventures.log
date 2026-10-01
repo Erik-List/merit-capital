@@ -1,0 +1,50 @@
+membership      : 606 verdicts, 0 uncertain
+stale classification keys: 46 (earlier base versions)
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+cross-investor  : 448 rows shared with other investors, 429 agree, 19 accepted, 0 disagree; 1 unnameable rows not compared
+city debt       : 170 rows with no hq_city and no city_unknown flag, within the 170 carried when the rule landed; a city pass clears it
+country debt    : 2 $1B+ non-US rows placed on model knowledge alone, within the 2 carried when rule 6 was enforced; a country pass clears it
+rows            : 413
+classified      : 413
+$1B+ / $10B+ / $100B+ : 60 / 16 / 5
+identity        : 1 unnameable rows, excluded from every metric
+stage unknown   : 92 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'Data Infrastructure': 94, 'Consumer & Marketplaces': 90, 'SaaS': 70, 'AI & Applied AI': 37, 'Media, Gaming & Advertising': 29, 'Industrial & Robotics': 26, 'Fintech & Payments': 21, 'Security': 17, 'Healthcare & Bio': 15, 'Crypto & Web3': 8, 'Climate & Energy': 5}
+hq_city         : 65 distinct, 240/413 filled, 2 recorded unknown; top {'San Francisco': 49, 'Beijing': 15, 'New York': 14, 'San Jose': 14, 'Palo Alto': 12, 'Mountain View': 10, 'Los Angeles': 9, 'Shanghai': 6}
+valuation_range : {'below_1b': 352, '1b_plus': 44, '10b_plus': 11, '100b_plus': 5}
+entry_stage     : {'Series A': 161, 'Growth': 111, 'Seed': 46, 'Pre-Seed': 2}
+S2A             : 46 seed entries, 7 censored; cohort 39, graduated 25, not graduated 14, rate 64.1%, coverage 100.0%
+  the nos rest on: Form D absence 1, a cited end 3, the absence test 10
+
+verify: clean
+readback redpoint-ventures: csv 413, live 413, missing 0, extra 0, differing cells 0
+recorded 0 verdicts + 1 classification rows; ledger holds 606, classification holds 459
+wrote data/collection/investors/redpoint-ventures/companies/base.csv (413 rows)
+wrote data/collection/investors/redpoint-ventures/companies/review.html (901 KB, 413 rows)
+membership      : 606 verdicts, 0 uncertain
+stale classification keys: 46 (earlier base versions)
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+cross-investor  : 448 rows shared with other investors, 428 agree, 18 accepted, 2 disagree; 1 unnameable rows not compared
+city debt       : 170 rows with no hq_city and no city_unknown flag, within the 170 carried when the rule landed; a city pass clears it
+country debt    : 2 $1B+ non-US rows placed on model knowledge alone, within the 2 carried when rule 6 was enforced; a country pass clears it
+rows            : 413
+classified      : 413
+$1B+ / $10B+ / $100B+ : 61 / 16 / 5
+identity        : 1 unnameable rows, excluded from every metric
+stage unknown   : 92 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'Data Infrastructure': 94, 'Consumer & Marketplaces': 90, 'SaaS': 70, 'AI & Applied AI': 37, 'Media, Gaming & Advertising': 29, 'Industrial & Robotics': 26, 'Fintech & Payments': 21, 'Security': 17, 'Healthcare & Bio': 15, 'Crypto & Web3': 8, 'Climate & Energy': 5}
+hq_city         : 65 distinct, 240/413 filled, 2 recorded unknown; top {'San Francisco': 49, 'Beijing': 15, 'New York': 14, 'San Jose': 14, 'Palo Alto': 12, 'Mountain View': 10, 'Los Angeles': 9, 'Shanghai': 6}
+valuation_range : {'below_1b': 351, '1b_plus': 45, '10b_plus': 11, '100b_plus': 5}
+entry_stage     : {'Series A': 161, 'Growth': 111, 'Seed': 46, 'Pre-Seed': 2}
+S2A             : 46 seed entries, 7 censored; cohort 39, graduated 25, not graduated 14, rate 64.1%, coverage 100.0%
+  the nos rest on: Form D absence 1, a cited end 3, the absence test 10
+
+2 problem(s):
+  - cross-investor Mind Robotics: redpoint-ventures:mind-robotics private/1b_plus $3.40B (asof 2026-05-13) vs a16z:mind-robotics private/below_1b (asof -); freshest redpoint-ventures:mind-robotics
+  - cross-investor Mind Robotics: redpoint-ventures:mind-robotics private/1b_plus $3.40B (asof 2026-05-13) vs accel:mind-robotics private/below_1b (asof -); freshest redpoint-ventures:mind-robotics

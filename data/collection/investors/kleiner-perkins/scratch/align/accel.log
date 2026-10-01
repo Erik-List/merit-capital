@@ -1,0 +1,50 @@
+membership      : 1016 verdicts, 0 uncertain
+stale classification keys: 2 (earlier base versions)
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+cross-investor  : 716 rows shared with other investors, 699 agree, 17 accepted, 0 disagree
+city debt       : 138 rows with no hq_city and no city_unknown flag, within the 138 carried when the rule landed; a city pass clears it
+country debt    : 9 $1B+ non-US rows placed on model knowledge alone, within the 9 carried when rule 6 was enforced; a country pass clears it
+rows            : 884
+classified      : 884
+$1B+ / $10B+ / $100B+ : 119 / 20 / 4
+stage unknown   : 27 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'SaaS': 295, 'Consumer & Marketplaces': 175, '(outside taxonomy)': 148, 'Security': 78, 'Fintech & Payments': 57, 'Healthcare & Bio': 40, 'AI & Applied AI': 25, 'DevTools & APIs': 18, 'Crypto & Web3': 16, 'Media, Gaming & Advertising': 15, 'Industrial & Robotics': 15, 'Data Infrastructure': 2}
+hq_city         : 177 distinct, 746/884 filled, 0 recorded unknown; top {'San Francisco': 137, 'Bangalore': 80, 'New York': 64, 'London': 41, 'Palo Alto': 19, 'Mumbai': 17, 'Paris': 15, 'San Jose': 13}
+valuation_range : {'below_1b': 765, '1b_plus': 99, '10b_plus': 16, '100b_plus': 4}
+entry_stage     : {'Series A': 394, 'Seed': 276, 'Growth': 154, 'Pre-Seed': 33}
+stage leg       : 4 decided rows rest on an uncited entry stage (their own evidence decides them, stage low)
+S2A             : 276 seed entries, 34 censored; cohort 242, graduated 143, not graduated 99, rate 59.1%, coverage 100.0%
+  the nos rest on: Form D absence 4, a cited end 24, the absence test 71
+
+verify: clean
+readback accel: csv 884, live 884, missing 0, extra 0, differing cells 0
+recorded 0 verdicts + 2 classification rows; ledger holds 1016, classification holds 886
+wrote data/collection/investors/accel/companies/base.csv (884 rows)
+wrote data/collection/investors/accel/companies/review.html (1322 KB, 884 rows)
+membership      : 1016 verdicts, 0 uncertain
+stale classification keys: 2 (earlier base versions)
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+cross-investor  : 716 rows shared with other investors, 699 agree, 15 accepted, 2 disagree
+city debt       : 138 rows with no hq_city and no city_unknown flag, within the 138 carried when the rule landed; a city pass clears it
+country debt    : 9 $1B+ non-US rows placed on model knowledge alone, within the 9 carried when rule 6 was enforced; a country pass clears it
+rows            : 884
+classified      : 884
+$1B+ / $10B+ / $100B+ : 120 / 20 / 4
+stage unknown   : 27 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'SaaS': 295, 'Consumer & Marketplaces': 175, '(outside taxonomy)': 148, 'Security': 78, 'Fintech & Payments': 57, 'Healthcare & Bio': 40, 'AI & Applied AI': 25, 'DevTools & APIs': 18, 'Crypto & Web3': 16, 'Media, Gaming & Advertising': 15, 'Industrial & Robotics': 15, 'Data Infrastructure': 2}
+hq_city         : 177 distinct, 746/884 filled, 0 recorded unknown; top {'San Francisco': 137, 'Bangalore': 80, 'New York': 64, 'London': 41, 'Palo Alto': 19, 'Mumbai': 17, 'Paris': 15, 'San Jose': 13}
+valuation_range : {'below_1b': 764, '1b_plus': 100, '10b_plus': 16, '100b_plus': 4}
+entry_stage     : {'Series A': 394, 'Seed': 276, 'Growth': 154, 'Pre-Seed': 33}
+stage leg       : 4 decided rows rest on an uncited entry stage (their own evidence decides them, stage low)
+S2A             : 276 seed entries, 34 censored; cohort 242, graduated 143, not graduated 99, rate 59.1%, coverage 100.0%
+  the nos rest on: Form D absence 4, a cited end 24, the absence test 71
+
+2 problem(s):
+  - cross-investor Mind Robotics: accel:mind-robotics private/1b_plus $3.40B (asof 2026-05-13) vs a16z:mind-robotics private/below_1b (asof -); freshest accel:mind-robotics
+  - cross-investor Mind Robotics: accel:mind-robotics private/1b_plus $3.40B (asof 2026-05-13) vs redpoint-ventures:mind-robotics private/below_1b (asof -); freshest accel:mind-robotics

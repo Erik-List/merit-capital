@@ -1,0 +1,41 @@
+membership      : 202 verdicts, 0 uncertain
+stale classification keys: 2 (earlier base versions)
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+cross-investor  : 393 rows shared with other investors, 390 agree, 3 accepted, 0 disagree
+rows            : 169
+classified      : 169
+$1B+ / $10B+ / $100B+ : 98 / 32 / 9
+stage unknown   : 4 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'SaaS': 46, 'Fintech & Payments': 26, 'AI & Applied AI': 22, 'Healthcare & Bio': 17, 'Consumer & Marketplaces': 15, 'Data Infrastructure': 13, 'Security': 11, 'DevTools & APIs': 10, 'Industrial & Robotics': 4, 'Media, Gaming & Advertising': 2, 'Crypto & Web3': 2, 'Climate & Energy': 1}
+hq_city         : 61 distinct, 169/169 filled, 0 recorded unknown; top {'San Francisco': 43, 'New York': 30, 'Boston': 6, 'London': 6, 'Palo Alto': 6, 'San Mateo': 5, 'Atlanta': 4, 'San Jose': 3}
+valuation_range : {'below_1b': 71, '1b_plus': 66, '10b_plus': 23, '100b_plus': 9}
+entry_stage     : {'Growth': 154, 'Series A': 8, 'Seed': 3}
+S2A             : 3 seed entries, 3 censored; cohort 0, graduated 0, not graduated 0
+
+verify: clean
+readback iconiq-growth: csv 169, live 169, missing 0, extra 0, differing cells 0
+recorded 0 verdicts + 2 classification rows; ledger holds 202, classification holds 171
+wrote data/collection/investors/iconiq-growth/companies/base.csv (169 rows)
+wrote data/collection/investors/iconiq-growth/companies/review.html (297 KB, 169 rows)
+membership      : 202 verdicts, 0 uncertain
+stale classification keys: 2 (earlier base versions)
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+cross-investor  : 393 rows shared with other investors, 391 agree, 1 accepted, 1 disagree
+rows            : 169
+classified      : 169
+$1B+ / $10B+ / $100B+ : 98 / 32 / 9
+stage unknown   : 4 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'SaaS': 46, 'Fintech & Payments': 26, 'AI & Applied AI': 22, 'Healthcare & Bio': 17, 'Consumer & Marketplaces': 15, 'Data Infrastructure': 13, 'Security': 11, 'DevTools & APIs': 10, 'Industrial & Robotics': 4, 'Media, Gaming & Advertising': 2, 'Crypto & Web3': 2, 'Climate & Energy': 1}
+hq_city         : 61 distinct, 169/169 filled, 0 recorded unknown; top {'San Francisco': 43, 'New York': 30, 'Boston': 6, 'London': 6, 'Palo Alto': 6, 'San Mateo': 5, 'Atlanta': 4, 'San Jose': 3}
+valuation_range : {'below_1b': 71, '1b_plus': 66, '10b_plus': 23, '100b_plus': 9}
+entry_stage     : {'Growth': 154, 'Series A': 8, 'Seed': 3}
+S2A             : 3 seed entries, 3 censored; cohort 0, graduated 0, not graduated 0
+
+1 problem(s):
+  - cross-investor Assured: iconiq-growth:assured private/1b_plus $1.00B (asof 2025-03-04) vs first-round-capital:assured private/below_1b (asof -); freshest iconiq-growth:assured

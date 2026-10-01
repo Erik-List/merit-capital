@@ -1,0 +1,53 @@
+membership      : 744 verdicts, 0 uncertain
+stale classification keys: 66 (earlier base versions)
+duplicate companies (same SEC registrant): 6 groups
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+cross-investor  : 458 rows shared with other investors, 417 agree, 41 accepted, 0 disagree; 5 unnameable rows not compared
+city debt       : 18 rows with no hq_city and no city_unknown flag, within the 18 carried when the rule landed; a city pass clears it
+rows            : 592
+classified      : 592
+$1B+ / $10B+ / $100B+ : 22 / 4 / 1
+identity        : 5 unnameable rows, excluded from every metric
+stage unknown   : 142 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'Consumer & Marketplaces': 138, 'SaaS': 92, 'Media, Gaming & Advertising': 85, 'Healthcare & Bio': 64, 'Fintech & Payments': 44, 'AI & Applied AI': 42, 'Industrial & Robotics': 24, 'Security': 21, 'DevTools & APIs': 20, 'Data Infrastructure': 19, 'Crypto & Web3': 14, 'Climate & Energy': 12, '(outside taxonomy)': 12}
+hq_city         : 60 distinct, 477/592 filled, 92 recorded unknown; top {'San Francisco': 187, 'New York': 118, 'Los Angeles': 19, 'Mountain View': 12, 'Philadelphia': 10, 'San Mateo': 8, 'Seattle': 8, 'Boston': 7}
+valuation_range : {'below_1b': 565, '1b_plus': 18, '10b_plus': 3, '100b_plus': 1}
+entry_stage     : {'Seed': 322, 'Series A': 96, 'Pre-Seed': 22, 'Growth': 5}
+stage leg       : 120 decided rows rest on an uncited entry stage (their own evidence decides them, stage low)
+S2A             : 322 seed entries, 13 censored; cohort 309, graduated 186, not graduated 123, rate 60.2%, coverage 100.0%
+  the nos rest on: Form D absence 12, a cited end 43, the absence test 68
+
+verify: clean
+readback first-round-capital: csv 592, live 592, missing 0, extra 0, differing cells 0
+recorded 0 verdicts + 2 classification rows; ledger holds 744, classification holds 658
+wrote data/collection/investors/first-round-capital/companies/base.csv (592 rows)
+wrote data/collection/investors/first-round-capital/companies/review.html (967 KB, 592 rows)
+membership      : 744 verdicts, 0 uncertain
+stale classification keys: 66 (earlier base versions)
+duplicate companies (same SEC registrant): 6 groups
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+cross-investor  : 458 rows shared with other investors, 416 agree, 39 accepted, 3 disagree; 5 unnameable rows not compared
+city debt       : 18 rows with no hq_city and no city_unknown flag, within the 18 carried when the rule landed; a city pass clears it
+rows            : 592
+classified      : 592
+$1B+ / $10B+ / $100B+ : 22 / 4 / 1
+identity        : 5 unnameable rows, excluded from every metric
+stage unknown   : 142 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'Consumer & Marketplaces': 138, 'SaaS': 92, 'Media, Gaming & Advertising': 85, 'Healthcare & Bio': 64, 'Fintech & Payments': 44, 'AI & Applied AI': 42, 'Industrial & Robotics': 24, 'Security': 21, 'DevTools & APIs': 20, 'Data Infrastructure': 19, 'Crypto & Web3': 14, 'Climate & Energy': 12, '(outside taxonomy)': 12}
+hq_city         : 60 distinct, 477/592 filled, 92 recorded unknown; top {'San Francisco': 187, 'New York': 118, 'Los Angeles': 19, 'Mountain View': 12, 'Philadelphia': 10, 'San Mateo': 8, 'Seattle': 8, 'Boston': 7}
+valuation_range : {'below_1b': 565, '1b_plus': 18, '10b_plus': 3, '100b_plus': 1}
+entry_stage     : {'Seed': 322, 'Series A': 96, 'Pre-Seed': 22, 'Growth': 5}
+stage leg       : 120 decided rows rest on an uncited entry stage (their own evidence decides them, stage low)
+S2A             : 322 seed entries, 13 censored; cohort 309, graduated 186, not graduated 123, rate 60.2%, coverage 100.0%
+  the nos rest on: Form D absence 12, a cited end 43, the absence test 68
+
+3 problem(s):
+  - cross-investor Drop: first-round-capital:drop acquired/below_1b (asof -) vs new-enterprise-associates:drop private/below_1b (asof -); freshest first-round-capital:drop
+  - cross-investor Drop: first-round-capital:drop acquired/below_1b (asof -) vs speedinvest:drop private/below_1b (asof -); freshest first-round-capital:drop
+  - cross-investor Remind: first-round-capital:remind acquired/below_1b (asof -) vs y-combinator:remind private/below_1b (asof -); freshest first-round-capital:remind

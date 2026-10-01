@@ -1,0 +1,48 @@
+membership      : 384 verdicts, 0 uncertain
+stale classification keys: 31 (earlier base versions)
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+cross-investor  : 258 rows shared with other investors, 243 agree, 15 accepted, 0 disagree; 3 unnameable rows not compared
+rows            : 270
+classified      : 270
+$1B+ / $10B+ / $100B+ : 34 / 6 / 1
+identity        : 3 unnameable rows, excluded from every metric
+stage unknown   : 137 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'Healthcare & Bio': 76, 'Industrial & Robotics': 64, 'SaaS': 32, 'AI & Applied AI': 23, 'Data Infrastructure': 15, 'Consumer & Marketplaces': 13, 'Fintech & Payments': 11, 'Security': 8, 'Media, Gaming & Advertising': 8, 'Climate & Energy': 7, 'Crypto & Web3': 5, 'DevTools & APIs': 5}
+hq_city         : 78 distinct, 248/270 filled, 19 recorded unknown; top {'San Francisco': 61, 'New York': 46, 'Palo Alto': 11, 'Cambridge': 7, 'Los Angeles': 7, 'Austin': 7, 'Seattle': 6, 'Boston': 6}
+valuation_range : {'below_1b': 233, '1b_plus': 28, '10b_plus': 5, '100b_plus': 1}
+entry_stage     : {'Series A': 51, 'Seed': 39, 'Growth': 39, 'Pre-Seed': 1}
+stage leg       : 3 decided rows rest on an uncited entry stage (their own evidence decides them, stage low)
+S2A             : 39 seed entries, 3 censored; cohort 36, graduated 30, not graduated 6, rate 83.3%, coverage 100.0%
+  the nos rest on: Form D absence 3, a cited end 0, the absence test 3
+
+verify: clean
+readback lux-capital: csv 270, live 270, missing 0, extra 0, differing cells 0
+recorded 0 verdicts + 2 classification rows; ledger holds 384, classification holds 301
+wrote data/collection/investors/lux-capital/companies/base.csv (270 rows)
+wrote data/collection/investors/lux-capital/companies/review.html (505 KB, 270 rows)
+membership      : 384 verdicts, 0 uncertain
+stale classification keys: 31 (earlier base versions)
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+cross-investor  : 258 rows shared with other investors, 245 agree, 13 accepted, 0 disagree; 3 unnameable rows not compared
+rows            : 270
+classified      : 270
+$1B+ / $10B+ / $100B+ : 36 / 6 / 1
+identity        : 3 unnameable rows, excluded from every metric
+stage unknown   : 137 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'Healthcare & Bio': 76, 'Industrial & Robotics': 64, 'SaaS': 32, 'AI & Applied AI': 23, 'Data Infrastructure': 15, 'Consumer & Marketplaces': 13, 'Fintech & Payments': 11, 'Security': 8, 'Media, Gaming & Advertising': 8, 'Climate & Energy': 7, 'Crypto & Web3': 5, 'DevTools & APIs': 5}
+hq_city         : 78 distinct, 248/270 filled, 19 recorded unknown; top {'San Francisco': 61, 'New York': 46, 'Palo Alto': 11, 'Cambridge': 7, 'Los Angeles': 7, 'Austin': 7, 'Seattle': 6, 'Boston': 6}
+valuation_range : {'below_1b': 231, '1b_plus': 30, '10b_plus': 5, '100b_plus': 1}
+entry_stage     : {'Series A': 51, 'Seed': 39, 'Growth': 39, 'Pre-Seed': 1}
+stage leg       : 3 decided rows rest on an uncited entry stage (their own evidence decides them, stage low)
+S2A             : 39 seed entries, 3 censored; cohort 36, graduated 30, not graduated 6, rate 83.3%, coverage 100.0%
+  the nos rest on: Form D absence 3, a cited end 0, the absence test 3
+
+2 problem(s):
+  - applied-compute: $1B+ row without cited/structural entry stage and no cite_pending marker
+  - stord: $1B+ row without cited/structural entry stage and no cite_pending marker

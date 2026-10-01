@@ -25,8 +25,8 @@ the Digital Growth Funds stayed Kleiner Perkins vehicles and are in, Bond's own 
 | control_position rows counted | 0 (the builds report "0 control positions excluded"; the firm runs no buyout practice, D4) |
 | Profile through the taxonomy gate | `investor.json` + `sources.json` built; the run log records `build-firm-profile` and `profile_copy` passing |
 | `review.html` rendered and checked | Rendered (890 rows) and checked served at localhost:8931: rows render flat, the profile panel expands with every field's source |
-| Cross-investor (rule 10) | 735 shared rows: 696 agree, 39 accepted, 0 disagree; 57 namesake pairs ruled distinct (section 9) |
-| Report, close, commit, ingest, Linear, closing message | This report; the rest is pending at the time of writing (section 16) |
+| Cross-investor (rule 10) | 735 shared rows: 723 agree, 12 accepted, 0 disagree after the sibling alignment; 57 namesake pairs ruled distinct (sections 9 and 16) |
+| Report, close, commit, ingest, Linear, closing message | Done: closing commit `fc524cb3`, 890 companies live with an exact readback, 11 sibling books aligned (section 16) |
 
 ## 2. Results
 
@@ -257,8 +257,7 @@ Growth; geo US core, China and Europe other (70 and 24 rows of the final base, b
 Generalist, focus from the site's own sector tags (Consumer & Marketplaces, AI & Applied AI, Healthcare & Bio,
 Industrial & Robotics; the site's largest tag, Enterprise, maps to no single value and is left out on purpose). 29
 team members (the CMS holds 30; Brett Taylor is not on the profile, reason not traced). The icon is the square mark
-from the site header's inline vector (`sources/site/kp-mark.svg`; dry run contrast 19.7:1, ramp 0.56 px), not yet
-uploaded.
+from the site header's inline vector (`sources/site/kp-mark.svg`; contrast 19.7:1, ramp 0.56 px), uploaded at the ingest.
 
 Six fields are flagged in `sources.json`: AUM (gross asset values, and one fund with no parsed value), geo (China
 rests on X1 and on no entry since 2019), focus, range (medium each), funds and name (low: the rebrand dates to 2018
@@ -338,19 +337,43 @@ the lead's; no file records them.
 
 ## 16. Ingest
 
-**Pending at the time of writing; the lead fills this section.** What is ready for the §9 gate:
-
-- **Preconditions:** plain `verify` clean (`scratch/verify-3.txt`); `run.py close` and the closing commit still to
-  run (`scratch/in-flight.json` is present).
-- **First ingest of this investor:** icon upload from `sources/site/kp-mark.svg`, then `ingest-investor.ts`, then
-  `ingest-companies.ts --dry-run`, the removal check, the write and the readback. Expected: 890 new rows.
-- **Stale sibling rows:** 31 lines in 13 kits (section 9), one book at a time through the same gate; skip any book
-  in flight or with uncommitted company files, then remove the aligned pairs from this book's 39 accepted. None of
-  the 13 books was in flight at the final verify. The 8 Instacart pairs stay accepted.
+**Kleiner Perkins is live: 890 companies, the investor row and the icon, readback exact** (2026-09-30, through the §9
+gate, no approval prompt).
 
 | Step | Result |
 |---|---|
-| Closing commit | pending |
-| Kleiner Perkins ingest (rows live, readback) | pending |
-| Sibling books aligned and re-ingested | pending |
-| Books skipped at the gate | pending |
+| Preconditions | plain `verify` clean; `run.py close`; closing commit `fc524cb3` (738 files, this directory only) |
+| Icon | uploaded from `sources/site/kp-mark.svg` (`investors/kleiner-perkins-4097ffeef2.png`; contrast 19.7:1, ramp 0.56 px) |
+| `ingest-investor.ts` | 1 investor record upserted |
+| `ingest-companies.ts --dry-run` | 890 upserted (890 new), 0 removed, from 0 live: nothing to explain at the removal check |
+| Write and readback | 890 live; csv 890, live 890, missing 0, extra 0, differing cells 0 |
+
+**Stale sibling rows: 11 of 13 books aligned and re-ingested, 27 rows, every readback exact** (`scratch/align/`:
+`run-align.sh`, `run-align2.py`, `results.txt`, `results2.txt`). Each book passed its own gate: not in flight, company
+files committed, its verify clean before and after the lines, readback before exact, a dry run with 0 removals, the
+write, readback after with 0 differing cells, and a commit of its company files only.
+
+| Book | Rows | Commit |
+|---|---|---|
+| khosla-ventures | 2 | `00660255` |
+| new-enterprise-associates | 1 | `f4340bff` |
+| spark-capital | 3 | `b89e1071` |
+| a16z | 5 | `8bab09a8` |
+| accel | 2 | `69f9b8c9` |
+| iconiq-growth | 2 | `81bd41c0` (with a `distinct` ruling in its own cross-rulings: its Assured against First Round's) |
+| lightspeed | 2 | `e0c99af6` |
+| lux-capital | 2 | `b55f27b4` |
+| redpoint-ventures | 1 | `68a4e75d` |
+| sequoia-capital | 5 | `fb0c51f9` |
+| thrive-capital | 2 | `9891e012` |
+
+The first pass aligned three books and skipped nine whose verify failed after the lines, for two reasons the second
+pass fixed: books that share a stale company must be recorded together before any is verified (a16z's Mind Robotics
+against Accel's and Redpoint's), and a row lifted to $1B+ on an uncited stage needs `cite_pending` (rule 4).
+
+**Skipped at the gate (nothing written): first-round-capital (2 rows: Drop, Remind) and y-combinator (2 rows: Avoca,
+Remind).** First Round's Drop, once aligned, disagrees with NEA's and Speedinvest's Drop rows, which are namesakes that
+need `distinct` rulings in First Round's own file; Y Combinator's verify was not clean before the lines. Their four
+lines wait in `scratch/align/first-round-capital.jsonl` and `y-combinator.jsonl`, and the four pairs stay `accepted`
+in this book's `cross-rulings.json` beside the eight Instacart band-edge pairs (12 accepted in all). After the
+alignment this book reads 735 shared rows: 723 agree, 12 accepted, 0 disagree; `verify` clean.

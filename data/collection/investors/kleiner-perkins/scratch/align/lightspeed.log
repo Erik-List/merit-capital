@@ -1,0 +1,52 @@
+membership      : 1293 verdicts, 0 uncertain
+stale classification keys: 59 (earlier base versions)
+duplicate companies (same SEC registrant): 2 groups
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+cross-investor  : 738 rows shared with other investors, 715 agree, 23 accepted, 0 disagree
+city debt       : 1 rows with no hq_city and no city_unknown flag, within the 1 carried when the rule landed; a city pass clears it
+country debt    : 30 $1B+ non-US rows placed on model knowledge alone, within the 30 carried when rule 6 was enforced; a country pass clears it
+rows            : 875
+classified      : 875
+$1B+ / $10B+ / $100B+ : 127 / 34 / 4
+stage unknown   : 210 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'Consumer & Marketplaces': 139, 'Data Infrastructure': 118, 'SaaS': 97, 'Industrial & Robotics': 76, 'Fintech & Payments': 69, 'AI & Applied AI': 69, 'Media, Gaming & Advertising': 66, '(outside taxonomy)': 62, 'Healthcare & Bio': 61, 'Security': 44, 'Crypto & Web3': 34, 'DevTools & APIs': 24, 'Climate & Energy': 16}
+hq_city         : 123 distinct, 604/875 filled, 270 recorded unknown; top {'San Francisco': 119, 'New York': 75, 'Palo Alto': 26, 'Tel Aviv': 22, 'Mountain View': 22, 'Bengaluru': 21, 'Los Angeles': 20, 'San Jose': 18}
+valuation_range : {'below_1b': 748, '1b_plus': 93, '10b_plus': 30, '100b_plus': 4}
+entry_stage     : {'Series A': 298, 'Seed': 187, 'Growth': 179, 'Pre-Seed': 1}
+stage leg       : 2 decided rows rest on an uncited entry stage (their own evidence decides them, stage low)
+S2A             : 187 seed entries, 31 censored; cohort 156, graduated 89, not graduated 67, rate 57.1%, coverage 100.0%
+  the nos rest on: Form D absence 4, a cited end 22, the absence test 41
+
+verify: clean
+readback lightspeed: csv 875, live 875, missing 0, extra 0, differing cells 0
+recorded 0 verdicts + 2 classification rows; ledger holds 1293, classification holds 934
+wrote data/collection/investors/lightspeed/companies/base.csv (875 rows)
+wrote data/collection/investors/lightspeed/companies/review.html (1272 KB, 875 rows)
+membership      : 1293 verdicts, 0 uncertain
+stale classification keys: 59 (earlier base versions)
+duplicate companies (same SEC registrant): 2 groups
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+cross-investor  : 738 rows shared with other investors, 715 agree, 21 accepted, 2 disagree
+city debt       : 1 rows with no hq_city and no city_unknown flag, within the 1 carried when the rule landed; a city pass clears it
+country debt    : 30 $1B+ non-US rows placed on model knowledge alone, within the 30 carried when rule 6 was enforced; a country pass clears it
+rows            : 875
+classified      : 875
+$1B+ / $10B+ / $100B+ : 129 / 34 / 4
+stage unknown   : 210 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'Consumer & Marketplaces': 139, 'Data Infrastructure': 118, 'SaaS': 97, 'Industrial & Robotics': 76, 'Fintech & Payments': 69, 'AI & Applied AI': 69, 'Media, Gaming & Advertising': 66, '(outside taxonomy)': 62, 'Healthcare & Bio': 61, 'Security': 44, 'Crypto & Web3': 34, 'DevTools & APIs': 24, 'Climate & Energy': 16}
+hq_city         : 123 distinct, 604/875 filled, 270 recorded unknown; top {'San Francisco': 119, 'New York': 75, 'Palo Alto': 26, 'Tel Aviv': 22, 'Mountain View': 22, 'Bengaluru': 21, 'Los Angeles': 20, 'San Jose': 18}
+valuation_range : {'below_1b': 746, '1b_plus': 95, '10b_plus': 30, '100b_plus': 4}
+entry_stage     : {'Series A': 298, 'Seed': 187, 'Growth': 179, 'Pre-Seed': 1}
+stage leg       : 2 decided rows rest on an uncited entry stage (their own evidence decides them, stage low)
+S2A             : 187 seed entries, 31 censored; cohort 156, graduated 89, not graduated 67, rate 57.1%, coverage 100.0%
+  the nos rest on: Form D absence 4, a cited end 22, the absence test 41
+
+2 problem(s):
+  - cross-investor Nexthop AI: lightspeed:nexthop-ai private/1b_plus $4.20B (asof 2026-03-10) vs a16z:nexthop private/below_1b (asof -); freshest lightspeed:nexthop-ai
+  - cross-investor Profound: lightspeed:profound private/1b_plus $1.80B (asof 2026-09-15) vs sequoia-capital:profound private/below_1b (asof -); freshest lightspeed:profound

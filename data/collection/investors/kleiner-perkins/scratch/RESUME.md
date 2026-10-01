@@ -131,3 +131,8 @@ Usage at ~19:35 EDT: 5-hour 53%, weekly 52%, Fable 7% (read late; kickoff readin
 - Remaining: apply cx2, verify clean, export, review (serve + check), report.md (agent), write-back proposal, close,
   commit (pathspec kleiner-perkins only), ingest gate (icon upload, ingest-investor, ingest-companies --dry-run, removal
   check, write, readback), sibling alignment from scratch/align/*.jsonl, Linear comment + Done, memory, final message.
+
+# CLOSED AND INGESTED 2026-09-30/10-01
+Closing commit fc524cb3; 890 companies live, readback exact; icon published. 11 sibling books aligned and re-ingested
+(27 rows); first-round-capital and y-combinator skipped (lines in scratch/align). Open: the rulings in report.md
+section 11; the pre-2008 Internet Archive leg (spawned task; scratch/ia-pre2008.py). Nothing left to resume.

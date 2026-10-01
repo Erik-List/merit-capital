@@ -1,0 +1,56 @@
+membership      : 1451 verdicts, 2 uncertain
+stale classification keys: 146 (earlier base versions)
+duplicate companies (same SEC registrant): 3 groups
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+cross-investor  : 601 rows shared with other investors, 600 agree, 1 accepted, 0 disagree; 2 unnameable rows not compared
+rows            : 1110
+classified      : 1110
+$1B+ / $10B+ / $100B+ : 95 / 22 / 7
+identity        : 2 unnameable rows, excluded from every metric
+stage unknown   : 411 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'Healthcare & Bio': 342, 'Data Infrastructure': 137, 'SaaS': 124, 'Consumer & Marketplaces': 121, 'Industrial & Robotics': 101, 'Media, Gaming & Advertising': 61, 'AI & Applied AI': 57, 'Fintech & Payments': 51, 'Security': 42, 'Climate & Energy': 34, 'DevTools & APIs': 25, 'Crypto & Web3': 12, '(outside taxonomy)': 1}
+hq_city         : 260 distinct, 1010/1110 filled, 98 recorded unknown; top {'San Francisco': 128, 'New York': 78, 'Mountain View': 41, 'Sunnyvale': 34, 'San Jose': 26, 'Palo Alto': 22, 'Cambridge': 21, 'Boston': 20}
+valuation_range : {'below_1b': 1013, '1b_plus': 73, '10b_plus': 15, '100b_plus': 7}
+entry_stage     : {'Growth': 283, 'Series A': 237, 'Seed': 174, 'Pre-Seed': 3}
+stage leg       : 4 decided rows rest on an uncited entry stage (their own evidence decides them, stage low)
+S2A             : 174 seed entries, 13 censored; cohort 161, graduated 102, not graduated 59, rate 63.4%, coverage 100.0%
+  the nos rest on: Form D absence 7, a cited end 9, the absence test 43
+
+verify: clean
+readback new-enterprise-associates: csv 1110, live 1110, missing 0, extra 0, differing cells 0
+recorded 0 verdicts + 1 classification rows; ledger holds 1451, classification holds 1256
+wrote data/collection/investors/new-enterprise-associates/companies/base.csv (1110 rows)
+wrote data/collection/investors/new-enterprise-associates/companies/review.html (1971 KB, 1110 rows)
+membership      : 1451 verdicts, 2 uncertain
+stale classification keys: 146 (earlier base versions)
+duplicate companies (same SEC registrant): 3 groups
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+cross-investor  : 601 rows shared with other investors, 601 agree, 0 accepted, 0 disagree; 2 unnameable rows not compared
+rows            : 1110
+classified      : 1110
+$1B+ / $10B+ / $100B+ : 95 / 22 / 7
+identity        : 2 unnameable rows, excluded from every metric
+stage unknown   : 411 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'Healthcare & Bio': 342, 'Data Infrastructure': 137, 'SaaS': 124, 'Consumer & Marketplaces': 121, 'Industrial & Robotics': 101, 'Media, Gaming & Advertising': 61, 'AI & Applied AI': 57, 'Fintech & Payments': 51, 'Security': 42, 'Climate & Energy': 34, 'DevTools & APIs': 25, 'Crypto & Web3': 12, '(outside taxonomy)': 1}
+hq_city         : 260 distinct, 1010/1110 filled, 98 recorded unknown; top {'San Francisco': 128, 'New York': 78, 'Mountain View': 41, 'Sunnyvale': 34, 'San Jose': 26, 'Palo Alto': 22, 'Cambridge': 21, 'Boston': 20}
+valuation_range : {'below_1b': 1013, '1b_plus': 73, '10b_plus': 15, '100b_plus': 7}
+entry_stage     : {'Growth': 283, 'Series A': 237, 'Seed': 174, 'Pre-Seed': 3}
+stage leg       : 4 decided rows rest on an uncited entry stage (their own evidence decides them, stage low)
+S2A             : 174 seed entries, 13 censored; cohort 161, graduated 102, not graduated 59, rate 63.4%, coverage 100.0%
+  the nos rest on: Form D absence 7, a cited end 9, the absence test 43
+
+verify: clean
+Read 1110 rows from new-enterprise-associates/companies/base.csv
+Plan: 1110 row(s) upserted (0 new), 0 removed, from 1110 live.
+✓ Upserted 500/1110
+✓ Upserted 1000/1110
+✓ Upserted 1110/1110
+
+✓ public.companies now holds 1110 row(s) for new-enterprise-associates
+readback new-enterprise-associates: csv 1110, live 1110, missing 0, extra 0, differing cells 0

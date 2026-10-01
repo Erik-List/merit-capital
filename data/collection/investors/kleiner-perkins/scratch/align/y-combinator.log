@@ -1,0 +1,25 @@
+membership      : 6599 verdicts, 0 uncertain
+stale classification keys: 134 (earlier base versions)
+duplicate companies (same SEC registrant): 75 groups
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+cross-investor  : 1566 rows shared with other investors, 1430 agree, 132 accepted, 4 disagree; 20 unnameable rows not compared
+city debt       : 387 rows with no hq_city and no city_unknown flag, within the 389 carried when the rule landed; a city pass clears it
+country debt    : 17 $1B+ non-US rows placed on model knowledge alone, within the 19 carried when rule 6 was enforced; a country pass clears it
+rows            : 6426
+classified      : 6426
+$1B+ / $10B+ / $100B+ : 109 / 17 / 1
+identity        : 20 unnameable rows, excluded from every metric
+focus           : {'AI & Applied AI': 1385, 'SaaS': 1203, 'Fintech & Payments': 766, 'Consumer & Marketplaces': 758, 'DevTools & APIs': 564, 'Healthcare & Bio': 498, 'Industrial & Robotics': 412, 'Media, Gaming & Advertising': 287, 'Data Infrastructure': 187, '(outside taxonomy)': 155, 'Climate & Energy': 98, 'Security': 78, 'Crypto & Web3': 15}
+hq_city         : 339 distinct, 6019/6426 filled, 0 recorded unknown; top {'San Francisco': 3030, 'New York': 718, 'London': 208, 'Los Angeles': 191, 'Bangalore': 128, 'Boston': 100, 'Toronto': 88, 'Seattle': 82}
+valuation_range : {'below_1b': 6297, '1b_plus': 92, '10b_plus': 16, '100b_plus': 1}
+entry_stage     : {'Pre-Seed': 6404, 'Growth': 2}
+S2A             : 0 seed entries, 0 censored; cohort 0, graduated 0, not graduated 0
+
+4 problem(s):
+  - cross-investor Avo: y-combinator:avo private/below_1b (asof -) vs kleiner-perkins:avo unknown/below_1b (asof -); freshest y-combinator:avo
+  - cross-investor Feather: y-combinator:feather-2 private/below_1b (asof -) vs kleiner-perkins:feather acquired/below_1b (asof -); freshest y-combinator:feather-2
+  - cross-investor Feather: y-combinator:feather-2 private/below_1b (asof -) vs spark-capital:feather acquired/below_1b (asof -); freshest y-combinator:feather-2
+  - cross-investor Pillar: y-combinator:pillar private/below_1b (asof -) vs kleiner-perkins:pillar unknown/below_1b (asof -); freshest y-combinator:pillar
