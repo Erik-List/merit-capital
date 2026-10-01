@@ -7,8 +7,13 @@
 
 ## 1. The answer PRO-84 asked for
 
-**The base is 386 companies (385 nameable), plain `verify` is clean, the firm profile is built, and
-the registry coverage matrix is section 3.** It is ingested: 386 companies and the investor row are live, and the readback shows 0 differing cells (section 15).
+**The base is 385 companies (384 nameable), plain `verify` is clean, the firm profile is built, and
+the registry coverage matrix is section 3.** @@INGEST2_LINE@@
+
+**Revised 2026-10-01** on Erik's instruction (settle open questions by rule or research, three open
+rulings at most; cross-investor alignments need no approval): the fourteen items first listed as
+open are all settled (section 10), one row left the base (Heroes Jobs), 19 size-banded stages were
+withdrawn, and every sibling pair is aligned (section 15). Numbers below are the revised ones.
 
 Speedinvest is one Vienna firm under one adviser (Speedinvest GmbH, SEC exempt reporting adviser
 CRD 316774), founded in 2011 with a EUR 10M fund and now a multi-team seed firm with growth and
@@ -32,10 +37,10 @@ Ultimate (Iron), Yokoy, Flexkeeping, Surfboard, TaxScouts and Planetly are the m
 
 | Done-when item | State |
 |---|---|
-| Plain `verify` green | Clean at 386 rows; flagged debt only (section 7) |
+| Plain `verify` green | Clean at 385 rows; flagged debt only (section 7) |
 | Distributions sanity-checked | Section 2 |
 | Profile through the taxonomy gate | `build-firm-profile.py` and `profile_copy.py` ok; every field populated, with a source |
-| `review.html` rendered | Served and checked: 386 of 386 rows render flat, the profile panel expands, no console error |
+| `review.html` rendered | Served and checked: every row renders flat, the profile panel expands, no console error |
 | Registry coverage matrix | Section 3 |
 | Method delta, open rulings, prompt count | Sections 6, 10, 14 |
 | COLLECTION.md diff proposed | Section 12 (not applied: `scripts/` and the playbook belong to the tooling session) |
@@ -45,9 +50,9 @@ Ultimate (Iron), Yokoy, Flexkeeping, Surfboard, TaxScouts and Planetly are the m
 
 | | Count | Share |
 |---|---|---|
-| Companies | 386 | 385 nameable, plus Bleep (a 2020 listing with a logo and no other trace) |
+| Companies | 385 | 384 nameable, plus Bleep (a 2020 listing with a logo and no other trace) |
 | Private | 264 | 68% |
-| Acquired | 70 | 18% |
+| Acquired | 69 | 18% |
 | Defunct | 37 | 10% |
 | Unknown | 15 | 4% |
 | Public | 0 | |
@@ -60,42 +65,39 @@ Group $1B (July 2026). Three former unicorns read below $1B on documented collap
 (Prosus's write-down to about $969M, 2024), TIER (the Dott merger at about EUR 150M, 2024) and wefox
 (a sale backed by its Series D lead at an enterprise value of at most EUR 550M, 2024).
 
-**Entry stage.** Seed 161, Pre-Seed 77, Series A 25, Growth 7. For 115 nameable rows the round is not
-on record (30%). The firm publishes no round word, so every stage is the round a page names:
-202 rest on press or company pages, 48 on the firm's own posts and its 2018-2020 Pre-Seed tag (R2),
-19 on the amount band of R1 and one (Billie) on an inferred seed.
+**Entry stage.** Seed 150, Pre-Seed 71, Series A 23, Growth 7. For 133 nameable rows the round is not
+on record (35%). The firm publishes no round word, so every stage is the round a page names:
+202 rest on press or company pages, 48 on the firm's own posts and its 2018-2020 Pre-Seed tag, and
+one (Billie) on model knowledge at low confidence. No stage rests on a round's size.
 
-**Headquarters.** GB 88, DE 81, AT 54, FR 36, US 31, NL 12, ES 9, CH 9, then a tail of 30 countries.
-371 of 386 rows carry a city (London 75, Berlin 54, Vienna 40, Paris 29, Munich 12).
+**Headquarters.** GB 88, DE 81, AT 54, FR 36, US 30, NL 12, ES 9, CH 9, then a tail of 30 countries.
+370 of 385 rows carry a city (London 75, Berlin 54, Vienna 40, Paris 29, Munich 12).
 
-**Focus.** Fintech & Payments 82, Consumer & Marketplaces 62, AI & Applied AI 41, SaaS 39, Healthcare
+**Focus.** Fintech & Payments 82, Consumer & Marketplaces 61, AI & Applied AI 41, SaaS 39, Healthcare
 & Bio 37, Climate & Energy 27, DevTools & APIs 22, then five smaller areas.
 
-**Membership evidence.** 385 rows rest on the firm's own listings, pages or posts; one (Heroes Jobs)
-on a partner's board seat on the company's own Form D.
+**Membership evidence.** All 385 rows rest on the firm's own listings, pages or posts.
 
 ### S2A block
 
 | Seed entries | Censored | Cohort | Graduated | Not graduated | Rate |
 |---|---|---|---|---|---|
-| 161 | 24 | 137 | 61 | 76 | **44.5%** |
+| 150 | 23 | 127 | 58 | 69 | **45.7%** |
 
-Coverage is 100%. Of the 76 that did not graduate, none rests on the filings, 28 on a cited end (a
-sale, shutdown or insolvency with no later round) and 48 on a dated search of the named surfaces.
+Coverage is 100%. Of the 69 that did not graduate, none rests on the filings, 26 on a cited end (a
+sale, shutdown or insolvency with no later round) and 43 on a dated search of the named surfaces.
 
-- **By entry period:** 2011-2016 seeds graduate 6 of 14 (43%), 2017-2020 27 of 46 (59%), 2021 and
-  later 28 of 77 (36%), with 24 more too recent to count.
-- **What the rate does not cover:** 115 rows with no named entry round are outside the cohort. Many
+- **By entry period:** 2011-2016 seeds graduate 6 of 14 (43%), 2017-2020 26 of 43 (60%), 2021 and
+  later 26 of 70 (37%), with 23 more too recent to count.
+- **What the rate does not cover:** 133 rows with no named entry round are outside the cohort. Many
   are quiet early bets, so the cohort leans toward companies that were written about.
-- 12 seed entries rest on an uncited stage (11 banded under R1, and Billie). One is too recent to
-  count; of the 11 in the cohort, 4 graduated and 7 did not. `verify`'s stage-leg line
-  reads 10.
+- One cohort row rests on an uncited stage (Billie, graduated on a cited Series A).
 
 ### Calibration
 
 | Book | Rows | Acquired | Defunct | $1B+ | S2A |
 |---|---|---|---|---|---|
-| Speedinvest | 386 | 18% | 10% | 1.8% | 61/137 = 44.5% |
+| Speedinvest | 385 | 18% | 10% | 1.8% | 58/127 = 45.7% |
 | Seedcamp | 553 | 13% | 5% | 2.2% | 26/64 = 41% |
 | Project A | 131 | 29% | 8% | 4.6% | 31/66 = 47% |
 | Cherry | 148 | 16% | 7% | 5.4% | 53/84 = 63% |
@@ -119,7 +121,7 @@ no usable register exists, the cost is not a missing company: it is a quiet shut
 `private` or `unknown`.
 
 The issue's prior was also wrong on geography. The book is not spread across DACH and Central and
-Eastern Europe: 88 rows are in the UK, 81 in Germany, 54 in Austria, 36 in France and 31 in the US; those five countries hold 75% of the base. CEE is 22 rows.
+Eastern Europe: 88 rows are in the UK, 81 in Germany, 54 in Austria, 36 in France and 30 in the US; those five countries hold 75% of the base. CEE is 22 rows.
 
 | Jurisdiction | Register and route | Rows it touched | Filing-grade evidence | Cost | Language | Verdict |
 |---|---|---|---|---|---|---|
@@ -135,7 +137,7 @@ Eastern Europe: 88 rows are in the UK, 81 in Germany, 54 in Austria, 36 in Franc
 | Denmark, Norway | CVR; Brønnøysund | 1 row; 1 row (Skyfri's Norwegian subsidiary, bankrupt November 2025) | Status only in this run | Free | Danish / Norwegian | Not exercised for ownership: too few rows |
 | Bulgaria, Croatia, Czech Republic, Greece, Lithuania, Poland, Slovakia | National registers through North Data (bounded probe, `sources/registers/cee-probe.json`) | 13 rows probed, 11 entities found | **Thin.** The entity and a shareholder count; no holder names, almost no status events (kevin.'s Lithuanian entity shows none although the company failed) | Free | English page | **Negative for this pipeline**: finds the legal entity, proves nothing about status or holders |
 | Hungary, Slovenia, Turkey, Ukraine | National registers | 9 rows, none read | None: North Data does not carry them, and the national sites were not read (Hungarian and Turkish registers are in the local language behind a captcha or a login) | Not established | Hungarian, Slovene, Turkish, Ukrainian | **Not covered.** These rows rest on the company's own pages and press (two Hungarian shutdowns were read off the companies' own farewell pages) |
-| United States | EDGAR | Fund side: 3 Form D filings, one Form ADV (10 funds). Issuer side: 36 roster name-matches, 2 members | Yes, for the fund side and for two unannounced rows (Blloc, Heroes Jobs) | Free | English | As on every non-US firm: fund-side only; the full-text sweep found no third-party mention of Speedinvest at all |
+| United States | EDGAR | Fund side: 3 Form D filings, one Form ADV (10 funds). Issuer side: 36 roster name-matches, 1 member | Yes, for the fund side and for one unannounced row (Blloc; Heroes Jobs, a board seat only, was ruled out) | Free | English | As on every non-US firm: fund-side only; the full-text sweep found no third-party mention of Speedinvest at all |
 
 **The coverage rule this gives the remaining European firms** (proposed for COLLECTION.md §5):
 
@@ -185,9 +187,9 @@ Eastern Europe: 88 rows are in the UK, 81 in Germany, 54 in Austria, 36 in Franc
 **Recall additions: five, all from the firm's own words.** Kianava (the firm's 2020 post, "our lead
 investment"), OBEY (the firm's own 2022-2023 portfolio page, which the archive parser had missed),
 Flaneer and Prologue (called portfolio companies in the firm's posts) and Spiko (named "inside our
-portfolio" in the firm's August 2026 crypto post; medium confidence, section 10).
+portfolio" in the firm's August 2026 crypto post, a list that is accurate on every other name on it).
 
-**Rejected:** Trending Topics (section 10); Request Finance (the acquirer of a portfolio company,
+**Rejected:** Trending Topics (the register names no Speedinvest fund among its holders, and the firm never lists it); Request Finance (the acquirer of a portfolio company,
 sale consideration); Smint.io (held by Speedinvest Pirates, the service company, not a fund); and 54
 more candidates the two recall agents opened: press headlines where Speedinvest is only a
 related-story link or the named investor is Pirates, and names from memory that no page ties to
@@ -197,7 +199,7 @@ Speedinvest (Archify, Qriously, Wappwolf, Socialspiel and others).
 were already rows, and none of the rest survived verification. The Google News sweep (409 headlines,
 half-year windows 2011-2026, English, German and French) and the register's 37 named fund holdings
 produced no company the firm's own surfaces lacked. Thirteen candidates were existing rows under a
-legal or former name (1BillionLives GmbH is Flinn, Allfocal Optics is Lark Optics). The firm claims "400+ investments"; the base holds 386
+legal or former name (1BillionLives GmbH is Flinn, Allfocal Optics is Lark Optics). The firm claims "400+ investments"; the base holds 385
 companies plus the eight acquirers it lists.
 
 ## 6. Method deltas
@@ -211,10 +213,11 @@ companies plus the eight acquirers it lists.
 - **Merge detection from research.** The grind found 18 rename and successor groups
   (`companies/identity-merges.json`), among them three-name chains (Parkbob, Ubiq, Necture; Zerolens,
   Colorful, Mokker AI).
-- **R1: banding a cited, unnamed first round.** 19 stages (11 Seed, 6 Pre-Seed, 2 Series A).
+- **R1, banding a cited but unnamed first round by its amount: tried and withdrawn.** The playbook
+  labels a stage by what the record calls the round, not by the check size (§6), so the 19 rows it
+  had labelled read `undetermined`.
 - **A second, narrower stage pass** on the 87 rows where the firm is provably in a round but the
-  first round is unnamed: 23 named on a citation. With R1 and the tag (R2), rows with no round on
-  record fell from 154 to 116.
+  first round is unnamed: 23 named on a citation. Rows with no round on record ended at 134.
 - **Common Crawl through the shared throttle.** The Kleiner Perkins session reported the data host
   refusing the machine; both scripts now use `shared_throttle.wait("ccdata", rate=4.0)` with a
   60-second backoff on 403 and 503.
@@ -222,10 +225,10 @@ companies plus the eight acquirers it lists.
 
 ## 7. Flags and debt behind `verify`
 
-**Flags on the 386 published rows:** `model_disputes_source` 15 (wrong Wikidata or SEC joins on
+**Flags on the 385 published rows:** `model_disputes_source` 15 (wrong Wikidata or SEC joins on
 short names such as Grace, Well, Sona, Fuse, Tower, each noted), `city_unknown` 14, `stage_uncited`
-12, `stale` 6 (Bitpanda, Wayflyer, Open, and TIER, Diligent and Tower from quarantined joins), `unstable` 4
-(duty 7: Raus, wefox, Billie, Hitbox), `cik_weak` 4 (namesake registrants, quarantined),
+1 (Billie), `stale` 6 (Bitpanda, Wayflyer, Open, and TIER, Diligent and Tower from quarantined joins), `unstable` 3
+(duty 7: Raus, Billie, Hitbox; wefox was settled by research), `cik_weak` 4 (namesake registrants, quarantined),
 `country_prior` 4 (Criad, Originator, Obey and Bleep: no location on record), `identity_unresolved`
 1 (Bleep).
 
@@ -237,8 +240,9 @@ short names such as Grace, Well, Sona, Fuse, Tower, each noted), `city_unknown` 
   the 2012-2016 home pages link, the firm's 2012-2016 posts, and the parametric recall. None of
   them names a company the base lacks. To close it: `scratch/ia_pull.py` once the cooldown ends,
   then `scratch/archive_listings.py`; an archive-only company would be a delta and a re-ingest.
-- 115 rows with the round not on record; 15 `unknown` statuses (sites dark, no register entry).
-- About 20 rows rest only on the firm's job board (section 10).
+- 133 rows with the round not on record; 15 `unknown` statuses (sites dark, no register entry).
+- Four rows carry an inferred country (`country_prior`): Criad, Originator, Obey and Bleep. Their own
+  sites give no location.
 - Google News answered 503 for the last third of the run, so the second stage pass and the blind
   re-judge worked from publisher site searches.
 
@@ -258,8 +262,8 @@ short names such as Grace, Well, Sona, Fuse, Tower, each noted), `city_unknown` 
   firm's own label.
 - **Duty 9, the class.** The Billie pattern (a seed inferred from "existing investor" at the
   Series A) was not swept row by row; it is the softest part of the stage column.
-- **Cross-investor:** 131 shared rows, 123 agree; 20 namesake pairs ruled distinct; 8 pairs accepted
-  as stale sibling rows (section 15).
+- **Cross-investor:** 132 shared rows, all 132 agree, none accepted; 23 namesake pairs ruled distinct
+  and one `same` pair (section 15).
 
 ## 9. Firm profile
 
@@ -282,47 +286,38 @@ short names such as Grace, Well, Sona, Fuse, Tower, each noted), `city_unknown` 
 
 ## 10. Open rulings for Erik
 
-1. **R1, banding a cited but unnamed first round** by the era ceilings (19 stages, 11 of them
-   seeds that enter the S2A cohort on an uncited stage). The alternative is `undetermined` for all of them.
-2. **R3, merger successors.** Invesdor, SILQ and Dott are out as successors of Finnest, ShopUp and
-   TIER. ShopUp reads `acquired` (the merged group is a new parent); TIER reads `private` (Tier
-   Mobility SE is the surviving parent). If both should read alike, say which way.
-3. **Job-board-only rows stay members** (about 20: Rogue Cortex, Leap Labs, Tangram Data, Ray, Well,
-   Criad, Originator, Infinite Games, CareerOS, OpenQ, Ralph and others). The board is the firm's own
-   list, but no round names Speedinvest for them.
-4. **Spiko is a member on one sentence** ("inside our portfolio"), which also names Request Finance,
-   a sale-consideration holding. No round names Speedinvest.
-5. **Trending Topics is rejected.** The company's own 2017 post names Speedinvest in a EUR 170K
-   consortium; neither the post nor the register says which entity held it, and the firm never
-   lists it.
-6. **Heroes Jobs is a member on the director-of-record pattern** (Mathias Ockenfels on both Form
-   Ds); no page names Speedinvest.
-7. **Positions first held by the Pioneers Ventures vehicle** (byrd, Necture and others): the entry
-   reads `undetermined`, since that round is unnamed. If a pre-takeover Pioneers position should not
-   count as the firm's entry, the entry is the later round.
-8. **GoStudent, TIER and wefox below $1B.** Each rests on collapse evidence, not a priced round
-   (a write-down, a merger valuation in the press, a proposed sale price).
-9. **Criad, Originator, Obey and Bleep carry the home-desk country (AT)** with `country_prior`; no
-   location is on record.
-10. **Polaron and Playbrush stay `undetermined`**, each with a named round that is not the entry.
-11. **R2, the firm's 2018-2020 Pre-Seed filter tag labels 25 rows at medium.** It scored 3 of 3 on
-    rows with an independently documented round, too few for `high`.
-12. **wefox reads Zurich** (the holding's seat), not Berlin (the operating base), after the blind
-    re-judge disagreed. Seedcamp's row for the same company reads Berlin, so the two books differ
-    on the city until this is ruled.
-13. **The eight acquirers the firm lists are out** (OpenAI, Mistral, MoonPay, Perk, Mews, Dialpad,
-    Taxfix, OneTrust), under the sale-consideration ruling. Listed here because OpenAI and Mistral
-    are names a reader will look for.
-14. **a16z's June.** If it is june.so, a16z's row should read `defunct` like Point Nine's and this
-    book's; if it is the June oven, `acquired` is right and the pair is a namesake. a16z's book does
-    not say which.
+**None.** The first closing message listed fourteen. Erik's instruction of 2026-10-01 (three at
+most; settle by rule or by research) settled every one, and each is recorded in `decisions.md`
+under "Settled on 2026-10-01". They are decisions he can overturn, not questions.
+
+| Was listed as open | Settled by | Outcome |
+|---|---|---|
+| R1, banding unnamed first rounds by amount (19 stages) | Rule: §6 labels by what the record calls the round, not the check size | Withdrawn; the 19 rows read `undetermined` |
+| R2, the Pre-Seed tag at medium | Rule: §5, a scored first-party field labels at the confidence its score earns | Stands |
+| R3, merger successors | Rule: §1, sale consideration and share swaps | Invesdor, SILQ, Dott out; ShopUp `acquired` (new parent), TIER `private` (its own SE is the surviving parent) |
+| Job-board-only rows (about 20) | Rule: §5, a job board is a first-party list | Members |
+| Spiko | Research: the firm's own portfolio list names it; the list is accurate on all ten other names | Member, high confidence |
+| Trending Topics | Research: the register names no Speedinvest fund among the holders; the firm never lists it | Rejected |
+| Heroes Jobs | Research, then Erik's ruling of 2026-09-28: no citable page names the firm, only a partner's board seat | Out; the row left the base |
+| Entries through the Pioneers Ventures vehicle | Rule: D3 and §6, an unnamed round reads `undetermined` | Stand |
+| GoStudent, TIER, wefox below $1B | Rule: §6, a stale mark yields to documented collapse | Stand; Coatue, Point Nine and Seedcamp read the same |
+| Criad, Originator, Obey, Bleep country | Not a ruling: flagged debt (`country_prior`); their sites give no location | Section 7 |
+| Polaron, Playbrush | Rule: §6 | `undetermined` |
+| wefox city | Research: the group's imprint and its stated markets | Zurich in both books |
+| The eight acquirers | Rule: sale-consideration ruling | Out |
+| a16z's June | Research: neither candidate company's investor list names a16z | a16z's row reads unnameable; no pair left |
+
+**The one decision worth a second look:** Heroes Jobs. Crunchbase and CB Insights name Speedinvest
+in its seed round and a Speedinvest partner sat on its board, so the investment is probably real;
+it is out because nothing citable says so. If a vendor profile plus a board seat should be enough,
+the row comes back with one line.
 
 ## 11. Rebuilds and deltas
 
 The grind judged 419 rows. The scheduled rebuild removed 23 `not_member` rows and merged 12
 duplicates (384 rows). A second, final rebuild landed five recall additions and three more merged
 duplicates (386 rows); it was needed because the recall probe finished after the first rebuild, the
-case §8 allows. The rename list was read after each: no verdict moved onto another company. 48
+case §8 allows. A third rebuild on 2026-10-01 took Heroes Jobs out (385 rows); no row was renamed. The rename list was read after each: no verdict moved onto another company. 47
 published names are set in `config.json` `names.published`.
 
 ## 12. Playbook write-backs proposed (not applied)
@@ -333,8 +328,7 @@ published names are set in `config.json` `names.published`.
    publication stream, holders named when few), forward by paid tier only, status free.
 3. **Read the firm's card text for sale consideration before seeding a member.** A card that says
    "became a shareholder in X following its acquisition of Y" is the firm disclaiming the position.
-4. **R1** for §6, if Erik keeps it: a cited unnamed first round with an amount bands like a Form D
-   round, with the PRO-157 older-company guard.
+4. (Withdrawn with R1.)
 5. **Merger successors** for §1 T3: a successor the firm lists beside the original is the same
    position.
 6. **`graduation-surfaces` local editions** for PL, CZ, HU, RO, BG, HR, SI, EE, LT, TR; and the
@@ -355,6 +349,19 @@ published names are set in `config.json` `names.published`.
 13. **Arquivo.pt as a rung of the archive ladder** (§5): an independent archive with a free CDX
     endpoint (`arquivo.pt/wayback/cdx?url=<domain>/*&output=json`) that crawls non-Portuguese sites;
     it answered while the Internet Archive was in cooldown.
+14. **`readback.ts` should trim the CSV name before matching.** YC's base carries " Metadata" with a
+    leading space; the ingest trims it, the readback does not, and the false "missing 1, extra 1"
+    made run after run skip YC at the gate.
+15. **A `censored` row turns into a `verify` failure on the day its 24 months run out**, in whatever
+    book it sits, and then blocks every other run's alignment of that book (a16z's Salient Motion,
+    2026-10-01). A daily pass that decides the rows whose clock ran out would keep the books writable.
+16. **§1's director-of-record pattern and Erik's ruling of 2026-09-28 disagree** (member at medium
+    against "a board seat alone is out"). The ruling is not in the playbook yet; this run applied it.
+
+**Landed on Erik's instruction (commit `1d33e433`, COLLECTION.md §9 and §10):** cross-investor
+alignment never waits for his approval, and a run closes with at most three open rulings. Items 10
+and 11 above are described there as part of the alignment rule; the tooling changes they imply
+(`verify`, `readback.ts`) are still proposals.
 
 ## 13. Usage line
 
@@ -366,7 +373,7 @@ grind groups, the A/B, recall and stage passes, the blind judge). **Subagents:**
 
 ## 14. Prompt count
 
-**3**: the kickoff, "continue", and "continue" after the session paused at the usage limit. No correction and no ruling was given during the run. The target is one.
+**4**: the kickoff, "continue", "continue" after the session paused at the usage limit, and Erik's instruction of 2026-10-01 after the first closing message (align wefox in both books; alignments need no approval; three open rulings at most). The target is one. The fourth prompt was avoidable: every item it settled could have been settled before the first closing message.
 
 ## 15. Ingest
 
@@ -406,3 +413,15 @@ Five books were in flight and not compared (Atomico, Bain Capital Ventures, Foun
 Catalyst, Kleiner Perkins); the Fleksy pair with Kleiner Perkins (Fleksy Inc. of San Francisco, a
 different company from ThingThing Ltd) is already ruled `distinct` for that run.
 
+### Second pass, 2026-10-01
+
+After Erik's instruction the remaining pairs were settled and written, with no approval prompt:
+
+| Book | Rows | Result |
+|---|---|---|
+| Speedinvest | Heroes Jobs out; 19 stages to `undetermined`; wefox citation; Spiko at high confidence | @@SI2@@ |
+| Seedcamp | wefox city Berlin to Zurich (the group's imprint and stated markets) | Aligned and re-ingested, readback exact (`3d1bfe36`) |
+| a16z | June read as its unnameable row (no company can be tied to the bare name); Salient Motion decided `not_graduated` on the absence test, because its 24-month clock ran out that morning and blocked a16z's `verify` | Aligned and re-ingested, readback exact (`a56ff606`, `8e3dcacb`) |
+| Y Combinator | Diligent `acquired` to `private`; June `acquired` to `defunct`; six namesake pairs ruled `distinct` (four of them surfaced by the Kleiner Perkins ingest: Avo, Feather twice, Pillar) | Aligned and re-ingested (`7f6f5f48`). The readback's "missing 1, extra 1" is a leading space in the CSV name " Metadata", which the ingest trims: 0 differing cells |
+
+No pair is left accepted: 132 shared rows, 132 agree.

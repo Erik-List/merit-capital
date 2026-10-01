@@ -199,7 +199,7 @@ test is raised at close (s9).
 
 (dated, class-wide, flagged for review)
 
-- **R1 (2026-09-30): a cited, unnamed entry round with a stated amount is banded
+- **R1 (2026-09-30; WITHDRAWN 2026-10-01, see the last section): a cited, unnamed entry round with a stated amount is banded
   by the era ceilings (COLLECTION.md s6 applied; flagged for review).** The firm
   publishes no round word, and the Austrian and German press often report a
   first round by its amount alone ("Speedinvest leads EUR 1.5 million round").
@@ -232,3 +232,63 @@ test is raised at close (s9).
   ShopUp read `acquired` with a successor note; TIER's status follows the A/B
   pass.
 
+
+## Settled on 2026-10-01 (Erik: at most three open rulings; settle by rule or by research)
+
+Erik's instruction after the first closing message: align wefox in both books,
+cross-investor alignments need no approval, and open rulings are reduced "by
+either following rules or investing in research". The fourteen items the report
+first listed as open were each settled by a standing rule or a lookup.
+
+- **R1 is withdrawn.** COLLECTION.md s6 already speaks: the stage label
+  "follows what the firm and the record call the round, not the check size",
+  and a round the record does not name reads `undetermined`. The amount band
+  belongs to Form D filings only. The 19 rows it had labelled (Seed 11,
+  Pre-Seed 6, Series A 2) read `undetermined`; their cited rounds stay in
+  `funding_rounds`. Billie keeps `Seed` on the playbook's lowest rung (`model`
+  at low confidence, `stage_uncited`): vendor profiles call its 2017 round a
+  seed and no citable page names it.
+- **R2 and R3 are rule applications, not rulings.** The Pre-Seed tag labels at
+  the confidence its score earns (s5). A merger successor is the same position
+  (s1, sale consideration and share swaps): ShopUp reads `acquired` because the
+  merged group SILQ is a new parent; TIER reads `private` because Tier Mobility
+  SE is the surviving parent of the combined company.
+- **R4 (2026-10-01): Spiko is a member, high confidence.** The firm's own list
+  of its portfolio (Crypto 50 EMEA post, 2026-08-18) names it with ten others;
+  nine of those are positions on the firm's own site and the tenth (Request
+  Finance) is a real holding received as sale consideration, so the list is
+  accurate wherever it can be checked. A firm's own listing suffices (s1), and
+  Spiko bought no portfolio company. Its round is not public: stage
+  `undetermined`.
+- **R5 (2026-10-01): Heroes Jobs is `not_member`.** The only tie is a partner's
+  board seat on the company's two Form Ds. Researched: TechCrunch's sale story
+  names no investor, the firm's 2020 post lists the company in a market map
+  without calling it a portfolio company, no archived listing or team page
+  carries it, and the filing gives the company's own address for the director.
+  Only vendor profiles name Speedinvest, and a vendor profile does not cite.
+  Erik's ruling of 2026-09-28 (a row stays only if verified to be a venture
+  investment; a board seat alone is out) decides it. The row left the base at
+  the third rebuild.
+- **R6 (2026-10-01): Trending Topics stays rejected.** The company's own 2017
+  post names Speedinvest in a consortium that bought 16.7% for EUR 170K; the
+  Firmenbuch page (FN 480593f) records five persons and seven companies as
+  holders without naming them, and no Speedinvest fund appears in any later
+  change. T2 asks whether a fund held the position; nothing shows one did, and
+  the firm has never listed it.
+- **R7 (2026-10-01): wefox's headquarters is Zurich.** The group's imprint
+  names wefox Holding AG, Zurich, and its About page gives Austria, the
+  Netherlands and Switzerland as its markets, Germany no longer among them.
+  Seedcamp's row was aligned to the same city.
+- **Rule-decided, no ruling needed:** the rows that rest on the firm's job
+  board are members (a job board is a first-party list, s5); entries first
+  held by the Pioneers Ventures vehicle read `undetermined` because that round
+  is unnamed (D3, s6); Polaron and Playbrush likewise; GoStudent, TIER and
+  wefox read below $1B on documented collapse (s6: a lead investor's published
+  write-down, a priced merger, a sale backed by the last round's lead); the
+  eight acquirers the firm lists are out (D5).
+- **Flagged debt, not a ruling:** Criad, Originator, Obey and Bleep carry the
+  home-desk country with `country_prior`; their own sites give no location.
+- **Other books.** a16z's June cannot be tied to a company (june.so's own
+  funding post names no a16z fund; neither does the June oven's record), so it
+  reads as a16z's unnameable row. YC's Diligent and June were aligned once the
+  cause of YC's readback difference was found (a leading space in one name).
