@@ -1,0 +1,73 @@
+Sequent Computer Systems, Inc. was a computer company that designed and manufactured multiprocessing computer systems. They were among the pioneers in high-performance symmetric multiprocessing (SMP) open systems, innovating in both hardware (e.g., cache management and interrupt handling) and software (e.g., read-copy-update).
+Through a partnership with Oracle Corporation, Sequent became a dominant high-end UNIX platform in the late 1980s and early 1990s. Later it introduced a next-generation high-end platform for UNIX and Windows NT based on a non-uniform memory access architecture, NUMA-Q. As hardware prices fell in the late 1990s, and Intel shifted its server focus to the Itanium processor family, Sequent joined the Project Monterey effort in October 1998, which aimed to move a standard Unix to several new platforms.
+In July 1999 Sequent agreed to be acquired by IBM. At the time, Sequent's CEO said its technology would "find its way through IBM's entire product field" and IBM announced it would "both sell Sequent machines, and fold Sequent's technology...into its own servers", but by May 2002 a decline in sales of the models acquired from Sequent, among other reasons, led to the retirement of Sequent-heritage products.
+Vestiges of Sequent's innovations live on in the form of data clustering software from PolyServe (subsequently acquired by HP), various projects within OSDL, IBM contributions to the Linux kernel, and claims in the SCO v. IBM lawsuit.
+
+
+== History ==
+
+Originally named Sequel, Sequent was formed in 1983 when a group of seventeen engineers and executives left Intel after the failed iAPX 432 "mainframe on a chip" project was cancelled; they were joined by one non-Intel employee. They started Sequent to develop a line of SMP computers, then considered one of the up-and-coming fields in computer design.
+
+
+=== Balance ===
+Sequent's first computer systems were the Balance 8000 (released in 1984) and Balance 21000 (released in 1986). Both models were based on 10 MHz National Semiconductor NS32032 processors, each with a small write-through cache connected to a common memory to form a shared memory system. The Balance 8000 supported up to 6 dual-processor boards for a total maximum of 12 processors. The Balance 21000 supported up to 15 dual-processor boards for a total maximum of 30 processors.
+The systems ran a modified version of 4.2BSD Unix the company called DYNIX, for DYNamic unIX. The machines were designed to compete with the DEC VAX-11/780, with all of their inexpensive processors available to run any process. In addition the system included a series of libraries that could be used by programmers to develop applications that could use more than one processor at a time.
+
+
+=== Symmetry ===
+Their next series was the Intel 80386-based Symmetry, released in 1987. Various models supported between 2 and 30 processors, using a new copy-back cache and a wider 64-bit memory bus. 1991's Symmetry 2000 models added multiple SCSI boards, and were offered in versions with from one to six Intel 80486 processors. The next year it added the VMEbus based Symmetry 2000/x50 with faster CPUs.
+
+The late 1980s and early 1990s saw big changes on the software side for Sequent. DYNIX was replaced by DYNIX/ptx, which was based on a merger of AT&T Corporation's UNIX System V and 4.2BSD. And this was during a period when Sequent's high-end systems became particularly successful due to a close working relationship with Oracle, specifically its high-end database servers. In 1993, it added the Symmetry 2000/x90 along with its ptx/Cluster software, which added various high availability features and introduced custom support for Oracle Parallel Server.
+In 1994, Sequent introduced the Symmetry 5000 series models SE20, SE60 and SE90, which used 66 MHz Pentium CPUs in systems from 2 to 30 processors. The next year they expanded that with the SE30/70/100 lineup using 100 MHz Pentiums, and then in 1996 with the SE40/80/120 with 166 MHz Pentiums. A variant of the Symmetry 5000, the WinServer 5000 series, ran Windows NT instead of DYNIX/ptx.
+
+
+=== NUMA ===
+Recognizing the increase in competition for SMP systems after having been early adopters of the architecture, and the increasing integration of SMP technology into microprocessors, Sequent sought its next source of differentiation. They began investing in the development of a system based on a cache-coherent non-uniform memory architecture (ccNUMA) and leveraging Scalable Coherent Interconnect. NUMA distributes memory among the processors, avoiding the bottleneck that occurs with a single monolithic memory. Using NUMA would allow its multiprocessor machines to generally outperform SMP systems, at least when the tasks can be executed close to their memory — as is the case for servers, where tasks typically do not share large amounts of data.
+In 1996, it released the first of a new series of machines based on this new architecture. Known internally as STiNG, an abbreviation for Sequent: The Next Generation (with Intel inside), it was productized as NUMA-Q and was the last of the systems released before the company was purchased by IBM for over $800 million.
+IBM then started Project Monterey with Santa Cruz Operation, intending to produce a NUMA-capable standardized Unix running on IA-32, IA-64 and POWER and PowerPC platforms. This project later fell through as both IBM and SCO turned to the Linux market, but is the basis for "the new SCO"'s SCO v. IBM Linux lawsuit.
+
+
+=== IBM purchase and disappearance ===
+With its future product strategy in tatters, it appeared Sequent had little future standing alone, and was purchased by IBM in 1999 for $810 million. IBM released several x86 servers with a  NUMA architecture. The first was the x440 in August, 2002 with a follow-on x445 in 2003. In 2004, an Itanium-based x455 was added to the NUMA family. During this period, NUMA technology became the basis for IBM's extended X-Architecture (eXA, which could also stand for enterprise X-Architecture). As of 2011, this chipset is now on its fifth generation, known as eX5 technology. It now falls under the brand IBM System x.
+According to a May 30, 2002 article in The Wall Street Journal (WSJ) entitled "Sequent Deal Serves Hard Lesson for IBM":
+
+When IBM bought Sequent, ...it [Sequent] lacked the size and resources to compete with Sun and Hewlett-Packard Co. in the Unix server market....
+In 1999, IBM had problems of its own with an aged and high-priced line of servers, particularly for its version of Unix known as AIX. It also faced huge losses in personal computers and declining sales in its cash-cow mainframe line.
+
+
+== Detailed model descriptions ==
+The following is a more detailed description of the first two generations of Symmetry products, released between 1987 and 1990.
+
+
+=== Symmetry S-series ===
+Symmetry S3
+The S3 was the low-end platform based on commodity PC components running a fully compatible version of DYNIX 3. It featured a single 33 MHz Intel 80386 processor, up to 40 megabytes of RAM, up to 1.8 gigabytes of SCSI-based disk storage, and up to 32 direct-connected serial ports.
+Symmetry S16
+The S16 was the entry-level multiprocessing model, which ran DYNIX/ptx. It featured up to six 20 MHz Intel 80386 processors, each with a 128 kilobyte cache. It also supported up to 80 MB of RAM, up to 2.5 GB of SCSI-based disk storage, and up to 80 direct-connected serial ports.
+Symmetry S27
+The S27 ran either DYNIX/ptx or DYNIX 3. It featured up to ten 20 MHz Intel 80386 processors, each with a 128 KB cache. It also supported up to 128 MB of RAM, up to 12.5 GB of disk storage, and up to 144 direct-connected serial ports.
+Symmetry S81
+The S81 ran either DYNIX/ptx or DYNIX 3. It featured up to 30 20 MHz Intel 80386 processors, each with a 128 KB cache. It also supported up to 384 MB of RAM, up to 84.8 GB of disk storage, and up to 256 direct-connected serial ports.
+
+
+=== Symmetry 2000 series ===
+Symmetry 2000/40
+The S2000/40 was the low-end platform based on commodity PC components running a fully compatible version of DYNIX/ptx. It featured a single 33 MHz Intel 80486 processor, up to 64 megabytes of RAM, up to 2.4 gigabytes of SCSI-based disk storage, and up to 32 direct-connected serial ports.
+Symmetry 2000/200
+The S2000/200 was the entry-level multiprocessing model, which ran DYNIX/ptx. It featured up to six 25 MHz Intel 80486 processors, each with a 512 kilobyte cache. It also supported up to 128 MB of RAM, up to 2.5 GB of SCSI-based disk storage, and up to 80 direct-connected serial ports.
+Symmetry 2000/400
+The S2000/400 ran either DYNIX/ptx or DYNIX 3. It featured up to ten 25 MHz Intel 80486 processors, each with a 512 KB cache. It also supported up to 128 MB of RAM, up to 14.0 GB of disk storage, and up to 144 direct-connected serial ports.
+Symmetry 2000/700
+The S2000/700 ran either DYNIX/ptx or DYNIX 3. It featured up to 30 25 MHz Intel 80486 processors, each with a 512 KB cache. It also supported up to 384 MB of RAM, up to 85.4 GB of disk storage, and up to 256 direct-connected serial ports.
+
+
+== See also ==
+NCR Voyager (early 486/Pentium SMP systems)
+
+
+== References ==
+
+
+== External links ==
+Official website at the Wayback Machine (archived 1998-02-03)
+ Media related to Sequent Computer Systems at Wikimedia Commons

@@ -1,0 +1,103 @@
+membership      : 1158 verdicts, 0 uncertain, 0 unjudged, 14 not_member awaiting rebuild
+stale classification keys: 69 (earlier base versions)
+duplicate companies (same SEC registrant): 3 groups
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+  note: sibling speedinvest in flight; not compared
+cross-investor  : 795 rows shared with other investors, 701 agree, 0 accepted, 94 disagree; 5 unnameable rows not compared
+rows            : 906
+classified      : 896
+$1B+ / $10B+ / $100B+ : 131 / 41 / 11
+identity        : 5 unnameable rows, excluded from every metric
+stage unknown   : 459 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'Healthcare & Bio': 155, 'Consumer & Marketplaces': 132, 'Data Infrastructure': 92, 'Industrial & Robotics': 88, 'Media, Gaming & Advertising': 78, 'Climate & Energy': 77, 'SaaS': 76, 'Fintech & Payments': 53, 'AI & Applied AI': 52, 'Security': 44, '(outside taxonomy)': 29, 'DevTools & APIs': 18, 'Crypto & Web3': 7}
+hq_city         : 188 distinct, 818/906 filled, 69 recorded unknown; top {'San Francisco': 148, 'New York': 49, 'San Jose': 37, 'Beijing': 30, 'Mountain View': 29, 'Palo Alto': 25, 'Redwood City': 23, 'Santa Clara': 22}
+valuation_range : {'below_1b': 759, '1b_plus': 90, '10b_plus': 30, '100b_plus': 11, None: 11}
+entry_stage     : {'Growth': 190, 'Series A': 172, 'Seed': 69, None: 11}
+S2A             : 69 seed entries, 8 censored; cohort 59, graduated 49, not graduated 10, rate 83.1%, coverage 96.7%; 2 still open
+  the nos rest on: Form D absence 3, a cited end 2, the absence test 5
+  note: base.csv stale relative to the base (311 slugs differ); re-run export
+
+100 problem(s):
+  - absorbed/rejected slug in published base: ['entremed-inc']
+  - cross-investor AdKnowledge: kleiner-perkins:adknowledge acquired/below_1b (asof -) vs tcv:adknowledge unknown/below_1b (asof -); freshest kleiner-perkins:adknowledge
+  - cross-investor Altarock Energy Inc: kleiner-perkins:altarock-energy-inc acquired/below_1b (asof -) vs khosla-ventures:altarock-energy unknown/below_1b (asof -); freshest kleiner-perkins:altarock-energy-inc
+  - cross-investor Applied Compute: kleiner-perkins:applied-compute private/1b_plus $1.30B (asof 2026-04-15) vs lux-capital:applied-compute private/below_1b (asof -); freshest kleiner-perkins:applied-compute
+  - cross-investor Applied Intuition: kleiner-perkins:applied-intuition private/10b_plus $15.00B (asof 2025-06-17) vs a16z:applied-intuition private/1b_plus $1.25B (asof 2020); freshest kleiner-perkins:applied-intuition
+  - cross-investor Assured: kleiner-perkins:assured private/1b_plus $1.00B (asof 2025-03-04) vs first-round-capital:assured private/below_1b (asof -); freshest kleiner-perkins:assured
+  - cross-investor Assured: kleiner-perkins:assured private/1b_plus $1.00B (asof 2025-03-04) vs iconiq-growth:assured private/below_1b (asof -); freshest kleiner-perkins:assured
+  - cross-investor Avoca: kleiner-perkins:avoca private/1b_plus $1.00B (asof 2026-04-27) vs y-combinator:avoca private/below_1b (asof -); freshest kleiner-perkins:avoca
+  - cross-investor Bump: kleiner-perkins:bump unknown/below_1b (asof -) vs a16z:bump acquired/below_1b (asof -); freshest kleiner-perkins:bump
+  - cross-investor Bump: kleiner-perkins:bump unknown/below_1b (asof -) vs felicis:bump-technologies acquired/below_1b (asof -); freshest kleiner-perkins:bump
+  - cross-investor Bump: kleiner-perkins:bump unknown/below_1b (asof -) vs sequoia-capital:bump-technologies acquired/below_1b (asof -); freshest kleiner-perkins:bump
+  - cross-investor Bump: kleiner-perkins:bump unknown/below_1b (asof -) vs y-combinator:bump acquired/below_1b (asof -); freshest kleiner-perkins:bump
+  - cross-investor Coda: kleiner-perkins:coda acquired/below_1b (asof -) vs insight-partners:coda private/1b_plus $2.50B (asof 2022-04-15); freshest insight-partners:coda
+  - cross-investor Drop: kleiner-perkins:drop acquired/below_1b (asof -) vs first-round-capital:drop private/below_1b (asof -); freshest kleiner-perkins:drop
+  - cross-investor Drop: kleiner-perkins:drop acquired/below_1b (asof -) vs new-enterprise-associates:drop private/below_1b (asof -); freshest kleiner-perkins:drop
+  - cross-investor Endgame: kleiner-perkins:endgame acquired/below_1b (asof -) vs eqt-ventures:endgame private/below_1b (asof -); freshest kleiner-perkins:endgame
+  - cross-investor Fauna: kleiner-perkins:fauna acquired/below_1b (asof -) vs gv:fauna defunct/below_1b (asof -); freshest kleiner-perkins:fauna
+  - cross-investor Feather: kleiner-perkins:feather acquired/below_1b (asof -) vs spark-capital:feather private/below_1b (asof -); freshest kleiner-perkins:feather
+  - cross-investor Fin: kleiner-perkins:fin acquired/below_1b (asof 2026-09-10) vs accel:fin private/below_1b (asof -); freshest kleiner-perkins:fin
+  - cross-investor Fin: kleiner-perkins:fin acquired/below_1b (asof 2026-09-10) vs iconiq-growth:fin private/1b_plus $3.60B (asof 2026-06-15); freshest kleiner-perkins:fin
+  - cross-investor Fleksy: kleiner-perkins:fleksy acquired/below_1b (asof -) vs seedcamp:fleksy unknown/below_1b (asof -); freshest kleiner-perkins:fleksy
+  - cross-investor Fortify Software: kleiner-perkins:fortify-software acquired/below_1b (asof -) vs accel:fortify private/below_1b (asof -); freshest kleiner-perkins:fortify-software
+  - cross-investor Garner Health: kleiner-perkins:garner-health private/1b_plus $2.74B (asof 2026-05-28) vs sequoia-capital:garner-health private/below_1b (asof -); freshest kleiner-perkins:garner-health
+  - cross-investor Garner Health: kleiner-perkins:garner-health private/1b_plus $2.74B (asof 2026-05-28) vs thrive-capital:garner-health private/below_1b (asof -); freshest kleiner-perkins:garner-health
+  - cross-investor Greenhouse: kleiner-perkins:greenhouse acquired/below_1b (asof 2011-06-30) vs seedcamp:greenhouse private/below_1b (asof -); freshest kleiner-perkins:greenhouse
+  - cross-investor Handshake: kleiner-perkins:handshake private/1b_plus $3.50B (asof 2022-01-19) vs a16z:handshake private/below_1b (asof -); freshest kleiner-perkins:handshake
+  - cross-investor Handshake: kleiner-perkins:handshake private/1b_plus $3.50B (asof 2022-01-19) vs greylock:handshake private/below_1b (asof -); freshest kleiner-perkins:handshake
+  - cross-investor Handshake: kleiner-perkins:handshake private/1b_plus $3.50B (asof 2022-01-19) vs point-nine:handshake acquired/below_1b (asof -); freshest kleiner-perkins:handshake
+  - cross-investor Handshake: kleiner-perkins:handshake private/1b_plus $3.50B (asof 2022-01-19) vs sequoia-capital:handshake unknown/below_1b (asof -); freshest kleiner-perkins:handshake
+  - cross-investor Harmonic: kleiner-perkins:harmonic private/1b_plus $1.45B (asof 2025-11-25) vs lightspeed:harmonic-inc public/below_1b $0.65B (asof 2025-06-27); freshest kleiner-perkins:harmonic
+  - cross-investor Helix: kleiner-perkins:helix private/below_1b (asof -) vs gv:helix acquired/below_1b (asof -); freshest kleiner-perkins:helix
+  - cross-investor Indiegogo: kleiner-perkins:indiegogo acquired/below_1b (asof -) vs khosla-ventures:indiegogo private/below_1b (asof -); freshest kleiner-perkins:indiegogo
+  - cross-investor Instacart: kleiner-perkins:instacart public/1b_plus $9.98B (asof 2026-09-30) vs a16z:instacart public/10b_plus $10.83B (asof 2026-08); freshest kleiner-perkins:instacart
+  - cross-investor Instacart: kleiner-perkins:instacart public/1b_plus $9.98B (asof 2026-09-30) vs coatue:instacart public/10b_plus $10.00B (asof 2026-09-25); freshest kleiner-perkins:instacart
+  - cross-investor Instacart: kleiner-perkins:instacart public/1b_plus $9.98B (asof 2026-09-30) vs khosla-ventures:instacart public/10b_plus $11.92B (asof 2026-09-02); freshest kleiner-perkins:instacart
+  - cross-investor Instacart: kleiner-perkins:instacart public/1b_plus $9.98B (asof 2026-09-30) vs sequoia-capital:instacart public/10b_plus $10.83B (asof 2026-08); freshest kleiner-perkins:instacart
+  - cross-investor Instacart: kleiner-perkins:instacart public/1b_plus $9.98B (asof 2026-09-30) vs tcv:instacart public/10b_plus $10.00B (asof 2026-09-25); freshest kleiner-perkins:instacart
+  - cross-investor Instacart: kleiner-perkins:instacart public/1b_plus $9.98B (asof 2026-09-30) vs thrive-capital:instacart public/10b_plus $11.92B (asof 2026-09-02); freshest kleiner-perkins:instacart
+  - cross-investor Instacart: kleiner-perkins:instacart public/1b_plus $9.98B (asof 2026-09-30) vs tiger-global-management:instacart public/10b_plus $10.00B (asof 2026-09-25); freshest kleiner-perkins:instacart
+  - cross-investor Instacart: kleiner-perkins:instacart public/1b_plus $9.98B (asof 2026-09-30) vs y-combinator:instacart public/10b_plus $11.92B (asof 2026-09-02); freshest kleiner-perkins:instacart
+  - cross-investor Instinct: kleiner-perkins:instinct private/10b_plus $10.00B (asof 2026-09-28) vs y-combinator:instinct private/below_1b (asof -); freshest kleiner-perkins:instinct
+  - cross-investor Level: kleiner-perkins:level acquired/below_1b (asof -) vs battery-ventures:level-ai private/below_1b (asof -); freshest kleiner-perkins:level
+  - cross-investor Level: kleiner-perkins:level acquired/below_1b (asof -) vs lightspeed:level private/below_1b (asof -); freshest kleiner-perkins:level
+  - cross-investor Linear Technology: kleiner-perkins:linear-technology acquired/below_1b (asof 2017-03-10) vs 20vc:linear private/1b_plus $1.25B (asof 2025-06-10); freshest 20vc:linear
+  - cross-investor Linear Technology: kleiner-perkins:linear-technology acquired/below_1b (asof 2017-03-10) vs accel:linear private/1b_plus $1.25B (asof 2025-06); freshest accel:linear
+  - cross-investor Linear Technology: kleiner-perkins:linear-technology acquired/below_1b (asof 2017-03-10) vs sequoia-capital:linear private/1b_plus $1.25B (asof 2025-06); freshest sequoia-capital:linear
+  - cross-investor Luca Technologies: kleiner-perkins:luca-technologies unknown/below_1b (asof -) vs menlo-ventures:luca private/below_1b (asof -); freshest kleiner-perkins:luca-technologies
+  - cross-investor Luca Technologies: kleiner-perkins:luca-technologies unknown/below_1b (asof -) vs y-combinator:luca private/below_1b (asof -); freshest kleiner-perkins:luca-technologies
+  - cross-investor Mind Robotics: kleiner-perkins:mind-robotics private/1b_plus $3.40B (asof 2026-05-13) vs a16z:mind-robotics private/below_1b (asof -); freshest kleiner-perkins:mind-robotics
+  - cross-investor Mind Robotics: kleiner-perkins:mind-robotics private/1b_plus $3.40B (asof 2026-05-13) vs accel:mind-robotics private/below_1b (asof -); freshest kleiner-perkins:mind-robotics
+  - cross-investor Mind Robotics: kleiner-perkins:mind-robotics private/1b_plus $3.40B (asof 2026-05-13) vs redpoint-ventures:mind-robotics private/below_1b (asof -); freshest kleiner-perkins:mind-robotics
+  - cross-investor Mirendil: kleiner-perkins:mirendil private/1b_plus $1.00B (asof 2026-06-25) vs a16z:mirendil unknown/below_1b (asof -); freshest kleiner-perkins:mirendil
+  - cross-investor Motive: kleiner-perkins:motive private/1b_plus $2.85B (asof 2022-05) vs accel:motive-inc acquired/below_1b (asof -); freshest kleiner-perkins:motive
+  - cross-investor Navigenics: kleiner-perkins:navigenics acquired/below_1b (asof 2012-01-01) vs sequoia-capital:navigenics defunct/below_1b (asof 2012-01-01); freshest kleiner-perkins:navigenics
+  - cross-investor Nexthop AI: kleiner-perkins:nexthop-ai private/1b_plus $4.20B (asof 2026-03-10) vs a16z:nexthop private/below_1b (asof -); freshest kleiner-perkins:nexthop-ai
+  - cross-investor Nexthop AI: kleiner-perkins:nexthop-ai private/1b_plus $4.20B (asof 2026-03-10) vs lightspeed:nexthop-ai private/below_1b (asof -); freshest kleiner-perkins:nexthop-ai
+  - cross-investor Optic: kleiner-perkins:optic private/below_1b (asof -) vs y-combinator:optic acquired/below_1b (asof -); freshest kleiner-perkins:optic
+  - cross-investor Parallel: kleiner-perkins:parallel private/1b_plus $2.00B (asof 2026-04-29) vs sequoia-capital:parallel unknown/below_1b (asof -); freshest kleiner-perkins:parallel
+  - cross-investor Parallel: kleiner-perkins:parallel private/1b_plus $2.00B (asof 2026-04-29) vs y-combinator:parallel private/below_1b (asof -); freshest kleiner-perkins:parallel
+  - cross-investor Pattern: kleiner-perkins:pattern private/below_1b (asof 2025-12-31) vs first-round-capital:pattern defunct/below_1b (asof 2025-12-31); freshest kleiner-perkins:pattern
+  - cross-investor Pelago, Inc.: kleiner-perkins:pelago-inc acquired/below_1b (asof -) vs a16z:pelago private/below_1b (asof -); freshest kleiner-perkins:pelago-inc
+  - cross-investor Pelago, Inc.: kleiner-perkins:pelago-inc acquired/below_1b (asof -) vs eqt-ventures:pelago private/below_1b (asof -); freshest kleiner-perkins:pelago-inc
+  - cross-investor Pelago, Inc.: kleiner-perkins:pelago-inc acquired/below_1b (asof -) vs y-combinator:pelago private/below_1b (asof -); freshest kleiner-perkins:pelago-inc
+  - cross-investor Phantom: kleiner-perkins:phantom acquired/below_1b (asof -) vs a16z:phantom private/1b_plus $3.00B (asof 2025-01); freshest a16z:phantom
+  - cross-investor Phantom: kleiner-perkins:phantom acquired/below_1b (asof -) vs lightspeed:phantom private/1b_plus $3.00B (asof 2025-01-17); freshest lightspeed:phantom
+  - cross-investor Phantom: kleiner-perkins:phantom acquired/below_1b (asof -) vs sequoia-capital:phantom private/1b_plus $3.00B (asof 2025-01-16); freshest sequoia-capital:phantom
+  - cross-investor Picaboo: kleiner-perkins:picaboo acquired/below_1b (asof -) vs new-enterprise-associates:picaboo private/below_1b (asof -); freshest kleiner-perkins:picaboo
+  - cross-investor Presto: kleiner-perkins:presto unknown/below_1b (asof 2017-01-31) vs union-square-ventures:presto private/below_1b (asof 2017-01-31); freshest kleiner-perkins:presto
+  - cross-investor Presto: kleiner-perkins:presto unknown/below_1b (asof 2017-01-31) vs y-combinator:presto private/below_1b (asof 2017-01-31); freshest kleiner-perkins:presto
+  - cross-investor Profound: kleiner-perkins:profound private/1b_plus $1.80B (asof 2026-09-15) vs lightspeed:profound private/below_1b (asof -); freshest kleiner-perkins:profound
+  - cross-investor Profound: kleiner-perkins:profound private/1b_plus $1.80B (asof 2026-09-15) vs sequoia-capital:profound private/below_1b (asof -); freshest kleiner-perkins:profound
+  - cross-investor Quirky: kleiner-perkins:quirky acquired/below_1b (asof -) vs a16z:quirky defunct/below_1b (asof -); freshest kleiner-perkins:quirky
+  - cross-investor RESONATE INC: kleiner-perkins:resonate-inc acquired/below_1b (asof -) vs y-combinator:resonate private/below_1b (asof -); freshest kleiner-perkins:resonate-inc
+  - cross-investor Rain: kleiner-perkins:rain private/below_1b (asof -) vs iconiq-growth:rain private/1b_plus $1.95B (asof 2026-01); freshest iconiq-growth:rain
+  - cross-investor Rain: kleiner-perkins:rain private/below_1b (asof -) vs lightspeed:rain private/1b_plus $1.95B (asof 2026-01); freshest lightspeed:rain
+  - cross-investor Remind: kleiner-perkins:remind acquired/below_1b (asof -) vs first-round-capital:remind private/below_1b (asof -); freshest kleiner-perkins:remind
+  - cross-investor Remind: kleiner-perkins:remind acquired/below_1b (asof -) vs y-combinator:remind private/below_1b (asof -); freshest kleiner-perkins:remind
+  - cross-investor Rogo: kleiner-perkins:rogo private/1b_plus $2.00B (asof 2026-04-29) vs sequoia-capital:rogo private/below_1b (asof -); freshest kleiner-perkins:rogo
+  - cross-investor Rogo: kleiner-perkins:rogo private/1b_plus $2.00B (asof 2026-04-29) vs thrive-capital:rogo private/below_1b (asof -); freshest kleiner-perkins:rogo
+  - cross-investor Series: kleiner-perkins:series unknown/below_1b (asof -) vs a16z:series-ai private/below_1b (asof -); freshest kleiner-perkins:series

@@ -1,0 +1,46 @@
+targets: 78 roster names
+wrote /Users/erik/Developer/merit-capital/data/collection/investors/kleiner-perkins/sources/edgar/formd-sweep.json
+# accessions matched: 1375
+# distinct issuers: 642
+== seeding from EDGAR company search
+   83 entities
+== folding in own pooled Form D vehicles
+   +1 (total 84)
+== co-filer closure (sampling filings of seed entities)
+   85 entities
+   unclassified resolved: 0 partners (people), 0 external co-filers excluded from crawling
+
+wrote data/collection/investors/kleiner-perkins/entities.json — 85 entities
+  by desk: {'external': 12, 'kp': 73}
+  crawlable (desk != external): 73
+registry: 85 entities · {'external': 12, 'kp': 73}
+crawling 73 (external excluded)
+  25/73 entities · 353 unique accessions
+  50/73 entities · 397 unique accessions
+unique ownership filings: 461
+  headers 250/461 · 84 companies
+
+wrote edgar-companies.json — 123 companies
+  by desk: {'kp': 123}
+base: data/collection/investors/kleiner-perkins/companies/base.json
+target companies: 348  distinct issuer CIKs: 333
+scanning 74 quarterly datasets (offline)...
+filings collected: 1467
+evidence: 958/958 base accessions found
+wrote data/collection/investors/kleiner-perkins/scratch/issuer-evidence.json (346 CIKs, 159 with a name history)
+
+wrote data/collection/investors/kleiner-perkins/sources/edgar/formd-issuer-rounds.json
+  companies with Form D history : 326
+  rounds after amendment merge  : 1241 (226 amendments folded in)
+  companies with 2+ rounds      : 245
+  filings the partner sweep never saw: 507
+  companies gaining >=1 such filing  : 153
+  rounds carrying a sale date   : 1230/1241
+
+==== formd-query.py
+
+==== edgar-entities.py
+
+==== edgar-companies.py
+
+==== formd-issuer-rounds.py

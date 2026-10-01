@@ -1,0 +1,30 @@
+Bun is a JavaScript runtime, package manager and test runner designed as a drop-in replacement for Node.js. Bun uses Safari's JavaScriptCore as its JavaScript engine, unlike Node.js and Deno, which run on the V8 engine used by Chromium.
+Bun was originally developed by Jarred Sumner, with its initial release in September 2021. It was acquired by Anthropic in December 2025.
+
+
+== Overview ==
+Bun supports bundling, minifying and server-side rendering (Svelte, Nuxt.js, Vite). Bundling refers to the process of combining multiple files and assets like JavaScript, CSS, and HTML files into a smaller number of files, to reduce the number of server requests and enhance performance. Minifying is a technique of compressing files by removing unnecessary characters (like whitespace, comments, etc.) without affecting their functionality, further optimizing website load times. Bun provides an API to decide whether to preserve some readability by e.g. keeping whitespace. 
+The runtime supports foreign function interface (FFI), SQLite3, TLS 1.3, and DNS resolution. It also comes bundled in with common tools like file editing, HTTP servers, WebSocket, and hashing.
+
+
+== History ==
+The first stable release of Bun, 1.0, was released on September 8, 2023.
+Bun 1.1 added support for Windows 10 and Windows 11. It also introduced a cross-platform Bun Shell for running some Bash commands without extra dependencies.
+With version 1.3, Bun added hot module replacement (HMR) to its local development server, which updates pages as code changes automatically.
+On December 2, 2025, Bun announced that the project has been acquired by Anthropic. This acquisition allows the company to use Bun to support Claude Code and the Claude Agent SDK.
+In May 2026, Sumner began rewriting Bun with heavy use of AI tools, from the programming language Zig to Rust, aiming to, "systematically prevent [memory] bugs from recurring." Sumner initially described the effort as experimental, but merged the branch days later. The rewrite included over a million lines of code and passed Bun's test suite. This rewrite was highly publicized and became a talking point in the conversation about AI's impact on the development community and language rewrites at scale. It also provoked a response from Zig creator Andrew Kelley, who reacted with frustration at what he perceived to be an inappropriate backlash toward the Zig language and community.
+
+
+== Funding ==
+On August 24, 2022, Oven, the company behind Bun, announced it had raised $7 million in funding. The round was led by Kleiner Perkins, with participation from Guillermo Rauch, Y Combinator, and others.
+
+
+== Acquisition ==
+On December 2, 2025, Jarred Sumner, creator of Bun, announced that Bun is joining Anthropic on a blog post. He put emphasis on the fact that Bun will stay open-sourced and under the MIT License, and mentioned that the funding will allow them to hire more engineers, dramatically speeding up the development cycle and helping to release new feature updates quicker. Additionally, it is said that they will help make tools like Claude Code and Claude Agent SDK, which are owned by Anthropic. The cost of this acquisition has not been publicly disclosed.
+
+
+== References ==
+
+
+== External links ==
+Official website

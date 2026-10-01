@@ -1,0 +1,519 @@
+{
+ "_readme": "Parse Form ADV Schedule D Section 7.B.(1) private-fund rosters from Kleiner Perkins' ADV (CRD 161035) and\nKPCB China's (CRD 161470), sources/adv/<CRD>.pdf, into sources/adv/adv-7b-funds.json. pypdf's per-page text is\ncumulative within runs of pages and a fund's gross asset value can sit a page or more below its name, so each fund\ntakes the value from the first page on which its OWN block (from its name to the next fund name, or the page end)\ncarries line 11. Section 7.B.(2) funds (reported by another adviser) carry no value and are listed separately.\nDeduped by private fund ID. (Adapted from ivp/scratch/parse-adv-7b.py, whose pairing misread this layout: six\nSelect-family funds all read $18,659,493.)",
+ "advisers": {
+  "161035": {
+   "crd": "161035",
+   "adviser": "KLEINER PERKINS",
+   "funds_7b1": [
+    {
+     "name": "KLEINER PERKINS CAUFIELD & BYERS XIII, LLC",
+     "id": "805-6749843577",
+     "gav": 37200093
+    },
+    {
+     "name": "KLEINER PERKINS CAUFIELD & BYERS XIV, LLC",
+     "id": "805-7273930716",
+     "gav": 105712587
+    },
+    {
+     "name": "KLEINER PERKINS CAUFIELD & BYERS XIX, LLC",
+     "id": "805-3686494326",
+     "gav": 1329801265
+    },
+    {
+     "name": "KLEINER PERKINS CAUFIELD & BYERS XV, LLC",
+     "id": "805-6635809819",
+     "gav": 351173819
+    },
+    {
+     "name": "KLEINER PERKINS CAUFIELD & BYERS XVI, LLC",
+     "id": "805-4912186951",
+     "gav": 501685419
+    },
+    {
+     "name": "KLEINER PERKINS CAUFIELD & BYERS XVII, LLC",
+     "id": "805-8790361707",
+     "gav": 2297616302
+    },
+    {
+     "name": "KLEINER PERKINS CAUFIELD & BYERS XVIII, LLC",
+     "id": "805-3187978995",
+     "gav": 2877051066
+    },
+    {
+     "name": "KLEINER PERKINS FLEX I, LLC",
+     "id": "805-4069170577",
+     "gav": 550000000
+    },
+    {
+     "name": "KLEINER PERKINS SELECT FOUNDERS FUND II, LLC",
+     "id": "805-3377064466",
+     "gav": 34182725
+    },
+    {
+     "name": "KLEINER PERKINS SELECT FOUNDERS FUND III, LLC",
+     "id": "805-8546520155",
+     "gav": null
+    },
+    {
+     "name": "KLEINER PERKINS SELECT FOUNDERS FUND, LLC",
+     "id": "805-9354874526",
+     "gav": 21458890
+    },
+    {
+     "name": "KLEINER PERKINS SELECT FUND II FRIENDS, LLC",
+     "id": "805-8716351072",
+     "gav": 69050109
+    },
+    {
+     "name": "KLEINER PERKINS SELECT FUND II, LLC",
+     "id": "805-6154703938",
+     "gav": 1852076737
+    },
+    {
+     "name": "KLEINER PERKINS SELECT FUND III FRIENDS, LLC",
+     "id": "805-3526701553",
+     "gav": 74252731
+    },
+    {
+     "name": "KLEINER PERKINS SELECT FUND III, LLC",
+     "id": "805-2245461564",
+     "gav": 1570854518
+    },
+    {
+     "name": "KLEINER PERKINS SELECT FUND IV, LLC",
+     "id": "805-1618641513",
+     "gav": 1920000000
+    },
+    {
+     "name": "KLEINER PERKINS SELECT FUND, LLC",
+     "id": "805-2169927738",
+     "gav": 789661695
+    },
+    {
+     "name": "KLEINER PERKINS XIX FRIENDS, LLC",
+     "id": "805-6783267344",
+     "gav": 11801219
+    },
+    {
+     "name": "KLEINER PERKINS XX FOUNDERS FUND, LLC",
+     "id": "805-6059574992",
+     "gav": 28938463
+    },
+    {
+     "name": "KLEINER PERKINS XX FRIENDS, LLC",
+     "id": "805-1102176926",
+     "gav": 69110114
+    },
+    {
+     "name": "KLEINER PERKINS XX, LLC",
+     "id": "805-7904902244",
+     "gav": 1245975584
+    },
+    {
+     "name": "KLEINER PERKINS XXI FOUNDERS FUND, LLC",
+     "id": "805-2266220294",
+     "gav": 14305448
+    },
+    {
+     "name": "KLEINER PERKINS XXI FRIENDS, LLC",
+     "id": "805-2964283673",
+     "gav": 68683000
+    },
+    {
+     "name": "KLEINER PERKINS XXI, LLC",
+     "id": "805-8821777964",
+     "gav": 1175117568
+    },
+    {
+     "name": "KLEINER PERKINS XXII, LLC",
+     "id": "805-6872867974",
+     "gav": 995000000
+    },
+    {
+     "name": "KP SIGHTGLASS I, LLC",
+     "id": "805-8178518097",
+     "gav": 70038106
+    },
+    {
+     "name": "KP SIGHTGLASS II, LLC",
+     "id": "805-8620937330",
+     "gav": 10000000
+    },
+    {
+     "name": "KPCB CHINA FUND II, L.P.",
+     "id": "805-1017525591",
+     "gav": 445311206
+    },
+    {
+     "name": "KPCB DIGITAL GROWTH FOUNDERS FUND II, LLC",
+     "id": "805-3933078936",
+     "gav": 26938293
+    },
+    {
+     "name": "KPCB DIGITAL GROWTH FOUNDERS FUND III, LLC",
+     "id": "805-3095664603",
+     "gav": 10688312
+    },
+    {
+     "name": "KPCB DIGITAL GROWTH FOUNDERS FUND, LLC",
+     "id": "805-6762135068",
+     "gav": 239930
+    },
+    {
+     "name": "KPCB DIGITAL GROWTH FUND II, LLC",
+     "id": "805-7954516043",
+     "gav": 1038692810
+    },
+    {
+     "name": "KPCB DIGITAL GROWTH FUND III, LLC",
+     "id": "805-7245305166",
+     "gav": 816528407
+    },
+    {
+     "name": "KPCB DIGITAL GROWTH FUND, LLC",
+     "id": "805-9458169493",
+     "gav": 13858975
+    },
+    {
+     "name": "KPCB GREEN GROWTH FUND, LLC",
+     "id": "805-3767256158",
+     "gav": 56316896
+    },
+    {
+     "name": "KPCB XII FOUNDERS FUND, LLC",
+     "id": "805-3014575006",
+     "gav": 1228130
+    },
+    {
+     "name": "KPCB XIV FOUNDERS FUND, LLC",
+     "id": "805-2914138398",
+     "gav": 15229989
+    },
+    {
+     "name": "KPCB XIX FOUNDERS FUND, LLC",
+     "id": "805-3683727229",
+     "gav": 28798753
+    },
+    {
+     "name": "KPCB XV FOUNDERS FUND, LLC",
+     "id": "805-6116564248",
+     "gav": 11766431
+    },
+    {
+     "name": "KPCB XVI FOUNDERS FUND, LLC",
+     "id": "805-5877918201",
+     "gav": 19266805
+    },
+    {
+     "name": "KPCB XVII FOUNDERS FUND, LLC",
+     "id": "805-3143321915",
+     "gav": 75604692
+    },
+    {
+     "name": "KPCB XVIII FOUNDERS FUND, LLC",
+     "id": "805-6476785939",
+     "gav": 61817419
+    }
+   ],
+   "funds_7b2": [
+    {
+     "name": "KPCB CHINA FOUNDERS FUND, L.P.",
+     "id": "805-2333865682"
+    },
+    {
+     "name": "KPCB CHINA FUND, L.P.",
+     "id": "805-9500820379"
+    }
+   ]
+  },
+  "161470": {
+   "crd": "161470",
+   "adviser": "KPCB CHINA",
+   "funds_7b1": [
+    {
+     "name": "KPCB CHINA FOUNDERS FUND, L.P.",
+     "id": "805-2333865682",
+     "gav": 24521518
+    },
+    {
+     "name": "KPCB CHINA FUND, L.P.",
+     "id": "805-9500820379",
+     "gav": 334035876
+    }
+   ],
+   "funds_7b2": []
+  }
+ },
+ "funds": [
+  {
+   "name": "KLEINER PERKINS CAUFIELD & BYERS XIII, LLC",
+   "id": "805-6749843577",
+   "gav": 37200093,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS CAUFIELD & BYERS XIV, LLC",
+   "id": "805-7273930716",
+   "gav": 105712587,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS CAUFIELD & BYERS XIX, LLC",
+   "id": "805-3686494326",
+   "gav": 1329801265,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS CAUFIELD & BYERS XV, LLC",
+   "id": "805-6635809819",
+   "gav": 351173819,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS CAUFIELD & BYERS XVI, LLC",
+   "id": "805-4912186951",
+   "gav": 501685419,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS CAUFIELD & BYERS XVII, LLC",
+   "id": "805-8790361707",
+   "gav": 2297616302,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS CAUFIELD & BYERS XVIII, LLC",
+   "id": "805-3187978995",
+   "gav": 2877051066,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS FLEX I, LLC",
+   "id": "805-4069170577",
+   "gav": 550000000,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS SELECT FOUNDERS FUND II, LLC",
+   "id": "805-3377064466",
+   "gav": 34182725,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS SELECT FOUNDERS FUND III, LLC",
+   "id": "805-8546520155",
+   "gav": null,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS SELECT FOUNDERS FUND, LLC",
+   "id": "805-9354874526",
+   "gav": 21458890,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS SELECT FUND II FRIENDS, LLC",
+   "id": "805-8716351072",
+   "gav": 69050109,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS SELECT FUND II, LLC",
+   "id": "805-6154703938",
+   "gav": 1852076737,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS SELECT FUND III FRIENDS, LLC",
+   "id": "805-3526701553",
+   "gav": 74252731,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS SELECT FUND III, LLC",
+   "id": "805-2245461564",
+   "gav": 1570854518,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS SELECT FUND IV, LLC",
+   "id": "805-1618641513",
+   "gav": 1920000000,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS SELECT FUND, LLC",
+   "id": "805-2169927738",
+   "gav": 789661695,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS XIX FRIENDS, LLC",
+   "id": "805-6783267344",
+   "gav": 11801219,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS XX FOUNDERS FUND, LLC",
+   "id": "805-6059574992",
+   "gav": 28938463,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS XX FRIENDS, LLC",
+   "id": "805-1102176926",
+   "gav": 69110114,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS XX, LLC",
+   "id": "805-7904902244",
+   "gav": 1245975584,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS XXI FOUNDERS FUND, LLC",
+   "id": "805-2266220294",
+   "gav": 14305448,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS XXI FRIENDS, LLC",
+   "id": "805-2964283673",
+   "gav": 68683000,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS XXI, LLC",
+   "id": "805-8821777964",
+   "gav": 1175117568,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KLEINER PERKINS XXII, LLC",
+   "id": "805-6872867974",
+   "gav": 995000000,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KP SIGHTGLASS I, LLC",
+   "id": "805-8178518097",
+   "gav": 70038106,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KP SIGHTGLASS II, LLC",
+   "id": "805-8620937330",
+   "gav": 10000000,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KPCB CHINA FUND II, L.P.",
+   "id": "805-1017525591",
+   "gav": 445311206,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KPCB DIGITAL GROWTH FOUNDERS FUND II, LLC",
+   "id": "805-3933078936",
+   "gav": 26938293,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KPCB DIGITAL GROWTH FOUNDERS FUND III, LLC",
+   "id": "805-3095664603",
+   "gav": 10688312,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KPCB DIGITAL GROWTH FOUNDERS FUND, LLC",
+   "id": "805-6762135068",
+   "gav": 239930,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KPCB DIGITAL GROWTH FUND II, LLC",
+   "id": "805-7954516043",
+   "gav": 1038692810,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KPCB DIGITAL GROWTH FUND III, LLC",
+   "id": "805-7245305166",
+   "gav": 816528407,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KPCB DIGITAL GROWTH FUND, LLC",
+   "id": "805-9458169493",
+   "gav": 13858975,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KPCB GREEN GROWTH FUND, LLC",
+   "id": "805-3767256158",
+   "gav": 56316896,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KPCB XII FOUNDERS FUND, LLC",
+   "id": "805-3014575006",
+   "gav": 1228130,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KPCB XIV FOUNDERS FUND, LLC",
+   "id": "805-2914138398",
+   "gav": 15229989,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KPCB XIX FOUNDERS FUND, LLC",
+   "id": "805-3683727229",
+   "gav": 28798753,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KPCB XV FOUNDERS FUND, LLC",
+   "id": "805-6116564248",
+   "gav": 11766431,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KPCB XVI FOUNDERS FUND, LLC",
+   "id": "805-5877918201",
+   "gav": 19266805,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KPCB XVII FOUNDERS FUND, LLC",
+   "id": "805-3143321915",
+   "gav": 75604692,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KPCB XVIII FOUNDERS FUND, LLC",
+   "id": "805-6476785939",
+   "gav": 61817419,
+   "reported_by": "161035"
+  },
+  {
+   "name": "KPCB CHINA FOUNDERS FUND, L.P.",
+   "id": "805-2333865682",
+   "gav": 24521518,
+   "reported_by": "161470"
+  },
+  {
+   "name": "KPCB CHINA FUND, L.P.",
+   "id": "805-9500820379",
+   "gav": 334035876,
+   "reported_by": "161470"
+  }
+ ],
+ "sum_by_adviser": {
+  "161035": 20693034506,
+  "161470": 358557394
+ },
+ "sum_gross_asset_value_usd": 21051591900
+}

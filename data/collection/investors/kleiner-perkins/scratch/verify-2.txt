@@ -1,0 +1,23 @@
+membership      : 1159 verdicts, 0 uncertain
+stale classification keys: 71 (earlier base versions)
+duplicate companies (same SEC registrant): 3 groups
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+cross-investor  : 737 rows shared with other investors, 696 agree, 39 accepted, 2 disagree; 4 unnameable rows not compared
+rows            : 890
+classified      : 890
+$1B+ / $10B+ / $100B+ : 128 / 41 / 11
+identity        : 4 unnameable rows, excluded from every metric
+stage unknown   : 464 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'Healthcare & Bio': 157, 'Consumer & Marketplaces': 139, 'Data Infrastructure': 93, 'Industrial & Robotics': 90, 'Climate & Energy': 79, 'Media, Gaming & Advertising': 78, 'SaaS': 76, 'AI & Applied AI': 53, 'Fintech & Payments': 52, 'Security': 44, 'DevTools & APIs': 18, 'Crypto & Web3': 7}
+hq_city         : 188 distinct, 818/890 filled, 68 recorded unknown; top {'San Francisco': 147, 'New York': 49, 'San Jose': 37, 'Beijing': 31, 'Mountain View': 29, 'Palo Alto': 25, 'Redwood City': 23, 'Santa Clara': 22}
+valuation_range : {'below_1b': 758, '1b_plus': 87, '10b_plus': 30, '100b_plus': 11}
+entry_stage     : {'Growth': 198, 'Series A': 156, 'Seed': 68}
+S2A             : 68 seed entries, 8 censored; cohort 60, graduated 50, not graduated 10, rate 83.3%, coverage 100.0%
+  the nos rest on: Form D absence 3, a cited end 2, the absence test 5
+
+2 problem(s):
+  - cross-investor Drop: kleiner-perkins:drop acquired/below_1b (asof -) vs speedinvest:drop private/below_1b (asof -); freshest kleiner-perkins:drop
+  - cross-investor Fleksy: kleiner-perkins:fleksy acquired/below_1b (asof -) vs speedinvest:fleksy defunct/below_1b (asof -); freshest kleiner-perkins:fleksy

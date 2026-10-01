@@ -1,0 +1,349 @@
+{
+ "sample": 45,
+ "seed": 99,
+ "fields": [
+  "status",
+  "valuation_range",
+  "entry_stage",
+  "hq_country",
+  "hq_city",
+  "focus"
+ ],
+ "rows": [
+  {
+   "slug": "avo",
+   "field": "status",
+   "blind": "defunct",
+   "stored": "unknown",
+   "adjudication": "avonow.com now serves only a parked lander (checked 2026-09-30), which points to a shutdown, but no source states one and the Insight row also reads unknown; unknown kept.",
+   "kept": "stored"
+  },
+  {
+   "slug": "azarus",
+   "field": "hq_city",
+   "blind": "San Francisco",
+   "stored": null,
+   "adjudication": "No source on hand places the head office (azarus.io now redirects to a video); the blind San Francisco was from memory, so city_unknown stands.",
+   "kept": "stored"
+  },
+  {
+   "slug": "beam-dental",
+   "field": "status",
+   "blind": "private",
+   "stored": "acquired",
+   "adjudication": "beambenefits.com's footer (read 2026-09-30) calls Beam's insurance entities 'wholly owned subsidiaries of Principal Financial Group, Inc.'; acquired is right, the blind answer was stale.",
+   "kept": "stored"
+  },
+  {
+   "slug": "beam-dental",
+   "field": "focus",
+   "blind": "Healthcare & Bio",
+   "stored": "Fintech & Payments",
+   "adjudication": "Dental insurance is insurtech, which the focus taxonomy (data/taxonomy/focus.json) maps to Fintech & Payments.",
+   "kept": "stored"
+  },
+  {
+   "slug": "chargepoint",
+   "field": "entry_stage",
+   "blind": "Growth",
+   "stored": "Series A",
+   "adjudication": "The company's own Form Ds of 2009-12-21 and 2010-09-07 cover Series B and Series C preferred and the firm listed it in 2013; the band's Series A rode the 2014 filing that first names Michael Linse. Corrected to Growth (judgments-dua), flags unstable and stage_disputes_band. Pattern: swept (duty 9).",
+   "kept": "blind"
+  },
+  {
+   "slug": "coda",
+   "field": "entry_stage",
+   "blind": "Series A",
+   "stored": "Growth",
+   "adjudication": "The firm's post of 2020-08-11 says it leads the Series C and names no earlier holding; the site's 2014 since-year is an anchor, not a round. Growth (first_party) kept; the 2014 year stays an open question for the firm's card.",
+   "kept": "stored"
+  },
+  {
+   "slug": "drugstore-com",
+   "field": "entry_stage",
+   "blind": "Series A",
+   "stored": "undetermined",
+   "adjudication": "The S-1 of 1999-05-19 (https://www.sec.gov/Archives/edgar/data/1086467/0001032210-99-000833.txt) carries the Series A Preferred Stock Purchase Agreement signed by KPCB VIII, KPCB VIII Founders Fund and KPCB Life Sciences Zaibatsu Fund II (June and August 1998, $8.0M). Corrected to Series A, web_verified, entry 1998-06.",
+   "kept": "blind"
+  },
+  {
+   "slug": "elcomax",
+   "field": "status",
+   "blind": "acquired",
+   "stored": "unknown",
+   "adjudication": "German Wikipedia (Freudenberg Sealing Technologies): at the start of 2018 Freudenberg took over parts of Elcore and its sister company Elcomax, Munich. Corrected to acquired.",
+   "kept": "blind"
+  },
+  {
+   "slug": "elcomax",
+   "field": "hq_city",
+   "blind": "Munich",
+   "stored": null,
+   "adjudication": "Same source: 'mit Sitz in München'. Corrected to Munich (web_verified).",
+   "kept": "blind"
+  },
+  {
+   "slug": "essence-healthcare",
+   "field": "entry_stage",
+   "blind": "undetermined",
+   "stored": "Growth",
+   "adjudication": "The Form D sequence gives Growth ($70M round of 2011); the blind answer declined the band without a documented round, which the contract does not allow as a dispute. Kept.",
+   "kept": "stored"
+  },
+  {
+   "slug": "everlane",
+   "field": "entry_stage",
+   "blind": "Seed",
+   "stored": "undetermined",
+   "adjudication": "No source on hand names the round (the sFund listing and the Khosla row's inferred Seed are not a citation); undetermined kept.",
+   "kept": "stored"
+  },
+  {
+   "slug": "everlane",
+   "field": "focus",
+   "blind": "Consumer & Marketplaces",
+   "stored": null,
+   "adjudication": "The stored row had no focus at all. Filled Consumer & Marketplaces. Pattern: 15 nameable member rows had no focus; swept (duty 9).",
+   "kept": "blind"
+  },
+  {
+   "slug": "hx-diagnostics",
+   "field": "status",
+   "blind": "acquired",
+   "stored": "unknown",
+   "adjudication": "The blind 'acquired' assumed Hx Diagnostics became Nexus Dx; EDGAR shows them as separate registrants filing in the same month of 2009 (CIK 1455041 and 1473000), and no source states Hx's fate. Unknown kept.",
+   "kept": "stored"
+  },
+  {
+   "slug": "jive",
+   "field": "hq_city",
+   "blind": "Palo Alto",
+   "stored": "Campbell",
+   "adjudication": "The last EDGAR business address is Campbell (2016-17); Palo Alto was the earlier headquarters. Kept.",
+   "kept": "stored"
+  },
+  {
+   "slug": "kilowatt-financial",
+   "field": "status",
+   "blind": "acquired",
+   "stored": "unknown",
+   "adjudication": "Kilowatt Financial merged with Clean Power Finance in 2015 to form Spruce Finance (Wikipedia; Just Energy 6-K of 2015-08-13). Corrected to acquired.",
+   "kept": "blind"
+  },
+  {
+   "slug": "kilowatt-financial",
+   "field": "hq_city",
+   "blind": "Minneapolis",
+   "stored": null,
+   "adjudication": "The blind Minneapolis was from memory and no source read confirms it; city_unknown kept.",
+   "kept": "stored"
+  },
+  {
+   "slug": "level",
+   "field": "entry_stage",
+   "blind": "Series A",
+   "stored": "undetermined",
+   "adjudication": "No source on hand names the 2013 round the firm led; undetermined kept.",
+   "kept": "stored"
+  },
+  {
+   "slug": "med-zenith",
+   "field": "status",
+   "blind": "private",
+   "stored": "unknown",
+   "adjudication": "med-zenith.com is live (2026): founded 2005, headquartered in Beijing, cardiovascular devices; the company can be named, so unknown and identity_unresolved were wrong. Corrected to private (medium: the tie to the firm rests on the exact name and the China listing).",
+   "kept": "blind"
+  },
+  {
+   "slug": "med-zenith",
+   "field": "valuation_range",
+   "blind": "below_1b",
+   "stored": "undetermined",
+   "adjudication": "A nameable private company with no priced round on record is below_1b, not undetermined.",
+   "kept": "blind"
+  },
+  {
+   "slug": "med-zenith",
+   "field": "hq_city",
+   "blind": "Beijing",
+   "stored": null,
+   "adjudication": "Beijing, from the company's own site.",
+   "kept": "blind"
+  },
+  {
+   "slug": "pinger",
+   "field": "entry_stage",
+   "blind": "Series A",
+   "stored": "undetermined",
+   "adjudication": "No source on hand names the 2006 round; undetermined kept.",
+   "kept": "stored"
+  },
+  {
+   "slug": "podshow",
+   "field": "status",
+   "blind": "defunct",
+   "stored": "acquired",
+   "adjudication": "Wikipedia (Mevio): the successor Bitesize Networks was bought by Media General, so acquired under the continuing-business reading; the blind defunct read only the April 2014 closure of the Mevio service.",
+   "kept": "stored"
+  },
+  {
+   "slug": "podshow",
+   "field": "hq_city",
+   "blind": "San Francisco",
+   "stored": "Los Angeles",
+   "adjudication": "The company moved to Hollywood as Bitesize in 2012; last city Los Angeles.",
+   "kept": "stored"
+  },
+  {
+   "slug": "sagimet-biosciences",
+   "field": "entry_stage",
+   "blind": "Series A",
+   "stored": "undetermined",
+   "adjudication": "FierceBiotech (the NEA row's citation) shows Kleiner Perkins as an existing investor at the 2009 Series B, but the 2007 founding round is not named in a source read; undetermined kept.",
+   "kept": "stored"
+  },
+  {
+   "slug": "sigma-systems",
+   "field": "focus",
+   "blind": "Data Infrastructure",
+   "stored": "SaaS",
+   "adjudication": "Provisioning software sold to cable operators is enterprise software, SaaS in the taxonomy; kept.",
+   "kept": "stored"
+  },
+  {
+   "slug": "solasta",
+   "field": "status",
+   "blind": "defunct",
+   "stored": "unknown",
+   "adjudication": "The blind defunct was from memory; no source read gives its fate. Unknown kept.",
+   "kept": "stored"
+  },
+  {
+   "slug": "solasta",
+   "field": "entry_stage",
+   "blind": "Series A",
+   "stored": "undetermined",
+   "adjudication": "No source on hand names the round; undetermined kept.",
+   "kept": "stored"
+  },
+  {
+   "slug": "terralliance",
+   "field": "status",
+   "blind": "defunct",
+   "stored": "unknown",
+   "adjudication": "The blind defunct was from memory (the company became NEOS GeoSolutions); no source read establishes the later state. Unknown kept.",
+   "kept": "stored"
+  },
+  {
+   "slug": "trusted",
+   "field": "status",
+   "blind": "acquired",
+   "stored": "private",
+   "adjudication": "The stored row misidentified the company as Trusted Health. The firm's own 2017 page describes same-day child care at usetrusted.com; Care.com's 10-Q for Q2 2018 records buying Trusted Labs on 2018-07-12. Corrected to acquired.",
+   "kept": "blind"
+  },
+  {
+   "slug": "trusted",
+   "field": "entry_stage",
+   "blind": "Seed",
+   "stored": "undetermined",
+   "adjudication": "No source on hand names the round; undetermined kept.",
+   "kept": "stored"
+  },
+  {
+   "slug": "trusted",
+   "field": "focus",
+   "blind": "Consumer & Marketplaces",
+   "stored": "Healthcare & Bio",
+   "adjudication": "On-demand child care is Consumer & Marketplaces, not Healthcare & Bio (the misidentification).",
+   "kept": "blind"
+  },
+  {
+   "slug": "vertica",
+   "field": "entry_stage",
+   "blind": "Growth",
+   "stored": "undetermined",
+   "adjudication": "No source on hand names the 2007 round (the NEA row's stage pass found none either); undetermined kept.",
+   "kept": "stored"
+  }
+ ],
+ "disagreements": 32,
+ "rows_with_disagreement": 22,
+ "kept_blind": 11,
+ "kept_stored": 21,
+ "corrected_slugs": [
+  "chargepoint",
+  "drugstore-com",
+  "elcomax",
+  "everlane",
+  "kilowatt-financial",
+  "med-zenith",
+  "trusted"
+ ],
+ "classes_swept": [
+  {
+   "class": "early Form D band (Seed or Series A) riding a round that is not the company's first; the PRO-157 older-company guard reads a numeric year of incorporation and misses Form Ds that tick 'over five years ago'",
+   "from": "chargepoint",
+   "rows_reviewed": 47,
+   "corrected": [
+    "datameer",
+    "rent-the-runway",
+    "alienvault",
+    "agilyx",
+    "uship",
+    "awarepoint",
+    "livongo",
+    "booyah",
+    "dust-identity",
+    "area-1-security",
+    "spruce-health",
+    "corthera",
+    "icontrol-networks",
+    "juvaris-biotherapeutics-inc",
+    "nodality",
+    "stoke",
+    "lilliputian-systems"
+   ],
+   "left_open": [
+    "hara-software",
+    "findthebest",
+    "siluria-technologies",
+    "codesandbox",
+    "caredx",
+    "cesiumastro",
+    "relayr",
+    "oculeve",
+    "cell-design-labs"
+   ]
+  },
+  {
+   "class": "member rows with no focus",
+   "from": "everlane",
+   "corrected": [
+    "etched",
+    "flextronics-international",
+    "friendster",
+    "granola",
+    "graphiq",
+    "greatpoint-energy",
+    "groupon",
+    "home-network",
+    "houzz",
+    "pulmonx",
+    "rapid-micro-biosystems",
+    "rent-the-runway",
+    "shyp",
+    "silver-spring-networks"
+   ],
+   "left_open": [
+    "genetrix",
+    "singularity-network"
+   ]
+  }
+ ],
+ "judgments": [
+  "judgments-dua.py",
+  "judgments-dub.py",
+  "judgments-duc.py"
+ ]
+}

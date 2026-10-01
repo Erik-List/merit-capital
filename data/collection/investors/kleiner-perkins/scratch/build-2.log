@@ -1,0 +1,66 @@
+export refused: 1 Seed row(s) without a decided graduation status (box-net-inc); a Seed row is graduated, not_graduated or censored (PRO-132). Judge them (prepare queues them), then export.
+site API portfolio: 416 companies
+  first-party entry round: 73 rows from site_entry_stage, stage_site
+recall additions injected: 51
+pooled fund vehicles dropped: 196 issuers (264 filings)
+initial-only person matches ignored: 0 issuers (0 attributions)
+limited partnerships dropped (not operating companies): 3
+    - Chevron Topco, L.P.
+    - OLF Cayman Holdings LP
+    - VEP Lemon Creek, LP
+non-portfolio industry, Form D-only (15 dropped):
+    - ACG Aerie II, LLC [Residential]
+    - ACG Aerie, LLC [Residential]
+    - Bellaire Real Estate Investment Trust [REITS and Finance]
+    - Bellaire-Oakland LLC [Residential]
+    - Bliss Investment Company, LLC [Investing]
+    - Collective Returns, Inc. [Other Banking and Financial Services]
+    - Community First Financial Corp [Other Banking and Financial Services]
+    - DCT Industrial Value Fund I Inc [REITS and Finance]
+    - PROJECT FROG INC [Construction]
+    - Royal Oak Realty Trust Inc. [REITS and Finance]
+    - Stash Financial, Inc. [Other Banking and Financial Services]
+    - Swings Golf, LLC [Commercial]
+    - VILLAS AT CORSICANA LLC [Residential]
+    - VinVesto, Inc. [Investing]
+    - Working Equity, Inc. [Other Banking and Financial Services]
+tenure mismatch flagged: 45 rows
+removed (ex-partner is the only evidence): 44
+    - AiDash Inc — David Mount last on site 2014, filing 2021 (7y after)
+    - AirNexis Therapeutics, Inc. — James Li last on site 2010, filing 2026 (16y after)
+    - AssetWatch, Inc. — David Mount last on site 2014, filing 2023 (9y after)
+    - C2C Gold Corp. — Weiting (Camille) Zhou last on site 2018, filing 2022 (4y after)
+    - CARBON AUTONOMOUS ROBOTIC SYSTEMS INC. — Mood Rowghani last on site 2018, filing 2024 (6y after)
+    - CASI Pharmaceuticals, Inc. — James Huang last on site 2022, filing 2026 (4y after)
+    - Caerus Venture Group LLC — Mike Abbott last on site 2017, filing 2024 (7y after)
+    - Calyxo, Inc. — Dana Mead last on site 2016, filing 2026 (10y after)
+    - Cannabist Co Holdings Inc. — Michael Abbott last on site 2017, filing 2024 (7y after)
+    - Conduit Ag, Inc. — Amol Deshpande last on site 2018, filing 2024 (6y after)
+    - Crusoe Energy Holdings Inc. — Ben Kortlang last on site 2018, filing 2022 (4y after)
+    - Crusoe Inc. — Ben Kortlang last on site 2018, filing 2024 (6y after)
+    … and 32 more
+verification ledger: 186 excluded, 0 control positions excluded, 0 uncertain kept
+duplicate name-variants merged: 78; kept separate (co-listed or differing CIK): 3
+  overlay: canonical 'casi' not in base, group skipped
+  overlay: canonical 'cultureamp' not in base, group skipped
+  overlay: canonical 'kinetica-db-inc' not in base, group skipped
+identity overlay: 66 duplicate rows merged, 0 rejected, 0 desk reassignments
+excluded.json: 186 rows ({'not_member': 186})
+rows renamed by the rebuild: 6
+    box -> box-net-inc
+    cgen-digital-media-acquired-by-focus-media -> cgen-digital-media
+    novavax-inc -> biocryst-pharmaceuticals
+    p-cube -> p-cube-acquired-by-cisco-systems
+    pilot -> pilot-com-inc
+    wave -> wave-accounting-inc
+    classification.json: 1 re-keyed
+    resolved.json: 6 re-keyed
+    membership-ledger.json: 6 re-keyed
+Traceback (most recent call last):
+  File "/Users/erik/Developer/merit-capital/scripts/build-company-base.py", line 1089, in <module>
+    main()
+  File "/Users/erik/Developer/merit-capital/scripts/build-company-base.py", line 1076, in main
+    subprocess.run([sys.executable, str(Path(__file__).parent / "run.py"),
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/usr/local/bin/python3', '/Users/erik/Developer/merit-capital/scripts/run.py', 'export', '--investor', 'kleiner-perkins']' returned non-zero exit status 1.

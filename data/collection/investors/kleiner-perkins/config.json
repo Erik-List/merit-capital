@@ -1,0 +1,339 @@
+{
+  "slug": "kleiner-perkins",
+  "name": "Kleiner Perkins",
+  "wayback": {
+    "cdx_domain": "kpcb.com",
+    "site_url_base": "https://www.kleinerperkins.com",
+    "eras": [],
+    "_note": "Two domains: kpcb.com (the firm's site from the 1990s until the 2019 rebrand to Kleiner Perkins) and kleinerperkins.com (2019 on, WordPress, read live through its REST API). The Internet Archive stood in a machine-wide firewall cooldown when this run started (2026-09-30, ~314 min left), so the archive layer runs on Common Crawl first (scratch/cc-cluster.py, cc-fetch.py, both keys com,kpcb) and com,kleinerperkins)), with every parsed row carrying its own capture URL; the Internet Archive fills the pre-2008 years once the cooldown clears. site_url_base is the live site (kleinerperkins.com) so the base build recognises the firm's own per-company pages as stage citations; cdx_domain stays kpcb.com for the archive.",
+    "non_company_slugs": [
+      "companies",
+      "portfolio",
+      "partnerships",
+      "all",
+      "team",
+      "people",
+      "about",
+      "news",
+      "perspectives",
+      "index",
+      "search"
+    ]
+  },
+  "roster": {
+    "cdx_patterns": [
+      "kpcb.com/partner/*",
+      "kpcb.com/team/*",
+      "kleinerperkins.com/people/*"
+    ],
+    "site_team_groups": [],
+    "slug_re": "/(?:partner|team|people)/([a-z][a-z0-9_-]*[a-z0-9])/?$",
+    "listing_href_re": "/(?:partner|team|people)/([a-z][a-z0-9_-]*[a-z0-9])[\"'/]",
+    "not_a_person": [
+      "team",
+      "people",
+      "all",
+      "partners",
+      "investors",
+      "operating-partners"
+    ],
+    "_note": "The roster is built by scratch/build-roster.py from first-party people pages (the archived kpcb.com team pages via Common Crawl and the live WordPress person collection) with investing titles only; see that script's docstring."
+  },
+  "site_api": {
+    "type": "scrape",
+    "base": "https://www.kleinerperkins.com",
+    "sources": [
+      {
+        "parser": "file_list",
+        "list": "kp-cms",
+        "path": "data/collection/investors/kleiner-perkins/sources/site/company-list.json",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "sectors": "sectors",
+        "extras": [
+          "wp_id",
+          "site_slug",
+          "stage_site",
+          "current_stage",
+          "timing",
+          "invest_year",
+          "acquirer",
+          "company_site",
+          "founders",
+          "description",
+          "footnote",
+          "cms_date"
+        ],
+        "_note": "The live portfolio: every published WordPress `company` entry (416), read through the site's public REST API by scratch/pull-wp.py and flattened by scratch/shape-site.py. Per company the firm states its first-investment stage (Early or Growth), the since-year, whether the company is Current or Prior, its current stage (Early, Growth, IPO, Acquired) and, for exits, the acquirer."
+      }
+    ],
+    "team_sources": [
+      {
+        "parser": "file_list",
+        "list": "kp-team",
+        "path": "data/collection/investors/kleiner-perkins/sources/site/team-pages.json",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "key_field": "slug",
+        "extras": [
+          "slug",
+          "title",
+          "linkedin_url",
+          "x_url"
+        ]
+      }
+    ],
+    "team_buckets": {},
+    "team_bucket_overrides": {
+      "Camille Manso": [
+        "operations"
+      ]
+    },
+    "_note": "kleinerperkins.com is WordPress with ACF; /wp-json/wp/v2/ serves company, person, deck and posts with their taxonomies (stage, sector, person_role) without a token.",
+    "entry_stage_fields": [
+      "stage_site"
+    ],
+    "_entry_stage_note": "stage_site is the CMS first_investment_stage, the firm's own label for the round it entered (a separate current_stage field carries the company's stage now), so it is eligible (decisions.md D7). Values: Early or Growth. Early straddles Seed, Series A and Series B and is an anchor only (scored 2026-09-30 against cited entry rounds: 63 Series A, 27 Seed, 38 Growth); Growth labels at HIGH confidence: 42 of 43 cited rows are Series B or later (scratch/stage-score.json; the one miss is Collective Medical, a Series A). A documented round overrides with stage_disputes_band."
+  },
+  "edgar": {
+    "seed_queries": [
+      "kleiner+perkins",
+      "kpcb",
+      "kp+select",
+      "kp+sightglass",
+      "kp+flex",
+      "kp+xx",
+      "kp+growth",
+      "kleiner+perkins+select",
+      "kpcb+digital+growth",
+      "kpcb+green+growth",
+      "kpcb+holdings",
+      "kpcb+china",
+      "kpcb+xii",
+      "kpcb+edge",
+      "kpcb+pandemic",
+      "ifund",
+      "sfund",
+      "kpcb+ifund",
+      "kpcb+sfund",
+      "bond+capital+fund",
+      "bond+ii"
+    ],
+    "fts_phrases": [
+      "Kleiner Perkins",
+      "KPCB",
+      "Kleiner Perkins Caufield",
+      "KPCB Holdings",
+      "KPCB Digital Growth Fund",
+      "Kleiner Perkins Select Fund",
+      "KPCB Green Growth Fund"
+    ],
+    "fts_own_pattern": "^(kleiner perkins caufield (&|and) byers|kleiner perkins (caufield & byers )?(\\d+|[ivx]+)\\b|kleiner perkins (select|flex|xx|xxi|xxii|xix)|kpcb (holdings|digital growth|green growth|pandemic|ifund|sfund|edge|xii|xiii|xiv|xv|xvi|xvii|xviii|xix)|kp (select|sightglass|flex|xx|xxi|xxii|growth))",
+    "_note": "Entity-qualified phrases. 'KPCB' is distinctive on EDGAR; 'Kleiner Perkins' also hits law-firm and namesake noise, read once. S-1 holder tables name the firm as 'entities affiliated with Kleiner Perkins Caufield & Byers' and its vehicles by their LLC names."
+  },
+  "wikipedia": {
+    "phrases": [
+      "Kleiner Perkins",
+      "Kleiner, Perkins",
+      "KPCB"
+    ]
+  },
+  "desks": {
+    "home": "kp",
+    "partition": [],
+    "rank": [
+      "kp",
+      "unknown"
+    ],
+    "classify": [
+      {
+        "desk": "external",
+        "patterns": [
+          "^bond capital",
+          "^bond (ii|iii|iv)\\b",
+          "^bond capital management",
+          "^ifund (i|investment group|diversified|key income|strategic income|tactical growth)",
+          "^ifundwomen",
+          "^ifunds cash",
+          "^ivy blue holdings"
+        ]
+      },
+      {
+        "desk": "kp",
+        "patterns": [
+          "^kleiner perkins",
+          "^kleiner, perkins",
+          "^kpcb",
+          "^kp (select|sightglass|flex|xx|xxi|xxii|growth|fellows)",
+          "^kp sightglass"
+        ]
+      }
+    ],
+    "_note": "Provisional until entities.json is read: one exempt reporting adviser, Kleiner Perkins (Kleiner Perkins Caufield & Byers, LLC), CRD 161035, SEC 802-75571, whose Schedule D 7.B.(1) (ADV signed 2026-03-31, data/filings/adv/161035.pdf) reports the numbered KPCB funds XII-XIX and Kleiner Perkins XX-XXII with their founders and friends funds, Kleiner Perkins Select Fund I-IV, Flex I, KP Sightglass I-II, KPCB Digital Growth Fund I-III, KPCB Green Growth Fund and KPCB China Fund II. External: Bond (Bond Capital Management, LP, CRD 304391), the growth team that left in 2018 with its own adviser and funds (Bond Capital Fund, Bond II, Bond III); KPCB China Management, Ltd. (CRD 161470, SEC 802-75570), its own exempt reporting adviser for KPCB China Fund, L.P. and KPCB China Founders Fund, with KP a minority shareholder (decisions.md D1, D2). The KPCB China vehicles (Fund, Founders Fund, Fund II, their associates and holdings entities) are home desk under the provisional X1 reading (IN, re-derived 2026-09-30). The iFund-named filers on EDGAR (iFund I, iFund Investment Group, iFund Diversified / Key Income / Strategic Income / Tactical Growth, iFunds Cash Solutions, iFundWomen) are namesakes of KPCB's 2008 iFund programme, which invested through the numbered KPCB funds."
+  },
+  "profile": {
+    "own_vehicle_pattern": "^(kleiner perkins caufield & byers (\\d+|[ivx]+)\\b|kleiner perkins (xx|xxi|xxii|select fund|flex)|kpcb (digital growth fund|green growth fund|xii|xiii|xiv|xv|xvi|xvii|xviii|xix)\\b)",
+    "adv_crd": 161035,
+    "focus_min_companies": 25,
+    "focus_crosswalk": {
+      "AI": "AI & Applied AI",
+      "Consumer": "Consumer & Marketplaces",
+      "Fintech": "Fintech & Payments",
+      "Greentech": "Climate & Energy",
+      "Hardtech": "Industrial & Robotics",
+      "Healthcare": "Healthcare & Bio",
+      "Life Sciences": "Healthcare & Bio"
+    },
+    "_note": "The site's 'Enterprise' and 'Digital' sectors name no single sector in the closed taxonomy and are left unmapped on purpose."
+  },
+  "verify": {
+    "text_mention_leaks": [],
+    "cofiler_leaks": [],
+    "known_positions": [
+      "google",
+      "amazon",
+      "genentech",
+      "netscape",
+      "twitter",
+      "slack",
+      "uber",
+      "doordash",
+      "spotify",
+      "nest",
+      "figma",
+      "rippling",
+      "glean",
+      "applied intuition"
+    ],
+    "not_members": [
+      {
+        "name": "alcatel",
+        "slug": "alcatel",
+        "why": "sale consideration: the 2012 company page lists Alcatel with status Merged and Vinod Khosla as partner, the shape of stock received when Alcatel bought a portfolio company; which company is not identified (the recall probe found no Kleiner Perkins link to TiMetra Networks), so no row stands for it (Erik 2026-09-22 sale-consideration rule; report.md section 11)"
+      },
+      {
+        "name": "alibaba",
+        "slug": "alibaba",
+        "why": "partner-carried: Tina Ju's TDF Capital deal from before KPCB China existed (2007); the China listing carried it for her record (Erik 2026-09-17 partner-carried rule; decisions.md X1)"
+      },
+      {
+        "name": "baidu",
+        "slug": "baidu",
+        "why": "partner-carried: Tina Ju's TDF Capital deal from before KPCB China existed (2007); the China listing carried it for her record (Erik 2026-09-17 partner-carried rule; decisions.md X1)"
+      },
+      {
+        "name": "china netcom",
+        "slug": "china-netcom",
+        "why": "partner-carried: Tina Ju's TDF Capital deal from before KPCB China existed (2007); the China listing carried it for her record (Erik 2026-09-17 partner-carried rule; decisions.md X1)"
+      },
+      {
+        "name": "focus media",
+        "slug": "focus-media",
+        "why": "partner-carried: Tina Ju's TDF Capital deal from before KPCB China existed (2007); the China listing carried it for her record (Erik 2026-09-17 partner-carried rule; decisions.md X1)"
+      },
+      {
+        "name": "hurray",
+        "slug": "hurray",
+        "why": "partner-carried: Tina Ju's TDF Capital deal from before KPCB China existed (2007); the China listing carried it for her record (Erik 2026-09-17 partner-carried rule; decisions.md X1)"
+      },
+      {
+        "name": "cgen digital media",
+        "slug": "cgen-digital-media-acquired-by-focus-media",
+        "why": "partner-carried: Tina Ju's TDF Capital deal from before KPCB China existed (2007); the China listing carried it for her record (Erik 2026-09-17 partner-carried rule; decisions.md X1)"
+      },
+      {
+        "name": "p-cube",
+        "slug": "p-cube",
+        "why": "partner-carried: Tina Ju's TDF Capital deal from before KPCB China existed (2007); the China listing carried it for her record (Erik 2026-09-17 partner-carried rule; decisions.md X1) (P-Cube, bought by Cisco in 2004)"
+      },
+      {
+        "name": "thayer ventures acquisition corp",
+        "slug": "thayer-ventures-acquisition-corp",
+        "why": "a blank-check shell (T5; the sponsor-promote rule, Erik 2026-09-07): no operating business of its own"
+      }
+    ],
+    "shape": {
+      "c2a_rate_max": 0.85,
+      "_note": "Raised from the 0.80 default (decisions.md R8, 2026-09-30): the firm's site labels entries only Early or Growth, so a Seed entry exists in this base only where a round is cited, and 464 of 890 rows read undetermined. The Seed cohort (60 decided rows, 83.3%) is the cited subset and skews toward companies that kept raising. Flagged for Erik: publish with this caveat or decline the column (verify.c2a_deterministic false). There is no ceiling on the $1B+ share (Erik, 2026-09-26)."
+    },
+    "_known_positions_note": "Provisional: each must be on the firm's own published list (sources/site/company-list.json, read 2026-09-30) before the grind; checked at config time.",
+    "_not_members_note": "Membership traps asserted before any verdict writes (COLLECTION.md s10, rule 11): sale consideration, the partner-carried TDF-era deals of decisions.md X1, a SPAC shell. Added as the evidence identifies them."
+  },
+  "sample_slugs": [],
+  "names": {
+    "_published_note": "Published names (PRO-146; COLLECTION.md s8, Erik 2026-09-24): the brand in normal capitalization, letter-read acronyms kept, no legal suffix. {slug: name}, applied by run.py export; the slug and every overlay keep the source rendering. Decided 2026-09-30 (PRO-99). Kept as they are: RRLT, VLSI Technology, RPX (letter-read), GO Corporation (the company's own name), eASIC and eHealth (the companies' own mixed case).",
+    "published": {
+      "armo-biosciences": "Armo BioSciences",
+      "autonomic-technologies-inc": "Autonomic Technologies",
+      "compaq-computer-corporation": "Compaq",
+      "ehealth-inc": "eHealth",
+      "enjoy-inc": "Enjoy",
+      "epiphany-inc": "E.piphany",
+      "gogii": "Gogii",
+      "hyla": "Hyla",
+      "juvaris-biotherapeutics-inc": "Juvaris BioTherapeutics",
+      "lightspan-inc": "Lightspan",
+      "nuvasive-inc": "NuVasive",
+      "ophthonix-inc": "Ophthonix",
+      "orexigen-therapeutics-inc": "Orexigen Therapeutics",
+      "rapt-therapeutics": "Rapt Therapeutics",
+      "razorgator-inc": "RazorGator",
+      "rpx-corporation": "RPX",
+      "spatial-photonics-inc": "Spatial Photonics",
+      "tesaro": "Tesaro",
+      "transphorm-inc": "Transphorm",
+      "volterra-semiconductor-corporation": "Volterra Semiconductor",
+      "acuson-acn": "Acuson",
+      "altarock-energy-inc": "AltaRock Energy",
+      "american-superconductor-corporation": "American Superconductor",
+      "ariba-inc": "Ariba",
+      "bekon": "Bekon",
+      "bit9-inc": "Bit9",
+      "china-credit-loan-stealth-company": "China Credit Loan",
+      "china-credit-stealth-company": "China Credit",
+      "devicescape-software-inc": "Devicescape",
+      "easic": "eASIC",
+      "inrix": "Inrix",
+      "knownow-inc": "KnowNow",
+      "mascoma-corporation": "Mascoma",
+      "masergy": "Masergy",
+      "n3twork": "N3twork",
+      "neos-geosolutions": "Neos GeoSolutions",
+      "one-true-media-inc": "One True Media",
+      "ouya": "Ouya",
+      "pelago-inc": "Pelago",
+      "recyclebank": "Recyclebank",
+      "silecs-inc": "Silecs",
+      "think": "Think",
+      "tidal-software-formerly-intersperse": "Tidal Software",
+      "ultura": "Ultura",
+      "active-software-inc": "Active Software",
+      "brio-technology-inc": "Brio Technology",
+      "cardiogenesis-corp": "CardioGenesis",
+      "cellpro-incorporated": "CellPro",
+      "concentric-network-corp": "Concentric Network",
+      "corsair-communications-inc": "Corsair Communications",
+      "digital-generation-systems-inc": "Digital Generation Systems",
+      "edmark-corp": "Edmark",
+      "genemedicine-inc": "GeneMedicine",
+      "geron-corporation": "Geron",
+      "individual-inc": "Individual",
+      "keravision-inc-ca": "KeraVision",
+      "martha-stewart-living-omnimedia-inc": "Martha Stewart Living Omnimedia",
+      "nextcard-inc": "NextCard",
+      "onsale-inc": "Onsale",
+      "oyster-point-pharma-inc": "Oyster Point Pharma",
+      "preview-travel-inc": "Preview Travel",
+      "prism-solutions-inc": "Prism Solutions",
+      "raster-graphics-inc": "Raster Graphics",
+      "resonate-inc": "Resonate",
+      "rhythms-net-connections-inc": "Rhythms NetConnections",
+      "silicon-gaming-inc": "Silicon Gaming",
+      "visioneer-inc": "Visioneer"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+membership      : 1159 verdicts, 0 uncertain
+stale classification keys: 71 (earlier base versions)
+duplicate companies (same SEC registrant): 3 groups
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+  note: sibling speedinvest in flight; not compared
+cross-investor  : 744 rows shared with other investors, 695 agree, 33 accepted, 16 disagree; 4 unnameable rows not compared
+rows            : 890
+classified      : 890
+$1B+ / $10B+ / $100B+ : 128 / 41 / 11
+identity        : 4 unnameable rows, excluded from every metric
+stage unknown   : 464 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'Healthcare & Bio': 157, 'Consumer & Marketplaces': 139, 'Data Infrastructure': 93, 'Industrial & Robotics': 90, 'Climate & Energy': 79, 'Media, Gaming & Advertising': 78, 'SaaS': 76, 'AI & Applied AI': 53, 'Fintech & Payments': 52, 'Security': 44, 'DevTools & APIs': 18, 'Crypto & Web3': 7}
+hq_city         : 188 distinct, 818/890 filled, 68 recorded unknown; top {'San Francisco': 147, 'New York': 49, 'San Jose': 37, 'Beijing': 31, 'Mountain View': 29, 'Palo Alto': 25, 'Redwood City': 23, 'Santa Clara': 22}
+valuation_range : {'below_1b': 758, '1b_plus': 87, '10b_plus': 30, '100b_plus': 11}
+entry_stage     : {'Growth': 198, 'Series A': 156, 'Seed': 68}
+S2A             : 68 seed entries, 8 censored; cohort 60, graduated 50, not graduated 10, rate 83.3%, coverage 100.0%
+  the nos rest on: Form D absence 3, a cited end 2, the absence test 5
+
+17 problem(s):
+  - cross-investor Signal: kleiner-perkins:signal acquired/below_1b (asof -) vs battery-ventures:signal-ai private/below_1b (asof -); freshest kleiner-perkins:signal
+  - cross-investor Signal: kleiner-perkins:signal acquired/below_1b (asof -) vs lightspeed:signal-labs private/below_1b (asof -); freshest kleiner-perkins:signal
+  - cross-investor SmileDirectClub: kleiner-perkins:smiledirectclub acquired/below_1b (asof 2022-06-30) vs spark-capital:smiledirectclub defunct/below_1b (asof 2022-06-30); freshest kleiner-perkins:smiledirectclub
+  - cross-investor Songbird: kleiner-perkins:songbird private/below_1b (asof -) vs sequoia-capital:songbird defunct/below_1b (asof -); freshest kleiner-perkins:songbird
+  - cross-investor Spatial Photonics, Inc.: kleiner-perkins:spatial-photonics-inc acquired/below_1b (asof -) vs khosla-ventures:spatial-photonics defunct/below_1b (asof -); freshest kleiner-perkins:spatial-photonics-inc
+  - cross-investor Spot: kleiner-perkins:spot acquired/below_1b (asof 2026-09-30) vs redpoint-ventures:spot-ai private/below_1b (asof -); freshest kleiner-perkins:spot
+  - cross-investor Stoke: kleiner-perkins:stoke acquired/below_1b (asof -) vs sequoia-capital:stoke defunct/below_1b (asof -); freshest kleiner-perkins:stoke
+  - cross-investor Stord: kleiner-perkins:stord private/1b_plus $3.00B (asof 2026-05-26) vs lux-capital:stord private/below_1b (asof -); freshest kleiner-perkins:stord
+  - cross-investor Storenvy: kleiner-perkins:storenvy acquired/below_1b (asof -) vs spark-capital:storenvy private/below_1b (asof -); freshest kleiner-perkins:storenvy
+  - cross-investor Summation: kleiner-perkins:summation private/below_1b (asof 2026-09-30) vs battery-ventures:summation acquired/below_1b (asof -); freshest kleiner-perkins:summation
+  - cross-investor Tally: kleiner-perkins:tally defunct/below_1b (asof 2003-01-01) vs a16z:tally-labs private/below_1b (asof -); freshest kleiner-perkins:tally
+  - cross-investor Teleport: kleiner-perkins:teleport private/1b_plus $1.10B (asof 2022-05-03) vs a16z:teleport acquired/below_1b (asof -); freshest kleiner-perkins:teleport
+  - cross-investor Teleport: kleiner-perkins:teleport private/1b_plus $1.10B (asof 2022-05-03) vs seedcamp:teleport acquired/below_1b (asof -); freshest kleiner-perkins:teleport
+  - cross-investor Trace Data: kleiner-perkins:trace-data acquired/below_1b (asof -) vs accel:trace-data private/below_1b (asof -); freshest kleiner-perkins:trace-data
+  - cross-investor Trusted: kleiner-perkins:trusted acquired/below_1b (asof -) vs felicis:trusted private/below_1b (asof -); freshest kleiner-perkins:trusted
+  - cross-investor Tulip: kleiner-perkins:tulip private/below_1b (asof -) vs new-enterprise-associates:tulip private/1b_plus $1.30B (asof 2026-01); freshest new-enterprise-associates:tulip
+  - C2A is 83.3%; expected <80%
