@@ -55,3 +55,6 @@ Kickoff 2026-10-01 10:31 local (machine clock EDT) on Erik's "please collect Lak
 - WebSearch total: 178 of 200 (main 7, D2 23, g0-g6 88, recall 10, s0-s2 30, blind 8, visible 12).
 - Usage at 12:40: 5-hour 79%, weekly all models 93%, Fable 42% (kickoff: 3%, 73%, 8%).
 - Process notes for the report: a research subagent ran `pkill -f news.py` (may have killed other sessions' helpers); `timeout` does not exist on macOS, so the Google News helper hung for agents; IA blocked twice (15 and 19 fetches); disk 2.0 GB free.
+
+## CLOSED 13:35 local
+Ingested (154 live, readback exact), eight sibling books aligned and re-ingested, report section 15 written, commits ba631ddb, 01a8249a, sibling commits 61eedf9b..9f5b2fc2, 63732459. Remaining: nothing owed; open rulings in report.md section 10. Usage at close: 5-hour 84%, weekly 94%, Fable 45%.

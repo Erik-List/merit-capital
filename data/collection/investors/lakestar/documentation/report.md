@@ -320,8 +320,7 @@ Uforce, Solaris, Blockchain.com, Nebenan.de and others).
 
 ## 13. Usage line
 
-**Kickoff (Fable 5.1):** five-hour window 3%, weekly 73%, Fable 8%. **At the report (12:40):**
-five-hour window 79%, weekly 93%, Fable 42%. Other sessions (Index Ventures, Bessemer) ran at the
+**Kickoff (Fable 5.1):** five-hour window 3%, weekly 73%, Fable 8%. **At close (13:35):** five-hour window 84%, weekly 94%, Fable 45%. Other sessions (Index Ventures, Bessemer) ran at the
 same time. 154 published rows, 215 judged.
 
 **Web searches:** 178 of the 200 cap: research groups 88, second pass 30, founder question 23,
