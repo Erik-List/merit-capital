@@ -1,0 +1,256 @@
+{
+  "_readme": "EDGAR full-text sweep (scripts/edgar-fts-sweep.py): hits for the configured phrases aggregated by registrant; bucket third_party = exit-side disclosure candidates for the judge (S-1 IRA signatories and holder tables, 424B selling stockholders, acquirer S-3/S-4/8-K), own = the investor's entities/people, lp_side = registered funds holding the investor's vehicles, ownership_forms = 13D/G, 3/4 or D filings handled by the entities/ownership layers.",
+  "phrases": [
+    "Speedinvest",
+    "Initial Factor Speed Invest"
+  ],
+  "own_pattern": "^(speedinvest|initial factor speed invest)",
+  "swept_at": "2026-09-30",
+  "coverage": [
+    {
+      "phrase": "Speedinvest",
+      "total": 22,
+      "complete": true,
+      "failed_windows": [],
+      "read": 22,
+      "distinct": 22
+    },
+    {
+      "phrase": "Initial Factor Speed Invest",
+      "total": 0,
+      "complete": true,
+      "failed_windows": [],
+      "read": 0,
+      "distinct": 0
+    }
+  ],
+  "registrants": [
+    {
+      "registrant": "Speedinvest IV EuVECA GmbH & Co KG",
+      "cik": "0001958034",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2023-02-03",
+      "last_date": "2023-02-03",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2023-02-03",
+          "adsh": "0001958034-23-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1958034/000195803423000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1958034/000195803423000001/0001958034-23-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Speedinvest Opportunity I EuVECA GmbH & Co KG",
+      "cik": "0001958033",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2023-02-03",
+      "last_date": "2023-02-03",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2023-02-03",
+          "adsh": "0001958033-23-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1958033/000195803323000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1958033/000195803323000001/0001958033-23-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Speedinvest Industry & Climate Opportunity EuVECA GmbH & Co KG",
+      "cik": "0001958031",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2023-02-03",
+      "last_date": "2023-02-03",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2023-02-03",
+          "adsh": "0001958031-23-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1958031/000195803123000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1958031/000195803123000001/0001958031-23-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "SEA CONTAINERS LTD /NY/",
+      "cik": "0000088095",
+      "forms": {
+        "8-K": 3,
+        "10-Q": 10,
+        "10-K/A": 1,
+        "10-K": 3,
+        "S-3/A": 1,
+        "424B5": 1
+      },
+      "first_date": "2002-11-13",
+      "last_date": "2008-10-03",
+      "filings": [
+        {
+          "form": "10-Q",
+          "date": "2002-11-13",
+          "adsh": "0001047469-02-002845",
+          "url": "https://www.sec.gov/Archives/edgar/data/88095/000104746902002845/a2091942z10-q.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/88095/000104746902002845/0001047469-02-002845-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2003-03-31",
+          "adsh": "0001047469-03-011050",
+          "url": "https://www.sec.gov/Archives/edgar/data/88095/000104746903011050/a2105803z10-k.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/88095/000104746903011050/0001047469-03-011050-index.htm"
+        },
+        {
+          "form": "10-Q",
+          "date": "2003-05-15",
+          "adsh": "0001047469-03-018779",
+          "url": "https://www.sec.gov/Archives/edgar/data/88095/000104746903018779/a2111345z10-q.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/88095/000104746903018779/0001047469-03-018779-index.htm"
+        },
+        {
+          "form": "10-K/A",
+          "date": "2003-05-23",
+          "adsh": "0001047469-03-019668",
+          "url": "https://www.sec.gov/Archives/edgar/data/88095/000104746903019668/a2111997z10-ka.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/88095/000104746903019668/0001047469-03-019668-index.htm"
+        },
+        {
+          "form": "10-Q",
+          "date": "2003-08-14",
+          "adsh": "0001047469-03-027685",
+          "url": "https://www.sec.gov/Archives/edgar/data/88095/000104746903027685/a2116209z10-q.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/88095/000104746903027685/0001047469-03-027685-index.htm"
+        },
+        {
+          "form": "10-Q",
+          "date": "2003-11-14",
+          "adsh": "0001047469-03-037353",
+          "url": "https://www.sec.gov/Archives/edgar/data/88095/000104746903037353/a2122662z10-q.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/88095/000104746903037353/0001047469-03-037353-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2004-03-15",
+          "adsh": "0001047469-04-007866",
+          "url": "https://www.sec.gov/Archives/edgar/data/88095/000104746904007866/a2129410z10-k.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/88095/000104746904007866/0001047469-04-007866-index.htm"
+        },
+        {
+          "form": "S-3/A",
+          "date": "2004-04-15",
+          "adsh": "0001047469-04-012039",
+          "url": "https://www.sec.gov/Archives/edgar/data/88095/000104746904012039/a2129758zs-3a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/88095/000104746904012039/0001047469-04-012039-index.htm"
+        },
+        {
+          "form": "424B5",
+          "date": "2004-04-29",
+          "adsh": "0000912057-04-000443",
+          "url": "https://www.sec.gov/Archives/edgar/data/88095/000091205704000443/a2133796z424b5.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/88095/000091205704000443/0000912057-04-000443-index.htm"
+        },
+        {
+          "form": "10-Q",
+          "date": "2004-05-10",
+          "adsh": "0001047469-04-016620",
+          "url": "https://www.sec.gov/Archives/edgar/data/88095/000104746904016620/a2136084z10-q.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/88095/000104746904016620/0001047469-04-016620-index.htm"
+        },
+        {
+          "form": "10-Q",
+          "date": "2004-08-09",
+          "adsh": "0001047469-04-025709",
+          "url": "https://www.sec.gov/Archives/edgar/data/88095/000104746904025709/a2141450z10-q.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/88095/000104746904025709/0001047469-04-025709-index.htm"
+        },
+        {
+          "form": "10-Q",
+          "date": "2004-11-09",
+          "adsh": "0001047469-04-033494",
+          "url": "https://www.sec.gov/Archives/edgar/data/88095/000104746904033494/a2146366z10-q.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/88095/000104746904033494/0001047469-04-033494-index.htm"
+        },
+        {
+          "form": "10-K",
+          "date": "2005-03-31",
+          "adsh": "0001047469-05-008477",
+          "url": "https://www.sec.gov/Archives/edgar/data/88095/000104746905008477/a2153763z10-k.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/88095/000104746905008477/0001047469-05-008477-index.htm"
+        },
+        {
+          "form": "10-Q",
+          "date": "2005-05-10",
+          "adsh": "0001047469-05-014112",
+          "url": "https://www.sec.gov/Archives/edgar/data/88095/000104746905014112/a2157740z10-q.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/88095/000104746905014112/0001047469-05-014112-index.htm"
+        },
+        {
+          "form": "10-Q",
+          "date": "2005-08-09",
+          "adsh": "0001104659-05-037804",
+          "url": "https://www.sec.gov/Archives/edgar/data/88095/000110465905037804/a05-14381_110q.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/88095/000110465905037804/0001104659-05-037804-index.htm"
+        },
+        {
+          "form": "10-Q",
+          "date": "2005-11-09",
+          "adsh": "0001104659-05-053955",
+          "url": "https://www.sec.gov/Archives/edgar/data/88095/000110465905053955/a05-18534_110q.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/88095/000110465905053955/0001104659-05-053955-index.htm"
+        },
+        {
+          "form": "8-K",
+          "date": "2008-01-15",
+          "adsh": "0001104659-08-002915",
+          "url": "https://www.sec.gov/Archives/edgar/data/88095/000110465908002915/a07-30546_3ex99d1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/88095/000110465908002915/0001104659-08-002915-index.htm"
+        },
+        {
+          "form": "8-K",
+          "date": "2008-08-05",
+          "adsh": "0001104659-08-049677",
+          "url": "https://www.sec.gov/Archives/edgar/data/88095/000110465908049677/a08-20678_1ex99d2.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/88095/000110465908049677/0001104659-08-049677-index.htm"
+        },
+        {
+          "form": "8-K",
+          "date": "2008-10-03",
+          "adsh": "0001104659-08-061851",
+          "url": "https://www.sec.gov/Archives/edgar/data/88095/000110465908061851/a08-24803_1ex99d5.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/88095/000110465908061851/0001104659-08-061851-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/88095/000104746902002845/a2091942z10-q.htm",
+          "form": "10-Q",
+          "date": "2002-11-13",
+          "mentions": 1,
+          "context": [
+            "r 31, 2001—$279,000,000) was borrowed under these facilities. Also, SCL has guaranteed a $2,000,000 bank loan to Eastern & Oriental Express Ltd., in which OEH owns a minority shareholder interest, and SCL has guaranteed 50 percent of a $8,500,000 bank loan to Speedinvest Ltd., an unconsolidated company in which SCL owns a 50 percent interest. The maturities relating to the senior notes and senior subordinated debentures are disclosed in Note 8 to the 2001 Form 10-K annual report. 11 5. Income taxes Income taxes provided by SC"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/88095/000104746903011050/a2105803z10-k.htm",
+          "form": "10-K",
+          "date": "2003-03-31",
+          "mentions": 1,
+          "context": [
+            "y has guaranteed through 2005 bank loans of OEH in an aggregate amount of $112,854,000, including a $2,000,000 bank loan to Eastern & Oriental Express Ltd. in which OEH owns a 25% interest, and has guaranteed through 2010 one half of a $8,879,000 bank loan of Speedinvest Ltd., owner of the Adriatic fast ferry in which SCL has a 50% interest. 10. Senior notes and subordinated debentures The Company purchased during 2002, $21,119,000 principal amount (2001—$11,200,000) of its publicly traded senior notes and senior subordinated"
+          ]
+        }
+      ]
+    }
+  ]
+}

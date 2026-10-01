@@ -1,0 +1,386 @@
+{
+ "slug": "speedinvest",
+ "name": "Speedinvest",
+ "wayback": {
+  "cdx_domain": "speedinvest.com",
+  "site_url_base": "https://www.speedinvest.com",
+  "eras": [],
+  "_eras_note": "Three site generations on one domain: the 2011-2016 WordPress one-pager plus /portfolio (only the home page was crawled by Common Crawl; the Internet Archive holds /portfolio), the 2017-2020 WordPress 'enfold' portfolio (/portfolio/ tiles linking /blog/portfolio/<slug>/, then /portfolio/<slug>/ and /portfolio-item/<slug>/ pages, 2017-2020), and the 2025-2026 Webflow site read live through site_api. The archive eras are parsed by scratch/archive_listings.py into sources/wayback/parsed/<year>.json with capture_url per row; no era is a wayback-pull.py parser, so this list stays empty and the parsed files are the record.",
+  "non_company_slugs": [
+   "index",
+   "home",
+   "page",
+   "feed",
+   "search",
+   "tag",
+   "category",
+   "author",
+   "all",
+   "see-all",
+   "portfolio",
+   "portfolio-item",
+   "companies",
+   "company",
+   "team",
+   "team-members",
+   "people",
+   "about",
+   "blog",
+   "news",
+   "knowledge",
+   "press",
+   "contact",
+   "imprint",
+   "site-notice",
+   "legal",
+   "jobs",
+   "job",
+   "careers",
+   "idea",
+   "approach",
+   "vision",
+   "newsletter",
+   "office-vienna",
+   "office-munich",
+   "office-silicon-valley",
+   "office-berlin",
+   "office-london",
+   "office-paris",
+   "wp-content",
+   "wp-json",
+   "wp-admin",
+   "wp-includes",
+   "sitemap",
+   "robots",
+   "favicon",
+   "en",
+   "de",
+   "exits",
+   "fintech",
+   "deeptech",
+   "consumertech",
+   "speedinvest",
+   "speedinvest-x",
+   "speedinvest-heroes",
+   "speedinvest-pirates"
+  ]
+ },
+ "roster": {
+  "cdx_patterns": [
+   "speedinvest.com/team/*",
+   "speedinvest.com/team-members/*"
+  ],
+  "slug_re": "/team(?:-members)?/([a-z][a-z0-9-]*[a-z0-9])/?$",
+  "listing_href_re": "/team(?:-members)?/([a-z][a-z0-9-]*[a-z0-9])/?[\"'?]",
+  "site_team_groups": [
+   "AI & Infra",
+   "Climate Tech & Industrial Tech",
+   "Deep Tech",
+   "Fintech & DeFi",
+   "Growth",
+   "Health & Bio",
+   "Marketplaces & Consumer",
+   "Middle East, Africa & Beyond",
+   "Management Team"
+  ],
+  "not_a_person": [
+   "index",
+   "team",
+   "people",
+   "partners",
+   "about",
+   "portfolio",
+   "companies",
+   "news",
+   "contact",
+   "jobs",
+   "careers",
+   "all",
+   "page",
+   "feed",
+   "speedinvest"
+  ],
+  "_note": "decisions.md D6: the investing people only (the live team page's investment teams and the Management Team, the Form D related persons of 2023, the ADV Schedule A, the archived 2017-2019 team pages); operations, legal, finance, people, communications and portfolio-success staff are left out. Curated in sources/wayback/partner-roster.json."
+ },
+ "site_api": {
+  "type": "scrape",
+  "entry_stage_fields": [],
+  "_entry_stage_note": "The live site publishes no round word per company; 'Year Invested' is a close-year anchor (decisions.md D10). The Getro board's stage is refused (standing).",
+  "sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/speedinvest/sources/site/companies-2026.json",
+    "list": "portfolio-2026",
+    "list_path": "rows",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "sectors": "sectors",
+    "extras": [
+     "cms_slug",
+     "team_tags",
+     "status_site",
+     "invest_year",
+     "country_site",
+     "website",
+     "linkedin",
+     "short",
+     "description"
+    ]
+   },
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/speedinvest/sources/site/jobboard-companies.json",
+    "list": "jobs-board",
+    "list_path": "rows",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "slug",
+     "description",
+     "stage_board",
+     "founded_board",
+     "org_type_board",
+     "topics_board",
+     "approx_employees",
+     "board_name"
+    ]
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/speedinvest/sources/site/team-cards.json",
+    "list": "team",
+    "list_path": "rows",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "title",
+     "group",
+     "location",
+     "linkedin_url",
+     "x_url"
+    ]
+   }
+  ],
+  "team_buckets": {
+   "AI & Infra": "investing",
+   "Climate Tech & Industrial Tech": "investing",
+   "Deep Tech": "investing",
+   "Fintech & DeFi": "investing",
+   "Growth": "investing",
+   "Health & Bio": "investing",
+   "Marketplaces & Consumer": "investing",
+   "Middle East, Africa & Beyond": "investing",
+   "Management Team": "investing"
+  },
+  "_note": "www.speedinvest.com is a Webflow site (2025-): /portfolio is a paginated CMS list of 292 companies (scratch/site_scrape.py -> sources/site/companies-2026.json), /team a 63-person list with team and office tags. careers.speedinvest.com is a Getro board (251 companies; scratch/jobboard-pull.py).",
+  "team_bucket_overrides": {
+   "Nora Frizberg": [
+    "operations"
+   ],
+   "Young Sohn": [
+    "advisor"
+   ],
+   "Daniel Keiper-Knorr": [
+    "investing"
+   ],
+   "Werner Zahnt": [
+    "investing"
+   ],
+   "Philipp Stangl": [
+    "investing"
+   ],
+   "Simone Stasi": [
+    "investing"
+   ]
+  }
+ },
+ "edgar": {
+  "seed_queries": [
+   "speedinvest",
+   "initial+factor+speed"
+  ],
+  "fts_phrases": [
+   "Speedinvest",
+   "Initial Factor Speed Invest"
+  ],
+  "fts_own_pattern": "^(speedinvest|initial factor speed invest)",
+  "_note": "EDGAR 2026-09-30: three Form D filers, all 2023-02-03 at Praterstrasse 1, Vienna: Speedinvest IV EuVECA GmbH & Co KG (CIK 1958034), Speedinvest Opportunity I EuVECA GmbH & Co KG (1958033), Speedinvest Industry & Climate Opportunity EuVECA GmbH & Co KG (1958031). Full-text search on 'Speedinvest' returns those three plus Sea Containers namesake noise (22 hits). Adviser SPEEDINVEST GMBH (CRD 316774, exempt reporting adviser; sources/registers/adv-7b.json)."
+ },
+ "wikipedia": {
+  "phrases": [
+   "Speedinvest"
+  ]
+ },
+ "desks": {
+  "home": "eu",
+  "partition": [],
+  "rank": [
+   "eu",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "^kalodion",
+     "^speed invest (as|ivs|ltd|n\\.?v|ou|oü|s\\.?r\\.?o|sarl|sàrl|sp)",
+     "^speedinvest (sa|sc|sci)$",
+     "^green speed invest",
+     "^auto speed invest"
+    ]
+   },
+   {
+    "desk": "eu",
+    "patterns": [
+     "^speedinvest",
+     "^initial factor speed invest"
+    ]
+   }
+  ],
+  "_note": "One firm and one adviser (CRD 316774) in Vienna with Berlin, London, Munich, Paris and Abu Dhabi offices (decisions.md D1). Namesakes (Speedinvest SA of Satigny, the French SC/SCI, the Speed Invest companies elsewhere) and the Kalodion feeder are external (D2)."
+ },
+ "profile": {
+  "adv_crd": 316774,
+  "own_vehicle_pattern": "^(speedinvest|initial factor speed invest)",
+  "focus_min_companies": 13,
+  "focus_crosswalk": {
+   "AI & Infra": "AI & Applied AI",
+   "Fintech & DeFi": "Fintech & Payments",
+   "Marketplaces & Consumer": "Consumer & Marketplaces",
+   "Climate Tech & Industrial Tech": "Climate & Energy",
+   "Deep Tech": "Industrial & Robotics",
+   "Health & Bio": "Healthcare & Bio"
+  },
+  "_note": "One exempt reporting adviser, Speedinvest GmbH (CRD 316774). The site's six sector teams crosswalk to the closed twelve; 'Growth' and 'Middle East, Africa & Beyond' are teams by stage and region, not sectors. focus_min_companies about 4.5% of the ~290-member base."
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "bitpanda",
+   "tier",
+   "adverity",
+   "coachhub",
+   "wayflyer",
+   "twaice",
+   "tide",
+   "seqera labs",
+   "moove",
+   "refurbed",
+   "prewave",
+   "schüttflix"
+  ],
+  "sample_slugs": [],
+  "shape": {
+   "c2a_rate_max": 0.8
+  },
+  "not_members": [
+   {
+    "name": "Speedinvest",
+    "slug": "speedinvest",
+    "why": "the firm itself, listed on its own Getro job board (decisions.md D1)"
+   },
+   {
+    "name": "Dialpad",
+    "slug": "dialpad",
+    "why": "sale consideration: the firm's own card reads 'Speedinvest became a shareholder in Dialpad following its acquisition of Surfboard in 2024' (www.speedinvest.com/portfolio, read 2026-09-30). The investment is Surfboard (COLLECTION.md s1, Erik 2026-09-22; decisions.md D4/D5)"
+   },
+   {
+    "name": "Mews",
+    "slug": "mews",
+    "why": "sale consideration: the firm's own card reads 'Speedinvest became a shareholder in Mews following its acquisition of Flexkeeping in 2025' (www.speedinvest.com/portfolio, read 2026-09-30). The investment is Flexkeeping (COLLECTION.md s1, Erik 2026-09-22; decisions.md D4/D5)"
+   },
+   {
+    "name": "Mistral",
+    "slug": "mistral",
+    "why": "sale consideration: the firm's own card reads 'Speedinvest became a shareholder in Mistral following its acquisition of Emmi AI in 2026' (www.speedinvest.com/portfolio, read 2026-09-30). The investment is Emmi AI (COLLECTION.md s1, Erik 2026-09-22; decisions.md D4/D5)"
+   },
+   {
+    "name": "MoonPay",
+    "slug": "moonpay",
+    "why": "sale consideration: the firm's own card reads 'Speedinvest became a shareholder in MoonPay following its acquisition of Iron in 2025' (www.speedinvest.com/portfolio, read 2026-09-30). The investment is Iron (COLLECTION.md s1, Erik 2026-09-22; decisions.md D4/D5)"
+   },
+   {
+    "name": "OpenAI",
+    "slug": "openai",
+    "why": "sale consideration: the firm's own card reads 'Speedinvest became a shareholder in OpenAI following its acquisition of Ona in 2026' (www.speedinvest.com/portfolio, read 2026-09-30). The investment is Ona (COLLECTION.md s1, Erik 2026-09-22; decisions.md D4/D5)"
+   },
+   {
+    "name": "Perk",
+    "slug": "perk",
+    "why": "sale consideration: the firm's own card reads 'Speedinvest became a shareholder in Perk following its acquisition of Yokoy in 2025' (www.speedinvest.com/portfolio, read 2026-09-30). The investment is Yokoy (COLLECTION.md s1, Erik 2026-09-22; decisions.md D4/D5)"
+   },
+   {
+    "name": "Taxfix",
+    "slug": "taxfix",
+    "why": "sale consideration: the firm's own card reads 'Speedinvest became a shareholder in Taxfix following its acquisition of TaxScouts in 2024' (www.speedinvest.com/portfolio, read 2026-09-30). The investment is TaxScouts (COLLECTION.md s1, Erik 2026-09-22; decisions.md D4/D5)"
+   },
+   {
+    "name": "OneTrust",
+    "slug": "onetrust",
+    "why": "sale consideration: the firm's own card reads 'Speedinvest became a shareholder in OneTrust following its acquisition of Planetly in 2021' (www.speedinvest.com/portfolio, read 2026-09-30). The investment is Planetly (COLLECTION.md s1, Erik 2026-09-22; decisions.md D5)"
+   }
+  ]
+ },
+ "names": {
+  "published": {
+   "aerska": "Aerska",
+   "apiday": "Apiday",
+   "avatao": "Avatao",
+   "bliq": "Bliq",
+   "blng": "Blng",
+   "byrd": "Byrd",
+   "consola-finance": "Consola.finance",
+   "cylib": "Cylib",
+   "drag-bot": "Drag&bot",
+   "forward-earth": "Forward Earth",
+   "gronda": "Gronda",
+   "hexafarms": "Hexafarms",
+   "hi-health": "Hi.health",
+   "iomed": "Iomed",
+   "kets": "Kets",
+   "one-five": "One.five",
+   "open": "Open",
+   "orus": "Orus",
+   "planqc": "Planqc",
+   "ready2order": "Ready2order",
+   "receeve": "Receeve",
+   "roclub": "Roclub",
+   "tenyks": "Tenyks",
+   "text-cortex": "TextCortex",
+   "tier": "Tier",
+   "trawa": "Trawa",
+   "tripmakery": "Tripmakery",
+   "tulipshare": "Tulipshare",
+   "twaice": "Twaice",
+   "wefox": "Wefox",
+   "ahead": "Ahead",
+   "aucobo": "Aucobo",
+   "blocks": "Blocks",
+   "corrux": "Corrux",
+   "enliteai-gmbh": "EnliteAI",
+   "flox": "Flox",
+   "kevin": "Kevin",
+   "opus": "Opus",
+   "originator-inc": "Originator",
+   "pikd": "Pikd",
+   "rival": "Rival",
+   "walt-id": "Walt.id",
+   "blloc-inc": "Blloc",
+   "heroes-jobs-inc": "Heroes Jobs",
+   "dream-ai": "Dream AI",
+   "medicus": "Medicus AI",
+   "simple": "+Simple",
+   "obey": "Obey"
+  },
+  "_note": "COLLECTION.md s8 (PRO-146): the brand in normal capitalisation, no legal suffix. Lower-case and all-capitals stylings take normal case (wefox, TIER, TWAICE, byrd); letter-read names keep capitals (DQC, SOC.OS); Medicus is Medicus AI, '+ Simple' is +Simple."
+ }
+}

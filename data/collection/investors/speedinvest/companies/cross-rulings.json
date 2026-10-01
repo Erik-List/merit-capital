@@ -1,0 +1,204 @@
+{
+ "_doc": "Speedinvest's own rulings for COLLECTION.md s10 invariant 10 (same schema as data/collection/cross-investor.json; a session rules in its own investor's file and never edits the shared one). The accepted pairs are stale sibling rows to be aligned at this run's ingest (s9) and removed once aligned.",
+ "distinct": [
+  {
+   "rows": [
+    "speedinvest:simple",
+    "first-round-capital:simple"
+   ],
+   "note": "Speedinvest = +Simple, the French SME insurance broker (plussimple.com); First Round = Simple, the US online bank bought by BBVA. Different companies."
+  },
+  {
+   "rows": [
+    "speedinvest:simple",
+    "thrive-capital:simple"
+   ],
+   "note": "Speedinvest = +Simple, the French SME insurance broker (plussimple.com); Thrive = Simple, the US online bank bought by BBVA. Different companies."
+  },
+  {
+   "rows": [
+    "speedinvest:diligent",
+    "battery-ventures:diligent-software"
+   ],
+   "note": "Namesakes. Battery's Diligent Software is an older exited holding on its compliance list (acquired). Speedinvest's Diligent is Diligent AI, London, founded 2023 (godiligent.ai). No alignment."
+  },
+  {
+   "rows": [
+    "speedinvest:dream-ai",
+    "a16z:dream-technologies"
+   ],
+   "note": "No evidence of the same company. Speedinvest's row is Dream AI Labs Ltd, London (usedream.ai loaded; the site now sells an AI-plus-human personal assistant over WhatsApp, where the job board still describes an AI sales agent, so it may have changed product). a16z's 'Dream Technologies' is an unidentified list entry with no site; the name fits other companies better (YC's Dream is 'DREAM Technology"
+  },
+  {
+   "rows": [
+    "speedinvest:dream-ai",
+    "y-combinator:dream"
+   ],
+   "note": "Namesakes. YC's Dream is pingdream.com (DREAM Technology, Inc.), San Francisco, Summer 2026, AI cameras for vehicle damage detection (YC directory and site loaded), Active. Different product, city and site from usedream.ai. Also not BCV's Dream (Dream Security, Tel Aviv, $3B). Side finding: the YC row reads 'unknown' carried from a16z's unidentified Dream Technologies, while the directory says Act"
+  },
+  {
+   "rows": [
+    "speedinvest:finary",
+    "y-combinator:finary"
+   ],
+   "note": "Namesakes inside the same YC batch. YC slug `finary` is the New York social-investing app (about.finary.io, Winter 2021, Inactive; directory loaded), hence its 'unknown'. Speedinvest's Finary is the Paris wealth platform, which is YC slug `finary-com` (https://www.ycombinator.com/companies/finary-com loaded: finary.com, Paris, Winter 2021, Active, team 80, founder Mounir Laggoune); that row reads "
+  },
+  {
+   "rows": [
+    "speedinvest:fuse",
+    "accel:fuse"
+   ],
+   "note": "Namesakes. Accel's Fuse is Fuse Energy (fuseenergy.com, founders Alan Chang and Charles Orr; firm page loaded), the $5B row. Speedinvest's Fuse is fuseinsight.com, AI billing automation for US healthcare providers, which is YC slug `fuse-2` (https://www.ycombinator.com/companies/fuse-2 loaded: London, Summer 2024, Active, team 3). The $5B mark must not reach this row. Side finding: the YC `fuse-2`"
+  },
+  {
+   "rows": [
+    "speedinvest:grin",
+    "y-combinator:grin"
+   ],
+   "note": "Namesakes. YC's Grin is the Mexico City scooter company (ongrin.com, Summer 2018; directory loaded, status 'Acquired'). Speedinvest's Grin is GRIN Solutions / GRIN Verlag, Munich, listed under Exits on the firm's Jan 2017 page, a year before YC's Grin existed. No alignment; YC's defunct must not bind this row."
+  },
+  {
+   "rows": [
+    "speedinvest:june",
+    "first-round-capital:june"
+   ],
+   "note": "Speedinvest = June (june.so), the Paris product-analytics company (YC W21) that wound down in August 2025; First Round = June, the smart countertop oven bought by Weber in 2021. Different companies."
+  },
+  {
+   "rows": [
+    "speedinvest:metis-labs",
+    "lightspeed:metis"
+   ],
+   "note": "Namesakes. Speedinvest's Metis Labs is the London industrial-process AI company, invested 2018, Exits tag, sold to Ascalia in 2024 per the firm card (loaded live). Lightspeed's 'METiS' is an unidentified stray in that book with no site or country evidence (the capitalisation points at a different company); nothing links it to Metis Labs. No alignment."
+  },
+  {
+   "rows": [
+    "speedinvest:metis-labs",
+    "y-combinator:metis"
+   ],
+   "note": "Namesakes. YC's Metis is withmetis.ai, San Francisco, Summer 2025, founded 2025 (YC directory and site loaded), an AI-agent training lab; Metis Labs was dissolved in the UK in Dec 2024 after the Ascalia sale. Side finding for the YC book: its row reads 'unknown' carried from Lightspeed's unidentified METiS, but the YC directory now shows status 'Acquired'; that binding joins two different companie"
+  },
+  {
+   "rows": [
+    "speedinvest:palm",
+    "sutter-hill-ventures:palm-inc"
+   ],
+   "note": "Namesakes. Speedinvest's Palm is the treasury software startup founded 2023 (usepalm.com; TechCrunch 2024-09-03, loaded, names Speedinvest and Target Global in the $6.1M seed). Sutter Hill's Palm, Inc. is the handheld maker bought by Hewlett-Packard in 2010. No alignment."
+  },
+  {
+   "rows": [
+    "speedinvest:pliant",
+    "lightspeed:pliant-technology"
+   ],
+   "note": "Namesakes. Lightspeed's Pliant Technology made enterprise SSDs, backed 2007, sold to SanDisk in 2011 (firm card loaded). Speedinvest's Pliant is the Berlin B2B card fintech founded 2020 (getpliant.com press page loaded: 'Pliant has raised a $40 million Series B equity round', Apr 2025, no valuation stated). No alignment."
+  },
+  {
+   "rows": [
+    "speedinvest:pliant",
+    "menlo-ventures:pliant-technology"
+   ],
+   "note": "Namesakes; Menlo's row is the same SSD maker as Lightspeed's (SanDisk, 2011). The Berlin fintech stays private, below_1b: its press page lists no round after the Apr 2025 Series B and no valuation."
+  },
+  {
+   "rows": [
+    "speedinvest:rival",
+    "a16z:rival"
+   ],
+   "note": "Namesakes. Speedinvest's RIVAL is Rival Technologies, a VR social video app (rival.tech loaded, footer '© 2025 by Rival Technologies'; London company 15026250 per the row). a16z's Rival is the ticketing company its portfolio page marks acquired by Ticketmaster (per the a16z row's own note). No alignment; the a16z 'acquired' must not bind this row."
+  },
+  {
+   "rows": [
+    "speedinvest:rive",
+    "a16z:rive"
+   ],
+   "note": "Namesakes. Speedinvest's Rive is the Helsinki proptech formerly Kodit.io (card URL /portfolio/kodit-io, Exits tag; ArcticStartup 2022-11-30, loaded, 'formerly known as Kodit.io'). a16z's Rive is rive.app, 'The interactive experience engine' (site loaded), a design and animation tool. No alignment between the rows; each keeps its own status (this book acquired/merged into NL per the AIM Group lede,"
+  },
+  {
+   "rows": [
+    "speedinvest:sunlight",
+    "y-combinator:sunlight"
+   ],
+   "note": "Namesakes. Speedinvest's Sunlight is the London learning-budget platform (sunlight.is, Sunlight Technologies Ltd, seed Nov 2017, Exits tag). YC's Sunlight is sunlightapi.com, New York, Summer 2022, B2B card payments (YC directory and site loaded), Active. No alignment; YC's private does not answer this row's unknown."
+  },
+  {
+   "rows": [
+    "speedinvest:open",
+    "coatue:open"
+   ],
+   "note": "Namesakes. Coatue's Open is the Los Angeles mindfulness studio (o-p-e-n.com, per its row). Speedinvest's Open is the Bangalore SME neobank (open.money). The same company sits in the Tiger Global book (private, 1b_plus, $1B, May 2022), which agrees with this row."
+  },
+  {
+   "rows": [
+    "speedinvest:open",
+    "first-round-capital:open"
+   ],
+   "note": "Namesakes. First Round's row is &Open, the Dublin corporate gifting company (per its row). No alignment."
+  },
+  {
+   "rows": [
+    "speedinvest:open",
+    "y-combinator:open"
+   ],
+   "note": "Namesakes. YC's Open is open.cx, San Francisco, Winter 2024, AI customer support (per its row). No alignment. (Sequoia's unresolved era-A/B 'Open' is not the neobank either, by era.)"
+  }
+ ],
+ "accepted": [
+  {
+   "rows": [
+    "speedinvest:diligent",
+    "y-combinator:diligent"
+   ],
+   "note": "Same company (godiligent.ai, London, YC S23). YC's 'acquired' is stale: the YC directory shows it Active and it raised in 2025; Speedinvest's private is right. YC's row is aligned at this run's ingest, or left for YC's next ingest if its gate fails."
+  },
+  {
+   "rows": [
+    "speedinvest:june",
+    "a16z:june"
+   ],
+   "note": "Same company (june.so). The company's own post of 2025-07-08 says June wound down and only the team joined Amplitude, so defunct under the acqui-hire rule (Erik, 2026-09-20); a16z's 'acquired' is stale and is aligned at this run's ingest."
+  },
+  {
+   "rows": [
+    "speedinvest:june",
+    "y-combinator:june"
+   ],
+   "note": "Same company (june.so, W21). Defunct under the acqui-hire rule (the company's own wind-down post, 2025-07-08); YC's 'acquired' is stale and is aligned at this run's ingest."
+  },
+  {
+   "rows": [
+    "speedinvest:luko",
+    "accel:luko"
+   ],
+   "note": "Same company. Luko's French business was bought by Allianz Direct out of judicial reorganisation in January 2024 (TechCrunch 2024-01-25); Accel's 'private' is stale and is aligned at this run's ingest."
+  },
+  {
+   "rows": [
+    "speedinvest:fleksy",
+    "seedcamp:fleksy"
+   ],
+   "note": "Same company (ThingThing Ltd). In members' voluntary liquidation since 2025-11-24 (Companies House); Seedcamp's 'unknown' is stale and is aligned at this run's ingest."
+  },
+  {
+   "rows": [
+    "speedinvest:fraugster",
+    "seedcamp:fraugster"
+   ],
+   "note": "Same company. Insolvency opened 2023-01-17, in liquidation (Berlin register via North Data); Seedcamp's 'unknown' is stale and is aligned at this run's ingest."
+  },
+  {
+   "rows": [
+    "speedinvest:stowga",
+    "seedcamp:stowga"
+   ],
+   "note": "Same company. Bought by Value Chain Lab, November 2021 (the company's own post); Seedcamp's 'unknown' is stale and is aligned at this run's ingest."
+  },
+  {
+   "rows": [
+    "speedinvest:wefox",
+    "seedcamp:wefox"
+   ],
+   "note": "Same company. The $4.5B Series D mark (Jul 2022) yields to documented collapse (a sale backed by the Series D lead at an enterprise value of at most EUR 550M, Jun 2024); Seedcamp's 1b_plus is stale and is aligned at this run's ingest."
+  }
+ ],
+ "same": []
+}
