@@ -8,7 +8,7 @@
 ## 1. The answer PRO-84 asked for
 
 **The base is 386 companies (385 nameable), plain `verify` is clean, the firm profile is built, and
-the registry coverage matrix is section 3.** The ingest follows this closing commit (section 15).
+the registry coverage matrix is section 3.** It is ingested: 386 companies and the investor row are live, and the readback shows 0 differing cells (section 15).
 
 Speedinvest is one Vienna firm under one adviser (Speedinvest GmbH, SEC exempt reporting adviser
 CRD 316774), founded in 2011 with a EUR 10M fund and now a multi-team seed firm with growth and
@@ -39,7 +39,7 @@ Ultimate (Iron), Yokoy, Flexkeeping, Surfboard, TaxScouts and Planetly are the m
 | Registry coverage matrix | Section 3 |
 | Method delta, open rulings, prompt count | Sections 6, 10, 14 |
 | COLLECTION.md diff proposed | Section 12 (not applied: `scripts/` and the playbook belong to the tooling session) |
-| Ingest through the §9 gate, siblings aligned | Follows the closing commit; section 15 |
+| Ingest through the §9 gate, siblings aligned | Done: Speedinvest live; Accel and Seedcamp aligned and re-ingested; Y Combinator and a16z not aligned, with reasons (section 15) |
 
 ## 2. Results
 
@@ -297,10 +297,14 @@ short names such as Grace, Well, Sona, Fuse, Tower, each noted), `city_unknown` 
 11. **R2, the firm's 2018-2020 Pre-Seed filter tag labels 25 rows at medium.** It scored 3 of 3 on
     rows with an independently documented round, too few for `high`.
 12. **wefox reads Zurich** (the holding's seat), not Berlin (the operating base), after the blind
-    re-judge disagreed.
+    re-judge disagreed. Seedcamp's row for the same company reads Berlin, so the two books differ
+    on the city until this is ruled.
 13. **The eight acquirers the firm lists are out** (OpenAI, Mistral, MoonPay, Perk, Mews, Dialpad,
     Taxfix, OneTrust), under the sale-consideration ruling. Listed here because OpenAI and Mistral
     are names a reader will look for.
+14. **a16z's June.** If it is june.so, a16z's row should read `defunct` like Point Nine's and this
+    book's; if it is the June oven, `acquired` is right and the pair is a namesake. a16z's book does
+    not say which.
 
 ## 11. Rebuilds and deltas
 
@@ -330,6 +334,13 @@ published names are set in `config.json` `names.published`.
    brief should say so, and `pkill -f news.py` by one agent can kill a sibling's query.
 9. **The archive parser needs a per-page fallback to the URL slug** where a page title is generic
    (the OBEY miss).
+10. **`verify`'s link sample should pass when the base holds no SEC link** (Seedcamp reads "none
+    sampled" and fails plain `verify` forever; every European book without Form D rows will).
+11. **Before its ingest, a run should run every landed sibling's `verify` and look for its own
+    rows.** Rule 10 is not symmetric where a sibling publishes "Name (domain)" pairs: the Fuse
+    disagreement appeared only on YC's side.
+12. **Research agents' fetched pages belong in `data/filings/site-raw/<slug>/`** (untracked), not in
+    `scratch/`: this run's scratch reached 206 MB before the close moved them.
 
 ## 13. Usage line
 
@@ -345,5 +356,39 @@ grind groups, the A/B, recall and stage passes, the blind judge). **Subagents:**
 
 ## 15. Ingest
 
-Not yet run at the closing commit. The gate of COLLECTION.md §9 follows; this section is written after it.
+**Speedinvest is live.** Closing commit `f7800fd4`, then the gate of COLLECTION.md §9 in order:
+
+| Step | Result |
+|---|---|
+| Plain `verify` | clean |
+| Icon upload | `investors/speedinvest-39dadf6ebf.png` (512px source, contrast 3.0:1, ramp 1.25px) |
+| `ingest-investor.ts` | 1 investor row upserted |
+| `ingest-companies.ts --dry-run` | 386 new, 0 removed, from 0 live (nothing to explain) |
+| The write | 386 of 386 upserted |
+| Readback (`--investor-row`) | csv 386, live 386, missing 0, extra 0, differing cells 0 |
+
+**Stale sibling rows, one book at a time** (kit: `scratch/align/`, each line cites the underlying
+evidence):
+
+| Book | Rows | Result |
+|---|---|---|
+| Accel | Luko `private` to `acquired` (Allianz Direct, January 2024, TechCrunch) | Aligned and re-ingested, readback exact (`c7acb7ac`) |
+| Seedcamp | Fleksy and Fraugster `unknown` to `defunct`, Stowga `unknown` to `acquired`, wefox `1b_plus` to `below_1b` | Aligned and re-ingested, readback exact (`ea8c2c42`) |
+| Y Combinator | Diligent (`acquired`, should be `private`), June (`acquired`, should be `defunct`) | **Skipped at the gate.** The readback before any write shows one row missing and one extra, both named Metadata: drift this run did not make. Both pairs stay accepted in `cross-rulings.json` and are owed at YC's next clean ingest |
+| a16z | June (`acquired`) | **Not aligned, on purpose.** a16z's row is a bare name on its investment list; nothing in its book says whether it is june.so or the June oven that Weber bought in 2021, for which `acquired` is right. Section 10, ruling 14 |
+
+Two things the alignment surfaced:
+
+- **A namesake this run's ingest would have broken in YC's book.** YC publishes two Fuses; the name
+  key joined Speedinvest's Fuse (fuseinsight.com, London) to YC's other one (letsfuse.com, New
+  York) through a weak CIK, and YC's `verify` failed on it although Speedinvest's did not. Ruled
+  `distinct`, with a `same` pair for the right row, in this book's `cross-rulings.json`; YC's
+  `verify` is clean again. Every other landed book's `verify` was checked for Speedinvest rows: none.
+- **Seedcamp's plain `verify` fails on a check that cannot pass**: the link sample reads "none
+  sampled" because the base holds no EDGAR or Form D link. The alignment ran its gate with
+  `--skip-links` for that book and nothing else differs. Write-back 10.
+
+Five books were in flight and not compared (Atomico, Bain Capital Ventures, Founders Fund, General
+Catalyst, Kleiner Perkins); the Fleksy pair with Kleiner Perkins (Fleksy Inc. of San Francisco, a
+different company from ThingThing Ltd) is already ruled `distinct` for that run.
 

@@ -140,6 +140,20 @@
     "y-combinator:open"
    ],
    "note": "Namesakes. YC's Open is open.cx, San Francisco, Winter 2024, AI customer support (per its row). No alignment. (Sequoia's unresolved era-A/B 'Open' is not the neobank either, by era.)"
+  },
+  {
+   "rows": [
+    "speedinvest:fuse",
+    "y-combinator:fuse"
+   ],
+   "note": "Namesakes. Speedinvest's Fuse is the London company YC lists as Fuse (fuseinsight.com), Summer 2024; YC's `fuse` row is Fuse (letsfuse.com), New York, Winter 2019. Different companies."
+  },
+  {
+   "rows": [
+    "speedinvest:fleksy",
+    "kleiner-perkins:fleksy"
+   ],
+   "note": "One product, two companies. Kleiner Perkins backed Fleksy Inc. (Syntellia, San Francisco), whose team left in 2016; Speedinvest and Seedcamp backed ThingThing Ltd (Barcelona, UK 09691012), which took over the keyboard and its name. Kleiner's 'acquired' and ThingThing's liquidation are separate ends."
   }
  ],
  "accepted": [
@@ -148,57 +162,30 @@
     "speedinvest:diligent",
     "y-combinator:diligent"
    ],
-   "note": "Same company (godiligent.ai, London, YC S23). YC's 'acquired' is stale: the YC directory shows it Active and it raised in 2025; Speedinvest's private is right. YC's row is aligned at this run's ingest, or left for YC's next ingest if its gate fails."
+   "note": "Same company (godiligent.ai, London, YC S23). YC's 'acquired' comes from a weak CIK join and is wrong: the company raised a seed in March 2026 (tech.eu, 2026-03-04). Not aligned at the Speedinvest ingest: YC failed its own gate before any write (readback against its committed base: one row missing, one extra, both named Metadata). Owed at YC's next clean ingest."
   },
   {
    "rows": [
     "speedinvest:june",
     "a16z:june"
    ],
-   "note": "Same company (june.so). The company's own post of 2025-07-08 says June wound down and only the team joined Amplitude, so defunct under the acqui-hire rule (Erik, 2026-09-20); a16z's 'acquired' is stale and is aligned at this run's ingest."
+   "note": "Not aligned. Speedinvest's June is june.so (Paris, YC W21), defunct on the company's own wind-down post of 2025-07-08. a16z's row is a bare name on its investment list and nothing in a16z's book says which June it is: june.so, or the June oven Weber bought in 2021, for which 'acquired' would be right. Left for Erik (Speedinvest report.md section 10)."
   },
   {
    "rows": [
     "speedinvest:june",
     "y-combinator:june"
    ],
-   "note": "Same company (june.so, W21). Defunct under the acqui-hire rule (the company's own wind-down post, 2025-07-08); YC's 'acquired' is stale and is aligned at this run's ingest."
-  },
-  {
-   "rows": [
-    "speedinvest:luko",
-    "accel:luko"
-   ],
-   "note": "Same company. Luko's French business was bought by Allianz Direct out of judicial reorganisation in January 2024 (TechCrunch 2024-01-25); Accel's 'private' is stale and is aligned at this run's ingest."
-  },
-  {
-   "rows": [
-    "speedinvest:fleksy",
-    "seedcamp:fleksy"
-   ],
-   "note": "Same company (ThingThing Ltd). In members' voluntary liquidation since 2025-11-24 (Companies House); Seedcamp's 'unknown' is stale and is aligned at this run's ingest."
-  },
-  {
-   "rows": [
-    "speedinvest:fraugster",
-    "seedcamp:fraugster"
-   ],
-   "note": "Same company. Insolvency opened 2023-01-17, in liquidation (Berlin register via North Data); Seedcamp's 'unknown' is stale and is aligned at this run's ingest."
-  },
-  {
-   "rows": [
-    "speedinvest:stowga",
-    "seedcamp:stowga"
-   ],
-   "note": "Same company. Bought by Value Chain Lab, November 2021 (the company's own post); Seedcamp's 'unknown' is stale and is aligned at this run's ingest."
-  },
-  {
-   "rows": [
-    "speedinvest:wefox",
-    "seedcamp:wefox"
-   ],
-   "note": "Same company. The $4.5B Series D mark (Jul 2022) yields to documented collapse (a sale backed by the Series D lead at an enterprise value of at most EUR 550M, Jun 2024); Seedcamp's 1b_plus is stale and is aligned at this run's ingest."
+   "note": "Same company (june.so, W21). Defunct under the acqui-hire rule (the company's own wind-down post, 2025-07-08); YC's 'acquired' is carried from a16z's and First Round's namesake rows and is stale. Not aligned at the Speedinvest ingest: YC failed its own gate before any write (readback against its committed base: one row missing, one extra, both named Metadata). Owed at YC's next clean ingest."
   }
  ],
- "same": []
+ "same": [
+  {
+   "rows": [
+    "speedinvest:fuse",
+    "y-combinator:fuse-2"
+   ],
+   "note": "One company: Fuse, London (fuseinsight.com), YC Summer 2024; the Speedinvest card calls it Y Combinator backed. YC publishes it as Fuse (fuseinsight.com), so the name key does not join."
+  }
+ ]
 }
