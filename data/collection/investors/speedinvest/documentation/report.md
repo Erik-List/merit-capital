@@ -159,7 +159,16 @@ Eastern Europe: 88 rows are in the UK, 81 in Germany, 54 in Austria, 36 in Franc
   filter; the 2017 team page lists each partner's own portfolio; the current site's per-company
   pages were captured from 2023 on and recover companies since removed. 345 companies; 82 on
   neither live list.
-- **Archive, Internet Archive 2012-2016.** **Not read (debt, section 7).** Common Crawl crawled only the home page before 2017, and the Internet Archive was in a machine-wide cooldown for the whole run (re-armed by another session at 22:43). The pull is ready (`scratch/ia_pull.py`).
+- **Archive, Internet Archive 2012-2016.** **The /portfolio listing was not read (debt, section 7).**
+  Common Crawl crawled only the home page before 2017, and the Internet Archive was in a
+  machine-wide cooldown for the whole run (re-armed by other sessions at 22:43 and again at 23:43,
+  the second time for two hours). The pull is ready (`scratch/ia_pull.py`).
+- **Early-era substitutes, read after the ingest** (`sources/wayback/early-era-substitutes.json`).
+  Arquivo.pt, the Portuguese web archive, crawled the site on 2014-11-23: its team page prints each
+  partner's own "Portfolio:" line, 16 companies. The 35 Common Crawl home pages of 2012-2016 link 16
+  featured portfolio posts. Every one of the 32 names is a base row, a merged duplicate (cashpresso)
+  or a recorded exclusion (the firm's own Speedstart Studio). archive.ph holds no capture of the
+  listing.
 - **The firm's posts.** 719 posts from 2012 to 2026 (the old WordPress blog, the 2021-2023 blog, the
   live knowledge section), indexed per company.
 - **EDGAR.** One exempt reporting adviser (Speedinvest GmbH, CRD 316774), whose Section 7.B table
@@ -224,8 +233,10 @@ short names such as Grace, Well, Sona, Fuse, Tower, each noted), `city_unknown` 
 
 - **The 2012-2016 /portfolio listing was not read.** The risk is a company listed only before 2017
   and removed since. What covers that era: the 2017 listing with its Exits section, the partners'
-  own "Portfolio:" lines on the 2017 team page, the firm's 2012-2016 posts, and the parametric
-  recall, which found no early miss. Run `scratch/ia_pull.py`, then `scratch/archive_listings.py`.
+  own "Portfolio:" lines on the 2014 team page (Arquivo.pt) and the 2017 one, the portfolio posts
+  the 2012-2016 home pages link, the firm's 2012-2016 posts, and the parametric recall. None of
+  them names a company the base lacks. To close it: `scratch/ia_pull.py` once the cooldown ends,
+  then `scratch/archive_listings.py`; an archive-only company would be a delta and a re-ingest.
 - 115 rows with the round not on record; 15 `unknown` statuses (sites dark, no register entry).
 - About 20 rows rest only on the firm's job board (section 10).
 - Google News answered 503 for the last third of the run, so the second stage pass and the blind
@@ -341,6 +352,9 @@ published names are set in `config.json` `names.published`.
     disagreement appeared only on YC's side.
 12. **Research agents' fetched pages belong in `data/filings/site-raw/<slug>/`** (untracked), not in
     `scratch/`: this run's scratch reached 206 MB before the close moved them.
+13. **Arquivo.pt as a rung of the archive ladder** (§5): an independent archive with a free CDX
+    endpoint (`arquivo.pt/wayback/cdx?url=<domain>/*&output=json`) that crawls non-Portuguese sites;
+    it answered while the Internet Archive was in cooldown.
 
 ## 13. Usage line
 

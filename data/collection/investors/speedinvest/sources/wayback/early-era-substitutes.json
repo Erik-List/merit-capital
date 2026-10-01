@@ -1,0 +1,121 @@
+{
+ "_readme": "Early-era substitutes for the 2012-2016 /portfolio listing, which only the Internet Archive holds and which was not read (machine-wide cooldown through the whole run, re-armed at 23:43 EDT for two hours). Two independent first-party snapshots, read 2026-09-30. (1) Arquivo.pt, the Portuguese web archive, crawled speedinvest.com on 2014-11-23 (CDX: https://arquivo.pt/wayback/cdx?url=speedinvest.com/*&output=json): the home page, /team/, /idea/, /newsletter/ and the post feed, not /portfolio/. The team page prints each partner's own 'Portfolio:' line. (2) The 35 Common Crawl captures of the home page from 2012 to 2016 (data/filings/commoncrawl/speedinvest) link the featured portfolio posts at /blog/portfolio/<slug>/. Every name from both is a base row, a merged duplicate or a recorded exclusion. Raw pages: data/filings/site-raw/speedinvest/arquivo/ (untracked).",
+ "arquivo_team_2014": {
+  "capture": "https://arquivo.pt/wayback/20141123233814/http://speedinvest.com/team/",
+  "partners": {
+   "Oliver Holle": [
+    "Shpock",
+    "IyziCo",
+    "Wikifolio",
+    "Grin"
+   ],
+   "Erik Bovee": [
+    "indoo.rs",
+    "Usersnap",
+    "Wikidocs",
+    "hitbox",
+    "Grin"
+   ],
+   "Daniel Keiper-Knorr": [
+    "Joblocal",
+    "Gaminside"
+   ],
+   "Nina Wöss": [
+    "Holvi",
+    "TourRadar",
+    "Flaviar"
+   ],
+   "Werner Zahnt": [
+    "indoo.rs",
+    "Sipwise",
+    "payworks",
+    "Kochabo"
+   ],
+   "Marcel van der Heijden": [
+    "indoo.rs",
+    "Sipwise"
+   ],
+   "Michael Schuster": [
+    "Usersnap",
+    "Flaviar",
+    "TourRadar",
+    "Holvi"
+   ]
+  },
+  "names": 16,
+  "in_base": 16
+ },
+ "commoncrawl_home_2012_2016": {
+  "captures": 35,
+  "portfolio_post_slugs": {
+   "amodo": [
+    "2016"
+   ],
+   "bikemap": [
+    "2016"
+   ],
+   "bitmovin": [
+    "2014",
+    "2015"
+   ],
+   "cashpresso": [
+    "2016"
+   ],
+   "flaviar": [
+    "2015"
+   ],
+   "holvi": [
+    "2014",
+    "2015",
+    "2016"
+   ],
+   "indoors": [
+    "2015"
+   ],
+   "loot": [
+    "2016"
+   ],
+   "playbrush": [
+    "2016"
+   ],
+   "shpock": [
+    "2014",
+    "2015"
+   ],
+   "speedstartstudio": [
+    "2016"
+   ],
+   "storyclash": [
+    "2016"
+   ],
+   "tourradar": [
+    "2014",
+    "2016"
+   ],
+   "tradico": [
+    "2016"
+   ],
+   "usersnap": [
+    "2014",
+    "2015"
+   ],
+   "wikifolio": [
+    "2015",
+    "2016"
+   ]
+  },
+  "names": 16,
+  "in_base": 14,
+  "merged": {
+   "cashpresso": "credi2"
+  },
+  "excluded": [
+   "speedstartstudio"
+  ]
+ },
+ "other_archives_tried": {
+  "archive.ph": "no capture of speedinvest.com/portfolio/",
+  "web.archive.bibalex.org": "unreachable",
+  "timetravel.mementoweb.org": "unreachable"
+ }
+}
