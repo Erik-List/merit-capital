@@ -336,4 +336,22 @@ probe, visible slice, blind judge).
 
 ## 15. Ingest
 
-Filled at the ingest step.
+**Ingested 2026-10-01 through the COLLECTION.md §9 gate, with no approval prompt (Erik, 2026-09-29).**
+
+- **Preconditions.** Plain `verify` clean, `run.py close` done, closing commit `ba631ddb`. The
+  readback before the write found no Lakestar row in `public.investors`.
+- **Icon.** `investors/lakestar-072f34c79d.png` uploaded.
+- **Investor row.** `ingest-investor.ts lakestar`: 1 record upserted.
+- **Companies.** The dry run planned 154 new rows and 0 removals from 0 live, so the removal check
+  passed trivially. The write upserted 154 of 154.
+- **Readback after the write.** csv 154, live 154, missing 0, extra 0, **0 differing cells**. The
+  investor row carries the published profile: range $4.5M to $80M, median $15.7M; S2A 17 of 35
+  (48.6%); AUM $2.15B to $6.0B; track record 6 IPOs (Figure, HomeToGo, Opendoor, Oscar Health,
+  SoFi, Spotify), 27 companies at $1B+, 4 at $10B+, 2 at $100B+, 154 companies.
+
+**Stale sibling rows.** Twelve pairs in eight books are accepted in `companies/cross-rulings.json`
+as stale siblings: Cherry (Aware, Rows), Accel (Cambridge Aerospace, Public, Rows), Greylock
+(Entrepreneur First), Lux (Kela, Varda), Sequoia (Kela), Lightspeed (Lemon Markets), Seedcamp
+(Priori Data), Khosla (Varda). Their state is recorded below.
+
+SIBLING_STATE
