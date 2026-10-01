@@ -14965,19 +14965,22 @@
   "entry_stage_confidence": null,
   "entry_stage_source": null,
   "flags": [
-   "stage_uncited"
+   "city_unknown",
+   "country_prior",
+   "identity_unresolved"
   ],
-  "focus": "SaaS",
+  "focus": null,
   "focus_source": "model",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "known.note already flags the a16z round as undocumented. Virtually all 86 mentions are noise (the calendar month 'June', unrelated companies named June). No funding-round mention for June (product analytics) found on any surface or via direct TechCrunch searches ('June product analytics', 'Amplitude June'). Nothing dates an entry.",
-  "seed_to_a_graduation": null,
+  "note": "known.note already flags the a16z round as undocumented. Virtually all 86 mentions are noise (the calendar month 'June', unrelated companies named June). No funding-round mention for June (product analytics) found on any surface or via direct TechCrunch searches ('June product analytics', 'Amplitude June'). Nothing dates an entry. | Aligned 2026-10-01 from the Speedinvest run (PRO-84): the company cannot be named. a16z's investment list prints the bare name June and nothing else. The row was read as june.so, the product-analytics company, but june.so's own funding post names Point Nine, Speedinvest, Y Combinator, eFounders, Kima and its angels and no a16z fund; the June oven's investors (Foundry, First Round, Lerer, Founders Fund, Eclipse) do not include a16z either. So the `acquired` status had no company behind it: status unknown, band, stage and graduation undetermined, and the row leaves every metric; the listing keeps it a member.",
+  "seed_to_a_graduation": "undetermined",
   "slug": "june",
-  "status": "acquired",
+  "status": "unknown",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-a16z"
+  "valuation_range": "undetermined",
+  "valuation_usd": null,
+  "who": "agent-align-pro84"
  },
  "jungla": {
   "entry_stage": "Series A",
@@ -26662,17 +26665,27 @@
   ],
   "focus": "Industrial & Robotics",
   "focus_source": "model",
-  "graduation_confidence": "high",
+  "graduation_asof": "2026-10-01",
+  "graduation_citation": null,
+  "graduation_confidence": "medium",
+  "graduation_source": "absence_check",
+  "graduation_surfaces": [
+   "firm: listing (a16z.com/investment-list) + googlenews_firm (\"Salient Motion\" (\"Andreessen Horowitz\" OR a16z)) -> 7 results, the October 2024 seed coverage and two 2026 partnership releases, no later round",
+   "formd: no registrant named Salient Motion in the SEC CIK table, no Form D on record for the company",
+   "googlenews: \"Salient Motion\" + round words -> 25 results; after the seed only partnership and product news (2026-01-15, 2026-02-25) and the Saginaw Precision launch (2026-09-28), no round named",
+   "techcrunch: Salient Motion -> 10 results, the 2024-10-01 seed story and one Anduril piece, no Series A",
+   "crunchbase_news: Salient Motion -> 0 results"
+  ],
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "aerospace actuators; a16z-backed seed era | TechCrunch (2024-10-01, fetched): a16z (Katherine Boyle) \"invested in Salient Motion's pre-seed and seed round\"; this piece covers the $4M seed close (total funding $12M), Cantos Ventures led. Using the dated, named seed close as entry (the earlier pre-seed has no date). Clock: 2024-10-01 + 24mo = 2026-10-01, after today (2026-09-21); no later round found since (2026-01 and 2026-02 mentions are partnership announcements, not funding).",
-  "seed_to_a_graduation": "censored",
+  "note": "aerospace actuators; a16z-backed seed era | TechCrunch (2024-10-01, fetched): a16z (Katherine Boyle) \"invested in Salient Motion's pre-seed and seed round\"; this piece covers the $4M seed close (total funding $12M), Cantos Ventures led. Using the dated, named seed close as entry (the earlier pre-seed has no date). Clock: 2024-10-01 + 24mo = 2026-10-01, after today (2026-09-21); no later round found since (2026-01 and 2026-02 mentions are partnership announcements, not funding). | Decided 2026-10-01, the day the 24-month clock on the 2024-10-01 seed ran out (found at the Speedinvest alignment, PRO-84, where it blocked this book's verify): no named later round on the firm's surfaces, Google News, TechCrunch, Crunchbase News or the filings as of today, so not graduated on the absence test.",
+  "seed_to_a_graduation": "not_graduated",
   "slug": "salient-motion",
   "status": "private",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-a16z"
+  "who": "agent-align-pro84"
  },
  "salt-ai": {
   "entry_stage": "undetermined",
