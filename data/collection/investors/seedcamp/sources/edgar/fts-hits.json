@@ -1,0 +1,866 @@
+{
+  "_readme": "EDGAR full-text sweep (scripts/edgar-fts-sweep.py): hits for the configured phrases aggregated by registrant; bucket third_party = exit-side disclosure candidates for the judge (S-1 IRA signatories and holder tables, 424B selling stockholders, acquirer S-3/S-4/8-K), own = the investor's entities/people, lp_side = registered funds holding the investor's vehicles, ownership_forms = 13D/G, 3/4 or D filings handled by the entities/ownership layers.",
+  "phrases": [
+    "Seedcamp"
+  ],
+  "own_pattern": "^seedcamp|seedcamp-funds",
+  "swept_at": "2026-09-30",
+  "coverage": [
+    {
+      "phrase": "Seedcamp",
+      "total": 52,
+      "complete": true,
+      "failed_windows": [],
+      "read": 52,
+      "distinct": 52
+    }
+  ],
+  "registrants": [
+    {
+      "registrant": "Tise-Fund, a series of AL-Seedcamp-Funds, LLC",
+      "cik": "0001629256",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2014-12-31",
+      "last_date": "2014-12-31",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2014-12-31",
+          "adsh": "0001629256-14-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1629256/000162925614000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1629256/000162925614000001/0001629256-14-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "AngelList-Pabs-11-Fund, a series of AL-Seedcamp-Funds, LLC",
+      "cik": "0001646830",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2015-07-02",
+      "last_date": "2015-07-02",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2015-07-02",
+          "adsh": "0001646830-15-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1646830/000164683015000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1646830/000164683015000001/0001646830-15-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "A-MUV-18-Fund, a series of AngelList-Seedcamp-Funds, LLC",
+      "cik": "0001658060",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2015-11-12",
+      "last_date": "2015-11-12",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2015-11-12",
+          "adsh": "0001658060-15-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1658060/000165806015000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1658060/000165806015000001/0001658060-15-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "A-FBP-13-Fund, a series of AngelList-Seedcamp-Funds, LLC",
+      "cik": "0001664358",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2016-01-22",
+      "last_date": "2016-01-22",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2016-01-22",
+          "adsh": "0001664358-16-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1664358/000166435816000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1664358/000166435816000001/0001664358-16-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "A-CUS-18-Fund, a series of AngelList-Seedcamp-Funds, LLC",
+      "cik": "0001664325",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2016-01-22",
+      "last_date": "2016-01-22",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2016-01-22",
+          "adsh": "0001664325-16-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1664325/000166432516000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1664325/000166432516000001/0001664325-16-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "A-TXN-52-Fund, a series of AL-Seedcamp-Funds, LLC",
+      "cik": "0001677062",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2016-06-16",
+      "last_date": "2016-06-16",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2016-06-16",
+          "adsh": "0001677062-16-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1677062/000167706216000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1677062/000167706216000001/0001677062-16-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "A-PRA-12-Fund, a series of AngelList-Seedcamp-Funds, LLC",
+      "cik": "0001677683",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2016-07-21",
+      "last_date": "2016-07-21",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2016-07-21",
+          "adsh": "0001677683-16-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1677683/000167768316000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1677683/000167768316000001/0001677683-16-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "A-CVE-14-Fund, a series of AL-Seedcamp-Funds, LLC",
+      "cik": "0001680683",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2016-07-28",
+      "last_date": "2016-07-28",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2016-07-28",
+          "adsh": "0001680683-16-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1680683/000168068316000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1680683/000168068316000001/0001680683-16-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Tise-II-Fund, a series of AL-Seedcamp-Funds, LLC",
+      "cik": "0001685683",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2016-09-29",
+      "last_date": "2016-09-29",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2016-09-29",
+          "adsh": "0001685683-16-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1685683/000168568316000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1685683/000168568316000001/0001685683-16-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "A-FBP-13-Fund, a series of AL-Seedcamp-Funds, LLC",
+      "cik": "0001664358",
+      "forms": {
+        "D/A": 1,
+        "D": 1
+      },
+      "first_date": "2016-12-22",
+      "last_date": "2018-10-23",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2016-12-22",
+          "adsh": "0001664358-16-000003",
+          "url": "https://www.sec.gov/Archives/edgar/data/1664358/000166435816000003/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1664358/000166435816000003/0001664358-16-000003-index.htm"
+        },
+        {
+          "form": "D/A",
+          "date": "2018-10-23",
+          "adsh": "0001707423-18-000005",
+          "url": "https://www.sec.gov/Archives/edgar/data/1664358/000170742318000005/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1664358/000170742318000005/0001707423-18-000005-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "A-CXQ-12-Fund, a series of AL-Seedcamp-Funds, LLC",
+      "cik": "0001709732",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2017-08-31",
+      "last_date": "2017-08-31",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2017-08-31",
+          "adsh": "0001709732-17-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1709732/000170973217000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1709732/000170973217000001/0001709732-17-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Tise-III-Fund, a series of AL-Seedcamp-Funds, LLC",
+      "cik": "0001714574",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2017-09-14",
+      "last_date": "2017-09-14",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2017-09-14",
+          "adsh": "0001714635-17-000004",
+          "url": "https://www.sec.gov/Archives/edgar/data/1714574/000171463517000004/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1714574/000171463517000004/0001714635-17-000004-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "A-FBP-13-PR-Fund, a series of AL-Seedcamp-Funds, LLC",
+      "cik": "0001717377",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2017-10-10",
+      "last_date": "2017-10-10",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2017-10-10",
+          "adsh": "0001711061-17-000003",
+          "url": "https://www.sec.gov/Archives/edgar/data/1717377/000171106117000003/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1717377/000171106117000003/0001711061-17-000003-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "A-WFX-Fund, a series of AL-Seedcamp-Funds, LLC",
+      "cik": "0001755329",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2019-04-02",
+      "last_date": "2019-04-02",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2019-04-02",
+          "adsh": "0001757535-19-000019",
+          "url": "https://www.sec.gov/Archives/edgar/data/1755329/000175753519000019/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1755329/000175753519000019/0001757535-19-000019-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "SI Fund I, a series of AL-Seedcamp-Funds, LP",
+      "cik": "0001775367",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2019-05-01",
+      "last_date": "2019-05-01",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2019-05-01",
+          "adsh": "0001775367-19-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1775367/000177536719000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1775367/000177536719000001/0001775367-19-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "SI Fund II, a series of AL-Seedcamp-Funds, LP",
+      "cik": "0001790028",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2019-10-04",
+      "last_date": "2019-10-04",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2019-10-04",
+          "adsh": "0001790032-19-000005",
+          "url": "https://www.sec.gov/Archives/edgar/data/1790028/000179003219000005/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1790028/000179003219000005/0001790032-19-000005-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "SEE Fund I, a series of AL-Seedcamp-Funds, LP",
+      "cik": "0001791326",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2019-10-17",
+      "last_date": "2019-10-17",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2019-10-17",
+          "adsh": "0001790797-19-000007",
+          "url": "https://www.sec.gov/Archives/edgar/data/1791326/000179079719000007/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1791326/000179079719000007/0001790797-19-000007-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "JUR Fund I, a series of AL-Seedcamp-Funds, LP",
+      "cik": "0001795812",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2019-12-05",
+      "last_date": "2019-12-05",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2019-12-05",
+          "adsh": "0001795812-19-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1795812/000179581219000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1795812/000179581219000001/0001795812-19-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "9F Fund I, a series of AL-Seedcamp-Funds, LP",
+      "cik": "0001796049",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2019-12-06",
+      "last_date": "2019-12-06",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2019-12-06",
+          "adsh": "0001796049-19-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1796049/000179604919000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1796049/000179604919000001/0001796049-19-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "SEEDCAMP V L.P.",
+      "cik": "0001830158",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2020-11-04",
+      "last_date": "2020-11-04",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2020-11-04",
+          "adsh": "0001567619-20-018696",
+          "url": "https://www.sec.gov/Archives/edgar/data/1830158/000156761920018696/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1830158/000156761920018696/0001567619-20-018696-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "GR Fund I, a series of AL-Seedcamp-Funds, LP",
+      "cik": "0001851701",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2021-03-18",
+      "last_date": "2021-03-18",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2021-03-18",
+          "adsh": "0001851701-21-000002",
+          "url": "https://www.sec.gov/Archives/edgar/data/1851701/000185170121000002/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1851701/000185170121000002/0001851701-21-000002-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "WA Fund I, a series of AL-Seedcamp-Funds, LP",
+      "cik": "0001860653",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2021-05-05",
+      "last_date": "2021-05-05",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2021-05-05",
+          "adsh": "0001860653-21-000002",
+          "url": "https://www.sec.gov/Archives/edgar/data/1860653/000186065321000002/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1860653/000186065321000002/0001860653-21-000002-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "WE Fund I, a series of AL-Seedcamp-Funds, LP",
+      "cik": "0001861934",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2021-05-13",
+      "last_date": "2021-05-13",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2021-05-13",
+          "adsh": "0001861934-21-000002",
+          "url": "https://www.sec.gov/Archives/edgar/data/1861934/000186193421000002/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1861934/000186193421000002/0001861934-21-000002-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "JUR Fund II, a series of AL-Seedcamp-Funds, LP",
+      "cik": "0001900122",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2021-12-17",
+      "last_date": "2021-12-17",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2021-12-17",
+          "adsh": "0001900122-21-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1900122/000190012221000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1900122/000190012221000001/0001900122-21-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "EZ Fund I, a series of AL-Seedcamp-Funds, LP",
+      "cik": "0001925175",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2022-04-22",
+      "last_date": "2022-04-22",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2022-04-22",
+          "adsh": "0001925175-22-000002",
+          "url": "https://www.sec.gov/Archives/edgar/data/1925175/000192517522000002/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1925175/000192517522000002/0001925175-22-000002-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "WE-1222 Fund VI, a series of AL-Seedcamp-Funds, LP",
+      "cik": "0002051311",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2025-02-25",
+      "last_date": "2025-02-25",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2025-02-25",
+          "adsh": "0002051311-25-000002",
+          "url": "https://www.sec.gov/Archives/edgar/data/2051311/000205131125000002/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/2051311/000205131125000002/0002051311-25-000002-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Velti plc",
+      "cik": "0001490412",
+      "forms": {
+        "424B1": 1,
+        "F-3/A": 1,
+        "F-3": 1
+      },
+      "first_date": "2012-05-31",
+      "last_date": "2012-06-26",
+      "filings": [
+        {
+          "form": "F-3",
+          "date": "2012-05-31",
+          "adsh": "0001047469-12-006406",
+          "url": "https://www.sec.gov/Archives/edgar/data/1490412/000104746912006406/a2209793zf-3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1490412/000104746912006406/0001047469-12-006406-index.htm"
+        },
+        {
+          "form": "F-3/A",
+          "date": "2012-06-13",
+          "adsh": "0001047469-12-006623",
+          "url": "https://www.sec.gov/Archives/edgar/data/1490412/000104746912006623/a2209903zf-3a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1490412/000104746912006623/0001047469-12-006623-index.htm"
+        },
+        {
+          "form": "424B1",
+          "date": "2012-06-26",
+          "adsh": "0001047469-12-006914",
+          "url": "https://www.sec.gov/Archives/edgar/data/1490412/000104746912006914/a2210024z424b1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1490412/000104746912006914/0001047469-12-006914-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1490412/000104746912006406/a2209793zf-3.htm",
+          "form": "F-3",
+          "date": "2012-05-31",
+          "mentions": 5,
+          "context": [
+            "rdinary Shares Owned Prior to the Offering(1) Percentage of Ordinary Shares Owned Prior to Offering Number of Ordinary Shares Offered Pursuant to this Prospectus Number of Ordinary Shares Owned After Offering Percentage of Ordinary Shares Owned After Offering Seedcamp Investments LLP (27) 11,064 * 11,064 — * Ali Abbas H. Taj (28) 1,969 * 1,664 305 * Milan Lazich (29) 334 * 334 — * Rishi Sharma (30) 351 * 334 17 * Jyri Engestrom (31) 385 * 384 — * Venture Lending & Leasing V, LLC (32) 273,447 * 34,788 238,659 * + The number",
+            "s beneficial ownership of and voting control of Durga FLP—Trust FBO Dhiresh Joshi. (25) The address of Jon Liang is 1134 W. Mckinley, Sunnyvalle, CA 94086. (26) The address of Allen Gilliland is 2881 Meridian Ave, #129, San Jose, CA 95124. (27) The address of Seedcamp Investments LLP is 2nd Floor, Cardiff House Tilling Road, London, NW2 1LJ. Based on information provided to us by Seedcamp Investments LLP, the following members of Seedcamp Investments LLP have the voting control of Seedcamp Investments LLP: Reshma Sohoni; T",
+            " Mckinley, Sunnyvalle, CA 94086. (26) The address of Allen Gilliland is 2881 Meridian Ave, #129, San Jose, CA 95124. (27) The address of Seedcamp Investments LLP is 2nd Floor, Cardiff House Tilling Road, London, NW2 1LJ. Based on information provided to us by Seedcamp Investments LLP, the following members of Seedcamp Investments LLP have the voting control of Seedcamp Investments LLP: Reshma Sohoni; The National Endowment for Science, Technology and the Arts; \"Balderton\", being Balderton Capital III, L.P. as nominee for B"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1490412/000104746912006623/a2209903zf-3a.htm",
+          "form": "F-3/A",
+          "date": "2012-06-13",
+          "mentions": 5,
+          "context": [
+            "rdinary Shares Owned Prior to the Offering(1) Percentage of Ordinary Shares Owned Prior to Offering Number of Ordinary Shares Offered Pursuant to this Prospectus Number of Ordinary Shares Owned After Offering Percentage of Ordinary Shares Owned After Offering Seedcamp Investments LLP (27) 11,064 * 11,064 — * Ali Abbas H. Taj (28) 1,969 * 1,664 305 * Milan Lazich (29) 334 * 334 — * Rishi Sharma (30) 351 * 334 17 * Jyri Engestrom (31) 385 * 384 — * Venture Lending & Leasing V, LLC (32) 273,447 * 34,788 238,659 * + The number",
+            "s beneficial ownership of and voting control of Durga FLP—Trust FBO Dhiresh Joshi. (25) The address of Jon Liang is 1134 W. Mckinley, Sunnyvalle, CA 94086. (26) The address of Allen Gilliland is 2881 Meridian Ave, #129, San Jose, CA 95124. (27) The address of Seedcamp Investments LLP is 2nd Floor, Cardiff House Tilling Road, London, NW2 1LJ. Based on information provided to us by Seedcamp Investments LLP, the following members of Seedcamp Investments LLP have the voting control of Seedcamp Investments LLP: Reshma Sohoni; T",
+            " Mckinley, Sunnyvalle, CA 94086. (26) The address of Allen Gilliland is 2881 Meridian Ave, #129, San Jose, CA 95124. (27) The address of Seedcamp Investments LLP is 2nd Floor, Cardiff House Tilling Road, London, NW2 1LJ. Based on information provided to us by Seedcamp Investments LLP, the following members of Seedcamp Investments LLP have the voting control of Seedcamp Investments LLP: Reshma Sohoni; The National Endowment for Science, Technology and the Arts; \"Balderton\", being Balderton Capital III, L.P. as nominee for B"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "RACKSPACE HOSTING, INC.",
+      "cik": "0001107694",
+      "forms": {
+        "8-K": 1
+      },
+      "first_date": "2014-02-10",
+      "last_date": "2014-02-10",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "2014-02-10",
+          "adsh": "0001107694-14-000010",
+          "url": "https://www.sec.gov/Archives/edgar/data/1107694/000110769414000010/rax991_q42013.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1107694/000110769414000010/0001107694-14-000010-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1107694/000110769414000010/rax991_q42013.htm",
+          "form": "8-K",
+          "date": "2014-02-10",
+          "mentions": 1,
+          "context": [
+            "K businesses to succeed and are provided by Rackspace through over 50 partners, including premier incubators, accelerators, associations and investors. The high profile partners involved in the Rackspace Startup Programme include Techstars, Dreamstake, Wayra, Seedcamp, Oxygen Accelerator and Accelerator Academy. Partners located outside of London - ensuring program access for startups throughout the UK - include ignite100 in Newcastle, dotForge in Sheffield and four organizations in Ireland: Wayra, NDRC, Propeller Venture "
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "UiPath, Inc.  (PATH)",
+      "cik": "0001734722",
+      "forms": {
+        "DRS/A": 1,
+        "S-1": 1,
+        "S-1/A": 2,
+        "424B4": 1
+      },
+      "first_date": "2021-02-26",
+      "last_date": "2021-04-21",
+      "filings": [
+        {
+          "form": "DRS/A",
+          "date": "2021-02-26",
+          "adsh": "0000950123-21-003172",
+          "url": "https://www.sec.gov/Archives/edgar/data/1734722/000095012321003172/filename3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1734722/000095012321003172/0000950123-21-003172-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2021-03-26",
+          "adsh": "0001193125-21-094920",
+          "url": "https://www.sec.gov/Archives/edgar/data/1734722/000119312521094920/d98556dex101.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1734722/000119312521094920/0001193125-21-094920-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2021-04-12",
+          "adsh": "0001193125-21-112457",
+          "url": "https://www.sec.gov/Archives/edgar/data/1734722/000119312521112457/d98556ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1734722/000119312521112457/0001193125-21-112457-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2021-04-19",
+          "adsh": "0001193125-21-120347",
+          "url": "https://www.sec.gov/Archives/edgar/data/1734722/000119312521120347/d98556ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1734722/000119312521120347/0001193125-21-120347-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2021-04-21",
+          "adsh": "0001193125-21-125014",
+          "url": "https://www.sec.gov/Archives/edgar/data/1734722/000119312521125014/d98556d424b4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1734722/000119312521125014/0001193125-21-125014-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1734722/000095012321003172/filename3.htm",
+          "form": "DRS/A",
+          "date": "2021-02-26",
+          "mentions": 4,
+          "context": [
+            "al Global Innovation Fund, L.P. and Sands Capital Global Innovation Fund-UIP, L.P. 5 “ SEC ” means the Securities and Exchange Commission. “ Securities Act ” means the Securities Act of 1933, as amended, and the rules and regulations promulgated thereunder. “ Seedcamp ” means, SC_3_OF1LP, SC_3_OF2 LP and Seedcamp III LP, collectively. “ Selling Expenses ” means all underwriting discounts, selling commissions, and stock transfer taxes applicable to the sale of Registrable Securities, and fees and disbursements of counsel fo",
+            "tal Global Innovation Fund-UIP, L.P. 5 “ SEC ” means the Securities and Exchange Commission. “ Securities Act ” means the Securities Act of 1933, as amended, and the rules and regulations promulgated thereunder. “ Seedcamp ” means, SC_3_OF1LP, SC_3_OF2 LP and Seedcamp III LP, collectively. “ Selling Expenses ” means all underwriting discounts, selling commissions, and stock transfer taxes applicable to the sale of Registrable Securities, and fees and disbursements of counsel for any Holder, except for the fees and disburse",
+            "or confidential treatment of, such information. 5.12 Right to Conduct Activities . The Company hereby agrees and acknowledges that Coatue, Dragoneer, Sequoia, CapitalG, Accel Leaders Fund L.P., Accel Leaders Fund Investors 2016 L.L.C., Accel US, Accel London, Seedcamp, the T. Rowe Investors, Base Growth I, LLC, Sands Capital, Madrona Venture Fund VII, LP, Madrona Venture Fund VII-A, LP, Institutional Venture Partners XVI, L.P., Alkeon, Tencent, Tiger Global Investments, L.P., Tiger Global Long Opportunities Master Fund, L."
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1734722/000119312521094920/d98556dex101.htm",
+          "form": "S-1",
+          "date": "2021-03-26",
+          "mentions": 4,
+          "context": [
+            "al Global Innovation Fund, L.P. and Sands Capital Global Innovation Fund-UIP, L.P. 5 “ SEC ” means the Securities and Exchange Commission. “ Securities Act ” means the Securities Act of 1933, as amended, and the rules and regulations promulgated thereunder. “ Seedcamp ” means, SC_3_OF1LP, SC_3_OF2 LP and Seedcamp III LP, collectively. “ Selling Expenses ” means all underwriting discounts, selling commissions, and stock transfer taxes applicable to the sale of Registrable Securities, and fees and disbursements of counsel fo",
+            "tal Global Innovation Fund-UIP, L.P. 5 “ SEC ” means the Securities and Exchange Commission. “ Securities Act ” means the Securities Act of 1933, as amended, and the rules and regulations promulgated thereunder. “ Seedcamp ” means, SC_3_OF1LP, SC_3_OF2 LP and Seedcamp III LP, collectively. “ Selling Expenses ” means all underwriting discounts, selling commissions, and stock transfer taxes applicable to the sale of Registrable Securities, and fees and disbursements of counsel for any Holder, except for the fees and disburse",
+            "or confidential treatment of, such information. 5.12 Right to Conduct Activities . The Company hereby agrees and acknowledges that Coatue, Dragoneer, Sequoia, CapitalG, Accel Leaders Fund L.P., Accel Leaders Fund Investors 2016 L.L.C., Accel US, Accel London, Seedcamp, the T. Rowe Investors, Base Growth I, LLC, Sands Capital, Madrona Venture Fund VII, LP, Madrona Venture Fund VII-A, LP, Institutional Venture Partners XVI, L.P., Alkeon, Tencent, Tiger Global Investments, L.P., Tiger Global Long Opportunities Master Fund, L."
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "ORANGE  (ORAN, FNCTF)",
+      "cik": "0001038143",
+      "forms": {
+        "20-F": 4,
+        "6-K": 4
+      },
+      "first_date": "2021-03-17",
+      "last_date": "2024-03-29",
+      "filings": [
+        {
+          "form": "6-K",
+          "date": "2021-03-17",
+          "adsh": "0001634621-21-000007",
+          "url": "https://www.sec.gov/Archives/edgar/data/1038143/000163462121000007/lo_6k_urd_2020.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1038143/000163462121000007/0001634621-21-000007-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2021-03-18",
+          "adsh": "0001634621-21-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1038143/000163462121000008/ex151.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1038143/000163462121000008/0001634621-21-000008-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2022-03-31",
+          "adsh": "0001634621-22-000006",
+          "url": "https://www.sec.gov/Archives/edgar/data/1038143/000163462122000006/lo_urd2021.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1038143/000163462122000006/0001634621-22-000006-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2022-04-01",
+          "adsh": "0001634621-22-000007",
+          "url": "https://www.sec.gov/Archives/edgar/data/1038143/000163462122000007/ex151.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1038143/000163462122000007/0001634621-22-000007-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2023-03-29",
+          "adsh": "0001634621-23-000007",
+          "url": "https://www.sec.gov/Archives/edgar/data/1038143/000163462123000007/lo_urd2022.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1038143/000163462123000007/0001634621-23-000007-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2023-03-30",
+          "adsh": "0001634621-23-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1038143/000163462123000008/ex151.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1038143/000163462123000008/0001634621-23-000008-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2024-03-28",
+          "adsh": "0001634621-24-000008",
+          "url": "https://www.sec.gov/Archives/edgar/data/1038143/000163462124000008/lo_urd2023.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1038143/000163462124000008/0001634621-24-000008-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2024-03-29",
+          "adsh": "0001634621-24-000010",
+          "url": "https://www.sec.gov/Archives/edgar/data/1038143/000163462124000010/ex151.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1038143/000163462124000010/0001634621-24-000010-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1038143/000163462121000007/lo_6k_urd_2020.htm",
+          "form": "6-K",
+          "date": "2021-03-17",
+          "mentions": 1,
+          "context": [
+            "aged by LBO France and focused on digital health, - two venture capital funds, Raise Investissement and Raise Ventures, managed by private equity company Raise, which also conducts philanthropic activities, - two seed capital funds, Paris-Saclay Seed Fund and Seedcamp IV, investing in very young start-ups, and - as an exception, the LAC 1 fund managed by Bpifrance, a fund of listed assets whose main decision-making centers are located in France. The two new investments made by the Orange group in 2020 were the Digital Heal"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1038143/000163462121000008/ex151.htm",
+          "form": "20-F",
+          "date": "2021-03-18",
+          "mentions": 1,
+          "context": [
+            "aged by LBO France and focused on digital health, - two venture capital funds, Raise Investissement and Raise Ventures, managed by private equity company Raise, which also conducts philanthropic activities, - two seed capital funds, Paris-Saclay Seed Fund and Seedcamp IV, investing in very young start-ups, and - as an exception, the LAC 1 fund managed by Bpifrance, a fund of listed assets whose main decision-making centers are located in France. The two new investments made by the Orange group in 2020 were the Digital Heal"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "Anthemis Digital Acquisitions I Corp",
+      "cik": "0001853928",
+      "forms": {
+        "S-1/A": 4,
+        "DRS": 1,
+        "424B4": 1,
+        "DRS/A": 1,
+        "S-1": 1
+      },
+      "first_date": "2021-04-06",
+      "last_date": "2021-10-29",
+      "filings": [
+        {
+          "form": "DRS",
+          "date": "2021-04-06",
+          "adsh": "0000950123-21-004276",
+          "url": "https://www.sec.gov/Archives/edgar/data/1853928/000095012321004276/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1853928/000095012321004276/0000950123-21-004276-index.htm"
+        },
+        {
+          "form": "DRS/A",
+          "date": "2021-09-08",
+          "adsh": "0000950123-21-012198",
+          "url": "https://www.sec.gov/Archives/edgar/data/1853928/000095012321012198/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1853928/000095012321012198/0000950123-21-012198-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2021-10-01",
+          "adsh": "0001193125-21-289843",
+          "url": "https://www.sec.gov/Archives/edgar/data/1853928/000119312521289843/d79631ds1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1853928/000119312521289843/0001193125-21-289843-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2021-10-13",
+          "adsh": "0001193125-21-297868",
+          "url": "https://www.sec.gov/Archives/edgar/data/1853928/000119312521297868/d79631ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1853928/000119312521297868/0001193125-21-297868-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2021-10-14",
+          "adsh": "0001193125-21-298867",
+          "url": "https://www.sec.gov/Archives/edgar/data/1853928/000119312521298867/d79631ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1853928/000119312521298867/0001193125-21-298867-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2021-10-25",
+          "adsh": "0001193125-21-306357",
+          "url": "https://www.sec.gov/Archives/edgar/data/1853928/000119312521306357/d79631ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1853928/000119312521306357/0001193125-21-306357-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2021-10-27",
+          "adsh": "0001193125-21-308851",
+          "url": "https://www.sec.gov/Archives/edgar/data/1853928/000119312521308851/d79631ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1853928/000119312521308851/0001193125-21-308851-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2021-10-29",
+          "adsh": "0001193125-21-312519",
+          "url": "https://www.sec.gov/Archives/edgar/data/1853928/000119312521312519/d79631d424b4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1853928/000119312521312519/0001193125-21-312519-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1853928/000095012321004276/filename1.htm",
+          "form": "DRS",
+          "date": "2021-04-06",
+          "mentions": 1,
+          "context": [
+            "cial services senior executive. Ms. Nauiokas made her reputation as a fintech investor by 2 Table of Contents backing early standout successes including Zoopla, Climate Corporation, Happy Money, Betterment, Currencycloud and the leading European seed investor Seedcamp. Ms. Nauiokas is known for her tireless commitment to working for a more equitable and inclusive industry, hiring, investing in and mentoring diverse and underrepresented talent and supporting and sponsoring their growth. Anthemis Group Our sponsor is affilia"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1853928/000095012321012198/filename1.htm",
+          "form": "DRS/A",
+          "date": "2021-09-08",
+          "mentions": 1,
+          "context": [
+            "cial services senior executive. Ms. Nauiokas made her reputation as a fintech investor by 2 Table of Contents backing early standout successes including Zoopla, Climate Corporation, Happy Money, Betterment, Currencycloud and the leading European seed investor Seedcamp. Ms. Nauiokas is known for her tireless commitment to working for a more equitable and inclusive industry, hiring, investing in and mentoring diverse and underrepresented talent and supporting and sponsoring their growth. Anthemis Group Our sponsor is affilia"
+          ]
+        }
+      ]
+    }
+  ]
+}

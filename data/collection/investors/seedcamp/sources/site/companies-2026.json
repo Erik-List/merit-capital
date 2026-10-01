@@ -1,0 +1,3708 @@
+{
+ "_readme": "Parse the live seedcamp.com/our-companies/ list into sources/site/companies-2026.json.\n\nseedcamp.com (2026) is WordPress with a custom theme; the company post type is\nnot exposed in the REST API, and the whole list ships server-rendered in one\npage (mixitup filter): one `div.company__item` per company with the name, the\nfirm's own \"Year of Investment\", a one-line description, the company website\nand the sector classes of the filter bar (ai, climate, consumer, crypto,\ndeveloper-tools, enterprise, fintech, health-bio, marketplaces, security).\nThere is no per-company page; url is the list anchor. The year is the firm's\nown investment year: an anchor for first_seen and the censor clock, never a\nround word (COLLECTION.md s6, \"a bare year is an anchor, not a label\").\n\nUsage: python3 site-live.py   (reads scratch/site-raw/our-companies-2026-09-30.html)",
+ "source_url": "https://seedcamp.com/our-companies/",
+ "read": "2026-09-30",
+ "rows": [
+  {
+   "name": "Waniwani",
+   "url": "https://seedcamp.com/our-companies/#waniwani",
+   "website": "http://waniwani.ai",
+   "invest_year": "2026",
+   "description": "Revenue infrastructure for AI",
+   "sectors": [
+    "ai"
+   ],
+   "index": 0
+  },
+  {
+   "name": "Eversettled",
+   "url": "https://seedcamp.com/our-companies/#eversettled",
+   "website": "http://eversettled.com",
+   "invest_year": "2026",
+   "description": "AI copilot for the legal, financial, and administrative process of settling an estate",
+   "sectors": [
+    "ai",
+    "consumer"
+   ],
+   "index": 1
+  },
+  {
+   "name": "Resolyst",
+   "url": "https://seedcamp.com/our-companies/#resolyst",
+   "website": "http://resolyst.com",
+   "invest_year": "2026",
+   "description": "AI-enabled management of chronic disease through specialist networks",
+   "sectors": [
+    "health-bio"
+   ],
+   "index": 2
+  },
+  {
+   "name": "Penelope Health",
+   "url": "https://seedcamp.com/our-companies/#penelope-health",
+   "website": "http://penelope.health",
+   "invest_year": "2026",
+   "description": "The infrastructure layer for US medical payments",
+   "sectors": [
+    "health-bio",
+    "ai"
+   ],
+   "index": 3
+  },
+  {
+   "name": "Telemachus",
+   "url": "https://seedcamp.com/our-companies/#telemachus",
+   "website": "http://telemachus.io",
+   "invest_year": "2026",
+   "description": "Telemachus creates AI-native competitors to poorly-run incumbent companies",
+   "sectors": [
+    "ai"
+   ],
+   "index": 4
+  },
+  {
+   "name": "Opereit",
+   "url": "https://seedcamp.com/our-companies/#opereit",
+   "website": "http://opereit.ai",
+   "invest_year": "2026",
+   "description": "AI operating layer for transportation spend",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 5
+  },
+  {
+   "name": "Lupin & Holmes",
+   "url": "https://seedcamp.com/our-companies/#lupin-holmes",
+   "website": "http://landh.tech",
+   "invest_year": "2026",
+   "description": "Offensive security for software supply-chain risk",
+   "sectors": [
+    "security",
+    "ai"
+   ],
+   "index": 6
+  },
+  {
+   "name": "sherpa",
+   "url": "https://seedcamp.com/our-companies/#sherpa",
+   "website": "http://sherpahq.ai",
+   "invest_year": "2026",
+   "description": "AI operating system for external workforce management",
+   "sectors": [
+    "ai"
+   ],
+   "index": 7
+  },
+  {
+   "name": "Pair",
+   "url": "https://seedcamp.com/our-companies/#pair",
+   "website": "http://pairnow.ai",
+   "invest_year": "2025",
+   "description": "The AI adoption layer for the enterprise",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 8
+  },
+  {
+   "name": "Uncovr",
+   "url": "https://seedcamp.com/our-companies/#uncovr",
+   "website": "http://uncovr.ai",
+   "invest_year": "2025",
+   "description": "Transforming surgical video into documentation",
+   "sectors": [
+    "health-bio",
+    "ai"
+   ],
+   "index": 9
+  },
+  {
+   "name": "Tattvam",
+   "url": "https://seedcamp.com/our-companies/#tattvam",
+   "website": "http://tattvamlabs.ai",
+   "invest_year": "2025",
+   "description": "The AI layer for chip design",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 10
+  },
+  {
+   "name": "Revox",
+   "url": "https://seedcamp.com/our-companies/#revox",
+   "website": "http://getrevox.com",
+   "invest_year": "2025",
+   "description": "Voice AI infrastructure to grow your revenue",
+   "sectors": [
+    "ai",
+    "developer-tools"
+   ],
+   "index": 11
+  },
+  {
+   "name": "Isidor",
+   "url": "https://seedcamp.com/our-companies/#isidor",
+   "website": "http://isidor.ai",
+   "invest_year": "2025",
+   "description": "Frontier data for frontier AI research, starting in finance",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 12
+  },
+  {
+   "name": "Porters",
+   "url": "https://seedcamp.com/our-companies/#porters",
+   "website": "http://withporters.com",
+   "invest_year": "2025",
+   "description": "Digital back-office for banks, starting with garnishments",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 13
+  },
+  {
+   "name": "Andel",
+   "url": "https://seedcamp.com/our-companies/#andel",
+   "website": "http://andel.org",
+   "invest_year": "2025",
+   "description": "Benefit provider building a fairer way to get life-changing drugs",
+   "sectors": [
+    "health-bio"
+   ],
+   "index": 14
+  },
+  {
+   "name": "Catch",
+   "url": "https://seedcamp.com/our-companies/#catch",
+   "website": "http://catchagent.ai",
+   "invest_year": "2025",
+   "description": "AI Executive assistant",
+   "sectors": [
+    "ai"
+   ],
+   "index": 15
+  },
+  {
+   "name": "Omniscient",
+   "url": "https://seedcamp.com/our-companies/#omniscient",
+   "website": "http://omniscient.so",
+   "invest_year": "2025",
+   "description": "Understand your reputation, risks and supply chain",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 16
+  },
+  {
+   "name": "La Fraise Pro",
+   "url": "https://seedcamp.com/our-companies/#la-fraise-pro",
+   "website": "http://lafraise.pro",
+   "invest_year": "2025",
+   "description": "AI agents to simplify dentists' admin, payments and treatment plans",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 17
+  },
+  {
+   "name": "Opio",
+   "url": "https://seedcamp.com/our-companies/#opio",
+   "website": "http://opio.fi",
+   "invest_year": "2025",
+   "description": "Frontier AI for transaction services",
+   "sectors": [
+    "ai",
+    "fintech"
+   ],
+   "index": 18
+  },
+  {
+   "name": "Wexler",
+   "url": "https://seedcamp.com/our-companies/#wexler",
+   "website": "http://wexler.ai",
+   "invest_year": "2025",
+   "description": "AI agents for litigation document analysis",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 19
+  },
+  {
+   "name": "TimeTrace Labs",
+   "url": "https://seedcamp.com/our-companies/#timetrace-labs",
+   "website": "http://timetracelabs.com",
+   "invest_year": "2025",
+   "description": "AI for real-world systems where data is limited and decisions cannot wait",
+   "sectors": [
+    "ai",
+    "health-bio"
+   ],
+   "index": 20
+  },
+  {
+   "name": "Function Health",
+   "url": "https://seedcamp.com/our-companies/#function-health",
+   "website": "http://functionhealth.com",
+   "invest_year": "2025",
+   "description": "Membership-based health platform for clinical testing, diagnostics and MRI scans",
+   "sectors": [
+    "health-bio",
+    "ai"
+   ],
+   "index": 21
+  },
+  {
+   "name": "Outpost Bio",
+   "url": "https://seedcamp.com/our-companies/#outpost-bio",
+   "website": "http://outpost.bio",
+   "invest_year": "2025",
+   "description": "The first foundation model for microbiome-drug interactions",
+   "sectors": [
+    "ai",
+    "health-bio"
+   ],
+   "index": 22
+  },
+  {
+   "name": "BioOrbit",
+   "url": "https://seedcamp.com/our-companies/#bioorbit",
+   "website": "http://bioorbit.space",
+   "invest_year": "2025",
+   "description": "Pharma factories in microgravity for cancer drugs you can inject at home",
+   "sectors": [
+    "health-bio"
+   ],
+   "index": 23
+  },
+  {
+   "name": "Topograph",
+   "url": "https://seedcamp.com/our-companies/#topograph",
+   "website": "http://topograph.co",
+   "invest_year": "2025",
+   "description": "Next generation international data and document KYB provider",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 24
+  },
+  {
+   "name": "Tano",
+   "url": "https://seedcamp.com/our-companies/#tano",
+   "website": "http://tano.ai",
+   "invest_year": "2025",
+   "description": "AI-powered engine that recruits, manages and scales influencer campaigns",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 25
+  },
+  {
+   "name": "Dalton",
+   "url": "https://seedcamp.com/our-companies/#dalton",
+   "website": "http://DaltonTX.com",
+   "invest_year": "2024",
+   "description": "Transforming AI research into drug discovery impact",
+   "sectors": [
+    "ai",
+    "health-bio"
+   ],
+   "index": 26
+  },
+  {
+   "name": "Motley",
+   "url": "https://seedcamp.com/our-companies/#motley",
+   "website": "http://motley.ai",
+   "invest_year": "2025",
+   "description": "Automate business reporting and communication for customer success teams",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 27
+  },
+  {
+   "name": "Massive Dynamic",
+   "url": "https://seedcamp.com/our-companies/#massive-dynamic",
+   "website": "http://massive-dynamic.ai",
+   "invest_year": "2025",
+   "description": "AI-powered copilot for marketing orchestration",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 28
+  },
+  {
+   "name": "Memories",
+   "url": "https://seedcamp.com/our-companies/#memories",
+   "website": "http://memories.ai",
+   "invest_year": "2025",
+   "description": "Visual memory model for rich context video understanding",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 29
+  },
+  {
+   "name": "Kerys",
+   "url": "https://seedcamp.com/our-companies/#kerys",
+   "website": "http://kerys.software",
+   "invest_year": "2025",
+   "description": "High performance virtualization to consolidate environments on a single machine",
+   "sectors": [
+    "ai",
+    "enterprise",
+    "security"
+   ],
+   "index": 30
+  },
+  {
+   "name": "Murphy",
+   "url": "https://seedcamp.com/our-companies/#murphy",
+   "website": "http://getmurphy.ai",
+   "invest_year": "2025",
+   "description": "AI agent for debt collection services",
+   "sectors": [
+    "ai",
+    "fintech"
+   ],
+   "index": 31
+  },
+  {
+   "name": "Kraka",
+   "url": "https://seedcamp.com/our-companies/#kraka",
+   "website": "http://gokraka.com",
+   "invest_year": "2024",
+   "description": "Train factory employees in VR to complete any task on the shop floor",
+   "sectors": [
+    "ai"
+   ],
+   "index": 32
+  },
+  {
+   "name": "Nopan",
+   "url": "https://seedcamp.com/our-companies/#nopan",
+   "website": "http://nopan.com",
+   "invest_year": "2024",
+   "description": "Centralised settlement for all major A2A payments",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 33
+  },
+  {
+   "name": "Plakar",
+   "url": "https://seedcamp.com/our-companies/#plakar",
+   "website": "http://plakar.io",
+   "invest_year": "2024",
+   "description": "Data protection and backup platform for the cloud",
+   "sectors": [
+    "security"
+   ],
+   "index": 34
+  },
+  {
+   "name": "Zenline AI",
+   "url": "https://seedcamp.com/our-companies/#zenline-ai",
+   "website": "http://tryzenline.ai",
+   "invest_year": "2024",
+   "description": "AI for category teams in retail to make fast, shopper-centric assortment decisions",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 35
+  },
+  {
+   "name": "SE3",
+   "url": "https://seedcamp.com/our-companies/#se3",
+   "website": "http://se3.ai",
+   "invest_year": "2024",
+   "description": "Make computers understand the 3D world",
+   "sectors": [
+    "ai",
+    "security"
+   ],
+   "index": 36
+  },
+  {
+   "name": "Doczen",
+   "url": "https://seedcamp.com/our-companies/#doczen",
+   "website": "http://doczen.com",
+   "invest_year": "2024",
+   "description": "AI platform for commodity operators and traders",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 37
+  },
+  {
+   "name": "Volter",
+   "url": "https://seedcamp.com/our-companies/#volter",
+   "website": "http://getvolter.com",
+   "invest_year": "2024",
+   "description": "Commercial energy site management and aggregation",
+   "sectors": [
+    "climate"
+   ],
+   "index": 38
+  },
+  {
+   "name": "Powernaut",
+   "url": "https://seedcamp.com/our-companies/#powernaut",
+   "website": "http://powernaut.io",
+   "invest_year": "2024",
+   "description": "Virtual power plant for consumers' smart device installations",
+   "sectors": [
+    "ai",
+    "climate"
+   ],
+   "index": 39
+  },
+  {
+   "name": "Source.dev",
+   "url": "https://seedcamp.com/our-companies/#source-dev",
+   "website": "http://source.dev",
+   "invest_year": "2024",
+   "description": "Platform for smart devices to make simple, bug-free and cost effective software updates",
+   "sectors": [
+    "developer-tools",
+    "ai"
+   ],
+   "index": 40
+  },
+  {
+   "name": "Linkup",
+   "url": "https://seedcamp.com/our-companies/#linkup",
+   "website": "http://linkup.so",
+   "invest_year": "2024",
+   "description": "AI search engine optimized for LLMs and agents",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 41
+  },
+  {
+   "name": "Umony",
+   "url": "https://seedcamp.com/our-companies/#umony",
+   "website": "http://umony.com",
+   "invest_year": "2024",
+   "description": "Capturing, archiving and monitoring regulated communications",
+   "sectors": [
+    "fintech",
+    "enterprise"
+   ],
+   "index": 42
+  },
+  {
+   "name": "Miru Labs",
+   "url": "https://seedcamp.com/our-companies/#miru-labs",
+   "website": "http://miru-labs.com",
+   "invest_year": "2024",
+   "description": "Miru is an AI-assisted data investigation platform to super-charge threat hunting.",
+   "sectors": [
+    "enterprise",
+    "security",
+    "ai"
+   ],
+   "index": 43
+  },
+  {
+   "name": "Singulate",
+   "url": "https://seedcamp.com/our-companies/#singulate",
+   "website": "http://singulate.com",
+   "invest_year": "2024",
+   "description": "The first generative AI personalization email marketing platform",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 44
+  },
+  {
+   "name": "Ciao",
+   "url": "https://seedcamp.com/our-companies/#ciao",
+   "website": "http://meetciao.com",
+   "invest_year": "2024",
+   "description": "Helping people live flexibly",
+   "sectors": [
+    "marketplaces",
+    "consumer"
+   ],
+   "index": 45
+  },
+  {
+   "name": "Stackfix",
+   "url": "https://seedcamp.com/our-companies/#stackfix",
+   "website": "http://stackfix.com",
+   "invest_year": "2024",
+   "description": "AI-powered software comparison platform",
+   "sectors": [
+    "ai",
+    "marketplaces"
+   ],
+   "index": 46
+  },
+  {
+   "name": "Digital Iron",
+   "url": "https://seedcamp.com/our-companies/#digital-iron",
+   "website": "http://digitaliron.com",
+   "invest_year": "2024",
+   "description": "Boost parts sales and after-sales revenue for heavy machinery dealerships",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 47
+  },
+  {
+   "name": "Vaire",
+   "url": "https://seedcamp.com/our-companies/#vaire",
+   "website": "http://vaire.co",
+   "invest_year": "2024",
+   "description": "Near-zero energy chips",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 48
+  },
+  {
+   "name": "Freqens",
+   "url": "https://seedcamp.com/our-companies/#freqens",
+   "website": "http://freqens.com",
+   "invest_year": "2024",
+   "description": "Identify savings and secure the best buying conditions",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 49
+  },
+  {
+   "name": "Cofide",
+   "url": "https://seedcamp.com/our-companies/#cofide",
+   "website": "http://cofide.io",
+   "invest_year": "2024",
+   "description": "Workload identity fabric for multi and hybrid cloud environments",
+   "sectors": [
+    "security"
+   ],
+   "index": 50
+  },
+  {
+   "name": "Botika",
+   "url": "https://seedcamp.com/our-companies/#botika",
+   "website": "http://botika.com",
+   "invest_year": "2023",
+   "description": "Creative copilot powering apparel e-commerce",
+   "sectors": [
+    "enterprise",
+    "ai"
+   ],
+   "index": 51
+  },
+  {
+   "name": "Enapi",
+   "url": "https://seedcamp.com/our-companies/#enapi",
+   "website": "http://enapi.com",
+   "invest_year": "2023",
+   "description": "Building the clearing house for the EV industry",
+   "sectors": [
+    "climate"
+   ],
+   "index": 52
+  },
+  {
+   "name": "Kelvin",
+   "url": "https://seedcamp.com/our-companies/#kelvin",
+   "website": "http://go-kelvin.com",
+   "invest_year": "2024",
+   "description": "Scaling up efficient home retrofits across Europe with AI and computer vision",
+   "sectors": [
+    "climate"
+   ],
+   "index": 53
+  },
+  {
+   "name": "Nurture",
+   "url": "https://seedcamp.com/our-companies/#nurture",
+   "website": "http://nurture.is",
+   "invest_year": "2023",
+   "description": "Immersive, story-based learning for families",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 54
+  },
+  {
+   "name": "Skyflow",
+   "url": "https://seedcamp.com/our-companies/#skyflow",
+   "website": "http://flyskyflow.com",
+   "invest_year": "2023",
+   "description": "Situation reconnaissance by drone",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 55
+  },
+  {
+   "name": "Streambased",
+   "url": "https://seedcamp.com/our-companies/#streambased",
+   "website": "http://streambased.io",
+   "invest_year": "2023",
+   "description": "Merge data warehousing and streaming to offer dynamic and rapid data access",
+   "sectors": [
+    "enterprise",
+    "developer-tools"
+   ],
+   "index": 56
+  },
+  {
+   "name": "Sable Bio",
+   "url": "https://seedcamp.com/our-companies/#sable-bio",
+   "website": "http://sablebio.com",
+   "invest_year": "2023",
+   "description": "Prevent target safety toxicology failures",
+   "sectors": [
+    "health-bio",
+    "ai"
+   ],
+   "index": 57
+  },
+  {
+   "name": ".txt",
+   "url": "https://seedcamp.com/our-companies/#txt",
+   "website": "http://dottxt.ai",
+   "invest_year": "2023",
+   "description": "Brings reliability to open source LLM output with Guided Generation",
+   "sectors": [
+    "ai",
+    "developer-tools"
+   ],
+   "index": 58
+  },
+  {
+   "name": "Verax",
+   "url": "https://seedcamp.com/our-companies/#verax",
+   "website": "http://verax.ai",
+   "invest_year": "2023",
+   "description": "Enterprise-grade trust solutions for Gen AI",
+   "sectors": [
+    "ai",
+    "security"
+   ],
+   "index": 59
+  },
+  {
+   "name": "Sunrise",
+   "url": "https://seedcamp.com/our-companies/#sunrise",
+   "website": "http://sunriserobotics.co",
+   "invest_year": "2023",
+   "description": "Augmenting humanity through intelligent robotics",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 60
+  },
+  {
+   "name": "Emma",
+   "url": "https://seedcamp.com/our-companies/#emma",
+   "website": "http://emma-learn.com",
+   "invest_year": "2023",
+   "description": "Shaping the future of language education through immersive 3D AI avatars",
+   "sectors": [
+    "ai",
+    "consumer"
+   ],
+   "index": 61
+  },
+  {
+   "name": "Knostic",
+   "url": "https://seedcamp.com/our-companies/#knostic",
+   "website": "http://knostic.ai",
+   "invest_year": "2023",
+   "description": "Enabling enterprises to control \ninstitutional knowledge with the power of LLMs",
+   "sectors": [
+    "ai",
+    "security"
+   ],
+   "index": 62
+  },
+  {
+   "name": "Spektr",
+   "url": "https://seedcamp.com/our-companies/#spektr",
+   "website": "http://spektr.com",
+   "invest_year": "2023",
+   "description": "Monitor customer behaviour and risks and auto solve KYC/AML alerts",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 63
+  },
+  {
+   "name": "Apoha",
+   "url": "https://seedcamp.com/our-companies/#apoha",
+   "website": "http://apoha.com",
+   "invest_year": "2023",
+   "description": "Liquid brain that processes information by mimicking the mechanics of real neurons",
+   "sectors": [
+    "health-bio",
+    "ai"
+   ],
+   "index": 64
+  },
+  {
+   "name": "Fifth Dimension",
+   "url": "https://seedcamp.com/our-companies/#fifth-dimension",
+   "website": "http://fifthdimensionai.com",
+   "invest_year": "2023",
+   "description": "AI Co-Pilot for real estate deals, data, and documents",
+   "sectors": [
+    "enterprise",
+    "ai"
+   ],
+   "index": 65
+  },
+  {
+   "name": "Verisian",
+   "url": "https://seedcamp.com/our-companies/#verisian",
+   "website": "http://verisian.com",
+   "invest_year": "2023",
+   "description": "Accelerate drug time to market through real study traceability and trial integrity",
+   "sectors": [
+    "ai",
+    "health-bio"
+   ],
+   "index": 66
+  },
+  {
+   "name": "Flagcat",
+   "url": "https://seedcamp.com/our-companies/#flagcat",
+   "website": "http://flagcat.studio",
+   "invest_year": "2023",
+   "description": "Shaping the future of webtoons",
+   "sectors": [
+    "ai",
+    "consumer"
+   ],
+   "index": 67
+  },
+  {
+   "name": "Enzai",
+   "url": "https://seedcamp.com/our-companies/#enzai",
+   "website": "http://enz.ai",
+   "invest_year": "2023",
+   "description": "Governance platform to help organisations adopt best-in-class AI policies",
+   "sectors": [
+    "security",
+    "ai"
+   ],
+   "index": 68
+  },
+  {
+   "name": "AskUI",
+   "url": "https://seedcamp.com/our-companies/#askui",
+   "website": "http://askui.com",
+   "invest_year": "2023",
+   "description": "Agentic Testing for the connected world",
+   "sectors": [
+    "developer-tools",
+    "ai"
+   ],
+   "index": 69
+  },
+  {
+   "name": "Arcjet",
+   "url": "https://seedcamp.com/our-companies/#arcjet",
+   "website": "http://arcjet.com",
+   "invest_year": "2023",
+   "description": "Arcjet helps developers protect their apps",
+   "sectors": [
+    "security",
+    "developer-tools"
+   ],
+   "index": 70
+  },
+  {
+   "name": "Bookend",
+   "url": "https://seedcamp.com/our-companies/#bookend",
+   "website": "http://bookend.ai",
+   "invest_year": "2023",
+   "description": "AI autopilot for your Specialty Medical Practice",
+   "sectors": [
+    "health-bio",
+    "ai"
+   ],
+   "index": 71
+  },
+  {
+   "name": "Embedd",
+   "url": "https://seedcamp.com/our-companies/#embedd",
+   "website": "http://embedd.it",
+   "invest_year": "2023",
+   "description": "ML generated drivers for embedded software",
+   "sectors": [
+    "developer-tools",
+    "ai"
+   ],
+   "index": 72
+  },
+  {
+   "name": "Membrane",
+   "url": "https://seedcamp.com/our-companies/#membrane",
+   "website": "http://getmembrane.com",
+   "invest_year": "2023",
+   "description": "Provides a single flow to integrate with every external application",
+   "sectors": [
+    "developer-tools"
+   ],
+   "index": 73
+  },
+  {
+   "name": "Prelude",
+   "url": "https://seedcamp.com/our-companies/#prelude",
+   "website": "http://prelude.so",
+   "invest_year": "2023",
+   "description": "SMS verification infrastructure for better fraud detection and conversion",
+   "sectors": [
+    "security",
+    "ai"
+   ],
+   "index": 74
+  },
+  {
+   "name": "Pelikan Mobility",
+   "url": "https://seedcamp.com/our-companies/#pelikan-mobility",
+   "website": "http://pelikan-mobility.com",
+   "invest_year": "2023",
+   "description": "Next-generation green fleet lessor",
+   "sectors": [
+    "climate"
+   ],
+   "index": 75
+  },
+  {
+   "name": "MotorMia",
+   "url": "https://seedcamp.com/our-companies/#motormia",
+   "website": "http://motormia.co",
+   "invest_year": "2023",
+   "description": "Marketplace for automotive enthusiasts to buy and sell speciality equipment",
+   "sectors": [
+    "marketplaces"
+   ],
+   "index": 76
+  },
+  {
+   "name": "RunWhen",
+   "url": "https://seedcamp.com/our-companies/#runwhen",
+   "website": "http://runwhen.com",
+   "invest_year": "2023",
+   "description": "Digital assistant for troubleshooting complex cloud environments",
+   "sectors": [
+    "developer-tools",
+    "ai"
+   ],
+   "index": 77
+  },
+  {
+   "name": "Ferry",
+   "url": "https://seedcamp.com/our-companies/#ferry",
+   "website": "http://deployferry.io",
+   "invest_year": "2023",
+   "description": "Factory OS",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 78
+  },
+  {
+   "name": "Dust",
+   "url": "https://seedcamp.com/our-companies/#dust",
+   "website": "http://dust.tt",
+   "invest_year": "2023",
+   "description": "Making and deploying large language model apps",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 79
+  },
+  {
+   "name": "Trezy",
+   "url": "https://seedcamp.com/our-companies/#trezy",
+   "website": "http://trezy.io",
+   "invest_year": "2023",
+   "description": "AI-enabled real-time & automated financial performance",
+   "sectors": [
+    "fintech",
+    "enterprise"
+   ],
+   "index": 80
+  },
+  {
+   "name": "Argil",
+   "url": "https://seedcamp.com/our-companies/#argil",
+   "website": "http://argil.ai",
+   "invest_year": "2023",
+   "description": "No code automation platform for Generative AI",
+   "sectors": [
+    "developer-tools",
+    "ai"
+   ],
+   "index": 81
+  },
+  {
+   "name": "Faks",
+   "url": "https://seedcamp.com/our-companies/#faks",
+   "website": "http://faks.co",
+   "invest_year": "2023",
+   "description": "All-in-one sales platform connecting labs and pharmacies",
+   "sectors": [
+    "health-bio"
+   ],
+   "index": 82
+  },
+  {
+   "name": "Plumery",
+   "url": "https://seedcamp.com/our-companies/#plumery",
+   "website": "http://plumery.com",
+   "invest_year": "2023",
+   "description": "Digital engagement platform that helps banks implement digital programs",
+   "sectors": [
+    "developer-tools",
+    "fintech"
+   ],
+   "index": 83
+  },
+  {
+   "name": "UnifiedCRM",
+   "url": "https://seedcamp.com/our-companies/#unifiedcrm",
+   "website": "http://unifiedcrm.ai",
+   "invest_year": "2023",
+   "description": "A unified sales hub for remote and hybrid teams",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 84
+  },
+  {
+   "name": "Twig",
+   "url": "https://seedcamp.com/our-companies/#twig",
+   "website": "http://twig.bio",
+   "invest_year": "2022",
+   "description": "Producing sustainable molecules through engineered biology",
+   "sectors": [
+    "climate"
+   ],
+   "index": 85
+  },
+  {
+   "name": "Mimo",
+   "url": "https://seedcamp.com/our-companies/#mimo",
+   "website": "http://mimohq.com",
+   "invest_year": "2022",
+   "description": "Helping SMBs manage payments & cashflows",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 86
+  },
+  {
+   "name": "Cakewalk",
+   "url": "https://seedcamp.com/our-companies/#cakewalk",
+   "website": "http://cakewalk.security",
+   "invest_year": "2022",
+   "description": "Easy Identity & Access Management for fast-moving companies",
+   "sectors": [
+    "security"
+   ],
+   "index": 87
+  },
+  {
+   "name": "Kubeark",
+   "url": "https://seedcamp.com/our-companies/#kubeark",
+   "website": "http://kubeark.com",
+   "invest_year": "2022",
+   "description": "Enterprise—grade container and application management",
+   "sectors": [
+    "developer-tools"
+   ],
+   "index": 88
+  },
+  {
+   "name": "DinMo",
+   "url": "https://seedcamp.com/our-companies/#dinmo",
+   "website": "http://dinmo.com",
+   "invest_year": "2022",
+   "description": "Leveraging 1st party data intelligently in marketing tools to improve performance in a cookieless world",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 89
+  },
+  {
+   "name": "Light",
+   "url": "https://seedcamp.com/our-companies/#light",
+   "website": "http://light.inc",
+   "invest_year": "2022",
+   "description": "Modular, end-to-end solution for corporates to manage their financial setup",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 90
+  },
+  {
+   "name": "Webstudio",
+   "url": "https://seedcamp.com/our-companies/#webstudio",
+   "website": "http://webstudio.is",
+   "invest_year": "2022",
+   "description": "Open source visual development platform for designers and developers",
+   "sectors": [
+    "developer-tools"
+   ],
+   "index": 91
+  },
+  {
+   "name": "Spotlock",
+   "url": "https://seedcamp.com/our-companies/#spotlock",
+   "website": "http://spotlock.co",
+   "invest_year": "2022",
+   "description": "Leveraging commodity exchanges to lock in materials purchase prices",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 92
+  },
+  {
+   "name": "Inovia Bio",
+   "url": "https://seedcamp.com/our-companies/#inovia-bio",
+   "website": "http://inovia.bio",
+   "invest_year": "2022",
+   "description": "De-risk and accelerate drug development for pharmaceutical companies",
+   "sectors": [
+    "ai",
+    "health-bio"
+   ],
+   "index": 93
+  },
+  {
+   "name": "Rerun",
+   "url": "https://seedcamp.com/our-companies/#rerun",
+   "website": "http://rerun.io",
+   "invest_year": "2022",
+   "description": "Visual troubleshooting for computer vision in the physical world",
+   "sectors": [
+    "developer-tools",
+    "ai"
+   ],
+   "index": 94
+  },
+  {
+   "name": "Sidekick",
+   "url": "https://seedcamp.com/our-companies/#sidekick",
+   "website": "http://sidekickmoney.com/",
+   "invest_year": "2022",
+   "description": "Next-gen investment platform for the under-served mass affluent consumer",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 95
+  },
+  {
+   "name": "Crowd.dev",
+   "url": "https://seedcamp.com/our-companies/#crowd-dev",
+   "website": "http://crowd.dev",
+   "invest_year": "2022",
+   "description": "Developer community data platform",
+   "sectors": [
+    "developer-tools"
+   ],
+   "index": 96
+  },
+  {
+   "name": "Papaya",
+   "url": "https://seedcamp.com/our-companies/#papaya",
+   "website": "http://papayadash.com",
+   "invest_year": "2022",
+   "description": "The platform to source, run and manage your electric vehicles",
+   "sectors": [
+    "climate"
+   ],
+   "index": 97
+  },
+  {
+   "name": "Autone",
+   "url": "https://seedcamp.com/our-companies/#autone",
+   "website": "http://autone.io",
+   "invest_year": "2022",
+   "description": "Modular data platform to help retail & CPG businesses make better decisions",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 98
+  },
+  {
+   "name": "Granular",
+   "url": "https://seedcamp.com/our-companies/#granular",
+   "website": "http://granular-energy.com",
+   "invest_year": "2022",
+   "description": "Market solutions for 24/7 clean energy",
+   "sectors": [
+    "climate"
+   ],
+   "index": 99
+  },
+  {
+   "name": "Cyscale",
+   "url": "https://seedcamp.com/our-companies/#cyscale",
+   "website": "http://cyscale.com",
+   "invest_year": "2022",
+   "description": "Complete cloud visibility & control platform",
+   "sectors": [
+    "security"
+   ],
+   "index": 100
+  },
+  {
+   "name": "Hubflo",
+   "url": "https://seedcamp.com/our-companies/#hubflo",
+   "website": "http://hubflo.com",
+   "invest_year": "2022",
+   "description": "All-in-one SaaS for SMBs",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 101
+  },
+  {
+   "name": "Klump",
+   "url": "https://seedcamp.com/our-companies/#klump",
+   "website": "http://useklump.com",
+   "invest_year": "2022",
+   "description": "BNPL infrastructure for African banks",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 102
+  },
+  {
+   "name": "Visibly",
+   "url": "https://seedcamp.com/our-companies/#visibly",
+   "website": "http://visiblyhq.com",
+   "invest_year": "2022",
+   "description": "Certification platform for regulated training in the infrastructure sector",
+   "sectors": [
+    "enterprise",
+    "climate"
+   ],
+   "index": 103
+  },
+  {
+   "name": "Rasayel",
+   "url": "https://seedcamp.com/our-companies/#rasayel",
+   "website": "http://rasayel.io",
+   "invest_year": "2021",
+   "description": "Omnichannel communication platform for your business.",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 104
+  },
+  {
+   "name": "Rayon",
+   "url": "https://seedcamp.com/our-companies/#rayon",
+   "website": "http://rayon.design",
+   "invest_year": "2021",
+   "description": "Collaborative space design at scale",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 105
+  },
+  {
+   "name": "Paua",
+   "url": "https://seedcamp.com/our-companies/#paua",
+   "website": "http://pauatech.com",
+   "invest_year": "2021",
+   "description": "Fleet optimisation platform starting with payments",
+   "sectors": [
+    "climate"
+   ],
+   "index": 106
+  },
+  {
+   "name": "Join",
+   "url": "https://seedcamp.com/our-companies/#join",
+   "website": "http://join-stories.com",
+   "invest_year": "2021",
+   "description": "Creating professional stories for brands",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 107
+  },
+  {
+   "name": "Fabric",
+   "url": "https://seedcamp.com/our-companies/#fabric",
+   "website": "http://fabric.so",
+   "invest_year": "2022",
+   "description": "A collaboration and productivity layer for the internet",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 108
+  },
+  {
+   "name": "Those Beyond",
+   "url": "https://seedcamp.com/our-companies/#those-beyond",
+   "website": "http://thosebeyond.io",
+   "invest_year": "2022",
+   "description": "Building meaningful worlds, an immersive online games publisher",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 109
+  },
+  {
+   "name": "Popsink",
+   "url": "https://seedcamp.com/our-companies/#popsink",
+   "website": "http://popsink.com",
+   "invest_year": "2021",
+   "description": "Orchestration platform for data streams",
+   "sectors": [
+    "developer-tools"
+   ],
+   "index": 110
+  },
+  {
+   "name": "Fiat Republic",
+   "url": "https://seedcamp.com/our-companies/#fiat-republic",
+   "website": "http://fiatrepublic.com",
+   "invest_year": "2021",
+   "description": "Bridging banking & crypto",
+   "sectors": [
+    "fintech",
+    "crypto"
+   ],
+   "index": 111
+  },
+  {
+   "name": "Figures",
+   "url": "https://seedcamp.com/our-companies/#figures",
+   "website": "http://figures.hr",
+   "invest_year": "2021",
+   "description": "Access compensation data coming from employees, start-ups & scale-ups",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 112
+  },
+  {
+   "name": "Zinc",
+   "url": "https://seedcamp.com/our-companies/#zinc",
+   "website": "http://zincwork.com",
+   "invest_year": "2021",
+   "description": "Automated background checking software",
+   "sectors": [
+    "security"
+   ],
+   "index": 113
+  },
+  {
+   "name": "Lindus Health",
+   "url": "https://seedcamp.com/our-companies/#lindus-health",
+   "website": "http://lindushealth.com",
+   "invest_year": "2021",
+   "description": "From recruitment to delivery, Lindus accelerates clinical trials",
+   "sectors": [
+    "health-bio"
+   ],
+   "index": 114
+  },
+  {
+   "name": "Electric Car Scheme",
+   "url": "https://seedcamp.com/our-companies/#electric-car-scheme",
+   "website": "http://electriccarscheme.com",
+   "invest_year": "2021",
+   "description": "Government tax savings on any electric car",
+   "sectors": [
+    "climate"
+   ],
+   "index": 115
+  },
+  {
+   "name": "Fullview",
+   "url": "https://seedcamp.com/our-companies/#fullview",
+   "website": "http://fullview.io",
+   "invest_year": "2021",
+   "description": "Customer experience control centre",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 116
+  },
+  {
+   "name": "Rodeo",
+   "url": "https://seedcamp.com/our-companies/#rodeo",
+   "website": "http://gorodeo.app",
+   "invest_year": "2021",
+   "description": "The Rider Super-App",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 117
+  },
+  {
+   "name": "Tilt",
+   "url": "https://seedcamp.com/our-companies/#tilt",
+   "website": "http://tilt.app",
+   "invest_year": "2021",
+   "description": "Live shopping experiences for digital natives",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 118
+  },
+  {
+   "name": "Outverse",
+   "url": "https://seedcamp.com/our-companies/#outverse",
+   "website": "http://outverse.com",
+   "invest_year": "2021",
+   "description": "AI agents for instant customer support",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 119
+  },
+  {
+   "name": "Sikoia",
+   "url": "https://seedcamp.com/our-companies/#sikoia",
+   "website": "http://sikoia.com",
+   "invest_year": "2021",
+   "description": "Unified data platform for financial services",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 120
+  },
+  {
+   "name": "Yavin",
+   "url": "https://seedcamp.com/our-companies/#yavin",
+   "website": "http://yavin.com",
+   "invest_year": "2021",
+   "description": "A one-stop-shop in-store payment solution for European merchants",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 121
+  },
+  {
+   "name": "CNC24",
+   "url": "https://seedcamp.com/our-companies/#cnc24",
+   "website": "http://cnc24.com",
+   "invest_year": "2021",
+   "description": "Marketplace for custom metal products",
+   "sectors": [
+    "marketplaces"
+   ],
+   "index": 122
+  },
+  {
+   "name": "Rollee",
+   "url": "https://seedcamp.com/our-companies/#rollee",
+   "website": "http://getrollee.com",
+   "invest_year": "2021",
+   "description": "The gateway for reliable employment and income data.",
+   "sectors": [
+    "developer-tools"
+   ],
+   "index": 123
+  },
+  {
+   "name": "Liveblocks",
+   "url": "https://seedcamp.com/our-companies/#liveblocks",
+   "website": "http://liveblocks.io",
+   "invest_year": "2021",
+   "description": "Creating performant and reliable collaborative experiences",
+   "sectors": [
+    "developer-tools"
+   ],
+   "index": 124
+  },
+  {
+   "name": "Medusa",
+   "url": "https://seedcamp.com/our-companies/#medusa",
+   "website": "http://medusajs.com",
+   "invest_year": "2021",
+   "description": "API-first commerce engine built for fast-growing businesses",
+   "sectors": [
+    "developer-tools"
+   ],
+   "index": 125
+  },
+  {
+   "name": "Foreword Fund",
+   "url": "https://seedcamp.com/our-companies/#foreword-fund",
+   "website": "http://foreword.vc",
+   "invest_year": "2021",
+   "description": "An early-stage micro fund led by Declan Kelly",
+   "sectors": [],
+   "index": 126
+  },
+  {
+   "name": "Klasha",
+   "url": "https://seedcamp.com/our-companies/#klasha",
+   "website": "http://klasha.com",
+   "invest_year": "2021",
+   "description": "Simplifying borderless payments for commerce in Africa",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 127
+  },
+  {
+   "name": "Doorfeed",
+   "url": "https://seedcamp.com/our-companies/#doorfeed",
+   "website": "http://doorfeed.com",
+   "invest_year": "2021",
+   "description": "End-to-end acquisition platform for real estate buyers",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 128
+  },
+  {
+   "name": "Cerbos",
+   "url": "https://seedcamp.com/our-companies/#cerbos",
+   "website": "http://cerbos.dev",
+   "invest_year": "2021",
+   "description": "Authorization as a Service platform",
+   "sectors": [
+    "security",
+    "developer-tools"
+   ],
+   "index": 129
+  },
+  {
+   "name": "GDevelop",
+   "url": "https://seedcamp.com/our-companies/#gdevelop",
+   "website": "http://gdevelop.io",
+   "invest_year": "2021",
+   "description": "Accessible fast no-code 2D game creation for everyone",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 130
+  },
+  {
+   "name": "Vespucci",
+   "url": "https://seedcamp.com/our-companies/#vespucci",
+   "website": "http://vespuccianalytics.com",
+   "invest_year": "2021",
+   "description": "Automatically transforms customer data into insights",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 131
+  },
+  {
+   "name": "Vidjet",
+   "url": "https://seedcamp.com/our-companies/#vidjet",
+   "website": "http://vidjet.com",
+   "invest_year": "2021",
+   "description": "Smart pop-up videos for the web",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 132
+  },
+  {
+   "name": "HelloFlow",
+   "url": "https://seedcamp.com/our-companies/#helloflow",
+   "website": "http://helloflow.io",
+   "invest_year": "2021",
+   "description": "No-code digital client onboarding solution",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 133
+  },
+  {
+   "name": "Manara",
+   "url": "https://seedcamp.com/our-companies/#manara",
+   "website": "http://manara.tech",
+   "invest_year": "2021",
+   "description": "Connecting companies with the best software engineers in the Middle East",
+   "sectors": [
+    "marketplaces"
+   ],
+   "index": 134
+  },
+  {
+   "name": "Julienne Bruno",
+   "url": "https://seedcamp.com/our-companies/#julienne-bruno",
+   "website": "http://juliennebruno.com",
+   "invest_year": "2021",
+   "description": "Original products that are naturally plant-based",
+   "sectors": [
+    "consumer",
+    "climate"
+   ],
+   "index": 135
+  },
+  {
+   "name": "Buynomics",
+   "url": "https://seedcamp.com/our-companies/#buynomics",
+   "website": "http://buynomics.com",
+   "invest_year": "2020",
+   "description": "Pricing optimisation software powered by large scale simulation",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 136
+  },
+  {
+   "name": "Yonder",
+   "url": "https://seedcamp.com/our-companies/#yonder",
+   "website": "http://yonder.com",
+   "invest_year": "2020",
+   "description": "Reimagining the modern credit card",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 137
+  },
+  {
+   "name": "Vitesse",
+   "url": "https://seedcamp.com/our-companies/#vitesse",
+   "website": "http://vitesseautomation.com",
+   "invest_year": "2020",
+   "description": "Next-generation manufacturing software for industry 4.0",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 138
+  },
+  {
+   "name": "Treecard",
+   "url": "https://seedcamp.com/our-companies/#treecard",
+   "website": "http://treecard.org",
+   "invest_year": "2021",
+   "description": "The wooden debit card that plants trees",
+   "sectors": [
+    "climate",
+    "fintech"
+   ],
+   "index": 139
+  },
+  {
+   "name": "Baserow",
+   "url": "https://seedcamp.com/our-companies/#baserow",
+   "website": "http://baserow.io",
+   "invest_year": "2020",
+   "description": "Open source no-code database",
+   "sectors": [
+    "developer-tools"
+   ],
+   "index": 140
+  },
+  {
+   "name": "Surfboard",
+   "url": "https://seedcamp.com/our-companies/#surfboard",
+   "website": "http://teamsurfboard.com",
+   "invest_year": "2020",
+   "description": "Data-powered tools to help orchestrate customer service teams",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 141
+  },
+  {
+   "name": "OneShot",
+   "url": "https://seedcamp.com/our-companies/#oneshot",
+   "website": "http://oneshot.ai",
+   "invest_year": "2020",
+   "description": "Deep learning powered sales prospecting",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 142
+  },
+  {
+   "name": "LiveFlow",
+   "url": "https://seedcamp.com/our-companies/#liveflow",
+   "website": "http://liveflow.com",
+   "invest_year": "2020",
+   "description": "Automated financial management",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 143
+  },
+  {
+   "name": "Blobr",
+   "url": "https://seedcamp.com/our-companies/#blobr",
+   "website": "http://blobr.io",
+   "invest_year": "2020",
+   "description": "AI Powered Ads expert",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 144
+  },
+  {
+   "name": "Appwrite",
+   "url": "https://seedcamp.com/our-companies/#appwrite",
+   "website": "http://appwrite.io",
+   "invest_year": "2020",
+   "description": "An open-source end-to-end backend server",
+   "sectors": [
+    "developer-tools"
+   ],
+   "index": 145
+  },
+  {
+   "name": "Flow AI",
+   "url": "https://seedcamp.com/our-companies/#flow-ai",
+   "website": "http://flow-ai.com",
+   "invest_year": "2020",
+   "description": "Open small language model for evaluation",
+   "sectors": [
+    "ai"
+   ],
+   "index": 146
+  },
+  {
+   "name": "Limbo",
+   "url": "https://seedcamp.com/our-companies/#limbo",
+   "website": "http://limborevolution.com",
+   "invest_year": "2020",
+   "description": "A high end performance coach that monitors key indicative vitals in real time",
+   "sectors": [
+    "health-bio"
+   ],
+   "index": 147
+  },
+  {
+   "name": "Gardin",
+   "url": "https://seedcamp.com/our-companies/#gardin",
+   "website": "http://gardin.ag",
+   "invest_year": "2020",
+   "description": "Nutritional and food quality analytics",
+   "sectors": [
+    "climate"
+   ],
+   "index": 148
+  },
+  {
+   "name": "Picnic",
+   "url": "https://seedcamp.com/our-companies/#picnic",
+   "website": "http://picnic.photos",
+   "invest_year": "2020",
+   "description": "Revolutionising group chat for close friends",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 149
+  },
+  {
+   "name": "loc.tax",
+   "url": "https://seedcamp.com/our-companies/#loc-tax",
+   "website": "http://loctax.com",
+   "invest_year": "2020",
+   "description": "Collaborative tax project management based on Git",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 150
+  },
+  {
+   "name": "Weavr",
+   "url": "https://seedcamp.com/our-companies/#weavr",
+   "website": "http://weavr.io",
+   "invest_year": "2020",
+   "description": "Cloud-based collaboration platform for building digital payment flows",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 151
+  },
+  {
+   "name": "Paid",
+   "url": "https://seedcamp.com/our-companies/#paid",
+   "website": "http://paid.co.uk",
+   "invest_year": "2020",
+   "description": "Automation and collaboration software to simplify enterprise procurement",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 152
+  },
+  {
+   "name": "Vanilla Steel",
+   "url": "https://seedcamp.com/our-companies/#vanilla-steel",
+   "website": "http://vanillasteel.com",
+   "invest_year": "2020",
+   "description": "Independent platform for non-prime steels",
+   "sectors": [
+    "marketplaces"
+   ],
+   "index": 153
+  },
+  {
+   "name": "Rosita",
+   "url": "https://seedcamp.com/our-companies/#rosita",
+   "website": "http://rositalongevity.com",
+   "invest_year": "2020",
+   "description": "AI-based longevity coach, specifically built for seniors",
+   "sectors": [
+    "health-bio"
+   ],
+   "index": 154
+  },
+  {
+   "name": "Utopia",
+   "url": "https://seedcamp.com/our-companies/#utopia",
+   "website": "http://utopia.app",
+   "invest_year": "2020",
+   "description": "Online platform for designing, coding and shipping applications",
+   "sectors": [
+    "developer-tools"
+   ],
+   "index": 155
+  },
+  {
+   "name": "Gaia",
+   "url": "https://seedcamp.com/our-companies/#gaia",
+   "website": "http://gaiafamily.com",
+   "invest_year": "2020",
+   "description": "Making IVF accessible, affordable and personal",
+   "sectors": [
+    "health-bio",
+    "fintech"
+   ],
+   "index": 156
+  },
+  {
+   "name": "Certifaction",
+   "url": "https://seedcamp.com/our-companies/#certifaction",
+   "website": "http://certifaction.com",
+   "invest_year": "2020",
+   "description": "Restoring trust in the digital world by creating instantly verifiable information on the blockchain",
+   "sectors": [
+    "security",
+    "crypto"
+   ],
+   "index": 157
+  },
+  {
+   "name": "Meilisearch",
+   "url": "https://seedcamp.com/our-companies/#meilisearch",
+   "website": "http://meilisearch.com",
+   "invest_year": "2020",
+   "description": "Next generation search API",
+   "sectors": [
+    "developer-tools"
+   ],
+   "index": 158
+  },
+  {
+   "name": "Tooth Fairy",
+   "url": "https://seedcamp.com/our-companies/#tooth-fairy",
+   "website": "http://toothfairyapp.co.uk",
+   "invest_year": "2020",
+   "description": "Dentistry on demand",
+   "sectors": [
+    "health-bio"
+   ],
+   "index": 159
+  },
+  {
+   "name": "tl;dv",
+   "url": "https://seedcamp.com/our-companies/#tl-dv",
+   "website": "http://tldv.io",
+   "invest_year": "2020",
+   "description": "Meeting productivity tool for remote-first teams",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 160
+  },
+  {
+   "name": "Sylvera",
+   "url": "https://seedcamp.com/our-companies/#sylvera",
+   "website": "http://sylvera.com",
+   "invest_year": "2020",
+   "description": "Building the technical infrastructure and verification layer underpinning carbon markets",
+   "sectors": [
+    "climate"
+   ],
+   "index": 161
+  },
+  {
+   "name": "Sense Street",
+   "url": "https://seedcamp.com/our-companies/#sense-street",
+   "website": "http://sensestreet.com",
+   "invest_year": "2020",
+   "description": "Reinventing communications in capital markets",
+   "sectors": [
+    "ai",
+    "fintech"
+   ],
+   "index": 162
+  },
+  {
+   "name": "MedAll",
+   "url": "https://seedcamp.com/our-companies/#medall",
+   "website": "http://medall.org",
+   "invest_year": "2020",
+   "description": "The medical career passport",
+   "sectors": [
+    "health-bio"
+   ],
+   "index": 163
+  },
+  {
+   "name": "Jelly",
+   "url": "https://seedcamp.com/our-companies/#jelly",
+   "website": "http://getjelly.co.uk",
+   "invest_year": "2020",
+   "description": "Simple and accurate food management for chefs in one place",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 164
+  },
+  {
+   "name": "QuestDB",
+   "url": "https://seedcamp.com/our-companies/#questdb",
+   "website": "http://questdb.com",
+   "invest_year": "2020",
+   "description": "Open-source, SQL relational database designed to process time-series data, faster",
+   "sectors": [
+    "developer-tools"
+   ],
+   "index": 165
+  },
+  {
+   "name": "Ben",
+   "url": "https://seedcamp.com/our-companies/#ben",
+   "website": "http://thanksben.com",
+   "invest_year": "2019",
+   "description": "Flexible workplace benefits platform",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 166
+  },
+  {
+   "name": "Resistant AI",
+   "url": "https://seedcamp.com/our-companies/#resistant-ai",
+   "website": "http://resistant.ai",
+   "invest_year": "2019",
+   "description": "Security for machine learning in fintech",
+   "sectors": [
+    "security",
+    "ai",
+    "fintech"
+   ],
+   "index": 167
+  },
+  {
+   "name": "Humanity",
+   "url": "https://seedcamp.com/our-companies/#humanity",
+   "website": "http://humanity.health",
+   "invest_year": "2019",
+   "description": "Subscription platform enabling you to live a healthier, longer life",
+   "sectors": [
+    "health-bio"
+   ],
+   "index": 168
+  },
+  {
+   "name": "Primer",
+   "url": "https://seedcamp.com/our-companies/#primer",
+   "website": "http://primer.io",
+   "invest_year": "2019",
+   "description": "Supercharging payments through a unified API",
+   "sectors": [
+    "developer-tools",
+    "fintech"
+   ],
+   "index": 169
+  },
+  {
+   "name": "Tickitto",
+   "url": "https://seedcamp.com/our-companies/#tickitto",
+   "website": "http://tickitto.com",
+   "invest_year": "2019",
+   "description": "The global API for tickets",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 170
+  },
+  {
+   "name": "Agamon Health",
+   "url": "https://seedcamp.com/our-companies/#agamon-health",
+   "website": "http://agamonhealth.com",
+   "invest_year": "2019",
+   "description": "Improving clinical performance by unlocking the value of critical data trapped within unstructured medical reports",
+   "sectors": [
+    "ai",
+    "health-bio"
+   ],
+   "index": 171
+  },
+  {
+   "name": "Salv",
+   "url": "https://seedcamp.com/our-companies/#salv",
+   "website": "http://salv.com",
+   "invest_year": "2019",
+   "description": "Smart AML platform for banks & fintechs",
+   "sectors": [
+    "security",
+    "fintech"
+   ],
+   "index": 172
+  },
+  {
+   "name": "vyne",
+   "url": "https://seedcamp.com/our-companies/#vyne",
+   "website": "http://payvyne.com",
+   "invest_year": "2019",
+   "description": "Open Banking-enabled payments for eCommerce",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 173
+  },
+  {
+   "name": "Boundless",
+   "url": "https://seedcamp.com/our-companies/#boundless",
+   "website": "http://boundlesshq.com",
+   "invest_year": "2019",
+   "description": "Making it easy to employ anyone, anywhere",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 174
+  },
+  {
+   "name": "Martie",
+   "url": "https://seedcamp.com/our-companies/#martie",
+   "website": "http://martie.com",
+   "invest_year": "2019",
+   "description": "The smart way to shop foods that are cheap for you and rich for the planet.",
+   "sectors": [
+    "marketplaces"
+   ],
+   "index": 175
+  },
+  {
+   "name": "Supercede",
+   "url": "https://seedcamp.com/our-companies/#supercede",
+   "website": "http://supercede.com",
+   "invest_year": "2019",
+   "description": "Digital marketplace for reinsurance",
+   "sectors": [
+    "marketplaces",
+    "fintech"
+   ],
+   "index": 176
+  },
+  {
+   "name": "Hopin",
+   "url": "https://seedcamp.com/our-companies/#hopin",
+   "website": "http://hopin.com",
+   "invest_year": "2019",
+   "description": "First all-in-one live online events platform",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 177
+  },
+  {
+   "name": "kitch",
+   "url": "https://seedcamp.com/our-companies/#kitch",
+   "website": "http://kitch.io",
+   "invest_year": "2019",
+   "description": "The virtual food market for restaurants to win in the digital age",
+   "sectors": [
+    "marketplaces"
+   ],
+   "index": 178
+  },
+  {
+   "name": "Pento",
+   "url": "https://seedcamp.com/our-companies/#pento",
+   "website": "http://pento.io",
+   "invest_year": "2019",
+   "description": "Fully automated payroll",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 179
+  },
+  {
+   "name": "hi.health",
+   "url": "https://seedcamp.com/our-companies/#hi-health",
+   "website": "http://hi.health",
+   "invest_year": "2019",
+   "description": "Your personal concierge for health insurance",
+   "sectors": [
+    "health-bio",
+    "fintech"
+   ],
+   "index": 180
+  },
+  {
+   "name": "PortalOne",
+   "url": "https://seedcamp.com/our-companies/#portalone",
+   "website": "http://portalone.com",
+   "invest_year": "2019",
+   "description": "Combining games, live entertainment and Mixed Reality into a completely new interactive experience",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 181
+  },
+  {
+   "name": "Stotles",
+   "url": "https://seedcamp.com/our-companies/#stotles",
+   "website": "http://stotles.com",
+   "invest_year": "2019",
+   "description": "B2G sales intelligence for public-sector businesses",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 182
+  },
+  {
+   "name": "Rossum",
+   "url": "https://seedcamp.com/our-companies/#rossum",
+   "website": "http://rossum.ai",
+   "invest_year": "2019",
+   "description": "Automating data extraction from documents with AI to create a world without manual data entry",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 183
+  },
+  {
+   "name": "Graphy",
+   "url": "https://seedcamp.com/our-companies/#graphy",
+   "website": "http://graphy.app",
+   "invest_year": "2019",
+   "description": "Data collaboration platform allowing teams to reimagine how they work with data",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 184
+  },
+  {
+   "name": "StudentFinance",
+   "url": "https://seedcamp.com/our-companies/#studentfinance",
+   "website": "http://studentfinance.com",
+   "invest_year": "2019",
+   "description": "Tuition financing via Income-share Agreements",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 185
+  },
+  {
+   "name": "Uncapped",
+   "url": "https://seedcamp.com/our-companies/#uncapped",
+   "website": "http://weareuncapped.com",
+   "invest_year": "2019",
+   "description": "Fast, flexible loans to help SaaS and e-commerce businesses grow",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 186
+  },
+  {
+   "name": "Dreamdata",
+   "url": "https://seedcamp.com/our-companies/#dreamdata",
+   "website": "http://dreamdata.io",
+   "invest_year": "2019",
+   "description": "Multi-touch attribution and revenue analytics for B2B companies",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 187
+  },
+  {
+   "name": "Peppy",
+   "url": "https://seedcamp.com/our-companies/#peppy",
+   "website": "http://peppy.health",
+   "invest_year": "2019",
+   "description": "Employee support in moments that matter, by employers that care",
+   "sectors": [
+    "marketplaces",
+    "health-bio"
+   ],
+   "index": 188
+  },
+  {
+   "name": "LIV",
+   "url": "https://seedcamp.com/our-companies/#liv",
+   "website": "http://liv.tv",
+   "invest_year": "2019",
+   "description": "Powering spectator experiences for VR",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 189
+  },
+  {
+   "name": "Sorare",
+   "url": "https://seedcamp.com/our-companies/#sorare",
+   "website": "http://sorare.com",
+   "invest_year": "2019",
+   "description": "Ecosystem for collecting and playing with branded crypto-goods",
+   "sectors": [
+    "crypto"
+   ],
+   "index": 190
+  },
+  {
+   "name": "Machinations",
+   "url": "https://seedcamp.com/our-companies/#machinations",
+   "website": "http://machinations.io",
+   "invest_year": "2019",
+   "description": "The browser-based platform to design, balance and simulate game systems",
+   "sectors": [
+    "developer-tools"
+   ],
+   "index": 191
+  },
+  {
+   "name": "Synthesia",
+   "url": "https://seedcamp.com/our-companies/#synthesia",
+   "website": "http://synthesia.io",
+   "invest_year": "2019",
+   "description": "AI-driven video editing and production",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 192
+  },
+  {
+   "name": "Skew",
+   "url": "https://seedcamp.com/our-companies/#skew",
+   "website": "http://skew.com",
+   "invest_year": "2019",
+   "description": "Building a crypto derivatives analytics & trading platform for the institutional market",
+   "sectors": [
+    "crypto",
+    "fintech"
+   ],
+   "index": 193
+  },
+  {
+   "name": "Itch",
+   "url": "https://seedcamp.com/our-companies/#itch",
+   "website": "http://itchpet.com",
+   "invest_year": "2019",
+   "description": "Personalised, effective treatments for pet wellbeing delivered through your letterbox",
+   "sectors": [
+    "health-bio"
+   ],
+   "index": 194
+  },
+  {
+   "name": "Orbital",
+   "url": "https://seedcamp.com/our-companies/#orbital",
+   "website": "http://orbital.tech",
+   "invest_year": "2019",
+   "description": "Automating legal diligence for property transactions",
+   "sectors": [
+    "ai"
+   ],
+   "index": 195
+  },
+  {
+   "name": "Nodes and Links",
+   "url": "https://seedcamp.com/our-companies/#nodes-and-links",
+   "website": "http://nodeslinks.com",
+   "invest_year": "2019",
+   "description": "Enabling organisations to understand the risks that stem from complex interactions",
+   "sectors": [
+    "security",
+    "ai"
+   ],
+   "index": 196
+  },
+  {
+   "name": "CLUBZERO",
+   "url": "https://seedcamp.com/our-companies/#clubzero",
+   "website": "http://clubzero.co",
+   "invest_year": "2018",
+   "description": "Reusable food and beverage packaging system that replaces single-use packaging",
+   "sectors": [
+    "climate"
+   ],
+   "index": 197
+  },
+  {
+   "name": "Metaview",
+   "url": "https://seedcamp.com/our-companies/#metaview",
+   "website": "http://metaview.ai",
+   "invest_year": "2018",
+   "description": "Empowering organisations with data to create world-class interview processes at scale",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 198
+  },
+  {
+   "name": "Taxfix",
+   "url": "https://seedcamp.com/our-companies/#taxfix",
+   "website": "http://taxfix.com",
+   "invest_year": "2018",
+   "description": "Digital tax advisor that offers online tax preparation services",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 199
+  },
+  {
+   "name": "Passbase",
+   "url": "https://seedcamp.com/our-companies/#passbase",
+   "website": "http://passbase.com",
+   "invest_year": "2018",
+   "description": "Developer-friendly identity verification tools",
+   "sectors": [
+    "security",
+    "developer-tools"
+   ],
+   "index": 200
+  },
+  {
+   "name": "Spill",
+   "url": "https://seedcamp.com/our-companies/#spill",
+   "website": "http://spill.chat",
+   "invest_year": "2018",
+   "description": "Bringing the benefits of talking therapy to your phone",
+   "sectors": [
+    "health-bio"
+   ],
+   "index": 201
+  },
+  {
+   "name": "Speechly",
+   "url": "https://seedcamp.com/our-companies/#speechly",
+   "website": "http://speechly.com",
+   "invest_year": "2018",
+   "description": "Spoken language understanding API for developers",
+   "sectors": [
+    "developer-tools",
+    "ai"
+   ],
+   "index": 202
+  },
+  {
+   "name": "Gameye",
+   "url": "https://seedcamp.com/our-companies/#gameye",
+   "website": "http://gameye.com",
+   "invest_year": "2018",
+   "description": "Developing deployment solutions for gameservers, creating matchmaking capabilities across a global network",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 203
+  },
+  {
+   "name": "Millimetric",
+   "url": "https://seedcamp.com/our-companies/#millimetric",
+   "website": "http://millimetric.ai",
+   "invest_year": "2018",
+   "description": "Anomaly detection software",
+   "sectors": [
+    "ai"
+   ],
+   "index": 204
+  },
+  {
+   "name": "Reply.ai",
+   "url": "https://seedcamp.com/our-companies/#reply-ai",
+   "website": "http://reply.ai",
+   "invest_year": "2018",
+   "description": "Making customer service faster and smarter via automated ticket deflection",
+   "sectors": [
+    "ai"
+   ],
+   "index": 205
+  },
+  {
+   "name": "Ezra",
+   "url": "https://seedcamp.com/our-companies/#ezra",
+   "website": "http://ezra.com",
+   "invest_year": "2018",
+   "description": "Developing next generation cancer screening technology using AI & MRIs",
+   "sectors": [
+    "ai",
+    "health-bio"
+   ],
+   "index": 206
+  },
+  {
+   "name": "Nordigen",
+   "url": "https://seedcamp.com/our-companies/#nordigen",
+   "website": "http://nordigen.com",
+   "invest_year": "2018",
+   "description": "Helping banks analyse account data to approve more creditworthy customers",
+   "sectors": [
+    "ai",
+    "fintech"
+   ],
+   "index": 207
+  },
+  {
+   "name": "Elephant Healthcare",
+   "url": "https://seedcamp.com/our-companies/#elephant-healthcare",
+   "website": "http://elephant.healthcare",
+   "invest_year": "2018",
+   "description": "Digitising frontline healthcare, with a focus on emerging markets",
+   "sectors": [
+    "health-bio"
+   ],
+   "index": 208
+  },
+  {
+   "name": "Risk Ledger",
+   "url": "https://seedcamp.com/our-companies/#risk-ledger",
+   "website": "http://riskledger.com",
+   "invest_year": "2018",
+   "description": "The world’s first scalable security assurance platform",
+   "sectors": [
+    "security"
+   ],
+   "index": 209
+  },
+  {
+   "name": "Back",
+   "url": "https://seedcamp.com/our-companies/#back",
+   "website": "http://backhq.com",
+   "invest_year": "2018",
+   "description": "Automating internal requests and routine processes",
+   "sectors": [
+    "ai"
+   ],
+   "index": 210
+  },
+  {
+   "name": "superscript",
+   "url": "https://seedcamp.com/our-companies/#superscript",
+   "website": "http://gosuperscript.com",
+   "invest_year": "2018",
+   "description": "Specialist insurance provider for digital native businesses",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 211
+  },
+  {
+   "name": "Vitrolabs",
+   "url": "https://seedcamp.com/our-companies/#vitrolabs",
+   "website": "http://vitrolabsinc.com",
+   "invest_year": "2018",
+   "description": "Lab grown leather",
+   "sectors": [
+    "climate"
+   ],
+   "index": 212
+  },
+  {
+   "name": "Parla",
+   "url": "https://seedcamp.com/our-companies/#parla",
+   "website": "http://myparla.com",
+   "invest_year": "2018",
+   "description": "Revolutionising reproductive health by providing greater access to diagnostic tests and proactive support",
+   "sectors": [
+    "health-bio"
+   ],
+   "index": 213
+  },
+  {
+   "name": "Ramp",
+   "url": "https://seedcamp.com/our-companies/#ramp",
+   "website": "http://rampnetwork.com",
+   "invest_year": "2018",
+   "description": "The decentralised protocol powering fiat to crypto exchanges",
+   "sectors": [
+    "fintech",
+    "crypto"
+   ],
+   "index": 214
+  },
+  {
+   "name": "Sano",
+   "url": "https://seedcamp.com/our-companies/#sano",
+   "website": "http://sanogenetics.com",
+   "invest_year": "2018",
+   "description": "Providing researchers access to valuable genetic and health data while protecting the individuals who provide it",
+   "sectors": [
+    "health-bio"
+   ],
+   "index": 215
+  },
+  {
+   "name": "Peony",
+   "url": "https://seedcamp.com/our-companies/#peony",
+   "website": "http://peony.ink",
+   "invest_year": "2018",
+   "description": "Note taking tools combined with a reliable knowledge database",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 216
+  },
+  {
+   "name": "Synthesized",
+   "url": "https://seedcamp.com/our-companies/#synthesized",
+   "website": "http://synthesized.io",
+   "invest_year": "2018",
+   "description": "AI-driven software for generating better quality artificial data",
+   "sectors": [
+    "ai"
+   ],
+   "index": 217
+  },
+  {
+   "name": "Griffin",
+   "url": "https://seedcamp.com/our-companies/#griffin",
+   "website": "http://griffin.com",
+   "invest_year": "2018",
+   "description": "Bank-as-a-platform, providing bank accounts and payments for fintechs and other money service businesses",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 218
+  },
+  {
+   "name": "Harbr",
+   "url": "https://seedcamp.com/our-companies/#harbr",
+   "website": "http://harbrdata.com",
+   "invest_year": "2018",
+   "description": "Making it easier than ever to find, analyse and distribute data",
+   "sectors": [
+    "ai"
+   ],
+   "index": 219
+  },
+  {
+   "name": "Maze",
+   "url": "https://seedcamp.com/our-companies/#maze",
+   "website": "http://maze.co",
+   "invest_year": "2018",
+   "description": "Maze empowers product and marketing teams to test, learn, and act rapidly",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 220
+  },
+  {
+   "name": "THIS",
+   "url": "https://seedcamp.com/our-companies/#this",
+   "website": "http://this.co",
+   "invest_year": "2018",
+   "description": "Producing realistic, plant-based meat products for the mass-market",
+   "sectors": [
+    "climate"
+   ],
+   "index": 221
+  },
+  {
+   "name": "Veratrak",
+   "url": "https://seedcamp.com/our-companies/#veratrak",
+   "website": "http://veratrak.com",
+   "invest_year": "2018",
+   "description": "Smarter analytics, collaboration tools and record-keeping for pharmaceutical supply chain companies",
+   "sectors": [
+    "enterprise",
+    "health-bio"
+   ],
+   "index": 222
+  },
+  {
+   "name": "Fluidstack",
+   "url": "https://seedcamp.com/our-companies/#fluidstack",
+   "website": "http://fluidstack.io",
+   "invest_year": "2018",
+   "description": "AI cloud platform that aggregates underutilised GPUs from global data centres to deliver high‑performance, scalable GPU compute for AI/ML",
+   "sectors": [
+    "ai"
+   ],
+   "index": 223
+  },
+  {
+   "name": "Doctorly",
+   "url": "https://seedcamp.com/our-companies/#doctorly",
+   "website": "http://doctorly.de",
+   "invest_year": "2018",
+   "description": "Manage your medical practice with one simple system",
+   "sectors": [
+    "health-bio"
+   ],
+   "index": 224
+  },
+  {
+   "name": "Sweatcoin",
+   "url": "https://seedcamp.com/our-companies/#sweatcoin",
+   "website": "http://sweatco.in",
+   "invest_year": "2017",
+   "description": "Digital currency backed by physical movement",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 225
+  },
+  {
+   "name": "Pace",
+   "url": "https://seedcamp.com/our-companies/#pace",
+   "website": "http://paceup.com",
+   "invest_year": "2017",
+   "description": "Intelligent pricing for the hospitality industry. Using machine learning to find the right price",
+   "sectors": [
+    "ai"
+   ],
+   "index": 226
+  },
+  {
+   "name": "StepLadder",
+   "url": "https://seedcamp.com/our-companies/#stepladder",
+   "website": "http://joinstepladder.com",
+   "invest_year": "2017",
+   "description": "Collaborative financing enabling you to get your home deposit 45% faster on average",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 227
+  },
+  {
+   "name": "PassFort",
+   "url": "https://seedcamp.com/our-companies/#passfort",
+   "website": "http://passfort.com",
+   "invest_year": "2017",
+   "description": "Automated AML & KYC onboarding",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 228
+  },
+  {
+   "name": "SeedLegals",
+   "url": "https://seedcamp.com/our-companies/#seedlegals",
+   "website": "http://seedlegals.com",
+   "invest_year": "2017",
+   "description": "Raise. Invest. Legals. Sorted.",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 229
+  },
+  {
+   "name": "Flow",
+   "url": "https://seedcamp.com/our-companies/#flow",
+   "website": "http://flowengineering.com",
+   "invest_year": "2016",
+   "description": "Revolutionising hardware development, starting with the most collaborative requirements management tool in the world",
+   "sectors": [
+    "ai"
+   ],
+   "index": 230
+  },
+  {
+   "name": "9fin",
+   "url": "https://seedcamp.com/our-companies/#9fin",
+   "website": "http://9fin.com",
+   "invest_year": "2017",
+   "description": "AI powered financial data platform for fixed income",
+   "sectors": [
+    "ai",
+    "fintech"
+   ],
+   "index": 231
+  },
+  {
+   "name": "Nevercode",
+   "url": "https://seedcamp.com/our-companies/#nevercode",
+   "website": "http://codemagic.io",
+   "invest_year": "2015",
+   "description": "Cloud-based continuous integration & delivery for iOS, Android, Cordova, Ionic, React Native & Flutter projects",
+   "sectors": [
+    "developer-tools"
+   ],
+   "index": 232
+  },
+  {
+   "name": "Bloomsbury",
+   "url": "https://seedcamp.com/our-companies/#bloomsbury",
+   "website": "http://bloomsbury.ai",
+   "invest_year": "2017",
+   "description": "Enabling everyone to rapidly create text understanding applications",
+   "sectors": [
+    "ai"
+   ],
+   "index": 233
+  },
+  {
+   "name": "Zamna",
+   "url": "https://seedcamp.com/our-companies/#zamna",
+   "website": "http://zamna.com",
+   "invest_year": "2017",
+   "description": "Strategic data sharing for airlines, enabled through blockchain.",
+   "sectors": [
+    "crypto",
+    "security"
+   ],
+   "index": 234
+  },
+  {
+   "name": "Labstep",
+   "url": "https://seedcamp.com/our-companies/#labstep",
+   "website": "http://labstep.com",
+   "invest_year": "2017",
+   "description": "Capturing real-time scientific process data to improve research and enable collaboration.",
+   "sectors": [
+    "health-bio"
+   ],
+   "index": 235
+  },
+  {
+   "name": "Wevat",
+   "url": "https://seedcamp.com/our-companies/#wevat",
+   "website": "http://wevat.com",
+   "invest_year": "2017",
+   "description": "Digitising tax free shopping by allowing non-EU travellers to confirm their eligibility, record purchases and claim back Value Added Tax.",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 236
+  },
+  {
+   "name": "CyberSmart",
+   "url": "https://seedcamp.com/our-companies/#cybersmart",
+   "website": "http://cybersmart.co.uk",
+   "invest_year": "2016",
+   "description": "Automated compliance to protect your organisation and data",
+   "sectors": [
+    "security"
+   ],
+   "index": 237
+  },
+  {
+   "name": "Cuvva",
+   "url": "https://seedcamp.com/our-companies/#cuvva",
+   "website": "http://cuvva.com",
+   "invest_year": "2016",
+   "description": "Pay-as-you-drive insurance on your terms.",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 238
+  },
+  {
+   "name": "Telleroo",
+   "url": "https://seedcamp.com/our-companies/#telleroo",
+   "website": "http://telleroo.com",
+   "invest_year": "2016",
+   "description": "Bulk payments simplified",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 239
+  },
+  {
+   "name": "Fraugster",
+   "url": "https://seedcamp.com/our-companies/#fraugster",
+   "website": "http://fraugster.com",
+   "invest_year": "2016",
+   "description": "Using AI to eliminate e-commerce fraud and increase customers’ profits.",
+   "sectors": [
+    "security",
+    "ai",
+    "fintech"
+   ],
+   "index": 240
+  },
+  {
+   "name": "Legit Patents",
+   "url": "https://seedcamp.com/our-companies/#legit-patents",
+   "website": "http://legit.ai",
+   "invest_year": "2016",
+   "description": "AI-powered Intellectual Property Department",
+   "sectors": [
+    "ai"
+   ],
+   "index": 241
+  },
+  {
+   "name": "viz.ai",
+   "url": "https://seedcamp.com/our-companies/#viz-ai",
+   "website": "http://viz.ai",
+   "invest_year": "2016",
+   "description": "Viz.ai alerts multidisciplinary care teams earlier in the workflow, to coordinate care and connect frontline health care professionals (HCPs) to specialists and facilitate efficient communication and care coordination.",
+   "sectors": [
+    "ai",
+    "health-bio"
+   ],
+   "index": 242
+  },
+  {
+   "name": "Libryo",
+   "url": "https://seedcamp.com/our-companies/#libryo",
+   "website": "http://libryo.com",
+   "invest_year": "2016",
+   "description": "SaaS for regulatory law. Providing certainty to compliance professionals, by answering their legal questions at their time and place.",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 243
+  },
+  {
+   "name": "CRU Kafe",
+   "url": "https://seedcamp.com/our-companies/#cru-kafe",
+   "website": "http://crukafe.com",
+   "invest_year": "2016",
+   "description": "The finest Organic coffee from around the world, in the convenience of a Nespresso® friendly capsule",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 244
+  },
+  {
+   "name": "Wave",
+   "url": "https://seedcamp.com/our-companies/#wave",
+   "website": "http://wavexr.com",
+   "invest_year": "2016",
+   "description": "The platform for creating and sharing virtual concerts",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 245
+  },
+  {
+   "name": "Reposit",
+   "url": "https://seedcamp.com/our-companies/#reposit",
+   "website": "http://reposit.co.uk",
+   "invest_year": "2016",
+   "description": "The tenancy deposit alternative.",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 246
+  },
+  {
+   "name": "Vinterior",
+   "url": "https://seedcamp.com/our-companies/#vinterior",
+   "website": "http://vinterior.co",
+   "invest_year": "2016",
+   "description": "A two-sided marketplace connecting professional furniture sellers to buyers of vintage and design furniture.",
+   "sectors": [
+    "marketplaces"
+   ],
+   "index": 247
+  },
+  {
+   "name": "KareInn",
+   "url": "https://seedcamp.com/our-companies/#kareinn",
+   "website": "http://kareinn.com",
+   "invest_year": "2016",
+   "description": "Improving the quality of life for our parents’ generation.",
+   "sectors": [
+    "health-bio"
+   ],
+   "index": 248
+  },
+  {
+   "name": "Trail",
+   "url": "https://seedcamp.com/our-companies/#trail",
+   "website": "http://trailapp.com",
+   "invest_year": "2016",
+   "description": "Smart daily checklist for operations management.",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 249
+  },
+  {
+   "name": "Thriva",
+   "url": "https://seedcamp.com/our-companies/#thriva",
+   "website": "http://thriva.co",
+   "invest_year": "2016",
+   "description": "Thriva offers a personalized at-home finger-prick blood test which enables individuals to easily track and improve health.",
+   "sectors": [
+    "health-bio"
+   ],
+   "index": 250
+  },
+  {
+   "name": "Alterest",
+   "url": "https://seedcamp.com/our-companies/#alterest",
+   "website": "http://alterest.co",
+   "invest_year": "2015",
+   "description": "Institutional-grade data and tools for private and alternative credit",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 251
+  },
+  {
+   "name": "Juro",
+   "url": "https://seedcamp.com/our-companies/#juro",
+   "website": "http://juro.com",
+   "invest_year": "2016",
+   "description": "The contract collaboration platform: contract management software your whole team will love",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 252
+  },
+  {
+   "name": "Beeline",
+   "url": "https://seedcamp.com/our-companies/#beeline",
+   "website": "http://beeline.co",
+   "invest_year": "2016",
+   "description": "A revolutionary navigation system to transform your ride in the city",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 253
+  },
+  {
+   "name": "Cronofy",
+   "url": "https://seedcamp.com/our-companies/#cronofy",
+   "website": "http://cronofy.com",
+   "invest_year": "2014",
+   "description": "APIs for calendar connectivity and interview scheduling automation",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 254
+  },
+  {
+   "name": "Kasko",
+   "url": "https://seedcamp.com/our-companies/#kasko",
+   "website": "http://kasko.io",
+   "invest_year": "2015",
+   "description": "Digital end-to-end platform for bespoke on-demand insurance.",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 255
+  },
+  {
+   "name": "Charlie HR",
+   "url": "https://seedcamp.com/our-companies/#charlie-hr",
+   "website": "http://charliehr.com",
+   "invest_year": "2016",
+   "description": "The free HR platform for small businesses.",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 256
+  },
+  {
+   "name": "Wefox",
+   "url": "https://seedcamp.com/our-companies/#wefox",
+   "website": "http://wefox.com",
+   "invest_year": "2015",
+   "description": "wefox is a category-defining insurtech platform that is connecting insurance companies, distributors, and customers, to give the world simple access to digital insurance solutions.",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 257
+  },
+  {
+   "name": "AI Build",
+   "url": "https://seedcamp.com/our-companies/#ai-build",
+   "website": "http://ai-build.com",
+   "invest_year": "2016",
+   "description": "Developing Artificial Intelligence and 3D printing technologies to make manufacturing easier and smarter",
+   "sectors": [
+    "ai"
+   ],
+   "index": 258
+  },
+  {
+   "name": "Much Better Adventures",
+   "url": "https://seedcamp.com/our-companies/#much-better-adventures",
+   "website": "http://muchbetteradventures.com",
+   "invest_year": "2015",
+   "description": "Global marketplace for holidays and experiences from specialist local hosts.",
+   "sectors": [
+    "marketplaces"
+   ],
+   "index": 259
+  },
+  {
+   "name": "SwiftShift",
+   "url": "https://seedcamp.com/our-companies/#swiftshift",
+   "website": "http://swiftshift.com",
+   "invest_year": "2015",
+   "description": "SwiftShift is reimagining pediatric home care delivery by creating the first caregiver-managed pediatric home care service.",
+   "sectors": [
+    "health-bio"
+   ],
+   "index": 260
+  },
+  {
+   "name": "Fleksy",
+   "url": "https://seedcamp.com/our-companies/#fleksy",
+   "website": "http://fleksy.com",
+   "invest_year": "2015",
+   "description": "Text input SDKs, enabling developers to create outstanding typing products",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 261
+  },
+  {
+   "name": "TalkPush",
+   "url": "https://seedcamp.com/our-companies/#talkpush",
+   "website": "http://talkpush.com",
+   "invest_year": "2015",
+   "description": "Building solutions to facilitate conversations with large talent pools via chat, messaging, and voice.",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 262
+  },
+  {
+   "name": "Pleo",
+   "url": "https://seedcamp.com/our-companies/#pleo",
+   "website": "http://pleo.io",
+   "invest_year": "2015",
+   "description": "The company credit card reimagined.",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 263
+  },
+  {
+   "name": "WealthKernel",
+   "url": "https://seedcamp.com/our-companies/#wealthkernel",
+   "website": "http://wealthkernel.com",
+   "invest_year": "2015",
+   "description": "Automated wealth management as a service to institutional clients.",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 264
+  },
+  {
+   "name": "Getagent",
+   "url": "https://seedcamp.com/our-companies/#getagent",
+   "website": "http://getagent.co.uk",
+   "invest_year": "2015",
+   "description": "Find the best estate agent to sell your home, in just a few clicks.",
+   "sectors": [
+    "marketplaces"
+   ],
+   "index": 265
+  },
+  {
+   "name": "Priori Data",
+   "url": "https://seedcamp.com/our-companies/#priori-data",
+   "website": "http://prioridata.com",
+   "invest_year": "2015",
+   "description": "Quantify the app economy.",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 266
+  },
+  {
+   "name": "JOBDOH",
+   "url": "https://seedcamp.com/our-companies/#jobdoh",
+   "website": "http://jobdoh.com",
+   "invest_year": "2015",
+   "description": "A quick location based booking platform to get quality temporary workers for hospitality and exhibitions",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 267
+  },
+  {
+   "name": "Pollen",
+   "url": "https://seedcamp.com/our-companies/#pollen",
+   "website": "http://pollentechnologies.com",
+   "invest_year": "2015",
+   "description": "Pay and collect funds around the world quickly, cheaply and efficiently.",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 268
+  },
+  {
+   "name": "Edgefolio",
+   "url": "https://seedcamp.com/our-companies/#edgefolio",
+   "website": "http://edgefolio.com",
+   "invest_year": "2015",
+   "description": "The platform connecting Investors and Fund Managers through data.",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 269
+  },
+  {
+   "name": "Traderion",
+   "url": "https://seedcamp.com/our-companies/#traderion",
+   "website": "http://traderion.com",
+   "invest_year": "2015",
+   "description": "Simulation based assessment and training tool for trading professionals.",
+   "sectors": [
+    "ai",
+    "fintech"
+   ],
+   "index": 270
+  },
+  {
+   "name": "UiPath",
+   "url": "https://seedcamp.com/our-companies/#uipath",
+   "website": "http://uipath.com",
+   "invest_year": "2015",
+   "description": "Leaders in Robotic Process Automation",
+   "sectors": [
+    "ai",
+    "enterprise"
+   ],
+   "index": 271
+  },
+  {
+   "name": "Medefer",
+   "url": "https://seedcamp.com/our-companies/#medefer",
+   "website": "http://medefer.com",
+   "invest_year": "2014",
+   "description": "Consultant advice at your fingertips",
+   "sectors": [
+    "health-bio"
+   ],
+   "index": 272
+  },
+  {
+   "name": "Land Insight",
+   "url": "https://seedcamp.com/our-companies/#land-insight",
+   "website": "http://land.tech",
+   "invest_year": "2015",
+   "description": "Find and assess off-market development land.",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 273
+  },
+  {
+   "name": "Curve",
+   "url": "https://seedcamp.com/our-companies/#curve",
+   "website": "http://curve.com",
+   "invest_year": "2015",
+   "description": "Building a money hub where you can spend, see, & save your money effortlessly, all in one place.",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 274
+  },
+  {
+   "name": "Lateral",
+   "url": "https://seedcamp.com/our-companies/#lateral",
+   "website": "http://lateral.io",
+   "invest_year": "2014",
+   "description": "Automating Information Discovery",
+   "sectors": [
+    "ai"
+   ],
+   "index": 275
+  },
+  {
+   "name": "Branchtrack",
+   "url": "https://seedcamp.com/our-companies/#branchtrack",
+   "website": "http://branchtrack.com",
+   "invest_year": "2014",
+   "description": "The effective way to boost sales and customer care skills",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 276
+  },
+  {
+   "name": "Reinfer",
+   "url": "https://seedcamp.com/our-companies/#reinfer",
+   "website": "http://reinfer.io",
+   "invest_year": "2015",
+   "description": "Re:infer takes the communications streams you receive and turns them into something you can automate a business process against.",
+   "sectors": [
+    "ai"
+   ],
+   "index": 277
+  },
+  {
+   "name": "Grover",
+   "url": "https://seedcamp.com/our-companies/#grover",
+   "website": "http://grover.com",
+   "invest_year": "2015",
+   "description": "Reinventing consumption with a simple, on-demand subscription model for all the products you love.",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 278
+  },
+  {
+   "name": "Monese",
+   "url": "https://seedcamp.com/our-companies/#monese",
+   "website": "http://monese.com",
+   "invest_year": "2015",
+   "description": "Monese is a digital banking option that provides mobile-only, multi-currency accounts in countries across the European Economic Area.",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 279
+  },
+  {
+   "name": "Spoke",
+   "url": "https://seedcamp.com/our-companies/#spoke",
+   "website": "http://spoke-london.com",
+   "invest_year": "2015",
+   "description": "Properly made clothes that really fit, direct from the workshop.",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 280
+  },
+  {
+   "name": "Pointy",
+   "url": "https://seedcamp.com/our-companies/#pointy",
+   "website": "http://pointy.com",
+   "invest_year": "2015",
+   "description": "The simple way for local shops to get online and attract more customers through their door.",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 281
+  },
+  {
+   "name": "Trussle",
+   "url": "https://seedcamp.com/our-companies/#trussle",
+   "website": "http://trussle.com",
+   "invest_year": "2015",
+   "description": "Simpler way to get a mortgage.",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 282
+  },
+  {
+   "name": "Revolut",
+   "url": "https://seedcamp.com/our-companies/#revolut",
+   "website": "http://revolut.com",
+   "invest_year": "2015",
+   "description": "Revolut is a financial services company that specializes in mobile banking, card payments, money remittance, and foreign exchange.",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 283
+  },
+  {
+   "name": "Marcopolo Learning",
+   "url": "https://seedcamp.com/our-companies/#marcopolo-learning",
+   "website": "http://marcopololearning.com",
+   "invest_year": "2015",
+   "description": "Reimagining children's media",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 284
+  },
+  {
+   "name": "Hubble",
+   "url": "https://seedcamp.com/our-companies/#hubble",
+   "website": "http://hubblehq.com",
+   "invest_year": "2014",
+   "description": "Making renting office space easy",
+   "sectors": [
+    "marketplaces"
+   ],
+   "index": 285
+  },
+  {
+   "name": "Property Partner",
+   "url": "https://seedcamp.com/our-companies/#property-partner",
+   "website": "http://propertypartner.co",
+   "invest_year": "2014",
+   "description": "Property crowdfunding platform and trading exchange.",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 286
+  },
+  {
+   "name": "Lodgify",
+   "url": "https://seedcamp.com/our-companies/#lodgify",
+   "website": "http://lodgify.com",
+   "invest_year": "2014",
+   "description": "Create your own vacation rental website",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 287
+  },
+  {
+   "name": "Reedsy",
+   "url": "https://seedcamp.com/our-companies/#reedsy",
+   "website": "http://reedsy.com",
+   "invest_year": "2014",
+   "description": "A community of top publishing professionals to create amazing books.",
+   "sectors": [
+    "marketplaces"
+   ],
+   "index": 288
+  },
+  {
+   "name": "BridgeU",
+   "url": "https://seedcamp.com/our-companies/#bridgeu",
+   "website": "http://bridge-u.com",
+   "invest_year": "2014",
+   "description": "Data-driven university and careers guidance to empower schools",
+   "sectors": [
+    "enterprise",
+    "marketplaces"
+   ],
+   "index": 289
+  },
+  {
+   "name": "Satago",
+   "url": "https://seedcamp.com/our-companies/#satago",
+   "website": "http://satago.com",
+   "invest_year": "2013",
+   "description": "Helping businesses get paid on time.",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 290
+  },
+  {
+   "name": "Oradian",
+   "url": "https://seedcamp.com/our-companies/#oradian",
+   "website": "http://oradian.com",
+   "invest_year": "2014",
+   "description": "Oradian provides a unique enterprise solution to financial institutions across South East Asia and Africa.",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 291
+  },
+  {
+   "name": "Elliptic",
+   "url": "https://seedcamp.com/our-companies/#elliptic",
+   "website": "http://elliptic.co",
+   "invest_year": "2014",
+   "description": "Identifying illicit activity on the blockchain",
+   "sectors": [
+    "security",
+    "ai",
+    "crypto"
+   ],
+   "index": 292
+  },
+  {
+   "name": "Tanaza",
+   "url": "https://seedcamp.com/our-companies/#tanaza",
+   "website": "http://tanaza.com",
+   "invest_year": "2014",
+   "description": "All-in-one software that turns common Wi-Fi routers into cloud-managed Wi-Fi social hotspots.",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 293
+  },
+  {
+   "name": "ShareLaTex",
+   "url": "https://seedcamp.com/our-companies/#sharelatex",
+   "website": "http://sharelatex.com",
+   "invest_year": "2013",
+   "description": "Easy-to-use, online, collaborative LaTex editor",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 294
+  },
+  {
+   "name": "Fishbrain",
+   "url": "https://seedcamp.com/our-companies/#fishbrain",
+   "website": "http://fishbrain.com",
+   "invest_year": "2013",
+   "description": "The fastest growing app & social network for the world's biggest hobby - sport fishing",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 295
+  },
+  {
+   "name": "Countly",
+   "url": "https://seedcamp.com/our-companies/#countly",
+   "website": "http://countly.com",
+   "invest_year": "2013",
+   "description": "Mobile analytics for the enterprise",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 296
+  },
+  {
+   "name": "Codacy",
+   "url": "https://seedcamp.com/our-companies/#codacy",
+   "website": "http://codacy.com",
+   "invest_year": "2012",
+   "description": "Automating code reviews and monitors code quality over time.",
+   "sectors": [
+    "developer-tools"
+   ],
+   "index": 297
+  },
+  {
+   "name": "James Finance",
+   "url": "https://seedcamp.com/our-companies/#james-finance",
+   "website": "http://james.finance",
+   "invest_year": "2012",
+   "description": "Predict bad loans with Machine Learning. Based on the best machine learning algorithms, James helps Risk Officers generate highly predictive credit scoring models.",
+   "sectors": [
+    "ai",
+    "fintech"
+   ],
+   "index": 298
+  },
+  {
+   "name": "Codeship",
+   "url": "https://seedcamp.com/our-companies/#codeship",
+   "website": "http://codeship.com",
+   "invest_year": "2012",
+   "description": "A fast and secure hosted Continuous Delivery platform that scales with your needs.",
+   "sectors": [
+    "developer-tools"
+   ],
+   "index": 299
+  },
+  {
+   "name": "Minubo",
+   "url": "https://seedcamp.com/our-companies/#minubo",
+   "website": "http://minubo.com",
+   "invest_year": "2013",
+   "description": "eCommerce Intelligence in the Cloud. Your online shop’s data hub with all key metrics",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 300
+  },
+  {
+   "name": "Hole19",
+   "url": "https://seedcamp.com/our-companies/#hole19",
+   "website": "http://hole19golf.com",
+   "invest_year": "2012",
+   "description": "Building the most amazing user experience for golfers on the course!",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 301
+  },
+  {
+   "name": "SimpleTax",
+   "url": "https://seedcamp.com/our-companies/#simpletax",
+   "website": "http://gosimpletax.com",
+   "invest_year": "2012",
+   "description": "The smart self assessment tax return filing software",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 302
+  },
+  {
+   "name": "SayDuck",
+   "url": "https://seedcamp.com/our-companies/#sayduck",
+   "website": "http://sayduck.com",
+   "invest_year": "2012",
+   "description": "Add reality to your sales",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 303
+  },
+  {
+   "name": "Antavo",
+   "url": "https://seedcamp.com/our-companies/#antavo",
+   "website": "http://antavo.com",
+   "invest_year": "2012",
+   "description": "Contest and loyalty software for e-commerce and retail brands",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 304
+  },
+  {
+   "name": "24Symbols",
+   "url": "https://seedcamp.com/our-companies/#24symbols",
+   "website": "http://24symbols.com",
+   "invest_year": "2012",
+   "description": "Read digital books online",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 305
+  },
+  {
+   "name": "Qminder",
+   "url": "https://seedcamp.com/our-companies/#qminder",
+   "website": "http://qminder.com",
+   "invest_year": "2012",
+   "description": "Qminder is a cloud-based queue management system.",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 306
+  },
+  {
+   "name": "Wise",
+   "url": "https://seedcamp.com/our-companies/#wise",
+   "website": "http://wise.com",
+   "invest_year": "2011",
+   "description": "Send money abroad easily and quickly with low-cost transfers",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 307
+  },
+  {
+   "name": "Holvi",
+   "url": "https://seedcamp.com/our-companies/#holvi",
+   "website": "http://holvi.com",
+   "invest_year": "2011",
+   "description": "Banking for makers and doers",
+   "sectors": [
+    "fintech"
+   ],
+   "index": 308
+  },
+  {
+   "name": "Grabcad",
+   "url": "https://seedcamp.com/our-companies/#grabcad",
+   "website": "http://grabcad.com",
+   "invest_year": "2011",
+   "description": "GrabCAD is an online community network for mechanical engineers to share talent, expand knowledge and collaborate with others.",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 309
+  },
+  {
+   "name": "Profitero",
+   "url": "https://seedcamp.com/our-companies/#profitero",
+   "website": "http://profitero.com",
+   "invest_year": "2010",
+   "description": "Global Online Insights for Retailers and Brands",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 310
+  },
+  {
+   "name": "EDITED",
+   "url": "https://seedcamp.com/our-companies/#edited",
+   "website": "http://edited.com",
+   "invest_year": "2010",
+   "description": "The world’s biggest apparel data warehouse.",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 311
+  },
+  {
+   "name": "Scoville",
+   "url": "https://seedcamp.com/our-companies/#scoville",
+   "website": "http://goscoville.com",
+   "invest_year": "2009",
+   "description": "A location-based recommendation engine that helps users discover at least one new place in their town each week",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 312
+  },
+  {
+   "name": "Erply",
+   "url": "https://seedcamp.com/our-companies/#erply",
+   "website": "http://erply.com",
+   "invest_year": "2009",
+   "description": "Web based affordable point of sale software and inventory system for retailers",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 313
+  },
+  {
+   "name": "Codility",
+   "url": "https://seedcamp.com/our-companies/#codility",
+   "website": "http://codility.com",
+   "invest_year": "2009",
+   "description": "Codility is an automated tool for assessment of programming skills.",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 314
+  },
+  {
+   "name": "Platogo",
+   "url": "https://seedcamp.com/our-companies/#platogo",
+   "website": "http://platogo.com",
+   "invest_year": "2009",
+   "description": "Gaming studio",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 315
+  },
+  {
+   "name": "Patients Know Best",
+   "url": "https://seedcamp.com/our-companies/#patients-know-best",
+   "website": "http://patientsknowbest.com",
+   "invest_year": "2009",
+   "description": "Patients Know Best provide hospitals with personal health records software so that their patients can better manage their health",
+   "sectors": [
+    "health-bio"
+   ],
+   "index": 316
+  },
+  {
+   "name": "Server Density",
+   "url": "https://seedcamp.com/our-companies/#server-density",
+   "website": "http://serverdensity.com",
+   "invest_year": "2009",
+   "description": "Server Monitoring Built For Security And Scale",
+   "sectors": [
+    "security",
+    "developer-tools"
+   ],
+   "index": 317
+  },
+  {
+   "name": "toksta",
+   "url": "https://seedcamp.com/our-companies/#toksta",
+   "website": "http://toksta.com",
+   "invest_year": "2008",
+   "description": "Highly scalable instant messenger and chat solutions for online communities",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 318
+  },
+  {
+   "name": "stupeflix",
+   "url": "https://seedcamp.com/our-companies/#stupeflix",
+   "website": "http://stupeflix.com",
+   "invest_year": "2008",
+   "description": "Make beautiful videos online, easily",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 319
+  },
+  {
+   "name": "Evercontact",
+   "url": "https://seedcamp.com/our-companies/#evercontact",
+   "website": "http://evercontact.com",
+   "invest_year": "2009",
+   "description": "Your contacts automatically up to date",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 320
+  },
+  {
+   "name": "Basekit",
+   "url": "https://seedcamp.com/our-companies/#basekit",
+   "website": "http://basekit.com",
+   "invest_year": "2008",
+   "description": "The most partner friendly site builder",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 321
+  },
+  {
+   "name": "Talasim",
+   "url": "https://seedcamp.com/our-companies/#talasim",
+   "website": "http://jeeran.com",
+   "invest_year": "2009",
+   "description": "An online comedy channel providing a space for self-expression and humour",
+   "sectors": [
+    "consumer"
+   ],
+   "index": 322
+  },
+  {
+   "name": "ubervu",
+   "url": "https://seedcamp.com/our-companies/#ubervu",
+   "website": "http://ubervu.com",
+   "invest_year": "2008",
+   "description": "Insights-driven social analytics",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 323
+  },
+  {
+   "name": "Zemanta",
+   "url": "https://seedcamp.com/our-companies/#zemanta",
+   "website": "http://zemanta.com",
+   "invest_year": "2007",
+   "description": "Content Ads, Amplified & Optimized",
+   "sectors": [
+    "enterprise"
+   ],
+   "index": 324
+  },
+  {
+   "name": "MyBuilder",
+   "url": "https://seedcamp.com/our-companies/#mybuilder",
+   "website": "http://mybuilder.com",
+   "invest_year": "2007",
+   "description": "Find trusted builders and tradesmen.",
+   "sectors": [
+    "marketplaces"
+   ],
+   "index": 325
+  },
+  {
+   "name": "rentmineonline",
+   "url": "https://seedcamp.com/our-companies/#rentmineonline",
+   "website": "http://rentmineonline.com",
+   "invest_year": "2007",
+   "description": "Connecting Trusted Owners and Renters.",
+   "sectors": [
+    "marketplaces"
+   ],
+   "index": 326
+  }
+ ]
+}

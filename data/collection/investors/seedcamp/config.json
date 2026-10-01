@@ -1,0 +1,345 @@
+{
+  "slug": "seedcamp",
+  "name": "Seedcamp",
+  "wayback": {
+    "cdx_domain": "seedcamp.com",
+    "site_url_base": "https://seedcamp.com",
+    "eras": [],
+    "_eras_pending": "Kickoff 2026-09-30: the Internet Archive is under a machine-wide cooldown (~5.2 h at kickoff). The archive layer starts on Common Crawl (scratch/cc-cluster.py over the static cluster.idx, including the 2008-2009, 2009-2010 and 2012 ARC collections) and the Wayback eras are written once the archive answers.",
+    "non_company_slugs": [
+      "index",
+      "home",
+      "page",
+      "feed",
+      "search",
+      "tag",
+      "category",
+      "author",
+      "all",
+      "see-all",
+      "companies",
+      "company",
+      "our-companies",
+      "portfolio",
+      "team",
+      "our-team",
+      "people",
+      "views",
+      "news",
+      "blog",
+      "press",
+      "about",
+      "contact",
+      "faqs",
+      "faq",
+      "talent",
+      "jobs",
+      "careers",
+      "events",
+      "seedcamp-nation",
+      "privacy-policy",
+      "complaints",
+      "our-esg-policy",
+      "wp-content",
+      "wp-json",
+      "wp-admin",
+      "wp-includes",
+      "xmlrpc",
+      "cdn-cgi",
+      "assets",
+      "images",
+      "media",
+      "sitemap",
+      "robots",
+      "favicon",
+      "comments",
+      "cookies",
+      "apply",
+      "pitch-us"
+    ]
+  },
+  "roster": {
+    "cdx_patterns": [
+      "seedcamp.com/people/*",
+      "seedcamp.com/team/*",
+      "seedcamp.com/our-team/*",
+      "seedcamp.com/about/team*"
+    ],
+    "slug_re": "/(?:people|team|our-team)/([a-z][a-z0-9-]*[a-z0-9])/?$",
+    "listing_href_re": "/(?:people|team|our-team)/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+    "not_a_person": [
+      "index",
+      "team",
+      "our-team",
+      "people",
+      "partners",
+      "about",
+      "companies",
+      "our-companies",
+      "portfolio",
+      "news",
+      "views",
+      "contact",
+      "jobs",
+      "careers",
+      "talent",
+      "all",
+      "page",
+      "feed",
+      "seedcamp",
+      "seedcamp-nation"
+    ],
+    "_note": "The roster is curated (sources/wayback/partner-roster.json) from the Companies House member registers of the manager and the fund vehicles (exact appointment and cessation dates: Seedcamp Investment Management LLP OC391626 from 2014-03-04, Seedcamp Investments LLP OC331184 and Seedcamp Investments II LLP OC355777 from 2007 and 2010, Seedcamp Limited 06367351 from 2007-09-11), the live team page (sources/site/team-cards.json, 2026-09-30) and the archived team pages when the archive answers."
+  },
+  "site_api": {
+    "type": "scrape",
+    "entry_stage_fields": [],
+    "_entry_stage_note": "The live list publishes the firm's own 'Year of Investment' per company and no round word, so there is no field to score or promote (COLLECTION.md s5: a bare year is an anchor, not a label). Round words come from the Views posts (class 1 for the round a post names) and from the programme terms (decisions.md D5).",
+    "sources": [
+      {
+        "parser": "file_list",
+        "path": "data/collection/investors/seedcamp/sources/site/companies-2026.json",
+        "list": "companies-2026",
+        "list_path": "rows",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "sectors": "sectors",
+        "extras": [
+          "website",
+          "invest_year",
+          "description"
+        ]
+      },
+      {
+        "parser": "file_list",
+        "path": "data/collection/investors/seedcamp/sources/site/views-cohorts.json",
+        "list": "views-cohorts",
+        "list_path": "rows",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "extras": [
+          "invest_year",
+          "post_date",
+          "cohort",
+          "entry_kind",
+          "location",
+          "as_posted"
+        ]
+      }
+    ],
+    "_note": "seedcamp.com (2026) is WordPress; the company post type is not in the REST API and the list ships server-rendered in one page (327 companies read 2026-09-30 by scratch/site-live.py). The firm says 'more than 550 company journeys' (FAQs), so roughly 40% of the book is recovered from the archive eras and the Views posts. views-cohorts: the programme years' invested cohorts (2007-2017) as the firm announced them in the Views posts, hand-curated at kickoff (scratch/views-cohorts.py; decisions.md D2, D3).",
+    "team_sources": [
+      {
+        "parser": "file_list",
+        "path": "data/collection/investors/seedcamp/sources/site/team-cards.json",
+        "list": "team",
+        "list_path": "rows",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "extras": [
+          "title"
+        ]
+      }
+    ],
+    "team_bucket_overrides": {
+      "Miguel Pinho": [
+        "operations"
+      ]
+    }
+  },
+  "edgar": {
+    "seed_queries": [
+      "seedcamp"
+    ],
+    "fts_phrases": [
+      "Seedcamp"
+    ],
+    "fts_own_pattern": "^seedcamp|seedcamp-funds",
+    "_note": "Kickoff 2026-09-30, EDGAR company search: SEEDCAMP V L.P. (CIK 1830158, one Form D of 2020-11-04 from 5 Bonhill Street, London) and 27 series of AngelList's master vehicles 'AL-Seedcamp-Funds, LP/LLC' and 'AngelList-Seedcamp-Funds, LLC' (single-company syndicate SPVs whose names encode the company: 9F Fund I, Tise-Fund, JUR Fund I, ...; decisions.md D6). Adviser: Seedcamp Investment Management LLP, exempt reporting adviser CRD 330799, SEC 802-130331."
+  },
+  "wikipedia": {
+    "phrases": [
+      "Seedcamp"
+    ]
+  },
+  "desks": {
+    "home": "eu",
+    "partition": [],
+    "rank": [
+      "eu",
+      "unknown"
+    ],
+    "classify": [
+      {
+        "desk": "eu",
+        "patterns": [
+          "^seedcamp",
+          "seedcamp-funds",
+          "^sc_[0-9]_of[0-9]"
+        ]
+      }
+    ],
+    "_note": "One adviser, Seedcamp Investment Management LLP (CRD 330799), for Seedcamp III to VI and the SC_3/SC_4 opportunity vehicles; Funds I and II (Seedcamp Investments LLP and Seedcamp Investments II LLP) were run by Seedcamp Limited with the same partners (decisions.md D1). The AngelList syndicate series are the firm's syndicate, advised by AngelList's adviser (D6)."
+  },
+  "registers": {
+    "uk": {
+      "firm_entities": [
+        "OC391626",
+        "OC331184",
+        "OC355777",
+        "06367351",
+        "SO304808",
+        "SL016144",
+        "LP015969",
+        "12363388",
+        "LP017985",
+        "SL030886",
+        "OC416756",
+        "11050531",
+        "12363438",
+        "LP021246",
+        "12863764",
+        "SL034544",
+        "OC433320",
+        "SC673465",
+        "LP022863",
+        "14353682",
+        "SL035933",
+        "OC443898",
+        "SC744406",
+        "16490193",
+        "17283863"
+      ],
+      "firm_addresses": [
+        "\\b12,? little portland street",
+        "\\b5,? bonhill street",
+        "\\b4-5,? bonhill street",
+        "\\b16,? great queen street",
+        "\\b727-729,? high road"
+      ],
+      "holder_pattern": "(?i)\\bseedcamp\\b",
+      "_note": "Companies House, read through the public register website (scratch/companies_house.py, the Atomico run's helper). The manager Seedcamp Investment Management LLP OC391626 (2014-03-04; FCA 628313), Seedcamp Limited 06367351 (2007-09-11, dissolved 2020-11-24), the Fund I and II vehicles Seedcamp Investments LLP OC331184 (2007-09-07) and Seedcamp Investments II LLP OC355777 (2010-06-21), both dissolved 2025-06-17, and the III-VII ladder with its GP LLPs, founder partnerships and (ENG)/(SCOT) corporate members. None is a row."
+    }
+  },
+  "profile": {
+    "adv_crd": 330799,
+    "own_vehicle_pattern": "^(seedcamp|sc_[0-9]_of[0-9])",
+    "focus_min_companies": 20,
+    "focus_crosswalk": {
+      "ai": "AI & Applied AI",
+      "climate": "Climate & Energy",
+      "consumer": "Consumer & Marketplaces",
+      "crypto": "Crypto & Web3",
+      "developer-tools": "DevTools & APIs",
+      "enterprise": "SaaS",
+      "fintech": "Fintech & Payments",
+      "health-bio": "Healthcare & Bio",
+      "marketplaces": "Consumer & Marketplaces",
+      "security": "Security"
+    },
+    "_note": "One exempt reporting adviser, Seedcamp Investment Management LLP (CRD 330799, SEC 802-130331; FCA 628313). focus_min_companies ~4% of an expected ~500-row base."
+  },
+  "verify": {
+    "text_mention_leaks": [],
+    "cofiler_leaks": [],
+    "known_positions": [
+      "revolut",
+      "wise",
+      "uipath",
+      "hopin",
+      "pleo",
+      "synthesia",
+      "9fin",
+      "ezra",
+      "function health",
+      "zemanta",
+      "mybuilder",
+      "codility",
+      "erply",
+      "server density",
+      "basekit",
+      "mobclix",
+      "soup",
+      "stupeflix",
+      "brainient",
+      "evercontact",
+      "platogo",
+      "talasim",
+      "ubervu",
+      "patients know best",
+      "sorare",
+      "wefox",
+      "grover",
+      "curve"
+    ],
+    "_known_positions_note": "Spot-check list: the live list's best-known rows and the 2007-2009 Seedcamp Week winners pages (the invested cohorts, decisions.md D2).",
+    "unicorn_bands": false,
+    "_unicorn_bands_note": "Rule A (Erik 2026-09-06): the unicorn snapshot is an aggregator, a coverage floor to verify, never a mark.",
+    "sample_slugs": [],
+    "shape": {
+      "c2a_rate_max": 0.8
+    },
+    "not_members": [
+      {
+        "name": "SimilarWeb",
+        "slug": "similarweb",
+        "why": "Mini Seedcamp Tel Aviv 2009 winner: an invitation to another Mini Seedcamp and AWS credits, no investment (winners post 2009-02; decisions.md D2)"
+      },
+      {
+        "name": "Velti",
+        "slug": "velti",
+        "why": "acquirer of Mobclix (2010); its 2012 F-3 lists Seedcamp Investments LLP as selling shareholder of the consideration shares, not an investment (D5)"
+      },
+      {
+        "name": "Spotify",
+        "slug": "spotify",
+        "why": "a name on the firm's /investors/ pages (the funds' backers), not a portfolio company (D7)"
+      },
+      {
+        "name": "Skyscanner",
+        "slug": "skyscanner",
+        "why": "a name on the firm's /investors/ pages, not a portfolio company (D7)"
+      },
+      {
+        "name": "Gumtree",
+        "slug": "gumtree",
+        "why": "a name on the firm's /investors/ pages, not a portfolio company (D7)"
+      },
+      {
+        "name": "Voodoo",
+        "slug": "voodoo",
+        "why": "a name on the firm's /investors/ pages, not a portfolio company (D7)"
+      },
+      {
+        "name": "Nuburu",
+        "slug": "nuburu",
+        "why": "Form D name-match on a namesake Thomas Wilson (Colorado laser maker); Seedcamp takes no board seats (D8)"
+      },
+      {
+        "name": "Water Planet",
+        "slug": "water-planet",
+        "why": "Form D name-match on a namesake Thomas Wilson (Los Angeles); D8"
+      },
+      {
+        "name": "Citibot",
+        "slug": "citibot",
+        "why": "Form D name-match on a namesake Tom Wilson (Charleston); D8"
+      },
+      {
+        "name": "AION Biosystems",
+        "slug": "aion-biosystems",
+        "why": "Form D name-match on a namesake Tom Wilson (Lowell, MA); D8"
+      }
+    ],
+    "_not_members_note": "Membership traps written at kickoff 2026-09-30 before any verdict (COLLECTION.md s10 invariant 11): an event winner that got no money, an acquirer holding consideration shares, the funds' backers listed on /investors/, and Form D namesakes of the roster."
+  },
+  "names": {
+    "published": {}
+  }
+}
