@@ -220,7 +220,8 @@ grind's press ran on Bing News RSS, S2A on the Google News helper, neither cappe
 
 ## 14. Prompt count
 
-**1**: the kickoff ("please collect Seedcamp"). One context compaction mid-grind.
+**2**: the kickoff ("please collect Seedcamp") and one "continue", after the plan limit cut the run
+between the report and the ingest. One context compaction mid-grind.
 
 ## 15. Ingest
 
