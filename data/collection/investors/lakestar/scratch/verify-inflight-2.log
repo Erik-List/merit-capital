@@ -1,0 +1,51 @@
+membership      : 215 verdicts, 0 uncertain, 0 unjudged, 11 not_member awaiting rebuild
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling bessemer-venture-partners in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+  note: sibling index-ventures in flight; not compared
+  note: sibling speedinvest in flight; not compared
+cross-investor  : 106 rows shared with other investors, 79 agree, 0 accepted, 27 disagree
+rows            : 165
+classified      : 141
+$1B+ / $10B+ / $100B+ : 17 / 2 / 1
+stage unknown   : 40 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'(outside taxonomy)': 29, 'Fintech & Payments': 22, 'AI & Applied AI': 21, 'Industrial & Robotics': 20, 'SaaS': 15, 'Media, Gaming & Advertising': 14, 'Consumer & Marketplaces': 13, 'Healthcare & Bio': 8, 'Data Infrastructure': 6, 'Climate & Energy': 5, 'DevTools & APIs': 5, 'Security': 4, 'Crypto & Web3': 3}
+hq_city         : 47 distinct, 126/165 filled, 10 recorded unknown; top {'London': 27, 'Berlin': 23, 'New York': 7, 'Paris': 7, 'Munich': 6, 'Stockholm': 5, 'Zurich': 4, 'Cambridge': 3}
+valuation_range : {'below_1b': 121, None: 27, '1b_plus': 15, '100b_plus': 1, '10b_plus': 1}
+entry_stage     : {'Seed': 46, 'Growth': 31, None: 27, 'Series A': 19, 'Pre-Seed': 2}
+S2A             : 46 seed entries, 11 censored; cohort 34, graduated 16, not graduated 18, rate 47.1%, coverage 97.1%; 1 still open
+  the nos rest on: Form D absence 0, a cited end 3, the absence test 15
+  note: profile: no data/collection/investors/lakestar/sources/offices.json; run `python3 scripts/firm-offices.py lakestar`
+
+29 problem(s):
+  - cross-investor Agora: lakestar:agora unknown/below_1b (asof 2015-01-01) vs coatue:agora public/below_1b $0.35B (asof 2026-09-25); freshest coatue:agora
+  - cross-investor Agora: lakestar:agora unknown/below_1b (asof 2015-01-01) vs insight-partners:agora private/below_1b (asof 2015-01-01); freshest lakestar:agora
+  - cross-investor Aware: lakestar:aware acquired/below_1b (asof -) vs cherry:aware private/below_1b (asof -); freshest lakestar:aware
+  - cross-investor Cedar: lakestar:cedar private/1b_plus $3.20B (asof 2021-03) vs a16z:cedar private/below_1b (asof -); freshest lakestar:cedar
+  - cross-investor Cedar: lakestar:cedar private/1b_plus $3.20B (asof 2021-03) vs y-combinator:cedar private/below_1b (asof -); freshest lakestar:cedar
+  - cross-investor Forward: lakestar:forward defunct/None (asof 1912-01-01) vs a16z:forward defunct/below_1b (asof 1912-01-01); freshest lakestar:forward
+  - cross-investor Forward: lakestar:forward defunct/None (asof 1912-01-01) vs first-round-capital:forward defunct/below_1b (asof 1912-01-01); freshest lakestar:forward
+  - cross-investor Forward: lakestar:forward defunct/None (asof 1912-01-01) vs khosla-ventures:forward defunct/below_1b (asof 1912-01-01); freshest lakestar:forward
+  - cross-investor Forward: lakestar:forward defunct/None (asof 1912-01-01) vs y-combinator:useforward defunct/below_1b (asof -); freshest lakestar:forward
+  - cross-investor Lemon Markets: lakestar:lemon-markets acquired/below_1b (asof -) vs lightspeed:lemon-markets private/below_1b (asof -); freshest lakestar:lemon-markets
+  - cross-investor Onodrim: lakestar:onodrim private/below_1b (asof 2026-10-01) vs a16z:onodrim unknown/below_1b (asof -); freshest lakestar:onodrim
+  - cross-investor Piggy: lakestar:piggy private/below_1b (asof -) vs y-combinator:piggy unknown/below_1b (asof -); freshest lakestar:piggy
+  - cross-investor Pit: lakestar:pit private/below_1b (asof 2026-10-01) vs a16z:pit unknown/below_1b (asof -); freshest lakestar:pit
+  - cross-investor Priori Data: lakestar:priori-data acquired/below_1b (asof -) vs seedcamp:priori-data private/below_1b (asof -); freshest lakestar:priori-data
+  - cross-investor Public: lakestar:public private/1b_plus $1.20B (asof 2021-02) vs accel:public private/below_1b (asof -); freshest lakestar:public
+  - cross-investor Public: lakestar:public private/1b_plus $1.20B (asof 2021-02) vs sequoia-capital:public-stage unknown/below_1b (asof -); freshest lakestar:public
+  - cross-investor Rows: lakestar:rows acquired/below_1b (asof -) vs accel:rows private/below_1b (asof -); freshest lakestar:rows
+  - cross-investor Rows: lakestar:rows acquired/below_1b (asof -) vs cherry:rows private/below_1b (asof -); freshest lakestar:rows
+  - cross-investor Spotify: lakestar:spotify acquired/None (asof -) vs accel:spotify public/100b_plus $111.76B (asof 2026-08); freshest accel:spotify
+  - cross-investor Spotify: lakestar:spotify acquired/None (asof -) vs coatue:spotify public/100b_plus $104.85B (asof 2026-09-25); freshest coatue:spotify
+  - cross-investor Spotify: lakestar:spotify acquired/None (asof -) vs creandum:spotify public/100b_plus $111.76B (asof 2026-08); freshest creandum:spotify
+  - cross-investor Spotify: lakestar:spotify acquired/None (asof -) vs kleiner-perkins:spotify public/100b_plus $100.20B (asof 2026-09-30); freshest kleiner-perkins:spotify
+  - cross-investor Spotify: lakestar:spotify acquired/None (asof -) vs northzone:spotify public/100b_plus $101.38B (asof 2026-09-29); freshest northzone:spotify
+  - cross-investor Spotify: lakestar:spotify acquired/None (asof -) vs tcv:spotify public/100b_plus $101.38B (asof 2026-09-29); freshest tcv:spotify
+  - cross-investor Spotify: lakestar:spotify acquired/None (asof -) vs thrive-capital:spotify public/100b_plus $111.76B (asof 2026-08); freshest thrive-capital:spotify
+  - cross-investor Spotify: lakestar:spotify acquired/None (asof -) vs tiger-global-management:spotify public/100b_plus $101.38B (asof 2026-09-29); freshest tiger-global-management:spotify
+  - cross-investor Symphony: lakestar:symphony private/1b_plus $1.40B (asof 2019-06-12) vs y-combinator:symphony private/below_1b (asof -); freshest lakestar:symphony
+  - profile thesis: empty
+  - profile history: empty

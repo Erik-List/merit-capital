@@ -1,0 +1,424 @@
+{
+ "slug": "lakestar",
+ "run": "PRO-108",
+ "generated_at": "2026-10-01T16:24:46+00:00",
+ "fields": {
+  "name": {
+   "value": "Lakestar",
+   "source": "https://www.lakestar.com/",
+   "basis": "The firm's own name on its site and filings (Lakestar Advisors GmbH; funds Lakestar I LP to Lakestar Resilience I)."
+  },
+  "website": {
+   "value": "https://www.lakestar.com",
+   "source": "https://www.lakestar.com/",
+   "basis": "The firm's site, relaunched in July 2026 (read 2026-10-01)."
+  },
+  "icon_url": {
+   "value": "https://www.lakestar.com/wp-content/uploads/2026/07/LS_Logo_Favicon-L-on-natural.png",
+   "source": "data/collection/investors/lakestar/sources/site/lakestar-mark-composed.svg",
+   "basis": "The firm's own mark: the 'L' path of the site's inline logo symbol (icon-logo-small in the homepage sprite, read 2026-10-01) drawn in the favicon's colours (dark #231f20 on natural #f9f6ed, sampled from the site's 48px favicon LS_Logo_Favicon-L-on-natural.png, which is too small to publish). Dry run 2026-10-01: contrast 12.9:1, edge ramp 0.49px, inside the keyline."
+  },
+  "founding_year": {
+   "value": 2012,
+   "source": "https://www.lakestar.com/",
+   "basis": "The firm's own statement: 'Lakestar is the investment firm founded by Dr. Klaus Hommels in 2012' (homepage, read 2026-10-01). Business Insider (2019) gives 2012 too; the firm's 2013 site carried '(c) 2011 Lakestar', the year Hommels began using the name for his own investment company. The first institutional fund, Lakestar I, was launched in 2013."
+  },
+  "history": {
+   "value": "Lakestar was founded in Zurich in 2012 by Klaus Hommels, an early investor in Skype, Facebook and Spotify, and raised its first fund in 2013. Its funds backed Revolut, Opendoor, Oscar Health, Glovo, sennder and Isar Aerospace. It closed about $600 million of early and growth funds in 2024 and a $300 million European defence fund in 2026; this page covers the funds' investments, not the founder's personal ones.",
+   "source": "https://www.lakestar.com/",
+   "basis": "Founded by Klaus Hommels in 2012 (the firm's homepage); Zurich is the seat of Lakestar Advisors GmbH (the firm's legal notice; Zefix CHE-114.605.813). Hommels' own early investments in Skype, Facebook and Spotify: the firm's 2018-2020 site ('has invested in many of the companies that define today's digital economy, including Facebook, Spotify and Skype') and Facebook's 2012 registration statement naming Hommels Holding GmbH. First fund 2013: 'EUR 135m ($150m) Lakestar I fund, which was launched in 2013' (TechCrunch, 2015-08-23). Revolut, Opendoor, Oscar Health, Glovo, sennder and Isar Aerospace are on the firm's own portfolio page 2022-2026 and are members of the portfolio here. 'Lakestar Early IV and Lakestar Growth II, for around $600 million' (the firm's post, 2024-04-11); 'the closing of Lakestar Resilience I ... has raised USD 300 million' (the firm's release, 2026-07-17). The closing clause states the portfolio boundary a reader needs: the homepage shows Facebook, Airbnb, Klarna, Coinbase, SumUp and Helsing, which are the founder's personal investments and are not in the track record (decisions.md D2). Moved to this sidecar, not the page: the fund ladder (funds field); the USD 265M continuation fund of 2025; the October 2025 letter saying the firm will raise no new generalist funds; the 2021 SPAC that took HomeToGo public; the offices in London and Berlin."
+  },
+  "investment_concept": {
+   "value": "\u201cInvesting in Europe's future.\u201d",
+   "source": "https://www.lakestar.com/",
+   "basis": "The firm's own line: the title-tag tagline of the homepage, 'Lakestar | Investing in Europe's Future' (read 2026-10-01), in sentence case with a closing period, in quotation marks. The homepage headline 'Patient. Principled. Founder-centric.' comes first in the rule's order but is three sentence fragments and breaks the two-sentence shape, so the rule falls through to the tagline. Competing line, the meta description: 'Lakestar invests in founders and technologies shaping Europe's future, helping build resilience, sovereignty, and long-term growth in a changing world.'"
+  },
+  "investment_stage": {
+   "value": [
+    "Seed",
+    "Series A",
+    "Growth"
+   ],
+   "source": "companies/base.json",
+   "basis": "The firm: 'We invest across stages, from early venture to growth' (lakestar.com/funds) and 'from seed to series B and beyond' (its post of 2024-04-11); dedicated early funds (Lakestar III, Early IV) and growth funds (Growth I, Growth II). The landed entry distribution over 154 companies: undetermined 48, Seed 46, Growth 36, Series A 22, Pre-Seed 2.",
+   "flags": [
+    "derived"
+   ]
+  },
+  "investment_geo": {
+   "value": {
+    "core": [
+     "Europe"
+    ],
+    "other": [
+     "US"
+    ]
+   },
+   "source": "companies/base.json",
+   "basis": "From the companies' headquarters: Europe 119 of 154 (DE 42, GB 39, US 30, CH 9, SE 7, FR 7, ES 3, PT 2). The firm describes itself as 'one of Europe's leading venture capital investors' (lakestar.com/funds); offices in Zurich, London and Berlin.",
+   "flags": [
+    "derived"
+   ]
+  },
+  "investment_scope": {
+   "value": {
+    "type": "Generalist",
+    "focus": [
+     "Industrial & Robotics",
+     "Fintech & Payments",
+     "AI & Applied AI",
+     "Media, Gaming & Advertising",
+     "Consumer & Marketplaces",
+     "SaaS",
+     "Healthcare & Bio"
+    ]
+   },
+   "source": "companies/base.json",
+   "basis": "The archived listings carry no sector tags in the base, so the focus is derived from the classification's focus column over 154 companies, published at 7 companies or more: Industrial & Robotics 25, Fintech & Payments 24, AI & Applied AI 22, Media, Gaming & Advertising 17, Consumer & Marketplaces 16, SaaS 16, Healthcare & Bio 10, Data Infrastructure 6, Climate & Energy 5, DevTools & APIs 5, Security 4, Crypto & Web3 3. The firm's own 2022-2026 theses were Deep Tech, Digitalisation, Fintech and Healthcare (earlier also Games & Media, Climate Tech, Future of Industries); since 2026 it adds Resilience (defence and dual-use).",
+   "flags": [
+    "derived"
+   ]
+  },
+  "investment_range": {
+   "value": {
+    "lower_limit": 4500000,
+    "median": 15700000,
+    "upper_limit": 80000000
+   },
+   "source": "scratch/research-g*.json",
+   "basis": "MEDIAN $15,700,000: the median size of the entry round over the 91 companies whose cited entry round states an amount (non-USD amounts at the ECB rate of the round's date). LOWER and UPPER are the 10th and 90th percentile of the same distribution, because the firm publishes no cheque range. It is a round size, not a cheque size, and it is press-based: Form D covers only the US-incorporated companies.",
+   "flags": [
+    "derived",
+    "press_based"
+   ]
+  },
+  "notable_investments": {
+   "value": [
+    "Spotify",
+    "Revolut",
+    "SoFi",
+    "Opendoor",
+    "Glovo"
+   ],
+   "source": "companies/base.csv",
+   "basis": "The five best known of the firm's companies to a general reader, most recognised first (PRO-152), each on the firm's own 2022-2026 portfolio page and a member here: Spotify (held by Lakestar I per its 2018 Form 13F), Revolut, SoFi, Opendoor and Glovo. Left out although the homepage shows them: Facebook, Airbnb, Klarna, Coinbase, SumUp and Helsing, the founder's personal investments (decisions.md D2).",
+   "slugs": [
+    "spotify",
+    "revolut",
+    "sofi",
+    "opendoor",
+    "glovo"
+   ]
+  },
+  "aum": {
+   "value": {
+    "bottom": 2145800000,
+    "top": 6000000000
+   },
+   "source": "https://www.lakestar.com/",
+   "basis": "FIRM-STATED, both ends (the no-ADV convention, Erik 2026-09-29 on GV): Lakestar files no Form ADV (IAPD returns only an unrelated Chicago adviser), so no sworn figure exists. BOTTOM: 'bringing Lakestar's assets under management to EUR 2bn' (the firm's post on the close of Early IV and Growth II, 2024-04-11): EUR 2.00B @ ECB 2024-04-11 (EUR/USD 1.0729) = $2.15B, the institutional funds only. TOP: 'over $6 billion in assets under management, on a platform that spans institutional venture capital funds and personal investments' (the firm's homepage and its release of 2026-07-17, read 2026-10-01): the top includes the founder's personal investments, which this page's portfolio leaves out, so the fund figure is the one that matches the track record.",
+   "flags": [
+    "firm_stated"
+   ]
+  },
+  "funds": {
+   "value": [
+    {
+     "name": "Lakestar Resilience I",
+     "size": 300000000,
+     "vintage": 2026
+    },
+    {
+     "name": "Lakestar Continuation Fund I",
+     "size": 265000000,
+     "vintage": 2025
+    },
+    {
+     "name": "Lakestar Early IV and Lakestar Growth II",
+     "size": 600000000,
+     "vintage": 2024
+    },
+    {
+     "name": "Lakestar Growth I",
+     "size": 490000000,
+     "vintage": 2020
+    },
+    {
+     "name": "Lakestar III",
+     "size": 245000000,
+     "vintage": 2020
+    },
+    {
+     "name": "Lakestar II",
+     "size": 402395000,
+     "vintage": 2015
+    },
+    {
+     "name": "Lakestar I",
+     "size": 186178500,
+     "vintage": 2013
+    }
+   ],
+   "source": "https://www.lakestar.com/resiliencepress",
+   "basis": "Sizes as the firm or the press stated them at close; none carries a Form D accession (the vehicles are Guernsey partnerships whose Form Ds report only the US-sold part: Lakestar II $344,420 thousand in 2015, Early IV $23.7M and Growth II $3.6M at first sales in 2022, CF I $226.5M in 2025). Resilience I: 'has raised USD 300 million' (the firm's release, 2026-07-17). Continuation Fund I: 'a USD 265 million (EUR 228 million) continuation vehicle' (the firm's post, September 2025), a vehicle that took over existing positions, listed because it raised new capital. Early IV and Growth II: 'for around $600 million' together (the firm's post, 2024-04-11; first sales 2022 per their Form Ds). Growth I $490M and Lakestar III $245M: 'final closes ... amounting to $735m. One third ... committed to Lakestar III ... and two thirds to Lakestar Growth I' (Unquote, February 2020). Lakestar II: EUR 350M, final close August 2015 (TechCrunch, 2015-08-23): EUR 350.0M @ ECB 2015-08-24 (EUR/USD 1.1497) = $402.4M. Lakestar I: 'EUR 135m ($150m) Lakestar I fund, which was launched in 2013' (TechCrunch, 2015-08-23), month not given: EUR 135.0M @ ECB 2013-12-31 (EUR/USD 1.3791) = $186.2M. Not listed: Lakestar SPAC I SE (a blank-cheque company, 2021) and the general-partner and principals vehicles."
+  },
+  "hq_location": {
+   "value": "Zurich, Switzerland",
+   "source": "sources/offices.json",
+   "basis": "The firm's own site disagrees with the Form ADV principal office, None. Lakestar files no Form ADV (decisions.md D1: IAPD returns only an unrelated Chicago adviser), so the rule's principal office does not exist. The firm's own legal notice names the operator, Lakestar Advisors GmbH, at Bahnhofstrasse 18, 8001 Zurich (read 2026-10-01), the Swiss register gives the same seat for Lakestar Advisors GmbH and Lakestar Holding AG (Zefix), and the firm's 2026 press release is datelined 'ZURICH / LONDON / MUNICH'. London (Lakestar Advisors UK LLP, 95 Gresham Street) and Berlin (Lakestar Advisors Germany GmbH) are its other offices. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+   "sources": [
+    {
+     "source": "the firm's own site",
+     "url": "https://www.lakestar.com/legal",
+     "quote": "This website is operated by Lakestar Advisors GmbH, a company incorporated and domiciled in Switzerland."
+    }
+   ]
+  },
+  "individuals": {
+   "value": [
+    {
+     "name": "Akis Bratsos",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Ben Clark",
+     "position": "Associate",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Chris Magazzeni",
+     "position": "Investment Director",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Christoph Schuh",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Enrico Mellis",
+     "position": "Venture Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Klaus Hommels",
+     "position": "Founder & Chairman",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Marc Alexander K\u00fchn",
+     "position": "Investment Associate",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Mickie Guinea Oyamburu",
+     "position": "Analyst",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Navid Meyer",
+     "position": "Venture Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Nina Odefey",
+     "position": "Principal",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Oliver Heimes",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Simon King",
+     "position": "Partner",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Sri Ayangar",
+     "position": "Senior Associate",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Andreas Klukas",
+     "position": "Partner & CFO",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "David St\u00e4uble",
+     "position": "Finance Manager",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Florian Spitzley",
+     "position": "Head of Business Development",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Gioia Fricke",
+     "position": "Executive Assistant, Chairman's Office",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Hannah Ladwig",
+     "position": "Team Executive Assistant & Office Manager",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Henriett Bozzay",
+     "position": "Finance Manager",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Jenna Baikoff",
+     "position": "Investor Relations Analyst",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Joshua Hamon",
+     "position": "Finance Manager",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Luca Pontone",
+     "position": "Lead Software and Data Engineer",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Magali Kollo",
+     "position": "Head of Events",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Naimi Shah",
+     "position": "Senior Legal Counsel",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Natalia Neuman",
+     "position": "COO & General Counsel",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Ninja Struye de Swielande",
+     "position": "Partner, CCO and Head of Investor Relations",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Semra Deniz",
+     "position": "Senior Executive Assistant",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Simone Kind",
+     "position": "Chief of Staff, Chairman\u2019s Office",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Tancredi Micangeli",
+     "position": "Investor Relations Director",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    },
+    {
+     "name": "Vicki Bursford",
+     "position": "Executive Assistant & HR Support",
+     "socials": {
+      "linkedin_url": null,
+      "x_url": null
+     }
+    }
+   ],
+   "source": "sources/site/team.json",
+   "basis": "Live team CMS: 30 members. Positions are CMS titles (26 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 1 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 0 LinkedIn, 0 X."
+  }
+ }
+}

@@ -1,0 +1,322 @@
+{
+ "slug": "lakestar",
+ "name": "Lakestar",
+ "wayback": {
+  "cdx_domain": "lakestar.com",
+  "site_url_base": "https://www.lakestar.com",
+  "eras": [],
+  "_eras_note": "lakestar.com carried four site generations: a WordPress site 2011-2013 (/portfolio, /portfolio/<slug>, /about-us/the-team), a parked page 2014-2017, a single-page site 2018-2021 (logo strip on the homepage and /about), a Next.js site 2022 to June 2026 (/portfolio with per-company pages at /company/<slug>, /team/<slug>, /news/<slug>) and the July 2026 relaunch read live through site_api. The archive eras are parsed by scratch/archive_listings.py into sources/wayback/parsed/<year>.json with capture_url per row; no era here is a wayback-pull.py parser, so this list stays empty and the parsed files are the record.",
+  "non_company_slugs": [
+   "index",
+   "home",
+   "page",
+   "feed",
+   "search",
+   "tag",
+   "category",
+   "author",
+   "all",
+   "see-all",
+   "portfolio",
+   "companies",
+   "company",
+   "team",
+   "people",
+   "about",
+   "about-us",
+   "blog",
+   "news",
+   "media",
+   "press",
+   "contact",
+   "contact-us",
+   "legal",
+   "privacy",
+   "privacy-policy",
+   "jobs",
+   "careers",
+   "thesis",
+   "vision",
+   "beliefs",
+   "responsibility",
+   "funds",
+   "resilience",
+   "defence",
+   "wp-content",
+   "wp-json",
+   "wp-admin",
+   "wp-includes",
+   "sitemap",
+   "robots",
+   "favicon"
+  ]
+ },
+ "roster": {
+  "cdx_patterns": [
+   "lakestar.com/team/*"
+  ],
+  "slug_re": "/team/([a-z][a-z0-9%-]*[a-z0-9])/?$",
+  "listing_href_re": "/team/([a-z][a-z0-9%-]*[a-z0-9])/?[\"'?]",
+  "not_a_person": [
+   "index",
+   "team",
+   "people",
+   "partners",
+   "about",
+   "portfolio",
+   "companies",
+   "news",
+   "contact",
+   "jobs",
+   "careers",
+   "all",
+   "page",
+   "feed",
+   "lakestar"
+  ],
+  "_note": "The team pages mix the investment team with finance, legal, talent, communications and investor relations. The sweep roster is the investing people only (partners, principals, investment directors, associates, venture partners), curated in sources/wayback/partner-roster.json from the archived /team/<slug> pages with capture-year tenure windows (decisions.md D4)."
+ },
+ "site_api": {
+  "type": "scrape",
+  "sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/lakestar/sources/site/companies-2026.json",
+    "list": "site-2026",
+    "list_path": "rows",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "website",
+     "surfaces"
+    ]
+   }
+  ],
+  "_note": "www.lakestar.com since the July 2026 relaunch is Next.js on a headless WordPress (wp-json open): three logo blocks (home 11, /funds 15, /resilience 21), each logo an image with an optional link to the company's site, plus the Resilience I press release naming 20 companies. No names, dates, rounds or per-company pages; names are read from the logo file names and the links. sources/site/companies-2026.json is built by scratch/site_2026.py from sources/site/raw/wp-pages-2026-10-01.json.",
+  "team_sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/lakestar/sources/site/team-cards.json",
+    "list": "team",
+    "list_path": "rows",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "title",
+     "location",
+     "cms_slug"
+    ]
+   }
+  ],
+  "_team_note": "The live site (July 2026 relaunch) has no team page. team-cards.json is the firm's own /team page as last captured on 2026-06-09 (30 people, the firm's titles). No group field: buckets come from the title rules in site-portfolio.py, with team_bucket_overrides for the titles that mix two roles.",
+  "team_bucket_overrides": {
+   "Klaus Hommels": [
+    "investing",
+    "founder"
+   ],
+   "Andreas Klukas": [
+    "finance"
+   ],
+   "Ninja Struye de Swielande": [
+    "finance"
+   ],
+   "Natalia Neuman": [
+    "finance"
+   ],
+   "Florian Spitzley": [
+    "operations"
+   ],
+   "Simone Kind": [
+    "operations"
+   ]
+  }
+ },
+ "edgar": {
+  "seed_queries": [
+   "lakestar"
+  ],
+  "thirteenf_ciks": [
+   1840513,
+   1912120,
+   1845267
+  ],
+  "fts_phrases": [
+   "Lakestar I LP",
+   "Lakestar II LP",
+   "Lakestar III LP",
+   "Lakestar Growth I",
+   "Lakestar Growth II",
+   "Lakestar Early IV",
+   "Lakestar Advisors",
+   "Lakestar SPAC",
+   "Lakestar"
+  ],
+  "fts_own_pattern": "^lakestar (\\(g\\.p\\.\\)|i{1,3} |growth|early|cf |spac|advisors|resilience)",
+  "_note": "EDGAR company search 2026-10-01 ('lakestar'): Lakestar (G.P.) Ltd (CIK 1840513, 13F-HR for 2018Q4-2019Q3: Spotify), Lakestar II (G.P.) Ltd (1845267, 13F-HR 2020Q4-2022Q3: Opendoor, Oscar Health), Lakestar Growth I (G.P.) Ltd (1912120, 13F-HR 2021Q4-2022Q3: Oscar Health), Lakestar II LP (1645254, Form D 2015-06), Lakestar Early IV LP (1914740, Form D 2022-03), Lakestar Growth II LP (1942022, Form D 2022-08), Lakestar CF I LP (2090456, Form D 2025-10), all at Trafalgar Court, St Peter Port, Guernsey. No Form ADV: IAPD returns only an unrelated Chicago adviser (NestEgg Advisory, formerly Lakestar Advisors LLC, CRD 161067). Namesakes to keep out: Lakestar Semi Inc. (Conexant's 2013 name), Lakestar Advisors LLC / Lakestar Wealth Management (Chicago), Lake Star."
+ },
+ "wikipedia": {
+  "phrases": [
+   "Lakestar"
+  ]
+ },
+ "desks": {
+  "home": "eu",
+  "partition": [],
+  "rank": [
+   "eu",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "^lakestar semi",
+     "^lakestar wealth",
+     "^lakestar advisors llc",
+     "^nestegg",
+     "^lakestar spac"
+    ]
+   },
+   {
+    "desk": "eu",
+    "patterns": [
+     "^lakestar (\\(g\\.p\\.\\)|i{1,3}\\b|growth|early|cf\\b|advisors (gmbh|uk|germany)|resilience)"
+    ]
+   }
+  ],
+  "_note": "One firm (decisions.md D1): Lakestar Advisors GmbH (Zurich) with Lakestar Advisors UK LLP (FCA 778593) and Lakestar Advisors Germany GmbH (Berlin), advising Guernsey funds. External: the Chicago wealth adviser and Conexant's Lakestar Semi (namesakes), and Lakestar SPAC I SE (the blank-cheque vehicle, T5; decisions.md D3)."
+ },
+ "profile": {
+  "own_vehicle_pattern": "^lakestar (\\(g\\.p\\.\\)|i{1,3}\\b|growth|early|cf\\b|resilience)",
+  "focus_min_companies": 7,
+  "adv_crd": null,
+  "site_office": {
+   "place": "Zurich, Switzerland",
+   "url": "https://www.lakestar.com/legal",
+   "quote": "This website is operated by Lakestar Advisors GmbH, a company incorporated and domiciled in Switzerland.",
+   "basis": "Lakestar files no Form ADV (decisions.md D1: IAPD returns only an unrelated Chicago adviser), so the rule's principal office does not exist. The firm's own legal notice names the operator, Lakestar Advisors GmbH, at Bahnhofstrasse 18, 8001 Zurich (read 2026-10-01), the Swiss register gives the same seat for Lakestar Advisors GmbH and Lakestar Holding AG (Zefix), and the firm's 2026 press release is datelined 'ZURICH / LONDON / MUNICH'. London (Lakestar Advisors UK LLP, 95 Gresham Street) and Berlin (Lakestar Advisors Germany GmbH) are its other offices."
+  },
+  "socials_gap": {
+   "cause": "The firm's sites publish no personal links: the 2022-2026 team CMS carried none and the site relaunched in July 2026 has no team page. The session's web-search budget was spent on the portfolio, so no checked search ran for the 30 people.",
+   "checked": "2026-10-01",
+   "coverage": "0 of 30"
+  },
+  "_note": "No Form ADV exists (decisions.md D1), so the ADV-anchored fields of COLLECTION.md s11 (aum, the principal office) have no sworn source: AUM is firm-stated and flagged, the office comes from the firm's legal notice. The archived rows carry no sector tags in the base, so the focus list is derived from the grind's focus column (the Thrive convention), published at 7 companies or more (about 4.5% of the base)."
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "spotify",
+   "revolut",
+   "opendoor",
+   "oscar health",
+   "glovo",
+   "sennder",
+   "getyourguide",
+   "isar aerospace",
+   "hometogo",
+   "omio",
+   "harry's",
+   "sofi",
+   "blockchain",
+   "auterion",
+   "public",
+   "neko health"
+  ],
+  "sample_slugs": [],
+  "shape": {
+   "c2a_rate_max": 0.8
+  },
+  "not_members": [
+   {
+    "name": "Lakestar SPAC I",
+    "slug": "lakestar-spac-i",
+    "why": "the firm's blank-cheque vehicle (Luxembourg SE, merged with HomeToGo 2021-09-21): no operating business, T5; the row is HomeToGo on its 2018 round (decisions.md D3)"
+   },
+   {
+    "name": "Walt Disney",
+    "slug": "walt-disney",
+    "why": "acquirer of Maker Studios (2014); sale consideration is not membership (COLLECTION.md s1, decisions.md D7)"
+   },
+   {
+    "name": "SAP",
+    "slug": "sap",
+    "why": "acquirer of Taulia (2022); not a position (decisions.md D7)"
+   },
+   {
+    "name": "Delivery Hero",
+    "slug": "delivery-hero",
+    "why": "acquirer of Glovo (2022, paid in Delivery Hero shares); sale consideration is not membership (decisions.md D7)"
+   },
+   {
+    "name": "Bosch",
+    "slug": "bosch",
+    "why": "acquirer of Five (2022); not a position (decisions.md D7)"
+   },
+   {
+    "name": "Lakestar Semi",
+    "slug": "lakestar-semi",
+    "why": "namesake: Conexant Systems' name from 2013, no relation to the firm (decisions.md D1)"
+   },
+   {
+    "name": "Facebook",
+    "slug": "facebook",
+    "why": "the founder's personal investment, shown on the firm's homepage strips but never held by a Lakestar fund on the record (decisions.md D2; scratch/research-d2.json)"
+   },
+   {
+    "name": "Skype",
+    "slug": "skype",
+    "why": "the founder's personal investment, shown on the firm's homepage strips but never held by a Lakestar fund on the record (decisions.md D2; scratch/research-d2.json)"
+   },
+   {
+    "name": "Airbnb",
+    "slug": "airbnb",
+    "why": "the founder's personal investment, shown on the firm's homepage strips but never held by a Lakestar fund on the record (decisions.md D2; scratch/research-d2.json)"
+   },
+   {
+    "name": "Klarna",
+    "slug": "klarna",
+    "why": "the founder's personal investment, shown on the firm's homepage strips but never held by a Lakestar fund on the record (decisions.md D2; scratch/research-d2.json)"
+   },
+   {
+    "name": "King",
+    "slug": "king",
+    "why": "the founder's personal investment, shown on the firm's homepage strips but never held by a Lakestar fund on the record (decisions.md D2; scratch/research-d2.json)"
+   },
+   {
+    "name": "Coinbase",
+    "slug": "coinbase",
+    "why": "the founder's personal investment, shown on the firm's homepage strips but never held by a Lakestar fund on the record (decisions.md D2; scratch/research-d2.json)"
+   },
+   {
+    "name": "SumUp",
+    "slug": "sumup",
+    "why": "the founder's personal investment, shown on the firm's homepage strips but never held by a Lakestar fund on the record (decisions.md D2; scratch/research-d2.json)"
+   }
+  ]
+ },
+ "names": {
+  "published": {
+   "minimum": "Minimum",
+   "neverless": "Neverless",
+   "ntropy": "Ntropy",
+   "oneshot-earth": "Oneshot.earth",
+   "uforce": "Uforce",
+   "swarm-biotactics": "Swarm Biotactics",
+   "qmware": "QMware",
+   "shapeshift": "ShapeShift",
+   "solarisbank": "Solaris",
+   "everstring": "EverString",
+   "crosslend": "CrossLend",
+   "cleanhub": "CleanHub",
+   "blockchain": "Blockchain.com",
+   "nebenan": "Nebenan.de"
+  },
+  "_note": "Published names under COLLECTION.md s8 (the brand in normal capitalisation, the company's own mixed-case spelling kept): the firm's CMS wrote minimum, neverless, ntropy and oneshot.earth in lower case and UFORCE and SWARM in capitals; Solarisbank renamed itself Solaris in 2022; Blockchain and Nebenan are the brands Blockchain.com and nebenan.de."
+ }
+}
