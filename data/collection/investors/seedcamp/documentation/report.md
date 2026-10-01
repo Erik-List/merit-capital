@@ -178,8 +178,13 @@ Built by a profile subagent under the same run, then rebuilt after the team fixe
    own post puts a Series A before its cohort listing (R3).
 5. **Taxfix** out as the acquirer of TaxScouts (R1).
 6. **Lua**: the firm lists it exited; the Lua in the 20VC book (2026 seed) ruled a different company.
-7. **Mimo** reads GB (London and Stockholm) as in the Northzone and Project A books; the firm's 2024
-   review flags it Swedish.
+7. **Mimo, resolved 2026-10-01 on Erik's instruction, in all three books that hold it** (Seedcamp,
+   Northzone, Project A): headquarters **Stockholm, SE**. The UK register shows the parent: Omim
+   Technology AB (Stockholm, Bolagsverket 559404-0940) owns 75% or more of the UK company Omim
+   Technology Ltd (14546072), whose sole director is resident in Sweden. Seedcamp's 2024 review and
+   Project A's own record say Sweden; Northzone's card and the UK press say London, the launch
+   market and second office. Latest round on record: $8.5M in March 2025 led by Project A; none
+   since. Each book re-ingested through the gate, readback exact.
 
 ## 11. Rebuilds and deltas
 
