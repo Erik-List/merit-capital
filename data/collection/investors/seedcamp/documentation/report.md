@@ -2,6 +2,7 @@
 
 **Linear issue** PRO-83 · **slug** `seedcamp` · one run under the merged shape of
 `data/collection/COLLECTION.md`, one session · report written 2026-09-30.
+**Ingested 2026-09-30 through the §9 gate: 553 companies live, readback exact; Balderton and Greylock re-ingested for aligned rows, YC skipped at its gate (section 15).**
 
 ---
 
@@ -39,7 +40,7 @@ round the record names or reads `undetermined`.
 | `review.html` rendered | Served on the review surface: 553 rows, profile panel, no console errors |
 | `report.md` | This file |
 | COLLECTION.md diff proposed | Section 12 (not applied: the playbook belongs to the tooling session) |
-| Ingest through the §9 gate, sibling rows aligned | Section 15 |
+| Ingest through the §9 gate, sibling rows aligned | Done: 553 live, readback 0 differing cells; Balderton and Greylock re-ingested, each exact; YC skipped at its gate (section 15) |
 
 ## 2. Results
 
@@ -223,4 +224,24 @@ grind's press ran on Bing News RSS, S2A on the Google News helper, neither cappe
 
 ## 15. Ingest
 
-See the closing commit and the closing message for the gate results.
+Run by the session through the gate of COLLECTION.md §9, 2026-09-30 (evening, US Eastern).
+
+- **Preconditions**: `verify --skip-links` clean (153 shared rows: 151 agree, 2 accepted pending
+  YC); plain `verify` carries only the empty link sample (section 7). `run.py close`, closing
+  commit `ef8c4a46`.
+- **Seedcamp**: icon published from the site's Safari mask SVG on its own #00FFAA plate (contrast
+  14.4:1, ramp 0.76 px); investor row upserted; dry run "553 upserted (553 new), 0 removed, from 0
+  live"; write; **readback: csv 553, live 553, missing 0, extra 0, differing cells 0**. Icon
+  provenance committed in `30f99bc2`.
+- **Balderton** (Psykosoft `unknown` to `defunct`, Companies House 07531099 dissolved): readback
+  before showed that one cell, dry run 0 removed, readback after 0 differing cells; `78c26dcc`.
+- **Greylock** (Revolut $75B to $115B, Bloomberg 2026-07-22, as in eight other books): readback
+  before showed the three valuation cells, readback after 0; `945864a3`.
+- **Y Combinator: skipped at the gate.** Its readback before the write shows a row this run did
+  not touch (the csv name " Metadata" carries a leading space, so the tool reports it missing and
+  extra), which is a stop condition. The two lines (CustomerOS `private`, Cymmetria `defunct`) are
+  ready in `scratch/align/y-combinator.jsonl`; YC's company files were put back to their committed
+  state, and the two pairs sit as `accepted` in `companies/cross-rulings.json` with that reason,
+  to be removed once YC is re-ingested.
+- **Namesakes ruled from YC's side of rule 10**: Miru Labs against YC's miru and Miru ML, Tilt
+  against YC's Tilt (Crowdtilt). 72 distinct pairs in all.
