@@ -1,0 +1,29 @@
+STOP cherry: verify not clean
+  - sampled evidence links failing: none sampled
+  - cross-investor Rows: cherry:rows acquired/below_1b (asof -) vs accel:rows private/below_1b (asof -); freshest cherry:rows
+OK accel: readback accel: csv 884, live 884, missing 0, extra 0, differing cells 0 | accel | recorded 0 verdicts + 3 classification rows; ledger holds 1016, classification holds 886 | accel: 884 -> 884 rows; added []; removed []; changed 3 | Plan: 884 row(s) upserted (0 new), 0 removed, from 884 live. | readback accel: csv 884, live 884, missing 0, extra 0, differing cells 0 | 61eedf9b PRO-108: accel aligned from the Lakestar run (cambridge-aerospace, public, rows), re-ingested
+STOP greylock: verify not clean
+  - country debt grew: 4 uncited non-US $1B+ rows against the 3 this book is held at
+  - cato-networks: non-US hq_country on a $1B+ row with no citation and no formd/wikidata/web provenance (rule 6)
+  - entrepreneur-first: non-US hq_country on a $1B+ row with no citation and no formd/wikidata/web provenance (rule 6)
+  - wealthsimple: non-US hq_country on a $1B+ row with no citation and no formd/wikidata/web provenance (rule 6)
+  - revolut: non-US hq_country on a $1B+ row with no citation and no formd/wikidata/web provenance (rule 6)
+STOP lux-capital: verify not clean
+  - cross-investor Kela Technologies: lux-capital:kela-technologies private/1b_plus $1.20B (asof 2026-05) vs sequoia-capital:kela private/below_1b (asof -); freshest lux-capital:kela-technologies
+  - cross-investor Varda: lux-capital:varda private/1b_plus $1.60B (asof 2026-09-30) vs khosla-ventures:varda private/below_1b (asof -); freshest lux-capital:varda
+  - kela-technologies: non-US hq_country on a $1B+ row with no citation and no formd/wikidata/web provenance (rule 6)
+STOP sequoia-capital: verify not clean
+  - country debt grew: 8 uncited non-US $1B+ rows against the 7 this book is held at
+  - klarna: non-US hq_country on a $1B+ row with no citation and no formd/wikidata/web provenance (rule 6)
+  - n8n: non-US hq_country on a $1B+ row with no citation and no formd/wikidata/web provenance (rule 6)
+  - cyera: non-US hq_country on a $1B+ row with no citation and no formd/wikidata/web provenance (rule 6)
+  - decart: non-US hq_country on a $1B+ row with no citation and no formd/wikidata/web provenance (rule 6)
+  - eon: non-US hq_country on a $1B+ row with no citation and no formd/wikidata/web provenance (rule 6)
+  - fireblocks: non-US hq_country on a $1B+ row with no citation and no formd/wikidata/web provenance (rule 6)
+  - kela: non-US hq_country on a $1B+ row with no citation and no formd/wikidata/web provenance (rule 6)
+  - stark: non-US hq_country on a $1B+ row with no citation and no formd/wikidata/web provenance (rule 6)
+OK lightspeed: readback lightspeed: csv 875, live 875, missing 0, extra 0, differing cells 0 | lightspeed | recorded 0 verdicts + 1 classification rows; ledger holds 1293, classification holds 934 | lightspeed: 875 -> 875 rows; added []; removed []; changed 1 | Plan: 875 row(s) upserted (0 new), 0 removed, from 875 live. | readback lightspeed: csv 875, live 875, missing 0, extra 0, differing cells 0 | 7445651b PRO-108: lightspeed aligned from the Lakestar run (lemon-markets), re-ingested
+STOP seedcamp: verify not clean
+  - sampled evidence links failing: none sampled
+OK khosla-ventures: readback khosla-ventures: csv 506, live 506, missing 0, extra 0, differing cells 0 | khosla-ventures | recorded 0 verdicts + 1 classification rows; ledger holds 722, classification holds 507 | khosla-ventures: 506 -> 506 rows; added []; removed []; changed 1 | Plan: 506 row(s) upserted (0 new), 0 removed, from 506 live. | readback khosla-ventures: csv 506, live 506, missing 0, extra 0, differing cells 0 | 07177187 PRO-108: khosla-ventures aligned from the Lakestar run (varda), re-ingested
+exit 0
