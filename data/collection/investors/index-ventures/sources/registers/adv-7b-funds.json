@@ -1,0 +1,520 @@
+{
+ "_readme": "Parse Form ADV Schedule D Section 7.B.(1) private-fund rosters from the\nIndex Ventures and Medicxi adviser PDFs (data/filings/index-ventures/adv/<CRD>.pdf, gitignored; IAPD reports.adviserinfo.sec.gov/reports/ADV/<CRD>/PDF/<CRD>.pdf) into\nsources/registers/adv-7b-funds.json. Per-page extraction (pypdf's whole-document\ntext repeats pages), one record per fund: name, 805- ID, GAV, filing adviser.\nDeduped by private fund ID across advisers (COLLECTION.md 11: co-advisers of\none desk report identical rosters). Section 7.B.(2) (sub-advised funds reported\nby another adviser) carries no GAV and is recorded as a reference list.",
+ "advisers": {
+  "161175": {
+   "crd": "161175",
+   "adviser": "INDEX VENTURES SA",
+   "filed": "3/31/2026",
+   "funds_7b1": [
+    {
+     "name": "INDEX ORIGIN I (JERSEY) L.P.",
+     "id": "805-5772977814",
+     "gav": 308449276
+    },
+    {
+     "name": "INDEX ORIGIN II (JERSEY) L.P.",
+     "id": "805-7091894699",
+     "gav": 449437460
+    },
+    {
+     "name": "INDEX SPV I (JERSEY) L.P.",
+     "id": "805-6312715110",
+     "gav": 80478468
+    },
+    {
+     "name": "INDEX SPV II (JERSEY) L.P.",
+     "id": "805-4941449855",
+     "gav": 10168367
+    },
+    {
+     "name": "INDEX VENTURES GROWTH II (JERSEY), L.P.",
+     "id": "805-7479510637",
+     "gav": 468962351
+    },
+    {
+     "name": "INDEX VENTURES GROWTH II PARALLEL ENTREPRENEUR FUND (JERSEY), L.P.",
+     "id": "805-7045082837",
+     "gav": 7814718
+    },
+    {
+     "name": "INDEX VENTURES GROWTH III (JERSEY) L.P.",
+     "id": "805-8456935729",
+     "gav": 3781978581
+    },
+    {
+     "name": "INDEX VENTURES GROWTH IV (JERSEY) L.P.",
+     "id": "805-8073128975",
+     "gav": 2140973791
+    },
+    {
+     "name": "INDEX VENTURES GROWTH V (JERSEY) L.P.",
+     "id": "805-4877452324",
+     "gav": 1589956434
+    },
+    {
+     "name": "INDEX VENTURES GROWTH VI (JERSEY) L.P.",
+     "id": "805-7479988119",
+     "gav": 2026840141
+    },
+    {
+     "name": "INDEX VENTURES GROWTH VII (JERSEY), L.P.",
+     "id": "805-7352561025",
+     "gav": 204810946
+    },
+    {
+     "name": "INDEX VENTURES GROWTH VII ENTREPRENEUR FUND (DELAWARE) - SERIES II, L.P.",
+     "id": "805-8857012237",
+     "gav": 10857075,
+     "note": "value read at the top of the next page"
+    },
+    {
+     "name": "INDEX VENTURES III (DELAWARE), L.P.",
+     "id": "805-8317806521",
+     "gav": 10857075,
+     "note": "value read at the top of the next page"
+    },
+    {
+     "name": "INDEX VENTURES III (JERSEY), L.P.",
+     "id": "805-3434983863",
+     "gav": 10857075,
+     "note": "value read at the top of the next page"
+    },
+    {
+     "name": "INDEX VENTURES III PARALLEL ENTREPRENEUR FUND (JERSEY), L.P.",
+     "id": "805-9223349699",
+     "gav": 10857075,
+     "note": "value read at the top of the next page"
+    },
+    {
+     "name": "INDEX VENTURES IX (JERSEY) LP",
+     "id": "805-4087171723",
+     "gav": 2309677714
+    },
+    {
+     "name": "INDEX VENTURES IX PARALLEL ENTREPRENEUR FUND (JERSEY) LP",
+     "id": "805-5313964603",
+     "gav": 46651390
+    },
+    {
+     "name": "INDEX VENTURES LIFE VI (JERSEY), L.P.",
+     "id": "805-3072250321",
+     "gav": 211570819
+    },
+    {
+     "name": "INDEX VENTURES V (JERSEY), L.P.",
+     "id": "805-5568236636",
+     "gav": 350345678
+    },
+    {
+     "name": "INDEX VENTURES V PARALLEL ENTREPRENEUR FUND (JERSEY), L.P.",
+     "id": "805-3919319334",
+     "gav": 2834470
+    },
+    {
+     "name": "INDEX VENTURES VI (JERSEY) L.P.",
+     "id": "805-7307777475",
+     "gav": 3021058898
+    },
+    {
+     "name": "INDEX VENTURES VI PARALLEL ENTREPRENEUR FUND (JERSEY) L.P.",
+     "id": "805-5432250753",
+     "gav": 60990103
+    },
+    {
+     "name": "INDEX VENTURES VII (JERSEY) L.P.",
+     "id": "805-6522437310",
+     "gav": 2886161190
+    },
+    {
+     "name": "INDEX VENTURES VII PARALLEL ENTREPRENEUR FUND (JERSEY) L.P.",
+     "id": "805-9829034688",
+     "gav": 71464376
+    },
+    {
+     "name": "INDEX VENTURES VIII (JERSEY) L.P.",
+     "id": "805-5334766543",
+     "gav": 1299213963
+    },
+    {
+     "name": "INDEX VENTURES VIII PARALLEL ENTREPRENEUR FUND (JERSEY) L.P.",
+     "id": "805-4754863804",
+     "gav": 32981202
+    },
+    {
+     "name": "INDEX VENTURES X (JERSEY) L.P.",
+     "id": "805-9397723425",
+     "gav": 2615107293
+    },
+    {
+     "name": "INDEX VENTURES X ENTREPRENEUR FUND (DELAWARE), L.P.",
+     "id": "805-4396801893",
+     "gav": 77526274
+    },
+    {
+     "name": "INDEX VENTURES XI (JERSEY) L.P.",
+     "id": "805-2986147230",
+     "gav": 820923696
+    },
+    {
+     "name": "INDEX VENTURES XI ENTREPRENEUR FUND (DELAWARE) L.P.",
+     "id": "805-9464601786",
+     "gav": 22905439
+    },
+    {
+     "name": "INDEX VENTURES XII (JERSEY), L.P.",
+     "id": "805-4275932091",
+     "gav": 339455829
+    },
+    {
+     "name": "INDEX VENTURES XII ENTREPRENEUR FUND (DELAWARE) - SERIES I L.P.",
+     "id": "805-2128514869",
+     "gav": 12393891
+    }
+   ],
+   "funds_7b2": []
+  },
+  "283504": {
+   "crd": "283504",
+   "adviser": "MEDICXI VENTURES MANAGEMENT (JERSEY) LIMITED",
+   "filed": "2/26/2026",
+   "funds_7b1": [
+    {
+     "name": "MEDICXI GROWTH I LP",
+     "id": "805-3543859499",
+     "gav": 223824532
+    },
+    {
+     "name": "MEDICXI III LP",
+     "id": "805-4907030021",
+     "gav": 510885155
+    },
+    {
+     "name": "MEDICXI IV LP",
+     "id": "805-8929948252",
+     "gav": 328939968
+    },
+    {
+     "name": "MEDICXI SECONDARY I LP",
+     "id": "805-2559475561",
+     "gav": 328939968,
+     "note": "value read at the top of the next page"
+    },
+    {
+     "name": "MEDICXI V LP",
+     "id": "805-8499443097",
+     "gav": 328939968,
+     "note": "value read at the top of the next page"
+    },
+    {
+     "name": "MEDICXI VENTURES I LP",
+     "id": "805-1051875861",
+     "gav": 328939968,
+     "note": "value read at the top of the next page"
+    }
+   ],
+   "funds_7b2": [
+    {
+     "name": "INDEX VENTURES III (DELAWARE) L.P.",
+     "id": "805-8317806521"
+    },
+    {
+     "name": "INDEX VENTURES III (JERSEY) LP",
+     "id": "805-3434983863"
+    },
+    {
+     "name": "INDEX VENTURES III PARALLEL ENTREPRENEUR FUND (JERSEY) LP",
+     "id": "805-9223349699"
+    },
+    {
+     "name": "INDEX VENTURES LIFE VI (JERSEY) LP",
+     "id": "805-3072250321"
+    },
+    {
+     "name": "INDEX VENTURES V (JERSEY) LP",
+     "id": "805-5568236636"
+    },
+    {
+     "name": "INDEX VENTURES V PARALLEL ENTREPRENEUR FUND (JERSEY) LP",
+     "id": "805-3919319334"
+    }
+   ]
+  }
+ },
+ "funds": [
+  {
+   "name": "INDEX ORIGIN I (JERSEY) L.P.",
+   "id": "805-5772977814",
+   "gav": 308449276,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX ORIGIN II (JERSEY) L.P.",
+   "id": "805-7091894699",
+   "gav": 449437460,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX SPV I (JERSEY) L.P.",
+   "id": "805-6312715110",
+   "gav": 80478468,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX SPV II (JERSEY) L.P.",
+   "id": "805-4941449855",
+   "gav": 10168367,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES GROWTH II (JERSEY), L.P.",
+   "id": "805-7479510637",
+   "gav": 468962351,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES GROWTH II PARALLEL ENTREPRENEUR FUND (JERSEY), L.P.",
+   "id": "805-7045082837",
+   "gav": 7814718,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES GROWTH III (JERSEY) L.P.",
+   "id": "805-8456935729",
+   "gav": 3781978581,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES GROWTH IV (JERSEY) L.P.",
+   "id": "805-8073128975",
+   "gav": 2140973791,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES GROWTH V (JERSEY) L.P.",
+   "id": "805-4877452324",
+   "gav": 1589956434,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES GROWTH VI (JERSEY) L.P.",
+   "id": "805-7479988119",
+   "gav": 2026840141,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES GROWTH VII (JERSEY), L.P.",
+   "id": "805-7352561025",
+   "gav": 204810946,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES GROWTH VII ENTREPRENEUR FUND (DELAWARE) - SERIES II, L.P.",
+   "id": "805-8857012237",
+   "gav": 10857075,
+   "note": "value read at the top of the next page",
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES III (DELAWARE), L.P.",
+   "id": "805-8317806521",
+   "gav": 10857075,
+   "note": "value read at the top of the next page",
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES III (JERSEY), L.P.",
+   "id": "805-3434983863",
+   "gav": 10857075,
+   "note": "value read at the top of the next page",
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES III PARALLEL ENTREPRENEUR FUND (JERSEY), L.P.",
+   "id": "805-9223349699",
+   "gav": 10857075,
+   "note": "value read at the top of the next page",
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES IX (JERSEY) LP",
+   "id": "805-4087171723",
+   "gav": 2309677714,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES IX PARALLEL ENTREPRENEUR FUND (JERSEY) LP",
+   "id": "805-5313964603",
+   "gav": 46651390,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES LIFE VI (JERSEY), L.P.",
+   "id": "805-3072250321",
+   "gav": 211570819,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES V (JERSEY), L.P.",
+   "id": "805-5568236636",
+   "gav": 350345678,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES V PARALLEL ENTREPRENEUR FUND (JERSEY), L.P.",
+   "id": "805-3919319334",
+   "gav": 2834470,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES VI (JERSEY) L.P.",
+   "id": "805-7307777475",
+   "gav": 3021058898,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES VI PARALLEL ENTREPRENEUR FUND (JERSEY) L.P.",
+   "id": "805-5432250753",
+   "gav": 60990103,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES VII (JERSEY) L.P.",
+   "id": "805-6522437310",
+   "gav": 2886161190,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES VII PARALLEL ENTREPRENEUR FUND (JERSEY) L.P.",
+   "id": "805-9829034688",
+   "gav": 71464376,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES VIII (JERSEY) L.P.",
+   "id": "805-5334766543",
+   "gav": 1299213963,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES VIII PARALLEL ENTREPRENEUR FUND (JERSEY) L.P.",
+   "id": "805-4754863804",
+   "gav": 32981202,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES X (JERSEY) L.P.",
+   "id": "805-9397723425",
+   "gav": 2615107293,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES X ENTREPRENEUR FUND (DELAWARE), L.P.",
+   "id": "805-4396801893",
+   "gav": 77526274,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES XI (JERSEY) L.P.",
+   "id": "805-2986147230",
+   "gav": 820923696,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES XI ENTREPRENEUR FUND (DELAWARE) L.P.",
+   "id": "805-9464601786",
+   "gav": 22905439,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES XII (JERSEY), L.P.",
+   "id": "805-4275932091",
+   "gav": 339455829,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "INDEX VENTURES XII ENTREPRENEUR FUND (DELAWARE) - SERIES I L.P.",
+   "id": "805-2128514869",
+   "gav": 12393891,
+   "reported_by": "161175",
+   "also_reported_by": []
+  },
+  {
+   "name": "MEDICXI GROWTH I LP",
+   "id": "805-3543859499",
+   "gav": 223824532,
+   "reported_by": "283504",
+   "also_reported_by": []
+  },
+  {
+   "name": "MEDICXI III LP",
+   "id": "805-4907030021",
+   "gav": 510885155,
+   "reported_by": "283504",
+   "also_reported_by": []
+  },
+  {
+   "name": "MEDICXI IV LP",
+   "id": "805-8929948252",
+   "gav": 328939968,
+   "reported_by": "283504",
+   "also_reported_by": []
+  },
+  {
+   "name": "MEDICXI SECONDARY I LP",
+   "id": "805-2559475561",
+   "gav": 328939968,
+   "note": "value read at the top of the next page",
+   "reported_by": "283504",
+   "also_reported_by": []
+  },
+  {
+   "name": "MEDICXI V LP",
+   "id": "805-8499443097",
+   "gav": 328939968,
+   "note": "value read at the top of the next page",
+   "reported_by": "283504",
+   "also_reported_by": []
+  },
+  {
+   "name": "MEDICXI VENTURES I LP",
+   "id": "805-1051875861",
+   "gav": 328939968,
+   "note": "value read at the top of the next page",
+   "reported_by": "283504",
+   "also_reported_by": []
+  }
+ ],
+ "count": 38,
+ "sum_gross_asset_value_usd": 27345030617
+}

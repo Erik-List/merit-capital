@@ -1,0 +1,68 @@
+# Index Ventures run log (PRO-82)
+
+Kickoff 2026-10-01 ~14:25 UTC ("please collect Index Ventures"). One session, one run. Slug `index-ventures`.
+
+## Usage line at kickoff (get_usage, 14:32 UTC)
+- 5-hour limit 3% (resets 19:20 UTC)
+- Weekly, all models: 73% (resets 2026-10-06 18:00 UTC)
+- Weekly, Fable: 8%
+- Extra usage: disabled
+
+## Prompt count
+1. kickoff ("please collect Index Ventures")
+
+## Siblings in flight on this checkout at kickoff
+atomico, bain-capital-ventures, founders-fund, general-catalyst (in-flight markers). The working tree carries
+uncommitted edits in ~25 other books, scripts/run.py, scripts/graduation-surfaces.py and COLLECTION.md (other
+sessions' work); never touched. In-flight marker for index-ventures written at kickoff.
+
+## 2026-10-01 14:30-15:30 UTC: Phase 0
+- EDGAR company search: 34 "Index Ventures ..." funds, 11 "Index Venture ... Associates" GPs, 3 Index Origin funds,
+  Index SPV 1/2. entities.json: 53 entities (49 home desk, 4 external: Life VII, three Yucca co-filers).
+- Adviser: Index Ventures SA, Geneva, ERA, CRD 161175 (SEC 802-75760), ADV 2026-03-31, 7.B.(1) 32 funds.
+  Medicxi Ventures Management (Jersey) Ltd, ERA CRD 283504, 7.B.(2) lists Index III (3 vehicles), V (2) and Life VI
+  as funds it sub-advises. scratch/parse-adv-7b.py -> sources/registers/adv-7b-funds.json
+  (GAV values repeat on some funds: a parse artefact to fix before the profile uses them).
+- Medicxi: launched 2016-02-01, "comprises all of the legacy portfolio companies, funds and the life sciences team
+  of Index Ventures" (Medicxi's launch release). Life VII (CIK 1648676, Form D 2015) is not on Index's ADV.
+- Site: Wagtail, 329 companies (listing = sitemap), 49 team cards (26 investor / 11 strategist / 12 operator).
+  No year, no round word per company; the listing's "backed at Seed" filter marks 75 rows. scratch/site-scrape.py,
+  sources/site/companies-wagtail.json, companies-list.json, team-cards.json; site-portfolio.py run.
+- Archive: CDX enumeration (60,000 keys, capped in /startup-jobs). Five site generations (config wayback._eras_note).
+  IA: 503s, then a firewall refusal -> machine-wide cooldown 60 min from ~15:05 UTC. Not our rate (2 requests).
+- Common Crawl (static cluster.idx route): 29 crawls 2008-2025 read; /portfolio + /index.php 2008-2013,
+  /companies 2014-2025, /team 2008-2025, /news, /news-room, /blog. scratch/cc-cluster.py, cc-fetch.py (6 workers).
+- WebSearch used: 1 of 200.
+
+## Decisions taken in Phase 0 (decisions.md)
+- D3 life sciences desk: OUT, partitioned (Medicxi owns the legacy book by the firms' own statement; Benchmark
+  Europe / Balderton precedent). Open ruling for Erik at close; rows preserved.
+
+## RESUME POINT 1, 2026-10-01 ~15:20 UTC
+State on disk:
+- Base v1 built (618 rows; build-2.log) from: live site 329, Common Crawl archive 2008-2025 (parsed/<year>.json,
+  543 distinct names, archive-facts.json with the firm's own desk / status / stage-filter / Index Team claims),
+  Form D sweep (72-name roster from the firm's team pages; 312 accessions, 181 issuers), 25 fund-filing issuers.
+  identity-merges.json: 24 merges + never_merge gather/gather-wholesale-inc. prepare run once (14 batches of 45).
+- Verdicts recorded: life-desk (37 not_member, D3), formd-clusters (23 not_member, T4/homonyms).
+  opentest-inc (absorbed into loom-inc) resurfaces at the rebuild and needs its own not_member verdict then
+  (delta verdict -> a second, final rebuild).
+- Form D members still to classify (judgments-formd-members.py): fleetsmith-inc (Seed 2016-03, Fushman; Apple 2020),
+  optimizely-inc (Series C 2015-09 led by Index), skyport-systems-inc (Volpi; Index led the $30M Series B 2014/15; Cisco 2018),
+  zesty-inc (Series A 2015-06; Square 2018), saurus-inc = Imzy (Dan McComas, Saar Gur; $8M 2016-08; shut 2017),
+  pomsg-ai-inc = msg.ai / Netomi (Puneet Mehta; 2017-03), kiosk-inc (Paris WhatsApp-marketing AI; Julia Andre 2026-03,
+  director of record), dahlia-labs-inc = Daydream (Julie Bornstein; merge into `daydream` at the rebuild).
+- Tools: scratch/show.py (judge view), evidence-pack.py, siblings.py (344 of 618 rows shared), judge_lib.py
+  (post / page / arch / narch / sib / news / gsurl lookups; citations never typed), news-bulk.py (Google News per
+  listed company, running in background, resumable), news-archive.py (the firm's archived news 2002-2019).
+- DISK: the machine hit 0 bytes free at ~15:12 UTC (ENOSPC). Raw captures under data/filings are now gzipped
+  (readers are gz-aware), cc-index-raw.json trimmed to the namespaces used. 222 Common Crawl captures failed
+  (throttling) and are FAILED in cc-manifest.json; a retry is optional.
+- IA: machine-wide cooldown until ~15:36 UTC. Still to read from IA: /portfolio.html 1999-2001, /portf_sect.html,
+  /cgi-local/ivw_port_detail.cgi 2002-2007 (typ=it / typ=ls), /portfolio/index/industry_id/2 (life list 2008-2013,
+  resolves novocure, infection-control, oxyplus-inc, directmedica, diartis), news ids 1999-2007. These land as recall
+  additions at the one scheduled rebuild.
+Next: grind batches 1-14 (classification of ~560 listed members), graduation pass, recall probe (IA eras, FTS leads,
+Wikipedia sweep, parametric), ONE rebuild, delta, A/B + momentum, duties, profile, verify, export, review, report,
+write-back, close, commit, ingest gate, siblings.
+WebSearch used: 1 of 200.

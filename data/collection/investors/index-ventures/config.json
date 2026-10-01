@@ -1,0 +1,700 @@
+{
+ "slug": "index-ventures",
+ "name": "Index Ventures",
+ "wayback": {
+  "cdx_domain": "indexventures.com",
+  "site_url_base": "https://www.indexventures.com",
+  "eras": [],
+  "_eras_note": "Five site generations on indexventures.com (CDX enumeration 2026-10-01, data/filings/index-ventures/cdx-enum.json, 60,000 URL keys, capped inside /startup-jobs): 1999-2002 static pages (/portfolio.html, /portf_sect.html, /portf_geo.html, one page per partner), 2002-2007 a CGI site (/cgi-local/ivw_port_detail.cgi?typ=it|ls&sec=&com=<name>), 2007-2013 a PHP site (/portfolio/index/industry_id/<1 IT|2 life sciences>/company_status/<current|exited|past>, /portfolio/index/company_id/<n>), 2014-2019 Drupal (/companies/a-z, /companies/<slug>, exits carry the acquirer or ticker in the slug), 2019-2026 Wagtail (/companies/<slug>/, read live through site_api). The archive eras are parsed by scratch/archive-listings.py into sources/wayback/parsed/<year>.json with capture_url per row; no era here is a wayback-pull.py parser, so this list stays empty and the parsed files are the record.",
+  "non_company_slugs": [
+   "index",
+   "home",
+   "page",
+   "feed",
+   "search",
+   "tag",
+   "category",
+   "author",
+   "all",
+   "see-all",
+   "a-z",
+   "backed",
+   "seed",
+   "all-seed",
+   "select",
+   "portfolio",
+   "companies",
+   "company",
+   "team",
+   "people",
+   "about",
+   "perspectives",
+   "relationships",
+   "relationship",
+   "news",
+   "news-room",
+   "blog",
+   "contact",
+   "contact-us",
+   "privacy",
+   "legal",
+   "jobs",
+   "startup-jobs",
+   "engage",
+   "node",
+   "sites",
+   "media",
+   "modules",
+   "misc",
+   "index-press",
+   "philosophy",
+   "resources"
+  ]
+ },
+ "roster": {
+  "cdx_patterns": [
+   "indexventures.com/team/*",
+   "indexventures.com/team-member/*"
+  ],
+  "slug_re": "/(?:team|team-member)/([a-z][a-z0-9-]*[a-z0-9])/?$",
+  "listing_href_re": "/(?:team|team-member)/([a-z][a-z0-9-]*[a-z0-9])/?[\"'?]",
+  "site_team_groups": [
+   "investor"
+  ],
+  "not_a_person": [
+   "index",
+   "team",
+   "people",
+   "partners",
+   "about",
+   "portfolio",
+   "companies",
+   "news",
+   "contact",
+   "jobs",
+   "careers",
+   "all",
+   "page",
+   "feed",
+   "investor",
+   "operator",
+   "strategist",
+   "index-ventures",
+   "a-z",
+   "san-francisco",
+   "london",
+   "geneva",
+   "jersey",
+   "new-york"
+  ],
+  "_note": "The roster is the live team page (data-role investor) unioned with the archived people pages of every site era (1999-2002 one static page per partner, 2002-2007 /cgi-local/ivw_team_detail_*.cgi?nam=<name>, 2007-2013 /team pages, 2014-2026 /team/<slug>), curated per person with a dated basis in sources/wayback/partner-roster.json (scratch/roster-curate.py)."
+ },
+ "site_api": {
+  "type": "scrape",
+  "sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/index-ventures/sources/site/companies-list.json",
+    "list": "companies-2026",
+    "list_path": "rows",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "sectors": "sectors",
+    "extras": [
+     "partners",
+     "backed",
+     "stage_site",
+     "regions",
+     "list_tag",
+     "founders",
+     "website",
+     "description",
+     "perspectives",
+     "lastmod"
+    ]
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "file_list",
+    "path": "data/collection/investors/index-ventures/sources/site/team-cards.json",
+    "list": "team",
+    "list_path": "rows",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "extras": [
+     "title",
+     "group",
+     "office"
+    ]
+   }
+  ],
+  "team_buckets": {
+   "investor": "investing",
+   "strategist": "platform",
+   "operator": "operations"
+  },
+  "_note": "indexventures.com is Wagtail (Django). /companies/backed/all/ renders all 329 cards in one page, each with data-backed (select / seed / all-seed), data-regions, data-sectors and a ticker-or-acquirer span; sitemap-companies.xml lists the same 329 pages. A company page carries Founders/CEOs, Index Team, Sector, Website and the related Perspectives posts; it carries no investment year and no round word. The listing's own 'backed at Seed' filter is the one stage claim (decisions.md D8). scratch/site-scrape.py reads both; raw pages in data/filings/index-ventures/site-raw (gitignored). The Perspectives archive (1,238 posts in sitemap-perspectives.xml) is the news surface."
+ },
+ "edgar": {
+  "seed_queries": [
+   "index+ventures",
+   "index+venture",
+   "index+origin",
+   "index+spv"
+  ],
+  "fts_phrases": [
+   "Index Ventures"
+  ],
+  "fts_own_pattern": "^index (ventures?|origin|spv)\\b",
+  "_note": "EDGAR company names 2026-10-01: 34 'Index Ventures ...' fund filers (Growth I-VII, III-XIII, Life VI and VII, the Parallel Entrepreneur Funds and three Delaware Entrepreneur Funds), 11 'Index Venture ... Associates' general partners (Index Venture Associates III-VII Ltd, Growth Associates I-V, Life Associates VI), three Index Origin funds. Adviser: Index Ventures SA, Geneva, exempt reporting adviser CRD 161175 / SEC 802-75760, ADV of 2026-03-31, Section 7.B.(1) 32 funds (sources/registers/adv-7b-funds.json). The bare word 'Index' is unusable as a phrase; 'Index Ventures' is entity-qualified. Medicxi (17 filers, own ERA CRD 283504) is a separate firm since 2016 (decisions.md D3)."
+ },
+ "wikipedia": {
+  "phrases": [
+   "Index Ventures"
+  ]
+ },
+ "desks": {
+  "home": "index",
+  "partition": [],
+  "rank": [
+   "index",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "medicxi",
+     "index ventures life vii",
+     "indexventures? ?(llc|inc)\\b"
+    ]
+   },
+   {
+    "desk": "index",
+    "patterns": [
+     "^index ventures?\\b",
+     "^index origin\\b",
+     "^index spv\\b",
+     "^yucca\\b"
+    ]
+   }
+  ],
+  "_note": "One firm under one adviser (Index Ventures SA, CRD 161175): venture funds I-XIII, Growth I-VII, Origin I-III, Life VI, the SPVs and the entrepreneur funds are all the home desk (decisions.md D1, D2). The base partitions by adviser, not by office or by the domicile of the portfolio company; the row's evidence regime is stated separately (decisions.md D9). Medicxi and Index Ventures Life VII (which became Medicxi Ventures I) are external (D3). Yucca (Jersey) SLP, Yucca Partners L.P. Jersey Branch and Yucca Associates Ltd administer the Index co-investment scheme and co-file with the funds (D2): home desk."
+ },
+ "profile": {
+  "adv_crd": 161175,
+  "own_vehicle_pattern": "^index (ventures?|origin|spv)\\b",
+  "_note": "Filled at profile time (focus crosswalk, focus_min_companies, site_office)."
+ },
+ "verify": {
+  "not_members": [
+   {
+    "name": "eBay",
+    "slug": "ebay",
+    "why": "acquirer of Skype (2005): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Veritas Software",
+    "slug": "veritas-software",
+    "why": "acquirer of KVS (2004): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Symantec",
+    "slug": "symantec",
+    "why": "acquirer of KVS, via Veritas: sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Nokia",
+    "slug": "nokia",
+    "why": "acquirer of Trolltech (2008): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Electronic Arts",
+    "slug": "electronic-arts",
+    "why": "acquirer of Playfish (2009): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Red Hat",
+    "slug": "red-hat",
+    "why": "acquirer of Gluster (2011): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Atlassian",
+    "slug": "atlassian",
+    "why": "acquirer of Trello (2017): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Stamps.com",
+    "slug": "stamps-com",
+    "why": "acquirer of MetaPack (2018): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "F5 Networks",
+    "slug": "f5-networks",
+    "why": "acquirer of NGINX (2019): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Fastly",
+    "slug": "fastly",
+    "why": "acquirer of Signal Sciences (2020): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Walker & Dunlop",
+    "slug": "walker-dunlop",
+    "why": "acquirer of GeoPhy (2022): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Skillsoft",
+    "slug": "skillsoft",
+    "why": "acquirer of Codecademy (2022): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Adobe",
+    "slug": "adobe",
+    "why": "acquirer of Figma (agreed 2022, abandoned 2023): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Alphabet",
+    "slug": "alphabet",
+    "why": "acquirer of Wiz (agreed 2025): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "NeoPhotonics",
+    "slug": "neophotonics",
+    "why": "acquirer of BeamExpress: sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "IBM",
+    "slug": "ibm",
+    "why": "acquirer of CommQuest, FilesX, WorkLight: sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Citrix",
+    "slug": "citrix",
+    "why": "acquirer of Cloud.com (2011): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Salesforce",
+    "slug": "salesforce",
+    "why": "acquirer of Assistly, Dimdim: sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Microsoft",
+    "slug": "microsoft",
+    "why": "acquirer of StorSimple, Adallom, SwiftKey: sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Amazon",
+    "slug": "amazon",
+    "why": "acquirer of Lovefilm (2011): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "CBS",
+    "slug": "cbs",
+    "why": "acquirer of Last.fm (2007): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Sun Microsystems",
+    "slug": "sun-microsystems",
+    "why": "acquirer of MySQL (2008): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Oracle",
+    "slug": "oracle",
+    "why": "acquirer of MySQL, via Sun: sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Kodak",
+    "slug": "kodak",
+    "why": "acquirer of Ofoto (2001): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "RealNetworks",
+    "slug": "realnetworks",
+    "why": "acquirer of Listen.com (2003): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "VMware",
+    "slug": "vmware",
+    "why": "acquirer of B-hive (2008): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "PayPal",
+    "slug": "paypal",
+    "why": "acquirer of iZettle (2018): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Monsanto",
+    "slug": "monsanto",
+    "why": "acquirer of The Climate Corporation (2013): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Check Point",
+    "slug": "check-point",
+    "why": "acquirer of Lacoon (2015): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Richemont",
+    "slug": "richemont",
+    "why": "acquirer of Net-a-Porter (2010): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Dassault Systemes",
+    "slug": "dassault-systemes",
+    "why": "acquirer of Netvibes (2012): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Opera Software",
+    "slug": "opera-software",
+    "why": "acquirer of AdMarvel (2010): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Intec Telecom Systems",
+    "slug": "intec-telecom-systems",
+    "why": "acquirer of Digiquant: sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Lumension",
+    "slug": "lumension",
+    "why": "acquirer of SecureWave: sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Synopsys",
+    "slug": "synopsys",
+    "why": "acquirer of Numerical Technologies (2003): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Springsoft",
+    "slug": "springsoft",
+    "why": "acquirer of Certess: sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Spreadtrum",
+    "slug": "spreadtrum",
+    "why": "acquirer of Telegent Systems: sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "CDNetworks",
+    "slug": "cdnetworks",
+    "why": "acquirer of Panther Express: sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Redbend",
+    "slug": "redbend",
+    "why": "acquirer of VirtualLogix: sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "EMC",
+    "slug": "emc",
+    "why": "acquirer of SourceLabs: sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Accrue",
+    "slug": "accrue",
+    "why": "acquirer of Neovista: sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Affymetrix",
+    "slug": "affymetrix",
+    "why": "acquirer of ParAllele Bioscience (life sciences desk, D3): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Corgentech",
+    "slug": "corgentech",
+    "why": "acquirer of AlgoRx (life sciences desk, D3): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Trainline",
+    "slug": "trainline",
+    "why": "acquirer of Captain Train (2016): sale consideration, the row is the company that was bought (D6)"
+   },
+   {
+    "name": "Seedcamp",
+    "slug": "seedcamp",
+    "why": "an LP-class stake in another investor's funds, not an operating company (D4)"
+   },
+   {
+    "name": "Medicxi Ventures I",
+    "slug": "medicxi-ventures-i",
+    "why": "a fund vehicle (T5); Medicxi is a separate firm since 2016 (D3)"
+   },
+   {
+    "name": "Medicxi Growth I",
+    "slug": "medicxi-growth-i",
+    "why": "a fund vehicle (T5); Medicxi is a separate firm since 2016 (D3)"
+   },
+   {
+    "name": "Medicxi III",
+    "slug": "medicxi-iii",
+    "why": "a fund vehicle (T5); Medicxi is a separate firm since 2016 (D3)"
+   },
+   {
+    "name": "Medicxi IV",
+    "slug": "medicxi-iv",
+    "why": "a fund vehicle (T5); Medicxi is a separate firm since 2016 (D3)"
+   },
+   {
+    "name": "Medicxi V",
+    "slug": "medicxi-v",
+    "why": "a fund vehicle (T5); Medicxi is a separate firm since 2016 (D3)"
+   },
+   {
+    "name": "Medicxi Secondary I",
+    "slug": "medicxi-secondary-i",
+    "why": "a fund vehicle (T5); Medicxi is a separate firm since 2016 (D3)"
+   },
+   {
+    "name": "Index Ventures Life VI",
+    "slug": "index-ventures-life-vi",
+    "why": "a fund vehicle (T5); Medicxi is a separate firm since 2016 (D3)"
+   },
+   {
+    "name": "Index Ventures Life VII",
+    "slug": "index-ventures-life-vii",
+    "why": "a fund vehicle (T5); Medicxi is a separate firm since 2016 (D3)"
+   },
+   {
+    "name": "7TM",
+    "slug": "7tm",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "Addex",
+    "slug": "addex",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "Aegerion",
+    "slug": "aegerion",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "AlgoRx",
+    "slug": "algorx",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "Ariad",
+    "slug": "ariad",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "BioXell",
+    "slug": "bioxell",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "Cellzome",
+    "slug": "cellzome",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "CoMentis",
+    "slug": "comentis",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "Cyrenaic",
+    "slug": "cyrenaic",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "Egalet",
+    "slug": "egalet",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "Funxional Therapeutics",
+    "slug": "funxional-therapeutics",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "GeneBio",
+    "slug": "genebio",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "Genmab",
+    "slug": "genmab",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "Ingenium",
+    "slug": "ingenium",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "Mind-NRG",
+    "slug": "mind-nrg",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "Molecular Partners",
+    "slug": "molecular-partners",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "NormOxys",
+    "slug": "normoxys",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "OncoEthix",
+    "slug": "oncoethix",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "PanGenetics",
+    "slug": "pangenetics",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "ParAllele Bioscience",
+    "slug": "parallele-bioscience",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "Sequenta Inc.",
+    "slug": "sequenta-inc",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "SpinX Technologies",
+    "slug": "spinx-technologies",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "XO1",
+    "slug": "xo1",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "Versartis",
+    "slug": "versartis",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "Minerva Neurosciences",
+    "slug": "minerva-neurosciences",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "Micromet",
+    "slug": "micromet",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "Centessa Pharmaceuticals plc",
+    "slug": "centessa-pharmaceuticals-plc",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "GenSight",
+    "slug": "gensight",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "GlycoVaxyn",
+    "slug": "glycovaxyn",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "Levicept",
+    "slug": "levicept",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "LinguaFlex",
+    "slug": "linguaflex",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "FF Pharma",
+    "slug": "ff-pharma",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "Acutus Medical",
+    "slug": "acutus-medical",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "Epsilon 3 Bio",
+    "slug": "epsilon-3-bio",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "ProFibrix",
+    "slug": "profibrix",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "SGX Pharma",
+    "slug": "sgx-pharma",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "Novocure",
+    "slug": "novocure",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "Medicentrix",
+    "slug": "medicentrix",
+    "why": "life sciences desk: the firm's own Life Sciences listing or a Life VI position; the book went to Medicxi in 2016 (D3)"
+   },
+   {
+    "name": "Exor",
+    "slug": "exor",
+    "why": "names the firm in a director's biography or is the blank-check shell of a portfolio company's listing, never a position (T4, T5)"
+   },
+   {
+    "name": "Fiat Chrysler Automobiles",
+    "slug": "fiat-chrysler-automobiles",
+    "why": "names the firm in a director's biography or is the blank-check shell of a portfolio company's listing, never a position (T4, T5)"
+   },
+   {
+    "name": "Ferrari",
+    "slug": "ferrari",
+    "why": "names the firm in a director's biography or is the blank-check shell of a portfolio company's listing, never a position (T4, T5)"
+   },
+   {
+    "name": "PartnerRe",
+    "slug": "partnerre",
+    "why": "names the firm in a director's biography or is the blank-check shell of a portfolio company's listing, never a position (T4, T5)"
+   },
+   {
+    "name": "CNH Global",
+    "slug": "cnh-global",
+    "why": "names the firm in a director's biography or is the blank-check shell of a portfolio company's listing, never a position (T4, T5)"
+   },
+   {
+    "name": "Reinvent Technology Partners Y",
+    "slug": "reinvent-technology-partners-y",
+    "why": "names the firm in a director's biography or is the blank-check shell of a portfolio company's listing, never a position (T4, T5)"
+   },
+   {
+    "name": "Galileo Acquisition Corp",
+    "slug": "galileo-acquisition-corp",
+    "why": "names the firm in a director's biography or is the blank-check shell of a portfolio company's listing, never a position (T4, T5)"
+   },
+   {
+    "name": "INSU Acquisition Corp. II",
+    "slug": "insu-acquisition-corp-ii",
+    "why": "names the firm in a director's biography or is the blank-check shell of a portfolio company's listing, never a position (T4, T5)"
+   },
+   {
+    "name": "Northern Star Acquisition Corp",
+    "slug": "northern-star-acquisition-corp",
+    "why": "names the firm in a director's biography or is the blank-check shell of a portfolio company's listing, never a position (T4, T5)"
+   }
+  ],
+  "known_positions": [],
+  "_not_members_note": "Written at kickoff 2026-10-01 before any verdict (COLLECTION.md s1 step 3): acquirers of portfolio companies (sale consideration, decisions.md D6), Seedcamp (LP-class, D4), the firm's own and Medicxi's fund vehicles (T5, D3), the life sciences desk's companies as the firm's own site and the Life VI filings name them (D3), and registrants whose filings name the firm only in Mike Volpi's biography (Exor group) or as the SPAC shell of a portfolio company's listing."
+ }
+}

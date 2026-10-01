@@ -1,0 +1,43 @@
+base: data/collection/investors/index-ventures/companies/base.json
+target companies: 111  distinct issuer CIKs: 113
+scanning 74 quarterly datasets (offline)...
+filings collected: 356
+evidence: 238/238 base accessions found
+wrote data/collection/investors/index-ventures/scratch/issuer-evidence.json (122 CIKs, 43 with a name history)
+
+wrote data/collection/investors/index-ventures/sources/edgar/formd-issuer-rounds.json
+  companies with Form D history : 111
+  rounds after amendment merge  : 330 (26 amendments folded in)
+  companies with 2+ rounds      : 87
+  filings the partner sweep never saw: 118
+  companies gaining >=1 such filing  : 61
+  rounds carrying a sale date   : 328/330
+rows: 618
+membership seed: 586 site_listing, 1 fund_filing; left for the judge: 31
+layer A (SEC public float): 618 rows to resolve
+    100/618
+    200/618
+    300/618
+    400/618
+    500/618
+    600/618
+    resolved a CIK: 274   with public float: 45
+layer B (Wikidata): 618 rows in batches of 60
+    60/618
+    120/618
+    180/618
+    240/618
+    300/618
+    360/618
+    420/618
+    480/618
+    540/618
+    600/618
+    618/618
+    matched: 172
+layer C (unicorn list): 629 current, 209 former
+graduation layer 1: 111 companies, 19 entered at Seed, 18 decided by the filings as of 2026-10-01 (the judge confirms each), 48 entries moved past pre-investor rounds
+
+deterministically resolved: 0/618
+retired (not_member, awaiting rebuild): 0
+queued for judgment       : 618 rows in 14 batches
