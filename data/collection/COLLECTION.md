@@ -40,7 +40,7 @@ The shape of a collection, in order:
 8. `verify` green with only flagged debt; `export`; `review`; `report.md`;
    playbook write-back (§9).
 9. Ingest through the gate (§9), with the stale sibling rows aligned and re-ingested in the same
-   pass; then one message to Erik: results, open rulings, and what was ingested.
+   pass; then one message to Erik: results, open rulings (three at most, §9), and what was ingested.
 
 Until 2026-09-03 a collection was two issues and two sessions — the base,
 then classification — separated by a blocking sample sign-off. The
@@ -2209,6 +2209,42 @@ finish everything it does not block**, then raise it once at the end,
 alongside the results; never stop mid-run with work outstanding that the
 open question does not touch.
 
+**A run closes with at most three open rulings** (Erik, 2026-10-01: "attempt
+to reduce open rulings as much as possible (3 max) by either following rules
+or investing in research"). A question reaches Erik only when both of these
+hold: no standing rule, ruling or precedent in this file decides it, and the
+research that could settle it has been done and came back empty. Everything
+else the run decides itself, records as a dated ruling in `decisions.md`, and
+reports under what was decided, not under what is open. Speedinvest closed
+with fourteen "open rulings"; a rule or a lookup settled every one. The
+classes, each of which is decided and never asked:
+
+- **A standing rule already answers it.** A job board is a first-party list
+  (§5); a first-party field labels at the confidence its score earns (§5);
+  the acquirer of a portfolio company is out (§1); a stale mark yields to
+  documented collapse (§6); an unnamed entry round reads `undetermined` (§6).
+  Listing such a case as open is asking Erik to repeat himself.
+- **The run invented a rule where the playbook already speaks.** Check a new
+  rule against this file before recording it. Speedinvest banded 19 unnamed
+  first rounds by their amount; §6 says the label follows what the record
+  calls the round, not the check size, so the band was withdrawn and the rows
+  read `undetermined`.
+- **Research can settle it.** Spend the research first: the firm's own posts
+  and archive, the company's own announcement, the register, the filing
+  itself. Speedinvest's Spiko (the firm's own list of its portfolio, accurate
+  on every other name on it), Heroes Jobs (no citable page names the firm:
+  out under the board-seat ruling) and Trending Topics (the register names no
+  Speedinvest fund: out) were each one or two lookups.
+- **It is flagged debt, not a question.** An inferred country, an unknown
+  status, a city nobody could place: counted in the report's debt section
+  behind their flags.
+- **It concerns another book.** See the alignment rule below: decided and
+  written, never asked.
+
+What remains, three at most, is stated as a question with the two readings
+and what each would change. If more than three survive, the run has not
+finished its research.
+
 **The run ingests its own work, behind a mechanical gate** (Erik,
 2026-09-29, replacing the approval rule of 2026-08-31). From 2026-08-31 to
 2026-09-29 every ingest waited for Erik's explicit approval, after the a16z
@@ -2260,6 +2296,49 @@ company files. Commit only that book's three company files
 pathspec. A namesake pair the alignment surfaces is ruled `distinct` in that
 book's own `cross-rulings.json`, and the run's accepted pairs are removed
 once aligned (20VC and GV did both).
+
+**Cross-investor alignment never waits for Erik's approval** (Erik,
+2026-10-01, on Speedinvest: "ensure by the collection documentation that
+alignments of cross-investors don't require my explicit approval"). Where two
+books describe one company differently, the run that sees it decides the
+right value on the evidence and writes every book concerned, its own
+included, through the gate above. It is not offered, not raised as an open
+ruling, and not left for a later wave.
+
+- **Every column, not only the two the gate compares.** Invariant 10 checks
+  `status` and `valuation_range`; the same duty holds for the figure and its
+  as-of, the city and country, and the published name wherever the run sees
+  two books disagree (wefox read Zurich in Speedinvest's book and Berlin in
+  Seedcamp's: one lookup of the company's own imprint and markets, and both
+  read Zurich).
+- **`accepted` is a parking place, not a ruling.** A pair is ruled `accepted`
+  only while the other book cannot be written (in flight, or uncommitted
+  company files there), with the reason and the value owed in the note. It is
+  removed when the book is aligned. A pair accepted because "Erik should
+  decide" is a defect.
+- **A sibling's gate that fails on something mechanical is repaired, not
+  skipped.** Run after run skipped Y Combinator because its readback showed one
+  row missing and one extra; the cause was a leading space in one CSV name
+  that the ingest trims and the readback tool does not, so the database
+  equalled the committed base all along. Read the failure before skipping.
+  The mechanical cases met so far, each fixed inside the alignment: the
+  readback's untrimmed name (a missing and an extra row with the same name
+  after trimming is exact); a book with no EDGAR link, whose plain `verify`
+  fails on "none sampled" (`--skip-links`); a `censored` row whose 24 months
+  ran out that day (decide it by the absence test, §6, and record it in that
+  book); a namesake pair another run's ingest surfaced (rule it `distinct` in
+  that book's own file). Skip and report only for an in-flight marker,
+  uncommitted company files, or a database difference no mechanism explains.
+- **A sibling row whose company is in doubt is researched like the run's
+  own.** If the other book's row cannot be tied to any company (a16z's June:
+  a bare name on its list, and neither candidate's investor list names a16z),
+  it is that book's unnameable row: `identity_unresolved`, status `unknown`,
+  band and stage `undetermined` (§6). The pair then needs no ruling, because
+  invariant 10 does not compare an unnameable row.
+- **Before its own ingest, the run runs every landed sibling's `verify`** and
+  reads it for its own rows. Invariant 10 is not symmetric where a book
+  publishes "Name (domain)" pairs: Speedinvest's Fuse disagreed with YC's
+  other Fuse only in YC's `verify`.
 
 **A correction from Erik after an ingest is the instruction to re-ingest**:
 apply it, pass the gate again, report. Rows a correction or a rebuild takes
@@ -2381,7 +2460,8 @@ run before the investor row exists (Thrive, 2026-09-04).
     disagreement is a disagreement about a published track record. It
     fails verify unless the pair is ruled `accepted` with a reason; the fix
     is to align the stale side (freshest as-of by default) in that
-    investor's classification and re-export it. Added 2026-09-03 after the
+    investor's classification and re-export it. `accepted` parks a pair
+    until the other book can be written; it is never Erik's to approve (§9). Added 2026-09-03 after the
     first four runs were found to disagree on ~20 shared companies
     (xAI private/$230B in one run and acquired in two; Waymo acquired in
     one and private/$126B in another; a dozen $1B+ marks one run had cited
