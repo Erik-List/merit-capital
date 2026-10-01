@@ -50,6 +50,8 @@ for r in base:
     page_slug = (r.get("site_url") or "").rstrip("/").rsplit("/", 1)[-1]
     k = loose(r["name"])
     keys = {r["slug"], slug_of(r["name"])} | set(dups.get(r["slug"], []))
+    alts = {r["name"]} | {kk.replace("-inc", "").replace("-", " ") for kk in dups.get(r["slug"], [])}
+    NAME = re.compile(r"(?<![A-Za-z0-9])(" + "|".join(re.escape(re.sub(r"\s*\(.*?\)|,? Inc\.?$|\.com$", "", a).strip()) for a in alts if len(a) >= 2) + r")(?![A-Za-z0-9])", re.I)
     arch = {}
     for kk in keys:
         for f, vals in (facts_all.get(kk) or {}).items():
@@ -62,20 +64,21 @@ for r in base:
         if p.get("missing"):
             continue
         t = p.get("title") or ""
-        hit = bool(page_slug and page_slug in (p.get("companies") or []))
-        if not hit and len(k) >= 5:
-            hit = k in loose(t)
-        if hit:
+        in_title = bool(NAME.search(t))
+        linked = bool(page_slug and page_slug in (p.get("companies") or []))
+        if in_title or linked:
+            ss = p.get("round_sentences") or []
+            named = [x for x in ss if NAME.search(x)]
             ps.append({"url": p["url"], "date": p.get("date"), "title": t, "kind": p.get("kind"), "author": p.get("author"),
-                       "sents": [x for x in (p.get("round_sentences") or []) if len(k) < 3 or True][:6]})
-    ns = [n for n in news if any(kk in (n.get("company_keys") or []) for kk in keys) or (len(k) >= 5 and k in loose(n.get("title") or ""))]
+                       "in_title": in_title, "sents": (named + ([x for x in ss if x not in named] if in_title else []))[:6]})
+    ns = [n for n in news if NAME.search(n.get("title") or "")]
     out[r["slug"]] = {
         "name": r["name"], "tier": r.get("tier"), "first_seen": r.get("first_seen"),
         "site": ({k2: s.get(k2) for k2 in ("url", "partners", "sectors_page", "backed", "regions", "list_tag", "founders",
                                            "website", "description")} if s else None),
         "archive": arch or None,
         "partners_formd": r.get("partners_formd"), "formd_links": r.get("formd_links"),
-        "posts": sorted(ps, key=lambda x: x["date"] or "9999"),
+        "posts": sorted(ps, key=lambda x: (not x["in_title"] and not x["sents"], x["date"] or "9999")),
         "news": sorted(ns, key=lambda x: x.get("date") or "9999")[:12],
         "fts": [{"registrant": f["registrant"], "forms": f["forms"], "first": f["first_date"],
                  "url": f["filings"][0]["url"]} for f in fts if k and len(k) >= 4 and k in loose(f["registrant"])],

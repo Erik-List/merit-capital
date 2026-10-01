@@ -66,3 +66,21 @@ Next: grind batches 1-14 (classification of ~560 listed members), graduation pas
 Wikipedia sweep, parametric), ONE rebuild, delta, A/B + momentum, duties, profile, verify, export, review, report,
 write-back, close, commit, ingest gate, siblings.
 WebSearch used: 1 of 200.
+
+## RESUME POINT 2, 2026-10-01 ~16:05 UTC
+- Grind: batches 1-5 recorded (judgments-1..5.py; 219 rows classified). Method per batch: `scratch/show.py N --from 0 --to 23`
+  (judge view), `postgrep.py` / `nq.py` for wording and press checks, then judgments-N.py through gl.C() (drops keys the
+  queue did not ask unless `dispute=`). Left open on purpose: rows whose only stage evidence is the site's
+  "backed at Seed" mark (label pass after D8 scoring), graduation of Seed rows without a cited later round
+  (graduation pass after graduation-surfaces.py), dot-product (no location on record).
+- D8 score so far ("backed at Seed" vs documented entry): hits cowboy, hebbia, kong, linear, productboard, remote,
+  robinhood, figma, arthurai, cradle, atlar, anrok?(not labelled), nova-credit, resistant-ai, nexos-ai, incident-io,
+  kry-livi, jump, okendo?; misses auxmoney (2013 $12M round), cowboy-space (Series A), deliveroo (firm calls it Series A),
+  notion (2020 growth round), revolut (Series A 2016). Recount mechanically before the label pass.
+- Sibling rows that look stale against this run's cited evidence (align at ingest): sequoia apex (acquired, Tenable),
+  balderton dream-games (private $5B, not acquired), coatue+lux covariant (private; acqui-hire), yc humanloop (defunct),
+  battery+nea expel ($1B+ 2021), sequoia bird (acquired out of Ch.11), headline peanut?, khosla catch?
+- Identity merge to add before the rebuild: lithic <- privacy-com; daydream <- dahlia-labs-inc.
+- IA: second firewall refusal at ~15:38 UTC, machine-wide cooldown ~2h (until ~17:40). scratch/ia-pass.py is queued
+  (pre-2008 portfolio pages + life lists); two early pages are already cached (1999 /portfolio.html, 2001 /portf_sect.html).
+- Google News lookups done for all listed names (news-bulk*.json, 3 workers). WebSearch used: 1 of 200.

@@ -10,7 +10,11 @@ spec = importlib.util.spec_from_file_location("gs", ROOT / "scripts" / "graduati
 gs = importlib.util.module_from_spec(spec)
 argv, sys.argv = sys.argv[1:], sys.argv[:1]
 spec.loader.exec_module(gs)
-OUT = H / "news-bulk.json"
+OUT = H / (argv[argv.index("--out") + 1] if "--out" in argv else "news-bulk.json")
+if "--out" in argv:
+    i = argv.index("--out"); del argv[i:i + 2]
+if "--file" in argv:
+    i = argv.index("--file"); argv = [l for l in open(argv[i + 1]).read().split("\n") if l.strip()]
 db = json.loads(OUT.read_text()) if OUT.exists() else {}
 for name in argv:
     if db.get(name, {}).get("status") == "ok":

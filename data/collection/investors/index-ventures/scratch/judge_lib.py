@@ -132,8 +132,10 @@ def post(sub: str, sub2: str = "") -> str:
     exact = [r for r in _POSTS if r["slug"] == sub and not sub2]
     if exact:
         return exact[0]["url"]
-    hits = [r for r in _POSTS if sub.lower() in (r["slug"] + " " + (r.get("title") or "")).lower()
-            and sub2.lower() in (r["slug"] + " " + (r.get("title") or "")).lower()]
+    import re as _re
+    nz = lambda x: _re.sub(r"[^a-z0-9]", "", x.lower())
+    hits = [r for r in _POSTS if (nz(sub) in nz(r["slug"]) or nz(sub) in nz(r.get("title") or ""))
+            and (nz(sub2) in nz(r["slug"]) or nz(sub2) in nz(r.get("title") or ""))]
     if len(hits) != 1:
         raise KeyError(f"post({sub!r}, {sub2!r}): {len(hits)} hits {[h['slug'] for h in hits][:6]}")
     return hits[0]["url"]
@@ -175,6 +177,8 @@ def narch(sub: str, sub2: str = "") -> str:
     if _NA is None:
         _NA = json.load(open(_H.parent / "sources" / "wayback" / "news-archive.json"))["rows"]
     hits = [r for r in _NA if sub.lower() in (r.get("title") or "").lower() and sub2.lower() in (r.get("title") or "").lower()]
+    if len(hits) > 1 and len({h["title"] for h in hits}) == 1:      # one item captured under two ids: the dated one
+        hits = sorted(hits, key=lambda h: (h.get("date") is None, h["ts"]))[:1]
     if len(hits) != 1:
         raise KeyError(f"narch({sub!r}, {sub2!r}): {len(hits)} hits {[h['title'][:60] for h in hits][:6]}")
     return hits[0]["capture_url"]
@@ -203,10 +207,10 @@ def _gs():
 def news(name: str, sub: str) -> str:
     """Publisher URL of the one headline in scratch/news-bulk.json for `name` containing `sub`
     (decoded from Google News on demand, cached back into the file)."""
-    p = _H / "news-bulk.json"
+    p = next(f for f in sorted(_H.glob("news-bulk*.json")) if json.load(open(f)).get(name, {}).get("status") == "ok")
     db = json.load(open(p))
-    hits = [i for i in db[name]["items"] if sub.lower() in i["title"].lower()]
-    if len(hits) != 1:
+    hits = sorted([i for i in db[name]["items"] if sub.lower() in i["title"].lower()], key=lambda i: (i["date"], i["source"]))
+    if not hits or len({h["title"][:40].lower() for h in hits}) != 1:
         raise KeyError(f"news({name!r}, {sub!r}): {len(hits)} hits {[h['title'][:60] for h in hits][:5]}")
     it = hits[0]
     if not it.get("url"):
@@ -238,3 +242,23 @@ def gsurl(slug: str, sub: str) -> str:
     if not u:
         raise KeyError(f"gsurl({slug!r}, {sub!r}): decode failed")
     return u
+
+
+def nqurl(q: str, sub: str) -> str:
+    """Publisher URL of the one headline in scratch/nq-cache.json under query `q` containing `sub`."""
+    p = _H / "nq-cache.json"
+    db = json.load(open(p))
+    hits = sorted([i for i in db[q] if sub.lower() in i["title"].lower()], key=lambda i: (i["date"], i["source"]))
+    if not hits or len({h["title"][:40].lower() for h in hits}) != 1:
+        raise KeyError(f"nqurl({q!r}, {sub!r}): {len(hits)} hits {[h['title'][:60] for h in hits][:5]}")
+    it = hits[0]
+    if not it.get("url"):
+        it["url"] = _gs().decode(it["gid"]) or ""
+        db2 = json.load(open(p))
+        for i in db2[q]:
+            if i["gid"] == it["gid"]:
+                i["url"] = it["url"]
+        p.write_text(json.dumps(db2, indent=1, ensure_ascii=False))
+    if not it["url"]:
+        raise KeyError(f"nqurl({q!r}, {sub!r}): decode failed")
+    return it["url"]
