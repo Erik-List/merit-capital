@@ -8,7 +8,7 @@
 ## 1. The answer PRO-84 asked for
 
 **The base is 385 companies (384 nameable), plain `verify` is clean, the firm profile is built, and
-the registry coverage matrix is section 3.** @@INGEST2_LINE@@
+the registry coverage matrix is section 3.** It is ingested: 385 companies and the investor row are live, and the readback shows 0 differing cells (section 15).
 
 **Revised 2026-10-01** on Erik's instruction (settle open questions by rule or research, three open
 rulings at most; cross-investor alignments need no approval): the fourteen items first listed as
@@ -419,7 +419,7 @@ After Erik's instruction the remaining pairs were settled and written, with no a
 
 | Book | Rows | Result |
 |---|---|---|
-| Speedinvest | Heroes Jobs out; 19 stages to `undetermined`; wefox citation; Spiko at high confidence | @@SI2@@ |
+| Speedinvest | Heroes Jobs out; 19 stages to `undetermined`; wefox citation; Spiko at high confidence | Closing commit `d4dc173c`. Readback before the write: 30 differing cells (19 stages and the 11 graduation cells that went with them) and one extra row, Heroes Jobs, each made by this pass. Dry run: 0 new, 1 removed (Heroes Jobs, in `excluded.json`). Readback after: csv 385, live 385, 0 differing cells |
 | Seedcamp | wefox city Berlin to Zurich (the group's imprint and stated markets) | Aligned and re-ingested, readback exact (`3d1bfe36`) |
 | a16z | June read as its unnameable row (no company can be tied to the bare name); Salient Motion decided `not_graduated` on the absence test, because its 24-month clock ran out that morning and blocked a16z's `verify` | Aligned and re-ingested, readback exact (`a56ff606`, `8e3dcacb`) |
 | Y Combinator | Diligent `acquired` to `private`; June `acquired` to `defunct`; six namesake pairs ruled `distinct` (four of them surfaced by the Kleiner Perkins ingest: Avo, Feather twice, Pillar) | Aligned and re-ingested (`7f6f5f48`). The readback's "missing 1, extra 1" is a leading space in the CSV name " Metadata", which the ingest trims: 0 differing cells |
