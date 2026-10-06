@@ -1,0 +1,73 @@
+Netdata is a real-time observability platform for monitoring infrastructure and applications. The project started in 2016 as an open-source system monitoring tool that collected and visualized metrics such as CPU, memory, disk, and network usage through an automatic web-based dashboard. Today, Netdata provides over 800 integrations for metrics collection, log management, machine learning-based anomaly detection, and AI-assisted troubleshooting. The company behind Netdata also offers Netdata Cloud, a commercial hosted service for centralized monitoring across multiple nodes.
+
+
+== History ==
+Netdata was created by Costa Tsaousis, who began building the tool after becoming dissatisfied with existing monitoring solutions. The project was released publicly as open-source software in March 2016. According to TechCrunch, Tsaousis said the project gained approximately 10,000 GitHub stars within a week after being shared on Reddit.
+In September 2019, Netdata announced a $17 million Series A funding round led by Bain Capital Ventures. In September 2020, the company extended its Series A with an additional $14.2 million led by Bessemer Venture Partners, bringing total funding to $31 million. In February 2023, the company introduced paid subscription tiers alongside its free community plan.
+
+
+== Architecture ==
+Netdata uses a distributed architecture where monitoring agents run on individual systems and collect metrics locally. The software consists of several components:
+
+Netdata Agent: A daemon that collects metrics, stores time-series data, runs anomaly detection, and serves a web dashboard.
+Netdata Parent: An optional aggregation node that receives metrics from multiple agents.
+Netdata Cloud: A commercial hosted service for centralized monitoring of multiple nodes.
+The agent includes an embedded web server that serves its dashboard and provides a REST API for accessing metrics. Metrics are stored using Netdata's custom time-series database engine (dbengine), which supports up to five storage tiers at different resolutions (per-second, per-minute, per-hour by default). Netdata claims the database achieves approximately 0.5 bytes per sample on disk for high-resolution data.
+The agent supports credential resolution through external secret management backends, including cloud provider vaults and HashiCorp Vault.
+Netdata can monitor system resources (CPU, memory, storage, network), containers, Kubernetes clusters, running processes, and common services such as databases. It runs on Linux, Windows, FreeBSD, and macOS.
+
+
+== Design ==
+Netdata's design focuses on edge processing, distributed storage, auto-discovery of services, algorithmically generated dashboards, templatized component-level alerts, unsupervised machine learning, zero-pipeline logs, and linear scalability. This design has some strengths such as: per-second metrics, fast deployments, low maintenance, minimal egress bandwidth, and some weaknesses such as: a provisioning system like Ansible or Terraform is required at scale, dashboard customization is limited, and the commercial Netdata Cloud offering is required for monitoring a larger infrastructure.
+
+
+== Features ==
+
+
+=== Data collection ===
+Netdata uses a plugin architecture with internal collectors (written in C) and external collectors (supporting multiple languages) that communicate via pipes. It can ingest metrics from Prometheus endpoints, OpenTelemetry sources via OTLP, and StatsD.
+On Linux, Netdata includes an eBPF collector that uses tracepoints, kprobes, and trampoline to monitor kernel-level activity such as process creation, filesystem operations, and network socket bandwidth per application.
+Netdata also provides an SNMP collector for monitoring network devices, with built-in vendor profiles and automatic device discovery, supporting SNMP v1, v2c, and v3. For cloud infrastructure, it includes an Azure Monitor collector with automatic resource discovery across Microsoft Azure subscriptions, and a Nagios-compatible collector that executes existing Nagios plugins and custom scripts.
+For log management, Netdata uses the systemd journal format as a unified storage backend. A tool called log2journal converts structured logs (including JSON and logfmt) into journal entries, and a Rust-based OpenTelemetry plugin converts OTLP logs to journal format. On Linux, Netdata queries systemd journal files directly; on Windows, it uses native Windows Event Log APIs with a unified query interface.
+
+
+=== Dashboards ===
+Since its initial release in 2016, Netdata has provided algorithmically generated dashboards that are created automatically based on collected metrics, without requiring users to design dashboards manually. DigitalOcean noted that "Netdata runs and works straight out of the box." The dashboards use an infinite-scroll interface and are built on the NIDL (Nodes, Instances, Dimensions, Labels) framework, which allows users to filter and group metrics through point-and-click interactions rather than a query language.
+
+
+=== Machine learning ===
+Netdata includes unsupervised anomaly detection that runs locally on each agent and is automatically applied to all collected metrics, regardless of their source. The system maintains 18 k-means clustering models per metric, each trained on 6-hour windows at 3-hour intervals. An anomaly is flagged only when all models agree, which according to Netdata reduces false positives by approximately 99%. The anomaly detection runs at the edge without requiring data to be sent to a central server.
+A scoring engine evaluates metrics across the infrastructure and returns a ranked list ordered by anomaly severity, which is used for root cause analysis.
+
+
+=== AI integration ===
+Since version 2.6.0, Netdata agents and parents implement the Model Context Protocol (MCP), and since version 2.9.0 Netdata Cloud also functions as an MCP server, enabling AI assistants to query infrastructure metrics, discover nodes, execute functions, and perform root cause analysis. The MCP server listens on the same port as the dashboard (default 19999) and supports WebSocket, HTTP, and SSE transports.
+
+
+== Licensing ==
+The Netdata Agent is released under the GNU General Public License version 3 or later (GPLv3+). The default web dashboard (v2) is distributed under the Netdata Cloud UI License (NCUL1), which restricts use to interfacing with Netdata components.
+All observability functionality—data collection, storage, machine learning, alerting, and APIs—is included in the open-source agent. Commercial restrictions are enforced through the dashboard user interface (NCUL1), which limits features such as multi-node views and access to logs and sensitive data based on subscription tier or Netdata Cloud account status. The underlying APIs remain accessible to third-party clients. Netdata Cloud itself is closed-source and provides centralized management, role-based access control, and AI-assisted troubleshooting.
+A Debian bug report raised licensing concerns about the v2 dashboard, and Debian's packaging discussion addressed them by separating the dashboard component.
+
+
+== Recognition and evaluation ==
+GitHub's State of the Octoverse 2016 report listed Netdata among the most-starred open-source repositories on GitHub.
+In 2020, Netdata was named a Forbes Cloud 100 Rising Star.
+A 2023 peer-reviewed empirical study evaluated the energy and performance overhead of monitoring tools on Docker-based microservices systems. The study found that Netdata had the lowest energy consumption among the evaluated tools, with no statistically significant impact on execution time under the tested workloads.
+In 2026, The New Stack covered Netdata's single-command deployment, per-second metrics, AI-powered root cause analysis, and container monitoring capabilities.
+
+
+== Privacy and telemetry ==
+Netdata collects anonymous usage statistics by default, which can be disabled by users. The telemetry system collects information such as Netdata version, operating system details, and crash reports. Users can opt out by creating a configuration file, using an installation flag, or setting an environment variable.
+
+
+== See also ==
+Comparison of network monitoring systems
+
+
+== References ==
+
+
+== External links ==
+Official website 
+netdata on GitHub

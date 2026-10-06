@@ -1,0 +1,1101 @@
+In geometry, a generalised circle, sometimes called a cline or circline, is a straight line or a circle, the curves of constant curvature in the Euclidean plane.
+The natural setting for generalised circles is the extended plane, a plane along with one point at infinity through which every straight line is considered to pass. Given any three distinct points in the extended plane, there exists precisely one generalised circle passing through all three.
+Generalised circles sometimes appear in Euclidean geometry, which has a well-defined notion of distance between points, and where every circle has a center and radius: the point at infinity can be considered infinitely distant from any other point, and a line can be considered as a degenerate circle without a well-defined center and with infinite radius (zero curvature). A reflection across a line is a Euclidean isometry (distance-preserving transformation) which maps lines to lines and circles to circles; but an inversion in a circle is not, distorting distances and mapping any line to a circle passing through the reference circles's center, and vice-versa.
+However, generalised circles are fundamental to inversive geometry, in which circles and lines are considered indistinguishable, the point at infinity is not distinguished from any other point, and the notions of curvature and distance between points are ignored. In inversive geometry, reflections, inversions, and more generally their compositions, called Möbius transformations, map generalised circles to generalised circles, and preserve the inversive relationships between objects.
+The extended plane can be identified with the sphere using a stereographic projection. The point at infinity then becomes an ordinary point on the sphere, and all generalised circles become circles on the sphere.
+
+
+== Extended complex plane ==
+
+The extended Euclidean plane can be identified with the extended complex plane, so that equations of complex numbers can be used to describe lines, circles and inversions.
+
+
+=== Bivariate linear equation ===
+A circle 
+  
+    
+      
+        Γ
+      
+    
+    {\displaystyle \Gamma }
+  
+ is the set of points 
+  
+    
+      
+        z
+      
+    
+    {\displaystyle z}
+  
+  in a plane that lie at radius 
+  
+    
+      
+        r
+      
+    
+    {\displaystyle r}
+  
+ from a center point 
+  
+    
+      
+        γ
+        .
+      
+    
+    {\displaystyle \gamma .}
+  
+
+  
+    
+      
+        Γ
+        (
+        γ
+        ,
+        r
+        )
+        =
+        {
+        z
+        :
+        
+          the distance between 
+        
+        z
+        
+           and 
+        
+        γ
+        
+           is 
+        
+        r
+        }
+      
+    
+    {\displaystyle \Gamma (\gamma ,r)=\{z:{\text{the distance between }}z{\text{ and }}\gamma {\text{ is }}r\}}
+  
+
+In the complex plane, 
+  
+    
+      
+        γ
+      
+    
+    {\displaystyle \gamma }
+  
+ is a complex number and 
+  
+    
+      
+        Γ
+      
+    
+    {\displaystyle \Gamma }
+  
+ is a set of complex numbers. Using the property that a complex number multiplied by its conjugate is the square of its modulus (its Euclidean distance from the origin), an implicit equation for 
+  
+    
+      
+        Γ
+      
+    
+    {\displaystyle \Gamma }
+  
+ is:
+
+  
+    
+      
+        
+          
+            
+              
+                
+                  r
+                  
+                    2
+                  
+                
+              
+              
+                
+                =
+                
+                  
+                    |
+                    
+                      z
+                      −
+                      γ
+                    
+                    |
+                  
+                  
+                    2
+                  
+                
+                =
+                (
+                z
+                −
+                γ
+                )
+                
+                  
+                    
+                      (
+                      z
+                      −
+                      γ
+                      )
+                    
+                    ¯
+                  
+                
+              
+            
+            
+              
+                0
+              
+              
+                
+                =
+                z
+                
+                  
+                    
+                      z
+                      ¯
+                    
+                  
+                
+                −
+                
+                  
+                    
+                      γ
+                      ¯
+                    
+                  
+                
+                z
+                −
+                γ
+                
+                  
+                    
+                      z
+                      ¯
+                    
+                  
+                
+                +
+                
+                  (
+                  
+                    γ
+                    
+                      
+                        
+                          γ
+                          ¯
+                        
+                      
+                    
+                    −
+                    
+                      r
+                      
+                        2
+                      
+                    
+                  
+                  )
+                
+                .
+              
+            
+          
+        
+      
+    
+    {\displaystyle {\begin{aligned}r^{2}&=\left|z-\gamma \right|^{2}=(z-\gamma ){\overline {(z-\gamma )}}\\[5mu]0&=z{\bar {z}}-{\bar {\gamma }}z-\gamma {\bar {z}}+\left(\gamma {\bar {\gamma }}-r^{2}\right).\end{aligned}}}
+  
+
+This is a homogeneous bivariate linear polynomial equation in terms of the complex variable 
+  
+    
+      
+        z
+      
+    
+    {\displaystyle z}
+  
+ and its conjugate 
+  
+    
+      
+        
+          
+            
+              z
+              ¯
+            
+          
+        
+        ,
+      
+    
+    {\displaystyle {\bar {z}},}
+  
+ of the form
+
+  
+    
+      
+        A
+        z
+        
+          
+            
+              z
+              ¯
+            
+          
+        
+        +
+        B
+        z
+        +
+        C
+        
+          
+            
+              z
+              ¯
+            
+          
+        
+        +
+        D
+        =
+        0
+        ,
+      
+    
+    {\displaystyle Az{\bar {z}}+Bz+C{\bar {z}}+D=0,}
+  
+
+where coefficients 
+  
+    
+      
+        A
+      
+    
+    {\displaystyle A}
+  
+ and 
+  
+    
+      
+        D
+      
+    
+    {\displaystyle D}
+  
+ are real, and 
+  
+    
+      
+        B
+      
+    
+    {\displaystyle B}
+  
+ and 
+  
+    
+      
+        C
+      
+    
+    {\displaystyle C}
+  
+ are complex conjugates.
+By dividing by 
+  
+    
+      
+        A
+      
+    
+    {\displaystyle A}
+  
+ and then reversing the steps above, the radius 
+  
+    
+      
+        r
+      
+    
+    {\displaystyle r}
+  
+ and center 
+  
+    
+      
+        γ
+      
+    
+    {\displaystyle \gamma }
+  
+ can be recovered from any equation of this form. The equation represents a generalised circle in the plane when 
+  
+    
+      
+        r
+      
+    
+    {\displaystyle r}
+  
+ is real, which occurs when 
+  
+    
+      
+        A
+        D
+        <
+        B
+        C
+      
+    
+    {\displaystyle AD<BC}
+  
+ so that the squared radius 
+  
+    
+      
+        
+          r
+          
+            2
+          
+        
+        =
+        (
+        B
+        C
+        −
+        A
+        D
+        )
+        
+          /
+        
+        
+          A
+          
+            2
+          
+        
+      
+    
+    {\displaystyle r^{2}=(BC-AD)/A^{2}}
+  
+ is positive. When 
+  
+    
+      
+        A
+      
+    
+    {\displaystyle A}
+  
+ is zero, the equation defines a straight line.
+
+
+=== Complex reciprocal ===
+That the reciprocal transformation 
+  
+    
+      
+        z
+        ↦
+        w
+        =
+        1
+        
+          /
+        
+        z
+      
+    
+    {\displaystyle z\mapsto w=1/z}
+  
+ maps generalised circles to generalised circles is straight-forward to verify:
+
+  
+    
+      
+        
+          
+            
+              
+                0
+              
+              
+                
+                =
+                A
+                z
+                
+                  
+                    
+                      z
+                      ¯
+                    
+                  
+                
+                +
+                B
+                z
+                +
+                C
+                
+                  
+                    
+                      z
+                      ¯
+                    
+                  
+                
+                +
+                D
+              
+            
+            
+              
+              
+                
+                =
+                
+                  
+                    A
+                    
+                      w
+                      
+                        
+                          
+                            w
+                            ¯
+                          
+                        
+                      
+                    
+                  
+                
+                +
+                
+                  
+                    B
+                    w
+                  
+                
+                +
+                
+                  
+                    C
+                    
+                      
+                        w
+                        ¯
+                      
+                    
+                  
+                
+                +
+                D
+              
+            
+            
+              
+              
+                
+                =
+                A
+                +
+                B
+                
+                  
+                    
+                      w
+                      ¯
+                    
+                  
+                
+                +
+                C
+                w
+                +
+                D
+                w
+                
+                  
+                    
+                      w
+                      ¯
+                    
+                  
+                
+              
+            
+            
+              
+              
+                
+                =
+                D
+                
+                  
+                    
+                      w
+                      ¯
+                    
+                  
+                
+                w
+                +
+                C
+                w
+                +
+                B
+                
+                  
+                    
+                      w
+                      ¯
+                    
+                  
+                
+                +
+                A
+                .
+              
+            
+          
+        
+      
+    
+    {\displaystyle {\begin{aligned}0&=Az{\bar {z}}+Bz+C{\bar {z}}+D\\[5mu]&={\frac {A}{w{\bar {w}}}}+{\frac {B}{w}}+{\frac {C}{\bar {w}}}+D\\[5mu]&=A+B{\bar {w}}+Cw+Dw{\bar {w}}\\[5mu]&=D{\bar {w}}w+Cw+B{\bar {w}}+A.\end{aligned}}}
+  
+
+Lines through the origin (
+  
+    
+      
+        A
+        =
+        D
+        =
+        0
+      
+    
+    {\displaystyle A=D=0}
+  
+) map to lines through the origin; lines not through the origin (
+  
+    
+      
+        A
+        =
+        0
+        ,
+        D
+        ≠
+        0
+      
+    
+    {\displaystyle A=0,D\neq 0}
+  
+) map to circles through the origin; circles through the origin (
+  
+    
+      
+        A
+        ≠
+        0
+        ,
+        D
+        =
+        0
+      
+    
+    {\displaystyle A\neq 0,D=0}
+  
+) map to lines not through the origin; and circles not through the origin (
+  
+    
+      
+        A
+        ≠
+        0
+        ,
+        D
+        ≠
+        0
+      
+    
+    {\displaystyle A\neq 0,D\neq 0}
+  
+) map to circles not through the origin.
+
+
+=== Complex matrix representation ===
+The defining equation of a generalised circle 
+
+  
+    
+      
+        0
+        =
+        A
+        z
+        
+          
+            
+              z
+              ¯
+            
+          
+        
+        +
+        B
+        z
+        +
+        C
+        
+          
+            
+              z
+              ¯
+            
+          
+        
+        +
+        D
+      
+    
+    {\displaystyle 0=Az{\bar {z}}+Bz+C{\bar {z}}+D}
+  
+
+can be written as a matrix equation
+
+  
+    
+      
+        0
+        =
+        
+          
+            (
+            
+              
+                
+                  z
+                
+                
+                  1
+                
+              
+            
+            )
+          
+        
+        
+          
+            (
+            
+              
+                
+                  A
+                
+                
+                  B
+                
+              
+              
+                
+                  C
+                
+                
+                  D
+                
+              
+            
+            )
+          
+        
+        
+          
+            (
+            
+              
+                
+                  
+                    
+                      
+                        z
+                        ¯
+                      
+                    
+                  
+                
+              
+              
+                
+                  1
+                
+              
+            
+            )
+          
+        
+        .
+      
+    
+    {\displaystyle 0={\begin{pmatrix}z&1\end{pmatrix}}{\begin{pmatrix}A&B\\C&D\end{pmatrix}}{\begin{pmatrix}{\bar {z}}\\1\end{pmatrix}}.}
+  
+
+Symbolically,
+
+  
+    
+      
+        0
+        =
+        
+          
+            z
+          
+          
+            T
+          
+        
+        
+          
+            C
+          
+        
+        
+        
+          
+            
+              
+                z
+              
+              ¯
+            
+          
+        
+        ,
+      
+    
+    {\displaystyle 0=\mathbf {z} ^{\text{T}}{\mathfrak {C}}\,{\bar {\mathbf {z} }},}
+  
+
+with coefficients placed into an invertible hermitian matrix 
+  
+    
+      
+        
+          
+            C
+          
+        
+        =
+        
+          
+            
+              C
+            
+          
+          
+            †
+          
+        
+      
+    
+    {\displaystyle {\mathfrak {C}}={\mathfrak {C}}^{\dagger }}
+  
+ representing the circle, and 
+  
+    
+      
+        
+          z
+        
+        =
+        
+          
+            
+              (
+              
+                
+                  
+                    z
+                  
+                  
+                    1
+                  
+                
+              
+              )
+            
+          
+          
+            T
+          
+        
+      
+    
+    {\displaystyle \mathbf {z} ={\begin{pmatrix}z&1\end{pmatrix}}^{\text{T}}}
+  
+ a vector representing an extended complex number.
+Two such matrices specify the same generalised circle if and only if one is a scalar multiple of the other.
+To transform the generalised circle represented by 
+  
+    
+      
+        
+          
+            C
+          
+        
+      
+    
+    {\displaystyle {\mathfrak {C}}}
+  
+ by the Möbius transformation 
+  
+    
+      
+        
+          
+            H
+          
+        
+        ,
+      
+    
+    {\displaystyle {\mathfrak {H}},}
+  
+ apply the inverse of the Möbius transformation 
+  
+    
+      
+        
+          
+            G
+          
+        
+        =
+        
+          
+            
+              H
+            
+          
+          
+            −
+            1
+          
+        
+      
+    
+    {\displaystyle {\mathfrak {G}}={\mathfrak {H}}^{-1}}
+  
+ to the vector 
+  
+    
+      
+        
+          z
+        
+      
+    
+    {\displaystyle \mathbf {z} }
+  
+ in the implicit equation,
+
+  
+    
+      
+        
+          
+            
+              
+                0
+              
+              
+                
+                =
+                
+                  
+                    (
+                    
+                      
+                        
+                          G
+                        
+                      
+                      
+                        z
+                      
+                    
+                    )
+                  
+                  
+                    T
+                  
+                
+                
+                  
+                    C
+                  
+                
+                
+                
+                  
+                    
+                      (
+                      
+                        
+                          G
+                        
+                      
+                      
+                        z
+                      
+                      )
+                    
+                    ¯
+                  
+                
+              
+            
+            
+              
+              
+                
+                =
+                
+                  
+                    z
+                  
+                  
+                    T
+                  
+                
+                
+                  (
+                  
+                    
+                      
+                        
+                          G
+                        
+                      
+                      
+                        T
+                      
+                    
+                    
+                      
+                        C
+                      
+                    
+                    
+                      
+                        
+                          
+                            G
+                          
+                          ¯
+                        
+                      
+                    
+                  
+                  )
+                
+                
+                  
+                    
+                      
+                        z
+                      
+                      ¯
+                    
+                  
+                
+                ,
+              
+            
+          
+        
+      
+    
+    {\displaystyle {\begin{aligned}0&=\left({\mathfrak {G}}\mathbf {z} \right)^{\text{T}}{\mathfrak {C}}\,{\overline {({\mathfrak {G}}\mathbf {z} )}}\\[5mu]&=\mathbf {z} ^{\text{T}}\left({\mathfrak {G}}^{\text{T}}{\mathfrak {C}}{\bar {\mathfrak {G}}}\right){\bar {\mathbf {z} }},\end{aligned}}}
+  
+
+so the new circle can be represented by the matrix 
+  
+    
+      
+        
+          
+            
+              G
+            
+          
+          
+            T
+          
+        
+        
+          
+            C
+          
+        
+        
+          
+            
+              
+                G
+              
+              ¯
+            
+          
+        
+        .
+      
+    
+    {\displaystyle {\mathfrak {G}}^{\text{T}}{\mathfrak {C}}{\bar {\mathfrak {G}}}.}
+  
+
+
+== Notes ==
+
+
+== References ==
+Hans Schwerdtfeger (1979) Geometry of Complex Numbers, Courier Dover Publications
+Michael Henle (2001) Modern Geometry: Non-Euclidean, Projective, and Discrete, 2nd edition, Prentice Hall
+David W. Lyons (2021) Möbius Geometry from LibreTexts
+Frank Morley & Frank Vigor Morley (1933) Inversive Geometry, Ginn & Co., now available from HathiTrust

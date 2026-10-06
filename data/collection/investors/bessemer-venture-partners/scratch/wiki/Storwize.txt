@@ -1,0 +1,280 @@
+IBM Storwize systems were virtualizing RAID computer data storage systems with raw storage capacities up to 32 PB. Storwize is based on the same software as IBM SAN Volume Controller (SVC).
+Formerly Storwize was an independent data storage organisation.
+
+
+== Models ==
+
+Сollateral lines:
+
+IBM SAN Volume Controller – virtualizes multiple storage arrays;
+IBM FlashSystem 9100 line – Flash memory high-end storage;
+IBM Flex System V7000 Storage Node – was designed for integration with IBM PureSystems (Support withdrawn at SVC v7.3.0)
+The Storwize family offers several members:
+
+High-end 7000 line:
+IBM Storwize V7000 Gen3 - Capacity on up to 760 modules (32 PB) and the capability to use FlashCore modules
+IBM Storwize V7000 Gen2 - Capacity up to 4 PB and the capability to virtualize external storage
+IBM Storwize V7000 – Capacity up to 1.92 PB and the capability to virtualize external storage
+IBM Storwize V7000 Unified – provides file connectivity
+Midrange line:
+IBM Storwize V5100 - Capacity on up to 760 modules and the capability to use FlashCore modules
+IBM Storwize V5030E - capacity on up to 760 modules
+IBM Storwize V5010E - capacity on up to 392 modules
+IBM Storwize V5030 - capacity on up to 760 modules
+IBM Storwize V5020 - capacity on up to 392 modules
+IBM Storwize V5010 - capacity on up to 392 modules
+IBM Storwize V5000 - capacity up to 960 TB
+Entry line:
+IBM Storwize V3700 – capacity up to 480 TB
+IBM Storwize V3500 – capacity up to 48 TB (available in China, Hong Kong and Taiwan only)
+Each of the above family members run software that is based on a common source codebase, although each has a type specific downloadable package.
+In Feb 2020 the Storwize V5000 and V5100 are replaced by the FlashSystem 5000 and 5100 respectively; and the FlashSystem 900 and Storwize V7000 are replaced by the FlashSystem 7200.
+
+
+=== Timeline ===
+
+According to the official availability dates and the days the systems are removed from marketing you can determine the following availability to purchase shown in light green.
+The graphics only contains the IBM storage systems starting with 'V', .i.e. V3700, V5000, V5010(E), V5020, V5030(E), V5100 and V7000.
+These systems vary even beyond their names, therefore the graphics also contains IBM type and model.
+All the displayed systems can still get regular service at the end of the timeline (beginning of 2020). 
+For the IBM SAN Volume Controller's timeline see there.
+
+
+== Architecture ==
+Storwize V7000 provides a very similar architecture to SVC, using the RAID code from the DS8000 to provide internal managed disks and SSD code from the DS8000 for tiered storage.
+
+
+=== Features and software ===
+All Storwize systems offer the following features: 
+
+Command line interface
+Graphical user interface (GUI) for easier use (CLI commands can be displayed as details), with (nearly) all functions available
+Thin Provisioning known as Space Efficient Volumes
+Volumes can be resized, i.e. expanded or reduced (only advisable, if supported by the operating system)
+RAID levels 0,1,5,6,10
+Distributed RAID (DRAID), i.e. DRAID-5 and DRAID-6
+FlashCopy provides Snapshots with several combinations of these attributes: multiple, incremental, independent, space-efficient, immediately writable, or cascaded
+Data Migration: data can be moved between all virtualized storage (both internal and external) with no disruption
+Performance Management using throttling of bandwidth and transactions either by host or by volume
+supports interactive and non-interactive ssh-login
+supports several ways of call home and notifications (e-mail, syslog, SNMP, VPN-to-IBM, gui-based)
+security functions, e.g. audit log, encrypted access
+In addition, other Storwize systems offer the following features (some of them may require licenses): 
+
+Automated tiered storage known as EasyTier, which supports hot spot removal within a tier (intra-tier) and between tiers (inter-tier)
+Encryption for data at rest (all available original drives are self encrypting)
+Peer to Peer Remote Copy
+Metro Mirror (synchronous copy)
+Global Mirror (asynchronous copy)
+Global Mirror with Change Volumes (checkpointed asynchronous copy using flashcopies, e.g. for low bandwidth)
+External Storage Virtualization
+Virtual Disk Mirroring
+Real-time Compression
+Data Reduction Pools with Deduplication and Real-time Compression
+Clustering, i.e. single user interface for several (up to 8) controllers, while supporting volume moves between them without disruption
+Stretched cluster configuration (SVC only), optional "enhanced" version with site awareness (hardware redundancy only across sites)
+Hyperswap (automated storage failover using the standard multipathing drivers; hardware redundancy on either site is given)
+In addition, the Storwize V7000 Unified offered the following features: 
+
+File level storage (NAS)
+Policy based file placement Active Cloud Engine
+Global Namespace
+Async replication on File level
+
+
+=== Limitations ===
+Most Storwize systems are intended for certain environments and provide several features, that are not licensed by default.
+There are several types of licenses that depend on the chosen model and the subject of the license:
+
+licenses per net capacity (mainly with the SVC, where tiers can be treated differently)
+licenses per enclosures (the controller and each expansion need one)
+licenses per controller (just one license for all attached enclosures)
+There are some limitations for each model and each licensed internal code.
+These can be read on IBMs web pages. Here are examples for V7000, the V5000 series, and IBM SAN Volume Controller.
+In addition, there are more contributors to a working environment. IBM provides this in an interactive interoperabitlity matrix
+called IBM System Storage Interoperation Center (SSIC).
+
+
+=== Supported storage media ===
+As of November 2016, available Storwize media sizes include 2.5" flash SSDs with up to 15.36 TB capacity and 3.5" Nearline-HDDs with up to 10 TB capacity, available for Storwize 5000, 7000 and SAN Volume Controller native attach. IBM Storwize Easy Tier will automatically manage and continually optimize data placement in mixed pools of nearline disks / standard disks / read-intensive Flash and enterprise-grade Flash SSDs, including from virtualized devices.
+
+
+== Hardware ==
+The Storwize family hardware consists of control enclosures and expansion enclosures, connected with wide SAS cables (Four lanes of 6 Gbit/s or 12 Gbit/s). Each enclosure houses 2.5" or 3.5" drives. The control enclosure contains two independent control units (node canisters) based on SAN Volume Controller technology, which are clustered via an internal network. Each enclosure also includes two power supply units (PSUs).
+
+
+=== Storwize V7000 family ===
+Eight available enclosure models:
+
+Type 2076-112 = Control enclosure – up to 12 3.5" drives (2010 - 2015)
+Type 2076-124 = Control enclosure – up to 24 2.5" drives (2010 - 2015)
+Type 2076-212 = Expansion enclosure – up to 12 3.5" drives (2010 - 2016)
+Type 2076-224 = Expansion enclosure – up to 24 2.5" drives (2010 - 2016)
+Type 2076-312 = Control enclosure – up to 12 3.5" drives + 10 Gb iSCSI (2012 - 2018)
+Type 2076-324 = Control enclosure – up to 24 2.5" drives + 10 Gb iSCSI (2012 - 2018)
+Type 2076-524 = Control enclosure – up to 24 2.5" drives + 10 Gb iSCSI (known as V7000 Gen 2) (2014 - 2017)
+Type 2076-624 = Control enclosure – up to 24 2.5" drives + 10 Gb iSCSI (known as V7000 Gen 2+) (2016 - current)
+Type 2076-724 = Control enclosure – up to 24 2.5" drives, NVMe flash drives or NVMe flash core modules + 10 Gb iSCSI, 25 Gb iSER (known as V7000 Gen 3) (2018 - current)
+
+
+==== Storwize V7000 Gen 3 ====
+The IBM Storwize V7000 SFF Enclosure Model 724, announced November 6, 2018, supports NVMe and FC-NVMe (NVMe/FC) on 16 or 32 Gbit/s adapters, and iSER (iSCSI Extensions for RDMA) or iSCSI on 25GbE adapters. The Control Enclosure holds 24 2.5" NVMe flash drives or 24 2.5" NVMe FlashCore modules (FlashCore modules contain IBM MicroLatency technology with built-in hardware compression and encryption).
+
+Two node canisters, each with two 1.7 GHz 8-core Skylake processors and integrated hardware-assisted compression acceleration
+Cache: 128 GiB (per I/O group) standard, with optional 256 GiB or 1.15 TiB per I/O group (node pair)
+Connection: 32 Gbit/s fibre channel (FC) with NVMe support, 16 Gbit/s FC with NVMe support, 25 Gbit/s iSER and on board 10 Gbit/s iSCSI connectivity options
+Clustering support over Ethernet using RDMA as well as Fibre Channel
+Ability to cluster with older generations Storwize V7000 systems and with IBM FlashSystem 9100
+Software Details:
+
+First supported on the Storwize V7000 8.2.0.2 software.
+
+
+==== Storwize V7000 Gen 2+ ====
+The IBM Storwize V7000 SFF Control Enclosure Model 624, announced 23 August 2016, features two node canisters and up to 256 GiB cache (system total) in a 2U, 19-inch rack mount enclosure. 1 Gbit/s iSCSI connectivity is standard, with options for 16 Gbit/s FC and 10 Gbit/s iSCSI/FCoE connectivity. It holds up to 24 2.5" SAS drives and supports the attachment of up to 20 Storwize V7000 expansion enclosures.
+IBM Storwize V7000 Gen 2+ is an updated Storwize V7000 Gen 2 with a newer CPU, doubled cache memory and faster FC options, integrated compression acceleration, and additional scalability with the following features:
+
+Two node canisters, each with a 10-core Broadwell processor and integrated hardware-assisted compression acceleration
+Cache: 128 GiB (per I/O group) standard, with optional 256 GiB per I/O group (node pair) for Real-time Compression workloads
+Connection: 16 Gbit/s Fibre Channel (FC), 10 Gbit/s iSCSI / Fibre Channel over Ethernet (FCoE), and 1 Gbit/s iSCSI connectivity options
+Software Details:
+
+First supported on the Storwize V7000 7.7.1 software.
+
+
+==== Storwize V7000 Gen 2 ====
+The IBM Storwize V7000 SFF Control Enclosure Model 524, announced 6 May 2014, features two node canisters and up to 128 GiB cache (system total) in a 2U, 19-inch rack mount enclosure. 1 Gbit/s iSCSI connectivity is standard, with options for 8 Gbit/s FC and 10 Gbit/s iSCSI/FCoE connectivity. It holds up to 24 2.5" SAS drives and supports the attachment of up to 20 Storwize V7000 expansion enclosures.
+IBM Storwize V7000 next-generation models offer increased performance and connectivity, integrated compression acceleration, and additional scalability with the following features:
+
+Chassis: 2U rack-mountable
+Two node canisters, each with an 8-core Ivy Bridge Intel Xeon E5-2628lv2 processor and integrated hardware-assisted compression acceleration
+Cache: 64 GiB (per I/O group) standard, with optional 128 GiB per I/O group (node pair) for Real-time Compression workloads
+Connection: 8 Gbit/s Fibre Channel (FC), 10 Gb iSCSI / Fibre Channel over Ethernet (FCoE), and 1 Gb iSCSI connectivity options
+Four 1 Gbit/s Ethernet ports standard for 1 Gb iSCSI connectivity and IP management per node canister. One 1 Gbit/s Ethernet port is dedicated for Technician access
+Storage: 12 Gbit/s SAS expansion enclosures supporting 12 3.5" large form factor (LFF) or 24 2.5" small form factor (SFF) drives
+Scaling for up to 504 drives per I/O group with the attachment of 20 Storwize V7000 expansion enclosures and up to 1,056 drives in a four-way clustered configuration
+The ability to be added into existing clustered systems with previous generation Storwize V7000 systems
+Compatibility with IBM Storwize V7000 Unified File Modules for unified storage capability
+All models include a three-year warranty with customer replaceable unit (CRU) and on-site service. Optional warranty service upgrades are available for enhanced levels of warranty service.
+Software Details:
+
+First supported on the Storwize V7000 7.3.0 software.
+The 7.4.0 software adds support for protection (SCSI T10 standard data integrity field (DIF)), encryption at rest and 4 KiB block drives.
+
+
+==== Storwize V7000 (Gen 1) ====
+Storwize V7000 consists of one to four control enclosures and up to 36 expansion enclosures, for a maximum of 40 enclosures altogether. It can scale up to 960 disks and 1.44PB raw internal capacity. Hardware details:
+
+Chassis: 2U rack-mountable
+Two node canisters, each with an 4-core Intel Xeon C3539
+Cache: 16 GiB memory per control enclosure (8 GiB per internal controller) as a base
+Connection: For each control enclosure: Eight 8 Gbit/s Fibre Channel ports (four 8 Gbit/s FC ports per controller), four 1 Gbit/s iSCSI and optionally four 10 Gbit/s iSCSI/FCoE host ports (two 1 Gbit/s iSCSI and optionally two 10 Gbit/s iSCSI/FCoE ports per controller) or four 25 Gbit/s iSER host ports
+Storage: Up to 48 TB of physical storage per enclosure using 4 TB near-line SAS disk drives, or up to 28.8 TB physical storage per enclosure using 1.2 TB SAS 10K disk drives
+Control enclosures support attachment of up to 9 expansion enclosures with configurations up to 360 TB physical internal storage capacities (for Storwize V7000, up to 1.44 PB in clustered systems)
+Power: Dual power supplies and cooling components, the control enclosure PSUs each house a battery pack which retains cached data in the event of a power failure.
+File module - V7000 Unified - provides attachment to 1 Gbit/s and 10 Gbit/s network-attached storage (NAS) environments
+
+
+=== Storwize V5000 family ===
+
+
+==== Storwize V5100 ====
+Storwize V5100 consists of a control enclosure and up to 20 standard expansion enclosures or 8 high-density expansion enclosures. It supports NVMe and FC-NVMe (NVMe-oF) on 16 Gbit/s, 32 Gbit/s adapters, and iSCSI/iWARP/RoCE (iSCSI Extensions for RDMA) on 25GbE adapters. It can scale up to 760 disks and 23.34 PB raw internal capacity. Hardware details:
+
+Chassis: 2U rack-mountable
+Redundant dual-active intelligent controllers
+Cache: 64 GiB per control enclosure (32 GiB per internal controller) as a base, expandable up to 1152 GiB per control enclosure
+Connection: For each control enclosure: Eight 16 Gbit/s Fibre Channel ports (four 16 Gbit/s FC ports per controller), eight 32 Gbit/s FC-NVMe Fibre Channel ports, eight 10 Gbit/s iSCSI and optionally eight 25 Gbit/s iSCSI/iWARP/ROCE host ports
+Power: Dual power supplies and cooling components, the control enclosure PSUs each house a battery pack which retains cached data in the event of a power failure.
+
+
+==== Storwize V5030E ====
+Storwize V5030E consists of a control enclosure and up to 20 standard expansion enclosures or 8 high-density expansion enclosures. It can scale up to 760 disks and 23.34 PB raw internal capacity.
+
+
+==== Storwize V5010E ====
+Storwize V5010E consists of a control enclosure and up to 10 standard expansion enclosures or 4 high-density expansion enclosures. It can scale up to 392 disks and 12.04 PB raw internal capacity.
+
+
+==== Storwize V5030 ====
+Storwize V5030 consists of a control enclosure and up to 20 standard expansion enclosures or 8 high-density expansion enclosures. It can scale up to 760 disks and 23.34 PB raw internal capacity.
+
+
+==== Storwize V5020 ====
+Storwize V5020 consists of a control enclosure and up to 10 standard expansion enclosures or 4 high-density expansion enclosures. It can scale up to 392 disks and 12.04 PB raw internal capacity.
+
+
+==== Storwize V5010 ====
+Storwize V5010 consists of a control enclosure and up to 10 standard expansion enclosures or 4 high-density expansion enclosures. It can scale up to 392 disks and 12.04 PB raw internal capacity.
+
+
+==== Storwize V5000 ====
+Storwize V5000 consists of one to two control enclosures and up to 12 expansion enclosures, for a maximum of 18 enclosures altogether. It can scale up to 480 disks and 960 TB raw internal capacity.
+Hardware details:
+
+Chassis: 2U rack-mountable
+Six available enclosure models:
+Type 2078-12C = Control enclosure – up to 12 3.5" drives
+Type 2078-24C = Control enclosure – up to 24 2.5" drives
+Type 2078-212 = Expansion enclosure – up to 12 3.5" drives
+Type 2078-224 = Expansion enclosure – up to 24 2.5" drives
+Type 2078-12C = Control enclosure – up to 12 3.5" drives + 10 Gb iSCSI
+Type 2078-24C = Control enclosure – up to 24 2.5" drives + 10 Gb iSCSI
+Cache: 16 GiB per control enclosure (8 GiB per internal controller) as a base
+Storage: Up to 48 TB per enclosure using 4 TB near-line SAS disk drives, or up to 28.8 TB per enclosure using 1.2 TB 10K SAS disk drives
+Redundant dual-active intelligent controllers
+Connection: For each control enclosure: Eight 8 Gbit/s Fibre Channel ports (four 8 Gbit/s FC ports per controller), four 1 Gbit/s iSCSI and optionally four 10 Gbit/s iSCSI/FCoE host ports (two 1 Gbit/s iSCSI and optionally two 10 Gbit/s iSCSI/FCoE ports per controller)
+Control enclosures support attachment of up to six expansion enclosures
+Power: Dual power supplies and cooling components
+
+
+=== Storwize V3700 family ===
+
+
+==== Storwize V3700 ====
+Storwize V3700 consists of one control enclosure and up to 4 expansion enclosures. It can scale up to 240 2.5" disks or 120 3.5" disks and 480 TB raw internal capacity. Hardware details:
+
+Chassis: 2U rack-mountable
+Four available enclosure models:
+2072-12C - Dual Control Enclosure – up to 12 3.5" drives
+2072-12E - Expansion Enclosure – up to 12 3.5" drives
+2072-24C - Dual Control Enclosure – up to 24 2.5" drives
+2072-24E - Expansion Enclosure up to 24 2.5" drives
+Cache: 8 GiB per control enclosure (4 GiB per internal controller) as a base, up to 16 GiB (8 GiB per internal controller)
+Connection: Control enclosure networking: 4 x 1 Gb iSCSI and 6 x 6 Gbit/s SAS host interfaces with optional 8 Gbit/s Fibre Channel, further 6 Gbit/s SAS or 10 Gb iSCSI/Fibre Channel over Ethernet host ports
+Storage: Dual-port, hot-swappable 6 Gb SAS disk drives - Up to 240 2.5" disks or 120 3.5" disks (with 9 expansion units)
+Power: Redundant, hot-swappable power supplies and fans, AC power (110 – 240 V)
+in October 2013, IBM announced DC powered models, NEBS and ETSI compliance and remote mirror over IP networks, integrating Bridgeworks SANrockIT technology to optimize the use of network bandwidth.
+Key hardware features also include:
+Dual controllers with up to 480 TB of capacity
+8GB Cache (4GB per controller), with optional upgrade to 16 GB
+RAID levels 0, 1, 5, 6, and 10
+Storwize V3700 also offers management and interoperability features from previous Storwize systems, include simple management capabilities, virtualization of internal storage and thin provisioning for improved storage utilization and one-way data migration to easily move data onto Storwize V3700.
+
+
+==== SAN Volume Controller ====
+
+An entry-level SAN Volume Controller configuration contains a single I/O group, can scale out to support four I/O groups and can scale up to support 4,096 host servers, up to 8,192 volumes and up to 32 PB of virtualized storage capacity.
+Hardware details (per node - an I/O group consists of TWO nodes):
+
+Chassis: 2U rack-mountable (Based on IBM System x 3650 M4 server)
+Processor: one (optionally two) Intel Xeon E5-2650v2 2.6 GHz 8-core
+Optional compression accelerator cards (up to two)
+Memory: 32 GiB (optionally 64 GiB)
+Connection: Four (optionally, 8 or 12) 8 Gbit/s Fibre Channel ports
+Storage: Three 1 Gbit/s and optionally four 10 Gbit/s iSCSI/FCoE ports
+Supports up to two SSD expansion enclosures (up to 48 SSDs per I/O group)
+Power: Two power supplies and integrated battery units
+
+
+=== Flex System V7000 Storage Node ===
+Flex System V7000 released in 2012 and can scale up to 240 2.5" disks per control enclosure, or 960 2.5" disks per clustered system. Hardware details:
+
+Redundant dual-active intelligent controllers
+Cache: 16 GiB per control enclosure (8 GiB per internal controller) as a base
+Connection: SAN-attached 8 Gbit/s Fibre Channel, 10 Gigabit Ethernet (GbE) FCoE and iSCSI host connectivity
+Control enclosures support attachment of up to 9 expansion enclosures (internal and external mix) with configurations up to 960 drives.
+Software: This is not supported at v7.3.0.
+
+
+== References ==

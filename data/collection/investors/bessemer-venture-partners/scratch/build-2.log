@@ -1,0 +1,74 @@
+export refused: 2 Seed row(s) without a decided graduation status (synergy-computer-graphics, earthly); a Seed row is graduated, not_graduated or censored (PRO-132). Judge them (prepare queues them), then export.
+site API portfolio: 533 companies
+recall additions injected: 20
+pooled fund vehicles dropped: 209 issuers (352 filings)
+initial-only person matches ignored: 0 issuers (0 attributions)
+limited partnerships dropped (not operating companies): 2
+    - MedProperties Investment Partners, LP
+    - Resource Real Estate Opportunity Fund L.P.
+non-portfolio industry, Form D-only (34 dropped):
+    - Aquarius Marine Container Fund III, LLC [Other Banking and Financial Services]
+    - BAREFOOT LAKES 199 INVESTOR, LLC [REITS and Finance]
+    - BRIGHTON CROSSING 206 INVESTOR, LLC [REITS and Finance]
+    - CAIN BROTHERS & CO INC [Investment Banking]
+    - Castle Crown Financial Corp [Other Banking and Financial Services]
+    - DLSGOFAZ LLC [Other Real Estate]
+    - East Fayette Group, LLC [Construction]
+    - Facet Wealth, Inc. [Other Banking and Financial Services]
+    - Farther Finance, Inc. [Investing]
+    - First Trust Financial Corp.\IL [Commercial Banking]
+    - Flatirons Self-Storage V DST [Other Real Estate]
+    - FlyHomes, Inc. [Residential]
+    - Griffin Capital (South Beach - Vegas) DST [Other Real Estate]
+    - Griffin Capital Development Partners Fund I, LLC [Other Real Estate]
+    - Highland Road Investor, LLC [REITS and Finance]
+    - InvestMitt Cooperative [Residential]
+    - KBRA Holdings, Inc. [Other Banking and Financial Services]
+    - KEARNEY PROPERTIES LLC [Commercial]
+    - Laurel Ranch 216 Investor, LLC [REITS and Finance]
+    - MEDICAL OFFICE PROPERTIES LLC [Commercial]
+    - MedCore Realty Kyle, LLC [Other Real Estate]
+    - MedCore Realty SW, LLC [Other Real Estate]
+    - New York Digital Investment Group LLC [Other Banking and Financial Services]
+    - Oak Grove Investor, LLC [REITS and Finance]
+    - Ohana Group NW, LLC [Commercial]
+    - PEACHTREE 152 INVESTOR, LLC [REITS and Finance]
+    - RCB Financial Corp [Commercial Banking]
+    - RLS Wealth Management LP LLC [Commercial]
+    - RSFB2R II INVESTOR 1, LLC [REITS and Finance]
+    - RSFB2R II INVESTOR 2, LLC [REITS and Finance]
+    - Serena Village 206 Investor, LLC [REITS and Finance]
+    - Stanford Crossing 195 Investor, LLC [REITS and Finance]
+    - Truss Holdings, Inc. [Commercial]
+    - VINEYARD CROSSING 137 INVESTOR, LLC [REITS and Finance]
+    - AKCEA THERAPEUTICS, INC. (personal Section 16 filing only)
+    - SILICON VALLEY BANCSHARES (personal Section 16 filing only)
+    - VERISIGN INC/CA (personal Section 16 filing only)
+removed (partner's personal board seat, no fund position): 3
+tenure mismatch flagged: 26 rows
+removed (ex-partner is the only evidence): 25
+    - Agentio Inc. — Sarah Tavel last on site 2012, filing 2024 (12y after)
+    - Arrcus Inc. — Devesh Garg last on site 2010, filing 2021 (11y after)
+    - Aura Group, Inc. — Trevor Oelschig last on site 2016, filing 2023 (7y after)
+    - CIBA HEALTH, INC. — Peter Lee last on site 2015, filing 2025 (10y after)
+    - Caddi Technologies, Inc. — Sunil Nagaraj last on site 2017, filing 2025 (8y after)
+    - ChemX Materials Ltd. — Peter Lee last on site 2015, filing 2023 (8y after)
+    - Codefied Inc. — Trevor Oelschig last on site 2016, filing 2022 (6y after)
+    - Compute North LLC — Peter Lee last on site 2015, filing 2020 (5y after)
+    - Contentful Global, Inc. — Trevor Oelschig last on site 2016, filing 2021 (5y after)
+    - Excarta Inc. — Sunil Nagaraj last on site 2017, filing 2024 (7y after)
+    - Federal Financial Technologies Corp — Scott Smith last on site 2019, filing 2026 (7y after)
+    - Hipcamp Inc. — Sarah Tavel last on site 2012, filing 2019 (7y after)
+    … and 13 more
+verification ledger: 226 excluded, 0 control positions excluded, 0 uncertain kept
+duplicate name-variants merged: 66; kept separate (co-listed or differing CIK): 2
+identity overlay: 58 duplicate rows merged, 0 rejected, 0 desk reassignments
+excluded.json: 226 rows ({'not_member': 226})
+Traceback (most recent call last):
+  File "/Users/erik/Developer/merit-capital/scripts/build-company-base.py", line 1089, in <module>
+    main()
+  File "/Users/erik/Developer/merit-capital/scripts/build-company-base.py", line 1076, in main
+    subprocess.run([sys.executable, str(Path(__file__).parent / "run.py"),
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/usr/local/bin/python3', '/Users/erik/Developer/merit-capital/scripts/run.py', 'export', '--investor', 'bessemer-venture-partners']' returned non-zero exit status 1.

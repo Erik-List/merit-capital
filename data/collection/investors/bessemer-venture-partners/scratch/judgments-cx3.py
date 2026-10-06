@@ -1,0 +1,51 @@
+"""Final cross-book pass, judge cx3 (PRO-80, rule 10 on every column): Bessemer rows that change. Only the keys that change.
+
+Five rows (cross-plan-cx3.json holds the pair rulings and the sibling lines):
+- wonderful: country and city move to the Netherlands and Amsterdam, as the Index, Insight and IVP rows read.
+- zopper: city moves to Noida, as the Tiger Global row reads (the company's own contact page).
+- pinnacle-engines-fmr-cleeves-engines-inc: status unknown -> private, as the New Enterprise Associates row reads.
+- tiburon-networks: status unknown -> defunct, as the Greylock row reads (now on a record read).
+- visor: the city is placed (New York), found while settling the General Catalyst and Lux pairs.
+
+Run once: NQ_TAG=cx3 python3 judgments-cx3.py
+"""
+import json
+
+import judge_lib as jl
+from judge_lib import cls
+
+WV = "web_verified"
+
+# The citation is read from disk: the IVP row's own country citation (SiliconANGLE, 2026-09-02), which this judge
+# opened on 2026-10-06 and which reads "Amsterdam-based Wonderful sells a platform that enterprises use to build AI agents".
+_IVP = json.loads((jl.INV.parent / "ivp" / "companies" / "classification.json").read_text())
+SA_WONDERFUL = _IVP.get("ivp", _IVP)["wonderful"]["hq_country_citation"]
+assert SA_WONDERFUL.startswith("https://siliconangle.com/2026/09/02/wonderful-raises-550m"), SA_WONDERFUL
+
+L = [
+    cls("wonderful", country="NL", country_src=WV, country_cite=SA_WONDERFUL, city="Amsterdam", city_src=WV,
+        note="Cross-book 2026-10-06 (rule 10): the headquarters moves from Israel and Tel Aviv to the Netherlands and Amsterdam. "
+             "SiliconANGLE (2026-09-02, read) writes 'Amsterdam-based Wonderful', the company's own Series B release is datelined "
+             "'AMSTERDAM, March 12, 2026' and TechCrunch calls it 'Israeli-Dutch'; Globes' 'Israeli AI agents company' describes the "
+             "founders and the Tel Aviv development base, so the row now agrees with the Index, Insight and IVP books."),
+    cls("zopper", city="Noida", city_src=WV,
+        note="Cross-book 2026-10-06 (rule 10): city corrected from Gurugram to Noida. Zopper's own contact page "
+             "(https://www.zopper.com/contact-us, read) gives its corporate office at BGR Tower, Film City, Sector 16A, Noida, with the "
+             "registered office in New Delhi, as the Tiger Global row reads."),
+    cls("pinnacle-engines-fmr-cleeves-engines-inc", status="private",
+        note="Cross-book 2026-10-06 (rule 10): status moves from unknown to private, the last known state. New Enterprise Associates' "
+             "own page lists Pinnacle Engines as 'Private' (https://www.nea.com/portfolio/pinnacle-engines, read) and its book cites "
+             "press showing it operating in 2019; the company's own site still serves (copyright 2018, with its 2018 ARPA-E award), "
+             "and nothing reports a sale or a closure."),
+    cls("tiburon-networks", status="defunct",
+        note="Cross-book 2026-10-06 (rule 10): status moves from unknown to defunct, as the Greylock book reads. CB Insights' record "
+             "of the company (https://www.cbinsights.com/company/tiburon-networks, read) says 'Tiburon Networks ceased its "
+             "operations' and gives its address as 200 Minuteman Road, Andover, which confirms the city; Greylock's own list carries "
+             "it in 2001 only, and EDGAR full text names it in no filing, so no sale is on record."),
+    cls("visor", city="New York", city_src=WV,
+        note="Cross-book 2026-10-06: city placed. The company's own seed announcement of 2021-09-29 is issued from New York City and "
+             "its site is published by RocketVisor Corporation; the General Catalyst row named Visor is this company (its page links "
+             "visor.us), and the Lux row is another one, the online tax filing and advisory service Lux backed in 2016."),
+]
+
+jl.write("cx3", L)

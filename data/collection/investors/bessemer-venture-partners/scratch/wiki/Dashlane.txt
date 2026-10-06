@@ -1,0 +1,47 @@
+Dashlane is a subscription-based password manager and digital wallet application available on macOS, Windows, iOS and Android, founded in Paris. Dashlane uses a subscription business model option.
+
+
+== Overview ==
+Dashlane was founded in Paris on July 6, 2009, releasing their first software on May 23, 2012, that first included a password manager (encrypted using AES-256), which was walled behind a single master password. Over time, more features were introduced to the product such as:
+
+Multi-factor authentication
+Automatic form filling
+Password generation
+Digital wallet
+Security breach alert
+Virtual private network
+
+
+== Source code ==
+The source code for the Android and the iOS app is available under the Creative Commons NonCommercial license 4.0.
+
+
+== Reception ==
+In 2017, Stiftung Warentest evaluated nine paid password managers and rated Dashlane Premium as one of four recommended products.
+
+
+== Security criticism ==
+
+
+=== 2024 leakage via injection attacks ===
+A 2024 study by Fábrega et al. demonstrated that many popular password managers are vulnerable to injection attacks. Dashlane was affected due to its handling of application-wide security metrics, allowing an attacker to inject crafted shared entries and observe externally logged data (such as duplicate-password counts) to determine whether their injected values matched passwords stored in a victim's vault.
+
+
+=== 2024 evaluation of password checkup tools ===
+A 2024 study by Hutchinson et al. examined the “password checkup” features of 14 password managers, including Dashlane, using weak, breached, and randomly generated passwords. The authors found that the evaluated products reported weak and compromised passwords inconsistently and sometimes incompletely. No manager successfully flagged all known breached passwords. The study concludes that such inconsistencies may give users a false sense of security.
+
+
+=== 2025 DOM-based extension clickjacking ===
+Security researcher Marek Tóth presented a vulnerability in browser extensions of several password managers (including Dashlane) at DEF CON 33 on August 9, 2025. In their default configurations, these extensions were shown to be exposed to a DOM-based extension clickjacking technique, allowing attackers to exfiltrate user data with just a single click. The affected password manager vendors were notified in April 2025. According to Tóth, Dashlane version 6.2531.1 (August 1, 2025) addressed the issue.
+
+
+== See also ==
+List of password managers
+
+
+== References ==
+
+
+== External links ==
+Official website 
+Dashlane on GitHub

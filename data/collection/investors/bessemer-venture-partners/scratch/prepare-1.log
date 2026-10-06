@@ -1,0 +1,59 @@
+base: data/collection/investors/bessemer-venture-partners/companies/base.json
+target companies: 355  distinct issuer CIKs: 351
+scanning 74 quarterly datasets (offline)...
+filings collected: 1287
+evidence: 867/867 base accessions found
+wrote data/collection/investors/bessemer-venture-partners/scratch/issuer-evidence.json (360 CIKs, 152 with a name history)
+
+wrote data/collection/investors/bessemer-venture-partners/sources/edgar/formd-issuer-rounds.json
+  companies with Form D history : 347
+  rounds after amendment merge  : 1142 (145 amendments folded in)
+  companies with 2+ rounds      : 257
+  filings the partner sweep never saw: 416
+  companies gaining >=1 such filing  : 175
+  rounds carrying a sale date   : 1129/1142
+in flight: wrote data/collection/investors/bessemer-venture-partners/scratch/in-flight.json
+rows: 1095
+membership seed: 898 site_listing, 7 fund_filing; left for the judge: 190
+layer A (SEC public float): 1095 rows to resolve
+    fetched 100/353
+    fetched 200/353
+    fetched 300/353
+    100/1095
+    200/1095
+    300/1095
+    400/1095
+    500/1095
+    600/1095
+    700/1095
+    800/1095
+    900/1095
+    1000/1095
+    resolved a CIK: 631   with public float: 96
+layer B (Wikidata): 1095 rows in batches of 60
+    60/1095
+    120/1095
+    180/1095
+    240/1095
+    300/1095
+    360/1095
+    420/1095
+    480/1095
+    540/1095
+    600/1095
+    660/1095
+    720/1095
+    780/1095
+    840/1095
+    900/1095
+    960/1095
+    1020/1095
+    1080/1095
+    1095/1095
+    matched: 182
+layer C (unicorn list): 629 current, 209 former
+graduation layer 1: 347 companies, 109 entered at Seed, 105 decided by the filings as of 2026-10-01 (the judge confirms each), 144 entries moved past pre-investor rounds
+
+deterministically resolved: 0/1095
+retired (not_member, awaiting rebuild): 0
+queued for judgment       : 1095 rows in 25 batches

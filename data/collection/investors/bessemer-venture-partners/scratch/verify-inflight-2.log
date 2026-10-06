@@ -1,0 +1,104 @@
+membership      : 1214 verdicts, 0 uncertain, 20 unjudged, 10 not_member awaiting rebuild
+stale classification keys: 81 (earlier base versions)
+duplicate companies (same SEC registrant): 2 groups
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+  note: sibling index-ventures in flight; not compared
+  note: sibling speedinvest in flight; not compared
+cross-investor  : 585 rows shared with other investors, 500 agree, 0 accepted, 85 disagree; 3 unnameable rows not compared
+rows            : 969
+classified      : 835
+$1B+ / $10B+ / $100B+ : 108 / 20 / 3
+identity        : 3 unnameable rows, excluded from every metric
+stage unknown   : 246 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'(outside taxonomy)': 161, 'SaaS': 127, 'Healthcare & Bio': 109, 'Data Infrastructure': 108, 'Consumer & Marketplaces': 105, 'AI & Applied AI': 70, 'Security': 65, 'Industrial & Robotics': 65, 'Fintech & Payments': 63, 'Media, Gaming & Advertising': 43, 'DevTools & APIs': 27, 'Climate & Energy': 19, 'Crypto & Web3': 4}
+hq_city         : 222 distinct, 785/969 filled, 42 recorded unknown; top {'New York': 98, 'San Francisco': 94, 'Tel Aviv': 34, 'Boston': 21, 'Bangalore': 20, 'San Jose': 18, 'Cambridge': 17, 'London': 17}
+valuation_range : {'below_1b': 719, None: 139, '1b_plus': 88, '10b_plus': 17, '100b_plus': 3}
+entry_stage     : {'Growth': 240, 'Series A': 225, None: 137, 'Seed': 116, 'Pre-Seed': 2}
+stage leg       : 1 decided rows rest on an uncited entry stage (their own evidence decides them, stage low)
+S2A             : 116 seed entries, 20 censored; cohort 52, graduated 52, not graduated 0, rate 100.0%, coverage 54.2%; 44 still open
+  note: base.csv stale relative to the base (404 slugs differ); re-run export
+
+97 problem(s):
+  - capsule8: graduated on an uncited entry stage; a decided row may carry one only on its own evidence, with flag stage_uncited and entry_stage_confidence low (PRO-131 b, PRO-132)
+  - docusign: $1B+ row without cited/structural entry stage and no cite_pending marker
+  - plenful: graduated on an uncited entry stage; a decided row may carry one only on its own evidence, with flag stage_uncited and entry_stage_confidence low (PRO-131 b, PRO-132)
+  - cogent-communications: public $1B+ row without a cited market cap
+  - domain: 'undetermined' entry_stage with seed_to_a_graduation None; the column cannot be decided for a company that cannot be named
+  - fg-wireless: 'undetermined' entry_stage with seed_to_a_graduation None; the column cannot be decided for a company that cannot be named
+  - first-index: 'undetermined' entry_stage with seed_to_a_graduation None; the column cannot be decided for a company that cannot be named
+  - cross-investor Abacus: bessemer-venture-partners:abacus acquired/below_1b (asof -) vs menlo-ventures:abacus private/below_1b (asof -); freshest bessemer-venture-partners:abacus
+  - cross-investor Alloy: bessemer-venture-partners:alloy private/1b_plus $1.55B (asof 2022-09) vs 20vc:alloy unknown/below_1b (asof -); freshest bessemer-venture-partners:alloy
+  - cross-investor Alloy: bessemer-venture-partners:alloy private/1b_plus $1.55B (asof 2022-09) vs 8vc:alloy private/below_1b (asof -); freshest bessemer-venture-partners:alloy
+  - cross-investor Alloy: bessemer-venture-partners:alloy private/1b_plus $1.55B (asof 2022-09) vs menlo-ventures:alloy private/below_1b (asof -); freshest bessemer-venture-partners:alloy
+  - cross-investor Alloy: bessemer-venture-partners:alloy private/1b_plus $1.55B (asof 2022-09) vs y-combinator:alloy private/below_1b (asof -); freshest bessemer-venture-partners:alloy
+  - cross-investor Astrix: bessemer-venture-partners:astrix acquired/below_1b (asof -) vs menlo-ventures:astrix private/below_1b (asof -); freshest bessemer-venture-partners:astrix
+  - cross-investor August: bessemer-venture-partners:august acquired/below_1b (asof -) vs a16z:august private/below_1b (asof -); freshest bessemer-venture-partners:august
+  - cross-investor August: bessemer-venture-partners:august acquired/below_1b (asof -) vs accel:august-ai private/below_1b (asof -); freshest bessemer-venture-partners:august
+  - cross-investor August: bessemer-venture-partners:august acquired/below_1b (asof -) vs new-enterprise-associates:august private/below_1b (asof 2026-09-30); freshest new-enterprise-associates:august
+  - cross-investor Avalanche Technology: bessemer-venture-partners:avalanche-technology private/below_1b (asof -) vs a16z:avalanche private/1b_plus $2.97B (asof 2026-08); freshest a16z:avalanche
+  - cross-investor Avalanche Technology: bessemer-venture-partners:avalanche-technology private/below_1b (asof -) vs y-combinator:avalanche unknown/below_1b (asof -); freshest bessemer-venture-partners:avalanche-technology
+  - cross-investor Axion: bessemer-venture-partners:axion private/below_1b (asof -) vs kleiner-perkins:axion acquired/below_1b (asof -); freshest bessemer-venture-partners:axion
+  - cross-investor Betterment: bessemer-venture-partners:betterment private/1b_plus $1.30B (asof 2021-09) vs menlo-ventures:betterment private/below_1b (asof -); freshest bessemer-venture-partners:betterment
+  - cross-investor Boom Supersonic: bessemer-venture-partners:boom-supersonic private/1b_plus $1.50B (asof 2025-12) vs 8vc:boom-supersonic private/below_1b (asof -); freshest bessemer-venture-partners:boom-supersonic
+  - cross-investor Brainbase: bessemer-venture-partners:brainbase acquired/below_1b (asof -) vs y-combinator:brainbase-labs private/below_1b (asof -); freshest bessemer-venture-partners:brainbase
+  - cross-investor Breaker: bessemer-venture-partners:breaker private/below_1b (asof -) vs y-combinator:breaker acquired/below_1b (asof -); freshest bessemer-venture-partners:breaker
+  - cross-investor Candid Co.: bessemer-venture-partners:candid-co private/below_1b (asof -) vs headline:candid defunct/below_1b (asof -); freshest bessemer-venture-partners:candid-co
+  - cross-investor DISCO: bessemer-venture-partners:disco public/below_1b $0.27B (asof 2026-10-06) vs felicis:disco-technology private/below_1b (asof -); freshest bessemer-venture-partners:disco
+  - cross-investor Daylight: bessemer-venture-partners:daylight acquired/below_1b (asof -) vs a16z:daylight private/below_1b (asof -); freshest bessemer-venture-partners:daylight
+  - cross-investor Daylight: bessemer-venture-partners:daylight acquired/below_1b (asof -) vs union-square-ventures:daylight private/below_1b (asof -); freshest bessemer-venture-partners:daylight
+  - cross-investor Dysan: bessemer-venture-partners:dysan acquired/below_1b (asof 1984-01-01) vs sequoia-capital:dysan defunct/below_1b (asof 1984-01-01); freshest bessemer-venture-partners:dysan
+  - cross-investor Endgame: bessemer-venture-partners:endgame acquired/below_1b (asof -) vs eqt-ventures:endgame private/below_1b (asof -); freshest bessemer-venture-partners:endgame
+  - cross-investor Exclara: bessemer-venture-partners:exclara acquired/below_1b (asof -) vs lightspeed:exclara unknown/below_1b (asof -); freshest bessemer-venture-partners:exclara
+  - cross-investor Fabric Technologies: bessemer-venture-partners:fabric-technologies acquired/below_1b (asof -) vs gv:fabric private/below_1b (asof -); freshest bessemer-venture-partners:fabric-technologies
+  - cross-investor Fabric Technologies: bessemer-venture-partners:fabric-technologies acquired/below_1b (asof -) vs redpoint-ventures:fabric private/1b_plus $1.50B (asof -); freshest bessemer-venture-partners:fabric-technologies
+  - cross-investor Fabric Technologies: bessemer-venture-partners:fabric-technologies acquired/below_1b (asof -) vs seedcamp:fabric private/below_1b (asof -); freshest bessemer-venture-partners:fabric-technologies
+  - cross-investor Fabric Technologies: bessemer-venture-partners:fabric-technologies acquired/below_1b (asof -) vs thrive-capital:fabric private/below_1b (asof -); freshest bessemer-venture-partners:fabric-technologies
+  - cross-investor Fandom: bessemer-venture-partners:fandom acquired/below_1b (asof -) vs redpoint-ventures:fandom defunct/below_1b (asof -); freshest bessemer-venture-partners:fandom
+  - cross-investor Farther: bessemer-venture-partners:farther private/1b_plus $1.00B (asof 2026-05) vs lightspeed:farther private/below_1b (asof -); freshest bessemer-venture-partners:farther
+  - cross-investor Flock: bessemer-venture-partners:flock acquired/below_1b (asof -) vs a16z:flock private/1b_plus $7.50B (asof 2025-03); freshest a16z:flock
+  - cross-investor Ginger: bessemer-venture-partners:ginger acquired/below_1b (asof -) vs khosla-ventures:headspace-health private/below_1b (asof -); freshest bessemer-venture-partners:ginger
+  - cross-investor Guild: bessemer-venture-partners:guild private/1b_plus $4.40B (asof 2022-06) vs y-combinator:guild acquired/below_1b (asof 2024-06-30); freshest y-combinator:guild
+  - cross-investor Indian Energy Exchange: bessemer-venture-partners:indian-energy-exchange public/below_1b $0.96B (asof 2026-10-06) vs lightspeed:indian-energy-exchange public/1b_plus $1.11B (asof 2026-09); freshest bessemer-venture-partners:indian-energy-exchange
+  - cross-investor Jasper: bessemer-venture-partners:jasper private/1b_plus $1.50B (asof 2022-10) vs northzone:jasper acquired/below_1b (asof -); freshest bessemer-venture-partners:jasper
+  - cross-investor Jasper: bessemer-venture-partners:jasper private/1b_plus $1.50B (asof 2022-10) vs sequoia-capital:jasper acquired/below_1b (asof -); freshest bessemer-venture-partners:jasper
+  - cross-investor Kindred: bessemer-venture-partners:kindred private/below_1b (asof -) vs first-round-capital:kindred acquired/below_1b (asof -); freshest bessemer-venture-partners:kindred
+  - cross-investor Kindred: bessemer-venture-partners:kindred private/below_1b (asof -) vs gv:kindred acquired/below_1b (asof -); freshest bessemer-venture-partners:kindred
+  - cross-investor Light: bessemer-venture-partners:light acquired/below_1b (asof -) vs balderton-capital:light private/below_1b (asof 2026-09-26); freshest balderton-capital:light
+  - cross-investor Light: bessemer-venture-partners:light acquired/below_1b (asof -) vs cherry:light private/below_1b (asof -); freshest bessemer-venture-partners:light
+  - cross-investor Light: bessemer-venture-partners:light acquired/below_1b (asof -) vs seedcamp:light private/below_1b (asof -); freshest bessemer-venture-partners:light
+  - cross-investor MealPal: bessemer-venture-partners:mealpal private/below_1b (asof -) vs menlo-ventures:mealpal defunct/below_1b (asof -); freshest bessemer-venture-partners:mealpal
+  - cross-investor Measurex: bessemer-venture-partners:measurex defunct/None (asof 1997-01-01) vs sutter-hill-ventures:measurex acquired/below_1b (asof 1997-01-01); freshest bessemer-venture-partners:measurex
+  - cross-investor Milo: bessemer-venture-partners:milo acquired/below_1b (asof -) vs y-combinator:milo unknown/below_1b (asof -); freshest bessemer-venture-partners:milo
+  - cross-investor Moonvalley: bessemer-venture-partners:moonvalley acquired/below_1b (asof -) vs khosla-ventures:moonvalley-ai-inc private/below_1b (asof -); freshest bessemer-venture-partners:moonvalley
+  - cross-investor Moonvalley: bessemer-venture-partners:moonvalley acquired/below_1b (asof -) vs y-combinator:moonvalley private/below_1b (asof -); freshest bessemer-venture-partners:moonvalley
+  - cross-investor Netography: bessemer-venture-partners:netography acquired/below_1b (asof -) vs a16z:netography private/below_1b (asof -); freshest bessemer-venture-partners:netography
+  - cross-investor Onaroll: bessemer-venture-partners:onaroll acquired/below_1b (asof -) vs lux-capital:onaroll private/below_1b (asof -); freshest bessemer-venture-partners:onaroll
+  - cross-investor Pana: bessemer-venture-partners:pana acquired/below_1b (asof -) vs y-combinator:pana private/below_1b (asof -); freshest bessemer-venture-partners:pana
+  - cross-investor Parametric Technology: bessemer-venture-partners:parametric-technology public/10b_plus $20.95B (asof 2026-10-06) vs y-combinator:parametric private/below_1b (asof 2025-03-31); freshest bessemer-venture-partners:parametric-technology
+  - cross-investor Pillar: bessemer-venture-partners:pillar acquired/below_1b (asof -) vs kleiner-perkins:pillar unknown/below_1b (asof -); freshest bessemer-venture-partners:pillar
+  - cross-investor Quantopian: bessemer-venture-partners:quantopian defunct/below_1b (asof -) vs a16z:quantopian acquired/below_1b (asof -); freshest bessemer-venture-partners:quantopian
+  - cross-investor Quantopian: bessemer-venture-partners:quantopian defunct/below_1b (asof -) vs khosla-ventures:quantopian acquired/below_1b (asof -); freshest bessemer-venture-partners:quantopian
+  - cross-investor Quantopian: bessemer-venture-partners:quantopian defunct/below_1b (asof -) vs spark-capital:quantopian acquired/below_1b (asof -); freshest bessemer-venture-partners:quantopian
+  - cross-investor Ramp: bessemer-venture-partners:ramp private/10b_plus $44.00B (asof 2026-06-04) vs balderton-capital:ramp private/below_1b (asof 2026-09-26); freshest balderton-capital:ramp
+  - cross-investor Ramp: bessemer-venture-partners:ramp private/10b_plus $44.00B (asof 2026-06-04) vs seedcamp:ramp private/below_1b (asof -); freshest bessemer-venture-partners:ramp
+  - cross-investor Rupa Health: bessemer-venture-partners:rupa-health acquired/below_1b (asof -) vs first-round-capital:rupa-health private/below_1b (asof -); freshest bessemer-venture-partners:rupa-health
+  - cross-investor Sarvam: bessemer-venture-partners:sarvam private/1b_plus $1.50B (asof 2026-06) vs khosla-ventures:sarvam-ai private/below_1b (asof -); freshest bessemer-venture-partners:sarvam
+  - cross-investor Sarvam: bessemer-venture-partners:sarvam private/1b_plus $1.50B (asof 2026-06) vs lightspeed:sarvam private/below_1b (asof -); freshest bessemer-venture-partners:sarvam
+  - cross-investor Seam AI: bessemer-venture-partners:seam-ai acquired/below_1b (asof -) vs y-combinator:seam private/below_1b (asof -); freshest bessemer-venture-partners:seam-ai
+  - cross-investor Shift Technology: bessemer-venture-partners:shift-technology private/1b_plus $1.00B (asof 2021-05-05) vs cherry:shift acquired/below_1b (asof -); freshest bessemer-venture-partners:shift-technology
+  - cross-investor Shift Technology: bessemer-venture-partners:shift-technology private/1b_plus $1.00B (asof 2021-05-05) vs y-combinator:shift-labs unknown/below_1b (asof -); freshest bessemer-venture-partners:shift-technology
+  - cross-investor ShopMy: bessemer-venture-partners:shopmy private/1b_plus $1.50B (asof 2025-10-22) vs menlo-ventures:shopmy private/below_1b (asof -); freshest bessemer-venture-partners:shopmy
+  - cross-investor Sila Nanotechnologies: bessemer-venture-partners:sila-nanotechnologies private/1b_plus $2.00B (asof 2024-06) vs 8vc:sila-nanotechnologies private/below_1b (asof -); freshest bessemer-venture-partners:sila-nanotechnologies
+  - cross-investor Sorare: bessemer-venture-partners:sorare private/below_1b (asof 2026-09-21) vs 20vc:sorare private/1b_plus $4.30B (asof 2021-09-21); freshest bessemer-venture-partners:sorare
+  - cross-investor Sorare: bessemer-venture-partners:sorare private/below_1b (asof 2026-09-21) vs accel:sorare private/1b_plus $4.30B (asof 2021-09-20); freshest bessemer-venture-partners:sorare
+  - cross-investor Sorare: bessemer-venture-partners:sorare private/below_1b (asof 2026-09-21) vs headline:sorare private/1b_plus $4.30B (asof 2021-09-20); freshest bessemer-venture-partners:sorare
+  - cross-investor Sorare: bessemer-venture-partners:sorare private/below_1b (asof 2026-09-21) vs ivp:sorare private/1b_plus $4.30B (asof 2021-09); freshest bessemer-venture-partners:sorare
+  - cross-investor Sorare: bessemer-venture-partners:sorare private/below_1b (asof 2026-09-21) vs seedcamp:sorare private/1b_plus $4.30B (asof 2021-09-21); freshest bessemer-venture-partners:sorare
+  - cross-investor Speakeasy: bessemer-venture-partners:speakeasy unknown/below_1b (asof -) vs gv:speakeasy private/below_1b (asof -); freshest bessemer-venture-partners:speakeasy
+  - cross-investor Speakeasy: bessemer-venture-partners:speakeasy unknown/below_1b (asof -) vs headline:speakeasy acquired/below_1b (asof -); freshest bessemer-venture-partners:speakeasy
+  - cross-investor Spot AI: bessemer-venture-partners:spot-ai private/below_1b (asof -) vs kleiner-perkins:spot acquired/below_1b (asof 2026-09-30); freshest kleiner-perkins:spot
+  - cross-investor Spruce: bessemer-venture-partners:spruce acquired/below_1b (asof -) vs a16z:spruce private/below_1b (asof -); freshest bessemer-venture-partners:spruce
+  - cross-investor Teleport: bessemer-venture-partners:teleport private/1b_plus $1.10B (asof 2022-05-03) vs a16z:teleport acquired/below_1b (asof -); freshest bessemer-venture-partners:teleport

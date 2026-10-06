@@ -1,0 +1,102 @@
+membership      : 1095 verdicts, 0 uncertain, 0 unjudged, 213 not_member awaiting rebuild
+duplicate companies (same SEC registrant): 8 groups
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+  note: sibling index-ventures in flight; not compared
+  note: sibling speedinvest in flight; not compared
+cross-investor  : 634 rows shared with other investors, 546 agree, 0 accepted, 88 disagree; 3 unnameable rows not compared
+rows            : 1095
+classified      : 930
+$1B+ / $10B+ / $100B+ : 131 / 23 / 4
+identity        : 3 unnameable rows, excluded from every metric
+stage unknown   : 292 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'(outside taxonomy)': 214, 'SaaS': 156, 'Consumer & Marketplaces': 121, 'Healthcare & Bio': 117, 'Data Infrastructure': 114, 'AI & Applied AI': 72, 'Industrial & Robotics': 67, 'Security': 65, 'Fintech & Payments': 64, 'Media, Gaming & Advertising': 48, 'DevTools & APIs': 31, 'Climate & Energy': 19, 'Crypto & Web3': 4}
+hq_city         : 227 distinct, 860/1095 filled, 48 recorded unknown; top {'New York': 114, 'San Francisco': 101, 'Tel Aviv': 34, 'Boston': 23, 'Bangalore': 22, 'Mountain View': 19, 'London': 18, 'San Jose': 18}
+valuation_range : {'below_1b': 787, None: 174, '1b_plus': 108, '10b_plus': 19, '100b_plus': 4}
+entry_stage     : {'Growth': 276, 'Series A': 270, 'Seed': 173, None: 56, 'Pre-Seed': 25}
+stage leg       : 1 decided rows rest on an uncited entry stage (their own evidence decides them, stage low)
+S2A             : 173 seed entries, 21 censored; cohort 52, graduated 52, not graduated 0, rate 100.0%, coverage 34.2%; 100 still open
+
+136 problem(s):
+  - absorbed/rejected slug in published base: ['2tor-inc', 'adaptive-planning-inc', 'bharat-matrimony', 'billshrink', 'birch-solutions-inc']
+  - acv-auctions: public $1B+ row without a cited market cap
+  - anthropic: $1B+ row without cited/structural entry stage and no cite_pending marker
+  - betterment: $1B+ row without cited/structural entry stage and no cite_pending marker
+  - boom-supersonic: $1B+ row without cited/structural entry stage and no cite_pending marker
+  - box: public $1B+ row without a cited market cap
+  - canva: $1B+ row without cited/structural entry stage and no cite_pending marker
+  - capsule8: graduated on an uncited entry stage; a decided row may carry one only on its own evidence, with flag stage_uncited and entry_stage_confidence low (PRO-131 b, PRO-132)
+  - choco: $1B+ row without cited/structural entry stage and no cite_pending marker
+  - claroty: $1B+ row without cited/structural entry stage and no cite_pending marker
+  - discord: $1B+ row without cited/structural entry stage and no cite_pending marker
+  - docusign: $1B+ row without cited/structural entry stage and no cite_pending marker
+  - hinge-health: public $1B+ row without a cited market cap
+  - isis-pharmaceuticals: public $1B+ row without a cited market cap
+  - kymera-therapeutics: public $1B+ row without a cited market cap
+  - life360: public $1B+ row without a cited market cap
+  - mambu: $1B+ row without cited/structural entry stage and no cite_pending marker
+  - pagerduty: public $1B+ row without a cited market cap
+  - perfios: $1B+ row without cited/structural entry stage and no cite_pending marker
+  - pinterest: public $1B+ row without a cited market cap
+  - plenful: graduated on an uncited entry stage; a decided row may carry one only on its own evidence, with flag stage_uncited and entry_stage_confidence low (PRO-131 b, PRO-132)
+  - procore: public $1B+ row without a cited market cap
+  - productboard: $1B+ row without cited/structural entry stage and no cite_pending marker
+  - qualys: public $1B+ row without a cited market cap
+  - rigetti-computing: public $1B+ row without a cited market cap
+  - rocket-lab: public $1B+ row without a cited market cap
+  - servicetitan: public $1B+ row without a cited market cap
+  - shopify: public $1B+ row without a cited market cap
+  - toast: public $1B+ row without a cited market cap
+  - trm-labs: $1B+ row without cited/structural entry stage and no cite_pending marker
+  - twilio: public $1B+ row without a cited market cap
+  - upside: $1B+ row without cited/structural entry stage and no cite_pending marker
+  - yelp: public $1B+ row without a cited market cap
+  - cogent-communications: public $1B+ row without a cited market cap
+  - dick-s-sporting-goods: public $1B+ row without a cited market cap
+  - domain: 'undetermined' entry_stage with seed_to_a_graduation None; the column cannot be decided for a company that cannot be named
+  - fg-wireless: 'undetermined' entry_stage with seed_to_a_graduation None; the column cannot be decided for a company that cannot be named
+  - first-index: 'undetermined' entry_stage with seed_to_a_graduation None; the column cannot be decided for a company that cannot be named
+  - gartner-group: public $1B+ row without a cited market cap
+  - ionis-pharmaceuticals: public $1B+ row without a cited market cap
+  - parametric-technology: public $1B+ row without a cited market cap
+  - trinet: public $1B+ row without a cited market cap
+  - viva-republica-toss: $1B+ row without cited/structural entry stage and no cite_pending marker
+  - cross-investor Abacus: bessemer-venture-partners:abacus acquired/below_1b (asof -) vs menlo-ventures:abacus private/below_1b (asof -); freshest bessemer-venture-partners:abacus
+  - cross-investor Alloy: bessemer-venture-partners:alloy private/1b_plus $1.55B (asof 2022-09) vs 20vc:alloy unknown/below_1b (asof -); freshest bessemer-venture-partners:alloy
+  - cross-investor Alloy: bessemer-venture-partners:alloy private/1b_plus $1.55B (asof 2022-09) vs 8vc:alloy private/below_1b (asof -); freshest bessemer-venture-partners:alloy
+  - cross-investor Alloy: bessemer-venture-partners:alloy private/1b_plus $1.55B (asof 2022-09) vs menlo-ventures:alloy private/below_1b (asof -); freshest bessemer-venture-partners:alloy
+  - cross-investor Alloy: bessemer-venture-partners:alloy private/1b_plus $1.55B (asof 2022-09) vs y-combinator:alloy private/below_1b (asof -); freshest bessemer-venture-partners:alloy
+  - cross-investor Astrix: bessemer-venture-partners:astrix acquired/below_1b (asof -) vs menlo-ventures:astrix private/below_1b (asof -); freshest bessemer-venture-partners:astrix
+  - cross-investor August: bessemer-venture-partners:august acquired/below_1b (asof -) vs a16z:august private/below_1b (asof -); freshest bessemer-venture-partners:august
+  - cross-investor August: bessemer-venture-partners:august acquired/below_1b (asof -) vs accel:august-ai private/below_1b (asof -); freshest bessemer-venture-partners:august
+  - cross-investor August: bessemer-venture-partners:august acquired/below_1b (asof -) vs new-enterprise-associates:august private/below_1b (asof 2026-09-30); freshest new-enterprise-associates:august
+  - cross-investor Avalanche Technology: bessemer-venture-partners:avalanche-technology private/below_1b (asof -) vs a16z:avalanche private/1b_plus $2.97B (asof 2026-08); freshest a16z:avalanche
+  - cross-investor Avalanche Technology: bessemer-venture-partners:avalanche-technology private/below_1b (asof -) vs y-combinator:avalanche unknown/below_1b (asof -); freshest bessemer-venture-partners:avalanche-technology
+  - cross-investor Axion: bessemer-venture-partners:axion private/below_1b (asof -) vs kleiner-perkins:axion acquired/below_1b (asof -); freshest bessemer-venture-partners:axion
+  - cross-investor Betterment: bessemer-venture-partners:betterment private/1b_plus $1.30B (asof 2021-09) vs menlo-ventures:betterment private/below_1b (asof -); freshest bessemer-venture-partners:betterment
+  - cross-investor Beyond: bessemer-venture-partners:beyond private/below_1b (asof 2025-06-30) vs greylock:beyond-inc acquired/below_1b (asof 2025-06-30); freshest bessemer-venture-partners:beyond
+  - cross-investor Beyond: bessemer-venture-partners:beyond private/below_1b (asof 2025-06-30) vs greylock:beyond-software acquired/below_1b (asof 2025-06-30); freshest bessemer-venture-partners:beyond
+  - cross-investor Blend Systems, Inc.: bessemer-venture-partners:blend-systems-inc public/below_1b $0.70B (asof 2025-06-30) vs new-enterprise-associates:genies private/1b_plus $1.00B (asof 2022-04-12); freshest bessemer-venture-partners:blend-systems-inc
+  - cross-investor Boom Supersonic: bessemer-venture-partners:boom-supersonic private/1b_plus $1.50B (asof 2025-12) vs 8vc:boom-supersonic private/below_1b (asof -); freshest bessemer-venture-partners:boom-supersonic
+  - cross-investor Brainbase: bessemer-venture-partners:brainbase acquired/below_1b (asof -) vs y-combinator:brainbase-labs private/below_1b (asof -); freshest bessemer-venture-partners:brainbase
+  - cross-investor Breaker: bessemer-venture-partners:breaker private/below_1b (asof -) vs y-combinator:breaker acquired/below_1b (asof -); freshest bessemer-venture-partners:breaker
+  - cross-investor Candid Co.: bessemer-venture-partners:candid-co private/below_1b (asof -) vs headline:candid defunct/below_1b (asof -); freshest bessemer-venture-partners:candid-co
+  - cross-investor Current: bessemer-venture-partners:current private/below_1b (asof -) vs a16z:current private/1b_plus $1.50B (asof 2026-06); freshest a16z:current
+  - cross-investor Current: bessemer-venture-partners:current private/below_1b (asof -) vs tiger-global-management:current private/1b_plus $1.50B (asof 2026-06); freshest tiger-global-management:current
+  - cross-investor DISCO: bessemer-venture-partners:disco public/below_1b $0.27B (asof 2026-10-01) vs felicis:disco-technology private/below_1b (asof -); freshest bessemer-venture-partners:disco
+  - cross-investor Daylight: bessemer-venture-partners:daylight acquired/below_1b (asof -) vs a16z:daylight private/below_1b (asof -); freshest bessemer-venture-partners:daylight
+  - cross-investor Daylight: bessemer-venture-partners:daylight acquired/below_1b (asof -) vs union-square-ventures:daylight private/below_1b (asof -); freshest bessemer-venture-partners:daylight
+  - cross-investor Diligent: bessemer-venture-partners:diligent acquired/below_1b (asof 2015-06-30) vs y-combinator:diligent private/below_1b (asof 2015-06-30); freshest bessemer-venture-partners:diligent
+  - cross-investor Dysan: bessemer-venture-partners:dysan acquired/below_1b (asof 1984-01-01) vs sequoia-capital:dysan defunct/below_1b (asof 1984-01-01); freshest bessemer-venture-partners:dysan
+  - cross-investor Endgame: bessemer-venture-partners:endgame acquired/below_1b (asof -) vs eqt-ventures:endgame private/below_1b (asof -); freshest bessemer-venture-partners:endgame
+  - cross-investor Exclara: bessemer-venture-partners:exclara acquired/below_1b (asof -) vs lightspeed:exclara unknown/below_1b (asof -); freshest bessemer-venture-partners:exclara
+  - cross-investor Fabric Technologies: bessemer-venture-partners:fabric-technologies acquired/below_1b (asof -) vs gv:fabric private/below_1b (asof -); freshest bessemer-venture-partners:fabric-technologies
+  - cross-investor Fabric Technologies: bessemer-venture-partners:fabric-technologies acquired/below_1b (asof -) vs redpoint-ventures:fabric private/1b_plus $1.50B (asof -); freshest bessemer-venture-partners:fabric-technologies
+  - cross-investor Fabric Technologies: bessemer-venture-partners:fabric-technologies acquired/below_1b (asof -) vs seedcamp:fabric private/below_1b (asof -); freshest bessemer-venture-partners:fabric-technologies
+  - cross-investor Fabric Technologies: bessemer-venture-partners:fabric-technologies acquired/below_1b (asof -) vs thrive-capital:fabric private/below_1b (asof -); freshest bessemer-venture-partners:fabric-technologies
+  - cross-investor Fandom: bessemer-venture-partners:fandom acquired/below_1b (asof -) vs redpoint-ventures:fandom defunct/below_1b (asof -); freshest bessemer-venture-partners:fandom
+  - cross-investor Farther: bessemer-venture-partners:farther private/1b_plus $1.00B (asof 2026-05) vs lightspeed:farther private/below_1b (asof -); freshest bessemer-venture-partners:farther
+  - cross-investor Fin: bessemer-venture-partners:fin acquired/below_1b (asof -) vs accel:fin private/below_1b (asof -); freshest bessemer-venture-partners:fin
+  - cross-investor Flock: bessemer-venture-partners:flock acquired/below_1b (asof -) vs a16z:flock private/1b_plus $7.50B (asof 2025-03); freshest a16z:flock

@@ -1,0 +1,47 @@
+targets: 165 roster names
+wrote /Users/erik/Developer/merit-capital/data/collection/investors/bessemer-venture-partners/sources/edgar/formd-sweep.json
+# accessions matched: 1342
+# distinct issuers: 636
+== seeding from EDGAR company search
+   123 entities
+== folding in own pooled Form D vehicles
+   +0 (total 123)
+== co-filer closure (sampling filings of seed entities)
+   152 entities
+   unclassified resolved: 3 partners (people), 20 external co-filers excluded from crawling
+
+wrote data/collection/investors/bessemer-venture-partners/entities.json — 152 entities
+  by desk: {'bvp': 75, 'external': 64, 'forge': 13}
+  crawlable (desk != external): 88
+registry: 152 entities · {'bvp': 75, 'external': 64, 'forge': 13}
+crawling 88 (external excluded)
+  25/88 entities · 202 unique accessions
+  50/88 entities · 286 unique accessions
+  75/88 entities · 442 unique accessions
+unique ownership filings: 442
+  headers 250/442 · 50 companies
+
+wrote edgar-companies.json — 66 companies
+  by desk: {'bvp': 66}
+base: data/collection/investors/bessemer-venture-partners/companies/base.json
+target companies: 355  distinct issuer CIKs: 351
+scanning 74 quarterly datasets (offline)...
+filings collected: 1287
+evidence: 867/867 base accessions found
+wrote data/collection/investors/bessemer-venture-partners/scratch/issuer-evidence.json (360 CIKs, 152 with a name history)
+
+wrote data/collection/investors/bessemer-venture-partners/sources/edgar/formd-issuer-rounds.json
+  companies with Form D history : 347
+  rounds after amendment merge  : 1142 (145 amendments folded in)
+  companies with 2+ rounds      : 257
+  filings the partner sweep never saw: 416
+  companies gaining >=1 such filing  : 175
+  rounds carrying a sale date   : 1129/1142
+
+==== formd-query.py
+
+==== edgar-entities.py
+
+==== edgar-companies.py
+
+==== formd-issuer-rounds.py

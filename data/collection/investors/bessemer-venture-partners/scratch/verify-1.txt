@@ -1,0 +1,44 @@
+membership      : 1234 verdicts, 0 uncertain
+stale classification keys: 89 (earlier base versions)
+  note: sibling atomico in flight; not compared
+  note: sibling bain-capital-ventures in flight; not compared
+  note: sibling founders-fund in flight; not compared
+  note: sibling general-catalyst in flight; not compared
+  note: sibling speedinvest in flight; not compared
+cross-investor  : 585 rows shared with other investors, 541 agree, 22 accepted, 22 disagree; 2 unnameable rows not compared
+rows            : 950
+classified      : 950
+$1B+ / $10B+ / $100B+ : 110 / 20 / 3
+identity        : 2 unnameable rows, excluded from every metric
+stage unknown   : 344 nameable rows whose round the record does not give, excluded from the stage distribution and the S2A cohort
+focus           : {'SaaS': 155, 'Data Infrastructure': 139, 'Healthcare & Bio': 119, 'Consumer & Marketplaces': 118, 'Industrial & Robotics': 83, 'AI & Applied AI': 72, 'Security': 69, 'Fintech & Payments': 69, 'Media, Gaming & Advertising': 49, 'DevTools & APIs': 29, '(outside taxonomy)': 22, 'Climate & Energy': 20, 'Crypto & Web3': 4}
+hq_city         : 244 distinct, 878/950 filled, 70 recorded unknown; top {'New York': 104, 'San Francisco': 99, 'Tel Aviv': 35, 'Boston': 22, 'Bangalore': 21, 'San Jose': 20, 'Cambridge': 18, 'London': 18}
+valuation_range : {'below_1b': 838, '1b_plus': 90, '10b_plus': 17, '100b_plus': 3}
+entry_stage     : {'Growth': 244, 'Series A': 238, 'Seed': 119, 'Pre-Seed': 3}
+stage leg       : 4 decided rows rest on an uncited entry stage (their own evidence decides them, stage low)
+S2A             : 119 seed entries, 22 censored; cohort 97, graduated 67, not graduated 30, rate 69.1%, coverage 100.0%
+  the nos rest on: Form D absence 2, a cited end 10, the absence test 18
+
+22 problem(s):
+  - cross-investor Elemental Security: bessemer-venture-partners:elemental-security private/below_1b (asof -) vs sequoia-capital:elemental-security defunct/below_1b (asof -); freshest bessemer-venture-partners:elemental-security
+  - cross-investor Exemplary: bessemer-venture-partners:exemplary unknown/below_1b (asof -) vs lightspeed:exemplary-software defunct/below_1b (asof -); freshest bessemer-venture-partners:exemplary
+  - cross-investor Framework Technologies: bessemer-venture-partners:framework-technologies unknown/below_1b (asof -) vs spark-capital:framework private/below_1b (asof -); freshest bessemer-venture-partners:framework-technologies
+  - cross-investor Intersect Software: bessemer-venture-partners:intersect-software unknown/below_1b (asof -) vs y-combinator:intersect-labs acquired/below_1b (asof -); freshest bessemer-venture-partners:intersect-software
+  - cross-investor Lightwave Microsystems: bessemer-venture-partners:lightwave-microsystems acquired/below_1b (asof -) vs lightspeed:lightwave-microsystems defunct/below_1b (asof -); freshest bessemer-venture-partners:lightwave-microsystems
+  - cross-investor NTE: bessemer-venture-partners:nte unknown/below_1b (asof -) vs lightspeed:nte-inc defunct/below_1b (asof -); freshest bessemer-venture-partners:nte
+  - cross-investor NewView Technologies: bessemer-venture-partners:newview-technologies unknown/below_1b (asof -) vs greylock:newview-technologies defunct/below_1b (asof -); freshest bessemer-venture-partners:newview-technologies
+  - cross-investor Rain: bessemer-venture-partners:rain private/1b_plus $1.95B (asof 2026-01-09) vs kleiner-perkins:rain private/below_1b (asof -); freshest bessemer-venture-partners:rain
+  - cross-investor Teleport: bessemer-venture-partners:teleport private/1b_plus $1.10B (asof 2022-05-03) vs seedcamp:teleport acquired/below_1b (asof -); freshest bessemer-venture-partners:teleport
+  - cross-investor The Exploration Company: bessemer-venture-partners:the-exploration-company private/1b_plus $2.00B (asof 2026-07-27) vs cherry:the-exploration-company private/below_1b (asof -); freshest bessemer-venture-partners:the-exploration-company
+  - cross-investor Tiburon Networks: bessemer-venture-partners:tiburon-networks unknown/below_1b (asof -) vs greylock:tiburon-networks defunct/below_1b (asof -); freshest bessemer-venture-partners:tiburon-networks
+  - cross-investor Trigo: bessemer-venture-partners:trigo acquired/below_1b (asof -) vs menlo-ventures:trigo private/below_1b (asof -); freshest bessemer-venture-partners:trigo
+  - cross-investor Trigo: bessemer-venture-partners:trigo acquired/below_1b (asof -) vs y-combinator:trigo private/below_1b (asof -); freshest bessemer-venture-partners:trigo
+  - cross-investor Upwind: bessemer-venture-partners:upwind private/1b_plus $3.80B (asof 2026-09-02) vs greylock:upwind private/below_1b (asof -); freshest bessemer-venture-partners:upwind
+  - cross-investor Verse: bessemer-venture-partners:verse private/below_1b (asof -) vs headline:verse acquired/below_1b (asof -); freshest bessemer-venture-partners:verse
+  - cross-investor Verse: bessemer-venture-partners:verse private/below_1b (asof -) vs spark-capital:verse acquired/below_1b (asof -); freshest bessemer-venture-partners:verse
+  - cross-investor Visor: bessemer-venture-partners:visor acquired/below_1b (asof -) vs lux-capital:visor private/below_1b (asof -); freshest bessemer-venture-partners:visor
+  - cross-investor Watershed: bessemer-venture-partners:watershed private/below_1b (asof -) vs kleiner-perkins:watershed private/1b_plus $1.80B (asof 2024-02-01); freshest kleiner-perkins:watershed
+  - cross-investor Watershed: bessemer-venture-partners:watershed private/below_1b (asof -) vs sequoia-capital:watershed private/1b_plus $1.80B (asof 2024-02-02); freshest sequoia-capital:watershed
+  - cross-investor Yelp: bessemer-venture-partners:yelp public/below_1b $0.98B (asof 2026-10-06) vs benchmark:yelp public/1b_plus $1.18B (asof 2025-06-30); freshest bessemer-venture-partners:yelp
+  - cross-investor Zoomin: bessemer-venture-partners:zoomin acquired/below_1b (asof -) vs first-round-capital:zoomin defunct/below_1b (asof -); freshest bessemer-venture-partners:zoomin
+  - cross-investor utMOST Technologies: bessemer-venture-partners:utmost-technologies unknown/below_1b (asof -) vs greylock:utmost acquired/below_1b (asof -); freshest bessemer-venture-partners:utmost-technologies

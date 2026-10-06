@@ -1,0 +1,612 @@
+{
+ "_readme": "Parse Form ADV Schedule D Section 7.B.(1) private-fund rosters from Kleiner Perkins' ADV (CRD 161035) and\nKPCB China's (CRD 161470), sources/adv/<CRD>.pdf, into sources/adv/adv-7b-funds.json. pypdf's per-page text is\ncumulative within runs of pages and a fund's gross asset value can sit a page or more below its name, so each fund\ntakes the value from the first page on which its OWN block (from its name to the next fund name, or the page end)\ncarries line 11. Section 7.B.(2) funds (reported by another adviser) carry no value and are listed separately.\nDeduped by private fund ID. (Adapted from ivp/scratch/parse-adv-7b.py, whose pairing misread this layout: six\nSelect-family funds all read $18,659,493.)",
+ "advisers": {
+  "159279": {
+   "crd": "159279",
+   "adviser": "BESSEMER VENTURE PARTNERS",
+   "funds_7b1": [
+    {
+     "name": "BESSEMER VENTURE ASSOCIATES INDIA II L.P.",
+     "id": "805-7309167569",
+     "gav": 61261020
+    },
+    {
+     "name": "BESSEMER VENTURE ASSOCIATES INDIA L.P.",
+     "id": "805-4565748115",
+     "gav": 49262500
+    },
+    {
+     "name": "BESSEMER VENTURE ASSOCIATES IX L.P.",
+     "id": "805-9986694629",
+     "gav": null
+    },
+    {
+     "name": "BESSEMER VENTURE ASSOCIATES V LLC -- SERIES BVP VI",
+     "id": "805-5439005560",
+     "gav": null
+    },
+    {
+     "name": "BESSEMER VENTURE ASSOCIATES VII GLOBAL LTD. -- CLASS BVP IX",
+     "id": "805-6921221579",
+     "gav": 1283443176
+    },
+    {
+     "name": "BESSEMER VENTURE ASSOCIATES VII GLOBAL LTD. -- CLASS BVP VI",
+     "id": "805-7658064607",
+     "gav": 97128399
+    },
+    {
+     "name": "BESSEMER VENTURE ASSOCIATES VII GLOBAL LTD. -- CLASS BVP VII",
+     "id": "805-5712991180",
+     "gav": null
+    },
+    {
+     "name": "BESSEMER VENTURE ASSOCIATES VII GLOBAL LTD. -- CLASS BVP VIII",
+     "id": "805-2264356318",
+     "gav": null
+    },
+    {
+     "name": "BESSEMER VENTURE ASSOCIATES VII GLOBAL LTD. -- CLASS BVP X",
+     "id": "805-6588633786",
+     "gav": null
+    },
+    {
+     "name": "BESSEMER VENTURE ASSOCIATES VII GLOBAL LTD. -- CLASS BVP XI",
+     "id": "805-1301842288",
+     "gav": null
+    },
+    {
+     "name": "BESSEMER VENTURE ASSOCIATES VII GLOBAL LTD. -- CLASS BVP XII",
+     "id": "805-7645573291",
+     "gav": null
+    },
+    {
+     "name": "BESSEMER VENTURE ASSOCIATES VII L.P.",
+     "id": "805-9699715677",
+     "gav": 70966737
+    },
+    {
+     "name": "BESSEMER VENTURE ASSOCIATES VIII L.P.",
+     "id": "805-6892739692",
+     "gav": 1032561603
+    },
+    {
+     "name": "BESSEMER VENTURE ASSOCIATES X L.P.",
+     "id": "805-5334046623",
+     "gav": 1699745701
+    },
+    {
+     "name": "BESSEMER VENTURE ASSOCIATES XI L.P.",
+     "id": "805-9530355045",
+     "gav": 1306370569
+    },
+    {
+     "name": "BESSEMER VENTURE ASSOCIATES XII L.P.",
+     "id": "805-3023326345",
+     "gav": 1082985841
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS AN I L.P.",
+     "id": "805-3907326335",
+     "gav": 83306900
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS CENTURY FUND II INSTITUTIONAL L.P.",
+     "id": "805-8647312576",
+     "gav": 1244117198
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS CENTURY FUND II L.P.",
+     "id": "805-4536286222",
+     "gav": 124563200
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS CENTURY FUND INSTITUTIONAL L.P.",
+     "id": "805-3113468462",
+     "gav": 511181023
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS CENTURY FUND L.P.",
+     "id": "805-9965235962",
+     "gav": 82112734
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS CO-INVESTMENT L.P.",
+     "id": "805-6678666781",
+     "gav": null
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS INDIA II INSTITUTIONAL L.P.",
+     "id": "805-2236033156",
+     "gav": 291835916
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS INDIA II, L.P.",
+     "id": "805-9881600014",
+     "gav": null
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS INDIA INSTITUTIONAL L.P.",
+     "id": "805-1173541030",
+     "gav": 157540789
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS INDIA L.P.",
+     "id": "805-9447159732",
+     "gav": null
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS IX INSTITUTIONAL L.P.",
+     "id": "805-9183629621",
+     "gav": 1067600603
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS IX L.P.",
+     "id": "805-6608979559",
+     "gav": null
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS SG I L.P.",
+     "id": "805-1167482322",
+     "gav": 20066206
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS VI INSTITUTIONAL L.P.",
+     "id": "805-1385609687",
+     "gav": null
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS VI L.P.",
+     "id": "805-6153748928",
+     "gav": 296895285
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS VII INSTITUTIONAL L.P.",
+     "id": "805-1010512173",
+     "gav": 52496855
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS VII L.P.",
+     "id": "805-7211144866",
+     "gav": null
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS VIII INSTITUTIONAL L.P.",
+     "id": "805-4300455445",
+     "gav": 1285250267
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS VIII L.P.",
+     "id": "805-2103071316",
+     "gav": null
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS X INSTITUTIONAL L.P.",
+     "id": "805-4411797205",
+     "gav": 1645290527
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS X L.P.",
+     "id": "805-5102488670",
+     "gav": null
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS XI INSTITUTIONAL L.P.",
+     "id": "805-8434024443",
+     "gav": 2039545423
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS XI L.P.",
+     "id": "805-8401118967",
+     "gav": null
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS XII ADVISORS & INFLUENCERS L.P.",
+     "id": "805-2061172418",
+     "gav": 48358824
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS XII INSTITUTIONAL FEEDER L.P.",
+     "id": "805-1888746022",
+     "gav": 3238363409
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS XII INSTITUTIONAL L.P.",
+     "id": "805-4531958003",
+     "gav": null
+    },
+    {
+     "name": "BESSEMER VENTURE PARTNERS XII L.P.",
+     "id": "805-2654022300",
+     "gav": null
+    },
+    {
+     "name": "BVP FORGE INSTITUTIONAL A, L.P.",
+     "id": "805-2273513506",
+     "gav": 311484086
+    },
+    {
+     "name": "BVP FORGE INSTITUTIONAL, L.P.",
+     "id": "805-7459927862",
+     "gav": 595271408
+    },
+    {
+     "name": "BVP FORGE, L.P.",
+     "id": "805-3037343501",
+     "gav": 95366611
+    },
+    {
+     "name": "BVP VII SPECIAL OPPORTUNITY FUND L.P.",
+     "id": "805-6524427540",
+     "gav": 105888908
+    },
+    {
+     "name": "CLOUD ALL STAR FUND, L.P.",
+     "id": "805-7025291820",
+     "gav": 22890475
+    },
+    {
+     "name": "GATOR CO-INVEST BE, L.P.",
+     "id": "805-6751803663",
+     "gav": 45189577
+    },
+    {
+     "name": "GATOR CO-INVEST LI, L.P.",
+     "id": "805-9544059295",
+     "gav": 70885000
+    },
+    {
+     "name": "GATOR CO-INVEST PA, L.P.",
+     "id": "805-3961658164",
+     "gav": 32147403
+    },
+    {
+     "name": "GATOR CO-INVEST TE, L.P.",
+     "id": "805-1609471764",
+     "gav": 42679937
+    },
+    {
+     "name": "GATOR CO-INVEST VE, L.P.",
+     "id": "805-7975103028",
+     "gav": 53814502
+    },
+    {
+     "name": "REED INDIA CONSULTING EMPLOYEE BENEFIT TRUST",
+     "id": "805-6414960648",
+     "gav": 12143349
+    }
+   ],
+   "funds_7b2": []
+  }
+ },
+ "funds": [
+  {
+   "name": "BESSEMER VENTURE ASSOCIATES INDIA II L.P.",
+   "id": "805-7309167569",
+   "gav": 61261020,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE ASSOCIATES INDIA L.P.",
+   "id": "805-4565748115",
+   "gav": 49262500,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE ASSOCIATES IX L.P.",
+   "id": "805-9986694629",
+   "gav": null,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE ASSOCIATES V LLC -- SERIES BVP VI",
+   "id": "805-5439005560",
+   "gav": null,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE ASSOCIATES VII GLOBAL LTD. -- CLASS BVP IX",
+   "id": "805-6921221579",
+   "gav": 1283443176,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE ASSOCIATES VII GLOBAL LTD. -- CLASS BVP VI",
+   "id": "805-7658064607",
+   "gav": 97128399,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE ASSOCIATES VII GLOBAL LTD. -- CLASS BVP VII",
+   "id": "805-5712991180",
+   "gav": null,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE ASSOCIATES VII GLOBAL LTD. -- CLASS BVP VIII",
+   "id": "805-2264356318",
+   "gav": null,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE ASSOCIATES VII GLOBAL LTD. -- CLASS BVP X",
+   "id": "805-6588633786",
+   "gav": null,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE ASSOCIATES VII GLOBAL LTD. -- CLASS BVP XI",
+   "id": "805-1301842288",
+   "gav": null,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE ASSOCIATES VII GLOBAL LTD. -- CLASS BVP XII",
+   "id": "805-7645573291",
+   "gav": null,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE ASSOCIATES VII L.P.",
+   "id": "805-9699715677",
+   "gav": 70966737,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE ASSOCIATES VIII L.P.",
+   "id": "805-6892739692",
+   "gav": 1032561603,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE ASSOCIATES X L.P.",
+   "id": "805-5334046623",
+   "gav": 1699745701,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE ASSOCIATES XI L.P.",
+   "id": "805-9530355045",
+   "gav": 1306370569,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE ASSOCIATES XII L.P.",
+   "id": "805-3023326345",
+   "gav": 1082985841,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS AN I L.P.",
+   "id": "805-3907326335",
+   "gav": 83306900,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS CENTURY FUND II INSTITUTIONAL L.P.",
+   "id": "805-8647312576",
+   "gav": 1244117198,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS CENTURY FUND II L.P.",
+   "id": "805-4536286222",
+   "gav": 124563200,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS CENTURY FUND INSTITUTIONAL L.P.",
+   "id": "805-3113468462",
+   "gav": 511181023,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS CENTURY FUND L.P.",
+   "id": "805-9965235962",
+   "gav": 82112734,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS CO-INVESTMENT L.P.",
+   "id": "805-6678666781",
+   "gav": null,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS INDIA II INSTITUTIONAL L.P.",
+   "id": "805-2236033156",
+   "gav": 291835916,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS INDIA II, L.P.",
+   "id": "805-9881600014",
+   "gav": null,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS INDIA INSTITUTIONAL L.P.",
+   "id": "805-1173541030",
+   "gav": 157540789,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS INDIA L.P.",
+   "id": "805-9447159732",
+   "gav": null,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS IX INSTITUTIONAL L.P.",
+   "id": "805-9183629621",
+   "gav": 1067600603,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS IX L.P.",
+   "id": "805-6608979559",
+   "gav": null,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS SG I L.P.",
+   "id": "805-1167482322",
+   "gav": 20066206,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS VI INSTITUTIONAL L.P.",
+   "id": "805-1385609687",
+   "gav": null,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS VI L.P.",
+   "id": "805-6153748928",
+   "gav": 296895285,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS VII INSTITUTIONAL L.P.",
+   "id": "805-1010512173",
+   "gav": 52496855,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS VII L.P.",
+   "id": "805-7211144866",
+   "gav": null,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS VIII INSTITUTIONAL L.P.",
+   "id": "805-4300455445",
+   "gav": 1285250267,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS VIII L.P.",
+   "id": "805-2103071316",
+   "gav": null,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS X INSTITUTIONAL L.P.",
+   "id": "805-4411797205",
+   "gav": 1645290527,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS X L.P.",
+   "id": "805-5102488670",
+   "gav": null,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS XI INSTITUTIONAL L.P.",
+   "id": "805-8434024443",
+   "gav": 2039545423,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS XI L.P.",
+   "id": "805-8401118967",
+   "gav": null,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS XII ADVISORS & INFLUENCERS L.P.",
+   "id": "805-2061172418",
+   "gav": 48358824,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS XII INSTITUTIONAL FEEDER L.P.",
+   "id": "805-1888746022",
+   "gav": 3238363409,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS XII INSTITUTIONAL L.P.",
+   "id": "805-4531958003",
+   "gav": null,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BESSEMER VENTURE PARTNERS XII L.P.",
+   "id": "805-2654022300",
+   "gav": null,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BVP FORGE INSTITUTIONAL A, L.P.",
+   "id": "805-2273513506",
+   "gav": 311484086,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BVP FORGE INSTITUTIONAL, L.P.",
+   "id": "805-7459927862",
+   "gav": 595271408,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BVP FORGE, L.P.",
+   "id": "805-3037343501",
+   "gav": 95366611,
+   "reported_by": "159279"
+  },
+  {
+   "name": "BVP VII SPECIAL OPPORTUNITY FUND L.P.",
+   "id": "805-6524427540",
+   "gav": 105888908,
+   "reported_by": "159279"
+  },
+  {
+   "name": "CLOUD ALL STAR FUND, L.P.",
+   "id": "805-7025291820",
+   "gav": 22890475,
+   "reported_by": "159279"
+  },
+  {
+   "name": "GATOR CO-INVEST BE, L.P.",
+   "id": "805-6751803663",
+   "gav": 45189577,
+   "reported_by": "159279"
+  },
+  {
+   "name": "GATOR CO-INVEST LI, L.P.",
+   "id": "805-9544059295",
+   "gav": 70885000,
+   "reported_by": "159279"
+  },
+  {
+   "name": "GATOR CO-INVEST PA, L.P.",
+   "id": "805-3961658164",
+   "gav": 32147403,
+   "reported_by": "159279"
+  },
+  {
+   "name": "GATOR CO-INVEST TE, L.P.",
+   "id": "805-1609471764",
+   "gav": 42679937,
+   "reported_by": "159279"
+  },
+  {
+   "name": "GATOR CO-INVEST VE, L.P.",
+   "id": "805-7975103028",
+   "gav": 53814502,
+   "reported_by": "159279"
+  },
+  {
+   "name": "REED INDIA CONSULTING EMPLOYEE BENEFIT TRUST",
+   "id": "805-6414960648",
+   "gav": 12143349,
+   "reported_by": "159279"
+  }
+ ],
+ "sum_by_adviser": {
+  "159279": 20260011961
+ },
+ "sum_gross_asset_value_usd": 20260011961
+}

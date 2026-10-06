@@ -1,0 +1,24 @@
+ScyllaDB is a source-available distributed NoSQL wide-column data store. It was designed to be compatible with Apache Cassandra while achieving significantly higher throughputs and lower latencies. It supports the same protocols as Cassandra (CQL) and the same file formats (SSTable), but is a completely rewritten implementation, using the C++20 language replacing Cassandra's Java, and the Seastar asynchronous programming library replacing classic Linux programming techniques such as threads, shared memory and mapped files. In addition to implementing Cassandra's protocols, ScyllaDB also implements the Amazon DynamoDB API.
+ScyllaDB uses a sharded design on each node, meaning that each CPU core handles a different subset of data. Cores do not share data, but rather communicate explicitly when they need to. The ScyllaDB authors claim that this design allows ScyllaDB to achieve much better performance on modern NUMA SMP machines, and to scale very well with the number of cores. They have measured as much as 2 million requests per second on a single machine, and also claim that a ScyllaDB cluster can serve as many requests as a Cassandra cluster 10 times its size – and do so with lower latencies. Independent testing has not always been able to confirm such 10-fold throughput improvements, and sometimes measured smaller speedups, such as 2x. A 2017 benchmark from Samsung observed the 10x speedup on high-end machines – the Samsung benchmark reported that ScyllaDB outperformed Cassandra on a cluster of 24-core machines by a margin of 10–37x depending on the YCSB workload.
+ScyllaDB is available on-premises, on major public cloud providers, or as a DBaaS (ScyllaDB Cloud). 
+
+
+== History ==
+ScyllaDB was started in December 2014 by the startup Cloudius Systems (later renamed ScyllaDB Inc.), previously known for having created OSv. Co-founders were Avi Kivity and Dor Laor. ScyllaDB was released as open source in September 2015, under the AGPL license. In December 2024, ScyllaDB moved to a source available license. Its source code and development process is still open to the public on public GitHub repositories, but usage on a cluster beyond a certain size requires purchasing a license.  In 2026, ScyllaDB announced  vector database support.
+
+
+== See also ==
+Avi Kivity
+Glauber Costa
+Kernel-based Virtual Machine (KVM)
+OSv
+
+
+== References ==
+
+
+== External links ==
+Scylla public GitHub repository, with source code repository and bug tracker
+ScyllaDB Inc. homepage
+ScyllaDB another contender to the open source NoSQL database crown
+How Scylla Scaled to One Billion Rows a Second

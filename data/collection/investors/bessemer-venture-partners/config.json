@@ -1,0 +1,559 @@
+{
+ "slug": "bessemer-venture-partners",
+ "name": "Bessemer Venture Partners",
+ "wayback": {
+  "cdx_domain": "bvp.com",
+  "site_url_base": "https://www.bvp.com",
+  "eras": [],
+  "_note": "One domain, bvp.com, for every site generation. No era runs through wayback-pull.py: every parsed row carries its own capture URL (scratch/bvp-parse.py writes sources/wayback/parsed/<year>.json). The Internet Archive stood in a machine-wide firewall cooldown at kickoff (2026-10-01 10:36 EDT, 60 min), so Common Crawl (scratch/cc-cluster.py, cc-fetch.py, key com,bvp)) carries 2008 on and the Internet Archive carries the years before 2008 (scratch/cdx-map.py, queued behind the cooldown), both through the machine-wide throttles.",
+  "non_company_slugs": [
+   "portfolio",
+   "companies",
+   "company",
+   "team",
+   "people",
+   "about",
+   "news",
+   "atlas",
+   "memos",
+   "legal",
+   "all",
+   "index",
+   "search",
+   "anti-portfolio",
+   "blog",
+   "press",
+   "contact",
+   "roadmaps",
+   "roadmap",
+   "funds"
+  ]
+ },
+ "roster": {
+  "cdx_patterns": [
+   "bvp.com/team/*"
+  ],
+  "site_team_groups": [],
+  "slug_re": "/team/([a-z][a-z0-9_-]*[a-z0-9])/?$",
+  "listing_href_re": "/team/([a-z][a-z0-9_-]*[a-z0-9])[\"'/]",
+  "not_a_person": [
+   "team",
+   "people",
+   "all",
+   "partners",
+   "investors",
+   "operating-advisors",
+   "alumni"
+  ],
+  "_note": "Provisional until the archived people namespaces are read; the roster is built by scratch/build-roster.py from first-party people pages (archived bvp.com team pages and the live Sanity team collection, alumni included) with investing titles only."
+ },
+ "site_api": {
+  "type": "scrape",
+  "base": "https://www.bvp.com",
+  "sources": [
+   {
+    "parser": "file_list",
+    "list": "bvp-cms",
+    "path": "data/collection/investors/bessemer-venture-partners/sources/site/company-list.json",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "sectors": "sectors",
+    "extras": [
+     "site_slug",
+     "stage_site",
+     "invest_year",
+     "status_site",
+     "regions",
+     "partners",
+     "founded_year",
+     "company_site",
+     "description",
+     "ticker",
+     "exchange",
+     "acquirer",
+     "acquisition_date",
+     "location",
+     "legacy_url",
+     "wp_id",
+     "cms_created",
+     "cms_updated"
+    ],
+    "_note": "The live portfolio: every `company` document (534) of the site's Sanity dataset (project 2e9xvz8g, production), read through the public query API by scratch/pull-sanity.py and flattened by scratch/shape-site.py. Per company the firm states a partnered year, a stage-partnered label, a status (active / public / acquired), its regions, sectors and the Bessemer team members on the deal."
+   }
+  ],
+  "team_sources": [
+   {
+    "parser": "file_list",
+    "list": "bvp-team",
+    "path": "data/collection/investors/bessemer-venture-partners/sources/site/team-pages.json",
+    "fields": {
+     "name": "name",
+     "url": "url"
+    },
+    "key_field": "slug",
+    "extras": [
+     "slug",
+     "title",
+     "group",
+     "role",
+     "is_alumni",
+     "is_partner",
+     "office",
+     "deals",
+     "linkedin_url",
+     "x_url"
+    ]
+   }
+  ],
+  "team_buckets": {
+   "investor": "investing"
+  },
+  "team_exclude_keys": [
+   "is_alumni"
+  ],
+  "team_bucket_overrides": {},
+  "_note": "bvp.com is Next.js over Sanity (project 2e9xvz8g); the dataset's query API answers without a token and serves company, bvpTeamMember, sector, memo, newsArticle, researchPost and the page documents (the About page carries the anti-portfolio).",
+  "_entry_stage_note": "stage_site (the CMS stagePartnered) is NOT in entry_stage_fields: 500 of 534 rows read 'seed', LinkedIn (a 2007 Series C entry) and HashiCorp among them, so the field is a migration default, not the firm's claim about the round it entered (decisions.md D7; scored in the run and recorded in scratch/stage-score.json). It stays in the evidence pack as an unscored extra. invest_year (partneredYear) is an anchor year.",
+  "_team_note": "Only the CMS role `investor` publishes (58 current people: partners, operating partners, vice presidents, investors). The roles `operatingAdvisor` (59 outside advisers) and `firmInfrastructure` (about 130 finance, legal, talent and assistant staff) are left unmapped on purpose, which keeps them out of the profile (COLLECTION.md s11: an unmapped group does not publish).",
+  "team_social_overrides": {
+   "Mike Droesch": {
+    "linkedin_url": "https://www.linkedin.com/in/michaeldroesch",
+    "x_url": null
+   },
+   "Sofia Guerra": {
+    "linkedin_url": "https://www.linkedin.com/in/sofia-guerra-33491647",
+    "x_url": null
+   }
+  },
+  "_team_social_overrides_note": "search_verified 2026-10-06 (Erik's ruling of 2026-09-30): each link came from a LinkedIn search whose result title names the person and the firm ('Michael Droesch - Bessemer Venture Partners', 'Sofia Guerra - Bessemer Venture Partners'), and each handle names the person. The firm's CMS carries no personal link for these two. Ten other current investors stay without a link (not searched): Alex Yuditski, Bhavik Nagda, Eric Kaplan, Felda Hardymon, Isha Yerramilli-Rao, Jason Scheller, Maha Malik, Marla Jalbut, Nithin Kaimal, Yael Schiff."
+ },
+ "edgar": {
+  "seed_queries": [
+   "bessemer+venture",
+   "bvp",
+   "bessec+ventures",
+   "deer+management",
+   "bessemer+securities",
+   "15+angels",
+   "gator+co-invest",
+   "cloud+all+star",
+   "brimstone+island",
+   "bessemer+holdings",
+   "deer+ii",
+   "deer+iii",
+   "deer+iv",
+   "deer+v",
+   "deer+vi",
+   "deer+vii",
+   "deer+viii",
+   "deer+ix",
+   "deer+x"
+  ],
+  "fts_phrases": [
+   "Bessemer Venture Partners",
+   "Bessec Ventures",
+   "Deer Management Co",
+   "BVP Special Opportunity Fund",
+   "Bessemer Venture Partners Century Fund",
+   "15 Angels"
+  ],
+  "fts_own_pattern": "^(bessemer venture (partners|associates|investors)|bvp (forge|vii special|[ivx]+)|bessec ventures|deer ([ivx]+|\\d+|india|forge|management)|15 angels|gator co-invest|cloud all star fund|brimstone island)",
+  "_note": "Entity-qualified phrases. 'Bessemer' alone is hopeless on EDGAR full-text search (Bessemer Trust, the Old Westbury funds, Bessemer Group, the cities of Bessemer in Alabama and Michigan). S-1 holder tables name the firm as 'entities affiliated with Bessemer Venture Partners' and its vehicles by their L.P. names; the general partners file as Deer <numeral> & Co."
+ },
+ "wikipedia": {
+  "phrases": [
+   "Bessemer Venture Partners",
+   "Bessemer Ventures"
+  ]
+ },
+ "desks": {
+  "home": "bvp",
+  "partition": [
+   "forge"
+  ],
+  "rank": [
+   "bvp",
+   "forge",
+   "unknown"
+  ],
+  "classify": [
+   {
+    "desk": "external",
+    "patterns": [
+     "bessemer trust",
+     "^bessemer group",
+     "^bessemer investment management",
+     "^bessemer investor services",
+     "^bessemer funds",
+     "^old westbury",
+     "lindsay goldberg",
+     "^goldberg lindsay",
+     "^bessemer national",
+     "^bessemer securities",
+     "^bessemer holdings",
+     "^bessemer partners",
+     "^bessemer capital",
+     "^bessemer ventures inc",
+     "^bessemer (city|al|alabama|mi|michigan|steel|utilities|water|electric|system|sys)",
+     "^deer valley",
+     "bloom opportunities",
+     "^bvp (bbq|europe|fund \\d|gp llc|llc|partners,? llc|xlvi|investors iii|iii investors star|management)",
+     "^bvp,? llc",
+     "^bvp [ivx]+ (affiliates|special affiliates)"
+    ]
+   },
+   {
+    "desk": "forge",
+    "patterns": [
+     "^bvp forge",
+     "^deer forge",
+     "^gator co-invest"
+    ]
+   },
+   {
+    "desk": "bvp",
+    "patterns": [
+     "^bessemer venture",
+     "^bessec ventures",
+     "^bvp vii (e |e$|special)",
+     "^deer ([ivx]+|\\d+|india( ii)?) (&|&amp;|and) co",
+     "^deer management co",
+     "^15 angels",
+     "^cloud all star fund",
+     "^bve 2001",
+     "^bip 2001",
+     "^(goblue|wahoowa) ventures"
+    ]
+   }
+  ],
+  "_note": "One registered adviser: Bessemer Venture Partners (Deer Management Co. LLC), CRD 159279, SEC 801-125875, principal office 1865 Palmer Avenue, Larchmont NY, no relying advisers; its Schedule D 7.B.(1) (ADV of 2026-05-13, data/filings/adv/159279.pdf) reports 54 private funds, $20.26B gross: Bessemer Venture Partners VI to XII with their Institutional and Associates vehicles, the Century Fund I and II (growth), the India and India II funds, BVP VII Special Opportunity Fund, the single-deal co-invest vehicles (Gator Co-Invest BE / LI / PA / TE / VE, Cloud All Star Fund, AN I, SG I) and BVP Forge (three vehicles). Fund XIII and Century Fund III filed their first Form Ds on 2026-09-14. Every entity was checked by its SEC filing address on 2026-10-01 (scratch/entity-addresses.json). Home desk (1865 Palmer Avenue, Larchmont; 1025 Old Country Road, Westbury, before about 1998; 889 Winslow Street, Redwood City): Bessemer Venture Partners I to XIII, Bessec Ventures IV and V (the Bessemer Securities parallel funds, filed from the firm's office with the Deer general partners), the Deer II to XII & Co. general partners, Deer Management Co., the Century and India funds, BVP VII Special Opportunity Fund, BVP VII E, the employee vehicles BVE 2001 / BVE 2001 Q / BIP 2001, 15 Angels I to III, GoBlue Ventures and Wahoowa Ventures (2021 Forms 3/4 from the firm's office), Cloud All Star Fund, Gator Co-Invest and Bessemer Venture Partners Enforta Cooperatief (a holding vehicle). Forge (same address, the buyout strategy, decisions.md D2): BVP Forge and BVP Forge II, partitioned as other_desk. External: Bessemer Trust and its adviser Bessemer Investment Management LLC (CRD 112215), Bessemer Group, the Old Westbury funds, Bessemer Securities Corp / LLC and Bessemer Ventures Inc (1271 Avenue of the Americas, the family office, decisions.md D3), Lindsay Goldberg & Bessemer (CRD 141029); and the 'BVP' namesakes: BVP III to VI Affiliates and Special Affiliates (Milwaukee and Chicago, Baird Venture Partners), BVP GP LLC (Skillman NJ, Battelle Ventures), the 'BVP <numeral> a Series of Bloom Opportunities Fund' vehicles (Delaware, 2025-26), BVP Fund 2 / Fund 3 (Incline Village NV), BVP Investors III and BVP III Investors Star 1 (Chicago), BVP LLC (New Buffalo MI), BVP Partners LLC (Ewing NJ), BVP XLVI LLC (Florida), BVP, LLC (Sioux Falls), BVP Europe II (Cayman, 2002, not identified as the firm's), BVP BBQ Blocker / Investors (62 Magnolia Avenue, Larchmont: not the firm's office), and the Deer Valley filers."
+ },
+ "profile": {
+  "own_vehicle_pattern": "^(bessemer venture partners ([ivx]+|\\d+)\\b|bessemer venture partners (century fund|india)|bvp vii special opportunity)",
+  "adv_crd": 159279,
+  "focus_min_companies": 30,
+  "focus_crosswalk": {
+   "AI": "AI & Applied AI",
+   "Vertical": "SaaS",
+   "Enterprise": "SaaS",
+   "Consumer": "Consumer & Marketplaces",
+   "Marketplaces": "Consumer & Marketplaces",
+   "Healthcare": "Healthcare & Bio",
+   "Biotech": "Healthcare & Bio",
+   "Cybersecurity": "Security",
+   "Fintech": "Fintech & Payments",
+   "Data & Cloud": "Data Infrastructure",
+   "Infrastructure": "Data Infrastructure",
+   "Developer": "DevTools & APIs",
+   "Deep Tech & Defense": "Industrial & Robotics",
+   "Physical AI & Robotics": "Industrial & Robotics",
+   "Crypto": "Crypto & Web3"
+  },
+  "_note": "focus_min_companies was set at kickoff (about 4.5% of the base then expected) and is kept. The crosswalk covers the 15 sector labels of the site's Sanity `sector` documents (14 of them sit on companies; Crypto is on none), filled 2026-10-06 (PRO-80 profile): 'Vertical' is the firm's vertical software practice and 'Enterprise' its enterprise software practice, both SaaS, as sixteen other books map 'Enterprise'; 'AI' is a cross-cutting tag the firm puts on 231 of its 534 listed companies, and the disagreement with the per-company focus column is flagged in investor/sources.json, not corrected here.",
+  "_socials_note": "Link coverage 48 of 58 published investors (82.8%) on 2026-10-06: 46 from the firm's CMS, 2 search-verified (site_api.team_social_overrides). No exception is recorded because the floor of 80% is met."
+ },
+ "verify": {
+  "text_mention_leaks": [],
+  "cofiler_leaks": [],
+  "known_positions": [
+   "shopify",
+   "linkedin",
+   "pinterest",
+   "twilio",
+   "yelp",
+   "toast",
+   "canva",
+   "anthropic",
+   "perplexity",
+   "docusign",
+   "box",
+   "twitch",
+   "fiverr",
+   "wix",
+   "servicetitan",
+   "rocket lab",
+   "procore",
+   "hashicorp",
+   "zapier",
+   "auth0",
+   "sendgrid",
+   "swiggy",
+   "verisign",
+   "ciena",
+   "skype"
+  ],
+  "not_members": [
+   {
+    "name": "apple",
+    "slug": "apple",
+    "why": "the firm's own anti-portfolio: Apple is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2010 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "apple computer",
+    "slug": "apple-computer",
+    "why": "the firm's own anti-portfolio: Apple is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2010 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "apple inc",
+    "slug": "apple-inc",
+    "why": "the firm's own anti-portfolio: Apple is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2010 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "apollo computer",
+    "slug": "apollo-computer",
+    "why": "the firm's own anti-portfolio: Apollo Computer is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2012 to 2016; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "check point",
+    "slug": "check-point",
+    "why": "the firm's own anti-portfolio: Check Point is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2010 to 2017; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "check point software",
+    "slug": "check-point-software",
+    "why": "the firm's own anti-portfolio: Check Point is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2010 to 2017; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "check point software technologies",
+    "slug": "check-point-software-technologies",
+    "why": "the firm's own anti-portfolio: Check Point is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2010 to 2017; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "checkpoint",
+    "slug": "checkpoint",
+    "why": "the firm's own anti-portfolio: Check Point is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2010 to 2017; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "stratacom",
+    "slug": "stratacom",
+    "why": "the firm's own anti-portfolio: StrataCom is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2010 to 2015; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "ebay",
+    "slug": "ebay",
+    "why": "the firm's own anti-portfolio: eBay is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2010 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "fedex",
+    "slug": "fedex",
+    "why": "the firm's own anti-portfolio: FedEx is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2010 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "federal express",
+    "slug": "federal-express",
+    "why": "the firm's own anti-portfolio: FedEx is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2010 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "google",
+    "slug": "google",
+    "why": "the firm's own anti-portfolio: Google is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2010 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "alphabet",
+    "slug": "alphabet",
+    "why": "the firm's own anti-portfolio: Google is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2010 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "ikanos",
+    "slug": "ikanos",
+    "why": "the firm's own anti-portfolio: Ikanos is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2010 to 2012; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "ikanos communications",
+    "slug": "ikanos-communications",
+    "why": "the firm's own anti-portfolio: Ikanos is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2010 to 2012; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "intel",
+    "slug": "intel",
+    "why": "the firm's own anti-portfolio: Intel is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2010 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "intuit",
+    "slug": "intuit",
+    "why": "the firm's own anti-portfolio: Intuit is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2010 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "lotus",
+    "slug": "lotus",
+    "why": "the firm's own anti-portfolio: Lotus is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2010 to 2015; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "lotus development",
+    "slug": "lotus-development",
+    "why": "the firm's own anti-portfolio: Lotus is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2010 to 2015; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "compaq",
+    "slug": "compaq",
+    "why": "the firm's own anti-portfolio: Compaq is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2010 to 2015; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "compaq computer",
+    "slug": "compaq-computer",
+    "why": "the firm's own anti-portfolio: Compaq is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2010 to 2015; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "paypal",
+    "slug": "paypal",
+    "why": "the firm's own anti-portfolio: PayPal is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2010 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "facebook",
+    "slug": "facebook",
+    "why": "the firm's own anti-portfolio: Facebook is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2015 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "meta",
+    "slug": "meta",
+    "why": "the firm's own anti-portfolio: Facebook is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2015 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "meta platforms",
+    "slug": "meta-platforms",
+    "why": "the firm's own anti-portfolio: Facebook is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2015 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "kayak",
+    "slug": "kayak",
+    "why": "the firm's own anti-portfolio: Kayak is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2015 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "kayak software",
+    "slug": "kayak-software",
+    "why": "the firm's own anti-portfolio: Kayak is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2015 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "tesla",
+    "slug": "tesla",
+    "why": "the firm's own anti-portfolio: Tesla is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2015 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "tesla motors",
+    "slug": "tesla-motors",
+    "why": "the firm's own anti-portfolio: Tesla is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2015 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "yammer",
+    "slug": "yammer",
+    "why": "the firm's own anti-portfolio: Yammer is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2015 to 2015; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "airbnb",
+    "slug": "airbnb",
+    "why": "the firm's own anti-portfolio: Airbnb is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2019 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "atlassian",
+    "slug": "atlassian",
+    "why": "the firm's own anti-portfolio: Atlassian is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2019 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "snapchat",
+    "slug": "snapchat",
+    "why": "the firm's own anti-portfolio: Snapchat is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2019 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "snap",
+    "slug": "snap",
+    "why": "the firm's own anti-portfolio: Snapchat is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2019 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "okta",
+    "slug": "okta",
+    "why": "the firm's own anti-portfolio: Okta is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2020 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "zoom",
+    "slug": "zoom",
+    "why": "the firm's own anti-portfolio: Zoom is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2020 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "zoom video communications",
+    "slug": "zoom-video-communications",
+    "why": "the firm's own anti-portfolio: Zoom is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2020 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "coinbase",
+    "slug": "coinbase",
+    "why": "the firm's own anti-portfolio: Coinbase is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2022 to 2024; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "instacart",
+    "slug": "instacart",
+    "why": "the firm's own anti-portfolio: Instacart is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2024 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "maplebear",
+    "slug": "maplebear",
+    "why": "the firm's own anti-portfolio: Instacart is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2024 to 2026; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "exodus",
+    "slug": "exodus",
+    "why": "the firm's own anti-portfolio: Exodus is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2000 to 2001; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "exodus communications",
+    "slug": "exodus-communications",
+    "why": "the firm's own anti-portfolio: Exodus is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2000 to 2001; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "rolm",
+    "slug": "rolm",
+    "why": "the firm's own anti-portfolio: ROLM is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2000 to 2005; sources/site/anti-portfolio.json; decisions.md D10)"
+   },
+   {
+    "name": "usweb",
+    "slug": "usweb",
+    "why": "the firm's own anti-portfolio: USWeb is a company Bessemer says it passed on (bvp.com anti-portfolio, on the page 2000 to 2001; sources/site/anti-portfolio.json; decisions.md D10)"
+   }
+  ],
+  "shape": {
+   "c2a_rate_max": 0.8,
+   "_note": "The 0.80 default stands. There is no ceiling on the $1B+ share (Erik, 2026-09-26)."
+  },
+  "_known_positions_note": "Each is on the firm's own published list (sources/site/company-list.json, read 2026-10-01).",
+  "_not_members_note": "Membership traps asserted before any verdict writes (COLLECTION.md s10, invariant 11): the firm's own anti-portfolio (companies it says it passed on, live page and archived versions), the BVP Forge buyout positions, and sale consideration as the evidence identifies it."
+ },
+ "sample_slugs": [],
+ "names": {
+  "published": {
+   "acquire-com-fka-microacquire": "Acquire.com",
+   "activ-financial-systems": "Activ Financial Systems",
+   "activ-financial-services": "Activ Financial Services",
+   "candid-co": "Candid",
+   "carefull-corporation": "Carefull",
+   "convertro-inc": "Convertro",
+   "cpower-inc": "CPower",
+   "ctera": "Ctera",
+   "cyota-inc": "Cyota",
+   "defcon-ai": "Defcon AI",
+   "disco": "Disco",
+   "epix-pharmaceuticals": "Epix Pharmaceuticals",
+   "flex-pharma-inc": "Flex Pharma",
+   "iag-research-inc": "IAG Research",
+   "nala": "Nala",
+   "noda-ai": "Noda AI",
+   "nydig": "Nydig",
+   "omgpop": "OMGPop",
+   "siteadvisor-inc": "SiteAdvisor",
+   "triana-biomedicines": "Triana Biomedicines",
+   "us-health-partners-llc": "US Health Partners",
+   "axsun-technologies": "Axsun Technologies",
+   "pinnacle-engines-fmr-cleeves-engines-inc": "Pinnacle Engines",
+   "sweetlabs-inc-fmr-opencandy": "SweetLabs",
+   "cozykin-inc": "CozyKin",
+   "factory-card-outlet-corp": "Factory Card Outlet",
+   "flexcorp-inc": "FlexFactor",
+   "off-beat": "Off/Beat",
+   "promedco-management-co": "ProMedCo",
+   "strala-group-inc": "Strala",
+   "summagraphics-corp": "Summagraphics",
+   "intersil-advanced-memory-systems": "Advanced Memory Systems"
+  },
+  "_note": "Published names (PRO-146, COLLECTION.md s8): the brand in normal capitalization with no legal suffix, applied at export; the slug keeps the source rendering. Siblings' renderings were followed where another book already publishes the company (Nydig, OMGPop, Disco, Nala, Triana Biomedicines, IAG Research, Candid)."
+ }
+}
