@@ -121,3 +121,20 @@ verify, export, review, report, write-back, close, commit, ingest gate, siblings
 Next: ia-pass2 -> ia-listings -> ONE rebuild -> read the rename list -> prepare -> judge the delta (22 recall rows,
 12 IA rows, merged rows) -> names.published -> profile rebuild -> regime report -> verify -> export -> review ->
 report -> write-back -> close -> commit -> ingest gate -> siblings -> Linear -> memory -> closing message.
+
+## RESUME POINT 5, 2026-10-06 ~20:05 UTC (prompt count 2)
+- IA refused a third time (3 pages fetched, 120 min machine-wide cooldown): the 2003-2007 pages are debt.
+- Rebuilds: 618 -> 571 (the one planned) -> 564 (the delta's exclusions) -> 560 (name variants of excluded
+  life-desk rows; the re-key trap: both variants now hold a verdict in the ledger).
+- Delta judged (judgments-delta.py, 36 rows). R2 revised: the 1999-2002 "Prior investments" group is OUT (9 rows).
+- Blind 5% check: documentation/duty7-blind.json, 19 of 177 cells differ, 6 rows corrected
+  (queue/duty7-adjudication.out.jsonl). The subagent sent the personal Gmail to sec.gov in a User-Agent, 3 requests.
+- Profile rebuilt with a focus crosswalk (config.profile). names.published: 21 overrides.
+- Plain verify: CLEAN at 560 rows, 708 shared rows agree, 0 accepted. Export + review rendered and checked.
+- Sibling alignment (scratch/align/): pairs.json 20 books / 35 rows, plus one repair (Lightspeed's Avarra, whose
+  censoring window ended 2026-10-03 and which announced a Series A on 2026-10-06). Local phase done for all 20:
+  their classification.json / base.csv / review.html are changed and UNCOMMITTED until `align.py ingest` runs.
+  If this session dies here: either run `python3 scratch/align/align.py ingest` after the Index ingest, or restore
+  the 20 books with `git checkout -- <book>/companies/{classification.json,base.csv,review.html}`.
+Next: close -> closing commit -> icon upload -> ingest-investor -> ingest-companies --dry-run -> write -> readback ->
+align.py ingest -> report section 15 -> commit -> Linear -> memory -> closing message.

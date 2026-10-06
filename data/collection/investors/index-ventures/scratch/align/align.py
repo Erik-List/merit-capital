@@ -21,6 +21,8 @@ sys.path.insert(0, str(HERE.parent))
 FILES = ["classification.json", "base.csv", "review.html"]
 def sh(cmd): return subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, shell=isinstance(cmd, str))
 PAIRS = json.loads((HERE / "pairs.json").read_text()) if (HERE / "pairs.json").exists() else {}
+EXTRA = json.loads((HERE / "extra.json").read_text()) if (HERE / "extra.json").exists() else {}      # book -> raw lines appended to its kit
+REPAIRS = json.loads((HERE / "repairs.json").read_text()) if (HERE / "repairs.json").exists() else {}  # book -> substrings of pre-existing problems the kit repairs
 
 def kits():
     from merged import view
@@ -49,9 +51,20 @@ def kits():
                     d["flags"] = ["cite_pending"]
             for k, v in (why.get("extra") or {}).items(): d[k] = v
             lines.append(d)
+        lines += EXTRA.get(b, [])
         (HERE / f"{b}.jsonl").write_text("\n".join(json.dumps(x, ensure_ascii=False) for x in lines) + "\n")
         print(b, len(lines), "line(s)")
 
+def readback(b):
+    """-> (exact, last line). A CSV name with stray whitespace reads as one MISSING and one EXTRA row although the
+    ingest trims names (YC's ' Metadata', 2026-10-06): exact when the two sets are equal after trimming."""
+    lines = sh(f"npx tsx {RB} {b}").stdout.strip().splitlines() or [""]
+    last = lines[-1]
+    if "missing 0, extra 0, differing cells 0" in last: return True, last
+    miss = sorted(l.split("MISSING in DB", 1)[1].strip() for l in lines if l.startswith("MISSING in DB"))
+    extra = sorted(l.split("EXTRA in DB", 1)[1].strip() for l in lines if l.startswith("EXTRA in DB"))
+    if miss and miss == extra and "differing cells 0" in last: return True, last + " (names equal after trimming)"
+    return False, last
 def backup(b):
     (BK / b).mkdir(parents=True, exist_ok=True)
     for f in FILES: shutil.copy(INV / b / "companies" / f, BK / b / f)
@@ -59,7 +72,10 @@ def restore(b):
     for f in FILES: shutil.copy(BK / b / f, INV / b / "companies" / f)
 
 def run(only=None):
-    out = []; live = []
+    out = []; live = []; old_live = []
+    if only and (HERE / "live.json").exists():
+        old_live = [b for b in json.loads((HERE / "live.json").read_text()) if b not in only]
+        out = [l for l in (HERE / "results.txt").read_text().splitlines() if l and not l.startswith("local phase done") and not any(l.startswith(f"SKIPPED {b}") for b in only)]
     def log(s): out.append(s); print(s, flush=True); (HERE / "results.txt").write_text("\n".join(out) + "\n")
     for b in sorted(PAIRS):
         if only and b not in only: continue
@@ -68,11 +84,11 @@ def run(only=None):
         if sh(f"git status --short -- {rel}/companies").stdout.strip(): log(f"SKIPPED {b} ({n} rows): uncommitted company files"); continue
         v = sh(["python3", "scripts/run.py", "verify", "--skip-links", "--investor", b])
         pre = [x.strip() for x in v.stdout.splitlines() if x.startswith("  - ")]
-        mine_only = [x for x in pre if "index-ventures:" in x]
+        mine_only = [x for x in pre if "index-ventures:" in x or any(s in x for s in REPAIRS.get(b, []))]
         if v.returncode and len(mine_only) != len(pre):
             log(f"SKIPPED {b} ({n} rows): its own verify is not clean before the lines: {[x[:140] for x in pre if x not in mine_only][:2]}"); continue
-        rb = (sh(f"npx tsx {RB} {b}").stdout.strip().splitlines() or [""])[-1]
-        if "missing 0, extra 0, differing cells 0" not in rb: log(f"SKIPPED {b} ({n} rows): readback before is not exact: {rb}"); continue
+        ok, rb = readback(b)
+        if not ok: log(f"SKIPPED {b} ({n} rows): readback before is not exact: {rb}"); continue
         backup(b)
         r = sh(["python3", "scripts/run.py", "record", "--investor", b, str(HERE / f"{b}.jsonl")])
         (HERE / f"{b}.log").write_text(r.stdout + r.stderr)
@@ -82,6 +98,7 @@ def run(only=None):
     for b in live:
         e = sh(["python3", "scripts/run.py", "export", "--investor", b]); sh(["python3", "scripts/run.py", "review", "--investor", b])
         if e.returncode: restore(b); live.remove(b); log(f"SKIPPED {b}: export refused: {(e.stdout + e.stderr)[-200:]!r}")
+    live = old_live + live
     changed = True
     while changed:
         changed = False
@@ -108,8 +125,8 @@ def ingest():
         w = sh(f"npx tsx scripts/ingest-companies.ts {b}")
         with open(HERE / f"{b}.log", "a") as f: f.write(w.stdout + w.stderr)
         if w.returncode: log(f"STOP {b}: INGEST FAILED after local changes (files left changed): {(w.stdout + w.stderr)[-300:]!r}"); break
-        rb = (sh(f"npx tsx {RB} {b}").stdout.strip().splitlines() or [""])[-1]
-        if "missing 0, extra 0, differing cells 0" not in rb: log(f"STOP {b}: readback after is not exact: {rb}"); break
+        ok, rb = readback(b)
+        if not ok: log(f"STOP {b}: readback after is not exact: {rb}"); break
         paths = [f"{rel}/companies/{f}" for f in FILES]
         sh(["git", "add", "--"] + paths)
         c = sh(["git", "commit", "-q", "-m", f"PRO-82: {b} aligned to the Index Ventures run's cited evidence ({n} row(s), rule 10), re-ingested\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>", "--"] + paths)
