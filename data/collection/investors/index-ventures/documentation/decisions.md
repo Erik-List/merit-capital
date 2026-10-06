@@ -223,20 +223,28 @@ registers for the European rows (status first, COLLECTION.md §5).
   not the entry: it is used only where (1) and (2) give nothing, it never turns
   a row `censored`, and a no decided on it is conservative (the true entry is
   older). The rows on (3) are listed in report.md.
-- **R2 — "Prior investments" on the 1999–2002 site (2026-10-06).** The first
-  site (Internet Archive, 1999–2002) splits its portfolio into the funds'
-  companies and a second group headed "prior" (Aptix, ArrayComm, Biocom,
-  Calico Commerce, CommQuest, ControlMed, Evolve Software, GeneBio, NeoVista,
-  Optimer, SCM Microsystems, Virata): investments the same team made at Index
-  before the first fund closed. **IN**: this is the firm's own earlier
-  practice, not a partner's previous employer, and the firm keeps listing them
-  as its own without qualification from 2002 on (CommQuest, Virata, SCM
-  Microsystems and NeoVista are still on the 2008–2014 lists). By contrast the
-  Nov 2002 pages mark two names with an asterisk, "* Denotes prior investments
-  of Index Partners" (Infospace, Vignette: Danny Rimer's deals from before he
-  joined in 2002). Those are partner-carried and **OUT** (Erik, 2026-09-17);
-  they are traps in `config.verify.not_members` and never become rows.
-  Raised for Erik in report.md as one reading of the partner-carried ruling.
+- **R2 — "Prior investments" on the 1999–2002 site (2026-10-06, revised the same day).** The first
+  site (Internet Archive, 1999–2002) splits its portfolio page into two groups.
+  The page source names them itself: `<!-- INDEX VENTURES I, L.P. -->` over the
+  first and `<!-- PRIOR INVESTMENTS -->` over the second (Aptix, ArrayComm,
+  Biocom, Calico Commerce, CommQuest, ControlMed, Evolve Software, GeneBio,
+  NeoVista, Optimer, SCM Microsystems, Virata): deals the team made before the
+  first fund closed in 1998. **OUT**, by the standing fund-money rule (T2,
+  COLLECTION.md §1; Erik, 2026-09-26, binding every investor): the firm's own
+  "previous" label is the evidence that a listed position began before the
+  fund, and such a position stays out even where the firm lists it as its own,
+  unless a fund of the firm held it. The firm kept four of them on its
+  2008–2016 lists (CommQuest, NeoVista, SCM Microsystems, Virata); under the
+  rule a later listing does not make a fund position. **Evolve Software stays
+  IN**: the 2001 page carries it in the fund's group as well, so a fund held
+  it, and its entry is the fund's first check. GeneBio and ControlMed
+  (Medicentrix) were already out under D3. The first draft of this ruling read
+  the group as the firm's own earlier practice and kept it; the page's own
+  heading decides against that reading. Separately, the Nov 2002 pages mark
+  two names with an asterisk, "* Denotes prior investments of Index Partners"
+  (Infospace, Vignette: Danny Rimer's deals from before he joined in 2002).
+  Those are partner-carried and **OUT** (Erik, 2026-09-17); they are traps in
+  `config.verify.not_members` and never become rows.
 - **R3 — Companies the firm never listed (2026-10-06).** The recall probe
   found 21 investments that no captured list carries: recent rounds not yet on
   the site (Instinct, Uncovr), a company sold before it was listed (LESS),

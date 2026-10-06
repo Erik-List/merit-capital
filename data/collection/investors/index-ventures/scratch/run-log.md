@@ -100,3 +100,24 @@ WebSearch used: 1 of 200.
 - WebSearch used: 9 of 200.
 Next: graduation judgments, IA pre-2008 pass, recall probe, ONE rebuild, delta, A/B + momentum, duties, profile,
 verify, export, review, report, write-back, close, commit, ingest gate, siblings.
+
+## RESUME POINT 4, 2026-10-06 ~19:45 UTC (model switched to Opus 5.5 at the second prompt, "continue"; prompt count 2)
+- Done since point 3 (commits 6abe0079, 32ad6e41, 399cfea2, 118b4af8): graduation pass (judgments-grad.py), IA
+  1999-2002 layer (ia-listings.py, 12 rows), recall probe (22 additions in the ledger, R3), A/B pass on the visible
+  slice (judgments-ab.py), momentum slice, public caps of 2026-10-06, cross-rulings (42 distinct, 4 same), profile
+  dry build (ADV 7.B: 32 funds, $25.32B; 49 people; hq by the site-list rule).
+- People: 26 "Partner" (investor tab) and 23 without a position (strategist + operations tabs). That is the shared
+  build rule, the same shape as Accel, a16z and Ribbit; the site publishes no titles.
+- Instinct: the $1B Series C at $10B CLOSED on 2026-09-28 (PYMNTS, the company's release). The earlier note
+  "talks at $10B are not a mark" is superseded: the row takes $10B, as Kleiner Perkins' row does.
+- Ten more source pages read for the recall additions (web-finds.json: nauto, sourceclear, snapguide, sphere-2017,
+  gojimo, bonify, less, familiar, dazz-2021, yup-edsurge). Dazz and Italic entry round not established: undetermined.
+- Duty 7: seeded sample of 28 members (scratch/duty7-sample.json, seed 82), judged blind by a subagent that may not
+  read the classification; its answers land in documentation/duty7-blind.json.
+- scratch/regime-report.py written (D9); run it again after the rebuild.
+- IA: machine-wide cooldown until ~19:50 UTC; scratch/ia-pass2.py (26 targets, 2002-2007 lists) waits on it in the
+  background. If it is refused again, the 2003-2007 pages stay debt and the rebuild goes ahead without them.
+- WebSearch used: about 52 of 200 (plus the subagent's, capped at 30).
+Next: ia-pass2 -> ia-listings -> ONE rebuild -> read the rename list -> prepare -> judge the delta (22 recall rows,
+12 IA rows, merged rows) -> names.published -> profile rebuild -> regime report -> verify -> export -> review ->
+report -> write-back -> close -> commit -> ingest gate -> siblings -> Linear -> memory -> closing message.
