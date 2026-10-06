@@ -1,0 +1,612 @@
+{
+  "slug": "index-ventures",
+  "generated_at": "2026-10-06T19:14:30+00:00",
+  "run": "PRO-82",
+  "fields": {
+    "name": {
+      "value": "Index Ventures",
+      "source": "https://www.indexventures.com/",
+      "basis": "the firm's site. Adviser: Index Ventures SA, Geneva, an SEC exempt reporting adviser (CRD 161175); the funds are Jersey and Delaware limited partnerships (decisions.md D1, D2). The life sciences practice became Medicxi in February 2016 and its companies are outside the portfolio on this page (decisions.md D3)."
+    },
+    "website": {
+      "value": "https://www.indexventures.com",
+      "source": "https://www.indexventures.com/",
+      "basis": "firm site (Wagtail; portfolio at /companies, posts at /perspectives, team at /team)"
+    },
+    "icon_url": {
+      "value": "data/collection/investors/index-ventures/sources/site/icon-mark.svg",
+      "source": "https://www.indexventures.com/static/images/safari-pinned-tab.394df958a54e.svg",
+      "basis": "the site's own vector mark (the hand; <link rel=mask-icon>, 256x256 intrinsic), chosen by --discover on 2026-10-06 over the 180x180 touch icon (would be enlarged) and the 32x32 favicons. A mask icon is black by convention; the file kept at sources/site/icon-mark.svg carries the colour the same tag declares (color=\"#e1251b\"), which is the red of the site's touch icon. White plate synthesized by the normalizer; dry run: contrast 4.4:1, ramp 0.48 px, artwork inside the keyline. The bucket URL replaces this value at the ingest."
+    },
+    "founding_year": {
+      "value": 1996,
+      "source": "https://en.wikipedia.org/wiki/Index_Ventures",
+      "basis": "'Index Ventures was officially founded in Geneva in 1996 by Neil Rimer, David Rimer and Giuseppe Zocco' (Wikipedia, read 2026-10-06); the firm's own post of 2026-07-31 is titled '30 Years In'. Its roots are older: Index Securities, a Geneva bond trading firm founded by Gerald Rimer in 1976, and the investments its team made before the first fund (decisions.md R2)."
+    },
+    "history": {
+      "value": "Index Ventures was founded in Geneva in 1996 by Neil Rimer, David Rimer and Giuseppe Zocco, out of a family bond trading firm. It became known for early bets on Skype, MySQL, Dropbox, Adyen, Figma, Revolut and Wiz, and opened offices in London in 2002, San Francisco in 2011 and New York in 2022. In July 2026 it announced new seed, venture and growth funds that bring its investing capital to $3.5 billion.",
+      "source": "https://en.wikipedia.org/wiki/Index_Ventures",
+      "basis": "founding, founders and the bond trading firm: Wikipedia (read 2026-10-06) and the firm's post '30 Years In' (https://www.indexventures.com/perspectives/30-years-in-perfecting-our-craft/); offices: 'Danny Rimer, who opened Index's London office in 2002 and its San Francisco base in 2011' (the firm's post of 2016-02-03, https://www.indexventures.com/perspectives/index-ventures-announces-new-partners-and-125b-to-back-seed-venture-and-growth-stage/) and the New York announcement of 2022-05-05 (https://www.indexventures.com/perspectives/index-ny-announcing-our-new-office/); the named bets are portfolio companies on this page; 2026 funds: 'bringing our total investing capital to $3.5 billion across all stages', a $400 million seed fund, a $900 million venture fund and a growth fund raised to $2.2 billion (https://www.indexventures.com/perspectives/30-years-in-perfecting-our-craft/). Moved here from the page: the fund ladder; the life sciences practice that became Medicxi in 2016 and is not part of the portfolio shown; the firm's own count of 2024, '108 Index-backed startups ... reach a $1 billion valuation, 23 have surpassed a $10 billion valuation, and 57 went on to be publicly traded' (https://www.indexventures.com/perspectives/relationships-that-reshape-industries-index-launches-23bn-in-new-funds/)."
+    },
+    "investment_concept": {
+      "value": "\u201cWe invest in who you are, not just what you do.\u201d",
+      "source": "https://www.indexventures.com/",
+      "basis": "The firm's own statement, verbatim from the homepage headline (h1), read 2026-10-06. A closing period is already there; straight quotes are the only edit. The competing line is the meta description ('Partnering with exceptional entrepreneurs from SF to NY, London to Tel Aviv, from Seed to IPO.'), not used. Published inside quotation marks, as the firm's own words (Erik, 2026-09-26)."
+    },
+    "investment_stage": {
+      "value": [
+        "Seed",
+        "Series A",
+        "Growth"
+      ],
+      "source": "https://www.indexventures.com/",
+      "basis": "the firm's own words: 'from Seed to IPO' (homepage meta description) and 'seed, venture, and growth' funds (post of 2026-07-31); the landed entry-stage distribution is restated in report.md"
+    },
+    "investment_geo": {
+      "value": {
+        "core": [
+          "Europe",
+          "US"
+        ],
+        "other": [
+          "Israel"
+        ]
+      },
+      "source": "https://www.indexventures.com/",
+      "basis": "the firm's own words: 'from SF to NY, London to Tel Aviv' (homepage meta description) and 'offices in San Francisco, London, and New York, plus partners on the ground in Berlin and Tel Aviv' (post of 2024-07-10); the list's own region filter is Europe and North America. Core Europe and US (two-label cap), other Israel; the landed country distribution is restated in report.md"
+    },
+    "investment_scope": {
+      "value": {
+        "type": "Generalist",
+        "focus": []
+      },
+      "source": "companies/classification.json",
+      "basis": "type: the firm's own homepage lists eight sectors it backs; focus: recomputed by build-firm-profile.py"
+    },
+    "investment_range": {
+      "value": {
+        "lower_limit": 1000000,
+        "median": 19000000,
+        "upper_limit": 300000000
+      },
+      "source": "scratch/entry-round-sizes.json",
+      "basis": "median: $18.8M, the median of the earliest sized round that each of 241 portfolio companies' records tie the firm to (the firm's own posts and archived news, company releases and press; rows in scratch/entry-round-sizes.json; by stage Seed $7.2M over 78, Series A $17.0M over 91, Growth $43.5M over 72). It is a round size, not a cheque size. lower: documented seed entries of $1.3M to $1.5M (GroupSpaces 2010, Productboard 2016, Geckoboard 2012); upper: the $300M round the firm led in DeepL (its post of 2024-05-22)",
+      "flags": [
+        "median_press_based"
+      ]
+    },
+    "notable_investments": {
+      "value": [
+        "Skype",
+        "Dropbox",
+        "Slack",
+        "Discord",
+        "Roblox"
+      ],
+      "source": "companies/base.csv",
+      "basis": "The five best known of the firm's own companies, most recognised first (PRO-152, Erik 2026-09-24). Considered next: Revolut, Robinhood, Figma, Facebook (a late secondary purchase), Etsy, Deliveroo, Anthropic.",
+      "slugs": [
+        "skype",
+        "dropbox",
+        "slack",
+        "discord",
+        "roblox"
+      ]
+    },
+    "aum": {
+      "value": {
+        "bottom": 25321111008,
+        "top": 25321111008
+      },
+      "source": "https://adviserinfo.sec.gov/firm/summary/161175",
+      "basis": "both ends: the sworn Form ADV Section 7.B(1) gross asset values of the firm's exempt reporting adviser, Index Ventures SA, CRD 161175, annual amendment of 2026-03-31 (IAPD PDF parsed with pypdf, sources/registers/adv-7b-funds.json): 32 private funds, $25,321,111,008 in all. An exempt reporting adviser files no Item 5.F, so the 7.B composite is the sworn figure (Creandum precedent). It includes Index Ventures Life VI ($211,570,819), whose companies are outside the portfolio on this page (decisions.md D3), and predates the funds of July 2026. Medicxi's adviser (CRD 283504) is a separate firm and is not counted. Wikipedia gives EUR 11.7 billion (2025); the firm's posts state capital raised, not assets. Both belong here, not in the range.",
+      "flags": [
+        "era_7b_composite"
+      ]
+    },
+    "funds": {
+      "value": [
+        {
+          "name": "Index Ventures XIII",
+          "size": 900000000,
+          "vintage": 2026
+        },
+        {
+          "name": "Index Origin III",
+          "size": 400000000,
+          "vintage": 2026
+        },
+        {
+          "name": "Index Ventures Growth VII",
+          "size": 2200000000,
+          "vintage": 2024
+        },
+        {
+          "name": "Index Ventures XII",
+          "size": 800000000,
+          "vintage": 2024
+        },
+        {
+          "name": "Index Origin II",
+          "size": 300000000,
+          "vintage": 2022
+        },
+        {
+          "name": "Index Ventures Growth VI",
+          "size": 2000000000,
+          "vintage": 2021
+        },
+        {
+          "name": "Index Ventures XI",
+          "size": 900000000,
+          "vintage": 2021
+        },
+        {
+          "name": "Index Origin I",
+          "size": 200000000,
+          "vintage": 2021
+        },
+        {
+          "name": "Index Ventures Growth V",
+          "size": 1200000000,
+          "vintage": 2020
+        },
+        {
+          "name": "Index Ventures X",
+          "size": 800000000,
+          "vintage": 2020
+        },
+        {
+          "name": "Index Ventures Growth IV",
+          "size": 1000000000,
+          "vintage": 2018
+        },
+        {
+          "name": "Index Ventures IX",
+          "size": 650000000,
+          "vintage": 2018
+        },
+        {
+          "name": "Index Ventures VIII",
+          "size": 550000000,
+          "vintage": 2016
+        },
+        {
+          "name": "Index Ventures Growth III",
+          "size": 700000000,
+          "vintage": 2015
+        },
+        {
+          "name": "Index Ventures VII",
+          "size": 541880000,
+          "vintage": 2014
+        },
+        {
+          "name": "Index Ventures VI",
+          "size": 441630000,
+          "vintage": 2012
+        },
+        {
+          "name": "Index Ventures V",
+          "size": 441525000,
+          "vintage": 2009
+        }
+      ],
+      "source": "https://www.indexventures.com/perspectives/30-years-in-perfecting-our-craft/",
+      "basis": "sizes from the firm's own announcements: XIII $900M, Origin III $400M and Growth VII raised from $1.5B to $2.2B (https://www.indexventures.com/perspectives/30-years-in-perfecting-our-craft/); XII $800M and Growth VII $1.5B (https://www.indexventures.com/perspectives/relationships-that-reshape-industries-index-launches-23bn-in-new-funds/); XI $900M, Growth VI $2bn and Origin I $200M (https://www.indexventures.com/perspectives/index-raises-31-billion-to-support-new-wave-of-founders-everywhere/); Origin II $300M (https://www.indexventures.com/perspectives/announcing-index-origin-ii-a-300-million-seed-fund-designed-for-extraordinary-entrepreneurs/); VIII $550M and Growth III $700M (https://www.indexventures.com/perspectives/index-ventures-announces-new-partners-and-125b-to-back-seed-venture-and-growth-stage/); the $2bn of 2020 (https://www.indexventures.com/perspectives/index-ventures-announces-2bn-new-funds-support-emerging-entrepreneurs/) splits into X $800M and Growth V $1.2B, and the $1.65B of 2018 into IX $650M and Growth IV $1B (TechCrunch, https://techcrunch.com/2020/04/09/index-raises-1-2b-growth-fund-and-800m-to-invest-in-emerging-startups and https://techcrunch.com/2018/07/09/index-ventures-closes-2-funds-1b-for-growth-rounds-and-650m-for-early-stage-investing); VII EUR 400M in June 2014 (Globes, 'Index Ventures raises $550m fund'; EUR 400.0M @ ECB 2014-06-11 = $541.9M); VI EUR 350M (the firm's own news item of 2012-06-18, https://index.commoncrawl.org/CC-MAIN-2013-48-index?url=http%3A%2F%2Findexventures.com%2Fnews%2Findex%2Fnews_id%2F327&output=json; @ ECB 2012-06-18 = $441.6M); V EUR 350M (the firm's own news item of 2009-03-03, https://index.commoncrawl.org/CC-MAIN-2012-index?url=http%3A%2F%2Fwww.indexventures.com%2Fnews%2Findex%2Fnews_id%2F210&output=json; @ ECB 2009-03-03 = $441.5M). No entry carries an accession: the funds file Form D at first close. Not listed, because no size was confirmed in this run: Index Ventures I to IV (1996 to 2007), Growth I (2008) and Growth II (2011). Counted here, not listed: the parallel and entrepreneur funds beside each main fund, Index SPV I and II, the Yucca co-investment vehicles, and Index Ventures Life VI (2012), the life sciences fund now sub-advised by Medicxi."
+    },
+    "hq_location": {
+      "value": "San Francisco, CA",
+      "source": "sources/offices.json",
+      "basis": "The firm's site lists its offices as San Francisco, CA; London, United Kingdom; Street New York, NY (https://www.indexventures.com/contact-us), without the Form ADV principal office, 2 Rue De Jargonnant, Geneva, Switzerland (INDEX VENTURES SA, CRD 161175, Annual Amendment filed 2026-03-31); the first office it lists is published. The Form ADV does not list that office. Rule (Erik 2026-09-24): the newest Form ADV principal office, unless the firm's own site disagrees, and then the site wins.",
+      "sources": [
+        {
+          "source": "Form ADV Item 1.F and Schedule D 1.F, INDEX VENTURES SA (Annual Amendment filed 2026-03-31)",
+          "url": "https://reports.adviserinfo.sec.gov/reports/ADV/161175/PDF/161175.pdf"
+        },
+        {
+          "source": "the firm's own site, office list",
+          "url": "https://www.indexventures.com/contact-us"
+        }
+      ]
+    },
+    "individuals": {
+      "value": [
+        {
+          "name": "Bastian Hasslinger",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/bastian-hasslinger/",
+            "x_url": "https://twitter.com/bastianhasslin1"
+          }
+        },
+        {
+          "name": "Carlos Gonzalez-Cadenas",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://linkedin.com/in/carlosgonzalezcadenas",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Dan Fougere",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/danfougere",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Danny Rimer",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/dannyrimer/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Emil Schaefer",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/emil-schaefer-203636179/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Eryk Dobrushkin",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/eryk/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Georgia Stevenson",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/georgia-stevenson-94677982/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Hannah Seal",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/hannah-seal-78938a22/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Hunter McNabb",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/hdmcnabb/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jahanvi Sardana",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jahanvi-sardana-4519a19a/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jan Hammer",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/hammerjan/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Julia Andre",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/julia-andre-4928145b/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Juriaan Duizendstraal",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/juriaan-duizendstraal",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Kelly Barton",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/kellycbarton/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Mark Xu",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/marklxu/",
+            "x_url": "https://x.com/marklxu1"
+          }
+        },
+        {
+          "name": "Martin Mignot",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/martinmignot/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Neil Rimer",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/neilrimer/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Nina Achadjian",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/nina-achadjian/",
+            "x_url": "https://twitter.com/ninaachadjian"
+          }
+        },
+        {
+          "name": "Nina Gerson",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/ninagerson/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Sahir Azam",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://linkedin.com/in/sahirazam",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Shardul Shah",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/shardul-shah-3589062/",
+            "x_url": "https://twitter.com/shardul_shah"
+          }
+        },
+        {
+          "name": "Simon Pastor",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/simonpastor/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Sofia Dolfe",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/sofia-dolfe-53556954",
+            "x_url": "https://twitter.com/sofiadolfe"
+          }
+        },
+        {
+          "name": "Stephane Kurgan",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/stephane-kurgan-149181",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Susana Rojas",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/susana-rojas/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Vlad Loktev",
+          "position": "Partner",
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/vladimirloktev/",
+            "x_url": "https://twitter.com/vladimirloktev"
+          }
+        },
+        {
+          "name": "Adrianna Ma",
+          "position": null,
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/adriannama",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Ali Fisher Sweet",
+          "position": null,
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Ana Andreescu",
+          "position": null,
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/anaandreescu/",
+            "x_url": "https://twitter.com/andreesa"
+          }
+        },
+        {
+          "name": "Andr\u00e9 Dubois",
+          "position": null,
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/andr%C3%A9-dubois-265a2457/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Avron Marcus",
+          "position": null,
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/avronmarcus/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Brendan Boyle",
+          "position": null,
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Carleigh Morba",
+          "position": null,
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/carleighmorba/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Isaiah Baril-Dore",
+          "position": null,
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/isaiah-baril-dore-89ba2831/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Jacob Jofe",
+          "position": null,
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/jacob-jofe-a5756649/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Joseph Stolerman",
+          "position": null,
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/joseph-stolerman-7b33525b/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Katie Scherer",
+          "position": null,
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/katiescherer/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Katy Engle",
+          "position": null,
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/katy-engle/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Kelsey Miller",
+          "position": null,
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/kelseymmiller/",
+            "x_url": "https://twitter.com/kmiller_"
+          }
+        },
+        {
+          "name": "Khalehla Nuzum",
+          "position": null,
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/khalehla-n-44394183/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Michelle Fernandes",
+          "position": null,
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/michelle-silva-fernandes-1367373/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Myles Gutenkunst",
+          "position": null,
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/myles-gutenkunst",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Rebecca James",
+          "position": null,
+          "socials": {
+            "linkedin_url": "https://linkedin.com/in/rebecca-james-59044036",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Sandra Schwarzer",
+          "position": null,
+          "socials": {
+            "linkedin_url": "https://linkedin.com/in/schwarzer",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Simon Cunningham",
+          "position": null,
+          "socials": {
+            "linkedin_url": "http://linkedin.com/in/simon-cunningham-7a912b31",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Sujata Bhatia",
+          "position": null,
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/sujata-bhatia-7a9539/",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Thea Crawshaw",
+          "position": null,
+          "socials": {
+            "linkedin_url": null,
+            "x_url": null
+          }
+        },
+        {
+          "name": "Weronika Sowa",
+          "position": null,
+          "socials": {
+            "linkedin_url": "https://linkedin.com/in/weronikamsowa",
+            "x_url": null
+          }
+        },
+        {
+          "name": "Zack Urlocker",
+          "position": null,
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/in/zurlocker",
+            "x_url": null
+          }
+        }
+      ],
+      "source": "sources/site/team.json",
+      "basis": "Live team CMS: 49 members. Positions are CMS titles (0 explicit); untitled members under the investing tabs render as 'Partner', the site's own presentation. 2 names from the 2026 Wayback roster are no longer on the live team page. Socials from profile pages: 46 LinkedIn, 8 X."
+    }
+  }
+}
