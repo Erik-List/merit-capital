@@ -75129,7 +75129,8 @@
   "entry_stage_source": "program_terms",
   "flags": [
    "cross_investor_bound",
-   "site_field_prefill"
+   "site_field_prefill",
+   "stale"
   ],
   "focus": "AI & Applied AI",
   "focus_source": "model",
@@ -75142,13 +75143,18 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Winter 2018); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z, sequoia-capital (freshest as-of: a16z); invariant 10 binds these two columns across investors. The landed bases already disagree with each other on this row. | status and valuation_range carried from landed base(s) a16z, sequoia-capital (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns. The landed bases already disagree with each other on this row. | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows.",
+  "note": "YC directory record (batch Winter 2018); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) a16z, sequoia-capital (freshest as-of: a16z); invariant 10 binds these two columns across investors. The landed bases already disagree with each other on this row. | status and valuation_range carried from landed base(s) a16z, sequoia-capital (freshest as-of: a16z); COLLECTION.md invariant 10 binds these two columns. The landed bases already disagree with each other on this row. | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows. | Aligned 2026-10-06 from the Bessemer run (PRO-80, rule 10): this row is the Austin AI content platform, and the defunct status it carried came in on the shared name from another company (Jasper Technologies, bought by Cisco in 2016). Jasper is private: its own release, 'AUSTIN, Texas, Oct. 18, 2022', announces the $125M Series A led by Insight Partners bringing its valuation to $1.5B (PR Newswire), the mark the Coatue, Insight and IVP books carry; no later priced round, so stale.",
   "seed_to_a_graduation": null,
   "slug": "jasper-ai",
-  "status": "defunct",
+  "status": "private",
+  "valuation_asof": "2022-10",
+  "valuation_citation": "https://www.prnewswire.com/news-releases/jasper-announces-125m-series-a-funding-round-bringing-total-valuation-to-1-5b-and-launches-new-browser-extension-301651733.html",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b",
-  "who": "agent-pro136-yc"
+  "valuation_range": "1b_plus",
+  "valuation_range_source": "web_verified",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1500000000,
+  "who": "agent-judge-pro80"
  },
  "jcode": {
   "entry_stage": "Pre-Seed",
@@ -96913,13 +96919,13 @@
   "hq_country": "CA",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "licensed AI video model; $154M raised to 2025, valuation undisclosed | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows.",
+  "note": "licensed AI video model; $154M raised to 2025, valuation undisclosed | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows. | Aligned 2026-10-06 from the Bessemer run (PRO-80, rule 10): Reka took over Moonvalley in an all-share deal: 'Reka AI has acquired video generation AI model startup Moonvalley in an all-share exchange deal' (Digital Today, 2026-05-10, citing The Information, https://www.digitaltoday.co.kr/en/view/54063/reka-ai-seeks-to-expand-world-model-and-robotics-business-with-moonvalley-acquisition), and Reka's own release of 2026-06-11 calls it a merger that brings Moonvalley's team to Reka (https://www.prnewswire.com/news-releases/reka-and-moonvalley-join-forces-to-advance-models-and-infrastructure-for-physical-ai-302797869.html); a merger into another company reads acquired.",
   "seed_to_a_graduation": null,
   "slug": "moonvalley",
-  "status": "private",
+  "status": "acquired",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "who": "agent-pro136-yc"
+  "who": "agent-judge-pro80"
  },
  "moots": {
   "entry_stage": "Pre-Seed",
@@ -130170,13 +130176,13 @@
   "graduation_citation": null,
   "graduation_confidence": null,
   "graduation_source": null,
-  "hq_city": "San Francisco",
+  "hq_city": "Berkeley",
   "hq_city_confidence": "medium",
-  "hq_city_source": "model_knowledge",
+  "hq_city_source": "web_verified",
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Summer 2014); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) lux-capital (freshest as-of: lux-capital); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) lux-capital (freshest as-of: lux-capital); COLLECTION.md invariant 10 binds these two columns. | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows.",
+  "note": "YC directory record (batch Summer 2014); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) lux-capital (freshest as-of: lux-capital); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) lux-capital (freshest as-of: lux-capital); COLLECTION.md invariant 10 binds these two columns. | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows. | Aligned 2026-10-06 from the Bessemer run (PRO-80, rule 10): 'Rigetti Computing is headquartered in Berkeley, California' (Wikipedia, https://en.wikipedia.org/wiki/Rigetti_Computing), as the Lux and Sutter Hill books read; San Francisco was the directory's field.",
   "seed_to_a_graduation": null,
   "slug": "rigetti-computing",
   "status": "public",
@@ -130186,7 +130192,7 @@
   "valuation_range": "1b_plus",
   "valuation_source": "web_verified",
   "valuation_usd": 5070000000.0,
-  "who": "agent-pro136-yc"
+  "who": "agent-judge-pro80"
  },
  "rightnow": {
   "entry_stage": "Pre-Seed",
@@ -135981,19 +135987,19 @@
   "graduation_citation": null,
   "graduation_confidence": null,
   "graduation_source": null,
-  "hq_city": "San Francisco",
+  "hq_city": "San Mateo",
   "hq_city_confidence": "medium",
-  "hq_city_source": "model_knowledge",
+  "hq_city_source": "web_verified",
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "card-transaction analytics; acq. by Bloomberg, Nov 2020, now Bloomberg Second Measure | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows.",
+  "note": "card-transaction analytics; acq. by Bloomberg, Nov 2020, now Bloomberg Second Measure | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows. | Aligned 2026-10-06 from the Bessemer run (PRO-80, rule 10): The Business Journals (2020-12-28) on the sale: 'Bloomberg buys San Mateo-based Y Combinator alumnus' (https://www.bizjournals.com/sanjose/news/2020/12/28/bloomberg-buys-second-measure.html), so the last headquarters is San Mateo; San Francisco was the directory's field.",
   "seed_to_a_graduation": null,
   "slug": "second-measure",
   "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
-  "who": "agent-pro136-yc"
+  "who": "agent-judge-pro80"
  },
  "secured": {
   "entry_stage": "Pre-Seed",
@@ -153923,13 +153929,13 @@
   "graduation_citation": null,
   "graduation_confidence": null,
   "graduation_source": null,
-  "hq_city": "San Francisco",
+  "hq_city": "Oakland",
   "hq_city_confidence": "medium",
-  "hq_city_source": "model_knowledge",
+  "hq_city_source": "web_verified",
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Summer 2015); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | $110M Series C led by Bessemer at $1.1B, May 2022; still independent, $169M raised, ~255 staff | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows.",
+  "note": "YC directory record (batch Summer 2015); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | $110M Series C led by Bessemer at $1.1B, May 2022; still independent, $169M raised, ~255 staff | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows. | Aligned 2026-10-06 from the Bessemer run (PRO-80, rule 10): Teleport's own about page (https://goteleport.com/about/, read 2026-10-06): 'Teleport is headquartered in Oakland, California', at 2100 Franklin St, as the Insight and Kleiner Perkins books read; San Francisco was the directory's field.",
   "seed_to_a_graduation": null,
   "slug": "teleport",
   "status": "private",
@@ -153939,7 +153945,7 @@
   "valuation_range": "1b_plus",
   "valuation_source": "web_verified",
   "valuation_usd": 1100000000,
-  "who": "agent-pro136-yc"
+  "who": "agent-judge-pro80"
  },
  "telivy": {
   "entry_stage": "Pre-Seed",
@@ -160250,17 +160256,18 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Summer 2019); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | $70M Series C at $1B post led by Blockchain Capital, Feb 2026; first unicorn mark | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows.",
+  "note": "YC directory record (batch Summer 2019); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | $70M Series C at $1B post led by Blockchain Capital, Feb 2026; first unicorn mark | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows. | Aligned 2026-10-06 from the Bessemer run (PRO-80, rule 10): TRM Labs announced a Series C expansion at a $2 billion valuation on 2026-09-09 (the company's release, on Business Insider Markets), double the $1B of the February 2026 Series C, as the Tiger Global book reads.",
   "seed_to_a_graduation": null,
   "slug": "trm-labs",
   "status": "private",
-  "valuation_asof": "2026-02-04",
-  "valuation_citation": "https://siliconangle.com/2026/02/04/trm-labs-raises-70m-1b-valuation-demand-surges-blockchain-intelligence/",
+  "valuation_asof": "2026-09-09",
+  "valuation_citation": "https://markets.businessinsider.com/news/stocks/trm-labs-announces-series-c-expansion-at-2-billion-valuation-to-continue-building-crimefighting-ai-1036532101",
   "valuation_confidence": "high",
   "valuation_range": "1b_plus",
+  "valuation_range_source": "web_verified",
   "valuation_source": "web_verified",
-  "valuation_usd": 1000000000,
-  "who": "agent-pro136-yc"
+  "valuation_usd": 2000000000,
+  "who": "agent-judge-pro80"
  },
  "trope": {
   "entry_stage": "Pre-Seed",
