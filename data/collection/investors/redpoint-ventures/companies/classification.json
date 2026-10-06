@@ -108,6 +108,9 @@
   "valuation_range": "below_1b"
  },
  "abridge": {
+  "cleared_flags": [
+   "unicorn_name_match"
+  ],
   "entry_stage": "Growth",
   "entry_stage_citation": "https://www.redpoint.com/companies/abridge/",
   "entry_stage_confidence": "high",
@@ -115,8 +118,14 @@
   "flags": [],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "note": "The firm's own card: 'Redpoint first invested in Abridge's Series C in 2024.' The deterministic $2.75B mark is the February 2025 Series D; Abridge raised again in 2025 at ~$5.3B, re-priced in the A/B pass. | Focus derived in one parametric pass from the firm's own sector taxonomy on the row (the site's nine values crosswalked to data/taxonomy/focus.json), with COLLECTION.md 6's precedence applied: Security over SaaS/DevTools/Industrial, Crypto & Web3 over Fintech, Healthcare & Bio over SaaS, ad networks and games to Media, and chips and photonics to Industrial & Robotics.",
-  "slug": "abridge"
+  "note": "The firm's own card: 'Redpoint first invested in Abridge's Series C in 2024.' The deterministic $2.75B mark is the February 2025 Series D; Abridge raised again in 2025 at ~$5.3B, re-priced in the A/B pass. | Focus derived in one parametric pass from the firm's own sector taxonomy on the row (the site's nine values crosswalked to data/taxonomy/focus.json), with COLLECTION.md 6's precedence applied: Security over SaaS/DevTools/Industrial, Crypto & Web3 over Fintech, Healthcare & Bio over SaaS, ad networks and games to Media, and chips and photonics to Industrial & Robotics. | Aligned 2026-10-06 from the Bessemer run (PRO-80, rule 10): the $300M Series E of 2025-06-24, led by Andreessen Horowitz, valued Abridge at $5.3B (TechCrunch, 'In just 4 months, AI medical scribe Abridge doubles valuation to $5.3B'), which replaces the unicorn list's $2.75B.",
+  "slug": "abridge",
+  "valuation_asof": "2025-06-24",
+  "valuation_citation": "https://techcrunch.com/2025/06/24/in-just-4-months-ai-medical-scribe-abridge-doubles-valuation-to-5-3b/",
+  "valuation_range_source": "web_verified",
+  "valuation_source": "web_verified",
+  "valuation_usd": 5300000000,
+  "who": "agent-judge-pro80"
  },
  "acompli": {
   "entry_date": "2013-06-17",
@@ -4140,7 +4149,12 @@
   ],
   "focus": "AI & Applied AI",
   "focus_source": "model",
-  "note": "Swedish legal-AI company. The Form D band reads the $150M and $600M 2025-2026 rounds as a Growth entry, but the firm's own card says 'We first partnered for their Series A in 2024' \u2014 the entry is the Series A. The Q4 2025 $150M round was priced at $1.8B; a further ~$600M round filed in Q1 2026 is re-priced in the A/B pass. | Focus derived in one parametric pass from the firm's own sector taxonomy on the row (the site's nine values crosswalked to data/taxonomy/focus.json), with COLLECTION.md 6's precedence applied: Security over SaaS/DevTools/Industrial, Crypto & Web3 over Fintech, Healthcare & Bio over SaaS, ad networks and games to Media, and chips and photonics to Industrial & Robotics. | Aligned 2026-09-29 from the ICONIQ Growth run (PRO-168, rule 10): the March 2026 round at $5.55B.",
+  "hq_city": "Stockholm",
+  "hq_city_source": "web_verified",
+  "hq_country": "SE",
+  "hq_country_citation": "https://news.crunchbase.com/venture/unicorn-legal-tech-ai-startup-legora-triples-valuation/",
+  "hq_country_source": "web_verified",
+  "note": "Swedish legal-AI company. The Form D band reads the $150M and $600M 2025-2026 rounds as a Growth entry, but the firm's own card says 'We first partnered for their Series A in 2024' \u2014 the entry is the Series A. The Q4 2025 $150M round was priced at $1.8B; a further ~$600M round filed in Q1 2026 is re-priced in the A/B pass. | Focus derived in one parametric pass from the firm's own sector taxonomy on the row (the site's nine values crosswalked to data/taxonomy/focus.json), with COLLECTION.md 6's precedence applied: Security over SaaS/DevTools/Industrial, Crypto & Web3 over Fintech, Healthcare & Bio over SaaS, ad networks and games to Media, and chips and photonics to Industrial & Robotics. | Aligned 2026-09-29 from the ICONIQ Growth run (PRO-168, rule 10): the March 2026 round at $5.55B. | Aligned 2026-10-06 from the Bessemer run (PRO-80, rule 10): Legora is run from Stockholm: Crunchbase News (2026-03-10) calls it 'the Swedish company' and writes 'Founded in 2023, Stockholm-based Legora', with a New York office opened a year earlier; the US on the row is the filing address of its Form D issuer, and the Accel, Cherry, ICONIQ, Insight, Menlo and Y Combinator rows read Sweden.",
   "slug": "legora",
   "status": "private",
   "valuation_asof": "2026-03-20",
@@ -4150,7 +4164,7 @@
   "valuation_range_source": "web_verified",
   "valuation_source": "web_verified",
   "valuation_usd": 5550000000.0,
-  "who": "agent-align-pro168"
+  "who": "agent-judge-pro80"
  },
  "lensing": {
   "entry_stage": "Series A",
@@ -6009,7 +6023,6 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "city_country_conflict",
    "stage_uncited"
   ],
   "focus": "Data Infrastructure",
@@ -6017,12 +6030,15 @@
   "hq_city": "Redwood City",
   "hq_city_confidence": "low",
   "hq_city_source": "model_knowledge",
-  "hq_country": "IL",
-  "note": "Qwilt, open-caching and edge cloud for ISPs; an Israeli company with US headquarters in Redwood City, which is the address the card carries. The card's excerpt is truncated mid-sentence ('their Series ') so the round word is unreadable; the firm's own 2013 announcement covers a Series C, which is a ceiling, and first_seen is 2011, so the entry is earlier. Series A on the archive evidence, low confidence. Cisco led a $70M round in 2022; no $1B mark. | Focus derived in one parametric pass from the firm's own sector taxonomy on the row (the site's nine values crosswalked to data/taxonomy/focus.json), with COLLECTION.md 6's precedence applied: Security over SaaS/DevTools/Industrial, Crypto & Web3 over Fintech, Healthcare & Bio over SaaS, ad networks and games to Media, and chips and photonics to Industrial & Robotics.",
+  "hq_country": "US",
+  "hq_country_citation": "https://www.qwilt.com/contact-us/",
+  "hq_country_source": "web_verified",
+  "note": "Qwilt, open-caching and edge cloud for ISPs; an Israeli company with US headquarters in Redwood City, which is the address the card carries. The card's excerpt is truncated mid-sentence ('their Series ') so the round word is unreadable; the firm's own 2013 announcement covers a Series C, which is a ceiling, and first_seen is 2011, so the entry is earlier. Series A on the archive evidence, low confidence. Cisco led a $70M round in 2022; no $1B mark. | Focus derived in one parametric pass from the firm's own sector taxonomy on the row (the site's nine values crosswalked to data/taxonomy/focus.json), with COLLECTION.md 6's precedence applied: Security over SaaS/DevTools/Industrial, Crypto & Web3 over Fintech, Healthcare & Bio over SaaS, ad networks and games to Media, and chips and photonics to Industrial & Robotics. | Aligned 2026-10-06 from the Bessemer run (PRO-80, rule 10): Qwilt's own contact page (https://www.qwilt.com/contact-us/, read 2026-10-06) lists 'Corporate Headquarters, 275 Shoreline Drive Suite 510, Redwood City, CA' and an 'R&D Center' in Hod HaSharon, so the country is the US, which agrees with the city already on the row.",
   "slug": "qwilt",
   "status": "private",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-pro80"
  },
  "radik": {
   "entry_stage": "undetermined",
