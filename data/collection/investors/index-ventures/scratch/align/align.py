@@ -5,7 +5,7 @@ and 2026-10-01: decide on the evidence and write every book). Adapted from the K
 Step 1 (`python3 align.py kits`): one classification line per stale sibling row, built from the Index row's own cited
 evidence (never the firm's site), written to scratch/align/<book>.jsonl. A row lifted to $1B+ on an uncited stage
 takes `cite_pending` (rule 4). The line carries a `note` sentence, which record joins to the book's own note.
-Step 2 (`python3 align.py run`): for every book that is not in flight and has no uncommitted company files: verify
+Step 2 (`python3 align.py local`, then `python3 align.py ingest` after the Index book is ingested): for every book that is not in flight and has no uncommitted company files: verify
 clean before, readback exact before, record the kit ONCE, export, review; then verify every touched book with all kits
 recorded (books that share a stale company move together), restore any book that is still not clean, and re-ingest the
 clean ones through the gate (dry run with 0 removals, write, readback exact, commit of that book's three files).
@@ -90,8 +90,19 @@ def run(only=None):
             if v.returncode:
                 probs = [x.strip()[:170] for x in v.stdout.splitlines() if x.startswith("  - ")][:3]
                 restore(b); live.remove(b); changed = True; log(f"SKIPPED {b}: verify not clean with all kits recorded: {probs}")
+    (HERE / "live.json").write_text(json.dumps(live))
+    log("local phase done; live: " + ", ".join(live))
+
+def ingest():
+    """Phase 2, after the Index book itself is ingested: database writes for the books the local phase left clean."""
+    live = json.loads((HERE / "live.json").read_text()); out = (HERE / "results.txt").read_text().splitlines()
+    def log(s): out.append(s); print(s, flush=True); (HERE / "results.txt").write_text("\n".join(out) + "\n")
     for b in live:
         rel = (INV / b).relative_to(ROOT); n = len(PAIRS[b])
+        v = sh(["python3", "scripts/run.py", "verify", "--skip-links", "--investor", b])
+        if v.returncode:
+            probs = [x.strip()[:170] for x in v.stdout.splitlines() if x.startswith("  - ")][:3]
+            restore(b); log(f"SKIPPED {b} ({n} rows): verify not clean at ingest time, files restored: {probs}"); continue
         d = sh(f"npx tsx scripts/ingest-companies.ts {b} --dry-run"); (HERE / f"{b}.dry").write_text(d.stdout + d.stderr)
         if ", 0 removed" not in d.stdout: restore(b); log(f"SKIPPED {b} ({n} rows): dry run would remove rows or failed: {(d.stdout + d.stderr)[-200:]!r}"); continue
         w = sh(f"npx tsx scripts/ingest-companies.ts {b}")
@@ -107,4 +118,5 @@ def run(only=None):
 
 if __name__ == "__main__":
     if sys.argv[1] == "kits": kits()
-    elif sys.argv[1] == "run": run(set(sys.argv[2:]) or None)
+    elif sys.argv[1] == "local": run(set(sys.argv[2:]) or None)
+    elif sys.argv[1] == "ingest": ingest()

@@ -246,12 +246,12 @@ registers for the European rows (status first, COLLECTION.md §5).
   Those are partner-carried and **OUT** (Erik, 2026-09-17); they are traps in
   `config.verify.not_members` and never become rows.
 - **R3 — Companies the firm never listed (2026-10-06).** The recall probe
-  found 21 investments that no captured list carries: recent rounds not yet on
+  found 22 investments that no captured list carries: recent rounds not yet on
   the site (Instinct, Uncovr), a company sold before it was listed (LESS),
   part of the 2012–2015 seed programme (Gojimo, Strikingly, Yup, Leap Transit,
   DJZ, Snapguide, Little Borrowed Dress, Lookback, Pets Deli), minority
   participations (Flipagram, bonify, Italic, Sphere, Dazz, Nauto, Familiar,
-  Cyngn) and one led Series A (SourceClear). Each enters as a recall addition
+  Cyngn), one led Series A (SourceClear) and one unannounced round (Cue Labs, formerly Greplin). Each enters as a recall addition
   only on a source that names the firm in the round or among the backers
   (T2): the firm's own post, an SEC filing, the company's release, press, or a
   sibling book's cited row. Wikipedia was the lead for eleven and the citation

@@ -1,6 +1,6 @@
 {
   "slug": "index-ventures",
-  "generated_at": "2026-10-06T19:14:30+00:00",
+  "generated_at": "2026-10-06T19:41:05+00:00",
   "run": "PRO-82",
   "fields": {
     "name": {
@@ -58,19 +58,27 @@
     "investment_scope": {
       "value": {
         "type": "Generalist",
-        "focus": []
+        "focus": [
+          "SaaS",
+          "AI & Applied AI",
+          "Fintech & Payments",
+          "Media, Gaming & Advertising",
+          "Consumer & Marketplaces",
+          "Security",
+          "Data Infrastructure"
+        ]
       },
-      "source": "companies/classification.json",
-      "basis": "type: the firm's own homepage lists eight sectors it backs; focus: recomputed by build-firm-profile.py"
+      "source": "companies/base.json",
+      "basis": "focus from the firm's own site sector tags on 351 base rows, crosswalked to data/taxonomy/focus.json (crosswalk in config.json), published above 15 companies. Scope type is the curated judgement carried in investor.json."
     },
     "investment_range": {
       "value": {
         "lower_limit": 1000000,
-        "median": 19000000,
+        "median": 17000000,
         "upper_limit": 300000000
       },
       "source": "scratch/entry-round-sizes.json",
-      "basis": "median: $18.8M, the median of the earliest sized round that each of 241 portfolio companies' records tie the firm to (the firm's own posts and archived news, company releases and press; rows in scratch/entry-round-sizes.json; by stage Seed $7.2M over 78, Series A $17.0M over 91, Growth $43.5M over 72). It is a round size, not a cheque size. lower: documented seed entries of $1.3M to $1.5M (GroupSpaces 2010, Productboard 2016, Geckoboard 2012); upper: the $300M round the firm led in DeepL (its post of 2024-05-22)",
+      "basis": "median: $17.2M, the median of the earliest sized round that each of 258 portfolio companies' records tie the firm to (the firm's own posts and archived news, company releases and press; rows in scratch/entry-round-sizes.json; by stage Seed $6.0M over 87, Series A $16.2M over 96, Growth $45.0M over 75). It is a round size, not a cheque size. lower: documented seed entries of $1.3M to $1.5M (GroupSpaces 2010, Productboard 2016, Geckoboard 2012); upper: the $300M round the firm led in DeepL (its post of 2024-05-22)",
       "flags": [
         "median_press_based"
       ]

@@ -194,7 +194,22 @@
  "profile": {
   "adv_crd": 161175,
   "own_vehicle_pattern": "^index (ventures?|origin|spv)\\b",
-  "_note": "Filled at profile time (focus crosswalk, focus_min_companies, site_office)."
+  "_note": "Filled at profile time (focus crosswalk, focus_min_companies, site_office).",
+  "focus_crosswalk": {
+   "AI/ML": "AI & Applied AI",
+   "Business Applications": "SaaS",
+   "Future Of Work": "SaaS",
+   "Fintech": "Fintech & Payments",
+   "Retail": "Consumer & Marketplaces",
+   "Security": "Security",
+   "Entertainment": "Media, Gaming & Advertising",
+   "Media": "Media, Gaming & Advertising",
+   "Data": "Data Infrastructure",
+   "Open Source": "DevTools & APIs",
+   "Healthcare": "Healthcare & Bio"
+  },
+  "focus_min_companies": 15,
+  "_focus_note": "The site's own sector tags (310 of 560 rows carry one) mapped to the closed focus vocabulary; Mobility (8) and Talent (7) have no single counterpart and stay unmapped. The floor of 15 is about 5% of the tagged rows; it leaves out Healthcare (14) and Open Source (10)."
  },
  "verify": {
   "not_members": [
