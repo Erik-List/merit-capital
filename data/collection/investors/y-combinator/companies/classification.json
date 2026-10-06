@@ -69323,13 +69323,14 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Summer 2020); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | team acq. by Anthropic, 2025 | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows.",
+  "note": "YC directory record (batch Summer 2020); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | team acq. by Anthropic, 2025 | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows. | Aligned 2026-10-06 from the Index Ventures run (PRO-82, rule 10): status defunct; Anthropic hired the team in August 2025 without buying the company and the product was shut down; an acqui-hire never decides status (Erik, 2026-09-20), so a company that shut down reads defunct (TechCrunch) (https://techcrunch.com/2025/08/13/anthropic-nabs-humanloop-team-as-competition-for-enterprise-ai-talent-heats-up/)",
   "seed_to_a_graduation": null,
   "slug": "humanloop",
-  "status": "acquired",
+  "status": "defunct",
+  "status_citation": "https://techcrunch.com/2025/08/13/anthropic-nabs-humanloop-team-as-competition-for-enterprise-ai-talent-heats-up/",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
-  "who": "agent-pro136-yc"
+  "who": "agent-align-pro82"
  },
  "humanly": {
   "entry_stage": "Pre-Seed",
@@ -102338,6 +102339,7 @@
   "entry_stage_confidence": "high",
   "entry_stage_source": "program_terms",
   "flags": [
+   "cite_pending",
    "cross_investor_bound",
    "site_field_prefill"
   ],
@@ -102352,13 +102354,18 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Winter 2021); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) menlo-ventures, thrive-capital (freshest as-of: menlo-ventures); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) menlo-ventures, thrive-capital (freshest as-of: menlo-ventures); COLLECTION.md invariant 10 binds these two columns. | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows.",
+  "note": "YC directory record (batch Winter 2021); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) menlo-ventures, thrive-capital (freshest as-of: menlo-ventures); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) menlo-ventures, thrive-capital (freshest as-of: menlo-ventures); COLLECTION.md invariant 10 binds these two columns. | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows. | Aligned 2026-10-06 from the Index Ventures run (PRO-82, rule 10): $1.75B as of 2026-05-19; the round at a $1.75B valuation of May 2026 (Reuters) (https://www.tradingview.com/news/reuters.com,2026:newsml_L4N41W0X1:0-nutrition-counseling-startup-nourish-raises-100-million-at-1-75-billion-valuation-bloomberg-news/)",
   "seed_to_a_graduation": null,
   "slug": "nourish",
   "status": "private",
+  "valuation_asof": "2026-05-19",
+  "valuation_citation": "https://www.tradingview.com/news/reuters.com,2026:newsml_L4N41W0X1:0-nutrition-counseling-startup-nourish-raises-100-million-at-1-75-billion-valuation-bloomberg-news/",
   "valuation_confidence": "medium",
-  "valuation_range": "below_1b",
-  "who": "agent-pro136-yc"
+  "valuation_range": "1b_plus",
+  "valuation_range_source": "web_verified",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1750000000,
+  "who": "agent-align-pro82"
  },
  "nova": {
   "entry_stage": "Pre-Seed",
@@ -168867,13 +168874,14 @@
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "YC directory record (batch Summer 2019); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) first-round-capital (freshest as-of: first-round-capital); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) first-round-capital (freshest as-of: first-round-capital); COLLECTION.md invariant 10 binds these two columns. | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows.",
+  "note": "YC directory record (batch Summer 2019); entry stage from the batch-deal record (calibration gate 31/31, class 1). Location and focus from the directory's own fields, class 2 \u2014 judge overrides on conflict. | status and valuation_range carried from landed base(s) first-round-capital (freshest as-of: first-round-capital); invariant 10 binds these two columns across investors. | status and valuation_range carried from landed base(s) first-round-capital (freshest as-of: first-round-capital); COLLECTION.md invariant 10 binds these two columns. | PROGRAMME ENTRY, PRE-SEED (Erik, 2026-09-19): YC is a pre-seed investor and every row here enters on the batch deal's standard terms, so the stage is the programme's rather than a round the company negotiated: Pre-Seed, sourced program_terms. The seed-to-A column does not apply to this book at all - the transition YC's cohort actually makes is pre-seed to seed, which this dataset does not measure - so the graduation reads null rather than the `undetermined` the old Seed label forced onto 6,425 rows. | Aligned 2026-10-06 from the Index Ventures run (PRO-82, rule 10): status private; this row is Vouch Insurance (Summer 2019); its defunct status was carried from First Round's Vouch, a different company (a 2015 lending startup). Vouch sold two units to Hiscox in 2025 and 'will continue to operate as an independent broker' (Coverager), as Ribbit's row has it (https://coverager.com/hiscox-to-acquire-mga-and-carrier-operations-from-vouch/)",
   "seed_to_a_graduation": null,
   "slug": "vouch",
-  "status": "defunct",
+  "status": "private",
+  "status_citation": "https://coverager.com/hiscox-to-acquire-mga-and-carrier-operations-from-vouch/",
   "valuation_confidence": "medium",
   "valuation_range": "below_1b",
-  "who": "agent-pro136-yc"
+  "who": "agent-align-pro82"
  },
  "voxel-energy": {
   "entry_stage": "Pre-Seed",
