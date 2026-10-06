@@ -148,3 +148,14 @@ align.py ingest -> report section 15 -> commit -> Linear -> memory -> closing me
 - Open for Erik: D3 (life sciences desk out), R2 (pre-fund "Prior investments" out), Arista (in on the listing).
 - Debt: Internet Archive 2003-2007 pages (scratch/ia-pass2.py is queued), home registers for the 20 European
   rows of unknown status, the 2016-2019 seed recall gap, 18 cite_pending rows.
+
+## AFTER THE CLOSE, 2026-10-06 (prompt 3: "make london HQ" and "sweep the european company registers if it improves accuracy")
+- HQ London: config.profile.hq_override, commit 8f6735f0, hq_location written alone and read back.
+- Register sweep: 128 European rows that read private or unknown. Companies House (67 UK rows, 58 matched, status +
+  filing history + controlling owners), Sirene (18 French rows), Zefix / ARES / Estonia / Finland / Denmark, and a
+  dated sale-and-insolvency news check on all 128. 22 status corrections, 44 register citations.
+  Judgments: scratch/judgments-registers.py (queue/registers-1 and registers-2). Evidence: sources/registers/.
+- Re-ingested: readback before 22 differing cells (the 22 statuses), dry run 0 removed, readback after exact.
+  Commit 97f0e378. Insight's Groupalia aligned and re-ingested (e79160b7).
+- Dream Games re-read after a headline said "majority stake": the founders keep the majority, private stands.
+- Still unknown in Europe: Tactic, OpenBuildings, Futurelytics, Rad, Webfair. Not done: the same check on US rows.
