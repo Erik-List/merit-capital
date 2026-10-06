@@ -110,9 +110,9 @@ def run(only=None):
     (HERE / "live.json").write_text(json.dumps(live))
     log("local phase done; live: " + ", ".join(live))
 
-def ingest():
+def ingest(only=None):
     """Phase 2, after the Index book itself is ingested: database writes for the books the local phase left clean."""
-    live = json.loads((HERE / "live.json").read_text()); out = (HERE / "results.txt").read_text().splitlines()
+    live = [b for b in json.loads((HERE / "live.json").read_text()) if not only or b in only]; out = (HERE / "results.txt").read_text().splitlines()
     def log(s): out.append(s); print(s, flush=True); (HERE / "results.txt").write_text("\n".join(out) + "\n")
     for b in live:
         rel = (INV / b).relative_to(ROOT); n = len(PAIRS[b])
@@ -131,9 +131,9 @@ def ingest():
         sh(["git", "add", "--"] + paths)
         c = sh(["git", "commit", "-q", "-m", f"PRO-82: {b} aligned to the Index Ventures run's cited evidence ({n} row(s), rule 10), re-ingested\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>", "--"] + paths)
         log(f"ALIGNED {b} ({n} rows): re-ingested, readback exact, commit {sh('git log --oneline -1').stdout[:8]}" + ("" if not c.returncode else f" (COMMIT FAILED: {c.stderr[-120:]!r})"))
-    log("done")
+    log("done" if not only else "done (second round: " + ", ".join(sorted(only)) + ")")
 
 if __name__ == "__main__":
     if sys.argv[1] == "kits": kits()
     elif sys.argv[1] == "local": run(set(sys.argv[2:]) or None)
-    elif sys.argv[1] == "ingest": ingest()
+    elif sys.argv[1] == "ingest": ingest(set(sys.argv[2:]) or None)

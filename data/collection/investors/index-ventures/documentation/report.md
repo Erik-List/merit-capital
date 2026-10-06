@@ -9,7 +9,9 @@
 ## 1. The answer PRO-82 asked for
 
 **The base is 560 companies, plain `verify` is clean, the firm profile is built and the review
-surface renders. Ingest status is in section 15.**
+surface renders. Ingest status is in section 15. Section 16 holds what changed after the close on
+Erik's two instructions of 2026-10-06: the headquarters reads London, and the European registers
+were swept (22 status corrections). The numbers in this report are the ones after that sweep.**
 
 PRO-82 asked one question the earlier runs did not have to answer: how a base states its coverage
 when the evidence is structurally uneven inside it. The answer this run gives:
@@ -54,11 +56,11 @@ funds with $25.3B of gross assets.
 | | Count | Share |
 |---|---|---|
 | Companies | 560 | all nameable |
-| Private | 280 | 50.0% |
-| Acquired | 196 | 35.0% |
-| Unknown | 33 | 5.9% |
+| Private | 275 | 49.1% |
+| Acquired | 205 | 36.6% |
+| Defunct | 36 | 6.4% |
 | Public | 26 | 4.6% |
-| Defunct | 25 | 4.5% |
+| Unknown | 18 | 3.2% |
 | $1B and above | 91 | 16.2% |
 | of which $10B and above | 21 | |
 | of which $100B and above | 5 | Facebook, Anthropic, Arista Networks, Revolut, Robinhood |
@@ -107,8 +109,9 @@ Form D adjudicated 6, fund filing 1 (Cyngn).
 | 158 | 16 | 142 | 100 | 42 | **70.4%** |
 
 Coverage is 100%. Of 158 seed entries, 16 were too recent to count; of the 142 that remain, 70.4%
-raised a later round. Of the 42 that did not, 15 rest on a cited end (a sale or shutdown before any
-Series A) and 27 on a dated search of the named surfaces.
+raised a later round. Of the 42 that did not, 22 rest on a cited end (a sale or shutdown before any
+Series A) and 20 on a dated search of the named surfaces. Seven of the cited ends came from the
+register sweep (section 16).
 
 - **By entry period:** to 2011, 3 of 8; 2012-2015, 25 of 37 (68%); 2016-2019, 17 of 17;
   2020-2022, 34 of 47 (72%); 2023 on, 21 of 33 (64%), with all 16 censored rows in that period.
@@ -127,7 +130,7 @@ Series A) and 27 on a dated search of the named surfaces.
 
 | Book | Rows | Acquired | Defunct | Private | $1B+ | S2A | Stage unknown |
 |---|---|---|---|---|---|---|---|
-| Index Ventures | 560 | 35% | 5% | 50% | 16.2% | 100/142 = 70% | 11% |
+| Index Ventures | 560 | 37% | 6% | 49% | 16.2% | 100/142 = 70% | 11% |
 | Accel | 884 | 27% | 4% | 62% | 13.8% | 143/242 = 59% | 3% |
 | Lightspeed | 875 | 30% | 7% | 51% | 14.7% | 89/156 = 57% | 24% |
 | Redpoint | 413 | 35% | 15% | 41% | 14.8% | 25/39 = 64% | 23% |
@@ -141,8 +144,9 @@ Series A) and 27 on a dated search of the named surfaces.
 | Northzone | 220 | 28% | 4% | 49% | 5.0% | 12/19 = 63% | 56% |
 
 Index sits with Accel, Lightspeed and Redpoint on status mix and $1B+ share, which is where a
-transatlantic multi-stage firm should sit. Its defunct share (5%) is low and its unknown share
-(6%) is the price: 33 companies have no trace of an end and no sign of life, 20 of them European.
+transatlantic multi-stage firm should sit. Before the register sweep its defunct share was 5% and its unknown share 6%: 33 companies had no
+trace of an end and no sign of life, 20 of them European. The registers settled 15 of those 20
+(section 16); 18 rows read unknown now, 5 of them European.
 The S2A rate is above the US books for the reason caveat 1 gives.
 
 ## 3. The boundary
@@ -193,7 +197,7 @@ Ruled once in `documentation/decisions.md`; 84 rows are in `excluded.json` with 
 | Entry stage | Series A 48, Growth 39, Seed 12, undetermined 1 | Series A 150, Seed 146, Growth 103, undetermined 61 | |
 | Stage undetermined | 1.0% | 13.3% | 11.1% |
 | Stage source, decided rows | Form D sequence 42, round announcement 35, uncited 21, firm's label 1 | round announcement 241, uncited 118, firm's label 40 | |
-| Status | acquired 41, private 36, public 15, defunct 6, unknown 2 | private 244, acquired 155, unknown 31, defunct 19, public 11 | |
+| Status | acquired 41, private 35, public 15, defunct 7, unknown 2 | private 240, acquired 164, defunct 29, unknown 16, public 11 | |
 | $1B and above | 22 | 69 | 91 |
 | Seed entries / censored / cohort | 12 / 0 / 12 | 146 / 16 / 130 | 158 / 16 / 142 |
 | Graduated / not graduated | 10 / 2 | 90 / 40 | 100 / 42 |
@@ -211,16 +215,16 @@ What the table says, in order of weight:
   not, the stage needs a dated announcement naming the firm, and 13% of firm-record rows have
   none. The 62 undetermined rows split 32 Europe, 26 US, 4 elsewhere, so this is a regime
   effect before it is a geography effect.
-- **Status.** 31 of 33 unknown rows are firm-record rows. A company that filed nothing leaves no
-  filing trail when it dies.
+- **Status.** 16 of 18 unknown rows are firm-record rows (31 of 33 before the register sweep). A
+  company that filed nothing with the SEC leaves no SEC trail when it dies; its home register is
+  where the end shows.
 - **S2A is not comparable across the two columns.** The SEC-visible cohort is 12 rows. The
   firm-record cohort (130) carries the number.
-- **What was not built.** The home registers (Companies House, the Handelsregister, the French
-  and Nordic registers) were read row by row for status in a handful of cases, not swept as a
-  layer. D10 ordered status first from the registers and the run did not do that at scale: 20
-  European rows read unknown, 14 of them in the UK, and a Companies House pass would settle most
-  of them. This is debt (section 7), and the one place where PRO-82's premise, that the run
-  reuses Atomico's registry layer, did not hold.
+- **The home registers.** At the close they had been read row by row in a handful of cases, not
+  swept, although D10 ordered status first from the registers. Erik asked for the sweep the same
+  day and it is done (section 16): Companies House for the UK with its register of controlling
+  owners, Sirene for France, and the open Swiss, Czech, Estonian, Finnish and Danish registers.
+  It is a status layer, not a membership layer: no register here shows a venture fund's holding.
 
 What carries the base, by layer:
 
@@ -314,7 +318,10 @@ Soft spots a reader should know:
   cooldown held each time. The firm's 2008-2016 lists carry a "past investments" section that
   covers most of what those pages would add, but a company listed only between 2003 and 2007
   and dropped by 2008 is missing. 26 target pages are queued in `scratch/ia-pass2.py`.
-- **Home registers.** Not swept (section 4). 20 European rows read unknown.
+- **Home registers.** Swept after the close (section 16). Five European rows still read unknown:
+  Tactic, OpenBuildings, Futurelytics, Rad and Webfair. Germany, the Netherlands, Sweden, Spain
+  and Belgium have no open register this run could query in bulk; their rows got the news check
+  only.
 - **The 2016-2019 seed gap** (section 2, caveat 1).
 - **Disk.** The machine ran out of disk space on 2026-10-01 at about 15:12 UTC. Nothing was
   lost: raw captures under `data/filings/index-ventures` are gzipped since, and the 12
@@ -360,7 +367,7 @@ Cohere, Temporal, Glow and Nourish marks.
 
 | Field | Value | Source |
 |---|---|---|
-| HQ | San Francisco, CA | the HQ rule: the ADV office (Geneva) is not on the site's office list, so the first office the site lists is published |
+| HQ | London, United Kingdom | Erik's ruling of 2026-10-06, recorded as a judged override; the rule's own reading was San Francisco, the first office the site lists |
 | Founded | 1996 | Wikipedia and the firm's "30 Years In" post |
 | Thesis | "We invest in who you are, not just what you do." | the firm's homepage headline, verbatim |
 | Stages | Seed, Series A, Growth | the base |
@@ -372,10 +379,9 @@ Cohere, Temporal, Glow and Nourish marks.
 | Funds | 17, Index Ventures V (2009) to XIII (2026) | the firm's own announcements |
 | People | 49: 26 on the investor tab, 23 strategists and operators | the team page; 46 LinkedIn links, 8 X links |
 
-- **The HQ is decided, and it is arguable.** London has the most people on the team page (22
-  against 14 in San Francisco and 10 in New York) and Wikipedia says London. The rule gives San
-  Francisco because the site lists it first. `profile.hq_override` exists if Erik reads it
-  differently.
+- **HQ London.** The rule gave San Francisco because the site lists it first. Erik ruled London
+  on 2026-10-06: the team page has 22 people there against 14 in San Francisco and 10 in New
+  York. It is `profile.hq_override` in `config.json`, with the flaw and the basis written out.
 - **Positions.** The site publishes no titles. The 26 people on its investor tab publish as
   "Partner", the shared build rule; the other 23 publish with no position.
 - **AUM includes Life VI** ($212M), whose companies are outside the base, and predates the July
@@ -470,8 +476,9 @@ WebSearch: about 96 of the session's 200 calls, 30 of them by the blind judge.
 
 ## 14. Prompt count
 
-**2.** The kickoff ("please collect Index Ventures") and "continue" after the interruption of
-2026-10-01. No correction and no ruling was exchanged during the run. The target is one.
+**3.** The kickoff ("please collect Index Ventures"), "continue" after the interruption of
+2026-10-01, and one message after the close with two instructions (London as headquarters; sweep
+the European registers if it improves accuracy). The target is one.
 
 ## 15. Ingest
 
@@ -543,3 +550,82 @@ Catalyst's Abacus Labs, Double Labs and Thread, Speedinvest's Solvo.ai). No real
 known; Bessemer and Founders Fund are not classified yet, and their own gate will compare against this book.
 
 **Linear:** PRO-82 set to Done with a closing comment.
+
+## 16. After the close: London, and the register sweep (2026-10-06)
+
+Erik's message after the closing report carried two instructions. Both are done and live.
+
+**Headquarters: London.** `profile.hq_override` in `config.json`; `firm-offices.py` and `verify`
+accept it; commit `8f6735f0`; the `hq_location` column was written alone and read back.
+
+**The register sweep. It improved accuracy: 22 of the 128 European rows that read private or
+unknown changed status (17%).**
+
+| Change | Rows | Companies |
+|---|---|---|
+| unknown to defunct | 9 | Cord, GroupSpaces, Loveshark, Mindshapes, RjDj, Solvo, The Garden, Sproutl, smarterwork.com |
+| unknown to acquired | 4 | Osper, Pulsic, Groupalia, StylistPick |
+| unknown to private | 2 | TheFamily, be2 |
+| private to acquired | 5 | Workbounce, PeoplePerHour, Teemo, Kayrros, Cowboy |
+| private to defunct | 2 | Kano, Second Home |
+
+European rows before and after: private 108 to 103, acquired 80 to 89, defunct 9 to 20, unknown
+20 to 5, public 9. The S2A rate did not move (every corrected seed row already read not
+graduated), but seven of its nos now rest on a cited end instead of a dated search.
+
+How it was done:
+
+- **UK, Companies House (67 rows).** The public register site, through the helper earlier runs
+  built (`scratch/companies_house.py`). 58 rows matched to a legal entity by name, by a legal name
+  the judge supplied (Cord is Radical HQ Limited, RjDj is Reality Jockey Limited, Sproutl is The
+  Sprout Group Limited, incident.io is Pineapple Technology Ltd), or through the officer register
+  (the founders of The Garden and Sproutl). Each entity's status, filing history and controlling
+  owners were read. Sixteen corrections came from here.
+- **The register of controlling owners is the register's trace of a sale.** Workbounce (ZoomInfo
+  UK Ltd from 2024-11-07), Osper (Crunch Payments Limited from 2025-09-12), PeoplePerHour (a
+  company controlled by Taso Du Val from 2025-11-12) and Pulsic (Cadence, also in the press) read
+  private or unknown with no press headline this run had found.
+- **France, Sirene (18 rows).** The state's open company search. It confirmed the operating rows
+  and showed Teemo's legal unit under the name Azira, the successor of the Near that bought it
+  in 2020.
+- **Switzerland, Czechia, Estonia, Finland, Denmark.** Open registers queried by name; all seven
+  rows found are active.
+- **A dated news check for sales and insolvencies** on all 128 rows, for the countries with no
+  open register and as a second look at the rest. It found Kayrros (bought by Energy Aspects,
+  completed 2026-05-21) and Cowboy (taken over by ReBirth, December 2025), and re-raised Dream
+  Games, which was re-read and stands: CVC is the sole outside shareholder and the five founders
+  keep the majority, so the company was not acquired.
+- **44 rows confirmed active** now carry their register page as the status citation.
+
+Readings worth knowing:
+
+- **A dormant shell reads defunct.** Smarterwork.com Limited is still on the register 27 years on,
+  filing as a dormant company. The business ended; the row says so at medium confidence.
+- **An administration with no sale reads defunct** (the standing rule): Second Home, in
+  administration since January 2025, and Kano, dissolved on 2026-10-03.
+- **Tactic stays unknown.** Its UK company was struck off in February 2026 after buying back
+  shares, and its site is still up.
+- **Not reached:** Geckoboard, GetHarley, EDITED (no UK entity under the brand name; all three
+  read private on other evidence), and the recent seeds whose entity is weeks old.
+
+Files: `sources/registers/companies-house/` (the search results, the matched entities with
+their controlling owners, the decisive filing histories), `sources/registers/sirene/`,
+`sources/registers/other/`, `scratch/status-news-eu.json`, and the judgments in
+`scratch/judgments-registers.py`.
+
+**Sibling alignment.** One pair: Insight's Groupalia read unknown and now reads acquired, through
+the same kit and gate. None of the other 21 corrected companies sits in another book.
+
+**Ingest.** Readback before the write showed 22 differing cells, exactly the 22 statuses. Dry run
+with 0 removals, write, readback exact. Insight re-ingested the same way.
+
+**The same check has not been run on the US rows.** 9 of the 18 rows still unknown are US
+companies, and a private row that was quietly sold is as likely there. Delaware publishes no
+open status register, so it would be the news check plus state filings; it was outside this
+instruction.
+
+Two write-backs to add to section 12: a register pass with the controlling-owner read as a
+standing duty for UK rows before the close (it costs minutes and moved 16 rows here); and the
+sale-and-insolvency news check for every private row, since the momentum slice looks only at
+valuations.
+
