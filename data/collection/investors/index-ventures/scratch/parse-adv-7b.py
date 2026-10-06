@@ -21,41 +21,25 @@ for pdf in sorted(RAW.glob("*.pdf")):
     filed = re.search(r"(Annual Amendment|Other-Than-Annual Amendment|Initial Application)[^\n]*\n(\d+/\d+/\d{4})", first)
     adv = {"crd": crd, "adviser": name.group(1).strip() if name else None,
            "filed": filed.group(2) if filed else None, "funds_7b1": [], "funds_7b2": []}
-    # pypdf's per-page text is cumulative within a run of pages, so a fund
-    # block may be cut at a page end and complete only on a later page: pair
-    # each name with the ID and the GAV that follow it BEFORE the next name on
-    # the same page, and keep the first complete reading per fund ID.
+    # pypdf's per-page text is cumulative within a run of pages (each page repeats the run so far), and a fund
+    # block can straddle two runs. So read the LAST page of every run, join them into one linear text, and pair
+    # each fund name with the ID and the gross asset value that follow it before the next name. (The first
+    # version paired within a page and carried one pending fund forward; on this PDF four funds then took the
+    # same carried value. Fixed 2026-10-06; the sum is re-proved below against the per-fund list.)
     NAME = re.compile(r"1\. \(a\) Name of the private fund:\s*\n(.*?)\n")
     GAV = re.compile(r"11\. Current gross asset value of the private fund:\s*\n\$\s*([\d,]+)")
-    pending = {}
-    for pi, t in enumerate(pages):
-        sec2 = t.find("SECTION 7.B.(2)")
-        names = list(NAME.finditer(t))
-        # a block cut at the end of a cumulative run completes at the top of the
-        # next page, before that page's first fund name (IVP XVII-E, p. 49)
-        if pending and pi - 1 in pending:
-            g0 = GAV.search(t)
-            if g0 and (not names or g0.start() < names[0].start()):
-                nm, fid0 = pending.pop(pi - 1)
-                if not any(f["id"] == fid0 for f in adv["funds_7b1"]):
-                    adv["funds_7b1"].append({"name": nm, "id": fid0,
-                                             "gav": int(g0.group(1).replace(",", "")),
-                                             "note": "value read at the top of the next page"})
-        for k, m in enumerate(names):
-            end = names[k + 1].start() if k + 1 < len(names) else len(t)
-            block = t[m.end():end]
-            fid = re.search(r"(805-\d+)", block)
-            g = re.search(r"11\. Current gross asset value of the private fund:\s*\n\$\s*([\d,]+)", block)
-            if fid and not g and k + 1 == len(names):
-                pending[pi] = (m.group(1).strip(), fid.group(1))
-            if not fid or not g:
-                continue
-            if sec2 >= 0 and m.start() > sec2:
-                continue
-            if any(f["id"] == fid.group(1) for f in adv["funds_7b1"]):
-                continue
-            adv["funds_7b1"].append({"name": m.group(1).strip(), "id": fid.group(1),
-                                     "gav": int(g.group(1).replace(",", ""))})
+    runs = [t for i, t in enumerate(pages) if i + 1 == len(pages) or len(pages[i + 1]) < len(t)]
+    linear = "\n".join(runs)
+    sec2 = linear.find("SECTION 7.B.(2)")
+    names = [m for m in NAME.finditer(linear) if sec2 < 0 or m.start() < sec2]
+    for k, m in enumerate(names):
+        end = names[k + 1].start() if k + 1 < len(names) else (sec2 if sec2 >= 0 else len(linear))
+        block = linear[m.end():end]
+        fid = re.search(r"(805-\d+)", block); g = GAV.search(block)
+        if not fid or any(f["id"] == fid.group(1) for f in adv["funds_7b1"]):
+            continue
+        adv["funds_7b1"].append({"name": m.group(1).strip(), "id": fid.group(1),
+                                 "gav": int(g.group(1).replace(",", "")) if g else None})
     for t in pages:
         i = t.find("SECTION 7.B.(2)")
         if i < 0:
