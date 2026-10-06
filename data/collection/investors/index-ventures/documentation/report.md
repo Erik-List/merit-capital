@@ -257,6 +257,9 @@ most likely small participations before 2016.
 ## 6. Method deltas
 
 - **Regime by evidence columns, not geography (D9).** Section 1 and 4.
+- **One desk (D1).** PRO-82 expected `desks` to partition by domicile. The verified facts are one
+  adviser, one fund family and one book run from three offices, so there is one desk, the
+  adviser. What the partition was meant to carry, the regime column carries.
 - **A successor firm owns a desk's book (D3).** Applied to a desk that invested from the same
   funds as the rest of the firm until 2012, which the Benchmark precedent did not cover.
 - **The firm's own stage marks, scored before use (D8).** The live list's "backed at Seed" mark
