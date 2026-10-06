@@ -138,3 +138,13 @@ report -> write-back -> close -> commit -> ingest gate -> siblings -> Linear -> 
   the 20 books with `git checkout -- <book>/companies/{classification.json,base.csv,review.html}`.
 Next: close -> closing commit -> icon upload -> ingest-investor -> ingest-companies --dry-run -> write -> readback ->
 align.py ingest -> report section 15 -> commit -> Linear -> memory -> closing message.
+
+## CLOSED, 2026-10-06 ~20:45 UTC (prompt count 2)
+- Index Ventures ingested: icon, investor row, 560 companies; readback "csv 560, live 560, missing 0, extra 0,
+  differing cells 0". Commits 633f0015 (closing) and 5cfc1fd6 (post-ingest).
+- Siblings: 36 rows in 20 books aligned and re-ingested, every readback exact (scratch/align/results.txt).
+  Every book not in flight verifies clean afterwards.
+- report.md is final (section 15 = ingest). Linear PRO-82 Done. Memory note index-ventures-run-pro82.
+- Open for Erik: D3 (life sciences desk out), R2 (pre-fund "Prior investments" out), Arista (in on the listing).
+- Debt: Internet Archive 2003-2007 pages (scratch/ia-pass2.py is queued), home registers for the 20 European
+  rows of unknown status, the 2016-2019 seed recall gap, 18 cite_pending rows.

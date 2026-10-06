@@ -47,7 +47,7 @@ funds with $25.3B of gross assets.
 | `review.html` rendered | 560 of 560 rows, profile panel opens, no console errors |
 | `report.md` with method delta, open rulings, prompt count | This file; three rulings (section 10); prompt count 2 |
 | COLLECTION.md diff proposed | Section 12 |
-| Ingest through the §9 gate, stale sibling rows aligned | Section 15 |
+| Ingest through the §9 gate, stale sibling rows aligned | Live at 560 rows, readback exact; 36 sibling rows in 20 books re-ingested (section 15) |
 
 ## 2. Results
 
@@ -463,7 +463,7 @@ User-Agent "Erik List list.erik.2005@gmail.com", the personal address, to read t
 pages (CIKs 1607035, 1997387, 2021402). It reported this itself. The project's own scripts use
 erik@meritcapit.al for the SEC. Nothing else carried an address. It cannot be undone.
 
-WebSearch: about 100 of the session's 200 calls, 30 of them by the blind judge.
+WebSearch: about 96 of the session's 200 calls, 30 of them by the blind judge.
 
 ## 14. Prompt count
 
@@ -472,4 +472,71 @@ WebSearch: about 100 of the session's 200 calls, 30 of them by the blind judge.
 
 ## 15. Ingest
 
-Written after the ingest, in the commit that follows the closing commit.
+**Index Ventures is live.** The gate, in the order COLLECTION.md §9 gives:
+
+1. Plain `verify` clean at 560 rows; 708 rows shared with other books, all agree, none parked as accepted.
+2. `run.py close`, then the closing commit `633f0015`.
+3. Icon uploaded (`investors/index-ventures-fe52f4fc5f.png`), then `ingest-investor.ts`: one row upserted.
+4. `ingest-companies.ts --dry-run`: "560 row(s) upserted (560 new), 0 removed, from 0 live". Nothing to
+   check on the removal list.
+5. The write, then the readback: "csv 560, live 560, missing 0, extra 0, differing cells 0". The investor row
+   carries the icon, the profile and the derived S2A of 100 of 142 (70.4%).
+6. Post-ingest commit `5cfc1fd6` (the bucket URL in `investor.json`).
+
+**Stale sibling rows: 36 rows in 20 books aligned and re-ingested**, one book at a time, each through the
+same gate (its own verify clean, readback exact before, dry run with 0 removals, write, readback exact after,
+a commit of that book's three company files). Kits and logs are in `scratch/align/`.
+
+| Book | Rows | What changed | Commit |
+|---|---|---|---|
+| a16z | 1 | Temporal $12.55B | 9cf9af4d |
+| Accel | 3 | HouseTrip acquired; OpenX private; Bird acquired | 74861cea |
+| Balderton | 1 | Dream Games $5.0B | e1ee0587 |
+| Battery | 1 | Expel $1.0B | 438ca896 |
+| Benchmark | 1 | Respond.com acquired | 8f9d9fa2 |
+| Coatue | 1 | Covariant unknown | 4f6d1e50 |
+| Felicis | 1 | Revel $1.0B | 791668d8 |
+| First Round | 3 | Persona $2.0B; Rec Room defunct; UberMedia acquired | d5c9e1df |
+| GV | 1 | Flapping Airplanes $1.50B | 52b00d50 |
+| Khosla | 1 | Parallel Web Systems $2.0B | ac397477 |
+| Lightspeed | 2 | Temporal $12.55B; Avarra graduated (repair) | 3f2a24f9 |
+| Lux | 1 | Covariant unknown | b0742c4b |
+| NEA | 1 | Expel $1.0B | 6ee893a9 |
+| Point Nine | 1 | Typeform private | bb33a254 |
+| Redpoint | 3 | Glow $1.20B; Revel $1.0B; Sonos $2.15B | 0b09e563 |
+| Seedcamp | 2 | Loctax acquired; Property Partner acquired | 495e01ff |
+| Sequoia | 6 | Apex acquired; Bird acquired; Flapping Airplanes $1.50B; Parallel Web Systems $2.0B; Rec Room defunct; Temporal $12.55B | 29485385 |
+| Thrive | 2 | Revel $1.0B; Stytch acquired | fe973d54 |
+| Tiger Global | 1 | Cohere $20.0B | 72215968 |
+| Y Combinator | 3 | Humanloop defunct; Nourish $1.75B; Vouch private | d219eab0 |
+
+Each line carries one sentence naming the event and its source, never Index's own site.
+
+Three things the alignment needed beyond the rows:
+
+- **One repair in a sibling's own book.** Lightspeed's verify was failing on its own: the censoring window of
+  its seed row Avarra ended on 2026-10-03. A fresh search of the surfaces found a $17M Series A announced on
+  2026-10-06 with Lightspeed in it, so the row reads graduated. A recorded no stays a target on every run; so
+  does a censored row whose clock has run out.
+- **Namesake pairs the alignment surfaced**, ruled distinct in the books' own files: Redpoint's Glow against
+  a16z's and USV's; YC's Vouch against First Round's (YC's row had carried the other company's defunct status).
+- **A false alarm in the readback.** YC's CSV carries the name " Metadata" with a leading space; the ingest trims
+  it, the readback did not, so it reported one missing and one extra row. The alignment script compares after
+  trimming. The readback tool itself is unchanged (it is another run's file).
+
+Decisions inside the alignment that Erik may want to see: Bird reads acquired in the Accel and Sequoia books
+(it read defunct there since 2026-09-03, before the insolvency rule was written); Covariant reads unknown in
+Coatue and Lux (an acqui-hire, and the company's site is a stub); Typeform reads private in Point Nine (the
+Bending Spoons bid of October 2025 never closed); Dream Games reads private at $5B in Balderton (CVC took a
+minority); Respond.com reads acquired in Benchmark.
+
+**After the alignment every book that is not in flight verifies clean.** Two pairs between other books were
+failing before this run and were ruled on their own notes (Insight's LeoLabs against Kleiner Perkins' Leo;
+Project A's Q against Kleiner Perkins' q.ai).
+
+**Not aligned: the six books in flight** (Atomico, Bain Capital Ventures, Bessemer, Founders Fund, General
+Catalyst, Speedinvest). Five namesake pairs against them are ruled ahead of time (Atomico's Bird, General
+Catalyst's Abacus Labs, Double Labs and Thread, Speedinvest's Solvo.ai). No real disagreement with them is
+known; Bessemer and Founders Fund are not classified yet, and their own gate will compare against this book.
+
+**Linear:** PRO-82 set to Done with a closing comment.
