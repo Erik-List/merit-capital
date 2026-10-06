@@ -1008,8 +1008,8 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "predecessor_era",
-   "rule_a_below_1b",
    "stage_uncited"
   ],
   "focus": "Industrial & Robotics",
@@ -1020,14 +1020,16 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Boom Supersonic, Denver. Archive-only row from the 2017 capture, gone from the live site; the entry sits in or near the Formation 8 era. Reported marks above $1B exist but need a cited priced event (Rule A). | A/B pass. The December-2025 $300M round led by Darsana, with Altimeter, ARK, Bessemer, Robinhood Ventures and Y Combinator, published no valuation, and neither did the earlier rounds. Rule A: below_1b with the check recorded.",
+  "note": "Boom Supersonic, Denver. Archive-only row from the 2017 capture, gone from the live site; the entry sits in or near the Formation 8 era. Reported marks above $1B exist but need a cited priced event (Rule A). | A/B pass. The December-2025 $300M round led by Darsana, with Altimeter, ARK, Bessemer, Robinhood Ventures and Y Combinator, published no valuation, and neither did the earlier rounds. Rule A: below_1b with the check recorded. | Cross-book alignment 2026-10-06: the $300M round of December 2025 'gives the Centennial-based company a $1.5 billion post-money valuation', from the chief executive's email to investors as BusinessDen reports it (2025-12-09, read); a priced round with a press figure, so the band moves from below $1B to $1B+ at $1.5B.",
   "slug": "boom-supersonic",
   "status": "private",
-  "valuation_citation": "https://www.businesswire.com/news/home/20251209195489/en/Boom-Supersonic-to-Power-AI-Data-Centers-With-Superpower-Natural-Gas-Turbines-Adds-$300-Million-in-New-Funding",
-  "valuation_range": "below_1b",
+  "valuation_asof": "2025-12",
+  "valuation_citation": "https://businessden.com/boom-supersonic-raising-300m-at-a-1-5b-valuation/",
+  "valuation_range": "1b_plus",
   "valuation_range_source": "web_verified",
-  "valuation_source": null,
-  "valuation_usd": null
+  "valuation_source": "web_verified",
+  "valuation_usd": 1500000000,
+  "who": "agent-judge-pro80"
  },
  "branch": {
   "entry_date": "2015-05",
@@ -1537,19 +1539,19 @@
   "graduation_citation": "https://www.prnewswire.com/news-releases/datahub-secures-35-million-series-b-to-enable-ai-to-safely-manage-and-use-data-302459121.html",
   "graduation_confidence": "high",
   "graduation_source": "web_verified",
-  "hq_city": "San Francisco",
+  "hq_city": "Palo Alto",
   "hq_city_confidence": "low",
-  "hq_city_source": "model_knowledge",
+  "hq_city_source": "web_verified",
   "hq_country": "US",
   "hq_country_confidence": "medium",
   "hq_country_source": "model_knowledge",
-  "note": "DataHub, the metadata platform commercialising LinkedIn's open-source DataHub (formerly Acryl Data \u2014 see the archived 'acryl-data' slug, a rename to resolve at the identity step). First listed 2025. | Momentum slice (\u00a76): a private row first listed in the last five years in a hot sector. Ruled out rather than searched \u2014 the row is an unrecognised company, absent from the unicorn snapshot re-pulled at run start, with no priced round carrying a published figure and no recent trace of a large raise. \u00a73's rule-out: sub-$1B with high probability. The rule-out is recorded on the row so the claim carries its date and the next run starts from it rather than re-deriving it; it is NOT a web_verified absence claim, which \u00a76 says is not citeable at scale. | 8VC led Acryl Data's $21M Series A (FinSMEs, 2023-06-23) with only two angels participating, but the archive lists the company (as acryl-data) from 2022, before that round, and no page names an earlier seed, so the stage leg could not be established. | DataHub was Acryl Data at entry: TechCrunch 2021-06-23, 'emerges from stealth with $9M from 8VC, LinkedIn and Insight' -- dates and names 8VC directly. Named later round: $35M Series B, PR Newswire 2025-05-21 -> graduates. (Row is the renamed 'acryl-data' slug; identity already resolved per the note.)",
+  "note": "DataHub, the metadata platform commercialising LinkedIn's open-source DataHub (formerly Acryl Data \u2014 see the archived 'acryl-data' slug, a rename to resolve at the identity step). First listed 2025. | Momentum slice (\u00a76): a private row first listed in the last five years in a hot sector. Ruled out rather than searched \u2014 the row is an unrecognised company, absent from the unicorn snapshot re-pulled at run start, with no priced round carrying a published figure and no recent trace of a large raise. \u00a73's rule-out: sub-$1B with high probability. The rule-out is recorded on the row so the claim carries its date and the next run starts from it rather than re-deriving it; it is NOT a web_verified absence claim, which \u00a76 says is not citeable at scale. | 8VC led Acryl Data's $21M Series A (FinSMEs, 2023-06-23) with only two angels participating, but the archive lists the company (as acryl-data) from 2022, before that round, and no page names an earlier seed, so the stage leg could not be established. | DataHub was Acryl Data at entry: TechCrunch 2021-06-23, 'emerges from stealth with $9M from 8VC, LinkedIn and Insight' -- dates and names 8VC directly. Named later round: $35M Series B, PR Newswire 2025-05-21 -> graduates. (Row is the renamed 'acryl-data' slug; identity already resolved per the note.) | Aligned 2026-10-06 from the Bessemer run (PRO-80): the company's own about page says 'The company is headquartered in Palo Alto, California' (https://datahub.com/about/).",
   "seed_to_a_graduation": "graduated",
   "slug": "datahub",
   "status": "private",
   "valuation_range": "below_1b",
   "valuation_range_source": "model",
-  "who": "agent-judge-s2a-8vc"
+  "who": "agent-judge-pro80"
  },
  "daydream": {
   "entry_stage": "undetermined",
@@ -5094,7 +5096,7 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": "model",
   "flags": [
-   "rule_a_below_1b",
+   "cite_pending",
    "stage_uncited",
    "stale"
   ],
@@ -5106,13 +5108,16 @@
   "hq_country": "US",
   "hq_country_confidence": "high",
   "hq_country_source": "model_knowledge",
-  "note": "Sila Nanotechnologies, silicon anode battery materials. 8VC listed from 2022, after the 2021 $590M round at $3.3B; that mark is four years old and is re-checked rather than banded here. | A/B pass. The $3.3B mark is the 2021 Series F, four years stale, and battery-materials marks have repriced sharply since. No fresher priced event with a published figure. below_1b with the check recorded.",
+  "note": "Sila Nanotechnologies, silicon anode battery materials. 8VC listed from 2022, after the 2021 $590M round at $3.3B; that mark is four years old and is re-checked rather than banded here. | A/B pass. The $3.3B mark is the 2021 Series F, four years stale, and battery-materials marks have repriced sharply since. No fresher priced event with a published figure. below_1b with the check recorded. | Aligned 2026-10-06 from the Bessemer run (PRO-80, rule 10): 'At the end of June, Sila raised $375 million at a valuation of just under $2 billion' (Bloomberg via Yahoo Finance, 2024-09-24), a priced round down from $3.3B in 2021; the $300M round of July 2026 disclosed no valuation, so the 2024 mark stands, flagged stale, as the Sutter Hill book carries it.",
   "slug": "sila-nanotechnologies",
   "status": "private",
-  "valuation_range": "below_1b",
+  "valuation_asof": "2024-06",
+  "valuation_citation": "https://finance.yahoo.com/news/sila-nanotechnologies-takes-1-billion-110030258.html",
+  "valuation_range": "1b_plus",
   "valuation_range_source": "web_verified",
-  "valuation_source": null,
-  "valuation_usd": null
+  "valuation_source": "web_verified",
+  "valuation_usd": 2000000000,
+  "who": "agent-judge-pro80"
  },
  "sirona": {
   "entry_stage": "Series A",
