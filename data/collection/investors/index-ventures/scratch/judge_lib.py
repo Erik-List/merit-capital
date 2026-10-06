@@ -233,9 +233,9 @@ def gsurl(slug: str, sub: str) -> str:
         for i in sf.get("items", []):
             if sub.lower() in i.get("title", "").lower() and all(i.get("title") != h.get("title") for h in hits):
                 hits.append(i)
-    if len(hits) != 1:
+    if not hits or len({h["title"][:40].lower() for h in hits}) != 1:
         raise KeyError(f"gsurl({slug!r}, {sub!r}): {len(hits)} hits {[h['title'][:60] for h in hits][:4]}")
-    it = hits[0]
+    it = sorted(hits, key=lambda h: (not h.get("link"), h.get("date") or ""))[0]   # syndicated copies of one headline: a direct link first, then the earliest
     if it.get("link"):
         return it["link"]
     u = _gs().decode(it["gid"]) or ""

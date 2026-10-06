@@ -214,4 +214,55 @@ registers for the European rows (status first, COLLECTION.md §5).
 
 ## Run-time standing rulings
 
-(added during the run, dated)
+- **R1 — Entry dates on rows staged by the firm's label (2026-10-06).** The
+  live list publishes no year, so a row whose Seed stage rests on the "backed
+  at Seed" mark (D8) has no dated first-party claim. Its `entry_date` is read,
+  in order, off (1) the seed's own dated announcement where one is on disk
+  (cited in `funding_rounds`), (2) a sibling book's cited entry for the same
+  round, (3) the year the firm first lists the company. (3) is an upper bound,
+  not the entry: it is used only where (1) and (2) give nothing, it never turns
+  a row `censored`, and a no decided on it is conservative (the true entry is
+  older). The rows on (3) are listed in report.md.
+- **R2 — "Prior investments" on the 1999–2002 site (2026-10-06).** The first
+  site (Internet Archive, 1999–2002) splits its portfolio into the funds'
+  companies and a second group headed "prior" (Aptix, ArrayComm, Biocom,
+  Calico Commerce, CommQuest, ControlMed, Evolve Software, GeneBio, NeoVista,
+  Optimer, SCM Microsystems, Virata): investments the same team made at Index
+  before the first fund closed. **IN**: this is the firm's own earlier
+  practice, not a partner's previous employer, and the firm keeps listing them
+  as its own without qualification from 2002 on (CommQuest, Virata, SCM
+  Microsystems and NeoVista are still on the 2008–2014 lists). By contrast the
+  Nov 2002 pages mark two names with an asterisk, "* Denotes prior investments
+  of Index Partners" (Infospace, Vignette: Danny Rimer's deals from before he
+  joined in 2002). Those are partner-carried and **OUT** (Erik, 2026-09-17);
+  they are traps in `config.verify.not_members` and never become rows.
+  Raised for Erik in report.md as one reading of the partner-carried ruling.
+- **R3 — Companies the firm never listed (2026-10-06).** The recall probe
+  found 21 investments that no captured list carries: recent rounds not yet on
+  the site (Instinct, Uncovr), a company sold before it was listed (LESS),
+  part of the 2012–2015 seed programme (Gojimo, Strikingly, Yup, Leap Transit,
+  DJZ, Snapguide, Little Borrowed Dress, Lookback, Pets Deli), minority
+  participations (Flipagram, bonify, Italic, Sphere, Dazz, Nauto, Familiar,
+  Cyngn) and one led Series A (SourceClear). Each enters as a recall addition
+  only on a source that names the firm in the round or among the backers
+  (T2): the firm's own post, an SEC filing, the company's release, press, or a
+  sibling book's cited row. Wikipedia was the lead for eleven and the citation
+  for none. Rejected leads are recorded with their reason in
+  `scratch/web-finds.json` (`_rejected`): Spot.IM (the company's release names
+  other leads), Town (talks, no closed round), Augmeta (a scout cheque).
+- **R4 — Rows whose desk no capture shows (2026-10-06).** Novocure, Infection
+  Control, Diartis and DirectMedica sit on the firm's lists with no technology
+  sector or partner, and the archived Life Sciences lists that would settle
+  them were not all fetched (the Internet Archive refused the machine twice).
+  DirectMedica is on the firm's 2002 Life Sciences pages. The other three are
+  healthcare companies by what they are (a tumour-treating device, an
+  infection-control business, a drug developer) and are ruled with D3. Low or
+  medium confidence, reversible with D3 in one rebuild.
+- **R5 — An unnamed later round below the step-up does not graduate
+  (2026-10-06).** Atlar: the press record shows a SEK 90M round in April 2024
+  (Breakit), 1.7 times the SEK 52M seed, with no round word in the headline;
+  only vendor databases call it a Series A. By §6 the step-up test decides an
+  unnamed round and a vendor never cites (Rule A), so the row reads
+  `not_graduated` on the absence test with the round recorded on its surface
+  lines. The same reading holds for Beryl (GBP 2M, 2023) and Hyperline (a
+  second round the firm's own post names "seed").

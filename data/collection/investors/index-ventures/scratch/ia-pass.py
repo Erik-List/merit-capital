@@ -5,7 +5,7 @@ listing 2002-2007 (typ=it / typ=ls, by section), the PHP site's first captures o
 Sciences listings (industry_id/2) through 2013. One request per second through scripts/ia_fetch (shared
 throttle); bodies cached under data/filings/index-ventures/ia-cache. Writes scratch/ia-pass.json
 (url, timestamp, status, cache key). A fetch that fails is recorded as failed, never as an empty page."""
-import gzip, hashlib, json, re, sys
+import gzip, hashlib, json, re, sys, time
 from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE)); sys.path.insert(0, str(HERE.parents[4] / "scripts"))
@@ -51,5 +51,6 @@ for ts, url in sorted(set(targets)):
     except Exception as e:
         res[k] = {"status": f"failed {str(e)[:80]}"}
     OUT.write_text(json.dumps(res, indent=1))
+    time.sleep(2)      # well under the shared 1/s bucket: two refusals on 2026-10-01 came after ~15 quick replays
 print(sum(1 for v in res.values() if isinstance(v, dict) and v.get("status") == "ok"), "ok;",
       sum(1 for v in res.values() if isinstance(v, dict) and str(v.get("status")).startswith("failed")), "failed")
