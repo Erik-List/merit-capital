@@ -28,6 +28,10 @@ ROUND = re.compile(r"\b(pre-?seed|seed|series [A-K]\b|series-[a-k]\b|growth roun
 
 
 def get(url, dest):
+    gz = Path(str(dest) + ".gz")      # raw pages were gzipped on 2026-10-01 (disk space)
+    if gz.exists() and gz.stat().st_size > 0:
+        import gzip
+        return gzip.open(gz, "rt", errors="replace").read()
     if dest.exists() and dest.stat().st_size > 0:
         return dest.read_text(errors="replace")
     for i in range(3):

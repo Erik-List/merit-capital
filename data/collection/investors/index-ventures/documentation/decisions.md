@@ -169,6 +169,19 @@ registers for the European rows (status first, COLLECTION.md §5).
   Seed and Series A (an anchor, like a bare year), and "Growth stage" alone
   is the growth fund (Growth). Scored in the run against documented rounds;
   the score and the verdict are restated in report.md.
+  **Scored 2026-10-01** (`scratch/label-score.py`, against this book's own
+  cited entry rounds, before any row was labelled):
+  (a) "backed at Seed": **31 of 36**, promoted as `first_party` at `medium`
+  (`config.site_api.entry_stage_fields`). The misses are rows whose first
+  round the record names a Series A or later (auxmoney, cowboy-space,
+  deliveroo, notion, revolut, and pilot by the firm's own post); there the
+  row's own cited round wins. 35 rows take their stage from the label.
+  (b) "Seed stage" alone: 1 of 1 cited (groupspaces), 7 rows otherwise
+  unjudged; eligible by semantics, too thin to score, so it labels at `low`
+  (abe-s-market, cruisewise, fontself, geckoboard, rjdj, the-gifts-project;
+  adzuna carries both labels). A company filed under BOTH "Seed stage" and
+  "Early stage" scored **0 of 5** and is refused: an anchor, never a label.
+  "Growth stage" was not needed (every such row has a cited round).
   The Perspectives archive is class 1 for the round a post NAMES; it asserts
   an entry only where the post says so in words (the Menlo rule).
 - **D9 — How a row states its evidence regime.** Every base row carries one

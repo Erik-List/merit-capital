@@ -84,3 +84,19 @@ WebSearch used: 1 of 200.
 - IA: second firewall refusal at ~15:38 UTC, machine-wide cooldown ~2h (until ~17:40). scratch/ia-pass.py is queued
   (pre-2008 portfolio pages + life lists); two early pages are already cached (1999 /portfolio.html, 2001 /portf_sect.html).
 - Google News lookups done for all listed names (news-bulk*.json, 3 workers). WebSearch used: 1 of 200.
+
+## RESUME POINT 3, 2026-10-06 ~18:20 UTC (the session was interrupted on 2026-10-01 ~17:30 UTC and resumed five days later)
+- Grind complete: batches 1-14 recorded (judgments-1..14.py), 536 rows classified. Ledger: 616 verdicts.
+- Label pass done (judgments-label.py; decisions.md D8 scored: 'backed at Seed' 31/36 -> first_party medium;
+  'Seed stage' alone -> first_party low; Seed+Early -> refused). config.site_api.entry_stage_fields = [stage_site].
+- Open rows settled by web search (judgments-open.py): the-garden, quixotic, dot-product; v-watch not_member (D3).
+- identity-merges.json: 37 merges (13 added from the grind: lithic, daydream, ubermedia, beryl, vetted, mirage, kong,
+  glasses-direct, photobox, raisin, trouva, drivy, parallel). They apply at the ONE rebuild.
+- Perspectives archive re-read: 586 of 586 posts on disk (the first scrape had 12 failures; scraper is gz-aware now).
+- Graduation: scripts/graduation-surfaces.py ran 2026-10-01 for 86 Seed rows (0 lookups failed); prepare re-run
+  (queue: 100 rows in 3 batches; the grind's queue is kept in scratch/queue-grind/). scratch/gshow.py and gshow2.py
+  are the judge views; scratch/formd-lookup.py gives the `formd:` line of an absence test.
+  investor/investor.json is a two-key STUB so graduation-surfaces.py can read the firm's name; the profile build replaces it.
+- WebSearch used: 9 of 200.
+Next: graduation judgments, IA pre-2008 pass, recall probe, ONE rebuild, delta, A/B + momentum, duties, profile,
+verify, export, review, report, write-back, close, commit, ingest gate, siblings.

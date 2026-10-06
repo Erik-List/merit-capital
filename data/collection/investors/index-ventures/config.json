@@ -138,7 +138,12 @@
    "strategist": "platform",
    "operator": "operations"
   },
-  "_note": "indexventures.com is Wagtail (Django). /companies/backed/all/ renders all 329 cards in one page, each with data-backed (select / seed / all-seed), data-regions, data-sectors and a ticker-or-acquirer span; sitemap-companies.xml lists the same 329 pages. A company page carries Founders/CEOs, Index Team, Sector, Website and the related Perspectives posts; it carries no investment year and no round word. The listing's own 'backed at Seed' filter is the one stage claim (decisions.md D8). scratch/site-scrape.py reads both; raw pages in data/filings/index-ventures/site-raw (gitignored). The Perspectives archive (1,238 posts in sitemap-perspectives.xml) is the news surface."
+  "_note": "indexventures.com is Wagtail (Django). /companies/backed/all/ renders all 329 cards in one page, each with data-backed (select / seed / all-seed), data-regions, data-sectors and a ticker-or-acquirer span; sitemap-companies.xml lists the same 329 pages. A company page carries Founders/CEOs, Index Team, Sector, Website and the related Perspectives posts; it carries no investment year and no round word. The listing's own 'backed at Seed' filter is the one stage claim (decisions.md D8). scratch/site-scrape.py reads both; raw pages in data/filings/index-ventures/site-raw (gitignored). The Perspectives archive (1,238 posts in sitemap-perspectives.xml) is the news surface.",
+  "entry_stage_fields": [
+   "stage_site"
+  ],
+  "entry_stage_listing_url": "https://www.indexventures.com/companies/",
+  "_entry_stage_note": "stage_site is the live listing's 'backed at Seed' filter (data-backed carries seed or all-seed on 75 of 329 cards): the firm's own claim about the round IT entered, so eligible by semantics; it says Seed and nothing else, and a card without it is no claim. Scored 2026-10-01 by scratch/label-score.py against this book's own cited entry rounds: 31 of 36 (the misses are auxmoney, cowboy-space, deliveroo, notion and revolut, plus pilot, whose first round the firm's own post calls a Series A). Promoted at MEDIUM; a row's own cited round wins where it disagrees. The 2009-2013 site's stage filter is NOT in this file list (it lives in sources/wayback/archive-facts.json): 'Seed stage' alone labels at LOW (1 of 1 cited, 7 rows), a company filed under both 'Seed stage' and 'Early stage' is an anchor (0 of 5), 'Early stage' straddles Seed and Series A (Facebook sits under it). decisions.md D8."
  },
  "edgar": {
   "seed_queries": [
