@@ -25,7 +25,8 @@ ALIAS = {"Ciao.com": "Ciao", "MediaSurface": "Mediasurface", "Neo Vista Software
          "The Fantastic Corporation": "Fantastic", "CommQuest Technologies": "CommQuest", "Ingenium Pharmaceuticals": "Ingenium",
          "ParAllele BioScience": "ParAllele Bioscience", "DirectMedica": "Directmedica", "MediCentrix": "Medicentrix",
          "digiquant": "Digiquant", "Evolve": "Evolve Software", "Listen": "Listen.com", "Structural Genomix": "Structural GenomiX",
-         "Pulsent Corp.": "Pulsent", "Addex Pharmaceuticals": "Addex Pharma", "Respond": "Respond.com"}
+         "Pulsent Corp.": "Pulsent", "Addex Pharmaceuticals": "Addex Pharma", "Respond": "Respond.com",
+         "Calico": "Calico Commerce", "Lane 15 Software": "Lane15"}
 # the same company under the name the firm's later lists carry (the old name is kept as the fact `formerly`)
 RENAMED = {"Belle systems": "Digiquant", "ControlMed": "Medicentrix", "Structural GenomiX": "SGX Pharma", "GlobeSpanVirata": "Virata",
            "Flutter": "Betfair"}
@@ -115,14 +116,14 @@ for key, v in sorted(res.items()):
         detail = rest[len([x for x in rest[:3] if x in SUB]) + len(lst):]
         tab = [a for a in ("Applications & Services", "Communications", "Components & EDA", "Enterprise Infrastructure") if a in lines]
         for l in lst:
-            star = l.endswith("*"); disp = l.rstrip("*").strip()
+            star = "*" in l; disp = l.replace("*", "").strip()          # the star sits before a tag too: "Crossgain* (BEA)"
             if star:                  # '* Denotes prior investments of Index Partners': partner-carried (Erik, 2026-09-17), a trap in config, never a row
-                STARRED.setdefault(disp, f"https://web.archive.org/web/{ts}/{url}"); continue
+                STARRED.setdefault(re.sub(r"\s*\([^()]*\)", "", disp).strip(), f"https://web.archive.org/web/{ts}/{url}"); continue
             tags = re.findall(r"\(([^()]*)\)", disp); nm = re.sub(r"\s*\([^()]*\)", "", disp).strip()
             if nm == "Flutter" and tags: nm, tags = "Betfair", ["formerly Flutter"]
             emit(nm, ts, url, "/cgi-local/ivw_port_detail.cgi", desk="life" if life else "tech", list_tag="; ".join(tags) or None,
                  prior_partner=True if star else None)
-        if detail and not detail[0].endswith("*"):
+        if detail and "*" not in detail[0]:
             nm = re.sub(r"\s*\([^()]*\)", "", detail[0].rstrip("*")).strip()
             if nm == "Flutter": nm = "Betfair"
             contacts = []
