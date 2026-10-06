@@ -33,6 +33,9 @@
   "who": "agent-judge-s2a-khosla-ventures"
  },
  "abridge": {
+  "cleared_flags": [
+   "unicorn_name_match"
+  ],
   "confidence": "medium",
   "entry_stage": "Growth",
   "entry_stage_source": "model",
@@ -42,8 +45,14 @@
   ],
   "focus": "Healthcare & Bio",
   "focus_source": "model",
-  "note": "clinical documentation AI, founded 2018; Khosla's listing is recent and the firm is not in the seed record, so the entry is a later round | focus from the firm's own category 'Digital Health' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable.",
-  "slug": "abridge"
+  "note": "clinical documentation AI, founded 2018; Khosla's listing is recent and the firm is not in the seed record, so the entry is a later round | focus from the firm's own category 'Digital Health' | invariant 4 debt, declared not hidden: a $1B+ row whose entry round is not established by a class-1 citation or class-2 filing structure. Khosla publishes no deal-announcement archive, so the usual class-1 source for these does not exist and the citation must come from press per row; the queue is resumable. | Aligned 2026-10-06 from the Bessemer run (PRO-80, rule 10): the $300M Series E of 2025-06-24, led by Andreessen Horowitz, valued Abridge at $5.3B (TechCrunch, 'In just 4 months, AI medical scribe Abridge doubles valuation to $5.3B'), which replaces the unicorn list's $2.75B.",
+  "slug": "abridge",
+  "valuation_asof": "2025-06-24",
+  "valuation_citation": "https://techcrunch.com/2025/06/24/in-just-4-months-ai-medical-scribe-abridge-doubles-valuation-to-5-3b/",
+  "valuation_range_source": "web_verified",
+  "valuation_source": "web_verified",
+  "valuation_usd": 5300000000,
+  "who": "agent-judge-pro80"
  },
  "academia-inc": {
   "confidence": "low",
@@ -3657,10 +3666,11 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "Khosla's position came through Ginger, which merged with Headspace in 2021 \u2014 the ginger-io row is the antecedent and the pair is flagged for identity-merges.json. The row's entry stage describes the Headspace Health entity, not Khosla's original Ginger entry. | focus from the firm's own category 'Digital Health'",
+  "note": "Khosla's position came through Ginger, which merged with Headspace in 2021 \u2014 the ginger-io row is the antecedent and the pair is flagged for identity-merges.json. The row's entry stage describes the Headspace Health entity, not Khosla's original Ginger entry. | focus from the firm's own category 'Digital Health' | Aligned 2026-10-06 from the Bessemer run (PRO-80, rule 10): Khosla's position is Ginger, which merged with Headspace in 2021 ('In August 2021, Headspace merged with Ginger', Wikipedia, 'Headspace (company)', https://en.wikipedia.org/wiki/Headspace_(company)); a merger into a successor reads acquired (COLLECTION.md s6), and the stock in the merged Headspace Health is sale consideration, so the row reads acquired, as the Bessemer book reads Ginger.",
   "slug": "headspace-health",
-  "status": "private",
-  "valuation_range": "below_1b"
+  "status": "acquired",
+  "valuation_range": "below_1b",
+  "who": "agent-judge-pro80"
  },
  "healthifyme": {
   "confidence": "low",
@@ -5398,17 +5408,17 @@
   "entry_stage_source": "formd_structural",
   "flags": [
    "formd_adjudicated",
-   "status_uncertain",
    "unannounced_deal"
   ],
   "focus": "AI & Applied AI",
   "focus_source": "model",
   "hq_city": "Toronto",
   "hq_city_source": "formd_address",
-  "note": "confirmed through the a16z director-of-record pattern: a Khosla partner named on the filing, inside tenure, on an issuer that resolves. The firm publishes no announcement archive, so the deal is unannounced by construction. Flagged for the A/B pass. Entry stage from the filing structure: 0 prior filing(s), $68.5M offering in 2025. | focus from judged from the row's own name and note ('ai')",
+  "note": "confirmed through the a16z director-of-record pattern: a Khosla partner named on the filing, inside tenure, on an issuer that resolves. The firm publishes no announcement archive, so the deal is unannounced by construction. Flagged for the A/B pass. Entry stage from the filing structure: 0 prior filing(s), $68.5M offering in 2025. | focus from judged from the row's own name and note ('ai') | Cross-book alignment 2026-10-06: Reka took over Moonvalley in 2026; the two companies' release of 2026-06-11 says Reka 'has joined forces with Moonvalley' (PR Newswire, read: https://www.prnewswire.com/news-releases/reka-and-moonvalley-join-forces-to-advance-models-and-infrastructure-for-physical-ai-302797869.html), and Digital Today reported on 2026-05-10 that Reka 'has acquired' Moonvalley 'in an all-share exchange deal', so the status moves from private to acquired, as in the Bessemer and General Catalyst books.",
   "slug": "moonvalley-ai-inc",
-  "status": "private",
-  "valuation_range": "below_1b"
+  "status": "acquired",
+  "valuation_range": "below_1b",
+  "who": "agent-judge-pro80"
  },
  "moonwalk-biosciences": {
   "confidence": "medium",
@@ -6754,12 +6764,12 @@
   "graduation_source": "formd",
   "hq_city": "Boston",
   "hq_city_source": "formd_address",
-  "note": "Formd $6.7M 2013-08-14 seed to $15.0M 2014q4 filing; matches press ($25M a16z-led round Nov 2016 also followed); layer agrees.",
+  "note": "Formd $6.7M 2013-08-14 seed to $15.0M 2014q4 filing; matches press ($25M a16z-led round Nov 2016 also followed); layer agrees. | Cross-book alignment 2026-10-06: Quantopian 'is shutting its doors' and its co-founders and most of the staff joined Robinhood, with no purchase of the company or platform on record (Neudata, 2020-11-11, read: https://neudata.co/alternative-data-news/quantopian-shuts-its-doors-co-founders-join-robinhood); under the acqui-hire rule of 2026-09-20 the hire does not decide the status and the company shut down, so the status moves from acquired to defunct.",
   "seed_to_a_graduation": "graduated",
   "slug": "quantopian",
-  "status": "acquired",
+  "status": "defunct",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-khosla-ventures"
+  "who": "agent-judge-pro80"
  },
  "quanttus": {
   "confidence": "medium",
@@ -7520,6 +7530,7 @@
   "entry_stage": "Growth",
   "entry_stage_source": "model",
   "flags": [
+   "cite_pending",
    "stage_uncited"
   ],
   "focus": "SaaS",
@@ -7527,11 +7538,18 @@
   "hq_city": "Bangalore",
   "hq_city_source": "model_knowledge",
   "hq_country": "IN",
-  "hq_country_source": "model_knowledge",
-  "note": "Indian-language foundation models, Bangalore; Khosla listed it on the live Enterprise surface. A genuinely Indian row on a US desk. | focus from the firm's own category 'Enterprise'",
+  "hq_country_citation": "https://en.wikipedia.org/wiki/Sarvam_AI",
+  "hq_country_source": "web_verified",
+  "note": "Indian-language foundation models, Bangalore; Khosla listed it on the live Enterprise surface. A genuinely Indian row on a US desk. | focus from the firm's own category 'Enterprise' | Aligned 2026-10-06 from the Bessemer run (PRO-80, rule 10): 'Sarvam boost valuation to US$1.5B with US$234M fundraiser' (Frontier Enterprise, June 2026): HCLTech and Bessemer invested, with Khosla Ventures and Peak XV continuing.",
   "slug": "sarvam-ai",
   "status": "private",
-  "valuation_range": "below_1b"
+  "valuation_asof": "2026-06",
+  "valuation_citation": "https://www.frontier-enterprise.com/sarvam-boost-valuation-to-1-5-billion-with-234-million-fundraiser/",
+  "valuation_range": "1b_plus",
+  "valuation_range_source": "web_verified",
+  "valuation_source": "web_verified",
+  "valuation_usd": 1500000000,
+  "who": "agent-judge-pro80"
  },
  "scaled-inference": {
   "confidence": "medium",
@@ -9557,14 +9575,15 @@
   "flags": [
    "stage_uncited"
   ],
-  "hq_city": "Venice",
+  "hq_city": "Los Angeles",
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "short-form video sharing; pivoted to Supernova and wound down | cross-investor alignment: another landed base carries a positive acquisition record for Viddy",
+  "note": "short-form video sharing; pivoted to Supernova and wound down | cross-investor alignment: another landed base carries a positive acquisition record for Viddy | Aligned 2026-10-06 from the Bessemer run (PRO-80, rule 10): Venice is a neighbourhood of the City of Los Angeles, and hq_city holds the municipality, not the district (COLLECTION.md s6, as Brooklyn reads New York), so Venice reads Los Angeles, as in the New Enterprise Associates book.",
   "slug": "viddy",
   "status": "acquired",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-pro80"
  },
  "view-glass": {
   "confidence": "medium",
