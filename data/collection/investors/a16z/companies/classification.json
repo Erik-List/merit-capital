@@ -236,6 +236,9 @@
   "valuation_range": "below_1b"
  },
  "abridge": {
+  "cleared_flags": [
+   "unicorn_name_match"
+  ],
   "entry_stage": "Growth",
   "entry_stage_citation": "https://techcrunch.com/2025/06/24/in-just-4-months-ai-medical-scribe-abridge-doubles-valuation-to-5-3b/",
   "entry_stage_confidence": "high",
@@ -246,8 +249,14 @@
   "hq_city": "Pittsburgh",
   "hq_city_confidence": "high",
   "hq_city_source": "model_knowledge",
-  "note": "AI clinical documentation; a16z led the $300M Series E at ~$5.3B (Jun 2025) | TechCrunch: a16z led the $300M Series E at $5.3B (Jun 2025), its Abridge entry",
-  "slug": "abridge"
+  "note": "AI clinical documentation; a16z led the $300M Series E at ~$5.3B (Jun 2025) | TechCrunch: a16z led the $300M Series E at $5.3B (Jun 2025), its Abridge entry | Aligned 2026-10-06 from the Bessemer run (PRO-80, rule 10): the $300M Series E of 2025-06-24, led by Andreessen Horowitz, valued Abridge at $5.3B (TechCrunch, 'In just 4 months, AI medical scribe Abridge doubles valuation to $5.3B'), which replaces the unicorn list's $2.75B.",
+  "slug": "abridge",
+  "valuation_asof": "2025-06-24",
+  "valuation_citation": "https://techcrunch.com/2025/06/24/in-just-4-months-ai-medical-scribe-abridge-doubles-valuation-to-5-3b/",
+  "valuation_range_source": "web_verified",
+  "valuation_source": "web_verified",
+  "valuation_usd": 5300000000,
+  "who": "agent-judge-pro80"
  },
  "acceler8": {
   "entry_stage": "Pre-Seed",
@@ -9262,15 +9271,17 @@
   "entry_stage_citation": "https://www.tradingview.com/news/reuters.com,2025:newsml_L6N3UC08C:0-eliseai-raises-250-million-in-a16z-led-round-to-expand-in-healthcare/",
   "entry_stage_source": "web_verified",
   "flags": [],
-  "note": "a16z led the $250M Series E (Aug 2025) at $2.2B - pin at web pass | Reuters confirms a16z-led $250M Series E at $2.2B+ (Aug 2025); 2026 press report of a $300M raise targeting $3.7B not confirmed closed",
+  "note": "a16z led the $250M Series E (Aug 2025) at $2.2B - pin at web pass | Reuters confirms a16z-led $250M Series E at $2.2B+ (Aug 2025); 2026 press report of a $300M raise targeting $3.7B not confirmed closed | Aligned 2026-10-06 from the Bessemer run (PRO-80, rule 10): EliseAI raised $350M at a $4B valuation in the round announced on 2026-09-30, co-led by Andreessen Horowitz and Bessemer (citybiz, 'EliseAI Raises $350M at $4B Valuation'), which supersedes the $2.2B of the August 2025 Series E.",
   "slug": "eliseai",
   "status": "private",
-  "valuation_asof": "2025-08",
-  "valuation_citation": "https://www.tradingview.com/news/reuters.com,2025:newsml_L6N3UC08C:0-eliseai-raises-250-million-in-a16z-led-round-to-expand-in-healthcare/",
+  "valuation_asof": "2026-09-29",
+  "valuation_citation": "https://www.citybiz.co/article/911372/eliseai-raises-350m-at-4b-valuation-to-expand-ai-automation-platform/",
   "valuation_confidence": "high",
   "valuation_range": "1b_plus",
+  "valuation_range_source": "web_verified",
   "valuation_source": "web_verified",
-  "valuation_usd": 2200000000
+  "valuation_usd": 4000000000,
+  "who": "agent-judge-pro80"
  },
  "elite-sweets": {
   "entry_date": "2021-06",
@@ -20326,23 +20337,22 @@
   "entry_stage": "undetermined",
   "entry_stage_confidence": "low",
   "entry_stage_source": null,
-  "flags": [
-   "city_unknown",
-   "country_prior",
-   "identity_unresolved"
-  ],
+  "flags": [],
   "focus": null,
+  "hq_city": "Boston",
+  "hq_city_source": "web_verified",
   "hq_country": "US",
+  "hq_country_citation": "https://en.globes.co.il/en/article-neo-security-raises-100m-to-secure-ai-agents-1001549871",
   "hq_country_confidence": "low",
-  "hq_country_source": "model_knowledge",
-  "note": "identity unresolved (several Neo-named organizations) | UNRESOLVABLE (PRO-136): identity unresolved (several Neo-named organizations). The Seed was the firm's era convention applied to a company nobody could name, and the deterministic country or status match that sits on these rows is a join on the bare name. Stage, band and graduation read undetermined and the row leaves every metric; the firm's own listing keeps it a member.",
+  "hq_country_source": "web_verified",
+  "note": "identity unresolved (several Neo-named organizations) | UNRESOLVABLE (PRO-136): identity unresolved (several Neo-named organizations). The Seed was the firm's era convention applied to a company nobody could name, and the deterministic country or status match that sits on these rows is a join on the bare name. Stage, band and graduation read undetermined and the row leaves every metric; the firm's own listing keeps it a member. | Aligned 2026-10-06 from the Bessemer run (PRO-80, rule 10): the row is identified: a16z's own announcement of 2026-07-20 is for Neo Security (endpoint security for AI agents; founders Nicholas Warner, Shlomi Salem and Eran Shirazi), which raised $100M from Andreessen Horowitz and Bessemer with no valuation disclosed, and Globes (2026-07-20) reads 'Headquartered in Boston, the company's development center is in Tel Aviv'; so private, below $1B, Boston.",
   "seed_to_a_graduation": "undetermined",
   "slug": "neo",
-  "status": "unknown",
+  "status": "private",
   "valuation_confidence": "low",
-  "valuation_range": "undetermined",
+  "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-pro136-a16z"
+  "who": "agent-judge-pro80"
  },
  "neon-commerce": {
   "entry_stage": "Pre-Seed",
@@ -20417,13 +20427,13 @@
   "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_source": "model_knowledge",
-  "note": "SDxCentral (2021-11-15): Netography's $45M Series A \"follows a $2.6 million seed funding round in 2019\" (matches known.note's a16z-led seed, 2019); the Series A is explicitly named -> graduated regardless of amount. The seed citation gives amount/year but does not tie a16z by name, so the stage stays uncited (stage_uncited, low confidence) while the graduation decides the row on its own citation per the uncited-stage rule.",
+  "note": "SDxCentral (2021-11-15): Netography's $45M Series A \"follows a $2.6 million seed funding round in 2019\" (matches known.note's a16z-led seed, 2019); the Series A is explicitly named -> graduated regardless of amount. The seed citation gives amount/year but does not tie a16z by name, so the stage stays uncited (stage_uncited, low confidence) while the graduation decides the row on its own citation per the uncited-stage rule. | Cross-book alignment 2026-10-06: Vectra AI 'today announced the acquisition of Netography' on 2025-10-02 (Vectra's release on PR Newswire, read: https://www.prnewswire.com/news-releases/vectra-ai-acquires-netography-to-expand-its-ai-driven-cybersecurity-platform-with-pioneering-cloud-native-network-observability-302573297.html), and netography.com now redirects to vectra.ai, so the status moves from private to acquired.",
   "seed_to_a_graduation": "graduated",
   "slug": "netography",
-  "status": "private",
+  "status": "acquired",
   "valuation_confidence": "high",
   "valuation_range": "below_1b",
-  "who": "agent-judge-s2a-a16z"
+  "who": "agent-judge-pro80"
  },
  "netris": {
   "entry_date": "2026-06-25",
@@ -24715,11 +24725,12 @@
   "hq_city": "Boston",
   "hq_city_confidence": "high",
   "hq_city_source": "formd_address",
-  "note": "a16z portfolio page marks it acquired by Robinhood | crowdsourced quant platform; a16z joined by the $25M Series C era (2016 filing); wound down 2020, team to Robinhood",
+  "note": "a16z portfolio page marks it acquired by Robinhood | crowdsourced quant platform; a16z joined by the $25M Series C era (2016 filing); wound down 2020, team to Robinhood | Aligned 2026-10-06 from the Bessemer run (PRO-80, rule 10): 'In November 2020, Quantopian announced it would shut down after 9 years of operation' (Wikipedia, 'Quantopian', https://en.wikipedia.org/wiki/Quantopian; Bloomberg, 2020-12-16, https://www.bloomberg.com/news/articles/2020-12-16/quant-trading-platform-quantopian-closes-down); the team went to Robinhood and no source read reports a purchase of the company or its business, so under the acqui-hire rule (COLLECTION.md s6, Erik 2026-09-20) the hire decides nothing and the shut-down company reads defunct.",
   "slug": "quantopian",
-  "status": "acquired",
+  "status": "defunct",
   "valuation_confidence": "high",
-  "valuation_range": "below_1b"
+  "valuation_range": "below_1b",
+  "who": "agent-judge-pro80"
  },
  "queenly": {
   "entry_date": "2021-07",
@@ -24880,22 +24891,22 @@
   "entry_stage_confidence": "low",
   "entry_stage_source": null,
   "flags": [
-   "city_unknown",
-   "country_prior",
-   "identity_unresolved"
+   "country_prior"
   ],
   "focus": null,
+  "hq_city": "Redwood City",
+  "hq_city_source": "model_knowledge",
   "hq_country": "US",
   "hq_country_confidence": "low",
   "hq_country_source": "model_knowledge",
-  "note": "identity unresolved (rabb.it co-watching vs rabbit r1; neither has a documented a16z round) | UNRESOLVABLE (PRO-136): identity unresolved (rabb.it co-watching vs rabbit r1; neither has a documented a16z round). The Seed was the firm's era convention applied to a company nobody could name, and the deterministic country or status match that sits on these rows is a join on the bare name. Stage, band and graduation read undetermined and the row leaves every metric; the firm's own listing keeps it a member.",
+  "note": "identity unresolved (rabb.it co-watching vs rabbit r1; neither has a documented a16z round) | UNRESOLVABLE (PRO-136): identity unresolved (rabb.it co-watching vs rabbit r1; neither has a documented a16z round). The Seed was the firm's era convention applied to a company nobody could name, and the deterministic country or status match that sits on these rows is a join on the bare name. Stage, band and graduation read undetermined and the row leaves every metric; the firm's own listing keeps it a member. | Aligned 2026-10-06 from the Bessemer run (PRO-80, rule 10): the row is identified from a16z's own portfolio data, which links Rabbit to rabb.it, names its founders Philippe Clavel and Greg Fischbach and marks it 'm&a'; the service shut down in July 2019 and on 2019-07-31 its remaining assets (intellectual property, software stack and patents) were acquired by Kast (Wikipedia, Rabb.it: https://en.wikipedia.org/wiki/Rabb.it), an asset sale that reads acquired with Kast as successor, as in the GV book, whose row gives Redwood City from Rabbit, Inc.'s 2015 Form D address.",
   "seed_to_a_graduation": "undetermined",
   "slug": "rabbit",
-  "status": "unknown",
+  "status": "acquired",
   "valuation_confidence": "low",
-  "valuation_range": "undetermined",
+  "valuation_range": "below_1b",
   "valuation_usd": null,
-  "who": "agent-pro136-a16z"
+  "who": "agent-judge-pro80"
  },
  "rademploy": {
   "entry_stage": "undetermined",
