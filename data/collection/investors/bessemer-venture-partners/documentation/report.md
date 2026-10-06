@@ -70,8 +70,8 @@ candidates the playbook already requires a holder-table reading for. The 27 name
 | Era boundary ruled, visible in flags | D8, R9; the table above |
 | Profile through the taxonomy gate | `investor.json` + `sources.json` built; `build-firm-profile` and `profile_copy` pass |
 | `review.html` rendered and checked | 950 rows, served at localhost:8931 and checked: rows flat, the profile panel expands with every field's source |
-| Cross-investor (rule 10) | 559 shared rows: 529 agree, 30 accepted while 76 sibling rows in 22 books await alignment, 0 disagree; 93 namesake pairs ruled distinct (section 9) |
-| Report, close, commit, ingest, Linear, closing message | See section 16 |
+| Cross-investor (rule 10) | 561 shared rows: 560 agree, 1 accepted, 0 disagree after the alignment; 76 sibling rows in 22 books aligned and re-ingested; 93 namesake pairs ruled distinct (sections 9 and 16) |
+| Report, close, commit, ingest, Linear, closing message | Done: closing commit `605940c5`, 950 companies live with an exact readback, 22 sibling books aligned (section 16) |
 
 ## 2. Results
 
@@ -248,7 +248,10 @@ session. The full text is `scratch/writeback-notes.md`; in brief:
 
 950 base rows. First sitting (2026-10-01, Fable lead and Fable judges, then Sonnet): weekly all-models 73% at
 kickoff, 95% at the park; Fable weekly 8% to 46%. Second sitting (2026-10-06, after the weekly reset, Opus lead and
-judges): the reading at close is in section 16. WebSearch: about 160 of the session's 200 calls.
+judges): weekly all-models 1% at the resume, 13% at close; Fable weekly 0% to 4%; the five-hour window 27% at
+close. So the run cost about 34 points of weekly allowance in all (22 on the Fable sitting for the first 932
+judgments, 12 on the Opus sitting for everything after), roughly 0.036 points per company. WebSearch: about 160 of
+the session's 200 calls.
 
 ## 15. Prompt count
 
@@ -256,4 +259,36 @@ judges): the reading at close is in section 16. WebSearch: about 160 of the sess
 
 ## 16. Ingest
 
-Written at the ingest; see the end of this file.
+**Bessemer (first ingest), 2026-10-06, through the §9 gate, no approval prompt.** Preconditions: plain `verify`
+clean, `run.py close`, closing commit `605940c5`. Icon uploaded (`fetch-investor-icon.ts`, the header mark as SVG:
+contrast 13.0:1, ramp 0.82 px). `ingest-investor.ts`: 1 record upserted (it added "Canada" to the database's
+geography labels; eight other books already publish it). `ingest-companies.ts --dry-run`: "950 row(s) upserted
+(950 new), 0 removed, from 0 live", so the removal check had nothing to explain. Write: 950 of 950. **Readback:
+csv 950, live 950, missing 0, extra 0, differing cells 0.** The icon URL and the ingest logs are commit `35801b89`.
+
+**Sibling alignment, the same day** (`scratch/align/run-align.py`, then two repair passes; results in
+`scratch/align/results.txt`, `results2.txt`, `results3.txt`). Every book: its own `verify` clean before, readback
+before exact, the kit recorded, `verify` clean after, dry run with 0 removals, write, readback after exact, one
+commit of its three company files.
+
+| Pass | Books aligned (rows) |
+|---|---|
+| 1 | 8vc (3), accel (3), battery-ventures (6), benchmark (2), coatue (1), first-round-capital (1), headline (1), insight-partners (7), lux-capital (1), menlo-ventures (4), new-enterprise-associates (2), redpoint-ventures (3), sequoia-capital (3), tcv (1), thrive-capital (1) |
+| 2 | greylock (5), after a country citation was added for Upwind, which the kit lifts to $1B+ |
+| 3 | a16z (6), cherry (1), khosla-ventures (6), lightspeed (12), spark-capital (1), y-combinator (6) |
+
+**22 books, 76 rows.** What the repair passes fixed, none of it skipped: a row lifted to $1B+ outside the US needs
+its country citation in the same line (Upwind, Sarvam, The Exploration Company); Cherry verifies with
+`--skip-links` (no EDGAR link to sample); Y Combinator's readback shows one missing and one extra row that are the
+same name after trimming (" Metadata"), which is exact; and five books fail rule 10 against each other until all of
+them carry the shared company's new value, so they move together.
+
+Not written: the in-flight books (atomico, bain-capital-ventures, founders-fund, general-catalyst, speedinvest).
+Five General Catalyst pairs are parked as `accepted` in `companies/cross-rulings.json` with the value owed (Shift
+Technology's country, Visor's status, ClickHouse's city, HiBob's mark, an unidentified Rabbit row). After the
+alignment Bessemer's own `verify` reads 561 shared rows, 560 agree, 1 accepted (Exclara), 0 disagree
+(`scratch/verify-4.txt`).
+
+**Debt carried out of the run**: the 19 sector pages of 1999 to 2001 still owed by the Internet Archive
+(`scratch/ia-owed-pages.json`; `python3 scratch/ia-pre2008.py --people-only`, then `bvp-parse.py`, a rebuild and a
+small delta); the three rulings of section 11; the playbook write-backs of section 13.
