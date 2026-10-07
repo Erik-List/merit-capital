@@ -1,5 +1,7 @@
 # Founders Fund run progress (PRO-81)
 
+**CLOSED 2026-10-07: 293 companies ingested, readback exact; see report.md. Everything below is the mid-run resume note, kept as history.** Debt for a later pass: the unread /company/ page bodies and the 2005-07 press releases (Internet Archive block), Erik's three rulings (report.md section 8).
+
 Resume point for any session. Read COLLECTION.md, then this file, then
 `python3 scripts/run.py status --investor founders-fund`.
 

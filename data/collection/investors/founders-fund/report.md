@@ -67,6 +67,12 @@ The 2026 ADV lists 48 private funds, 17 of them deal vehicles.
 - §9: sworn government disclosures (OGE Form 278e) carry a statutory use restriction; ask before using one.
 - Tooling: `graduation-surfaces.py` fails without `investor/investor.json`, so the profile has to exist before the seed-to-A pass.
 
-## 10. Usage
+## 10. Ingest (2026-10-07, through the s9 gate)
 
-Finishing session: weekly 1% and Fable 0% at kickoff; 293 rows.
+- Closing commit 9f13091a, then icon, investor row, dry run (293 new, 0 removed, from 0 live), write, readback: **293 live, 0 differing cells**.
+- The icon is the firm's four-band square mark, redrawn as a vector from the site's 152 px image (the site declares no vector of it); provenance in `investor/sources.json`.
+- Eleven sibling books re-ingested after their alignment (Tiger, Coatue, Sequoia, First Round, a16z, Lux, Battery, Menlo, 8VC, Greylock, Y Combinator): each readback before the write showed exactly the aligned cells (1 to 3), each dry run 0 new and 0 removed, each readback after 0 differing cells. Y Combinator shows its known one-row name artefact (a leading space the readback tool does not trim).
+
+## 11. Usage
+
+Finishing session: weekly 1% and Fable 0% at kickoff; weekly 22% and Fable 5% at close; 293 rows.
