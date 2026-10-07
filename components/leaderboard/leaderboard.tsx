@@ -22,8 +22,9 @@ import {
 } from "@/components/leaderboard/list-model";
 import { hqOption } from "@/lib/company-geo";
 import type { ListData } from "@/lib/list-data";
-import { FOCUS_VALUES, canonicalizeGeo } from "@/lib/taxonomy";
+import { canonicalizeGeo } from "@/lib/taxonomy";
 import { cn } from "@/lib/utils";
+import { formatAsOf } from "@/utils/format";
 
 const defaultView: ViewState = {
   valuation: true,
@@ -39,17 +40,11 @@ const VIEW_NONE = "none";
 const STAGE_TOKENS = ["pre-seed", "seed", "series-a", "growth"] as const;
 const ALL_STAGES_TOKEN = "all";
 
-// "Fintech & Payments" -> "fintech-payments".
-const SECTOR_TOKENS = FOCUS_VALUES.map((focus) =>
-  focus
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, ""),
-);
-
-// Params of the list before it filtered over companies. They mean nothing
+// Params of the list before it filtered over companies, and the sector
+// filter removed on 2026-10-06 (PRO-174): one sector per company misled more
+// than it narrowed, and the category rework replaces it. They mean nothing
 // now, so the first write drops them instead of carrying them forever.
-const LEGACY_PARAMS = ["stages", "investment-geography", "scope", "investment-range", "median", "sort"];
+const LEGACY_PARAMS = ["stages", "investment-geography", "scope", "investment-range", "median", "sort", "sector"];
 
 // URL writes go through history.replaceState instead of router.replace:
 // Next 14.2+ syncs useSearchParams with native history calls without a
@@ -71,11 +66,6 @@ function useUrlState() {
     if (token === ALL_STAGES_TOKEN) return null;
     const index = (STAGE_TOKENS as readonly string[]).indexOf(token);
     return index >= 0 ? (index as StageIndex) : DEFAULT_STAGE;
-  })();
-
-  const sector: number | null = (() => {
-    const index = SECTOR_TOKENS.indexOf((params.get("sector") || "").trim().toLowerCase());
-    return index >= 0 ? index : null;
   })();
 
   // Repeated `hq` params, one per location. Unknown slugs are dropped.
@@ -100,7 +90,6 @@ function useUrlState() {
   const set = (next: {
     search?: string;
     stage?: StageFilter;
-    sector?: number | null;
     hq?: string[];
     view?: ViewState;
   }) => {
@@ -113,10 +102,6 @@ function useUrlState() {
     if (next.stage !== undefined) {
       if (next.stage === DEFAULT_STAGE) usp.delete("stage");
       else usp.set("stage", next.stage === null ? ALL_STAGES_TOKEN : STAGE_TOKENS[next.stage]);
-    }
-    if (next.sector !== undefined) {
-      if (next.sector === null) usp.delete("sector");
-      else usp.set("sector", SECTOR_TOKENS[next.sector]);
     }
     if (next.hq !== undefined) {
       usp.delete("hq");
@@ -131,7 +116,7 @@ function useUrlState() {
     replaceUrl(pathname, usp);
   };
 
-  return { search, stage, sector, hq, view, set };
+  return { search, stage, hq, view, set };
 }
 
 function strings(value: unknown): string[] {
@@ -164,7 +149,7 @@ function matchesSearch(stats: InvestorStats, term: string): boolean {
 export default function Leaderboard() {
   const [data, setData] = useState<ListData | null>(null);
   const [failed, setFailed] = useState(false);
-  const { search, stage, sector, hq, view, set } = useUrlState();
+  const { search, stage, hq, view, set } = useUrlState();
 
   useEffect(() => {
     let cancelled = false;
@@ -178,7 +163,7 @@ export default function Leaderboard() {
       })
       .catch((e) => {
         // eslint-disable-next-line no-console
-        console.error("Failed to fetch the investor list", e);
+        console.error("Failed to fetch the investor index", e);
         if (!cancelled) setFailed(true);
       });
     return () => {
@@ -204,8 +189,10 @@ export default function Leaderboard() {
   }, []);
 
   const index = useMemo(() => (data ? buildIndex(data) : null), [data]);
+  // The day the values were last ingested, for the masthead.
+  const asOf = formatAsOf(data?.asOf);
 
-  const filters: Filters = useMemo(() => ({ stage, sector, hq }), [stage, sector, hq]);
+  const filters: Filters = useMemo(() => ({ stage, hq }), [stage, hq]);
 
   const ranking = useMemo(() => {
     if (!index) return null;
@@ -221,8 +208,6 @@ export default function Leaderboard() {
   const filterProps = {
     stage,
     onStageChange: (next: StageFilter) => set({ stage: next }),
-    sector,
-    onSectorChange: (next: number | null) => set({ sector: next }),
     hq,
     onHqChange: (next: string[]) => set({ hq: next }),
     view,
@@ -233,7 +218,7 @@ export default function Leaderboard() {
   // signal that results are being narrowed. The entry stage is not counted,
   // its chips are always in sight; nor are the `view` toggles, which only
   // change what each row shows.
-  const activeFilterCount = (sector !== null ? 1 : 0) + (hq.length > 0 ? 1 : 0);
+  const activeFilterCount = hq.length > 0 ? 1 : 0;
 
   return (
     // Viewport-bound on md+, the same way the investor profile is: the page
@@ -249,8 +234,16 @@ export default function Leaderboard() {
         <header className="mb-6 shrink-0 [text-shadow:0_1px_2px_rgb(0_0_0/0.5)]">
           <h1 className="text-xl font-medium sm:text-2xl">The venture capital performance index</h1>
           <p className="mt-1 max-w-3xl text-sm text-foreground/85">
-            Compare venture investors on how their portfolio companies turned out, stage by stage. Filter by sector and
-            headquarters to narrow the companies counted.{" "}
+            Compare venture investors on how their portfolio companies turned out, stage by stage
+            {asOf ? `, as of ${asOf}` : ""}. Filter by headquarters to narrow the companies counted.{" "}
+            <Link href="/methodology" className="underline underline-offset-2 hover:text-foreground">
+              Methodology
+            </Link>{" "}
+            <span aria-hidden="true">·</span>{" "}
+            <Link href="/why" className="underline underline-offset-2 hover:text-foreground">
+              Why
+            </Link>{" "}
+            <span aria-hidden="true">·</span>{" "}
             <Link href="/about" className="underline underline-offset-2 hover:text-foreground">
               About
             </Link>
@@ -291,7 +284,7 @@ export default function Leaderboard() {
                 Filtered set: {filteredSetLabel(filters)}
               </p>
             ) : null}
-            <InvestorsTable ranking={ranking} loading={!data} failed={failed} stage={stage} view={view} />
+            <InvestorsTable ranking={ranking} loading={!data} failed={failed} search={search} stage={stage} view={view} />
           </div>
         </div>
       </div>

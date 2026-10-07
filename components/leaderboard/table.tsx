@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import InvestorRow from "@/components/leaderboard/investor-row";
+import RequestInvestorRow from "@/components/leaderboard/request-investor-row";
 import type { ViewState } from "@/components/leaderboard/filters/view";
 import type { InvestorStats, Ranking, StageFilter } from "@/components/leaderboard/list-model";
 
@@ -9,6 +10,8 @@ interface InvestorsTableProps {
   ranking: Ranking | null;
   loading?: boolean;
   failed?: boolean;
+  /** The search term; a search with no match offers it as a request. */
+  search: string;
   stage: StageFilter;
   view: ViewState;
 }
@@ -21,7 +24,7 @@ function Divider({ children }: { children: ReactNode }) {
   );
 }
 
-export default function InvestorsTable({ ranking, loading, failed, stage, view }: InvestorsTableProps) {
+export default function InvestorsTable({ ranking, loading, failed, search, stage, view }: InvestorsTableProps) {
   const row = (stats: InvestorStats) => <InvestorRow key={stats.investor.id} stats={stats} stage={stage} view={view} />;
 
   const items: ReactNode[] = [];
@@ -61,7 +64,7 @@ export default function InvestorsTable({ ranking, loading, failed, stage, view }
             The investor data could not be loaded. Reload to try again.
           </p>
         ) : loading || ranking === null ? null : items.length === 0 ? (
-          <p className="px-4 py-6 text-sm text-muted-foreground">No investor matches the search.</p>
+          <RequestInvestorRow search={search} />
         ) : (
           <ul className="text-sm">{items}</ul>
         )}

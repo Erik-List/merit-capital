@@ -79,6 +79,27 @@ export type Database = {
           },
         ]
       }
+      investor_requests: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          investor_name: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          investor_name: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          investor_name?: string
+        }
+        Relationships: []
+      }
       investors: {
         Row: {
           affiliation: Json | null

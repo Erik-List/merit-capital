@@ -39,6 +39,15 @@ const EXAMPLE_GROUPS: { endpoint: string; examples: Example[] }[] = [
       },
     ],
   },
+  {
+    endpoint: "/data/investor_requests",
+    examples: [
+      {
+        label: "The latest requested investors (email is not readable, so the columns are named)",
+        path: "/data/investor_requests?select=id,created_at,investor_name&order=created_at.desc&limit=20",
+      },
+    ],
+  },
 ];
 
 // Path in full white, query string dimmed: the endpoint reads at a glance,
@@ -92,6 +101,12 @@ export default function ApiReferencePage() {
             >
               /data/companies
             </a>
+            <a
+              href="/data/investor_requests?select=id,created_at,investor_name&limit=5"
+              className="mt-1 block font-mono text-sm hover:underline"
+            >
+              /data/investor_requests
+            </a>
           </div>
           <div className="glass rounded-md border border-input/30 px-4 py-3">
             <div className="text-xs uppercase tracking-widest text-muted-foreground">
@@ -111,6 +126,7 @@ export default function ApiReferencePage() {
             ["#examples", "Examples"],
             ["#investors", "GET /data/investors"],
             ["#companies", "GET /data/companies"],
+            ["#investor_requests", "GET /data/investor_requests"],
           ].map(([href, label]) => (
             <a
               key={href}

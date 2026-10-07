@@ -1,7 +1,6 @@
 "use client";
 
 import EntryStageFilter from "@/components/leaderboard/filters/entry-stage-filter";
-import SectorFilter from "@/components/leaderboard/filters/sector-filter";
 import HeadquarterFilter from "@/components/leaderboard/filters/headquarter-filter";
 import ViewFilter, { type ViewState } from "@/components/leaderboard/filters/view";
 import type { StageFilter } from "@/components/leaderboard/list-model";
@@ -10,8 +9,6 @@ import { cn } from "@/lib/utils";
 export interface FilterCardProps {
   stage: StageFilter;
   onStageChange: (next: StageFilter) => void;
-  sector: number | null;
-  onSectorChange: (next: number | null) => void;
   hq: string[];
   onHqChange: (next: string[]) => void;
   view: ViewState;
@@ -25,8 +22,6 @@ export interface FilterCardProps {
 export default function FilterCard({
   stage,
   onStageChange,
-  sector,
-  onSectorChange,
   hq,
   onHqChange,
   view,
@@ -59,8 +54,6 @@ export default function FilterCard({
             <div className="h-px bg-input/30 mx-1" />
           </>
         ) : null}
-        <SectorFilter collapsible={sidebar} value={sector} onChange={onSectorChange} />
-        <div className="h-px bg-input/30 mx-1" />
         <HeadquarterFilter collapsible={sidebar} value={hq} onChange={onHqChange} />
         <div className="h-px bg-input/30 mx-1" />
         <ViewFilter collapsible={sidebar} value={view} onChange={onViewChange} />

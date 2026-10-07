@@ -45,6 +45,8 @@ export function formatInvestmentRange(lower: number | null | undefined, upper: n
   
   if (lower === null || lower === undefined) return `Up to ${upperFormatted}`;
   if (upper === null || upper === undefined) return `From ${lowerFormatted}`;
+  // One figure when both ends are the same (Y Combinator: $500K), not "$500K – $500K".
+  if (lower === upper) return lowerFormatted;
   
   return `${lowerFormatted} – ${upperFormatted}`;
 }
@@ -60,3 +62,19 @@ export function formatStandardInvestment(amount: number | null | undefined): str
   const formattedAmount = formatInvestmentValue(amount);
   return `Standard: ${formattedAmount}`;
 } 
+
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+/**
+ * Formats the date a value was current
+ * @param iso - Timestamp or date string
+ * @returns Formatted string (e.g., "1. Oct '26"), null without a readable date
+ */
+export function formatAsOf(iso: string | null | undefined): string | null {
+  if (!iso) return null;
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return null;
+  // The UTC parts, so the server and every browser print the same day.
+  const year = String(date.getUTCFullYear() % 100).padStart(2, '0');
+  return `${date.getUTCDate()}. ${MONTHS[date.getUTCMonth()]} '${year}`;
+}

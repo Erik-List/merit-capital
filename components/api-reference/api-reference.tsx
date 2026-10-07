@@ -95,6 +95,19 @@ const ENDPOINT_GROUPS: { name: string; groups: FieldGroup[] }[] = [
       },
     ],
   },
+  {
+    name: "investor_requests",
+    groups: [
+      {
+        label: "Request",
+        fields: ["id", "investor_name", "email"],
+      },
+      {
+        label: "Metadata",
+        fields: ["created_at"],
+      },
+    ],
+  },
 ];
 
 // Boilerplate phrases that repeat across many column comments. Rendered as
@@ -105,6 +118,7 @@ const DERIVED_PREFIX =
   /^Derived, machine-owned: recomputed from public\.companies by recompute_investor_metrics on every companies write; never write directly\.\s*/;
 const INSTITUTIONS_PREFIX = /^Institutions only:\s*/;
 const INDIVIDUALS_PREFIX = /^Individual investors only:\s*/;
+const NOT_READABLE_PREFIX = /^Not readable:\s*/;
 const PK_NOTE = /Note:\s*This is a Primary Key\.<pk\/>/;
 const FK_NOTE = /Note:\s*This is a Foreign Key to [\s\S]*?<fk[^>]*\/>/;
 
@@ -131,6 +145,11 @@ function parseDescription(property: SpecProperty): {
   if (INDIVIDUALS_PREFIX.test(text)) {
     badges.push("individuals only");
     text = text.replace(INDIVIDUALS_PREFIX, "").trim();
+  }
+  if (NOT_READABLE_PREFIX.test(text)) {
+    badges.push("not readable");
+    text = text.replace(NOT_READABLE_PREFIX, "").trim();
+    text = text.charAt(0).toUpperCase() + text.slice(1);
   }
 
   return { badges, text };

@@ -1,4 +1,4 @@
-// Headquarter options for the investor list: one mixed list of cities and
+// Headquarter options for the investor index: one mixed list of cities and
 // metros, countries and regions, matched against companies.hq_city and
 // companies.hq_country.
 //

@@ -8,8 +8,10 @@
 // The public surface: objects anon holds SELECT on (see migrations
 // 20260719120000_single_public_endpoint.sql and
 // 20260814130000_expose_companies_endpoint.sql). Extend when a new object is
-// deliberately made public.
-const PUBLIC_OBJECTS = ['investors', 'companies'];
+// deliberately made public. investor_requests is public except its email
+// column (20261001120000_investor_requests.sql); the spec still lists that
+// column, with a comment that says it is not readable.
+const PUBLIC_OBJECTS = ['investors', 'companies', 'investor_requests'];
 
 export type SpecProperty = {
   description?: string;

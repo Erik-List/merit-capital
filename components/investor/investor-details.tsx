@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo } from 'react';
-import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
 import { BAY_AREA_CITIES, BAY_AREA_LABEL } from '@/lib/geo';
 import type { Database } from '@/types/supabase';
@@ -133,15 +132,15 @@ function CompositionBar({ segments, total }: { segments: Segment[]; total: numbe
 
 /**
  * Component 4: Investor Details
- * Renders the derived per-company distributions: stages as ranked rows,
+ * Renders the derived per-company distributions as composition bars: stages,
  * geography (city sub-array only, Bay Area municipalities folded into one
- * element) and focus as composition bars. Share is computed here as
+ * element) and focus. Share is computed here as
  * companies / sum(array); the null element renders as its own entry rather
  * than being rescaled away.
  */
 export function InvestorDetails({ investor }: InvestorDetailsProps) {
-  const stages = useMemo(
-    () => parseDistArray(investor.company_stage_distribution, 'stage'),
+  const stageSegments = useMemo(
+    () => buildSegments(parseDistArray(investor.company_stage_distribution, 'stage')),
     [investor.company_stage_distribution],
   );
 
@@ -164,11 +163,11 @@ export function InvestorDetails({ investor }: InvestorDetailsProps) {
     [investor.company_focus_distribution],
   );
 
-  const stageTotal = sumCompanies(stages);
+  const stageTotal = stageSegments.reduce((total, segment) => total + segment.companies, 0);
   const cityTotal = citySegments.reduce((total, segment) => total + segment.companies, 0);
   const focusTotal = focusSegments.reduce((total, segment) => total + segment.companies, 0);
 
-  const hasStages = stages.length > 0 && stageTotal > 0;
+  const hasStages = stageSegments.length > 0 && stageTotal > 0;
   const hasGeo = citySegments.length > 0;
   const hasFocusAreas = focusSegments.length > 0;
 
@@ -178,7 +177,8 @@ export function InvestorDetails({ investor }: InvestorDetailsProps) {
 
   return (
     <div className="space-y-8">
-      {/* Investment Stages */}
+      {/* Investment Stages: the same composition bar as geography and focus
+          (Erik, 2026-09-30). */}
       {hasStages ? (
         <section className="space-y-4">
           <div className="space-y-2">
@@ -188,22 +188,7 @@ export function InvestorDetails({ investor }: InvestorDetailsProps) {
               from {stageTotal} portfolio companies.
             </p>
           </div>
-          <div className="space-y-3">
-            {stages.map((stage) => {
-              const share = (stage.companies / stageTotal) * 100;
-              return (
-                <div key={stage.label ?? 'unclassified'} className="grid grid-cols-1 items-center gap-1 lg:grid-cols-[minmax(0,200px)_1fr] lg:gap-4">
-                  <span className="text-sm font-medium text-muted-foreground">{stage.label ?? 'Unclassified'}</span>
-                  <div className="flex min-w-0 items-center gap-3">
-                    <Progress value={share} className="h-1.5 w-full min-w-0 bg-muted-foreground/30 lg:w-40 lg:shrink-0" />
-                    <span className="shrink-0 whitespace-nowrap text-sm font-medium text-muted-foreground">
-                      {formatShare(stage.companies, stageTotal)} ({stage.companies})
-                    </span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          <CompositionBar segments={stageSegments} total={stageTotal} />
         </section>
       ) : null}
 

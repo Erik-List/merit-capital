@@ -1,15 +1,13 @@
-// The investor list's arithmetic: which companies are in the filtered set,
+// The investor index's arithmetic: which companies are in the filtered set,
 // what each investor's counts are per entry stage, and in which order the
 // investors are listed. Pure functions over the packed payload of
 // lib/list-data.ts, so the desktop list and the phone list cannot disagree.
 
-import { FOCUS_VALUES } from "@/lib/taxonomy";
 import { HQ_OPTIONS, hqOption } from "@/lib/company-geo";
 import {
   ROW_BAND,
   ROW_CITY,
   ROW_COUNTRY,
-  ROW_FOCUS,
   ROW_GRADUATION,
   ROW_INVESTOR,
   ROW_STAGE,
@@ -33,8 +31,6 @@ export const DEFAULT_STAGE: StageFilter = 1;
 
 export type Filters = {
   stage: StageFilter;
-  /** Index into FOCUS_VALUES, null for all sectors. */
-  sector: number | null;
   /** Headquarter option slugs; a company matches when any of them holds it. */
   hq: string[];
 };
@@ -138,7 +134,6 @@ export function computeStats(index: ListIndex, filters: Filters): InvestorStats[
     // A company whose entry round is not on record belongs to no stage; it is
     // left out so that a share always matches the count printed under it.
     if (stage === STAGE_UNKNOWN) continue;
-    if (filters.sector !== null && data.rows[at + ROW_FOCUS] !== filters.sector) continue;
     if (selected.length > 0) {
       const city = data.rows[at + ROW_CITY];
       const country = data.rows[at + ROW_COUNTRY];
@@ -201,7 +196,7 @@ const share = (row: InvestorStats, stage: StageIndex) => row.stages[stage].atMar
  * in the filtered set, and investors with none are named, not listed.
  */
 export function rank(stats: InvestorStats[], filters: Filters): Ranking {
-  const narrowed = filters.sector !== null || filters.hq.length > 0;
+  const narrowed = filters.hq.length > 0;
   const where = narrowed ? " in the filtered set" : "";
 
   const split = (pool: InvestorStats[], stage: StageIndex, count: (row: InvestorStats) => number) => {
@@ -253,11 +248,10 @@ export function rank(stats: InvestorStats[], filters: Filters): Ranking {
   };
 }
 
-/** "Seed investments · Fintech & Payments · Berlin or Munich". */
+/** "Seed entries · Berlin or Munich". */
 export function filteredSetLabel(filters: Filters): string {
   const parts: string[] = [];
   parts.push(filters.stage === null ? "All entry stages" : `${STAGE_LABELS[filters.stage]} entries`);
-  if (filters.sector !== null) parts.push(FOCUS_VALUES[filters.sector]);
   if (filters.hq.length > 0) {
     parts.push(
       filters.hq

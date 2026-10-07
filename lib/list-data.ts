@@ -1,16 +1,15 @@
-// Server-side loader for the investor list.
+// Server-side loader for the investor index.
 //
 // The list recomputes every row for the filtered set of companies (entry
-// stage, sector, headquarter), so it needs the company rows and not only the
-// derived investor columns. PostgREST caps a response at 1,000 rows, so the
-// rows are paged here, on the server, and packed into one compact payload the
-// page fetches once. Every upstream page is cached for REVALIDATE_SECONDS.
+// stage, headquarters), so it needs the company rows and not only the
+// derived investor columns. They are read in pages (lib/postgrest.ts) and
+// packed into one compact payload the page fetches once.
 
 import { FOCUS_VALUES } from './taxonomy';
+import { loadLastIngest } from './last-ingest';
+import { REVALIDATE_SECONDS, restFetch, restFetchAll } from './postgrest';
 
-export const REVALIDATE_SECONDS = 600;
-
-const PAGE_SIZE = 1000;
+export { REVALIDATE_SECONDS };
 
 /** The investor columns a list row draws. */
 export type ListInvestor = {
@@ -33,6 +32,8 @@ export type ListData = {
   cities: string[];
   countries: string[];
   rows: number[];
+  /** The last ingestion of any investor's companies; null with no company. */
+  asOf: string | null;
 };
 
 export const ROW_STRIDE = 7;
@@ -69,52 +70,11 @@ type CompanyRow = {
 const COMPANY_COLUMNS = 'investor_id,entry_stage,focus,hq_city,hq_country,valuation_range,seed_to_a_graduation';
 const INVESTOR_COLUMNS = 'id,slug,name,icon_url,investment_geo,investment_stage,investment_range,investment_scope';
 
-async function restFetch(path: string, prefer?: string): Promise<Response> {
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-  const headers: Record<string, string> = { apikey: anonKey, Authorization: `Bearer ${anonKey}` };
-  if (prefer) headers.Prefer = prefer;
-  const response = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/rest/v1/${path}`, {
-    headers,
-    next: { revalidate: REVALIDATE_SECONDS },
-  });
-  if (!response.ok) {
-    throw new Error(`list data: ${path.split('?')[0]} answered ${response.status}`);
-  }
-  return response;
-}
-
-const companiesPath = (offset: number) =>
-  `companies?select=${COMPANY_COLUMNS}&order=id&limit=${PAGE_SIZE}&offset=${offset}`;
-
-async function loadCompanies(): Promise<CompanyRow[]> {
-  // The first page carries the exact total in Content-Range ("0-999/24236"),
-  // which sizes the remaining pages.
-  const first = await restFetch(companiesPath(0), 'count=exact');
-  const total = Number((first.headers.get('content-range') ?? '').split('/')[1]);
-  const firstRows = (await first.json()) as CompanyRow[];
-  if (!Number.isFinite(total)) {
-    throw new Error('list data: companies answered without a total');
-  }
-
-  const offsets: number[] = [];
-  for (let offset = PAGE_SIZE; offset < total; offset += PAGE_SIZE) offsets.push(offset);
-  const rest = await Promise.all(
-    offsets.map(async (offset) => (await restFetch(companiesPath(offset))).json() as Promise<CompanyRow[]>),
-  );
-
-  const rows = firstRows.concat(...rest);
-  // A page that came back short would silently drop companies from every
-  // count on the list; refuse instead of publishing a partial book.
-  if (rows.length !== total) {
-    throw new Error(`list data: read ${rows.length} of ${total} companies`);
-  }
-  return rows;
-}
-
 export async function loadListData(): Promise<ListData> {
-  const [investors, companies] = await Promise.all([
+  const [investors, companies, asOf] = await Promise.all([
     restFetch(`investors?select=${INVESTOR_COLUMNS}&order=name`).then((r) => r.json() as Promise<ListInvestor[]>),
-    loadCompanies(),
+    restFetchAll<CompanyRow>(`companies?select=${COMPANY_COLUMNS}&order=id`),
+    loadLastIngest(),
   ]);
 
   const investorIndex = new Map(investors.map((investor, index) => [investor.id, index]));
@@ -154,5 +114,5 @@ export async function loadListData(): Promise<ListData> {
     );
   });
 
-  return { investors, cities, countries, rows };
+  return { investors, cities, countries, rows, asOf };
 }

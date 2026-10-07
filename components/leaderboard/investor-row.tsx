@@ -179,7 +179,9 @@ function More({ trigger, items, label }: { trigger: string; items: string[]; lab
       <PopoverTrigger asChild>
         <button
           type="button"
-          className="underline underline-offset-2 text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+          // Sits above the row's link, so a press opens the list and does
+          // not leave for the investor page.
+          className="relative z-10 underline underline-offset-2 text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
           aria-label={label}
         >
           {trigger}
@@ -283,24 +285,27 @@ export default function InvestorRow({ stats, stage, view }: InvestorRowProps) {
     ) : null;
 
   return (
-    <li className="border-b border-input/30 px-3 py-3 transition-colors last:border-b-0 hover:bg-accent/10 lg:flex lg:min-h-24 lg:items-center lg:px-4">
+    <li className="relative border-b border-input/30 px-3 py-3 transition-colors last:border-b-0 hover:bg-accent/10 lg:flex lg:min-h-24 lg:items-center lg:px-4">
       <div className="flex w-full flex-col gap-3 lg:flex-row lg:items-center lg:justify-between lg:gap-6">
         <div className="flex min-w-0 items-center gap-3">
-          <Link href={investorUrl} className="shrink-0 cursor-pointer">
-            {investor.icon_url ? (
-              <Image
-                src={investor.icon_url}
-                alt={name}
-                width={48}
-                height={48}
-                className="h-10 w-10 rounded-full object-cover lg:h-12 lg:w-12"
-              />
-            ) : (
-              <div className="h-10 w-10 rounded-full bg-muted lg:h-12 lg:w-12" />
-            )}
-          </Link>
+          {investor.icon_url ? (
+            <Image
+              src={investor.icon_url}
+              alt=""
+              width={48}
+              height={48}
+              className="h-10 w-10 shrink-0 rounded-full object-cover lg:h-12 lg:w-12"
+            />
+          ) : (
+            <div className="h-10 w-10 shrink-0 rounded-full bg-muted lg:h-12 lg:w-12" />
+          )}
           <div className="min-w-0">
-            <Link href={investorUrl} className="block truncate text-base font-medium hover:underline lg:text-lg">
+            {/* The one link of the row: its ::after covers the whole row, so
+                a press anywhere opens the investor page. */}
+            <Link
+              href={investorUrl}
+              className="block truncate text-base font-medium after:absolute after:inset-0 after:content-[''] hover:underline focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-inset focus-visible:after:ring-ring lg:text-lg"
+            >
               {name}
             </Link>
             {view.details ? <Details investor={investor} /> : null}
