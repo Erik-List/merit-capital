@@ -1,0 +1,29 @@
+targets: 95 roster names
+wrote /Users/erik/Developer/merit-capital/data/collection/investors/earlybird-venture-capital/sources/edgar/formd-sweep.json
+# accessions matched: 211
+# distinct issuers: 85
+== seeding from EDGAR company search
+   10 entities
+== folding in own pooled Form D vehicles
+   +0 (total 10)
+== co-filer closure (sampling filings of seed entities)
+   15 entities
+   unclassified resolved: 0 partners (people), 4 external co-filers excluded from crawling
+
+wrote data/collection/investors/earlybird-venture-capital/entities.json — 15 entities
+  by desk: {'digital-east': 2, 'earlybird': 2, 'external': 11}
+  crawlable (desk != external): 4
+registry: 15 entities · {'digital-east': 2, 'earlybird': 2, 'external': 11}
+crawling 4 (external excluded)
+unique ownership filings: 3
+
+wrote edgar-companies.json — 1 companies
+  by desk: {'digital-east': 1}
+
+==== formd-query.py
+
+==== edgar-entities.py
+
+==== edgar-companies.py
+
+no base.json yet — the Form D rescan (formd-issuer-rounds.py) runs via `prepare` after build-company-base.py

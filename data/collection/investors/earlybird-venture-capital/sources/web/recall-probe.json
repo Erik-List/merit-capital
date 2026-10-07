@@ -1,0 +1,39 @@
+{
+ "_readme": "The recall probe (COLLECTION.md s3), 2026-10-07: what was diffed against the base and what each source added.",
+ "sources": [
+  {
+   "source": "the firm's live lists and job board",
+   "result": "159 names, all in the base or partitioned"
+  },
+  {
+   "source": "archived lists 2008-2026 (Common Crawl) and the Internet Archive's index of per-company pages 2001-2013",
+   "result": "eight companies of 2001 to 2007 known only from their page address were added (asyntis, europroteome, internetwork, intime, iq, iscribe, music-united, vital-sensors); the 2001 to 2007 A to Z lists themselves were not readable (Internet Archive cooldown) and are debt"
+  },
+  {
+   "source": "the firm's press archive 2001-2010 and its 2024 and 2025 year-in-review posts",
+   "result": "no company outside the base; the 2025 review mentions two investments 'under wraps'"
+  },
+  {
+   "source": "EDGAR full-text sweep",
+   "result": "16 third-party registrants, each read (sources/edgar/fts-reading.json): none a new company"
+  },
+  {
+   "source": "Wikipedia insource sweep",
+   "result": "14 articles; Scoreloop and Wunderlist are in the base under their company names; Midas and UiPath are Digital East positions"
+  },
+  {
+   "source": "research on the Everoad merger",
+   "result": "Sennder added as its own row (new money in June 2020)"
+  },
+  {
+   "source": "parametric enumeration by era and sector (the judge's own list of Earlybird deals 1999 to 2026)",
+   "result": "no company missing from the base apart from Digital East Fund deals"
+  }
+ ],
+ "rejected": [
+  {
+   "name": "Yoggie Security Systems",
+   "why": "Wikipedia (Shlomo Touboul) lists 'Earlybird Venture Capital' among New York investors in Yoggie's first $1.8M: the New York firm is EarlyBirdCapital, Inc., the namesake (config desks.classify external); no Earlybird list or release names Yoggie"
+  }
+ ]
+}

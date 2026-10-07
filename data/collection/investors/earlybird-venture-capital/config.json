@@ -1,0 +1,454 @@
+{
+  "slug": "earlybird-venture-capital",
+  "name": "Earlybird Venture Capital",
+  "wayback": {
+    "cdx_domain": "earlybird.com",
+    "site_url_base": "https://earlybird.com",
+    "eras": [],
+    "_eras_note": "earlybird.com ran five site generations and no generic era parser fits them: 1999-2001 frames (/en/portfolio/investment/<co>.html, /en/portfolio/it_tele/, /en/portfolio/healthcare/), 2002-2010 (/en/portfolio/a_z/, /recent/, /healthcare/, /communication/ and /en/exits/ipos/ + /trade_sales/, with the press-release archive under /en/press/), 2010-2013 TYPO3 (/en/companies/tech.html and /health-tech.html, each company at /en/companies/<desk>/<portfolio|exited>/<slug>.html), 2014-2024 a one-page site and then WordPress (/portfolio/), and from 2025 the Framer site (/companies/<slug>). scratch/eb_archive.py reads the raw captures (Common Crawl by WARC range request, data/filings/commoncrawl/earlybird-venture-capital/, manifest sources/wayback/cc-manifest.json; Internet Archive captures under sources/wayback/raw/) and writes sources/wayback/parsed/<year>.json in wayback-pull's shape, every row carrying its exact capture_url (COLLECTION.md s1: a capture URL is a valid citation). Common Crawl was the archive during the Internet Archive's machine-wide cooldown of 2026-10-06 (Erik 2026-09-26, PRO-158).",
+    "non_company_slugs": [
+      "index",
+      "home",
+      "page",
+      "feed",
+      "search",
+      "tag",
+      "category",
+      "author",
+      "all",
+      "see-all",
+      "companies",
+      "company",
+      "portfolio",
+      "exited",
+      "exits",
+      "tech",
+      "health-tech",
+      "a_z",
+      "recent",
+      "healthcare",
+      "communication",
+      "it_tele",
+      "case_studies",
+      "investment",
+      "team",
+      "members",
+      "people",
+      "news",
+      "press",
+      "perspectives",
+      "insights",
+      "about",
+      "about-us",
+      "approach",
+      "contact",
+      "contact-us",
+      "imprint",
+      "legal",
+      "sfdr",
+      "privacy-ai",
+      "jobs",
+      "careers",
+      "soon",
+      "vision-lab",
+      "eagle-eye",
+      "venture-partners",
+      "portfolio-support",
+      "wp-content",
+      "wp-json",
+      "wp-admin",
+      "wp-includes",
+      "sitemap",
+      "robots",
+      "favicon",
+      "en",
+      "de",
+      "it",
+      "lp"
+    ]
+  },
+  "roster": {
+    "cdx_patterns": [
+      "earlybird.com/en/team/*",
+      "earlybird.com/members/*"
+    ],
+    "slug_re": "/(?:team|members)/([a-z][a-z0-9_-]*[a-z0-9])/?(?:\\.html)?$",
+    "listing_href_re": "/(?:team|members)/([a-z][a-z0-9_-]*[a-z0-9])/?[\"']",
+    "not_a_person": [
+      "index",
+      "team",
+      "members",
+      "people",
+      "partners",
+      "about",
+      "companies",
+      "portfolio",
+      "news",
+      "contact",
+      "jobs",
+      "careers",
+      "all",
+      "page",
+      "feed",
+      "adv_board_eur",
+      "ab_usa",
+      "advisory_board",
+      "venture_partner",
+      "earlybird"
+    ],
+    "_note": "The roster is curated (sources/wayback/partner-roster.json) from the live team pages of both sites (earlybird.com/members/<slug>, health.earlybird.com/members/<slug>), the archived team pages 2001-2013 (/en/team/..., Common Crawl and Internet Archive captures), the Form ADV Schedule A of Earlybird GmbH & Co. KG (CRD 341941) and the deal-partner fields of the portfolio records themselves. The old site's advisory boards (adv_board_eur, ab_usa: Jeffrey Pfeffer, Ronald Cape, Alexander Dibelius and others) are advisers, never deal partners, and are kept out so their names cannot attribute a Form D seat. The Digital East partners (Cem Sertoglu, Evren Ucok, Mehmet Atici, Dan Lupu before 2024) are listed with the lineage 'digital-east' in the roster's basis and are not swept as home-desk partners (decisions.md D2)."
+  },
+  "site_api": {
+    "type": "scrape",
+    "entry_stage_fields": [],
+    "_entry_stage_note": "The live list's 'Stage' column (Pre-Seed / Seed / Series A / Series B) sits beside 'Status' and 'Location' with no label saying whose stage it is. It is scored against the book's documented entry rounds before it may label a row (COLLECTION.md s5: eligibility first, then the score); until then entry_stage_fields stays empty and the value rides in the item as evidence (stage_site). First reading 2026-10-06: 'Pre-Seed' is on Aiven (entered at the 2019 Series A), Snyk, Isar Aerospace and B2X, so at least that value behaves like a CMS default.",
+    "sources": [
+      {
+        "parser": "file_list",
+        "path": "data/collection/investors/earlybird-venture-capital/sources/site/companies-2026.json",
+        "list": "companies-2026",
+        "list_path": "rows",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "sectors": "categories",
+        "extras": [
+          "slug_site",
+          "description",
+          "founded",
+          "invest_year",
+          "founders",
+          "hq_site",
+          "location_list",
+          "partners_site",
+          "stage_site",
+          "status_site",
+          "spotlight",
+          "fund_marker",
+          "digital_east",
+          "surface"
+        ]
+      },
+      {
+        "parser": "file_list",
+        "path": "data/collection/investors/earlybird-venture-capital/sources/site/health-2026.json",
+        "list": "health-2026",
+        "list_path": "rows",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "sectors": "categories",
+        "extras": [
+          "slug_site",
+          "description",
+          "founded",
+          "invest_year",
+          "founders",
+          "hq_site",
+          "location_list",
+          "partners_site",
+          "stage_site",
+          "status_site",
+          "surface"
+        ]
+      },
+      {
+        "parser": "file_list",
+        "path": "data/collection/investors/earlybird-venture-capital/sources/site/jobboard-companies.json",
+        "list": "jobs-board",
+        "list_path": "rows",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "extras": [
+          "slug",
+          "description",
+          "founded_board",
+          "org_type_board",
+          "stage_board",
+          "topics_board",
+          "approx_employees"
+        ]
+      }
+    ],
+    "_note": "earlybird.com and health.earlybird.com are Framer builds (no CMS endpoint; escalation ladder step 5): scratch/eb_site.py joins each list page's anchors (name, status, stage, location, sector tags) with Framer's own search index (description, Founded / Invested years, founders, HQ, deal team, and on nine rows the firm's own 'Digital East Fund*' marker with its disclaimer). jobs.earlybird.com is a Getro board (scratch/jobboard-pull.py, 72 companies): a first-party list, its stage field never a label (COLLECTION.md s5).",
+    "team_sources": [
+      {
+        "parser": "file_list",
+        "path": "data/collection/investors/earlybird-venture-capital/sources/site/team-2026.json",
+        "list": "team",
+        "list_path": "rows",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "extras": [
+          "title",
+          "group",
+          "location",
+          "focus_tags",
+          "surface"
+        ]
+      },
+      {
+        "parser": "file_list",
+        "path": "data/collection/investors/earlybird-venture-capital/sources/site/team-health-2026.json",
+        "list": "team-health",
+        "list_path": "rows",
+        "fields": {
+          "name": "name",
+          "url": "url"
+        },
+        "extras": [
+          "title",
+          "group",
+          "location",
+          "focus_tags",
+          "surface"
+        ]
+      }
+    ],
+    "team_buckets": {
+      "Investment Team": "investing",
+      "Venture Partners": "advisor"
+    },
+    "team_bucket_overrides": {
+      "Jochen Küst": [
+        "finance"
+      ],
+      "Rolf Mathies": [
+        "emeritus",
+        "founder"
+      ],
+      "Dr. Christian Nagel": [
+        "investing",
+        "founder"
+      ],
+      "Dr. Hendrik Brandis": [
+        "investing",
+        "founder"
+      ]
+    },
+    "_team_note": "earlybird.com/members (48 people) and health.earlybird.com/members (14), read by scratch/eb_site.py: one card per person with group, office, focus tags and title. 'Investment Team' publishes as investing, the Catalysts and the Vision Lab partner ('Venture Partners') as advisers; 'Investor Relations' and 'Operations' (finance, fund management, engineering, assistants) are left unmapped so they do not publish, except the Operating Partner and CFO, placed by name. Rolf Mathies, a founder, is listed 'In Memoriam' on the health site."
+  },
+  "edgar": {
+    "seed_queries": [
+      "earlybird"
+    ],
+    "fts_phrases": [
+      "Earlybird Venture Capital",
+      "Earlybird Verwaltungs",
+      "Earlybird GmbH",
+      "Earlybird Beteiligungs",
+      "Earlybird Fund",
+      "Earlybird Growth Opportunities",
+      "Earlybird Health",
+      "Earlybird Digital East",
+      "Earlybird Management S.A.",
+      "Earlybird UNI-X"
+    ],
+    "fts_own_pattern": "^earlybird (gmbh|fund|growth|health|verwaltungs|venture|vc|uni-x|digital east|management s)",
+    "_note": "Entity-qualified phrases only: the bare word is also EarlyBirdCapital, Inc. (the New York SPAC underwriter, CIK 875307 / 1160548 / 1096396, CRD 28629), which appears in thousands of blank-check filings, plus Earlybird Central Inc. (Gardiner NY), Earlybird Digital, Inc., Earlybirds Learning Inc, Earlybird Advisors LLC (Kennett Square PA) and Earlybird 2011-A, L.P. (2596 Chestnut Street, San Francisco). Kickoff 2026-10-06, EDGAR name lookup: Earlybird Fund VIII GmbH & Co. geschl. InvKG (CIK 2124334, Muenzstrasse 23 Berlin, Form D 2026-05-19), Earlybird GmbH & Co. Beteiligungs-KG IV (CIK 1400513, Maximilianstrasse 14 Munich, paper Form D 2007-05-14) and Earlybird Management SA (CIK 1855761, 7 Avenue Gaston Diderich, Luxembourg; Forms 3 and 4 of April 2021, the UiPath IPO), which is the Digital East side (decisions.md D2)."
+  },
+  "wikipedia": {
+    "phrases": [
+      "Earlybird Venture Capital",
+      "Earlybird Venture",
+      "Earlybird VC",
+      "Earlybird Digital East",
+      "Earlybird Health"
+    ]
+  },
+  "desks": {
+    "home": "earlybird",
+    "partition": [
+      "digital-east"
+    ],
+    "rank": [
+      "earlybird",
+      "health",
+      "digital-east",
+      "unknown"
+    ],
+    "classify": [
+      {
+        "desk": "external",
+        "patterns": [
+          "^earlybirdcapital",
+          "^earlybird capital",
+          "^earlybird central",
+          "^earlybird digital,? inc",
+          "^earlybirds? learning",
+          "^earlybird advisors",
+          "^earlybird investing",
+          "^earlybird 2011"
+        ]
+      },
+      {
+        "desk": "digital-east",
+        "patterns": [
+          "^earlybird management s\\.?a",
+          "earlybird digital east",
+          "^digital east fund",
+          "^bek ventures"
+        ]
+      },
+      {
+        "desk": "health",
+        "patterns": [
+          "^earlybird health"
+        ]
+      },
+      {
+        "desk": "earlybird",
+        "patterns": [
+          "^earlybird (gmbh|fund|growth|verwaltungs|venture|vc|uni-x)"
+        ]
+      }
+    ],
+    "_note": "Namesakes verified by entity and address, never by name: the firm files from Muenzstrasse 23, 10178 Berlin (before that Maximilianstrasse 14, Munich, and Van-der-Smissen-Strasse, Hamburg). 'digital-east' is partitioned: the firm's own site states that those investment decisions were made by 'the separate company Digital East Fund which was operating under the licensed Earlybird brand', and that firm has traded as Bek Ventures since 2025 (decisions.md D2). A row is moved to that desk in companies/identity-merges.json ('desk'), so it leaves the published base as other_desk, preserved in excluded.json. 'health' stays in the base: Earlybird Health operates under the name and the firm presents it as its own fund family (D3)."
+  },
+  "profile": {
+    "adv_crd": 341941,
+    "own_vehicle_pattern": "^earlybird (fund|growth opportunities|gmbh & co\\. beteiligungs|health|uni-x)",
+    "focus_min_companies": 8,
+    "focus_crosswalk": {},
+    "_note": "One exempt reporting adviser, Earlybird GmbH & Co. KG (CRD 341941; principal office Berlin, second office Munich). focus_crosswalk is empty on purpose: the site's technology tags ('Applications', 'Software Infra & Models', 'DeepTech & Hardware') each span several of the closed twelve, so a tag recompute would publish only the health and hardware slices. The firm-level focus is the portfolio's own distribution from the per-company classification, flagged derived in investor/sources.json. focus_min_companies about 4% of the 195-company base."
+  },
+  "verify": {
+    "text_mention_leaks": [],
+    "cofiler_leaks": [],
+    "known_positions": [
+      "n26",
+      "aiven",
+      "isar aerospace",
+      "aleph alpha",
+      "interhyp",
+      "tipp24",
+      "simscale",
+      "onefootball",
+      "smava",
+      "nfon"
+    ],
+    "sample_slugs": [],
+    "shape": {
+      "c2a_rate_max": 0.8
+    },
+    "not_members": [
+      {
+        "name": "UiPath",
+        "slug": "uipath",
+        "why": "a Digital East Fund position: the firm's own page says 'The investment decision for this company was made by the separate company Digital East Fund which was operating under the licensed Earlybird brand'; the fund now trades as Bek Ventures (decisions.md D2). Partitioned as other_desk, never published as an Earlybird member"
+      },
+      {
+        "name": "Payhawk",
+        "slug": "payhawk",
+        "why": "a Digital East Fund position (the firm's 2020-2023 list tags it Digital East; Bek Ventures lists it as its own): decisions.md D2"
+      },
+      {
+        "name": "Hazelcast",
+        "slug": "hazelcast",
+        "why": "a Digital East Fund position (tagged Digital East 2018-2023; Bek Ventures lists it): decisions.md D2"
+      },
+      {
+        "name": "Trendyol",
+        "slug": "trendyol",
+        "why": "listed 2018-2023 under 'Pre-Fund Investments' with the Digital East tag: a partner's investment from before the fund, and Digital East's at that (decisions.md D2, R1)"
+      },
+      {
+        "name": "Yemek Sepeti",
+        "slug": "yemek-sepeti",
+        "why": "listed 2018-2023 under 'Pre-Fund Investments' with the Digital East tag (decisions.md D2, R1)"
+      },
+      {
+        "name": "Lilium",
+        "slug": "lilium",
+        "why": "the firm's list gives 'Invested: 2023'; Lilium listed on Nasdaq in September 2021, so the position first appears after the listing (T3, Erik 2026-09-06: no round named and partnered after the IPO is not a member)"
+      },
+      {
+        "name": "AuthenTec",
+        "slug": "authentec",
+        "why": "sale consideration: AuthenTec bought UPEK in 2010 and UPEK's holders took AuthenTec stock (AuthenTec's own filings name the Earlybird funds); the investment is UPEK"
+      },
+      {
+        "name": "Digital River",
+        "slug": "digital-river",
+        "why": "sale consideration: Digital River bought element 5 AG in April 2004; the investment is element 5"
+      },
+      {
+        "name": "Zynga",
+        "slug": "zynga",
+        "why": "sale consideration: Zynga bought Peak Games in 2020, part of the price in Zynga stock (Zynga 8-K); the investment is Peak Games"
+      },
+      {
+        "name": "Standard Microsystems",
+        "slug": "standard-microsystems",
+        "why": "the acquirer of BridgeCo (2011); the investment is BridgeCo"
+      },
+      {
+        "name": "Amgen",
+        "slug": "amgen",
+        "why": "the acquirer of Alantos Pharmaceuticals (2007); the investment is Alantos"
+      },
+      {
+        "name": "EarlyBirdCapital",
+        "slug": "earlybirdcapital",
+        "why": "a namesake: the New York blank-check underwriter EarlyBirdCapital, Inc., unrelated to Earlybird Venture Capital"
+      }
+    ]
+  },
+  "names": {
+    "_published_note": "COLLECTION.md s8 (Erik 2026-09-24): the brand in normal capitalisation, no legal suffix; a word read letter by letter keeps its capitals (B2X, GMD, EBS, SLNG, NFON is said as a word and reads Nfon, UPEK likewise Upek); genuine lowercase and mixed stylings stay (smava, finmid, eyva, wellabe, azeti, yoom, videdressing, urbia.com, smoodoos.com, eleQtron, peopleIX, iSTAR Medical, abaXX). Remberg and Tilt follow the Speedinvest and Balderton books.",
+    "published": {
+      "abaxx-technology-ag": "abaXX Technology",
+      "arago-inc": "Arago",
+      "b2x-gmbh": "B2X",
+      "ceartas-dmca-ltd": "Ceartas",
+      "crosslend-gmbh-the-thing-gmbh": "CrossLend",
+      "dooyoo-de-ag": "dooyoo",
+      "element-5-ag": "element 5",
+      "everoad-by-sennder": "Everoad",
+      "identify-software-ltd": "Identify Software",
+      "inkitt-gmbh": "Inkitt",
+      "junto-education-gmbh": "Junto",
+      "kiwilogic-com-ag": "Kiwilogic",
+      "koppla-gmbh": "Koppla",
+      "lexoo-ltd": "Lexoo",
+      "liquid-m-inc": "LiquidM",
+      "nfon-ag": "Nfon",
+      "remberg-gmbh": "Remberg",
+      "scoreloop-ag": "Scoreloop",
+      "service-partner-one-gmbh": "Service Partner One",
+      "terralayr-ag": "Terralayr",
+      "tilt": "Tilt",
+      "tipp24-ag": "Tipp24",
+      "ubitricity-gmbh": "Ubitricity",
+      "workist-gmbh": "Workist",
+      "alloo-ag": "Alloo",
+      "allthings-technologies-ag": "Allthings",
+      "amaxa-gmbh": "Amaxa",
+      "ariceum-therapeutics-gmbh": "Ariceum Therapeutics",
+      "clean-mobile-ag": "Clean Mobile",
+      "graviton-inc": "Graviton",
+      "hemoteq-gmbh": "Hemoteq",
+      "kreatize": "Kreatize",
+      "lumics-gmbh": "Lumics",
+      "mergeoptics-gmbh": "MergeOptics",
+      "redeon-inc": "Redeon",
+      "sidec-technologies-ab": "Sidec Technologies",
+      "upek": "Upek",
+      "wilex-ag": "Wilex",
+      "mayd-meds-at-your-doorstep": "Mayd",
+      "ebs": "EBS Technologies",
+      "miracor": "Miracor Medical",
+      "internetwork": "interNetwork",
+      "intime": "InTime Software",
+      "iq": "IQ Labs",
+      "iscribe": "iScribe",
+      "music-united": "Music-United.com"
+    }
+  }
+}

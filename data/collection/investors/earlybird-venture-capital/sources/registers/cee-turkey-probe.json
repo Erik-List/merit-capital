@@ -1,0 +1,52 @@
+{
+ "_readme": "Bounded probe of the registers east of Germany (decisions.md D12; PRO-107: decided in this run, never degraded in advance). One or two lookups per country on 2026-10-06, raw answers under probe/. Budget: about fifteen requests in all.",
+ "verdicts": [
+  {
+   "country": "CZ",
+   "register": "ARES (ares.gov.cz), the business register's public REST API",
+   "access": "free, no key, JSON; name search (POST .../ekonomicke-subjekty/vyhledat) and the public-register extract by company number (GET .../ekonomicke-subjekty-vr/<ico>)",
+   "status": "usable: dates of formation and dissolution per entity",
+   "backtrace": "usable: an s.r.o. lists its members; an a.s. lists its sole shareholder, and the capital-increase resolutions filed with the register NAME every subscriber with share count and issue price",
+   "forward": "not tested (no search by shareholder in the API)",
+   "finding": "Socialbakers a.s. (ICO 29098271, now Emplifi Czech Republic a.s.): the resolutions of 2012-10-26 and 2014-01-28 name 'Earlybird Verwaltungs GmbH, Munich, Maximilianstrasse 14, HRB 128 047' as subscriber of 1,209 preferred shares at CZK 100 + USD 1,201.69 each and of 1,870 class C preferred shares at CZK 100 + USD 3,471.24 each. Filing-grade evidence that a home fund's general partner, not the Digital East Fund, held the position (decisions.md D2), and a dated price per round.",
+   "verdict": "usable, cheap and good; proposed for write-back to COLLECTION.md s5"
+  },
+  {
+   "country": "SK",
+   "register": "RPO, the Register of Legal Entities (api.statistics.sk/rpo/v1)",
+   "access": "free, no key, JSON; search by name, entity detail with history",
+   "status": "usable: establishment and termination dates, renames (Photoneo s. r. o. is now Brightpick s. r. o.)",
+   "backtrace": "usable for an s.r.o.: every member with validity dates, foreign funds included, and every change of registered capital with its date (the rounds); a j.s.a. (simple joint-stock company) lists no shareholders",
+   "forward": "not tested",
+   "finding": "Photoneo s. r. o. (RPO 424797): 'Digital East Fund 2013 SCA SICAR' is a member from 2019-01-17 (capital raised to EUR 186,669 that day), beside Credo and RSJ. The register names the Digital East SICAR, not an Earlybird fund: the investing entity of decisions.md D2 on the public record.",
+   "verdict": "usable, cheap and good; proposed for write-back to COLLECTION.md s5"
+  },
+  {
+   "country": "PL",
+   "register": "KRS open API (api-krs.ms.gov.pl)",
+   "access": "free JSON, but by KRS number only: no name search",
+   "verdict": "usable only once the number is known from the company's own imprint; not tested further (one Polish row, Alokai, and it is a Digital East position)"
+  },
+  {
+   "country": "RO",
+   "register": "ONRC portal; ANAF fiscal API",
+   "access": "the ONRC portal did not answer (and its company data needs an account); ANAF's public API answers by fiscal code (CUI)",
+   "status": "usable through ANAF once the CUI is known (UiPath SRL, CUI 34737997: registered, with address)",
+   "backtrace": "not available without an ONRC account",
+   "verdict": "status only, and only with the fiscal code; no membership evidence"
+  },
+  {
+   "country": "BG",
+   "register": "Commercial Register (portal.registryagency.bg)",
+   "access": "a JavaScript application; the one API path tried returned an empty answer",
+   "verdict": "not established within the budget; the obstacle is the undocumented API behind the portal"
+  },
+  {
+   "country": "TR",
+   "register": "Ticaret Sicili Gazetesi (ticaretsicil.gov.tr) and MERSIS",
+   "access": "the gazette's notice search redirects to a member login (girisyap.php); MERSIS needs an e-Devlet (Turkish e-government) login",
+   "verdict": "not usable: both doors need a Turkish registered login. Turkish status and membership stay with the firm's own record and the press."
+  }
+ ],
+ "what_it_changes": "Nothing in the published base (D2 partitions the Digital East rows on the firm's own words). The Czech and Slovak registers independently confirm D2's line on its two test rows: Socialbakers was financed by the home funds' general partner, Photoneo by the Digital East SICAR."
+}

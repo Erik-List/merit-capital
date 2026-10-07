@@ -1,0 +1,1463 @@
+{
+  "_readme": "EDGAR full-text sweep (scripts/edgar-fts-sweep.py): hits for the configured phrases aggregated by registrant; bucket third_party = exit-side disclosure candidates for the judge (S-1 IRA signatories and holder tables, 424B selling stockholders, acquirer S-3/S-4/8-K), own = the investor's entities/people, lp_side = registered funds holding the investor's vehicles, ownership_forms = 13D/G, 3/4 or D filings handled by the entities/ownership layers.",
+  "phrases": [
+    "Earlybird Venture Capital",
+    "Earlybird Verwaltungs",
+    "Earlybird GmbH",
+    "Earlybird Beteiligungs",
+    "Earlybird Fund",
+    "Earlybird Growth Opportunities",
+    "Earlybird Health",
+    "Earlybird Digital East",
+    "Earlybird Management S.A.",
+    "Earlybird UNI-X"
+  ],
+  "own_pattern": "^earlybird (gmbh|fund|growth|health|verwaltungs|venture|vc|uni-x|digital east|management s)",
+  "swept_at": "2026-10-06",
+  "coverage": [
+    {
+      "phrase": "Earlybird Venture Capital",
+      "total": 65,
+      "complete": true,
+      "failed_windows": [],
+      "read": 65,
+      "distinct": 65
+    },
+    {
+      "phrase": "Earlybird Verwaltungs",
+      "total": 19,
+      "complete": true,
+      "failed_windows": [],
+      "read": 19,
+      "distinct": 19
+    },
+    {
+      "phrase": "Earlybird GmbH",
+      "total": 19,
+      "complete": true,
+      "failed_windows": [],
+      "read": 19,
+      "distinct": 19
+    },
+    {
+      "phrase": "Earlybird Beteiligungs",
+      "total": 0,
+      "complete": true,
+      "failed_windows": [],
+      "read": 0,
+      "distinct": 0
+    },
+    {
+      "phrase": "Earlybird Fund",
+      "total": 1,
+      "complete": true,
+      "failed_windows": [],
+      "read": 1,
+      "distinct": 1
+    },
+    {
+      "phrase": "Earlybird Growth Opportunities",
+      "total": 13,
+      "complete": true,
+      "failed_windows": [],
+      "read": 13,
+      "distinct": 13
+    },
+    {
+      "phrase": "Earlybird Health",
+      "total": 8,
+      "complete": true,
+      "failed_windows": [],
+      "read": 8,
+      "distinct": 8
+    },
+    {
+      "phrase": "Earlybird Digital East",
+      "total": 0,
+      "complete": true,
+      "failed_windows": [],
+      "read": 0,
+      "distinct": 0
+    },
+    {
+      "phrase": "Earlybird Management S.A.",
+      "total": 13,
+      "complete": true,
+      "failed_windows": [],
+      "read": 13,
+      "distinct": 13
+    },
+    {
+      "phrase": "Earlybird UNI-X",
+      "total": 0,
+      "complete": true,
+      "failed_windows": [],
+      "read": 0,
+      "distinct": 0
+    }
+  ],
+  "registrants": [
+    {
+      "registrant": "Earlybird Management SA",
+      "cik": "0001855761",
+      "forms": {
+        "4": 1,
+        "3": 1
+      },
+      "first_date": "2021-04-20",
+      "last_date": "2021-04-23",
+      "filings": [
+        {
+          "form": "3",
+          "date": "2021-04-20",
+          "adsh": "0001209191-21-027680",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855761/000120919121027680/doc3.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855761/000120919121027680/0001209191-21-027680-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2021-04-23",
+          "adsh": "0001209191-21-028124",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855761/000120919121028124/doc4.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855761/000120919121028124/0001209191-21-028124-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Earlybird Fund VIII GmbH & Co. geschl. InvKG.",
+      "cik": "0002124334",
+      "forms": {
+        "D": 1
+      },
+      "first_date": "2026-05-19",
+      "last_date": "2026-05-19",
+      "filings": [
+        {
+          "form": "D",
+          "date": "2026-05-19",
+          "adsh": "0002124334-26-000001",
+          "url": "https://www.sec.gov/Archives/edgar/data/2124334/000212433426000001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/2124334/000212433426000001/0002124334-26-000001-index.htm"
+        }
+      ],
+      "bucket": "own"
+    },
+    {
+      "registrant": "Digital East Fund 2013 SCA SICAR",
+      "cik": "0001855762",
+      "forms": {
+        "SC 13G": 1,
+        "4": 1,
+        "3": 1
+      },
+      "first_date": "2021-04-20",
+      "last_date": "2022-02-07",
+      "filings": [
+        {
+          "form": "3",
+          "date": "2021-04-20",
+          "adsh": "0001209191-21-027680",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855762/000120919121027680/doc3.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855762/000120919121027680/0001209191-21-027680-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2021-04-23",
+          "adsh": "0001209191-21-028124",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855762/000120919121028124/doc4.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855762/000120919121028124/0001209191-21-028124-index.htm"
+        },
+        {
+          "form": "SC 13G",
+          "date": "2022-02-07",
+          "adsh": "0001213900-22-005600",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855762/000121390022005600/ea154959-13gdigital_uipath.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855762/000121390022005600/0001213900-22-005600-index.htm"
+        }
+      ],
+      "bucket": "ownership_forms"
+    },
+    {
+      "registrant": "Tencent Holdings Ltd",
+      "cik": "0001293451",
+      "forms": {
+        "SC 13D/A": 1
+      },
+      "first_date": "2024-05-24",
+      "last_date": "2024-05-24",
+      "filings": [
+        {
+          "form": "SC 13D/A",
+          "date": "2024-05-24",
+          "adsh": "0001140361-24-027525",
+          "url": "https://www.sec.gov/Archives/edgar/data/1293451/000114036124027525/ef20030004_ex99-15.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1293451/000114036124027525/0001140361-24-027525-index.htm"
+        }
+      ],
+      "bucket": "ownership_forms"
+    },
+    {
+      "registrant": "DIGITAL RIVER INC /DE",
+      "cik": "0001062530",
+      "forms": {
+        "8-K": 1
+      },
+      "first_date": "2004-05-04",
+      "last_date": "2004-05-04",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "2004-05-04",
+          "adsh": "0001104659-04-012460",
+          "url": "https://www.sec.gov/Archives/edgar/data/1062530/000110465904012460/a04-5205_1ex2d1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1062530/000110465904012460/0001104659-04-012460-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1062530/000110465904012460/a04-5205_1ex2d1.htm",
+          "form": "8-K",
+          "date": "2004-05-04",
+          "mentions": 1,
+          "context": [
+            "oard . The current members of the Supervisory Board have submitted their resignation from the Supervisory Board effective as of the Closing. Upon request of the Buyer, 3i Group Investments LP, Earlybird Pre Seed 33 Beteiligungskommanditgesellschaft Nr. 1, der Earlybird Venture Capital GmbH & Co. KG, Earlybird Pre Seed Beteiligungskommanditgesellschaft Nr. 2 and IKB Private Equity GmbH shall be jointly obligated to appoint a representative of the Buyer as new member of the supervisory board for the time period until the New Articles of Asso"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "FLAMEL TECHNOLOGIES SA  (AVDL)",
+      "cik": "0001012477",
+      "forms": {
+        "6-K": 1
+      },
+      "first_date": "2005-05-20",
+      "last_date": "2005-05-20",
+      "filings": [
+        {
+          "form": "6-K",
+          "date": "2005-05-20",
+          "adsh": "0000950133-05-002339",
+          "url": "https://www.sec.gov/Archives/edgar/data/1012477/000095013305002339/w09351exv99w4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1012477/000095013305002339/0000950133-05-002339-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1012477/000095013305002339/w09351exv99w4.htm",
+          "form": "6-K",
+          "date": "2005-05-20",
+          "mentions": 1,
+          "context": [
+            "teur General (Chairman and CEO) None 2. Mr. Raul Cesan, Director Mr. Cesan is also Director of The New York Times Company (USA) 3. Mr. William Dearstyne, Director . Mr Dearstyne is also a Lead Director and Vice Chairman of Phonak AG (Switzerland), Director of EarlyBird GmbH (Germany) and Director of Bioness Inc. (USA). 4. Mr. Michel Greco, Director Mr. Greco is also Director of Vaxgen Inc (USA), I.D. Biomedical (Canada), Intercell A.G. (Austria), Argos Therapeutics (USA) and DAS (France). 5. Mr. Jean-Noël Treilles, Director Mr. "
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "NORTHERN TECHNOLOGIES INTERNATIONAL CORP  (NTIC)",
+      "cik": "0000875582",
+      "forms": {
+        "DEF 14A": 2
+      },
+      "first_date": "2005-12-30",
+      "last_date": "2006-12-11",
+      "filings": [
+        {
+          "form": "DEF 14A",
+          "date": "2005-12-30",
+          "adsh": "0001206774-05-002123",
+          "url": "https://www.sec.gov/Archives/edgar/data/875582/000120677405002123/nt110590.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/875582/000120677405002123/0001206774-05-002123-index.htm"
+        },
+        {
+          "form": "DEF 14A",
+          "date": "2006-12-11",
+          "adsh": "0001206774-06-002554",
+          "url": "https://www.sec.gov/Archives/edgar/data/875582/000120677406002554/northerntechnologies_nps.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/875582/000120677406002554/0001206774-06-002554-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/875582/000120677405002123/nt110590.htm",
+          "form": "DEF 14A",
+          "date": "2005-12-30",
+          "mentions": 1,
+          "context": [
+            " also a Consulting Professor at the Stanford School of Medicine, Department of Neurosurgery, where she teaches classes on entrepreneurship and innovation. From 1998 to 2002, she was Managing Partner of Veritas Venture Partners LLC, which pooled interests with Earlybird Venture Capital, a financial investment management and consulting firm in 1999. From 1994-1998, she was VP of Corporate Development and Chief Financial Officer of Aviron, a biopharmaceutical company, which listed on Nasdaq in 1996 and which was subsequently acquired by Medim"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/875582/000120677406002554/northerntechnologies_nps.htm",
+          "form": "DEF 14A",
+          "date": "2006-12-11",
+          "mentions": 1,
+          "context": [
+            " also a Consulting Professor at the Stanford School of Medicine, Department of Neurosurgery, where she teaches classes on entrepreneurship and innovation. From 1998 to 2002, she was Managing Partner of Veritas Venture Partners LLC, which pooled interests with Earlybird Venture Capital, a financial investment management and consulting firm in 1999. From 1994 to 1998, she was VP of Corporate Development and Chief Financial Officer of Aviron, a biopharmaceutical company, which listed on Nasdaq in 1996 and which was subsequently acquired by Me"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "UPEK INC",
+      "cik": "0001284218",
+      "forms": {
+        "425": 5,
+        "PREC14A": 1,
+        "PRRN14A": 2,
+        "DEFC14A": 1,
+        "S-1": 1,
+        "S-1/A": 1
+      },
+      "first_date": "2007-05-14",
+      "last_date": "2010-03-15",
+      "filings": [
+        {
+          "form": "S-1",
+          "date": "2007-05-14",
+          "adsh": "0001193125-07-112995",
+          "url": "https://www.sec.gov/Archives/edgar/data/1284218/000119312507112995/ds1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1284218/000119312507112995/0001193125-07-112995-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2007-07-13",
+          "adsh": "0001193125-07-154960",
+          "url": "https://www.sec.gov/Archives/edgar/data/1284218/000119312507154960/ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1284218/000119312507154960/0001193125-07-154960-index.htm"
+        },
+        {
+          "form": "425",
+          "date": "2010-01-29",
+          "adsh": "0001193125-10-016997",
+          "url": "https://www.sec.gov/Archives/edgar/data/1284218/000119312510016997/d425.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1284218/000119312510016997/0001193125-10-016997-index.htm"
+        },
+        {
+          "form": "PREC14A",
+          "date": "2010-01-29",
+          "adsh": "0001193125-10-017020",
+          "url": "https://www.sec.gov/Archives/edgar/data/1284218/000119312510017020/dprec14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1284218/000119312510017020/0001193125-10-017020-index.htm"
+        },
+        {
+          "form": "425",
+          "date": "2010-01-29",
+          "adsh": "0001193125-10-017104",
+          "url": "https://www.sec.gov/Archives/edgar/data/1284218/000119312510017104/d425.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1284218/000119312510017104/0001193125-10-017104-index.htm"
+        },
+        {
+          "form": "425",
+          "date": "2010-02-18",
+          "adsh": "0001193125-10-034325",
+          "url": "https://www.sec.gov/Archives/edgar/data/1284218/000119312510034325/d425.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1284218/000119312510034325/0001193125-10-034325-index.htm"
+        },
+        {
+          "form": "PRRN14A",
+          "date": "2010-02-18",
+          "adsh": "0001193125-10-033944",
+          "url": "https://www.sec.gov/Archives/edgar/data/1284218/000119312510033944/dprrn14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1284218/000119312510033944/0001193125-10-033944-index.htm"
+        },
+        {
+          "form": "425",
+          "date": "2010-03-05",
+          "adsh": "0001193125-10-048981",
+          "url": "https://www.sec.gov/Archives/edgar/data/1284218/000119312510048981/d425.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1284218/000119312510048981/0001193125-10-048981-index.htm"
+        },
+        {
+          "form": "PRRN14A",
+          "date": "2010-03-05",
+          "adsh": "0001193125-10-048850",
+          "url": "https://www.sec.gov/Archives/edgar/data/1284218/000119312510048850/dprrn14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1284218/000119312510048850/0001193125-10-048850-index.htm"
+        },
+        {
+          "form": "DEFC14A",
+          "date": "2010-03-15",
+          "adsh": "0001193125-10-056358",
+          "url": "https://www.sec.gov/Archives/edgar/data/1284218/000119312510056358/ddefc14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1284218/000119312510056358/0001193125-10-056358-index.htm"
+        },
+        {
+          "form": "425",
+          "date": "2010-03-15",
+          "adsh": "0001193125-10-056443",
+          "url": "https://www.sec.gov/Archives/edgar/data/1284218/000119312510056443/d425.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1284218/000119312510056443/0001193125-10-056443-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1284218/000119312507112995/ds1.htm",
+          "form": "S-1",
+          "date": "2007-05-14",
+          "mentions": 1,
+          "context": [
+            "certain of our board members significant influence over our business. A small number of investors own a significant number of shares of our common stock. As of May 8, 2007, entities affiliated with Sofinnova Partners, Sofinnova Ventures, Diamondhead Ventures, Earlybird Venture Capital and Partners Group, five of our largest investors, collectively owned approximately 64 percent of our outstanding common stock on a fully diluted basis, assuming conversion of our outstanding preferred stock, the exercise of all outstanding options and warran"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1284218/000119312507154960/ds1a.htm",
+          "form": "S-1/A",
+          "date": "2007-07-13",
+          "mentions": 2,
+          "context": [
+            "rtain of our board members significant influence over our business. A small number of investors own a significant number of shares of our common stock. As of June 30, 2007, entities affiliated with Sofinnova Partners, Sofinnova Ventures, Diamondhead Ventures, Earlybird Venture Capital and Partners Group, five of our largest investors, collectively owned approximately 64 percent of our outstanding common stock on a fully diluted basis, assuming conversion of our outstanding preferred stock, the exercise of all outstanding options and warran",
+            "naging director of Diamondhead Management, L.L.C., which is a general partner of the funds. Mr. Lane disclaims beneficial ownership of the shares held by these funds except to the extent of his pecuniary interest therein. (4) Includes 1,310,799 shares held by Earlybird GmbH & Co. Beteiligungs-KG III, 43,777 shares held by Earlybird III Participations Pool KG, 251,301 shares held by Earlybird III L.P. and 11,324 shares held by Earlybird III Advisory L.P. (5) Includes 1,016,222 shares held by Partners Group Secondary, L.P. and 338"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "ALNYLAM PHARMACEUTICALS, INC.  (ALNY)",
+      "cik": "0001178670",
+      "forms": {
+        "10-Q": 1
+      },
+      "first_date": "2007-11-08",
+      "last_date": "2007-11-08",
+      "filings": [
+        {
+          "form": "10-Q",
+          "date": "2007-11-08",
+          "adsh": "0000950135-07-006855",
+          "url": "https://www.sec.gov/Archives/edgar/data/1178670/000095013507006855/b67149apexv10w3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1178670/000095013507006855/0000950135-07-006855-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1178670/000095013507006855/b67149apexv10w3.htm",
+          "form": "10-Q",
+          "date": "2007-11-08",
+          "mentions": 2,
+          "context": [
+            "er zwischen Deutsches Krebsforschungszentrum und Ribopharma AG DKFZ Vereinbarung uber Geheimhaltung under Materialtransfer 011217.pdf December 12/17, 2001 Material transfer + non-disclosure agreement regarding HPV Non Disclosure Agreement for Ribopharma AG by Earlybird Venture Capital Earlybird Venture Capital CDA 020205.pdf September 2002 Standard confidentiality agreement. Evaluation Agreement between Alnylam Europe AG and egene, Inc. eGene USA, Evaluation Agreement Dr. Lee 050818.pdf August 18, 2005 Agreement for evaluating the analysis",
+            "sforschungszentrum und Ribopharma AG DKFZ Vereinbarung uber Geheimhaltung under Materialtransfer 011217.pdf December 12/17, 2001 Material transfer + non-disclosure agreement regarding HPV Non Disclosure Agreement for Ribopharma AG by Earlybird Venture Capital Earlybird Venture Capital CDA 020205.pdf September 2002 Standard confidentiality agreement. Evaluation Agreement between Alnylam Europe AG and egene, Inc. eGene USA, Evaluation Agreement Dr. Lee 050818.pdf August 18, 2005 Agreement for evaluating the analysis of the Alnylam siRNA cons"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "ZONARE MEDICAL SYSTEMS INC",
+      "cik": "0001259208",
+      "forms": {
+        "S-1": 1,
+        "S-1/A": 2,
+        "D": 2,
+        "D/A": 1
+      },
+      "first_date": "2008-07-02",
+      "last_date": "2010-11-17",
+      "filings": [
+        {
+          "form": "S-1",
+          "date": "2008-07-02",
+          "adsh": "0000891618-08-000337",
+          "url": "https://www.sec.gov/Archives/edgar/data/1259208/000089161808000337/f41276orsv1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1259208/000089161808000337/0000891618-08-000337-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2008-08-15",
+          "adsh": "0000950134-08-015319",
+          "url": "https://www.sec.gov/Archives/edgar/data/1259208/000095013408015319/f41276a1sv1za.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1259208/000095013408015319/0000950134-08-015319-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2008-09-05",
+          "adsh": "0000950134-08-016194",
+          "url": "https://www.sec.gov/Archives/edgar/data/1259208/000095013408016194/f41276a2sv1za.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1259208/000095013408016194/0000950134-08-016194-index.htm"
+        },
+        {
+          "form": "D",
+          "date": "2009-09-18",
+          "adsh": "0001209191-09-044930",
+          "url": "https://www.sec.gov/Archives/edgar/data/1259208/000120919109044930/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1259208/000120919109044930/0001209191-09-044930-index.htm"
+        },
+        {
+          "form": "D/A",
+          "date": "2009-12-30",
+          "adsh": "0001209191-09-059001",
+          "url": "https://www.sec.gov/Archives/edgar/data/1259208/000120919109059001/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1259208/000120919109059001/0001209191-09-059001-index.htm"
+        },
+        {
+          "form": "D",
+          "date": "2010-11-17",
+          "adsh": "0001209191-10-055526",
+          "url": "https://www.sec.gov/Archives/edgar/data/1259208/000120919110055526/primary_doc.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1259208/000120919110055526/0001209191-10-055526-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1259208/000089161808000337/f41276orsv1.htm",
+          "form": "S-1",
+          "date": "2008-07-02",
+          "mentions": 6,
+          "context": [
+            "lanet Ventures L.P., Earlybird Verwaltung GmbH, Frazier Healthcare IV, L.P. and Mosaix Ventures, LP, will beneficially own approximately % of our outstanding common stock upon completion of this offering. In addition, individual current and former partners of Earlybird Venture Capital and Frazier Healthcare, an affiliate of Frazier Healthcare IV, L.P., serve on our board of directors. Accordingly, these stockholders, acting as a group, will continue to have significant influence over the outcome of corporate actions requiring stockholder a",
+            "ds an M.B.A. and an M.A. in Sociology from the University of California, Los Angeles and a B.A. from California State University. Thom E. Rasche has been a member of our board of directors since April 2004. Since January 2007, Mr. Rasche has been a partner at Earlybird Venture Capital, a venture capital firm, where he previously served as a Venture Partner from July 2003 to December 2006. Prior to joining Earlybird, Mr. Rasche was the Managing Director for ETHICON Endo-Surgery, a division of ETHICON GmbH (a Johnson & Johnson company), from",
+            "aper Fisher Jurvetson ePlanet Partners Fund, LLC, 100,310 shares held by Draper Fisher Jurvetson ePlanet Ventures GmbH & Co. KG and 5,682,530 shares held by Draper Fisher Jurvetson ePlanet Ventures L.P. (4) Thom Rasche is one of our directors and a Partner at Earlybird Venture Capital, an affiliate of Earlybird Verwaltung GmbH; and Nader Naini is one of our directors and a General Partner of Frazier Healthcare Ventures, an affiliate of Frazier Healthcare IV, L.P., Frazier Healthcare III, LP, Frazier Affiliates IV, LP and Frazier Affiliates"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1259208/000095013408015319/f41276a1sv1za.htm",
+          "form": "S-1/A",
+          "date": "2008-08-15",
+          "mentions": 6,
+          "context": [
+            "lanet Ventures L.P., Earlybird Verwaltung GmbH, Frazier Healthcare IV, L.P. and Mosaix Ventures, LP, will beneficially own approximately % of our outstanding common stock upon completion of this offering. In addition, individual current and former partners of Earlybird Venture Capital and Frazier Healthcare, an affiliate of Frazier Healthcare IV, L.P., serve on our board of directors. Accordingly, these stockholders, acting as a group, will continue to have significant influence over the outcome of corporate actions requiring stockholder a",
+            "ds an M.B.A. and an M.A. in Sociology from the University of California, Los Angeles and a B.A. from California State University. Thom E. Rasche has been a member of our board of directors since April 2004. Since January 2007, Mr. Rasche has been a partner at Earlybird Venture Capital, a venture capital firm, where he previously served as a Venture Partner from July 2003 to December 2006. Prior to joining Earlybird, Mr. Rasche was the Managing Director for ETHICON Endo-Surgery, a division of ETHICON GmbH (a Johnson & Johnson company), from",
+            "aper Fisher Jurvetson ePlanet Partners Fund, LLC, 100,310 shares held by Draper Fisher Jurvetson ePlanet Ventures GmbH & Co. KG and 5,682,530 shares held by Draper Fisher Jurvetson ePlanet Ventures L.P. (4) Thom Rasche is one of our directors and a Partner at Earlybird Venture Capital, an affiliate of Earlybird Verwaltung GmbH; and Nader Naini is one of our directors and a General Partner of Frazier Healthcare Ventures, an affiliate of Frazier Healthcare IV, L.P., Frazier Healthcare III, LP, Frazier Affiliates IV, LP and Frazier Affiliates"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "OPENWAVE SYSTEMS INC",
+      "cik": "0001082506",
+      "forms": {
+        "8-K": 1
+      },
+      "first_date": "2008-07-03",
+      "last_date": "2008-07-03",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "2008-07-03",
+          "adsh": "0001193125-08-146735",
+          "url": "https://www.sec.gov/Archives/edgar/data/1082506/000119312508146735/dex991.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1082506/000119312508146735/0001193125-08-146735-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1082506/000119312508146735/dex991.htm",
+          "form": "8-K",
+          "date": "2008-07-03",
+          "mentions": 1,
+          "context": [
+            " and the Openwave client team, Purple Labs becomes a global leader in mobile software, powering both traditional and Linux-based mass-market phones.” Based in Chambéry, France, Purple Labs is funded by three European venture capital firms: Sofinnova Partners, Earlybird Venture Capital, and Partners Group. Financial Terms Under the terms of the definitive agreement, Openwave transferred assets of its client business to Purple Labs on June 27, 2008 in exchange for $30 million in cash, an additional $2 million if certain conditions are met, a"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "AUTHENTEC INC",
+      "cik": "0001138830",
+      "forms": {
+        "8-K": 2,
+        "425": 5,
+        "PREC14A": 1,
+        "PRRN14A": 2,
+        "DEFC14A": 1,
+        "424B3": 1,
+        "S-3": 1
+      },
+      "first_date": "2010-01-29",
+      "last_date": "2011-02-04",
+      "filings": [
+        {
+          "form": "425",
+          "date": "2010-01-29",
+          "adsh": "0001193125-10-016997",
+          "url": "https://www.sec.gov/Archives/edgar/data/1138830/000119312510016997/d425.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1138830/000119312510016997/0001193125-10-016997-index.htm"
+        },
+        {
+          "form": "PREC14A",
+          "date": "2010-01-29",
+          "adsh": "0001193125-10-017020",
+          "url": "https://www.sec.gov/Archives/edgar/data/1138830/000119312510017020/dprec14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1138830/000119312510017020/0001193125-10-017020-index.htm"
+        },
+        {
+          "form": "425",
+          "date": "2010-01-29",
+          "adsh": "0001193125-10-017104",
+          "url": "https://www.sec.gov/Archives/edgar/data/1138830/000119312510017104/d425.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1138830/000119312510017104/0001193125-10-017104-index.htm"
+        },
+        {
+          "form": "425",
+          "date": "2010-02-18",
+          "adsh": "0001193125-10-034325",
+          "url": "https://www.sec.gov/Archives/edgar/data/1138830/000119312510034325/d425.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1138830/000119312510034325/0001193125-10-034325-index.htm"
+        },
+        {
+          "form": "PRRN14A",
+          "date": "2010-02-18",
+          "adsh": "0001193125-10-033944",
+          "url": "https://www.sec.gov/Archives/edgar/data/1138830/000119312510033944/dprrn14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1138830/000119312510033944/0001193125-10-033944-index.htm"
+        },
+        {
+          "form": "425",
+          "date": "2010-03-05",
+          "adsh": "0001193125-10-048981",
+          "url": "https://www.sec.gov/Archives/edgar/data/1138830/000119312510048981/d425.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1138830/000119312510048981/0001193125-10-048981-index.htm"
+        },
+        {
+          "form": "PRRN14A",
+          "date": "2010-03-05",
+          "adsh": "0001193125-10-048850",
+          "url": "https://www.sec.gov/Archives/edgar/data/1138830/000119312510048850/dprrn14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1138830/000119312510048850/0001193125-10-048850-index.htm"
+        },
+        {
+          "form": "DEFC14A",
+          "date": "2010-03-15",
+          "adsh": "0001193125-10-056358",
+          "url": "https://www.sec.gov/Archives/edgar/data/1138830/000119312510056358/ddefc14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1138830/000119312510056358/0001193125-10-056358-index.htm"
+        },
+        {
+          "form": "425",
+          "date": "2010-03-15",
+          "adsh": "0001193125-10-056443",
+          "url": "https://www.sec.gov/Archives/edgar/data/1138830/000119312510056443/d425.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1138830/000119312510056443/0001193125-10-056443-index.htm"
+        },
+        {
+          "form": "8-K",
+          "date": "2010-09-07",
+          "adsh": "0001437749-10-002902",
+          "url": "https://www.sec.gov/Archives/edgar/data/1138830/000143774910002902/ex4-2.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1138830/000143774910002902/0001437749-10-002902-index.htm"
+        },
+        {
+          "form": "8-K",
+          "date": "2010-09-07",
+          "adsh": "0001437749-10-002902",
+          "url": "https://www.sec.gov/Archives/edgar/data/1138830/000143774910002902/ex4-3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1138830/000143774910002902/0001437749-10-002902-index.htm"
+        },
+        {
+          "form": "S-3",
+          "date": "2011-01-12",
+          "adsh": "0001437749-11-000188",
+          "url": "https://www.sec.gov/Archives/edgar/data/1138830/000143774911000188/authentec_s3-011011.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1138830/000143774911000188/0001437749-11-000188-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2011-02-04",
+          "adsh": "0001437749-11-000654",
+          "url": "https://www.sec.gov/Archives/edgar/data/1138830/000143774911000654/authentec_424b3-020111.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1138830/000143774911000654/0001437749-11-000654-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1138830/000119312510016997/d425.htm",
+          "form": "425",
+          "date": "2010-01-29",
+          "mentions": 7,
+          "context": [
+            "he substantial shareholder value creation potential of our proposal, we believed it was appropriate to allow AuthenTec stockholders to evaluate it directly.” UPEK is a privately held company, with its principal stockholders consisting of Diamondhead Ventures, Earlybird Venture Capital, EDB, Morgan Keegan, Partners Group, Sofinnova Partners and Sofinnova Ventures, and as further described in Annex A to this press release. As a privately held company, UPEK does not routinely publish its financial information or financial statements. However,",
+            "n the solicitation of proxies with UPEK at the Annual Meeting, the Agent Designation Solicitation or the Special Meeting. Certain UPEK Stockholders: Diamondhead Ventures, L.P. Diamondhead Ventures Advisory Fund, L.P. Diamondhead Ventures Principles Fund, L.P. Earlybird Verwaltungs GmbH Earlybird Verwaltungs GmbH as nominee for Earlybird GmbH & Co. Beteiligungskommanditgesellschaft III, Munich Earlybird Verwaltungs GmbH as nominee for Earlybird III L.P., Delaware Earlybird Verwaltungs GmbH as nominee for Earlybird III Advisory L.P., Del",
+            "es with UPEK at the Annual Meeting, the Agent Designation Solicitation or the Special Meeting. Certain UPEK Stockholders: Diamondhead Ventures, L.P. Diamondhead Ventures Advisory Fund, L.P. Diamondhead Ventures Principles Fund, L.P. Earlybird Verwaltungs GmbH Earlybird Verwaltungs GmbH as nominee for Earlybird GmbH & Co. Beteiligungskommanditgesellschaft III, Munich Earlybird Verwaltungs GmbH as nominee for Earlybird III L.P., Delaware Earlybird Verwaltungs GmbH as nominee for Earlybird III Advisory L.P., Delaware Earlybird Verwaltungs"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1138830/000119312510017020/dprec14a.htm",
+          "form": "PREC14A",
+          "date": "2010-01-29",
+          "mentions": 7,
+          "context": [
+            "94720) Director of UPEK - Professor at the University of California at Berkeley Richard Schank Consultant and Acting Chief Financial Officer Roland Manger (Business Address: Zugerstrasse 57, 6341 Baar-Zug, Switzerland) Director of UPEK and Managing Partner of Earlybird Venture Capital Jean Schmitt (Business Address: 17 rue de Surene, Paris, FRANCE, 75008) Director of UPEK and Managing Partner of Sofinnova Partners SA UPEK is the record holder and beneficial owner of 1,000 shares of Common Stock, all of which were acquired in ordinary broke",
+            "head Ventures, L.P.—Investment Fund Diamondhead Ventures Advisory Fund, L.P.—Investment Fund Diamondhead Ventures Principles Fund, L.P.—Investment Fund The business address of each of the above is c/o ONSET Ventures, 2490 Sand Hill Road, Menlo Park, CA 94025. Earlybird Verwaltungs GmbH- Investment Fund Earlybird Verwaltungs GmbH as nominee for Earlybird GmbH & Co.—Investment Fund Beteiligungskommanditgesellschaft III, Munich—Investment Fund Earlybird Verwaltungs GmbH as nominee for Earlybird III L.P., Delaware—Investment Fund Earlybird",
+            "ead Ventures Advisory Fund, L.P.—Investment Fund Diamondhead Ventures Principles Fund, L.P.—Investment Fund The business address of each of the above is c/o ONSET Ventures, 2490 Sand Hill Road, Menlo Park, CA 94025. Earlybird Verwaltungs GmbH- Investment Fund Earlybird Verwaltungs GmbH as nominee for Earlybird GmbH & Co.—Investment Fund Beteiligungskommanditgesellschaft III, Munich—Investment Fund Earlybird Verwaltungs GmbH as nominee for Earlybird III L.P., Delaware—Investment Fund Earlybird Verwaltungs GmbH as nominee for Earlybird I"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "TECH DATA CORP",
+      "cik": "0000790703",
+      "forms": {
+        "DEF 14A": 1
+      },
+      "first_date": "2011-04-21",
+      "last_date": "2011-04-21",
+      "filings": [
+        {
+          "form": "DEF 14A",
+          "date": "2011-04-21",
+          "adsh": "0001193125-11-104476",
+          "url": "https://www.sec.gov/Archives/edgar/data/790703/000119312511104476/ddef14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/790703/000119312511104476/0001193125-11-104476-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/790703/000119312511104476/ddef14a.htm",
+          "form": "DEF 14A",
+          "date": "2011-04-21",
+          "mentions": 1,
+          "context": [
+            "since 2001, Funkwerk AG since 2003, and Manstaedt GmbH since 2006. He has also been a member of the supervisory boards of Cewe Color AG & Co. OHG since 2001, Stulz GmbH since 2002, and Tiburon Partners AG since 2008. He is a member of the advisory councils of Earlybird Venture Capital GmbH where he has served since 2002 and Parcom Deutsche Private Equity GmbH where he has served since 2009. Mr. Ardelt has been Chairman of the Advisory Board of the Bavarian Elite Academie, where he has served since 1998 and has been on the board of the Tech"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "STANDARD MICROSYSTEMS CORP",
+      "cik": "0000093384",
+      "forms": {
+        "8-K": 1
+      },
+      "first_date": "2011-05-20",
+      "last_date": "2011-05-20",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "2011-05-20",
+          "adsh": "0001140361-11-028972",
+          "url": "https://www.sec.gov/Archives/edgar/data/93384/000114036111028972/ex2_1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/93384/000114036111028972/0001140361-11-028972-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/93384/000114036111028972/ex2_1.htm",
+          "form": "8-K",
+          "date": "2011-05-20",
+          "mentions": 1,
+          "context": [
+            "nt and Sub are fully authorized to take, and will take, all such lawful and necessary actions. 10 1.21. Preferred Stockholder Consideration Reallocation . Notwithstanding anything to the contrary in this Agreement, (a) the Closing Payment otherwise payable to Earlybird Verwaltungs GmbH pursuant to Section 1.10(b)(i) shall be reduced by Forty Thousand United States Dollars (US $40,000) and (b) the Closing Payment paid to each of BCOA Nominees Limited and Chemolio Holding AG pursuant to Section 1.10(b)(i) shall be increased by Twenty Tho"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "Kleopatra Holdings 2 S.C.A.",
+      "cik": "0001685872",
+      "forms": {
+        "S-1": 1,
+        "S-1/A": 1
+      },
+      "first_date": "2016-12-21",
+      "last_date": "2017-02-09",
+      "filings": [
+        {
+          "form": "S-1",
+          "date": "2016-12-21",
+          "adsh": "0001193125-16-800421",
+          "url": "https://www.sec.gov/Archives/edgar/data/1685872/000119312516800421/d447312ds1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1685872/000119312516800421/0001193125-16-800421-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2017-02-09",
+          "adsh": "0001193125-17-036301",
+          "url": "https://www.sec.gov/Archives/edgar/data/1685872/000119312517036301/d447312ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1685872/000119312517036301/0001193125-17-036301-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1685872/000119312516800421/d447312ds1.htm",
+          "form": "S-1",
+          "date": "2016-12-21",
+          "mentions": 1,
+          "context": [
+            "of the European investment team with a focus on building products, media and industrials. From 2003 to 2005, Mr. Kawohl was an Associate Director of The Carlyle Group in Munich, Germany in the European Buyout team. Prior to that, Mr. Kawohl was a Principal at Earlybird Venture Capital in Hamburg, Germany, a venture capital fund focused on technology and bio-tech, and a Senior Associate at McKinsey & Co. Mr. Kawohl brings to our board extensive experience on boards of private equity owned companies since 2000, which led to the conclusion th"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1685872/000119312517036301/d447312ds1a.htm",
+          "form": "S-1/A",
+          "date": "2017-02-09",
+          "mentions": 1,
+          "context": [
+            "of the European investment team with a focus on building products, media and industrials. From 2003 to 2005, Mr. Kawohl was an Associate Director of The Carlyle Group in Munich, Germany in the European Buyout team. Prior to that, Mr. Kawohl was a Principal at Earlybird Venture Capital in Hamburg, Germany, a venture capital fund focused on technology and bio-tech, and a Senior Associate at McKinsey & Co. Mr. Kawohl brings to our board extensive experience on boards of private equity owned companies since 2000, which led to the conclusion th"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "ZYNGA INC",
+      "cik": "0001439404",
+      "forms": {
+        "8-K": 1,
+        "8-K/A": 1
+      },
+      "first_date": "2020-06-01",
+      "last_date": "2020-08-21",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "2020-06-01",
+          "adsh": "0001564590-20-027738",
+          "url": "https://www.sec.gov/Archives/edgar/data/1439404/000156459020027738/znga-ex21_31.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1439404/000156459020027738/0001564590-20-027738-index.htm"
+        },
+        {
+          "form": "8-K/A",
+          "date": "2020-08-21",
+          "adsh": "0001564590-20-040952",
+          "url": "https://www.sec.gov/Archives/edgar/data/1439404/000156459020040952/znga-ex991_248.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1439404/000156459020040952/0001564590-20-040952-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1439404/000156459020027738/znga-ex21_31.htm",
+          "form": "8-K",
+          "date": "2020-06-01",
+          "mentions": 4,
+          "context": [
+            "il: [***] 4,107,936 B [***] % $ [***] [***] $ [***] [***] $ [***] Hummingbird Ventures II CVA Address: [***] Email: [***] 1,652,583 B [***] % $ [***] [***] $ [***] [***] $ [***] 1 Note: Final numbers are to be updated just before Completion. EMEA 126241067 43 Earlybird Verwaltungs GmbH Address: [***] Email: [***] 12,386,113 C [***] % $ [***] [***] $ [***] [***] $ [***] Endeavor Catalyst, Inc. Address: [***] Email: [***] 757,792 E [***] % $ [***] [***] $ [***] [***] $ [***] Evren Üçok Address: [***] Email: [***] 2,213,941 D [***] % $ [*",
+            "ss : Ömer Avni Mahallesi İnebolu Beytulmalci Sokak No.39 Haktan İş Merkezi Kat:3, Kabataş, Beyoğlu, İstanbul Issued share capital : TL 28,593,128 Shareholders : Sidar Şahin Evren Üçok Demet Suzan Mutlu Üçok Hummingbird Ventures II CVA Hummingbird Ventures CVA Earlybird Verwaltungs GmbH Endeavor Catalyst, Inc. Directors : Sidar Şahin ( Chairman of the Board ) Earlybird Verwaltungs GmbH (Real person representative: Aycan Avcı) ( Vice Chairman of the Board ), Eda Azaroğlu ( Member of the Board ) Hummingbird Ventures CVA (Real person repre",
+            "stanbul Issued share capital : TL 28,593,128 Shareholders : Sidar Şahin Evren Üçok Demet Suzan Mutlu Üçok Hummingbird Ventures II CVA Hummingbird Ventures CVA Earlybird Verwaltungs GmbH Endeavor Catalyst, Inc. Directors : Sidar Şahin ( Chairman of the Board ) Earlybird Verwaltungs GmbH (Real person representative: Aycan Avcı) ( Vice Chairman of the Board ), Eda Azaroğlu ( Member of the Board ) Hummingbird Ventures CVA (Real person representative: Galip Murat Selçuk) (Member of the Board ) Evren Üçok ( Member of the Board ) Auditors : G"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1439404/000156459020040952/znga-ex991_248.htm",
+          "form": "8-K/A",
+          "date": "2020-08-21",
+          "mentions": 1,
+          "context": [
+            "ders and the percentages of ownership of the shareholders of the Group as of December 31, 2019 and December 31, 2018 are as follows: December 31, December 31, 2019 2018 Shareholders Percentage of ownership % Amount (TRY) Percentage of ownership % Amount (TRY) Earlybird Verwaltungs GmbH 43.32% 12,386,113 43.32% 12,386,113 Sidar Şahin 21.34% 6,100,946 21.34% 6,100,946 Hummingbird Ventures CVA 14.37% 4,107,936 14.37% 4,107,936 Evren Üçok 7.74% 2,213,941 7.74% 2,213,941 Hummingbird Ventures II CVA 5.78% 1,652,583 5.78% 1,652,583 Demet Suza"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "UiPath, Inc.  (PATH)",
+      "cik": "0001734722",
+      "forms": {
+        "SC 13G": 1,
+        "4": 1,
+        "3": 1,
+        "DEF 14A": 1,
+        "DRS/A": 3,
+        "S-1": 2,
+        "DRS": 1,
+        "S-1/A": 2,
+        "424B4": 1
+      },
+      "first_date": "2020-12-17",
+      "last_date": "2022-05-04",
+      "filings": [
+        {
+          "form": "DRS",
+          "date": "2020-12-17",
+          "adsh": "0000950123-20-012703",
+          "url": "https://www.sec.gov/Archives/edgar/data/1734722/000095012320012703/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1734722/000095012320012703/0000950123-20-012703-index.htm"
+        },
+        {
+          "form": "DRS/A",
+          "date": "2021-01-28",
+          "adsh": "0000950123-21-000694",
+          "url": "https://www.sec.gov/Archives/edgar/data/1734722/000095012321000694/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1734722/000095012321000694/0000950123-21-000694-index.htm"
+        },
+        {
+          "form": "DRS/A",
+          "date": "2021-02-26",
+          "adsh": "0000950123-21-003172",
+          "url": "https://www.sec.gov/Archives/edgar/data/1734722/000095012321003172/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1734722/000095012321003172/0000950123-21-003172-index.htm"
+        },
+        {
+          "form": "DRS/A",
+          "date": "2021-02-26",
+          "adsh": "0000950123-21-003172",
+          "url": "https://www.sec.gov/Archives/edgar/data/1734722/000095012321003172/filename3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1734722/000095012321003172/0000950123-21-003172-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2021-03-26",
+          "adsh": "0001193125-21-094920",
+          "url": "https://www.sec.gov/Archives/edgar/data/1734722/000119312521094920/d98556ds1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1734722/000119312521094920/0001193125-21-094920-index.htm"
+        },
+        {
+          "form": "S-1",
+          "date": "2021-03-26",
+          "adsh": "0001193125-21-094920",
+          "url": "https://www.sec.gov/Archives/edgar/data/1734722/000119312521094920/d98556dex101.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1734722/000119312521094920/0001193125-21-094920-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2021-04-12",
+          "adsh": "0001193125-21-112457",
+          "url": "https://www.sec.gov/Archives/edgar/data/1734722/000119312521112457/d98556ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1734722/000119312521112457/0001193125-21-112457-index.htm"
+        },
+        {
+          "form": "S-1/A",
+          "date": "2021-04-19",
+          "adsh": "0001193125-21-120347",
+          "url": "https://www.sec.gov/Archives/edgar/data/1734722/000119312521120347/d98556ds1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1734722/000119312521120347/0001193125-21-120347-index.htm"
+        },
+        {
+          "form": "3",
+          "date": "2021-04-20",
+          "adsh": "0001209191-21-027680",
+          "url": "https://www.sec.gov/Archives/edgar/data/1734722/000120919121027680/doc3.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1734722/000120919121027680/0001209191-21-027680-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2021-04-21",
+          "adsh": "0001193125-21-125014",
+          "url": "https://www.sec.gov/Archives/edgar/data/1734722/000119312521125014/d98556d424b4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1734722/000119312521125014/0001193125-21-125014-index.htm"
+        },
+        {
+          "form": "4",
+          "date": "2021-04-23",
+          "adsh": "0001209191-21-028124",
+          "url": "https://www.sec.gov/Archives/edgar/data/1734722/000120919121028124/doc4.xml",
+          "index": "https://www.sec.gov/Archives/edgar/data/1734722/000120919121028124/0001209191-21-028124-index.htm"
+        },
+        {
+          "form": "SC 13G",
+          "date": "2022-02-07",
+          "adsh": "0001213900-22-005600",
+          "url": "https://www.sec.gov/Archives/edgar/data/1734722/000121390022005600/ea154959-13gdigital_uipath.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1734722/000121390022005600/0001213900-22-005600-index.htm"
+        },
+        {
+          "form": "DEF 14A",
+          "date": "2022-05-04",
+          "adsh": "0001734722-22-000020",
+          "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472222000020/uipathproxystatement2022.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1734722/000173472222000020/0001734722-22-000020-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1734722/000095012320012703/filename1.htm",
+          "form": "DRS",
+          "date": "2020-12-17",
+          "mentions": 6,
+          "context": [
+            "directors, is a director of Varonis Systems, Inc., an affiliate of Accel Partners. (2) CapitalG LP and its affiliated entities collectively beneficially own more than 5% of our outstanding capital stock. (3) Digital East Fund 2013 SCA SICAR is affiliated with Earlybird Management S.A. The entities affiliated with Earlybird Management S.A. beneficially own more than 5% of our outstanding capital stock and Dan Lupu, a member of our board of directors, is a Partner and Manager of Earlybird Advisory SARL, the Advisor to Earlybird Management S.",
+            "ffiliate of Accel Partners. (2) CapitalG LP and its affiliated entities collectively beneficially own more than 5% of our outstanding capital stock. (3) Digital East Fund 2013 SCA SICAR is affiliated with Earlybird Management S.A. The entities affiliated with Earlybird Management S.A. beneficially own more than 5% of our outstanding capital stock and Dan Lupu, a member of our board of directors, is a Partner and Manager of Earlybird Advisory SARL, the Advisor to Earlybird Management S.A. (4) Thomas Mendoza is a member of our board of direc",
+            "rlybird Management S.A. The entities affiliated with Earlybird Management S.A. beneficially own more than 5% of our outstanding capital stock and Dan Lupu, a member of our board of directors, is a Partner and Manager of Earlybird Advisory SARL, the Advisor to Earlybird Management S.A. (4) Thomas Mendoza is a member of our board of directors. Series C Convertible Preferred Stock Financing In September and October 2018, we sold an aggregate of 19,625,772 shares of our Series C-1 convertible preferred stock and 16,459,311 shares of our Series"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1734722/000095012321000694/filename1.htm",
+          "form": "DRS/A",
+          "date": "2021-01-28",
+          "mentions": 7,
+          "context": [
+            "directors, is a director of Varonis Systems, Inc., an affiliate of Accel Partners. (2) CapitalG LP and its affiliated entities collectively beneficially own more than 5% of our outstanding capital stock. (3) Digital East Fund 2013 SCA SICAR is affiliated with Earlybird Management S.A. The entities affiliated with Earlybird Management S.A. beneficially own more than 5% of our outstanding capital stock and Dan Lupu, a former member of our board of directors, is a Partner and Manager of Earlybird Advisory SARL, the Advisor to Earlybird Manage",
+            "ffiliate of Accel Partners. (2) CapitalG LP and its affiliated entities collectively beneficially own more than 5% of our outstanding capital stock. (3) Digital East Fund 2013 SCA SICAR is affiliated with Earlybird Management S.A. The entities affiliated with Earlybird Management S.A. beneficially own more than 5% of our outstanding capital stock and Dan Lupu, a former member of our board of directors, is a Partner and Manager of Earlybird Advisory SARL, the Advisor to Earlybird Management S.A. (4) Thomas Mendoza is a member of our board o",
+            " Management S.A. The entities affiliated with Earlybird Management S.A. beneficially own more than 5% of our outstanding capital stock and Dan Lupu, a former member of our board of directors, is a Partner and Manager of Earlybird Advisory SARL, the Advisor to Earlybird Management S.A. (4) Thomas Mendoza is a member of our board of directors. Series C Convertible Preferred Stock Financing In September and October 2018, we sold an aggregate of 19,625,772 shares of our Series C-1 convertible preferred stock and 16,459,311 shares of our Series"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "European Biotech Acquisition Corp.",
+      "cik": "0001841258",
+      "forms": {
+        "DEFM14A": 1,
+        "F-4": 1,
+        "8-K": 2,
+        "425": 1
+      },
+      "first_date": "2022-10-17",
+      "last_date": "2023-02-03",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "2022-10-17",
+          "adsh": "0000950103-22-017851",
+          "url": "https://www.sec.gov/Archives/edgar/data/1841258/000095010322017851/dp182518_ex1002.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1841258/000095010322017851/0000950103-22-017851-index.htm"
+        },
+        {
+          "form": "F-4",
+          "date": "2022-11-07",
+          "adsh": "0001193125-22-278594",
+          "url": "https://www.sec.gov/Archives/edgar/data/1841258/000119312522278594/d389734df4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1841258/000119312522278594/0001193125-22-278594-index.htm"
+        },
+        {
+          "form": "8-K",
+          "date": "2023-01-30",
+          "adsh": "0000950103-23-001266",
+          "url": "https://www.sec.gov/Archives/edgar/data/1841258/000095010323001266/dp187823_ex1002.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1841258/000095010323001266/0000950103-23-001266-index.htm"
+        },
+        {
+          "form": "425",
+          "date": "2023-01-30",
+          "adsh": "0000950103-23-001267",
+          "url": "https://www.sec.gov/Archives/edgar/data/1841258/000095010323001267/dp187825_ex1002.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1841258/000095010323001267/0000950103-23-001267-index.htm"
+        },
+        {
+          "form": "DEFM14A",
+          "date": "2023-02-03",
+          "adsh": "0001193125-23-024324",
+          "url": "https://www.sec.gov/Archives/edgar/data/1841258/000119312523024324/d389734ddefm14a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1841258/000119312523024324/0001193125-23-024324-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1841258/000095010322017851/dp182518_ex1002.htm",
+          "form": "8-K",
+          "date": "2022-10-17",
+          "mentions": 3,
+          "context": [
+            " EX-10.2 4 dp182518_ex1002.htm EXHIBIT 10.2 Exhibit 10.2 CONVERTIBLE LOAN AGREEMENT made as of 17 October 2022 by and among Earlybird Growth GmbH (represented by Dr. Hendrik Brandis as General Partner of Earlybird Growth Opportunities Fund V GmbH & Co. KG) Harry Blum-Platz 2 50678 Cologne Germany (\" Earlybird \") Pivotal bioVenture Partners Fund I L.P. c/o Pivotal bioVenture Partners 501 Second Street, Suite 200 San Francisco, CA, 94107 USA (\" Pivotal \") NFLS Beta Limited Vistra Corporate S",
+            "exclusively resolved by the ordinary courts of Lausanne (Switzerland). *** Convertible Loan Agreement regarding Oculis SA, 17 October 2022 13 / 21 Signatures The Lenders Place Date Earlybird Growth GmbH Represented by Dr. Hendrik Brandis as General Partner of Earlybird Growth Opportunities Fund V GmbH & Co. KG Signature Signature Name Name Title Title Place Date Pivotal bioVenture Partners Fund I L.P. Pivotal bioVenture Partners Fund I G.P., L.P., represented by its general partner Pivotal bioVenture Partners Fund I U.G.P. Ltd, represented by i",
+            "y its general partner Signature Signature Name Name Title Title Place Date Convertible Loan Agreement regarding Oculis SA, 17 October 2022 14 / 21 Signatures The Lenders Place Date Earlybird Growth GmbH Represented by Dr. Hendrik Brandis as General Partner of Earlybird Growth Opportunities Fund V GmbH & Co. KG Name Name Title Title Place Date NFLS Beta Limited Name Name Title Title Place Date Convertible Loan Agreement regarding Oculis SA, 17 October 2022 15 / 21 The Borrower Place Date Oculis SA Name Name Title Title Annexes Annex A Adherence "
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1841258/000119312522278594/d389734df4.htm",
+          "form": "F-4",
+          "date": "2022-11-07",
+          "mentions": 1,
+          "context": [
+            " Iceland and a M.Sc. degree in Information Technology from the Technical University of Denmark. Florent Gros , 54, has served as a member of the board of directors of Oculis since July 2022. Since 2022, Mr. Gros has served as Venture Partner Health Fund II of Earlybird Venture Capital. Additionally, since 2019, Mr. Gros has served as CEO and Founder of Handl Therapeutics and as Managing Partner of Swissvention Partners GmbH, and since 2020, Mr. Gros has served as Chairman & Founder of Amyl Therapeutics, CEO and founder of Priothera Ltd and"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "Oculis Holding AG  (OCS, OCSAW)",
+      "cik": "0001953530",
+      "forms": {
+        "6-K": 3,
+        "20-F": 5,
+        "424B4": 1,
+        "F-4/A": 4,
+        "F-1": 2,
+        "424B3": 3,
+        "F-1/A": 1,
+        "DRS": 1,
+        "F-4": 1,
+        "POS AM": 1
+      },
+      "first_date": "2022-11-07",
+      "last_date": "2026-04-21",
+      "filings": [
+        {
+          "form": "F-4",
+          "date": "2022-11-07",
+          "adsh": "0001193125-22-278594",
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000119312522278594/d389734df4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1953530/000119312522278594/0001193125-22-278594-index.htm"
+        },
+        {
+          "form": "F-4/A",
+          "date": "2022-12-12",
+          "adsh": "0001193125-22-302894",
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000119312522302894/d389734df4a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1953530/000119312522302894/0001193125-22-302894-index.htm"
+        },
+        {
+          "form": "F-4/A",
+          "date": "2023-01-06",
+          "adsh": "0001193125-23-003678",
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000119312523003678/d389734df4a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1953530/000119312523003678/0001193125-23-003678-index.htm"
+        },
+        {
+          "form": "F-4/A",
+          "date": "2023-01-27",
+          "adsh": "0001193125-23-017735",
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000119312523017735/d389734df4a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1953530/000119312523017735/0001193125-23-017735-index.htm"
+        },
+        {
+          "form": "F-4/A",
+          "date": "2023-02-01",
+          "adsh": "0001193125-23-021669",
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000119312523021669/d389734df4a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1953530/000119312523021669/0001193125-23-021669-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2023-02-03",
+          "adsh": "0001193125-23-024333",
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000119312523024333/d389734d424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1953530/000119312523024333/0001193125-23-024333-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2023-03-08",
+          "adsh": "0001193125-23-063347",
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000119312523063347/d468105dex411.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1953530/000119312523063347/0001193125-23-063347-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2023-03-28",
+          "adsh": "0000950170-23-010352",
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000095017023010352/ocs-20221231.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1953530/000095017023010352/0000950170-23-010352-index.htm"
+        },
+        {
+          "form": "F-1",
+          "date": "2023-04-03",
+          "adsh": "0001193125-23-088455",
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000119312523088455/d165745df1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1953530/000119312523088455/0001193125-23-088455-index.htm"
+        },
+        {
+          "form": "F-1/A",
+          "date": "2023-04-20",
+          "adsh": "0001193125-23-108405",
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000119312523108405/d165745df1a.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1953530/000119312523108405/0001193125-23-108405-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2023-05-01",
+          "adsh": "0001193125-23-130669",
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000119312523130669/d165745d424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1953530/000119312523130669/0001193125-23-130669-index.htm"
+        },
+        {
+          "form": "DRS",
+          "date": "2023-05-10",
+          "adsh": "0000950123-23-004322",
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000095012323004322/filename1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1953530/000095012323004322/0000950123-23-004322-index.htm"
+        },
+        {
+          "form": "F-1",
+          "date": "2023-05-30",
+          "adsh": "0001193125-23-155914",
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000119312523155914/d394147df1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1953530/000119312523155914/0001193125-23-155914-index.htm"
+        },
+        {
+          "form": "424B4",
+          "date": "2023-06-02",
+          "adsh": "0001193125-23-159315",
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000119312523159315/d394147d424b4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1953530/000119312523159315/0001193125-23-159315-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2024-03-19",
+          "adsh": "0000950170-24-033144",
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000095017024033144/ocs-20231231.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1953530/000095017024033144/0000950170-24-033144-index.htm"
+        },
+        {
+          "form": "POS AM",
+          "date": "2024-04-01",
+          "adsh": "0000950170-24-038856",
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000095017024038856/f-1_am_on_f-3_april_2024.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1953530/000095017024038856/0000950170-24-038856-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2024-04-03",
+          "adsh": "0000950170-24-041044",
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000095017024041044/april_2024_final_resale_.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1953530/000095017024041044/0000950170-24-041044-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2024-04-29",
+          "adsh": "0000950170-24-049939",
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000095017024049939/ocs-ex99_4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1953530/000095017024049939/0000950170-24-049939-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2025-03-11",
+          "adsh": "0000950170-25-037224",
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000095017025037224/ocs-20241231.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1953530/000095017025037224/0000950170-25-037224-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2025-05-09",
+          "adsh": "0000950170-25-068021",
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000095017025068021/ocs-ex99_4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1953530/000095017025068021/0000950170-25-068021-index.htm"
+        },
+        {
+          "form": "20-F",
+          "date": "2026-03-04",
+          "adsh": "0001193125-26-091446",
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000119312526091446/ocs-20251231.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1953530/000119312526091446/0001193125-26-091446-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2026-04-21",
+          "adsh": "0001193125-26-166790",
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000119312526166790/ocs-ex99_4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1953530/000119312526166790/0001193125-26-166790-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000119312522278594/d389734df4.htm",
+          "form": "F-4",
+          "date": "2022-11-07",
+          "mentions": 1,
+          "context": [
+            " Iceland and a M.Sc. degree in Information Technology from the Technical University of Denmark. Florent Gros , 54, has served as a member of the board of directors of Oculis since July 2022. Since 2022, Mr. Gros has served as Venture Partner Health Fund II of Earlybird Venture Capital. Additionally, since 2019, Mr. Gros has served as CEO and Founder of Handl Therapeutics and as Managing Partner of Swissvention Partners GmbH, and since 2020, Mr. Gros has served as Chairman & Founder of Amyl Therapeutics, CEO and founder of Priothera Ltd and"
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1953530/000119312522302894/d389734df4a.htm",
+          "form": "F-4/A",
+          "date": "2022-12-12",
+          "mentions": 1,
+          "context": [
+            " Iceland and a M.Sc. degree in Information Technology from the Technical University of Denmark. Florent Gros , 54, has served as a member of the board of directors of Oculis since July 2022. Since 2022, Mr. Gros has served as Venture Partner Health Fund II of Earlybird Venture Capital. Additionally, since 2019, Mr. Gros has served as CEO and Founder of Handl Therapeutics and as Managing Partner of Swissvention Partners GmbH, and since 2020, Mr. Gros has served as Chairman & Founder of Amyl Therapeutics, CEO and founder of Priothera Ltd and"
+          ]
+        }
+      ]
+    },
+    {
+      "registrant": "Lilium N.V.  (LILM, LILMW)",
+      "cik": "0001855756",
+      "forms": {
+        "6-K": 14,
+        "424B5": 2,
+        "424B2": 2,
+        "424B3": 2,
+        "F-3": 3,
+        "SC 13D/A": 1
+      },
+      "first_date": "2023-07-13",
+      "last_date": "2024-07-29",
+      "filings": [
+        {
+          "form": "6-K",
+          "date": "2023-07-13",
+          "adsh": "0001104659-23-080832",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923080832/tm2321227d1_ex99-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923080832/0001104659-23-080832-index.htm"
+        },
+        {
+          "form": "424B5",
+          "date": "2023-07-13",
+          "adsh": "0001104659-23-080838",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923080838/tm2321121-1_424b5.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923080838/0001104659-23-080838-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2023-07-14",
+          "adsh": "0001104659-23-081016",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923081016/tm2321227d2_ex99-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923081016/0001104659-23-081016-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2023-07-14",
+          "adsh": "0001104659-23-081016",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923081016/tm2321227d2_6k.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923081016/0001104659-23-081016-index.htm"
+        },
+        {
+          "form": "424B2",
+          "date": "2023-07-17",
+          "adsh": "0001104659-23-081412",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923081412/tm2321121-2_424b2.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923081412/0001104659-23-081412-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2023-07-18",
+          "adsh": "0001104659-23-082018",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923082018/tm2321520d1_ex99-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923082018/0001104659-23-082018-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2023-07-18",
+          "adsh": "0001104659-23-082018",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923082018/tm2321520d1_6k.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923082018/0001104659-23-082018-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2023-07-18",
+          "adsh": "0001104659-23-082018",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923082018/tm2321520d1_ex10-2.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923082018/0001104659-23-082018-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2023-07-25",
+          "adsh": "0001104659-23-083656",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923083656/tm2321951d1_ex99-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923083656/0001104659-23-083656-index.htm"
+        },
+        {
+          "form": "F-3",
+          "date": "2023-09-18",
+          "adsh": "0001104659-23-101302",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923101302/tm2326116d1_f3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923101302/0001104659-23-101302-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2023-09-25",
+          "adsh": "0001104659-23-103551",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923103551/tm2326715d1_424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923103551/0001104659-23-103551-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2024-02-27",
+          "adsh": "0001104659-24-027902",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924027902/tm247279d1_ex99-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924027902/0001104659-24-027902-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2024-05-23",
+          "adsh": "0001104659-24-064734",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924064734/tm2415262d1_ex99-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924064734/0001104659-24-064734-index.htm"
+        },
+        {
+          "form": "424B5",
+          "date": "2024-05-23",
+          "adsh": "0001104659-24-064760",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924064760/tm2415049-2_424b5.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924064760/0001104659-24-064760-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2024-05-24",
+          "adsh": "0001104659-24-064965",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924064965/tm2415530d1_ex99-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924064965/0001104659-24-064965-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2024-05-24",
+          "adsh": "0001104659-24-064965",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924064965/tm2415530d1_6k.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924064965/0001104659-24-064965-index.htm"
+        },
+        {
+          "form": "SC 13D/A",
+          "date": "2024-05-24",
+          "adsh": "0001140361-24-027525",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000114036124027525/ef20030004_ex99-15.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000114036124027525/0001140361-24-027525-index.htm"
+        },
+        {
+          "form": "424B2",
+          "date": "2024-05-28",
+          "adsh": "0001104659-24-065599",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924065599/tm2415049-3_424b2.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924065599/0001104659-24-065599-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2024-05-29",
+          "adsh": "0001104659-24-066163",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924066163/tm2415796d1_ex99-1.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924066163/0001104659-24-066163-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2024-05-29",
+          "adsh": "0001104659-24-066163",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924066163/tm2415796d1_6k.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924066163/0001104659-24-066163-index.htm"
+        },
+        {
+          "form": "6-K",
+          "date": "2024-05-29",
+          "adsh": "0001104659-24-066163",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924066163/tm2415796d1_ex10-4.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924066163/0001104659-24-066163-index.htm"
+        },
+        {
+          "form": "F-3",
+          "date": "2024-06-14",
+          "adsh": "0001104659-24-071767",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924071767/tm2417151d1_f3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924071767/0001104659-24-071767-index.htm"
+        },
+        {
+          "form": "424B3",
+          "date": "2024-06-25",
+          "adsh": "0001104659-24-074799",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924074799/tm2417636d1_424b3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924074799/0001104659-24-074799-index.htm"
+        },
+        {
+          "form": "F-3",
+          "date": "2024-07-29",
+          "adsh": "0001104659-24-083567",
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924083567/tm2420175d1_f3.htm",
+          "index": "https://www.sec.gov/Archives/edgar/data/1855756/000110465924083567/0001104659-24-083567-index.htm"
+        }
+      ],
+      "bucket": "third_party",
+      "snippets": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923080832/tm2321227d1_ex99-1.htm",
+          "form": "6-K",
+          "date": "2023-07-13",
+          "mentions": 2,
+          "context": [
+            "ertical take-off and landing jet, announced today that it has launched an underwritten public offering of the Company's Class A ordinary shares (the “Shares”), as well as a concurrent private placement offering of Shares and warrants to purchase Shares led by Earlybird Venture Capital and including BIT Capital, UVC Partners and Frank Thelen, as well as multiple Lilium Board members and senior executives (the “PIPE”). In addition, pursuant to the purchase agreement dated May 1, 2023 between the Company and Aceville Pte. Limited, an affiliat",
+            " North 17th Street, Suite 1300, Arlington, Virginia 22209; Telephone: (703) 312-9580, or by emailing prospectuses@brileyfin.com. In connection with the concurrent PIPE, the Company entered into a securities purchase agreement with a number of investors led by Earlybird Venture Capital and including BIT Capital, UVC Partners and Frank Thelen, as well as multiple Lilium Board members and senior executives for the purchase of Shares for $1.30 per share and warrants to purchase Shares at an exercise price of $2.00 per share. Each warrant will "
+          ]
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1855756/000110465923080838/tm2321121-1_424b5.htm",
+          "form": "424B5",
+          "date": "2023-07-13",
+          "mentions": 3,
+          "context": [
+            "upplement. As part of this offering, B. Riley intends to allocate Class A Shares to itself or certain of its affiliates. In a concurrent private placement (the “PIPE”), we have entered into a securities purchase agreement with a number of investors, including Earlybird Venture Capital, BIT Capital, UVC Partners and Frank Thelen, as well as Lilium directors Barry Engle, David Wallerstein and Henri Courpron and multiple Lilium senior executives, for the purchase and sale of an aggregate of 32,146,147 Class A Shares for $1.30 per share and wa",
+            "egin entering into binding agreements with, and taking pre-delivery payments from, shuttle and fleet operators by the end of 2023. Recent Developments PIPE On July 13, 2023, we entered into a securities purchase agreement with a number of investors, including Earlybird Venture Capital, BIT Capital, UVC Partners and Frank Thelen, as well as Lilium directors Barry Engle, David Wallerstein and Henri Courpron and multiple Lilium senior executives, for the purchase and sale of an aggregate of 32,146,147 Class A Shares for $1.30 per share and wa",
+            "ompanying prospectus for a discussion of certain factors you should carefully consider before deciding to invest in the offered securities. Concurrent PIPE On July 13, 2023, we entered into a securities purchase agreement with a number of investors, including Earlybird Venture Capital, BIT Capital, UVC Partners and Frank Thelen, as well as Lilium directors Barry Engle, David Wallerstein and Henri Courpron and multiple Lilium senior executives, for the purchase and sale of an aggregate of 32,146,147 Class A Shares for $1.30 per share and wa"
+          ]
+        }
+      ]
+    }
+  ]
+}
