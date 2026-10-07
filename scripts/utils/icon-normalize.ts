@@ -252,7 +252,7 @@ export async function measure(img: sharp.Sharp): Promise<IconMetrics> {
   }
   const inks: [number, number, number][] = [];
   let flatMass = 0;
-  for (const e of [...bins.values()].sort((a, b) => b.n - a.n).slice(0, 4)) {
+  for (const e of Array.from(bins.values()).sort((a, b) => b.n - a.n).slice(0, 4)) {
     if (e.n < FLAT_BIN_MIN * Math.max(1, cand)) break;
     inks.push([e.r / e.n, e.g / e.n, e.b / e.n]);
     flatMass += e.n;
