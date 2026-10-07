@@ -1,0 +1,405 @@
+{
+  "slug": "founders-fund",
+  "name": "Founders Fund",
+  "wayback": {
+    "cdx_domain": "foundersfund.com",
+    "site_url_base": "https://foundersfund.com",
+    "eras": [
+      {
+        "parser": "listing_regex",
+        "cdx_domain": "thefoundersfund.com",
+        "site_url_base": "http://www.thefoundersfund.com",
+        "path": "/portfolio.html",
+        "from": 2006,
+        "to": 2009,
+        "raw": true,
+        "pattern": "<td valign=\"top\"><a href=\"http://www\\.(?P<slug>[a-z0-9-]+)\\.[a-z]+/?\"[^>]*><img src=\"images/logo_"
+      },
+      {
+        "parser": "listing_regex",
+        "path": "/portfolio.php",
+        "from": 2009,
+        "to": 2011,
+        "raw": true,
+        "pattern": "<li><a href=\"(?P<slug>[a-z0-9_]+)\\.php\" class=\"red\">(?P<name>[^<]+)</a></li>"
+      },
+      {
+        "parser": "cdx_company_pages",
+        "path": "/company/",
+        "from": 2009,
+        "to": 2026,
+        "per_company_pages": true
+      }
+    ],
+    "_eras_note": "Three listing generations, inspected 2026-10-06 once the archive answered: thefoundersfund.com/portfolio.html (2005 placeholder with no companies, listings 2006-2009, logo blocks keyed on the company's own domain), foundersfund.com/portfolio.php (2009-2011, a plain name list linking <slug>.php profile pages), and WordPress /company/<slug> pages from 2011 on (218 distinct slugs in the index; the /portfolio page of 2014-2021 shows only a featured subset and is not an era). The first pull of 2026-10-01 started the /company/ era at 2014 and so dropped every slug first captured 2009-2013.",
+    "non_company_slugs": [
+      "index",
+      "home",
+      "page",
+      "feed",
+      "all",
+      "company",
+      "companies",
+      "portfolio",
+      "team",
+      "our_team",
+      "people",
+      "about",
+      "contact",
+      "jobs",
+      "careers",
+      "news",
+      "anatomy-of-next",
+      "the-future",
+      "manifesto",
+      "wp-json",
+      "wp-content",
+      "wp-admin",
+      "sitemap",
+      "privacy",
+      "terms",
+      "search"
+    ]
+  },
+  "site_api": {
+    "type": "scrape",
+    "sources": [
+      {
+        "parser": "json_list",
+        "url": "https://foundersfund.com/wp-json/wp/v2/company?per_page=100&page=1",
+        "list": "wordpress-companies",
+        "fields": {
+          "name": "title.rendered",
+          "url": "link"
+        },
+        "sectors": "industry",
+        "extras": [
+          "id",
+          "content",
+          "profiles",
+          "founders",
+          "date",
+          "modified"
+        ]
+      }
+    ],
+    "team_sources": [
+      {
+        "parser": "json_list",
+        "url": "https://foundersfund.com/wp-json/wp/v2/team?per_page=100&page=1",
+        "list": "wordpress-team",
+        "fields": {
+          "name": "title.rendered",
+          "url": "link"
+        },
+        "rename": {
+          "subtitle": "cms_title"
+        },
+        "extras": [
+          "cms_title",
+          "twitter",
+          "content",
+          "date"
+        ]
+      }
+    ],
+    "team_bucket_overrides": {
+      "Lauren Gross": [
+        "operations",
+        "finance"
+      ],
+      "Mike Petriano": "operations",
+      "Sam Seo": "operations"
+    },
+    "team_social_exclude": [
+      "foundersfund"
+    ],
+    "_note": "WordPress REST types company and team are public. HTTP pagination headers checked at kickoff: 64 companies, 30 people, one page each. No company field states the firm's entry round or investment year; CMS publication dates are not investment dates. Team titles are the site's subtitle field. Recheck pagination before future pulls."
+  },
+  "roster": {
+    "cdx_patterns": [
+      "foundersfund.com/team/*"
+    ],
+    "slug_re": "/team/([a-z][a-z0-9-]*[a-z0-9])/?$",
+    "listing_href_re": "/team/([a-z][a-z0-9-]*[a-z0-9])/?[\"']",
+    "not_a_person": [
+      "index",
+      "team",
+      "our-team",
+      "our_team",
+      "people",
+      "all",
+      "page",
+      "feed",
+      "portfolio",
+      "company"
+    ],
+    "_note": "The initial roster is curated from current investing titles plus former partners and dated sources. Operational staff are not sweep targets. Captures extend the roster when accessible; the archive outage must not erase the curated roster."
+  },
+  "edgar": {
+    "seed_queries": [
+      "founders+fund",
+      "ff+angel",
+      "ff+science",
+      "ff+consumer",
+      "ff+upper",
+      "ff+spacex",
+      "ffav",
+      "lembas",
+      "founders+and",
+      "founders+open",
+      "founders+spc",
+      "founders+ant",
+      "gopher+e",
+      "miruvor",
+      "mirian",
+      "erebor"
+    ],
+    "fts_phrases": [
+      "The Founders Fund",
+      "Founders Fund Growth",
+      "Founders Fund LLC",
+      "FF Angel",
+      "FF Science",
+      "Lembas"
+    ],
+    "fts_own_pattern": "^(?:(the )?founders fund|ff (angel|science|consumer growth|upper tier)|lembas|founders (and|open|spc|ant)|gopher e|miruvor|mirian|erebor)",
+    "_note": "Resolve each entity against CRD 155462's fund roster and addresses. The words 'founders fund' also occur inside unrelated fund names, including Benchmark, Spark, Oquirrh, Bowman and third-party feeders."
+  },
+  "wikipedia": {
+    "phrases": [
+      "Founders Fund"
+    ]
+  },
+  "desks": {
+    "home": "us",
+    "partition": [],
+    "rank": [
+      "us",
+      "unknown"
+    ],
+    "classify": [
+      {
+        "desk": "external",
+        "patterns": [
+          "allocate",
+          "access fund",
+          "benchmark",
+          "spark capital",
+          "oquirrh",
+          "bowman",
+          "larch lane",
+          "gigafund",
+          "bedrock",
+          "mithril",
+          "valar",
+          "clarium",
+          "founders fund capital management",
+          "founders fund investment",
+          "digital irish",
+          "^founders fund i, l\\.l\\.l\\.p",
+          "^founders fund lc$",
+          "^founders fund lp$",
+          "^lembas capital",
+          "^lembas fund"
+        ]
+      },
+      {
+        "desk": "us",
+        "patterns": [
+          "^(the )?founders fund(?: |,|$)",
+          "^ff (angel|science|consumer growth|upper tier|spacex)(?: |,|$)",
+          "^ffav(?: |,|$)",
+          "^lembas (ii|iii|iv|v)(?: |,|$)",
+          "^founders (and[0-9]*|open(?: ii)?|spc|ant),",
+          "^(gopher e|miruvor|mirian|erebor),"
+        ]
+      }
+    ],
+    "_note": "Founders Fund LLC, CRD 155462, SEC 802-75555, is the ERA. Its 2026-03-30 ADV lists flagship and Growth management entities under common control. Principal office 1 Letterman Dr, Bldg D, 5th Floor, San Francisco; other office Miami. Name patterns are provisional until the entity registry is inspected."
+  },
+  "profile": {
+    "adv_crd": "155462",
+    "own_vehicle_pattern": "^(the )?founders fund",
+    "focus_min_companies": 12,
+    "focus_crosswalk": {}
+  },
+  "verify": {
+    "text_mention_leaks": [],
+    "cofiler_leaks": [],
+    "known_positions": [
+      "spacex",
+      "airbnb",
+      "palantir",
+      "anduril",
+      "stripe",
+      "facebook",
+      "spotify",
+      "openai"
+    ],
+    "not_members": [
+      {
+        "name": "PayPal",
+        "slug": "paypal",
+        "why": "Founders' operator positions before Founders Fund existed; T2/T4. A personal biography does not prove a Founders Fund investment."
+      },
+      {
+        "name": "Napster",
+        "slug": "napster",
+        "why": "Sean Parker's pre-firm founder position, T2/T4."
+      },
+      {
+        "name": "The Founders Fund Growth III, LP",
+        "slug": "the-founders-fund-growth-iii-lp",
+        "why": "Own fund vehicle, not an operating company, T5."
+      },
+      {
+        "name": "Gigafund",
+        "slug": "gigafund",
+        "why": "Luke Nosek's independent successor firm; an LP commitment is not an operating-company position, T1/T5."
+      },
+      {
+        "name": "Opendoor",
+        "slug": "opendoor",
+        "why": "D11/T3: the only fund position is a PIPE of 125,000 shares by The Founders Fund Growth, LP on the December 2020 resale prospectus; Keith Rabois's seat is a co-founder's, taken at Khosla."
+      },
+      {
+        "name": "BitMine Immersion Technologies",
+        "slug": "bitmine-immersion-technologies",
+        "why": "D11/T3: a Schedule 13G position of FF Consumer Growth II, LP taken in a listed company in 2025; no venture round."
+      },
+      {
+        "name": "ETHZilla",
+        "slug": "ethzilla",
+        "why": "D11/T3: a Schedule 13G position of FF Consumer Growth II, LP taken in a listed company (formerly 180 Life Sciences) in 2025; no venture round."
+      },
+      {
+        "name": "Secure Computing",
+        "slug": "secure-computing",
+        "why": "D12: The Founders Fund, LP is a selling stockholder on the 2007 resale prospectus for stock issued in an acquisition; the acquirer is not the investment."
+      },
+      {
+        "name": "Identiv",
+        "slug": "identiv",
+        "why": "D12: The Founders Fund, LP is a selling stockholder on the 2018 resale prospectus for stock issued to buy 3VR; the investment is 3VR."
+      },
+      {
+        "name": "Sprinklr",
+        "slug": "sprinklr",
+        "why": "D12: FF Angel, LLC holds 3,138 shares on Sprinklr's stockholder schedule, the size of acquisition consideration; the investment is the company Sprinklr bought."
+      },
+      {
+        "name": "Square",
+        "slug": "square",
+        "why": "T4: Keith Rabois's seat is an operator's (chief operating officer, 2010 to 2013), years before his Founders Fund tenure."
+      },
+      {
+        "name": "Yelp",
+        "slug": "yelp",
+        "why": "T4: Keith Rabois's board seat and personal investment predate his Founders Fund tenure (2019 to 2024) by a decade."
+      },
+      {
+        "name": "Eventbrite",
+        "slug": "eventbrite",
+        "why": "T4: Kevin Hartz is a co-founder; a founder's seat on his own company's filing is not a fund position."
+      },
+      {
+        "name": "Xoom",
+        "slug": "xoom",
+        "why": "T4: Kevin Hartz co-founded Xoom and Keith Rabois sat its board personally; both seats predate their Founders Fund tenures."
+      },
+      {
+        "name": "Adagio Therapeutics",
+        "slug": "adagio-therapeutics-inc",
+        "why": "D3: Mithril's ownership filings, co-filed by Peter Thiel; no Founders Fund vehicle."
+      },
+      {
+        "name": "BlackSky Technology",
+        "slug": "blacksky-technology-inc",
+        "why": "D3: Mithril's ownership filings, co-filed by Peter Thiel; no Founders Fund vehicle."
+      },
+      {
+        "name": "Fractyl Health",
+        "slug": "fractyl-health-inc",
+        "why": "D3: Mithril's ownership filings, co-filed by Peter Thiel; no Founders Fund vehicle."
+      },
+      {
+        "name": "PEMCO Aviation Group",
+        "slug": "pemco-aviation-group-inc",
+        "why": "D3: Clarium Capital's 2002 to 2004 filings, before Founders Fund existed."
+      },
+      {
+        "name": "Reddit",
+        "slug": "reddit",
+        "why": "T4: Keith Rabois's seat begins in his Khosla years; no Founders Fund vehicle on any Reddit round."
+      },
+      {
+        "name": "Lookout",
+        "slug": "lookout",
+        "why": "T4: Kevin Hartz's personal seat since 2009; no Founders Fund vehicle on any Lookout round."
+      },
+      {
+        "name": "Friendster",
+        "slug": "friendster",
+        "why": "D2/T2: Peter Thiel's personal 2003 angel position, listed by the firm 2010 to 2012; no fund of the firm on any round."
+      },
+      {
+        "name": "fbFund",
+        "slug": "fbfund",
+        "why": "T5: a seed fund run with Facebook and Accel, not an operating company."
+      },
+      {
+        "name": "Vittana",
+        "slug": "vittana",
+        "why": "T5: a non-profit; no equity position."
+      },
+      {
+        "name": "CipherTrust",
+        "slug": "ciphertrust",
+        "why": "Namesake: the 'Founders Fund, LP (Clarion Ventures)' on Secure Computing's 2007 resale prospectus is Clarion Ventures' fund, not this firm."
+      }
+    ],
+    "shape": {
+      "c2a_rate_max": 0.8,
+      "_note": "Standing S2A guard. No ceiling on the share of billion-dollar companies."
+    }
+  },
+  "sample_slugs": [],
+  "names": {
+    "published": {
+      "8i-corp": "8i",
+      "airtime": "Airtime",
+      "cargo-systems-inc": "Cargo",
+      "cdd": "Collaborative Drug Discovery",
+      "hq": "HQ Trivia",
+      "invisibly-inc": "Invisibly",
+      "isocket": "iSocket",
+      "lula-technologies-inc": "Lula",
+      "modumetal-inc": "Modumetal",
+      "orgio-inc": "The Org",
+      "plethora-corp": "Plethora",
+      "royal-markets-inc": "Royal",
+      "runtitle-inc": "RunTitle",
+      "sgn": "Jam City",
+      "tribogenics-inc": "Tribogenics",
+      "zenreach-inc": "Zenreach",
+      "ghost-autonomy-inc": "Ghost Autonomy",
+      "homee-interiors-inc": "Hutch",
+      "all-day-technologies-inc": "All Day Kitchens",
+      "brit-co": "Brit + Co",
+      "hampton-creek": "Eat Just",
+      "vicarious-systems": "Vicarious",
+      "boring-company": "The Boring Company",
+      "material": "Material Security",
+      "flo": "Flo Health",
+      "resilience": "National Resilience",
+      "stark-defence": "Stark",
+      "impulse": "Impulse Space",
+      "emerald-therapeutics": "Emerald Cloud Lab",
+      "the-climate-corporation": "The Climate Corporation",
+      "long-term-stock-exchange": "Long-Term Stock Exchange",
+      "hims-hers": "Hims & Hers"
+    },
+    "_note": "Published names (COLLECTION.md s8): legal suffixes and source renderings removed, the brand a reader knows (Jam City for SGN, Eat Just for Hampton Creek, The Org for Orgio, Inc., Hutch for Homee), and the name sibling books publish where they hold the same company (Stark, Impulse Space, The Boring Company)."
+  }
+}

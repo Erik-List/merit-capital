@@ -1,0 +1,54 @@
+export refused: 18 Seed row(s) without a decided graduation status (azumio, emerald-therapeutics, inigral, prior-knowledge, tachyus, 3dna-corp, affl-associates-llc, blitsy-inc, ekostinger-inc, eventbrite-inc, february-won-inc, globaltmail-usa-inc …); a Seed row is graduated, not_graduated or censored (PRO-132). Judge them (prepare queues them), then export.
+site API portfolio: 64 companies
+pooled fund vehicles dropped: 109 issuers (139 filings)
+initial-only person matches ignored: 0 issuers (0 attributions)
+limited partnerships dropped (not operating companies): 1
+    - ADMI Holdings LP
+non-portfolio industry, Form D-only (3 dropped):
+    - A-Star Capital CT V LLC [Investing]
+    - Northwest Community Bancorp, Inc. [Commercial Banking]
+    - OpenDoor Labs Inc. [Other Real Estate]
+    - AbCellera Biologics Inc. (personal Section 16 filing only)
+    - Chemomab Therapeutics Ltd. (personal Section 16 filing only)
+    - Meta Platforms, Inc. (personal Section 16 filing only)
+    - PROPERTYGURU GROUP LTD (personal Section 16 filing only)
+removed (partner's personal board seat, no fund position): 4
+verification ledger: 1 excluded, 0 control positions excluded, 0 uncertain kept
+duplicate name-variants merged: 18; kept separate (co-listed or differing CIK): 0
+excluded.json: 1 rows ({'not_member': 1})
+rows renamed by the rebuild: 25
+    airtime-media-inc -> airtime
+    altschool-pbc -> altschool
+    applied-molecular-transport-inc -> applied-molecular-transport
+    azumio-inc -> azumio
+    branch-metrics-inc -> branch
+    clickable-inc -> clickable
+    cloud9-esports-inc -> cloud9
+    eight-sleep-inc -> eight-sleep
+    emerald-therapeutics-inc -> emerald-therapeutics
+    gecko-robotics-inc -> gecko-robotics
+    gowalla-inc -> gowalla
+    inigral-inc -> inigral
+    long-term-stock-exchange-inc -> long-term-stock-exchange
+    misfit-inc -> misfit
+    ooma-inc -> ooma
+    pietra-inc -> pietra
+    prior-knowledge-inc -> prior-knowledge
+    quantcast-corp -> quantcast
+    researchgate-corp -> researchgate
+    rigup-inc -> rigup
+    robotex-inc -> robotex
+    synthego-corp -> synthego
+    tachyus-corp -> tachyus
+    workstream-technologies-inc -> workstream
+    yammer-inc -> yammer
+    resolved.json: 25 re-keyed
+    membership-ledger.json: 1 re-keyed
+Traceback (most recent call last):
+  File "/Users/erik/Developer/merit-capital/scripts/build-company-base.py", line 1089, in <module>
+    main()
+  File "/Users/erik/Developer/merit-capital/scripts/build-company-base.py", line 1076, in main
+    subprocess.run([sys.executable, str(Path(__file__).parent / "run.py"),
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/usr/local/bin/python3', '/Users/erik/Developer/merit-capital/scripts/run.py', 'export', '--investor', 'founders-fund']' returned non-zero exit status 1.
