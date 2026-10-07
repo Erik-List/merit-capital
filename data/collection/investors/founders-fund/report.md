@@ -1,6 +1,6 @@
 # Founders Fund: collection report (PRO-81)
 
-Run 2026-09-27 to 2026-10-07. Started by a Codex session (provisional base, 54 rows classified), taken over and finished by a Claude Code session on 2026-10-06 at Erik's kickoff. Prompt count for the finishing session: 2 (the kickoff, and one "continue" after the app was quit mid-run).
+Run 2026-09-27 to 2026-10-07. Started by a Codex session (provisional base, 54 rows classified), taken over and finished by a Claude Code session on 2026-10-06 at Erik's kickoff. Prompt count for the finishing session: 3 (the kickoff, one "continue" after the app was quit mid-run, and Erik's two rulings).
 
 ## 1. Result
 
@@ -72,6 +72,8 @@ The 2026 ADV lists 48 private funds, 17 of them deal vehicles.
 - Closing commit 9f13091a, then icon, investor row, dry run (293 new, 0 removed, from 0 live), write, readback: **293 live, 0 differing cells**.
 - The icon is the firm's four-band square mark, redrawn as a vector from the site's 152 px image (the site declares no vector of it); provenance in `investor/sources.json`.
 - Eleven sibling books re-ingested after their alignment (Tiger, Coatue, Sequoia, First Round, a16z, Lux, Battery, Menlo, 8VC, Greylock, Y Combinator): each readback before the write showed exactly the aligned cells (1 to 3), each dry run 0 new and 0 removed, each readback after 0 differing cells. Y Combinator shows its known one-row name artefact (a leading space the readback tool does not trim).
+
+- **Re-ingest of 2026-10-07 after Erik's rulings** (commits 4a734eae, 83a5f4d2): readback before showed the six new rows and Avalanche's cells, dry run 6 new and 0 removed, readback after **299 live, 0 differing cells**; a16z re-ingested for Avalanche, readback exact.
 
 ## 11. Usage
 
