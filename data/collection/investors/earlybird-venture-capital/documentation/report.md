@@ -48,9 +48,9 @@ Out: 35 rows ruled `not_member`, 38 partitioned with Digital East, 1 dropped by 
 
 | Status | Rows | Share |
 |---|---|---|
-| Private | 99 | 51% |
+| Private | 100 | 51% |
 | Acquired | 62 | 32% |
-| Defunct | 30 | 15% |
+| Defunct | 29 | 15% |
 | Public | 4 | 2% |
 
 Public: NFON, Oculis, Tipp24 (Zeal Network) and Wilex (Heidelberg Pharma).
@@ -209,7 +209,7 @@ base and cannot be.
 2. **64 rows carry an `undetermined` entry stage (33%).** 33 of them date from before 2010, where
    the firm's releases say "first financing round" and name no stage (R5).
 3. **RhodeCode's Series A** is named only by Wikipedia; the row keeps its stage `undetermined`.
-4. **CrossLend reads `defunct` at medium confidence** (section 10).
+4. **CrossLend reads `private` on the register, against a 2023 trade headline** (section 8).
 5. **`hq_city`** is filled on all 195 rows; the source label is the model's on every row, checked
    against the firm's page where it gives one.
 
@@ -221,12 +221,20 @@ base and cannot be.
   `acquired` under D10). The class sweep found the same shape at smoodoos.com. One city differed
   (GMD: the blind pass gave Berlin, the seat after the 2002 merger; Munich, the seat while
   Earlybird held it, is kept).
+- **Correction at the ingest gate (CrossLend).** The first pass read `defunct` on a paywalled 2023
+  headline ("implodiert") and a dead domain. Before writing that value into the Lakestar and
+  Northzone books I re-read the home register: CrossLend GmbH is active, with no liquidation or
+  insolvency entry, a state aid notice for R&D tax credits in December 2024 and an address change
+  registered in January 2026. No source gives a shutdown or a sale, so the row reads `private`,
+  as both sibling books already had it. The yoom and smoodoos.com status citations were moved to
+  the article that reports each asset sale.
 - **A/B attack searches** on the boundary rows (Digital East, Sennder, Lilium, the pre-fund class)
   changed nothing.
 - **Field score for the firm's stage label:** refused (R6, `scratch/field-score.json`).
 - **Traps in `config.verify.not_members`:** UiPath, Payhawk, Hazelcast, Trendyol, Yemeksepeti,
   Lilium, AuthenTec, Digital River, Zynga, Standard Microsystems, Amgen, EarlyBirdCapital.
-- **Cross-investor rule 10:** 8 pairs ruled `distinct` (same name, different company), 1 pair
+- **Cross-investor rule 10:** 10 pairs ruled `distinct` (same name, different company; two of them,
+  Tilt and Pillar in the Y Combinator book, showed only in that book's `verify`), 1 pair
   `accepted` until the sibling is aligned (Curio in the Cherry book; section 16).
 
 ## 9. Firm profile
@@ -260,12 +268,13 @@ fund, so a reader who knows UiPath as an Earlybird deal finds the reason on the 
    Everoad and also put new money into Sennder's June 2020 round. The new money makes it a member
    under the sale-consideration ruling; without it the row would leave and the book would lose a
    $1B+ company.
-3. **CrossLend reads `defunct` at medium confidence.** The 2023 wind-down is reported by one trade
-   source and the register shows no deletion yet. The same value went to the Lakestar and
-   Northzone books (section 16).
+3. **"Pre-Fund Investments" are out (R1).** 13 rows the firm's 2018 to 2023 list showed under that
+   label, plus Vitraum: partners' positions from before they joined, with no Earlybird fund named
+   in any round. This follows the partner-carried ruling, but it removes names the firm itself
+   listed (Forto, McMakler, DailyDeal), so it is worth your eye.
 
-Settled without asking, by a standing rule: Lilium (post-IPO), the pre-fund class (partner-carried),
-the three consideration rows, OneFootball's band, yoom and smoodoos.com (asset sale).
+Settled without asking, by a standing rule or by research: Lilium (post-IPO), the three
+consideration rows, OneFootball's band, yoom and smoodoos.com (asset sale), CrossLend (register).
 
 ## 11. Incidents
 
