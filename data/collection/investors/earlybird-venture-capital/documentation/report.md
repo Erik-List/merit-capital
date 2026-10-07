@@ -233,7 +233,7 @@ base and cannot be.
 - **Field score for the firm's stage label:** refused (R6, `scratch/field-score.json`).
 - **Traps in `config.verify.not_members`:** UiPath, Payhawk, Hazelcast, Trendyol, Yemeksepeti,
   Lilium, AuthenTec, Digital River, Zynga, Standard Microsystems, Amgen, EarlyBirdCapital.
-- **Cross-investor rule 10:** 56 rows shared with other books, all agree. 13 pairs ruled `distinct`
+- **Cross-investor rule 10:** 54 rows shared with other books, all agree. 13 pairs ruled `distinct`
   (same name, different company; two of them, Tilt and Pillar in the Y Combinator book, showed
   only in that book's `verify`; three Hive pairs are ruled ahead of General Catalyst landing),
   1 pair ruled `same` (N26 and Battery's Number26). The Curio pair parked as `accepted` was
