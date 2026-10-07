@@ -159,3 +159,21 @@ align.py ingest -> report section 15 -> commit -> Linear -> memory -> closing me
   Commit 97f0e378. Insight's Groupalia aligned and re-ingested (e79160b7).
 - Dream Games re-read after a headline said "majority stake": the founders keep the majority, private stands.
 - Still unknown in Europe: Tactic, OpenBuildings, Futurelytics, Rad, Webfair. Not done: the same check on US rows.
+
+## 2026-10-07, prompt 4 ("continue"): the status check outside Europe
+
+- 185 rows outside Europe (172 private, 13 unknown) plus the 5 European unknowns: EDGAR full-text search of
+  buyers' filings (scratch/status-edgar-fts.py), dated news check (scratch/status-news-row.py, read through
+  scratch/status-news-filter.py), TechCrunch search (scratch/status-tc.py), the companies' own domains.
+- 14 statuses changed (queue/status-row-1; Nauto note in status-row-2): 5 acquired, 5 defunct, 4 private.
+  Status now private 275, acquired 210, defunct 41, public 26, unknown 8. S2A unchanged.
+- Re-ingested: readback before 15 differing cells (14 statuses + doubleTwist's city), dry run 0 removed,
+  readback after exact. Commit 738756ab.
+- Sibling alignment in scratch/align3/ (same kit; the Index book must be exported BEFORE `local`, rule 10
+  reads each book's base.csv): 12 rows in 9 books re-ingested, readback exact.
+- Gate repairs left by the Founders Fund run: a16z Royal to private, cite_pending on a16z Lighter and
+  Battery Porch Group (c1e5d0fa), YC Cargo vs Founders Fund Cargo ruled distinct (6d0a8075).
+- Left open, not this run's pairs: The Boring Company (8VC, Sequoia vs Founders Fund $23B), Coatue's Enter
+  country citation.
+- Still unknown: Covariant, Tactic, Futurelytics, Webfair, Grupo Xango, Happylatte, LaserComm, Pulsent.
+- MEMORY.md was trimmed under its size limit at the start of this prompt.

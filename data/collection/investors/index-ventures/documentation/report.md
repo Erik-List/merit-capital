@@ -47,7 +47,7 @@ funds with $25.3B of gross assets.
 | Coverage per evidence regime, never blended | Section 4 |
 | Profile through the taxonomy gate | `build-firm-profile.py` and `profile_copy.py` ok (section 9) |
 | `review.html` rendered | 560 of 560 rows, profile panel opens, no console errors |
-| `report.md` with method delta, open rulings, prompt count | This file; three rulings (section 10); prompt count 2 |
+| `report.md` with method delta, open rulings, prompt count | This file; three rulings (section 10); prompt count 4 (section 14) |
 | COLLECTION.md diff proposed | Section 12 |
 | Ingest through the §9 gate, stale sibling rows aligned | Live at 560 rows, readback exact; 36 sibling rows in 20 books re-ingested (section 15) |
 
@@ -57,10 +57,10 @@ funds with $25.3B of gross assets.
 |---|---|---|
 | Companies | 560 | all nameable |
 | Private | 275 | 49.1% |
-| Acquired | 205 | 36.6% |
-| Defunct | 36 | 6.4% |
+| Acquired | 210 | 37.5% |
+| Defunct | 41 | 7.3% |
 | Public | 26 | 4.6% |
-| Unknown | 18 | 3.2% |
+| Unknown | 8 | 1.4% |
 | $1B and above | 91 | 16.2% |
 | of which $10B and above | 21 | |
 | of which $100B and above | 5 | Facebook, Anthropic, Arista Networks, Revolut, Robinhood |
@@ -146,7 +146,7 @@ register sweep (section 16).
 Index sits with Accel, Lightspeed and Redpoint on status mix and $1B+ share, which is where a
 transatlantic multi-stage firm should sit. Before the register sweep its defunct share was 5% and its unknown share 6%: 33 companies had no
 trace of an end and no sign of life, 20 of them European. The registers settled 15 of those 20
-(section 16); 18 rows read unknown now, 5 of them European.
+(section 16) and the check outside Europe 10 more (section 17); 8 rows read unknown now, 3 of them European.
 The S2A rate is above the US books for the reason caveat 1 gives.
 
 ## 3. The boundary
@@ -197,7 +197,7 @@ Ruled once in `documentation/decisions.md`; 84 rows are in `excluded.json` with 
 | Entry stage | Series A 48, Growth 39, Seed 12, undetermined 1 | Series A 150, Seed 146, Growth 103, undetermined 61 | |
 | Stage undetermined | 1.0% | 13.3% | 11.1% |
 | Stage source, decided rows | Form D sequence 42, round announcement 35, uncited 21, firm's label 1 | round announcement 241, uncited 118, firm's label 40 | |
-| Status | acquired 41, private 35, public 15, defunct 7, unknown 2 | private 240, acquired 164, defunct 29, unknown 16, public 11 | |
+| Status | acquired 41, private 36, public 15, defunct 7, unknown 1 | private 239, acquired 169, defunct 34, public 11, unknown 7 | |
 | $1B and above | 22 | 69 | 91 |
 | Seed entries / censored / cohort | 12 / 0 / 12 | 146 / 16 / 130 | 158 / 16 / 142 |
 | Graduated / not graduated | 10 / 2 | 90 / 40 | 100 / 42 |
@@ -215,7 +215,7 @@ What the table says, in order of weight:
   not, the stage needs a dated announcement naming the firm, and 13% of firm-record rows have
   none. The 62 undetermined rows split 32 Europe, 26 US, 4 elsewhere, so this is a regime
   effect before it is a geography effect.
-- **Status.** 16 of 18 unknown rows are firm-record rows (31 of 33 before the register sweep). A
+- **Status.** 7 of 8 unknown rows are firm-record rows (31 of 33 before the register sweep and the check of section 17). A
   company that filed nothing with the SEC leaves no SEC trail when it dies; its home register is
   where the end shows.
 - **S2A is not comparable across the two columns.** The SEC-visible cohort is 12 rows. The
@@ -476,9 +476,10 @@ WebSearch: about 96 of the session's 200 calls, 30 of them by the blind judge.
 
 ## 14. Prompt count
 
-**3.** The kickoff ("please collect Index Ventures"), "continue" after the interruption of
-2026-10-01, and one message after the close with two instructions (London as headquarters; sweep
-the European registers if it improves accuracy). The target is one.
+**4.** The kickoff ("please collect Index Ventures"), "continue" after the interruption of
+2026-10-01, one message after the close with two instructions (London as headquarters; sweep
+the European registers if it improves accuracy), and a second "continue", read as the go-ahead
+for the same status check on the rows outside Europe (section 17). The target is one.
 
 ## 15. Ingest
 
@@ -619,13 +620,97 @@ the same kit and gate. None of the other 21 corrected companies sits in another 
 **Ingest.** Readback before the write showed 22 differing cells, exactly the 22 statuses. Dry run
 with 0 removals, write, readback exact. Insight re-ingested the same way.
 
-**The same check has not been run on the US rows.** 9 of the 18 rows still unknown are US
-companies, and a private row that was quietly sold is as likely there. Delaware publishes no
-open status register, so it would be the news check plus state filings; it was outside this
-instruction.
+**The same check on the rows outside Europe followed on 2026-10-07 (section 17).** Delaware
+publishes no open status register, so it ran on the buyers' SEC filings, the dated news check
+and the companies' own domains.
 
 Two write-backs to add to section 12: a register pass with the controlling-owner read as a
 standing duty for UK rows before the close (it costs minutes and moved 16 rows here); and the
 sale-and-insolvency news check for every private row, since the momentum slice looks only at
 valuations.
 
+## 17. The status check outside Europe (2026-10-06 and 2026-10-07)
+
+Erik's "continue" after section 16. **14 more statuses changed; unknown falls from 18 to 8.**
+Live since 2026-10-07, readback exact.
+
+| Change | Rows | Companies |
+|---|---|---|
+| private to acquired | 4 | Cocoon, Common Room, Monograph, Science Exchange |
+| unknown to acquired | 1 | Interana |
+| unknown to private | 4 | Vetted, doubleTwist, Storybird, Cue |
+| unknown to defunct | 5 | Mobissimo, DJZ, Catch, Rad, OpenBuildings |
+
+Status now: private 275, acquired 210, defunct 41, public 26, unknown 8. The S2A rate did not
+move (100 of 142, 70.4%).
+
+What was checked: the 185 rows outside Europe that read private (172) or unknown (13), and
+again the five European rows the register sweep had left unknown.
+
+- **The buyers' own SEC filings.** EDGAR full-text search for "acquisition of", "acquired" and
+  "acquire" with each company's name. It found Common Room ("On July 17, 2026, we acquired 100%
+  of the issued and outstanding share capital of Common Room, Inc." for $266.8 million, Zoom's
+  Form 10-Q) and confirmed Cocoon (TriNet).
+- **The dated news check for sales and insolvencies** on all 185 rows. 58 rows returned a
+  headline in which a company of that name is sold or closed; each was read against the row.
+  Four were a completed sale of the Index company (Cocoon, Common Room, Monograph, Science
+  Exchange). The rest were namesakes (Beam Benefits, Thatch the travel guide, Pomelo the
+  remittance company, Augment CXM, Transcend Packaging) or events that are not a sale of the
+  company (Nauto's unclosed merger, store closures at Glossier, Xapo's custody unit).
+- **TechCrunch's own search** on the same rows. Nothing the other two had not found.
+- **The companies' own domains**, for the rows with no report either way. A live product is an
+  observation (Vetted, doubleTwist, Storybird, Cue). A domain that no longer resolves or serves
+  only a parking page is one too (Mobissimo, DJZ, Catch, Rad, OpenBuildings). A page that could
+  not be read counts as neither.
+
+Readings worth knowing:
+
+- **A signed merger is not a status.** Nexar and Nauto announced a stock merger on 2026-07-01
+  and no source reports the close. Nauto stays private, with the lead in its note.
+- **The five defunct rows rest on a vanished or parked domain** and nothing on record since, at
+  medium confidence. None has a closure report.
+- **Interana** became Scuba Analytics, and Scuba is "now part of Behavure AI" by Behavure's own
+  site. The business continues under another company: acquired, medium, as Battery's row reads.
+- **Cue** reads private at low confidence: the site is up and nothing more is on record.
+- **Still unknown (8):** Covariant (its founders and a licence went to Amazon in 2024 and the
+  company's own state is not on record; Coatue and Lux read the same), Tactic, Futurelytics,
+  Webfair, Grupo Xango, Happylatte, LaserComm and Pulsent.
+
+**Sibling alignment: 12 rows in 9 books, all re-ingested, every readback exact.**
+
+| Company | Now reads | Books aligned |
+|---|---|---|
+| Cocoon | acquired | First Round, Y Combinator |
+| Common Room | acquired | Greylock |
+| Science Exchange | acquired | a16z, Union Square Ventures, Y Combinator |
+| Interana | acquired | a16z, Y Combinator (listed as Scuba) |
+| DJZ | defunct | GV, Kleiner Perkins |
+| Vetted | private | Insight Partners |
+| doubleTwist | private | Northzone |
+
+Rulings added to `companies/cross-rulings.json`: Index's Catch (pay-by-bank checkout) is not the
+Catch of Sequoia and Y Combinator (benefits for independent workers); Interana is the same
+company as the Scuba rows of Battery, Y Combinator and General Catalyst. General Catalyst is in
+flight and its Scuba row reads unknown; rule 10 will show the pair when that run closes.
+
+**Three gate repairs in books the Founders Fund run (PRO-81) had left red**, done because they
+blocked this alignment:
+
+- a16z's Royal read defunct on an uncited "wound down". royal.io is live and lists two products
+  the company runs today. The row now reads private, as Founders Fund's does. Re-ingested.
+- `cite_pending` was missing on a16z's Lighter and Battery's Porch Group after that run brought
+  their $1B+ values in. Raised on both; no database cell changed.
+- Y Combinator's Cargo (sales automation, Summer 2023) and Founders Fund's Cargo (in-car
+  commerce, 2018) are two companies. Ruled distinct in the YC book's file.
+
+**Left open, not this run's pairs:** The Boring Company reads $9.6B in 8VC and Sequoia and $23B
+in Founders Fund, and Coatue's Enter has a country with no citation. Both came from the
+Founders Fund run and keep 8VC, Sequoia and Coatue red at `verify`.
+
+**Ingest.** Readback before the write showed 15 differing cells: the 14 statuses and
+doubleTwist's city (Austin, from its own site). Dry run with 0 removals, write, readback exact.
+Commit `738756ab`; the nine sibling commits are listed in `scratch/align3/results.txt`.
+
+Files: `scratch/status-news-row.json`, `scratch/status-edgar-fts.json`, `scratch/status-tc.json`,
+`scratch/judgments-status-row.py`, `scratch/judgments-status-row-2.py`, and the pages read in
+`scratch/web-finds.json`.
