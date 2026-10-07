@@ -2,14 +2,14 @@
 
 **Linear issue** PRO-107 · **slug** `earlybird-venture-capital` · one run under the merged shape of
 `data/collection/COLLECTION.md`, one session · report written 2026-10-07.
-**Ingest: see section 16.**
+**Ingested 2026-10-07 through the §9 gate: 195 companies live, readback exact; Cherry, Battery Ventures and Creandum aligned and re-ingested (section 16).**
 
 ---
 
 ## 1. The answer PRO-107 asked for
 
-**The base is 195 companies, plain `verify` is clean, the firm profile is built, and the review
-page renders.** Earlybird is the firm run from Berlin and Munich under the exempt reporting adviser
+**The base is 195 companies, plain `verify` is clean, the firm profile is built, and the book is
+live: ingested through the §9 gate with an exact readback (section 16).** Earlybird is the firm run from Berlin and Munich under the exempt reporting adviser
 Earlybird GmbH & Co. KG (CRD 341941), founded in Hamburg in 1997. The book runs from the 1998 fund
 through Fund VIII (2026) and includes Earlybird Health and the Earlybird-X (UNI-X) seed fund.
 
@@ -42,7 +42,7 @@ Out: 35 rows ruled `not_member`, 38 partitioned with Digital East, 1 dropped by 
 | `review.html` rendered | Served on the local static server: rows flat, profile panel expands, no console errors |
 | `report.md` | This file |
 | Playbook write-back | Section 13 (proposed, not applied) |
-| Ingest through the §9 gate, sibling rows aligned | Section 16 |
+| Ingest through the §9 gate, sibling rows aligned | Done: 195 live, readback 0 differing cells; Cherry, Battery Ventures and Creandum re-ingested, each exact (section 16) |
 
 ## 2. Results
 
@@ -94,7 +94,7 @@ scored and refused (R6: 66 of 92 right overall, Pre-Seed 11 of 29).
 | Earlybird | 195 | 32% | 15% | 51% | 3.1% | 19/40 = 48% | 33% |
 | HV Capital | 266 | 39% | 6% | 52% | 5.6% | 28/43 = 65% | 58% |
 | Cherry | 148 | 18% | 7% | 70% | 6.1% | 53/84 = 63% | 11% |
-| Creandum | 177 | 29% | 5% | 60% | 10.2% | 36/71 = 51% | 2% |
+| Creandum | 177 | 29% | 5% | 60% | 10.2% | 37/72 = 51% | 2% |
 | Lakestar | 154 | 19% | 5% | 70% | 14.9% | 17/35 = 49% | 31% |
 | Northzone | 220 | 26% | 4% | 48% | 3.6% | 12/19 = 63% | 55% |
 
@@ -233,9 +233,11 @@ base and cannot be.
 - **Field score for the firm's stage label:** refused (R6, `scratch/field-score.json`).
 - **Traps in `config.verify.not_members`:** UiPath, Payhawk, Hazelcast, Trendyol, Yemeksepeti,
   Lilium, AuthenTec, Digital River, Zynga, Standard Microsystems, Amgen, EarlyBirdCapital.
-- **Cross-investor rule 10:** 10 pairs ruled `distinct` (same name, different company; two of them,
-  Tilt and Pillar in the Y Combinator book, showed only in that book's `verify`), 1 pair
-  `accepted` until the sibling is aligned (Curio in the Cherry book; section 16).
+- **Cross-investor rule 10:** 56 rows shared with other books, all agree. 13 pairs ruled `distinct`
+  (same name, different company; two of them, Tilt and Pillar in the Y Combinator book, showed
+  only in that book's `verify`; three Hive pairs are ruled ahead of General Catalyst landing),
+  1 pair ruled `same` (N26 and Battery's Number26). The Curio pair parked as `accepted` was
+  removed once the Cherry book was aligned (section 16).
 
 ## 9. Firm profile
 
@@ -330,9 +332,9 @@ consideration rows, OneFootball's band, yoom and smoodoos.com (asset sale), Cros
 | | 5-hour | Weekly, all models | Weekly, Fable |
 |---|---|---|---|
 | Kickoff | 28% | 13% | 4% |
-| Close (2026-10-07 05:00 UTC) | 30% | 24% | 5% |
+| Close (2026-10-07) | 30% | 25% | 5% |
 
-195 base rows (233 membership verdicts, 38 further rows partitioned): 11 weekly points, about 0.06 points per
+195 base rows (233 membership verdicts, 38 further rows partitioned): 12 weekly points, about 0.06 points per
 published company. WebSearch: about 107 of the 200 per session.
 
 ## 15. Prompt count
@@ -342,4 +344,46 @@ correction and no approval prompt.
 
 ## 16. Ingest
 
-Pending at the time of writing; filled in after the §9 gate ran.
+**Earlybird is live.** The gate ran in order on 2026-10-07:
+
+| Step | Result |
+|---|---|
+| Preconditions | Plain `verify` clean; `run.py close`; closing commit e3ff87f1, gate corrections c75c53b6 |
+| Every landed sibling's `verify`, read for Earlybird rows | 41 books run; three showed Earlybird rows (Lakestar and Northzone: CrossLend; Y Combinator: two namesakes). All settled before the write (section 8) |
+| Icon | Uploaded to the Icon Images bucket; `investor.json` carries the bucket URL |
+| `ingest-investor.ts` | 1 investor row upserted |
+| `ingest-companies.ts --dry-run` | 195 upserted (195 new), 0 removed, from 0 live |
+| Removal check | Nothing to remove (first ingest) |
+| Write | 195 of 195 upserted |
+| Readback | csv 195, live 195, missing 0, extra 0, differing cells 0 |
+
+The investor row reads: S2A 19 of 40 (47.5%), 11 censored, 51 seed entries; 6 companies at $1B+
+(Aiven, Black Forest Labs, Isar Aerospace, N26, Recursive, Sennder); 4 public (Nfon, Oculis,
+Tipp24, Wilex); 195 companies; investing since 1997.
+
+**Sibling rows aligned and re-ingested, one book at a time** (readback before the write showed only
+the cells this run changed; dry run 0 removed; readback after 0 differing cells):
+
+| Book | Row | Change | Evidence | Commit |
+|---|---|---|---|---|
+| Cherry | Curio | `acquired` to `defunct` | Curio Labs Limited (10145832) in creditors' voluntary liquidation since 2025-05-30 (Companies House). The "acquired by Wasabi" was Curio AI from GrayMeta, a different company | d9a3de0f |
+| Battery Ventures | Number26 | below $1B to $9.0B (2021-10, `stale`); entry stage Series A (uncited) to Growth, cited | TechCrunch 2021-10-18 for the Series E; Global Venturing 2016-06-22 names Battery in the Series B. The stage and country citations were the gate repair a $1B+ row needs | 82c481f5 |
+| Creandum | terralayr | Seed `censored` to `graduated`; entry stage cited | EUR 192M round of January 2026 led by Eurazeo with Creandum (deutsche-startups 2026-01-20); TechCrunch 2024-10-17 for the seed | c247a95d |
+
+Cherry's `verify` needed `--skip-links` (the book has no EDGAR link to sample, a known mechanical
+case). Creandum's S2A moves from 36 of 71 to 37 of 72.
+
+**Not written, reported for the owning run:**
+
+- **General Catalyst (in flight):** The Interaction Company of California reads `private`; Cognition
+  bought it in July 2026 (`acquired` in this book).
+- **Speedinvest (in flight):** Inkitt reads Berlin; the company's headquarters moved to San
+  Francisco (this book).
+- **Battery Ventures, published name:** the row still publishes as "Number26". The name lives in
+  that book's `config.json`, which has another session's uncommitted changes, so it was left.
+- **CrossLend in Lakestar and Northzone:** no change needed after the correction in section 8.
+- **Founders Fund pairs:** 8VC, Sequoia (The Boring Company) and Lux (Impulse Space) fail rule 10
+  against the Founders Fund book, and Coatue fails rule 6 on one row. None involves an Earlybird
+  row; they belong to those runs.
+
+Nothing was pushed.

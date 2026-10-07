@@ -186,3 +186,12 @@ NEXT: `run.py export` + `review` again, plain `verify`, then steps 2-6 of the li
 2026-10-07 05:00 UTC: stopped the queued `scratch/ia_pull.py` (pid 64247, still waiting behind the
 machine-wide Internet Archive cooldown) so that no file lands in a closed book. The 173 remaining
 targets are debt: rerun `python3 scratch/ia_pull.py`, then `scratch/eb_archive.py`, when the archive answers.
+
+## 2026-10-07 05:40 UTC: CLOSED AND INGESTED
+`run.py close`; closing commit e3ff87f1; gate corrections c75c53b6 (CrossLend defunct -> private on
+the register; yoom and smoodoos.com status citations; two Y Combinator namesakes ruled distinct).
+Ingest through the s9 gate: icon uploaded, investor row upserted, 195 companies written, readback
+exact. Siblings aligned and re-ingested, each exact: cherry (Curio defunct, d9a3de0f),
+battery-ventures (Number26 $9B + cited Series B entry, 82c481f5), creandum (terralayr graduated,
+c247a95d). Earlybird rulings: 13 distinct, 1 same, 0 accepted. Report section 16 has the table.
+Left: Linear PRO-107 closing comment + Done, memory file, closing message.
