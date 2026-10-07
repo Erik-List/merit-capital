@@ -4,7 +4,7 @@ Run 2026-09-27 to 2026-10-07. Started by a Codex session (provisional base, 54 r
 
 ## 1. Result
 
-- **293 companies**, every one a ruled member; `verify` clean in full mode with only flagged debt.
+- **299 companies** after Erik's rulings of 2026-10-07 (293 at the first ingest), every one a ruled member; `verify` clean in full mode with only flagged debt.
 - Status: 148 private, 73 acquired, 28 public, 24 unknown, 20 defunct.
 - **75 at $1B or more** (51 at $1B+, 17 at $10B+, 7 at $100B+: SpaceX, Facebook, Anthropic, OpenAI, Palantir, Stripe, Spotify).
 - Entry stage: Seed 80, Series A 78, Growth 71, Pre-Seed 2; 59 nameable rows undetermined, 3 rows unnameable.
@@ -53,11 +53,11 @@ The 2026 ADV lists 48 private funds, 17 of them deal vehicles.
 
 `stage_uncited` 65, `cite_pending` 20 (visible rows whose entry round still wants a citation), `city_unknown` 16, `country_prior` 16, `stale` 13, `needs_web_value` 2 (Eat Just, Flo Health: reported above $1B, not yet pinned), `identity_unresolved` 3 (Lava, Navia, Top Fans: page bodies unread), status `unknown` 24.
 
-## 8. Open rulings (three)
+## 8. Rulings (Erik, 2026-10-07) and what is still open
 
-1. **Ken Howery's 2025 government financial disclosure.** It lists the remaining holdings of Funds I to IV and would add about ten companies. The Office of Government Ethics says such reports may not be used "for any commercial purpose, other than by news and communications media". Reading A: this platform is not such a use, so the report is read and the companies added. Reading B: it is, and the report stays out. The book currently follows B.
-2. **Avalanche.** The position is AVAX tokens. This book follows the a16z book and values it at the network's market value ($2.97B). The other reading is that a token's market value is no mark on a company, which would put both books below $1B.
-3. **Brave.** A 2019 report said a Series A was planned; no close was announced. Read as not graduated. The other reading (the report counts) would move one row.
+- **Howery's financial disclosure is in.** Six companies added (AppCard, Five Apes, Indigo Technologies, Instapray, Neurotrack, theAudience); four acquirers it names stay out as sale consideration (Sabse, Freethink Media, NetBase, Higher Ground Education); 23 rows it names were already in the book and are now corroborated by a sworn fund-level list. The book went from 293 to **299 companies**.
+- **Avalanche is below $1B** in this book and in a16z's (a token's market value is not a mark on the company). $1B+ rows: 74.
+- Still open, one: **Brave.** A 2019 report said a Series A was planned; no close was announced. Read as not graduated; the other reading would move one row.
 
 ## 9. Proposed playbook write-backs
 

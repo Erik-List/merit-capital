@@ -45,9 +45,10 @@ The run was started by a Codex session on 2026-09-27 and last written on 2026-10
 - D11, T3, public-market and PIPE positions: BitMine Immersion and ETHZilla (13G positions taken in listed companies in 2025) are outside, and so is a position that exists only as a PIPE into a listing (Opendoor: The Founders Fund Growth, LP, 125,000 shares on the December 2020 resale prospectus). A company a fund backed in a private round stays a member after it lists or merges into a shell (Hims & Hers, Strive).
 - D12, T5 and sale consideration: LP stakes held by the funds (Revolution Capital, 500 Startups, CrunchFund, TechFellow) are not rows. An acquirer on whose registration statement a fund appears as a selling stockholder is not a row; the company it bought is (Secure Computing for CipherTrust, Identiv for 3VR, Sprinklr for Booshaka, Intuit for Credit Karma, Uber for Postmates, Adobe for Figma).
 
-## Set aside pending Erik's ruling
+## Erik's rulings, 2026-10-07
 
-- **Ken Howery's 2025 OGE Form 278e** lists the remaining holdings of Funds I to IV and would be the strongest holdings list this run has. The Office of Government Ethics states that obtaining or using such a report "for any commercial purpose, other than by news and communications media for dissemination to the general public" is unlawful (5 U.S.C. 13107(c)). That is a legal question, so the report is not used: no row, verdict or citation rests on it (scratch/quarantine-oge/README.md). Raised as an open ruling.
+- **E1: Ken Howery's 2025 financial disclosure is used.** It is the OGE Form 278e a presidential nominee files (Howery was nominated ambassador to Denmark); because he still holds interests in the funds he co-founded, its endnotes list what The Founders Fund, LP and the Principals funds of Funds II, III and IV hold, and say the main funds hold the same. The run had set it aside because the Office of Government Ethics restricts commercial use of such reports (5 U.S.C. 13107(c)); Erik ruled it in. It is a sworn list, so a company on it is a member (class `web`, the report as citation). It names 34 operating companies: 24 were already in the book under 23 rows, 6 are new (AppCard, Five Apes, Indigo Technologies, Instapray, Neurotrack, theAudience), and 4 are stock received when a portfolio company was sold and stay out under D12 (Sabse for Jaxtr, Freethink Media for Big Think, NetBase for Quid, Higher Ground Education for AltSchool). The fund-of-fund and LP entries (Revolution Capital, 500 Startups, CrunchFund, TechFellow) are not rows. Limits: it covers Funds I to IV only, and only what was still held at the end of 2024, so exits are absent and it never dates or names a round. Source: sources/web/howery-2025-fund-notes.json.
+- **E2: Avalanche is below $1B, in this book and in a16z's.** A token's market value is not a mark on the company; no priced round of Ava Labs carries a citable figure. The AVAX network value stays in the note. This replaces R7's first half.
 
 ## Run-time rulings, 2026-10-06 (flagged for review)
 
@@ -57,7 +58,7 @@ The run was started by a Codex session on 2026-09-27 and last written on 2026-10
 - R4, D3: ownership filings co-filed by Peter Thiel with Mithril or Clarium entities are those firms' positions (Adagio, BlackSky, Fractyl, PEMCO).
 - R5: the "FF Angel" group of the 2012-13 site menu is corroboration for a seed entry, never a label; Cherry, filed there, was a Series A entry.
 - R6: a legal-name issuer that is a listed company under its trade name is merged, not kept (Careportal/Cedar, Indie Technologies/Found, Miami Labs/OpenStore, Virtual Kitchen/All Day Kitchens, Homee/Hutch, Pharmacofore/Signature Therapeutics).
-- R7: Avalanche follows the a16z book (network market value); Anvil and Avalanche are token positions, stage and graduation undetermined.
+- R7: Anvil and Avalanche are token positions, stage and graduation undetermined (Avalanche's value: E2).
 - R8: the recall additions (64) rest on a sentence or headline naming Founders Fund, cited per row in the ledger.
 
 ## Run-time findings
