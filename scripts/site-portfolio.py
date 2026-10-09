@@ -610,7 +610,9 @@ def read_socials(rows: list[dict], api: dict, fetch: bool, site_base: str = "",
         legacy = r.pop("_legacy", False)
         for v in r.pop("_legacy_links", None) or []:
             v, prev = v if isinstance(v, (list, tuple)) else (v, None)
-            add_candidate(c, v, prev if prev in ("page", "external_page", "search_verified") else "legacy")
+            if prev == "search_verified":
+                continue                      # re-derived from the search cache under today's rule
+            add_candidate(c, v, prev if prev in ("page", "external_page") else "legacy")
         for key in SOCIAL_KEYS + ("url",):
             vals = r.get(key)
             vals = list(vals.values()) if isinstance(vals, dict) else \
@@ -885,6 +887,14 @@ def socials_only(p: Paths, api: dict, fetch: bool, site_base: str, search: bool 
         f = fresh.get(norm_name(r["name"]))
         if f is None:
             r["_legacy"] = True
+            # A row the live scrape does not return keeps its links, except
+            # one the search found: that is re-derived from the cache under
+            # today's rule, never carried (Sutter Hill's hand-built list kept
+            # ten loose-rule links as "legacy" before this line).
+            prev = r.get("socials_source") or {}
+            for k in ("linkedin", "x"):
+                if prev.get(k) == "search_verified":
+                    r.pop(f"{k}_url", None)
             continue
         # The links this row carried stay in play as candidates, so a page that
         # moved (Khosla's /team/ pages now 404) loses nothing that still names

@@ -2763,12 +2763,19 @@ Field recipes, learned on Sequoia and a16z:
   3. **one checked search** (`scripts/people_search.py`, Brave's HTML results,
      paced machine-wide, cached in `scratch/socials-search.json`):
      `"<name>" <firm> linkedin`. A result counts only when its address is a
-     profile, its title names the person, its title or snippet names the firm
-     (a non-generic word of the firm's name or slug, or
-     `site_api.team_search_aliases`), and the account id names the person and
-     is not the firm's; it is `search_verified`, ranks below anything the
-     site gave, and its query, title and date sit beside the chosen link in
-     `team-socials.json`. `--no-search` skips the step.
+     profile, its **title** names the person and the firm (a non-generic
+     word of the firm's name or slug, or `site_api.team_search_aliases`),
+     and the account id names the person and is not the firm's. The snippet
+     never qualifies a result: measured on 2026-10-08, 141 of 438 links
+     rested on the snippet alone and a third of those were another person
+     with the same name, because the firm's word ("insight", "founders")
+     sits in ordinary profile text. Of several qualifying results the
+     account that names the person best wins, then the engine's order. The
+     link is `search_verified`, ranks below anything the site gave, and its
+     query, title and date sit beside the chosen link in
+     `team-socials.json`; a search link is re-derived from the cached
+     results on every run, never carried over. `--no-search` skips the
+     step.
   **The floor:** `verify` fails a closed book where fewer than 80% of the
   published people carry a LinkedIn or X link, unless `config.json`
   `profile.socials_gap {cause, checked, unlinked, sources_tried, note}`
@@ -2785,13 +2792,15 @@ Field recipes, learned on Sequoia and a16z:
   about** (an engine that was unavailable leaves work not done, not a gap),
   and ends with the coverage table; the profile's `individuals` basis is
   written from the rows (where each link came from, and the gap's cause),
-  never fixed text; `report.md` states the coverage and its cause. Books
-  below the floor when it landed (2026-10-08) are held at the count they
-  carried in `data/collection/shared/socials-debt.json`, as the city rule
-  holds its books; a search that answers takes a book off the list. The
-  search runs through the Brave Search API when `BRAVE_SEARCH_API_KEY` is in
-  `.env` and over Brave's HTML results otherwise, which refuse bursts for
-  hours (`scripts/people_search.py` states what was measured).
+  never fixed text; `report.md` states the coverage and its cause. A book
+  that was green before the floor and would go red under it is held at the
+  count it carried in `data/collection/shared/socials-debt.json`, as the
+  city rule holds its books, until a search that answers takes it off the
+  list (the list held 16 books for a few hours on 2026-10-08 and has been
+  empty since). The search runs through the Brave Search API when
+  `BRAVE_SEARCH_API_KEY` is in `.env` (the pass over 50 books took about
+  700 queries) and over Brave's HTML results otherwise, which refuse bursts
+  for hours (`scripts/people_search.py` states what was measured).
   Three traps: the CMS query must ask for the link field (First Round's did
   not, so 19 people had none); a site-relative page path must be resolved
   against the site (YC's `/people/...`, never read); and a page that 404s is

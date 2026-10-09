@@ -174,7 +174,18 @@
     "own_vehicle_pattern": "^(thrive capital partners|thrive partners|claremount|jsc capital partners|north river angel investments|thrive capital management)",
     "focus_min_companies": 7,
     "focus_crosswalk": {},
-    "_note": "No site sector vocabulary exists; the base rows carry no sector tags, so build-firm-profile.py keeps the curated focus, which this run derives from the grind's focus column and records as derived (PRO-64 Phase 4)."
+    "_note": "No site sector vocabulary exists; the base rows carry no sector tags, so build-firm-profile.py keeps the curated focus, which this run derives from the grind's focus column and records as derived (PRO-64 Phase 4).",
+    "socials_gap": {
+      "cause": "no_team_page",
+      "checked": "2026-10-08",
+      "unlinked": 6,
+      "sources_tried": [
+        "site",
+        "external_page",
+        "search"
+      ],
+      "note": "11 of 17 published people carry a link after the site read, the outside pages and the checked search (9 searched, 3 found); recorded by site-portfolio.py --record-gap"
+    }
   },
   "verify": {
     "text_mention_leaks": [],

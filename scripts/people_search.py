@@ -7,7 +7,7 @@ when every test below holds (Erik, 2026-09-30, relaxing PRO-154's "the firm's
 own site or none"):
   - its address is a profile (`people_common.clean_social`);
   - its title names the person (first and last name; nickname forms count);
-  - its title or snippet names the firm (a non-generic word of the firm's name
+  - its title names the firm (a non-generic word of the firm's name
     or slug, or an alias from `config.json` `profile.search_aliases`);
   - the account id names the person (`people_common.handle_score` > 0) and is
     not the firm's own (`firm_handles`).
@@ -111,6 +111,21 @@ def names_person(text: str, name: str) -> bool:
     return has_last and has_first
 
 
+def api_key() -> str:
+    """BRAVE_SEARCH_API_KEY from the environment, else from the repo's `.env`
+    (which the Python scripts do not load otherwise); empty when neither has it."""
+    key = os.environ.get("BRAVE_SEARCH_API_KEY", "")
+    if key:
+        return key
+    env = Path(__file__).resolve().parents[1] / ".env"
+    if env.exists():
+        for line in env.read_text().splitlines():
+            k, _, v = line.partition("=")
+            if k.strip() == "BRAVE_SEARCH_API_KEY":
+                return v.strip().strip("'\"")
+    return ""
+
+
 def brave_api_search(query: str, key: str) -> list[dict] | None:
     """The same results through the Brave Search API (a key in
     BRAVE_SEARCH_API_KEY; the free plan allows one query a second and 2,000 a
@@ -141,7 +156,7 @@ def brave_search(query: str) -> list[dict] | None:
     cooldown, so sibling runs stop too. A failed query is never cached: the
     next pass asks again."""
     global _down_until
-    key = os.environ.get("BRAVE_SEARCH_API_KEY")
+    key = api_key()
     if key:
         return brave_api_search(query, key)
     if time.time() < _down_until:
@@ -199,8 +214,8 @@ class SearchCache:
         return e if e and e.get("results") is not None else None   # a failed query is asked again
 
     def put(self, query: str, results: list[dict] | None) -> dict:
-        entry = {"engine": ENGINE, "fetched": time.strftime("%Y-%m-%d"),
-                 "results": results}
+        entry = {"engine": "brave-api" if api_key() else ENGINE,
+                 "fetched": time.strftime("%Y-%m-%d"), "results": results}
         if results is not None:            # only an answer is remembered
             self.data[query] = entry
             self.dirty = True
@@ -224,7 +239,7 @@ def search_person(name: str, firm_name: str, slug: str, cache: SearchCache,
     if entry is None:
         entry = cache.put(query, brave_search(query))
     results = entry.get("results")
-    out = {"query": query, "engine": ENGINE, "fetched": entry.get("fetched"),
+    out = {"query": query, "engine": entry.get("engine", ENGINE), "fetched": entry.get("fetched"),
            "available": results is not None, "accepted": [], "rejected": []}
     if results is None:
         return out
@@ -244,12 +259,16 @@ def search_person(name: str, firm_name: str, slug: str, cache: SearchCache,
         if (kind, h) in seen:
             continue
         seen.add((kind, h))
-        title, snippet = r.get("title") or "", r.get("snippet") or ""
+        title = r.get("title") or ""
+        # The title must name the firm; the snippet does not count. Measured
+        # on 2026-10-08 over 438 links: 141 rested on the snippet alone and a
+        # third of those were another person with the same name (the firm's
+        # word, "insight" or "founders", sits in ordinary profile text).
         why = None
         if not names_person(title, name):
             why = "title does not name the person"
-        elif not names_firm(title + " " + snippet, tokens):
-            why = "neither title nor snippet names the firm"
+        elif not names_firm(title, tokens):
+            why = "title does not name the firm"
         elif re.sub(r"[^a-z0-9]", "", h) in firm:
             why = "the firm's own account"
         elif not handle_score(h, name):
@@ -257,5 +276,17 @@ def search_person(name: str, firm_name: str, slug: str, cache: SearchCache,
         if why:
             out["rejected"].append(f"{clean}: {why} ({title[:80]})")
             continue
-        out["accepted"].append({"kind": kind, "url": clean, "title": title})
+        out["accepted"].append({"kind": kind, "url": clean, "title": title,
+                                "score": handle_score(h, name), "rank": len(seen)})
+    # One result per kind: the account that names the person best, then the
+    # engine's own order (a second title-named profile is usually the same
+    # person on a regional subdomain); the rest are recorded as passed over.
+    best: dict[str, dict] = {}
+    for a in sorted(out["accepted"], key=lambda a: (-a["score"], a["rank"])):
+        if a["kind"] in best:
+            out["rejected"].append(f"{a['url']}: passed over for {best[a['kind']]['url']} ({a['title'][:80]})")
+        else:
+            best[a["kind"]] = a
+    out["accepted"] = [{"kind": a["kind"], "url": a["url"], "title": a["title"]}
+                       for a in sorted(best.values(), key=lambda a: a["rank"])]
     return out

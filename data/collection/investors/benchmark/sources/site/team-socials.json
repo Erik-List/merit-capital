@@ -98,18 +98,23 @@
   },
   "search": {
    "query": "\"Bruce Dunlevie\" Benchmark linkedin",
-   "engine": "brave",
+   "engine": "brave-api",
    "fetched": "2026-10-08",
-   "available": false,
+   "available": true,
    "accepted": [],
-   "rejected": []
+   "rejected": [
+    "https://www.linkedin.com/in/marklanday/: title does not name the person (Mark Landay - Dynamic Synergy Corporation | LinkedIn)",
+    "https://www.linkedin.com/in/bruce-dunlevie-4285603/: title does not name the firm (Bruce Dunlevie - Atherton, California, United States | Professional Profile | Li)"
+   ]
   }
  },
  "An-Yen Hu": {
   "linkedin": {
-   "chosen": null,
-   "source": null,
-   "candidates": []
+   "chosen": "https://www.linkedin.com/in/an-yen-hu-51a54a23/",
+   "source": "search_verified",
+   "candidates": [
+    "search_verified: https://www.linkedin.com/in/an-yen-hu-51a54a23/"
+   ]
   },
   "x": {
    "chosen": null,
@@ -118,11 +123,19 @@
   },
   "search": {
    "query": "\"An-Yen Hu\" Benchmark linkedin",
-   "engine": "brave",
+   "engine": "brave-api",
    "fetched": "2026-10-08",
-   "available": false,
-   "accepted": [],
-   "rejected": []
+   "available": true,
+   "accepted": [
+    {
+     "kind": "linkedin",
+     "url": "https://www.linkedin.com/in/an-yen-hu-51a54a23/",
+     "title": "An-Yen Hu - Benchmark | LinkedIn"
+    }
+   ],
+   "rejected": [
+    "https://www.linkedin.com/in/amy-bonzon-8742b4118/: account id does not name the person (Amy Bonzon - Executive Assistant to An-Yen Hu - Benchmark | LinkedIn)"
+   ]
   }
  }
 }

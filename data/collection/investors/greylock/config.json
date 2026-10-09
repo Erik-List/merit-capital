@@ -574,7 +574,18 @@
    "infrastructure": "Data Infrastructure",
    "other": null
   },
-  "_note": "focus_min_companies 25, about 4.5% of the 561-row base. The crosswalk maps the firm's own seven portfolioCategory values; 'Other' maps to nothing. The recompute reports no values above the threshold because those tags cover only the 158 LIVE rows -- 28% of the base -- and the sector signal for the other 403 comes from the grind's focus column, not from a site tag. The curated list is therefore kept and reconciled against the landed distribution by hand, which is what the sidecar's reconciliation flag records."
+  "_note": "focus_min_companies 25, about 4.5% of the 561-row base. The crosswalk maps the firm's own seven portfolioCategory values; 'Other' maps to nothing. The recompute reports no values above the threshold because those tags cover only the 158 LIVE rows -- 28% of the base -- and the sector signal for the other 403 comes from the grind's focus column, not from a site tag. The curated list is therefore kept and reconciled against the landed distribution by hand, which is what the sidecar's reconciliation flag records.",
+  "socials_gap": {
+   "cause": "search_exhausted",
+   "checked": "2026-10-08",
+   "unlinked": 20,
+   "sources_tried": [
+    "site",
+    "external_page",
+    "search"
+   ],
+   "note": "32 of 52 published people carry a link after the site read, the outside pages and the checked search (26 searched, 6 found); recorded by site-portfolio.py --record-gap"
+  }
  },
  "verify": {
   "text_mention_leaks": [],

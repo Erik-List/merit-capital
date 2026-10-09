@@ -40,11 +40,13 @@
   },
   "search": {
    "query": "\"Allen Beasley\" Redpoint Ventures linkedin",
-   "engine": "brave",
+   "engine": "brave-api",
    "fetched": "2026-10-08",
-   "available": false,
+   "available": true,
    "accepted": [],
-   "rejected": []
+   "rejected": [
+    "https://www.linkedin.com/in/allen-beasley-18a36217/: title does not name the firm (Allen Beasley - Vice President - General Electric | LinkedIn)"
+   ]
   }
  },
  "Andie Paredes": {
@@ -142,11 +144,15 @@
   },
   "search": {
    "query": "\"Brad Jones\" Redpoint Ventures linkedin",
-   "engine": "brave",
+   "engine": "brave-api",
    "fetched": "2026-10-08",
-   "available": false,
+   "available": true,
    "accepted": [],
-   "rejected": []
+   "rejected": [
+    "https://www.linkedin.com/in/brad-jones-684a896/: title does not name the firm (Brad Jones - TopTier Wines | LinkedIn)",
+    "https://www.linkedin.com/in/bradleystephenjones/: title does not name the firm (Brad Jones - SE Ventures | LinkedIn)",
+    "https://www.linkedin.com/in/bradmjones/: title does not name the firm (Brad Jones - BarkleyOKRP | LinkedIn)"
+   ]
   }
  },
  "Carrie Rule": {
@@ -219,9 +225,11 @@
  },
  "Enzo Wiener": {
   "linkedin": {
-   "chosen": null,
-   "source": null,
-   "candidates": []
+   "chosen": "https://www.linkedin.com/in/enzo-wiener-2a7b38165/",
+   "source": "search_verified",
+   "candidates": [
+    "search_verified: https://www.linkedin.com/in/enzo-wiener-2a7b38165/"
+   ]
   },
   "x": {
    "chosen": null,
@@ -230,11 +238,23 @@
   },
   "search": {
    "query": "\"Enzo Wiener\" Redpoint Ventures linkedin",
-   "engine": "brave",
+   "engine": "brave-api",
    "fetched": "2026-10-08",
-   "available": false,
-   "accepted": [],
-   "rejected": []
+   "available": true,
+   "accepted": [
+    {
+     "kind": "linkedin",
+     "url": "https://www.linkedin.com/in/enzo-wiener-2a7b38165/",
+     "title": "Enzo Wiener - Redpoint | LinkedIn"
+    }
+   ],
+   "rejected": [
+    "https://www.linkedin.com/in/mary-stern-43b75748/: title does not name the person (Mary Stern - Redpoint Ventures | LinkedIn)",
+    "https://www.linkedin.com/in/lydia--day/: title does not name the person (Lydia Day - Investor at Redpoint Ventures)",
+    "https://x.com/Redpoint: the firm's own account (Redpoint on X: \"Please join us in welcoming two very special team members to the)",
+    "https://www.linkedin.com/in/matthias-frick/: title does not name the person (Matthias Frick - Manager, Growth Equity and Venture Capital Investors at AlphaSi)",
+    "https://www.linkedin.com/in/drew-coash-61424a102/: title does not name the person (Drew Coash - Lightview Capital | LinkedIn)"
+   ]
   }
  },
  "Eric Wagner": {
