@@ -75,7 +75,8 @@ export default function RequestInvestorRow({ search = "", variant = "row" }: Req
       </p>
     ) : (
       <form onSubmit={send} className={page ? "flex flex-col gap-1.5" : "flex flex-col gap-1.5 lg:items-end"}>
-        <div className="flex flex-col gap-2 sm:flex-row">
+        {/* On a page the card may be half-width, so the inputs stack. */}
+        <div className={page ? "flex flex-col gap-2" : "flex flex-col gap-2 sm:flex-row"}>
           <Input
             type="email"
             required
@@ -85,7 +86,7 @@ export default function RequestInvestorRow({ search = "", variant = "row" }: Req
             aria-label="Your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="border-input/50 sm:w-52"
+            className={page ? "border-input/50" : "border-input/50 sm:w-52"}
           />
           <Input
             type="text"
@@ -95,7 +96,7 @@ export default function RequestInvestorRow({ search = "", variant = "row" }: Req
             aria-label="Investor name"
             value={name}
             onChange={(e) => setEditedName(e.target.value)}
-            className="border-input/50 sm:w-52"
+            className={page ? "border-input/50" : "border-input/50 sm:w-52"}
           />
           {/* Hidden from people; only a script fills it. */}
           <input

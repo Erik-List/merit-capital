@@ -1,6 +1,10 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
+  // Every `hover:` style applies only where a pointer can hover. Touch
+  // screens keep the hover state after a tap, so without this the investor
+  // name underlined for a moment when a row was tapped (Erik, 2026-10-08).
+  future: { hoverOnlyWhenSupported: true },
   darkMode: ['class'],
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',

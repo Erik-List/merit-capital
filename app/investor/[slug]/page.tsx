@@ -1,9 +1,7 @@
+import { cache } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Card, CardContent } from '@/components/ui/card';
-import { createClient } from '@/utils/supabase/server';
-import { cookies } from 'next/headers';
-import { createBrowserClient } from '@supabase/ssr';
 import type { Database } from '@/types/supabase';
 import {
   InvestorHeader,
@@ -20,8 +18,18 @@ import {
 } from '@/components/investor';
 import { loadInvestorOutcomes } from '@/lib/investor-outcomes';
 import { loadLastIngest } from '@/lib/last-ingest';
+import { restFetch, restFetchAll } from '@/lib/postgrest';
 
 type Investor = Database['public']['Tables']['investors']['Row'];
+
+// The page is served statically and refreshed in the background, so a visit
+// is a CDN hit rather than a server render with three Supabase round trips
+// (Erik, 2026-10-08). Every page reads public data with the anon key; nothing
+// depends on the request. The window is REVALIDATE_SECONDS from lib/postgrest,
+// the same freshness as the index; Next needs the literal here.
+export const revalidate = 600;
+// An investor added after the build renders on its first visit, then stays.
+export const dynamicParams = true;
 
 // Define the params type for better type safety
 type InvestorPageParams = {
@@ -30,39 +38,22 @@ type InvestorPageParams = {
   }>;
 };
 
-async function getInvestor(slug: string): Promise<Investor | null> {
-  const cookieStore = await cookies();
-  const supabase = createClient(cookieStore);
-  
-  const { data, error } = await supabase
-    .from('investors')
-    .select()
-    .eq('slug', slug)
-    .single();
-
-  if (error) {
+// One read per render: the metadata and the page share it through cache().
+const getInvestor = cache(async (slug: string): Promise<Investor | null> => {
+  try {
+    const response = await restFetch(`investors?slug=eq.${encodeURIComponent(slug)}&limit=1`);
+    const rows = (await response.json()) as Investor[];
+    return rows[0] ?? null;
+  } catch (error) {
     console.error('Error fetching investor:', error);
     return null;
   }
+});
 
-  return data;
-}
-
-// Add generateStaticParams function for static generation (if applicable)
+// Every investor page is built ahead of time.
 export async function generateStaticParams() {
-  // Use a simple browser client for static generation - no cookies needed
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
-  
-  const { data } = await supabase
-    .from('investors')
-    .select('slug');
-    
-  return (data || []).map((investor: { slug: string }) => ({
-    slug: investor.slug,
-  }));
+  const rows = await restFetchAll<{ slug: string }>('investors?select=slug&order=slug');
+  return rows.map((investor) => ({ slug: investor.slug }));
 }
 
 // Add generateMetadata function for better SEO
@@ -117,7 +108,7 @@ export default async function InvestorProfilePage({ params }: InvestorPageParams
     <div className="min-h-screen md:min-h-0 md:h-[calc(100dvh-var(--nav-height)-1px)] md:overflow-hidden">
       <div className="container mx-auto px-4 py-8 md:flex md:h-full md:flex-col">
         <div className="mb-8 text-muted-foreground">
-          <Link href="/" className="text-muted-foreground hover:text-foreground">
+          <Link href="/" className="text-muted-foreground underline underline-offset-2 hover:text-foreground">
             ← Back to Investor Index
           </Link>{" "}
           <span aria-hidden="true">·</span>{" "}

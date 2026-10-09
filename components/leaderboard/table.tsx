@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { cn } from "@/lib/utils";
 import InvestorRow from "@/components/leaderboard/investor-row";
 import RequestInvestorRow from "@/components/leaderboard/request-investor-row";
 import type { ViewState } from "@/components/leaderboard/filters/view";
@@ -16,9 +17,21 @@ interface InvestorsTableProps {
   view: ViewState;
 }
 
-function Divider({ children }: { children: ReactNode }) {
+// A pinned divider stays at the top of the scroll region while its rows
+// pass beneath it, so the reader always sees which group they are in. On
+// md+ the region is the card's inner scroller (top 0); below md the page
+// scrolls, so it sits under the nav and the search block, whose measured
+// height the leaderboard publishes as --pinned-height. Its blur hides the
+// rows passing underneath; see the card below for why that blur can work.
+function Divider({ children, pinned = false }: { children: ReactNode; pinned?: boolean }) {
   return (
-    <li className="border-b border-input/30 bg-black/15 px-3 py-2 text-xs text-muted-foreground last:border-b-0 lg:px-4">
+    <li
+      className={cn(
+        "border-b border-input/30 bg-black/15 px-3 py-2 text-xs text-foreground last:border-b-0 lg:px-4",
+        pinned &&
+          "sticky z-10 backdrop-blur-xl max-md:top-[calc(var(--nav-height)+1px+var(--pinned-height,0px))] md:top-0",
+      )}
+    >
       {children}
     </li>
   );
@@ -34,11 +47,11 @@ export default function InvestorsTable({ ranking, loading, failed, search, stage
     const headed = ranking.groups.length > 1;
     ranking.groups.forEach((group) => {
       if (group.rows.length === 0) return;
-      if (headed && group.title) items.push(<Divider key={group.title}>{group.title}</Divider>);
+      if (headed && group.title) items.push(<Divider key={group.title} pinned>{group.title}</Divider>);
       items.push(...group.rows.map(row));
     });
     if (ranking.rest.length > 0) {
-      items.push(<Divider key="rest">{ranking.restTitle}</Divider>);
+      items.push(<Divider key="rest" pinned>{ranking.restTitle}</Divider>);
       items.push(...ranking.rest.map(row));
     }
     if (ranking.gone.length > 0) {
@@ -57,7 +70,12 @@ export default function InvestorsTable({ ranking, loading, failed, search, stage
     // scrolls on an inner wrapper so rows cannot bleed past the rounded
     // corners. Below md every `md:` rule drops out and the card grows with
     // the document.
-    <div className="rounded-md border border-input/30 glass min-w-0 md:min-h-0 md:flex-1 md:overflow-hidden">
+    //
+    // The card's glass blur sits on a ::before layer behind the rows rather
+    // than on the card itself: Chrome gives a backdrop-filter element's
+    // descendants nothing to blur, so a pinned divider inside a blurred card
+    // would show the rows through it unblurred (seen 2026-10-08).
+    <div className="relative isolate rounded-md border border-input/30 bg-background/5 min-w-0 before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:rounded-[inherit] before:backdrop-blur-md before:content-[''] md:min-h-0 md:flex-1 md:overflow-hidden">
       <div className="md:h-full md:overflow-y-auto md:glass-scrollbar">
         {failed ? (
           <p className="px-4 py-6 text-sm text-muted-foreground">

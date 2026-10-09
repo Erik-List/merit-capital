@@ -8,6 +8,7 @@ import {
   Landmark,
   Mail,
   Newspaper,
+  Pencil,
   UserMinus,
   X,
   type LucideIcon,
@@ -57,8 +58,7 @@ const sections = [
   { id: "sources", title: "Sources" },
   { id: "how-it-is-built", title: "How it is built" },
   { id: "limitations", title: "Limitations" },
-  { id: "corrections", title: "Corrections and removals" },
-  { id: "requests", title: "Requests and edits" },
+  { id: "corrections", title: "Corrections, removals, requests & edits" },
 ];
 
 const counted = [
@@ -271,7 +271,10 @@ export default function MethodologyPage() {
           </div>
         </Section>
 
-        <Section id="corrections" title="Corrections and removals">
+        {/* One section, four cards, in the order of the title (Erik,
+            2026-10-08). The request card is the same component as the
+            index's empty state. */}
+        <Section id="corrections" title="Corrections, removals, requests & edits">
           <div className="grid gap-3 sm:grid-cols-2">
             <div className={`${cardClass} flex gap-3 p-4`}>
               <IconBadge icon={Mail} />
@@ -298,20 +301,19 @@ export default function MethodologyPage() {
                 </p>
               </div>
             </div>
+            <RequestInvestorRow variant="page" />
+            <div className={`${cardClass} flex gap-3 p-4`}>
+              <IconBadge icon={Pencil} />
+              <div className="min-w-0">
+                <h3 className="font-medium text-foreground">Your profile?</h3>
+                <p className="mt-1 text-sm">
+                  Investors who want their profile changed (description, logo or links) can email
+                  the change. Profile text is published as the firm states it. Metrics are computed
+                  from the company records and are not edited by hand.
+                </p>
+              </div>
+            </div>
           </div>
-        </Section>
-
-        <Section id="requests" title="Requests and edits">
-          <p>
-            Missing an investor? Request it below. Requests are recorded, and nothing is promised on
-            timing.
-          </p>
-          <RequestInvestorRow variant="page" />
-          <p className="text-sm">
-            Investors who want their profile changed (description, logo or links) can email the
-            change. Profile text is published as the firm states it. Metrics are computed from the
-            company records and are not edited by hand.
-          </p>
         </Section>
       </div>
     </div>

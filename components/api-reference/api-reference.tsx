@@ -14,6 +14,57 @@ import {
 // code change.
 type FieldGroup = { label: string; fields: string[] };
 
+// Columns the reference leaves out. The institutional/individual boundary is
+// not part of the published surface (Erik, 2026-10-08).
+const HIDDEN_FIELDS = new Set(["investor_type", "affiliation"]);
+
+/** Descriptions are capped at this many sentences (Erik, 2026-10-08). */
+const MAX_SENTENCES = 2;
+
+// Display-only summaries for the columns whose database comment runs past
+// the cap: the first sentences of those comments do not stand on their own.
+// The full comment stays at /data for agents.
+const SHORT_DESCRIPTIONS: Record<string, string> = {
+  graduation_rate:
+    "JSON {seed_to_series_a: {rate_percent, graduated, sample_size, seed_entries, censored}}; null when the investor has no Seed-stage entry. rate_percent is graduated over sample_size, which leaves out the censored entries, those under 24 months old.",
+  track_record:
+    "JSON {total_companies_invested, investing_start_year, one_b_companies | ten_b_companies | hundred_b_companies | ipo_companies: {amount, names[]}}. The bands are cumulative, ipo_companies counts companies public today, and total_companies_invested counts companies with a determined outcome.",
+  company_stage_distribution:
+    "JSON array [{stage, companies}] sorted by companies desc, summing to the investor's company rows; the stage vocabulary is companies.entry_stage. Shares are computed by consumers, never stored.",
+  company_geo_distribution:
+    "JSON {country: [{country, companies}], city: [{city, companies}]}, each sorted by companies desc and summing to the investor's company rows. Countries are ISO 3166-1 alpha-2, cities bare municipalities, and a null key is a real count of unresolved headquarters.",
+  company_focus_distribution:
+    "JSON array [{focus, companies}] over the closed twelve-value focus taxonomy, sorted by companies desc and summing to the investor's company rows. The null element counts companies outside the taxonomy.",
+  funds:
+    'JSON wrapper object {funds: [{name, size (USD number), vintage (year)}]}; the array sits under the "funds" key, not at the top level. Null when undisclosed.',
+  individuals:
+    "JSON array of the people at the firm, elements shaped {name, position, socials: {linkedin_url, x_url}}; position and either social URL may be null.",
+  aum: "USD JSON range {bottom, top}. Null when undisclosed.",
+  founding_year: "Year the firm was founded.",
+  entry_stage:
+    "The stage of the round in which the investor first put fund money in: Pre-Seed, Seed, Series A, Growth, or undetermined where the record does not give the round. An undetermined round leaves the row out of the stage distribution and the seed-to-A cohort only; it keeps its band, status, country and place in the track record.",
+  valuation_range:
+    "Cumulative valuation bucket: below_1b, 1b_plus, 10b_plus, 100b_plus, or undetermined where the company could not be valued. A row with any undetermined column carries no valuation_usd and is excluded from every derived metric.",
+  seed_to_a_graduation:
+    "Seed-to-Series-A graduation of a Seed-stage entry: graduated (a later priced round, cited or in the company's Form D sequence), not_graduated (no later round found at least 24 months after entry, or an acquisition or shutdown), censored (entered under 24 months ago), or undetermined (the entry stage is undetermined too). Null on a non-Seed entry.",
+};
+
+/**
+ * The first MAX_SENTENCES sentences. A sentence ends at . ! or ? followed by
+ * whitespace, except after e.g. and i.e.; dots inside paths and identifiers
+ * are followed by no whitespace and so never end one.
+ */
+function capSentences(text: string): string {
+  const parts = text.split(/(?<=[.!?])\s+/);
+  const sentences: string[] = [];
+  for (const part of parts) {
+    const last = sentences[sentences.length - 1];
+    if (last !== undefined && /\b(e\.g|i\.e)\.$/.test(last)) sentences[sentences.length - 1] = `${last} ${part}`;
+    else sentences.push(part);
+  }
+  return sentences.slice(0, MAX_SENTENCES).join(" ");
+}
+
 const ENDPOINT_GROUPS: { name: string; groups: FieldGroup[] }[] = [
   {
     name: "investors",
@@ -24,7 +75,6 @@ const ENDPOINT_GROUPS: { name: string; groups: FieldGroup[] }[] = [
           "id",
           "name",
           "slug",
-          "investor_type",
           "icon_url",
           "website",
           "hq_location",
@@ -55,12 +105,8 @@ const ENDPOINT_GROUPS: { name: string; groups: FieldGroup[] }[] = [
         ],
       },
       {
-        label: "Institutional detail",
+        label: "Investor Details",
         fields: ["aum", "funds", "individuals", "founding_year"],
-      },
-      {
-        label: "Individual detail",
-        fields: ["affiliation"],
       },
       {
         label: "Metadata",
@@ -112,7 +158,8 @@ const ENDPOINT_GROUPS: { name: string; groups: FieldGroup[] }[] = [
 
 // Boilerplate phrases that repeat across many column comments. Rendered as
 // compact badges so the description that remains is the part unique to the
-// column. The comment text in the database stays complete for agents; this
+// column; the institutions/individuals prefixes are dropped without a badge.
+// The comment text in the database stays complete for agents; this
 // transform is display-only.
 const DERIVED_PREFIX =
   /^Derived, machine-owned: recomputed from public\.companies by recompute_investor_metrics on every companies write; never write directly\.\s*/;
@@ -122,7 +169,10 @@ const NOT_READABLE_PREFIX = /^Not readable:\s*/;
 const PK_NOTE = /Note:\s*This is a Primary Key\.<pk\/>/;
 const FK_NOTE = /Note:\s*This is a Foreign Key to [\s\S]*?<fk[^>]*\/>/;
 
-function parseDescription(property: SpecProperty): {
+function parseDescription(
+  field: string,
+  property: SpecProperty
+): {
   badges: string[];
   text: string;
 } {
@@ -138,21 +188,16 @@ function parseDescription(property: SpecProperty): {
     badges.push("derived from companies", "read-only");
     text = text.replace(DERIVED_PREFIX, "").trim();
   }
-  if (INSTITUTIONS_PREFIX.test(text)) {
-    badges.push("institutions only");
-    text = text.replace(INSTITUTIONS_PREFIX, "").trim();
-  }
-  if (INDIVIDUALS_PREFIX.test(text)) {
-    badges.push("individuals only");
-    text = text.replace(INDIVIDUALS_PREFIX, "").trim();
-  }
+  text = text.replace(INSTITUTIONS_PREFIX, "").replace(INDIVIDUALS_PREFIX, "").trim();
+  text = text.charAt(0).toUpperCase() + text.slice(1);
   if (NOT_READABLE_PREFIX.test(text)) {
     badges.push("not readable");
     text = text.replace(NOT_READABLE_PREFIX, "").trim();
     text = text.charAt(0).toUpperCase() + text.slice(1);
   }
 
-  return { badges, text };
+  const short = SHORT_DESCRIPTIONS[field];
+  return { badges, text: short ?? capSentences(text) };
 }
 
 function formatType(property: SpecProperty): string {
@@ -182,7 +227,11 @@ function EndpointCard({
   groups: FieldGroup[];
   definition: SpecDefinition;
 }) {
-  const properties = definition.properties ?? {};
+  const properties = Object.fromEntries(
+    Object.entries(definition.properties ?? {}).filter(
+      ([field]) => !HIDDEN_FIELDS.has(field)
+    )
+  );
   const grouped = groups
     .map((group) => ({
       label: group.label,
@@ -220,7 +269,7 @@ function EndpointCard({
             </h3>
             <div className="divide-y divide-input/20 rounded-md border border-input/30">
               {group.entries.map(([field, property]) => {
-                const { badges, text } = parseDescription(property);
+                const { badges, text } = parseDescription(field, property);
                 return (
                   <div
                     key={field}

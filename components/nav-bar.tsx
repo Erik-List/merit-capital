@@ -19,9 +19,15 @@ export function NavBar() {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-input/30 isolate relative">
-      {/* Blur blanket covering overscroll area above the navbar */}
+    // The transparent border keeps the header at --nav-height + 1px, which
+    // every viewport-bound layout relies on; the visible line is drawn on
+    // top of the blanket instead, so the blanket can cover the whole bar and
+    // nothing scrolls through the border row unblurred.
+    <header className="sticky top-0 z-40 w-full border-b border-transparent isolate relative">
+      {/* Blur blanket covering the overscroll area above the navbar and the bar itself, border row included */}
       <div className="pointer-events-none absolute inset-x-0 top-[-2000px] h-[calc(2000px+var(--nav-height)+1px)] glass-strong" />
+      {/* Dividing line between the bar and the page content */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-[-1px] z-10 h-px bg-foreground/25" />
 
       {/* Navbar content */}
       <div className="relative z-10 container mx-auto px-4 py-4 flex items-center justify-between gap-4 h-[var(--nav-height)]">

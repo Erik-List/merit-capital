@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
-import type { InvestorOutcomes, StageOutcome } from '@/lib/investor-outcomes';
+import type { InvestorOutcomes, OutcomeCounts, StageOutcome } from '@/lib/investor-outcomes';
 
 interface InvestmentOutcomesProps {
   name: string;
@@ -13,6 +13,10 @@ interface InvestmentOutcomesProps {
 const SHARE_FLOOR = 10;
 
 type OutcomeKey = keyof Pick<StageOutcome, 'oneB' | 'tenB' | 'hundredB' | 'isPublic'>;
+
+/** One row of the table or one chip: a stage, or "All" for every company. */
+type OutcomeRow = OutcomeCounts & { stage: StageOutcome['stage'] | typeof ALL };
+const ALL = 'All';
 
 const COLUMNS: ReadonlyArray<{ key: OutcomeKey; label: string }> = [
   { key: 'oneB', label: '$1B+ today' },
@@ -59,7 +63,7 @@ function Cell({ part, whole }: { part: number; whole: number }) {
 }
 
 /** The `lg` table: one row per stage, one column per outcome. */
-function OutcomeTable({ rows }: { rows: StageOutcome[] }) {
+function OutcomeTable({ rows }: { rows: OutcomeRow[] }) {
   return (
     <div className="hidden overflow-x-auto lg:block">
       <table className="w-full min-w-[520px] border-collapse text-sm">
@@ -93,10 +97,10 @@ function OutcomeTable({ rows }: { rows: StageOutcome[] }) {
 /**
  * Below `lg`: stage chips and one stage at a time, four rows for the picked
  * stage with the share large and the count beneath (Erik, 2026-09-30). It
- * opens on the stage the investor entered most companies at.
+ * opens on "All", the first chip (Erik, 2026-10-08).
  */
-function OutcomeByStage({ rows }: { rows: StageOutcome[] }) {
-  const [picked, setPicked] = useState(() => rows.reduce((best, row) => (row.entries > best.entries ? row : best)).stage);
+function OutcomeByStage({ rows }: { rows: OutcomeRow[] }) {
+  const [picked, setPicked] = useState<OutcomeRow['stage']>(rows[0].stage);
   const stage = rows.find((row) => row.stage === picked) ?? rows[0];
   const thin = stage.entries < SHARE_FLOOR;
 
@@ -124,7 +128,8 @@ function OutcomeByStage({ rows }: { rows: StageOutcome[] }) {
         })}
       </div>
       <p className="text-xs text-muted-foreground">
-        {count(stage.entries)} {stage.entries === 1 ? 'company' : 'companies'} first invested in at {stage.stage}
+        {count(stage.entries)} {stage.entries === 1 ? 'company' : 'companies'}
+        {stage.stage === ALL ? ' across every entry stage' : ` first invested in at ${stage.stage}`}
         {thin ? ' · too few for a share' : ''}
       </p>
       <div className="space-y-3">
@@ -164,8 +169,10 @@ function OutcomeByStage({ rows }: { rows: StageOutcome[] }) {
  * columns. A table from `lg`; below it, one stage at a time behind chips.
  */
 export function InvestmentOutcomes({ name, outcomes }: InvestmentOutcomesProps) {
-  const rows = outcomes.stages.filter((stage) => stage.entries > 0);
-  if (rows.length === 0) return null;
+  const stages = outcomes.stages.filter((stage) => stage.entries > 0);
+  if (stages.length === 0) return null;
+  // "All" leads: every counted company, entry stage on record or not.
+  const rows: OutcomeRow[] = [{ stage: ALL, ...outcomes.all }, ...stages];
 
   return (
     <section className="space-y-4">

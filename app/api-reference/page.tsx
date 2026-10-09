@@ -12,21 +12,22 @@ export const revalidate = 3600;
 
 type Example = { label: string; path: string };
 
+// Every example is capped at ten rows (Erik, 2026-10-08).
 const EXAMPLE_GROUPS: { endpoint: string; examples: Example[] }[] = [
   {
     endpoint: "/data/investors",
     examples: [
       {
         label: "Pick specific columns",
-        path: "/data/investors?select=name,slug,hq_location,website",
+        path: "/data/investors?select=name,slug,hq_location,website&limit=10",
       },
       {
         label: "Seed-stage investors (JSON array contains)",
-        path: '/data/investors?investment_stage=cs.["Seed"]',
+        path: '/data/investors?investment_stage=cs.["Seed"]&limit=10',
       },
       {
         label: "Embed a portfolio into an investor row",
-        path: "/data/investors?slug=eq.sequoia-capital&select=name,companies(name,valuation_usd)",
+        path: "/data/investors?slug=eq.sequoia-capital&select=name,companies(name,valuation_usd)&limit=10",
       },
     ],
   },
@@ -35,7 +36,7 @@ const EXAMPLE_GROUPS: { endpoint: string; examples: Example[] }[] = [
     examples: [
       {
         label: "One investor's companies above $1B, by valuation",
-        path: "/data/companies?select=name,valuation_usd,valuation_asof,investors!inner(slug)&investors.slug=eq.sequoia-capital&valuation_usd=gte.1000000000&order=valuation_usd.desc",
+        path: "/data/companies?select=name,valuation_usd,valuation_asof,investors!inner(slug)&investors.slug=eq.sequoia-capital&valuation_usd=gte.1000000000&order=valuation_usd.desc&limit=10",
       },
     ],
   },
@@ -44,7 +45,7 @@ const EXAMPLE_GROUPS: { endpoint: string; examples: Example[] }[] = [
     examples: [
       {
         label: "The latest requested investors (email is not readable, so the columns are named)",
-        path: "/data/investor_requests?select=id,created_at,investor_name&order=created_at.desc&limit=20",
+        path: "/data/investor_requests?select=id,created_at,investor_name&order=created_at.desc&limit=10",
       },
     ],
   },
@@ -70,9 +71,7 @@ function QueryLink({ path }: { path: string }) {
 export default function ApiReferencePage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-10">
-      <section
-        className="motion-safe animate-in fade-in slide-in-from-bottom-2 fill-mode-both duration-700"
-      >
+      <section>
         <div className="text-xs uppercase tracking-widest text-muted-foreground">
           Public API
         </div>
@@ -84,30 +83,9 @@ export default function ApiReferencePage() {
           without authentication.
         </p>
 
-        <div className="mt-6 grid gap-3 sm:grid-cols-2">
-          <div className="glass rounded-md border border-input/30 px-4 py-3">
-            <div className="text-xs uppercase tracking-widest text-muted-foreground">
-              Endpoints
-            </div>
-            <a
-              href="/data/investors?limit=5"
-              className="mt-1.5 block font-mono text-sm hover:underline"
-            >
-              /data/investors
-            </a>
-            <a
-              href="/data/companies?limit=5"
-              className="mt-1 block font-mono text-sm hover:underline"
-            >
-              /data/companies
-            </a>
-            <a
-              href="/data/investor_requests?select=id,created_at,investor_name&limit=5"
-              className="mt-1 block font-mono text-sm hover:underline"
-            >
-              /data/investor_requests
-            </a>
-          </div>
+        {/* The endpoints themselves are the pills below; this card is only
+            the spec. */}
+        <div className="mt-6 sm:max-w-sm">
           <div className="glass rounded-md border border-input/30 px-4 py-3">
             <div className="text-xs uppercase tracking-widest text-muted-foreground">
               OpenAPI spec for agents
@@ -139,11 +117,7 @@ export default function ApiReferencePage() {
         </nav>
       </section>
 
-      <section
-        id="examples"
-        className="motion-safe animate-in fade-in slide-in-from-bottom-2 fill-mode-both scroll-mt-24 duration-700"
-        style={{ animationDelay: "120ms" }}
-      >
+      <section id="examples" className="scroll-mt-24">
         <h2 className="mt-14 text-xl font-semibold">Example queries</h2>
         <p className="mt-2 max-w-3xl leading-relaxed text-muted-foreground">
           Filtering, ordering, column selection, and pagination follow the{" "}
@@ -181,14 +155,11 @@ export default function ApiReferencePage() {
         ))}
       </section>
 
-      <section
-        className="motion-safe animate-in fade-in slide-in-from-bottom-2 fill-mode-both duration-700"
-        style={{ animationDelay: "240ms" }}
-      >
+      <section>
         <h2 className="mt-14 text-xl font-semibold">Reference</h2>
         <p className="mb-4 mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-          Generated live from the database schema; the column descriptions are
-          the same ones served to agents at{" "}
+          Generated live from the database schema. Long column descriptions
+          are shortened here; agents get the full text at{" "}
           <a href="/data" className="underline">
             /data
           </a>

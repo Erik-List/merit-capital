@@ -188,6 +188,22 @@ export default function Leaderboard() {
     return () => observer.disconnect();
   }, []);
 
+  // Below md the search block pins under the nav, so anything else that
+  // pins (the group headings in the table) must sit below it. Its height
+  // changes with the viewport and with wrapping, so it is measured, not
+  // assumed, and published to the column as --pinned-height.
+  const pinnedRef = useRef<HTMLDivElement>(null);
+  const [pinnedHeight, setPinnedHeight] = useState(0);
+  useEffect(() => {
+    const block = pinnedRef.current;
+    if (!block) return;
+    const measure = () => setPinnedHeight(block.offsetHeight);
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(block);
+    return () => observer.disconnect();
+  }, []);
+
   const index = useMemo(() => (data ? buildIndex(data) : null), [data]);
   // The day the values were last ingested, for the masthead.
   const asOf = formatAsOf(data?.asOf);
@@ -235,7 +251,7 @@ export default function Leaderboard() {
           <h1 className="text-xl font-medium sm:text-2xl">The venture capital performance index</h1>
           <p className="mt-1 max-w-3xl text-sm text-foreground/85">
             Compare venture investors on how their portfolio companies turned out, stage by stage
-            {asOf ? `, as of ${asOf}` : ""}. Filter by headquarters to narrow the companies counted.{" "}
+            {asOf ? `, as of ${asOf}` : ""}.{" "}
             <Link href="/methodology" className="underline underline-offset-2 hover:text-foreground">
               Methodology
             </Link>{" "}
@@ -253,7 +269,10 @@ export default function Leaderboard() {
           <div className="hidden lg:block lg:h-full lg:min-h-0">
             <FilterCard {...filterProps} variant="sidebar" />
           </div>
-          <div className="flex min-w-0 flex-col gap-4 md:h-full md:min-h-0">
+          <div
+            className="flex min-w-0 flex-col gap-4 md:h-full md:min-h-0"
+            style={{ "--pinned-height": `${pinnedHeight}px` } as React.CSSProperties}
+          >
             {/* Search and filters. On md+ they stay put because only the
                 results card scrolls. Below md the whole page scrolls, so the
                 block pins itself under the nav; the title scrolls away. At
@@ -262,6 +281,7 @@ export default function Leaderboard() {
                 (Erik, 2026-09-30). The sentinel above it is what tells. */}
             <div ref={sentinelRef} aria-hidden="true" className="h-0 -mb-4 md:hidden" />
             <div
+              ref={pinnedRef}
               className={cn(
                 "flex shrink-0 flex-col gap-3 max-md:sticky max-md:top-[calc(var(--nav-height)+1px)] max-md:z-30 max-md:-mx-4 max-md:px-4 max-md:py-3",
                 stuck && "max-md:glass-strong max-md:border-b max-md:border-input/30",
