@@ -41,6 +41,11 @@ Usage: python3 scripts/site-portfolio.py <investor-slug>
        python3 scripts/site-portfolio.py <investor-slug> --socials-only
          re-read the people's social links only (PRO-154): team.json keeps its
          rows, the links land on investor.json, the audit in team-socials.json
+       python3 scripts/site-portfolio.py --socials-only --all
+         the same over every book with a profile, then a coverage table
+       --no-search    skip the checked search for members the site gives no
+                      link (people_search.py; PRO-177); --no-fetch-profiles
+                      skips the member-page read
 """
 import argparse
 import json
@@ -54,8 +59,10 @@ from urllib.parse import quote, urljoin
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from paths import Paths, write_atomic  # noqa: E402
-from people_common import clean_social, firm_handles, handle_score, social_handle  # noqa: E402
+from paths import INVESTORS, Paths, write_atomic  # noqa: E402
+from people_common import (SOCIALS_FLOOR, clean_social, firm_handles, handle_score,  # noqa: E402
+                           social_handle, socials_basis, socials_coverage, team_source_words)
+from people_search import SearchCache  # noqa: E402
 
 UA = "MeritCapitalResearch/1.0 (erik@meritcapit.al)"
 PER_PAGE = 100
@@ -510,6 +517,27 @@ def bucket_of(row: dict, api: dict) -> list[str]:
 
 
 SOCIAL_HOST = re.compile(r"^https?://([a-z]{2,3}\.|www\.|mobile\.)?(linkedin|twitter|x)\.com/", re.I)
+# Pages never read for links: SEC documents (their own pacing, and a PDF
+# carries no profile link) and anything that is not a web page.
+SKIP_PAGE = re.compile(r"(^|\.)sec\.gov$")
+
+
+def page_host(url: str) -> str:
+    return re.sub(r"^https?://(www\.)?", "", (url or "").strip(), flags=re.I).split("/")[0].lower()
+
+
+def site_hosts_of(p: Paths, site_base: str) -> set[str]:
+    """The firm's own hosts: the configured site base and the published
+    website. A member page on one of them is the firm's; any other page the
+    team record points at (a curated list's ADV, press or speaker pages) is
+    an outside page, read as confirmation only (Erik, 2026-09-30)."""
+    website = json.loads(p.investor.read_text()).get("website", "") if p.investor.exists() else ""
+    return {page_host(u) for u in (site_base, website) if u and page_host(u)}
+
+
+def page_kind(url: str, site_hosts) -> str:
+    h = page_host(url)
+    return "page" if any(h == s or h.endswith("." + s) for s in site_hosts) else "external_page"
 
 
 def page_url(row: dict, site_base: str) -> str:
@@ -528,51 +556,61 @@ def page_url(row: dict, site_base: str) -> str:
     return ""
 
 
+def add_candidate(c: dict, url, source: str) -> None:
+    """One candidate per account: the first spelling seen is kept (the
+    published one is added first, so a page's "www.twitter.com" does not
+    churn it), and a CMS sighting makes it a CMS link."""
+    u = str(url or "")
+    kind = ("linkedin" if "linkedin.com" in u.lower() else
+            "x" if re.search(r"(twitter|x)\.com", u, re.I) else None)
+    clean = clean_social(kind, u) if kind else ""
+    if not clean:
+        return
+    h = social_handle(kind, clean)
+    for i, (x, s) in enumerate(c[kind]):
+        if social_handle(kind, x) == h:
+            if source == "cms":
+                c[kind][i] = (x, "cms")
+            return
+    c[kind].append((clean, source))
+
+
 def read_socials(rows: list[dict], api: dict, fetch: bool, site_base: str = "",
-                 firm: tuple[str, str] = ("", "")) -> dict:
+                 firm: tuple[str, str] = ("", ""), search=None, site_hosts=(),
+                 published: set[str] | None = None) -> dict:
     """Set linkedin_url, x_url and socials_source on every row; return the
     audit (each person's candidates and the one chosen), PRO-154.
 
-    Candidates come from the CMS row's own fields, from the member's own page,
-    and, for a row carried over from an earlier pull (`_legacy`), from the
-    links it already had. The rules (COLLECTION.md §11, People's social links):
+    Candidates come, in this order, from the CMS row's own fields, from the
+    member's own page (on the firm's site: `page`; anywhere else the team
+    record points, read as confirmation only: `external_page`), from the links
+    a row carried over from an earlier pull (`legacy`), and, for a published
+    member none of that gave a link, from one checked search
+    (`people_search.search_person`: `search_verified`, PRO-177). The rules
+    (COLLECTION.md §11, People's social links):
       - an account named for the firm (`firm_handles`, plus
         `site_api.team_social_exclude`) is nobody's;
       - a CMS field is the person's, unless the CMS gives the same account to
         two or more people (8VC filled @8vc for everyone);
-      - a link read off a page, or carried over, must name the person
-        (`handle_score` > 0) and goes to nobody when another member of the
-        firm matches it as well or better (a colleague quoted on the page);
+      - a link read off a page, carried over, or found by search must name
+        the person (`handle_score` > 0) and goes to nobody when another member
+        of the firm matches it as well or better (a colleague quoted on the
+        page); a search result must also name the person and the firm;
+      - what the site itself gave outranks a page, which outranks a search;
       - `site_api.team_social_overrides` ({name: {linkedin_url, x_url}}, null
-        for none) records a reviewed answer and wins."""
+        for none) records a reviewed answer and wins.
+    `search` is a people_search.SearchCache (None: no search); `site_hosts`
+    the firm's own hosts (site_hosts_of)."""
     exclude = {h.lower().lstrip("@") for h in api.get("team_social_exclude") or []}
     exclude |= firm_handles(*firm)
     overrides = {norm_name(k): v for k, v in (api.get("team_social_overrides") or {}).items()}
     cands = []
     for r in rows:
         c: dict[str, list[tuple[str, str]]] = {"linkedin": [], "x": []}
-
-        def add(url, source):
-            """One candidate per account: the first spelling seen is kept (the
-            published one is added first, so a page's "www.twitter.com" does
-            not churn it), and a CMS sighting makes it a CMS link."""
-            u = str(url or "")
-            kind = ("linkedin" if "linkedin.com" in u.lower() else
-                    "x" if re.search(r"(twitter|x)\.com", u, re.I) else None)
-            clean = clean_social(kind, u) if kind else ""
-            if not clean:
-                return
-            h = social_handle(kind, clean)
-            for i, (x, s) in enumerate(c[kind]):
-                if social_handle(kind, x) == h:
-                    if source == "cms":
-                        c[kind][i] = (x, "cms")
-                    return
-            c[kind].append((clean, source))
-
         legacy = r.pop("_legacy", False)
         for v in r.pop("_legacy_links", None) or []:
-            add(v, "legacy")
+            v, prev = v if isinstance(v, (list, tuple)) else (v, None)
+            add_candidate(c, v, prev if prev in ("page", "external_page", "search_verified") else "legacy")
         for key in SOCIAL_KEYS + ("url",):
             vals = r.get(key)
             vals = list(vals.values()) if isinstance(vals, dict) else \
@@ -580,79 +618,123 @@ def read_socials(rows: list[dict], api: dict, fetch: bool, site_base: str = "",
             for v in vals:
                 if key == "url" and not SOCIAL_HOST.match(str(v or "")):
                     continue
-                add(v, "legacy" if legacy and key in ("linkedin_url", "x_url") else "cms")
+                add_candidate(c, v, "legacy" if legacy and key in ("linkedin_url", "x_url") else "cms")
         page = page_url(r, site_base) if r.get("role_bucket") else ""
-        if fetch and page:                   # unpublished rows need no page read
-            html = get_page(page).replace("\\/", "/")
+        if fetch and page and not SKIP_PAGE.search(page_host(page)) \
+                and not page.lower().split("?")[0].endswith(".pdf"):
+            html = get_page(page).replace("\\/", "/")   # unpublished rows need no page read
             time.sleep(0.5)
+            kind = page_kind(page, site_hosts)
             for m in PAGE_LINKS.finditer(html):
-                add(m.group(0), "page")
+                add_candidate(c, m.group(0), kind)
         cands.append(c)
 
     def flat(h):
         return re.sub(r"[^a-z0-9]", "", h)
 
-    cms_seen = {k: Counter(h for c in cands for h in {social_handle(k, u) for u, s in c[k]
-                                                      if s == "cms"})
-                for k in ("linkedin", "x")}
-    # (kind, handle) -> [best score among the members whose candidates carry it,
-    # how many members reach it]: a link goes to its one best match, or nobody.
-    best: dict[tuple, list[int]] = {}
+    # A link on any page of the firm's site that names a member by first and
+    # last name is that member's candidate too: a colleague's interview page
+    # links the interviewer (ICONIQ's posts carry Will Griffith's LinkedIn on
+    # Murali Joshi's page). Uniqueness below still gives it to one person.
+    pool = [(kind, u, s) for c in cands for kind in ("linkedin", "x") for u, s in c[kind]
+            if s in ("page", "external_page")]
     for r, c in zip(rows, cands):
-        for kind in ("linkedin", "x"):
-            for u, _ in c[kind]:
-                h = social_handle(kind, u)
-                sc = handle_score(h, r["name"])
-                b = best.setdefault((kind, h), [0, 0])
-                if sc > b[0]:
-                    best[kind, h] = [sc, 1]
-                elif sc == b[0] and sc:
-                    b[1] += 1
+        if r.get("role_bucket"):
+            for kind, u, s in pool:
+                if handle_score(social_handle(kind, u), r["name"]) >= 3:
+                    add_candidate(c, u, s)
 
-    audit = {}
-    for r, c in zip(rows, cands):
-        over = overrides.get(norm_name(r["name"]), {})
-        sources, entry = {}, {}
-        for kind in ("linkedin", "x"):
-            key = f"{kind}_url"
-            if key in over:
-                value = clean_social(kind, over[key]) if over[key] else ""
-                source = "override" if value else None
-            else:
-                scored = []
-                for u, s in c[kind]:
+    def decide() -> dict:
+        """Choose each person's links from the candidates; set the row keys."""
+        cms_seen = {k: Counter(h for c in cands for h in {social_handle(k, u) for u, s in c[k]
+                                                          if s == "cms"})
+                    for k in ("linkedin", "x")}
+        # (kind, handle) -> [best score among the members whose candidates carry
+        # it, how many members reach it]: a link goes to its one best match, or
+        # nobody.
+        best: dict[tuple, list[int]] = {}
+        for r, c in zip(rows, cands):
+            for kind in ("linkedin", "x"):
+                for u, _ in c[kind]:
                     h = social_handle(kind, u)
-                    if flat(h) in exclude:
-                        continue
-                    if s == "cms":
-                        if cms_seen[kind][h] < 2:
-                            scored.append((0, 9, u, s))
-                        continue
-                    score = handle_score(h, r["name"])
-                    if score and best[kind, h] == [score, 1]:
-                        # at equal strength the published link stays (Sequoia's
-                        # Shaun Maguire has two LinkedIn addresses)
-                        scored.append((1, -score if s == "legacy" else -score + 0.5, u, s))
-                pick = min(scored) if scored else None
-                value, source = (pick[2], pick[3]) if pick else ("", None)
-            r[key] = value
-            sources[kind] = source
-            entry[kind] = {"chosen": value or None, "source": source,
-                           "candidates": [f"{s}: {u}" for u, s in c[kind]]}
-        r["socials_source"] = sources
-        audit[r["name"]] = entry
+                    sc = handle_score(h, r["name"])
+                    b = best.setdefault((kind, h), [0, 0])
+                    if sc > b[0]:
+                        best[kind, h] = [sc, 1]
+                    elif sc == b[0] and sc:
+                        b[1] += 1
+        audit = {}
+        for r, c in zip(rows, cands):
+            over = overrides.get(norm_name(r["name"]), {})
+            sources, entry = {}, {}
+            for kind in ("linkedin", "x"):
+                key = f"{kind}_url"
+                if key in over:
+                    value = clean_social(kind, over[key]) if over[key] else ""
+                    source = "override" if value else None
+                else:
+                    scored = []
+                    for u, s in c[kind]:
+                        h = social_handle(kind, u)
+                        if flat(h) in exclude:
+                            continue
+                        if s == "cms":
+                            if cms_seen[kind][h] < 2:
+                                scored.append((0, 9, u, s))
+                            continue
+                        score = handle_score(h, r["name"])
+                        if score and best[kind, h] == [score, 1]:
+                            # at equal strength the published link stays
+                            # (Sequoia's Shaun Maguire has two LinkedIn
+                            # addresses); a search result ranks below anything
+                            # the site itself gave
+                            rank = 2 if s == "search_verified" else 1
+                            scored.append((rank, -score if s == "legacy" else -score + 0.5, u, s))
+                    pick = min(scored) if scored else None
+                    value, source = (pick[2], pick[3]) if pick else ("", None)
+                r[key] = value
+                sources[kind] = source
+                entry[kind] = {"chosen": value or None, "source": source,
+                               "candidates": [f"{s}: {u}" for u, s in c[kind]]}
+            r["socials_source"] = sources
+            audit[r["name"]] = entry
+        return audit
+
+    audit = decide()
+    # The checked search, for every published member the site left without a
+    # link; then the decision is taken again over the new candidates.
+    searched: dict[str, dict] = {}
+    if search is not None:
+        from people_search import search_person
+        aliases = api.get("team_search_aliases") or []
+        for r, c in zip(rows, cands):
+            if not r.get("role_bucket") or r.get("linkedin_url") or r.get("x_url"):
+                continue
+            if published is not None and r["name"].lower() not in published:
+                continue                      # a team row the profile does not carry
+            res = search_person(r["name"], firm[0] or firm[1], firm[1], search, aliases)
+            searched[r["name"]] = res
+            print(f"    search {r['name']}: " + (f"{len(res['accepted'])} accepted, "
+                  f"{len(res['rejected'])} rejected" if res["available"] else "no answer"), flush=True)
+            for a in res["accepted"]:
+                add_candidate(c, a["url"], "search_verified")
+            search.save()
+        if searched:
+            audit = decide()
+    for name, res in searched.items():
+        audit[name]["search"] = res
     return audit
 
 
 def shape_team(rows: list[dict], api: dict, fetch: bool, site_base: str = "",
-               firm: tuple[str, str] = ("", "")) -> list[dict]:
+               firm: tuple[str, str] = ("", ""), search=None, site_hosts=()) -> list[dict]:
     """Every team row gains cms_title, role_bucket, linkedin_url, x_url and
     socials_source."""
     for r in rows:
         r["cms_title"] = next((str(r[k]).strip() for k in
                                api.get("team_title_keys") or TITLE_KEYS if r.get(k)), "")
         r["role_bucket"] = bucket_of(r, api)
-    read_socials(rows, api, fetch, site_base, firm)
+    read_socials(rows, api, fetch, site_base, firm, search, site_hosts)
     return rows
 
 
@@ -783,13 +865,17 @@ def dump_like(path: Path, data) -> None:
                  + ("\n" if old.endswith("\n") or not old else ""))
 
 
-def socials_only(p: Paths, api: dict, fetch: bool, site_base: str) -> None:
+def socials_only(p: Paths, api: dict, fetch: bool, site_base: str, search: bool = True,
+                 record_gap: bool = False) -> dict:
     """Re-read the links of the people already in team.json, without adding or
     dropping anyone (PRO-154), then carry them onto the published people in
     investor.json and its sidecar, matched by name. Where the site's CMS lists
     the team, its rows are re-fetched for their own link fields; a row the CMS
     no longer lists, or a team built without a CMS, keeps its old links as
-    `legacy` candidates, which must match the name like a page read."""
+    `legacy` candidates, which must match the name like a page read. With
+    `search`, a published member the site gives no link gets one checked
+    search (PRO-177), cached in scratch/socials-search.json. Returns the
+    coverage counts (people_common.socials_coverage) for the --all table."""
     team = json.loads(p.team.read_text())
     fresh = {}
     if api.get("team_sources"):
@@ -800,22 +886,33 @@ def socials_only(p: Paths, api: dict, fetch: bool, site_base: str) -> None:
         if f is None:
             r["_legacy"] = True
             continue
-        # The links this row carried stay in play as `legacy` candidates, so a
-        # page that moved (Khosla's /team/ pages now 404) loses nothing that
-        # still names the person.
-        r["_legacy_links"] = [r.get("linkedin_url"), r.get("x_url")]
+        # The links this row carried stay in play as candidates, so a page that
+        # moved (Khosla's /team/ pages now 404) loses nothing that still names
+        # the person. A link read off a page or found by search keeps that
+        # label (it passed the name test then and passes it again); anything
+        # else is carried as `legacy`.
+        prev = r.get("socials_source") or {}
+        r["_legacy_links"] = [(r.get("linkedin_url"), prev.get("linkedin")),
+                              (r.get("x_url"), prev.get("x"))]
         for k in SOCIAL_KEYS:
             r.pop(k, None)
             if k in f:
                 r[k] = f[k]
         if f.get("url"):
             r["url"] = f["url"]                # the page as the CMS lists it today
-    audit = read_socials(team, api, fetch, site_base, firm_of(p))
+    # The people the profile carries are the published set; a team row the
+    # profile does not list (Greylock's list outgrew its profile by 12) is
+    # neither searched nor counted for the floor, which `verify` measures on
+    # the same list.
+    row = json.loads(p.investor.read_text())
+    published = {person["name"].lower() for person in row.get("individuals") or []}
+    cache = SearchCache(p.scratch / "socials-search.json") if search else None
+    audit = read_socials(team, api, fetch, site_base, firm_of(p), cache,
+                         site_hosts_of(p, site_base), published)
     write_atomic(p.team, json.dumps(team, indent=1) + "\n")
     write_atomic(p.site / "team-socials.json", json.dumps(audit, indent=1) + "\n")
 
     by_name = {norm_name(t["name"]): t for t in team}
-    row = json.loads(p.investor.read_text())
     src = json.loads(p.investor_sources.read_text())
     changed = 0
     for person in row.get("individuals") or []:
@@ -828,41 +925,150 @@ def socials_only(p: Paths, api: dict, fetch: bool, site_base: str) -> None:
     field = src.get("fields", {}).get("individuals")
     if field is not None:
         field["value"] = row.get("individuals")
-        people = row.get("individuals") or []
-        note = (f"Social links re-read under PRO-154 ({time.strftime('%Y-%m-%d')}): "
-                f"{sum(1 for q in people if q['socials']['linkedin_url'])} LinkedIn, "
-                f"{sum(1 for q in people if q['socials']['x_url'])} X; a link read off a "
-                f"page counts only when its account matches the person's name, and an "
-                f"account on two or more people's pages is the firm's.")
-        basis = re.sub(r"\s*Social links re-read under PRO-154 .*$", "", field.get("basis") or "")
-        field["basis"] = (basis + " " + note).strip()
+        # The basis says where the links came from, from the rows (PRO-178);
+        # the old fixed sentences give way to it.
+        basis = re.sub(r"\s*(Social links re-read under PRO-154 |Socials from profile pages: "
+                       r"|Socials are null: |Social links: ).*$", "", field.get("basis") or "",
+                       flags=re.S)
+        basis = re.sub(r"^(Live team (CMS|page)|Curated team list|Team list built by hand)[^:]*:",
+                       team_source_words(api) + ":", basis)
+        gap = (p.config().get("profile") or {}).get("socials_gap")
+        field["basis"] = (basis + " " + socials_basis(team, gap, published)).strip()
     dump_like(p.investor, row)
     dump_like(p.investor_sources, src)
-    have = sum(1 for t in team if t.get("role_bucket") and (t.get("linkedin_url") or t.get("x_url")))
-    print(f"socials: {have} of {sum(1 for t in team if t.get('role_bucket'))} published "
-          f"members carry a link; {changed} published people changed")
+    cov = socials_coverage(team, published)
+    cov["changed"] = changed
+    cov["audit"] = audit
+    cov["searched"] = sum(1 for e in audit.values() if e.get("search"))
+    cov["unanswered"] = sum(1 for e in audit.values() if e.get("search")
+                            and not e["search"].get("available"))
+    cov["found"] = sum(1 for e in audit.values() if e.get("search") and any(
+        e[k]["source"] == "search_verified" for k in ("linkedin", "x")))
+    share = cov["linked"] / cov["people"] if cov["people"] else 0
+    print(f"socials: {cov['linked']} of {cov['people']} published members carry a link "
+          f"({share:.0%}); {changed} published people changed; search: {cov['searched']} "
+          f"queried, {cov['found']} linked")
+    if record_gap:
+        cov["gap"] = record_socials_gap(p, api, team, cov, searched_all=search)
+    return cov
+
+
+def record_socials_gap(p: Paths, api: dict, team: list[dict], cov: dict, searched_all: bool) -> dict | None:
+    """Write (or clear) `profile.socials_gap` in config.json from what the
+    three reading steps left: the ratchet `verify` holds the book at (PRO-178).
+    Only after a run that searched; a gap recorded without the search is not a
+    gap, it is work not done."""
+    cfg = json.loads(p.config_file.read_text())
+    prof = cfg.setdefault("profile", {})
+    share = cov["linked"] / cov["people"] if cov["people"] else 1.0
+    if share >= SOCIALS_FLOOR:
+        if prof.pop("socials_gap", None) is not None:
+            dump_like(p.config_file, cfg)
+            print("socials gap: cleared from config.json")
+        return None
+    if not searched_all:
+        print("socials gap: not recorded, the checked search was skipped (--no-search)")
+        return None
+    unanswered = [n for n, e in cov.get("audit", {}).items()
+                  if e.get("search") and not e["search"].get("available")]
+    if unanswered:
+        print(f"socials gap: not recorded, the search gave no answer for {len(unanswered)} "
+              f"people (the engine was unavailable); run --socials-only again later")
+        return None
+    srcs = api.get("team_sources") or []
+    site_gave = any((t.get("socials_source") or {}).get(k) in ("cms", "page", "legacy")
+                    for t in team if t.get("role_bucket") for k in ("linkedin", "x"))
+    if not srcs or all(s.get("parser") == "file_list" and "team-curated" in (s.get("path") or "")
+                       for s in srcs):
+        cause = "no_team_page"
+    elif not site_gave:
+        cause = "site_publishes_none"
+    else:
+        cause = "search_exhausted"
+    gap = {"cause": cause, "checked": time.strftime("%Y-%m-%d"),
+           "unlinked": cov["people"] - cov["linked"],
+           "sources_tried": ["site", "external_page", "search"],
+           "note": (f"{cov['linked']} of {cov['people']} published people carry a link after the "
+                    f"site read, the outside pages and the checked search ({cov['searched']} "
+                    f"searched, {cov['found']} found); recorded by site-portfolio.py --record-gap")}
+    old = prof.get("socials_gap")
+    if old and old.get("unlinked") is not None and old["unlinked"] < gap["unlinked"]:
+        print(f"socials gap: grew from {old['unlinked']} to {gap['unlinked']}; recorded anew "
+              f"(the earlier record stood at {old['unlinked']} on {old.get('checked')})")
+    prof["socials_gap"] = gap
+    dump_like(p.config_file, cfg)
+    print(f"socials gap: recorded in config.json ({cause}, {gap['unlinked']} unlinked)")
+    return gap
+
+
+def books_with_profiles() -> list[str]:
+    return sorted(d.name for d in INVESTORS.iterdir()
+                  if (d / "config.json").exists() and (d / "sources/site/team.json").exists()
+                  and (d / "investor/investor.json").exists())
+
+
+def socials_table(stats: dict[str, dict]) -> None:
+    """The coverage table the --all run ends with, lowest share first."""
+    print(f"\n{'book':28s} {'people':>6s} {'linked':>6s} {'share':>6s}  cms  page  ext  leg  over  srch | queried found noans")
+    for slug, c in sorted(stats.items(), key=lambda kv: (kv[1]["linked"] / kv[1]["people"]
+                                                         if kv[1]["people"] else 0, kv[0])):
+        b = c.get("by_source") or {}
+        share = c["linked"] / c["people"] if c["people"] else 0
+        print(f"{slug:28s} {c['people']:6d} {c['linked']:6d} {share:6.0%} "
+              f"{b.get('cms', 0):4d} {b.get('page', 0):5d} {b.get('external_page', 0):4d} "
+              f"{b.get('legacy', 0):4d} {b.get('override', 0):5d} {b.get('search_verified', 0):5d} | "
+              f"{c.get('searched', 0):7d} {c.get('found', 0):5d} {c.get('unanswered', 0):5d}")
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("investor")
+    ap.add_argument("investor", nargs="?")
     ap.add_argument("--no-fetch-profiles", action="store_true",
                     help="skip the per-member profile-page fetch for socials")
     ap.add_argument("--socials-only", action="store_true",
                     help="re-read the links of the people already recorded, and "
                          "carry them onto investor.json; nobody is added or dropped")
+    ap.add_argument("--all", action="store_true",
+                    help="with --socials-only: every book with a profile, then a coverage table")
+    ap.add_argument("--no-search", action="store_true",
+                    help="skip the checked search for members the site gives no link")
+    ap.add_argument("--record-gap", action="store_true",
+                    help="with --socials-only: write profile.socials_gap into config.json when "
+                         "the book stays below the coverage floor (clear it when it does not)")
     args = ap.parse_args()
     fetch = not args.no_fetch_profiles
+    search = not args.no_search
+
+    if args.all:
+        if not args.socials_only:
+            sys.exit("--all runs only with --socials-only")
+        stats = {}
+        for slug in books_with_profiles():
+            p = Paths(slug)
+            cfg = p.config()
+            api = cfg.get("site_api") or {}
+            site_base = api.get("base") or (cfg.get("wayback") or {}).get("site_url_base") or ""
+            print(f"== {slug}", flush=True)
+            try:
+                stats[slug] = socials_only(p, api, fetch, site_base, search, args.record_gap)
+            except Exception as e:          # one book's failure must not end the pass
+                print(f"   FAILED: {e!r}", flush=True)
+        socials_table(stats)
+        return
+    if not args.investor:
+        sys.exit("name an investor slug, or --socials-only --all")
 
     p = Paths(args.investor)
     cfg = p.config()
-    api = cfg["site_api"]
+    api = cfg.get("site_api") or {}
     site_base = api.get("base") or (cfg.get("wayback") or {}).get("site_url_base") or ""
     p.site.mkdir(parents=True, exist_ok=True)
     if args.socials_only:
-        socials_only(p, api, fetch, site_base)
+        socials_only(p, api, fetch, site_base, search, args.record_gap)
         return
 
+    cache = SearchCache(p.scratch / "socials-search.json") if search else None
+    hosts = site_hosts_of(p, site_base)
     if api.get("type") == "scrape":
         companies = scrape_companies(api)
         write_atomic(p.site / "companies.json", json.dumps(companies, indent=1) + "\n")
@@ -874,7 +1080,7 @@ def main() -> None:
         # (roster.site_team_groups then filters on each row's "group" extra).
         if api.get("team_sources"):
             team = shape_team(scrape_companies({"sources": api["team_sources"]}), api, fetch,
-                              site_base, firm_of(p))
+                              site_base, firm_of(p), cache, hosts)
             write_atomic(p.team, json.dumps(team, indent=1) + "\n")
             groups = Counter(t.get("group") or "?" for t in team)
             print(f"team members: {len(team)}   groups: {dict(groups)}")
@@ -903,8 +1109,8 @@ def main() -> None:
         "url": t.get("link"),
     } for t in team if t.get("title", {}).get("rendered")]
     people.sort(key=lambda p_: p_["name"].lower())
-    write_atomic(p.team, json.dumps(shape_team(people, api, fetch, site_base, firm_of(p)),
-                                        indent=1) + "\n")
+    write_atomic(p.team, json.dumps(shape_team(people, api, fetch, site_base, firm_of(p),
+                                               cache, hosts), indent=1) + "\n")
 
     from collections import Counter
     sect = Counter(s for c in companies for s in c["sectors"])

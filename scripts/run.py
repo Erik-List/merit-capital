@@ -71,7 +71,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import outcome_sources as S                                    # noqa: E402
 import profile_copy                                            # noqa: E402
-from people_common import clean_social, firm_handles, handle_score, social_handle  # noqa: E402
+from people_common import (GAP_CAUSES, SOCIALS_FLOOR, clean_social,  # noqa: E402
+                           firm_handles, handle_score, social_handle)
 from paths import COLLECTION, INVESTORS, ROOT, Paths, write_atomic           # noqa: E402
 from countries import ISO_CODES, canon_country                  # noqa: E402
 
@@ -1944,6 +1945,11 @@ CITY_DEBT_FILE = COLLECTION / "shared" / "city-debt.json"
 # Books held at the rule-6 count they carried when verify began enforcing it
 # (2026-09-26, PRO-156); same ratchet as the city rule.
 COUNTRY_DEBT_FILE = COLLECTION / "shared" / "country-debt.json"
+# Books held at the number of people without a link they carried when the
+# social-link floor landed (2026-10-08, PRO-178); same ratchet as the city
+# rule. A search that answers for everyone records profile.socials_gap or
+# lifts the book over the floor; then take it off the list.
+SOCIALS_DEBT_FILE = COLLECTION / "shared" / "socials-debt.json"
 COUNTRY_PROVENANCE = ("formd_address", "wikidata", "web_verified")
 CROSS_CIK_RE = re.compile(r"/edgar/data/(\d+)/")
 CROSS_STRIP_RE = re.compile(
@@ -2172,16 +2178,24 @@ def verify_profile_copy(problems: list[str]) -> None:
                         profile_copy.notable_problems(row, fields, members))
 
 
-def verify_profile_people(problems: list[str]) -> None:
+def verify_profile_people(problems: list[str], in_flight: bool = False) -> None:
     """Every published social link is a clean profile address, is not the
     firm's own account, belongs to one person only, and, when it was read off
     a page rather than given by the site's CMS, names that person or is a
     reviewed override (PRO-154). The old first-link-on-the-page read put the
-    firm's own account on 116 people."""
+    firm's own account on 116 people.
+
+    And the coverage floor (PRO-178, Erik 2026-09-30): at least 80% of the
+    published people carry a LinkedIn or X link, or `config.json`
+    `profile.socials_gap` records the cause, the date checked and the number
+    left unlinked. The record is a ratchet like the city debt: the gap may
+    shrink, never grow, so a new person cannot arrive without a link. In
+    flight the share is printed, not failed."""
     if not P.investor.exists() or not P.team.exists():
         return
     profile = json.loads(P.investor.read_text())
     people = profile.get("individuals") or []
+    verify_socials_floor(people, problems, in_flight)
     team = {re.sub(r"[^a-z]", "", t["name"].lower()): t
             for t in json.loads(P.team.read_text())}
     api = load(P.config_file, {}).get("site_api") or {}
@@ -2209,13 +2223,14 @@ def verify_profile_people(problems: list[str]) -> None:
             source = (row.get("socials_source") or {}).get(kind)
             if "socials_source" not in row:
                 unread += 1
-            elif source in ("page", "legacy") and key not in overrides \
-                    and not handle_score(handle, person["name"]):
+            elif source in ("page", "legacy", "external_page", "search_verified") \
+                    and key not in overrides and not handle_score(handle, person["name"]):
                 # Whether a colleague's name fits it better is decided at read
                 # time, among the members whose pages carry the link.
                 problems.append(f"profile people: {person['name']}'s {kind} link {url!r} "
-                                f"was read off a page and does not name them; add a "
-                                f"reviewed site_api.team_social_overrides entry or drop it")
+                                f"was read off a page or found by search and does not "
+                                f"name them; add a reviewed site_api.team_social_overrides "
+                                f"entry or drop it")
     for (kind, handle), names in holders.items():
         if len(names) > 1:
             problems.append(f"profile people: one {kind} account ({handle}) on "
@@ -2223,6 +2238,54 @@ def verify_profile_people(problems: list[str]) -> None:
     if unread:
         problems.append(f"profile people: {unread} links predate the PRO-154 read; run "
                         f"`python3 scripts/site-portfolio.py {P.root.name} --socials-only`")
+
+
+def verify_socials_floor(people: list[dict], problems: list[str], in_flight: bool) -> None:
+    """The coverage floor on the published people (PRO-178)."""
+    n = len(people)
+    if not n:
+        return
+    linked = sum(1 for q in people if (q.get("socials") or {}).get("linkedin_url")
+                 or (q.get("socials") or {}).get("x_url"))
+    share, unlinked = linked / n, n - linked
+    gap = (load(P.config_file, {}).get("profile") or {}).get("socials_gap") or {}
+    held = gap.get("unlinked")
+    if share >= SOCIALS_FLOOR:
+        if gap:
+            print(f"socials         : {linked} of {n} people carry a link ({share:.0%}); "
+                  f"the recorded gap is cleared, drop profile.socials_gap from config.json")
+        return
+    if in_flight:
+        print(f"socials         : {linked} of {n} people carry a link ({share:.0%}), below "
+              f"the {SOCIALS_FLOOR:.0%} floor a closed run must meet or record "
+              f"(profile.socials_gap)")
+    elif gap.get("cause") not in GAP_CAUSES or not gap.get("checked") or held is None:
+        # Books below the floor when it landed are held at the count they
+        # carried (shared/socials-debt.json), as the city rule holds its books:
+        # printed on every verify, may shrink, never grow. A book not on the
+        # list, and every new book, is strict.
+        debt = load(SOCIALS_DEBT_FILE, {}).get("books", {}).get(P.root.name)
+        if debt is not None and unlinked <= int(debt):
+            print(f"socials debt    : {unlinked} of {n} people without a link, within the "
+                  f"{debt} carried when the floor landed; the checked search "
+                  f"(site-portfolio.py --socials-only --record-gap) clears it")
+            return
+        if debt is not None:
+            problems.append(f"socials debt grew: {unlinked} people without a link against "
+                            f"the {debt} this book is held at; the new people need a link")
+        problems.append(
+            f"profile people: {linked} of {n} carry a LinkedIn or X link ({share:.0%}), "
+            f"below the {SOCIALS_FLOOR:.0%} floor; run `python3 scripts/site-portfolio.py "
+            f"{P.root.name} --socials-only` (the site read, then the checked search), then "
+            f"record profile.socials_gap {{cause, checked, unlinked, sources_tried, note}} "
+            f"in config.json for what stays unlinked (causes: {', '.join(sorted(GAP_CAUSES))})")
+    elif unlinked > int(held):
+        problems.append(f"socials gap grew: {unlinked} people without a link against the "
+                        f"{held} recorded on {gap['checked']} ({gap['cause']}); the new "
+                        f"people need a link, or a new socials_gap after a search")
+    else:
+        print(f"socials gap     : {unlinked} of {n} people without a link, within the "
+              f"{held} recorded on {gap['checked']} ({gap['cause']}); a link pass clears it")
 
 
 def cmd_verify(args) -> None:
@@ -2747,12 +2810,15 @@ def cmd_verify(args) -> None:
                            f"than one row ({', '.join(shared[:8])}); re-run export")
     if not P.review_html.exists():
         surface.append("review.html missing; run review")
-    elif rows and rows[0]["name"] not in P.review_html.read_text(
-            encoding="utf-8", errors="replace"):
+    # The page shows the published name (PRO-146), which a names.published
+    # override can shorten ("Academia Inc." publishes as "Academia"), so
+    # either rendering of the first row counts as present.
+    elif rows and not any(n in P.review_html.read_text(encoding="utf-8", errors="replace")
+                          for n in {rows[0]["name"], published_name(rows[0])}):
         surface.append("review.html stale relative to the base; re-run review")
     verify_profile_hq(args.investor, problems, surface)
     verify_profile_copy(problems)
-    verify_profile_people(problems)
+    verify_profile_people(problems, in_flight)
 
     if in_flight:
         for s in surface + notes:

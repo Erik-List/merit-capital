@@ -35,6 +35,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from paths import ROOT, Paths, write_atomic  # noqa: E402
+import people_common  # noqa: E402
 import profile_copy  # noqa: E402
 
 _spec = importlib.util.spec_from_file_location(
@@ -285,16 +286,17 @@ def main():
             "to data/taxonomy/focus.json (crosswalk in config.json), published above "
             "%d companies. Scope type is the curated judgement carried in "
             "investor.json." % (sum(mapped.values()), cfg["focus_min_companies"]))
+    # The basis says where the team and its links came from, from the record
+    # rather than fixed text (PRO-178): a curated list is not a live CMS.
     fields["individuals"] = field(
         people, "sources/site/team.json",
-        f"Live team CMS: {len(people)} members. Positions are CMS titles "
+        f"{people_common.team_source_words(p.config().get('site_api') or {})}: {len(people)} members. "
+        f"Positions are the record's titles "
         f"({sum(1 for q in people if q['position'] and q['position'] != 'Partner')} "
         f"explicit); untitled members under the investing tabs render as "
         f"'Partner', the site's own presentation. {len(departed)} names from the "
-        f"{latest_year} Wayback roster are no longer on the live team page. "
-        f"Socials from profile pages: "
-        f"{sum(1 for q in people if q['socials']['linkedin_url'])} LinkedIn, "
-        f"{sum(1 for q in people if q['socials']['x_url'])} X.")
+        f"{latest_year} Wayback roster are no longer on the current team list. "
+        + people_common.socials_basis(team, cfg.get("socials_gap")))
     sources["generated_at"] = now
 
     # Keep each file's existing indentation: a build must not rewrite every

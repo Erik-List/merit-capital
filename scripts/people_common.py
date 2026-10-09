@@ -248,3 +248,78 @@ def firm_handles(firm_name: str, slug: str) -> set[str]:
             if b.endswith(suffix) and len(b) > len(suffix) + 2:
                 stems.add(b[: -len(suffix)])
     return stems | {s + x for s in stems for x in ("vc", "hq", "capital", "ventures")}
+
+
+# ---------------------------------------------------------------------------
+# Where a published link came from, and the one sentence the profile's basis
+# says about the team's links (PRO-178). `socials_source` on a team row holds
+# one of these per kind.
+# ---------------------------------------------------------------------------
+
+SOCIAL_SOURCES = ("cms", "page", "external_page", "legacy", "override", "search_verified")
+SOURCE_WORDS = {
+    "cms": "given by the site's own team data",
+    "page": "read off the person's page on the firm's site",
+    "external_page": "read off an outside page the team record points at",
+    "legacy": "carried from an earlier read of the site",
+    "override": "reviewed overrides",
+    "search_verified": "from a checked search whose result names both the person and the firm",
+}
+GAP_CAUSES = {
+    "site_publishes_none": "the firm's site publishes no personal links",
+    "no_team_page": "the firm publishes no team page",
+    "search_exhausted": "the checked search found no profile naming them with the firm",
+}
+SOCIALS_FLOOR = 0.8     # share of published people with a LinkedIn or X link
+
+
+def team_source_words(api: dict) -> str:
+    """What the team list is: the site's own team page or CMS, a curated list
+    for a firm that publishes none, or a hand-built file."""
+    srcs = api.get("team_sources") or []
+    if not srcs:
+        return "Team list built by hand in sources/site/team.json (the site publishes no team page)"
+    if all(s.get("parser") == "file_list" and "team-curated" in (s.get("path") or "") for s in srcs):
+        return "Curated team list (sources/site/team-curated.json; the site publishes no team page)"
+    return "Live team page"
+
+
+def socials_coverage(team: list[dict], published: set[str] | None = None) -> dict:
+    """Counts over the published rows: people, linked, linkedin, x, by source.
+    `published` (lower-cased names) narrows the rows to the people the profile
+    carries, so this sentence and the floor in `verify` count the same set."""
+    from collections import Counter
+    pub = [t for t in team if t.get("role_bucket")
+           and (published is None or t["name"].lower() in published)]
+    by = Counter()
+    for t in pub:
+        for kind in ("linkedin", "x"):
+            if t.get(f"{kind}_url"):
+                by[(t.get("socials_source") or {}).get(kind) or "unknown"] += 1
+    return {"people": len(pub),
+            "linked": sum(1 for t in pub if t.get("linkedin_url") or t.get("x_url")),
+            "linkedin": sum(1 for t in pub if t.get("linkedin_url")),
+            "x": sum(1 for t in pub if t.get("x_url")),
+            "by_source": dict(by)}
+
+
+def socials_basis(team: list[dict], gap: dict | None = None,
+                  published: set[str] | None = None) -> str:
+    """The sentence about links in the profile's `individuals` basis, written
+    from the team rows rather than fixed text: how many people carry a link,
+    where each link came from, and the recorded cause of what stays unlinked."""
+    c = socials_coverage(team, published)
+    if not c["people"]:
+        return "Social links: no published people."
+    parts = [f"{n} {SOURCE_WORDS.get(s, s)}" for s, n in
+             sorted(c["by_source"].items(), key=lambda kv: -kv[1])]
+    s = (f"Social links: {c['linked']} of {c['people']} people carry a LinkedIn or X link "
+         f"({c['linkedin']} LinkedIn, {c['x']} X)" + (": " + "; ".join(parts) if parts else "") + ".")
+    unlinked = c["people"] - c["linked"]
+    if unlinked:
+        s += f" {unlinked} without a link"
+        if gap and gap.get("cause"):
+            s += (f": {GAP_CAUSES.get(gap['cause'], gap['cause'])} (checked {gap.get('checked')}"
+                  + (f"; {gap['note']}" if gap.get("note") else "") + ")")
+        s += "."
+    return s

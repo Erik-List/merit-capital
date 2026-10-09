@@ -2355,7 +2355,8 @@ byproduct.
 Every run ends in the investor's `report.md`: method deltas, results
 (the S2A block in its five numbers — seed entries, censored, cohort,
 graduated, rate — with what the nos rest on in the sentence, §6),
-corrections taken, the flag and debt counts behind `verify`, the open
+corrections taken, the flag and debt counts behind `verify`, the people's
+link coverage and its cause (§11), the open
 rulings raised, the usage line (§12), and the session's prompt count — the number this pipeline
 exists to drive down. **The target is one prompt: the kickoff** (Erik,
 2026-09-29; it was two, the kickoff and the ingest approval, until the gate
@@ -2576,8 +2577,10 @@ row with no group falls to the title rules in the script — and
 `site_api.team_bucket_overrides` carries the per-person judgement calls by
 name. Only rows with a non-empty bucket publish; an unmapped group is the
 way to keep a site's operations staff out of the profile. Socials come from
-the CMS list where it carries them and from the member's own profile page
-otherwise (`--no-fetch-profiles` skips the page fetch). The firm's own Form D
+the CMS list where it carries them, from the member's own page otherwise
+(`--no-fetch-profiles` skips the page fetch), then from an outside page the
+record points at, then from one checked search (the order and the floor are
+under People's social links below). The firm's own Form D
 filings are derived at build time from the own-desk CIKs in `entities.json`
 over the local bulk zips, so there is no fund file to shape. Two standing
 traps: a fund entry carrying an `accession` is asserted against
@@ -2743,7 +2746,52 @@ Field recipes, learned on Sequoia and a16z:
   (`linkedin.com/profile/view`, `/company/`) is dropped.
   A genuine account that does not match the name (Khosla's Alex Morgan is
   @genomicsdoc) goes into `site_api.team_social_overrides` by name, after a
-  look; `null` there forces none. No link is guessed from a search.
+  look; `null` there forces none.
+
+  **Links are read in one order, for every run, and coverage has a floor**
+  (PRO-177, PRO-178; Erik, 2026-09-30, relaxing "the firm's own site or
+  none": six published books carried no links at all because their sites
+  publish none). The order, each step only for a published member the step
+  before gave no link:
+  1. the site's own team data and the member's page on the firm's site
+     (`socials_source` `cms`, `page`; `legacy` is a link carried from an
+     earlier read);
+  2. an outside page the team record points at (a curated list's press,
+     speaker or investor-profile page; `external_page`), read as
+     confirmation only: the account must name the person as a page link
+     must, SEC documents and PDFs are never read;
+  3. **one checked search** (`scripts/people_search.py`, Brave's HTML results,
+     paced machine-wide, cached in `scratch/socials-search.json`):
+     `"<name>" <firm> linkedin`. A result counts only when its address is a
+     profile, its title names the person, its title or snippet names the firm
+     (a non-generic word of the firm's name or slug, or
+     `site_api.team_search_aliases`), and the account id names the person and
+     is not the firm's; it is `search_verified`, ranks below anything the
+     site gave, and its query, title and date sit beside the chosen link in
+     `team-socials.json`. `--no-search` skips the step.
+  **The floor:** `verify` fails a closed book where fewer than 80% of the
+  published people carry a LinkedIn or X link, unless `config.json`
+  `profile.socials_gap {cause, checked, unlinked, sources_tried, note}`
+  records why (`site_publishes_none`, `no_team_page` or `search_exhausted`),
+  written after the three steps ran. The published people are the profile's
+  `individuals`; a team row the profile does not carry (Greylock's CMS flags
+  twelve as departed) is neither counted nor searched. The record is a
+  ratchet like the city debt: the gap may shrink, never grow, so a new
+  person cannot arrive without a link; a book that reaches the floor drops
+  it. In flight the share is printed, not failed. `python3
+  scripts/site-portfolio.py --socials-only --all --record-gap` runs the
+  three steps over every book, records the gap of a book that stays below
+  the floor **only when the search answered for every person it asked
+  about** (an engine that was unavailable leaves work not done, not a gap),
+  and ends with the coverage table; the profile's `individuals` basis is
+  written from the rows (where each link came from, and the gap's cause),
+  never fixed text; `report.md` states the coverage and its cause. Books
+  below the floor when it landed (2026-10-08) are held at the count they
+  carried in `data/collection/shared/socials-debt.json`, as the city rule
+  holds its books; a search that answers takes a book off the list. The
+  search runs through the Brave Search API when `BRAVE_SEARCH_API_KEY` is in
+  `.env` and over Brave's HTML results otherwise, which refuse bursts for
+  hours (`scripts/people_search.py` states what was measured).
   Three traps: the CMS query must ask for the link field (First Round's did
   not, so 19 people had none); a site-relative page path must be resolved
   against the site (YC's `/people/...`, never read); and a page that 404s is
