@@ -180,7 +180,10 @@ async function main() {
       name,
       hq_city: r.hq_city || null,
       hq_country: r.hq_country || null,
-      focus: r.focus || null,
+      // The company key and the categories come from the shared file by way of
+      // base.csv (run.py export, rule 11); ";" separates the categories.
+      company_key: r.company_key || null,
+      categories: (r.categories || "").split(";").map((c) => c.trim()).filter(Boolean),
       entry_stage: r.entry_stage,
       status: r.status,
       valuation_range: r.valuation_range,

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { BAY_AREA_CITIES, BAY_AREA_LABEL } from '@/lib/geo';
 import type { Database } from '@/types/supabase';
@@ -12,8 +12,8 @@ interface InvestorDetailsProps {
 }
 
 // One parsed distribution element. label === null is the real count of rows
-// where the source column is null (focus outside the taxonomy, city
-// unresolved); the derivation sorts it last.
+// where the source column is null or empty (no category, city unresolved);
+// the derivation sorts it last.
 type DistEntry = {
   label: string | null;
   companies: number;
@@ -21,8 +21,7 @@ type DistEntry = {
 
 // A composition-bar segment: the top named entries render individually on a
 // descending opacity ramp; everything else, including the null element
-// (unresolved city / outside-taxonomy focus), bundles into one muted
-// "Other" segment.
+// (unresolved city), bundles into one muted "Other" segment.
 type Segment = {
   label: string;
   companies: number;
@@ -130,13 +129,77 @@ function CompositionBar({ segments, total }: { segments: Segment[]; total: numbe
   );
 }
 
+const CATEGORY_ROWS_SHOWN = 5;
+const OTHER_LABEL = 'Other, no category';
+
+function CategoryRow({ label, companies, total, muted }: { label: string; companies: number; total: number; muted: boolean }) {
+  const width = total > 0 ? Math.min(100, (companies / total) * 100) : 0;
+  return (
+    <div className={cn('space-y-1', muted && 'text-muted-foreground')}>
+      <div className="flex items-baseline justify-between gap-4 text-sm">
+        <span className={cn(muted ? 'text-muted-foreground' : 'text-foreground')}>{label}</span>
+        <span className="tabular-nums text-muted-foreground">
+          {formatShare(companies, total)} ({companies})
+        </span>
+      </div>
+      <div className="h-1.5 w-full max-w-md overflow-hidden rounded-full bg-muted">
+        <div
+          className={cn('h-full rounded-full', muted ? 'bg-muted-foreground/40' : 'bg-primary/70')}
+          style={{ width: `${width}%` }}
+        />
+      </div>
+    </div>
+  );
+}
+
+/**
+ * The category rows: the CATEGORY_ROWS_SHOWN largest categories, then
+ * "Show N more categories" opens the rest with "Other, no category" (the
+ * null element) as the last line, never among the first five.
+ */
+function CategoryRows({ entries, total }: { entries: DistEntry[]; total: number }) {
+  const [open, setOpen] = useState(false);
+  const named = entries.filter((entry): entry is DistEntry & { label: string } => entry.label !== null);
+  const other = entries.find((entry) => entry.label === null)?.companies ?? 0;
+  const shown = named.slice(0, CATEGORY_ROWS_SHOWN);
+  const rest = named.slice(CATEGORY_ROWS_SHOWN);
+  const hidden = rest.length + (other > 0 ? 1 : 0);
+
+  return (
+    <div className="space-y-3">
+      {shown.map((entry) => (
+        <CategoryRow key={entry.label} label={entry.label} companies={entry.companies} total={total} muted={false} />
+      ))}
+      {open
+        ? rest.map((entry) => (
+            <CategoryRow key={entry.label} label={entry.label} companies={entry.companies} total={total} muted={false} />
+          ))
+        : null}
+      {open && other > 0 ? (
+        <CategoryRow label={OTHER_LABEL} companies={other} total={total} muted />
+      ) : null}
+      {hidden > 0 ? (
+        <button
+          type="button"
+          onClick={() => setOpen((value) => !value)}
+          aria-expanded={open}
+          className="text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+        >
+          {open ? 'Show fewer categories' : `Show ${hidden} more categor${hidden === 1 ? 'y' : 'ies'}`}
+        </button>
+      ) : null}
+    </div>
+  );
+}
+
 /**
  * Component 4: Investor Details
- * Renders the derived per-company distributions as composition bars: stages,
- * geography (city sub-array only, Bay Area municipalities folded into one
- * element) and focus. Share is computed here as
- * companies / sum(array); the null element renders as its own entry rather
- * than being rescaled away.
+ * Renders the derived per-company distributions: stages and geography (city
+ * sub-array only, Bay Area municipalities folded into one element) as
+ * composition bars, where share is companies / sum(array) and the null
+ * element renders as its own entry rather than being rescaled away; and the
+ * categories as rows, where share is companies / company rows because a
+ * company carries up to three categories.
  */
 export function InvestorDetails({ investor }: InvestorDetailsProps) {
   const stageSegments = useMemo(
@@ -158,26 +221,35 @@ export function InvestorDetails({ investor }: InvestorDetailsProps) {
     return buildSegments(folded);
   }, [investor.company_geo_distribution]);
 
-  const focusSegments = useMemo(
-    () => buildSegments(parseDistArray(investor.company_focus_distribution, 'focus')),
-    [investor.company_focus_distribution],
+  // Categories: a company carries up to three, so the entries do not sum to
+  // the company rows; the share of a category is its companies over the
+  // investor's company rows (track_record.total_companies_invested, the same
+  // basis every distribution uses). The null element is "Other, no category".
+  const categoryEntries = useMemo(
+    () => sortEntries(parseDistArray(investor.company_category_distribution, 'category')),
+    [investor.company_category_distribution],
   );
+  const companyRows = useMemo(() => {
+    const record = investor.track_record;
+    if (!record || typeof record !== 'object' || Array.isArray(record)) return 0;
+    const total = (record as Record<string, unknown>).total_companies_invested;
+    return typeof total === 'number' && Number.isFinite(total) ? total : 0;
+  }, [investor.track_record]);
 
   const stageTotal = stageSegments.reduce((total, segment) => total + segment.companies, 0);
   const cityTotal = citySegments.reduce((total, segment) => total + segment.companies, 0);
-  const focusTotal = focusSegments.reduce((total, segment) => total + segment.companies, 0);
 
   const hasStages = stageSegments.length > 0 && stageTotal > 0;
   const hasGeo = citySegments.length > 0;
-  const hasFocusAreas = focusSegments.length > 0;
+  const hasCategories = companyRows > 0 && categoryEntries.some((entry) => entry.label !== null);
 
-  if (!hasStages && !hasGeo && !hasFocusAreas) {
+  if (!hasStages && !hasGeo && !hasCategories) {
     return null;
   }
 
   return (
     <div className="space-y-8">
-      {/* Investment Stages: the same composition bar as geography and focus
+      {/* Investment Stages: the same composition bar as geography (and the category rows)
           (Erik, 2026-09-30). */}
       {hasStages ? (
         <section className="space-y-4">
@@ -205,16 +277,19 @@ export function InvestorDetails({ investor }: InvestorDetailsProps) {
         </section>
       ) : null}
 
-      {/* Focus */}
-      {hasFocusAreas ? (
+      {/* Categories (PRO-174, option 1 refined, Erik 2026-10-09): the five
+          largest as rows with a bar and "share (count)", the rest behind
+          "Show more categories" with "Other, no category" as its last line. */}
+      {hasCategories ? (
         <section className="space-y-4">
           <div className="space-y-2">
-            <div className="text-lg font-semibold">Investment Focus</div>
+            <div className="text-lg font-semibold">Investment Category</div>
             <p className="text-xs text-muted-foreground">
-              The focus of the {focusTotal} companies {investor.name} invested in.
+              The categories of the {companyRows} companies {investor.name} invested in. A company
+              carries up to three, so the shares add up to more than 100%.
             </p>
           </div>
-          <CompositionBar segments={focusSegments} total={focusTotal} />
+          <CategoryRows entries={categoryEntries} total={companyRows} />
         </section>
       ) : null}
     </div>

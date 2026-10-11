@@ -19,6 +19,8 @@ export type Database = {
           created_at: string
           entry_stage: string
           focus: string | null
+          categories: string[]
+          company_key: string | null
           hq_city: string | null
           hq_country: string | null
           id: string
@@ -37,6 +39,8 @@ export type Database = {
           created_at?: string
           entry_stage: string
           focus?: string | null
+          categories?: string[]
+          company_key?: string | null
           hq_city?: string | null
           hq_country?: string | null
           id?: string
@@ -55,6 +59,8 @@ export type Database = {
           created_at?: string
           entry_stage?: string
           focus?: string | null
+          categories?: string[]
+          company_key?: string | null
           hq_city?: string | null
           hq_country?: string | null
           id?: string
@@ -104,6 +110,7 @@ export type Database = {
         Row: {
           affiliation: Json | null
           aum: Json | null
+          company_category_distribution: Json | null
           company_focus_distribution: Json | null
           company_geo_distribution: Json | null
           company_stage_distribution: Json | null
@@ -132,6 +139,7 @@ export type Database = {
         Insert: {
           affiliation?: Json | null
           aum?: Json | null
+          company_category_distribution?: Json | null
           company_focus_distribution?: Json | null
           company_geo_distribution?: Json | null
           company_stage_distribution?: Json | null
@@ -160,6 +168,7 @@ export type Database = {
         Update: {
           affiliation?: Json | null
           aum?: Json | null
+          company_category_distribution?: Json | null
           company_focus_distribution?: Json | null
           company_geo_distribution?: Json | null
           company_stage_distribution?: Json | null

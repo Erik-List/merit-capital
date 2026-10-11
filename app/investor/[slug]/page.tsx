@@ -155,8 +155,8 @@ export default async function InvestorProfilePage({ params }: InvestorPageParams
                   </>
                 ) : null}
 
-                {/* Component 4: Investor Details (stages, geography, focus) */}
-                {investor.company_stage_distribution || investor.company_geo_distribution || investor.company_focus_distribution ? (
+                {/* Component 4: Investor Details (stages, geography, categories) */}
+                {investor.company_stage_distribution || investor.company_geo_distribution || investor.company_category_distribution ? (
                   <>
                     <div className="border-t border-input/30 mx-6" />
                     <div className="p-6">

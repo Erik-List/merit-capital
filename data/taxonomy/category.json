@@ -1,0 +1,57 @@
+{
+  "name": "category",
+  "closed": true,
+  "description": "Investment categories. Closed vocabulary. A company carries one to three of these, like tags, decided once per company and shared by every investor's book (Erik, 2026-10-04 and 2026-10-09; PRO-173). Four kinds live in one list: the market or product the company sells into, the technology it is built on, the customer it sells to, and the business model. A market or product category comes first whenever one fits; a pure tooling company carries technology and customer categories only. Replaces the single-value `focus` once the classification is live.",
+  "target": "companies.categories (array of one to three of these values)",
+  "max_per_company": 3,
+  "values": [
+    "Fintech, Payments & Insurance",
+    "Healthcare",
+    "Biotech & Life Sciences",
+    "Climate, Energy & Agriculture",
+    "Industrial & Manufacturing",
+    "Logistics, Mobility & Transport",
+    "Real Estate & Construction",
+    "Education",
+    "Work, HR & Productivity",
+    "Legal & Compliance",
+    "Sales, Marketing & Customer Service",
+    "Media, Social & Gaming",
+    "Commerce & Consumer Goods",
+    "Travel & Hospitality",
+    "Aerospace, Defense & Government",
+    "AI",
+    "Data & Analytics",
+    "Developer Tools & Infrastructure",
+    "Cybersecurity",
+    "Crypto & Web3",
+    "Hardware, Robotics & Semiconductors",
+    "Consumer",
+    "B2B",
+    "SaaS",
+    "Marketplace"
+  ],
+  "kinds": {
+    "market": [
+      "Fintech, Payments & Insurance", "Healthcare", "Biotech & Life Sciences",
+      "Climate, Energy & Agriculture", "Industrial & Manufacturing",
+      "Logistics, Mobility & Transport", "Real Estate & Construction", "Education",
+      "Work, HR & Productivity", "Legal & Compliance", "Sales, Marketing & Customer Service",
+      "Media, Social & Gaming", "Commerce & Consumer Goods", "Travel & Hospitality",
+      "Aerospace, Defense & Government"
+    ],
+    "technology": [
+      "AI", "Data & Analytics", "Developer Tools & Infrastructure", "Cybersecurity",
+      "Crypto & Web3", "Hardware, Robotics & Semiconductors"
+    ],
+    "customer": ["Consumer", "B2B"],
+    "business model": ["SaaS", "Marketplace"]
+  },
+  "notes": {
+    "Developer Tools & Infrastructure": "takes networking and telecom infrastructure",
+    "Hardware, Robotics & Semiconductors": "takes chips, devices and consumer electronics",
+    "Sales, Marketing & Customer Service": "takes support and customer-experience tools",
+    "Media, Social & Gaming": "takes social and messaging apps",
+    "Fintech, Payments & Insurance": "takes lending, wealth and insurance"
+  }
+}

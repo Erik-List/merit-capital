@@ -21,6 +21,7 @@ const DERIVED_COLUMNS = [
   "company_stage_distribution",
   "company_geo_distribution",
   "company_focus_distribution",
+  "company_category_distribution",
 ] as const;
 
 // Shape gate for the two columns the investor page's Funds section reads.

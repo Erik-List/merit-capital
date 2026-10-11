@@ -2,8 +2,8 @@
  * Taxonomy validation for ingest.
  *
  * The taxonomy files only describe the vocabulary; this is what enforces it.
- * Stage, focus and scope type are closed, so out-of-vocabulary labels are
- * errors and the row is not written. Geography is open by design, so unknown
+ * Stage, category, focus and scope type are closed, so out-of-vocabulary
+ * labels are errors and the row is not written. Geography is open by design, so unknown
  * labels are normalised and reported as warnings, never rejected.
  *
  * Values are rewritten to their canonical spelling in place, so an aggregated
@@ -12,10 +12,12 @@
  */
 
 import {
+  MAX_CATEGORIES,
   canonicalizeFocus,
   canonicalizeGeo,
   canonicalizeScopeType,
   canonicalizeStage,
+  isCanonicalCategory,
   isKnownGeo,
 } from "../../lib/taxonomy";
 
@@ -123,24 +125,35 @@ export function validateTaxonomyFields(row: Record<string, any>): TaxonomyIssues
 }
 
 /**
- * Validate and canonicalise the taxonomy-bound fields on a company row.
- * `focus` is a single value from the closed twelve-value taxonomy (null means
- * outside it, which is legitimate); `hq_country` is an ISO 3166-1 alpha-2
- * code or null. Mutates `row` with the canonical focus spelling.
+ * Validate the taxonomy-bound fields on a company row. `categories` is an
+ * array of at most MAX_CATEGORIES values from the closed category list, exact
+ * spelling (the shared file is the author, so nothing is canonicalised; an
+ * empty array is a company that fits no category); `hq_country` is an ISO
+ * 3166-1 alpha-2 code or null.
  */
 export function validateCompanyFields(row: Record<string, any>): TaxonomyIssues {
   const errors: string[] = [];
   const warnings: string[] = [];
 
-  if (typeof row.focus === "string" && row.focus.trim()) {
-    const match = canonicalizeFocus(row.focus);
-    if (match) {
-      row.focus = match;
-    } else {
-      errors.push(`focus: "${row.focus}" is not in the focus taxonomy`);
+  if (Array.isArray(row.categories)) {
+    const bad = row.categories.filter(
+      (value: unknown) => typeof value !== "string" || !isCanonicalCategory(value)
+    );
+    if (bad.length > 0) {
+      errors.push(`categories: ${JSON.stringify(bad)} not in the category taxonomy`);
     }
-  } else if (row.focus != null) {
-    errors.push("focus: expected a string or null");
+    if (row.categories.length > MAX_CATEGORIES) {
+      errors.push(`categories: ${row.categories.length} values, at most ${MAX_CATEGORIES}`);
+    }
+    if (new Set(row.categories).size !== row.categories.length) {
+      errors.push("categories: a category twice");
+    }
+  } else if (row.categories != null) {
+    errors.push("categories: expected an array of category strings");
+  }
+
+  if (row.company_key != null && typeof row.company_key !== "string") {
+    errors.push("company_key: expected a string or null");
   }
 
   if (typeof row.hq_country === "string") {

@@ -2648,6 +2648,7 @@ def cmd_verify(args) -> None:
         cross_rows = rows if not in_flight else [
             r for r in rows if merged.get(r["slug"], {}).get("status")]
         verify_cross_investor(cross_rows, merged, args.investor, problems)
+    verify_categories(rows, merged, args.investor, problems)
 
     # ---- the city rule, per book. Every row carries a city or `city_unknown`.
     # Books that closed before the rule existed are held at the count they
@@ -2855,7 +2856,7 @@ EXPORT_COLUMNS = [
     "status", "valuation_range", "valuation_usd", "valuation_asof",
     "valuation_source", "valuation_citation",
     "entry_stage", "entry_stage_source", "entry_stage_citation",
-    "hq_city", "hq_country", "focus",
+    "hq_city", "hq_country", "focus", "company_key", "categories",
     "seed_to_a_graduation", "graduation_source", "graduation_citation", "entry_date",
     "graduation_asof", "graduation_surfaces",
     "flags", "note",
@@ -2863,6 +2864,87 @@ EXPORT_COLUMNS = [
 
 EVIDENCE_COLUMNS = ("first_seen", "sector", "partners_site", "partners_formd",
                     "site_url", "wayback_first_link", "formd_links", "edgar_links")
+
+# The company categories (PRO-173) are judged once per company across every
+# book: scripts/categorize.py keys the rows of all books to one company and
+# holds one judgment per key in a shared file, and every book publishes what
+# that file holds, so two books holding one company read the same categories.
+COMPANY_KEYS_FILE = COLLECTION / "shared" / "company-keys.json"
+CATEGORIES_FILE = COLLECTION / "shared" / "categories.json"
+CATEGORY_SEP = ";"
+
+
+def company_categories(investor: str) -> tuple[dict[str, str], dict[str, list[str]]]:
+    """-> (row slug -> company key for this book, company key -> categories)."""
+    keys = load(COMPANY_KEYS_FILE, {}).get("keys", {})
+    cats = load(CATEGORIES_FILE, {})
+    prefix = f"{investor}:"
+    mine = {i[len(prefix):]: k for i, k in keys.items() if i.startswith(prefix)}
+    return mine, {k: list(v.get("categories") or []) for k, v in cats.items()}
+
+
+def verify_categories(rows: list[dict], merged: dict, investor: str,
+                      problems: list[str]) -> None:
+    """Rule 11: a company's categories come from the one shared file, keyed by
+    company (PRO-173). This book's member rows are counted for a key and a
+    judgment, and every sibling's published base.csv is read for the keys
+    this book holds: a sibling publishing OTHER categories for one of them is
+    stale and is re-exported, which is the whole fix. An empty sibling cell
+    or a sibling without the column is a book exported before its judgment
+    landed and is only noted: the classification run of 2026-10-09 fills the
+    file over hours, and a book re-exported at the end is current."""
+    keys, cats = company_categories(investor)
+    _, verdicts = load_ledger(investor)
+    mine: dict[str, str | None] = {}
+    for row in rows:
+        rec = merged.get(row["slug"], {})
+        if verdicts.get(row["slug"], {}).get("verdict") != "member":
+            continue
+        if not rec.get("valuation_range") or rec.get("valuation_range") == UNDETERMINED:
+            continue
+        mine[row["slug"]] = keys.get(row["slug"])
+    no_key = sum(1 for k in mine.values() if not k)
+    no_judgment = sum(1 for k in mine.values() if k and k not in cats)
+    held = {k for k in mine.values() if k}
+    stale: Counter = Counter()
+    behind: list[str] = []
+    for d in sorted(INVESTORS.iterdir()):
+        if d.name == investor or not d.is_dir() or re.search(r" \d+$", d.name):
+            continue
+        p = d / "companies" / "base.csv"
+        if not p.exists() or (d / "scratch" / "in-flight.json").exists():
+            continue
+        try:
+            rdr = csv.DictReader(open(p, newline=""))
+            if "company_key" not in (rdr.fieldnames or []):
+                behind.append(d.name)
+                continue
+            for r in rdr:
+                k = r.get("company_key")
+                if not k or k not in held or k not in cats:
+                    continue
+                published = [c for c in (r.get("categories") or "").split(CATEGORY_SEP) if c]
+                if published == cats[k]:
+                    continue                 # agrees, which includes a judged "no category"
+                if not published:
+                    if d.name not in behind:  # the file holds categories the sibling lacks
+                        behind.append(d.name)
+                else:
+                    stale[d.name] += 1
+        except (csv.Error, UnicodeDecodeError, ValueError):
+            continue
+    print(f"categories      : {len(mine)} member rows, {len(mine) - no_key} keyed, "
+          f"{len(mine) - no_key - no_judgment} judged"
+          + (f"; {len(behind)} sibling books exported before their judgments" if behind else ""))
+    if no_key:
+        print(f"  note: {no_key} rows without a company key; run categorize.py keys")
+    if no_judgment:
+        print(f"  note: {no_judgment} keyed rows without a category judgment; "
+              f"run categorize.py prepare and judge the queue")
+    for book, n in sorted(stale.items()):
+        problems.append(f"categories: {book} publishes other categories than the shared file "
+                        f"for {n} compan{'y' if n == 1 else 'ies'} this book holds; "
+                        f"run export --investor {book}")
 
 
 def row_domain(url: str, firm_host: str) -> str:
@@ -2969,6 +3051,12 @@ def cmd_export(args) -> None:
                  f"a Seed row is graduated, not_graduated or censored (PRO-132). Judge them "
                  f"(prepare queues them), then export.")
     qualify_shared_names(out_rows)
+    # the company key and categories are published from the shared file (rule 11)
+    keys, cats = company_categories(args.investor)
+    for out in out_rows:
+        k = keys.get(out["slug"], "")
+        out["company_key"] = k
+        out["categories"] = CATEGORY_SEP.join(cats.get(k, [])) if k else ""
 
     dest = P.base_csv
     buf = io.StringIO()

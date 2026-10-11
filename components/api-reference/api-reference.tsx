@@ -33,8 +33,8 @@ const SHORT_DESCRIPTIONS: Record<string, string> = {
     "JSON array [{stage, companies}] sorted by companies desc, summing to the investor's company rows; the stage vocabulary is companies.entry_stage. Shares are computed by consumers, never stored.",
   company_geo_distribution:
     "JSON {country: [{country, companies}], city: [{city, companies}]}, each sorted by companies desc and summing to the investor's company rows. Countries are ISO 3166-1 alpha-2, cities bare municipalities, and a null key is a real count of unresolved headquarters.",
-  company_focus_distribution:
-    "JSON array [{focus, companies}] over the closed twelve-value focus taxonomy, sorted by companies desc and summing to the investor's company rows. The null element counts companies outside the taxonomy.",
+  company_category_distribution:
+    "JSON array [{category, companies}] counting the investor's companies that carry each of the 25 categories, sorted by companies desc; a company carries up to three categories, so the counts add up to more than the company rows. The null element counts the companies with no category.",
   funds:
     'JSON wrapper object {funds: [{name, size (USD number), vintage (year)}]}; the array sits under the "funds" key, not at the top level. Null when undisclosed.',
   individuals:
@@ -101,7 +101,7 @@ const ENDPOINT_GROUPS: { name: string; groups: FieldGroup[] }[] = [
         fields: [
           "company_stage_distribution",
           "company_geo_distribution",
-          "company_focus_distribution",
+          "company_category_distribution",
         ],
       },
       {
@@ -123,7 +123,7 @@ const ENDPOINT_GROUPS: { name: string; groups: FieldGroup[] }[] = [
       },
       {
         label: "Classification",
-        fields: ["hq_city", "hq_country", "focus", "entry_stage"],
+        fields: ["hq_city", "hq_country", "categories", "company_key", "entry_stage"],
       },
       {
         label: "Outcome",

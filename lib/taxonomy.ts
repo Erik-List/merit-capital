@@ -1,5 +1,5 @@
 /**
- * Single source of truth for the stage, focus and geography vocabularies.
+ * Single source of truth for the stage, category, focus and geography vocabularies.
  *
  * The lists themselves live in `data/taxonomy/*.json` so the Python side of the
  * evidence layer can read the same files. Nothing in the app or in the scripts
@@ -14,6 +14,7 @@
 // app and by the tsx-run scripts.
 import stageTaxonomy from '../data/taxonomy/stage.json';
 import focusTaxonomy from '../data/taxonomy/focus.json';
+import categoryTaxonomy from '../data/taxonomy/category.json';
 import geoTaxonomy from '../data/taxonomy/geo.json';
 
 // ---------------------------------------------------------------------------
@@ -68,7 +69,26 @@ export function isCanonicalStage(value: string): boolean {
 }
 
 // ---------------------------------------------------------------------------
-// Focus
+// Category (companies.categories, PRO-173): up to three per company from the
+// closed list of 25, judged once per company across every investor's book.
+// ---------------------------------------------------------------------------
+
+export const CATEGORY_VALUES = categoryTaxonomy.values as readonly string[];
+
+export type CategoryKind = 'market' | 'technology' | 'customer' | 'business model';
+
+export const CATEGORY_KINDS = categoryTaxonomy.kinds as Record<CategoryKind, readonly string[]>;
+
+export const MAX_CATEGORIES = categoryTaxonomy.max_per_company as number;
+
+export function isCanonicalCategory(value: string): boolean {
+  return CATEGORY_VALUES.includes(value);
+}
+
+// ---------------------------------------------------------------------------
+// Focus: the investor's own stated focus (investors.investment_scope.focus),
+// read by the index search only. The company column `focus` is replaced by
+// `categories` above.
 // ---------------------------------------------------------------------------
 
 export const FOCUS_VALUES = focusTaxonomy.values as readonly string[];

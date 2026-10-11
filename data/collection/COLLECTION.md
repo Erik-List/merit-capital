@@ -1880,26 +1880,51 @@ and fails only if it grows, so no book went red and no new row arrives
 without a city. A city pass clears a book (re-run `prepare`, judge the
 queued cities, then lower or remove its entry). Every new book is strict.
 
-### focus
+### categories (company_key)
 
-A **single primary value from the closed twelve** in
-`data/taxonomy/focus.json` (the vocabulary the frontend and DB use), so the
-distribution sums cleanly. A company fitting none carries `focus: null`,
-reported as "outside taxonomy"; force-fitting would corrupt the
-distribution. One parametric pass, web search only for unidentifiable rows;
-no adversarial second pass, because a sector label publishes no number.
+**Up to three values from the closed list of 25** in
+`data/taxonomy/category.json` (market or product, technology, customer,
+business model; at most one market category, listed first), judged **once
+per company across every book**, not per book. The old single `focus` value
+is replaced: investors disagreed on the sector of a third of the companies
+two of them held, and one value per company could not say both what a
+company sells and to whom (PRO-173, Erik 2026-10-04).
 
-Judgment over the alias table where they disagree. Standing precedence
-rules: **Security** wins over SaaS/DevTools/Industrial whenever security is
-what the company sells (including security for developers); **Crypto &
-Web3** wins over Fintech for on-chain businesses (not for companies where
-crypto is a product line); consumer devices are **Consumer & Marketplaces**
-even though `hardware` aliases to Industrial; healthcare vertical SaaS is
-**Healthcare & Bio**, not SaaS; ad networks and audience monetization are
-**Media, Gaming & Advertising** while martech sold as software stays SaaS;
-**AI & Applied AI** means AI is the product, not that the company uses ML;
-enterprise infrastructure and networking is **Data Infrastructure**, chips
-are **Industrial & Robotics**.
+The mechanism is `scripts/categorize.py`, outside the per-investor run:
+
+- `keys` reads every book's `base.csv` (member rows with a determined band)
+  and keys the rows to one company: a shared CIK, then the company's own web
+  domain, then the loose name key. A CIK or domain links two rows only when
+  their names share a word (an acquirer's site on the acquired company's
+  row, a partner's blog as `site_url`, a fund vehicle's CIK and a CMS host
+  all carry signals across unrelated names). Under one name, rows whose
+  countries, CIKs or domains differ, or that one book lists under different
+  names, are different companies, and a row with no signal joins the largest
+  group it fits. The keys are `data/collection/shared/company-keys.json`;
+  the same-name groups that split are listed in `company-key-review.json`.
+- `prepare` queues every key without a judgment as one item holding what
+  EVERY book has on the company (`data/collection/shared/categories/queue/`);
+  the judge (`categories/JUDGE.md`) reads the union of evidence, no web
+  search, and `record` validates the answers into the one shared file
+  `data/collection/shared/categories.json`: one entry per key with the
+  categories, `fit` (good, forced, none), `unknown`, a `suggest` for a
+  missing category, and a one-sentence `why`. A company nothing describes
+  stays at no category rather than a guess from its name.
+- `run.py export` copies `company_key` and the key's categories into every
+  book's `base.csv`; the ingest writes them to `companies.company_key` and
+  `companies.categories` (an array), and `recompute_investor_metrics`
+  counts a company under each category it carries, so the investor's
+  `company_category_distribution` does not sum to the company rows and the
+  null element counts the companies with no category.
+- `run.py verify` rule 11 holds every book to the shared file: a sibling
+  publishing other categories than the file for a company this book holds is
+  stale and is re-exported, which is the whole fix. A book exported before
+  its judgments landed, or a row still without a key or judgment, is noted,
+  not failed, while the shared file is being filled.
+
+A rebuild of the keys keeps a judgment for the largest part of its old group
+under the old majority name and re-queues what split off, so a re-key never
+carries one company's categories onto another.
 
 ## 7. Adversarial A/B pass
 
