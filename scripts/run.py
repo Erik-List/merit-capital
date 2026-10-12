@@ -2710,8 +2710,8 @@ def cmd_verify(args) -> None:
     # does not give leaves the stage distribution and the S2A cohort only: it
     # keeps its band and its status, which is exactly what §6 means by
     # "`undetermined` here leaves `valuation_range` alone". Excluding it
-    # everywhere silently dropped 137 of Lux's 270 rows out of the valuation and
-    # focus distributions the moment PRO-135 wrote the honest value.
+    # everywhere silently dropped 137 of Lux's 270 rows out of the valuation
+    # distribution the moment PRO-135 wrote the honest value.
     determined = [r for r in merged.values()
                   if r.get("valuation_range") != UNDETERMINED]
     staged = [r for r in determined if r.get("entry_stage") != UNDETERMINED]
@@ -2722,13 +2722,6 @@ def cmd_verify(args) -> None:
     if unstaged_rows:
         print(f"stage unknown   : {unstaged_rows} nameable rows whose round the record does "
               f"not give, excluded from the stage distribution and the S2A cohort")
-    bad_focus = [s for s, r in merged.items()
-                 if r.get("focus") is not None and r["focus"] not in VALID_FOCUS]
-    if bad_focus:
-        problems.append(f"focus outside taxonomy on {len(bad_focus)} rows: "
-                        f"{bad_focus[:3]}")
-    foc = Counter(r.get("focus") or "(outside taxonomy)" for r in determined)
-    print(f"focus           : {dict(foc.most_common())}")
     bad_city = [s for s, r in merged.items()
                 if r.get("hq_city") and CITY_SUFFIX_RE.search(r["hq_city"])]
     if bad_city:
@@ -2856,7 +2849,7 @@ EXPORT_COLUMNS = [
     "status", "valuation_range", "valuation_usd", "valuation_asof",
     "valuation_source", "valuation_citation",
     "entry_stage", "entry_stage_source", "entry_stage_citation",
-    "hq_city", "hq_country", "focus", "company_key", "categories",
+    "hq_city", "hq_country", "company_key", "categories",
     "seed_to_a_graduation", "graduation_source", "graduation_citation", "entry_date",
     "graduation_asof", "graduation_surfaces",
     "flags", "note",
