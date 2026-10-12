@@ -19,6 +19,7 @@ import {
 import { loadInvestorOutcomes } from '@/lib/investor-outcomes';
 import { loadLastIngest } from '@/lib/last-ingest';
 import { restFetch, restFetchAll } from '@/lib/postgrest';
+import { pageMetadata } from '@/lib/page-metadata';
 
 type Investor = Database['public']['Tables']['investors']['Row'];
 
@@ -67,10 +68,11 @@ export async function generateMetadata({ params }: InvestorPageParams) {
     };
   }
   
-  return {
-    title: `${investor.name} | Merit Capital`,
-    description: investor.investment_concept || `Learn about ${investor.name} and their investment approach.`,
-  };
+  return pageMetadata({
+    title: investor.name,
+    description: `${investor.name} on the venture capital performance index: every invested company and what became of it, from public records.`,
+    path: `/investor/${slug}`,
+  });
 }
 
 export default async function InvestorProfilePage({ params }: InvestorPageParams) {

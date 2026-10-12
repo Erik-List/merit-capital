@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import {
   Archive,
@@ -14,12 +13,14 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import RequestInvestorRow from "@/components/leaderboard/request-investor-row";
+import { pageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
-  title: "Methodology | Merit Capital",
+export const metadata = pageMetadata({
+  title: "Methodology",
   description:
-    "How Merit Capital reconstructs venture investment histories from public sources, documents decisions, and verifies its data.",
-};
+    "How each investor's investment history is rebuilt from public records: sources, how membership and outcomes are judged, limitations, corrections.",
+  path: "/methodology",
+});
 
 const repository = "https://github.com/Erik-List/merit-capital";
 const contact = "erik@meritcapit.al";
@@ -115,7 +116,7 @@ const steps: { title: string; body: ReactNode }[] = [
     title: "Decide membership",
     body: (
       <>
-        Every candidate company passes an independent judgment under a shared{" "}
+        Every candidate company is judged by an agent session under a shared{" "}
         <ExternalLink href={`${repository}/blob/main/data/collection/COLLECTION.md`}>
           collection playbook
         </ExternalLink>
@@ -131,8 +132,8 @@ const steps: { title: string; body: ReactNode }[] = [
     title: "Classify the outcome",
     body: (
       <>
-        Current status, valuation range and seed-to-Series-A graduation are judged per company.
-        Source references, classification decisions and excluded records stay in each investor’s
+        Current status, valuation range and seed-to-Series-A graduation are judged per company
+        the same way. Source references, classification decisions and excluded records stay in each investor’s
         company records, such as{" "}
         <ExternalLink href={`${repository}/tree/main/data/collection/investors/accel/companies`}>
           Accel’s

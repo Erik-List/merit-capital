@@ -1,9 +1,11 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
-  title: "About | Merit Capital",
-  description: "Built by Erik List. Get in touch on LinkedIn, X, or by email.",
-};
+export const metadata = pageMetadata({
+  title: "About",
+  description:
+    "Merit Capital is built by Erik List. Message him on LinkedIn or X, or email erik@meritcapit.al.",
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

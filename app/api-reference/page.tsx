@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
 import ApiReference from "@/components/api-reference/api-reference";
+import { pageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
-  title: "API Reference | Merit Capital",
+export const metadata = pageMetadata({
+  title: "API Reference",
   description:
-    "Open investor data API for founders and AI agents. Query venture investors and their portfolio companies directly over REST.",
-};
+    "Public read-only API for the Merit Capital data: venture investors and their invested companies over REST, no key, OpenAPI spec at /data.",
+  path: "/api-reference",
+});
 
 // The reference re-fetches the live schema spec at most hourly.
 export const revalidate = 3600;
