@@ -28,8 +28,10 @@ interface InvestorRowProps {
 
 const count = (value: number) => value.toLocaleString("en-US");
 
-function ShareBar({ part, whole, full, className }: { part: number; whole: number; full: number; className?: string }) {
-  const width = whole > 0 ? Math.min(100, (part / whole / full) * 100) : 0;
+// The bar is the share itself: a 25% share fills a quarter of it, the same
+// drawing as on the investor page (Erik, 2026-10-08).
+function ShareBar({ part, whole, className }: { part: number; whole: number; className?: string }) {
+  const width = whole > 0 ? (part / whole) * 100 : 0;
   return (
     <div className={cn("h-1.5 w-full overflow-hidden rounded-full bg-muted-foreground/30", className)} aria-hidden="true">
       <div className="h-full rounded-full bg-primary" style={{ width: `${width}%` }} />
@@ -50,14 +52,14 @@ function StageCell({ stage, value }: { stage: StageIndex; value: StageCount }) {
           <span className="text-[15px] font-medium leading-tight text-foreground tabular-nums lg:text-base">
             {formatShare(value.atMark, value.entries)}
           </span>
-          <ShareBar part={value.atMark} whole={value.entries} full={mark.barFull} />
+          <ShareBar part={value.atMark} whole={value.entries} />
           <span className="text-[10px] text-muted-foreground tabular-nums lg:text-[11px]">
             {count(value.atMark)} of {count(value.entries)}
           </span>
         </>
       ) : value.entries > 0 ? (
         // Under the share floor the count stands alone: one company would
-        // move a share by ten points or more.
+        // move a share by more than five points.
         <>
           <span className="text-sm leading-tight text-muted-foreground tabular-nums">
             {value.atMark} of {value.entries}
@@ -89,7 +91,7 @@ function OneStage({ stats, stage, view }: { stats: InvestorStats; stage: StageIn
       <span className="text-xs text-muted-foreground tabular-nums">
         {count(value.atMark)} of {count(value.entries)} {label} entries
       </span>
-      <ShareBar part={value.atMark} whole={value.entries} full={mark.barFull} className="lg:w-[200px]" />
+      <ShareBar part={value.atMark} whole={value.entries} className="lg:w-[200px]" />
     </>
   ) : (
     <>

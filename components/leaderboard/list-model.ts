@@ -37,20 +37,21 @@ export type Filters = {
 
 /**
  * The valuation each entry stage is measured against: a company counts when
- * it is valued at the mark or more today. `barFull` is the share at which the
- * bar is full.
+ * it is valued at the mark or more today.
  */
-export const STAGE_MARK: ReadonlyArray<{ band: number; label: string; barFull: number }> = [
-  { band: 1, label: "$1B", barFull: 0.5 },
-  { band: 1, label: "$1B", barFull: 0.5 },
-  { band: 1, label: "$1B", barFull: 0.5 },
-  { band: 2, label: "$10B", barFull: 0.25 },
+export const STAGE_MARK: ReadonlyArray<{ band: number; label: string }> = [
+  { band: 1, label: "$1B" },
+  { band: 1, label: "$1B" },
+  { band: 1, label: "$1B" },
+  { band: 2, label: "$10B" },
 ];
 
-/** Entries at a stage before an investor is ordered by its share there. */
-export const ORDER_FLOOR = 20;
-/** Entries at a stage before a share is drawn; under it the count stands alone. */
-export const SHARE_FLOOR = 10;
+/**
+ * Entries at a stage before a share is drawn and the investor is ordered by
+ * it; under the floor the count stands alone. One floor for both (Erik,
+ * 2026-10-08), so a share that is printed is always the one the order uses.
+ */
+export const SHARE_FLOOR = 20;
 
 export type StageCount = {
   /** Companies the investor entered at this stage, inside the filtered set. */
@@ -171,11 +172,13 @@ export type ListGroup = {
 };
 
 export type Ranking = {
-  /** Investors with enough entries to be ordered by their share. */
+  /** Investors ordered by their share: enough entries, and a company at the mark. */
   groups: ListGroup[];
-  /** Investors under the floor, ordered by their number of companies. */
-  rest: InvestorStats[];
-  restTitle: string;
+  /**
+   * The parts under the ordered list, each under its own divider: investors
+   * under the floor that have a company at the mark, then investors with none.
+   */
+  tail: Array<{ title: string; rows: InvestorStats[] }>;
   /** Investors with no company in the filtered set, named in one closing line. */
   gone: InvestorStats[];
   goneTitle: string;
@@ -183,67 +186,68 @@ export type Ranking = {
 
 const byName = (a: InvestorStats, b: InvestorStats) => a.investor.name.localeCompare(b.investor.name);
 
-const share = (row: InvestorStats, stage: StageIndex) => row.stages[stage].atMark / row.stages[stage].entries;
-
 /**
  * The order of the list.
  *
- * With an entry stage picked: one list, by share at that stage. With no stage
- * picked: each investor under the stage it invests at most, by its share
- * there, so seed investors are compared with seed investors and growth
- * investors with growth investors. Either way an investor is ordered by share
- * only from ORDER_FLOOR entries; under it the order is the number of companies
- * in the filtered set, and investors with none are named, not listed.
+ * Each investor is measured at one stage: the picked entry stage, or, with no
+ * stage picked, the stage it invests at most, so seed investors are compared
+ * with seed investors and growth investors with growth investors. The list
+ * then has three parts, and an investor with a company at the mark is never
+ * listed under one with none (Erik, 2026-10-08):
+ *
+ * 1. SHARE_FLOOR entries or more and a company at the mark: by share.
+ * 2. Under the floor with a company at the mark: by companies at the mark.
+ * 3. No company at the mark: by number of entries.
+ *
+ * Investors with nothing in the filtered set are named, not listed.
  */
 export function rank(stats: InvestorStats[], filters: Filters): Ranking {
-  const narrowed = filters.hq.length > 0;
-  const where = narrowed ? " in the filtered set" : "";
+  const picked = filters.stage;
+  const where = filters.hq.length > 0 ? " in the filtered set" : "";
 
-  const split = (pool: InvestorStats[], stage: StageIndex, count: (row: InvestorStats) => number) => {
-    const top = pool
-      .filter((row) => row.stages[stage].entries >= ORDER_FLOOR)
-      .sort(
-        (a, b) => share(b, stage) - share(a, stage) || b.stages[stage].entries - a.stages[stage].entries || byName(a, b),
-      );
-    const low = pool.filter((row) => row.stages[stage].entries < ORDER_FLOOR);
-    return {
-      top,
-      rest: low.filter((row) => count(row) > 0).sort((a, b) => count(b) - count(a) || byName(a, b)),
-      gone: low.filter((row) => count(row) === 0).sort(byName),
-    };
-  };
+  const at = (row: InvestorStats) => row.stages[picked ?? row.mainStage];
+  // What an investor has in the filtered set: entries at the picked stage,
+  // or, with no stage picked, companies at any stage.
+  const size = (row: InvestorStats) => (picked !== null ? row.stages[picked].entries : row.companies);
 
-  if (filters.stage !== null) {
-    const stage = filters.stage;
-    const label = STAGE_LABELS[stage];
-    const result = split(stats, stage, (row) => row.stages[stage].entries);
+  const byShare = (a: InvestorStats, b: InvestorStats) =>
+    at(b).atMark / at(b).entries - at(a).atMark / at(a).entries || at(b).entries - at(a).entries || byName(a, b);
+
+  const hit = stats.filter((row) => at(row).atMark > 0);
+  const miss = stats.filter((row) => at(row).atMark === 0);
+  const ordered = hit.filter((row) => at(row).entries >= SHARE_FLOOR);
+  const few = hit
+    .filter((row) => at(row).entries < SHARE_FLOOR)
+    .sort((a, b) => at(b).atMark - at(a).atMark || at(b).entries - at(a).entries || byName(a, b));
+  const none = miss.filter((row) => size(row) > 0).sort((a, b) => size(b) - size(a) || byName(a, b));
+  const gone = miss.filter((row) => size(row) === 0).sort(byName);
+
+  if (picked !== null) {
+    const label = STAGE_LABELS[picked];
     return {
-      groups: [{ title: null, rows: result.top }],
-      rest: result.rest,
-      restTitle: `Fewer than ${ORDER_FLOOR} ${label} entries, ordered by number of entries`,
-      gone: result.gone,
+      groups: [{ title: null, rows: ordered.sort(byShare) }],
+      tail: [
+        { title: `Fewer than ${SHARE_FLOOR} ${label} entries`, rows: few },
+        { title: `No ${label} entry valued at ${STAGE_MARK[picked].label}+ today`, rows: none },
+      ],
+      gone,
       goneTitle: `no ${label} entries${where}`,
     };
   }
 
-  const groups: ListGroup[] = [];
-  const rest: InvestorStats[] = [];
-  const gone: InvestorStats[] = [];
-  STAGE_INDEXES.forEach((stage) => {
-    const result = split(
-      stats.filter((row) => row.mainStage === stage),
-      stage,
-      (row) => row.companies,
-    );
-    if (result.top.length > 0) groups.push({ title: `Invests mostly at ${STAGE_LABELS[stage]}`, rows: result.top });
-    rest.push(...result.rest);
-    gone.push(...result.gone);
-  });
   return {
-    groups,
-    rest: rest.sort((a, b) => b.companies - a.companies || byName(a, b)),
-    restTitle: `Fewer than ${ORDER_FLOOR} entries at the main stage, ordered by number of companies`,
-    gone: gone.sort(byName),
+    groups: STAGE_INDEXES.map((stage) => ({
+      title: `Invests mostly at ${STAGE_LABELS[stage]}`,
+      rows: ordered.filter((row) => row.mainStage === stage).sort(byShare),
+    })).filter((group) => group.rows.length > 0),
+    tail: [
+      { title: `Fewer than ${SHARE_FLOOR} entries at the main stage`, rows: few },
+      {
+        title: `No entry at the main stage valued at ${STAGE_MARK[0].label}+ today (${STAGE_MARK[3].label}+ for Growth)`,
+        rows: none,
+      },
+    ],
+    gone,
     goneTitle: `no companies${where}`,
   };
 }

@@ -50,10 +50,13 @@ export default function InvestorsTable({ ranking, loading, failed, search, stage
       if (headed && group.title) items.push(<Divider key={group.title} pinned>{group.title}</Divider>);
       items.push(...group.rows.map(row));
     });
-    if (ranking.rest.length > 0) {
-      items.push(<Divider key="rest" pinned>{ranking.restTitle}</Divider>);
-      items.push(...ranking.rest.map(row));
-    }
+    // The parts under the ordered list take the same pinned heading as the
+    // main-stage groups.
+    ranking.tail.forEach((part) => {
+      if (part.rows.length === 0) return;
+      items.push(<Divider key={part.title} pinned>{part.title}</Divider>);
+      items.push(...part.rows.map(row));
+    });
     if (ranking.gone.length > 0) {
       items.push(
         <Divider key="gone">
