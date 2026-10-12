@@ -14,7 +14,7 @@ const SHARE_FLOOR = 10;
 
 type OutcomeKey = keyof Pick<StageOutcome, 'oneB' | 'tenB' | 'hundredB' | 'isPublic'>;
 
-/** One row of the table or one chip: a stage, or "All" for every company. */
+/** One chip and its four rows: a stage, or "All" for every company. */
 type OutcomeRow = OutcomeCounts & { stage: StageOutcome['stage'] | typeof ALL };
 const ALL = 'All';
 
@@ -41,63 +41,11 @@ function Bar({ part, whole, className }: { part: number; whole: number; classNam
   );
 }
 
-/** One table cell: count, share and bar; under the floor the count alone. */
-function Cell({ part, whole }: { part: number; whole: number }) {
-  if (whole < SHARE_FLOOR) {
-    // One company would move the share by ten points or more, so the count
-    // stands alone.
-    return (
-      <td className="whitespace-nowrap py-2.5 pr-3 align-middle text-muted-foreground/80 tabular-nums">
-        {part} of {whole}
-      </td>
-    );
-  }
-  return (
-    <td className="whitespace-nowrap py-2.5 pr-3 align-middle tabular-nums">
-      <div className="text-foreground">
-        {count(part)} of {count(whole)} <span className="text-muted-foreground">· {formatShare(part, whole)}</span>
-      </div>
-      <Bar part={part} whole={whole} className="mt-1.5 w-full max-w-[104px]" />
-    </td>
-  );
-}
-
-/** The `lg` table: one row per stage, one column per outcome. */
-function OutcomeTable({ rows }: { rows: OutcomeRow[] }) {
-  return (
-    <div className="hidden overflow-x-auto lg:block">
-      <table className="w-full min-w-[520px] border-collapse text-sm">
-        <thead>
-          <tr className="border-b border-input/30 text-left text-xs font-normal text-muted-foreground">
-            <th className="whitespace-nowrap py-1.5 pr-3 font-normal">First invested at</th>
-            {COLUMNS.map((column) => (
-              <th key={column.key} className="whitespace-nowrap py-1.5 pr-3 font-normal">
-                {column.label}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((stage) => (
-            <tr key={stage.stage} className="border-b border-input/20 last:border-b-0">
-              <td className="whitespace-nowrap py-2.5 pr-3 align-middle text-sm font-medium text-muted-foreground">
-                {stage.stage}
-              </td>
-              {COLUMNS.map((column) => (
-                <Cell key={column.key} part={stage[column.key]} whole={stage.entries} />
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
 /**
- * Below `lg`: stage chips and one stage at a time, four rows for the picked
- * stage with the share large and the count beneath (Erik, 2026-09-30). It
- * opens on "All", the first chip (Erik, 2026-10-08).
+ * Stage chips and one stage at a time, four rows for the picked stage with
+ * the share large and the count beneath (Erik, 2026-09-30). It opens on
+ * "All", the first chip (Erik, 2026-10-08). The same layout at every width:
+ * the `lg` table was dropped for it (Erik, 2026-10-12).
  */
 function OutcomeByStage({ rows }: { rows: OutcomeRow[] }) {
   const [picked, setPicked] = useState<OutcomeRow['stage']>(rows[0].stage);
@@ -105,7 +53,7 @@ function OutcomeByStage({ rows }: { rows: OutcomeRow[] }) {
   const thin = stage.entries < SHARE_FLOOR;
 
   return (
-    <div className="space-y-4 lg:hidden">
+    <div className="space-y-4">
       <div role="group" aria-label="First invested at" className="flex flex-wrap gap-1.5">
         {rows.map((row) => {
           const selected = row.stage === stage.stage;
@@ -166,7 +114,7 @@ function OutcomeByStage({ rows }: { rows: OutcomeRow[] }) {
 /**
  * What became of the companies the investor first invested in at each entry
  * stage. The bands nest, so a company at $100B+ is in the first three
- * columns. A table from `lg`; below it, one stage at a time behind chips.
+ * columns. One stage at a time behind chips, at every width.
  */
 export function InvestmentOutcomes({ name, outcomes }: InvestmentOutcomesProps) {
   const stages = outcomes.stages.filter((stage) => stage.entries > 0);
@@ -183,7 +131,6 @@ export function InvestmentOutcomes({ name, outcomes }: InvestmentOutcomesProps) 
           {formatShare(outcomes.covered, outcomes.companies)} of its companies.
         </p>
       </div>
-      <OutcomeTable rows={rows} />
       <OutcomeByStage rows={rows} />
     </section>
   );
