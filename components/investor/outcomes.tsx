@@ -36,7 +36,7 @@ const count = (value: number) => value.toLocaleString('en-US');
 function Bar({ part, whole, className }: { part: number; whole: number; className?: string }) {
   return (
     <div className={cn('h-1 overflow-hidden rounded-full bg-muted-foreground/30', className)} aria-hidden="true">
-      <div className="h-full rounded-full bg-primary" style={{ width: `${whole > 0 ? (part / whole) * 100 : 0}%` }} />
+      <div className="h-full bg-primary" style={{ width: `${whole > 0 ? (part / whole) * 100 : 0}%` }} />
     </div>
   );
 }

@@ -147,7 +147,7 @@ function CategoryRow({ label, companies, total, muted }: { label: string; compan
       <div className="relative h-1.5 w-full max-w-md overflow-hidden rounded-full">
         <div className="absolute inset-0 bg-muted-foreground" style={{ opacity: OTHER_OPACITY }} />
         <div
-          className={cn('relative h-full rounded-full', muted ? 'bg-muted-foreground' : 'bg-primary')}
+          className={cn('relative h-full', muted ? 'bg-muted-foreground' : 'bg-primary')}
           style={{ width: `${width}%`, opacity: muted ? 0.6 : SEGMENT_OPACITIES[0] }}
         />
       </div>
