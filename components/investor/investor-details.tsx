@@ -142,10 +142,13 @@ function CategoryRow({ label, companies, total, muted }: { label: string; compan
           {formatShare(companies, total)} ({companies})
         </span>
       </div>
-      <div className="h-1.5 w-full max-w-md overflow-hidden rounded-full bg-muted">
+      {/* The same colours as the composition bars: the fill is their leading
+          segment, the empty part their muted "Other" (Erik, 2026-10-12). */}
+      <div className="relative h-1.5 w-full max-w-md overflow-hidden rounded-full">
+        <div className="absolute inset-0 bg-muted-foreground" style={{ opacity: OTHER_OPACITY }} />
         <div
-          className={cn('h-full rounded-full', muted ? 'bg-muted-foreground/40' : 'bg-primary/70')}
-          style={{ width: `${width}%` }}
+          className={cn('relative h-full rounded-full', muted ? 'bg-muted-foreground' : 'bg-primary')}
+          style={{ width: `${width}%`, opacity: muted ? 0.6 : SEGMENT_OPACITIES[0] }}
         />
       </div>
     </div>
