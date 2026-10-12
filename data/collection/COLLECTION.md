@@ -2185,10 +2185,13 @@ Every subcommand takes the investor slug.
      DuckDuckGo HTML endpoint and direct fetches of known pages still
      answer targeted checks; whatever stays unattacked keeps its `stale`
      flag and is listed in the report.
-  5. Base-shape guards are investor properties: `config.json`
-     `verify.shape` (`one_b_share_max`, `c2a_rate_max`) restates the
-     20% / 80% defaults with a note when the evidence model explains the
-     shape (ruling in `decisions.md`); the guards still fire above it.
+  5. The base-shape guard is an investor property: `config.json`
+     `verify.shape` (`c2a_rate_max`) restates the 80% default with a note
+     when the evidence model explains the shape (ruling in `decisions.md`);
+     the guard still fires above it. **There is no ceiling on the $1B+
+     share** (Erik, 2026-09-26, removing `one_b_share_max`): a growth or
+     crossover book can sit at any share, so the share is read against the
+     firm profile at review and stated in the report, never gated.
 
 ## 9. Review, escalation, and the end of a run
 

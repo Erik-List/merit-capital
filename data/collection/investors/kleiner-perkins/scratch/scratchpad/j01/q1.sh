@@ -1,0 +1,26 @@
+cd /Users/erik/Developer/merit-capital/data/collection/investors/kleiner-perkins/scratch
+export NQ_TAG=j01
+run(){ echo "#### $1 | $2"; python3 nq.py "$1" "$2" --all 2>&1 | tail -25; }
+run 41st-parameter '"41st Parameter" Kleiner Perkins'
+run aeye '"AEye" Kleiner Perkins funding'
+run aggregate-knowledge '"Aggregate Knowledge" Kleiner Perkins'
+run akeana '"Akeana" funding'
+run alif '"Alif Semiconductor" Analog Devices'
+run allium '"Allium" blockchain data funding'
+run ambience '"Ambience Healthcare" valuation'
+run applied-intuition '"Applied Intuition" Kleiner Perkins'
+run aquion-energy '"Aquion Energy" Kleiner Perkins'
+run arsenalbio '"ArsenalBio" Kleiner Perkins'
+run audius '"Audius" Kleiner Perkins'
+run ausra '"Ausra" Kleiner Perkins'
+run autonomic-technologies-inc '"Autonomic Technologies"'
+run awarepoint '"Awarepoint"'
+run auxogyn-inc '"Auxogyn" Kleiner Perkins'
+run alienvault '"AlienVault" Kleiner Perkins'
+run arresto-biosciences '"Arresto Biosciences"'
+run amonix '"Amonix"'
+run agilyx '"Agilyx"'
+run alertenterprise '"AlertEnterprise" funding'
+run ambiq-micro '"Ambiq Micro" Kleiner Perkins'
+run airtime '"Airtime" Kleiner Perkins'
+echo ALLDONE

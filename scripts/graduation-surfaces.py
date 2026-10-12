@@ -81,6 +81,7 @@ FIRM_TERMS = {
     "felicis": '"Felicis"',
     "first-round-capital": '"First Round"',
     "greylock": '"Greylock"',
+    "headline": '("e.ventures" OR "BV Capital" OR "Headline")',
     "khosla-ventures": '"Khosla"',
     "lightspeed": '"Lightspeed"',
     "lux-capital": '"Lux Capital"',

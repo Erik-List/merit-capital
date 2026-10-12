@@ -1,0 +1,120 @@
+{
+ "_readme": "Lux Capital's cross-investor rulings for COLLECTION.md \u00a710 invariant 10 (same schema as data/collection/cross-investor.json; merged by verify at read time). `distinct`: name-key collisions that are different companies. `accepted`: real disagreements whose fix belongs to the wave alignment, because the stale side is another investor's file and \u00a712 forbids editing it from this session.",
+ "same": [],
+ "distinct": [
+  {
+   "rows": [
+    "lux-capital:galileo",
+    "accel:galileo"
+   ],
+   "note": "different companies: Lux's Galileo is the New York virtual-care provider listed under the firm's health tag; Accel's is Galileo Financial Technologies, the payments processor acquired by SoFi in 2020"
+  },
+  {
+   "rows": [
+    "lux-capital:galileo",
+    "lightspeed:galileo-technology"
+   ],
+   "note": "different companies: Galileo Technology was the Israeli networking-chip maker acquired by Marvell in 2001"
+  },
+  {
+   "rows": [
+    "lux-capital:osmo",
+    "accel:osmo"
+   ],
+   "note": "different companies: Lux's Osmo is the digital-olfaction company spun out of Google Research in 2023; Accel's is Osmo/Tangible Play, the children's learning-toy company acquired by Byju's in 2019"
+  },
+  {
+   "rows": [
+    "lux-capital:rivet",
+    "a16z:rivet"
+   ],
+   "note": "different companies: Lux's Rivet is the Utah healthcare-payments company acquired by Zelis in 2026; a16z's Rivet is the game-server infrastructure company"
+  },
+  {
+   "rows": [
+    "lux-capital:neo",
+    "a16z:neo"
+   ],
+   "note": "different companies sharing a one-word name; neither row's identity is pinned, and both are flagged identity_uncertain on their own bases"
+  },
+  {
+   "rows": [
+    "lux-capital:galileo",
+    "battery-ventures:galileo"
+   ],
+   "note": "Two real companies of the same name, which is why the Lux row carries identity_homonym (PRO-136). Lux's Galileo is Galileo Health, the virtual multi-specialty care provider at galileo.io, listed under the firm's health tag since 2021. Battery's Galileo is Galileo Technologies, AI evaluation and observability, acquired by Cisco in 2026. Only the loose name key joins them."
+  }
+ ],
+ "accepted": [
+  {
+   "rows": [
+    "lux-capital:applied-intuition",
+    "a16z:applied-intuition"
+   ],
+   "note": "same company, stale sibling: a16z carries $1.25B as of 2020; this run pins $15B at the June 2025 Series F from the company's own release. The a16z side is the one to align in the wave pass"
+  },
+  {
+   "rows": [
+    "lux-capital:hugging-face",
+    "sequoia-capital:hugging-face"
+   ],
+   "note": "same company, stale sibling: Sequoia carries the 2023 $4.5B round; this run pins the $12.93B NVIDIA acquisition price agreed 2026-09-02 (not yet closed)"
+  },
+  {
+   "rows": [
+    "lux-capital:runway",
+    "a16z:runway"
+   ],
+   "note": "same company, stale sibling: this run pins $5.3B at the February 2026 Series E; a16z and Lightspeed both read below_1b"
+  },
+  {
+   "rows": [
+    "lux-capital:runway",
+    "lightspeed:runway"
+   ],
+   "note": "as above"
+  },
+  {
+   "rows": [
+    "lux-capital:together-ai",
+    "cherry:together"
+   ],
+   "note": "same company, stale sibling: Cherry reads below_1b against this run's $8.3B"
+  },
+  {
+   "rows": [
+    "lux-capital:hadrian",
+    "cherry:hadrian"
+   ],
+   "note": "same company, stale sibling: Cherry reads below_1b against the $8B August 2026 round"
+  },
+  {
+   "rows": [
+    "lux-capital:evolv-technology",
+    "lightspeed:evolv"
+   ],
+   "note": "same company, status disagreement: this run reads it public (listed via SPAC in 2021 as NASDAQ: EVLV and still trading), Lightspeed reads acquired. This run's reading is the fresher one and the Lightspeed side is the one to check in the wave pass"
+  },
+  {
+   "rows": [
+    "lux-capital:halo-neuroscience",
+    "a16z:halo-neuroscience"
+   ],
+   "note": "same company, status disagreement: the business was acquired in 2021 (the firm's own milestone line) rather than simply ending, so acquired is the better reading of the same facts"
+  },
+  {
+   "rows": [
+    "lux-capital:oasis-labs",
+    "a16z:oasis-labs"
+   ],
+   "note": "same company, status disagreement: this run reads it private and a16z acquired; neither side has a cited event and it is left for the wave pass"
+  },
+  {
+   "rows": [
+    "lux-capital:accelergy-corporation",
+    "sequoia-capital:accelergy"
+   ],
+   "note": "same company, both below_1b: the bands agree and only the last-known-state reading differs (private vs unknown) on a company dark since the early 2010s"
+  }
+ ]
+}

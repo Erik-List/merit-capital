@@ -2763,23 +2763,15 @@ def cmd_verify(args) -> None:
               f"{basis['web_verified'] + basis['first_party']}, the absence test "
               f"{basis['absence_check']}")
 
-    # Sanity guard, not an invariant. Raised from 15% once the initial-only
-    # person-match defect was fixed: dropping ~50 misattributed near-worthless
-    # rows shrinks the denominator without touching the numerator, so a cleaner
-    # base legitimately shows a HIGHER winner share.
-    # Distribution guards read a partial grind as a defect, so they wait for
-    # the full mode.
-    # The expected shape is a property of the investor: a concentrated growth
-    # book collected without a site layer (thrive-capital: 155 rows, most of
-    # them press-cited winners) legitimately sits far above the megafund
-    # defaults, so config.json verify.shape may restate the ceilings with a
-    # note; the defaults stay for everyone else.
+    # Sanity guard, not an invariant. Distribution guards read a partial grind
+    # as a defect, so they wait for the full mode.
+    # There is no ceiling on the $1B+ share (Erik, 2026-09-26): a growth or
+    # crossover book legitimately sits at any share, and the shape is assessed
+    # against the firm profile at review, not against a number here.
+    # config.json verify.shape may restate the S2A ceiling with a note.
     shape = (CFG.get("verify") or {}).get("shape") or {}
-    one_b_max = float(shape.get("one_b_share_max", 0.20))
     c2a_max = float(shape.get("c2a_rate_max", 0.80))
     if not in_flight:
-        if one_b and len(one_b) / total > one_b_max:
-            problems.append(f"$1B+ is {len(one_b)/total:.1%} of the base; expected <{one_b_max:.0%}")
         if cohort_n and c2a_rate > c2a_max:
             problems.append(f"C2A is {c2a_rate:.1%}; expected <{c2a_max:.0%}")
 

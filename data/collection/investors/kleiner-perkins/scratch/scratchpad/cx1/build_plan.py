@@ -1,0 +1,158 @@
+"""Build cross-plan-cx1.json from the decisions below; every pair in cross-list.txt must be decided."""
+import json, re, sys
+from pathlib import Path
+HERE = Path('/Users/erik/Developer/merit-capital/data/collection/investors/kleiner-perkins/scratch')
+INVS = HERE.parent.parent
+pairs = []
+for line in (HERE/'cross-list.txt').read_text().splitlines():
+    m = re.match(r'(.+?): kleiner-perkins:(\S+) .*? vs (\S+?):(\S+) ', line)
+    pairs.append((m.group(2), m.group(3), m.group(4)))
+
+AL = "Aligned 2026-09-30 from the Kleiner Perkins run (PRO-99, rule 10): "
+def mark(usd, asof, cite, why, status=None):
+    band = "10b_plus" if usd >= 10_000_000_000 else "1b_plus"
+    d = {}
+    if status: d["status"] = status
+    d.update({"valuation_range": band, "valuation_usd": usd, "valuation_asof": asof,
+              "valuation_source": "web_verified", "valuation_citation": cite, "note": AL + why})
+    return d
+def exit_(why, status="acquired"):
+    return {"status": status, "note": AL + why}
+
+D = {}  # (kp_slug, book, sib_slug) -> (action, note, sibling dict or None)
+def distinct(kp, book, sl, note): D[(kp, book, sl)] = ("distinct", note, None)
+def stale(kp, book, sl, note, sib): D[(kp, book, sl)] = ("sibling_stale", note, sib)
+
+# ---------------- distinct (namesakes)
+distinct("adknowledge", "tcv", "adknowledge", "Kleiner Perkins' AdKnowledge is the Palo Alto ad-management company backed in 1997 and sold to CMGI; TCV's Adknowledge is the Kansas City company (now v2 Ventures Group) it entered in 2010.")
+distinct("assured", "first-round-capital", "assured", "Kleiner Perkins' Assured is the insurance claims company at assured.com (founded 2019, Bloomberg's $1B round of March 2025); First Round's Assured is the New York healthcare credentialing company at withassured.com whose $6M seed it led in September 2025.")
+for b, s in (("a16z", "bump"), ("felicis", "bump-technologies"), ("sequoia-capital", "bump-technologies"), ("y-combinator", "bump")):
+    distinct("bump", b, s, "Kleiner Perkins' Bump is the streetwear resale marketplace (sobump.com, YC W18, London); the sibling row is Bump Technologies, the contact-sharing app of YC S09 that Google bought in 2013.")
+distinct("coda", "insight-partners", "coda", "Kleiner Perkins' Coda is the coda.io document company Grammarly bought in December 2024; Insight's Coda is Coda Payments of Singapore ($2.5B, April 2022).")
+distinct("drop", "new-enterprise-associates", "drop", "Kleiner Perkins' Drop is Massdrop, the San Francisco community commerce company Corsair bought in 2023; NEA's Drop is the Toronto card-linked rewards app whose Series A it led in February 2018.")
+distinct("endgame", "eqt-ventures", "endgame", "Kleiner Perkins' Endgame is Endgame, Inc., the Arlington endpoint security company Elastic bought in 2019; EQT Ventures' Endgame is the Los Angeles product-led sales platform (endgame.io) it entered in 2022.")
+distinct("fauna", "gv", "fauna", "Kleiner Perkins' Fauna is Fauna Robotics, the New York home-robot company that joined Amazon in March 2026; GV's Fauna is FaunaDB, the San Francisco database company that shut down in 2025.")
+distinct("fin", "accel", "fin", "Kleiner Perkins' Fin is Intercom, renamed Fin in 2026 and bought by Salesforce; Accel's Fin is the AI assistant company Andrew Kortina and Sam Lessin started in 2015, later Fin Analytics.")
+distinct("fleksy", "seedcamp", "fleksy", "Seller and buyer, two companies: Kleiner Perkins backed Fleksy Inc. (San Francisco, founded 2011), whose team went to Pinterest in June 2016 and whose keyboard ThingThing took over in 2017 (TechCrunch, https://techcrunch.com/2017/07/25/fleksy-keyboard-to-get-major-reboot-under-thingthing-dev-team/); Seedcamp's row is ThingThing, the Barcelona company that took the product and its name.")
+distinct("fortify-software", "accel", "fortify", "Kleiner Perkins' Fortify Software is the code-analysis security company founded in 2003 that Hewlett-Packard bought in 2010; Accel's Fortify is the Boston manufacturing hardware company it lists from 2019.")
+distinct("greenhouse", "seedcamp", "greenhouse", "Kleiner Perkins' Greenhouse is Greenhouse Software, the New York recruiting software company TPG took over in 2021; Seedcamp's Greenhouse is Greenhouse CI of Tallinn (2016 cohort), renamed Nevercode.")
+for b in ("a16z", "greylock", "sequoia-capital"):
+    distinct("handshake", b, "handshake", "Kleiner Perkins' Handshake is the early-career network (joinhandshake.com, $3.5B in January 2022); the sibling row is the handshake.org decentralized naming protocol of 2018.")
+distinct("handshake", "point-nine", "handshake", "Kleiner Perkins' Handshake is the early-career network (joinhandshake.com); Point Nine's Handshake is the New York wholesale-ordering app Shopify bought in 2019.")
+distinct("harmonic", "lightspeed", "harmonic-inc", "Kleiner Perkins' Harmonic is the Palo Alto maths AI company of Tudor Achim and Vlad Tenev ($1.45B, November 2025); Lightspeed's row is Harmonic Inc., the listed video delivery company (Nasdaq: HLIT) it carries from 2003.")
+distinct("helix", "gv", "helix", "Kleiner Perkins' Helix is the San Mateo population genomics company formed in 2015 by Illumina; GV's Helix is HELIX RE, the building digital-twin company Density bought in November 2021.")
+distinct("instinct", "y-combinator", "instinct", "Kleiner Perkins' Instinct is Noah Shinn's personal AI agent company ($10B Series C, 2026-09-28); YC's Instinct is the London crypto trading app on instinct.xyz (team of five).")
+distinct("level", "battery-ventures", "level-ai", "Kleiner Perkins' Level is Level Money, the San Francisco budgeting app Capital One bought in 2015; Battery's row is Level AI (Ujwal, Inc.), the Mountain View contact-centre intelligence company.")
+distinct("level", "lightspeed", "level", "Kleiner Perkins' Level is Level Money, the San Francisco budgeting app Capital One bought in 2015; Lightspeed's Level is the New York dental-benefits company whose Series A it backed in 2020-21 (the First Round row names Lightspeed in that round).")
+for b in ("20vc", "accel", "sequoia-capital"):
+    distinct("linear-technology", b, "linear", "Kleiner Perkins' row is Linear Technology, the Milpitas analog chip maker backed in 1982 that Analog Devices bought in 2017; the sibling row is Linear, the issue-tracking software company ($1.25B, June 2025).")
+distinct("luca-technologies", "menlo-ventures", "luca", "Kleiner Perkins' row is Luca Technologies, the microbial coal-bed methane company of Golden, Colorado (2006-2011); Menlo's Luca is the AI pricing company for retailers.")
+distinct("luca-technologies", "y-combinator", "luca", "Kleiner Perkins' row is Luca Technologies, the microbial coal-bed methane company of Golden, Colorado (2006-2011); YC's Luca is the W23 retail pricing company at askluca.com.")
+distinct("motive", "accel", "motive-inc", "Kleiner Perkins' Motive is the fleet management company formerly called KeepTruckin (Series F at $2.85B, May 2022); Accel's row is Motive, Inc., the service-management software company that listed in 2004 and was bought by Alcatel-Lucent in 2008.")
+distinct("optic", "y-combinator", "optic", "Kleiner Perkins' Optic is Optic, Inc. of San Francisco (Andrey Doronichev, $11M seed in July 2022, now BIOPTIC); YC's Optic is the S18 API change-tracking tool at useoptic.com, New York, since acquired.")
+distinct("parallel", "sequoia-capital", "parallel", "Kleiner Perkins' Parallel is Parallel Web Systems (Parag Agrawal, $2B in April 2026); Sequoia's row named Parallel is Parallel Finance, the 2021 DeFi protocol. Sequoia carries Parallel Web Systems under its own slug, parallel-web-systems, which still reads below_1b although its note cites the $2B Series B: a pair this list does not name.")
+distinct("parallel", "y-combinator", "parallel", "Kleiner Perkins' Parallel is Parallel Web Systems (Parag Agrawal, Palo Alto); YC's Parallel is the W24 healthcare admin company of Paris (beparallel.com).")
+distinct("pattern", "first-round-capital", "pattern", "Kleiner Perkins' Pattern is Pattern Brands, the New York home-goods brand group it backed from November 2018; First Round's Pattern is a San Francisco software company listed in 2017, before Pattern Brands existed.")
+distinct("pelago-inc", "a16z", "pelago", "Kleiner Perkins' row is Pelago, Inc. of Seattle, maker of the Whrrl location app, which Groupon bought in April 2011; a16z's Pelago is a speedrun SR005 cohort company in Los Angeles.")
+for b in ("eqt-ventures", "y-combinator"):
+    distinct("pelago-inc", b, "pelago", "Kleiner Perkins' row is Pelago, Inc. of Seattle, maker of the Whrrl location app, which Groupon bought in April 2011; the sibling's Pelago is the virtual addiction care company (Quit Genius until 2023, YC W18).")
+for b in ("a16z", "lightspeed", "sequoia-capital"):
+    distinct("phantom", b, "phantom", "Kleiner Perkins' Phantom is Phantom Cyber, the Palo Alto security orchestration company Splunk bought in 2018; the sibling row is Phantom, the crypto wallet ($3B, January 2025).")
+distinct("presto", "union-square-ventures", "presto", "Kleiner Perkins' Presto is Presto Services of Mountain View, the printing mailbox for people without computers (listed 2008); USV's Presto is the fleet EV charging company whose seed it led in 2025.")
+distinct("presto", "y-combinator", "presto", "Kleiner Perkins' Presto is Presto Services of Mountain View, the printing mailbox for people without computers (listed 2008); YC's Presto is the S10 restaurant technology company at presto.com.")
+distinct("resonate-inc", "y-combinator", "resonate", "Kleiner Perkins' row is Resonate Inc. of Sunnyvale, the traffic management software company that listed in 2000 and was taken private in 2003; YC's Resonate is a W26 social content company.")
+for b in ("iconiq-growth", "lightspeed"):
+    distinct("rain", b, "rain", "Kleiner Perkins' Rain is the Bahrain crypto exchange (rain.bh) whose $110M Series B it co-led in January 2022; the sibling's Rain is the US stablecoin card company (rain.xyz, $1.95B Series C of January 2026).")
+distinct("series", "a16z", "series-ai", "Kleiner Perkins' Series is the finance and operations software company of San Francisco (seriesfi.com, $25M in September 2023); a16z's row is Series AI, the AI games engine company it backed in September 2023.")
+
+# ---------------- sibling_stale (same company, Kleiner Perkins holds the fresher cited evidence)
+LW = "https://www.lw.com/en/news/2026/04/latham-represents-applied-compute-in-fundraise"
+stale("applied-compute", "lux-capital", "applied-compute", "Same company. Kleiner Perkins led the $80M Series B of April 2026 at $1.3B post-money, after Lux recorded its 2025 seed entry at below_1b.",
+      mark(1_300_000_000, "2026-04-15", LW, "the $80M Series B of April 2026 at a $1.3B post-money valuation (Latham & Watkins, the company's counsel, 2026-04-15)."))
+stale("applied-intuition", "a16z", "applied-intuition", "Same company. a16z still carries the 2020 unicorn-list figure of $1.25B; the Series F and tender of June 2025 valued it at $15B, as the Coatue, General Catalyst and Lux rows already read.",
+      mark(15_000_000_000, "2025-06-17", "https://www.appliedintuition.com/press-releases/series-f", "the $600M Series F and tender of June 2025 at a $15B valuation (the company's release), replacing the 2020 list figure of $1.25B."))
+BBG = "https://www.bloomberg.com/news/articles/2025-03-04/iconiq-kleiner-perkins-back-insurance-startup-assured-at-1-billion-valuation"
+stale("assured", "iconiq-growth", "assured", "Same company, not a namesake: ICONIQ's own grid (sources/site/portfolio-2026.json) describes Assured as 'the AI engine powering the next era of claims' and links assured.com, and Bloomberg's headline names Iconiq and Kleiner Perkins in the $1B round. ICONIQ's row described the New York credentialing company by mistake, so its city (New York) and focus (Healthcare & Bio) are wrong as well; Kleiner Perkins reads Fintech & Payments with no city placed.",
+      mark(1_000_000_000, "2025-03-04", BBG, "the row is the insurance claims company at assured.com that the firm's own grid describes, not the New York credentialing company; Bloomberg (2025-03-04) reports Iconiq and Kleiner Perkins backing it at a $1 billion valuation, a figure on the band edge. The New York city and Healthcare & Bio focus belong to the namesake and need correcting."))
+AVO = "https://www.prnewswire.com/news-releases/avoca-raises-125m-at-1b-valuation-to-power-americas-services-economy-with-ai-302753962.html"
+stale("avoca", "y-combinator", "avoca", "Same company (Avoca, AI for home-service businesses, YC W23, New York). The April 2026 rounds valued it at $1B after YC's row was written. General Catalyst's row also reads below_1b; that book is in flight and not on this list.",
+      mark(1_000_000_000, "2026-04-27", AVO, "more than $125M raised at a $1B valuation, announced 2026-04-27 (the company's release on PR Newswire); the figure sits on the band edge."))
+stale("drop", "first-round-capital", "drop", "Same company (Drop, formerly Massdrop, San Francisco). First Round reads private; Corsair bought it in July 2023.",
+      exit_("Corsair announced on 2023-07-17 that it had acquired Drop, and the store closed on 2026-03-31 (Wikipedia, 'Drop (company)', https://en.wikipedia.org/wiki/Drop_%28company%29), so the row reads acquired."))
+RD = "https://www.retaildive.com/news/uxury-furniture-rental-vesta-acquires-fernish-feather-dtc/699582/"
+stale("feather", "spark-capital", "feather", "Same company (Feather, furniture rental, New York). Spark reads private; Vesta bought it in November 2023, as the Bain Capital Ventures row already reads.",
+      exit_("Vesta acquired Feather together with Fernish in November 2023 (Retail Dive, 2023-11-13, " + RD + "), so the row reads acquired."))
+SF = "https://www.salesforce.com/news/press-releases/2026/09/10/salesforce-completes-acquisition-of-fin/"
+stale("fin", "iconiq-growth", "fin", "Same company (Intercom, renamed Fin). ICONIQ holds the signed price of 2026-06-15 as a private mark; Salesforce has since closed the purchase, so the row turns acquired and the mark goes, as the GV row (intercom) already reads.",
+      {"status": "acquired", "valuation_range": "below_1b", "valuation_usd": None, "valuation_asof": "2026-09-10",
+       "valuation_source": "web_verified", "valuation_citation": SF,
+       "note": AL + "Salesforce completed its acquisition of Fin, formerly Intercom, on 2026-09-10 (Salesforce's release), so the row is acquired and the $3.6B signed price no longer bands it."})
+GAR = "https://www.prnewswire.com/news-releases/garner-health-closes-100-million-series-e-at-a-2-74b-valuation-to-continue-addressing-the-healthcare-quality-and-cost-gap-302783840.html"
+for b in ("sequoia-capital", "thrive-capital"):
+    stale("garner-health", b, "garner-health", "Same company (Garner Health, New York). The sibling's below_1b predates the Series D ($1.35B) and Series E ($2.74B) of 2026.",
+          mark(2_740_000_000, "2026-05-28", GAR, "the $100M Series E at a $2.74B valuation (the company's release on PR Newswire, 2026-05-28)."))
+stale("indiegogo", "khosla-ventures", "indiegogo", "Same company. Khosla reads private; Gamefound bought Indiegogo in July 2025, as the Insight and IVP rows already read.",
+      exit_("Gamefound acquired Indiegogo in July 2025 (Wikipedia, 'Indiegogo', https://en.wikipedia.org/wiki/Indiegogo; Indiegogo's own support page is titled 'Indiegogo's Acquisition by Gamefound & Platform Upgrade FAQs'), so the row reads acquired."))
+CNA = "https://www.channelnewsasia.com/business/rivian-spinout-mind-robotics-valued-34-billion-in-new-funding-round-6119256"
+for b in ("a16z", "accel", "redpoint-ventures"):
+    stale("mind-robotics", b, "mind-robotics", "Same company (Mind Robotics, the Rivian spin-out, Palo Alto). The sibling's below_1b predates the May 2026 round; the Bain Capital Ventures row already reads $3.4B.",
+          mark(3_400_000_000, "2026-05-13", CNA, "the $400M round of May 2026 valued Mind Robotics at $3.4 billion (Reuters via CNA, 2026-05-13)."))
+SA = "https://siliconangle.com/2026/06/25/mirendil-raises-200m-speed-scientific-research-ai/"
+stale("mirendil", "a16z", "mirendil", "Same company. a16z's row reads unknown as an unidentifiable list entry, yet its own page is 'Investing in Mirendil' and it led the seed.",
+      mark(1_000_000_000, "2026-06-25", SA, "Mirendil is the frontier AI lab whose $200M seed a16z led at a $1B valuation (SiliconANGLE, 2026-06-25), so the row is private at that mark, a figure on the band edge.", status="private"))
+stale("navigenics", "sequoia-capital", "navigenics", "Same company. Sequoia's defunct is a Wikidata reading; its own note says the assets went to Life Technologies in 2012, which is a sale.",
+      exit_("Life Technologies acquired Navigenics in July 2012 (Wikipedia, 'Navigenics', https://en.wikipedia.org/wiki/Navigenics, citing Bloomberg of 2012-07-16), so the row reads acquired, not defunct."))
+NH = "https://nexthop.ai/news-and-event/nexthop-ai-accelerates-into-hypergrowth-with-oversubscribed-500m-series-b-funding-catapulting-the-companys-valuation-to-4-2-billion/"
+stale("nexthop-ai", "a16z", "nexthop", "Same company (Nexthop AI, Santa Clara). a16z's own note cites the $4.2B Series B it led, but the band still reads below_1b.",
+      mark(4_200_000_000, "2026-03-10", NH, "the $500M Series B of March 2026 at a $4.2B valuation (the company's release, 2026-03-10)."))
+stale("nexthop-ai", "lightspeed", "nexthop-ai", "Same company (Nexthop AI, Santa Clara). Lightspeed's below_1b predates the Series B.",
+      mark(4_200_000_000, "2026-03-10", NH, "the $500M Series B of March 2026 at a $4.2B valuation (the company's release, 2026-03-10)."))
+PRW = "https://www.prweb.com/releases/entourage-yearbooks-acquires-picaboocom-expanding-photo-product-innovation-for-millions-302566252.html"
+stale("picaboo", "new-enterprise-associates", "picaboo", "Same company (Picaboo, founded in Palo Alto in 2002). NEA reads private; the business has been sold, to RPI in 2019 and to Entourage Yearbooks in 2025.",
+      exit_("Entourage Yearbooks acquired Picaboo.com in September 2025 (its release on PRWeb, 2025-09-26, " + PRW + "), after RPI bought the company in 2019 (Wikipedia), so the row reads acquired."))
+TCP = "https://techcrunch.com/2026/09/15/aeo-startup-profound-hits-unicorn-valuation-raises-180m-series-d-7-months-after-last-round/"
+for b in ("lightspeed", "sequoia-capital"):
+    stale("profound", b, "profound", "Same company (Profound, AI search visibility, New York). The sibling's below_1b predates the Series D of 2026-09-15, which Sequoia co-led.",
+          mark(1_800_000_000, "2026-09-15", TCP, "the $180M Series D at a $1.8B valuation, co-led by Sequoia and Kleiner Perkins (TechCrunch, 2026-09-15)."))
+stale("quirky", "a16z", "quirky", "Same company. a16z reads defunct on the 2015 bankruptcy; the assets, site and products were sold to Q Holdings, which relaunched the business, so the asset-sale rule reads acquired.",
+      exit_("Quirky filed Chapter 11 on 2015-09-22 and its assets, website and most products were bought by Q Holdings for $4.7M in late 2015, with new owners announced in February 2016 (Wikipedia, 'Quirky (company)', https://en.wikipedia.org/wiki/Quirky_%28company%29): a sale out of insolvency reads acquired with a successor, not defunct."))
+for b in ("first-round-capital", "y-combinator"):
+    stale("remind", b, "remind", "Same company (Remind, formerly Remind101, San Francisco). The sibling reads private; ParentSquare bought Remind in December 2023.",
+          exit_("ParentSquare acquired Remind in December 2023 (Business Wire, 2023-12-01, 'Serent-Backed ParentSquare Acquires Remind'); the company's own site says 'Remind is now part of the ParentSquare family' (https://www.remind.com/, read 2026-09-30), so the row reads acquired."))
+TIP = "https://www.tipranks.com/news/private-companies/rogo-raises-160-million-series-d-at-2-billion-valuation"
+for b in ("sequoia-capital", "thrive-capital"):
+    stale("rogo", b, "rogo", "Same company (Rogo, New York). The sibling's below_1b rests on the $350M Series B of 2025; the Series D of April 2026 priced it at $2B, as the Tiger Global row already reads.",
+          mark(2_000_000_000, "2026-04-29", TIP, "the $160M Series D of April 2026 at a $2B valuation, led by Kleiner Perkins with Sequoia and Thrive (TipRanks, 2026-04-29)."))
+
+# ---------------- accepted (Instacart, the lead's ruling)
+for b in ("a16z", "coatue", "khosla-ventures", "sequoia-capital", "tcv", "thrive-capital", "tiger-global-management", "y-combinator"):
+    D[("instacart", b, "instacart")] = ("accepted", "Same company (Maplebear, Nasdaq: CART). Kleiner Perkins' cap of $9.98B on 2026-09-30 (StockAnalysis) sits 0.2% under the $10B edge, while this book holds 10b_plus on a cap at or above $10B read earlier in August or September 2026; both readings are defensible from market caps days apart at the band edge, so the pair is accepted rather than re-ingesting eight books.", None)
+
+# ---------------- kp_stale
+ORMAT = "https://investor.ormat.com/news-events/news/news-details/2025/Ormat-Announces-the-Completion-of-Its-Acquisition-of-the-Blue-Mountain-Geothermal-Power-Plant-From-Cyrq-Energy/default.aspx"
+D[("altarock-energy-inc", "khosla-ventures", "altarock-energy")] = ("kp_stale", "Same company. Kleiner Perkins' 'acquired by Ormat in 2025' misread Wikipedia: Ormat bought the Blue Mountain power plant from Cyrq Energy on 2025-06-18 (" + ORMAT + "), not AltaRock Energy. No sale or shutdown of the company is on record (it co-founded Mazama Energy with Blade Energy Partners in 2023, and its site is live but undated), so Kleiner Perkins' row moves to unknown, as Khosla reads. A private reading is arguable for both books if Erik prefers it.", None)
+
+out, missing = [], []
+for kp, book, sl in pairs:
+    k = (kp, book, sl)
+    if k not in D:
+        missing.append(k); continue
+    action, note, sib = D[k]
+    e = {"pair": [f"kleiner-perkins:{kp}", f"{book}:{sl}"], "action": action, "note": note}
+    if action == "kp_stale":
+        e["kleiner_perkins"] = {"slug": kp, "status": "unknown"}
+    if sib is not None:
+        e["sibling"] = {"book": book, "slug": sl, **sib}
+    if (INVS / book / "scratch" / "in-flight.json").exists():
+        e["sibling_in_flight"] = True
+    out.append(e)
+extra = set(D) - set(pairs)
+if missing or extra:
+    sys.exit(f"missing {missing} extra {extra}")
+txt = json.dumps(out, indent=1, ensure_ascii=False) + "\n"
+assert "—" not in txt and "–" not in txt
+(HERE / "cross-plan-cx1.json").write_text(txt)
+from collections import Counter
+print(len(out), Counter(e["action"] for e in out), "in flight:", sum(1 for e in out if e.get("sibling_in_flight")))
+books = Counter(e["sibling"]["book"] for e in out if "sibling" in e)
+print(sorted(books.items()))

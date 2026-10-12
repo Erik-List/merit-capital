@@ -53,3 +53,6 @@ __pycache__/
 # tracked - see data/README.md for the split.
 /data/filings/
 /data/collection/shared/sec/cik-lookup-data.txt
+# Per-run caches of verbatim SEC documents (scratch/secget.py): the same class as
+# /data/filings/ above, re-downloadable from EDGAR, so they stay out of the repo.
+/data/collection/investors/*/scratch/sec-cache/

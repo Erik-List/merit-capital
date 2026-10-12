@@ -1,0 +1,26 @@
+#!/bin/bash
+cd /Users/erik/Developer/merit-capital/data/collection/investors/bessemer-venture-partners/scratch/
+export NQ_TAG=jm
+q() { echo "=== $1 :: $2"; python3 nq.py "$1" "$2" 2>&1 | tail -14; }
+q every-neighbor-deserves-kindness-inc '"Mural Health" Bessemer'
+q cozykin-inc '"CozyKin" raises'
+q flexcorp-inc '"FlexCharge" raises'
+q strala-group-inc '"Strala" raises'
+q birch-solutions-inc '"Birch" AI raises Series A Sheridan'
+q tiz-inc '"Provi" "Series A"'
+q make-cents-technologies-inc '"Cents" laundromat raises Bessemer seed'
+q dyn365-inc '"Restaurant365" raises $20 million Bessemer'
+q 2tor-inc '"2tor" raises'
+q adaptive-planning-inc '"Adaptive Planning" raises'
+q dolores-labs-inc '"CrowdFlower" raises'
+q reputationdefender-inc '"ReputationDefender" raises'
+q hellorelish-inc '"Relish" Lesley Eccles'
+q pinpt-inc '"Pinpoint" Jeff Haynie'
+q recover-together-inc '"Groups Recover Together" raises'
+q k2-global-consulting-inc '"K2 Integrity"'
+q tinz-optics-inc '"Light" camera startup Deere acquires'
+q ws-holdco-pbc '"WiredScore" Meter acquires'
+q gfi-software-s-a '"GFI Software" TeamViewer merger Insight'
+q ikigai-alpha-inc '"Loris.ai" raises'
+q assembly-osm-inc '"Assembly OSM" raises'
+q t3c-inc '"Retail Solutions" IRI acquires'

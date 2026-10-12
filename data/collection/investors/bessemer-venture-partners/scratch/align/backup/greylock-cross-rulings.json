@@ -1,0 +1,197 @@
+{
+ "_doc": "Cross-investor rulings for COLLECTION.md invariant 10 (run.py verify), scoped to this investor and merged at read time with data/collection/cross-investor.json. Written during the PRO-89 Greylock run, 2026-09-07; the shared file is touched only at wave alignment. Where the sibling's reading was the better-evidenced one this run ALIGNED ITS OWN SIDE rather than accepting the pair \u2014 ten rows, listed in report.md. What is left here is name collisions (`distinct`) and pairs where this run's reading is the better one and the fix belongs in the sibling's classification (`accepted`). Greylock's book is full of one-word names, which \u00a710 warns makes the loose key noisy.",
+ "distinct": [
+  {
+   "rows": [
+    "greylock:handshake",
+    "lightspeed:handshake"
+   ],
+   "note": "Greylock's Handshake is handshake.org, the decentralized naming and certificate-authority protocol (partner Mike Duboe, Series A). Lightspeed's is Joinhandshake, the campus recruiting platform valued at $3.5B. Different companies on the same word \u2014 and the collision that corrupted this run's own golden key until it was caught before the grind."
+  },
+  {
+   "rows": [
+    "greylock:handshake",
+    "spark-capital:handshake"
+   ],
+   "note": "Same collision: handshake.org the protocol against Joinhandshake the recruiting platform."
+  },
+  {
+   "rows": [
+    "greylock:handshake",
+    "sequoia-capital:handshake"
+   ],
+   "note": "Same collision."
+  },
+  {
+   "rows": [
+    "greylock:pine",
+    "lightspeed:pine-labs"
+   ],
+   "note": "Greylock's Pine is the Canadian digital mortgage lender (Toronto, 2023 seed); Lightspeed's Pine Labs is the Indian merchant-payments company listed at $1.97B. Different companies."
+  },
+  {
+   "rows": [
+    "greylock:notable",
+    "first-round-capital:notable-labs"
+   ],
+   "note": "Greylock's Notable automates physician-patient administrative work (San Mateo); First Round's Notable Labs is the listed oncology company. Different companies."
+  },
+  {
+   "rows": [
+    "greylock:gradient-technologies-inc",
+    "redpoint-ventures:gradient-labs"
+   ],
+   "note": "Greylock's Gradient Technologies is the 1994 distributed-security company that merged into Entegrity in 1998; Redpoint's Gradient Labs is a current AI company. Different companies."
+  },
+  {
+   "rows": [
+    "greylock:guru",
+    "thrive-capital:guru"
+   ],
+   "note": "Greylock's Guru is Guru.com, the 1999 freelance marketplace; Thrive's Guru is the knowledge-management company. Different companies."
+  },
+  {
+   "rows": [
+    "greylock:sprig",
+    "a16z:sprig"
+   ],
+   "note": "Greylock's Sprig is the on-demand meal service that shut down in 2017; a16z's Sprig is the user-research company formerly called UserLeap. Different companies."
+  },
+  {
+   "rows": [
+    "greylock:sprig",
+    "first-round-capital:sprig"
+   ],
+   "note": "Same collision: the meal service against UserLeap."
+  },
+  {
+   "rows": [
+    "greylock:glimpse",
+    "a16z:glimpse"
+   ],
+   "note": "Greylock's Glimpse is the 2005 online shopping destination that wound down; a16z's is a listed company on the same word. Different companies."
+  },
+  {
+   "rows": [
+    "greylock:glimpse",
+    "8vc:glimpse"
+   ],
+   "note": "Same collision."
+  },
+  {
+   "rows": [
+    "greylock:glimpse",
+    "first-round-capital:glimpse"
+   ],
+   "note": "Same collision."
+  },
+  {
+   "rows": [
+    "greylock:gem",
+    "first-round-capital:gem"
+   ],
+   "note": "Greylock's Gem is gem.com, the recruiting CRM (Series B, San Francisco); First Round's is a different company on the same three-letter word."
+  },
+  {
+   "rows": [
+    "greylock:edify-corporation",
+    "first-round-capital:edify-labs-inc"
+   ],
+   "note": "Greylock's Edify Corporation is the 1991 interactive-voice-response company acquired by S1 in 1999; First Round's Edify Labs is a current company. Different companies."
+  },
+  {
+   "rows": [
+    "greylock:forte-software-inc",
+    "a16z:forte"
+   ],
+   "note": "Greylock's Forte Software is the 1991 client/server tools company Sun bought in 1999; a16z's Forte is the blockchain gaming company. Different companies."
+  },
+  {
+   "rows": [
+    "greylock:forte-software-inc",
+    "a16z:forte-labs-inc"
+   ],
+   "note": "Same collision."
+  },
+  {
+   "rows": [
+    "greylock:espresso",
+    "a16z:espresso"
+   ],
+   "note": "Greylock's Espresso is Espresso Systems, the decentralized sequencer; a16z's row on the same word is a different company."
+  },
+  {
+   "rows": [
+    "greylock:highstock",
+    "a16z:highstock"
+   ],
+   "note": "Greylock's Highstock is the 2025 global-distribution seed; a16z's row on the same word is a different company."
+  },
+  {
+   "rows": [
+    "greylock:cairo",
+    "redpoint-ventures:cairo"
+   ],
+   "note": "Greylock's Cairo is a 2006-era listing row that leaves no later trace; Redpoint's is a different company on the same word."
+  },
+  {
+   "rows": [
+    "greylock:clubhouse",
+    "a16z:clubhouse"
+   ],
+   "note": "Greylock's Clubhouse is the project tracker it announced in January 2020, renamed Shortcut in 2021 \u2014 carried here as a separate row too. a16z's Clubhouse is the audio social app valued at $4B. Different companies, and the collision that put a $4B aggregator mark on the wrong row until the A/B pass caught it."
+  }
+ ],
+ "accepted": [
+  {
+   "rows": [
+    "greylock:lytro",
+    "a16z:lytro-inc"
+   ],
+   "note": "Same company. This run reads Lytro ACQUIRED: the company wound down in 2018 and Google took the patents and much of the team, which \u00a76's insolvency-then-asset-sale rule records as acquired with a successor rather than defunct. a16z's row reads defunct. The stale side is a16z's; raised for the wave alignment."
+  },
+  {
+   "rows": [
+    "greylock:t-networks",
+    "sequoia-capital:t-networks"
+   ],
+   "note": "Same company. This run reads T-Networks acquired \u2014 the optical-component assets were sold after the telecom bust rather than simply abandoned. Sequoia's row reads defunct. Raised for the wave alignment; the difference is the same asset-sale reading as Lytro."
+  },
+  {
+   "rows": [
+    "greylock:remotion",
+    "first-round-capital:remotion"
+   ],
+   "note": "Same company. Remotion renamed itself Multi and was acquired by Salesforce in 2024, so this run reads acquired; First Round's row reads defunct. The stale side is First Round's."
+  },
+  {
+   "rows": [
+    "greylock:redfin",
+    "menlo-ventures:redfin"
+   ],
+   "note": "Same company. This run reads Redfin public at a $1.43B market cap as of 2026-09-04, from its live quote page; Menlo's row reads acquired. RDFN still trades. The stale side is Menlo's."
+  },
+  {
+   "rows": [
+    "greylock:abnormal",
+    "menlo-ventures:abnormal-ai"
+   ],
+   "note": "Same company. This run carries the $5.10B mark from the priced 2024 round; Menlo's row reads below_1b with no figure. The stale side is Menlo's."
+  },
+  {
+   "rows": [
+    "greylock:gowalla",
+    "spark-capital:gowalla"
+   ],
+   "note": "Same company. This run reads Gowalla acquired \u2014 the team went to Facebook in December 2011 and the service closed; Spark's row reads private, which is the 2021 relaunch under the same brand. A genuine ambiguity about which entity the row is; raised for the wave alignment rather than aligned from here."
+  },
+  {
+   "rows": [
+    "greylock:tidemark",
+    "a16z:proferi"
+   ],
+   "note": "Same company under its two names. Tidemark rebranded as Proferi; this run merged its own two rows onto 'tidemark', while a16z's base carries BOTH 'tidemark' and 'proferi' as separate rows, so the loose key now pairs mine against a16z's duplicate. The fix is the same merge in a16z's identity file; raised for the wave alignment."
+  }
+ ],
+ "same": []
+}
