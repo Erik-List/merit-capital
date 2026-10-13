@@ -252,17 +252,21 @@ export default function Leaderboard() {
           <p className="mt-1 max-w-3xl text-sm text-foreground/85">
             Compare venture investors on how their invested companies turned out, stage by stage
             {asOf ? `, as of ${asOf}` : ""}.{" "}
-            <Link href="/methodology" className="underline underline-offset-2 hover:text-foreground">
-              Methodology
-            </Link>{" "}
-            <span aria-hidden="true">·</span>{" "}
-            <Link href="/why" className="underline underline-offset-2 hover:text-foreground">
-              Why
-            </Link>{" "}
-            <span aria-hidden="true">·</span>{" "}
-            <Link href="/about" className="underline underline-offset-2 hover:text-foreground">
-              About
-            </Link>
+            {/* The three links wrap as one unit, never split across lines
+                (Erik, 2026-10-12). */}
+            <span className="whitespace-nowrap">
+              <Link href="/methodology" className="underline underline-offset-2 hover:text-foreground">
+                Methodology
+              </Link>{" "}
+              <span aria-hidden="true">·</span>{" "}
+              <Link href="/why" className="underline underline-offset-2 hover:text-foreground">
+                Why
+              </Link>{" "}
+              <span aria-hidden="true">·</span>{" "}
+              <Link href="/about" className="underline underline-offset-2 hover:text-foreground">
+                About
+              </Link>
+            </span>
           </p>
         </header>
         <div className="grid gap-6 md:min-h-0 md:flex-1 lg:grid-cols-[320px_1fr]">
