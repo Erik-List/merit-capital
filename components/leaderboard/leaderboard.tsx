@@ -250,7 +250,7 @@ export default function Leaderboard() {
         <header className="mb-6 shrink-0 [text-shadow:0_1px_2px_rgb(0_0_0/0.5)]">
           <h1 className="text-xl font-medium sm:text-2xl">The venture capital performance index</h1>
           <p className="mt-1 max-w-3xl text-sm text-foreground/85">
-            Compare venture investors on how their portfolio companies turned out, stage by stage
+            Compare venture investors on how their invested companies turned out, stage by stage
             {asOf ? `, as of ${asOf}` : ""}.{" "}
             <Link href="/methodology" className="underline underline-offset-2 hover:text-foreground">
               Methodology
