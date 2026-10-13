@@ -260,7 +260,7 @@ export function InvestorDetails({ investor }: InvestorDetailsProps) {
             <div className="text-lg font-semibold">Investment Stages</div>
             <p className="text-xs text-muted-foreground">
               The distribution of entry investments by {investor.name} across different funding stages,
-              from {stageTotal} portfolio companies.
+              from {stageTotal} invested companies.
             </p>
           </div>
           <CompositionBar segments={stageSegments} total={stageTotal} />
