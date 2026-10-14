@@ -73,7 +73,7 @@ import outcome_sources as S                                    # noqa: E402
 import profile_copy                                            # noqa: E402
 from people_common import (GAP_CAUSES, SOCIALS_FLOOR, clean_social,  # noqa: E402
                            firm_handles, handle_score, social_handle)
-from paths import COLLECTION, INVESTORS, ROOT, Paths, write_atomic           # noqa: E402
+from paths import CLASSIFIED_ASOF, COLLECTION, INVESTORS, ROOT, Paths, write_atomic  # noqa: E402
 from countries import ISO_CODES, canon_country                  # noqa: E402
 
 # Set in main() from the parsed investor slug; every path derives from them.
@@ -850,13 +850,23 @@ def in_flight_mark(investor: str) -> None:
 
 
 def cmd_close(args) -> None:
-    """Remove the in-flight marker: the last act of a run, before its closing
-    commit, after export + review + report."""
+    """Remove the in-flight marker and date the book: the last act of a run,
+    before its closing commit, after export + review + report.
+
+    The date is the one the investor page shows as "values as of": the day
+    the last complete classification pass over this book closed. Only this
+    command writes it, so a one-row correction, a sibling alignment or a
+    re-ingest never moves it; a book-wide refresh that re-judges every row
+    ends with `close` and does (Erik, 2026-10-14)."""
     if P.in_flight.exists():
         P.in_flight.unlink()
         print(f"closed: removed {P.rel(P.in_flight)}")
     else:
         print("no in-flight marker; nothing to close")
+    dates = json.loads(CLASSIFIED_ASOF.read_text()) if CLASSIFIED_ASOF.exists() else {}
+    dates[args.investor] = date.today().isoformat()
+    write_atomic(CLASSIFIED_ASOF, json.dumps(dict(sorted(dates.items())), indent=2) + "\n")
+    print(f"classified as of {dates[args.investor]}: {P.rel(CLASSIFIED_ASOF)}")
 
 
 def cmd_prepare(args) -> None:
@@ -2310,6 +2320,15 @@ def cmd_verify(args) -> None:
                             f"re-run prepare")
     if stale := len(set(cls) - base_slugs):
         print(f"stale classification keys: {stale} (earlier base versions)")
+
+    # A closed book carries its classification date (written by `close`), or
+    # the investor page shows no "values as of" at all. While the marker
+    # exists the run has not closed yet, so nothing is owed.
+    if not P.in_flight.exists():
+        dates = json.loads(CLASSIFIED_ASOF.read_text()) if CLASSIFIED_ASOF.exists() else {}
+        if args.investor not in dates:
+            problems.append(f"no classification date for {args.investor} in "
+                            f"{CLASSIFIED_ASOF.name}; run `run.py close --investor {args.investor}`")
 
     # In flight (the grind is under way), the full-fill assertions below are
     # what the queue still owes, not defects: a row with no status is a row

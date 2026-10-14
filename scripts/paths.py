@@ -23,6 +23,10 @@ SEC_CACHE = SHARED / "sec"                    # public-float/, cik-lookup-data.t
 UNICORN_DIR = SHARED / "unicorns"
 INVESTORS = COLLECTION / "investors"
 PLAYBOOK = COLLECTION / "COLLECTION.md"
+# {slug: YYYY-MM-DD}, the day each book's last complete classification pass
+# closed. Written only by `run.py close`; read by the site at build time for
+# the investor page's "values as of" (Erik, 2026-10-14).
+CLASSIFIED_ASOF = ROOT / "data" / "classified-asof.json"
 
 
 def write_atomic(path: Path, text: str, encoding: str = "utf-8") -> None:

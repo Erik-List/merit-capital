@@ -17,7 +17,7 @@ import {
   Affiliations,
 } from '@/components/investor';
 import { loadInvestorOutcomes } from '@/lib/investor-outcomes';
-import { loadLastIngest } from '@/lib/last-ingest';
+import { loadClassifiedAsOf } from '@/lib/classified-asof';
 import { restFetch, restFetchAll } from '@/lib/postgrest';
 import { pageMetadata } from '@/lib/page-metadata';
 
@@ -88,17 +88,13 @@ export default async function InvestorProfilePage({ params }: InvestorPageParams
 
   // Per entry stage outcomes come from the company rows; a failed read leaves
   // the table out rather than failing the page.
-  // The same goes for the date of the last ingestion.
-  const [outcomes, asOf] = await Promise.all([
-    loadInvestorOutcomes(investor.id).catch((error: unknown) => {
-      console.error('Error loading the investment outcomes:', error);
-      return null;
-    }),
-    loadLastIngest(investor.id).catch((error: unknown) => {
-      console.error('Error loading the last ingestion date:', error);
-      return null;
-    }),
-  ]);
+  const outcomes = await loadInvestorOutcomes(investor.id).catch((error: unknown) => {
+    console.error('Error loading the investment outcomes:', error);
+    return null;
+  });
+  // The day the book was last fully classified, from the committed file, not
+  // from the rows' updated_at (which every ingest and alignment bumps).
+  const asOf = loadClassifiedAsOf(slug);
   const hasOutcomes = outcomes !== null && outcomes.stages.some((stage) => stage.entries > 0);
   const hasGraduation = hasGraduationData(investor.graduation_rate);
 

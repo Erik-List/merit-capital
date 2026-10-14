@@ -10,7 +10,7 @@ type Investor = Database['public']['Tables']['investors']['Row'];
 
 interface InvestorHeaderProps {
   investor: Investor;
-  /** The last ingestion of the investor's companies. */
+  /** The day the investor's book was last fully classified (data/classified-asof.json). */
   asOf: string | null;
 }
 
@@ -25,7 +25,8 @@ export function InvestorHeader({ investor, asOf }: InvestorHeaderProps) {
   // "HQ: Menlo Park, CA · Since 1972": the founding year, from track_record
   // (PRO-171).
   // "861 companies invested · values as of 30. Sep '26": the companies
-  // counted and the day they were last ingested.
+  // counted and the day the book's last full classification pass closed.
+  // Single corrections and re-ingests since then do not move the date.
   const record = (investor.track_record ?? {}) as Record<string, unknown>;
   const since = typeof record.investing_start_year === 'number' ? record.investing_start_year : null;
   const companies = typeof record.total_companies_invested === 'number' ? record.total_companies_invested : null;

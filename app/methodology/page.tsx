@@ -262,7 +262,17 @@ export default function MethodologyPage() {
                 companies and jurisdictions with thin disclosure. Coverage differs by firm, so it is
                 lower for some firms than for others.
               </li>
-              <li>Valuations come from the last evidenced event and may be stale.</li>
+              <li>
+                Valuations come from the last evidenced event, a priced round, tender or market
+                cap, and may be stale: a newer round that has not been reported yet, or one still
+                in talks, is not priced in.
+              </li>
+              <li>
+                Each investor’s portfolio was classified in one pass on a stated date and is
+                refreshed, not rebuilt. Companies the investor backed in the weeks since that pass
+                are usually not yet listed, so the newest investments are the most likely to be
+                missing.
+              </li>
               <li>
                 The index measures observable company outcomes. It does not know entry prices,
                 ownership or realised returns, so it cannot establish an investor’s financial

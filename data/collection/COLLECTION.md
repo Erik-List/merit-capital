@@ -2285,6 +2285,19 @@ is what it must pass. `run.py close --investor <slug>` removes the in-flight
 marker (§12) and the closing commit is made **before** the ingest, so the
 database always ends equal to a committed state.
 
+**`close` also dates the book.** It writes the day into
+`data/classified-asof.json` (`{slug: YYYY-MM-DD}`), the one value the
+investor page shows as "values as of" (Erik, 2026-10-14). The meaning is
+fixed: the day the last complete classification pass over the book closed,
+every row judged on membership and every column. Only `close` writes it, so
+a one-row correction, a sibling alignment (rule 10), a re-ingest or a
+column pass over the whole table never moves it; a book-wide refresh that
+re-judges every row ends with `close` and does. The site reads the file at
+build time, never the rows' `updated_at` (which every ingest stamps on all
+rows of the book, so it would show the last touch, not the last look).
+`verify` fails a closed book that has no entry. The 50 books that closed
+before the file existed were dated once from their reports.
+
 The gate, in order (the commands GV ran):
 
 1. **Preconditions**: plain `run.py verify --investor <slug>` clean;

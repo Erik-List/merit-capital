@@ -5,7 +5,6 @@
 // derived investor columns. They are read in pages (lib/postgrest.ts) and
 // packed into one compact payload the page fetches once.
 
-import { loadLastIngest } from './last-ingest';
 import { REVALIDATE_SECONDS, restFetch, restFetchAll } from './postgrest';
 
 export { REVALIDATE_SECONDS };
@@ -31,8 +30,6 @@ export type ListData = {
   cities: string[];
   countries: string[];
   rows: number[];
-  /** The last ingestion of any investor's companies; null with no company. */
-  asOf: string | null;
 };
 
 export const ROW_STRIDE = 6;
@@ -67,10 +64,9 @@ const COMPANY_COLUMNS = 'investor_id,entry_stage,hq_city,hq_country,valuation_ra
 const INVESTOR_COLUMNS = 'id,slug,name,icon_url,investment_geo,investment_stage,investment_range,investment_scope';
 
 export async function loadListData(): Promise<ListData> {
-  const [investors, companies, asOf] = await Promise.all([
+  const [investors, companies] = await Promise.all([
     restFetch(`investors?select=${INVESTOR_COLUMNS}&order=name`).then((r) => r.json() as Promise<ListInvestor[]>),
     restFetchAll<CompanyRow>(`companies?select=${COMPANY_COLUMNS}&order=id`),
-    loadLastIngest(),
   ]);
 
   const investorIndex = new Map(investors.map((investor, index) => [investor.id, index]));
@@ -108,5 +104,5 @@ export async function loadListData(): Promise<ListData> {
     );
   });
 
-  return { investors, cities, countries, rows, asOf };
+  return { investors, cities, countries, rows };
 }

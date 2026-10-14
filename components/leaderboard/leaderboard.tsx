@@ -24,7 +24,6 @@ import { hqOption } from "@/lib/company-geo";
 import type { ListData } from "@/lib/list-data";
 import { canonicalizeGeo } from "@/lib/taxonomy";
 import { cn } from "@/lib/utils";
-import { formatAsOf } from "@/utils/format";
 
 const defaultView: ViewState = {
   valuation: true,
@@ -205,8 +204,6 @@ export default function Leaderboard() {
   }, []);
 
   const index = useMemo(() => (data ? buildIndex(data) : null), [data]);
-  // The day the values were last ingested, for the masthead.
-  const asOf = formatAsOf(data?.asOf);
 
   const filters: Filters = useMemo(() => ({ stage, hq }), [stage, hq]);
 
@@ -250,8 +247,9 @@ export default function Leaderboard() {
         <header className="mb-6 shrink-0 [text-shadow:0_1px_2px_rgb(0_0_0/0.5)]">
           <h1 className="text-xl font-medium sm:text-2xl">The venture capital performance index</h1>
           <p className="mt-1 max-w-3xl text-sm text-foreground/85">
-            Compare venture investors on how their invested companies turned out, stage by stage
-            {asOf ? `, as of ${asOf}` : ""}.{" "}
+            {/* No index-wide "as of": each book has its own classification
+                date, shown on the investor page (Erik, 2026-10-14). */}
+            Compare venture investors on how their invested companies turned out, stage by stage.{" "}
             {/* The three links wrap as one unit, never split across lines
                 (Erik, 2026-10-12). */}
             <span className="whitespace-nowrap">
