@@ -286,9 +286,9 @@ export default function MethodologyPage() {
                   <a href={`mailto:${contact}`} className={linkClass}>
                     {contact}
                   </a>{" "}
-                  with the investor, the company and the source. Corrections with a source are
-                  applied in weekly batches through November 2026. After that, open an issue in the{" "}
-                  <ExternalLink href={`${repository}/issues`}>repository</ExternalLink>.
+                  with the investor, the company and the source, or open an issue in the{" "}
+                  <ExternalLink href={`${repository}/issues`}>repository</ExternalLink>. Corrections
+                  with a source are applied in batches.
                 </p>
               </div>
             </div>
